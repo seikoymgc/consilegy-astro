@@ -1,0 +1,23 @@
+# Consilegy static site (Apache). Used when deploying `dist/` — not used by `astro dev`.
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase /
+
+	# Legacy nav /cases/ → current case studies hub
+	RewriteRule ^cases/?$ /case-studies/ [R=301,L]
+
+	# EN Privacy Policy: old slug → normalized URL
+	RewriteRule ^en/27775-2/?$ /en/privacy-policy/ [R=301,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+	Header always set X-Content-Type-Options "nosniff"
+	Header always set X-Frame-Options "SAMEORIGIN"
+	Header always set Referrer-Policy "strict-origin-when-cross-origin"
+	Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=(), accelerometer=(), gyroscope=(), magnetometer=()"
+	Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+	# Explicit CSP aligned with HubSpot / GA / GTM patterns used on the WordPress site (adjust when scripts change).
+	Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; upgrade-insecure-requests; img-src 'self' data: blob: https://*.wp.com https://secure.gravatar.com https://*.hubspot.com https://*.hsforms.com https://*.hsforms.net https://www.google-analytics.com https://www.googletagmanager.com https://images.unsplash.com; font-src 'self' data: https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline' blob: https://js.hsforms.net https://js.hs-scripts.com https://js.hs-analytics.net https://js.hs-banner.com https://js.usemessages.com https://*.hsforms.net https://*.hubspot.com https://*.hubapi.com https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com; connect-src 'self' https://*.hubspot.com https://*.hubapi.com https://*.hsforms.com https://*.hsforms.net https://forms.hsforms.com https://api.hsforms.com https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com; frame-src 'self' blob: https://forms.hsforms.com https://*.hsforms.com https://*.hubspot.com https://www.googletagmanager.com; form-action 'self' https://forms.hsforms.com https://*.hsforms.com https://*.hubspot.com; worker-src blob: 'self'"
+</IfModule>

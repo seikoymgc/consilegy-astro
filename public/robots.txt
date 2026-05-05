@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://consilegy.com/sitemap-index.xml
+

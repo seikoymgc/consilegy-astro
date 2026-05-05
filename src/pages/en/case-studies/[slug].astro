@@ -1,0 +1,77 @@
+---
+/**
+ * EN case-study detail route: /en/case-studies/{slug}/
+ */
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import CTA from '../../../components/CTA.astro';
+import { getCollection } from 'astro:content';
+import { getAlternateUrl } from '../../../lib/i18n';
+
+export async function getStaticPaths() {
+  const allCases = await getCollection('caseStudies');
+  const entries = allCases.filter(c => (c.data.lang ?? 'ja') === 'en');
+
+  // Build a map from translationKey -> JA slug for cross-linking
+  const jaCases = allCases.filter(c => (c.data.lang ?? 'ja') === 'ja');
+  const tkToJaSlug: Record<string, string> = {};
+  for (const ja of jaCases) {
+    if (ja.data.translationKey) {
+      tkToJaSlug[ja.data.translationKey] = ja.data.slug;
+    }
+  }
+
+  return entries.map((entry) => {
+    let urlSlug = entry.data.slug;
+    if (entry.data.sourceUrl) {
+      const lastSegment = entry.data.sourceUrl.replace(/\/$/, '').split('/').pop();
+      if (lastSegment) urlSlug = lastSegment;
+    }
+    const jaSlug = entry.data.translationKey ? (tkToJaSlug[entry.data.translationKey] ?? null) : null;
+    return {
+      params: { slug: urlSlug },
+      props: { entry, jaSlug },
+    };
+  });
+}
+
+const site = Astro.site ?? new URL('https://consilegy.com');
+const { entry, jaSlug } = Astro.props;
+const ogImage = entry.data.featuredImage
+  ? new URL(entry.data.featuredImage, site).href
+  : undefined;
+
+const eyebrow = ['EN', entry.data.industry, entry.data.service]
+  .filter(Boolean)
+  .join(' · ');
+const alternateUrl = getAlternateUrl(Astro.url.pathname, 'en', jaSlug ?? null);
+---
+
+<ArticleLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  eyebrow={eyebrow}
+  featuredImage={entry.data.featuredImage || undefined}
+  imageAlt={entry.data.featuredImageAlt || entry.data.alt || ''}
+  ogImage={ogImage}
+  ogType="article"
+  lang="en"
+  alternateUrl={alternateUrl}
+  backHref="/en/case-studies/"
+  backLabel="Case Studies"
+  hideLede={true}
+>
+  <div class="wp-content" set:html={entry.body ?? ''} />
+  <div class="case-cta">
+    <CTA
+      title="Let's discuss your challenge."
+      href="/en/contact-en/"
+      label="Get in touch"
+    />
+  </div>
+</ArticleLayout>
+
+<style>
+  .case-cta {
+    margin-top: var(--space-2xl);
+  }
+</style>

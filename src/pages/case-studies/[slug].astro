@@ -1,0 +1,71 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import CTA from '../../components/CTA.astro';
+import { getCollection } from 'astro:content';
+import { getAlternateUrl } from '../../lib/i18n';
+
+export async function getStaticPaths() {
+	const allCases = await getCollection('caseStudies');
+	const entries = allCases.filter(c => (c.data.lang ?? 'ja') === 'ja');
+
+	// Build a map from translationKey -> EN slug for cross-linking
+	const enCases = allCases.filter(c => c.data.lang === 'en');
+	const tkToEnSlug: Record<string, string> = {};
+	for (const en of enCases) {
+		if (en.data.translationKey) {
+			// Use the last segment of sourceUrl as the EN URL slug
+			const urlSlug = en.data.sourceUrl
+				? en.data.sourceUrl.replace(/\/$/, '').split('/').pop() ?? en.data.slug
+				: en.data.slug;
+			tkToEnSlug[en.data.translationKey] = urlSlug;
+		}
+	}
+
+	return entries.map((entry) => {
+		const enSlug = entry.data.translationKey ? (tkToEnSlug[entry.data.translationKey] ?? null) : null;
+		return {
+			params: { slug: entry.data.slug },
+			props: { entry, enSlug },
+		};
+	});
+}
+
+const site = Astro.site ?? new URL('https://consilegy.com');
+const { entry, enSlug } = Astro.props;
+const ogImage = entry.data.featuredImage
+	? new URL(entry.data.featuredImage, site).href
+	: undefined;
+
+const eyebrow = [entry.data.industry, entry.data.service].filter(Boolean).join(' · ');
+const alternateUrl = getAlternateUrl(Astro.url.pathname, 'ja', enSlug ?? null);
+---
+
+<ArticleLayout
+	title={entry.data.title}
+	description={entry.data.description}
+	eyebrow={eyebrow}
+	featuredImage={entry.data.featuredImage || undefined}
+	imageAlt={entry.data.featuredImageAlt || entry.data.alt || ''}
+	ogImage={ogImage}
+	ogType="article"
+	lang="ja"
+	alternateUrl={alternateUrl}
+	backHref="/case-studies/"
+	backLabel="導入事例一覧"
+	hideLede={true}
+>
+	<div class="wp-content" set:html={entry.body ?? ''} />
+	<div class="case-cta">
+		<CTA
+			title="同様の課題整理から支援できます。"
+			href="/contact/"
+			label="お問い合わせ"
+		/>
+	</div>
+</ArticleLayout>
+
+<style>
+	.case-cta {
+		margin-top: var(--space-2xl);
+	}
+</style>

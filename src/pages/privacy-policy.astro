@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+	title="プライバシーポリシー | Consilegy"
+	description="Consilegy株式会社のプライバシーポリシー（Phase 1 プレースホルダ）。正式な文言は WordPress 本番の内容へ差し替えてください。"
+>
+	<header class="page-head container">
+		<p class="page-head__eyebrow">Legal</p>
+		<h1 class="page-head__title">プライバシーポリシー</h1>
+		<p class="page-head__lede">
+			本文は移行作業用のサンプルです。公開前に法務レビューおよび WordPress 掲載文の反映を行ってください。
+		</p>
+	</header>
+
+	<article class="container prose legal-body">
+		<h2>1. 個人情報の取り扱い</h2>
+		<p>
+			当社は、お問い合わせや資料請求等を通じて取得する個人情報について、適法かつ公正な手段により取得し、利用目的の範囲内で利用します。
+		</p>
+		<h2>2. 利用目的</h2>
+		<ul>
+			<li>お問い合わせ対応、資料送付、サービス提供に関する連絡</li>
+			<li>サービス改善のための分析（特定の個人が識別されない形での統計利用を含む）</li>
+		</ul>
+		<h2>3. 第三者提供・委託</h2>
+		<p>
+			法令に基づく場合を除き、本人の同意なく第三者に個人情報を提供しません。業務委託に伴い外部に取り扱いを委託する場合は、適切な監督を行います。
+		</p>
+		<h2>4. お問い合わせ</h2>
+		<p>個人情報の開示・訂正・削除等のご請求は、お問い合わせフォームよりご連絡ください（連絡先は別途整備）。</p>
+	</article>
+</BaseLayout>
+
+<style>
+	.page-head {
+		padding-block: var(--space-2xl) var(--space-lg);
+		max-width: 65ch;
+	}
+
+	.page-head__eyebrow {
+		margin: 0 0 var(--space-xs);
+		font-size: 0.85rem;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--color-secondary);
+	}
+
+	.page-head__title {
+		margin: 0 0 var(--space-sm);
+		font-size: clamp(1.75rem, 3vw, 2.25rem);
+		font-weight: 800;
+		letter-spacing: -0.03em;
+	}
+
+	.page-head__lede {
+		margin: 0;
+		font-size: var(--text-lead);
+		line-height: 1.75;
+		color: #334155;
+	}
+
+	.legal-body {
+		padding-bottom: var(--space-2xl);
+	}
+</style>

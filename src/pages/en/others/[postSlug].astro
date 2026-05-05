@@ -1,0 +1,68 @@
+---
+/**
+ * EN blog post route: /en/others/{postSlug}/
+ */
+import { getCollection } from 'astro:content';
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+
+  const routes = [];
+
+  for (const entry of posts) {
+    const rawUrl = entry.data.sourceUrl;
+    if (!rawUrl) continue;
+
+    let pathname: string;
+    try {
+      pathname = new URL(rawUrl).pathname;
+    } catch {
+      continue;
+    }
+
+    const parts = pathname.replace(/^\/|\/$/g, '').split('/');
+
+    if (parts.length !== 3 || parts[0] !== 'en' || parts[1] !== 'others') continue;
+
+    let postSlug: string;
+    try { postSlug = decodeURIComponent(parts[2]); } catch { postSlug = parts[2]; }
+    if (!postSlug) continue;
+
+    routes.push({
+      params: { postSlug },
+      props: { entry },
+    });
+  }
+
+  return routes;
+}
+
+const { entry } = Astro.props;
+
+const title = entry.data.title ?? '';
+const description = entry.data.description ?? '';
+const featuredImage = entry.data.featuredImage ?? '';
+const pubDate = entry.data.pubDate;
+---
+
+<ArticleLayout
+  title={title}
+  description={description}
+  featuredImage={featuredImage || undefined}
+  imageAlt={entry.data.featuredImageAlt ?? ''}
+  eyebrow="Column"
+  ogType="article"
+  lang="en"
+  backHref="/en/"
+  backLabel="EN Top"
+>
+  <div class="post-meta">
+    {pubDate && (
+      <time datetime={pubDate.toISOString()}>
+        {pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+      </time>
+    )}
+  </div>
+  <div class="wp-content" set:html={entry.body ?? ''} />
+</ArticleLayout>

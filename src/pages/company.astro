@@ -1,0 +1,154 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import CTA from '../components/CTA.astro';
+
+const photo =
+	'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1200&q=80';
+---
+
+<BaseLayout
+	title="会社情報 | Consilegy"
+	description="Consilegy株式会社の会社概要。レベニューアーキテクチャの設計と、MA/CRM/SFAの実装・運用定着を支援します。"
+>
+	<header class="page-head container">
+		<p class="page-head__eyebrow">Company</p>
+		<h1 class="page-head__title">会社情報</h1>
+		<p class="page-head__lede">
+			私たちは「戦略だけ」「ツールだけ」で終わらせず、収益が継続する構造と運用までを見据えて伴走します。
+		</p>
+	</header>
+
+	<section class="container company-split">
+		<div class="company-split__text">
+			<h2 class="company-split__h2">ミッション</h2>
+			<p>
+				マーケティングとセールス、カスタマーサクセスをつなぐデータとプロセスを設計し、改善が回る組織づくりを支援します。
+			</p>
+			<h2 class="company-split__h2">私たちの考え方</h2>
+			<p>
+				ツールは手段です。まず業務と意思決定の流れを言語化し、計測できる形に落とし込みます。現場で使われない設計は、どれほど丁寧でも成果に繋がりません。
+			</p>
+		</div>
+		<div class="company-split__media">
+			<img src={photo} alt="オフィスで仕事をするビジネスパーソン" width="560" height="640" loading="lazy" />
+		</div>
+	</section>
+
+	<Section variant="subtle" title="会社概要（抜粋）" intro="正式な表記は開示資料およびお問い合わせにてご確認ください。">
+		<div class="container company-facts">
+			<dl class="facts">
+				<div class="facts__row">
+					<dt>社名</dt>
+					<dd>Consilegy株式会社（コンサイレジー）</dd>
+				</div>
+				<div class="facts__row">
+					<dt>事業内容</dt>
+					<dd>マーケティング・セールスオペレーションに関するコンサルティング、HubSpot等の設計・実装支援</dd>
+				</div>
+				<div class="facts__row">
+					<dt>本社</dt>
+					<dd>東京都（※Phase 1 プレースホルダ。正式住所はWordPress / 登記情報に準拠）</dd>
+				</div>
+			</dl>
+		</div>
+	</Section>
+
+	<CTA title="プロジェクトの進め方や体制についてもお気軽にご相談ください。" href="/contact/" label="お問い合わせ" />
+</BaseLayout>
+
+<style>
+	.page-head {
+		padding-block: var(--space-2xl) var(--space-lg);
+		max-width: 65ch;
+	}
+
+	.page-head__eyebrow {
+		margin: 0 0 var(--space-xs);
+		font-size: 0.85rem;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--color-secondary);
+	}
+
+	.page-head__title {
+		margin: 0 0 var(--space-sm);
+		font-size: clamp(1.75rem, 3vw, 2.25rem);
+		font-weight: 800;
+		letter-spacing: -0.03em;
+	}
+
+	.page-head__lede {
+		margin: 0;
+		font-size: var(--text-lead);
+		line-height: 1.75;
+		color: #334155;
+	}
+
+	.company-split {
+		display: grid;
+		grid-template-columns: 1.1fr 0.9fr;
+		gap: var(--space-xl);
+		align-items: start;
+		padding-bottom: var(--space-xl);
+	}
+
+	.company-split__h2 {
+		margin: var(--space-lg) 0 var(--space-sm);
+		font-size: 1.25rem;
+		font-weight: 750;
+	}
+
+	.company-split__text p {
+		margin: 0 0 var(--space-md);
+		color: #334155;
+		line-height: 1.8;
+	}
+
+	.company-split__media img {
+		border-radius: calc(var(--radius) * 2);
+		box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+	}
+
+	.company-facts {
+		max-width: 800px;
+	}
+
+	.facts {
+		margin: 0;
+	}
+
+	.facts__row {
+		display: grid;
+		grid-template-columns: 160px 1fr;
+		gap: var(--space-md);
+		padding: var(--space-md) 0;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.facts__row dt {
+		margin: 0;
+		font-weight: 700;
+		color: #475569;
+	}
+
+	.facts__row dd {
+		margin: 0;
+		color: #0f172a;
+		line-height: 1.7;
+	}
+
+	@media (max-width: 900px) {
+		.company-split {
+			grid-template-columns: 1fr;
+		}
+
+		.facts__row {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

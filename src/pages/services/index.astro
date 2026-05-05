@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import Card from '../../components/Card.astro';
+import CardGrid from '../../components/CardGrid.astro';
+import CTA from '../../components/CTA.astro';
+import { getCollection } from 'astro:content';
+
+const services = (await getCollection('services', ({ data }) => data.lang !== 'en'))
+	.sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout
+	title="サービス | Consilegy"
+	description="レベニューアーキテクチャ設計、マーケティング戦略、MA/CRM/SFAの実装と運用定着まで。収益構造として支援します。"
+>
+	<PageHero
+		eyebrow="Services"
+		title="サービス"
+		lede="戦略と現場のギャップを埋めるために、構造設計・実装・運用の三本柱で支援します。ツール導入だけで終わらせず、計測と改善が回る状態をつくります。"
+	/>
+
+	<section class="container service-list">
+		<CardGrid columns={2}>
+			{services.map((s) => (
+				<Card
+					href={`/services/${s.data.slug}/`}
+					title={s.data.title}
+					description={s.data.description}
+					meta={s.data.target.length > 48
+						? `${s.data.target.slice(0, 48)}…`
+						: s.data.target}
+					moreLabel="サービス詳細を見る"
+				/>
+			))}
+		</CardGrid>
+	</section>
+
+	<CTA
+		title="サービス選定や優先順位の整理からでもご相談ください。"
+		href="/contact/"
+		label="お問い合わせ"
+	/>
+</BaseLayout>
+
+<style>
+	.service-list {
+		padding-block: var(--space-xl);
+	}
+</style>

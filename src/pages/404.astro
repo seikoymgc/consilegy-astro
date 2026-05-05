@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+	title="ページが見つかりません | Consilegy"
+	description="お探しのページは移行中か、URLが変更された可能性があります。"
+	noindex={true}
+>
+	<section class="container notfound">
+		<p class="notfound__eyebrow">404</p>
+		<h1 class="notfound__title">ページが見つかりません</h1>
+		<p class="notfound__lede">
+			アドレスが間違っているか、ページが移動した可能性があります。トップページまたはサービス一覧からお探しください。
+		</p>
+		<p class="notfound__actions">
+			<a class="btn btn--primary" href="/">トップへ戻る</a>
+			<a class="btn btn--secondary" href="/services/">サービス一覧</a>
+		</p>
+	</section>
+</BaseLayout>
+
+<style>
+	.notfound {
+		padding-block: var(--space-2xl);
+		max-width: 62ch;
+	}
+
+	.notfound__eyebrow {
+		margin: 0 0 var(--space-xs);
+		font-weight: 800;
+		color: var(--color-secondary);
+		letter-spacing: 0.2em;
+	}
+
+	.notfound__title {
+		margin: 0 0 var(--space-md);
+		font-size: clamp(1.5rem, 3vw, 2rem);
+		font-weight: 800;
+	}
+
+	.notfound__lede {
+		margin: 0 0 var(--space-lg);
+		color: #334155;
+		line-height: 1.75;
+		font-size: var(--text-lead);
+	}
+
+	.notfound__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-sm);
+		margin: 0;
+	}
+</style>

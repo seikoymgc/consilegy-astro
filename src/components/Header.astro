@@ -1,0 +1,472 @@
+---
+interface Props {
+	lang?: 'ja' | 'en';
+	alternateUrl?: string;
+}
+
+const { lang: langProp, alternateUrl: alternateUrlProp } = Astro.props;
+const pathname = Astro.url.pathname;
+const isEN = langProp !== undefined ? langProp === 'en' : pathname.startsWith('/en');
+const lang = isEN ? 'en' : 'ja';
+const defaultAlternateUrl = isEN ? '/' : '/en/';
+const alternateUrl = alternateUrlProp ?? defaultAlternateUrl;
+
+const navJA = [
+	{ label: 'RevOps再設計',           href: '/about-revops/' },
+	{ label: 'サービス・料金',           href: '/services/' },
+	{ label: 'レベニューアーキテクチャ設計', href: '/revenue-architecture/' },
+	{ label: '導入事例',               href: '/case-studies/' },
+	{ label: 'コラム',                 href: '/insights/' },
+	{ label: '会社情報',               href: '/company/' },
+	{ label: '資料ダウンロード',         href: '/download/' },
+];
+
+const navEN = [
+	{
+		label: 'Services',
+		href: '/en/services-en/',
+		children: [
+			{ label: 'Japan Market GTM & Messaging',          href: '/en/services-en/japan-market-gtm-messaging/' },
+			{ label: 'Revenue Architecture Design',           href: '/en/services-en/revenue-architecture-design/' },
+			{ label: 'CRM / RevOps Implementation',           href: '/en/services-en/crm-revops-implementation/' },
+			{ label: 'HubSpot Implementation & Ops',          href: '/en/services-en/hubspot-implementation-operations-support/' },
+			{ label: 'Adoption & Growth Support',             href: '/en/services-en/adoption-growth-support/' },
+		],
+	},
+	{ label: 'Case Studies', href: '/en/case-studies/' },
+	{ label: 'About',        href: '/en/company-en/' },
+];
+
+const nav = isEN ? navEN : navJA;
+
+const langLabel = isEN ? 'JA' : 'EN';
+const targetLang = isEN ? 'ja' : 'en';
+---
+
+<header class="site-header">
+	<div class="container site-header__inner">
+
+		<a class="site-header__logo" href={isEN ? '/en/' : '/'}>
+			<img src="/images/common/consilegy-logo.svg" alt="Consilegy" height="30" width="166" />
+		</a>
+
+		<button
+			class="site-header__toggle"
+			aria-label={isEN ? 'Open menu' : 'メニューを開く'}
+			aria-expanded="false"
+			aria-controls="site-nav"
+		>
+			<span class="site-header__burger"></span>
+		</button>
+
+		<nav class="site-header__nav" id="site-nav" aria-label={isEN ? 'Global navigation' : 'グローバルナビゲーション'}>
+			<ul class="site-header__list">
+				{nav.map(({ label, href, children }) => (
+					<li class={children ? 'has-dropdown' : undefined}>
+						<a href={href} aria-current={pathname.startsWith(href.replace(/\/$/, '')) ? 'page' : undefined}>
+							{label}{children && <span class="dropdown-arrow" aria-hidden="true">▾</span>}
+						</a>
+						{children && (
+							<ul class="site-header__dropdown">
+								{children.map(child => (
+									<li>
+										<a href={child.href} aria-current={pathname.startsWith(child.href.replace(/\/$/, '')) ? 'page' : undefined}>
+											{child.label}
+										</a>
+									</li>
+								))}
+							</ul>
+						)}
+					</li>
+				))}
+			</ul>
+
+			<div class="site-header__end">
+				<a
+				href={alternateUrl}
+				class="site-header__lang"
+				data-lang-switch
+				data-target-lang={targetLang}
+			>{langLabel}</a>
+				{isEN ? (
+					<a href="/en/contact-en/" class="site-header__cta site-header__cta--filled">Contact</a>
+				) : (
+					<>
+						<a href="/contact/" class="site-header__cta site-header__cta--outlined">お問い合わせ</a>
+						<a href="/free-consultation/" class="site-header__cta site-header__cta--filled">CRM / RevOps診断を依頼する</a>
+					</>
+				)}
+			</div>
+
+			<!-- SP only extras -->
+			<ul class="site-header__sp-extras">
+				{isEN ? (
+					<li><a href="/en/contact-en/">Contact</a></li>
+				) : (
+					<>
+						<li><a href="/contact/">お問い合わせ</a></li>
+						<li><a href="/free-consultation/">CRM / RevOps診断を依頼する</a></li>
+					</>
+				)}
+				<li>
+					<a
+						href={alternateUrl}
+						data-lang-switch
+						data-target-lang={targetLang}
+					>{langLabel}</a>
+				</li>
+			</ul>
+		</nav>
+
+	</div>
+</header>
+
+<script>
+	// Language switch: save preference to localStorage
+	document.querySelectorAll<HTMLAnchorElement>('[data-lang-switch]').forEach(el => {
+		el.addEventListener('click', () => {
+			const targetLang = el.dataset.targetLang;
+			if (targetLang) localStorage.setItem('languagePreference', targetLang);
+		});
+	});
+
+	const toggle = document.querySelector('.site-header__toggle') as HTMLButtonElement | null;
+	const nav = document.getElementById('site-nav');
+
+	function closeMenu() {
+		toggle?.setAttribute('aria-expanded', 'false');
+		nav?.classList.remove('is-open');
+	}
+
+	toggle?.addEventListener('click', () => {
+		const expanded = toggle.getAttribute('aria-expanded') === 'true';
+		toggle.setAttribute('aria-expanded', String(!expanded));
+		nav?.classList.toggle('is-open', !expanded);
+	});
+
+	// Close on link click (SP)
+	nav?.querySelectorAll('a').forEach(link => {
+		link.addEventListener('click', closeMenu);
+	});
+
+	// Close on outside click
+	document.addEventListener('click', e => {
+		if (!toggle || !nav) return;
+		const t = e.target as Node;
+		if (!toggle.contains(t) && !nav.contains(t)) closeMenu();
+	});
+</script>
+
+<style>
+	/* ── Base ──────────────────────────────────────────────── */
+	.site-header {
+		position: sticky;
+		top: 0;
+		z-index: 200;
+		background: rgba(255, 255, 255, 0.97);
+		backdrop-filter: blur(10px);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.site-header__inner {
+		display: flex;
+		align-items: center;
+		height: 62px;
+		gap: 0;
+	}
+
+	/* ── Logo ──────────────────────────────────────────────── */
+	.site-header__logo {
+		display: flex;
+		align-items: center;
+		flex-shrink: 0;
+		margin-right: auto;
+		text-decoration: none;
+	}
+
+	.site-header__logo img {
+		height: 30px;
+		width: auto;
+		display: block;
+	}
+
+	/* ── Nav wrapper ───────────────────────────────────────── */
+	.site-header__nav {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	/* ── Nav list (PC) ─────────────────────────────────────── */
+	.site-header__list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		align-items: center;
+		gap: 0;
+	}
+
+	.site-header__list > li {
+		position: relative;
+	}
+
+	.site-header__list > li > a {
+		display: flex;
+		align-items: center;
+		gap: 0.2em;
+		padding: 0.35em 0.6em;
+		font-weight: 600;
+		font-size: 0.8rem;
+		color: var(--color-text-muted);
+		text-decoration: none;
+		white-space: nowrap;
+		border-radius: 5px;
+		transition: color 0.15s, background 0.15s;
+	}
+
+	.site-header__list > li > a:hover {
+		color: var(--color-text);
+		background: rgba(15, 23, 42, 0.05);
+	}
+
+	.site-header__list > li > a[aria-current='page'] {
+		color: var(--color-primary);
+		background: rgba(30, 64, 175, 0.06);
+	}
+
+	.dropdown-arrow {
+		font-size: 0.65em;
+		opacity: 0.6;
+	}
+
+	/* ── Dropdown (PC hover) ───────────────────────────────── */
+	.site-header__dropdown {
+		display: none;
+		position: absolute;
+		top: calc(100% + 6px);
+		left: 0;
+		min-width: 240px;
+		list-style: none;
+		margin: 0;
+		padding: 0.35rem 0;
+		background: #fff;
+		border: 1px solid var(--color-border);
+		border-radius: 8px;
+		box-shadow: var(--shadow-md);
+		z-index: 10;
+	}
+
+	.has-dropdown:hover .site-header__dropdown,
+	.has-dropdown:focus-within .site-header__dropdown {
+		display: block;
+	}
+
+	.site-header__dropdown li a {
+		display: block;
+		padding: 0.5em 1em;
+		font-size: 0.8rem;
+		font-weight: 500;
+		color: var(--color-text-muted);
+		text-decoration: none;
+		white-space: nowrap;
+		transition: color 0.12s, background 0.12s;
+	}
+
+	.site-header__dropdown li a:hover {
+		color: var(--color-primary);
+		background: rgba(30, 64, 175, 0.05);
+	}
+
+	/* ── End area (PC): lang + CTAs ────────────────────────── */
+	.site-header__end {
+		display: flex;
+		align-items: center;
+		gap: 0.4rem;
+		margin-left: 0.5rem;
+		flex-shrink: 0;
+	}
+
+	.site-header__lang {
+		font-size: 0.75rem;
+		font-weight: 700;
+		color: var(--color-text-muted);
+		text-decoration: none;
+		padding: 0.3em 0.5em;
+		border: 1px solid var(--color-border);
+		border-radius: 4px;
+		letter-spacing: 0.04em;
+		white-space: nowrap;
+		transition: color 0.15s, border-color 0.15s;
+	}
+
+	.site-header__lang:hover {
+		color: var(--color-primary);
+		border-color: var(--color-primary);
+	}
+
+	.site-header__cta {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.4em 0.85em;
+		font-size: 0.8rem;
+		font-weight: 700;
+		border-radius: var(--radius);
+		text-decoration: none;
+		white-space: nowrap;
+		transition: background 0.15s, color 0.15s, border-color 0.15s;
+	}
+
+	.site-header__cta--outlined {
+		background: #fff;
+		color: var(--color-primary);
+		border: 2px solid var(--color-primary);
+	}
+
+	.site-header__cta--outlined:hover {
+		background: rgba(30, 64, 175, 0.05);
+	}
+
+	.site-header__cta--filled {
+		background: var(--color-primary);
+		color: #fff;
+		border: 2px solid transparent;
+	}
+
+	.site-header__cta--filled:hover {
+		background: var(--color-primary-dark);
+		color: #fff;
+	}
+
+	/* ── SP extras (hidden on PC) ──────────────────────────── */
+	.site-header__sp-extras {
+		display: none;
+	}
+
+	/* ── Hamburger toggle ──────────────────────────────────── */
+	.site-header__toggle {
+		display: none;
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 0.5rem;
+		margin-left: 0.5rem;
+		flex-shrink: 0;
+	}
+
+	.site-header__burger,
+	.site-header__burger::before,
+	.site-header__burger::after {
+		display: block;
+		width: 22px;
+		height: 2px;
+		background: var(--color-text);
+		border-radius: 2px;
+		transition: transform 0.2s ease, opacity 0.2s ease;
+	}
+
+	.site-header__burger { position: relative; }
+
+	.site-header__burger::before,
+	.site-header__burger::after {
+		content: '';
+		position: absolute;
+		left: 0;
+	}
+
+	.site-header__burger::before { top: -6px; }
+	.site-header__burger::after  { top:  6px; }
+
+	[aria-expanded='true'] .site-header__burger            { background: transparent; }
+	[aria-expanded='true'] .site-header__burger::before    { transform: rotate(45deg) translate(4px, 4px); }
+	[aria-expanded='true'] .site-header__burger::after     { transform: rotate(-45deg) translate(4px, -4px); }
+
+	/* ── SP (≤ 900px) ──────────────────────────────────────── */
+	@media (max-width: 900px) {
+		.site-header__toggle { display: block; }
+
+		.site-header__nav {
+			display: none;
+			position: absolute;
+			top: 62px;
+			left: 0;
+			right: 0;
+			flex-direction: column;
+			align-items: stretch;
+			gap: 0;
+			background: #fff;
+			border-bottom: 1px solid var(--color-border);
+			box-shadow: var(--shadow-md);
+			max-height: calc(100vh - 62px);
+			overflow-y: auto;
+		}
+
+		.site-header__nav.is-open { display: flex; }
+
+		.site-header__list {
+			flex-direction: column;
+			align-items: stretch;
+			gap: 0;
+		}
+
+		.site-header__list > li { border-bottom: 1px solid var(--color-border); }
+
+		.site-header__list > li > a {
+			padding: 0.9rem var(--space-md);
+			font-size: 0.95rem;
+			border-radius: 0;
+			background: none;
+		}
+
+		.site-header__list > li > a[aria-current='page'] {
+			background: rgba(30, 64, 175, 0.04);
+		}
+
+		/* SP: flatten dropdown inline */
+		.site-header__dropdown {
+			display: block;
+			position: static;
+			box-shadow: none;
+			border: none;
+			border-radius: 0;
+			padding: 0;
+			background: #f8fafc;
+		}
+
+		.site-header__dropdown li { border-bottom: 1px solid var(--color-border); }
+
+		.site-header__dropdown li a {
+			padding: 0.75rem var(--space-md);
+			padding-left: calc(var(--space-md) + 1.25rem);
+			font-size: 0.875rem;
+			color: var(--color-text-muted);
+		}
+
+		.site-header__end { display: none; }
+
+		.site-header__sp-extras {
+			display: flex;
+			flex-direction: column;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			border-top: 2px solid var(--color-border);
+		}
+
+		.site-header__sp-extras li { border-bottom: 1px solid var(--color-border); }
+
+		.site-header__sp-extras li a {
+			display: block;
+			padding: 0.9rem var(--space-md);
+			font-size: 0.95rem;
+			font-weight: 700;
+			color: var(--color-primary);
+			text-decoration: none;
+		}
+
+		.site-header__sp-extras li:last-child a {
+			color: var(--color-text-muted);
+			font-weight: 600;
+		}
+	}
+</style>

@@ -1,0 +1,39 @@
+---
+import '../styles/global.css';
+import SEO from '../components/SEO.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getAlternateUrl } from '../lib/i18n';
+
+interface Props {
+	title: string;
+	description: string;
+	canonical?: string;
+	ogImage?: string;
+	noindex?: boolean;
+	ogType?: 'website' | 'article';
+	lang?: 'ja' | 'en';
+	alternateUrl?: string;
+}
+
+const { alternateUrl: altProp, ...seo } = Astro.props;
+const htmlLang = seo.lang ?? 'ja';
+const pathname = Astro.url.pathname;
+const alternateUrl = altProp ?? getAlternateUrl(pathname, htmlLang as 'ja' | 'en');
+---
+
+<!doctype html>
+<html lang={htmlLang}>
+	<head>
+		<SEO {...seo} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<slot name="head" />
+	</head>
+	<body>
+		<Header lang={htmlLang as 'ja' | 'en'} alternateUrl={alternateUrl} />
+		<main id="main-content">
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>

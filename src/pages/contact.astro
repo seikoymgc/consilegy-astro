@@ -1,0 +1,178 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HubSpotForm from '../components/HubSpotForm.astro';
+
+const portalId = '00000000';
+const formId = '00000000-0000-0000-0000-000000000001';
+---
+
+<BaseLayout
+	title="お問い合わせ | Consilegy"
+	description="プロジェクトのご相談、サービスに関するお問い合わせはこちら。担当より折り返しご連絡します。"
+>
+	<div class="contact-hero">
+		<div class="container contact-hero__inner">
+			<p class="eyebrow">Contact</p>
+			<h1 class="contact-hero__title">お問い合わせ</h1>
+			<p class="contact-hero__lede">
+				課題が整理できていない段階でも問題ありません。現在の体制やツール、短期で効く打ち手から一緒に確認します。
+			</p>
+		</div>
+	</div>
+
+	<div class="container contact-layout">
+		<aside class="contact-aside">
+			<section class="contact-aside__section">
+				<h2 class="contact-aside__heading">こんなご相談に対応しています</h2>
+				<ul class="contact-aside__list">
+					<li>MA・CRM・SFAの選定・導入・定着</li>
+					<li>レベニューアーキテクチャ（収益構造）の設計</li>
+					<li>マーケティング戦略の見直しと実行支援</li>
+					<li>GA4・BI ツールの設計と運用改善</li>
+					<li>HubSpot の活用・再設計</li>
+					<li>その他、データとプロセスに関するご相談</li>
+				</ul>
+			</section>
+
+			<section class="contact-aside__section">
+				<h2 class="contact-aside__heading">事前にご共有いただけると助かること</h2>
+				<ul class="contact-aside__list">
+					<li>現在の体制・チーム規模</li>
+					<li>利用中のツール（MA・CRM・SFA など）</li>
+					<li>直近で困っていること・解決したい課題</li>
+					<li>ご支援を希望する時期やスケジュール感</li>
+				</ul>
+				<p class="contact-aside__note">
+					上記が揃っていなくてもお気軽にご連絡ください。初回ヒアリングで一緒に整理します。
+				</p>
+			</section>
+
+			<section class="contact-aside__section">
+				<h2 class="contact-aside__heading">メールでのお問い合わせ</h2>
+				<p class="contact-aside__email">
+					<a href="mailto:info@consilegy.com">info@consilegy.com</a>
+				</p>
+				<p class="contact-aside__note">
+					フォーム送信後、通常 2〜3 営業日以内にご返信します。
+				</p>
+			</section>
+		</aside>
+
+		<div class="contact-form">
+			<h2 class="visually-hidden">お問い合わせフォーム</h2>
+			<HubSpotForm portalId={portalId} formId={formId} region="na1" />
+		</div>
+	</div>
+</BaseLayout>
+
+<style>
+	.contact-hero {
+		background: linear-gradient(160deg, #f0f4ff 0%, #ffffff 70%);
+		border-bottom: 1px solid var(--color-border);
+		padding-block: var(--space-2xl) var(--space-xl);
+	}
+
+	.contact-hero__inner {
+		max-width: 640px;
+	}
+
+	.contact-hero__title {
+		margin: var(--space-xs) 0 var(--space-md);
+		font-size: clamp(1.75rem, 3vw, 2.4rem);
+		font-weight: 800;
+		letter-spacing: -0.03em;
+		line-height: 1.2;
+	}
+
+	.contact-hero__lede {
+		margin: 0;
+		font-size: var(--text-lead);
+		line-height: 1.8;
+		color: var(--color-text-muted);
+		max-width: 52ch;
+	}
+
+	/* Layout */
+	.contact-layout {
+		display: grid;
+		grid-template-columns: 1fr 1.15fr;
+		gap: var(--space-2xl);
+		align-items: start;
+		padding-block: var(--space-2xl);
+	}
+
+	/* Aside */
+	.contact-aside {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xl);
+	}
+
+	.contact-aside__section {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-sm);
+	}
+
+	.contact-aside__heading {
+		margin: 0;
+		font-size: 0.85rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--color-text-muted);
+		padding-bottom: var(--space-xs);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.contact-aside__list {
+		margin: 0;
+		padding-left: 1.25em;
+		display: flex;
+		flex-direction: column;
+		gap: 0.4em;
+		color: var(--color-text);
+		font-size: 0.95rem;
+		line-height: 1.7;
+	}
+
+	.contact-aside__note {
+		margin: 0;
+		font-size: 0.875rem;
+		color: var(--color-text-muted);
+		line-height: 1.7;
+	}
+
+	.contact-aside__email {
+		margin: 0;
+		font-size: 1rem;
+		font-weight: 600;
+	}
+
+	.contact-aside__email a {
+		color: var(--color-primary);
+		text-decoration: none;
+	}
+
+	.contact-aside__email a:hover {
+		text-decoration: underline;
+	}
+
+	/* Form area */
+	.contact-form {
+		position: sticky;
+		top: calc(60px + var(--space-lg));
+	}
+
+	@media (max-width: 860px) {
+		.contact-layout {
+			grid-template-columns: 1fr;
+			gap: var(--space-xl);
+			padding-block: var(--space-xl);
+		}
+
+		.contact-form {
+			position: static;
+		}
+	}
+</style>

@@ -1,0 +1,41 @@
+---
+interface Props {
+	title: string;
+	description: string;
+	canonical?: string;
+	ogImage?: string;
+	noindex?: boolean;
+	ogType?: 'website' | 'article';
+	lang?: 'ja' | 'en';
+}
+
+const { title, description, canonical, ogImage, noindex = false, ogType = 'website', lang = 'ja' } = Astro.props;
+
+const site = Astro.site ?? new URL('https://consilegy.com');
+const canonicalURL = canonical ?? new URL(Astro.url.pathname, site).href;
+const og =
+	ogImage != null && ogImage !== ''
+		? ogImage.startsWith('http')
+			? ogImage
+			: new URL(ogImage, site).href
+		: new URL('/images/og-default.svg', site).href;
+const fullTitle = title.includes('Consilegy') ? title : `${title} | Consilegy`;
+const ogLocale = lang === 'en' ? 'en_US' : 'ja_JP';
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalURL} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+<meta property="og:type" content={ogType} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:image" content={og} />
+<meta property="og:locale" content={ogLocale} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={og} />

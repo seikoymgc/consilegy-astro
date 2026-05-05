@@ -1,0 +1,83 @@
+---
+/**
+ * Blog post route: /{category}/{postSlug}/
+ *
+ * Handles all 2-segment WordPress post URLs, e.g.
+ *   /marketing/seo-to-geo-generative-engine-optimization/
+ *   /analytics/microsoft-clarity-gtm/
+ *   /project-management/respond-to-project-issues/
+ *
+ * Note: Does NOT conflict with services/[slug].astro or case-studies/[slug].astro
+ * because those are more-specific static-segment routes and generate their own paths.
+ * The 3-segment EN post (/en/others/{slug}) is handled by src/pages/en/others/[postSlug].astro.
+ */
+import { getCollection } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+
+  const routes = [];
+
+  for (const entry of posts) {
+    const rawUrl = entry.data.sourceUrl;
+    if (!rawUrl) continue;
+
+    let pathname: string;
+    try {
+      pathname = new URL(rawUrl).pathname;
+    } catch {
+      continue;
+    }
+
+    const parts = pathname.replace(/^\/|\/$/g, '').split('/');
+
+    if (parts.length !== 2) continue;
+
+    // Decode percent-encoded segments: Astro URL-decodes before param matching
+    const [category, postSlug] = parts.map((p) => {
+      try { return decodeURIComponent(p); } catch { return p; }
+    });
+    if (!category || !postSlug) continue;
+
+    routes.push({
+      params: { category, postSlug },
+      props: { entry },
+    });
+  }
+
+  return routes;
+}
+
+const { entry } = Astro.props;
+
+const title = entry.data.title ?? '';
+const description = entry.data.description ?? '';
+const featuredImage = entry.data.featuredImage ?? '';
+const pubDate = entry.data.pubDate;
+const category = Astro.params.category;
+
+const categoryLabel = category
+  .replace(/-/g, ' ')
+  .replace(/\b\w/g, (c) => c.toUpperCase());
+---
+
+<ArticleLayout
+  title={title}
+  description={description}
+  featuredImage={featuredImage || undefined}
+  imageAlt={entry.data.featuredImageAlt ?? ''}
+  eyebrow={categoryLabel}
+  ogType="article"
+  backHref="/insights/"
+  backLabel="コラム一覧"
+>
+  <div class="post-meta">
+    {pubDate && (
+      <time datetime={pubDate.toISOString()}>
+        {pubDate.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' })}
+      </time>
+    )}
+  </div>
+  <div class="wp-content" set:html={entry.body ?? ''} />
+</ArticleLayout>

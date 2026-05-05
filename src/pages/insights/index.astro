@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTA from '../../components/CTA.astro';
+---
+
+<BaseLayout
+	title="コラム | Consilegy"
+	description="マーケティングオペレーション、データ活用、HubSpot等に関するコラム。記事は順次 Markdown へ移行します。"
+>
+	<header class="page-head container">
+		<p class="page-head__eyebrow">Insights</p>
+		<h1 class="page-head__title">コラム</h1>
+		<p class="page-head__lede">
+			WordPress で公開している記事を、Phase 2 以降で Content Collections（`blog`）へ段階的に移行します。URL
+			は可能な限り維持します。
+		</p>
+	</header>
+
+	<section class="container prose insights-body">
+		<h2>Phase 1 の状態</h2>
+		<p>
+			現時点では一覧・本文の自動生成は行っていません。移行時はカテゴリ・タグ設計とあわせて、公開日・更新日・canonical
+			を揃えます。
+		</p>
+		<h2>今後追加するコンテンツ</h2>
+		<ul>
+			<li>既存 26 記事の Markdown 化（パーマリンク維持）</li>
+			<li>カテゴリアーカイブの要否判断（SEO を踏まえて実装）</li>
+			<li>タグページは低価値の場合 noindex または省略</li>
+		</ul>
+	</section>
+
+	<CTA title="記事内容に関連するご相談もお問い合わせください。" href="/contact/" label="お問い合わせ" />
+</BaseLayout>
+
+<style>
+	.page-head {
+		padding-block: var(--space-2xl) var(--space-lg);
+		max-width: 65ch;
+	}
+
+	.page-head__eyebrow {
+		margin: 0 0 var(--space-xs);
+		font-size: 0.85rem;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--color-secondary);
+	}
+
+	.page-head__title {
+		margin: 0 0 var(--space-sm);
+		font-size: clamp(1.75rem, 3vw, 2.25rem);
+		font-weight: 800;
+		letter-spacing: -0.03em;
+	}
+
+	.page-head__lede {
+		margin: 0;
+		font-size: var(--text-lead);
+		line-height: 1.75;
+		color: #334155;
+	}
+
+	.insights-body {
+		padding-bottom: var(--space-xl);
+	}
+</style>

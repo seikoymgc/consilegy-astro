@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTA from '../../components/CTA.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+	const entries = await getCollection('services', ({ data }) => data.lang !== 'en');
+	return entries.map((entry) => ({
+		params: { slug: entry.data.slug },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.description}>
+	<!-- Service hero: lighter than the home Hero -->
+	<div class="service-hero">
+		<div class="container service-hero__inner">
+			<a class="service-hero__back" href="/services/">← サービス一覧</a>
+			<p class="eyebrow">Service</p>
+			<h1 class="service-hero__title">{entry.data.title}</h1>
+			{entry.data.lead && (
+				<p class="service-hero__lead">{entry.data.lead}</p>
+			)}
+		</div>
+	</div>
+
+	<div class="container service-body">
+		<!-- Target -->
+		{entry.data.target && (
+			<div class="service-target">
+				<p class="service-target__label">こんな方・組織に</p>
+				<p class="service-target__text">{entry.data.target}</p>
+			</div>
+		)}
+
+		<!-- Content body -->
+		<div class="wp-content service-content" set:html={entry.body ?? ''} />
+	</div>
+
+	<CTA
+		title="まずはお気軽にご相談ください"
+		description="具体的な課題がなくても構いません。現状のヒアリングから始めます。"
+		href={entry.data.ctaHref}
+		label={entry.data.ctaText}
+	/>
+</BaseLayout>
+
+<style>
+	.service-hero {
+		background: linear-gradient(160deg, #f0f4ff 0%, #ffffff 70%);
+		border-bottom: 1px solid var(--color-border);
+		padding-block: var(--space-xl) var(--space-lg);
+	}
+
+	.service-hero__inner {
+		max-width: 700px;
+	}
+
+	.service-hero__back {
+		display: inline-block;
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: var(--color-text-muted);
+		text-decoration: none;
+		margin-bottom: var(--space-md);
+		transition: color 0.15s;
+	}
+
+	.service-hero__back:hover {
+		color: var(--color-primary);
+	}
+
+	.service-hero__title {
+		margin: var(--space-xs) 0 var(--space-md);
+		font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+		font-weight: 800;
+		letter-spacing: -0.03em;
+		line-height: 1.2;
+	}
+
+	.service-hero__lead {
+		margin: 0;
+		font-size: var(--text-lead);
+		line-height: 1.8;
+		color: var(--color-text-muted);
+		max-width: 58ch;
+	}
+
+	.service-body {
+		padding-block: var(--space-xl) var(--space-2xl);
+		max-width: 760px;
+	}
+
+	.service-target {
+		display: flex;
+		gap: var(--space-md);
+		align-items: baseline;
+		padding: var(--space-md) var(--space-lg);
+		background: rgba(30, 64, 175, 0.05);
+		border: 1px solid rgba(30, 64, 175, 0.18);
+		border-radius: var(--radius);
+		margin-bottom: var(--space-xl);
+	}
+
+	.service-target__label {
+		margin: 0;
+		font-size: 0.78rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--color-primary);
+		white-space: nowrap;
+	}
+
+	.service-target__text {
+		margin: 0;
+		color: var(--color-text-muted);
+		line-height: 1.7;
+		font-size: 0.95rem;
+	}
+
+	.service-content {
+		max-width: 65ch;
+	}
+
+	@media (max-width: 600px) {
+		.service-target {
+			flex-direction: column;
+			gap: var(--space-xs);
+		}
+	}
+</style>

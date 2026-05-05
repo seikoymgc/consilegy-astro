@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import Card from '../../components/Card.astro';
+import CardGrid from '../../components/CardGrid.astro';
+import CTA from '../../components/CTA.astro';
+import { getCollection } from 'astro:content';
+
+const cases = (await getCollection('caseStudies'))
+	.filter((c) => c.data.lang === 'ja')
+	.sort((a, b) => (b.data.modified ?? '').localeCompare(a.data.modified ?? ''));
+---
+
+<BaseLayout
+	title="導入事例 | Consilegy"
+	description="マーケティングオペレーションと収益構造の設計・実装における支援事例。業種・フェーズ問わず、データとプロセスの設計を軸に伴走しています。"
+>
+	<PageHero
+		eyebrow="Case Studies"
+		title="導入事例"
+		lede="業種やフェーズは異なっても、データとプロセスの設計を軸に伴走しています。詳細は各事例ページをご覧ください。"
+	/>
+
+	<section class="container case-grid">
+		<CardGrid columns={2}>
+			{cases.map((c) => (
+				<Card
+					href={`/case-studies/${c.data.slug}/`}
+					title={c.data.title}
+					description={c.data.description}
+					meta={[c.data.industry, c.data.service].filter(Boolean).join(' · ')}
+					imageSrc={c.data.featuredImage || undefined}
+					imageAlt={c.data.featuredImageAlt || c.data.alt || ''}
+					moreLabel="事例を読む"
+				/>
+			))}
+		</CardGrid>
+	</section>
+
+	<CTA
+		title="同様の課題整理から支援できます。"
+		href="/contact/"
+		label="お問い合わせ"
+	/>
+</BaseLayout>
+
+<style>
+	.case-grid {
+		padding-block: var(--space-xl);
+	}
+</style>

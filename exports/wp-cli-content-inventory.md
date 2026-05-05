@@ -1,0 +1,87 @@
+# WP-CLI Content Inventory
+Generated: 2026-05-05
+
+## Pages
+- [28827] コラム (insights) - 2026-05-04 11:18:39
+- [28826] 導入事例 (case-studies) - 2026-05-04 11:18:38
+- [28825] RevOps再設計とは (about-revops) - 2026-05-04 11:18:32
+- [28406] Adoption & Growth Support (adoption-growth-support) - 2026-03-18 19:00:37
+- [28403] HubSpot Implementation & Operations Support (hubspot-implementation-operations-support) - 2026-03-18 18:55:15
+- [28396] CRM / RevOps Implementation (crm-revops-implementation) - 2026-03-18 18:54:31
+- [28388] Revenue Architecture Design (revenue-architecture-design) - 2026-03-18 18:53:23
+- [28237] HubSpot導入・運用支援 (hubspot-implementation-consulting) - 2026-05-04 10:44:33
+- [28231] MA / CRM / SFA設計・実装支援 (revops-ma-crm-sfa-implementation) - 2026-05-04 00:43:07
+- [28229] 運用定着・改善支援 (operational-adoption-optimization) - 2026-05-04 00:43:09
+- [28211] マーケティング戦略設計 (marketing-strategy-design) - 2026-05-04 00:43:06
+- [28185] レベニューアーキテクチャ設計 (revenue-architecture-design) - 2026-05-04 00:43:04
+- [28146] レベニューアーキテクチャとは (revenue-architecture) - 2026-05-04 10:44:27
+- [28125] MA/CRM活用 簡易診断 (simple_diagnos) - 2026-03-06 16:39:24
+- [27956] Event Website Development Package (event-website-development-package) - 2025-10-07 17:15:01
+- [27952] Assistance in Attracting Digital Nomads and Remote Worker (assistance-in-attracting-digital-nomads-and-remote-worker) - 2025-10-07 17:14:46
+- [27946] GA4 Utilization Assessment (ga4-utilization-assessment) - 2025-10-07 17:14:13
+- [27989] 資料ダウンロード (download) - 2026-05-04 10:44:31
+- [27967] Consilegy EN (en) - 2026-03-24 21:43:23
+- [27882] イベント向けウェブサイト制作パッケージ (website-for-events) - 2025-08-25 15:45:15
+- [27877] デジタルノマド・リモートワーカー誘致支援 (digital-nomad) - 2025-08-25 16:22:40
+- [27798] Company (company-en) - 2026-03-20 18:56:16
+- [27789] Japan Market GTM & Messaging (japan-market-gtm-messaging) - 2026-03-18 18:52:44
+- [27787] Services (services-en) - 2026-03-16 02:42:20
+- [27775] Privacy Policy (27775-2) - 2025-08-17 16:24:33
+- [27723] サービス (services) - 2026-05-04 01:50:32
+- [27535] 無料相談について (free-consultation) - 2026-05-04 10:44:29
+- [27431] 電子公告 (koukoku) - 2025-05-07 16:19:10
+- [27429] IR (ir) - 2025-05-07 16:16:52
+- [27269] Contact (contact-en) - 2026-03-16 02:07:01
+- [27048] GA4 Utilization Checklist (ga4-utilization-checklist) - 2025-01-30 20:46:38
+- [27040] GA4活用度診断 (ga4-utilization-check) - 2025-01-30 20:24:24
+- [141] お問い合わせ (contact) - 2026-05-03 14:35:48
+- [135] Consilegy (consilegy) - 2026-05-04 01:53:03
+- [578] Note (note) - 2025-01-16 22:07:38
+- [541] 会社情報 (company) - 2026-05-04 01:13:39
+- [3] Privacy Policy (privacy-policy) - 2026-03-15 20:10:37
+
+## Posts
+- [27475] SEOからGEO（生成エンジン最適化）へ｜ AI検索時代に見つけてもらうための新戦略とは？ (seo-to-geo-generative-engine-optimizatio) - 2025-06-12 17:47:36
+- [27455] 【AI導入前に押さえるべきポイント】ChatGPTやGeminiを活用する“本当の意味”とは？ (ai-introduction-checklist-chatgpt-gemini) - 2025-05-30 14:46:28
+- [27406] プロジェクト成功のための必須スキル「問題対応力」 (respond-to-project-issues) - 2025-04-22 17:42:28
+- [27400] 【必読】HubSpotが大企業のマーケティングDXを加速させる理由：グローバル規模で顧客体験を管理 (%e3%80%90%e5%bf%85%e8%aa%ad%e3%80%91hubs) - 2025-04-22 18:17:56
+- [27399] 【保存版】中小企業のためのHubSpot完全ガイド｜無料から始めるマーケティングオートメーション (%e3%80%90%e4%bf%9d%e5%ad%98%e7%89%88%e3%) - 2025-04-22 18:17:49
+- [27397] 【2025年版】主要MAツールを徹底比較！HubSpot・Systeme.ioほか5選の機能・料金まとめ (marketing-automation-tool) - 2025-04-22 18:51:01
+- [27362] Supercharge B2B Sales Results: Advanced HubSpot Techniques a (supercharge-b2b-sales-results-advanced-h) - 2025-03-25 23:15:36
+- [27348] GA4×HubSpot×AIで楽して成果をアップ！マーケティング業務効率化のステップ (ga4xhubspotxai) - 2025-03-25 23:37:30
+- [27355] 実録PM：リモート環境で大型プロジェクトをスムーズにマネジメントするコツ (remote-project-management) - 2025-03-25 23:37:45
+- [27345] BtoB営業の成果を爆速アップ：HubSpot応用術とABM活用の秘訣 (hubspot-b2b-sales-advanced-abm-tips) - 2025-03-25 23:37:19
+- [27359] 「机上の空論」で終わらせない！戦略を現場に浸透させる3つのポイント (top-down-strategy-3-points) - 2025-03-25 23:37:53
+- [27351] データドリブンマーケティングの極意：Googleアナリティクスを活用したCROとKPI最適化 (data-driven-marketing-art) - 2025-03-25 23:37:37
+- [27337] BtoB企業が陥りがちな「上流戦略」の落とし穴3選 (btob%e4%bc%81%e6%a5%ad%e3%81%8c%e9%99%a5) - 2025-03-25 23:34:00
+- [27058] HubSpotで実現するBtoBリード育成と営業効率化：マーケティング主導で生み出す連携業務フロー (hubspot-lead-workflow) - 2025-02-06 19:06:59
+- [27035] GA（Googleアナリティクス）×上流戦略：データドリブンなマーケ意思決定 (https-seikoyamaguchi-com-googleanalytics) - 2025-02-17 16:11:22
+- [27021] AI活用で生産性を飛躍的に向上！マーケティング業務を効率化するには？ (ai-marketing-efficiency) - 2025-01-28 18:19:47
+- [27004] 戦略から実行へ、「滞りなく」つなぐPMの役割とは？ (project-manegement-roles) - 2025-01-20 19:31:24
+- [26731] マーケティング戦略の“上流戦略”って具体的に何をするの？ 基本ステップを解説 (upstream-marketing-strategy) - 2025-03-20 19:29:47
+- [472] Google AdSenceのプライバシー設定 (privacy-settings-for-google-adsence) - 2023-10-01 14:38:10
+- [359] Search Consoleのエラー『項目「id」がありません』の解消方法￼ (how-to-resolve-the-search-console-error-) - 2023-10-01 14:25:34
+- [304] Microsoft Clarityの個人情報マスキング機能 (microsoft-clarity-masking) - 2022-04-26 00:39:46
+- [317] Microsoft ClarityをGTMに設定する方法 (microsoft-clarity-gtm) - 2022-04-25 23:34:54
+- [379] SalesforceとPardotのデモ（無料トライアル）を使う方法 (sales-force-pardot) - 2023-10-01 14:30:34
+- [10] マーケティングにおける目標の大切さ (marketing-target) - 2021-08-16 23:07:31
+- [62] Googleのツールをまとめて設定！プラグインSite Kit by Googleとは (site-kit-by-google) - 2021-12-16 05:07:00
+- [25] スキップ不可のインストリーム広告とスキップ可のインストリーム広告　YouTube広告フォーマット (youtubeads-autoadblock-autoadskip) - 2021-08-16 06:52:57
+
+## Case Studies
+- [28692] Building a Revenue Foundation for a New AI Business with GTM (https-consilegy-com-case-studies-ai-gtm-) - 2026-03-18 19:22:22
+- [28591] Building a Single Source of Truth through Data Integration a (healthcare-data-integration-ops-enableme) - 2026-03-18 02:33:22
+- [28587] Closing the Gap Between Lead Volume and Revenue: Standardizi (hubspot-sales-handoff-lead-to-revenue-2) - 2026-03-18 02:21:52
+- [28581] From Data Collection to Decision Infrastructure: Redefining  (ga4-kpi-design-global-analytics-2) - 2026-03-18 01:54:40
+- [28569] Redesigning a Complex Marketing Stack: HubSpot migration and (marketing-data-integration-hubspot-migra) - 2026-03-18 01:24:01
+- [28565] Building a Self-Operated Web Foundation in One Month with Hu (building-a-self-operated-web-foundation-) - 2026-03-18 01:18:06
+- [28559] Designing a GTM structure for Japan through localized messag (japan-market-entry-gtm-architecture) - 2026-03-18 00:40:04
+- [28555] Building a Revenue-Driven Data Foundation for a Subscription (e-commerce-subscription-ltv-data-archite) - 2026-03-18 00:40:45
+- [28107] 新規サブスクEC事業の収益判断を支える運用基盤を構築。スクラッチECと分析ツールを統合し、LTV起点の意思決定を実現 (ec-subscription-ltv-data-architecture) - 2026-04-02 13:39:51
+- [28105] 日本市場参入における意思決定構造の設計ローカライズとLPアーキテクチャによるGTM最適化 (japan-market-entry-gtm-architecture-2) - 2026-03-18 01:48:25
+- [28103] 1ヶ月で実現する自走型Web基盤。HubSpot CMS移行によるマーケティング運用の高速化 (hubspot-cms-migration-marketing-operatio) - 2026-03-18 00:52:15
+- [28100] 分断されたデータと運用の再設計。HubSpotへの移行によるマーケティング基盤の刷新 (marketing-data-integration-hubspot-migra) - 2026-03-18 01:21:01
+- [28098] 集めるだけのデータから稼ぐための判断材料へ。グローバルエンタメ企業のGA4活用と意思決定基盤の構築 (ga4-kpi-design-global-analytics) - 2026-03-18 01:50:15
+- [28096] 最小体制で立ち上げる収益基盤：海外開発チームと連携し、3名体制で実現したAI事業のGTM設計と自動化基盤 (ai-gtm-automation-product-integration) - 2026-03-18 19:22:55
+- [28092] リード増加と売上の乖離を解消。HubSpotで構築する営業引き渡しと商談創出の標準化 (hubspot-sales-handoff-lead-to-revenue) - 2026-03-18 02:17:45
+- [28072] 4種類の分散データをHubSpotへ統合。4名のマーケティングチームを「単純作業」から「戦略実行」へ解放した全プロセス (healthcare-data-integration-ops-enableme) - 2026-04-02 13:40:16

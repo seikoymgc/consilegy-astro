@@ -1,0 +1,90 @@
+---
+/**
+ * EN service detail route: /en/services-en/{slug}/
+ *
+ * Generates individual EN service pages from the services collection
+ * where lang === 'en'. JA services are handled by src/pages/services/[slug].astro.
+ */
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTA from '../../../components/CTA.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  // Only pick up EN service entries
+  const entries = await getCollection('services', ({ data }) => data.lang === 'en');
+  return entries.map((entry) => {
+    // Derive the URL slug from sourceUrl (last path segment) so it matches the
+    // original WordPress URL, independent of the collection's slug field.
+    let urlSlug = entry.data.slug;
+    if (entry.data.sourceUrl) {
+      const lastSegment = entry.data.sourceUrl.replace(/\/$/, '').split('/').pop();
+      if (lastSegment) urlSlug = lastSegment;
+    }
+    return {
+      params: { slug: urlSlug },
+      props: { entry },
+    };
+  });
+}
+
+const { entry } = Astro.props;
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.description} lang="en">
+  <section class="hero-section">
+    <div class="container">
+      <p class="eyebrow">Service</p>
+      <h1>{entry.data.title}</h1>
+      {entry.data.lead && <p class="lead">{entry.data.lead}</p>}
+    </div>
+  </section>
+
+  <section class="container service-detail">
+    {entry.data.target && (
+      <p class="service-detail__target">
+        <strong>For:</strong> {entry.data.target}
+      </p>
+    )}
+    <div class="service-detail__body wp-content" set:html={entry.body ?? ''} />
+  </section>
+
+  <CTA title="Get in touch" href={entry.data.ctaHref} label={entry.data.ctaText} />
+</BaseLayout>
+
+<style>
+  .hero-section {
+    padding-block: var(--space-2xl) var(--space-xl);
+    background: var(--color-bg-subtle);
+  }
+
+  .hero-section h1 {
+    margin-top: var(--space-sm);
+  }
+
+  .lead {
+    margin-top: var(--space-md);
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #334155;
+    max-width: 680px;
+  }
+
+  .service-detail {
+    padding-block: var(--space-xl) var(--space-2xl);
+    max-width: 720px;
+  }
+
+  .service-detail__target {
+    margin: 0 0 var(--space-lg);
+    padding: var(--space-md);
+    background: var(--color-bg-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    line-height: 1.65;
+    color: #334155;
+  }
+
+  .service-detail__body {
+    max-width: none;
+  }
+</style>

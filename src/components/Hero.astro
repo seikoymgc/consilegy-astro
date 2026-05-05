@@ -1,0 +1,193 @@
+---
+interface Props {
+	title: string;
+	subtitle?: string;
+	lede: string;
+	imageSrc?: string;
+	imageAlt?: string;
+	primaryHref?: string;
+	primaryLabel?: string;
+	secondaryHref?: string;
+	secondaryLabel?: string;
+}
+
+const {
+	title,
+	subtitle,
+	lede,
+	imageSrc,
+	imageAlt = '',
+	primaryHref,
+	primaryLabel,
+	secondaryHref,
+	secondaryLabel,
+} = Astro.props;
+---
+
+<section class="hero">
+	<div class="hero__bg" aria-hidden="true"></div>
+	<div class="container hero__grid">
+		<div class="hero__copy">
+			{subtitle && <p class="hero__subtitle">{subtitle}</p>}
+			<h1 class="hero__title">{title}</h1>
+			<p class="hero__lede">{lede}</p>
+			{(primaryHref && primaryLabel) || (secondaryHref && secondaryLabel) ? (
+				<div class="hero__actions">
+					{primaryHref && primaryLabel && (
+						<a class="btn btn--primary" href={primaryHref}>
+							{primaryLabel}
+						</a>
+					)}
+					{secondaryHref && secondaryLabel && (
+						<a class="btn btn--secondary" href={secondaryHref}>
+							{secondaryLabel}
+						</a>
+					)}
+				</div>
+			) : null}
+		</div>
+		{imageSrc && (
+			<div class="hero__media">
+				<img src={imageSrc} alt={imageAlt} width="640" height="420" loading="eager" />
+			</div>
+		)}
+		{!imageSrc && (
+			<div class="hero__visual" aria-hidden="true">
+				<div class="hero__orb hero__orb--1"></div>
+				<div class="hero__orb hero__orb--2"></div>
+				<div class="hero__orb hero__orb--3"></div>
+			</div>
+		)}
+	</div>
+</section>
+
+<style>
+	.hero {
+		position: relative;
+		padding-block: var(--space-2xl);
+		overflow: hidden;
+		background: linear-gradient(160deg, #f0f4ff 0%, #ffffff 60%);
+	}
+
+	/* subtle dot-grid pattern */
+	.hero__bg {
+		position: absolute;
+		inset: 0;
+		background-image: radial-gradient(circle, #c7d7f8 1px, transparent 1px);
+		background-size: 28px 28px;
+		opacity: 0.45;
+		pointer-events: none;
+	}
+
+	.hero__grid {
+		position: relative;
+		display: grid;
+		grid-template-columns: 1.05fr 0.95fr;
+		gap: var(--space-xl);
+		align-items: center;
+	}
+
+	.hero__subtitle {
+		margin: 0 0 var(--space-sm);
+		font-size: 0.8rem;
+		font-weight: 700;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--color-primary);
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5em;
+	}
+
+	.hero__subtitle::before {
+		content: '';
+		display: inline-block;
+		width: 24px;
+		height: 2px;
+		background: var(--color-primary);
+		border-radius: 2px;
+	}
+
+	.hero__title {
+		margin: 0 0 var(--space-md);
+		font-size: clamp(2rem, 3.5vw, 2.75rem);
+		line-height: 1.2;
+		font-weight: 800;
+		letter-spacing: -0.03em;
+		color: var(--color-text);
+	}
+
+	.hero__lede {
+		margin: 0;
+		font-size: var(--text-lead);
+		line-height: 1.8;
+		color: #334155;
+		max-width: 50ch;
+	}
+
+	.hero__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-sm);
+		margin-top: var(--space-lg);
+	}
+
+	/* Image variant */
+	.hero__media img {
+		border-radius: calc(var(--radius) * 2);
+		box-shadow: var(--shadow-lg);
+		object-fit: cover;
+		width: 100%;
+		height: auto;
+	}
+
+	/* Decorative orbs (no-image variant) */
+	.hero__visual {
+		position: relative;
+		height: 360px;
+	}
+
+	.hero__orb {
+		position: absolute;
+		border-radius: 50%;
+		filter: blur(60px);
+	}
+
+	.hero__orb--1 {
+		width: 300px;
+		height: 300px;
+		background: rgba(124, 92, 191, 0.18);
+		top: 10%;
+		right: 0;
+	}
+
+	.hero__orb--2 {
+		width: 200px;
+		height: 200px;
+		background: rgba(59, 130, 246, 0.2);
+		bottom: 10%;
+		right: 15%;
+	}
+
+	.hero__orb--3 {
+		width: 150px;
+		height: 150px;
+		background: rgba(30, 64, 175, 0.12);
+		top: 40%;
+		right: 40%;
+	}
+
+	@media (max-width: 900px) {
+		.hero__grid {
+			grid-template-columns: 1fr;
+		}
+
+		.hero__visual {
+			display: none;
+		}
+
+		.hero__lede {
+			max-width: 100%;
+		}
+	}
+</style>

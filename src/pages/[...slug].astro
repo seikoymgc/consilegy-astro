@@ -1,0 +1,55 @@
+---
+import { getCollection } from 'astro:content';
+import WPPageLayout from '../layouts/WPPageLayout.astro';
+
+export async function getStaticPaths() {
+  // Must be defined inside getStaticPaths — Astro runs this in a separate context
+  // Exclude top-level slugs handled by dedicated route files AND any path that
+  // starts with a prefix handled by more-specific dynamic routes (services/*, case-studies/*).
+  // Exact top-level paths handled by dedicated .astro files
+  const excludedExact = new Set([
+    '',
+    'services',
+    'company',
+    'contact',
+    'case-studies',
+    'insights',
+    'privacy-policy',
+  ]);
+
+  // Path prefixes whose sub-routes are handled by more-specific dynamic routes
+  const excludedPrefixes = ['services/', 'case-studies/'];
+
+  const pages = await getCollection('pages');
+
+  return pages
+    .filter((entry) => entry.data.sourceUrl && !entry.data.draft)
+    .map((entry) => {
+      const url = new URL(entry.data.sourceUrl);
+      const path = url.pathname.replace(/^\/|\/$/g, '');
+
+      return {
+        params: { slug: path },
+        props: { entry },
+      };
+    })
+    .filter((route) => {
+      const slug = route.params.slug ?? '';
+      if (excludedExact.has(slug)) return false;
+      if (excludedPrefixes.some((prefix) => slug.startsWith(prefix))) return false;
+      return true;
+    });
+}
+
+const { entry } = Astro.props;
+const htmlContent = entry.body ?? '';
+
+const title = entry.data.title;
+const description = entry.data.description || '';
+const slug = Astro.params.slug ?? '';
+const lang = slug === 'en' || slug.startsWith('en/') ? 'en' : 'ja';
+---
+
+<WPPageLayout title={title} description={description} lang={lang}>
+  <div set:html={htmlContent} />
+</WPPageLayout>

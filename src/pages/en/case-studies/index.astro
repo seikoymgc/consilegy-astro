@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import Card from '../../../components/Card.astro';
+import CardGrid from '../../../components/CardGrid.astro';
+import CTA from '../../../components/CTA.astro';
+import { getCollection } from 'astro:content';
+
+const cases = (await getCollection('caseStudies'))
+	.filter((c) => c.data.lang === 'en')
+	.sort((a, b) => (b.data.modified ?? '').localeCompare(a.data.modified ?? ''));
+
+function slugFor(entry: (typeof cases)[number]) {
+	if (entry.data.sourceUrl) {
+		const last = entry.data.sourceUrl.replace(/\/$/, '').split('/').pop();
+		if (last) return last;
+	}
+	return entry.data.slug;
+}
+---
+
+<BaseLayout
+	title="Case Studies | Consilegy"
+	description="Revenue operations and go-to-market execution case studies. We help global B2B teams design and implement structures that actually work in Japan."
+	lang="en"
+>
+	<PageHero
+		eyebrow="Case Studies"
+		title="Case Studies"
+		lede="From market entry to CRM implementation and operational adoption — here's how we've helped global teams build revenue operations in Japan."
+	/>
+
+	<section class="container case-grid">
+		<CardGrid columns={2}>
+			{cases.map((c) => (
+				<Card
+					href={`/en/case-studies/${slugFor(c)}/`}
+					title={c.data.title}
+					description={c.data.description}
+					meta={[c.data.industry, c.data.service].filter(Boolean).join(' · ')}
+					imageSrc={c.data.featuredImage || undefined}
+					imageAlt={c.data.featuredImageAlt || c.data.alt || ''}
+					moreLabel="Read case study"
+				/>
+			))}
+		</CardGrid>
+	</section>
+
+	<CTA
+		title="Ready to build your revenue operations?"
+		href="/en/contact-en/"
+		label="Contact"
+	/>
+</BaseLayout>
+
+<style>
+	.case-grid {
+		padding-block: var(--space-xl);
+	}
+</style>

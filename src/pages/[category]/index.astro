@@ -1,0 +1,131 @@
+---
+/**
+ * Category archive: /{category}/
+ *
+ * Only generates pages for the 6 JA blog categories derived from sourceUrl.
+ * Static routes (services/, case-studies/, etc.) take precedence and are unaffected.
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import Card from '../../components/Card.astro';
+import CardGrid from '../../components/CardGrid.astro';
+import CTA from '../../components/CTA.astro';
+
+export async function getStaticPaths() {
+  const CATEGORIES: Record<string, { label: string; description: string }> = {
+    'marketing': {
+      label: 'マーケティング',
+      description: 'マーケティング施策・ツール活用・オートメーションに関する記事。',
+    },
+    'marketing-strategy': {
+      label: 'マーケティング戦略',
+      description: 'BtoBマーケティングの戦略設計・上流思考・収益構造に関する記事。',
+    },
+    'analytics': {
+      label: 'アナリティクス',
+      description: 'GA4・Microsoft Clarity・BIツールを活用したデータ計測・分析に関する記事。',
+    },
+    'project-management': {
+      label: 'プロジェクト管理',
+      description: 'プロジェクト推進・リモートワーク・体制設計・課題対応に関する記事。',
+    },
+    'others': {
+      label: 'その他',
+      description: 'カテゴリ横断・その他のテーマに関する記事。',
+    },
+    'my-opinion': {
+      label: 'コラム・考察',
+      description: 'デジタルマーケティング・DX・AI活用に関するコラムと考察。',
+    },
+  };
+
+  const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+
+  return Object.entries(CATEGORIES).map(([category, meta]) => {
+    const posts = allPosts
+      .filter((entry) => {
+        const rawUrl = entry.data.sourceUrl;
+        if (!rawUrl) return false;
+        try {
+          const parts = new URL(rawUrl).pathname.replace(/^\/|\/$/g, '').split('/');
+          return parts.length === 2 && parts[0] === category;
+        } catch {
+          return false;
+        }
+      })
+      .sort((a, b) => {
+        const da = a.data.pubDate?.getTime() ?? 0;
+        const db = b.data.pubDate?.getTime() ?? 0;
+        return db - da;
+      });
+
+    return {
+      params: { category },
+      props: { label: meta.label, description: meta.description, posts },
+    };
+  });
+}
+
+const { category } = Astro.params;
+const { label, description, posts } = Astro.props;
+const canonical = `https://consilegy.com/${category}/`;
+---
+
+<BaseLayout
+  title={`${label} | Consilegy`}
+  description={description}
+  canonical={canonical}
+  ogType="website"
+>
+  <PageHero
+    eyebrow={label}
+    title={label}
+    lede={description}
+  />
+
+  <section class="container category-grid">
+    {posts.length > 0 ? (
+      <CardGrid>
+        {posts.map((entry: any) => {
+          const slug = entry.data.slug || (() => {
+            try {
+              return new URL(entry.data.sourceUrl).pathname.replace(/^\/|\/$/g, '').split('/')[1];
+            } catch { return ''; }
+          })();
+          const href = `/${category}/${slug}/`;
+          return (
+            <Card
+              href={href}
+              title={entry.data.title}
+              description={entry.data.description}
+              meta={entry.data.pubDate?.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' })}
+              imageSrc={entry.data.featuredImage || undefined}
+              imageAlt={entry.data.featuredImageAlt || ''}
+              moreLabel="記事を読む"
+            />
+          );
+        })}
+      </CardGrid>
+    ) : (
+      <p class="empty">記事がありません。</p>
+    )}
+  </section>
+
+  <CTA
+    title="記事内容に関連するご相談もお気軽にどうぞ。"
+    href="/contact/"
+    label="お問い合わせ"
+  />
+</BaseLayout>
+
+<style>
+  .category-grid {
+    padding-block: var(--space-xl) var(--space-2xl);
+  }
+
+  .empty {
+    color: var(--color-text-muted);
+    padding-block: var(--space-xl);
+  }
+</style>

@@ -12,8 +12,19 @@ const defaultAlternateUrl = isEN ? '/' : '/en/';
 const alternateUrl = alternateUrlProp ?? defaultAlternateUrl;
 
 const navJA = [
-	{ label: 'RevOps再設計',           href: '/about-revops/' },
-	{ label: 'サービス・料金',           href: '/services/' },
+	{ label: 'RevOps再設計とは',        href: '/about-revops/' },
+	{
+		label: 'サービス',
+		href: '/services/',
+		children: [
+			{ label: 'レベニューアーキテクチャ設計',    href: '/services/revenue-architecture-design/' },
+			{ label: 'マーケティング戦略設計',         href: '/services/marketing-strategy-design/' },
+			{ label: 'CRM / RevOps実装支援',        href: '/services/revops-ma-crm-sfa-implementation/' },
+			{ label: 'HubSpot導入・運用支援',         href: '/services/hubspot-implementation-consulting/' },
+			{ label: '運用定着・改善支援',             href: '/services/operational-adoption-optimization/' },
+		],
+	},
+	{ label: '料金プラン',               href: '/pricing/' },
 	{ label: 'レベニューアーキテクチャ設計', href: '/revenue-architecture/' },
 	{ label: '導入事例',               href: '/case-studies/' },
 	{ label: 'コラム',                 href: '/insights/' },

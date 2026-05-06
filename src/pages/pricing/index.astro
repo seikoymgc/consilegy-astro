@@ -1,0 +1,502 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+	title="料金プラン | Consilegy"
+	description="診断パッケージ（10〜50万円）、マルチCRM再設計プロジェクト（250〜500万円）、伴走・顧問支援（月額30〜100万円）。目的に応じて選べる3つのプランをご用意しています。"
+	lang="ja"
+>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+	<div class="container">
+		<span class="eyebrow"><span class="eyebrow__dot"></span>Pricing</span>
+		<h1>料金プラン</h1>
+		<p class="hero-lead">
+			目的に応じて選べる3つのプラン。まず現状を把握したい企業から、
+			CRM基盤を根本から作り直したい企業まで、フェーズに合わせてご選択ください。
+		</p>
+		<div class="hero-actions">
+			<a href="/free-consultation/" class="btn btn--hero-primary btn--lg">CRM / RevOps 診断を依頼する →</a>
+			<a href="/download/" class="btn btn--hero-outline btn--lg">サービス資料をダウンロード</a>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== PRICING NOTE ===================== -->
+<section class="pricing-note">
+	<div class="container">
+		<h2 class="pn-title">料金体系について</h2>
+		<p class="pn-lead">Consilegyでは、目的に応じて以下の2つの料金体系をご用意しています。</p>
+		<div class="pn-grid">
+			<div class="pn-item">
+				<span class="pn-type">プロジェクト型</span>
+				<p>診断や再設計プロジェクトなど、期間と成果物が定められた単発支援。</p>
+			</div>
+			<div class="pn-item">
+				<span class="pn-type">月額型</span>
+				<p>伴走・顧問支援など、継続的な改善と定着支援を行う月額プラン。</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== STEP 01: DIAGNOSIS ===================== -->
+<section class="plan-section" id="diagnosis">
+	<div class="container">
+		<div class="plan-group-head">
+			<span class="step-badge">Step 01</span>
+			<h2>診断パッケージ</h2>
+			<p class="plan-group-sub">まず現状を把握する。予算・意思決定前の入口として。</p>
+		</div>
+
+		<div class="plan-grid plan-grid--2">
+
+			<article class="plan-card">
+				<p class="plan-tag">簡易診断</p>
+				<p class="plan-sub">現状のヒアリングと課題仮説の提示。オンラインMTG数回とレポート作成に絞った入口商品。</p>
+				<div class="plan-price">
+					<div class="plan-price__amount">¥100,000〜150,000</div>
+					<span class="plan-price__unit">オンラインMTG 2〜3回 + レポート提出</span>
+				</div>
+				<ul class="plan-features">
+					<li><span class="check" aria-hidden="true">✓</span>現状ツール・業務フローのヒアリング</li>
+					<li><span class="check" aria-hidden="true">✓</span>課題仮説と優先度の整理</li>
+					<li><span class="check" aria-hidden="true">✓</span>改善の方向性レポート（10〜15ページ）</li>
+				</ul>
+				<a href="/free-consultation/" class="btn btn--primary plan-cta">まず相談してみる →</a>
+			</article>
+
+			<article class="plan-card">
+				<p class="plan-tag">詳細診断</p>
+				<p class="plan-sub">CRM / SFA / MA運用とデータ構造のフルレビュー。ボトルネックの根拠と再設計ロードマップを提示します。</p>
+				<div class="plan-price">
+					<div class="plan-price__amount">¥300,000〜500,000</div>
+					<span class="plan-price__unit">期間目安：4〜6週間 / 一括</span>
+				</div>
+				<ul class="plan-features">
+					<li><span class="check" aria-hidden="true">✓</span>CRM / MA運用・データ構造の詳細レビュー</li>
+					<li><span class="check" aria-hidden="true">✓</span>業務インタビュー（5〜10名）</li>
+					<li><span class="check" aria-hidden="true">✓</span>ボトルネック分析と改善ロードマップ</li>
+					<li><span class="check" aria-hidden="true">✓</span>経営報告会（1回）</li>
+				</ul>
+				<a href="/free-consultation/" class="btn btn--primary plan-cta">詳細診断を相談する →</a>
+			</article>
+
+		</div>
+	</div>
+</section>
+
+<!-- ===================== STEP 02: PROJECT ===================== -->
+<section class="plan-section plan-section--alt" id="project">
+	<div class="container">
+		<div class="plan-group-head">
+			<span class="step-badge">Step 02</span>
+			<h2>マルチCRM再設計プロジェクト</h2>
+			<p class="plan-group-sub">収益構造を根本から直す。最も相談の多い中核プロジェクト。</p>
+		</div>
+
+		<article class="plan-card plan-card--recommended" id="project-card">
+			<span class="plan-sub-badge">おすすめ</span>
+			<p class="plan-tag">マルチCRM再設計プロジェクト</p>
+			<p class="plan-sub">Salesforce / HubSpot / Kintone / Marketoなど複数ツールが混在する収益オペレーションを、ベンダー中立の立場で設計し直す中核プロジェクト。営業プロセス・データモデル・KPI基盤を一体で再構築します。</p>
+			<div class="plan-price">
+				<div class="plan-price__amount">¥2,500,000〜5,000,000</div>
+				<span class="plan-price__unit">期間目安：3〜6ヶ月 / 一括または分割</span>
+			</div>
+			<ul class="plan-features plan-features--cols">
+				<li><span class="check" aria-hidden="true">✓</span>To-Beデータモデル / オブジェクト設計</li>
+				<li><span class="check" aria-hidden="true">✓</span>マルチCRM間の統合・移行設計</li>
+				<li><span class="check" aria-hidden="true">✓</span>営業 / マーケ / CSプロセス再設計</li>
+				<li><span class="check" aria-hidden="true">✓</span>KPI / レポーティング基盤の再構築</li>
+				<li><span class="check" aria-hidden="true">✓</span>実装ベンダー選定支援（中立）</li>
+				<li><span class="check" aria-hidden="true">✓</span>PMO / ステアリング運営</li>
+			</ul>
+			<a href="/free-consultation/" class="btn btn--primary plan-cta">プロジェクトを相談する →</a>
+		</article>
+	</div>
+</section>
+
+<!-- ===================== STEP 03: RETAINER ===================== -->
+<section class="plan-section" id="support">
+	<div class="container">
+		<div class="plan-group-head">
+			<span class="step-badge">Step 03</span>
+			<h2>伴走・顧問支援</h2>
+			<p class="plan-group-sub">定着・内製化まで支える月次支援。関与度に応じて3プランから選択。</p>
+		</div>
+
+		<div class="plan-grid plan-grid--3">
+
+			<article class="plan-card">
+				<p class="plan-tag">ライト伴走</p>
+				<p class="plan-sub">まず伴走から始めたい企業向け。月1〜2回の定例会とダッシュボード改善アドバイスを中心に支援。</p>
+				<div class="plan-price">
+					<div class="plan-price__amount">¥300,000〜400,000</div>
+					<span class="plan-price__unit">月額 / 最低3ヶ月〜</span>
+				</div>
+				<ul class="plan-features">
+					<li><span class="check" aria-hidden="true">✓</span>月次定例会（1〜2回）</li>
+					<li><span class="check" aria-hidden="true">✓</span>KPIダッシュボードレビュー</li>
+					<li><span class="check" aria-hidden="true">✓</span>課題整理・優先順位づけ</li>
+				</ul>
+				<a href="/contact/" class="btn btn--primary plan-cta">相談する →</a>
+			</article>
+
+			<article class="plan-card">
+				<p class="plan-tag">スタンダード伴走</p>
+				<p class="plan-sub">営業・マーケ・CS各部門への定例伴走。KPIレビューからレポート改善・施策優先順位づけまで対応。</p>
+				<div class="plan-price">
+					<div class="plan-price__amount">¥500,000〜800,000</div>
+					<span class="plan-price__unit">月額 / 最低3ヶ月〜</span>
+				</div>
+				<ul class="plan-features">
+					<li><span class="check" aria-hidden="true">✓</span>月次定例会（各部門 月1回）</li>
+					<li><span class="check" aria-hidden="true">✓</span>KPIレビュー・レポート改善</li>
+					<li><span class="check" aria-hidden="true">✓</span>施策の優先順位付け</li>
+					<li><span class="check" aria-hidden="true">✓</span>Slack等での非同期相談対応</li>
+				</ul>
+				<a href="/contact/" class="btn btn--primary plan-cta">相談する →</a>
+			</article>
+
+			<article class="plan-card">
+				<p class="plan-tag">フル伴走</p>
+				<p class="plan-sub">施策の設計・実行まで入り込む、最も深い関与。部門間調整や改善プロジェクトのリードまで担当。</p>
+				<div class="plan-price">
+					<div class="plan-price__amount">¥800,000〜1,000,000</div>
+					<span class="plan-price__unit">月額 / 最低6ヶ月〜</span>
+				</div>
+				<ul class="plan-features">
+					<li><span class="check" aria-hidden="true">✓</span>施策設計・実行まで伴走</li>
+					<li><span class="check" aria-hidden="true">✓</span>部門間調整・ステークホルダー管理</li>
+					<li><span class="check" aria-hidden="true">✓</span>改善プロジェクトのリード</li>
+					<li><span class="check" aria-hidden="true">✓</span>RevOpsチーム内製化支援</li>
+				</ul>
+				<a href="/contact/" class="btn btn--primary plan-cta">相談する →</a>
+			</article>
+
+		</div>
+	</div>
+</section>
+
+<!-- ===================== SERVICES BRIDGE ===================== -->
+<section class="services-bridge">
+	<div class="container bridge-inner">
+		<div>
+			<p class="section-eyebrow">Services</p>
+			<h2>各サービスの詳細はこちら</h2>
+			<p class="section-lead">
+				レベニューアーキテクチャ設計・マーケティング戦略設計・CRM実装支援など、
+				5つの支援領域の詳細をサービス一覧でご確認いただけます。
+			</p>
+		</div>
+		<a href="/services/" class="btn btn--primary btn--lg">サービス一覧を見る →</a>
+	</div>
+</section>
+
+<!-- ===================== FINAL CTA ===================== -->
+<section class="final-cta">
+	<div class="container cta-inner">
+		<div>
+			<p class="cta-eyebrow">Get Started</p>
+			<h2>まずは現状の<br />CRM / RevOps構成を、<br />中立の視点で診断しませんか。</h2>
+			<p class="cta-lead">
+				初回ご相談は無料です。
+				現状のツール構成・組織・データフローを伺い、
+				再設計の優先順位とプロジェクト規模感をお伝えします。
+				90分のディスカッション形式で実施します。
+			</p>
+			<div class="cta-actions">
+				<a href="/free-consultation/" class="btn btn--cta-primary btn--lg">CRM / RevOps 診断を依頼する →</a>
+				<a href="/download/" class="btn btn--cta-outline btn--lg">サービス資料をダウンロード</a>
+			</div>
+		</div>
+		<div class="cta-card">
+			<h4>ご相談時にお伺いする内容</h4>
+			<ul class="cta-list">
+				<li>現在ご利用中のCRM / SFA / MAツール構成</li>
+				<li>事業部・組織体制（規模・部門数）</li>
+				<li>現状の課題・優先度の高いテーマ</li>
+				<li>想定スケジュールと社内ステークホルダー</li>
+				<li>過去の導入・移行プロジェクトの経緯</li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+</BaseLayout>
+
+<style>
+/* ── Shared ──────────────────────────────────────────── */
+.section-eyebrow {
+	font-size: 0.8125rem; font-weight: 600; color: var(--color-primary);
+	letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.75rem;
+}
+.section-lead { font-size: 1.0625rem; color: var(--color-text-muted); line-height: 1.75; margin: 0; }
+.btn--lg { padding: 1.0625rem 1.875rem; font-size: 1rem; }
+
+/* ── Pricing Note ──────────────────────────────────── */
+.pricing-note {
+	background: #f0f5ff;
+	border-top: 1px solid rgba(30,64,175,0.15);
+	border-bottom: 1px solid rgba(30,64,175,0.15);
+	padding-block: var(--space-lg);
+}
+.pn-title {
+	font-size: 1rem; font-weight: 700; color: var(--color-text);
+	margin: 0 0 0.5rem;
+}
+.pn-lead {
+	font-size: 0.9375rem; color: var(--color-text-muted); margin: 0 0 1.25rem;
+}
+.pn-grid {
+	display: flex; gap: 1rem; flex-wrap: wrap;
+}
+.pn-item {
+	flex: 1; min-width: 220px;
+	background: #fff; border: 1px solid rgba(30,64,175,0.15);
+	border-radius: 8px; padding: 1rem 1.25rem;
+	display: flex; flex-direction: column; gap: 0.375rem;
+}
+.pn-type {
+	font-size: 0.8125rem; font-weight: 700; color: var(--color-primary);
+	letter-spacing: 0.04em;
+}
+.pn-item p { margin: 0; font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.65; }
+
+/* ── Hero ──────────────────────────────────────────── */
+.hero {
+	background: linear-gradient(180deg, var(--color-bg-subtle) 0%, var(--color-bg) 100%);
+	border-bottom: 1px solid var(--color-border);
+	padding-block: var(--space-2xl) var(--space-xl);
+}
+.eyebrow {
+	display: inline-flex; align-items: center; gap: 0.5rem;
+	font-size: 0.8125rem; font-weight: 600; color: var(--color-primary);
+	background: rgba(30,64,175,0.08); padding: 0.375rem 0.875rem; border-radius: 999px;
+	letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1.25rem;
+}
+.eyebrow__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--color-primary); display: inline-block; }
+.hero h1 {
+	font-size: clamp(2.25rem, 4vw, 3.25rem); font-weight: 800;
+	letter-spacing: -0.02em; margin: 0 0 1rem; color: var(--color-text); line-height: 1.2;
+}
+.hero-lead { font-size: 1.125rem; line-height: 1.75; color: var(--color-text-muted); max-width: 680px; margin: 0 0 2rem; }
+.hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+.btn--hero-primary {
+	display: inline-flex; align-items: center;
+	background: var(--color-primary); color: #fff;
+	padding: 1.0625rem 1.875rem; border-radius: var(--radius);
+	font-weight: 700; font-size: 1rem; text-decoration: none; border: none;
+	transition: background 0.15s ease;
+}
+.btn--hero-primary:hover { background: var(--color-primary-dark); color: #fff; }
+
+.btn--hero-outline {
+	display: inline-flex; align-items: center;
+	background: transparent; color: var(--color-primary);
+	padding: 1.0625rem 1.875rem; border-radius: var(--radius);
+	font-weight: 600; font-size: 1rem; text-decoration: none;
+	border: 1.5px solid var(--color-primary);
+	transition: all 0.15s ease;
+}
+.btn--hero-outline:hover { background: rgba(30,64,175,0.06); }
+
+/* ── Plan Sections ─────────────────────────────────── */
+.plan-section { padding-block: var(--space-2xl); background: var(--color-bg); }
+.plan-section--alt { background: var(--color-bg-subtle); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
+
+.plan-group-head { margin-bottom: 2rem; }
+.step-badge {
+	display: inline-block; font-size: 0.75rem; font-weight: 700;
+	color: var(--color-primary); background: rgba(30,64,175,0.08);
+	padding: 0.25rem 0.75rem; border-radius: 999px;
+	letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.75rem;
+}
+.plan-group-head h2 { font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; color: var(--color-text); margin: 0 0 0.5rem; }
+.plan-group-sub { font-size: 1.0625rem; color: var(--color-text-muted); margin: 0; }
+
+.plan-grid { display: grid; gap: 1.25rem; }
+.plan-grid--2 { grid-template-columns: 1fr 1fr; }
+.plan-grid--3 { grid-template-columns: 1fr 1fr 1fr; }
+
+/* ── Plan Cards ────────────────────────────────────── */
+.plan-card {
+	border: 1px solid var(--color-border); border-radius: 12px;
+	padding: 2rem; background: var(--color-bg);
+	display: flex; flex-direction: column; position: relative;
+}
+.plan-card--featured {
+	border: 2px solid var(--color-primary);
+	background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 60%, #7c5cbf 100%);
+	border-color: transparent; padding: 2.5rem;
+	box-shadow: 0 8px 32px rgba(30,64,175,0.2);
+}
+.plan-card--recommended {
+	border: 1.5px solid var(--color-primary);
+	background: linear-gradient(180deg, #f7faff 0%, #fff 60%);
+}
+
+.plan-badge {
+	position: absolute; top: -14px; left: 2rem;
+	background: var(--color-primary); color: #fff;
+	font-size: 0.75rem; font-weight: 600;
+	padding: 0.375rem 0.875rem; border-radius: 999px; letter-spacing: 0.04em;
+}
+.plan-sub-badge {
+	position: absolute; top: -12px; left: 2rem;
+	background: var(--color-primary); color: #fff;
+	font-size: 0.7rem; font-weight: 600;
+	padding: 0.25rem 0.75rem; border-radius: 999px;
+}
+
+.plan-tag {
+	font-size: 0.8rem; font-weight: 700; color: var(--color-text-muted);
+	letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.625rem;
+}
+.plan-tag--light { color: rgba(255,255,255,0.7); }
+.plan-sub { font-size: 0.9375rem; color: var(--color-text-muted); margin: 0 0 1.25rem; line-height: 1.65; flex: 1; }
+.plan-sub--light { color: rgba(255,255,255,0.85); }
+
+.plan-price {
+	padding: 1rem 0; border-top: 1px solid var(--color-border);
+	border-bottom: 1px solid var(--color-border); margin-bottom: 1.25rem;
+}
+.plan-price--light { border-color: rgba(255,255,255,0.2); }
+.plan-price__label { font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.375rem; }
+.plan-price__amount { font-size: 1.625rem; font-weight: 700; color: var(--color-text); letter-spacing: -0.01em; }
+.plan-price__amount--lg { font-size: 1.875rem; color: #fff; }
+.plan-price__unit { display: block; font-size: 0.8125rem; color: var(--color-text-muted); margin-top: 0.25rem; }
+.plan-price__unit--light { color: rgba(255,255,255,0.65); }
+
+.plan-features { list-style: none; padding: 0; margin: 0 0 1.5rem; display: flex; flex-direction: column; }
+.plan-features li { display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.9375rem; color: var(--color-text); padding: 0.4rem 0; line-height: 1.55; }
+.plan-features--cols { columns: 2; display: block; }
+.plan-features--cols li { break-inside: avoid; display: flex; align-items: flex-start; gap: 0.5rem; padding: 0.4rem 0; }
+.plan-features--light li { color: #e0eaff; }
+.check { flex-shrink: 0; color: var(--color-primary); font-weight: 700; }
+.plan-features--light .check { color: #93c5fd; }
+
+.plan-meta {
+	font-size: 0.8125rem; color: rgba(255,255,255,0.7); margin-bottom: 1.25rem;
+	padding: 0.625rem 0.875rem; background: rgba(255,255,255,0.1);
+	border-radius: 6px; border-left: 3px solid rgba(255,255,255,0.3);
+}
+
+.plan-cta {
+	width: 100%; display: inline-flex; align-items: center; justify-content: center;
+	padding: 0.875rem 1.25rem; border-radius: var(--radius);
+	font-weight: 600; font-size: 0.9375rem; text-decoration: none;
+	transition: all 0.15s ease;
+}
+
+.btn--primary.plan-cta {
+	background: var(--color-primary); color: #fff; border: none;
+}
+.btn--primary.plan-cta:hover { background: var(--color-primary-dark); }
+
+.btn--white {
+	background: #fff; color: var(--color-primary); border: none;
+}
+.btn--white:hover { background: #f0f5ff; color: var(--color-primary); }
+
+.btn--white-outline {
+	background: transparent; color: rgba(255,255,255,0.85);
+	border: 1px solid rgba(255,255,255,0.35); margin-top: 0.5rem;
+}
+.btn--white-outline:hover { border-color: rgba(255,255,255,0.7); color: #fff; }
+
+.plan-cta-sub {
+	width: 100%; display: inline-flex; align-items: center; justify-content: center;
+	padding: 0.75rem 1.25rem; border-radius: var(--radius);
+	font-weight: 600; font-size: 0.9375rem; text-decoration: none;
+	transition: all 0.15s ease;
+	background: transparent; color: rgba(255,255,255,0.85);
+	border: 1px solid rgba(255,255,255,0.35);
+}
+.plan-cta-sub:hover { border-color: rgba(255,255,255,0.7); color: #fff; }
+
+/* Wide featured card */
+.plan-wide-inner {
+	display: grid; grid-template-columns: 1.6fr 1fr; gap: 3rem; align-items: center;
+}
+.plan-wide-price { display: flex; flex-direction: column; gap: 0.75rem; }
+
+/* ── Services bridge ───────────────────────────────── */
+.services-bridge {
+	background: var(--color-bg-subtle); border-top: 1px solid var(--color-border);
+	padding-block: var(--space-xl);
+}
+.services-bridge h2 { font-size: 1.75rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.75rem; }
+.bridge-inner {
+	display: flex; align-items: center; justify-content: space-between;
+	gap: 3rem; flex-wrap: wrap;
+}
+.btn--primary {
+	display: inline-flex; align-items: center; justify-content: center;
+	background: var(--color-primary); color: #fff;
+	padding: 0.875rem 1.5rem; border-radius: var(--radius);
+	font-weight: 600; font-size: 0.9375rem; text-decoration: none; border: none;
+	transition: background 0.15s ease; flex-shrink: 0;
+}
+.btn--primary:hover { background: var(--color-primary-dark); color: #fff; }
+
+/* ── Final CTA ─────────────────────────────────────── */
+.final-cta {
+	background:
+		radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%),
+		linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+	color: #fff; padding-block: var(--space-2xl);
+}
+.cta-inner { display: grid; grid-template-columns: 1.3fr 1fr; gap: 4rem; align-items: center; }
+.cta-eyebrow { font-size: 0.8125rem; font-weight: 600; color: #93c5fd; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 1rem; }
+.cta-inner h2 { color: #fff; font-size: clamp(1.75rem, 2.5vw, 2.25rem); line-height: 1.3; font-weight: 700; margin: 0 0 1.25rem; }
+.cta-lead { color: #bfdbfe; font-size: 1.0625rem; line-height: 1.75; margin: 0 0 2rem; }
+.cta-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+.btn--cta-primary {
+	display: inline-flex; align-items: center; justify-content: center;
+	padding: 1.0625rem 1.875rem; border-radius: var(--radius);
+	font-weight: 700; font-size: 1rem; text-decoration: none;
+	background: #fff; color: var(--color-primary); border: none;
+	transition: background 0.15s ease;
+}
+.btn--cta-primary:hover { background: #e0eaff; color: var(--color-primary); }
+
+.btn--cta-outline {
+	display: inline-flex; align-items: center; justify-content: center;
+	padding: 1.0625rem 1.875rem; border-radius: var(--radius);
+	font-weight: 600; font-size: 1rem; text-decoration: none;
+	background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.45);
+	transition: all 0.15s ease;
+}
+.btn--cta-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+
+.cta-card {
+	background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+	border-radius: 12px; padding: 2rem; backdrop-filter: blur(10px);
+}
+.cta-card h4 { margin: 0 0 1rem; font-size: 0.8125rem; color: #93c5fd; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+.cta-list { list-style: none; padding: 0; margin: 0; }
+.cta-list li {
+	display: flex; gap: 0.75rem; align-items: flex-start;
+	padding: 0.5rem 0; font-size: 0.9375rem; color: #e0eaff;
+	border-bottom: 1px solid rgba(255,255,255,0.1); line-height: 1.6;
+}
+.cta-list li:last-child { border-bottom: none; }
+.cta-list li::before { content: ""; flex-shrink: 0; margin-top: 9px; width: 5px; height: 5px; border-radius: 50%; background: #93c5fd; }
+
+/* ── Responsive ─────────────────────────────────────── */
+@media (max-width: 960px) {
+	.plan-grid--2, .plan-grid--3 { grid-template-columns: 1fr; }
+	.plan-wide-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+	.plan-features--cols { columns: 1; }
+	.cta-inner { grid-template-columns: 1fr; gap: 2rem; }
+	.bridge-inner { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+}
+@media (max-width: 560px) {
+	.hero-actions, .cta-actions { flex-direction: column; }
+}
+</style>

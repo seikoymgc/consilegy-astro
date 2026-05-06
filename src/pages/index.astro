@@ -1,17 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
-import Section from '../components/Section.astro';
-import Card from '../components/Card.astro';
-import CardGrid from '../components/CardGrid.astro';
-import CTA from '../components/CTA.astro';
 import { getCollection } from 'astro:content';
 
-const services = (await getCollection('services', ({ data }) => data.lang !== 'en'))
-	.sort((a, b) => a.data.order - b.data.order);
-
 const cases = (await getCollection('caseStudies'))
-	.filter((c) => c.data.lang === 'ja')
+	.filter((c) => c.data.lang === 'ja' && !c.data.draft)
 	.slice(0, 3);
 
 const blogPosts = (await getCollection('blog', ({ data }) => !data.draft))
@@ -28,12 +20,11 @@ const blogPosts = (await getCollection('blog', ({ data }) => !data.draft))
 ---
 
 <BaseLayout
-	title="Consilegy | レベニューアーキテクチャで収益構造を設計"
-	description="戦略と現場をつなぎ、マーケティングから継続収益までを構造として設計・実装。HubSpotをはじめとするMA/CRM/SFAの実装と運用定着まで伴走します。"
+	title="Consilegy | CRM・SFA・MAを売上が見える経営基盤へ"
+	description="Salesforce・HubSpot・Kintone・Marketoなど複数ツールが混在する収益オペレーションを、ベンダーフリーの立場から再設計します。RevOps・マルチCRM再設計・伴走支援。"
 	lang="ja"
 >
 	<script slot="head">
-		// トップページ (/) のみ実行: 初回アクセス時にブラウザ言語でEN誘導
 		if (window.location.pathname === '/' || window.location.pathname === '') {
 			const pref = localStorage.getItem('languagePreference');
 			if (!pref) {
@@ -44,119 +35,844 @@ const blogPosts = (await getCollection('blog', ({ data }) => !data.draft))
 			}
 		}
 	</script>
-	<Hero
-		subtitle="Revenue Architecture"
-		title="導入して終わりにしない。成果が出る運用まで伴走する。"
-		lede="レベニューアーキテクチャ（収益構造）の観点から、戦略・構造設計・実装・運用を一気通貫で支援します。部分最適ではなく、つながる設計でリードから継続収益までを支えます。"
-		primaryHref="/contact/"
-		primaryLabel="相談してみる"
-		secondaryHref="/services/"
-		secondaryLabel="サービスを見る"
-	/>
 
-	<Section
-		variant="subtle"
-		title="こんな課題に対応しています"
-		intro="施策単体の改善ではなく、プロセスとデータの流れから見直し、再現性のある成果へつなげます。"
-	>
-		<CardGrid columns={2}>
-			<Card
-				title="施策は動いているのに、成果に繋がらない"
-				description="上流の設計と現場の運用が分断され、改善が感覚頼みになっている状態を整理します。"
-			/>
-			<Card
-				title="リードは入るが、商談化・売上に接続しない"
-				description="ハンドオフと計測が弱く、どこで停滞しているかが見えないケースに対し、構造として設計します。"
-			/>
-			<Card
-				title="MA/SFAを導入したが、入力とデータが定着しない"
-				description="項目設計・自動化・レビュー会議まで含め、現場で回る運用へ落とし込みます。"
-			/>
-			<Card
-				title="情報が散らばり、意思決定が遅い"
-				description="データの所在と責任分界を整理し、ダッシュボードと定例会の設計まで支援します。"
-			/>
-		</CardGrid>
-	</Section>
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+	<div class="hero-bg" aria-hidden="true">
+		<div class="hero-orb hero-orb--1"></div>
+		<div class="hero-orb hero-orb--2"></div>
+		<div class="hero-grid"></div>
+	</div>
+	<div class="container hero-inner">
+		<div class="hero-copy">
+			<span class="hero-eyebrow"><span class="eyebrow-dot"></span>Revenue Operations</span>
+			<h1>
+				CRM・SFA・MAを、<br />
+				<span class="hero-accent">売上が見える経営基盤へ。</span>
+			</h1>
+			<p class="hero-lead">
+				Salesforce、HubSpot、Kintone、Marketoなど既存ツールを前提に、
+				営業・マーケ・CSの分断を整理し、商談化・受注・継続までを
+				管理できる収益プロセスへ再設計します。
+			</p>
+			<div class="hero-actions">
+				<a href="/free-consultation/" class="btn btn--hero-primary btn--lg">
+					CRM / RevOps 診断を依頼する →
+				</a>
+				<a href="/download/" class="btn btn--hero-outline btn--lg">
+					サービス資料をダウンロード
+				</a>
+			</div>
+		</div>
+		<div class="hero-stats">
+			<div class="stat-card">
+				<div class="stat-num">6<span class="stat-unit">プラン</span></div>
+				<div class="stat-label">診断〜再設計〜伴走まで<br />フェーズに合わせて選択可</div>
+			</div>
+			<div class="stat-card">
+				<div class="stat-num">4<span class="stat-unit">ツール以上</span></div>
+				<div class="stat-label">Salesforce / HubSpot / Kintone<br />/ Marketoなどを横断対応</div>
+			</div>
+			<div class="stat-card stat-card--accent">
+				<div class="stat-num">¥0</div>
+				<div class="stat-label">初回相談は無料<br />（90分ディスカッション形式）</div>
+			</div>
+		</div>
+	</div>
+	<div class="hero-tools">
+		<div class="container">
+			<p class="tools-label">対応ツール（一部）</p>
+			<div class="tools-row">
+				<span>Salesforce</span><span class="tools-sep">|</span>
+				<span>HubSpot</span><span class="tools-sep">|</span>
+				<span>Kintone</span><span class="tools-sep">|</span>
+				<span>Marketo</span><span class="tools-sep">|</span>
+				<span>Microsoft Dynamics 365</span><span class="tools-sep">|</span>
+				<span>Zoho CRM</span><span class="tools-sep">|</span>
+				<span>Tableau / Looker</span>
+			</div>
+		</div>
+	</div>
+</section>
 
-	<Section
-		title="支援領域"
-		intro="戦略設計からツール実装、運用定着まで。プロジェクトの局面に合わせて伴走します。"
-	>
-		<CardGrid columns={3}>
-			{
-				services.map((s) => (
-					<Card
-						href={`/services/${s.data.slug}/`}
-						title={s.data.title}
-						description={s.data.description}
-					/>
-				))
-			}
-		</CardGrid>
-		<p style="margin-top: var(--space-lg); text-align: center;">
-			<a class="btn btn--secondary" href="/services/">サービス一覧へ</a>
-		</p>
-	</Section>
+<!-- ===================== WHY ===================== -->
+<section class="why">
+	<div class="container">
+		<div class="why-grid">
+			<div class="why-head">
+				<p class="section-eyebrow">Why It Fails</p>
+				<h2>CRMが機能しない理由は<br />ツールではなく、<span class="text-primary">設計にあります</span></h2>
+				<p class="section-lead">
+					多くの企業がCRM / SFA / MAを導入しても成果に繋がらない原因は、
+					ツールの問題ではありません。営業プロセス・データ構造・組織設計が
+					ツール導入の前後で整理されていないことにあります。
+				</p>
+				<p class="section-lead" style="margin-top: 1rem;">
+					Consilegyは部分最適ではなく、収益プロセス全体を設計し直すアプローチで支援します。
+				</p>
+			</div>
+			<div class="why-problems">
+				<div class="problem-item">
+					<span class="problem-icon" aria-hidden="true">→</span>
+					<div>
+						<h4>リードはあるが、商談化しない</h4>
+						<p>マーケと営業の定義・ハンドオフ・KPIが揃っていないため、リードが積み上がるだけで商談に繋がらない。</p>
+					</div>
+				</div>
+				<div class="problem-item">
+					<span class="problem-icon" aria-hidden="true">→</span>
+					<div>
+						<h4>営業とマーケティングの定義が揃っていない</h4>
+						<p>「有望なリード」の基準が部門ごとに異なり、データの意味が統一されていない状態が続く。</p>
+					</div>
+				</div>
+				<div class="problem-item">
+					<span class="problem-icon" aria-hidden="true">→</span>
+					<div>
+						<h4>SFAに入力されない、データが信頼できない</h4>
+						<p>設計が現場に合っておらず、正しく入力されないまま運用が続き、レポートが形骸化する。</p>
+					</div>
+				</div>
+				<div class="problem-item">
+					<span class="problem-icon" aria-hidden="true">→</span>
+					<div>
+						<h4>レポートが経営判断に使えない</h4>
+						<p>ツールからデータは出るが、数字の定義・粒度・タイミングがバラバラで意思決定に活用できない。</p>
+					</div>
+				</div>
+				<div class="problem-item">
+					<span class="problem-icon" aria-hidden="true">→</span>
+					<div>
+						<h4>部門ごとに顧客データが分断されている</h4>
+						<p>営業・マーケ・CS・基幹システムで顧客情報が別々に管理され、全体像が見えない。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-	<Section
-		variant="subtle"
-		title="導入事例"
-		intro="業種やフェーズは異なっても、データとプロセスの設計を軸に支援しています。"
-	>
-		<CardGrid columns={3}>
-			{
-				cases.map((c) => (
-					<Card
-						href={`/case-studies/${c.data.slug}/`}
-						title={c.data.title}
-						description={c.data.description}
-						meta={c.data.industry}
-						imageSrc={c.data.featuredImage}
-						imageAlt={c.data.alt}
-					/>
-				))
-			}
-		</CardGrid>
+<!-- ===================== HOW ===================== -->
+<section class="how">
+	<div class="container">
+		<div class="how-grid">
+			<div class="how-visual">
+				<div class="flow-diagram">
+					<div class="flow-step flow-step--top">
+						<span class="flow-label">マーケティング</span>
+						<div class="flow-tools">MA / CDP</div>
+					</div>
+					<div class="flow-arrow">↓</div>
+					<div class="flow-center">
+						<span class="flow-center-label">収益プロセス設計</span>
+						<span class="flow-center-sub">Revenue Architecture</span>
+					</div>
+					<div class="flow-arrow">↓</div>
+					<div class="flow-step flow-step--mid">
+						<span class="flow-label">営業・インサイドセールス</span>
+						<div class="flow-tools">CRM / SFA</div>
+					</div>
+					<div class="flow-arrow">↓</div>
+					<div class="flow-step flow-step--bot">
+						<span class="flow-label">カスタマーサクセス</span>
+						<div class="flow-tools">CS / BI / データ基盤</div>
+					</div>
+					<div class="flow-kpi">
+						<span>KPI・ダッシュボード</span>
+						<span class="flow-kpi-arrow">←</span>
+						<span>経営判断に使えるデータへ</span>
+					</div>
+				</div>
+			</div>
+			<div class="how-copy">
+				<p class="section-eyebrow">Our Approach</p>
+				<h2>RevOps再設計 ＆<br /><span class="text-primary">レベニューアーキテクチャ</span></h2>
+				<p class="section-lead">
+					Consilegyの支援の中心は「ツール導入」ではなく、
+					収益プロセス全体の再設計です。
+					CRM / SFA / MAを点として改善するのではなく、
+					営業・マーケ・CSがひとつのプロセスとして機能するよう、
+					データモデル・組織設計・KPIを一体で整えます。
+				</p>
+				<ul class="how-points">
+					<li>
+						<span class="how-num">01</span>
+						<div>
+							<strong>ベンダーフリー</strong>
+							<p>特定ツールの代理店ではないため、事業構造に合った中立的な設計を提案します。</p>
+						</div>
+					</li>
+					<li>
+						<span class="how-num">02</span>
+						<div>
+							<strong>プロセス設計から実装・定着まで</strong>
+							<p>To-Be設計だけでなく、現場に落とし込む運用ルールと伴走支援まで一貫して対応します。</p>
+						</div>
+					</li>
+					<li>
+						<span class="how-num">03</span>
+						<div>
+							<strong>複数ツール横断の統合設計</strong>
+							<p>Salesforce・HubSpot・Kintone・Marketoなどが混在する環境でもマルチCRM統合を設計します。</p>
+						</div>
+					</li>
+				</ul>
+				<a href="/revenue-architecture/" class="btn btn--outline-primary">
+					レベニューアーキテクチャとは →
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== SERVICES ===================== -->
+<section class="services-overview">
+	<div class="container">
+		<header class="section-head">
+			<p class="section-eyebrow">Service Packages</p>
+			<h2>提供サービス</h2>
+			<p class="section-lead">
+				現状把握から再設計、定着まで。課題のフェーズに合わせて選べる3つのステップを用意しています。
+			</p>
+		</header>
+
+		<div class="svc-grid">
+
+			<!-- Step 01: 診断 -->
+			<article class="svc-card">
+				<div class="svc-card__head">
+					<span class="svc-step">Step 01</span>
+					<h3>CRM / RevOps 診断</h3>
+					<p class="svc-price-range">¥100,000〜500,000</p>
+				</div>
+				<p class="svc-desc">
+					現状のCRM / SFA / MA運用・データ構造を診断し、
+					ボトルネックの根拠と改善ロードマップを提示します。
+					まず状況を把握したい企業向けの入口商品です。
+				</p>
+				<ul class="svc-items">
+					<li>現状ヒアリングと課題仮説の整理</li>
+					<li>CRM / MA運用・データ構造のフルレビュー</li>
+					<li>ボトルネック分析と改善ロードマップ</li>
+				</ul>
+				<div class="svc-plans">
+					<div class="svc-plan">
+						<span class="svc-plan__name">簡易診断</span>
+						<span class="svc-plan__price">¥100,000〜150,000</span>
+					</div>
+					<div class="svc-plan">
+						<span class="svc-plan__name">詳細診断</span>
+						<span class="svc-plan__price">¥300,000〜500,000</span>
+					</div>
+				</div>
+				<a href="/pricing/#diagnosis" class="btn btn--primary svc-cta">詳しく見る →</a>
+			</article>
+
+			<!-- Step 02: 再設計（フィーチャード） -->
+			<article class="svc-card svc-card--featured">
+				<span class="svc-badge">★ 最も選ばれているプラン</span>
+				<div class="svc-card__head">
+					<span class="svc-step svc-step--light">Step 02</span>
+					<h3>マルチCRM再設計プロジェクト</h3>
+					<p class="svc-price-range svc-price-range--light">¥2,500,000〜5,000,000</p>
+				</div>
+				<p class="svc-desc svc-desc--light">
+					Salesforce / HubSpot / Kintone / Marketoなど複数ツールが混在する
+					収益オペレーションを、ベンダー中立の立場で設計し直す中核プロジェクト。
+				</p>
+				<ul class="svc-items svc-items--light">
+					<li>営業プロセス / データモデル再設計</li>
+					<li>CRM / SFA / MA統合・移行設計</li>
+					<li>KPI / ダッシュボード基盤の再構築</li>
+					<li>実装ベンダー選定支援（中立）</li>
+				</ul>
+				<a href="/pricing/#project" class="btn btn--white svc-cta">プロジェクトを相談する →</a>
+			</article>
+
+			<!-- Step 03: 伴走 -->
+			<article class="svc-card">
+				<div class="svc-card__head">
+					<span class="svc-step">Step 03</span>
+					<h3>伴走・顧問支援</h3>
+					<p class="svc-price-range">月額 ¥300,000〜1,000,000</p>
+				</div>
+				<p class="svc-desc">
+					再設計後の定着から内製化まで、月次で並走します。
+					関与度に応じてライト・スタンダード・フルの3プランから選択可能。
+				</p>
+				<ul class="svc-items">
+					<li>月次定例会・KPIレビュー</li>
+					<li>施策の優先順位付けと改善支援</li>
+					<li>部門間調整・RevOps内製化支援</li>
+				</ul>
+				<div class="svc-plans">
+					<div class="svc-plan">
+						<span class="svc-plan__name">ライト</span>
+						<span class="svc-plan__price">月 ¥300,000〜400,000</span>
+					</div>
+					<div class="svc-plan">
+						<span class="svc-plan__name">スタンダード</span>
+						<span class="svc-plan__price">月 ¥500,000〜800,000</span>
+					</div>
+					<div class="svc-plan">
+						<span class="svc-plan__name">フル</span>
+						<span class="svc-plan__price">月 ¥800,000〜1,000,000</span>
+					</div>
+				</div>
+				<a href="/pricing/#support" class="btn btn--primary svc-cta">詳しく見る →</a>
+			</article>
+
+		</div>
+
+		<div class="svc-footer">
+			<a class="btn btn--secondary" href="/services/">サービス一覧を見る</a>
+			<a class="btn btn--secondary" href="/pricing/">料金プランを見る</a>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== CASE STUDIES ===================== -->
+{cases.length > 0 && (
+<section class="cases">
+	<div class="container">
+		<header class="section-head">
+			<p class="section-eyebrow">Case Studies</p>
+			<h2>導入事例</h2>
+			<p class="section-lead">
+				製造・SaaS・サービス業など、複数のB2B事業会社にて
+				収益プロセスの再設計と定着を支援してきました。
+			</p>
+		</header>
+		<div class="cases-grid">
+			{cases.map((c) => (
+				<article class="case-card">
+					{c.data.featuredImage && (
+						<div class="case-img">
+							<img src={c.data.featuredImage} alt={c.data.featuredImageAlt || c.data.title} loading="lazy" />
+						</div>
+					)}
+					<div class="case-body">
+						{c.data.industry && <p class="case-tag">{c.data.industry}</p>}
+						<h3 class="case-title">{c.data.title}</h3>
+						{c.data.description && <p class="case-desc">{c.data.description.slice(0, 90)}...</p>}
+						<a href={`/case-studies/${c.data.slug}/`} class="case-link">詳しく見る →</a>
+					</div>
+				</article>
+			))}
+		</div>
 		<p style="margin-top: var(--space-lg); text-align: center;">
 			<a class="btn btn--secondary" href="/case-studies/">事例一覧へ</a>
 		</p>
-	</Section>
+	</div>
+</section>
+)}
 
-	{blogPosts.length > 0 && (
-		<Section
-			title="最新コラム"
-			intro="マーケティングオペレーションとデータ活用に関する記事。"
-		>
-			<CardGrid columns={3}>
-				{blogPosts.map((post) => {
-					const rawUrl = post.data.sourceUrl ?? '';
-					let href = '#';
-					try {
-						const parts = new URL(rawUrl).pathname.replace(/^\/|\/$/g, '').split('/');
-						if (parts.length === 2) href = `/${parts[0]}/${parts[1]}/`;
-					} catch {}
-					return (
-						<Card
-							href={href}
-							title={post.data.title}
-							description={post.data.description ?? ''}
-							imageSrc={post.data.featuredImage || undefined}
-							imageAlt={post.data.featuredImageAlt ?? ''}
-						/>
-					);
-				})}
-			</CardGrid>
-			<p style="margin-top: var(--space-lg); text-align: center;">
-				<a class="btn btn--secondary" href="/insights/">コラム一覧へ</a>
+<!-- ===================== BLOG ===================== -->
+{blogPosts.length > 0 && (
+<section class="blog-section">
+	<div class="container">
+		<header class="section-head">
+			<p class="section-eyebrow">Insights</p>
+			<h2>最新コラム</h2>
+			<p class="section-lead">RevOps・CRM運用・データ活用に関するナレッジを公開しています。</p>
+		</header>
+		<div class="blog-grid">
+			{blogPosts.map((post) => {
+				const rawUrl = post.data.sourceUrl ?? '';
+				let href = '#';
+				try {
+					const parts = new URL(rawUrl).pathname.replace(/^\/|\/$/g, '').split('/');
+					if (parts.length === 2) href = `/${parts[0]}/${parts[1]}/`;
+				} catch {}
+				return (
+					<article class="blog-card">
+						{post.data.featuredImage && (
+							<div class="blog-img">
+								<img src={post.data.featuredImage} alt={post.data.featuredImageAlt ?? ''} loading="lazy" />
+							</div>
+						)}
+						<div class="blog-body">
+							<h3 class="blog-title">
+								<a href={href}>{post.data.title}</a>
+							</h3>
+							{post.data.description && <p class="blog-desc">{post.data.description}</p>}
+						</div>
+					</article>
+				);
+			})}
+		</div>
+		<p style="margin-top: var(--space-lg); text-align: center;">
+			<a class="btn btn--secondary" href="/insights/">コラム一覧へ</a>
+		</p>
+	</div>
+</section>
+)}
+
+<!-- ===================== FINAL CTA ===================== -->
+<section class="final-cta">
+	<div class="container cta-inner">
+		<div class="cta-copy">
+			<p class="cta-eyebrow">Get Started</p>
+			<h2>まずはCRM / RevOps診断から<br />ご相談ください</h2>
+			<p class="cta-lead">
+				初回ご相談は無料。現状のシステム構成・営業プロセス・組織体制を
+				ヒアリングし、改善余地と優先順位を明確にします。
+				90分のディスカッション形式で実施します。
 			</p>
-		</Section>
-	)}
+			<div class="cta-actions">
+				<a href="/free-consultation/" class="btn btn--cta-primary btn--lg">
+					CRM / RevOps 診断を依頼する →
+				</a>
+				<a href="/download/" class="btn btn--cta-outline btn--lg">
+					サービス資料をダウンロード
+				</a>
+			</div>
+		</div>
+		<div class="cta-checklist">
+			<h4>ご相談時にお伺いする内容</h4>
+			<ul>
+				<li>現在ご利用中のCRM / SFA / MAツール構成</li>
+				<li>事業部・組織体制（規模・部門数）</li>
+				<li>現状の課題・優先度の高いテーマ</li>
+				<li>想定スケジュールと社内ステークホルダー</li>
+				<li>過去の導入・移行プロジェクトの経緯</li>
+			</ul>
+		</div>
+	</div>
+</section>
 
-	<CTA
-		title="まずは現状整理から。伴走の進め方をご提案します。"
-		description="課題が整理できていなくても問題ありません。現在の体制とツール、短期で効く打ち手から一緒に確認します。"
-		href="/contact/"
-		label="お問い合わせ"
-	/>
 </BaseLayout>
+
+<style>
+/* ── Shared ──────────────────────────────────────────── */
+.container { max-width: 1160px; margin-inline: auto; padding-inline: 2rem; }
+section { padding-block: var(--space-2xl); }
+.section-head { max-width: 680px; margin-bottom: var(--space-xl); }
+.section-eyebrow {
+	font-size: 0.8125rem; font-weight: 600; color: var(--color-primary);
+	letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.75rem;
+}
+.section-lead { font-size: 1.0625rem; color: var(--color-text-muted); line-height: 1.75; margin: 0; }
+.text-primary { color: var(--color-primary); }
+.btn--lg { padding: 1.0625rem 1.875rem; font-size: 1rem; }
+
+/* ── Hero ──────────────────────────────────────────── */
+.hero {
+	position: relative; overflow: hidden;
+	background: linear-gradient(160deg, #f0f5ff 0%, #f8faff 50%, #ffffff 100%);
+	border-bottom: 1px solid var(--color-border);
+}
+.hero-bg {
+	position: absolute; inset: 0; pointer-events: none; z-index: 0;
+}
+.hero-orb {
+	position: absolute; border-radius: 50%; filter: blur(80px);
+}
+.hero-orb--1 {
+	width: 640px; height: 640px; top: -200px; right: -160px;
+	background: radial-gradient(circle, rgba(30,64,175,0.07) 0%, transparent 70%);
+}
+.hero-orb--2 {
+	width: 400px; height: 400px; bottom: -100px; left: -80px;
+	background: radial-gradient(circle, rgba(124,92,191,0.06) 0%, transparent 70%);
+}
+.hero-grid {
+	position: absolute; inset: 0;
+	background-image:
+		linear-gradient(rgba(30,64,175,0.04) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(30,64,175,0.04) 1px, transparent 1px);
+	background-size: 48px 48px;
+}
+
+.hero-inner {
+	position: relative; z-index: 1;
+	display: grid; grid-template-columns: 1.1fr 0.9fr;
+	gap: 4rem; align-items: center;
+	padding-block: var(--space-2xl) var(--space-xl);
+}
+
+.hero-eyebrow {
+	display: inline-flex; align-items: center; gap: 0.5rem;
+	font-size: 0.8125rem; font-weight: 600; color: var(--color-primary);
+	background: rgba(30,64,175,0.08); padding: 0.375rem 0.875rem; border-radius: 999px;
+	letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1.5rem;
+}
+.eyebrow-dot {
+	width: 6px; height: 6px; border-radius: 50%;
+	background: var(--color-primary); display: inline-block;
+}
+
+.hero-copy h1 {
+	font-size: clamp(2.125rem, 3.5vw, 3.375rem); font-weight: 800;
+	line-height: 1.2; letter-spacing: -0.02em; color: var(--color-text);
+	margin: 0 0 1.25rem;
+}
+.hero-accent { color: var(--color-primary); display: block; }
+
+.hero-lead {
+	font-size: 1.125rem; line-height: 1.8; color: var(--color-text-muted);
+	max-width: 560px; margin: 0 0 2rem;
+}
+
+.hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+.btn--hero-primary {
+	display: inline-flex; align-items: center;
+	background: var(--color-primary); color: #fff;
+	padding: 1rem 1.75rem; border-radius: var(--radius);
+	font-weight: 700; font-size: 1rem; text-decoration: none; border: none;
+	transition: background 0.15s ease; white-space: nowrap;
+}
+.btn--hero-primary:hover { background: var(--color-primary-dark); color: #fff; }
+
+.btn--hero-outline {
+	display: inline-flex; align-items: center;
+	background: transparent; color: var(--color-primary);
+	padding: 1rem 1.75rem; border-radius: var(--radius);
+	font-weight: 600; font-size: 1rem; text-decoration: none;
+	border: 1.5px solid var(--color-primary);
+	transition: all 0.15s ease; white-space: nowrap;
+}
+.btn--hero-outline:hover { background: rgba(30,64,175,0.06); }
+
+/* Stats */
+.hero-stats {
+	display: flex; flex-direction: column; gap: 1rem;
+}
+.stat-card {
+	background: #fff; border: 1px solid var(--color-border);
+	border-radius: 12px; padding: 1.5rem 1.75rem;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.stat-card--accent {
+	border-color: var(--color-primary);
+	background: linear-gradient(135deg, #f0f5ff, #fff);
+}
+.stat-num {
+	font-size: 2rem; font-weight: 800; color: var(--color-primary);
+	letter-spacing: -0.02em; line-height: 1; margin-bottom: 0.5rem;
+}
+.stat-unit { font-size: 1rem; font-weight: 600; margin-left: 0.25rem; }
+.stat-label { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.5; }
+
+/* Tools ribbon */
+.hero-tools {
+	position: relative; z-index: 1;
+	border-top: 1px solid var(--color-border);
+	padding: 1.25rem 0; background: rgba(255,255,255,0.7);
+	backdrop-filter: blur(4px);
+}
+.tools-label {
+	font-size: 0.6875rem; font-weight: 600; color: var(--color-text-muted);
+	text-transform: uppercase; letter-spacing: 0.08em;
+	margin: 0 0 0.625rem;
+}
+.tools-row {
+	display: flex; flex-wrap: wrap; align-items: center; gap: 0.375rem 0.75rem;
+	font-size: 0.875rem; color: var(--color-text-muted); font-weight: 500;
+}
+.tools-sep { color: var(--color-border); }
+
+/* ── Why ──────────────────────────────────────────── */
+.why {
+	background: var(--color-bg-subtle);
+	border-top: 1px solid var(--color-border);
+	border-bottom: 1px solid var(--color-border);
+}
+.why-grid {
+	display: grid; grid-template-columns: 1fr 1.1fr; gap: 5rem; align-items: start;
+}
+.why-head h2 {
+	font-size: clamp(1.625rem, 2.5vw, 2.25rem); font-weight: 700;
+	line-height: 1.3; letter-spacing: -0.01em; color: var(--color-text);
+	margin: 0 0 1.25rem;
+}
+
+.why-problems { display: flex; flex-direction: column; gap: 0.75rem; }
+.problem-item {
+	display: flex; gap: 1.25rem; align-items: flex-start;
+	background: #fff; border: 1px solid var(--color-border);
+	border-radius: 10px; padding: 1.25rem 1.5rem;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+}
+.problem-icon {
+	flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%;
+	background: rgba(30,64,175,0.08); color: var(--color-primary);
+	display: inline-flex; align-items: center; justify-content: center;
+	font-weight: 700; font-size: 1rem; margin-top: 2px;
+}
+.problem-item h4 { margin: 0 0 0.25rem; font-size: 1rem; font-weight: 600; color: var(--color-text); }
+.problem-item p { margin: 0; font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.65; }
+
+/* ── How ──────────────────────────────────────────── */
+.how { background: var(--color-bg); }
+.how-grid {
+	display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+}
+.how-copy h2 {
+	font-size: clamp(1.625rem, 2.5vw, 2.25rem); font-weight: 700;
+	line-height: 1.3; letter-spacing: -0.01em; color: var(--color-text);
+	margin: 0 0 1.25rem;
+}
+
+/* Flow diagram */
+.flow-diagram {
+	background: #fff; border: 1px solid var(--color-border);
+	border-radius: 16px; padding: 2rem; box-shadow: var(--shadow-sm);
+	display: flex; flex-direction: column; align-items: center; gap: 0.625rem;
+}
+.flow-step {
+	width: 100%; border-radius: 10px;
+	background: #f0f5ff; border: 1px solid rgba(30,64,175,0.2);
+	padding: 0.875rem 1.25rem;
+	display: flex; flex-direction: column; align-items: flex-start; gap: 0.25rem;
+}
+.flow-step--top { background: rgba(30,64,175,0.06); }
+.flow-step--mid { background: rgba(30,64,175,0.04); }
+.flow-step--bot { background: rgba(124,92,191,0.05); border-color: rgba(124,92,191,0.2); }
+.flow-label { font-size: 0.75rem; font-weight: 600; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+.flow-tools { font-size: 0.875rem; font-weight: 600; color: var(--color-text); }
+.flow-arrow { font-size: 1.25rem; color: var(--color-primary); opacity: 0.5; line-height: 1; }
+.flow-center {
+	width: 100%; border-radius: 10px;
+	background: linear-gradient(135deg, var(--color-primary), #1d4ed8);
+	padding: 1rem 1.25rem; text-align: center;
+	display: flex; flex-direction: column; gap: 0.25rem;
+}
+.flow-center-label { font-size: 0.875rem; font-weight: 700; color: #fff; }
+.flow-center-sub { font-size: 0.75rem; color: rgba(255,255,255,0.7); }
+.flow-kpi {
+	margin-top: 0.375rem; width: 100%;
+	display: flex; align-items: center; gap: 0.5rem;
+	font-size: 0.75rem; color: var(--color-text-muted);
+	background: #f8f9fa; border-radius: 8px; padding: 0.625rem 1rem;
+	border: 1px solid var(--color-border);
+}
+.flow-kpi-arrow { color: var(--color-primary); font-weight: 700; }
+
+.how-points { list-style: none; padding: 0; margin: 1.5rem 0 2rem; display: flex; flex-direction: column; gap: 1.25rem; }
+.how-points li {
+	display: flex; gap: 1.25rem; align-items: flex-start;
+}
+.how-num {
+	flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%;
+	border: 1.5px solid var(--color-primary); color: var(--color-primary);
+	display: inline-flex; align-items: center; justify-content: center;
+	font-size: 0.75rem; font-weight: 700; margin-top: 2px;
+}
+.how-points strong { display: block; font-size: 1rem; font-weight: 700; color: var(--color-text); margin-bottom: 0.25rem; }
+.how-points p { margin: 0; font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.65; }
+
+.btn--outline-primary {
+	display: inline-flex; align-items: center;
+	background: transparent; color: var(--color-primary);
+	padding: 0.875rem 1.5rem; border-radius: var(--radius);
+	font-weight: 600; font-size: 0.9375rem; text-decoration: none;
+	border: 1.5px solid var(--color-primary);
+	transition: all 0.15s ease;
+}
+.btn--outline-primary:hover { background: rgba(30,64,175,0.06); }
+
+/* ── Services Overview ─────────────────────────────── */
+.services-overview { background: var(--color-bg-subtle); border-top: 1px solid var(--color-border); }
+.svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+
+.svc-card {
+	background: #fff; border: 1px solid var(--color-border);
+	border-radius: 14px; padding: 2rem;
+	display: flex; flex-direction: column; position: relative;
+	transition: box-shadow 0.15s ease;
+}
+.svc-card:hover { box-shadow: var(--shadow-sm); }
+.svc-card--featured {
+	background: linear-gradient(145deg, #1e40af 0%, #1d4ed8 55%, #7c5cbf 100%);
+	border-color: transparent;
+	box-shadow: 0 8px 32px rgba(30,64,175,0.25);
+}
+
+.svc-badge {
+	position: absolute; top: -13px; left: 1.5rem;
+	background: #fff; color: var(--color-primary);
+	border: 1.5px solid var(--color-primary);
+	font-size: 0.75rem; font-weight: 700;
+	padding: 0.3rem 0.8rem; border-radius: 999px;
+}
+.svc-card--featured .svc-badge {
+	background: var(--color-primary); color: #fff; border-color: transparent;
+}
+
+.svc-card__head { margin-bottom: 1rem; }
+.svc-step {
+	display: inline-block; font-size: 0.6875rem; font-weight: 700;
+	color: var(--color-primary); background: #e8efff;
+	padding: 0.2rem 0.625rem; border-radius: 999px;
+	letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.625rem;
+}
+.svc-step--light { color: rgba(255,255,255,0.8); background: rgba(255,255,255,0.15); }
+.svc-card h3 { margin: 0 0 0.5rem; font-size: 1.125rem; font-weight: 700; color: var(--color-text); }
+.svc-card--featured h3 { color: #fff; }
+.svc-price-range { margin: 0; font-size: 1.0625rem; font-weight: 700; color: var(--color-primary); }
+.svc-price-range--light { color: rgba(255,255,255,0.9); }
+
+.svc-desc { font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.7; margin: 0 0 1.25rem; flex: 1; }
+.svc-desc--light { color: rgba(255,255,255,0.8); }
+
+.svc-items { list-style: none; padding: 0; margin: 0 0 1.25rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.svc-items li {
+	font-size: 0.875rem; color: var(--color-text); padding-left: 1.25rem; position: relative; line-height: 1.5;
+}
+.svc-items li::before { content: "✓"; position: absolute; left: 0; color: var(--color-primary); font-weight: 700; }
+.svc-items--light li { color: rgba(255,255,255,0.85); }
+.svc-items--light li::before { color: #93c5fd; }
+
+.svc-plans { display: flex; flex-direction: column; gap: 0.375rem; margin-bottom: 1.25rem; padding: 0.875rem; background: var(--color-bg-subtle); border-radius: 8px; }
+.svc-plan { display: flex; justify-content: space-between; align-items: center; }
+.svc-plan__name { font-size: 0.8125rem; color: var(--color-text-muted); font-weight: 500; }
+.svc-plan__price { font-size: 0.8125rem; color: var(--color-text); font-weight: 600; }
+
+.svc-cta {
+	display: inline-flex; align-items: center; justify-content: center;
+	padding: 0.875rem 1.25rem; border-radius: var(--radius);
+	font-weight: 600; font-size: 0.9375rem; text-decoration: none;
+	transition: all 0.15s ease; width: 100%;
+}
+
+.btn--primary.svc-cta {
+	background: var(--color-primary); color: #fff; border: none;
+}
+.btn--primary.svc-cta:hover { background: var(--color-primary-dark); }
+
+.btn--white {
+	background: #fff; color: var(--color-primary); border: none;
+}
+.btn--white:hover { background: #f0f5ff; color: var(--color-primary); }
+
+.svc-footer { margin-top: var(--space-lg); display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; }
+
+/* ── Case Studies ──────────────────────────────────── */
+.cases { background: var(--color-bg); border-top: 1px solid var(--color-border); }
+.cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+
+.case-card {
+	background: #fff; border: 1px solid var(--color-border);
+	border-radius: 12px; overflow: hidden;
+	display: flex; flex-direction: column;
+	transition: box-shadow 0.15s ease;
+}
+.case-card:hover { box-shadow: var(--shadow-sm); }
+.case-img { aspect-ratio: 16/9; overflow: hidden; background: var(--color-bg-subtle); }
+.case-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.case-body { padding: 1.25rem 1.5rem; display: flex; flex-direction: column; flex: 1; }
+.case-tag {
+	font-size: 0.6875rem; font-weight: 600; color: var(--color-primary);
+	text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 0.5rem;
+}
+.case-title { font-size: 0.9375rem; font-weight: 600; color: var(--color-text); line-height: 1.5; margin: 0 0 0.625rem; }
+.case-desc { font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.6; margin: 0 0 1rem; flex: 1; }
+.case-link {
+	font-size: 0.875rem; font-weight: 600; color: var(--color-primary);
+	text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem;
+}
+.case-link:hover { text-decoration: underline; }
+
+/* ── Blog ──────────────────────────────────────────── */
+.blog-section {
+	background: var(--color-bg-subtle);
+	border-top: 1px solid var(--color-border);
+	border-bottom: 1px solid var(--color-border);
+}
+.blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.blog-card {
+	background: #fff; border: 1px solid var(--color-border);
+	border-radius: 10px; overflow: hidden;
+	display: flex; flex-direction: column;
+}
+.blog-img { aspect-ratio: 16/9; overflow: hidden; background: var(--color-bg-subtle); }
+.blog-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.blog-body { padding: 1.25rem; flex: 1; }
+.blog-title { margin: 0 0 0.5rem; font-size: 0.9375rem; font-weight: 600; line-height: 1.5; }
+.blog-title a { color: var(--color-text); text-decoration: none; }
+.blog-title a:hover { color: var(--color-primary); }
+.blog-desc { margin: 0; font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.6; }
+
+/* ── Final CTA ─────────────────────────────────────── */
+.final-cta {
+	background:
+		radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%),
+		linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+	color: #fff;
+}
+.cta-inner {
+	display: grid; grid-template-columns: 1.2fr 1fr;
+	gap: 4rem; align-items: center;
+}
+.cta-eyebrow {
+	font-size: 0.8125rem; font-weight: 600; color: #93c5fd;
+	letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 1rem;
+}
+.cta-copy h2 {
+	color: #fff; font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+	line-height: 1.3; font-weight: 700; margin: 0 0 1.25rem;
+}
+.cta-lead { color: #bfdbfe; font-size: 1.0625rem; line-height: 1.75; margin: 0 0 2rem; }
+.cta-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+.btn--cta-primary {
+	display: inline-flex; align-items: center; justify-content: center;
+	padding: 1rem 1.75rem; border-radius: var(--radius);
+	font-weight: 700; font-size: 1rem; text-decoration: none;
+	background: #fff; color: var(--color-primary); border: none;
+	transition: background 0.15s ease; white-space: nowrap;
+}
+.btn--cta-primary:hover { background: #e0eaff; color: var(--color-primary); }
+
+.btn--cta-outline {
+	display: inline-flex; align-items: center; justify-content: center;
+	padding: 1rem 1.75rem; border-radius: var(--radius);
+	font-weight: 600; font-size: 1rem; text-decoration: none;
+	background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.45);
+	transition: all 0.15s ease; white-space: nowrap;
+}
+.btn--cta-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+
+.cta-checklist {
+	background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+	border-radius: 12px; padding: 2rem; backdrop-filter: blur(8px);
+}
+.cta-checklist h4 {
+	margin: 0 0 1rem; font-size: 0.8125rem; color: #93c5fd;
+	letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600;
+}
+.cta-checklist ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0; }
+.cta-checklist li {
+	display: flex; align-items: flex-start; gap: 0.75rem;
+	padding: 0.5625rem 0; font-size: 0.9375rem; color: #e0eaff;
+	border-bottom: 1px solid rgba(255,255,255,0.1); line-height: 1.55;
+}
+.cta-checklist li:last-child { border-bottom: none; }
+.cta-checklist li::before {
+	content: ""; flex-shrink: 0; margin-top: 9px;
+	width: 5px; height: 5px; border-radius: 50%; background: #93c5fd;
+}
+
+/* ── Responsive ─────────────────────────────────────── */
+@media (max-width: 1024px) {
+	.hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+	.hero-stats { flex-direction: row; }
+	.stat-card { flex: 1; }
+	.why-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+	.how-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+	.svc-grid { grid-template-columns: 1fr; max-width: 560px; }
+}
+@media (max-width: 768px) {
+	.cases-grid, .blog-grid { grid-template-columns: 1fr; }
+	.cta-inner { grid-template-columns: 1fr; gap: 2rem; }
+	.hero-stats { flex-direction: column; }
+	.tools-row { gap: 0.25rem 0.5rem; font-size: 0.8125rem; }
+}
+@media (max-width: 560px) {
+	.hero-actions, .cta-actions { flex-direction: column; }
+	.btn--hero-primary, .btn--hero-outline,
+	.btn--cta-primary, .btn--cta-outline { width: 100%; justify-content: center; }
+}
+</style>

@@ -1,50 +1,268 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import PageHero from '../../components/PageHero.astro';
-import Card from '../../components/Card.astro';
-import CardGrid from '../../components/CardGrid.astro';
-import CTA from '../../components/CTA.astro';
 import { getCollection } from 'astro:content';
 
 const services = (await getCollection('services', ({ data }) => data.lang !== 'en'))
-	.sort((a, b) => a.data.order - b.data.order);
+	.sort((a, b) => a.data.order - b.data.order)
+	.filter((s) => ['revenue-architecture-design','marketing-strategy-design','revops-ma-crm-sfa-implementation','hubspot-implementation-consulting','operational-adoption-optimization'].includes(s.data.slug));
 ---
 
 <BaseLayout
-	title="サービス | Consilegy"
-	description="レベニューアーキテクチャ設計、マーケティング戦略、MA/CRM/SFAの実装と運用定着まで。収益構造として支援します。"
+	title="サービス一覧 | Consilegy"
+	description="レベニューアーキテクチャ設計、マーケティング戦略設計、CRM / RevOps実装支援、HubSpot導入・運用支援、運用定着・改善支援。Consilegyが提供する5つの支援領域。"
+	lang="ja"
 >
-	<PageHero
-		eyebrow="Services"
-		title="サービス"
-		lede="戦略と現場のギャップを埋めるために、構造設計・実装・運用の三本柱で支援します。ツール導入だけで終わらせず、計測と改善が回る状態をつくります。"
-	/>
 
-	<section class="container service-list">
-		<CardGrid columns={2}>
-			{services.map((s) => (
-				<Card
-					href={`/services/${s.data.slug}/`}
-					title={s.data.title}
-					description={s.data.description}
-					meta={s.data.target.length > 48
-						? `${s.data.target.slice(0, 48)}…`
-						: s.data.target}
-					moreLabel="サービス詳細を見る"
-				/>
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+	<div class="container">
+		<span class="eyebrow"><span class="eyebrow__dot"></span>Services</span>
+		<h1>サービス</h1>
+		<p class="hero-lead">
+			Consilegyが提供する支援領域。収益プロセスの設計から実装・定着まで、
+			課題のフェーズに合わせて5つのサービスを用意しています。
+		</p>
+		<div class="hero-note">
+			料金・プランについては <a href="/pricing/">料金プランページ</a> をご確認ください。
+		</div>
+	</div>
+</section>
+
+<!-- ===================== SERVICE CARDS ===================== -->
+<section class="services">
+	<div class="container">
+		<div class="svc-list">
+			{services.map((s, i) => (
+				<article class="svc-card" id={s.data.slug}>
+					<div class="svc-card__num">0{i + 1}</div>
+					<div class="svc-card__body">
+						<h2 class="svc-card__title">{s.data.title}</h2>
+						<p class="svc-card__desc">{s.data.description}</p>
+						{s.data.lead && <p class="svc-card__lead">{s.data.lead}</p>}
+						{s.data.target && (
+							<div class="svc-card__target">
+								<span class="target-label">こんな方へ</span>
+								<p>{s.data.target}</p>
+							</div>
+						)}
+						<a href={`/services/${s.data.slug}/`} class="btn btn--primary svc-cta">
+							{s.data.ctaText || '詳しく見る'} →
+						</a>
+					</div>
+				</article>
 			))}
-		</CardGrid>
-	</section>
+		</div>
+	</div>
+</section>
 
-	<CTA
-		title="サービス選定や優先順位の整理からでもご相談ください。"
-		href="/contact/"
-		label="お問い合わせ"
-	/>
+<!-- ===================== PRICING BRIDGE ===================== -->
+<section class="pricing-bridge">
+	<div class="container">
+		<div class="bridge-inner">
+			<div class="bridge-copy">
+				<p class="section-eyebrow">Pricing</p>
+				<h2>料金プランはこちら</h2>
+				<p class="section-lead">
+					診断パッケージ（10〜50万円）、マルチCRM再設計プロジェクト（250〜500万円）、
+					伴走・顧問支援（月額30〜100万円）の3つのプランを用意しています。
+				</p>
+			</div>
+			<div class="bridge-actions">
+				<a href="/pricing/" class="btn btn--primary btn--lg">料金プランを見る →</a>
+				<a href="/free-consultation/" class="btn btn--outline btn--lg">CRM / RevOps診断を依頼する</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== FINAL CTA ===================== -->
+<section class="final-cta">
+	<div class="container cta-inner">
+		<div>
+			<p class="cta-eyebrow">Get Started</p>
+			<h2>まずはCRM / RevOps診断から<br />ご相談ください</h2>
+			<p class="cta-lead">
+				初回ご相談は無料。現状のツール構成・組織・データフローをヒアリングし、
+				再設計の優先順位とプロジェクト規模感をお伝えします。
+			</p>
+			<div class="cta-actions">
+				<a href="/free-consultation/" class="btn btn--cta-primary btn--lg">CRM / RevOps 診断を依頼する →</a>
+				<a href="/download/" class="btn btn--cta-outline btn--lg">サービス資料をダウンロード</a>
+			</div>
+		</div>
+		<div class="cta-card">
+			<h4>ご相談時にお伺いする内容</h4>
+			<ul class="cta-list">
+				<li>現在ご利用中のCRM / SFA / MAツール構成</li>
+				<li>事業部・組織体制（規模・部門数）</li>
+				<li>現状の課題・優先度の高いテーマ</li>
+				<li>想定スケジュールと社内ステークホルダー</li>
+				<li>過去の導入・移行プロジェクトの経緯</li>
+			</ul>
+		</div>
+	</div>
+</section>
+
 </BaseLayout>
 
 <style>
-	.service-list {
-		padding-block: var(--space-xl);
-	}
+/* ── Shared ──────────────────────────────────────────── */
+.section-eyebrow {
+	font-size: 0.8125rem; font-weight: 600; color: var(--color-primary);
+	letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.75rem;
+}
+.section-lead { font-size: 1.0625rem; color: var(--color-text-muted); line-height: 1.75; margin: 0; }
+.btn--lg { padding: 1.0625rem 1.875rem; font-size: 1rem; }
+
+/* ── Hero ──────────────────────────────────────────── */
+.hero {
+	background: linear-gradient(180deg, var(--color-bg-subtle) 0%, var(--color-bg) 100%);
+	border-bottom: 1px solid var(--color-border);
+	padding-block: var(--space-2xl) var(--space-xl);
+}
+.eyebrow {
+	display: inline-flex; align-items: center; gap: 0.5rem;
+	font-size: 0.8125rem; font-weight: 600; color: var(--color-primary);
+	background: rgba(30,64,175,0.08); padding: 0.375rem 0.875rem; border-radius: 999px;
+	letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1.25rem;
+}
+.eyebrow__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--color-primary); display: inline-block; }
+.hero h1 {
+	font-size: clamp(2.25rem, 4vw, 3.25rem); font-weight: 800;
+	letter-spacing: -0.02em; margin: 0 0 1rem; color: var(--color-text); line-height: 1.2;
+}
+.hero-lead { font-size: 1.125rem; line-height: 1.75; color: var(--color-text-muted); max-width: 640px; margin: 0 0 1.5rem; }
+.hero-note {
+	font-size: 0.9375rem; color: var(--color-text-muted);
+	padding: 0.75rem 1.25rem; background: #f0f5ff; border-radius: 8px;
+	border-left: 3px solid var(--color-primary); display: inline-block;
+}
+.hero-note a { color: var(--color-primary); font-weight: 600; }
+
+/* ── Services ──────────────────────────────────────── */
+.services { padding-block: var(--space-2xl); }
+.svc-list { display: flex; flex-direction: column; gap: 2rem; }
+
+.svc-card {
+	display: grid; grid-template-columns: 80px 1fr;
+	gap: 2rem; align-items: start;
+	padding: 2.5rem; background: #fff;
+	border: 1px solid var(--color-border); border-radius: 14px;
+	transition: box-shadow 0.15s ease;
+}
+.svc-card:hover { box-shadow: var(--shadow-sm); }
+
+.svc-card__num {
+	font-size: 2.5rem; font-weight: 800; color: rgba(30,64,175,0.12);
+	letter-spacing: -0.03em; line-height: 1; padding-top: 0.25rem;
+	text-align: center;
+}
+
+.svc-card__title { font-size: 1.375rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.75rem; }
+.svc-card__desc { font-size: 1.0625rem; color: var(--color-text-muted); line-height: 1.7; margin: 0 0 1rem; }
+.svc-card__lead { font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.75; margin: 0 0 1.25rem; }
+
+.svc-card__target {
+	padding: 0.875rem 1.125rem; background: var(--color-bg-subtle);
+	border-radius: 8px; border-left: 3px solid var(--color-primary);
+	margin-bottom: 1.5rem;
+}
+.target-label {
+	font-size: 0.6875rem; font-weight: 700; color: var(--color-primary);
+	text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 0.375rem;
+}
+.svc-card__target p { margin: 0; font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.65; }
+
+.svc-cta {
+	display: inline-flex; align-items: center;
+	background: var(--color-primary); color: #fff;
+	padding: 0.75rem 1.5rem; border-radius: var(--radius);
+	font-weight: 600; font-size: 0.9375rem; text-decoration: none; border: none;
+	transition: background 0.15s ease;
+}
+.svc-cta:hover { background: var(--color-primary-dark); color: #fff; }
+
+/* ── Pricing bridge ────────────────────────────────── */
+.pricing-bridge {
+	background: var(--color-bg-subtle);
+	border-top: 1px solid var(--color-border);
+	border-bottom: 1px solid var(--color-border);
+	padding-block: var(--space-xl);
+}
+.bridge-inner {
+	display: flex; align-items: center; justify-content: space-between;
+	gap: 3rem; flex-wrap: wrap;
+}
+.bridge-copy h2 { font-size: 1.75rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.75rem; }
+.bridge-actions { display: flex; gap: 0.75rem; flex-shrink: 0; flex-wrap: wrap; }
+
+.btn--outline {
+	display: inline-flex; align-items: center;
+	background: transparent; color: var(--color-primary);
+	padding: 1.0625rem 1.875rem; border-radius: var(--radius);
+	font-weight: 600; font-size: 1rem; text-decoration: none;
+	border: 1.5px solid var(--color-primary);
+	transition: all 0.15s ease;
+}
+.btn--outline:hover { background: rgba(30,64,175,0.06); }
+
+/* ── Final CTA ─────────────────────────────────────── */
+.final-cta {
+	background:
+		radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%),
+		linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+	color: #fff;
+	padding-block: var(--space-2xl);
+}
+.cta-inner { display: grid; grid-template-columns: 1.3fr 1fr; gap: 4rem; align-items: center; }
+.cta-eyebrow {
+	font-size: 0.8125rem; font-weight: 600; color: #93c5fd;
+	letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 1rem;
+}
+.cta-inner h2 { color: #fff; font-size: clamp(1.75rem, 2.5vw, 2.5rem); line-height: 1.3; font-weight: 700; margin: 0 0 1.25rem; }
+.cta-lead { color: #bfdbfe; font-size: 1.0625rem; line-height: 1.75; margin: 0 0 2rem; }
+.cta-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+.btn--cta-primary {
+	display: inline-flex; align-items: center; justify-content: center;
+	padding: 1.0625rem 1.875rem; border-radius: var(--radius);
+	font-weight: 700; font-size: 1rem; text-decoration: none;
+	background: #fff; color: var(--color-primary); border: none;
+	transition: background 0.15s ease;
+}
+.btn--cta-primary:hover { background: #e0eaff; color: var(--color-primary); }
+
+.btn--cta-outline {
+	display: inline-flex; align-items: center; justify-content: center;
+	padding: 1.0625rem 1.875rem; border-radius: var(--radius);
+	font-weight: 600; font-size: 1rem; text-decoration: none;
+	background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.45);
+	transition: all 0.15s ease;
+}
+.btn--cta-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+
+.cta-card {
+	background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+	border-radius: 12px; padding: 2rem; backdrop-filter: blur(10px);
+}
+.cta-card h4 { margin: 0 0 1rem; font-size: 0.8125rem; color: #93c5fd; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+.cta-list { list-style: none; padding: 0; margin: 0; }
+.cta-list li {
+	display: flex; gap: 0.75rem; align-items: flex-start;
+	padding: 0.5rem 0; font-size: 0.9375rem; color: #e0eaff;
+	border-bottom: 1px solid rgba(255,255,255,0.1); line-height: 1.6;
+}
+.cta-list li:last-child { border-bottom: none; }
+.cta-list li::before { content: ""; flex-shrink: 0; margin-top: 9px; width: 5px; height: 5px; border-radius: 50%; background: #93c5fd; }
+
+/* ── Responsive ─────────────────────────────────────── */
+@media (max-width: 768px) {
+	.svc-card { grid-template-columns: 1fr; gap: 0; }
+	.svc-card__num { display: none; }
+	.bridge-inner { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+	.cta-inner { grid-template-columns: 1fr; gap: 2rem; }
+}
+@media (max-width: 560px) {
+	.cta-actions { flex-direction: column; }
+}
 </style>

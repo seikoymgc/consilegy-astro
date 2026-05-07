@@ -43,7 +43,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":318,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/04/microsoftclarity-01-1024x575.jpg" alt="" class="wp-image-318"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/04/microsoftclarity-01-1024x575.jpg" alt="" class="wp-image-318"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -51,7 +51,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":319,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/04/microsoftclarity-02-1024x581.jpg" alt="" class="wp-image-319"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/04/microsoftclarity-02-1024x581.jpg" alt="" class="wp-image-319"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -59,7 +59,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":322,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/04/microsoftclarity-03-1-1024x581.png" alt="" class="wp-image-322"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/04/microsoftclarity-03-1-1024x581.png" alt="" class="wp-image-322"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -67,7 +67,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":323,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/04/microsoftclarity-04-1024x459.png" alt="" class="wp-image-323"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/04/microsoftclarity-04-1024x459.png" alt="" class="wp-image-323"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -75,7 +75,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":324,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/04/microsoftclarity-05-1024x483.jpg" alt="" class="wp-image-324"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/04/microsoftclarity-05-1024x483.jpg" alt="" class="wp-image-324"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -111,7 +111,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":325,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/04/microsoftclarity-06-1024x579.png" alt="" class="wp-image-325"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/04/microsoftclarity-06-1024x579.png" alt="" class="wp-image-325"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -119,7 +119,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":326,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/04/microsoftclarity-07-1024x964.png" alt="" class="wp-image-326"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/04/microsoftclarity-07-1024x964.png" alt="" class="wp-image-326"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -143,7 +143,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":327,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/04/clarity-gtm-01-1024x533.jpg" alt="" class="wp-image-327"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/04/clarity-gtm-01-1024x533.jpg" alt="" class="wp-image-327"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -151,7 +151,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":329,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/04/clarity-gtm-02-1024x304.jpg" alt="" class="wp-image-329"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/04/clarity-gtm-02-1024x304.jpg" alt="" class="wp-image-329"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -163,7 +163,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":330,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/04/clarity-gtm-03-1024x579.jpg" alt="" class="wp-image-330"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/04/clarity-gtm-03-1024x579.jpg" alt="" class="wp-image-330"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -171,7 +171,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":331,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/04/clarity-gtm-04-1024x580.jpg" alt="" class="wp-image-331"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/04/clarity-gtm-04-1024x580.jpg" alt="" class="wp-image-331"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -183,7 +183,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":332,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/04/clarity-gtm-05-1024x467.png" alt="" class="wp-image-332"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/04/clarity-gtm-05-1024x467.png" alt="" class="wp-image-332"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->

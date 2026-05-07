@@ -79,7 +79,7 @@ categories:
 <!-- /wp:heading -->
 
 <!-- wp:image {"id":27060,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2025/02/wofkflow-1-1024x585.webp" alt="" class="wp-image-27060"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2025/02/wofkflow-1-1024x585.webp" alt="" class="wp-image-27060"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -171,7 +171,7 @@ categories:
 <!-- /wp:heading -->
 
 <!-- wp:image {"id":27061,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2025/02/workflow-2-1024x585.webp" alt="" class="wp-image-27061"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2025/02/workflow-2-1024x585.webp" alt="" class="wp-image-27061"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3} -->
@@ -211,7 +211,7 @@ categories:
 <!-- /wp:heading -->
 
 <!-- wp:image {"id":27006,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2025/01/marvin-meyer-SYTO3xs06fU-unsplash-2-1024x682.jpg" alt="プロジェクトマネジメント" class="wp-image-27006"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2025/01/marvin-meyer-SYTO3xs06fU-unsplash-2-1024x682.jpg" alt="プロジェクトマネジメント" class="wp-image-27006"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->

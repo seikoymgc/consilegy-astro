@@ -35,7 +35,7 @@ hasShortcodes: true
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
 
-<!-- wp:kadence/column {"borderWidth":["","","",""],"uniqueID":"28403_ff475a-54","backgroundImg":[{"bgImg":"https://consilegy.com/wp/wp-content/uploads/2026/03/from-pink-to-f7f7f7-1.svg","bgImgID":28212,"bgImgSize":"cover","bgImgPosition":"center center","bgImgAttachment":"fixed","bgImgRepeat":"no-repeat"}],"align":"full","margin":["","",0,""],"kbVersion":2} -->
+<!-- wp:kadence/column {"borderWidth":["","","",""],"uniqueID":"28403_ff475a-54","backgroundImg":[{"bgImg":"/images/media/2026/03/from-pink-to-f7f7f7-1.svg","bgImgID":28212,"bgImgSize":"cover","bgImgPosition":"center center","bgImgAttachment":"fixed","bgImgRepeat":"no-repeat"}],"align":"full","margin":["","",0,""],"kbVersion":2} -->
 <div class="wp-block-kadence-column kadence-column28403_ff475a-54 alignfull"><div class="kt-inside-inner-col"><!-- wp:columns {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"backgroundColor":"contrast"} -->
 <div class="wp-block-columns alignfull has-contrast-background-color has-background" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)"><!-- wp:column {"layout":{"type":"constrained","contentSize":"1280px"}} -->
 <div class="wp-block-column"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"constrained"}} -->

@@ -39,7 +39,7 @@ tags:
 <!-- /wp:heading -->
 
 <!-- wp:image {"id":26,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="https://consilegy.com/wp/wp-content/uploads/2021/08/youtube-ads-skip.jpeg" alt="" class="wp-image-26"/></figure>
+<figure class="wp-block-image size-full"><img src="/images/media/2021/08/youtube-ads-skip.jpeg" alt="" class="wp-image-26"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->

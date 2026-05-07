@@ -134,7 +134,7 @@ categories:
 <!-- /wp:heading -->
 
 <!-- wp:image {"id":26887,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2025/01/image-1024x585.webp" alt="" class="wp-image-26887"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2025/01/image-1024x585.webp" alt="" class="wp-image-26887"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->

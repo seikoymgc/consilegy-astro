@@ -29,7 +29,7 @@ categories:
 <h2>なぜ今、GEO（生成エンジン最適化）なのか？</h2>
 <!-- /wp:heading -->
 <!-- wp:image {"linkDestination":"none","className":"size-large"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2025/06/image-1024x682.jpg" alt=""/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2025/06/image-1024x682.jpg" alt=""/></figure>
 <!-- /wp:image -->
 <!-- wp:paragraph {"style":{"color":{"text":"rgb(0, 0, 0)"}}} -->
 <p class="has-text-color" style="color: rgb(0, 0, 0)">従来のSEO（検索エンジン最適化）は、Googleのような検索エンジンに対し、特定のキーワードで上位に表示されるよう最適化する手法でした。</p>
@@ -138,7 +138,7 @@ categories:
 <h2>継続的な改善とAIの進化への対応</h2>
 <!-- /wp:heading -->
 <!-- wp:image {"linkDestination":"none","className":"size-large"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2025/06/image-1-1024x682.jpg" alt=""/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2025/06/image-1-1024x682.jpg" alt=""/></figure>
 <!-- /wp:image -->
 <!-- wp:paragraph {"style":{"color":{"text":"rgb(0, 0, 0)"}}} -->
 <p class="has-text-color" style="color: rgb(0, 0, 0)">AI検索エンジンは常に進化しています。その変化に対応するには、次のような継続的な取り組みが必要です。</p>
@@ -182,7 +182,7 @@ categories:
 <p class="has-text-color" style="color: rgb(0, 0, 0)">このようなコンテンツこそが、AIにも人間にも選ばれる情報になっていくのです。</p>
 <!-- /wp:paragraph -->
 <!-- wp:image {"linkDestination":"none","className":"size-large"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2025/06/image-2-1024x683.jpg" alt=""/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2025/06/image-2-1024x683.jpg" alt=""/></figure>
 <!-- /wp:image -->
 <!-- wp:paragraph {"style":{"color":{"text":"rgb(0, 0, 0)"}}} -->
 <p class="has-text-color" style="color: rgb(0, 0, 0)">これからの時代、ただ検索順位を上げるだけでは不十分です。重要なのは、生成AIがあなたの情報を引用し、信頼し、紹介するかどうか。</p>

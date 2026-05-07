@@ -69,7 +69,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":473,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/05/c4fa065ffcb6448c32a12ae32361fb44-5-1-1024x568.jpg" alt="" class="wp-image-473"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/05/c4fa065ffcb6448c32a12ae32361fb44-5-1-1024x568.jpg" alt="" class="wp-image-473"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -85,7 +85,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":479,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/05/04f70afebdedc0d6c3f56887edf7b941-1024x498.png" alt="" class="wp-image-479"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/05/04f70afebdedc0d6c3f56887edf7b941-1024x498.png" alt="" class="wp-image-479"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -101,7 +101,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":480,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/05/04f70afebdedc0d6c3f56887edf7b941-1-1024x525.jpg" alt="" class="wp-image-480"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/05/04f70afebdedc0d6c3f56887edf7b941-1-1024x525.jpg" alt="" class="wp-image-480"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -109,7 +109,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":484,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/05/c4fa065ffcb6448c32a12ae32361fb44-5-2-1024x599.jpg" alt="" class="wp-image-484"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/05/c4fa065ffcb6448c32a12ae32361fb44-5-2-1024x599.jpg" alt="" class="wp-image-484"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -117,7 +117,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":485,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="https://consilegy.com/wp/wp-content/uploads/2022/05/910046813152ab488fdbfff8ee5f9a9d-9-1024x503-1.png" alt="" class="wp-image-485"/></figure>
+<figure class="wp-block-image size-full"><img src="/images/media/2022/05/910046813152ab488fdbfff8ee5f9a9d-9-1024x503-1.png" alt="" class="wp-image-485"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -125,7 +125,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":482,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/05/910046813152ab488fdbfff8ee5f9a9d-8-1024x390.png" alt="" class="wp-image-482"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/05/910046813152ab488fdbfff8ee5f9a9d-8-1024x390.png" alt="" class="wp-image-482"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -133,7 +133,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":486,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/05/910046813152ab488fdbfff8ee5f9a9d-10-1024x492.jpg" alt="" class="wp-image-486"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/05/910046813152ab488fdbfff8ee5f9a9d-10-1024x492.jpg" alt="" class="wp-image-486"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -149,7 +149,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":487,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/05/910046813152ab488fdbfff8ee5f9a9d-10-1-1024x505.jpg" alt="" class="wp-image-487"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/05/910046813152ab488fdbfff8ee5f9a9d-10-1-1024x505.jpg" alt="" class="wp-image-487"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->

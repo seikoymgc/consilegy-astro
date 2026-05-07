@@ -34,7 +34,7 @@ categories:
 <h2>1. Lead Segmentation and Scoring</h2>
 <!-- /wp:heading -->
 <!-- wp:image {"linkDestination":"none","className":"size-large"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2025/03/image-21-1024x585.webp" alt=""/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2025/03/image-21-1024x585.webp" alt=""/></figure>
 <!-- /wp:image -->
 <!-- wp:paragraph {"style":{"color":{"text":"rgb(0, 0, 0)"}}} -->
 <p class="has-text-color" style="color: rgb(0, 0, 0)">In B2B sales, the &quot;quality&quot; of prospects (leads) greatly influences the success of business discussions and orders. Information as basic as &quot;they&#039;ve downloaded materials once&quot; is insufficient for determining priorities.</p>
@@ -91,7 +91,7 @@ categories:
 <h2>Case Study: Company I&#039;s Approach</h2>
 <!-- /wp:heading -->
 <!-- wp:image {"linkDestination":"none","className":"size-large"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2025/03/image-60-681x1024.jpg" alt=""/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2025/03/image-60-681x1024.jpg" alt=""/></figure>
 <!-- /wp:image -->
 <!-- wp:paragraph {"style":{"color":{"text":"rgb(0, 0, 0)"}}} -->
 <p class="has-text-color" style="color: rgb(0, 0, 0)">As a practical example, Company I fundamentally revised their lead nurturing flow.</p>

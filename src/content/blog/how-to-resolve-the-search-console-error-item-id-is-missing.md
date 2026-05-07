@@ -17,7 +17,7 @@ categories:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":360,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/04/search-console-breadbramb-1024x460.jpg" alt="" class="wp-image-360"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/04/search-console-breadbramb-1024x460.jpg" alt="" class="wp-image-360"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -33,7 +33,7 @@ categories:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":361,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/04/BreadcrumbList-Schema.org_-1024x366.png" alt="" class="wp-image-361"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/04/BreadcrumbList-Schema.org_-1024x366.png" alt="" class="wp-image-361"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:code -->

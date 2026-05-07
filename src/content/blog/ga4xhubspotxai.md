@@ -32,7 +32,7 @@ categories:
 <p class="has-text-color" style="color: rgb(0, 0, 0)">早速、GA4・HubSpot・AIそれぞれの役割と具体的な活用方法を見ていきましょう。</p>
 <!-- /wp:paragraph -->
 <!-- wp:image {"linkDestination":"none","className":"size-large"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2025/03/image-53-1024x682.jpg" alt=""/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2025/03/image-53-1024x682.jpg" alt=""/></figure>
 <!-- /wp:image -->
 <!-- wp:paragraph {"style":{"color":{"text":"rgb(0, 0, 0)"}}} -->
 <p class="has-text-color" style="color: rgb(0, 0, 0)">&nbsp;</p>
@@ -129,7 +129,7 @@ categories:
 <h2><strong>3つを組み合わせることで得られるメリット</strong></h2>
 <!-- /wp:heading -->
 <!-- wp:image {"linkDestination":"none","className":"size-large"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2025/03/image-54-1024x768.jpg" alt=""/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2025/03/image-54-1024x768.jpg" alt=""/></figure>
 <!-- /wp:image -->
 <!-- wp:paragraph {"style":{"color":{"text":"rgb(0, 0, 0)"}}} -->
 <p class="has-text-color" style="color: rgb(0, 0, 0)">&nbsp;</p>

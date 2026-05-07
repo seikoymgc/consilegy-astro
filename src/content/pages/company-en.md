@@ -192,7 +192,7 @@ hasShortcodes: true
 <!-- wp:columns -->
 <div class="wp-block-columns"><!-- wp:column {"width":"30%"} -->
 <div class="wp-block-column" style="flex-basis:30%"><!-- wp:image {"id":28013,"width":"200px","height":"auto","sizeSlug":"full","linkDestination":"none","style":{"spacing":{"margin":{"right":"var:preset|spacing|40"}},"layout":{"selfStretch":"fit","flexSize":null},"border":{"radius":"18px"}}} -->
-<figure class="wp-block-image size-full is-resized has-custom-border" style="margin-right:var(--wp--preset--spacing--40)"><img src="https://consilegy.com/wp/wp-content/uploads/2025/12/seiko_biz_.jpg" alt="" class="wp-image-28013" style="border-radius:18px;width:200px;height:auto"/></figure>
+<figure class="wp-block-image size-full is-resized has-custom-border" style="margin-right:var(--wp--preset--spacing--40)"><img src="/images/media/2025/12/seiko_biz_.jpg" alt="" class="wp-image-28013" style="border-radius:18px;width:200px;height:auto"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column -->
 
@@ -302,47 +302,47 @@ hasShortcodes: true
 <!-- wp:group {"metadata":{"categories":["banner"],"patternName":"twentytwentyfive/logos","name":"ロゴ"},"className":"is-style-section-1","style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"margin":{"top":"0","bottom":"0"}}},"backgroundColor":"base","layout":{"type":"constrained","contentSize":"1280px"}} -->
 <div class="wp-block-group is-style-section-1 has-base-background-color has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--30)"><!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"center"}} -->
 <div class="wp-block-group alignwide"><!-- wp:image {"id":26603,"width":"150px","aspectRatio":"4/3","scale":"contain","sizeSlug":"large","linkDestination":"none","style":{"layout":{"selfStretch":"fill","flexSize":null}}} -->
-<figure class="wp-block-image size-large is-resized"><img src="https://consilegy.com/wp/wp-content/uploads/2024/05/logo_sazae-1-1024x375.png" alt="" class="wp-image-26603" style="aspect-ratio:4/3;object-fit:contain;width:150px"/></figure>
+<figure class="wp-block-image size-large is-resized"><img src="/images/media/2024/05/logo_sazae-1-1024x375.png" alt="" class="wp-image-26603" style="aspect-ratio:4/3;object-fit:contain;width:150px"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"id":26602,"width":"150px","aspectRatio":"4/3","scale":"contain","sizeSlug":"full","linkDestination":"none","style":{"layout":{"selfStretch":"fill","flexSize":null}}} -->
-<figure class="wp-block-image size-full is-resized"><img src="https://consilegy.com/wp/wp-content/uploads/2024/05/logo_innova.svg" alt="" class="wp-image-26602" style="aspect-ratio:4/3;object-fit:contain;width:150px"/></figure>
+<figure class="wp-block-image size-full is-resized"><img src="/images/media/2024/05/logo_innova.svg" alt="" class="wp-image-26602" style="aspect-ratio:4/3;object-fit:contain;width:150px"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"id":26597,"width":"150px","aspectRatio":"4/3","scale":"contain","sizeSlug":"full","linkDestination":"none","style":{"layout":{"selfStretch":"fill","flexSize":null}}} -->
-<figure class="wp-block-image size-full is-resized"><img src="https://consilegy.com/wp/wp-content/uploads/2024/05/logo_tiger-monday.webp" alt="" class="wp-image-26597" style="aspect-ratio:4/3;object-fit:contain;width:150px"/></figure>
+<figure class="wp-block-image size-full is-resized"><img src="/images/media/2024/05/logo_tiger-monday.webp" alt="" class="wp-image-26597" style="aspect-ratio:4/3;object-fit:contain;width:150px"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"id":28704,"scale":"cover","sizeSlug":"full","linkDestination":"none","style":{"layout":{"selfStretch":"fill","flexSize":null}}} -->
-<figure class="wp-block-image size-full"><img src="https://consilegy.com/wp/wp-content/uploads/2026/03/logo@2x.png" alt="" class="wp-image-28704" style="object-fit:cover"/></figure>
+<figure class="wp-block-image size-full"><img src="/images/media/2026/03/logo@2x.png" alt="" class="wp-image-28704" style="object-fit:cover"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"id":26600,"width":"150px","aspectRatio":"4/3","scale":"contain","sizeSlug":"large","linkDestination":"none","style":{"layout":{"selfStretch":"fill","flexSize":null}}} -->
-<figure class="wp-block-image size-large is-resized"><img src="https://consilegy.com/wp/wp-content/uploads/2024/05/logo_the-molts-1024x204.jpg" alt="" class="wp-image-26600" style="aspect-ratio:4/3;object-fit:contain;width:150px"/></figure>
+<figure class="wp-block-image size-large is-resized"><img src="/images/media/2024/05/logo_the-molts-1024x204.jpg" alt="" class="wp-image-26600" style="aspect-ratio:4/3;object-fit:contain;width:150px"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"id":27848,"width":"150px","aspectRatio":"4/3","scale":"contain","sizeSlug":"full","linkDestination":"none","style":{"layout":{"selfStretch":"fill","flexSize":null}}} -->
-<figure class="wp-block-image size-full is-resized"><img src="https://consilegy.com/wp/wp-content/uploads/2025/08/100-hubspot-1-1.webp" alt="" class="wp-image-27848" style="aspect-ratio:4/3;object-fit:contain;width:150px"/></figure>
+<figure class="wp-block-image size-full is-resized"><img src="/images/media/2025/08/100-hubspot-1-1.webp" alt="" class="wp-image-27848" style="aspect-ratio:4/3;object-fit:contain;width:150px"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"id":26601,"width":"150px","aspectRatio":"4/3","scale":"contain","sizeSlug":"large","linkDestination":"none","style":{"layout":{"selfStretch":"fill","flexSize":null}}} -->
-<figure class="wp-block-image size-large is-resized"><img src="https://consilegy.com/wp/wp-content/uploads/2024/05/logo_nishikawa-1024x218.png" alt="" class="wp-image-26601" style="aspect-ratio:4/3;object-fit:contain;width:150px"/></figure>
+<figure class="wp-block-image size-large is-resized"><img src="/images/media/2024/05/logo_nishikawa-1024x218.png" alt="" class="wp-image-26601" style="aspect-ratio:4/3;object-fit:contain;width:150px"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"id":26598,"width":"150px","aspectRatio":"4/3","scale":"contain","sizeSlug":"full","linkDestination":"none","style":{"layout":{"selfStretch":"fill","flexSize":null}}} -->
-<figure class="wp-block-image size-full is-resized"><img src="https://consilegy.com/wp/wp-content/uploads/2024/05/logo_oissy.jpg" alt="" class="wp-image-26598" style="aspect-ratio:4/3;object-fit:contain;width:150px"/></figure>
+<figure class="wp-block-image size-full is-resized"><img src="/images/media/2024/05/logo_oissy.jpg" alt="" class="wp-image-26598" style="aspect-ratio:4/3;object-fit:contain;width:150px"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"id":26594,"width":"150px","aspectRatio":"4/3","scale":"contain","sizeSlug":"full","linkDestination":"none","style":{"layout":{"selfStretch":"fill","flexSize":null}}} -->
-<figure class="wp-block-image size-full is-resized"><img src="https://consilegy.com/wp/wp-content/uploads/2024/05/logo_kaizenplatform.png" alt="" class="wp-image-26594" style="aspect-ratio:4/3;object-fit:contain;width:150px"/></figure>
+<figure class="wp-block-image size-full is-resized"><img src="/images/media/2024/05/logo_kaizenplatform.png" alt="" class="wp-image-26594" style="aspect-ratio:4/3;object-fit:contain;width:150px"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"id":26596,"width":"150px","aspectRatio":"4/3","scale":"contain","sizeSlug":"full","linkDestination":"none","style":{"layout":{"selfStretch":"fill","flexSize":null}}} -->
-<figure class="wp-block-image size-full is-resized"><img src="https://consilegy.com/wp/wp-content/uploads/2024/05/logo_kodansha.png" alt="" class="wp-image-26596" style="aspect-ratio:4/3;object-fit:contain;width:150px"/></figure>
+<figure class="wp-block-image size-full is-resized"><img src="/images/media/2024/05/logo_kodansha.png" alt="" class="wp-image-26596" style="aspect-ratio:4/3;object-fit:contain;width:150px"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"id":28708,"width":"150px","aspectRatio":"4/3","scale":"contain","sizeSlug":"full","linkDestination":"none","style":{"layout":{"selfStretch":"fill","flexSize":null}}} -->
-<figure class="wp-block-image size-full is-resized"><img src="https://consilegy.com/wp/wp-content/uploads/2026/03/画像1-1.png" alt="" class="wp-image-28708" style="aspect-ratio:4/3;object-fit:contain;width:150px"/></figure>
+<figure class="wp-block-image size-full is-resized"><img src="/images/media/2026/03/画像1-1.png" alt="" class="wp-image-28708" style="aspect-ratio:4/3;object-fit:contain;width:150px"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->

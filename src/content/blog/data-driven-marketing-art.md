@@ -58,7 +58,7 @@ categories:
 <h2>2. 上流戦略へのフィードバックループ</h2>
 <!-- /wp:heading -->
 <!-- wp:image {"linkDestination":"none","className":"size-large"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2025/03/image-18-1024x585.webp" alt=""/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2025/03/image-18-1024x585.webp" alt=""/></figure>
 <!-- /wp:image -->
 <!-- wp:paragraph {"style":{"color":{"text":"rgb(0, 0, 0)"}}} -->
 <p class="has-text-color" style="color: rgb(0, 0, 0)">成果指標（KPI）を設定しても、「そのKPI自体が実はビジネスゴールに直結していなかった」という事態も起こり得ます。そこで重要になるのが、GAのデータを活用して上流戦略を見直すためのフィードバックループです。たとえば、流入経路（広告、オーガニック、リファラルなど）やユーザータイプ（新規、リピーター）でセグメントを分けて分析することで、どの層がどの施策にどれだけ反応しているかが明確になります。</p>
@@ -82,7 +82,7 @@ categories:
 <h2>3.さらなるデータ活用</h2>
 <!-- /wp:heading -->
 <!-- wp:image {"linkDestination":"none","className":"size-large"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2025/03/image-19-1024x585.webp" alt=""/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2025/03/image-19-1024x585.webp" alt=""/></figure>
 <!-- /wp:image -->
 <!-- wp:paragraph {"style":{"color":{"text":"rgb(0, 0, 0)"}}} -->
 <p class="has-text-color" style="color: rgb(0, 0, 0)">Googleアナリティクスには無料版（GA4）と有料版（GA360）の違いもあるほか、機能をより深く使いこなすための設定項目が数多く存在します。</p>

@@ -11,8 +11,8 @@ featuredImageAlt: ""
 draft: false
 hasShortcodes: true
 ---
-<!-- wp:cover {"url":"https://consilegy.com/wp/wp-content/uploads/2026/03/consilegy-bg-4.svg","id":28183,"hasParallax":true,"dimRatio":50,"overlayColor":"base","isUserOverlayColor":true,"isDark":false,"sizeSlug":"full","align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80","left":"0","right":"0"}},"elements":{"link":{"color":{"text":"var:preset|color|accent-1"}}}},"textColor":"accent-1","layout":{"type":"constrained","contentSize":"1280px"}} -->
-<div class="wp-block-cover alignfull is-light has-parallax has-accent-1-color has-text-color has-link-color" style="padding-top:var(--wp--preset--spacing--80);padding-right:0;padding-bottom:var(--wp--preset--spacing--80);padding-left:0"><div class="wp-block-cover__image-background wp-image-28183 size-full has-parallax" style="background-position:50% 50%;background-image:url(https://consilegy.com/wp/wp-content/uploads/2026/03/consilegy-bg-4.svg)"></div><span aria-hidden="true" class="wp-block-cover__background has-base-background-color has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:group {"style":{"spacing":{"blockGap":"0","padding":{"right":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"layout":{"type":"constrained","contentSize":"1440px"}} -->
+<!-- wp:cover {"url":"/images/media/2026/03/consilegy-bg-4.svg","id":28183,"hasParallax":true,"dimRatio":50,"overlayColor":"base","isUserOverlayColor":true,"isDark":false,"sizeSlug":"full","align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80","left":"0","right":"0"}},"elements":{"link":{"color":{"text":"var:preset|color|accent-1"}}}},"textColor":"accent-1","layout":{"type":"constrained","contentSize":"1280px"}} -->
+<div class="wp-block-cover alignfull is-light has-parallax has-accent-1-color has-text-color has-link-color" style="padding-top:var(--wp--preset--spacing--80);padding-right:0;padding-bottom:var(--wp--preset--spacing--80);padding-left:0"><div class="wp-block-cover__image-background wp-image-28183 size-full has-parallax" style="background-position:50% 50%;background-image:url(/images/media/2026/03/consilegy-bg-4.svg)"></div><span aria-hidden="true" class="wp-block-cover__background has-base-background-color has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:group {"style":{"spacing":{"blockGap":"0","padding":{"right":"var:preset|spacing|30","left":"var:preset|spacing|30"}}},"layout":{"type":"constrained","contentSize":"1440px"}} -->
 <div class="wp-block-group" style="padding-right:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)"><!-- wp:columns {"style":{"spacing":{"blockGap":{"top":"0"}}}} -->
 <div class="wp-block-columns"><!-- wp:column {"width":"100%","style":{"spacing":{"blockGap":"var:preset|spacing|50"}}} -->
 <div class="wp-block-column" style="flex-basis:100%"><!-- wp:paragraph {"className":"o-typing-delay-100ms","style":{"elements":{"link":{"color":{"text":"var:preset|color|contrast"}}},"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}},"textColor":"contrast","fontSize":"medium","fontFamily":"plus-jakarta-sans"} -->
@@ -40,7 +40,7 @@ hasShortcodes: true
 <!-- wp:columns {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}},"elements":{"link":{"color":{"text":"var:preset|color|base"}}}},"backgroundColor":"contrast","textColor":"base"} -->
 <div class="wp-block-columns alignfull has-base-color has-contrast-background-color has-text-color has-background has-link-color" style="padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--30)"><!-- wp:column -->
 <div class="wp-block-column"><!-- wp:image {"id":28761,"width":"400px","sizeSlug":"full","linkDestination":"none","align":"center","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|50"}}}} -->
-<figure class="wp-block-image aligncenter size-full is-resized" style="margin-bottom:var(--wp--preset--spacing--50)"><img src="https://consilegy.com/wp/wp-content/uploads/2026/03/revenue-architecture-bowtie.svg" alt="Revenue Architectureのボウタイモデル図" class="wp-image-28761" style="width:400px"/></figure>
+<figure class="wp-block-image aligncenter size-full is-resized" style="margin-bottom:var(--wp--preset--spacing--50)"><img src="/images/media/2026/03/revenue-architecture-bowtie.svg" alt="Revenue Architectureのボウタイモデル図" class="wp-image-28761" style="width:400px"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:group {"style":{"spacing":{"padding":{"top":"0","bottom":"0"},"blockGap":"var:preset|spacing|40","margin":{"bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
@@ -130,7 +130,7 @@ hasShortcodes: true
 <div class="wp-block-columns has-border-color has-base-background-color has-background" style="border-color:#d8d8d8;border-width:1px;border-radius:18px"><!-- wp:column {"width":"100%","style":{"spacing":{"blockGap":"var:preset|spacing|40"}}} -->
 <div class="wp-block-column" style="flex-basis:100%"><!-- wp:group {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"},"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--30)"><!-- wp:image {"id":28271,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="https://consilegy.com/wp/wp-content/uploads/2026/03/revenue-architecture-1.svg" alt="" class="wp-image-28271"/></figure>
+<figure class="wp-block-image size-full"><img src="/images/media/2026/03/revenue-architecture-1.svg" alt="" class="wp-image-28271"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3} -->
@@ -152,7 +152,7 @@ hasShortcodes: true
 <div class="wp-block-columns has-border-color has-base-background-color has-background" style="border-color:#d8d8d8;border-width:1px;border-radius:18px"><!-- wp:column {"width":"100%","style":{"spacing":{"blockGap":"var:preset|spacing|40"}}} -->
 <div class="wp-block-column" style="flex-basis:100%"><!-- wp:group {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"},"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--30)"><!-- wp:image {"id":28272,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="https://consilegy.com/wp/wp-content/uploads/2026/03/marketing-strategy.svg" alt="" class="wp-image-28272"/></figure>
+<figure class="wp-block-image size-full"><img src="/images/media/2026/03/marketing-strategy.svg" alt="" class="wp-image-28272"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3} -->
@@ -174,7 +174,7 @@ hasShortcodes: true
 <div class="wp-block-columns has-border-color has-base-background-color has-background" style="border-color:#d8d8d8;border-width:1px;border-radius:18px"><!-- wp:column {"width":"100%","style":{"spacing":{"blockGap":"var:preset|spacing|40"}}} -->
 <div class="wp-block-column" style="flex-basis:100%"><!-- wp:group {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"},"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--30)"><!-- wp:image {"id":28273,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="https://consilegy.com/wp/wp-content/uploads/2026/03/ma-crm-sfa.svg" alt="" class="wp-image-28273"/></figure>
+<figure class="wp-block-image size-full"><img src="/images/media/2026/03/ma-crm-sfa.svg" alt="" class="wp-image-28273"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3} -->
@@ -196,7 +196,7 @@ hasShortcodes: true
 <div class="wp-block-columns has-border-color has-base-background-color has-background" style="border-color:#d8d8d8;border-width:1px;border-radius:18px"><!-- wp:column {"width":"100%","style":{"spacing":{"blockGap":"var:preset|spacing|40"}}} -->
 <div class="wp-block-column" style="flex-basis:100%"><!-- wp:group {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"},"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--30)"><!-- wp:image {"id":28274,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="https://consilegy.com/wp/wp-content/uploads/2026/03/ops.svg" alt="" class="wp-image-28274"/></figure>
+<figure class="wp-block-image size-full"><img src="/images/media/2026/03/ops.svg" alt="" class="wp-image-28274"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3} -->
@@ -327,7 +327,7 @@ hasShortcodes: true
 <!-- wp:kadence/rowlayout {"uniqueID":"135_25723b-a5","columns":3,"colLayout":"equal","kbVersion":2} -->
 <!-- wp:kadence/column {"background":"#FFFFFF","borderWidth":["","","",""],"borderRadius":[8,8,8,8],"uniqueID":"135_4b7475-0e","rowGap":[0,"",""],"rowGapVariable":["none","",""],"padding":["xs","xs","md","xs"],"kbVersion":2} -->
 <div class="wp-block-kadence-column kadence-column135_4b7475-0e"><div class="kt-inside-inner-col"><!-- wp:image {"id":28568,"aspectRatio":"16/9","scale":"cover","sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2026/02/apex-virtual-education-KNQUEQwTCY4-unsplash-1024x573.jpg" alt="導入事例：HubSpot導入によるマーケティング基盤整備" class="wp-image-28568" style="aspect-ratio:16/9;object-fit:cover"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2026/02/apex-virtual-education-KNQUEQwTCY4-unsplash-1024x573.jpg" alt="導入事例：HubSpot導入によるマーケティング基盤整備" class="wp-image-28568" style="aspect-ratio:16/9;object-fit:cover"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3,"style":{"elements":{"link":{"color":{"text":"var:preset|color|contrast"}}}},"textColor":"contrast","fontSize":"large"} -->
@@ -341,7 +341,7 @@ hasShortcodes: true
 
 <!-- wp:kadence/column {"id":2,"background":"#FFFFFF","borderWidth":["","","",""],"borderRadius":[8,8,8,8],"uniqueID":"135_777ddf-d7","rowGap":[0,"",""],"rowGapVariable":["none","",""],"padding":["xs","xs","md","xs"],"kbVersion":2} -->
 <div class="wp-block-kadence-column kadence-column135_777ddf-d7"><div class="kt-inside-inner-col"><!-- wp:image {"id":28093,"aspectRatio":"16/9","scale":"cover","sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2026/02/dx-1024x576.png" alt="導入事例：営業・マーケ連携のプロセス設計" class="wp-image-28093" style="aspect-ratio:16/9;object-fit:cover"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2026/02/dx-1024x576.png" alt="導入事例：営業・マーケ連携のプロセス設計" class="wp-image-28093" style="aspect-ratio:16/9;object-fit:cover"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3,"style":{"elements":{"link":{"color":{"text":"var:preset|color|contrast"}}}},"textColor":"contrast","fontSize":"large","fontFamily":"noto-sans-jp"} -->
@@ -355,7 +355,7 @@ hasShortcodes: true
 
 <!-- wp:kadence/column {"id":2,"background":"#FFFFFF","borderWidth":["","","",""],"borderRadius":[8,8,8,8],"uniqueID":"135_54f7c9-23","rowGap":[0,"",""],"rowGapVariable":["none","",""],"padding":["xs","xs","md","xs"],"kbVersion":2} -->
 <div class="wp-block-kadence-column kadence-column135_54f7c9-23"><div class="kt-inside-inner-col"><!-- wp:image {"id":28651,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2026/03/s-o-c-i-a-l-c-u-t-1RT4txDDAbM-unsplash-1024x681.jpg" alt="導入事例：グローバルチームとのGTM設計" class="wp-image-28651"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2026/03/s-o-c-i-a-l-c-u-t-1RT4txDDAbM-unsplash-1024x681.jpg" alt="導入事例：グローバルチームとのGTM設計" class="wp-image-28651"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3,"style":{"elements":{"link":{"color":{"text":"var:preset|color|contrast"}}}},"textColor":"contrast","fontSize":"large"} -->
@@ -371,7 +371,7 @@ hasShortcodes: true
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
 
-<!-- wp:kadence/column {"borderWidth":["","","",""],"uniqueID":"135_6ab614-f6","backgroundImg":[{"bgImg":"https://consilegy.com/wp/wp-content/uploads/2026/03/abstract-geometric-node-network-perspective-view-2.png","bgImgID":28283,"bgImgSize":"cover","bgImgPosition":"50% 50%","bgImgAttachment":"fixed","bgImgRepeat":"no-repeat"}],"overlayOpacity":0.5,"overlay":"#0f172a","align":"full","kbVersion":2} -->
+<!-- wp:kadence/column {"borderWidth":["","","",""],"uniqueID":"135_6ab614-f6","backgroundImg":[{"bgImg":"/images/media/2026/03/abstract-geometric-node-network-perspective-view-2.png","bgImgID":28283,"bgImgSize":"cover","bgImgPosition":"50% 50%","bgImgAttachment":"fixed","bgImgRepeat":"no-repeat"}],"overlayOpacity":0.5,"overlay":"#0f172a","align":"full","kbVersion":2} -->
 <div class="wp-block-kadence-column kadence-column135_6ab614-f6 kb-section-has-overlay alignfull"><div class="kt-inside-inner-col"><!-- wp:columns {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}},"elements":{"link":{"color":{"text":"var:preset|color|base"}}}},"textColor":"base"} -->
 <div class="wp-block-columns alignfull has-base-color has-text-color has-link-color" style="padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--30)"><!-- wp:column {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained","contentSize":"1280px"}} -->
 <div class="wp-block-column"><!-- wp:heading {"textAlign":"center","style":{"elements":{"link":{"color":{"text":"var:preset|color|base"}}}},"textColor":"base","fontSize":"x-large"} -->

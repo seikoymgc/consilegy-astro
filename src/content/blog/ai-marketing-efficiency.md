@@ -74,7 +74,7 @@ categories:
 <!-- /wp:heading -->
 
 <!-- wp:image {"id":27025,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2025/01/ai-bpo-1-1024x585.webp" alt="" class="wp-image-27025"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2025/01/ai-bpo-1-1024x585.webp" alt="" class="wp-image-27025"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -117,8 +117,8 @@ categories:
 <h2 class="wp-block-heading"><strong>AIを「パートナー」として考える</strong></h2>
 <!-- /wp:heading -->
 
-<!-- wp:uagb/image {"block_id":"bd52ed16","url":"https://consilegy.com/wp/wp-content/uploads/2025/01/ai-bpo-2-1024x585.webp","urlTablet":"https://consilegy.com/wp/wp-content/uploads/2025/01/ai-bpo-2.webp","urlMobile":"https://consilegy.com/wp/wp-content/uploads/2025/01/ai-bpo-2.webp","id":27024,"linkDestination":"none","title":"ai-bpo-2","naturalWidth":1024,"naturalHeight":585,"sizeSlug":"large","sizeSlugTablet":"large","sizeSlugMobile":"large"} -->
-<div class="wp-block-uagb-image uagb-block-bd52ed16 wp-block-uagb-image--layout-default wp-block-uagb-image--effect-static wp-block-uagb-image--align-none"><figure class="wp-block-uagb-image__figure"><img srcset="https://consilegy.com/wp/wp-content/uploads/2025/01/ai-bpo-2-1024x585.webp ,https://consilegy.com/wp/wp-content/uploads/2025/01/ai-bpo-2.webp 780w, https://consilegy.com/wp/wp-content/uploads/2025/01/ai-bpo-2.webp 360w" sizes="(max-width: 480px) 150px" src="https://consilegy.com/wp/wp-content/uploads/2025/01/ai-bpo-2-1024x585.webp" alt="" class="uag-image-27024" width="1024" height="585" title="ai-bpo-2" loading="lazy" role="img"/></figure></div>
+<!-- wp:uagb/image {"block_id":"bd52ed16","url":"/images/media/2025/01/ai-bpo-2-1024x585.webp","urlTablet":"/images/media/2025/01/ai-bpo-2.webp","urlMobile":"/images/media/2025/01/ai-bpo-2.webp","id":27024,"linkDestination":"none","title":"ai-bpo-2","naturalWidth":1024,"naturalHeight":585,"sizeSlug":"large","sizeSlugTablet":"large","sizeSlugMobile":"large"} -->
+<div class="wp-block-uagb-image uagb-block-bd52ed16 wp-block-uagb-image--layout-default wp-block-uagb-image--effect-static wp-block-uagb-image--align-none"><figure class="wp-block-uagb-image__figure"><img srcset="/images/media/2025/01/ai-bpo-2-1024x585.webp ,/images/media/2025/01/ai-bpo-2.webp 780w, /images/media/2025/01/ai-bpo-2.webp 360w" sizes="(max-width: 480px) 150px" src="/images/media/2025/01/ai-bpo-2-1024x585.webp" alt="" class="uag-image-27024" width="1024" height="585" title="ai-bpo-2" loading="lazy" role="img"/></figure></div>
 <!-- /wp:uagb/image -->
 
 <!-- wp:paragraph -->

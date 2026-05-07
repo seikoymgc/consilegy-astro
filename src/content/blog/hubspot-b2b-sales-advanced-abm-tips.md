@@ -38,7 +38,7 @@ categories:
 <p class="has-text-color" style="color: rgb(0, 0, 0)">&nbsp;</p>
 <!-- /wp:paragraph -->
 <!-- wp:image {"linkDestination":"none","className":"size-large"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2025/03/image-17-1024x585.webp" alt=""/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2025/03/image-17-1024x585.webp" alt=""/></figure>
 <!-- /wp:image -->
 <!-- wp:paragraph {"style":{"color":{"text":"rgb(0, 0, 0)"}}} -->
 <p class="has-text-color" style="color: rgb(0, 0, 0)">BtoB営業においては、見込み顧客（リード）の“質”が商談や受注の成否を大きく左右します。単に「資料をダウンロードしたことがある」程度の情報だけでは、優先度を見極めるのは難しいもの。</p>
@@ -95,7 +95,7 @@ categories:
 <h2>とある企業I社の取り組み</h2>
 <!-- /wp:heading -->
 <!-- wp:image {"linkDestination":"none","className":"size-large"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2025/03/image-52-681x1024.jpg" alt=""/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2025/03/image-52-681x1024.jpg" alt=""/></figure>
 <!-- /wp:image -->
 <!-- wp:paragraph {"style":{"color":{"text":"rgb(0, 0, 0)"}}} -->
 <p class="has-text-color" style="color: rgb(0, 0, 0)">実際の活用事例として、とある企業I社ではリードのナーチャリングフローを抜本的に見直しました。</p>

@@ -36,7 +36,7 @@ hasShortcodes: true
   <!-- wp:paragraph {"className":"cons-section-intro"} -->
   <p class="wp-block-paragraph cons-section-intro">マーケティング、営業、カスタマーサクセスを分断せず、リード獲得から商談化、受注、契約、継続利用までを、プロセス・データ・システム・指標定義のレベルで整合させます。</p>
   <!-- /wp:paragraph -->
-  <!-- wp:image {"id":28766,"width":"707px","height":"auto","aspectRatio":"2.9707634751281695","sizeSlug":"full","linkDestination":"none"} --><figure class="wp-block-image size-full is-resized"><img src="https://consilegy.com/wp/wp-content/uploads/2026/03/revenue-architecture-fannel-2.svg" alt="Revenue Architectureのファネル図（集客・商談・受注・継続の流れ）" class="wp-image-28766" style="aspect-ratio:2.9707634751281695;width:707px;height:auto"/></figure><!-- /wp:image -->
+  <!-- wp:image {"id":28766,"width":"707px","height":"auto","aspectRatio":"2.9707634751281695","sizeSlug":"full","linkDestination":"none"} --><figure class="wp-block-image size-full is-resized"><img src="/images/media/2026/03/revenue-architecture-fannel-2.svg" alt="Revenue Architectureのファネル図（集客・商談・受注・継続の流れ）" class="wp-image-28766" style="aspect-ratio:2.9707634751281695;width:707px;height:auto"/></figure><!-- /wp:image -->
 </div>
 <!-- /wp:group -->
 

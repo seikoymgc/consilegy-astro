@@ -67,7 +67,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":380,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/04/CRM-Free-Trial-Salesforce-30-Day-Trial-Salesforce-1024x557.jpg" alt="" class="wp-image-380"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/04/CRM-Free-Trial-Salesforce-30-Day-Trial-Salesforce-1024x557.jpg" alt="" class="wp-image-380"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -75,7 +75,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":381,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/04/aa72d0d95ffe26a2a6fa1585dcb17854-1024x511.jpg" alt="" class="wp-image-381"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/04/aa72d0d95ffe26a2a6fa1585dcb17854-1024x511.jpg" alt="" class="wp-image-381"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -87,7 +87,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":382,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/04/4b37158080a7bbd0f32cd409bc3dbc94-1024x635.png" alt="" class="wp-image-382"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/04/4b37158080a7bbd0f32cd409bc3dbc94-1024x635.png" alt="" class="wp-image-382"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -111,7 +111,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":383,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/04/Pardot-AppExchange-Package-Download-and-Release-History-1024x505.jpg" alt="" class="wp-image-383"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/04/Pardot-AppExchange-Package-Download-and-Release-History-1024x505.jpg" alt="" class="wp-image-383"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -119,7 +119,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":384,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/04/092fcbe2db653431ecfe900b190f2e82-1024x515.jpg" alt="" class="wp-image-384"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/04/092fcbe2db653431ecfe900b190f2e82-1024x515.jpg" alt="" class="wp-image-384"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -131,7 +131,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":385,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/04/Install-Package-1024x410.png" alt="" class="wp-image-385"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/04/Install-Package-1024x410.png" alt="" class="wp-image-385"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -143,7 +143,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":391,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/04/Install-Package-1-1-1024x327.png" alt="" class="wp-image-391"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/04/Install-Package-1-1-1024x327.png" alt="" class="wp-image-391"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -151,7 +151,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":387,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/04/Screen-Shot--1024x349.png" alt="" class="wp-image-387"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/04/Screen-Shot--1024x349.png" alt="" class="wp-image-387"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -163,7 +163,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":388,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/04/Install-Package-2-1024x260.png" alt="" class="wp-image-388"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/04/Install-Package-2-1024x260.png" alt="" class="wp-image-388"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -171,7 +171,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":390,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/04/50aa0115466f12f9c3bc30e35e93dd2d-1024x511.jpg" alt="" class="wp-image-390"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/04/50aa0115466f12f9c3bc30e35e93dd2d-1024x511.jpg" alt="" class="wp-image-390"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -183,7 +183,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":394,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="https://consilegy.com/wp/wp-content/uploads/2022/04/aa72d0d95ffe26a2a6fa1585dcb17854.png" alt="" class="wp-image-394"/></figure>
+<figure class="wp-block-image size-full"><img src="/images/media/2022/04/aa72d0d95ffe26a2a6fa1585dcb17854.png" alt="" class="wp-image-394"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -191,7 +191,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":393,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2022/04/50aa0115466f12f9c3bc30e35e93dd2d-1-1024x508.png" alt="" class="wp-image-393"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2022/04/50aa0115466f12f9c3bc30e35e93dd2d-1-1024x508.png" alt="" class="wp-image-393"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->

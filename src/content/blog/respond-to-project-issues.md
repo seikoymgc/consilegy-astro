@@ -28,7 +28,7 @@ categories:
 <h2>問題発生時の初期対応と重要性</h2>
 <!-- /wp:heading -->
 <!-- wp:image {"linkDestination":"none","className":"size-large"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2025/04/image-1-1024x682.jpg" alt=""/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2025/04/image-1-1024x682.jpg" alt=""/></figure>
 <!-- /wp:image -->
 <!-- wp:paragraph {"style":{"color":{"text":"rgb(0, 0, 0)"}}} -->
 <p class="has-text-color" style="color: rgb(0, 0, 0)">プロジェクトで問題が発生したら、まず大切なのが素早い情報共有です。問題の規模や種類に関わらず、早期発見・早期対応が成功への第一歩です。特に初動の対応が適切であれば、問題の深刻化を防ぎ、解決に要する時間とコストを大幅に削減できます。</p>
@@ -52,7 +52,7 @@ categories:
 <h2>効果的な緊急対応の進め方</h2>
 <!-- /wp:heading -->
 <!-- wp:image {"linkDestination":"none","className":"size-large"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2025/04/image-2-1024x576.jpg" alt=""/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2025/04/image-2-1024x576.jpg" alt=""/></figure>
 <!-- /wp:image -->
 <!-- wp:paragraph {"style":{"color":{"text":"rgb(0, 0, 0)"}}} -->
 <p class="has-text-color" style="color: rgb(0, 0, 0)">&nbsp;</p>
@@ -138,7 +138,7 @@ categories:
 <h2>コミュニケーションの質が問題対応力を高める</h2>
 <!-- /wp:heading -->
 <!-- wp:image {"linkDestination":"none","className":"size-large"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2025/04/image-3-1024x682.jpg" alt=""/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2025/04/image-3-1024x682.jpg" alt=""/></figure>
 <!-- /wp:image -->
 <!-- wp:paragraph {"style":{"color":{"text":"rgb(0, 0, 0)"}}} -->
 <p class="has-text-color" style="color: rgb(0, 0, 0)">最後に、問題対応力を高めるためにはコミュニケーションの質を高めることも重要です。メンバーが自由に懸念を共有できる環境づくりを意識しましょう。</p>

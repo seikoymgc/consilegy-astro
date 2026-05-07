@@ -53,7 +53,7 @@ hasShortcodes: true
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
 
-<!-- wp:kadence/column {"borderWidth":["","","",""],"uniqueID":"27789_6c7c5e-34","backgroundImg":[{"bgImg":"https://consilegy.com/wp/wp-content/uploads/2026/03/white-background-no-human-1.svg","bgImgID":28198,"bgImgSize":"cover","bgImgPosition":"center center","bgImgAttachment":"fixed","bgImgRepeat":"no-repeat"}],"justifyContent":["flex-start","",""],"verticalAlignment":"top","margin":["","",-50,""],"kbVersion":2} -->
+<!-- wp:kadence/column {"borderWidth":["","","",""],"uniqueID":"27789_6c7c5e-34","backgroundImg":[{"bgImg":"/images/media/2026/03/white-background-no-human-1.svg","bgImgID":28198,"bgImgSize":"cover","bgImgPosition":"center center","bgImgAttachment":"fixed","bgImgRepeat":"no-repeat"}],"justifyContent":["flex-start","",""],"verticalAlignment":"top","margin":["","",-50,""],"kbVersion":2} -->
 <div class="wp-block-kadence-column kadence-column27789_6c7c5e-34"><div class="kt-inside-inner-col"><!-- wp:columns {"style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}}} -->
 <div class="wp-block-columns" style="padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--30)"><!-- wp:column {"style":{"spacing":{"blockGap":"var:preset|spacing|40"}}} -->
 <div class="wp-block-column"><!-- wp:group {"style":{"spacing":{"margin":{"top":"0px","bottom":"0px"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center","verticalAlignment":"top"}} -->

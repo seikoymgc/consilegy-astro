@@ -66,7 +66,7 @@ categories:
 <h2>主要MAツールの紹介</h2>
 <!-- /wp:heading -->
 <!-- wp:image {"linkDestination":"none","className":"size-large"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2025/04/image-4-1024x683.jpg" alt=""/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2025/04/image-4-1024x683.jpg" alt=""/></figure>
 <!-- /wp:image -->
 <!-- wp:paragraph {"style":{"color":{"text":"rgb(0, 0, 0)"}}} -->
 <p class="has-text-color" style="color: rgb(0, 0, 0)">注目の人気MAツール5種（HubSpot／Systeme.io／Adobe Marketo Engage／Salesforce Pardot／ActiveCampaign）について、導入事例や最新機能、運用のポイントを具体的に解説します。</p>

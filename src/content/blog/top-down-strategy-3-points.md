@@ -41,7 +41,7 @@ categories:
 <h2>その1. 「戦略 → 施策 → タスク」という階層ごとのドキュメントを整備して、定期レビューする</h2>
 <!-- /wp:heading -->
 <!-- wp:image {"linkDestination":"none","className":"size-large"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2025/03/image-58-1024x575.jpg" alt=""/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2025/03/image-58-1024x575.jpg" alt=""/></figure>
 <!-- /wp:image -->
 <!-- wp:paragraph {"style":{"color":{"text":"rgb(0, 0, 0)"}}} -->
 <p class="has-text-color" style="color: rgb(0, 0, 0)">まずは、組織全体の戦略・施策・タスクをきちんと階層化し、それぞれを文書化することが重要です。</p>
@@ -65,7 +65,7 @@ categories:
 <h2>その2. ダッシュボード化で見える化＋定例ミーティングでリアルタイムに進捗を共有</h2>
 <!-- /wp:heading -->
 <!-- wp:image {"linkDestination":"none","className":"size-large"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2025/03/image-20-1024x585.webp" alt=""/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2025/03/image-20-1024x585.webp" alt=""/></figure>
 <!-- /wp:image -->
 <!-- wp:paragraph {"style":{"color":{"text":"rgb(0, 0, 0)"}}} -->
 <p class="has-text-color" style="color: rgb(0, 0, 0)">戦略を実行していくうえで欠かせないのが「KPIの可視化」です。施策の効果測定や問題点の早期発見には、BIツール、HubSpotやGoogle Analyticsなど、さまざまなデータ可視化ツールを活用するのが一般的になっています。</p>
@@ -89,7 +89,7 @@ categories:
 <h2>その3. PM（プロジェクトマネージャー）が上層部と現場の“橋渡し役”になる</h2>
 <!-- /wp:heading -->
 <!-- wp:image {"linkDestination":"none","className":"size-large"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2025/03/image-59-1024x576.jpg" alt=""/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2025/03/image-59-1024x576.jpg" alt=""/></figure>
 <!-- /wp:image -->
 <!-- wp:paragraph {"style":{"color":{"text":"rgb(0, 0, 0)"}}} -->
 <p class="has-text-color" style="color: rgb(0, 0, 0)">「翻訳者」の存在は、戦略と現場をつなぐ要のようなものです。</p>

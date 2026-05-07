@@ -62,7 +62,7 @@ hasShortcodes: true
 
 <!-- wp:column {"verticalAlignment":"center"} -->
 <div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"id":27764,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="https://consilegy.com/wp/wp-content/uploads/2025/08/a-professional-and-modern-illustration-representin-6-1.svg" alt="" class="wp-image-27764"/></figure>
+<figure class="wp-block-image size-full"><img src="/images/media/2025/08/a-professional-and-modern-illustration-representin-6-1.svg" alt="" class="wp-image-27764"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div>
@@ -398,7 +398,7 @@ hasShortcodes: true
 <!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}},"border":{"width":"0px","style":"none","radius":"18px"}},"backgroundColor":"base"} -->
 <div class="wp-block-columns are-vertically-aligned-center has-base-background-color has-background" style="border-style:none;border-width:0px;border-radius:18px;margin-top:var(--wp--preset--spacing--40)"><!-- wp:column {"verticalAlignment":"center"} -->
 <div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"id":27880,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="https://consilegy.com/wp/wp-content/uploads/2025/08/tadiama-shimoda.png" alt="" class="wp-image-27880"/></figure>
+<figure class="wp-block-image size-full"><img src="/images/media/2025/08/tadiama-shimoda.png" alt="" class="wp-image-27880"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column -->
 
@@ -420,7 +420,7 @@ hasShortcodes: true
 <!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}},"border":{"radius":"18px"}},"backgroundColor":"base"} -->
 <div class="wp-block-columns are-vertically-aligned-center has-base-background-color has-background" style="border-radius:18px;margin-top:var(--wp--preset--spacing--40)"><!-- wp:column {"verticalAlignment":"center"} -->
 <div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"id":27881,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="https://consilegy.com/wp/wp-content/uploads/2025/08/digitalnomadshiroshima.png" alt="" class="wp-image-27881"/></figure>
+<figure class="wp-block-image size-full"><img src="/images/media/2025/08/digitalnomadshiroshima.png" alt="" class="wp-image-27881"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column -->
 

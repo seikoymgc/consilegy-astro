@@ -43,7 +43,7 @@ categories:
 <h2><strong>PM視点で徹底した3つのポイント</strong></h2>
 <!-- /wp:heading -->
 <!-- wp:image {"linkDestination":"none","className":"size-large"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2025/03/image-55-1024x805.jpg" alt=""/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2025/03/image-55-1024x805.jpg" alt=""/></figure>
 <!-- /wp:image -->
 <!-- wp:heading {"style":{"color":{"text":"rgb(0, 0, 0)"}},"level":3} -->
 <h3><strong>1. ツールをフル活用してタスク管理・ドキュメント管理を一本化</strong></h3>
@@ -88,7 +88,7 @@ categories:
 <h2><strong>リモートならではの工夫</strong></h2>
 <!-- /wp:heading -->
 <!-- wp:image {"linkDestination":"none","className":"size-large"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2025/03/image-56-1024x767.jpg" alt=""/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2025/03/image-56-1024x767.jpg" alt=""/></figure>
 <!-- /wp:image -->
 <!-- wp:heading {"style":{"color":{"text":"rgb(0, 0, 0)"}},"level":3} -->
 <h3><strong>1. 時差のあるメンバーとどう連携したか</strong></h3>
@@ -121,7 +121,7 @@ categories:
 <h2><strong>プロジェクトの成果と学び</strong></h2>
 <!-- /wp:heading -->
 <!-- wp:image {"linkDestination":"none","className":"size-large"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2025/03/image-57-1024x682.jpg" alt=""/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2025/03/image-57-1024x682.jpg" alt=""/></figure>
 <!-- /wp:image -->
 <!-- wp:paragraph {"style":{"color":{"text":"rgb(0, 0, 0)"}}} -->
 <p class="has-text-color" style="color: rgb(0, 0, 0)"><strong>成果としては、当初の開発要件についてはなんとか計画通りにリリースを完了できました</strong>。追加要望が発生した場合はスコープを別フェーズに切り出す方針を徹底し、結果的にリニューアル直後のKPI達成率が目標の約120%にまで達したんです。</p>

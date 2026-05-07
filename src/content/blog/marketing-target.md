@@ -57,7 +57,7 @@ categories:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":154,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2021/08/whiteboard-4876651_1280-1024x682.jpg" alt="" class="wp-image-154"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2021/08/whiteboard-4876651_1280-1024x682.jpg" alt="" class="wp-image-154"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -93,7 +93,7 @@ categories:
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"id":155,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://consilegy.com/wp/wp-content/uploads/2021/08/business-3683769_1280-1024x682.jpg" alt="" class="wp-image-155"/></figure>
+<figure class="wp-block-image size-large"><img src="/images/media/2021/08/business-3683769_1280-1024x682.jpg" alt="" class="wp-image-155"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->

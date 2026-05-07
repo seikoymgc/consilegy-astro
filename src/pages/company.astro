@@ -283,16 +283,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				登記情報および基本情報は以下の通りです。
 				取材・パートナーシップに関するお問い合わせもこちらからお願いいたします。
 			</p>
+			<p class="company-name-origin">consulting, strategy, synergy の思想をもとにした造語。企業の成長戦略を、現場で機能する仕組みへ変え、組織と顧客の接点に一貫性を生み出す——その思想を込めた名前です。</p>
 		</div>
 		<div class="company-table">
 			<dl>
 				<div class="company-row">
 					<dt>会社名</dt>
 					<dd>Consilegy（コンシレジー）合同会社 / Consilegy LLC.</dd>
-				</div>
-				<div class="company-row">
-					<dt>社名の由来</dt>
-					<dd>consulting, strategy, synergy の思想をもとにした造語。企業の成長戦略を、現場で機能する仕組みへ変え、組織と顧客の接点に一貫性を生み出す——その思想を込めた名前です。</dd>
 				</div>
 				<div class="company-row">
 					<dt>代表者名</dt>
@@ -588,6 +585,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	line-height: 1.45; color: var(--color-text); margin: 0 0 1rem;
 }
 .company-note { margin-top: 1rem; font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.75; }
+.company-name-origin {
+	margin-top: 1.75rem; padding: 1.125rem 1.25rem;
+	background: var(--color-bg); border: 1px solid var(--color-border);
+	border-left: 3px solid var(--color-primary); border-radius: 0 6px 6px 0;
+	font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.85;
+}
 .company-table {
 	background: var(--color-bg); border: 1px solid var(--color-border);
 	border-radius: 8px; overflow: hidden;

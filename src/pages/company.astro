@@ -22,24 +22,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				戦略、構造設計、実装、定着までを一貫して支援する、
 				Revenue Architecture（レベニューアーキテクチャ）設計会社です。
 			</p>
-			<div class="hero-meta">
-				<div>
-					<div class="meta-lbl">設立</div>
-					<div class="meta-val">2025年5月12日</div>
-				</div>
-				<div>
-					<div class="meta-lbl">所在地</div>
-					<div class="meta-val">東京都港区北青山<br />アールキューブ青山3F</div>
-				</div>
-				<div>
-					<div class="meta-lbl">従業員数</div>
-					<div class="meta-val">5名<br />（バイリンガル体制）</div>
-				</div>
-				<div>
-					<div class="meta-lbl">支援実績</div>
-					<div class="meta-val">10年・30社以上<br />（代表直接関与ベース）</div>
-				</div>
-			</div>
 		</div>
 	</div>
 </section>
@@ -155,12 +137,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <!-- ===================== FOUNDER + MISSION ===================== -->
 <section class="founder">
-	<div class="container founder-inner">
+	<div class="container founder-wrap">
 		<div class="founder-photo-col">
 			<div class="founder-photo">
-				<div class="founder-photo__placeholder">
-					<span>Founder Photo</span>
-				</div>
+				<img src="/images/common/seiko-yamaguchi.jpg" alt="山口 聖子 Consilegy代表" />
 			</div>
 		</div>
 		<div class="founder-content">
@@ -178,6 +158,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				<div class="mission-from">— 代表 山口聖子</div>
 			</div>
 
+			<h4 class="founder-section-heading">代表メッセージ</h4>
 			<div class="mission-prose">
 				<p>
 					今の日本では、企業が新たな挑戦に踏み出し、未来に投資するための余力を持ちにくい状況が続いています。
@@ -198,6 +179,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			</div>
 
 			<div class="founder-bio">
+				<h4 class="founder-section-heading">略歴</h4>
 				<p>
 					ITコンサルティング会社を経て、2015年に独立。マーケティングコンサルタント・プロジェクトマネージャーとして、東京を中心に活動。お菓子のサブスクリプション事業や台湾の広告代理店におけるアドバイザー業務にも従事。
 				</p>
@@ -475,15 +457,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 /* ── Founder ─────────────────────────────────────────── */
 .founder { padding-block: 5rem; background: var(--color-bg); }
-.founder-inner { display: grid; grid-template-columns: 360px 1fr; gap: 4rem; align-items: start; }
+.founder-wrap { max-width: var(--container); }
+.founder-wrap::after { content: ''; display: table; clear: both; }
+.founder-photo-col {
+	float: left;
+	width: 320px;
+	margin: 0 3rem 2rem 0;
+}
 .founder-photo {
 	width: 100%; aspect-ratio: 4 / 5; border-radius: 8px;
 	background: #cfd8ec; border: 1px solid var(--color-border); overflow: hidden;
 }
 .founder-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.founder-photo__placeholder {
-	width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
-	font-size: 0.875rem; color: #94a3b8; letter-spacing: 0.04em;
+.founder-section-heading {
+	font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+	color: var(--color-text-muted); margin: 2rem 0 0.875rem;
+	padding-bottom: 0.5rem; border-bottom: 1px solid var(--color-border);
 }
 .founder-tag {
 	font-size: 0.8125rem; letter-spacing: 0.18em; text-transform: uppercase;
@@ -652,7 +641,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 @media (max-width: 980px) {
 	.hero h1, .why-left h2, .values-head h2, .track-head h2, .company-inner h2 { font-size: 1.75rem; }
 	.hero-meta { grid-template-columns: 1fr 1fr; }
-	.why-inner, .company-inner, .founder-inner, .tools-inner { grid-template-columns: 1fr; gap: 2rem; }
+	.why-inner, .company-inner, .tools-inner { grid-template-columns: 1fr; gap: 2rem; }
+	.founder-photo-col { float: none; width: 100%; margin: 0 0 2rem; }
 	.cap-grid { grid-template-columns: 1fr 1fr; }
 	.track-grid { grid-template-columns: 1fr; }
 	.values-grid { grid-template-columns: 1fr; }

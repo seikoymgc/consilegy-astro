@@ -1,8 +1,8 @@
 # Link Audit
 
-Generated: 2026-05-05  
-Pages scanned: 87  
-Unique links checked: 174
+Generated: 2026-05-06  
+Pages scanned: 105  
+Unique links checked: 199
 
 ---
 
@@ -10,7 +10,7 @@ Unique links checked: 174
 
 None ✅
 
-## External Links (101 unique)
+## External Links (117 unique)
 
 | href | First seen on |
 |---|---|
@@ -48,28 +48,37 @@ None ✅
 | https://consilegy.com/en/case-studies/ | /en/case-studies/ |
 | https://consilegy.com/en/case-studies/japan-market-entry-gtm-architecture/ | /en/case-studies/japan-market-entry-gtm-architecture/ |
 | https://consilegy.com/en/case-studies/marketing-data-integration-hubspot-migration-2/ | /en/case-studies/marketing-data-integration-hubspot-migration-2/ |
-| https://consilegy.com/en/company-en/ | /en/company-en/ |
-| https://consilegy.com/services/digital-nomad/ | /en/company-en/ |
-| https://consilegy.com/en/contact-en/ | /en/contact-en/ |
+| https://consilegy.com/en/company/ | /en/company/ |
+| https://www.linkedin.com/in/seiko-yamaguchi/ | /en/company/ |
+| https://consilegy.com/en/contact/ | /en/contact/ |
 | https://consilegy.com/en/ga4-utilization-assessment/ | /en/ga4-utilization-assessment/ |
 | https://consilegy.com/en/ga4-utilization-checklist/ | /en/ga4-utilization-checklist/ |
 | https://consilegy.com/en/ | /en/ |
 | https://consilegy.com/en/others/supercharge-b2b-sales-results-advanced-hubspot-techniques-and-abm-secrets/ | /en/others/supercharge-b2b-sales-results-advanced-hubspot-techniques-and-abm-secrets/ |
-| https://consilegy.com/en/services-en/adoption-growth-support/ | /en/services-en/adoption-growth-support/ |
-| https://consilegy.com/en/services-en/assistance-in-attracting-digital-nomads-and-remote-worker/ | /en/services-en/assistance-in-attracting-digital-nomads-and-remote-worker/ |
-| https://digitalnomadstokyo.com | /en/services-en/assistance-in-attracting-digital-nomads-and-remote-worker/ |
-| https://consilegy.com/en/services-en/crm-revops-implementation/ | /en/services-en/crm-revops-implementation/ |
-| https://consilegy.com/en/services-en/event-website-development-package/ | /en/services-en/event-website-development-package/ |
-| https://tadaima-japan.jp | /en/services-en/event-website-development-package/ |
-| https://digitalnomadshiroshima.com | /en/services-en/event-website-development-package/ |
-| https://consilegy.com/en/services-en/hubspot-implementation-operations-support/ | /en/services-en/hubspot-implementation-operations-support/ |
-| https://consilegy.com/en/services-en/ | /en/services-en/ |
-| https://consilegy.com/en/services-en/japan-market-gtm-messaging/ | /en/services-en/japan-market-gtm-messaging/ |
-| https://consilegy.com/en/services-en/revenue-architecture-design/ | /en/services-en/revenue-architecture-design/ |
+| https://consilegy.com/en/services/adoption-growth-support/ | /en/services/adoption-growth-support/ |
+| https://consilegy.com/en/services/crm-revops-implementation/ | /en/services/crm-revops-implementation/ |
+| https://consilegy.com/en/services/hubspot-implementation-operations-support/ | /en/services/hubspot-implementation-operations-support/ |
+| https://consilegy.com/en/services/ | /en/services/ |
+| https://consilegy.com/en/services/japan-market-gtm-messaging/ | /en/services/japan-market-gtm-messaging/ |
+| https://consilegy.com/en/services/revenue-architecture-design/ | /en/services/revenue-architecture-design/ |
 | https://consilegy.com/free-consultation/ | /free-consultation/ |
 | https://consilegy.com/ga4-utilization-check/ | /ga4-utilization-check/ |
 | https://consilegy.com/ | /index/ |
 | https://consilegy.com/insights/ | /insights/ |
+| https://consilegy.com/insights/why-companies-cannot-stop-using-excel-after-crm/ | /insights/why-companies-cannot-stop-using-excel-after-crm/ |
+| https://consilegy.com/insights/why-crm-adoption-fails/ | /insights/why-crm-adoption-fails/ |
+| https://consilegy.com/insights/why-crm-does-not-align-sales-and-marketing/ | /insights/why-crm-does-not-align-sales-and-marketing/ |
+| https://consilegy.com/insights/why-crm-integration-projects-fail/ | /insights/why-crm-integration-projects-fail/ |
+| https://consilegy.com/insights/why-dashboards-do-not-improve-executive-decisions/ | /insights/why-dashboards-do-not-improve-executive-decisions/ |
+| https://consilegy.com/insights/why-good-marketing-does-not-create-repeatable-growth/ | /insights/why-good-marketing-does-not-create-repeatable-growth/ |
+| https://consilegy.com/insights/why-marketing-automation-does-not-improve-pipeline/ | /insights/why-marketing-automation-does-not-improve-pipeline/ |
+| https://consilegy.com/insights/why-more-kpis-create-less-revenue-visibility/ | /insights/why-more-kpis-create-less-revenue-visibility/ |
+| https://consilegy.com/insights/why-more-leads-do-not-increase-revenue/ | /insights/why-more-leads-do-not-increase-revenue/ |
+| https://consilegy.com/insights/why-sales-and-customer-success-do-not-align/ | /insights/why-sales-and-customer-success-do-not-align/ |
+| https://consilegy.com/insights/why-sales-forecasting-fails-even-with-sfa/ | /insights/why-sales-forecasting-fails-even-with-sfa/ |
+| https://consilegy.com/insights/why-sales-meetings-become-number-reporting/ | /insights/why-sales-meetings-become-number-reporting/ |
+| https://consilegy.com/insights/why-sales-teams-stop-using-crm/ | /insights/why-sales-teams-stop-using-crm/ |
+| https://consilegy.com/insights/why-salesforce-and-hubspot-data-do-not-match/ | /insights/why-salesforce-and-hubspot-data-do-not-match/ |
 | https://consilegy.com/ir/ | /ir/ |
 | https://consilegy.com/ir/koukoku/ | /ir/koukoku/ |
 | https://consilegy.com/marketing/ai-marketing-efficiency/ | /marketing/ai-marketing-efficiency/ |
@@ -101,13 +110,20 @@ None ✅
 | https://consilegy.com/others/ | /others/ |
 | https://consilegy.com/others/%E3%80%90%E4%BF%9D%E5%AD%98%E7%89%88%E3%80%91%E4%B8%AD%E5%B0%8F%E4%BC%81%E6%A5%AD%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AEhubspot%E5%AE%8C%E5%85%A8%E3%82%AC%E3%82%A4%E3%83%89%EF%BD%9C%E7%84%A1%E6%96%99/ | /others/【保存版】中小企業のためのhubspot完全ガイド｜無料/ |
 | https://consilegy.com/others/%E3%80%90%E5%BF%85%E8%AA%AD%E3%80%91hubspot%E3%81%8C%E5%A4%A7%E4%BC%81%E6%A5%AD%E3%81%AE%E3%83%9E%E3%83%BC%E3%82%B1%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0dx%E3%82%92%E5%8A%A0%E9%80%9F%E3%81%95%E3%81%9B/ | /others/【必読】hubspotが大企業のマーケティングdxを加速させ/ |
+| https://consilegy.com/pricing/ | /pricing/ |
 | https://consilegy.com/privacy-policy/ | /privacy-policy/ |
 | https://consilegy.com/project-management/ | /project-management/ |
 | https://consilegy.com/project-management/project-manegement-roles/ | /project-management/project-manegement-roles/ |
 | https://consilegy.com/project-management/remote-project-management/ | /project-management/remote-project-management/ |
 | https://consilegy.com/project-management/respond-to-project-issues/ | /project-management/respond-to-project-issues/ |
 | https://consilegy.com/revenue-architecture/ | /revenue-architecture/ |
+| https://consilegy.com/revops-assessment/ | /revops-assessment/ |
+| https://consilegy.com/services/adoption-growth-support/ | /services/adoption-growth-support/ |
+| https://consilegy.com/services/b2b-marketing-gtm-design/ | /services/b2b-marketing-gtm-design/ |
+| https://consilegy.com/services/crm-revops-redesign/ | /services/crm-revops-redesign/ |
+| https://consilegy.com/services/digital-nomad/ | /services/digital-nomad/ |
 | https://consilegy.com/services/hubspot-implementation-consulting/ | /services/hubspot-implementation-consulting/ |
+| https://consilegy.com/services/hubspot-implementation-operations/ | /services/hubspot-implementation-operations/ |
 | https://consilegy.com/services/ | /services/ |
 | https://consilegy.com/services/marketing-strategy-design/ | /services/marketing-strategy-design/ |
 | https://consilegy.com/services/operational-adoption-optimization/ | /services/operational-adoption-optimization/ |

@@ -1,0 +1,1050 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqItems = [
+	{
+		q: '診断は無料ですか？',
+		a: 'CRM / RevOps診断は有償アセスメントです。RevOpsクイックアセスメント（10万〜15万円）と、CRM / RevOps詳細診断（30万〜50万円）の2プランをご用意しています。診断内容や費用についての事前相談は無料で承っています。',
+	},
+	{
+		q: 'クイックアセスメントと詳細診断の違いは何ですか？',
+		a: 'クイックアセスメントは、ヒアリングとツール・プロセス確認を中心に、主要ボトルネックを短期間で特定します。詳細診断は、関係者インタビュー・CRM / KPI / データ構造の深いレビューを含む、包括的なアセスメントです。課題の輪郭が不明確な場合はクイックから始め、詳細な改善設計が必要な場合は詳細診断をご利用いただくケースが多いです。',
+	},
+	{
+		q: '診断後に必ず契約する必要はありますか？',
+		a: 'ありません。診断はそれ自体が完結したサービスです。レポートと報告会をもって終了します。その後、Revenue Architecture設計やCRM / RevOps再設計への移行を希望される場合は、診断内容をもとにご提案しますが、強制ではありません。',
+	},
+	{
+		q: 'Salesforce以外にも対応していますか？',
+		a: 'はい。Salesforce・HubSpot・Kintone・Marketo・Account Engagement・Zoho CRMなど、主要CRM / SFA / MAを横断して対応しています。複数ツールを併用している環境、ツール間の連携に課題がある環境も診断対象です。',
+	},
+	{
+		q: 'HubSpotだけでも診断できますか？',
+		a: 'はい、HubSpot単体での診断も可能です。ただし、ConsilegyはHubSpot専業ではなく、営業・マーケ・CSの業務プロセスとRevOps全体を対象としているため、ツール設定だけでなく運用・KPI・データ構造まで含めた診断を提供します。',
+	},
+	{
+		q: 'オンライン対応できますか？',
+		a: 'はい。ヒアリング・インタビュー・報告会はすべてオンライン（Zoom / Google Meet等）で実施可能です。ツールのレビューや画面共有も対応していますので、全国どこからでもご利用いただけます。',
+	},
+];
+
+const faqSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faqItems.map(({ q, a }) => ({
+		'@type': 'Question',
+		name: q,
+		acceptedAnswer: { '@type': 'Answer', text: a },
+	})),
+};
+
+const symptoms = [
+	'営業がCRMを入力しない',
+	'SalesforceとHubSpotで数字が違う',
+	'MQL / SQL / 商談の定義が曖昧',
+	'ダッシュボードが経営判断に使われていない',
+	'マーケ施策が受注につながったか分からない',
+	'Excel集計や二重管理が残っている',
+	'RevOpsを整備したいが何から始めるべきか分からない',
+];
+
+const findings = [
+	{ label: 'プロセスの分断', desc: '営業・マーケ・CSの引き継ぎが属人的で、情報が次のフェーズに届いていない箇所を特定します。' },
+	{ label: 'KPIの不一致', desc: '部門ごとに異なるKPI定義や、経営判断に使えない指標体系の構造的な問題を可視化します。' },
+	{ label: 'CRM / MAの設計不備', desc: 'ツール設定・データ入力ルール・自動化設計の問題点を、実際の設定と業務フローをもとに確認します。' },
+	{ label: 'データ構造の問題', desc: '重複レコード、入力粒度の不統一、参照先の不整合など、判断に使えないデータの根本原因を整理します。' },
+	{ label: '会議・運用の形骸化', desc: '営業会議・経営会議のアジェンダ・判断基準・運用ルールが機能しているか確認します。' },
+];
+
+const scopeItems = [
+	'CRM / SFA / MA環境',
+	'営業プロセス',
+	'マーケティング連携',
+	'KPI / ダッシュボード',
+	'データ構造',
+	'会議・運用ルール',
+];
+
+const processSteps = [
+	{ n: '01', label: '初回ヒアリング', desc: '現状の課題認識・ツール環境・組織体制を確認します。' },
+	{ n: '02', label: '利用ツール・業務フロー確認', desc: '使用中のCRM / SFA / MAと、営業・マーケ・CSの業務フローを整理します。' },
+	{ n: '03', label: 'CRM / KPI / データ構造レビュー', desc: '実際のツール設定・KPI定義・データ状態を確認します。' },
+	{ n: '04', label: '関係者インタビュー', desc: '営業・マーケ・CS・情報システムなど関係部門にヒアリングします。' },
+	{ n: '05', label: 'ボトルネック分析', desc: '収集した情報をもとに、収益プロセス上のボトルネックを特定します。' },
+	{ n: '06', label: '改善優先順位の整理', desc: '効果・難易度・緊急度を考慮し、改善施策の優先順位を整理します。' },
+	{ n: '07', label: '診断レポート作成', desc: '現状課題・ボトルネック・改善ロードマップをまとめたレポートを作成します。' },
+	{ n: '08', label: '報告会・次ステップ提案', desc: 'レポートをもとに報告会を実施し、次ステップの支援プランをご提案します。' },
+];
+
+const deliverables = [
+	'現状課題レポート',
+	'CRM / RevOps診断レポート',
+	'ボトルネック一覧',
+	'KPI・データ構造の課題整理',
+	'営業マーケ連携の改善ポイント',
+	'ダッシュボード改善案',
+	'CRM再設計の優先順位',
+	'実装・改善ロードマップ',
+	'推奨支援プラン',
+];
+
+const reasons = [
+	{
+		en: 'Vendor-Free',
+		ja: 'ベンダーフリー',
+		desc: '特定のCRMベンダーや代理店と利益相反がありません。Salesforce・HubSpot・Kintone等を横断した中立の視点で診断します。',
+	},
+	{
+		en: 'RevOps / Revenue Architecture Perspective',
+		ja: 'RevOps / Revenue Architecture視点',
+		desc: '営業やCRM単体ではなく、マーケ・CS・KPI・データ構造・会議体を含めた収益プロセス全体を診断対象とします。',
+	},
+	{
+		en: 'Implementation-Aware Assessment',
+		ja: '実装・定着まで見据えた診断',
+		desc: '診断で終わらず、Revenue Architecture設計・CRM再設計・定着支援まで一貫して対応できる体制で診断します。',
+	},
+];
+---
+
+<BaseLayout
+	title="CRM / RevOps診断 | Consilegy"
+	description="CRM / SFA / MA、営業・マーケ・CS連携、KPI、データ構造、会議体を横断して確認し、Revenue Operations上のボトルネックを可視化する有償アセスメント。"
+	lang="ja"
+>
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+	</Fragment>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+	<div class="container">
+		<div class="hero-nav">
+			<a href="/services/" class="back-link">← サービス一覧</a>
+			<span class="hero-tag">CRM / RevOps Assessment</span>
+		</div>
+		<h1>CRMが機能しない原因を、<br /><span class="accent">中立の視点で診断します。</span></h1>
+		<p class="hero-sub">
+			CRM / SFA / MA、営業・マーケ・CS連携、KPI、データ構造、会議体を横断して確認し、<br class="br-md" />Revenue Operations上のボトルネックを可視化します。
+		</p>
+		<div class="hero-cta">
+			<a href="/free-consultation/" class="btn btn--primary btn--lg">30分無料相談を申し込む →</a>
+			<a href="#plans" class="btn btn--ghost btn--lg">診断プランを見る</a>
+		</div>
+	</div>
+</section>
+
+<!-- ===== SYMPTOMS ===== -->
+<section class="symptoms">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">Symptoms</p>
+			<h2>このような状態なら、診断が必要です</h2>
+		</div>
+		<ul class="symptom-list">
+			{symptoms.map((s) => (
+				<li class="symptom-item">
+					<span class="symptom-check" aria-hidden="true">
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+					</span>
+					{s}
+				</li>
+			))}
+		</ul>
+	</div>
+</section>
+
+<!-- ===== FINDINGS ===== -->
+<section class="findings">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">What We Reveal</p>
+			<h2>診断で明らかにすること</h2>
+		</div>
+		<div class="findings-grid">
+			{findings.map(({ label, desc }) => (
+				<div class="finding-card">
+					<h3 class="finding-label">{label}</h3>
+					<p class="finding-desc">{desc}</p>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<!-- ===== DEFINITION ===== -->
+<section class="definition" id="crm-revops-assessment">
+	<div class="container">
+		<div class="definition-inner">
+			<p class="eyebrow eyebrow--light">Definition</p>
+			<h2>CRM / RevOps診断とは</h2>
+			<p class="definition-text">
+				CRM / RevOps診断は、CRM / SFA / MA、営業・マーケ・CS連携、KPI、データ構造、会議体を横断して確認し、Revenue Operations上のボトルネックを可視化する有償アセスメントです。
+			</p>
+			<div class="definition-oneline">
+				<p>「何が問題か分からない」状態から、「何を・どの順序で直すべきか」を明確にするサービスです。</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===== SCOPE ===== -->
+<section class="scope">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">Scope</p>
+			<h2>診断範囲</h2>
+		</div>
+		<ul class="scope-grid">
+			{scopeItems.map((item) => (
+				<li class="scope-item">
+					<span class="scope-dot" aria-hidden="true"></span>
+					{item}
+				</li>
+			))}
+		</ul>
+	</div>
+</section>
+
+<!-- ===== PROCESS ===== -->
+<section class="process">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">Process</p>
+			<h2>診断プロセス</h2>
+		</div>
+		<div class="process-list">
+			{processSteps.map(({ n, label, desc }, i) => (
+				<div class="process-step">
+					<div class="process-step__left">
+						<div class="process-num">{n}</div>
+						{i < processSteps.length - 1 && <div class="process-line" aria-hidden="true"></div>}
+					</div>
+					<div class="process-step__body">
+						<h3 class="process-label">{label}</h3>
+						<p class="process-desc">{desc}</p>
+					</div>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<!-- ===== DELIVERABLES ===== -->
+<section class="deliverables">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">Deliverables</p>
+			<h2>診断後に得られる成果物</h2>
+		</div>
+		<ul class="deliverables-grid">
+			{deliverables.map((d, i) => (
+				<li class="deliverable-item">
+					<span class="deliverable-num">{String(i + 1).padStart(2, '0')}</span>
+					<span class="deliverable-label">{d}</span>
+				</li>
+			))}
+		</ul>
+	</div>
+</section>
+
+<!-- ===== PLANS ===== -->
+<section class="plans" id="plans">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">Plans</p>
+			<h2>診断プラン</h2>
+		</div>
+		<div class="plans-grid">
+			<div class="plan-card">
+				<p class="plan-eyebrow">Plan 01</p>
+				<h3 class="plan-name">RevOpsクイックアセスメント</h3>
+				<div class="plan-price">
+					<span class="plan-price__amount">¥100,000</span>
+					<span class="plan-price__range">〜 ¥150,000</span>
+				</div>
+				<ul class="plan-features">
+					<li>初回ヒアリング（1〜2回）</li>
+					<li>ツール・業務フロー確認</li>
+					<li>主要ボトルネックの特定</li>
+					<li>現状課題レポート</li>
+					<li>改善優先順位の整理</li>
+					<li>報告会（1回）</li>
+				</ul>
+				<p class="plan-note">課題の輪郭が不明確な状態から始める場合に適しています。</p>
+				<a href="/free-consultation/" class="btn btn--outline plan-btn">30分無料相談を申し込む →</a>
+			</div>
+			<div class="plan-card plan-card--featured">
+				<p class="plan-eyebrow">Plan 02</p>
+				<h3 class="plan-name">CRM / RevOps詳細診断</h3>
+				<div class="plan-price">
+					<span class="plan-price__amount">¥300,000</span>
+					<span class="plan-price__range">〜 ¥500,000</span>
+				</div>
+				<ul class="plan-features">
+					<li>複数回ヒアリング・関係者インタビュー</li>
+					<li>CRM / SFA / MA設定の詳細レビュー</li>
+					<li>KPI・データ構造の包括的な確認</li>
+					<li>会議・運用ルールの評価</li>
+					<li>CRM / RevOps診断レポート（全項目）</li>
+					<li>実装・改善ロードマップ</li>
+					<li>推奨支援プラン提案</li>
+					<li>報告会（複数回）</li>
+				</ul>
+				<p class="plan-note">詳細な改善設計が必要な場合、または複数ツールが絡む環境に適しています。</p>
+				<a href="/free-consultation/" class="btn btn--primary plan-btn">30分無料相談を申し込む →</a>
+			</div>
+		</div>
+		<p class="plans-note">※ 範囲・規模により変動します。詳細はご相談ください。</p>
+	</div>
+</section>
+
+<!-- ===== NEXT STEPS ===== -->
+<section class="next-steps">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">After Assessment</p>
+			<h2>診断後の進め方</h2>
+			<p class="section-sub">診断結果をもとに、必要な支援へスムーズに移行できます。</p>
+		</div>
+		<div class="flow">
+			<div class="flow-item flow-item--active">
+				<div class="flow-badge">Assessment</div>
+				<div class="flow-card flow-card--active">
+					<p class="flow-label">CRM / RevOps診断</p>
+					<p class="flow-desc">ボトルネックの可視化と改善優先順位の整理</p>
+				</div>
+			</div>
+			<div class="flow-arrow" aria-hidden="true">↓</div>
+			<div class="flow-item">
+				<div class="flow-badge flow-badge--muted">Design</div>
+				<div class="flow-card">
+					<a href="/services/revenue-architecture-design/" class="flow-link">Revenue Architecture Design</a>
+					<p class="flow-desc">収益プロセス・KPI・データ構造の上流設計</p>
+				</div>
+			</div>
+			<div class="flow-arrow" aria-hidden="true">↓</div>
+			<div class="flow-item">
+				<div class="flow-badge flow-badge--muted">Implementation</div>
+				<div class="flow-card">
+					<a href="/services/crm-revops-redesign/" class="flow-link">CRM / RevOps再設計支援</a>
+					<p class="flow-desc">CRM / SFA / MAの設計・実装・連携</p>
+				</div>
+			</div>
+			<div class="flow-arrow" aria-hidden="true">↓</div>
+			<div class="flow-item">
+				<div class="flow-badge flow-badge--muted">Adoption</div>
+				<div class="flow-card">
+					<a href="/services/adoption-growth-support/" class="flow-link">運用定着・改善伴走支援</a>
+					<p class="flow-desc">現場定着・KPIレビュー・継続改善</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===== WHY CONSILEGY ===== -->
+<section class="why">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">Why Consilegy</p>
+			<h2>なぜConsilegyなのか</h2>
+		</div>
+		<div class="why-grid">
+			{reasons.map(({ en, ja, desc }) => (
+				<div class="why-card">
+					<p class="why-en">{en}</p>
+					<h3 class="why-ja">{ja}</h3>
+					<p class="why-desc">{desc}</p>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">FAQ</p>
+			<h2>よくある質問</h2>
+		</div>
+		<div class="faq-list">
+			{faqItems.map(({ q, a }) => (
+				<details class="faq-item">
+					<summary class="faq-q">{q}</summary>
+					<div class="faq-a"><p>{a}</p></div>
+				</details>
+			))}
+		</div>
+	</div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="final-cta">
+	<div class="container">
+		<div class="final-cta__inner">
+			<h2>CRMが機能しない原因を、<br />まず診断しませんか。</h2>
+			<p>ツールの問題か、プロセスの問題か、KPIの問題か。中立の視点で整理します。</p>
+			<a href="/free-consultation/" class="btn btn--cta">30分無料相談を申し込む →</a>
+		</div>
+	</div>
+</section>
+
+</BaseLayout>
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+	--color-primary: #1e40af;
+	--color-primary-dark: #1d4ed8;
+	--color-navy: #0f172a;
+	--color-charcoal: #334155;
+	--color-muted: #64748b;
+	--color-border: #e2e8f0;
+	--color-border-mid: #cbd5e1;
+	--color-bg-soft: #f8fafc;
+	--font-serif: 'Noto Serif JP', Georgia, serif;
+	--font-sans: 'Noto Sans JP', system-ui, sans-serif;
+	--container: 1100px;
+}
+
+body { font-family: var(--font-sans); color: var(--color-navy); line-height: 1.7; }
+.container { max-width: var(--container); margin: 0 auto; padding: 0 2rem; }
+
+.eyebrow {
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: var(--color-primary);
+	display: block;
+	margin-bottom: 0.625rem;
+}
+.eyebrow--light { color: rgba(255,255,255,0.65); }
+
+.section-header {
+	text-align: center;
+	margin-bottom: 2.5rem;
+}
+.section-header h2 {
+	font-family: var(--font-serif);
+	font-size: clamp(1.375rem, 2.5vw, 1.875rem);
+	color: var(--color-navy);
+	line-height: 1.4;
+}
+.section-sub {
+	margin-top: 0.75rem;
+	font-size: 0.9375rem;
+	color: var(--color-muted);
+}
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	font-weight: 600;
+	border-radius: 5px;
+	text-decoration: none;
+	transition: all 0.18s;
+	font-size: 0.9375rem;
+	padding: 0.75rem 1.5rem;
+	cursor: pointer;
+}
+.btn--primary {
+	background: var(--color-primary);
+	color: #fff;
+	border: 2px solid transparent;
+}
+.btn--primary:hover { background: var(--color-primary-dark); }
+.btn--outline {
+	background: transparent;
+	color: var(--color-primary);
+	border: 2px solid var(--color-primary);
+}
+.btn--outline:hover { background: var(--color-primary); color: #fff; }
+.btn--ghost {
+	background: transparent;
+	color: var(--color-charcoal);
+	border: 2px solid var(--color-border-mid);
+}
+.btn--ghost:hover { border-color: var(--color-primary); color: var(--color-primary); }
+.btn--lg { padding: 0.875rem 1.875rem; font-size: 1rem; }
+.btn--cta {
+	background: #fff;
+	color: var(--color-primary);
+	border: 2px solid transparent;
+	padding: 0.875rem 2rem;
+	font-size: 1rem;
+}
+.btn--cta:hover { background: #f0f4ff; }
+
+/* ===== HERO ===== */
+.hero {
+	padding: 4rem 0 3.5rem;
+	background: linear-gradient(160deg, #f0f4ff 0%, #ffffff 70%);
+	border-bottom: 1px solid var(--color-border);
+}
+.hero-nav {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	margin-bottom: 1.75rem;
+}
+.back-link {
+	font-size: 0.8125rem;
+	color: var(--color-muted);
+	text-decoration: none;
+}
+.back-link:hover { color: var(--color-primary); }
+.hero-tag {
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--color-primary);
+	background: #eff6ff;
+	border: 1px solid #bfdbfe;
+	padding: 0.25rem 0.75rem;
+	border-radius: 4px;
+}
+.hero h1 {
+	font-family: var(--font-serif);
+	font-size: clamp(1.875rem, 4vw, 2.875rem);
+	color: var(--color-navy);
+	line-height: 1.3;
+	margin-bottom: 1.25rem;
+}
+.hero h1 .accent { color: var(--color-primary); }
+.hero-sub {
+	font-size: 1rem;
+	color: var(--color-charcoal);
+	line-height: 1.85;
+	max-width: 58ch;
+	margin-bottom: 2rem;
+}
+.hero-cta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.875rem;
+}
+.br-md { display: none; }
+
+/* ===== SYMPTOMS ===== */
+.symptoms {
+	padding: 4rem 0;
+	background: #fff;
+}
+.symptom-list {
+	list-style: none;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: 0.875rem;
+	max-width: 880px;
+	margin: 0 auto;
+}
+.symptom-item {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.625rem;
+	font-size: 0.9375rem;
+	color: var(--color-charcoal);
+	background: var(--color-bg-soft);
+	border: 1px solid var(--color-border);
+	border-radius: 8px;
+	padding: 0.875rem 1rem;
+	line-height: 1.5;
+}
+.symptom-check {
+	flex-shrink: 0;
+	width: 22px;
+	height: 22px;
+	background: var(--color-primary);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #fff;
+	margin-top: 1px;
+}
+
+/* ===== FINDINGS ===== */
+.findings {
+	padding: 4rem 0;
+	background: var(--color-bg-soft);
+	border-top: 1px solid var(--color-border);
+}
+.findings-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: 1.25rem;
+}
+.finding-card {
+	background: #fff;
+	border: 1px solid var(--color-border);
+	border-radius: 8px;
+	padding: 1.75rem;
+	border-left: 3px solid var(--color-primary);
+}
+.finding-label {
+	font-family: var(--font-serif);
+	font-size: 1rem;
+	color: var(--color-navy);
+	margin-bottom: 0.625rem;
+}
+.finding-desc {
+	font-size: 0.875rem;
+	color: var(--color-muted);
+	line-height: 1.8;
+}
+
+/* ===== DEFINITION ===== */
+.definition {
+	padding: 4.5rem 0;
+	background: var(--color-navy);
+}
+.definition-inner {
+	max-width: 780px;
+	margin: 0 auto;
+	text-align: center;
+}
+.definition h2 {
+	font-family: var(--font-serif);
+	font-size: clamp(1.375rem, 2.5vw, 1.875rem);
+	color: #fff;
+	margin-bottom: 1.5rem;
+	line-height: 1.4;
+}
+.definition-text {
+	font-size: 1rem;
+	color: rgba(255,255,255,0.8);
+	line-height: 2;
+	margin-bottom: 1.5rem;
+}
+.definition-oneline {
+	background: rgba(255,255,255,0.08);
+	border: 1px solid rgba(255,255,255,0.15);
+	border-radius: 8px;
+	padding: 1.25rem 1.75rem;
+}
+.definition-oneline p {
+	font-size: 1rem;
+	color: #fff;
+	font-weight: 600;
+	font-family: var(--font-serif);
+	line-height: 1.7;
+}
+
+/* ===== SCOPE ===== */
+.scope {
+	padding: 4rem 0;
+	background: #fff;
+}
+.scope-grid {
+	list-style: none;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1rem;
+	max-width: 760px;
+	margin: 0 auto;
+}
+.scope-item {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	font-size: 0.9375rem;
+	font-weight: 600;
+	color: var(--color-charcoal);
+	background: var(--color-bg-soft);
+	border: 1px solid var(--color-border);
+	border-radius: 8px;
+	padding: 0.875rem 1.125rem;
+}
+.scope-dot {
+	width: 8px;
+	height: 8px;
+	background: var(--color-primary);
+	border-radius: 50%;
+	flex-shrink: 0;
+}
+
+/* ===== PROCESS ===== */
+.process {
+	padding: 4rem 0;
+	background: var(--color-bg-soft);
+	border-top: 1px solid var(--color-border);
+}
+.process-list {
+	max-width: 680px;
+	margin: 0 auto;
+}
+.process-step {
+	display: flex;
+	gap: 1.5rem;
+}
+.process-step__left {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex-shrink: 0;
+}
+.process-num {
+	width: 44px;
+	height: 44px;
+	background: var(--color-primary);
+	color: #fff;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.8125rem;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	flex-shrink: 0;
+}
+.process-line {
+	width: 2px;
+	flex: 1;
+	min-height: 24px;
+	background: var(--color-border);
+	margin: 4px 0;
+}
+.process-step__body {
+	padding-bottom: 2rem;
+}
+.process-label {
+	font-size: 0.9375rem;
+	font-weight: 700;
+	color: var(--color-navy);
+	margin-bottom: 0.25rem;
+	padding-top: 0.625rem;
+}
+.process-desc {
+	font-size: 0.875rem;
+	color: var(--color-muted);
+	line-height: 1.8;
+}
+
+/* ===== DELIVERABLES ===== */
+.deliverables {
+	padding: 4rem 0;
+	background: #fff;
+	border-top: 1px solid var(--color-border);
+}
+.deliverables-grid {
+	list-style: none;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1rem;
+	max-width: 880px;
+	margin: 0 auto;
+}
+.deliverable-item {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.75rem;
+	background: var(--color-bg-soft);
+	border: 1px solid var(--color-border);
+	border-radius: 8px;
+	padding: 1rem 1.125rem;
+}
+.deliverable-num {
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	color: var(--color-primary);
+	flex-shrink: 0;
+	padding-top: 2px;
+}
+.deliverable-label {
+	font-size: 0.875rem;
+	font-weight: 600;
+	color: var(--color-charcoal);
+	line-height: 1.5;
+}
+
+/* ===== PLANS ===== */
+.plans {
+	padding: 4rem 0;
+	background: var(--color-bg-soft);
+	border-top: 1px solid var(--color-border);
+}
+.plans-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1.5rem;
+	max-width: 860px;
+	margin: 0 auto;
+}
+.plan-card {
+	background: #fff;
+	border: 1px solid var(--color-border);
+	border-radius: 8px;
+	padding: 2.25rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+.plan-card--featured {
+	border-color: var(--color-primary);
+	border-width: 2px;
+	box-shadow: 0 4px 24px rgba(30,64,175,0.08);
+}
+.plan-eyebrow {
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--color-primary);
+}
+.plan-name {
+	font-family: var(--font-serif);
+	font-size: 1.125rem;
+	color: var(--color-navy);
+	line-height: 1.45;
+}
+.plan-price {
+	display: flex;
+	align-items: baseline;
+	gap: 0.25rem;
+}
+.plan-price__amount {
+	font-size: 1.625rem;
+	font-weight: 700;
+	color: var(--color-navy);
+	letter-spacing: -0.02em;
+}
+.plan-price__range {
+	font-size: 1rem;
+	color: var(--color-muted);
+}
+.plan-features {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	flex: 1;
+}
+.plan-features li {
+	font-size: 0.875rem;
+	color: var(--color-charcoal);
+	padding-left: 1.25rem;
+	position: relative;
+	line-height: 1.6;
+}
+.plan-features li::before {
+	content: '–';
+	position: absolute;
+	left: 0;
+	color: var(--color-border-mid);
+}
+.plan-note {
+	font-size: 0.8125rem;
+	color: var(--color-muted);
+	line-height: 1.7;
+}
+.plan-btn { text-align: center; justify-content: center; }
+.plans-note {
+	text-align: center;
+	margin-top: 1.5rem;
+	font-size: 0.8125rem;
+	color: var(--color-muted);
+}
+
+/* ===== NEXT STEPS ===== */
+.next-steps {
+	padding: 4rem 0;
+	background: #fff;
+	border-top: 1px solid var(--color-border);
+}
+.flow {
+	max-width: 480px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0;
+}
+.flow-item {
+	width: 100%;
+	display: flex;
+	gap: 1rem;
+	align-items: flex-start;
+}
+.flow-badge {
+	font-size: 0.65rem;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--color-primary);
+	background: #eff6ff;
+	border: 1px solid #bfdbfe;
+	padding: 0.25rem 0.625rem;
+	border-radius: 4px;
+	white-space: nowrap;
+	margin-top: 1rem;
+	flex-shrink: 0;
+}
+.flow-badge--muted {
+	color: var(--color-muted);
+	background: var(--color-bg-soft);
+	border-color: var(--color-border);
+}
+.flow-card {
+	flex: 1;
+	background: var(--color-bg-soft);
+	border: 1px solid var(--color-border);
+	border-radius: 8px;
+	padding: 1rem 1.25rem;
+}
+.flow-card--active {
+	background: #eff6ff;
+	border-color: #bfdbfe;
+}
+.flow-label {
+	font-size: 0.9375rem;
+	font-weight: 700;
+	color: var(--color-navy);
+	margin-bottom: 0.25rem;
+}
+.flow-link {
+	font-size: 0.9375rem;
+	font-weight: 700;
+	color: var(--color-primary);
+	text-decoration: none;
+	display: block;
+	margin-bottom: 0.25rem;
+}
+.flow-link:hover { text-decoration: underline; }
+.flow-desc {
+	font-size: 0.8125rem;
+	color: var(--color-muted);
+	line-height: 1.7;
+}
+.flow-arrow {
+	font-size: 1.25rem;
+	color: var(--color-border-mid);
+	text-align: center;
+	width: 100%;
+	padding: 0.25rem 0 0.25rem 3.5rem;
+	line-height: 1;
+}
+
+/* ===== WHY ===== */
+.why {
+	padding: 4rem 0;
+	background: var(--color-bg-soft);
+	border-top: 1px solid var(--color-border);
+}
+.why-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.5rem;
+}
+.why-card {
+	background: #fff;
+	border: 1px solid var(--color-border);
+	border-radius: 8px;
+	padding: 2rem;
+}
+.why-en {
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--color-primary);
+	margin-bottom: 0.5rem;
+}
+.why-ja {
+	font-family: var(--font-serif);
+	font-size: 1rem;
+	color: var(--color-navy);
+	margin-bottom: 0.75rem;
+	line-height: 1.5;
+}
+.why-desc {
+	font-size: 0.875rem;
+	color: var(--color-muted);
+	line-height: 1.85;
+}
+
+/* ===== FAQ ===== */
+.faq {
+	padding: 4rem 0;
+	background: #fff;
+	border-top: 1px solid var(--color-border);
+}
+.faq-list {
+	max-width: 720px;
+	margin: 0 auto;
+}
+.faq-item { border-bottom: 1px solid var(--color-border); }
+.faq-item:first-child { border-top: 1px solid var(--color-border); }
+.faq-q {
+	font-size: 0.9375rem;
+	font-weight: 600;
+	color: var(--color-navy);
+	padding: 1.125rem 2.5rem 1.125rem 0;
+	cursor: pointer;
+	list-style: none;
+	position: relative;
+	line-height: 1.6;
+}
+.faq-q::after {
+	content: '+';
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 1.25rem;
+	color: var(--color-primary);
+	font-weight: 300;
+	line-height: 1;
+}
+details[open] .faq-q::after { content: '−'; }
+.faq-a { padding: 0 0 1.25rem; }
+.faq-a p { font-size: 0.875rem; color: var(--color-muted); line-height: 1.9; }
+
+/* ===== FINAL CTA ===== */
+.final-cta {
+	padding: 5rem 0;
+	background:
+		radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%),
+		linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+}
+.final-cta__inner {
+	text-align: center;
+	max-width: 600px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.25rem;
+}
+.final-cta__inner h2 {
+	font-family: var(--font-serif);
+	font-size: clamp(1.5rem, 3vw, 2rem);
+	color: #fff;
+	line-height: 1.45;
+}
+.final-cta__inner p {
+	font-size: 1rem;
+	color: rgba(255,255,255,0.8);
+	line-height: 1.8;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 860px) {
+	.why-grid { grid-template-columns: 1fr; }
+	.plans-grid { grid-template-columns: 1fr; }
+	.deliverables-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+	.scope-grid { grid-template-columns: repeat(2, 1fr); }
+	.deliverables-grid { grid-template-columns: 1fr; }
+	.hero-cta { flex-direction: column; }
+	.hero-cta .btn { text-align: center; justify-content: center; }
+	.br-md { display: block; }
+}
+</style>

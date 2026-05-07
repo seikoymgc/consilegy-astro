@@ -1,0 +1,476 @@
+---
+import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const pubDate = '2026-05-07';
+const pubDateDisplay = '2026年5月7日';
+const readTime = '約10分';
+
+const articleSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'なぜ良い施策でも再現性が生まれないのか｜Revenue Architecture',
+	description: '一時的に成果が出ても再現性が続かない原因を、Revenue Architecture・RevOps・Revenue Visibilityの観点から解説します。',
+	datePublished: pubDate,
+	dateModified: pubDate,
+	author: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+	url: 'https://consilegy.com/insights/why-good-marketing-strategies-fail-to-scale/',
+	inLanguage: 'ja',
+};
+
+const breadcrumbSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://consilegy.com/' },
+		{ '@type': 'ListItem', position: 2, name: 'コラム', item: 'https://consilegy.com/insights/' },
+		{ '@type': 'ListItem', position: 3, name: 'なぜ「良い施策」を打っても再現性が生まれないのか', item: 'https://consilegy.com/insights/why-good-marketing-strategies-fail-to-scale/' },
+	],
+};
+---
+
+<BaseLayout
+	title="なぜ良い施策でも再現性が生まれないのか｜Revenue Architecture | Consilegy"
+	description="一時的に成果が出ても再現性が続かない原因を、Revenue Architecture・RevOps・Revenue Visibilityの観点から解説します。"
+	lang="ja"
+>
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	</Fragment>
+
+<div class="article-wrap">
+
+	<!-- ===== ARTICLE HEADER ===== -->
+	<header class="article-head container">
+		<nav class="breadcrumb" aria-label="パンくずリスト">
+			<a href="/">ホーム</a>
+			<span aria-hidden="true">›</span>
+			<a href="/insights/">コラム</a>
+			<span aria-hidden="true">›</span>
+			<span aria-current="page">なぜ「良い施策」を打っても再現性が生まれないのか</span>
+		</nav>
+		<div class="article-meta">
+			<span class="article-cat">Revenue Architecture</span>
+			<span class="article-date">{pubDateDisplay}</span>
+			<span class="article-read">{readTime}</span>
+		</div>
+		<h1>なぜ「良い施策」を打っても<br class="br-pc" />再現性が生まれないのか</h1>
+		<p class="article-desc">広告が当たり、ウェビナーが成功し、大型案件も取れた。それなのに数ヶ月後には元に戻る——この「単発成果」の繰り返しは施策の問題ではなく、収益が再現される構造が設計されていないことが原因だ。</p>
+	</header>
+
+	<!-- ===== ARTICLE BODY ===== -->
+	<div class="article-body container">
+
+		<div class="article-section">
+			<p>広告が当たった。ウェビナーが成功した。大型案件も取れた。一時的に数字も伸びた。それなのに数ヶ月後には元に戻り、同じ施策が再現できず、「なぜ成功したのか」を説明できない——こんな状況になっていないでしょうか。マーケティング投資の増加・CRM導入・インサイドセールス立ち上げのタイミングで「単発成果」は出る、しかし「収益として再現できない」状態が発生するパターンは、日本のBtoB企業に広く見られます。</p>
+			<p>多くの企業は「もっと施策数を増やそう」と考えます。しかし<strong>問題は施策の量ではありません</strong>。本当の原因は、収益が再現される構造が存在していないことにあります。</p>
+		</div>
+
+		<div class="article-section">
+			<h2>再現性が生まれない5つの理由</h2>
+			<ol class="article-numbered">
+				<li>
+					<strong>「勝ちパターン」が言語化されていない</strong>
+					<p>なぜ受注したのか、なぜ商談化したのか、どのメッセージが刺さったのかが整理されていない。成功が担当者の頭の中に留まったままでは、その人が異動・退職した瞬間に成功要因ごと消えます。</p>
+				</li>
+				<li>
+					<strong>KPIが収益と接続されていない</strong>
+					<p>マーケティングはCV数、営業は受注数、カスタマーサクセスは継続率——部門ごとの最適化が収益の流れを分断します。施策評価が部分最適になると、どの行動が本当に収益につながったかが見えなくなります。</p>
+				</li>
+				<li>
+					<strong>Revenue Visibilityが低い</strong>
+					<p>どの施策がARRにつながったか、どこで失注したか、どこがボトルネックかが見えない。可視化がなければ改善ループが回らず、成功体験を構造として再現する手がかりがありません。</p>
+				</li>
+				<li>
+					<strong>CRMが「記録」で止まっている</strong>
+					<p>SalesforceやHubSpotはあっても、収益分析へ接続されていない。データが「履歴」で終わり、なぜその商談が進んだのか、なぜ失注したのかという洞察が得られません。</p>
+				</li>
+				<li>
+					<strong>RevOpsが存在しない</strong>
+					<p>マーケティング・営業・カスタマーサクセスが別々に最適化していると、収益全体として再現性を作ることができません。横断的な管理がなければ、勝ちパターンは組織の資産になりません。</p>
+				</li>
+			</ol>
+		</div>
+
+		<!-- DIAGRAM 1: 単発成果で終わる組織 -->
+		<figure class="diag-wrap" aria-label="単発成果で終わる組織：施策ごとに成果が生まれるが構造がないため再現できない状態">
+			<div class="diag diag--repro-chaos">
+				<div class="rc-header">単発成果で終わる組織</div>
+				<div class="rc-timeline">
+					<div class="rc-event rc-event--success">
+						<div class="rc-event-icon">📣</div>
+						<div class="rc-event-label">広告</div>
+						<div class="rc-event-result rc-result--good">一時↑</div>
+					</div>
+					<div class="rc-fade">→</div>
+					<div class="rc-event rc-event--reset">
+						<div class="rc-event-icon">📉</div>
+						<div class="rc-event-label">元に戻る</div>
+						<div class="rc-event-result rc-result--bad">定着せず</div>
+					</div>
+					<div class="rc-fade">→</div>
+					<div class="rc-event rc-event--success">
+						<div class="rc-event-icon">🎙</div>
+						<div class="rc-event-label">ウェビナー</div>
+						<div class="rc-event-result rc-result--good">一時↑</div>
+					</div>
+					<div class="rc-fade">→</div>
+					<div class="rc-event rc-event--reset">
+						<div class="rc-event-icon">📉</div>
+						<div class="rc-event-label">元に戻る</div>
+						<div class="rc-event-result rc-result--bad">定着せず</div>
+					</div>
+				</div>
+				<div class="rc-tools">
+					<div class="rc-tool">
+						<div class="rc-tool-icon sf">SF</div>
+						<div class="rc-tool-label">Salesforce</div>
+					</div>
+					<div class="rc-tool-sep">+</div>
+					<div class="rc-tool">
+						<div class="rc-tool-icon xl">XL</div>
+						<div class="rc-tool-label">Excel分析</div>
+					</div>
+					<div class="rc-tool-sep">+</div>
+					<div class="rc-tool">
+						<div class="rc-tool-icon hs">HS</div>
+						<div class="rc-tool-label">HubSpot</div>
+					</div>
+					<div class="rc-tool-note">← 接続されておらず分析できない</div>
+				</div>
+				<div class="rc-bubbles">
+					<div class="rc-bubble">「なぜ成功した？」</div>
+					<div class="rc-bubble rc-bubble--warn">「再現できない」</div>
+					<div class="rc-bubble">「担当者が分かってた」</div>
+				</div>
+				<div class="rc-footer">
+					<span class="rc-tag bad">✕ 勝ちパターン不明</span>
+					<span class="rc-tag bad">✕ 部門が分断</span>
+					<span class="rc-tag bad">✕ 収益が積み上がらない</span>
+				</div>
+			</div>
+			<figcaption class="diag-caption">単発成果で終わる組織：施策ごとに一時的な成果は出るが、勝ちパターンが構造化されていないため再現できず収益が積み上がらない</figcaption>
+		</figure>
+
+		<div class="article-section">
+			<h2>多くの企業が見落としていること</h2>
+			<p>多くの企業は再現性の問題を「施策品質の問題」と考えます。しかし本質は施策ではありません。本質はRevenue Visibility・収益の流れ・KPI設計・RevOpsの問題です。つまり再現性の問題とは、<strong>Revenue Architectureの問題</strong>です。</p>
+			<p class="article-callout">施策が良くても、その成果を構造化する仕組みがなければ、再現性は生まれません。</p>
+		</div>
+
+		<div class="article-section">
+			<h2>本当に必要なのは「Revenue Growth Design」</h2>
+			<p>どの施策が収益につながるか、どこでボトルネックが発生するか、どのKPIを改善すべきか、どの勝ちパターンを拡張すべきか——これを構造として設計することが必要です。Revenue Growth Designとは、一時的な成功を組織の資産へ転換するための設計思想です。重要なのは施策の数ではなく、<strong>収益が再現できる構造</strong>です。</p>
+		</div>
+
+		<!-- DIAGRAM 2: Revenue Growth Design構造図 -->
+		<figure class="diag-wrap" aria-label="Revenue Growth Design：Traffic・MQL・SQL・Opportunity・ARR・Expansionが接続しWin Patternと収益可視化を備えた成長構造">
+			<div class="diag diag--rgd">
+				<div class="rgd-header">Revenue Growth Design</div>
+				<div class="rgd-flow">
+					<div class="rgd-stage rgd-stage--traffic">
+						<div class="rgd-stage-label">流入</div>
+						<div class="rgd-stage-sub">Traffic<br />源泉定義</div>
+					</div>
+					<div class="rgd-arrow">→</div>
+					<div class="rgd-stage rgd-stage--mql">
+						<div class="rgd-stage-label">MQL</div>
+						<div class="rgd-stage-sub">見込み客<br />基準統一</div>
+					</div>
+					<div class="rgd-arrow">→</div>
+					<div class="rgd-stage rgd-stage--sql">
+						<div class="rgd-stage-label">SQL</div>
+						<div class="rgd-stage-sub">商談候補<br />定義統一</div>
+					</div>
+					<div class="rgd-arrow">→</div>
+					<div class="rgd-stage rgd-stage--opp">
+						<div class="rgd-stage-label">商談</div>
+						<div class="rgd-stage-sub">Win Pattern<br />分析</div>
+					</div>
+					<div class="rgd-arrow">→</div>
+					<div class="rgd-stage rgd-stage--arr">
+						<div class="rgd-stage-label">ARR</div>
+						<div class="rgd-stage-sub">収益計測<br />可視化</div>
+					</div>
+					<div class="rgd-arrow">→</div>
+					<div class="rgd-stage rgd-stage--exp">
+						<div class="rgd-stage-label">拡張</div>
+						<div class="rgd-stage-sub">継続・追加<br />収益化</div>
+					</div>
+				</div>
+				<div class="rgd-visibility">
+					<div class="rgd-vis-bar">
+						<div class="rgd-vis-label">Revenue Visibility（全段階で可視化）</div>
+						<div class="rgd-vis-items">
+							<span>転換率</span>
+							<span>ボトルネック特定</span>
+							<span>Win Pattern抽出</span>
+							<span>Forecast接続</span>
+						</div>
+					</div>
+				</div>
+				<div class="rgd-footer">
+					<span class="rgd-tag good">✓ 勝ちパターンが見える</span>
+					<span class="rgd-tag good">✓ ボトルネックが特定できる</span>
+					<span class="rgd-tag good">✓ 再現性が生まれる</span>
+				</div>
+			</div>
+			<figcaption class="diag-caption">Revenue Growth Design：流入からARR・拡張収益まで一本につなぎ、Revenue Visibilityで全段階のボトルネックとWin Patternを把握する収益成長の設計</figcaption>
+		</figure>
+
+		<div class="article-section">
+			<h2>Revenue Architectureという考え方</h2>
+			<p>再現性問題の本質はマーケティング施策の問題ではありません。営業・マーケティング・カスタマーサクセス・CRM・KPI・データを「収益につながる一つの構造」として設計するRevenue Architectureの問題です。Revenue Architecture・収益可視化・収益の流れ・RevOps・KPI設計という構造が整うことで、一時的な成功が組織の再現可能な資産へ転換されます。</p>
+		</div>
+
+		<div class="article-section">
+			<h2>再現性が高い会社の共通点</h2>
+			<p>収益成長している会社には共通点があります。勝ちパターンが構造化されており成功理由が誰でも見えます。Revenue KPIがマーケティング・営業・カスタマーサクセスで統一されており定義のずれがありません。Revenue Flowが可視化されボトルネックをすぐ特定できます。ForecastとRevenue Architectureが接続されており将来の収益を構造として予測できます。RevOpsが横断的に収益改善を管理しており部門最適に陥りません。</p>
+		</div>
+
+		<!-- DIAGRAM 3: Revenue Architecture統合図 -->
+		<figure class="diag-wrap" aria-label="Revenue ArchitectureによるGrowth統合：7つの要素を接続し再現性・Revenue Visibility・Growth Predictabilityを実現する">
+			<div class="diag diag--ra-repro">
+				<div class="ra-pills-row">
+					<span class="ra-pill">マーケティング</span>
+					<span class="ra-pill">営業</span>
+					<span class="ra-pill">CS</span>
+					<span class="ra-pill">CRM</span>
+					<span class="ra-pill">KPI</span>
+					<span class="ra-pill">RevOps</span>
+					<span class="ra-pill">BI</span>
+				</div>
+				<svg class="ra-svg" viewBox="0 0 700 60" preserveAspectRatio="none" aria-hidden="true">
+					<line x1="50"  y1="0" x2="350" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+					<line x1="150" y1="0" x2="350" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+					<line x1="250" y1="0" x2="350" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+					<line x1="350" y1="0" x2="350" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+					<line x1="450" y1="0" x2="350" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+					<line x1="550" y1="0" x2="350" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+					<line x1="650" y1="0" x2="350" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+				</svg>
+				<div class="ra-core">
+					<div class="ra-core-title">Revenue Architecture</div>
+					<div class="ra-core-tags">
+						<span>Win Pattern構造化</span>
+						<span>Revenue Flow設計</span>
+						<span>KPI統一設計</span>
+						<span>Revenue Visibility</span>
+						<span>RevOps横断管理</span>
+					</div>
+				</div>
+				<div class="ra-connector-bar"></div>
+				<div class="ra-outcomes">
+					<div class="ra-outcome">
+						<div class="ra-outcome-title">再現性の確立</div>
+						<div class="ra-outcome-sub">成功施策が組織の<br />資産になる</div>
+					</div>
+					<div class="ra-outcome ra-outcome--mid">
+						<div class="ra-outcome-title">Revenue Visibility</div>
+						<div class="ra-outcome-sub">どの施策がARRに<br />つながるか見える</div>
+					</div>
+					<div class="ra-outcome">
+						<div class="ra-outcome-title">Growth Predictability</div>
+						<div class="ra-outcome-sub">収益成長を構造として<br />予測・設計できる</div>
+					</div>
+				</div>
+			</div>
+			<figcaption class="diag-caption">Revenue ArchitectureによるGrowth統合：マーケティング・営業・CS・CRM・KPI・RevOps・BIを接続し、再現性・Revenue Visibility・Growth Predictabilityを実現する</figcaption>
+		</figure>
+
+		<div class="article-section">
+			<h2>日本企業で特に再現性が崩れやすい理由</h2>
+			<p>日本企業では属人営業・部門最適・Excel文化・暗黙知依存が根強く残っています。そのため成果が「個人の頑張り」に依存しやすく、構造として蓄積されません。しかし本来必要なのは「収益が再現される構造」です。日本企業の文化と組織構造を踏まえたRevenue Architectureの設計が、再現性の土台を作ります。</p>
+		</div>
+
+		<div class="article-section">
+			<h2>Consilegyの考え方</h2>
+			<p>Consilegyでは施策改善を単なるマーケティング改善とは考えていません。本質はRevenue Architecture・収益可視化・収益の流れ・RevOps・KPI設計にあります。Salesforce・HubSpot・BI・Slack・Kintoneを横断しながら、「収益が再現される構造」を設計します。目的は一時的に成果を出すことではなく、収益が継続的に再現される構造を作ることです。</p>
+			<div class="article-table-wrap">
+				<table>
+					<thead>
+						<tr>
+							<th>課題</th>
+							<th>Consilegyのアプローチ</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>成果が単発で終わる</td>
+							<td>Win Pattern構造化 + Revenue Flow設計</td>
+						</tr>
+						<tr>
+							<td>KPIが部門間でずれる</td>
+							<td>共通KPI設計 + Single Source of Truth構築</td>
+						</tr>
+						<tr>
+							<td>施策評価が部分最適になる</td>
+							<td>Revenue Visibility設計 + ARR接続分析</td>
+						</tr>
+						<tr>
+							<td>CRMがデータの墓場になる</td>
+							<td>CRM Architecture整備 + BI連携分析</td>
+						</tr>
+						<tr>
+							<td>部門間の連携がない</td>
+							<td>RevOps体制設計 + Revenue成長管理</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="article-section">
+			<h2>まとめ：再現性問題は、Revenue構造の問題</h2>
+			<p>「良い施策を打っても続かない」原因は施策の質ではありません。多くの場合、Revenue Architecture不足・収益可視化の欠如・収益の流れ未設計・RevOps未整備が原因です。だからこそ必要なのは施策の追加ではなく、<strong>収益が再現される構造を設計すること</strong>です。再現性は、Revenue Architectureの結果として生まれます。</p>
+		</div>
+
+	</div><!-- /.article-body -->
+
+	<!-- ===== CTA ===== -->
+	<section class="article-cta">
+		<div class="container">
+			<p class="cta-label">Revenue Architectureについて相談する</p>
+			<h2 class="cta-title">施策の再現性・Revenue設計について<br />まずは話してみませんか</h2>
+			<p class="cta-body">Consilegyでは、単発成果を再現可能な収益構造へ転換するRevenue Architecture設計を支援しています。現状の課題診断から設計・運用支援まで、まずはお気軽にご相談ください。</p>
+			<a href="/contact/" class="cta-btn">無料相談を予約する</a>
+		</div>
+	</section>
+
+	<NewsletterSidebar />
+</div><!-- /.article-wrap -->
+
+<style>
+/* ===== LAYOUT ===== */
+.article-wrap { background: #fff; }
+.container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+/* ===== HEADER ===== */
+.article-head { padding: 48px 24px 40px; }
+.breadcrumb { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--color-muted, #64748b); margin-bottom: 20px; flex-wrap: wrap; }
+.breadcrumb a { color: var(--color-muted, #64748b); text-decoration: none; }
+.breadcrumb a:hover { color: var(--color-primary, #1e40af); }
+.article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+.article-cat { display: inline-block; background: #eff6ff; color: var(--color-primary, #1e40af); font-size: 0.78rem; font-weight: 600; padding: 4px 12px; border-radius: 4px; }
+.article-date, .article-read { font-size: 0.82rem; color: var(--color-muted, #64748b); }
+h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 800; color: var(--color-navy, #0f172a); line-height: 1.3; margin: 0 0 16px; }
+.article-desc { font-size: 1rem; color: var(--color-charcoal, #334155); line-height: 1.8; margin: 0; }
+.br-pc { display: none; }
+@media (min-width: 640px) { .br-pc { display: block; } }
+
+/* ===== BODY ===== */
+.article-body { padding: 40px 24px 64px; }
+.article-section { margin-bottom: 48px; }
+.article-section h2 { font-size: 1.25rem; font-weight: 700; color: var(--color-navy, #0f172a); margin: 0 0 16px; padding-bottom: 10px; border-bottom: 2px solid var(--color-border, #e2e8f0); }
+.article-section p { font-size: 0.975rem; color: var(--color-charcoal, #334155); line-height: 1.9; margin: 0 0 16px; }
+.article-section p:last-child { margin-bottom: 0; }
+.article-callout { background: #f8fafc; border-left: 3px solid var(--color-primary, #1e40af); padding: 14px 18px; border-radius: 0 6px 6px 0; font-size: 0.92rem !important; color: var(--color-navy, #0f172a) !important; }
+
+/* ===== NUMBERED LIST ===== */
+.article-numbered { list-style: none; padding: 0; margin: 0; counter-reset: item; display: flex; flex-direction: column; gap: 24px; }
+.article-numbered li { counter-increment: item; display: grid; grid-template-columns: 36px 1fr; gap: 0 16px; }
+.article-numbered li::before { content: counter(item); display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--color-primary, #1e40af); color: #fff; border-radius: 50%; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px; }
+.article-numbered li strong { grid-column: 2; display: block; font-size: 1rem; color: var(--color-navy, #0f172a); margin-bottom: 6px; line-height: 1.4; }
+.article-numbered li p { grid-column: 2; font-size: 0.925rem; color: var(--color-charcoal, #334155); line-height: 1.8; margin: 0; }
+
+/* ===== TABLE ===== */
+.article-table-wrap { overflow-x: auto; margin-top: 24px; }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+th { background: var(--color-navy, #0f172a); color: #fff; padding: 10px 14px; text-align: left; font-weight: 600; }
+td { padding: 10px 14px; border-bottom: 1px solid var(--color-border, #e2e8f0); color: var(--color-charcoal, #334155); }
+tr:last-child td { border-bottom: none; }
+tr:nth-child(even) td { background: #f8fafc; }
+
+/* ===== DIAGRAM WRAPPER ===== */
+.diag-wrap { margin: 0 0 48px; }
+.diag { border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; overflow: hidden; background: #fff; }
+.diag-caption { display: block; font-size: 0.78rem; color: var(--color-muted, #64748b); margin-top: 8px; line-height: 1.5; }
+
+/* ===================================================
+   DIAGRAM 1: diag--repro-chaos
+   =================================================== */
+.diag--repro-chaos { font-family: inherit; }
+.rc-header { background: var(--color-navy, #0f172a); color: #fff; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em; padding: 8px 16px; }
+.rc-timeline { display: flex; align-items: center; gap: 6px; padding: 20px 16px 12px; overflow-x: auto; flex-wrap: nowrap; }
+.rc-event { flex: 0 0 auto; background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 10px 12px; text-align: center; min-width: 80px; }
+.rc-event--success { border-top: 3px solid #22c55e; }
+.rc-event--reset { border-top: 3px solid #ef4444; }
+.rc-event-icon { font-size: 1.1rem; margin-bottom: 3px; }
+.rc-event-label { font-size: 0.68rem; font-weight: 600; color: var(--color-charcoal, #334155); margin-bottom: 4px; }
+.rc-event-result { font-size: 0.65rem; font-weight: 700; padding: 2px 6px; border-radius: 3px; }
+.rc-result--good { background: #dcfce7; color: #15803d; }
+.rc-result--bad { background: #fee2e2; color: #991b1b; }
+.rc-fade { color: #94a3b8; font-size: 1rem; font-weight: 700; flex-shrink: 0; }
+.rc-tools { display: flex; align-items: center; gap: 10px; padding: 8px 16px 14px; flex-wrap: wrap; }
+.rc-tool { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.rc-tool-icon { width: 28px; height: 28px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 700; color: #fff; }
+.rc-tool-icon.sf { background: #00a1e0; }
+.rc-tool-icon.xl { background: #16a34a; }
+.rc-tool-icon.hs { background: #ff7a59; }
+.rc-tool-label { font-size: 0.6rem; color: var(--color-muted, #64748b); }
+.rc-tool-sep { font-size: 0.8rem; color: #cbd5e1; font-weight: 700; }
+.rc-tool-note { font-size: 0.68rem; color: #ef4444; font-weight: 500; flex: 1; }
+.rc-bubbles { display: flex; flex-wrap: wrap; gap: 8px; padding: 4px 16px 12px; }
+.rc-bubble { background: #fef9c3; border: 1px solid #fde047; border-radius: 8px; padding: 6px 14px; font-size: 0.78rem; color: #713f12; font-weight: 500; }
+.rc-bubble--warn { background: #fef2f2; border-color: #fca5a5; color: #991b1b; }
+.rc-footer { display: flex; gap: 8px; padding: 12px 16px; background: #fef2f2; flex-wrap: wrap; }
+.rc-tag { font-size: 0.72rem; font-weight: 600; padding: 3px 10px; border-radius: 4px; }
+.rc-tag.bad { background: #fee2e2; color: #991b1b; }
+
+/* ===================================================
+   DIAGRAM 2: diag--rgd  (Revenue Growth Design)
+   =================================================== */
+.diag--rgd { font-family: inherit; }
+.rgd-header { background: var(--color-navy, #0f172a); color: #fff; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em; padding: 8px 16px; }
+.rgd-flow { display: flex; align-items: stretch; padding: 20px 14px 8px; gap: 0; flex-wrap: nowrap; overflow-x: auto; }
+.rgd-stage { flex: 1; min-width: 70px; background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 6px; padding: 10px 8px; text-align: center; }
+.rgd-stage-label { font-size: 0.75rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 4px; }
+.rgd-stage-sub { font-size: 0.62rem; color: var(--color-muted, #64748b); line-height: 1.3; }
+.rgd-stage--traffic { border-top: 3px solid #94a3b8; }
+.rgd-stage--mql     { border-top: 3px solid #60a5fa; }
+.rgd-stage--sql     { border-top: 3px solid #3b82f6; }
+.rgd-stage--opp     { border-top: 3px solid var(--color-primary, #1e40af); }
+.rgd-stage--arr     { border-top: 3px solid #1d4ed8; background: #eff6ff; }
+.rgd-stage--arr .rgd-stage-label { color: var(--color-primary, #1e40af); }
+.rgd-stage--exp     { border-top: 3px solid var(--color-navy, #0f172a); }
+.rgd-arrow { display: flex; align-items: center; padding: 0 3px; color: #94a3b8; font-size: 0.9rem; font-weight: 700; flex-shrink: 0; }
+.rgd-visibility { margin: 4px 14px 8px; }
+.rgd-vis-bar { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px; padding: 10px 14px; }
+.rgd-vis-label { font-size: 0.7rem; font-weight: 700; color: var(--color-primary, #1e40af); margin-bottom: 6px; }
+.rgd-vis-items { display: flex; flex-wrap: wrap; gap: 6px; }
+.rgd-vis-items span { font-size: 0.65rem; background: #fff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 2px 10px; color: var(--color-charcoal, #334155); }
+.rgd-footer { display: flex; gap: 8px; padding: 10px 14px; background: #f0fdf4; flex-wrap: wrap; }
+.rgd-tag { font-size: 0.72rem; font-weight: 600; padding: 3px 10px; border-radius: 4px; }
+.rgd-tag.good { background: #dcfce7; color: #15803d; }
+
+/* ===================================================
+   DIAGRAM 3: diag--ra-repro  (standard RA hub, 7 pills)
+   =================================================== */
+.diag--ra-repro { padding: 28px 20px 24px; display: flex; flex-direction: column; align-items: center; gap: 0; }
+.ra-pills-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; width: 100%; margin-bottom: 0; }
+.ra-pill { background: #f1f5f9; border: 1px solid var(--color-border, #e2e8f0); border-radius: 4px; padding: 6px 16px; font-size: 0.78rem; font-weight: 600; color: var(--color-charcoal, #334155); }
+.ra-svg { width: 100%; height: 60px; display: block; }
+.ra-core { background: var(--color-navy, #0f172a); border-radius: 8px; padding: 18px 24px; width: 100%; max-width: 480px; text-align: center; }
+.ra-core-title { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 10px; letter-spacing: 0.02em; }
+.ra-core-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.ra-core-tags span { background: rgba(255,255,255,0.12); color: #cbd5e1; font-size: 0.68rem; padding: 3px 10px; border-radius: 8px; }
+.ra-connector-bar { width: 2px; height: 24px; background: var(--color-border, #e2e8f0); }
+.ra-outcomes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; width: 100%; max-width: 520px; }
+.ra-outcome { background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 14px 12px; text-align: center; }
+.ra-outcome--mid { border-color: var(--color-primary, #1e40af); background: #eff6ff; }
+.ra-outcome--mid .ra-outcome-title { color: var(--color-primary, #1e40af); }
+.ra-outcome-title { font-size: 0.78rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 6px; }
+.ra-outcome-sub { font-size: 0.68rem; color: var(--color-muted, #64748b); line-height: 1.5; }
+
+/* ===== CTA ===== */
+.article-cta { background: radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%), linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%); padding: 64px 24px; text-align: center; color: #fff; }
+.cta-label { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7; margin: 0 0 12px; }
+.cta-title { font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 800; margin: 0 0 16px; line-height: 1.4; }
+.cta-body { font-size: 0.95rem; opacity: 0.85; max-width: 520px; margin: 0 auto 28px; line-height: 1.7; }
+.cta-btn { display: inline-block; background: #fff; color: var(--color-primary, #1e40af); font-weight: 700; font-size: 0.95rem; padding: 14px 36px; border-radius: 6px; text-decoration: none; transition: opacity 0.2s; }
+.cta-btn:hover { opacity: 0.9; }
+</style>
+
+</BaseLayout>

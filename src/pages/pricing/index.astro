@@ -4,7 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 <BaseLayout
 	title="料金プラン | Consilegy"
-	description="診断パッケージ（10〜50万円）、マルチCRM再設計プロジェクト（250〜500万円）、伴走・顧問支援（月額30〜100万円）。目的に応じて選べる3つのプランをご用意しています。"
+	description="診断パッケージ（10〜50万円）、マルチCRM再設計プロジェクト（300〜800万円）、伴走・顧問支援（月額30〜100万円）。目的に応じて選べる3つのプランをご用意しています。"
 	lang="ja"
 >
 
@@ -18,7 +18,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 			CRM基盤を根本から作り直したい企業まで、フェーズに合わせてご選択ください。
 		</p>
 		<div class="hero-actions">
-			<a href="/free-consultation/" class="btn btn--hero-primary btn--lg">CRM / RevOps 診断を依頼する →</a>
+			<a href="/free-consultation/" class="btn btn--hero-primary btn--lg">30分無料相談を予約 →</a>
 			<a href="/download/" class="btn btn--hero-outline btn--lg">サービス資料をダウンロード</a>
 		</div>
 	</div>
@@ -65,7 +65,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 					<li><span class="check" aria-hidden="true">✓</span>課題仮説と優先度の整理</li>
 					<li><span class="check" aria-hidden="true">✓</span>改善の方向性レポート（10〜15ページ）</li>
 				</ul>
-				<a href="/free-consultation/" class="btn btn--primary plan-cta">まず相談してみる →</a>
+				<a href="/contact/" class="btn btn--primary plan-cta">まず相談してみる →</a>
 			</article>
 
 			<article class="plan-card">
@@ -81,7 +81,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 					<li><span class="check" aria-hidden="true">✓</span>ボトルネック分析と改善ロードマップ</li>
 					<li><span class="check" aria-hidden="true">✓</span>経営報告会（1回）</li>
 				</ul>
-				<a href="/free-consultation/" class="btn btn--primary plan-cta">詳細診断を相談する →</a>
+				<a href="/contact/" class="btn btn--primary plan-cta">詳細診断を相談する →</a>
 			</article>
 
 		</div>
@@ -102,7 +102,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 			<p class="plan-tag">マルチCRM再設計プロジェクト</p>
 			<p class="plan-sub">Salesforce / HubSpot / Kintone / Marketoなど複数ツールが混在する収益オペレーションを、ベンダー中立の立場で設計し直す中核プロジェクト。営業プロセス・データモデル・KPI基盤を一体で再構築します。</p>
 			<div class="plan-price">
-				<div class="plan-price__amount">¥2,500,000〜5,000,000</div>
+				<div class="plan-price__amount">¥3,000,000〜8,000,000</div>
 				<span class="plan-price__unit">期間目安：3〜6ヶ月 / 一括または分割</span>
 			</div>
 			<ul class="plan-features plan-features--cols">
@@ -113,7 +113,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 				<li><span class="check" aria-hidden="true">✓</span>実装ベンダー選定支援（中立）</li>
 				<li><span class="check" aria-hidden="true">✓</span>PMO / ステアリング運営</li>
 			</ul>
-			<a href="/free-consultation/" class="btn btn--primary plan-cta">プロジェクトを相談する →</a>
+			<a href="/contact/" class="btn btn--primary plan-cta">プロジェクトを相談する →</a>
 		</article>
 	</div>
 </section>
@@ -208,7 +208,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 				90分のディスカッション形式で実施します。
 			</p>
 			<div class="cta-actions">
-				<a href="/free-consultation/" class="btn btn--cta-primary btn--lg">CRM / RevOps 診断を依頼する →</a>
+				<a href="/free-consultation/" class="btn btn--cta-primary btn--lg">30分無料相談を予約 →</a>
 				<a href="/download/" class="btn btn--cta-outline btn--lg">サービス資料をダウンロード</a>
 			</div>
 		</div>
@@ -274,7 +274,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 .eyebrow {
 	display: inline-flex; align-items: center; gap: 0.5rem;
 	font-size: 0.8125rem; font-weight: 600; color: var(--color-primary);
-	background: rgba(30,64,175,0.08); padding: 0.375rem 0.875rem; border-radius: 999px;
+	background: rgba(30,64,175,0.08); padding: 0.375rem 0.875rem; border-radius: 4px;
 	letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1.25rem;
 }
 .eyebrow__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--color-primary); display: inline-block; }
@@ -312,7 +312,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 .step-badge {
 	display: inline-block; font-size: 0.75rem; font-weight: 700;
 	color: var(--color-primary); background: rgba(30,64,175,0.08);
-	padding: 0.25rem 0.75rem; border-radius: 999px;
+	padding: 0.25rem 0.75rem; border-radius: 4px;
 	letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.75rem;
 }
 .plan-group-head h2 { font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; color: var(--color-text); margin: 0 0 0.5rem; }
@@ -324,7 +324,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 /* ── Plan Cards ────────────────────────────────────── */
 .plan-card {
-	border: 1px solid var(--color-border); border-radius: 12px;
+	border: 1px solid var(--color-border); border-radius: 8px;
 	padding: 2rem; background: var(--color-bg);
 	display: flex; flex-direction: column; position: relative;
 }
@@ -343,13 +343,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 	position: absolute; top: -14px; left: 2rem;
 	background: var(--color-primary); color: #fff;
 	font-size: 0.75rem; font-weight: 600;
-	padding: 0.375rem 0.875rem; border-radius: 999px; letter-spacing: 0.04em;
+	padding: 0.375rem 0.875rem; border-radius: 4px; letter-spacing: 0.04em;
 }
 .plan-sub-badge {
 	position: absolute; top: -12px; left: 2rem;
 	background: var(--color-primary); color: #fff;
 	font-size: 0.7rem; font-weight: 600;
-	padding: 0.25rem 0.75rem; border-radius: 999px;
+	padding: 0.25rem 0.75rem; border-radius: 4px;
 }
 
 .plan-tag {
@@ -476,7 +476,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 .cta-card {
 	background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
-	border-radius: 12px; padding: 2rem; backdrop-filter: blur(10px);
+	border-radius: 8px; padding: 2rem; backdrop-filter: blur(10px);
 }
 .cta-card h4 { margin: 0 0 1rem; font-size: 0.8125rem; color: #93c5fd; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
 .cta-list { list-style: none; padding: 0; margin: 0; }

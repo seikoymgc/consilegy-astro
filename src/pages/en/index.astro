@@ -1,0 +1,848 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const cases = (await getCollection('caseStudies'))
+  .filter((c) => c.data.lang === 'en' && !c.data.draft)
+  .slice(0, 3);
+---
+
+<BaseLayout
+  title="Japan GTM and Revenue Architecture | Consilegy"
+  description="We help global B2B teams entering Japan build the GTM strategy, messaging, and revenue operations that make Japan execution work in practice."
+  lang="en"
+  alternateUrl="/"
+>
+
+<!-- ═══════════════════════════════════════════════════
+     1. HERO
+═══════════════════════════════════════════════════ -->
+<section class="en-hero">
+  <div class="en-container">
+    <p class="en-eyebrow">For global B2B teams entering Japan</p>
+    <h1 class="en-hero__h1">
+      Japan GTM and Revenue Architecture<br class="en-hero__br">
+      for Global B2B Teams
+    </h1>
+    <p class="en-hero__lead">
+      We help global B2B teams enter and grow in Japan by connecting market messaging,
+      revenue flow, CRM structure, and operational adoption.
+    </p>
+    <p class="en-hero__sub">
+      For companies entering Japan, improving local conversion, or building revenue operations
+      that support execution.
+    </p>
+    <div class="en-hero__actions">
+      <a href="/en/contact/" class="en-btn en-btn--primary">Contact Us</a>
+      <a href="/en/case-studies/" class="en-btn en-btn--ghost">View Case Studies →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     2. PROBLEM
+═══════════════════════════════════════════════════ -->
+<section class="en-section en-section--light">
+  <div class="en-container en-container--narrow">
+    <p class="en-label">Why Japan entry is different</p>
+    <h2 class="en-section__h2">Japan is not just another language layer.</h2>
+    <div class="en-problem__body">
+      <p>A translated website does not automatically create trust.</p>
+      <p>A global sales process does not always match how Japanese buyers evaluate risk.</p>
+      <p>A CRM structure built for another market may not reflect how Japan-side revenue actually moves.</p>
+      <p>
+        We help global teams adapt both market-facing communication and internal operating design
+        so Japan execution works in practice.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     3. POSITIONING (removed — merged into What we do)
+═══════════════════════════════════════════════════ -->
+
+<!-- ═══════════════════════════════════════════════════
+     4. USE CASES
+═══════════════════════════════════════════════════ -->
+<section class="en-section en-section--white">
+  <div class="en-container">
+    <p class="en-label en-label--center">Who we work with</p>
+    <h2 class="en-section__h2 en-section__h2--center">Three situations where we help</h2>
+    <div class="en-use-cases">
+      <div class="en-use-case">
+        <div class="en-use-case__num">01</div>
+        <h3 class="en-use-case__title">Entering Japan</h3>
+        <p class="en-use-case__body">
+          You are planning or early in Japan market entry. You need clear ICP and messaging,
+          a lead qualification model that fits Japan's buying process, and a CRM setup
+          that supports local sales execution from day one.
+        </p>
+      </div>
+      <div class="en-use-case">
+        <div class="en-use-case__num">02</div>
+        <h3 class="en-use-case__title">Weak Japan conversion</h3>
+        <p class="en-use-case__body">
+          You have pipeline activity in Japan but deals stall or close at lower rates.
+          Messaging misalignment, trust gaps, or unclear handoff between marketing and sales
+          are reducing conversion. The numbers are there — the system is not.
+        </p>
+      </div>
+      <div class="en-use-case">
+        <div class="en-use-case__num">03</div>
+        <h3 class="en-use-case__title">CRM without visibility</h3>
+        <p class="en-use-case__body">
+          Your CRM is running but doesn't reflect Japan pipeline reality.
+          Data quality is low, reporting gaps make it hard to make decisions,
+          and the tool isn't connected to how your team actually works in Japan.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     5. SERVICES — four layers
+═══════════════════════════════════════════════════ -->
+<section class="en-section en-section--subtle">
+  <div class="en-container">
+    <p class="en-label en-label--center">Services</p>
+    <h2 class="en-section__h2 en-section__h2--center">
+      We connect the layers of Japan revenue execution.
+    </h2>
+    <div class="en-layers">
+      <a href="/en/services/japan-market-gtm-messaging/" class="en-layer">
+        <span class="en-layer__num">1</span>
+        <div class="en-layer__content">
+          <h3 class="en-layer__title">Japan GTM &amp; Messaging</h3>
+          <p class="en-layer__body">
+            Adapt positioning, messaging, offers, and conversion paths for Japan's buying context.
+          </p>
+        </div>
+        <span class="en-layer__arrow">→</span>
+      </a>
+      <a href="/en/services/revenue-architecture-design/" class="en-layer">
+        <span class="en-layer__num">2</span>
+        <div class="en-layer__content">
+          <h3 class="en-layer__title">Revenue Architecture Design</h3>
+          <p class="en-layer__body">
+            Define the revenue flow behind lead generation, lifecycle stages, ownership, handoff, and visibility.
+          </p>
+        </div>
+        <span class="en-layer__arrow">→</span>
+      </a>
+      <a href="/en/services/crm-revops-implementation/" class="en-layer">
+        <span class="en-layer__num">3</span>
+        <div class="en-layer__content">
+          <h3 class="en-layer__title">CRM / RevOps Implementation</h3>
+          <p class="en-layer__body">
+            Translate the model into CRM configuration, workflows, automation, reporting, and system connections.
+          </p>
+        </div>
+        <span class="en-layer__arrow">→</span>
+      </a>
+      <a href="/en/services/adoption-growth-support/" class="en-layer">
+        <span class="en-layer__num">4</span>
+        <div class="en-layer__content">
+          <h3 class="en-layer__title">Adoption &amp; Optimization</h3>
+          <p class="en-layer__body">
+            Support launch, usage, reporting habits, and continuous improvement so the system becomes part of daily execution.
+          </p>
+        </div>
+        <span class="en-layer__arrow">→</span>
+      </a>
+    </div>
+    <p class="en-services__all-link">
+      <a href="/en/services/">View all services →</a>
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     7. CASE STUDIES
+═══════════════════════════════════════════════════ -->
+<section class="en-section en-section--white">
+  <div class="en-container">
+    <p class="en-label en-label--center">Work</p>
+    <h2 class="en-section__h2 en-section__h2--center">Selected case studies</h2>
+    <div class="en-cases">
+      <a href="/en/case-studies/hubspot-sales-handoff-lead-to-revenue-2/" class="en-case">
+        <div class="en-case__img">
+          <img src="/images/wp/2026/02/dx.png" alt="Closing the Gap Between Lead Volume and Revenue" loading="lazy" />
+        </div>
+        <div class="en-case__meta">
+          <span class="en-case__tag">HubSpot · Lead Operations</span>
+        </div>
+        <h3 class="en-case__title">
+          Closing the Gap Between Lead Volume and Revenue
+        </h3>
+        <dl class="en-case__dl">
+          <dt>Problem</dt>
+          <dd>Lead volume was growing but revenue wasn't following. Handoff between marketing and sales was inconsistent, with no shared qualification criteria or pipeline creation process.</dd>
+          <dt>Work</dt>
+          <dd>Standardized lead scoring, defined handoff rules, and restructured pipeline stages with clear ownership in HubSpot.</dd>
+          <dt>Result</dt>
+          <dd>Consistent lead-to-opportunity conversion with visible pipeline by source and stage.</dd>
+        </dl>
+        <span class="en-case__link">Read case study →</span>
+      </a>
+      <a href="/en/case-studies/https-consilegy-com-case-studies-ai-gtm-automation-product-integration/" class="en-case">
+        <div class="en-case__img">
+          <img src="/images/wp/2026/03/s-o-c-i-a-l-c-u-t-1RT4txDDAbM-unsplash.jpg" alt="Building a Revenue Foundation for a New AI Business" loading="lazy" />
+        </div>
+        <div class="en-case__meta">
+          <span class="en-case__tag">GTM · CRM Build</span>
+        </div>
+        <h3 class="en-case__title">
+          Building a Revenue Foundation for a New AI Business
+        </h3>
+        <dl class="en-case__dl">
+          <dt>Problem</dt>
+          <dd>A new AI business needed a GTM foundation from scratch — no defined ICP, no CRM, no lead process, no messaging for the Japan market.</dd>
+          <dt>Work</dt>
+          <dd>Defined ICP and Japan-specific messaging, built CRM from scratch with appropriate automation and lead flow design.</dd>
+          <dt>Result</dt>
+          <dd>Operational revenue system in place to support initial sales motion and measure early pipeline.</dd>
+        </dl>
+        <span class="en-case__link">Read case study →</span>
+      </a>
+      <a href="/en/case-studies/marketing-data-integration-hubspot-migration-2/" class="en-case">
+        <div class="en-case__img">
+          <img src="/images/wp/2026/02/apex-virtual-education-KNQUEQwTCY4-unsplash-scaled.jpg" alt="Redesigning a Complex Marketing Stack" loading="lazy" />
+        </div>
+        <div class="en-case__meta">
+          <span class="en-case__tag">HubSpot · Marketing Ops</span>
+        </div>
+        <h3 class="en-case__title">
+          Redesigning a Complex Marketing Stack
+        </h3>
+        <dl class="en-case__dl">
+          <dt>Problem</dt>
+          <dd>Disconnected marketing tools made it impossible to track campaigns to revenue. Data was fragmented across systems with no unified view.</dd>
+          <dt>Work</dt>
+          <dd>HubSpot migration, data integration across systems, and attribution model redesign to connect campaign activity to pipeline outcomes.</dd>
+          <dt>Result</dt>
+          <dd>Unified marketing data with clear campaign-to-revenue visibility and a sustainable operational model.</dd>
+        </dl>
+        <span class="en-case__link">Read case study →</span>
+      </a>
+    </div>
+    <p class="en-cases__all-link">
+      <a href="/en/case-studies/">View all case studies →</a>
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     8. WHY CONSILEGY
+═══════════════════════════════════════════════════ -->
+<section class="en-section en-section--dark">
+  <div class="en-container en-container--narrow">
+    <p class="en-label en-label--light">Why Consilegy</p>
+    <h2 class="en-section__h2 en-section__h2--light">
+      How we work differently
+    </h2>
+    <ul class="en-why">
+      <li class="en-why__item">
+        <span class="en-why__icon">→</span>
+        <div>
+          <strong>We don't hand off.</strong> We stay engaged until execution works in practice,
+          not just until delivery is complete.
+        </div>
+      </li>
+      <li class="en-why__item">
+        <span class="en-why__icon">→</span>
+        <div>
+          <strong>Strategy and implementation in the same engagement.</strong> No gap between
+          the plan and the system that's supposed to run it.
+        </div>
+      </li>
+      <li class="en-why__item">
+        <span class="en-why__icon">→</span>
+        <div>
+          <strong>Japan-specific knowledge built in.</strong> Not added as a footnote —
+          Japan's buying process, approval dynamics, and trust expectations are part of how
+          we design GTM and revenue architecture from the start.
+        </div>
+      </li>
+      <li class="en-why__item">
+        <span class="en-why__icon">→</span>
+        <div>
+          <strong>CRM designed around how Japan actually works.</strong> Not generic best
+          practices — stage definitions, handoff rules, and reporting built around Japan's
+          actual sales motion.
+        </div>
+      </li>
+      <li class="en-why__item">
+        <span class="en-why__icon">→</span>
+        <div>
+          <strong>Proven with global B2B teams at every stage.</strong> Entry, scaling,
+          and optimization — we have worked with teams at each point in the Japan journey.
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     9. FINAL CTA
+═══════════════════════════════════════════════════ -->
+<section class="en-section en-cta-final">
+  <div class="en-container en-container--narrow en-cta-final__inner">
+    <h2 class="en-cta-final__h2">
+      Before investing more in Japan,<br>
+      clarify where execution will break
+    </h2>
+    <p class="en-cta-final__body">
+      Whether you are planning entry, seeing weak conversion, or running a CRM
+      that doesn't reflect Japan reality — we can help you identify the gap
+      and build the system to close it.
+    </p>
+    <div class="en-cta-final__actions">
+      <a href="/en/contact/" class="en-btn en-btn--primary en-btn--lg">Contact Us</a>
+      <a href="/en/services/" class="en-btn en-btn--ghost-light">Explore Services →</a>
+    </div>
+  </div>
+</section>
+
+</BaseLayout>
+
+<style>
+/* ── Tokens ─────────────────────────────────── */
+.en-container {
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+.en-container--narrow {
+  max-width: 760px;
+}
+
+/* ── Buttons ─────────────────────────────────── */
+.en-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.75em 1.5em;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s, border-color 0.15s, opacity 0.15s;
+}
+.en-btn--lg {
+  padding: 0.9em 2em;
+  font-size: 1rem;
+}
+.en-btn--primary {
+  background: var(--color-primary);
+  color: #fff;
+  border: 2px solid var(--color-primary);
+}
+.en-btn--primary:hover {
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  color: #fff;
+}
+.en-btn--ghost {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255,255,255,0.4);
+}
+.en-btn--ghost:hover {
+  border-color: #fff;
+  color: #fff;
+}
+.en-btn--ghost-light {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+}
+.en-btn--ghost-light:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+  color: #fff;
+}
+
+/* ── Labels ─────────────────────────────────── */
+.en-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
+}
+.en-label--center { text-align: center; }
+.en-label--light { color: rgba(255,255,255,0.6); }
+
+/* ── Section headings ─────────────────────────── */
+.en-section__h2 {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-text);
+  margin: 0 0 1.5rem;
+}
+.en-section__h2--center { text-align: center; }
+.en-section__h2--light { color: #fff; }
+
+.en-section__lead {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+}
+
+/* ── Section backgrounds ─────────────────────── */
+.en-section {
+  padding: 80px 0;
+}
+.en-section--white  { background: #fff; }
+.en-section--light  { background: #fff; }
+.en-section--subtle { background: #f8f9fc; }
+.en-section--dark   { background: #0f172a; }
+.en-section--offer  { background: #eff6ff; }
+
+/* ═══════════════════════════════════════════════
+   1. HERO
+═══════════════════════════════════════════════ */
+.en-hero {
+  background: url('/images/common/hero-visual.jpg') center/cover no-repeat;
+  padding: 96px 0 88px;
+  color: #fff;
+}
+.en-eyebrow {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin: 0 0 1.25rem;
+}
+.en-hero__h1 {
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0 0 1.5rem;
+  color: #fff;
+}
+.en-hero__lead {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.8);
+  max-width: 640px;
+  margin: 0 0 0.75rem;
+}
+.en-hero__sub {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.55);
+  max-width: 580px;
+  margin: 0 0 2rem;
+}
+.en-hero__actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ═══════════════════════════════════════════════
+   2. PROBLEM
+═══════════════════════════════════════════════ */
+.en-problem__body {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+}
+.en-problem__body p { margin: 0 0 1rem; }
+.en-problem__body p:last-child { margin-bottom: 0; }
+
+/* ═══════════════════════════════════════════════
+   4. USE CASES
+═══════════════════════════════════════════════ */
+.en-use-cases {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.en-use-case {
+  background: #f8f9fc;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 2rem;
+}
+.en-use-case__num {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
+}
+.en-use-case__title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 0.75rem;
+}
+.en-use-case__body {
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════════
+   5. CORE OFFER
+═══════════════════════════════════════════════ */
+.en-offer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.en-offer__title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  color: var(--color-text);
+  margin: 0 0 0.5rem;
+}
+.en-offer__price {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 0 0 1.25rem;
+}
+.en-offer__body {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  margin: 0 0 1.25rem;
+}
+.en-offer__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+}
+.en-offer__list li {
+  padding: 0.45rem 0 0.45rem 1.5rem;
+  position: relative;
+  font-size: 0.9375rem;
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-border);
+}
+.en-offer__list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+.en-offer__note {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 2rem;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+}
+.en-offer__note p { margin: 0; }
+
+/* ═══════════════════════════════════════════════
+   6. SERVICES
+═══════════════════════════════════════════════ */
+.en-services {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+.en-service {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1.75rem 2rem;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.en-service:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 16px rgba(30,64,175,0.08);
+}
+.en-service__title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 0.75rem;
+}
+.en-service__body {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  margin: 0 0 1.25rem;
+  flex: 1;
+}
+.en-service__link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+.en-services__all-link {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════════
+   7. CASE STUDIES
+═══════════════════════════════════════════════ */
+.en-cases {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.en-case {
+  background: #f8f9fc;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.en-case__img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.en-case__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.en-case:hover .en-case__img img {
+  transform: scale(1.04);
+}
+.en-case__meta {
+  padding: 1.25rem 1.75rem 0;
+  margin-bottom: 0.75rem;
+}
+.en-case__title,
+.en-case__dl,
+.en-case__link {
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
+}
+.en-case__link {
+  padding-bottom: 1.75rem;
+}
+.en-case:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 16px rgba(30,64,175,0.08);
+}
+.en-case__tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  background: rgba(30,64,175,0.07);
+  padding: 0.2em 0.7em;
+  border-radius: 4px;
+}
+.en-case__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 1rem;
+  line-height: 1.4;
+}
+.en-case__dl {
+  flex: 1;
+  margin: 0 0 1.25rem;
+}
+.en-case__dl dt {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-top: 0.75rem;
+}
+.en-case__dl dd {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--color-text);
+  margin: 0.2rem 0 0;
+}
+.en-case__link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+.en-cases__all-link {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════════
+   8. WHY CONSILEGY
+═══════════════════════════════════════════════ */
+.en-why {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.en-why__item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.85);
+}
+.en-why__icon {
+  flex-shrink: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  color: #fff;
+  margin-top: 0.1rem;
+}
+.en-why__item strong { color: #fff; }
+
+/* ═══════════════════════════════════════════════
+   9. FINAL CTA
+═══════════════════════════════════════════════ */
+.en-cta-final {
+  background: linear-gradient(135deg, #1e40af 0%, #0f172a 100%);
+  padding: 96px 0;
+}
+.en-cta-final__inner { text-align: center; }
+.en-cta-final__h2 {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.25;
+  color: #fff;
+  margin: 0 0 1.25rem;
+}
+.en-cta-final__body {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.75);
+  margin: 0 0 2.5rem;
+}
+.en-cta-final__actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Layers (4-step services) ────────────────── */
+.en-layers {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 2.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.en-layer {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  text-decoration: none;
+  background: #fff;
+  border-bottom: 1px solid var(--color-border);
+  transition: background 0.15s;
+}
+.en-layer:last-child { border-bottom: none; }
+.en-layer:hover { background: #f8f9fc; }
+.en-layer__num {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: rgba(30,64,175,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+.en-layer__content { flex: 1; }
+.en-layer__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 0.25rem;
+}
+.en-layer__body {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+.en-layer__arrow {
+  flex-shrink: 0;
+  font-size: 1rem;
+  color: var(--color-primary);
+  opacity: 0.5;
+  transition: opacity 0.15s;
+}
+.en-layer:hover .en-layer__arrow { opacity: 1; }
+
+/* ── Responsive ─────────────────────────────── */
+@media (max-width: 900px) {
+  .en-use-cases,
+  .en-cases {
+    grid-template-columns: 1fr;
+  }
+  .en-services {
+    grid-template-columns: 1fr;
+  }
+  .en-offer {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .en-hero__br { display: none; }
+}
+
+@media (max-width: 600px) {
+  .en-section { padding: 56px 0; }
+  .en-hero { padding: 64px 0 56px; }
+  .en-cta-final { padding: 64px 0; }
+  .en-hero__actions,
+  .en-cta-final__actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .en-cta-final__actions {
+    align-items: center;
+  }
+}
+</style>

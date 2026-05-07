@@ -1,0 +1,1117 @@
+---
+import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const pubDate = '2026-05-07';
+const pubDateDisplay = '2026年5月7日';
+const readTime = '約10分';
+
+const articleSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'SFAを導入しても売上予測が当たらない理由｜RevOpsとRevenue Architecture',
+	description: 'SalesforceなどのSFAを導入しても売上予測が外れる原因を、商談定義・KPI・Revenue Architectureの観点から解説します。',
+	datePublished: pubDate,
+	dateModified: pubDate,
+	author: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+	url: 'https://consilegy.com/insights/why-sales-forecasting-fails-even-with-sfa/',
+	inLanguage: 'ja',
+};
+
+const breadcrumbSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://consilegy.com/' },
+		{ '@type': 'ListItem', position: 2, name: 'コラム', item: 'https://consilegy.com/insights/' },
+		{ '@type': 'ListItem', position: 3, name: 'なぜSFAを導入しても売上予測が当たらないのか', item: 'https://consilegy.com/insights/why-sales-forecasting-fails-even-with-sfa/' },
+	],
+};
+---
+
+<BaseLayout
+	title="SFAを導入しても売上予測が当たらない理由｜RevOpsとRevenue Architecture | Consilegy"
+	description="SalesforceなどのSFAを導入しても売上予測が外れる原因を、商談定義・KPI・Revenue Architectureの観点から解説します。"
+	lang="ja"
+>
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	</Fragment>
+
+<div class="article-wrap">
+
+	<!-- ===== ARTICLE HEADER ===== -->
+	<header class="article-head container">
+		<nav class="breadcrumb" aria-label="パンくずリスト">
+			<a href="/">ホーム</a>
+			<span aria-hidden="true">›</span>
+			<a href="/insights/">コラム</a>
+			<span aria-hidden="true">›</span>
+			<span aria-current="page">なぜSFAを導入しても売上予測が当たらないのか</span>
+		</nav>
+		<div class="article-meta">
+			<span class="article-cat">CRM / RevOps</span>
+			<span class="article-date">{pubDateDisplay}</span>
+			<span class="article-read">{readTime}</span>
+		</div>
+		<h1>なぜSFAを導入しても<br class="br-pc" />売上予測が当たらないのか</h1>
+		<p class="article-desc">パイプラインが見えるようになった。それでもForecastは毎月ブレる。原因はツールではなく、商談定義・KPI・Revenue Architectureが設計されていないことにある。</p>
+	</header>
+
+	<!-- ===== ARTICLE BODY ===== -->
+	<article class="article-body container" id="article">
+
+		<!-- はじめに -->
+		<section class="article-section">
+			<h2>はじめに：SFAを入れても予測は当たらない</h2>
+			<p>Salesforceを導入した。営業プロセスも定義した。パイプラインも見えるようになった。それでも毎月の売上予測が外れる。月末で急に数字が変わり、Forecastが毎週ブレ、「この案件は入るはずだった」が繰り返される。経営がSFAの数字を信用できず、結局、部長への口頭確認が一番正確な状態になっている。</p>
+			<p>これはツールの問題ではありません。Salesforceにも問題はありません。問題は、<strong>「予測できる構造」が存在していないこと</strong>にあります。</p>
+			<div class="article-callout">
+				<p>SFAは「入力された情報を可視化する」道具です。商談定義・ステージ条件・更新ルール・KPI設計・Revenue Data Flowが崩れていれば、どれだけ高性能なSFAでも予測は外れます。</p>
+			</div>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- 5つの原因 -->
+		<section class="article-section">
+			<h2>売上予測が崩れる5つの原因</h2>
+
+			<div class="article-numbered">
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">01</p>
+					<h3>商談ステージが「感覚」で運用されている</h3>
+					<p>「提案中」というステージを、ある営業は「提案書を送った段階」と考え、別の営業は「顧客がかなり前向きな状態」と考える。同じステージ名でも意味が違う状態では、Forecast精度は上がりません。ステージには名前だけでなく、移行条件まで必要です。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">02</p>
+					<h3>「希望」がForecastに混ざる</h3>
+					<p>「大型案件だから入りそう」「顧客が前向きだった」「来月には決まるはず」——Forecastに必要なのは期待値ではなく、再現可能な条件です。意思決定者参加済み、予算確定、契約レビュー開始、次回日程確定——こうした条件ベースの運用がなければ、Forecastは感覚依存のまま動きます。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">03</p>
+					<h3>停滞案件が放置されている</h3>
+					<p>30日更新なし・次回アクションなし・意思決定者不明・失注理由なし——こうした案件がSFA上で生き続けることで、Forecastが実態より膨らみます。「大型案件だから」という理由で会議でも残されるため、問題が表面化しないまま月末を迎えます。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">04</p>
+					<h3>営業だけでForecastを作っている</h3>
+					<p>売上予測は営業だけでは成立しません。マーケ施策・リード品質・契約更新・チャーン・CS状況も影響するためです。営業部門だけでForecastを持っている状態では、Revenue Operations全体の予測にはなりません。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">05</p>
+					<h3>SFAが「報告ツール」になっている</h3>
+					<p>営業が会議前だけ更新を始めると、Forecastは崩壊します。月末に一気更新、ステージ飛ばし、金額調整、過剰Forecast——これは現場にCRMを使うメリットがないことが原因です。管理されるためのツールになっている限り、正しいForecastは成立しません。</p>
+				</div>
+			</div>
+
+			<!-- DIAGRAM 1 -->
+			<figure class="diag diag--forecast-broken" aria-label="Forecastが感覚依存になっている営業組織の構造図。SFAのデータが実態を反映せず、口頭確認や感覚に頼るForecastが続いている状態を示す。">
+				<div class="diag-fb-header">
+					<span class="diag-fb-header__label">現状：感覚依存のForecast</span>
+				</div>
+				<div class="diag-fb-grid">
+					<div class="diag-fb-col">
+						<div class="diag-fb-tool">
+							<div class="diag-fb-tool__badge diag-fb-tool__badge--sf">Salesforce</div>
+							<div class="diag-fb-tool__role">パイプライン</div>
+							<div class="diag-fb-tool__num">3.2億円</div>
+						</div>
+					</div>
+					<div class="diag-fb-vs" aria-hidden="true">≠</div>
+					<div class="diag-fb-col">
+						<div class="diag-fb-bubbles">
+							<div class="diag-fb-bubble">「この案件は入ります」</div>
+							<div class="diag-fb-bubble diag-fb-bubble--warn">「月末に急に消えた」</div>
+							<div class="diag-fb-bubble">「顧客が前向きなので…」</div>
+						</div>
+					</div>
+					<div class="diag-fb-vs" aria-hidden="true">→</div>
+					<div class="diag-fb-col">
+						<div class="diag-fb-result">
+							<div class="diag-fb-result__label">実際の正確な情報源</div>
+							<div class="diag-fb-result__value">部長への口頭確認</div>
+						</div>
+					</div>
+				</div>
+				<div class="diag-fb-footer">
+					<span>Forecastが毎週ブレる</span>
+					<span>経営がSFAを信用しない</span>
+					<span>月末で数字が急変</span>
+				</div>
+				<figcaption class="diag-caption">SFAにデータが入っていても、定義がなければForecastは感覚と口頭確認に依存し続ける</figcaption>
+			</figure>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- Forecast精度を上げる企業 -->
+		<section class="article-section">
+			<h2>Forecast精度を上げる企業がやっていること</h2>
+			<p>売上予測が安定している企業には共通点があります。それは「感覚」ではなく「条件」でForecastを運用していることです。</p>
+
+			<h3>商談ステージに移行条件がある</h3>
+			<div class="article-table-wrap">
+				<table class="article-table">
+					<thead>
+						<tr>
+							<th>ステージ</th>
+							<th>移行条件（例）</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr><td>Discovery</td><td>課題ヒアリング完了・担当者特定</td></tr>
+						<tr><td>Proposal</td><td>提案書提出済み・予算感確認</td></tr>
+						<tr><td>Commit</td><td>意思決定者参加・予算確定</td></tr>
+						<tr><td>Legal</td><td>契約レビュー開始・日程確定</td></tr>
+						<tr><td>Closed Won</td><td>契約締結</td></tr>
+					</tbody>
+				</table>
+			</div>
+
+			<h3>構造KPIでForecastを補完する</h3>
+			<p>売上見込みだけでなく、商談化率・提案率・Win Rate・Pipeline Coverage・Sales Velocityを見ることで、結果ではなく構造でForecastを支えます。</p>
+
+			<h3>停滞案件の条件が定義されている</h3>
+			<p>14日更新なし、次回予定なし、金額未更新——これらをForecastから自動除外する運用を持つことで、Forecastの精度と信頼性を維持します。</p>
+
+			<!-- DIAGRAM 2 -->
+			<figure class="diag diag--forecast-stages" aria-label="条件ベースのForecast構造図。Lead・SQL・Proposal・Commit・Closed Wonの各ステージに移行条件が定義されており、感覚ではなく条件でForecastを運用する設計を示す。">
+				<div class="diag-fs-header">
+					<span class="diag-fs-header__label">条件ベースForecast構造</span>
+					<span class="diag-fs-header__sub">ステージ移行条件を定義する</span>
+				</div>
+				<div class="diag-fs-stages">
+					<div class="diag-fs-stage">
+						<div class="diag-fs-stage__name">Lead</div>
+						<div class="diag-fs-stage__cond">課題ヒアリング</div>
+					</div>
+					<div class="diag-fs-arrow" aria-hidden="true">→</div>
+					<div class="diag-fs-stage diag-fs-stage--active">
+						<div class="diag-fs-stage__name">SQL</div>
+						<div class="diag-fs-stage__cond">担当者特定<br />予算感確認</div>
+					</div>
+					<div class="diag-fs-arrow" aria-hidden="true">→</div>
+					<div class="diag-fs-stage diag-fs-stage--active">
+						<div class="diag-fs-stage__name">Proposal</div>
+						<div class="diag-fs-stage__cond">提案書提出<br />ニーズ合意</div>
+					</div>
+					<div class="diag-fs-arrow" aria-hidden="true">→</div>
+					<div class="diag-fs-stage diag-fs-stage--commit">
+						<div class="diag-fs-stage__name">Commit</div>
+						<div class="diag-fs-stage__cond">予算確定<br />決裁者参加</div>
+					</div>
+					<div class="diag-fs-arrow" aria-hidden="true">→</div>
+					<div class="diag-fs-stage diag-fs-stage--won">
+						<div class="diag-fs-stage__name">Closed<br />Won</div>
+						<div class="diag-fs-stage__cond">契約締結</div>
+					</div>
+				</div>
+				<div class="diag-fs-note">
+					<span class="diag-fs-note__icon" aria-hidden="true">⚑</span>
+					<span>停滞検知：14日更新なし / 次回予定なし → Forecastから自動除外</span>
+				</div>
+				<figcaption class="diag-caption">ステージに条件を定義することで、「感覚」ではなく「再現可能な基準」でForecastを構築できる</figcaption>
+			</figure>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- Revenue Architecture -->
+		<section class="article-section">
+			<h2>Forecast精度は「営業力」ではなく「構造」で決まる</h2>
+			<p>Revenue Architecture（レベニューアーキテクチャ）とは、営業・マーケティング・CS・CRM・KPI・データ・会議体を、売上につながる一つの流れとして設計する考え方です。Forecast問題も実はツール問題ではありません。商談定義・KPI定義・Revenue Data Flow・RevOps運用・会議設計の問題です。</p>
+			<p>日本企業ではForecastを「営業の勘」に依存しているケースが多くあります。稟議・長期検討・複数決裁・属人営業が多い環境では、海外型SFA運用をそのまま持ち込んでも機能しません。必要なのは、日本企業で回るRevenue Architectureです。</p>
+			<p>組織規模が大きくなるほど、勘では管理できません。「誰が見ても同じ判断になる構造」を作ることが、Forecast精度を上げる唯一の道です。</p>
+
+			<!-- DIAGRAM 3 -->
+			<figure class="diag diag--ra-forecast" aria-label="Revenue ArchitectureがMarketing・Sales・CS・CRM・KPI・Forecast・Meetingを接続し、予測精度向上・意思決定高速化・売上可視化を実現する構造図。">
+				<div class="diag-raf-top">
+					<span class="diag-raf-dept">Marketing</span>
+					<span class="diag-raf-dept">Sales</span>
+					<span class="diag-raf-dept">Customer Success</span>
+				</div>
+				<div class="diag-raf-connectors" aria-hidden="true">
+					<span class="diag-raf-line"></span>
+					<span class="diag-raf-line"></span>
+					<span class="diag-raf-line"></span>
+				</div>
+				<div class="diag-raf-core">
+					<div class="diag-raf-core__tag">Revenue Architecture</div>
+					<div class="diag-raf-core__label">収益構造設計</div>
+					<div class="diag-raf-core__tools">
+						<span>CRM / SFA</span>
+						<span>KPI定義</span>
+						<span>Forecast設計</span>
+						<span>会議体</span>
+						<span>Data Flow</span>
+					</div>
+				</div>
+				<div class="diag-raf-outcomes">
+					<div class="diag-raf-outcome">
+						<div class="diag-raf-outcome__icon" aria-hidden="true">↑</div>
+						<div class="diag-raf-outcome__label">予測精度向上</div>
+						<div class="diag-raf-outcome__body">条件ベースのForecastで月末急変がなくなる</div>
+					</div>
+					<div class="diag-raf-outcome">
+						<div class="diag-raf-outcome__icon" aria-hidden="true">↑</div>
+						<div class="diag-raf-outcome__label">意思決定高速化</div>
+						<div class="diag-raf-outcome__body">経営がSFAの数字で投資判断できる</div>
+					</div>
+					<div class="diag-raf-outcome">
+						<div class="diag-raf-outcome__icon" aria-hidden="true">↑</div>
+						<div class="diag-raf-outcome__label">売上可視化</div>
+						<div class="diag-raf-outcome__body">施策から受注・継続収益まで一気通貫で見える</div>
+					</div>
+				</div>
+				<figcaption class="diag-caption">Forecast精度は個々の営業力ではなく、Revenue Architectureの設計精度に依存する</figcaption>
+			</figure>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- Consilegy -->
+		<section class="article-section">
+			<h2>Consilegyの考え方</h2>
+			<p>Consilegyでは、Forecast改善を単なるSalesforce設定問題とは考えていません。本質はRevenue Architecture・RevOps・KPI定義・Revenue Data Flow・会議運営にあります。</p>
+			<p>Salesforce・HubSpot・BI・Slack・Kintoneなどを横断しながら、「売上予測が当たる構造」を設計します。目的はSFAを導入することではなく、経営が意思決定できるRevenue Operationsを作ることです。</p>
+			<div class="article-table-wrap">
+				<table class="article-table">
+					<thead>
+						<tr>
+							<th>支援領域</th>
+							<th>内容</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Architecture</td>
+							<td>商談ステージ定義・Forecast設計・KPI体系設計</td>
+						</tr>
+						<tr>
+							<td>Process</td>
+							<td>移行条件・停滞定義・ハンドオフ条件の設計</td>
+						</tr>
+						<tr>
+							<td>Operations</td>
+							<td>Forecast会議設計・RevOps体制構築・改善サイクル設計</td>
+						</tr>
+						<tr>
+							<td>Technology</td>
+							<td>Salesforce / HubSpot等のForecastダッシュボード設計</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- まとめ -->
+		<section class="article-section">
+			<h2>まとめ：Forecastは構造問題</h2>
+			<p>SFAを導入しても売上予測が当たらない原因は、ツールではありません。多くの場合、商談定義・KPI設計・Revenue Data Flow・Revenue Architectureが未設計なことが原因です。</p>
+			<p>Forecastツールを追加する前に、「売上がどう生まれるか」を構造から整理する必要があります。Forecast精度は、営業力だけではなく、Revenue Architectureで決まります。</p>
+			<div class="article-callout">
+				<p>Consilegyは、SFA設定ではなく、<strong>Revenue Architectureの観点から、商談定義・KPI・Forecast構造を横断して再設計します</strong>。「経営が数字を信用できる状態」は、ツールではなく構造から作られます。</p>
+			</div>
+		</section>
+
+	</article>
+	<NewsletterSidebar />
+
+	<!-- ===== RELATED LINKS ===== -->
+	<aside class="article-related container">
+		<p class="article-related__label">関連コンテンツ</p>
+		<div class="article-related__grid">
+			<a href="/revenue-architecture/" class="article-related__card">
+				<p class="article-related__card-cat">概念解説</p>
+				<p class="article-related__card-title">Revenue Architecture（レベニューアーキテクチャ）とは</p>
+				<span class="article-related__card-arrow">→</span>
+			</a>
+			<a href="/insights/why-sales-meetings-become-number-reporting/" class="article-related__card">
+				<p class="article-related__card-cat">関連記事</p>
+				<p class="article-related__card-title">なぜ営業会議が「数字確認会」になってしまうのか</p>
+				<span class="article-related__card-arrow">→</span>
+			</a>
+			<a href="/insights/why-crm-adoption-fails/" class="article-related__card">
+				<p class="article-related__card-cat">関連記事</p>
+				<p class="article-related__card-title">CRMが定着しない本当の理由</p>
+				<span class="article-related__card-arrow">→</span>
+			</a>
+			<a href="/services/crm-revops-redesign/" class="article-related__card">
+				<p class="article-related__card-cat">サービス</p>
+				<p class="article-related__card-title">CRM / RevOps再設計支援</p>
+				<span class="article-related__card-arrow">→</span>
+			</a>
+		</div>
+	</aside>
+
+	<!-- ===== CTA ===== -->
+	<section class="article-cta">
+		<div class="container">
+			<div class="article-cta__body">
+				<h2>売上予測を「当たる数字」にするには、<br class="br-pc" />構造から整理する必要があります。</h2>
+				<ul class="article-cta__list">
+					<li>Forecastが毎週ブレる</li>
+					<li>月末で数字が急変する</li>
+					<li>経営がSFAの数字を信用していない</li>
+					<li>口頭確認が一番正確な状態になっている</li>
+				</ul>
+				<p class="article-cta__note">商談定義とForecast構造から、一緒に整理します。</p>
+				<div class="article-cta__actions">
+					<a href="/free-consultation/" class="btn btn--cta-primary">30分無料相談を予約する →</a>
+					<a href="/services/crm-revops-redesign/" class="btn btn--cta-ghost">CRM / RevOps再設計支援を見る</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</div>
+</BaseLayout>
+
+<style>
+	/* ── Layout ────────────────────────────────────────────── */
+	.article-wrap { background: #fff; }
+
+	.container {
+		max-width: 800px;
+		margin-inline: auto;
+		padding-inline: var(--space-md, 1.5rem);
+	}
+
+	.br-pc { display: inline; }
+
+	/* ── Breadcrumb ────────────────────────────────────────── */
+	.breadcrumb {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.4em;
+		font-size: 0.8rem;
+		color: var(--color-muted, #64748b);
+		margin-bottom: 2rem;
+	}
+
+	.breadcrumb a { color: inherit; text-decoration: none; }
+	.breadcrumb a:hover { color: var(--color-primary, #1e40af); }
+
+	/* ── Article header ────────────────────────────────────── */
+	.article-head {
+		padding-top: 3rem;
+		padding-bottom: 2.5rem;
+		border-bottom: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.article-meta {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		margin-bottom: 1.25rem;
+		flex-wrap: wrap;
+	}
+
+	.article-cat {
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--color-primary, #1e40af);
+		background: rgba(30, 64, 175, 0.07);
+		padding: 0.2em 0.7em;
+		border-radius: 4px;
+	}
+
+	.article-date,
+	.article-read {
+		font-size: 0.8rem;
+		color: var(--color-muted, #64748b);
+	}
+
+	.article-date::before {
+		content: '';
+		display: inline-block;
+		width: 1px;
+		height: 0.9em;
+		background: var(--color-border, #e2e8f0);
+		margin-right: 0.75rem;
+		vertical-align: middle;
+	}
+
+	.article-head h1 {
+		font-size: clamp(1.5rem, 3vw, 2.1rem);
+		font-weight: 800;
+		color: var(--color-navy, #0f172a);
+		line-height: 1.35;
+		margin: 0 0 1rem;
+	}
+
+	.article-desc {
+		font-size: 1rem;
+		line-height: 1.75;
+		color: var(--color-charcoal, #334155);
+		margin: 0;
+	}
+
+	/* ── Article body ──────────────────────────────────────── */
+	.article-body { padding-block: 3rem; }
+
+	.article-section { margin-bottom: 0; }
+
+	.article-section h2 {
+		font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+		font-weight: 700;
+		color: var(--color-navy, #0f172a);
+		margin: 0 0 1.25rem;
+		line-height: 1.45;
+		padding-bottom: 0.6rem;
+		border-bottom: 2px solid var(--color-border, #e2e8f0);
+	}
+
+	.article-section h3 {
+		font-size: 1rem;
+		font-weight: 700;
+		color: var(--color-navy, #0f172a);
+		margin: 2rem 0 0.75rem;
+	}
+
+	.article-section p {
+		font-size: 0.975rem;
+		line-height: 1.9;
+		color: var(--color-charcoal, #334155);
+		margin: 0 0 1rem;
+	}
+
+	.article-hr {
+		border: none;
+		border-top: 1px solid var(--color-border, #e2e8f0);
+		margin: 3rem 0;
+	}
+
+	/* ── Callout ───────────────────────────────────────────── */
+	.article-callout {
+		background: var(--color-bg-soft, #f8fafc);
+		border-left: 4px solid var(--color-primary, #1e40af);
+		border-radius: 0 8px 8px 0;
+		padding: 1.1rem 1.5rem;
+		margin: 1.5rem 0;
+	}
+
+	.article-callout p {
+		margin: 0;
+		font-size: 0.95rem;
+		line-height: 1.8;
+		color: var(--color-navy, #0f172a);
+	}
+
+	/* ── Numbered blocks ───────────────────────────────────── */
+	.article-numbered {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		margin-top: 1.5rem;
+	}
+
+	.article-numbered__item {
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		padding: 1.5rem;
+		background: #fff;
+	}
+
+	.article-numbered__num {
+		font-size: 0.7rem;
+		font-weight: 800;
+		letter-spacing: 0.12em;
+		color: var(--color-primary, #1e40af);
+		margin: 0 0 0.5rem;
+	}
+
+	.article-numbered__item h3 {
+		margin: 0 0 0.75rem;
+		font-size: 1rem;
+		font-weight: 700;
+		color: var(--color-navy, #0f172a);
+	}
+
+	.article-numbered__item p {
+		margin: 0;
+		font-size: 0.9rem;
+		line-height: 1.8;
+		color: var(--color-charcoal, #334155);
+	}
+
+	/* ── Table ─────────────────────────────────────────────── */
+	.article-table-wrap {
+		overflow-x: auto;
+		margin: 1.5rem 0;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+	}
+
+	.article-table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 0.9rem;
+	}
+
+	.article-table thead th {
+		padding: 0.75rem 1.25rem;
+		background: var(--color-navy, #0f172a);
+		color: #fff;
+		font-weight: 700;
+		text-align: left;
+		white-space: nowrap;
+	}
+
+	.article-table tbody td {
+		padding: 0.75rem 1.25rem;
+		border-bottom: 1px solid var(--color-border, #e2e8f0);
+		color: var(--color-charcoal, #334155);
+		line-height: 1.6;
+	}
+
+	.article-table tbody tr:last-child td { border-bottom: none; }
+
+	.article-table tbody td:first-child {
+		font-weight: 700;
+		color: var(--color-navy, #0f172a);
+		white-space: nowrap;
+		border-right: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	/* ── Related ───────────────────────────────────────────── */
+	.article-related {
+		padding-block: 2.5rem 3rem;
+		border-top: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.article-related__label {
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--color-muted, #64748b);
+		margin: 0 0 1rem;
+	}
+
+	.article-related__grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+		gap: 0.75rem;
+	}
+
+	.article-related__card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.3rem;
+		padding: 1rem 1.25rem;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		text-decoration: none;
+		transition: border-color 0.15s, box-shadow 0.15s;
+	}
+
+	.article-related__card:hover {
+		border-color: var(--color-primary, #1e40af);
+		box-shadow: 0 2px 10px rgba(30, 64, 175, 0.07);
+	}
+
+	.article-related__card-cat {
+		font-size: 0.68rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--color-primary, #1e40af);
+		margin: 0;
+	}
+
+	.article-related__card-title {
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		margin: 0;
+		line-height: 1.45;
+	}
+
+	.article-related__card-arrow {
+		font-size: 0.85rem;
+		color: var(--color-primary, #1e40af);
+		margin-top: 0.25rem;
+	}
+
+	/* ── CTA ───────────────────────────────────────────────── */
+	.article-cta {
+		padding-block: 4rem;
+		background:
+			radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%),
+			linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+	}
+
+	.article-cta__body {
+		max-width: 700px;
+		margin-inline: auto;
+		text-align: center;
+	}
+
+	.article-cta__body h2 {
+		font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+		font-weight: 700;
+		color: #fff;
+		line-height: 1.5;
+		margin: 0 0 1.5rem;
+	}
+
+	.article-cta__list {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+		margin: 0 auto 1.5rem;
+		padding: 0;
+		list-style: none;
+		text-align: left;
+		max-width: 420px;
+	}
+
+	.article-cta__list li {
+		font-size: 0.875rem;
+		color: rgba(255,255,255,0.85);
+		padding-left: 1.1rem;
+		position: relative;
+		line-height: 1.6;
+	}
+
+	.article-cta__list li::before {
+		content: '·';
+		position: absolute;
+		left: 0;
+		color: rgba(255,255,255,0.5);
+		font-size: 1.2em;
+	}
+
+	.article-cta__note {
+		font-size: 0.9rem;
+		color: rgba(255,255,255,0.7);
+		margin: 0 0 2rem;
+	}
+
+	.article-cta__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		justify-content: center;
+	}
+
+	.btn--cta-primary {
+		display: inline-flex;
+		align-items: center;
+		background: #fff;
+		color: var(--color-primary, #1e40af);
+		border: 2px solid transparent;
+		padding: 0.85em 1.75em;
+		font-size: 0.95rem;
+		border-radius: 6px;
+		font-weight: 700;
+		text-decoration: none;
+		transition: background 0.15s;
+	}
+
+	.btn--cta-primary:hover { background: rgba(255,255,255,0.9); }
+
+	.btn--cta-ghost {
+		display: inline-flex;
+		align-items: center;
+		background: transparent;
+		color: rgba(255,255,255,0.9);
+		border: 2px solid rgba(255,255,255,0.4);
+		padding: 0.85em 1.75em;
+		font-size: 0.95rem;
+		border-radius: 6px;
+		font-weight: 600;
+		text-decoration: none;
+		transition: border-color 0.15s;
+	}
+
+	.btn--cta-ghost:hover { border-color: rgba(255,255,255,0.8); }
+
+	/* ══════════════════════════════════════════════════════════
+	   DIAGRAMS
+	══════════════════════════════════════════════════════════ */
+	.diag {
+		margin: 2rem 0;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		overflow: hidden;
+		background: #fff;
+	}
+
+	.diag-caption {
+		display: block;
+		font-size: 0.78rem;
+		color: var(--color-muted, #64748b);
+		text-align: center;
+		padding: 0.75rem 1rem;
+		background: var(--color-bg-soft, #f8fafc);
+		border-top: 1px solid var(--color-border, #e2e8f0);
+		line-height: 1.5;
+		margin: 0;
+	}
+
+	/* ── Diagram 1: Forecast Broken ───────────────────────── */
+	.diag--forecast-broken { padding: 1.5rem 1.5rem 0; }
+
+	.diag-fb-header { margin-bottom: 1rem; }
+
+	.diag-fb-header__label {
+		font-size: 0.72rem;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--color-navy, #0f172a);
+	}
+
+	.diag-fb-grid {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		margin-bottom: 0.75rem;
+		flex-wrap: nowrap;
+		overflow-x: auto;
+	}
+
+	.diag-fb-col { flex: 1; min-width: 0; }
+
+	.diag-fb-tool {
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		padding: 1rem 0.75rem;
+		background: var(--color-bg-soft, #f8fafc);
+		text-align: center;
+	}
+
+	.diag-fb-tool__badge {
+		font-size: 0.68rem;
+		font-weight: 800;
+		letter-spacing: 0.06em;
+		padding: 0.15em 0.5em;
+		border-radius: 4px;
+		margin-bottom: 0.35rem;
+		display: inline-block;
+	}
+
+	.diag-fb-tool__badge--sf {
+		background: rgba(0, 161, 224, 0.1);
+		border: 1px solid rgba(0, 161, 224, 0.3);
+		color: #0070a8;
+	}
+
+	.diag-fb-tool__role {
+		font-size: 0.7rem;
+		color: var(--color-muted, #64748b);
+		margin-bottom: 0.35rem;
+	}
+
+	.diag-fb-tool__num {
+		font-size: 1rem;
+		font-weight: 800;
+		color: var(--color-navy, #0f172a);
+	}
+
+	.diag-fb-vs {
+		font-size: 1.25rem;
+		font-weight: 800;
+		color: #dc2626;
+		flex-shrink: 0;
+	}
+
+	.diag-fb-bubbles {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+	}
+
+	.diag-fb-bubble {
+		font-size: 0.72rem;
+		padding: 0.35em 0.65em;
+		background: var(--color-bg-soft, #f8fafc);
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 6px;
+		color: var(--color-charcoal, #334155);
+		line-height: 1.4;
+	}
+
+	.diag-fb-bubble--warn {
+		background: #fef2f2;
+		border-color: #fecaca;
+		color: #dc2626;
+	}
+
+	.diag-fb-result {
+		border: 2px solid #92400e;
+		background: #fffbeb;
+		border-radius: 8px;
+		padding: 0.85rem 0.75rem;
+		text-align: center;
+	}
+
+	.diag-fb-result__label {
+		font-size: 0.65rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: #92400e;
+		margin-bottom: 0.3rem;
+	}
+
+	.diag-fb-result__value {
+		font-size: 0.82rem;
+		font-weight: 800;
+		color: #78350f;
+	}
+
+	.diag-fb-footer {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+		justify-content: center;
+		padding: 0.65rem 0;
+		margin-bottom: 1.25rem;
+		border-top: 1px dashed var(--color-border, #e2e8f0);
+	}
+
+	.diag-fb-footer span {
+		font-size: 0.72rem;
+		font-weight: 600;
+		padding: 0.2em 0.6em;
+		background: #fef2f2;
+		border: 1px solid #fecaca;
+		border-radius: 4px;
+		color: #dc2626;
+	}
+
+	/* ── Diagram 2: Forecast Stages ───────────────────────── */
+	.diag--forecast-stages { padding: 1.5rem 1.5rem 0; }
+
+	.diag-fs-header {
+		display: flex;
+		align-items: baseline;
+		gap: 0.75rem;
+		margin-bottom: 1.25rem;
+	}
+
+	.diag-fs-header__label {
+		font-size: 0.72rem;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--color-navy, #0f172a);
+	}
+
+	.diag-fs-header__sub {
+		font-size: 0.7rem;
+		color: var(--color-muted, #64748b);
+	}
+
+	.diag-fs-stages {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.25rem;
+		overflow-x: auto;
+		padding-bottom: 0.25rem;
+		margin-bottom: 0.75rem;
+		flex-wrap: nowrap;
+	}
+
+	.diag-fs-stage {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.5rem;
+		min-width: 80px;
+		flex-shrink: 0;
+	}
+
+	.diag-fs-stage__name {
+		font-size: 0.78rem;
+		font-weight: 700;
+		color: var(--color-navy, #0f172a);
+		text-align: center;
+		background: var(--color-bg-soft, #f8fafc);
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 6px;
+		padding: 0.4em 0.5em;
+		width: 100%;
+	}
+
+	.diag-fs-stage--active .diag-fs-stage__name {
+		background: rgba(30, 64, 175, 0.06);
+		border-color: rgba(30, 64, 175, 0.2);
+		color: var(--color-primary, #1e40af);
+	}
+
+	.diag-fs-stage--commit .diag-fs-stage__name {
+		background: var(--color-navy, #0f172a);
+		border-color: var(--color-navy, #0f172a);
+		color: #fff;
+	}
+
+	.diag-fs-stage--won .diag-fs-stage__name {
+		background: rgba(21, 128, 61, 0.08);
+		border-color: rgba(21, 128, 61, 0.3);
+		color: #166534;
+	}
+
+	.diag-fs-stage__cond {
+		font-size: 0.65rem;
+		line-height: 1.4;
+		color: var(--color-charcoal, #334155);
+		text-align: center;
+		padding: 0 0.25rem;
+	}
+
+	.diag-fs-arrow {
+		font-size: 0.9rem;
+		color: var(--color-muted, #64748b);
+		flex-shrink: 0;
+		padding-top: 0.55rem;
+	}
+
+	.diag-fs-note {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.4rem;
+		padding: 0.55rem 1rem;
+		margin-bottom: 1.25rem;
+		background: #fffbeb;
+		border: 1px solid #fde68a;
+		border-radius: 6px;
+		font-size: 0.78rem;
+		font-weight: 600;
+		color: #92400e;
+	}
+
+	/* ── Diagram 3: RA + Forecast ────────────────────────── */
+	.diag--ra-forecast { padding: 1.5rem 1.5rem 0; }
+
+	.diag-raf-top {
+		display: flex;
+		justify-content: center;
+		gap: 0.75rem;
+		flex-wrap: wrap;
+		margin-bottom: 0.5rem;
+	}
+
+	.diag-raf-dept {
+		font-size: 0.75rem;
+		font-weight: 700;
+		padding: 0.3em 0.9em;
+		border-radius: 4px;
+		background: var(--color-bg-soft, #f8fafc);
+		border: 1px solid var(--color-border, #e2e8f0);
+		color: var(--color-charcoal, #334155);
+	}
+
+	.diag-raf-connectors {
+		display: flex;
+		justify-content: center;
+		gap: 5rem;
+		height: 1.25rem;
+		padding: 0 2rem;
+		overflow: hidden;
+	}
+
+	.diag-raf-line {
+		width: 1px;
+		background: var(--color-border, #e2e8f0);
+		flex-shrink: 0;
+	}
+
+	.diag-raf-core {
+		background: var(--color-navy, #0f172a);
+		border-radius: 8px;
+		padding: 1.25rem;
+		text-align: center;
+		margin-bottom: 0.75rem;
+	}
+
+	.diag-raf-core__tag {
+		font-size: 0.63rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: rgba(255,255,255,0.4);
+		margin-bottom: 0.3rem;
+	}
+
+	.diag-raf-core__label {
+		font-size: 1rem;
+		font-weight: 800;
+		color: #fff;
+		margin-bottom: 0.75rem;
+	}
+
+	.diag-raf-core__tools {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35rem;
+		justify-content: center;
+	}
+
+	.diag-raf-core__tools span {
+		font-size: 0.72rem;
+		font-weight: 500;
+		padding: 0.2em 0.65em;
+		border-radius: 4px;
+		background: rgba(255,255,255,0.1);
+		border: 1px solid rgba(255,255,255,0.12);
+		color: rgba(255,255,255,0.8);
+	}
+
+	.diag-raf-outcomes {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 0.5rem;
+		margin-bottom: 1.25rem;
+	}
+
+	.diag-raf-outcome {
+		border: 1px solid rgba(30, 64, 175, 0.18);
+		border-radius: 8px;
+		padding: 0.85rem 0.75rem;
+		background: rgba(30, 64, 175, 0.03);
+		text-align: center;
+	}
+
+	.diag-raf-outcome__icon {
+		font-size: 0.85rem;
+		color: var(--color-primary, #1e40af);
+		font-weight: 700;
+		margin-bottom: 0.25rem;
+	}
+
+	.diag-raf-outcome__label {
+		font-size: 0.75rem;
+		font-weight: 700;
+		color: var(--color-navy, #0f172a);
+		margin-bottom: 0.35rem;
+	}
+
+	.diag-raf-outcome__body {
+		font-size: 0.68rem;
+		line-height: 1.4;
+		color: var(--color-charcoal, #334155);
+	}
+
+	/* ── Responsive ────────────────────────────────────────── */
+	@media (max-width: 700px) {
+		.br-pc { display: none; }
+		.article-related__grid { grid-template-columns: 1fr; }
+		.article-head { padding-top: 2rem; }
+		.diag-fb-grid { gap: 0.5rem; }
+		.diag-raf-connectors { display: none; }
+		.diag-raf-outcomes { grid-template-columns: 1fr; }
+	}
+</style>

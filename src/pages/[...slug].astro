@@ -15,10 +15,17 @@ export async function getStaticPaths() {
     'case-studies',
     'insights',
     'privacy-policy',
+    // EN pages now served by dedicated .astro files
+    'en/services-en',
+    'en/contact-en',
+    'en/company-en',
+    'en/services',
+    'en/contact',
+    'en/company',
   ]);
 
   // Path prefixes whose sub-routes are handled by more-specific dynamic routes
-  const excludedPrefixes = ['services/', 'case-studies/'];
+  const excludedPrefixes = ['services/', 'case-studies/', 'en/services-en/', 'en/services/'];
 
   const pages = await getCollection('pages');
 

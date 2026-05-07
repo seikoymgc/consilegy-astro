@@ -1,0 +1,465 @@
+---
+import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const pubDate = '2026-05-07';
+const pubDateDisplay = '2026年5月7日';
+const readTime = '約10分';
+
+const articleSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'Revenue Visibilityとは何か｜売上が見える状態の正体',
+	description: 'Revenue Visibility（収益可視性）とは何かを、RevOps・CRM・KPI・Revenue Architectureの観点から解説します。',
+	datePublished: pubDate,
+	dateModified: pubDate,
+	author: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+	url: 'https://consilegy.com/insights/what-is-revenue-visibility/',
+	inLanguage: 'ja',
+};
+
+const breadcrumbSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://consilegy.com/' },
+		{ '@type': 'ListItem', position: 2, name: 'コラム', item: 'https://consilegy.com/insights/' },
+		{ '@type': 'ListItem', position: 3, name: 'Revenue Visibilityとは何か', item: 'https://consilegy.com/insights/what-is-revenue-visibility/' },
+	],
+};
+---
+
+<BaseLayout
+	title="Revenue Visibilityとは何か｜売上が見える状態の正体 | Consilegy"
+	description="Revenue Visibility（収益可視性）とは何かを、RevOps・CRM・KPI・Revenue Architectureの観点から解説します。"
+	lang="ja"
+>
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	</Fragment>
+
+<div class="article-wrap">
+
+	<!-- ===== ARTICLE HEADER ===== -->
+	<header class="article-head container">
+		<nav class="breadcrumb" aria-label="パンくずリスト">
+			<a href="/">ホーム</a>
+			<span aria-hidden="true">›</span>
+			<a href="/insights/">コラム</a>
+			<span aria-hidden="true">›</span>
+			<span aria-current="page">Revenue Visibilityとは何か</span>
+		</nav>
+		<div class="article-meta">
+			<span class="article-cat">Revenue Architecture</span>
+			<span class="article-date">{pubDateDisplay}</span>
+			<span class="article-read">{readTime}</span>
+		</div>
+		<h1>Revenue Visibilityとは何か<br class="br-pc" />—— 「売上が見える状態」の正体</h1>
+		<p class="article-desc">SalesforceもBIもダッシュボードもある。それなのに来月の着地が読めない、どこで失注しているか分からない、会議で数字が合わない。問題は可視化不足ではなく、収益が見える構造が設計されていないことにある。</p>
+	</header>
+
+	<!-- ===== ARTICLE BODY ===== -->
+	<div class="article-body container">
+
+		<div class="article-section">
+			<p>「売上が見えない」——これは多くのBtoB企業で起きています。SalesforceもHubSpotもBIもダッシュボードも導入した。それなのに来月の着地が読めない、どの施策が収益につながったか分からない、どこで失注しているか見えない、会議で数字が合わない、見通しが毎月ブレる。データはある。しかし収益が見えていない状態です。</p>
+			<p>部門分化・SaaS増加・KPI管理強化が進むほど逆に収益の可視性が低下するケースもあります。多くの企業は「もっとダッシュボードを増やそう」と考えますが、<strong>問題は可視化不足ではありません</strong>。本当の原因は、収益が見える構造が設計されていないことにあります。</p>
+		</div>
+
+		<div class="article-section">
+			<h2>Revenue Visibilityとは何か</h2>
+			<p>Revenue Visibilityとは、営業・マーケティング・カスタマーサクセス・財務を横断して「収益がどこで生まれ、どこで失われ、どこへ向かっているか」を一貫して把握できる状態です。重要なのはグラフではありません。収益の流れ・ボトルネック・見通し・成長要因が見えることです。つまりRevenue Visibilityとは<strong>収益に基づいて意思決定できる状態</strong>を指します。</p>
+		</div>
+
+		<!-- DIAGRAM 1: Revenue Visibilityが低い組織 -->
+		<figure class="diag-wrap" aria-label="Revenue Visibilityが低い組織：複数ツールのデータが分断され経営判断ができない状態">
+			<div class="diag diag--rv-low">
+				<div class="rvl-header">収益が「見えていない」状態</div>
+				<div class="rvl-tools">
+					<div class="rvl-tool">
+						<div class="rvl-icon icon-sf">SF</div>
+						<div class="rvl-name">Salesforce</div>
+						<div class="rvl-data">受注データ</div>
+					</div>
+					<div class="rvl-tool">
+						<div class="rvl-icon icon-hs">HS</div>
+						<div class="rvl-name">HubSpot</div>
+						<div class="rvl-data">リードデータ</div>
+					</div>
+					<div class="rvl-tool">
+						<div class="rvl-icon icon-bi">BI</div>
+						<div class="rvl-name">BIツール</div>
+						<div class="rvl-data">集計レポート</div>
+					</div>
+					<div class="rvl-tool">
+						<div class="rvl-icon icon-xl">XL</div>
+						<div class="rvl-name">Excel</div>
+						<div class="rvl-data">売上管理</div>
+					</div>
+				</div>
+				<div class="rvl-meeting">
+					<div class="rvl-meeting-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg> 経営会議</div>
+					<div class="rvl-bubbles">
+						<div class="rvl-bubble">「数字が違う」</div>
+						<div class="rvl-bubble rvl-bubble--warn">「着地が読めない」</div>
+						<div class="rvl-bubble">「どれが正しい？」</div>
+					</div>
+				</div>
+				<div class="rvl-footer">
+					<span class="rvl-tag bad">✕ 収益の流れが見えない</span>
+					<span class="rvl-tag bad">✕ 意思決定が遅れる</span>
+					<span class="rvl-tag bad">✕ 改善行動が取れない</span>
+				</div>
+			</div>
+			<figcaption class="diag-caption">Revenue Visibilityが低い状態：ツールは存在するが収益の流れが分断され、会議で数字の根拠確認から始まる</figcaption>
+		</figure>
+
+		<div class="article-section">
+			<h2>なぜ多くの企業で収益が見えないのか</h2>
+			<ol class="article-numbered">
+				<li>
+					<strong>部門ごとに数字が分断されている</strong>
+					<p>マーケティングは見込み客数、営業は受注件数、カスタマーサクセスは継続率、財務は請求——それぞれが別の数字を持つと、収益を一本で見られません。部門を横断した収益の流れが存在しないことが根本原因です。</p>
+				</li>
+				<li>
+					<strong>指標の定義が統一されていない</strong>
+					<p>年間売上・商談候補・アクティブ顧客・解約率の定義が部門ごとに異なると、会議は必ず「どの数字が正しい？」から始まります。共通の定義がない限り、データがあっても意思決定の基盤になりません。</p>
+				</li>
+				<li>
+					<strong>収益データの流れが設計されていない</strong>
+					<p>HubSpot・Salesforce・Kintone・BI・Excelがそれぞれ独立して動いていると、収益データが部門間を流れません。データは存在するが収益として一貫していない状態です。</p>
+				</li>
+				<li>
+					<strong>ダッシュボードが「報告用」になっている</strong>
+					<p>BIが状況共有・月次報告・KPI一覧で止まっていると、収益改善の判断に使えません。可視化の目的が「見せること」になっており「判断すること」に向いていない状態です。</p>
+				</li>
+				<li>
+					<strong>見通しと収益全体がつながっていない</strong>
+					<p>営業の見通しは存在しても、継続率・追加受注・解約が分断されていると本当の収益が見えません。収益の全体像から逆算する設計が必要です。</p>
+				</li>
+			</ol>
+		</div>
+
+		<div class="article-section">
+			<h2>本当に必要なのは「収益可視化の設計」</h2>
+			<p>何を収益として見るか、どの指標を見るか、どこを正データとするか、どのタイミングで意思決定するか——これを設計することが必要です。重要なのはBI画面ではなく、<strong>収益判断できる構造</strong>です。Revenue Visibility設計とは収益に基づいて行動できる組織の土台を作ることです。</p>
+			<p class="article-callout">ダッシュボードを増やしても、収益が見える構造がなければ「見ているが判断できない」状態が続きます。</p>
+		</div>
+
+		<!-- DIAGRAM 2: Revenue Visibility構造図 -->
+		<figure class="diag-wrap" aria-label="Revenue Visibility構造図：見込み客から更新・追加受注まで収益の流れが一貫して見える設計">
+			<div class="diag diag--rv-design">
+				<div class="rvd-header">Revenue Visibility 設計</div>
+				<div class="rvd-flow">
+					<div class="rvd-stage">
+						<div class="rvd-box box-lead">見込み客<br /><small>Lead</small></div>
+						<div class="rvd-kpi">流入数</div>
+					</div>
+					<div class="rvd-arrow">→</div>
+					<div class="rvd-stage">
+						<div class="rvd-box box-pipe">商談候補<br /><small>Pipeline</small></div>
+						<div class="rvd-kpi">転換率</div>
+					</div>
+					<div class="rvd-arrow">→</div>
+					<div class="rvd-stage">
+						<div class="rvd-box box-arr">年間売上<br /><small>ARR</small></div>
+						<div class="rvd-kpi">成約率</div>
+					</div>
+					<div class="rvd-arrow">→</div>
+					<div class="rvd-stage">
+						<div class="rvd-box box-renewal">更新<br /><small>Renewal</small></div>
+						<div class="rvd-kpi">継続率</div>
+					</div>
+					<div class="rvd-arrow">→</div>
+					<div class="rvd-stage">
+						<div class="rvd-box box-exp">追加受注<br /><small>Expansion</small></div>
+						<div class="rvd-kpi">拡大率</div>
+					</div>
+				</div>
+				<div class="rvd-forecast-bar">
+					<div class="rvd-forecast-label">収益の流れ（Revenue Data Flow）——一貫して追える</div>
+					<div class="rvd-forecast-items">
+						<span class="rvd-fi">見通し精度</span>
+						<span class="rvd-fi">ボトルネック特定</span>
+						<span class="rvd-fi">成長要因分析</span>
+						<span class="rvd-fi">正データ統一</span>
+					</div>
+				</div>
+				<div class="rvd-footer">
+					<span class="rvd-tag good">✓ 収益の全体が見える</span>
+					<span class="rvd-tag good">✓ 判断の根拠が揃う</span>
+					<span class="rvd-tag good">✓ 意思決定が速くなる</span>
+				</div>
+			</div>
+			<figcaption class="diag-caption">Revenue Visibility設計：見込み客から追加受注まで収益の流れを一貫して設計し、見通し・ボトルネック・成長要因が見える状態を実現する</figcaption>
+		</figure>
+
+		<div class="article-section">
+			<h2>Revenue Architectureという考え方</h2>
+			<p>Revenue Visibility問題はBIの問題ではありません。営業・マーケティング・カスタマーサクセス・CRM・KPI・データを「収益につながる一つの構造」として設計するRevenue Architectureの問題です。Revenue Architecture・収益の流れ設計・RevOps・KPI設計・見通し設計という構造が整って初めて、収益は自然に見えるようになります。</p>
+		</div>
+
+		<div class="article-section">
+			<h2>収益の可視性が高い会社の共通点</h2>
+			<p>収益が成長し続けている会社には共通点があります。どの数字を正とするかが決まっており、全部門が同じデータを参照している。マーケティング・営業・カスタマーサクセス・財務で収益指標が統一されている。見込み客の発生から契約更新まで収益データがつながっている。見通しと収益全体が統合されており未来が見える。RevOpsが収益を管理する役割を担っている。</p>
+		</div>
+
+		<!-- DIAGRAM 3: Revenue Architecture統合図 -->
+		<figure class="diag-wrap" aria-label="Revenue Architectureによる収益可視化統合：8つの部門・機能を接続しRevenue Visibilityを実現する構造">
+			<div class="diag diag--ra-rv">
+				<div class="ra-pills-row">
+					<span class="ra-pill">マーケティング</span>
+					<span class="ra-pill">営業</span>
+					<span class="ra-pill">CS</span>
+					<span class="ra-pill">財務</span>
+					<span class="ra-pill">CRM</span>
+					<span class="ra-pill">KPI</span>
+					<span class="ra-pill">BI</span>
+					<span class="ra-pill">RevOps</span>
+				</div>
+				<svg class="ra-svg" viewBox="0 0 680 60" preserveAspectRatio="none" aria-hidden="true">
+					<line x1="38"  y1="0" x2="340" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+					<line x1="124" y1="0" x2="340" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+					<line x1="210" y1="0" x2="340" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+					<line x1="296" y1="0" x2="340" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+					<line x1="382" y1="0" x2="340" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+					<line x1="468" y1="0" x2="340" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+					<line x1="554" y1="0" x2="340" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+					<line x1="640" y1="0" x2="340" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+				</svg>
+				<div class="ra-core">
+					<div class="ra-core-title">Revenue Architecture</div>
+					<div class="ra-core-tags">
+						<span>収益の流れ設計</span>
+						<span>正データ統一</span>
+						<span>KPI統一設計</span>
+						<span>見通し設計</span>
+						<span>RevOps運用</span>
+					</div>
+				</div>
+				<div class="ra-connector-bar"></div>
+				<div class="ra-outcomes">
+					<div class="ra-outcome">
+						<div class="ra-outcome-title">収益の可視化</div>
+						<div class="ra-outcome-sub">全部門が同じ数字で<br />動けるようになる</div>
+					</div>
+					<div class="ra-outcome ra-outcome--mid">
+						<div class="ra-outcome-title">見通し精度の向上</div>
+						<div class="ra-outcome-sub">収益の全体が見えて<br />未来が読める</div>
+					</div>
+					<div class="ra-outcome">
+						<div class="ra-outcome-title">意思決定の高速化</div>
+						<div class="ra-outcome-sub">数字確認ではなく<br />改善議論に集中</div>
+					</div>
+				</div>
+			</div>
+			<figcaption class="diag-caption">Revenue Architectureによる収益可視化統合：8つの部門・機能を接続し収益が自然に見える状態（Revenue Visibility）を実現する</figcaption>
+		</figure>
+
+		<div class="article-section">
+			<h2>日本企業で収益の可視性が低くなりやすい理由</h2>
+			<p>日本企業ではExcel文化・部門分断・属人管理・SaaS乱立が根強く残っています。そのため収益の可視性が人力調整で成立しやすく、担当者の経験と記憶がシステムの代わりになっているケースが多い。必要なのは「収益が自然に見える構造」であり、日本企業の文化に合ったRevenue Architectureの設計が求められます。</p>
+		</div>
+
+		<div class="article-section">
+			<h2>Consilegyの考え方</h2>
+			<p>ConsilegyではBI構築やKPI改善を単なるダッシュボード整備とは考えていません。本質はRevenue Architecture・収益可視化・収益の流れ設計・KPI設計・RevOpsにあります。Salesforce・HubSpot・Kintone・BI・Slack・会計システムを横断しながら、「収益が一貫して見える構造」を設計します。目的はダッシュボードを増やすことではなく、収益に基づいて意思決定できる状態を作ることです。</p>
+			<div class="article-table-wrap">
+				<table>
+					<thead>
+						<tr>
+							<th>課題</th>
+							<th>Consilegyのアプローチ</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>数字が部門ごとに違う</td>
+							<td>正データ統一 + 収益の流れ設計</td>
+						</tr>
+						<tr>
+							<td>見通しが毎月ブレる</td>
+							<td>見通し設計 + 収益の流れ可視化</td>
+						</tr>
+						<tr>
+							<td>ダッシュボードが増えるが判断できない</td>
+							<td>Revenue Visibility設計 + KPI統一</td>
+						</tr>
+						<tr>
+							<td>部門間で指標の定義が合わない</td>
+							<td>KPI Architecture + 定義の明文化</td>
+						</tr>
+						<tr>
+							<td>施策が収益につながったか分からない</td>
+							<td>収益の流れ設計 + RevOps整備</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="article-section">
+			<h2>まとめ：Revenue VisibilityはRevenue Architectureで決まる</h2>
+			<p>「売上が見えない」原因は可視化不足ではありません。Revenue Architecture不足・収益の流れ未設計・KPI設計不足・RevOps未整備が本質的な原因です。だからこそ必要なのはBIの追加ではなく、「収益が自然に見える構造」を設計することです。Revenue VisibilityはRevenue Architectureの結果として生まれます。</p>
+		</div>
+
+		<!-- ===== CTA ===== -->
+		<div class="article-cta">
+			<p class="article-cta__catch">「データがある」から「収益が見える」へ</p>
+			<p class="article-cta__body">ConsilegyはRevenue Visibility設計から正データの統一まで、収益が一貫して見える構造を支援します。まずは現状の収益可視性の課題を整理するところから始めましょう。</p>
+			<a href="/contact/" class="article-cta__btn">無料相談を予約する</a>
+		</div>
+
+		<!-- ===== RELATED ===== -->
+		<nav class="article-related" aria-label="関連記事">
+			<h2 class="article-related__heading">関連記事</h2>
+			<ul>
+				<li><a href="/insights/what-is-revenue-data-flow/">Revenue Data Flowとは何か</a></li>
+				<li><a href="/insights/why-dashboards-do-not-improve-executive-decisions/">なぜダッシュボードは経営判断を改善しないのか</a></li>
+				<li><a href="/insights/why-more-kpis-create-less-revenue-visibility/">KPIが増えるほど収益可視性が下がる理由</a></li>
+			</ul>
+		</nav>
+
+	</div><!-- /.article-body -->
+	<NewsletterSidebar />
+</div><!-- /.article-wrap -->
+
+<style>
+/* ===== LAYOUT ===== */
+.article-wrap { background: #fff; padding-bottom: 80px; }
+.container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+
+/* ===== HEADER ===== */
+.article-head { padding-top: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--color-border, #e2e8f0); }
+.breadcrumb { font-size: 0.78rem; color: var(--color-muted, #64748b); margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.breadcrumb a { color: var(--color-muted, #64748b); text-decoration: none; }
+.breadcrumb a:hover { color: var(--color-primary, #1e40af); }
+.article-meta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; font-size: 0.8rem; color: var(--color-muted, #64748b); }
+.article-cat { background: #eff6ff; color: var(--color-primary, #1e40af); padding: 2px 10px; border-radius: 4px; font-weight: 600; font-size: 0.75rem; }
+.article-head h1 { font-size: clamp(1.4rem, 3.2vw, 2rem); font-weight: 800; color: var(--color-navy, #0f172a); line-height: 1.35; margin-bottom: 16px; }
+.article-desc { font-size: 1rem; color: var(--color-charcoal, #334155); line-height: 1.75; }
+.br-pc { display: inline; }
+
+/* ===== BODY ===== */
+.article-body { padding-top: 48px; }
+.article-section { margin-bottom: 56px; }
+.article-section h2 { font-size: 1.25rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 16px; padding-left: 14px; border-left: 4px solid var(--color-primary, #1e40af); line-height: 1.4; }
+.article-section p { font-size: 0.975rem; color: var(--color-charcoal, #334155); line-height: 1.85; margin-bottom: 16px; }
+.article-section p:last-child { margin-bottom: 0; }
+.article-callout { background: #f8fafc; border-left: 3px solid var(--color-primary, #1e40af); padding: 14px 18px; border-radius: 0 6px 6px 0; font-size: 0.95rem !important; color: var(--color-navy, #0f172a) !important; }
+
+/* ===== NUMBERED LIST ===== */
+.article-numbered { list-style: none; counter-reset: item; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 24px; }
+.article-numbered li { counter-increment: item; display: grid; grid-template-columns: 36px 1fr; gap: 0 16px; }
+.article-numbered li::before { content: counter(item); display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--color-primary, #1e40af); color: #fff; border-radius: 50%; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px; }
+.article-numbered li strong { grid-column: 2; display: block; font-size: 1rem; color: var(--color-navy, #0f172a); margin-bottom: 6px; line-height: 1.4; }
+.article-numbered li p { grid-column: 2; font-size: 0.925rem; color: var(--color-charcoal, #334155); line-height: 1.8; margin: 0; }
+
+/* ===== TABLE ===== */
+.article-table-wrap { overflow-x: auto; margin-top: 24px; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; }
+.article-table-wrap table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.article-table-wrap th { background: var(--color-navy, #0f172a); color: #fff; padding: 12px 16px; text-align: left; font-weight: 600; font-size: 0.85rem; }
+.article-table-wrap td { padding: 12px 16px; border-bottom: 1px solid var(--color-border, #e2e8f0); color: var(--color-charcoal, #334155); vertical-align: top; line-height: 1.6; }
+.article-table-wrap tr:last-child td { border-bottom: none; }
+.article-table-wrap tr:nth-child(even) td { background: #f8fafc; }
+
+/* ===== DIAGRAMS ===== */
+.diag-wrap { margin: 0 0 56px; padding: 0; border: none; }
+.diag { background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 28px 24px; }
+.diag-caption { font-size: 0.78rem; color: var(--color-muted, #64748b); text-align: center; margin-top: 10px; line-height: 1.5; }
+
+/* --- DIAGRAM 1: Revenue Visibility Low --- */
+.diag--rv-low { display: flex; flex-direction: column; gap: 14px; }
+.rvl-header { text-align: center; font-size: 0.82rem; font-weight: 700; color: var(--color-muted, #64748b); letter-spacing: 0.04em; }
+.rvl-tools { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.rvl-tool { display: flex; flex-direction: column; align-items: center; gap: 5px; background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 12px 14px; min-width: 90px; }
+.rvl-icon { width: 36px; height: 36px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 700; color: #fff; }
+.icon-sf { background: #00a1e0; }
+.icon-hs { background: #ff7a59; }
+.icon-bi { background: #f2c811; color: #1a1a1a; }
+.icon-xl { background: #217346; }
+.rvl-name { font-size: 0.75rem; font-weight: 600; color: var(--color-navy, #0f172a); }
+.rvl-data { font-size: 0.67rem; color: var(--color-muted, #64748b); }
+.rvl-meeting { background: #fff3cd; border: 1px dashed #fbbf24; border-radius: 8px; padding: 12px 16px; display: flex; flex-direction: column; gap: 8px; align-items: center; }
+.rvl-meeting-label { font-size: 0.82rem; font-weight: 700; color: #92400e; }
+.rvl-bubbles { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+.rvl-bubble { background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 5px 12px; font-size: 0.75rem; color: var(--color-charcoal, #334155); }
+.rvl-bubble--warn { background: #fee2e2; border-color: #fca5a5; color: #991b1b; font-weight: 600; }
+.rvl-footer { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.rvl-tag { font-size: 0.75rem; font-weight: 600; }
+.bad  { color: #dc2626; }
+.good { color: #16a34a; }
+
+/* --- DIAGRAM 2: Revenue Visibility Design --- */
+.diag--rv-design { display: flex; flex-direction: column; gap: 14px; }
+.rvd-header { text-align: center; font-size: 0.9rem; font-weight: 700; color: var(--color-navy, #0f172a); letter-spacing: 0.03em; }
+.rvd-flow { display: flex; align-items: flex-start; justify-content: center; gap: 4px; flex-wrap: wrap; }
+.rvd-stage { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+.rvd-box { padding: 8px 8px; border-radius: 6px; font-size: 0.72rem; font-weight: 700; color: #fff; text-align: center; line-height: 1.3; }
+.rvd-box small { font-size: 0.6rem; font-weight: 400; opacity: 0.85; display: block; }
+.box-lead    { background: #93c5fd; color: #1e3a8a; }
+.box-pipe    { background: #3b82f6; }
+.box-arr     { background: #1d4ed8; }
+.box-renewal { background: #1e40af; }
+.box-exp     { background: #0f172a; }
+.rvd-kpi { font-size: 0.67rem; color: var(--color-muted, #64748b); background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 4px; padding: 2px 6px; white-space: nowrap; }
+.rvd-arrow { font-size: 1rem; color: var(--color-muted, #64748b); flex-shrink: 0; padding-top: 8px; }
+.rvd-forecast-bar { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; }
+.rvd-forecast-label { font-size: 0.78rem; font-weight: 600; color: var(--color-primary, #1e40af); text-align: center; margin-bottom: 8px; }
+.rvd-forecast-items { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.rvd-fi { font-size: 0.72rem; background: #fff; border: 1px solid #bfdbfe; color: var(--color-primary, #1e40af); border-radius: 8px; padding: 3px 10px; }
+.rvd-footer { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+.rvd-tag { font-size: 0.75rem; font-weight: 600; }
+
+/* --- DIAGRAM 3: RA Hub (8 pills) --- */
+.diag--ra-rv { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
+.ra-pills-row { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; padding-bottom: 4px; }
+.ra-pill { background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 4px; padding: 5px 12px; font-size: 0.72rem; font-weight: 600; color: var(--color-charcoal, #334155); white-space: nowrap; }
+.ra-svg { width: 100%; height: 60px; display: block; }
+.ra-core { background: var(--color-navy, #0f172a); color: #fff; border-radius: 8px; padding: 18px 20px; text-align: center; }
+.ra-core-title { font-size: 1rem; font-weight: 700; margin-bottom: 10px; letter-spacing: 0.02em; }
+.ra-core-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.ra-core-tags span { font-size: 0.7rem; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; padding: 3px 9px; color: #e2e8f0; }
+.ra-connector-bar { height: 24px; background: linear-gradient(180deg, var(--color-navy, #0f172a) 0%, #334155 100%); width: 2px; margin: 0 auto; }
+.ra-outcomes { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+.ra-outcome { background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 14px 12px; text-align: center; }
+.ra-outcome--mid { border-color: var(--color-primary, #1e40af); box-shadow: 0 0 0 1px var(--color-primary, #1e40af); }
+.ra-outcome-title { font-size: 0.82rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 6px; }
+.ra-outcome-sub { font-size: 0.72rem; color: var(--color-muted, #64748b); line-height: 1.5; }
+
+/* ===== CTA ===== */
+.article-cta { background: radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%), linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%); border-radius: 8px; padding: 40px 36px; text-align: center; margin-bottom: 48px; }
+.article-cta__catch { font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
+.article-cta__body { font-size: 0.92rem; color: rgba(255,255,255,0.88); line-height: 1.75; margin-bottom: 24px; }
+.article-cta__btn { display: inline-block; background: #fff; color: var(--color-primary, #1e40af); font-weight: 700; font-size: 0.9rem; padding: 12px 28px; border-radius: 6px; text-decoration: none; transition: opacity 0.2s; }
+.article-cta__btn:hover { opacity: 0.9; }
+
+/* ===== RELATED ===== */
+.article-related { border-top: 1px solid var(--color-border, #e2e8f0); padding-top: 32px; }
+.article-related__heading { font-size: 0.9rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 16px; }
+.article-related ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.article-related li a { font-size: 0.9rem; color: var(--color-primary, #1e40af); text-decoration: none; }
+.article-related li a:hover { text-decoration: underline; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 700px) {
+	.article-head h1 { font-size: 1.35rem; }
+	.br-pc { display: none; }
+	.rvd-flow { gap: 3px; }
+	.rvd-box { font-size: 0.65rem; padding: 6px 6px; }
+	.rvd-arrow { font-size: 0.85rem; }
+	.ra-outcomes { grid-template-columns: 1fr; gap: 8px; }
+	.article-cta { padding: 28px 20px; }
+	.rvl-tools { gap: 8px; }
+}
+@media (max-width: 480px) {
+	.container { padding: 0 16px; }
+	.rvd-kpi { display: none; }
+	.ra-outcomes { grid-template-columns: 1fr 1fr; }
+	.ra-pill { font-size: 0.68rem; padding: 4px 10px; }
+}
+</style>
+
+</BaseLayout>

@@ -1,0 +1,521 @@
+---
+import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const pubDate = '2026-05-07';
+const pubDateDisplay = '2026年5月7日';
+const readTime = '約10分';
+
+const articleSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'ダッシュボードを作っても意思決定が速くならない理由｜RevOpsとRevenue Architecture',
+	description: 'BIやダッシュボードを整備しても経営判断が速くならない原因を、KPI設計・Revenue Architecture・RevOpsの観点から解説します。',
+	datePublished: pubDate,
+	dateModified: pubDate,
+	author: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+	url: 'https://consilegy.com/insights/why-dashboards-do-not-improve-executive-decisions/',
+	inLanguage: 'ja',
+};
+
+const breadcrumbSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://consilegy.com/' },
+		{ '@type': 'ListItem', position: 2, name: 'コラム', item: 'https://consilegy.com/insights/' },
+		{ '@type': 'ListItem', position: 3, name: 'なぜダッシュボードを整備しても、経営判断が速くならないのか', item: 'https://consilegy.com/insights/why-dashboards-do-not-improve-executive-decisions/' },
+	],
+};
+---
+
+<BaseLayout
+	title="ダッシュボードを作っても意思決定が速くならない理由｜RevOpsとRevenue Architecture | Consilegy"
+	description="BIやダッシュボードを整備しても経営判断が速くならない原因を、KPI設計・Revenue Architecture・RevOpsの観点から解説します。"
+	lang="ja"
+>
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	</Fragment>
+
+<div class="article-wrap">
+
+	<!-- ===== ARTICLE HEADER ===== -->
+	<header class="article-head container">
+		<nav class="breadcrumb" aria-label="パンくずリスト">
+			<a href="/">ホーム</a>
+			<span aria-hidden="true">›</span>
+			<a href="/insights/">コラム</a>
+			<span aria-hidden="true">›</span>
+			<span aria-current="page">なぜダッシュボードを整備しても、経営判断が速くならないのか</span>
+		</nav>
+		<div class="article-meta">
+			<span class="article-cat">BI / RevOps</span>
+			<span class="article-date">{pubDateDisplay}</span>
+			<span class="article-read">{readTime}</span>
+		</div>
+		<h1>なぜダッシュボードを整備しても、<br class="br-pc" />経営判断が速くならないのか</h1>
+		<p class="article-desc">BIを導入し、KPIダッシュボードも整備した。それなのに会議は長く、数字確認で終わり、「この数字は正しいのか？」から始まる。この問題の本質は可視化不足ではなく、Revenue判断の構造が設計されていないことにある。</p>
+	</header>
+
+	<!-- ===== ARTICLE BODY ===== -->
+	<article class="article-body container" id="article">
+
+		<!-- はじめに -->
+		<section class="article-section">
+			<h2>はじめに：ダッシュボードは「見るため」ではなく「判断するため」のもの</h2>
+			<p>Looker Studioを導入した。BIも整備し、Salesforceとも連携し、KPIダッシュボードもある。それなのに、会議が長く、数字確認だけで終わり、「この数字は正しいのか？」という問い合わせが始まり、部門ごとに異なる資料を見ており、結局Excel補足が必要になる——こうした状況は、BtoB企業のBI導入後に非常によく起きます。多くの企業は「もっとデータを増やそう」と考えます。しかし問題の本質は可視化不足にはありません。</p>
+			<div class="article-callout">
+				<p>本来ダッシュボードは、数字を並べるものではありません。<strong>「どこを改善すべきかを即判断できる状態を作ること」</strong>が本来の役割です。情報はあるのに「何を意思決定すべきか」が分からない状態では、ダッシュボードが増えるほど会議が複雑化します。</p>
+			</div>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- 5つのパターン -->
+		<section class="article-section">
+			<h2>ダッシュボードが機能しない会社に共通する5つのパターン</h2>
+
+			<div class="article-numbered">
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">01</p>
+					<h3>部門ごとにダッシュボードが分断されている</h3>
+					<p>営業はSales Dashboard、マーケはMarketing Dashboard、CSはCustomer Dashboardで管理されています。Revenue全体ではなく部分最適になっているため、「リードは増えているが受注が減り、CSは問題ない」という分断が起き、全体のボトルネックが見えません。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">02</p>
+					<h3>KPIが多すぎる</h3>
+					<p>MQL・SQL・Win Rate・Pipeline・ARR・NRR・Churn・CAC・LTVが大量に並んでいます。しかしどれが最重要かが不明なため、「見るものが多すぎて逆に判断できない」状態になっています。情報の過多は、判断の速度を下げます。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">03</p>
+					<h3>KPI同士がつながっていない</h3>
+					<p>CVは増えたが商談化率が低下し、Win Rateも落ち、ARRが停滞している——こうした連鎖が部門別ダッシュボードでは見えません。KPIの因果関係が設計されていないため、どこを改善すれば全体が改善するかが分かりません。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">04</p>
+					<h3>ダッシュボードが「報告用」になっている</h3>
+					<p>ダッシュボードが経営報告資料として使われており、状況共有・進捗報告で会議が終わります。本来必要なのは「改善の意思決定」ですが、報告が目的化すると議論が生まれません。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">05</p>
+					<h3>「どの数字を正とするか」が決まっていない</h3>
+					<p>Salesforceの数字・BIの数字・Excelの数字が違う状態では、会議が「どの数字が正しい？」から始まります。Single Source of Truthが存在しない限り、意思決定の土台が揺らぎ続けます。</p>
+				</div>
+			</div>
+
+			<!-- DIAGRAM 1 -->
+			<figure class="diag diag--dash-chaos" aria-label="ダッシュボードが増えすぎて意思決定が混乱している状態の構造図。Marketing・Sales・CS・BI・Excelのダッシュボードが分断して並立し、どれが正しいか判断できない状態を示す。">
+				<div class="diag-dc-header">
+					<span class="diag-dc-header__label">現状：ダッシュボードが増えるほど判断できない</span>
+				</div>
+				<div class="diag-dc-grid">
+					<div class="diag-dc-board diag-dc-board--mkt">
+						<div class="diag-dc-board__label">Marketing<br />Dashboard</div>
+						<div class="diag-dc-board__kpis">
+							<span>MQL ↑</span><span>CV ↑</span><span>CTR</span>
+						</div>
+					</div>
+					<div class="diag-dc-board diag-dc-board--sales">
+						<div class="diag-dc-board__label">Sales<br />Dashboard</div>
+						<div class="diag-dc-board__kpis">
+							<span>商談数</span><span>Win Rate ↓</span><span>ARR</span>
+						</div>
+					</div>
+					<div class="diag-dc-board diag-dc-board--cs">
+						<div class="diag-dc-board__label">CS<br />Dashboard</div>
+						<div class="diag-dc-board__kpis">
+							<span>NRR</span><span>Churn</span><span>Health</span>
+						</div>
+					</div>
+					<div class="diag-dc-board diag-dc-board--xl">
+						<div class="diag-dc-board__label">Excel<br />集計</div>
+						<div class="diag-dc-board__kpis">
+							<span>月次まとめ</span><span>各部門版</span>
+						</div>
+					</div>
+					<div class="diag-dc-board diag-dc-board--bi">
+						<div class="diag-dc-board__label">BI<br />レポート</div>
+						<div class="diag-dc-board__kpis">
+							<span>全データ</span><span>グラフ多数</span>
+						</div>
+					</div>
+				</div>
+				<div class="diag-dc-bubbles">
+					<div class="diag-dc-bubble diag-dc-bubble--warn">「どれが正しい？」</div>
+					<div class="diag-dc-bubble">「何を見ればいい？」</div>
+					<div class="diag-dc-bubble diag-dc-bubble--warn">「全部で1時間かかる」</div>
+				</div>
+				<div class="diag-dc-footer">
+					<span>会議が長い</span>
+					<span>数字確認で終わる</span>
+					<span>判断できない</span>
+				</div>
+				<figcaption class="diag-caption">分断したダッシュボードが増えるほど、情報は増えるが判断に必要な構造が見えなくなる</figcaption>
+			</figure>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- Revenue Visibility -->
+		<section class="article-section">
+			<h2>本当に必要なのは「Revenue Visibility」</h2>
+			<p>BIを導入すると会議が長くなる理由は単純です。Revenue構造が設計されていないからです。BIは構造を可視化するツールです。しかし構造自体が崩れていれば、崩れた状態が可視化されるだけです。ダッシュボード問題は、BIの問題ではありません。</p>
+
+			<p>Revenue Visibility（収益可視性）とは、営業・マーケティング・CS・CRM・KPI・データを「Revenue改善のために意思決定できる状態」として可視化する考え方です。重要なのはグラフ数ではなく、どこがボトルネックか・何を改善すべきか・どのKPIがRevenueへ効くかが分かることです。Revenue判断できる会社には、KPIが少ない・Revenueと接続されている・ボトルネックが見える・会議設計と接続されている・「次アクション」が明確、という共通点があります。</p>
+
+			<!-- DIAGRAM 2 -->
+			<figure class="diag diag--rev-visibility" aria-label="Revenue Visibility構造図。Traffic・MQL・SQL・Opportunity・ARR・NRRの各フェーズにKPIが設計され、ボトルネックが即座に可視化できる構造を示す。">
+				<div class="diag-rv-header">
+					<span class="diag-rv-header__label">Revenue Visibility</span>
+					<span class="diag-rv-header__sub">ボトルネックを即判断できる構造</span>
+				</div>
+				<div class="diag-rv-stages">
+					<div class="diag-rv-stage">
+						<div class="diag-rv-stage__name">Traffic</div>
+						<div class="diag-rv-stage__kpi">CTR<br />流入数</div>
+					</div>
+					<div class="diag-rv-arrow" aria-hidden="true">→</div>
+					<div class="diag-rv-stage diag-rv-stage--mql">
+						<div class="diag-rv-stage__name">MQL</div>
+						<div class="diag-rv-stage__kpi">CV率<br />スコア</div>
+					</div>
+					<div class="diag-rv-arrow" aria-hidden="true">→</div>
+					<div class="diag-rv-stage diag-rv-stage--warn">
+						<div class="diag-rv-stage__name">SQL</div>
+						<div class="diag-rv-stage__kpi">商談化率<br />▼低下中</div>
+						<div class="diag-rv-stage__alert" aria-label="ボトルネック検知">⚠</div>
+					</div>
+					<div class="diag-rv-arrow" aria-hidden="true">→</div>
+					<div class="diag-rv-stage diag-rv-stage--sales">
+						<div class="diag-rv-stage__name">Opportunity</div>
+						<div class="diag-rv-stage__kpi">Win Rate<br />Pipeline</div>
+					</div>
+					<div class="diag-rv-arrow" aria-hidden="true">→</div>
+					<div class="diag-rv-stage diag-rv-stage--arr">
+						<div class="diag-rv-stage__name">ARR</div>
+						<div class="diag-rv-stage__kpi">受注<br />契約</div>
+					</div>
+					<div class="diag-rv-arrow" aria-hidden="true">→</div>
+					<div class="diag-rv-stage diag-rv-stage--arr">
+						<div class="diag-rv-stage__name">NRR</div>
+						<div class="diag-rv-stage__kpi">継続<br />拡張</div>
+					</div>
+				</div>
+				<div class="diag-rv-note">
+					<span class="diag-rv-note__icon">⚠</span>
+					<span class="diag-rv-note__text">SQL転換率が低下 → 商談化率を改善すべき、という判断が即できる</span>
+				</div>
+				<div class="diag-rv-bar">
+					<span class="diag-rv-bar__label">Revenue Visibility</span>
+					<span class="diag-rv-bar__desc">どこがボトルネックかを構造として把握し、次の意思決定につなげる</span>
+				</div>
+				<figcaption class="diag-caption">Revenue Visibilityは、KPIを並べるのではなく、Revenue Flowとして設計することでボトルネックを即判断できる状態を作る</figcaption>
+			</figure>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- Revenue Architecture -->
+		<section class="article-section">
+			<h2>Revenue Architectureという考え方</h2>
+			<p>Revenue Architecture（レベニューアーキテクチャ）とは、営業・マーケティング・CS・CRM・KPI・データ・会議体を「収益につながる一つの構造」として設計する考え方です。ダッシュボード問題はBIツールの問題ではなく、KPI Architecture・Revenue Data Flow・RevOps・会議設計・Revenue Visibilityという構造の問題です。</p>
+
+			<p>Revenue Architectureが整うと、会議時間が短くなり、経営判断が速くなります。KPIが「生きる」——測定だけで終わらず、改善アクションにつながります。部門横断でMarketing・Sales・CSがつながり、ダッシュボードがRevenueへ直結します。</p>
+
+			<!-- DIAGRAM 3 -->
+			<figure class="diag diag--ra-bi" aria-label="Revenue Architectureが組織全体のBI・KPIを統合する構造図。Marketing・Sales・CS・CRM・KPI・BI・MeetingをRevenue Architectureが接続し、意思決定高速化・Revenue Visibility・会議短縮を実現する設計を示す。">
+				<div class="diag-rb-depts">
+					<span class="diag-rb-dept diag-rb-dept--mkt">Marketing</span>
+					<span class="diag-rb-dept diag-rb-dept--sales">Sales</span>
+					<span class="diag-rb-dept diag-rb-dept--cs">CS</span>
+					<span class="diag-rb-dept diag-rb-dept--crm">CRM</span>
+					<span class="diag-rb-dept diag-rb-dept--kpi">KPI</span>
+					<span class="diag-rb-dept diag-rb-dept--bi">BI</span>
+					<span class="diag-rb-dept diag-rb-dept--mtg">Meeting</span>
+				</div>
+				<div class="diag-rb-lines" aria-hidden="true">
+					<svg viewBox="0 0 700 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+						<line x1="50"  y1="0" x2="350" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
+						<line x1="133" y1="0" x2="350" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
+						<line x1="216" y1="0" x2="350" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
+						<line x1="299" y1="0" x2="350" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
+						<line x1="400" y1="0" x2="350" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
+						<line x1="483" y1="0" x2="350" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
+						<line x1="566" y1="0" x2="350" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
+					</svg>
+				</div>
+				<div class="diag-rb-core">
+					<div class="diag-rb-core__label">Revenue Architecture</div>
+					<div class="diag-rb-core__tags">
+						<span>KPI Architecture</span>
+						<span>Revenue Visibility</span>
+						<span>Revenue Data Flow</span>
+						<span>RevOps</span>
+						<span>会議設計</span>
+					</div>
+				</div>
+				<div class="diag-rb-connector" aria-hidden="true"></div>
+				<div class="diag-rb-outcomes">
+					<div class="diag-rb-outcome">
+						<div class="diag-rb-outcome__label">意思決定高速化</div>
+						<div class="diag-rb-outcome__desc">判断に必要な<br />情報だけ見える</div>
+					</div>
+					<div class="diag-rb-outcome diag-rb-outcome--mid">
+						<div class="diag-rb-outcome__label">Revenue Visibility</div>
+						<div class="diag-rb-outcome__desc">ボトルネックが<br />即分かる</div>
+					</div>
+					<div class="diag-rb-outcome">
+						<div class="diag-rb-outcome__label">会議短縮</div>
+						<div class="diag-rb-outcome__desc">数字確認不要<br />改善議論に集中</div>
+					</div>
+				</div>
+				<figcaption class="diag-caption">Revenue Architectureが整うと、BIは報告ツールから意思決定を加速するRevenue判断基盤に変わる</figcaption>
+			</figure>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- 日本企業 -->
+		<section class="article-section">
+			<h2>日本企業でこの問題が起きやすい理由</h2>
+			<p>日本企業ではExcel文化・部門分断・属人管理・稟議文化が根強く残っています。そのためダッシュボードが「報告資料」になりやすく、改善の意思決定ではなく状況の確認に使われます。本来必要なのは「Revenue改善のための意思決定ツール」であり、日本企業の組織構造と意思決定プロセスに合ったRevenue Architectureの設計が前提となります。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- Consilegyの考え方 -->
+		<section class="article-section">
+			<h2>Consilegyの考え方</h2>
+			<p>Consilegyでは、ダッシュボード改善を単なるBI整備として捉えていません。本質はRevenue Architecture・Revenue Visibility・KPI Architecture・RevOps・Revenue Data Flowにあります。Salesforce・HubSpot・BI・Slack・Kintoneなどを横断しながら、「Revenue判断できる構造」を設計します。目的はダッシュボードを増やすことではなく、Revenue意思決定を速くすることです。</p>
+
+			<div class="article-table-wrap">
+				<table class="article-table">
+					<thead>
+						<tr>
+							<th>領域</th>
+							<th>Consilegyのサポート</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr><td>Revenue Visibility設計</td><td>Revenue Flowとして意思決定できるKPI構造</td></tr>
+						<tr><td>KPI Architecture整備</td><td>Driver KPI〜Revenue KPIの接続と優先順位</td></tr>
+						<tr><td>Single Source of Truth</td><td>Salesforce・BI・CRM間のデータ統一設計</td></tr>
+						<tr><td>会議体設計</td><td>ダッシュボードと改善アクションを接続する会議</td></tr>
+						<tr><td>RevOps構築</td><td>部門横断のKPI運用・データ管理プロセス整備</td></tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- まとめ -->
+		<section class="article-section">
+			<h2>まとめ：ダッシュボード問題は、Revenue構造の問題</h2>
+			<p>ダッシュボードを整備しても経営判断が速くならない原因は、BI不足ではありません。Revenue Architecture不足・KPI Architecture不足・Revenue Visibility未設計・RevOps未整備が根本原因です。だからこそ必要なのはダッシュボードの追加ではなく、Revenueが見える構造を設計することです。BIは単なる可視化ツールではなく、Revenue Architectureの一部として設計されるべきものです。</p>
+		</section>
+
+		<!-- RELATED -->
+		<aside class="article-related">
+			<h2 class="article-related__title">関連コラム</h2>
+			<ul class="article-related__list">
+				<li><a href="/insights/why-more-kpis-create-less-revenue-visibility/">なぜKPIが増えるほど売上が見えなくなるのか</a></li>
+				<li><a href="/insights/why-sales-meetings-become-number-reporting/">なぜ営業会議は数字確認で終わるのか</a></li>
+				<li><a href="/insights/why-salesforce-and-hubspot-data-do-not-match/">なぜSalesforceとHubSpotのデータは一致しないのか</a></li>
+				<li><a href="/insights/why-sales-forecasting-fails-even-with-sfa/">なぜSFAを導入しても売上予測が当たらないのか</a></li>
+			</ul>
+		</aside>
+
+		<!-- CTA -->
+		<div class="article-cta">
+			<p class="article-cta__eyebrow">Revenue Architecture</p>
+			<h2 class="article-cta__title">Revenue判断を速くする<br />構造を設計します</h2>
+			<p class="article-cta__body">Revenue Visibility・KPI Architecture・RevOpsを横断した設計で、経営判断の速度と精度を改善します。</p>
+			<a href="/contact/" class="article-cta__btn">まずは相談する</a>
+		</div>
+
+	</article>
+	<NewsletterSidebar />
+</div>
+
+<style>
+/* ===== LAYOUT ===== */
+.article-wrap { background: #fff; }
+.container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+
+/* ===== HEADER ===== */
+.article-head { padding: 48px 24px 40px; }
+.breadcrumb { font-size: .78rem; color: var(--color-muted, #64748b); display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 20px; }
+.breadcrumb a { color: var(--color-muted, #64748b); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.article-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+.article-cat  { font-size: .75rem; font-weight: 600; color: var(--color-primary, #1e40af); background: #eff6ff; border-radius: 4px; padding: 3px 10px; }
+.article-date, .article-read { font-size: .78rem; color: var(--color-muted, #64748b); }
+.article-head h1 { font-size: clamp(1.5rem, 3.5vw, 2rem); font-weight: 700; line-height: 1.45; color: var(--color-navy, #0f172a); margin: 0 0 16px; }
+.article-desc { font-size: 1rem; color: var(--color-charcoal, #334155); line-height: 1.75; margin: 0; }
+.br-pc { display: block; }
+
+/* ===== BODY ===== */
+.article-body { padding: 0 24px 80px; }
+.article-section { margin-bottom: 8px; }
+.article-section h2 { font-size: 1.25rem; font-weight: 700; color: var(--color-navy, #0f172a); margin: 40px 0 16px; border-left: 3px solid var(--color-primary, #1e40af); padding-left: 12px; }
+.article-section h3 { font-size: 1rem; font-weight: 700; color: var(--color-navy, #0f172a); margin: 28px 0 10px; }
+.article-section p  { font-size: .96rem; color: var(--color-charcoal, #334155); line-height: 1.85; margin: 0 0 16px; }
+.article-hr { border: none; border-top: 1px solid var(--color-border, #e2e8f0); margin: 40px 0; }
+
+/* callout */
+.article-callout { background: #f8fafc; border-left: 3px solid var(--color-primary, #1e40af); border-radius: 0 6px 6px 0; padding: 16px 20px; margin: 20px 0; }
+.article-callout p { margin: 0; font-size: .93rem; color: var(--color-charcoal, #334155); line-height: 1.8; }
+
+/* numbered */
+.article-numbered { display: flex; flex-direction: column; gap: 24px; margin: 24px 0 32px; }
+.article-numbered__item { display: grid; grid-template-columns: 48px 1fr; grid-template-rows: auto auto; gap: 0 16px; align-items: start; }
+.article-numbered__num { font-size: .7rem; font-weight: 700; color: var(--color-primary, #1e40af); background: #eff6ff; border-radius: 4px; padding: 4px 0; text-align: center; grid-row: 1 / 3; align-self: start; margin-top: 4px; }
+.article-numbered__item h3 { margin: 0 0 6px; font-size: .97rem; font-weight: 700; color: var(--color-navy, #0f172a); }
+.article-numbered__item p  { margin: 0; font-size: .92rem; line-height: 1.78; color: var(--color-charcoal, #334155); }
+
+/* table */
+.article-table-wrap { overflow-x: auto; margin: 20px 0 28px; border-radius: 8px; border: 1px solid var(--color-border, #e2e8f0); }
+.article-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+.article-table th { background: var(--color-navy, #0f172a); color: #fff; font-weight: 600; padding: 10px 14px; text-align: left; }
+.article-table td { padding: 9px 14px; border-bottom: 1px solid var(--color-border, #e2e8f0); color: var(--color-charcoal, #334155); vertical-align: top; }
+.article-table tbody tr:last-child td { border-bottom: none; }
+.article-table tbody tr:nth-child(even) td { background: #f8fafc; }
+
+/* related */
+.article-related { background: #f8fafc; border-radius: 8px; padding: 28px 28px 24px; margin: 48px 0 0; }
+.article-related__title { font-size: .85rem; font-weight: 700; color: var(--color-muted, #64748b); text-transform: uppercase; letter-spacing: .06em; margin: 0 0 14px; }
+.article-related__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.article-related__list a { font-size: .93rem; color: var(--color-primary, #1e40af); text-decoration: none; }
+.article-related__list a:hover { text-decoration: underline; }
+
+/* CTA */
+.article-cta {
+	margin: 48px 0 0;
+	background:
+		radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%),
+		linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+	border-radius: 8px; padding: 48px 40px; color: #fff; text-align: center;
+}
+.article-cta__eyebrow { font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; opacity: .7; margin: 0 0 12px; }
+.article-cta__title  { font-size: clamp(1.3rem, 2.5vw, 1.7rem); font-weight: 700; line-height: 1.5; margin: 0 0 14px; }
+.article-cta__body   { font-size: .95rem; opacity: .88; line-height: 1.7; margin: 0 0 28px; }
+.article-cta__btn    { display: inline-block; background: #fff; color: var(--color-primary, #1e40af); font-weight: 700; font-size: .95rem; border-radius: 8px; padding: 13px 32px; text-decoration: none; }
+.article-cta__btn:hover { background: #f0f9ff; }
+
+/* =============================================
+   DIAGRAM BASE
+   ============================================= */
+.diag { border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; background: #fff; padding: 28px; margin: 32px 0; overflow: hidden; }
+.diag-caption { display: block; text-align: center; font-size: .78rem; color: var(--color-muted, #64748b); margin-top: 16px; line-height: 1.6; }
+
+/* =============================================
+   DIAGRAM 1 — .diag--dash-chaos
+   ============================================= */
+.diag-dc-header { text-align: center; margin-bottom: 20px; }
+.diag-dc-header__label { display: inline-block; font-size: .72rem; font-weight: 700; color: #b91c1c; background: #fef2f2; border: 1px solid #fecaca; border-radius: 4px; padding: 4px 14px; letter-spacing: .04em; }
+
+.diag-dc-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 16px; }
+
+.diag-dc-board { border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 10px 8px; text-align: center; }
+.diag-dc-board--mkt   { background: #fff7ed; border-color: #fed7aa; }
+.diag-dc-board--sales { background: #eff6ff; border-color: #bfdbfe; }
+.diag-dc-board--cs    { background: #f0fdf4; border-color: #bbf7d0; }
+.diag-dc-board--xl    { background: #fefce8; border-color: #fde68a; }
+.diag-dc-board--bi    { background: #faf5ff; border-color: #ddd6fe; }
+
+.diag-dc-board__label { font-size: .62rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 8px; line-height: 1.4; }
+.diag-dc-board__kpis  { display: flex; flex-direction: column; gap: 3px; }
+.diag-dc-board__kpis span { font-size: .58rem; color: var(--color-muted, #64748b); background: rgba(0,0,0,.04); border-radius: 3px; padding: 2px 4px; }
+
+.diag-dc-bubbles { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 14px; }
+.diag-dc-bubble { font-size: .72rem; color: var(--color-charcoal, #334155); background: #f1f5f9; border-radius: 4px; padding: 5px 12px; }
+.diag-dc-bubble--warn { background: #fef2f2; color: #b91c1c; font-weight: 600; }
+
+.diag-dc-footer { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; padding-top: 14px; border-top: 1px solid var(--color-border, #e2e8f0); }
+.diag-dc-footer span { font-size: .7rem; font-weight: 600; color: #b91c1c; background: #fef2f2; border-radius: 4px; padding: 4px 12px; }
+
+/* =============================================
+   DIAGRAM 2 — .diag--rev-visibility
+   ============================================= */
+.diag-rv-header { text-align: center; margin-bottom: 20px; }
+.diag-rv-header__label { display: block; font-size: .85rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 4px; }
+.diag-rv-header__sub   { font-size: .72rem; color: var(--color-muted, #64748b); }
+
+.diag-rv-stages { display: flex; align-items: stretch; gap: 3px; overflow-x: auto; padding-bottom: 4px; }
+
+.diag-rv-stage { display: flex; flex-direction: column; align-items: center; gap: 5px; background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 10px 6px; min-width: 70px; flex: 1; position: relative; }
+.diag-rv-stage--mql   { background: #fff7ed; border-color: #fed7aa; }
+.diag-rv-stage--warn  { background: #fef2f2; border-color: #fecaca; border-width: 2px; }
+.diag-rv-stage--sales { background: #eff6ff; border-color: #bfdbfe; }
+.diag-rv-stage--arr   { background: #f0fdf4; border-color: #bbf7d0; }
+
+.diag-rv-stage__name  { font-size: .68rem; font-weight: 700; color: var(--color-navy, #0f172a); text-align: center; }
+.diag-rv-stage__kpi   { font-size: .6rem; color: var(--color-muted, #64748b); text-align: center; line-height: 1.4; }
+.diag-rv-stage--warn .diag-rv-stage__kpi { color: #b91c1c; font-weight: 600; }
+.diag-rv-stage__alert { font-size: .9rem; position: absolute; top: -8px; right: -4px; }
+
+.diag-rv-arrow { font-size: .85rem; color: var(--color-muted, #64748b); flex-shrink: 0; display: flex; align-items: center; }
+
+.diag-rv-note { display: flex; align-items: flex-start; gap: 8px; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; padding: 10px 14px; margin-top: 12px; }
+.diag-rv-note__icon { font-size: .85rem; flex-shrink: 0; margin-top: 1px; }
+.diag-rv-note__text { font-size: .72rem; color: #b91c1c; line-height: 1.6; }
+
+.diag-rv-bar { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 12px; background: var(--color-navy, #0f172a); border-radius: 6px; padding: 9px 16px; }
+.diag-rv-bar__label { font-size: .75rem; font-weight: 700; color: #fff; white-space: nowrap; }
+.diag-rv-bar__desc  { font-size: .65rem; color: rgba(255,255,255,.6); }
+
+/* =============================================
+   DIAGRAM 3 — .diag--ra-bi
+   ============================================= */
+.diag-rb-depts { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 0; }
+.diag-rb-dept { font-size: .72rem; font-weight: 700; border-radius: 4px; padding: 5px 14px; border: 1px solid; }
+.diag-rb-dept--mkt   { background: #fff7ed; color: #c2410c; border-color: #fed7aa; }
+.diag-rb-dept--sales { background: #eff6ff; color: #1e40af; border-color: #bfdbfe; }
+.diag-rb-dept--cs    { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
+.diag-rb-dept--crm   { background: #faf5ff; color: #6d28d9; border-color: #ddd6fe; }
+.diag-rb-dept--kpi   { background: #f0f9ff; color: #0369a1; border-color: #bae6fd; }
+.diag-rb-dept--bi    { background: #fdf4ff; color: #7e22ce; border-color: #e9d5ff; }
+.diag-rb-dept--mtg   { background: #f8fafc; color: var(--color-charcoal, #334155); border-color: var(--color-border, #e2e8f0); }
+
+.diag-rb-lines { width: 100%; height: 40px; margin: 0; }
+.diag-rb-lines svg { width: 100%; height: 100%; display: block; }
+
+.diag-rb-core { background: var(--color-navy, #0f172a); border-radius: 8px; padding: 18px 20px; text-align: center; }
+.diag-rb-core__label { font-size: .85rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
+.diag-rb-core__tags  { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.diag-rb-core__tags span { font-size: .65rem; background: rgba(255,255,255,.12); color: rgba(255,255,255,.85); border-radius: 3px; padding: 3px 8px; }
+
+.diag-rb-connector { width: 2px; height: 24px; background: #cbd5e1; margin: 0 auto; }
+
+.diag-rb-outcomes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.diag-rb-outcome { background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 14px 12px; text-align: center; }
+.diag-rb-outcome--mid { background: #eff6ff; border-color: #bfdbfe; }
+.diag-rb-outcome__label { font-size: .78rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 6px; }
+.diag-rb-outcome__desc  { font-size: .65rem; color: var(--color-muted, #64748b); line-height: 1.6; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 700px) {
+	.br-pc { display: none; }
+	.article-head { padding: 32px 16px 28px; }
+	.article-body { padding: 0 16px 60px; }
+	.diag { padding: 20px 16px; }
+	.diag-dc-grid { grid-template-columns: repeat(3, 1fr); }
+	.diag-rv-stages { gap: 2px; }
+	.diag-rv-stage { min-width: 58px; padding: 8px 4px; }
+	.diag-rb-outcomes { grid-template-columns: 1fr; }
+	.article-cta { padding: 36px 24px; }
+	.article-numbered__item { grid-template-columns: 40px 1fr; }
+}
+
+@media (max-width: 480px) {
+	.diag-dc-grid { grid-template-columns: repeat(2, 1fr); }
+	.diag-rv-bar { flex-direction: column; gap: 4px; text-align: center; }
+	.article-cta__title { font-size: 1.2rem; }
+}
+</style>
+
+</BaseLayout>

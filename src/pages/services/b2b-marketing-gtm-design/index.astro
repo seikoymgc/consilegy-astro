@@ -1,0 +1,1156 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const faqItems = [
+	{
+		q: 'GTMとは何ですか？',
+		a: 'GTM（Go-to-Market）とは、企業が製品・サービスを市場に展開するための戦略的な設計全体を指します。ターゲット顧客の定義、メッセージング、営業・マーケティングの連携構造、収益KPIの設計など、「どのように市場に入り、どのように受注・継続収益に転換するか」の構造を指します。単なるマーケティング施策ではなく、営業プロセスとCRM設計を含む上流の市場開拓設計です。',
+	},
+	{
+		q: 'B2Bマーケティング支援との違いは何ですか？',
+		a: '一般的なB2Bマーケティング支援は、広告・コンテンツ・SEOなどの施策単位での最適化を指すことが多いです。ConsilegyのB2B Marketing Strategy / GTM Designは、施策の前段階にあたるターゲット設計、ポジショニング、メッセージング、営業との連携構造、CRM接続までを設計する上流支援です。「リード数を増やす」ではなく「受注につながる市場開拓構造を設計する」ことが目的です。',
+	},
+	{
+		q: '広告運用も依頼できますか？',
+		a: 'Consilegyは広告運用代行は行っていません。広告は、GTM設計・ターゲット設計・メッセージング設計が整った後に実行する手段の一つです。広告運用の前に「誰に・何を・どのように伝え・どのように商談化させるか」という構造設計を整えることを優先しています。既存の広告代理店と並走する形での上流設計支援は可能です。',
+	},
+	{
+		q: 'RevOpsとどう関係しますか？',
+		a: 'GTM設計は、RevOpsと密接に関係しています。GTMで設計したターゲット・ファネル・KPIは、RevOpsの観点からCRMやSFAに実装する必要があります。ConsilegyではGTM設計とRevOps設計を統合的に扱い、「設計した構造がCRMとダッシュボードに正しく反映されること」まで支援します。',
+	},
+	{
+		q: 'CRM設計も含まれますか？',
+		a: 'GTM設計の成果物には、CRM / RevOps接続方針書が含まれます。MQL/SQL定義、リードスコアリング設計、商談ステージ定義など、CRM設計に直結する要件を整理します。CRM設定・実装まで含めた支援については、別途「マルチCRM RevOps実装支援」または「HubSpot導入・運用改善支援」との組み合わせでご提案します。',
+	},
+	{
+		q: 'SalesforceやHubSpotにも対応していますか？',
+		a: 'はい。Salesforce、HubSpot、Kintone、Marketo、Sansanなど主要CRM / SFA / MAに対応しています。Consilegyはベンダーフリーの立場で支援するため、特定ツールへの誘導は行いません。既存のCRM環境を前提に、GTM設計・RevOps接続の方針を設計します。',
+	},
+	{
+		q: '実行支援まで依頼できますか？',
+		a: 'GTM設計プロジェクト完了後、実行フェーズの伴走支援も承ります。月次定例でのKPIレビュー、施策優先順位付け、CRM改善対応などを含む「伴走・顧問支援」プランをご用意しています。設計で終わらず、現場定着と成果創出まで支援するのがConsilegyの特徴です。',
+	},
+	{
+		q: '日本市場向けGTMにも対応していますか？',
+		a: 'はい。日本市場特有の商習慣（稟議プロセス、部門間の意思決定構造、インサイドセールス体制など）を踏まえたGTM設計に対応しています。海外企業の日本市場参入支援、グローバル企業の日本向けGTM設計も実績があります。チーム全員がバイリンガルで、欧米の最新GTMメソドロジーを日本企業の現場に合わせて実装できることがConsilegyの強みです。',
+	},
+	{
+		q: 'Revenue Architecture と何が違いますか？',
+		a: 'Revenue Architecture が、営業・マーケ・CS・CRM・KPI・会議体を含む収益構造全体の設計を扱うのに対し、GTM Design は、その中でも特に「市場開拓・商談化設計」に焦点を当てた上流支援です。両者は密接に連動しており、GTM設計の成果はRevenue Architectureの一部を構成します。大規模な収益構造の再設計が必要な場合は、Revenue Architecture Designとの統合支援を推奨しています。',
+	},
+];
+
+const faqSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faqItems.map(({ q, a }) => ({
+		'@type': 'Question',
+		name: q,
+		acceptedAnswer: { '@type': 'Answer', text: a },
+	})),
+};
+
+const deliverables = [
+	{ num: '01', title: 'GTM戦略レポート', desc: '市場・競合・ターゲット分析をもとにした戦略方針書' },
+	{ num: '02', title: 'ICP定義書', desc: '受注確度の高い理想顧客プロファイルの定義と根拠' },
+	{ num: '03', title: 'ターゲットアカウント一覧', desc: '優先ターゲット企業・意思決定者の構造化リスト' },
+	{ num: '04', title: 'メッセージング設計書', desc: 'ターゲット別の訴求軸・競合差別化メッセージ' },
+	{ num: '05', title: 'ポジショニングマップ', desc: '市場における自社の位置付けと差別化設計' },
+	{ num: '06', title: '商談化ファネル設計図', desc: 'リード獲得から受注・継続収益までのフロー設計' },
+	{ num: '07', title: 'MQL / SQL定義書', desc: '営業・マーケティング共通のリード評価基準' },
+	{ num: '08', title: 'KPI設計書', desc: '経営・営業・マーケ各層のKPI体系と測定設計' },
+	{ num: '09', title: '営業マーケ連携定義書', desc: '部門間のハンドオフルールと責任分担' },
+	{ num: '10', title: 'CRM / RevOps接続方針書', desc: 'GTM設計をCRM・SFAに実装するための方針' },
+	{ num: '11', title: '実行ロードマップ', desc: 'フェーズ別の優先順位と実装計画' },
+];
+---
+
+<BaseLayout
+	title="B2B Marketing Strategy / GTM Design | Consilegy"
+	description="ターゲット設計、ポジショニング、メッセージング、営業マーケ連携、CRM接続まで横断し、B2B企業の受注につながる市場開拓構造を設計します。GTM設計・商談化改善の上流コンサルティング。"
+	lang="ja"
+>
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+	</Fragment>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+	<div class="container">
+		<div class="hero-nav">
+			<a href="/services/" class="back-link">← サービス一覧</a>
+			<span class="hero-tag">B2B Marketing Strategy / GTM Design</span>
+		</div>
+		<div class="hero-service-name">
+			<span class="hero-service-ja">B2Bマーケティング戦略 / GTM設計</span>
+			<span class="hero-service-en">B2B Marketing Strategy / GTM Design</span>
+		</div>
+		<h1>分断された営業・マーケ・CRMを、<br /><span class="accent">売上につながる構造へ再設計する</span>。</h1>
+		<p class="hero-sub">
+			広告、SEO、ウェビナー、展示会など、施策単位でマーケティングを最適化しても、<br />
+			営業と接続されなければ売上にはつながりません。
+		</p>
+		<p class="hero-lead">
+			Consilegyは、ターゲット設計、メッセージング、営業連携、CRM設計まで含め、<br />
+			B2B企業のGTMと商談化構造を再設計します。
+		</p>
+		<div class="hero-cta">
+			<a href="/free-consultation/" class="btn btn--primary btn--lg">GTM・商談化プロセス相談を申し込む →</a>
+			<a href="/download/" class="btn btn--outline btn--lg">サービス資料をダウンロード</a>
+		</div>
+		<div class="hero-keywords">
+			<span class="kw-pill">B2B GTM</span>
+			<span class="kw-pill">営業マーケ連携</span>
+			<span class="kw-pill">商談化設計</span>
+			<span class="kw-pill">RevOps</span>
+			<span class="kw-pill">Revenue Architecture</span>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 課題提起 ===================== -->
+<section class="issues">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Problem</p>
+			<h2>施策は増えているのに、売上につながらない。</h2>
+		</div>
+		<div class="issues-grid">
+			<div class="issue-card">
+				<p>リード数は増えているが<strong>商談化しない</strong></p>
+			</div>
+			<div class="issue-card">
+				<p>マーケティングと営業で<strong>ターゲット定義が違う</strong></p>
+			</div>
+			<div class="issue-card">
+				<p>LPや広告のCVが<strong>受注につながらない</strong></p>
+			</div>
+			<div class="issue-card">
+				<p><strong>MQL / SQL定義</strong>が曖昧で基準がない</p>
+			</div>
+			<div class="issue-card">
+				<p>展示会・ウェビナー後の<strong>追客が属人的</strong></p>
+			</div>
+			<div class="issue-card">
+				<p>CRMに<strong>マーケティングデータが接続</strong>されていない</p>
+			</div>
+			<div class="issue-card issue-card--wide">
+				<p>「<strong>どの施策が受注につながったか</strong>」が分からない</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== よくある失敗 ===================== -->
+<section class="failures">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Root Cause</p>
+			<h2>B2Bマーケティングが機能しない理由</h2>
+		</div>
+		<div class="failures-grid">
+			<div class="failure-card">
+				<div class="failure-card__num">01</div>
+				<h3>施策単位で最適化している</h3>
+				<p>SEO、広告、ウェビナーなどを個別最適化しているが、営業プロセスと接続されていない。施策の成果がパイプラインと受注に直結しない構造になっている。</p>
+			</div>
+			<div class="failure-card">
+				<div class="failure-card__num">02</div>
+				<h3>営業とマーケティングが分断している</h3>
+				<p>リード定義、ターゲット、KPIが部門間で一致していない。マーケティングが獲得したリードが営業に正しく引き渡されず、商談化の歩留まりが低下する。</p>
+			</div>
+			<div class="failure-card">
+				<div class="failure-card__num">03</div>
+				<h3>CRM / RevOps設計がない</h3>
+				<p>施策データが商談・受注・継続収益まで追えていない。どの施策が売上に貢献しているか不明なまま、効果のない施策に予算が投下され続ける。</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 定義 ===================== -->
+<section class="definition" id="b2b-gtm-design">
+	<div class="container">
+		<div class="definition-inner">
+			<p class="eyebrow-label">Definition</p>
+			<h2>B2B Marketing Strategy / GTM Design とは</h2>
+			<p class="definition-body">
+				B2B Marketing Strategy / GTM Design は、ターゲット設計、ポジショニング、メッセージング、
+				営業マーケ連携、CRM / RevOps設計までを横断し、
+				「受注につながる市場開拓構造」を設計する上流支援です。
+			</p>
+			<div class="definition-oneliner">
+				リード獲得施策ではなく、<br />
+				商談化と受注につながるB2B市場開拓構造を設計するサービスです。
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 支援範囲 ===================== -->
+<section class="scope">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Scope</p>
+			<h2>設計する領域</h2>
+		</div>
+		<div class="scope-grid">
+			<div class="scope-card">
+				<div class="scope-card__label">GTM Strategy</div>
+				<p>市場開拓戦略設計。参入市場、競合ポジション、収益モデルの構造を定義します。</p>
+			</div>
+			<div class="scope-card">
+				<div class="scope-card__label">ICP / Target Design</div>
+				<p>ターゲット企業・意思決定者プロファイルの定義と優先順位付けを行います。</p>
+			</div>
+			<div class="scope-card">
+				<div class="scope-card__label">Messaging / Positioning</div>
+				<p>競合差別化メッセージと、ターゲット別の訴求軸を設計します。</p>
+			</div>
+			<div class="scope-card">
+				<div class="scope-card__label">Funnel Design</div>
+				<p>リード獲得から商談化・受注・継続収益までのファネル構造を設計します。</p>
+			</div>
+			<div class="scope-card">
+				<div class="scope-card__label">Sales & Marketing Alignment</div>
+				<p>MQL/SQL定義、ハンドオフルール、共通KPIの設計で部門間の分断を解消します。</p>
+			</div>
+			<div class="scope-card">
+				<div class="scope-card__label">CRM / RevOps Connection</div>
+				<p>GTM設計をSalesforce・HubSpot等のCRMに接続するための方針と設計を整備します。</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== GTM設計プロセス ===================== -->
+<section class="process">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Process</p>
+			<h2>GTM設計プロセス</h2>
+			<p class="section-note">このサービスは「広告運用代行」ではなく、売上につながる市場開拓構造の設計が主目的です。</p>
+		</div>
+		<div class="process-flow">
+			<div class="pstep">
+				<div class="pstep__num">①</div>
+				<div class="pstep__body">
+					<strong>現状分析</strong>
+					<p>営業プロセス・CRM・施策・KPIの現状を構造的に把握します。</p>
+				</div>
+			</div>
+			<div class="pstep-arrow">→</div>
+			<div class="pstep">
+				<div class="pstep__num">②</div>
+				<div class="pstep__body">
+					<strong>ICP / ターゲット定義</strong>
+					<p>受注実績と市場データから理想顧客プロファイルを設計します。</p>
+				</div>
+			</div>
+			<div class="pstep-arrow">→</div>
+			<div class="pstep">
+				<div class="pstep__num">③</div>
+				<div class="pstep__body">
+					<strong>ポジショニング設計</strong>
+					<p>競合分析をもとに、市場での自社の位置付けを明確化します。</p>
+				</div>
+			</div>
+			<div class="pstep-arrow">→</div>
+			<div class="pstep">
+				<div class="pstep__num">④</div>
+				<div class="pstep__body">
+					<strong>メッセージング設計</strong>
+					<p>ターゲット別の訴求軸と営業・マーケ共通メッセージを設計します。</p>
+				</div>
+			</div>
+			<div class="pstep-arrow">→</div>
+			<div class="pstep">
+				<div class="pstep__num">⑤</div>
+				<div class="pstep__body">
+					<strong>商談化ファネル設計</strong>
+					<p>MQL/SQL定義、スコアリング、フェーズ別アクションを構造化します。</p>
+				</div>
+			</div>
+			<div class="pstep-arrow">→</div>
+			<div class="pstep">
+				<div class="pstep__num">⑥</div>
+				<div class="pstep__body">
+					<strong>営業マーケ連携設計</strong>
+					<p>ハンドオフルール・責任定義・共通KPIを整備します。</p>
+				</div>
+			</div>
+			<div class="pstep-arrow">→</div>
+			<div class="pstep">
+				<div class="pstep__num">⑦</div>
+				<div class="pstep__body">
+					<strong>CRM / KPI接続設計</strong>
+					<p>設計をCRM・SFAに実装するための方針と要件を定義します。</p>
+				</div>
+			</div>
+			<div class="pstep-arrow">→</div>
+			<div class="pstep pstep--last">
+				<div class="pstep__num">⑧</div>
+				<div class="pstep__body">
+					<strong>実行ロードマップ作成</strong>
+					<p>フェーズ別の優先順位と実装計画を成果物として納品します。</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 成果物 ===================== -->
+<section class="deliverables">
+	<div class="container">
+		<div class="deliverables-inner">
+			<div class="section-header">
+				<p class="eyebrow-label">Deliverables</p>
+				<h2>主な成果物</h2>
+				<p class="section-note">プロジェクト終了時に、以下のドキュメントをご提供します。</p>
+			</div>
+			<div class="deliverables-layout">
+				<ul class="deliverables-list">
+					{deliverables.map(d => (
+						<li>
+							<span class="deliv-num">{d.num}</span>
+							<div>
+								<strong>{d.title}</strong>
+								<p>{d.desc}</p>
+							</div>
+						</li>
+					))}
+				</ul>
+				<div class="deliverables-mockup" aria-hidden="true">
+					<div class="doc-mock doc-mock--report">
+						<div class="doc-mock__header">
+							<div class="doc-mock__logo-bar"></div>
+							<div class="doc-mock__title-block">
+								<div class="doc-mock__label">GTM Strategy Report</div>
+								<div class="doc-mock__subtitle">B2B Marketing Strategy / GTM Design</div>
+							</div>
+						</div>
+						<div class="doc-mock__body">
+							<div class="doc-mock__section-title"></div>
+							<div class="doc-mock__lines">
+								<div class="doc-mock__line doc-mock__line--lg"></div>
+								<div class="doc-mock__line"></div>
+								<div class="doc-mock__line doc-mock__line--sm"></div>
+							</div>
+							<div class="doc-mock__chart">
+								<div class="doc-mock__bar" style="height:55%"></div>
+								<div class="doc-mock__bar" style="height:80%"></div>
+								<div class="doc-mock__bar doc-mock__bar--accent" style="height:95%"></div>
+								<div class="doc-mock__bar" style="height:70%"></div>
+								<div class="doc-mock__bar" style="height:60%"></div>
+							</div>
+							<div class="doc-mock__lines">
+								<div class="doc-mock__line"></div>
+								<div class="doc-mock__line doc-mock__line--sm"></div>
+								<div class="doc-mock__line"></div>
+							</div>
+						</div>
+					</div>
+					<div class="doc-mock doc-mock--funnel">
+						<div class="doc-mock__header">
+							<div class="doc-mock__label">商談化ファネル設計図</div>
+						</div>
+						<div class="doc-mock__body">
+							<div class="funnel-mock">
+								<div class="funnel-step" style="width:100%">Awareness</div>
+								<div class="funnel-step" style="width:80%">MQL</div>
+								<div class="funnel-step" style="width:60%">SQL</div>
+								<div class="funnel-step funnel-step--accent" style="width:40%">受注</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 経営指標 ===================== -->
+<section class="metrics">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Business Impact</p>
+			<h2>経営視点で、どの指標を改善するのか</h2>
+		</div>
+		<div class="metrics-grid">
+			<div class="metric-card">
+				<div class="metric-card__en">Pipeline Conversion</div>
+				<h3>商談化率・受注率</h3>
+				<p>リード数ではなく、商談化率・受注率の改善を重視。獲得コストではなく収益貢献で測定します。</p>
+			</div>
+			<div class="metric-card">
+				<div class="metric-card__en">CAC Efficiency</div>
+				<h3>顧客獲得コスト効率</h3>
+				<p>受注・継続収益まで含めた投資対効果を改善。施策ごとのCACではなく収益全体で判断します。</p>
+			</div>
+			<div class="metric-card">
+				<div class="metric-card__en">Revenue Visibility</div>
+				<h3>売上予測精度</h3>
+				<p>営業・マーケ・CRMを接続し、パイプラインと売上予測の精度を経営が判断できる水準に引き上げます。</p>
+			</div>
+			<div class="metric-card">
+				<div class="metric-card__en">GTM Scalability</div>
+				<h3>市場開拓の再現性</h3>
+				<p>属人的営業から、再現可能な市場開拓構造へ。ターゲット・メッセージ・プロセスを標準化します。</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== なぜConsilegyなのか ===================== -->
+<section class="why-us">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Why Consilegy</p>
+			<h2>なぜConsilegyなのか</h2>
+		</div>
+		<div class="why-us-grid">
+			<div class="why-card">
+				<h3>マーケティング単体で終わらない</h3>
+				<p>広告・SEOだけではなく、営業・CRM・RevOpsまで接続して設計します。施策の改善ではなく、収益構造の再設計が起点です。</p>
+			</div>
+			<div class="why-card">
+				<h3>Revenue Architecture 起点で設計する</h3>
+				<p>施策レベルではなく、売上構造全体を前提にGTMを設計します。RevOpsとの接続を最初から組み込み、施策が収益に直結する構造を作ります。</p>
+			</div>
+			<div class="why-card">
+				<h3>マルチCRM・ベンダーフリー対応</h3>
+				<p>Salesforce、HubSpot、Kintone、Marketoなど既存CRM環境を前提に支援します。特定ツールへの誘導は行いません。</p>
+			</div>
+		</div>
+		<!-- Before / After -->
+		<div class="ba-diagram">
+			<div class="ba-panel ba-panel--before">
+				<div class="ba-panel__label">Before</div>
+				<div class="ba-nodes">
+					<div class="ba-node ba-node--isolated">広告施策</div>
+					<div class="ba-node ba-node--isolated">SEO</div>
+					<div class="ba-node ba-node--isolated">営業</div>
+					<div class="ba-node ba-node--isolated">CRM</div>
+					<div class="ba-node ba-node--isolated">ウェビナー</div>
+					<div class="ba-node ba-node--isolated">KPI</div>
+				</div>
+				<div class="ba-status ba-status--bad">施策が分断・売上が見えない</div>
+			</div>
+			<div class="ba-arrow">
+				<div class="ba-arrow__line"></div>
+				<div class="ba-arrow__label">GTM Design</div>
+			</div>
+			<div class="ba-panel ba-panel--after">
+				<div class="ba-panel__label">After</div>
+				<div class="ba-center-node">GTM設計</div>
+				<div class="ba-connected">
+					<div class="ba-node ba-node--connected">ターゲット</div>
+					<div class="ba-node ba-node--connected">メッセージ</div>
+					<div class="ba-node ba-node--connected">ファネル</div>
+					<div class="ba-node ba-node--connected">RevOps</div>
+					<div class="ba-node ba-node--connected">KPI</div>
+					<div class="ba-node ba-node--connected">CRM</div>
+				</div>
+				<div class="ba-status ba-status--good">統合・商談化・売上予測できる状態</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 支援事例 ===================== -->
+<section class="cases">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Case Studies</p>
+			<h2>GTM・商談化改善の支援事例</h2>
+			<p class="section-note">※ 代表 山口聖子の個人実績を含む</p>
+		</div>
+		<div class="cases-grid">
+			<article class="case-card">
+				<div class="case-card__meta">
+					<span class="case-tag">IT（バックオフィスSaaS）</span>
+					<span class="case-size">約200名</span>
+				</div>
+				<h3 class="case-card__title">リード増加と売上の乖離を解消。HubSpotで構築する営業引き渡しと商談創出の標準化</h3>
+				<p class="case-card__body">マーケティングから営業への引き渡し基準を標準化し、行動スコアリングとシナリオベースのナーチャリングを設計。MQLからSQLへの転換率が最大20%向上し、パイプラインの予測可能性を実現。</p>
+				<div class="case-card__footer">
+					<div class="case-tools">
+						<span>HubSpot Marketing Hub</span>
+						<span>HubSpot Sales Hub</span>
+					</div>
+					<a href="/case-studies/hubspot-sales-handoff-lead-to-revenue/" class="case-link">事例を読む →</a>
+				</div>
+			</article>
+			<article class="case-card">
+				<div class="case-card__meta">
+					<span class="case-tag">小売（国内大手・新規事業）</span>
+					<span class="case-size">1,500名</span>
+				</div>
+				<h3 class="case-card__title">新規サブスクEC事業の収益判断を支える運用基盤を構築。LTV起点の意思決定を実現</h3>
+				<p class="case-card__body">スクラッチECと分析ツールを横断するデータ連携アーキテクチャを設計。サブスク特有のLTV指標を定義し、施策と継続収益を結びつける意思決定基盤を9ヶ月で構築。</p>
+				<div class="case-card__footer">
+					<div class="case-tools">
+						<span>GA4</span>
+						<span>Amplitude</span>
+						<span>Looker Studio</span>
+					</div>
+					<a href="/case-studies/ec-subscription-ltv-data-architecture/" class="case-link">事例を読む →</a>
+				</div>
+			</article>
+			<article class="case-card">
+				<div class="case-card__meta">
+					<span class="case-tag">エンターテインメント（グローバル）</span>
+					<span class="case-size">約3,000名</span>
+				</div>
+				<h3 class="case-card__title">集めるだけのデータから稼ぐための判断材料へ。グローバルエンタメ企業のKPI再設計と意思決定基盤構築</h3>
+				<p class="case-card__body">KPI定義の不整合と分析の属人化を解消。ビジネス成果に接続したKPI体系を再設計し、グローバル組織が共通指標で意思決定できるダッシュボード基盤を構築。</p>
+				<div class="case-card__footer">
+					<div class="case-tools">
+						<span>GA4</span>
+						<span>Looker Studio</span>
+						<span>BigQuery</span>
+					</div>
+					<a href="/case-studies/ga4-kpi-design-global-analytics/" class="case-link">事例を読む →</a>
+				</div>
+			</article>
+		</div>
+		<div class="cases-cta">
+			<a href="/case-studies/" class="btn btn--outline">すべての導入事例を見る</a>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 適している企業 ===================== -->
+<section class="fit">
+	<div class="container">
+		<div class="fit-inner">
+			<div class="section-header">
+				<p class="eyebrow-label">Best Fit</p>
+				<h2>このような企業に適しています</h2>
+			</div>
+			<ul class="fit-list">
+				<li>BtoB企業で、新規事業の市場開拓を本格化させたい</li>
+				<li>日本市場向けGTMを設計したい（国内企業・海外企業どちらも対応）</li>
+				<li>リード獲得はできているが、商談化・受注につながらない</li>
+				<li>営業とマーケティングのターゲット定義・KPIが一致していない</li>
+				<li>CRMとマーケティング施策の成果がつながっていない</li>
+				<li>CAC / LTVを改善し、投資対効果を経営が把握したい</li>
+				<li>商談化率・受注率を構造的に改善したい</li>
+				<li>施策の属人化を解消し、再現可能なGTM体制を構築したい</li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== アセスメントから始める ===================== -->
+<section class="approach">
+	<div class="container">
+		<div class="approach-inner">
+			<div class="approach-copy">
+				<p class="eyebrow-label">Getting Started</p>
+				<h2>GTMアセスメントから始める<br />スモールスタートも可能です</h2>
+				<p>
+					まずは現状の商談化ボトルネックを整理する「GTMアセスメント（現状監査）」からスタートし、
+					段階的に全体設計へ移行する進め方もご提案できます。
+				</p>
+				<p>
+					現状のターゲット設計、営業プロセス、CRM、KPI、マーケティング施策を整理し、
+					どこで商談化が止まっているのかを可視化します。
+				</p>
+				<a href="/free-consultation/" class="btn btn--primary">GTM・商談化プロセス相談を申し込む →</a>
+			</div>
+			<div class="approach-checklist">
+				<p class="checklist-label">GTMアセスメントで確認する項目</p>
+				<ul>
+					<li>商談化ボトルネック分析</li>
+					<li>ICP（理想顧客プロファイル）整理</li>
+					<li>KPI監査・定義の整合性確認</li>
+					<li>CRMデータ構造分析</li>
+					<li>営業マーケ連携の現状分析</li>
+					<li>GTM改善優先順位の整理</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 料金目安 ===================== -->
+<section class="pricing">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Pricing</p>
+			<h2>料金目安</h2>
+		</div>
+		<div class="pricing-card">
+			<div class="pricing-card__main">
+				<div class="pricing-service-name">B2B Marketing Strategy / GTM Design</div>
+				<div class="pricing-amount">300万〜800万円</div>
+				<p class="pricing-note">対象市場、対象事業、営業組織規模、CRM環境、成果物範囲により変動します。</p>
+				<div class="pricing-card__types">
+					<div class="pricing-type">
+						<div class="pricing-type__label">プロジェクト型支援</div>
+						<p>GTM設計を期限付きプロジェクトとして実施。設計成果物の納品が主目的。</p>
+					</div>
+					<div class="pricing-type">
+						<div class="pricing-type__label">月額型伴走支援</div>
+						<p>設計後の実行フェーズも含め、月次KPIレビューと施策優先順位付けで伴走。</p>
+					</div>
+				</div>
+			</div>
+			<div class="pricing-card__cta">
+				<a href="/free-consultation/" class="btn btn--primary btn--lg">GTM・商談化プロセス相談を申し込む →</a>
+				<a href="/services/" class="btn btn--ghost">料金プランを見る</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 関連サービス ===================== -->
+<section class="related">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Related Services</p>
+			<h2>関連サービス</h2>
+		</div>
+		<div class="related-grid">
+			<a href="/services/revenue-architecture-design/" class="related-card">
+				<div class="related-card__num">01</div>
+				<h3>Revenue Architecture Design</h3>
+				<p>営業・マーケ・CS・CRM全体の収益構造を設計する上流支援。GTM設計の上位概念。</p>
+			</a>
+			<a href="/services/" class="related-card">
+				<div class="related-card__num">02</div>
+				<h3>Multi-CRM RevOps Implementation</h3>
+				<p>GTM設計をSalesforce・HubSpot等のCRMに実装するRevOps支援。</p>
+			</a>
+			<a href="/services/" class="related-card">
+				<div class="related-card__num">03</div>
+				<h3>Adoption &amp; Growth Support</h3>
+				<p>設計後の現場定着と継続改善を支援する月額伴走プログラム。</p>
+			</a>
+			<a href="/services/" class="related-card">
+				<div class="related-card__num">04</div>
+				<h3>HubSpot Implementation &amp; Operations</h3>
+				<p>HubSpotを軸にGTM・RevOpsを実装。設計から運用定着まで一気通貫。</p>
+			</a>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="faq">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">FAQ</p>
+			<h2>よくある質問</h2>
+		</div>
+		<dl class="faq-list">
+			{faqItems.map(item => (
+				<details class="faq-item">
+					<summary class="faq-q">{item.q}</summary>
+					<div class="faq-a"><p>{item.a}</p></div>
+				</details>
+			))}
+		</dl>
+	</div>
+</section>
+
+<!-- ===================== 最終CTA ===================== -->
+<section class="cta-final">
+	<div class="container">
+		<div class="cta-inner">
+			<div class="cta-copy">
+				<h2>施策ではなく、<br />売上につながる市場開拓構造を<br />整理しませんか。</h2>
+				<p>
+					現状のターゲット、営業プロセス、CRM、マーケティング施策を確認し、
+					どこで商談化が止まっているのかを整理します。
+				</p>
+			</div>
+			<div class="cta-actions">
+				<a href="/free-consultation/" class="btn btn--white btn--lg">GTM・商談化プロセス相談を申し込む →</a>
+				<a href="/download/" class="btn btn--white-outline btn--lg">サービス資料をダウンロード</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+/* ── Base ──────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+	--color-text: #111827;
+	--color-text-muted: #6b7280;
+	--color-text-subtle: #9ca3af;
+	--color-primary: #1e40af;
+	--color-primary-dark: #1d4ed8;
+	--color-accent-purple: #7c5cbf;
+	--color-bg: #ffffff;
+	--color-bg-subtle: #f8f9fb;
+	--color-border: #e5e7eb;
+	--color-border-strong: #d1d5db;
+	--shadow-xs: 0 1px 2px rgba(0,0,0,.06);
+	--shadow-sm: 0 2px 8px rgba(0,0,0,.08);
+	--shadow-md: 0 4px 20px rgba(0,0,0,.1);
+	--font-sans: 'Noto Sans JP', 'Hiragino Sans', system-ui, sans-serif;
+	--font-serif: 'Noto Serif JP', 'Hiragino Mincho ProN', Georgia, serif;
+}
+
+.container { max-width: 1080px; margin: 0 auto; padding: 0 2rem; }
+
+h1, h2, h3 { font-family: var(--font-serif); line-height: 1.4; }
+p { font-family: var(--font-sans); line-height: 1.8; color: var(--color-text-muted); }
+
+.btn {
+	display: inline-flex; align-items: center; justify-content: center;
+	padding: 0.75rem 1.5rem; border-radius: 6px; font-size: 0.9375rem;
+	font-weight: 700; font-family: var(--font-sans); text-decoration: none;
+	cursor: pointer; transition: all 0.2s; white-space: nowrap;
+}
+.btn--lg { padding: 0.9rem 1.75rem; font-size: 1rem; }
+.btn--primary { background: var(--color-primary); color: #fff; }
+.btn--primary:hover { background: var(--color-primary-dark); }
+.btn--outline { background: transparent; color: var(--color-primary); border: 1.5px solid var(--color-primary); }
+.btn--outline:hover { background: rgba(30,64,175,.06); }
+.btn--ghost { background: transparent; color: var(--color-text-muted); border: 1.5px solid var(--color-border-strong); font-weight: 500; }
+.btn--ghost:hover { border-color: var(--color-primary); color: var(--color-primary); }
+.btn--white { background: #fff; color: var(--color-primary); }
+.btn--white:hover { background: #f0f4ff; }
+.btn--white-outline { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.55); }
+.btn--white-outline:hover { background: rgba(255,255,255,.08); }
+
+.section-header { margin-bottom: 3rem; }
+.eyebrow-label {
+	font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.14em;
+	text-transform: uppercase; color: var(--color-primary);
+	font-family: var(--font-sans); margin-bottom: 0.625rem;
+}
+.section-header h2 { font-size: 1.875rem; color: var(--color-text); margin-bottom: 0.75rem; }
+.section-note { font-size: 0.875rem; color: var(--color-text-subtle); margin-top: 0.5rem; }
+
+/* ── Hero ──────────────────────────────────────────── */
+.hero { background: #fff; padding: 5rem 0 4rem; border-bottom: 1px solid var(--color-border); }
+.hero-nav { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+.back-link { font-size: 0.8125rem; color: var(--color-text-muted); text-decoration: none; font-family: var(--font-sans); }
+.back-link:hover { color: var(--color-primary); }
+.hero-tag {
+	font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+	color: var(--color-primary); background: rgba(30,64,175,.07);
+	padding: 0.2rem 0.7rem; border-radius: 4px; font-family: var(--font-sans);
+}
+.hero-service-name { display: flex; flex-direction: column; gap: 0.125rem; margin-bottom: 1.5rem; }
+.hero-service-ja { font-size: 0.9375rem; font-weight: 700; color: var(--color-text-muted); font-family: var(--font-sans); }
+.hero-service-en { font-size: 0.75rem; letter-spacing: 0.08em; color: var(--color-text-subtle); font-family: var(--font-sans); }
+.hero h1 { font-size: 2.5rem; color: var(--color-text); margin-bottom: 1.5rem; line-height: 1.35; }
+.hero h1 .accent { color: var(--color-primary); }
+.hero-sub { font-size: 1.0625rem; color: var(--color-text-muted); margin-bottom: 1rem; line-height: 1.9; }
+.hero-lead { font-size: 0.9375rem; color: var(--color-text-muted); margin-bottom: 2.5rem; line-height: 1.9; }
+.hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+.hero-keywords { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.kw-pill {
+	font-size: 0.75rem; font-weight: 600; font-family: var(--font-sans);
+	color: var(--color-text-muted); background: var(--color-bg-subtle);
+	border: 1px solid var(--color-border); padding: 0.25rem 0.75rem;
+	border-radius: 4px;
+}
+
+/* ── Issues ──────────────────────────────────────────── */
+.issues { background: var(--color-bg-subtle); padding: 5rem 0; }
+.issues-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.issue-card {
+	background: #fff; border: 1px solid var(--color-border); border-radius: 8px;
+	padding: 1.25rem 1.5rem;
+}
+.issue-card p { font-size: 0.9375rem; color: var(--color-text-muted); margin: 0; line-height: 1.6; }
+.issue-card p strong { color: var(--color-text); font-weight: 700; }
+.issue-card--wide { grid-column: span 1; }
+
+/* ── Failures ──────────────────────────────────────────── */
+.failures { background: #fff; padding: 5rem 0; }
+.failures-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.failure-card {
+	border-top: 2px solid var(--color-border); padding-top: 1.5rem;
+}
+.failure-card__num {
+	font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.08em;
+	color: var(--color-primary); font-family: var(--font-sans); margin-bottom: 0.75rem;
+}
+.failure-card h3 { font-size: 1.0625rem; color: var(--color-text); margin-bottom: 0.75rem; font-family: var(--font-serif); }
+.failure-card p { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.8; margin: 0; }
+
+/* ── Definition ──────────────────────────────────────────── */
+.definition { background: var(--color-bg-subtle); padding: 5rem 0; }
+.definition-inner { max-width: 720px; }
+.definition-inner .eyebrow-label { margin-bottom: 0.75rem; }
+.definition-inner h2 { font-size: 1.75rem; color: var(--color-text); margin-bottom: 1.5rem; }
+.definition-body {
+	font-size: 1.0625rem; color: var(--color-text-muted); line-height: 1.9;
+	margin-bottom: 2rem;
+}
+.definition-oneliner {
+	font-family: var(--font-serif); font-size: 1.25rem; color: var(--color-text);
+	line-height: 1.7; border-left: 3px solid var(--color-primary);
+	padding-left: 1.25rem;
+}
+
+/* ── Scope ──────────────────────────────────────────── */
+.scope { background: #fff; padding: 5rem 0; }
+.scope-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.scope-card {
+	background: var(--color-bg-subtle); border: 1px solid var(--color-border);
+	border-radius: 8px; padding: 1.5rem;
+}
+.scope-card__label {
+	font-size: 0.8125rem; font-weight: 700; color: var(--color-primary);
+	font-family: var(--font-sans); margin-bottom: 0.625rem; letter-spacing: 0.02em;
+}
+.scope-card p { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.75; margin: 0; }
+
+/* ── Process ──────────────────────────────────────────── */
+.process { background: var(--color-bg-subtle); padding: 5rem 0; }
+.process-flow {
+	display: flex; flex-wrap: wrap; align-items: flex-start;
+	gap: 0; margin-top: 0.5rem;
+}
+.pstep {
+	flex: 1; min-width: 100px; background: #fff;
+	border: 1px solid var(--color-border); border-radius: 8px;
+	padding: 1.25rem 1rem; display: flex; flex-direction: column; gap: 0.5rem;
+}
+.pstep--last { border-color: var(--color-primary); }
+.pstep__num {
+	font-size: 1.25rem; font-weight: 700; color: var(--color-primary);
+	font-family: var(--font-sans); line-height: 1;
+}
+.pstep__body strong { font-size: 0.875rem; color: var(--color-text); display: block; margin-bottom: 0.25rem; font-family: var(--font-sans); }
+.pstep__body p { font-size: 0.75rem; color: var(--color-text-muted); line-height: 1.65; margin: 0; }
+.pstep-arrow {
+	display: flex; align-items: center; padding: 0 0.25rem;
+	color: var(--color-text-subtle); font-size: 1.125rem; flex-shrink: 0;
+	margin-top: 1.25rem;
+}
+
+/* ── Deliverables ──────────────────────────────────────────── */
+.deliverables { background: #fff; padding: 5rem 0; }
+.deliverables-inner { }
+.deliverables-layout { display: grid; grid-template-columns: 1fr 340px; gap: 3rem; align-items: start; }
+.deliverables-list { list-style: none; }
+.deliverables-list li {
+	display: flex; gap: 1.25rem; padding: 1rem 0;
+	border-bottom: 1px solid var(--color-border);
+}
+.deliverables-list li:last-child { border-bottom: none; }
+.deliv-num {
+	font-size: 0.6875rem; font-weight: 700; color: var(--color-primary);
+	letter-spacing: 0.04em; flex-shrink: 0; width: 2rem;
+	text-align: right; margin-top: 0.2rem; font-variant-numeric: tabular-nums;
+	font-family: var(--font-sans);
+}
+.deliverables-list strong { font-size: 0.9375rem; color: var(--color-text); display: block; margin-bottom: 0.2rem; font-family: var(--font-sans); }
+.deliverables-list p { font-size: 0.8125rem; color: var(--color-text-muted); margin: 0; line-height: 1.65; }
+
+/* Document Mockup */
+.deliverables-mockup { display: flex; flex-direction: column; gap: 1rem; position: sticky; top: 2rem; }
+.doc-mock {
+	background: #fff; border: 1px solid var(--color-border);
+	border-radius: 8px; overflow: hidden; box-shadow: var(--shadow-sm);
+}
+.doc-mock--report { }
+.doc-mock--funnel { }
+.doc-mock__header {
+	background: var(--color-bg-subtle); border-bottom: 1px solid var(--color-border);
+	padding: 0.75rem 1rem; display: flex; flex-direction: column; gap: 0.25rem;
+}
+.doc-mock__logo-bar {
+	width: 3rem; height: 4px; background: var(--color-primary);
+	border-radius: 2px; margin-bottom: 0.375rem;
+}
+.doc-mock__label {
+	font-size: 0.6875rem; font-weight: 700; color: var(--color-primary);
+	font-family: var(--font-sans); letter-spacing: 0.06em; text-transform: uppercase;
+}
+.doc-mock__subtitle {
+	font-size: 0.625rem; color: var(--color-text-subtle); font-family: var(--font-sans);
+}
+.doc-mock__body { padding: 1rem; display: flex; flex-direction: column; gap: 0.875rem; }
+.doc-mock__section-title {
+	height: 6px; background: var(--color-border); border-radius: 3px; width: 40%;
+}
+.doc-mock__lines { display: flex; flex-direction: column; gap: 5px; }
+.doc-mock__line {
+	height: 5px; background: var(--color-border); border-radius: 3px;
+	opacity: 0.7;
+}
+.doc-mock__line--lg { width: 90%; opacity: 0.9; }
+.doc-mock__line--sm { width: 55%; opacity: 0.5; }
+.doc-mock__chart {
+	display: flex; align-items: flex-end; gap: 5px;
+	height: 60px; padding-top: 0.25rem;
+}
+.doc-mock__bar {
+	flex: 1; background: var(--color-border); border-radius: 3px 3px 0 0;
+}
+.doc-mock__bar--accent { background: rgba(30,64,175,.25); }
+
+/* Funnel mockup */
+.funnel-mock { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 0.5rem 0; }
+.funnel-step {
+	text-align: center; font-size: 0.625rem; font-family: var(--font-sans);
+	color: var(--color-text-muted); background: var(--color-bg-subtle);
+	border: 1px solid var(--color-border); border-radius: 3px; padding: 4px 0;
+}
+.funnel-step--accent { background: rgba(30,64,175,.1); border-color: rgba(30,64,175,.3); color: var(--color-primary); font-weight: 700; }
+
+/* ── Metrics ──────────────────────────────────────────── */
+.metrics { background: var(--color-bg-subtle); padding: 5rem 0; }
+.metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+.metric-card {
+	background: #fff; border: 1px solid var(--color-border); border-radius: 8px; padding: 1.5rem;
+}
+.metric-card__en {
+	font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.1em;
+	color: var(--color-primary); font-family: var(--font-sans);
+	text-transform: uppercase; margin-bottom: 0.625rem;
+}
+.metric-card h3 { font-size: 1rem; color: var(--color-text); margin-bottom: 0.625rem; font-family: var(--font-serif); }
+.metric-card p { font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.75; margin: 0; }
+
+/* ── Why Us ──────────────────────────────────────────── */
+.why-us { background: #fff; padding: 5rem 0; }
+.why-us-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 3rem; }
+.why-card {
+	border-top: 2px solid var(--color-border); padding-top: 1.5rem;
+	transition: border-color 0.2s;
+}
+.why-card:hover { border-color: var(--color-primary); }
+.why-card h3 { font-size: 1.0625rem; color: var(--color-text); margin-bottom: 0.75rem; font-family: var(--font-serif); }
+.why-card p { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.8; margin: 0; }
+
+/* Before/After */
+.ba-diagram {
+	display: grid; grid-template-columns: 1fr auto 1fr;
+	gap: 1.5rem; align-items: center; background: var(--color-bg-subtle);
+	border: 1px solid var(--color-border); border-radius: 8px; padding: 2rem;
+}
+.ba-panel { display: flex; flex-direction: column; gap: 1rem; }
+.ba-panel__label {
+	font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.12em;
+	text-transform: uppercase; font-family: var(--font-sans);
+	color: var(--color-text-subtle);
+}
+.ba-nodes { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.ba-node {
+	font-size: 0.75rem; padding: 0.3rem 0.75rem; border-radius: 4px;
+	font-family: var(--font-sans); font-weight: 600;
+}
+.ba-node--isolated {
+	background: #fff; border: 1px solid var(--color-border-strong);
+	color: var(--color-text-muted);
+}
+.ba-center-node {
+	font-size: 0.9375rem; font-weight: 700; color: #fff;
+	background: var(--color-primary); border-radius: 8px;
+	padding: 0.5rem 1rem; text-align: center; font-family: var(--font-sans);
+	margin-bottom: 0.75rem;
+}
+.ba-connected { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.ba-node--connected {
+	background: rgba(30,64,175,.08);
+	border: 1px solid rgba(30,64,175,.25); color: var(--color-primary);
+}
+.ba-status {
+	font-size: 0.75rem; font-weight: 600; font-family: var(--font-sans);
+	padding: 0.35rem 0.875rem; border-radius: 4px; align-self: flex-start;
+}
+.ba-status--bad { background: #fee2e2; color: #dc2626; }
+.ba-status--good { background: #dcfce7; color: #16a34a; }
+.ba-arrow {
+	display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+}
+.ba-arrow__line {
+	width: 2px; height: 60px; background: var(--color-border-strong);
+	position: relative;
+}
+.ba-arrow__line::after {
+	content: '▼'; position: absolute; bottom: -14px; left: 50%;
+	transform: translateX(-50%); color: var(--color-text-subtle); font-size: 0.875rem;
+}
+.ba-arrow__label {
+	font-size: 0.625rem; font-weight: 700; letter-spacing: 0.1em;
+	text-transform: uppercase; color: var(--color-primary); font-family: var(--font-sans);
+	writing-mode: vertical-rl; text-orientation: mixed; white-space: nowrap;
+}
+
+/* ── Cases ──────────────────────────────────────────── */
+.cases { background: var(--color-bg-subtle); padding: 5rem 0; }
+.cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2.5rem; }
+.case-card {
+	background: #fff; border: 1px solid var(--color-border); border-radius: 8px;
+	padding: 1.75rem; display: flex; flex-direction: column; gap: 1rem;
+	transition: box-shadow 0.2s;
+}
+.case-card:hover { box-shadow: var(--shadow-sm); border-color: var(--color-primary); }
+.case-card__meta { display: flex; align-items: center; gap: 0.625rem; flex-wrap: wrap; }
+.case-tag {
+	font-size: 0.75rem; font-weight: 600; color: var(--color-primary);
+	background: rgba(30,64,175,.07); padding: 0.2rem 0.6rem; border-radius: 4px;
+	font-family: var(--font-sans);
+}
+.case-size { font-size: 0.75rem; color: var(--color-text-muted); font-family: var(--font-sans); }
+.case-card__title { font-size: 0.9375rem; font-weight: 700; color: var(--color-text); line-height: 1.55; margin: 0; font-family: var(--font-serif); }
+.case-card__body { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.75; margin: 0; flex: 1; }
+.case-card__footer { display: flex; flex-direction: column; gap: 0.75rem; margin-top: auto; }
+.case-tools { display: flex; flex-wrap: wrap; gap: 0.375rem; }
+.case-tools span {
+	font-size: 0.7rem; color: var(--color-text-muted); background: var(--color-bg-subtle);
+	border: 1px solid var(--color-border); padding: 0.15rem 0.5rem; border-radius: 4px;
+	font-family: var(--font-sans);
+}
+.case-link { font-size: 0.8125rem; font-weight: 600; color: var(--color-primary); text-decoration: none; font-family: var(--font-sans); }
+.case-link:hover { text-decoration: underline; }
+.cases-cta { text-align: center; }
+
+/* ── Fit ──────────────────────────────────────────── */
+.fit { background: #fff; padding: 5rem 0; }
+.fit-inner { max-width: 680px; }
+.fit-list { list-style: none; }
+.fit-list li {
+	font-size: 0.9375rem; color: var(--color-text-muted);
+	padding: 0.875rem 0; border-bottom: 1px solid var(--color-border);
+	display: flex; gap: 0.875rem; align-items: flex-start;
+	font-family: var(--font-sans); line-height: 1.6;
+}
+.fit-list li:last-child { border-bottom: none; }
+.fit-list li::before {
+	content: ''; display: block; width: 6px; height: 6px;
+	background: var(--color-primary); border-radius: 50%;
+	flex-shrink: 0; margin-top: 0.45rem;
+}
+
+/* ── Approach ──────────────────────────────────────────── */
+.approach { background: var(--color-bg-subtle); padding: 5rem 0; }
+.approach-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+.approach-copy h2 { font-size: 1.625rem; color: var(--color-text); margin-bottom: 1.25rem; }
+.approach-copy p { font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.85; margin-bottom: 1rem; }
+.approach-copy .btn { margin-top: 1rem; }
+.checklist-label { font-size: 0.8125rem; font-weight: 700; color: var(--color-text); margin-bottom: 1rem; font-family: var(--font-sans); }
+.approach-checklist ul { list-style: none; }
+.approach-checklist li {
+	font-size: 0.9375rem; color: var(--color-text-muted); padding: 0.75rem 0;
+	border-bottom: 1px solid var(--color-border); display: flex; gap: 0.875rem;
+	font-family: var(--font-sans); line-height: 1.6;
+}
+.approach-checklist li:last-child { border-bottom: none; }
+.approach-checklist li::before {
+	content: '✓'; color: var(--color-primary); font-weight: 700;
+	flex-shrink: 0; font-size: 0.875rem; margin-top: 0.05rem;
+}
+
+/* ── Pricing ──────────────────────────────────────────── */
+.pricing { background: #fff; padding: 5rem 0; }
+.pricing-card {
+	border: 1px solid var(--color-border-strong); border-radius: 8px; overflow: hidden;
+}
+.pricing-card__main { padding: 2.5rem; }
+.pricing-service-name {
+	font-size: 0.8125rem; font-weight: 700; color: var(--color-text-muted);
+	font-family: var(--font-sans); margin-bottom: 0.5rem; letter-spacing: 0.04em;
+}
+.pricing-amount {
+	font-size: 2.5rem; font-weight: 900; color: var(--color-text);
+	font-family: var(--font-serif); margin-bottom: 0.75rem;
+}
+.pricing-note { font-size: 0.8125rem; color: var(--color-text-subtle); margin-bottom: 2rem; }
+.pricing-card__types { display: grid; grid-template-columns: 1fr 1fr; }
+.pricing-type { padding: 1.5rem 1.5rem 1.5rem 0; border-right: 1px solid var(--color-border); }
+.pricing-type:last-child { border-right: none; padding-left: 1.5rem; padding-right: 0; }
+.pricing-type__label { font-size: 0.875rem; font-weight: 700; color: var(--color-text); margin-bottom: 0.5rem; font-family: var(--font-sans); }
+.pricing-type p { font-size: 0.8125rem; color: var(--color-text-muted); margin: 0; line-height: 1.7; }
+.pricing-card__cta {
+	background: var(--color-bg-subtle); border-top: 1px solid var(--color-border);
+	padding: 1.75rem 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;
+}
+
+/* ── Related ──────────────────────────────────────────── */
+.related { background: var(--color-bg-subtle); padding: 5rem 0; }
+.related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.related-card {
+	background: #fff; border: 1px solid var(--color-border); border-radius: 8px;
+	padding: 1.25rem; text-decoration: none; display: block; transition: all 0.2s;
+}
+.related-card:hover { box-shadow: var(--shadow-sm); border-color: var(--color-primary); }
+.related-card__num {
+	font-size: 0.6875rem; font-weight: 700; color: var(--color-primary);
+	font-family: var(--font-sans); margin-bottom: 0.5rem;
+}
+.related-card h3 { font-size: 0.9375rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.375rem; line-height: 1.45; font-family: var(--font-serif); }
+.related-card p { font-size: 0.8125rem; color: var(--color-text-muted); margin: 0; }
+
+/* ── FAQ ──────────────────────────────────────────── */
+.faq { background: #fff; padding: 5rem 0; }
+.faq-list { max-width: 720px; }
+.faq-item {
+	border-bottom: 1px solid var(--color-border);
+}
+.faq-item:first-of-type { border-top: 1px solid var(--color-border); }
+.faq-q {
+	font-size: 0.9375rem; font-weight: 700; color: var(--color-text);
+	font-family: var(--font-sans); padding: 1.25rem 0; cursor: pointer;
+	list-style: none; display: flex; justify-content: space-between; align-items: center;
+	gap: 1rem;
+}
+.faq-q::after { content: '+'; font-size: 1.25rem; color: var(--color-primary); flex-shrink: 0; }
+details[open] .faq-q::after { content: '−'; }
+.faq-a { padding: 0 0 1.25rem; }
+.faq-a p { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.85; margin: 0; }
+
+/* ── Final CTA ──────────────────────────────────────────── */
+.cta-final {
+	background:
+		radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%),
+		linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+	padding: 5rem 0;
+}
+.cta-inner { display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: center; }
+.cta-copy h2 { font-size: 2rem; color: #fff; margin-bottom: 1rem; line-height: 1.4; }
+.cta-copy p { font-size: 0.9375rem; color: rgba(255,255,255,.8); line-height: 1.85; margin: 0; }
+.cta-actions { display: flex; flex-direction: column; gap: 0.875rem; }
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 1024px) {
+	.metrics-grid { grid-template-columns: repeat(2, 1fr); }
+	.related-grid { grid-template-columns: repeat(2, 1fr); }
+	.cases-grid { grid-template-columns: 1fr; }
+	.deliverables-layout { grid-template-columns: 1fr; }
+	.deliverables-mockup { flex-direction: row; position: static; }
+	.process-flow { flex-direction: column; gap: 0.625rem; }
+	.pstep-arrow { transform: rotate(90deg); padding: 0; margin: 0 auto; }
+}
+@media (max-width: 860px) {
+	.hero h1 { font-size: 1.875rem; }
+	.scope-grid { grid-template-columns: repeat(2, 1fr); }
+	.failures-grid { grid-template-columns: 1fr; }
+	.why-us-grid { grid-template-columns: 1fr; }
+	.ba-diagram { grid-template-columns: 1fr; gap: 1rem; }
+	.ba-arrow { flex-direction: row; justify-content: center; }
+	.ba-arrow__label { writing-mode: horizontal-tb; }
+	.approach-inner { grid-template-columns: 1fr; gap: 2rem; }
+	.pricing-card__types { grid-template-columns: 1fr; }
+	.pricing-type { border-right: none; border-bottom: 1px solid var(--color-border); padding: 1.25rem 0; }
+	.pricing-type:last-child { border-bottom: none; }
+	.cta-inner { grid-template-columns: 1fr; gap: 2rem; }
+}
+@media (max-width: 560px) {
+	.hero h1 { font-size: 1.625rem; }
+	.issues-grid { grid-template-columns: repeat(2, 1fr); }
+	.scope-grid { grid-template-columns: 1fr; }
+	.metrics-grid { grid-template-columns: 1fr; }
+	.related-grid { grid-template-columns: 1fr; }
+	.hero-cta { flex-direction: column; align-items: flex-start; }
+	.cta-actions { }
+	.pricing-amount { font-size: 2rem; }
+	.deliverables-mockup { flex-direction: column; }
+	.pricing-card__cta { flex-direction: column; }
+}
+</style>
+</BaseLayout>

@@ -1,0 +1,462 @@
+---
+import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const pubDate = '2026-05-07';
+const pubDateDisplay = '2026年5月7日';
+const readTime = '約10分';
+
+const articleSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'なぜ日本企業ではRevOpsが定着しにくいのか｜Revenue Architectureとの違い',
+	description: '欧米では一般化しつつあるRevOpsが、日本企業では定着しにくい理由を、組織構造・KPI・Revenue Architectureの観点から解説します。',
+	datePublished: pubDate,
+	dateModified: pubDate,
+	author: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+	url: 'https://consilegy.com/insights/why-revops-is-hard-in-japanese-companies/',
+	inLanguage: 'ja',
+};
+
+const breadcrumbSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://consilegy.com/' },
+		{ '@type': 'ListItem', position: 2, name: 'コラム', item: 'https://consilegy.com/insights/' },
+		{ '@type': 'ListItem', position: 3, name: 'なぜ日本企業ではRevOpsが定着しにくいのか', item: 'https://consilegy.com/insights/why-revops-is-hard-in-japanese-companies/' },
+	],
+};
+---
+
+<BaseLayout
+	title="なぜ日本企業ではRevOpsが定着しにくいのか｜Revenue Architectureとの違い | Consilegy"
+	description="欧米では一般化しつつあるRevOpsが、日本企業では定着しにくい理由を、組織構造・KPI・Revenue Architectureの観点から解説します。"
+	lang="ja"
+>
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	</Fragment>
+
+<div class="article-wrap">
+
+	<!-- ===== ARTICLE HEADER ===== -->
+	<header class="article-head container">
+		<nav class="breadcrumb" aria-label="パンくずリスト">
+			<a href="/">ホーム</a>
+			<span aria-hidden="true">›</span>
+			<a href="/insights/">コラム</a>
+			<span aria-hidden="true">›</span>
+			<span aria-current="page">なぜ日本企業ではRevOpsが定着しにくいのか</span>
+		</nav>
+		<div class="article-meta">
+			<span class="article-cat">RevOps</span>
+			<span class="article-date">{pubDateDisplay}</span>
+			<span class="article-read">{readTime}</span>
+		</div>
+		<h1>なぜ日本企業では<br class="br-pc" />RevOpsが定着しにくいのか</h1>
+		<p class="article-desc">RevOps担当を置いたが機能しない、CRM管理チームで終わる、部門横断が進まない——この問題は人材不足だけではない。収益を横断設計する構造が存在しないことが本質的な原因だ。</p>
+	</header>
+
+	<!-- ===== ARTICLE BODY ===== -->
+	<div class="article-body container">
+
+		<div class="article-section">
+			<p>「RevOps（Revenue Operations）」という言葉を聞く機会が増えています。SaaS企業・BtoBスタートアップ・外資系企業を中心に、RevOps組織を作る動きが加速しています。しかし日本では、RevOps担当を置いたが機能しない、CRM改善チームで終わる、営業企画との違いが曖昧、部門横断が進まない、結局Salesforce管理者化する——といった状況が多く見られます。</p>
+			<p>CRM導入・MA導入・KPI管理強化を進める中で「RevOpsをやった方が良さそう」となっても、実際には「何をする組織なのか分からない」まま進みます。そしてRevOpsはレポート作成・CRM管理・会議資料作成に吸収されていきます。しかし<strong>これは人材不足だけが原因ではありません</strong>。本当の原因は、収益を横断設計する構造が存在していないことにあります。</p>
+		</div>
+
+		<div class="article-section">
+			<h2>そもそもRevOpsとは何か</h2>
+			<p>RevOpsは単なる営業支援ではありません。マーケティング・営業・カスタマーサクセスを横断し、収益を最大化する運用構造を作る考え方です。KPI統一・見通し改善・収益可視化向上・CRM運用改善・収益データ統合などを通じて収益全体を最適化する役割を持ちます。つまり営業支援ではなく、<strong>収益経営の運用基盤</strong>です。</p>
+		</div>
+
+		<!-- DIAGRAM 1: 分断された日本企業のRevenue組織 -->
+		<figure class="diag-wrap" aria-label="日本企業で分断された収益組織：部門ごとに壁があり RevOps が孤立する状態">
+			<div class="diag diag--revops-gap">
+				<div class="rog-header">日本企業の典型的な組織構造</div>
+				<div class="rog-depts">
+					<div class="rog-dept dept-mkt">
+						<div class="rog-dept-title">マーケ</div>
+						<div class="rog-kpi">指標：見込み客数</div>
+					</div>
+					<div class="rog-wall">|</div>
+					<div class="rog-dept dept-sales">
+						<div class="rog-dept-title">営業</div>
+						<div class="rog-kpi">指標：受注件数</div>
+					</div>
+					<div class="rog-wall">|</div>
+					<div class="rog-dept dept-cs">
+						<div class="rog-dept-title">CS</div>
+						<div class="rog-kpi">指標：継続率</div>
+					</div>
+					<div class="rog-wall">|</div>
+					<div class="rog-dept dept-it">
+						<div class="rog-dept-title">情シス</div>
+						<div class="rog-kpi">指標：システム稼働</div>
+					</div>
+					<div class="rog-wall">|</div>
+					<div class="rog-dept dept-mgmt">
+						<div class="rog-dept-title">経営企画</div>
+						<div class="rog-kpi">指標：売上計画</div>
+					</div>
+				</div>
+				<div class="rog-revops">
+					<div class="rog-revops-box">
+						<div class="rog-revops-label">RevOps</div>
+						<div class="rog-revops-sub">「何をすればいい？」</div>
+					</div>
+					<div class="rog-bubbles">
+						<div class="rog-bubble">「KPIが違う」</div>
+						<div class="rog-bubble rog-bubble--warn">「数字が合わない」</div>
+						<div class="rog-bubble">「担当が不明」</div>
+					</div>
+				</div>
+				<div class="rog-footer">
+					<span class="rog-tag bad">✕ 収益を横断で見る文化がない</span>
+					<span class="rog-tag bad">✕ RevOpsが孤立する</span>
+				</div>
+			</div>
+			<figcaption class="diag-caption">日本企業で分断された収益組織：部門ごとに異なる指標で動き、RevOpsが横断改善できない構造</figcaption>
+		</figure>
+
+		<div class="article-section">
+			<h2>日本企業でRevOpsが定着しにくい5つの理由</h2>
+			<ol class="article-numbered">
+				<li>
+					<strong>部門構造が強く分断されている</strong>
+					<p>マーケティング・営業・カスタマーサクセス・情シス・経営企画が強く分かれている日本企業では、収益を横断で見る文化が育ちにくい。結果としてRevOpsがどこにも属せず、機能する前に形骸化します。</p>
+				</li>
+				<li>
+					<strong>指標が部門最適になっている</strong>
+					<p>マーケティングは見込み客数、営業は受注件数、カスタマーサクセスは継続率——収益が一本でつながっていないと、RevOpsが横断改善できません。共通の収益指標がないまま運用しても、それぞれの部門最適が続くだけです。</p>
+				</li>
+				<li>
+					<strong>CRMが「管理ツール」になっている</strong>
+					<p>SalesforceやHubSpotが報告・管理・稟議中心になりやすい日本企業では、RevOpsも収益改善ではなく「管理運用」へ吸収されていきます。ツールが管理台帳として機能している限り、RevOpsの役割も管理業務に収束します。</p>
+				</li>
+				<li>
+					<strong>収益の流れが設計されていない</strong>
+					<p>マーケティングはHubSpot、営業はSalesforce、カスタマーサクセスはKintone、財務はExcel——収益データが分断されていると、RevOpsが横断で分析する基盤がなく機能しません。</p>
+				</li>
+				<li>
+					<strong>「収益責任者」が存在しない</strong>
+					<p>マーケティング責任者と営業責任者は存在しても、収益全体を見る役割が不在の組織は多い。RevOpsが機能するためには、収益全体を設計・改善する権限と責任を持つ構造が必要です。</p>
+				</li>
+			</ol>
+		</div>
+
+		<div class="article-section">
+			<h2>RevOpsを導入してもCRM管理チーム化する理由</h2>
+			<p>多くの企業ではRevOps導入後にSalesforce管理・ダッシュボード作成・データ整備へ寄っていきます。しかし本来RevOpsはシステム管理ではありません。収益改善の運営が本来の役割です。<strong>RevOps単体では不十分で、その前提としてRevenue Architectureが必要</strong>なのです。</p>
+			<p class="article-callout">Revenue Architectureという設計がなければ、RevOpsは運用する対象を見失いCRM管理組織になります。</p>
+		</div>
+
+		<!-- DIAGRAM 2: Revenue ArchitectureとRevOpsの関係図 -->
+		<figure class="diag-wrap" aria-label="Revenue ArchitectureとRevOpsの関係：設計の上に運用が乗り収益改善サイクルが回る構造">
+			<div class="diag diag--ra-revops-rel">
+				<div class="rel-top">
+					<div class="rel-dept dept-a">マーケティング</div>
+					<div class="rel-dept dept-b">営業</div>
+					<div class="rel-dept dept-c">CS</div>
+				</div>
+				<div class="rel-arrow-down">↓ 収益チームとして動く</div>
+				<div class="rel-revops-layer">
+					<div class="rel-layer-label">RevOps（運用）</div>
+					<div class="rel-layer-items">
+						<span>KPI管理</span>
+						<span>見通し運用</span>
+						<span>CRM改善</span>
+						<span>データ統合</span>
+					</div>
+				</div>
+				<div class="rel-arrow-down">↑ 設計に基づいて運用する</div>
+				<div class="rel-ra-layer">
+					<div class="rel-ra-label">Revenue Architecture（設計）</div>
+					<div class="rel-ra-items">
+						<span>収益の流れ設計</span>
+						<span>KPI統一設計</span>
+						<span>顧客定義</span>
+						<span>収益可視化設計</span>
+						<span>会議設計</span>
+					</div>
+				</div>
+				<div class="rel-cycle">
+					<span class="rel-cycle-item">① 収益構造を設計する</span>
+					<span class="rel-cycle-arrow">→</span>
+					<span class="rel-cycle-item">② RevOpsが運用する</span>
+					<span class="rel-cycle-arrow">→</span>
+					<span class="rel-cycle-item">③ 収益改善サイクルが回る</span>
+				</div>
+			</div>
+			<figcaption class="diag-caption">Revenue ArchitectureとRevOpsの関係：設計（Revenue Architecture）の上に運用（RevOps）が乗ることで収益改善サイクルが機能する</figcaption>
+		</figure>
+
+		<div class="article-section">
+			<h2>Revenue Architectureという考え方</h2>
+			<p>Revenue Architectureとは、営業・マーケティング・カスタマーサクセス・CRM・KPI・データを「収益につながる一つの構造」として設計する考え方です。重要なのは、RevOpsは「運用」であり、Revenue Architectureは「設計」であることです。収益構造を設計し、RevOpsが運用し、収益改善サイクルが回る——この順番が必要です。この構造がないままRevOpsを導入するとCRM管理組織になります。</p>
+		</div>
+
+		<div class="article-section">
+			<h2>日本企業に本当に必要なのは「欧米RevOpsの直輸入」ではない</h2>
+			<p>欧米SaaS企業のRevOpsをそのまま日本へ持ち込んでも、うまく機能しないケースが多い。日本企業には稟議文化・属人営業・Excel運用・強い部門構造といった独自の前提があるからです。必要なのは「日本企業で機能するRevenue Architecture」であり、その上にRevOpsを設計することです。</p>
+		</div>
+
+		<!-- DIAGRAM 3: Revenue Architecture統合図 -->
+		<figure class="diag-wrap" aria-label="Revenue Architectureによる統合：7つの部門・機能をRevenue Architectureが接続しRevOpsが機能する構造">
+			<div class="diag diag--ra-revops">
+				<div class="ra-pills-row">
+					<span class="ra-pill">マーケティング</span>
+					<span class="ra-pill">営業</span>
+					<span class="ra-pill">CS</span>
+					<span class="ra-pill">CRM</span>
+					<span class="ra-pill">KPI</span>
+					<span class="ra-pill">BI</span>
+					<span class="ra-pill">RevOps</span>
+				</div>
+				<svg class="ra-svg" viewBox="0 0 620 60" preserveAspectRatio="none" aria-hidden="true">
+					<line x1="44"  y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+					<line x1="132" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+					<line x1="220" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+					<line x1="310" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+					<line x1="398" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+					<line x1="486" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+					<line x1="576" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+				</svg>
+				<div class="ra-core">
+					<div class="ra-core-title">Revenue Architecture</div>
+					<div class="ra-core-tags">
+						<span>収益の流れ設計</span>
+						<span>KPI統一</span>
+						<span>収益可視化</span>
+						<span>RevOps運用設計</span>
+						<span>会議設計</span>
+					</div>
+				</div>
+				<div class="ra-connector-bar"></div>
+				<div class="ra-outcomes">
+					<div class="ra-outcome">
+						<div class="ra-outcome-title">収益の可視化</div>
+						<div class="ra-outcome-sub">全部門が同じ数字で<br />意思決定できる</div>
+					</div>
+					<div class="ra-outcome ra-outcome--mid">
+						<div class="ra-outcome-title">見通し精度の向上</div>
+						<div class="ra-outcome-sub">RevOpsが収益改善に<br />集中できる</div>
+					</div>
+					<div class="ra-outcome">
+						<div class="ra-outcome-title">部門横断の実現</div>
+						<div class="ra-outcome-sub">収益チームとして<br />組織が動く</div>
+					</div>
+				</div>
+			</div>
+			<figcaption class="diag-caption">Revenue Architectureによる統合：7つの部門・機能を接続し、RevOpsが収益改善に集中できる構造を実現する</figcaption>
+		</figure>
+
+		<div class="article-section">
+			<h2>RevOpsが機能している会社の共通点</h2>
+			<p>収益成長が続いている会社には共通点があります。マーケティング・営業・カスタマーサクセスで収益指標が統一されており、同じ数字を見ている。見込み客の発生から更新まで収益データがつながっている。RevOpsが収益改善へ直接関与しており、CRM管理だけで終わっていない。そしてRevenue Architectureが存在している——この最後の点が最も重要です。</p>
+		</div>
+
+		<div class="article-section">
+			<h2>Consilegyの考え方</h2>
+			<p>ConsilegyではRevOps導入を単なるCRM運用改善とは考えていません。本質はRevenue Architecture・収益可視化・収益の流れ設計・KPI設計・RevOps運用モデルにあります。Salesforce・HubSpot・Kintone・BI・Slackを横断しながら、「収益が一貫して改善される構造」を設計します。目的はRevOpsチームを作ることではなく、収益が改善され続ける組織構造を作ることです。</p>
+			<div class="article-table-wrap">
+				<table>
+					<thead>
+						<tr>
+							<th>課題</th>
+							<th>Consilegyのアプローチ</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>RevOpsがCRM管理に終わる</td>
+							<td>Revenue Architecture設計 + RevOps運用モデル構築</td>
+						</tr>
+						<tr>
+							<td>部門横断が進まない</td>
+							<td>KPI統一設計 + 収益チーム設計</td>
+						</tr>
+						<tr>
+							<td>収益全体が見えない</td>
+							<td>収益の流れ設計 + 収益可視化構築</td>
+						</tr>
+						<tr>
+							<td>指標の定義が揃わない</td>
+							<td>KPI Architecture + 定義の明文化</td>
+						</tr>
+						<tr>
+							<td>見通し精度が低い</td>
+							<td>RevOps運用整備 + 会議設計改善</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="article-section">
+			<h2>まとめ：RevOps問題はRevenue Architectureの問題</h2>
+			<p>日本企業でRevOpsが定着しにくい原因は人材不足だけではありません。Revenue Architecture不足・収益可視性不足・収益の流れ未設計・KPI設計不足が本質的な原因です。だからこそ必要なのはRevOps導入だけではなく、「収益を横断設計する構造」を作ることです。RevOpsはRevenue Architectureの上で初めて機能します。</p>
+		</div>
+
+		<!-- ===== CTA ===== */-->
+		<div class="article-cta">
+			<p class="article-cta__catch">RevOpsを「CRM管理」から「収益改善」へ</p>
+			<p class="article-cta__body">ConsilegyはRevenue Architecture設計からRevOps運用モデル構築まで、日本企業に合った収益改善構造を支援します。まずは現状のRevOps課題を整理するところから始めましょう。</p>
+			<a href="/contact/" class="article-cta__btn">無料相談を予約する</a>
+		</div>
+
+		<!-- ===== RELATED ===== -->
+		<nav class="article-related" aria-label="関連記事">
+			<h2 class="article-related__heading">関連記事</h2>
+			<ul>
+				<li><a href="/insights/what-is-revenue-data-flow/">Revenue Data Flowとは何か</a></li>
+				<li><a href="/insights/why-more-kpis-create-less-revenue-visibility/">KPIが増えるほど収益可視性が下がる理由</a></li>
+				<li><a href="/insights/why-crm-integration-projects-fail/">CRM統合プロジェクトが失敗する理由</a></li>
+			</ul>
+		</nav>
+
+	</div><!-- /.article-body -->
+	<NewsletterSidebar />
+</div><!-- /.article-wrap -->
+
+<style>
+/* ===== LAYOUT ===== */
+.article-wrap { background: #fff; padding-bottom: 80px; }
+.container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+
+/* ===== HEADER ===== */
+.article-head { padding-top: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--color-border, #e2e8f0); }
+.breadcrumb { font-size: 0.78rem; color: var(--color-muted, #64748b); margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.breadcrumb a { color: var(--color-muted, #64748b); text-decoration: none; }
+.breadcrumb a:hover { color: var(--color-primary, #1e40af); }
+.article-meta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; font-size: 0.8rem; color: var(--color-muted, #64748b); }
+.article-cat { background: #eff6ff; color: var(--color-primary, #1e40af); padding: 2px 10px; border-radius: 4px; font-weight: 600; font-size: 0.75rem; }
+.article-head h1 { font-size: clamp(1.5rem, 3.5vw, 2.1rem); font-weight: 800; color: var(--color-navy, #0f172a); line-height: 1.35; margin-bottom: 16px; }
+.article-desc { font-size: 1rem; color: var(--color-charcoal, #334155); line-height: 1.75; }
+.br-pc { display: inline; }
+
+/* ===== BODY ===== */
+.article-body { padding-top: 48px; }
+.article-section { margin-bottom: 56px; }
+.article-section h2 { font-size: 1.25rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 16px; padding-left: 14px; border-left: 4px solid var(--color-primary, #1e40af); line-height: 1.4; }
+.article-section p { font-size: 0.975rem; color: var(--color-charcoal, #334155); line-height: 1.85; margin-bottom: 16px; }
+.article-section p:last-child { margin-bottom: 0; }
+.article-callout { background: #f8fafc; border-left: 3px solid var(--color-primary, #1e40af); padding: 14px 18px; border-radius: 0 6px 6px 0; font-size: 0.95rem !important; color: var(--color-navy, #0f172a) !important; }
+
+/* ===== NUMBERED LIST ===== */
+.article-numbered { list-style: none; counter-reset: item; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 24px; }
+.article-numbered li { counter-increment: item; display: grid; grid-template-columns: 36px 1fr; gap: 0 16px; }
+.article-numbered li::before { content: counter(item); display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--color-primary, #1e40af); color: #fff; border-radius: 50%; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px; }
+.article-numbered li strong { grid-column: 2; display: block; font-size: 1rem; color: var(--color-navy, #0f172a); margin-bottom: 6px; line-height: 1.4; }
+.article-numbered li p { grid-column: 2; font-size: 0.925rem; color: var(--color-charcoal, #334155); line-height: 1.8; margin: 0; }
+
+/* ===== TABLE ===== */
+.article-table-wrap { overflow-x: auto; margin-top: 24px; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; }
+.article-table-wrap table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.article-table-wrap th { background: var(--color-navy, #0f172a); color: #fff; padding: 12px 16px; text-align: left; font-weight: 600; font-size: 0.85rem; }
+.article-table-wrap td { padding: 12px 16px; border-bottom: 1px solid var(--color-border, #e2e8f0); color: var(--color-charcoal, #334155); vertical-align: top; line-height: 1.6; }
+.article-table-wrap tr:last-child td { border-bottom: none; }
+.article-table-wrap tr:nth-child(even) td { background: #f8fafc; }
+
+/* ===== DIAGRAMS ===== */
+.diag-wrap { margin: 0 0 56px; padding: 0; border: none; }
+.diag { background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 28px 24px; }
+.diag-caption { font-size: 0.78rem; color: var(--color-muted, #64748b); text-align: center; margin-top: 10px; line-height: 1.5; }
+
+/* --- DIAGRAM 1: RevOps Gap --- */
+.diag--revops-gap { display: flex; flex-direction: column; gap: 16px; }
+.rog-header { text-align: center; font-size: 0.82rem; font-weight: 700; color: var(--color-muted, #64748b); letter-spacing: 0.04em; }
+.rog-depts { display: flex; align-items: stretch; justify-content: center; gap: 0; flex-wrap: wrap; }
+.rog-dept { background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 6px; padding: 12px 10px; display: flex; flex-direction: column; gap: 6px; align-items: center; min-width: 90px; flex: 1; max-width: 120px; }
+.dept-mkt   { border-top: 3px solid #3b82f6; }
+.dept-sales { border-top: 3px solid #64748b; }
+.dept-cs    { border-top: 3px solid #10b981; }
+.dept-it    { border-top: 3px solid #f59e0b; }
+.dept-mgmt  { border-top: 3px solid #8b5cf6; }
+.rog-dept-title { font-size: 0.78rem; font-weight: 700; color: var(--color-navy, #0f172a); }
+.rog-kpi { font-size: 0.67rem; color: var(--color-muted, #64748b); text-align: center; line-height: 1.4; }
+.rog-wall { display: flex; align-items: center; color: #fca5a5; font-size: 1.2rem; font-weight: 300; padding: 0 2px; }
+.rog-revops { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+.rog-revops-box { background: #fff3cd; border: 1px dashed #fbbf24; border-radius: 8px; padding: 12px 20px; text-align: center; }
+.rog-revops-label { font-size: 0.85rem; font-weight: 700; color: var(--color-navy, #0f172a); }
+.rog-revops-sub { font-size: 0.72rem; color: #92400e; margin-top: 4px; }
+.rog-bubbles { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+.rog-bubble { background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 5px 12px; font-size: 0.75rem; color: var(--color-charcoal, #334155); }
+.rog-bubble--warn { background: #fee2e2; border-color: #fca5a5; color: #991b1b; font-weight: 600; }
+.rog-footer { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+.rog-tag { font-size: 0.75rem; font-weight: 600; }
+.bad  { color: #dc2626; }
+.good { color: #16a34a; }
+
+/* --- DIAGRAM 2: RA + RevOps Relationship --- */
+.diag--ra-revops-rel { display: flex; flex-direction: column; gap: 10px; }
+.rel-top { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.rel-dept { background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 6px; padding: 8px 16px; font-size: 0.78rem; font-weight: 600; color: var(--color-charcoal, #334155); }
+.dept-a { border-top: 3px solid #3b82f6; }
+.dept-b { border-top: 3px solid #64748b; }
+.dept-c { border-top: 3px solid #10b981; }
+.rel-arrow-down { text-align: center; font-size: 0.78rem; color: var(--color-muted, #64748b); font-weight: 500; padding: 2px 0; }
+.rel-revops-layer { background: #fff; border: 2px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 14px 16px; }
+.rel-layer-label { font-size: 0.85rem; font-weight: 700; color: var(--color-charcoal, #334155); margin-bottom: 8px; text-align: center; }
+.rel-layer-items { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.rel-layer-items span { font-size: 0.72rem; background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 4px; padding: 3px 8px; color: var(--color-charcoal, #334155); }
+.rel-ra-layer { background: var(--color-navy, #0f172a); border-radius: 8px; padding: 14px 16px; }
+.rel-ra-label { font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 8px; text-align: center; }
+.rel-ra-items { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.rel-ra-items span { font-size: 0.72rem; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; padding: 3px 8px; color: #e2e8f0; }
+.rel-cycle { display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px; padding: 10px 14px; }
+.rel-cycle-item { font-size: 0.75rem; font-weight: 600; color: var(--color-primary, #1e40af); }
+.rel-cycle-arrow { font-size: 0.9rem; color: var(--color-muted, #64748b); }
+
+/* --- DIAGRAM 3: RA Hub --- */
+.diag--ra-revops { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
+.ra-pills-row { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; padding-bottom: 4px; }
+.ra-pill { background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 4px; padding: 5px 14px; font-size: 0.75rem; font-weight: 600; color: var(--color-charcoal, #334155); white-space: nowrap; }
+.ra-svg { width: 100%; height: 60px; display: block; }
+.ra-core { background: var(--color-navy, #0f172a); color: #fff; border-radius: 8px; padding: 18px 20px; text-align: center; }
+.ra-core-title { font-size: 1rem; font-weight: 700; margin-bottom: 10px; letter-spacing: 0.02em; }
+.ra-core-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.ra-core-tags span { font-size: 0.7rem; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; padding: 3px 9px; color: #e2e8f0; }
+.ra-connector-bar { height: 24px; background: linear-gradient(180deg, var(--color-navy, #0f172a) 0%, #334155 100%); width: 2px; margin: 0 auto; }
+.ra-outcomes { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+.ra-outcome { background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 14px 12px; text-align: center; }
+.ra-outcome--mid { border-color: var(--color-primary, #1e40af); box-shadow: 0 0 0 1px var(--color-primary, #1e40af); }
+.ra-outcome-title { font-size: 0.82rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 6px; }
+.ra-outcome-sub { font-size: 0.72rem; color: var(--color-muted, #64748b); line-height: 1.5; }
+
+/* ===== CTA ===== */
+.article-cta { background: radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%), linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%); border-radius: 8px; padding: 40px 36px; text-align: center; margin-bottom: 48px; }
+.article-cta__catch { font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
+.article-cta__body { font-size: 0.92rem; color: rgba(255,255,255,0.88); line-height: 1.75; margin-bottom: 24px; }
+.article-cta__btn { display: inline-block; background: #fff; color: var(--color-primary, #1e40af); font-weight: 700; font-size: 0.9rem; padding: 12px 28px; border-radius: 6px; text-decoration: none; transition: opacity 0.2s; }
+.article-cta__btn:hover { opacity: 0.9; }
+
+/* ===== RELATED ===== */
+.article-related { border-top: 1px solid var(--color-border, #e2e8f0); padding-top: 32px; }
+.article-related__heading { font-size: 0.9rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 16px; }
+.article-related ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.article-related li a { font-size: 0.9rem; color: var(--color-primary, #1e40af); text-decoration: none; }
+.article-related li a:hover { text-decoration: underline; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 700px) {
+	.article-head h1 { font-size: 1.4rem; }
+	.br-pc { display: none; }
+	.rog-depts { gap: 4px; }
+	.rog-dept { min-width: 60px; padding: 10px 6px; }
+	.rog-kpi { font-size: 0.6rem; }
+	.ra-outcomes { grid-template-columns: 1fr; gap: 8px; }
+	.rel-cycle { flex-direction: column; gap: 4px; }
+	.article-cta { padding: 28px 20px; }
+}
+@media (max-width: 480px) {
+	.container { padding: 0 16px; }
+	.rog-dept { min-width: 48px; padding: 8px 4px; font-size: 0.65rem; }
+	.ra-outcomes { grid-template-columns: 1fr 1fr; }
+}
+</style>
+
+</BaseLayout>

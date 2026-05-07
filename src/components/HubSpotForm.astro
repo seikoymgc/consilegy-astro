@@ -18,7 +18,8 @@ const targetId = `hubspot-form-${formId}`;
 	(function () {
 		var target = '#' + targetId;
 		var s = document.createElement('script');
-		s.src = 'https://js.hsforms.net/forms/embed/v2.js';
+		s.charset = 'utf-8';
+		s.src = 'https://js-' + region + '.hsforms.net/forms/embed/v2.js';
 		s.defer = true;
 		s.onload = function () {
 			if (window.hbspt && window.hbspt.forms) {

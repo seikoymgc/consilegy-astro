@@ -1,0 +1,544 @@
+---
+import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const pubDate = '2026-05-07';
+const pubDateDisplay = '2026年5月7日';
+const readTime = '約10分';
+
+const articleSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: '良い施策を打っても再現性が生まれない理由｜Revenue ArchitectureとRevOps',
+	description: '優秀な施策や営業人材がいるのに成長が再現しない原因を、Revenue ArchitectureとRevOpsの観点から解説します。',
+	datePublished: pubDate,
+	dateModified: pubDate,
+	author: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+	url: 'https://consilegy.com/insights/why-good-marketing-does-not-create-repeatable-growth/',
+	inLanguage: 'ja',
+};
+
+const breadcrumbSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://consilegy.com/' },
+		{ '@type': 'ListItem', position: 2, name: 'コラム', item: 'https://consilegy.com/insights/' },
+		{ '@type': 'ListItem', position: 3, name: 'なぜ「良い施策」を打っているのに、組織が再現性を持てないのか', item: 'https://consilegy.com/insights/why-good-marketing-does-not-create-repeatable-growth/' },
+	],
+};
+---
+
+<BaseLayout
+	title="良い施策を打っても再現性が生まれない理由｜Revenue ArchitectureとRevOps | Consilegy"
+	description="優秀な施策や営業人材がいるのに成長が再現しない原因を、Revenue ArchitectureとRevOpsの観点から解説します。"
+	lang="ja"
+>
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	</Fragment>
+
+<div class="article-wrap">
+
+	<!-- ===== ARTICLE HEADER ===== -->
+	<header class="article-head container">
+		<nav class="breadcrumb" aria-label="パンくずリスト">
+			<a href="/">ホーム</a>
+			<span aria-hidden="true">›</span>
+			<a href="/insights/">コラム</a>
+			<span aria-hidden="true">›</span>
+			<span aria-current="page">なぜ「良い施策」を打っているのに、組織が再現性を持てないのか</span>
+		</nav>
+		<div class="article-meta">
+			<span class="article-cat">Revenue Architecture</span>
+			<span class="article-date">{pubDateDisplay}</span>
+			<span class="article-read">{readTime}</span>
+		</div>
+		<h1>なぜ「良い施策」を打っているのに、<br class="br-pc" />組織が再現性を持てないのか</h1>
+		<p class="article-desc">広告も伸び、ウェビナーも成功し、営業も優秀で大型案件も取れている。それなのに成長が安定しない。この問題の本質は人材不足ではなく、Revenueが再現される構造が設計されていないことにある。</p>
+	</header>
+
+	<!-- ===== ARTICLE BODY ===== */-->
+	<article class="article-body container" id="article">
+
+		<!-- はじめに -->
+		<section class="article-section">
+			<h2>はじめに：個人の成果と、組織の再現性は別の問題</h2>
+			<p>広告は伸びている。ウェビナーも成功している。営業も優秀で、大型案件も取れている。それなのに、今月は良くても来月が読めず、エース営業に依存し、施策が属人化し、事業成長が再現しない——こうした問題は、BtoB企業の成長フェーズで非常によく起きます。多くの企業は「もっと優秀な人を採用しよう」と考えます。しかし問題の本質は人材不足にはありません。</p>
+			<div class="article-callout">
+				<p>「個人の成果」はある。しかし「組織の構造」が存在していない。本当の原因は、<strong>「Revenueが再現される構造」が設計されていないこと</strong>にあります。人が抜けると崩れる成長は、構造ではなく個人依存です。</p>
+			</div>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- 5つの原因 -->
+		<section class="article-section">
+			<h2>なぜ再現性が生まれないのか——5つの原因</h2>
+
+			<div class="article-numbered">
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">01</p>
+					<h3>勝ちパターンが構造化されていない</h3>
+					<p>どの顧客が受注しやすいか・どの訴求が刺さるか・どの商談プロセスが強いか——これらが営業個人の感覚に閉じており、組織知になっていません。エースの頭の中にあるものは、組織の資産にはなりません。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">02</p>
+					<h3>KPIが「報告用」になっている</h3>
+					<p>KPIは存在しますが、Revenueと接続されておらず、ボトルネック分析もできず、改善行動につながっていません。測定しているだけで、Revenue改善サイクルが存在しない状態です。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">03</p>
+					<h3>CRMが「履歴置き場」になっている</h3>
+					<p>SalesforceやHubSpotはあります。しかしForecast改善・パイプライン分析・ボトルネック特定ではなく、入力して終わりになっています。データが蓄積されても、Revenue改善に使われなければ再現性は生まれません。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">04</p>
+					<h3>マーケ・営業・CSが分断されている</h3>
+					<p>マーケはリード、営業は受注、CSは継続——Revenueが一本で見られていないため、「何が成功要因か」「なぜ失注したか」「なぜ継続したか」が分断されます。全体の学習が起きません。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">05</p>
+					<h3>会議が「改善」ではなく「報告」になっている</h3>
+					<p>数字確認・進捗報告・状況共有だけで会議が終わります。Revenue改善サイクルが存在しないため、週次・月次の会議が経過するたびに機会損失が積み重なります。</p>
+				</div>
+			</div>
+
+			<!-- DIAGRAM 1 -->
+			<figure class="diag diag--attr" aria-label="属人化しているRevenue組織の構造図。エース営業・マーケ担当・CS担当がそれぞれ個別に成果を出しているが、組織全体としてつながっておらず、再現性が生まれていない状態を示す。">
+				<div class="diag-at-header">
+					<span class="diag-at-header__label">現状：個人成果はあるが、組織に再現性がない</span>
+				</div>
+				<div class="diag-at-grid">
+					<div class="diag-at-person">
+						<div class="diag-at-person__icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></div>
+						<div class="diag-at-person__role">エース営業</div>
+						<div class="diag-at-person__achievements">
+							<span>大型案件◎</span>
+							<span>Win Rate高い</span>
+							<span>関係構築</span>
+						</div>
+						<div class="diag-at-person__note">暗黙知</div>
+					</div>
+					<div class="diag-at-divider" aria-hidden="true">
+						<div class="diag-at-divider__line"></div>
+						<div class="diag-at-divider__label">分断</div>
+						<div class="diag-at-divider__line"></div>
+					</div>
+					<div class="diag-at-person">
+						<div class="diag-at-person__icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></div>
+						<div class="diag-at-person__role">マーケ担当</div>
+						<div class="diag-at-person__achievements">
+							<span>施策成功◎</span>
+							<span>CV数達成</span>
+							<span>SEO実績</span>
+						</div>
+						<div class="diag-at-person__note">属人化</div>
+					</div>
+					<div class="diag-at-divider" aria-hidden="true">
+						<div class="diag-at-divider__line"></div>
+						<div class="diag-at-divider__label">分断</div>
+						<div class="diag-at-divider__line"></div>
+					</div>
+					<div class="diag-at-person">
+						<div class="diag-at-person__icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></div>
+						<div class="diag-at-person__role">CS担当</div>
+						<div class="diag-at-person__achievements">
+							<span>更新率◎</span>
+							<span>顧客対応</span>
+							<span>アップセル</span>
+						</div>
+						<div class="diag-at-person__note">サイロ化</div>
+					</div>
+				</div>
+				<div class="diag-at-bubble">
+					<span class="diag-at-bubble__text">「なぜ成功したか、再現できない」</span>
+				</div>
+				<div class="diag-at-footer">
+					<span>人が抜けると崩れる</span>
+					<span>組織知にならない</span>
+					<span>成長が読めない</span>
+				</div>
+				<figcaption class="diag-caption">個人の優秀さに依存した成果は、構造として蓄積されないため組織の再現性につながらない</figcaption>
+			</figure>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- Revenue System -->
+		<section class="article-section">
+			<h2>本当に必要なのは「Revenue System」</h2>
+			<p>施策単位では成功しているのに、なぜ組織として再現できないのか。ウェビナー成功・SEO成功・大型受注・アップセル成功はあります。しかしその成功要因が構造として整理されていないため、次回再現できません。これはRevenue Operationsが構造化されていない状態です。</p>
+
+			<p>Revenue System（収益システム）とは、Marketing・Sales・Customer Success・CRM・KPI・Data・Meetingを「継続的にRevenueを生み出す仕組み」として設計する考え方です。重要なのは単発施策ではなく、<strong>Revenueが再現される構造</strong>です。再現性ある成長をしている会社には、ICP・SQL条件・Win Pattern・Expansion条件が構造化されており、Revenue KPIがつながり、CRMがRevenue改善に使われ、会議がボトルネック分析中心で、データが組織知になるという共通点があります。</p>
+
+			<!-- DIAGRAM 2 -->
+			<figure class="diag diag--rev-system" aria-label="Revenue System構造図。Marketing・Sales・CS・Expansionのフローが一貫して設計され、CRM・KPI・Meeting・DataがRevenue全体を下支えし、継続的にRevenueが循環する構造を示す。">
+				<div class="diag-rs-header">
+					<span class="diag-rs-header__label">Revenue System</span>
+					<span class="diag-rs-header__sub">継続的にRevenueが再現される構造</span>
+				</div>
+				<div class="diag-rs-top">
+					<div class="diag-rs-stage diag-rs-stage--mkt">
+						<div class="diag-rs-stage__name">Marketing</div>
+						<div class="diag-rs-stage__items">
+							<span>ICP定義</span>
+							<span>MQL条件</span>
+						</div>
+					</div>
+					<div class="diag-rs-arrow" aria-hidden="true">→</div>
+					<div class="diag-rs-stage diag-rs-stage--sales">
+						<div class="diag-rs-stage__name">Sales</div>
+						<div class="diag-rs-stage__items">
+							<span>Win Pattern</span>
+							<span>SQL条件</span>
+						</div>
+					</div>
+					<div class="diag-rs-arrow" aria-hidden="true">→</div>
+					<div class="diag-rs-stage diag-rs-stage--cs">
+						<div class="diag-rs-stage__name">CS</div>
+						<div class="diag-rs-stage__items">
+							<span>Onboarding</span>
+							<span>Health Score</span>
+						</div>
+					</div>
+					<div class="diag-rs-arrow" aria-hidden="true">→</div>
+					<div class="diag-rs-stage diag-rs-stage--exp">
+						<div class="diag-rs-stage__name">Expansion</div>
+						<div class="diag-rs-stage__items">
+							<span>NRR↑</span>
+							<span>Upsell</span>
+						</div>
+					</div>
+				</div>
+				<div class="diag-rs-infra">
+					<div class="diag-rs-infra__item">
+						<span class="diag-rs-infra__icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg></span>
+						<span>CRM</span>
+					</div>
+					<div class="diag-rs-infra__item">
+						<span class="diag-rs-infra__icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+						<span>KPI</span>
+					</div>
+					<div class="diag-rs-infra__item">
+						<span class="diag-rs-infra__icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+						<span>Meeting</span>
+					</div>
+					<div class="diag-rs-infra__item">
+						<span class="diag-rs-infra__icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+						<span>Data</span>
+					</div>
+				</div>
+				<div class="diag-rs-cycle">
+					<span class="diag-rs-cycle__label">Revenue循環</span>
+					<span class="diag-rs-cycle__desc">施策 → 商談 → 受注 → 継続 → 組織知 → 次の施策</span>
+				</div>
+				<figcaption class="diag-caption">Revenue Systemは単発施策の積み重ねではなく、Marketing・Sales・CSをCRM・KPI・会議体で下支えする継続的な収益構造</figcaption>
+			</figure>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- Revenue Architecture -->
+		<section class="article-section">
+			<h2>Revenue Architectureという考え方</h2>
+			<p>Revenue Architecture（レベニューアーキテクチャ）とは、営業・マーケティング・CS・CRM・KPI・データを「収益につながる一つの構造」として設計する考え方です。再現性問題は営業力の問題ではなく、Revenue Architecture・Revenue Data Flow・RevOps・KPI Architecture・Revenue Visibilityという構造の問題です。</p>
+
+			<p>Revenue Architectureが整うと、成長が再現し始め、エース営業依存が減り、会議がRevenue改善中心になります。CRMが履歴置き場から改善ツールに変わり、Marketing・Sales・CSがRevenue Flowとして一本につながります。</p>
+
+			<!-- DIAGRAM 3 -->
+			<figure class="diag diag--ra-repeat" aria-label="Revenue Architectureが組織全体の成長再現性を設計する構造図。Marketing・Sales・CS・CRM・KPI・BI・WorkflowをRevenue Architectureが統合し、再現性・Forecast精度・Revenue Visibilityを実現する設計を示す。">
+				<div class="diag-rr-depts">
+					<span class="diag-rr-dept diag-rr-dept--mkt">Marketing</span>
+					<span class="diag-rr-dept diag-rr-dept--sales">Sales</span>
+					<span class="diag-rr-dept diag-rr-dept--cs">CS</span>
+					<span class="diag-rr-dept diag-rr-dept--crm">CRM</span>
+					<span class="diag-rr-dept diag-rr-dept--kpi">KPI</span>
+					<span class="diag-rr-dept diag-rr-dept--bi">BI</span>
+					<span class="diag-rr-dept diag-rr-dept--wf">Workflow</span>
+				</div>
+				<div class="diag-rr-lines" aria-hidden="true">
+					<svg viewBox="0 0 700 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+						<line x1="50"  y1="0" x2="350" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
+						<line x1="133" y1="0" x2="350" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
+						<line x1="216" y1="0" x2="350" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
+						<line x1="299" y1="0" x2="350" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
+						<line x1="400" y1="0" x2="350" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
+						<line x1="483" y1="0" x2="350" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
+						<line x1="566" y1="0" x2="350" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
+					</svg>
+				</div>
+				<div class="diag-rr-core">
+					<div class="diag-rr-core__label">Revenue Architecture</div>
+					<div class="diag-rr-core__tags">
+						<span>Revenue System</span>
+						<span>Win Pattern定義</span>
+						<span>Revenue KPI</span>
+						<span>Data Flow</span>
+						<span>RevOps</span>
+					</div>
+				</div>
+				<div class="diag-rr-connector" aria-hidden="true"></div>
+				<div class="diag-rr-outcomes">
+					<div class="diag-rr-outcome">
+						<div class="diag-rr-outcome__label">再現性</div>
+						<div class="diag-rr-outcome__desc">属人化が減る<br />組織知になる</div>
+					</div>
+					<div class="diag-rr-outcome diag-rr-outcome--mid">
+						<div class="diag-rr-outcome__label">Forecast精度</div>
+						<div class="diag-rr-outcome__desc">成長が読める<br />来月が予測できる</div>
+					</div>
+					<div class="diag-rr-outcome">
+						<div class="diag-rr-outcome__label">Revenue Visibility</div>
+						<div class="diag-rr-outcome__desc">Revenue Flow<br />が見える</div>
+					</div>
+				</div>
+				<figcaption class="diag-caption">Revenue Architectureが整うと、個人の優秀さに依存せず継続的に再現性のある成長が生まれる組織構造になる</figcaption>
+			</figure>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- 日本企業 -->
+		<section class="article-section">
+			<h2>日本企業で再現性が崩れやすい理由</h2>
+			<p>日本企業では属人営業・Excel文化・部門分断・暗黙知文化が根強く残っています。成功が個人に閉じやすく、組織として蓄積されません。優秀な人材が採用できても、構造がなければ成果は再現されません。本来必要なのはRevenueが再現される構造であり、日本企業の組織文化と商習慣に合ったRevenue Architectureの設計です。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- Consilegyの考え方 -->
+		<section class="article-section">
+			<h2>Consilegyの考え方</h2>
+			<p>Consilegyでは、Revenue改善を単なる施策改善として捉えていません。本質はRevenue Architecture・Revenue System・RevOps・Revenue KPI・Revenue Visibilityにあります。Salesforce・HubSpot・BI・Slack・Kintoneなどを横断しながら、「Revenueが再現される組織構造」を設計します。目的は良い施策を打つことではなく、Revenueが継続的に再現される構造を作ることです。</p>
+
+			<div class="article-table-wrap">
+				<table class="article-table">
+					<thead>
+						<tr>
+							<th>領域</th>
+							<th>Consilegyのサポート</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr><td>Revenue System設計</td><td>Marketing→Sales→CS→Expansionの一貫設計</td></tr>
+						<tr><td>Win Pattern定義</td><td>ICP・SQL条件・商談パターンの構造化</td></tr>
+						<tr><td>Revenue KPI構築</td><td>再現性を測るKPI Architecture設計</td></tr>
+						<tr><td>CRM活用改善</td><td>履歴置き場からRevenue改善ツールへ</td></tr>
+						<tr><td>RevOps構築</td><td>改善型会議体・プロセス・データ運用整備</td></tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- まとめ -->
+		<section class="article-section">
+			<h2>まとめ：再現性は、Revenue構造で決まる</h2>
+			<p>良い施策を打っているのに成長が再現しない原因は、人材不足ではありません。Revenue Architecture不足・Revenue Visibility不足・KPI Architecture不足・RevOps未整備が根本原因です。だからこそ必要なのは施策追加ではなく、Revenueが再現される構造を設計することです。成長は個人能力だけでなく、Revenue Architecture全体で決まります。</p>
+		</section>
+
+		<!-- RELATED -->
+		<aside class="article-related">
+			<h2 class="article-related__title">関連コラム</h2>
+			<ul class="article-related__list">
+				<li><a href="/insights/why-more-kpis-create-less-revenue-visibility/">なぜKPIが増えるほど売上が見えなくなるのか</a></li>
+				<li><a href="/insights/why-sales-and-customer-success-do-not-align/">なぜ営業とカスタマーサクセスが分断されるのか</a></li>
+				<li><a href="/insights/why-dashboards-do-not-improve-executive-decisions/">なぜダッシュボードを整備しても経営判断が速くならないのか</a></li>
+				<li><a href="/insights/why-more-leads-do-not-increase-revenue/">なぜ「良いリード」が増えているのに受注が増えないのか</a></li>
+			</ul>
+		</aside>
+
+		<!-- CTA -->
+		<div class="article-cta">
+			<p class="article-cta__eyebrow">Revenue Architecture</p>
+			<h2 class="article-cta__title">Revenueが再現される<br />組織構造を設計します</h2>
+			<p class="article-cta__body">Revenue System・Win Pattern定義・KPI・RevOpsを横断した設計で、属人化しない成長構造を実現します。</p>
+			<a href="/contact/" class="article-cta__btn">まずは相談する</a>
+		</div>
+
+	</article>
+	<NewsletterSidebar />
+</div>
+
+<style>
+/* ===== LAYOUT ===== */
+.article-wrap { background: #fff; }
+.container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+
+/* ===== HEADER ===== */
+.article-head { padding: 48px 24px 40px; }
+.breadcrumb { font-size: .78rem; color: var(--color-muted, #64748b); display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 20px; }
+.breadcrumb a { color: var(--color-muted, #64748b); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.article-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+.article-cat  { font-size: .75rem; font-weight: 600; color: var(--color-primary, #1e40af); background: #eff6ff; border-radius: 4px; padding: 3px 10px; }
+.article-date, .article-read { font-size: .78rem; color: var(--color-muted, #64748b); }
+.article-head h1 { font-size: clamp(1.5rem, 3.5vw, 2rem); font-weight: 700; line-height: 1.45; color: var(--color-navy, #0f172a); margin: 0 0 16px; }
+.article-desc { font-size: 1rem; color: var(--color-charcoal, #334155); line-height: 1.75; margin: 0; }
+.br-pc { display: block; }
+
+/* ===== BODY ===== */
+.article-body { padding: 0 24px 80px; }
+.article-section { margin-bottom: 8px; }
+.article-section h2 { font-size: 1.25rem; font-weight: 700; color: var(--color-navy, #0f172a); margin: 40px 0 16px; border-left: 3px solid var(--color-primary, #1e40af); padding-left: 12px; }
+.article-section h3 { font-size: 1rem; font-weight: 700; color: var(--color-navy, #0f172a); margin: 28px 0 10px; }
+.article-section p  { font-size: .96rem; color: var(--color-charcoal, #334155); line-height: 1.85; margin: 0 0 16px; }
+.article-hr { border: none; border-top: 1px solid var(--color-border, #e2e8f0); margin: 40px 0; }
+
+/* callout */
+.article-callout { background: #f8fafc; border-left: 3px solid var(--color-primary, #1e40af); border-radius: 0 6px 6px 0; padding: 16px 20px; margin: 20px 0; }
+.article-callout p { margin: 0; font-size: .93rem; color: var(--color-charcoal, #334155); line-height: 1.8; }
+
+/* numbered */
+.article-numbered { display: flex; flex-direction: column; gap: 24px; margin: 24px 0 32px; }
+.article-numbered__item { display: grid; grid-template-columns: 48px 1fr; grid-template-rows: auto auto; gap: 0 16px; align-items: start; }
+.article-numbered__num { font-size: .7rem; font-weight: 700; color: var(--color-primary, #1e40af); background: #eff6ff; border-radius: 4px; padding: 4px 0; text-align: center; grid-row: 1 / 3; align-self: start; margin-top: 4px; }
+.article-numbered__item h3 { margin: 0 0 6px; font-size: .97rem; font-weight: 700; color: var(--color-navy, #0f172a); }
+.article-numbered__item p  { margin: 0; font-size: .92rem; line-height: 1.78; color: var(--color-charcoal, #334155); }
+
+/* table */
+.article-table-wrap { overflow-x: auto; margin: 20px 0 28px; border-radius: 8px; border: 1px solid var(--color-border, #e2e8f0); }
+.article-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+.article-table th { background: var(--color-navy, #0f172a); color: #fff; font-weight: 600; padding: 10px 14px; text-align: left; }
+.article-table td { padding: 9px 14px; border-bottom: 1px solid var(--color-border, #e2e8f0); color: var(--color-charcoal, #334155); vertical-align: top; }
+.article-table tbody tr:last-child td { border-bottom: none; }
+.article-table tbody tr:nth-child(even) td { background: #f8fafc; }
+
+/* related */
+.article-related { background: #f8fafc; border-radius: 8px; padding: 28px 28px 24px; margin: 48px 0 0; }
+.article-related__title { font-size: .85rem; font-weight: 700; color: var(--color-muted, #64748b); text-transform: uppercase; letter-spacing: .06em; margin: 0 0 14px; }
+.article-related__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.article-related__list a { font-size: .93rem; color: var(--color-primary, #1e40af); text-decoration: none; }
+.article-related__list a:hover { text-decoration: underline; }
+
+/* CTA */
+.article-cta {
+	margin: 48px 0 0;
+	background:
+		radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%),
+		linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+	border-radius: 8px; padding: 48px 40px; color: #fff; text-align: center;
+}
+.article-cta__eyebrow { font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; opacity: .7; margin: 0 0 12px; }
+.article-cta__title  { font-size: clamp(1.3rem, 2.5vw, 1.7rem); font-weight: 700; line-height: 1.5; margin: 0 0 14px; }
+.article-cta__body   { font-size: .95rem; opacity: .88; line-height: 1.7; margin: 0 0 28px; }
+.article-cta__btn    { display: inline-block; background: #fff; color: var(--color-primary, #1e40af); font-weight: 700; font-size: .95rem; border-radius: 8px; padding: 13px 32px; text-decoration: none; }
+.article-cta__btn:hover { background: #f0f9ff; }
+
+/* =============================================
+   DIAGRAM BASE
+   ============================================= */
+.diag { border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; background: #fff; padding: 28px; margin: 32px 0; overflow: hidden; }
+.diag-caption { display: block; text-align: center; font-size: .78rem; color: var(--color-muted, #64748b); margin-top: 16px; line-height: 1.6; }
+
+/* =============================================
+   DIAGRAM 1 — .diag--attr
+   ============================================= */
+.diag-at-header { text-align: center; margin-bottom: 20px; }
+.diag-at-header__label { display: inline-block; font-size: .72rem; font-weight: 700; color: #b91c1c; background: #fef2f2; border: 1px solid #fecaca; border-radius: 4px; padding: 4px 14px; letter-spacing: .04em; }
+
+.diag-at-grid { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: start; margin-bottom: 16px; }
+
+.diag-at-person { background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 16px 12px; text-align: center; }
+.diag-at-person__icon { font-size: 1.5rem; margin-bottom: 6px; }
+.diag-at-person__role { font-size: .78rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 10px; }
+.diag-at-person__achievements { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; }
+.diag-at-person__achievements span { font-size: .62rem; color: var(--color-charcoal, #334155); background: #f0fdf4; border-radius: 3px; padding: 2px 6px; }
+.diag-at-person__note { font-size: .65rem; font-weight: 700; color: #b91c1c; background: #fef2f2; border-radius: 3px; padding: 3px 8px; }
+
+.diag-at-divider { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding-top: 24px; }
+.diag-at-divider__line  { width: 1px; height: 28px; background: #fecaca; }
+.diag-at-divider__label { font-size: .6rem; font-weight: 700; color: #b91c1c; white-space: nowrap; writing-mode: vertical-rl; }
+
+.diag-at-bubble { display: flex; justify-content: center; margin-bottom: 14px; }
+.diag-at-bubble__text { font-size: .78rem; font-weight: 700; color: #b91c1c; background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; padding: 8px 20px; }
+
+.diag-at-footer { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; padding-top: 14px; border-top: 1px solid var(--color-border, #e2e8f0); }
+.diag-at-footer span { font-size: .7rem; font-weight: 600; color: #b91c1c; background: #fef2f2; border-radius: 4px; padding: 4px 12px; }
+
+/* =============================================
+   DIAGRAM 2 — .diag--rev-system
+   ============================================= */
+.diag-rs-header { text-align: center; margin-bottom: 20px; }
+.diag-rs-header__label { display: block; font-size: .85rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 4px; }
+.diag-rs-header__sub   { font-size: .72rem; color: var(--color-muted, #64748b); }
+
+.diag-rs-top { display: flex; align-items: stretch; gap: 4px; overflow-x: auto; padding-bottom: 4px; }
+
+.diag-rs-stage { display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 12px 8px; min-width: 90px; flex: 1; }
+.diag-rs-stage--mkt   { background: #fff7ed; border-color: #fed7aa; }
+.diag-rs-stage--sales { background: #eff6ff; border-color: #bfdbfe; }
+.diag-rs-stage--cs    { background: #f0fdf4; border-color: #bbf7d0; }
+.diag-rs-stage--exp   { background: #faf5ff; border-color: #ddd6fe; }
+
+.diag-rs-stage__name { font-size: .75rem; font-weight: 700; color: var(--color-navy, #0f172a); }
+.diag-rs-stage__items { display: flex; flex-direction: column; gap: 4px; }
+.diag-rs-stage__items span { font-size: .62rem; color: var(--color-muted, #64748b); background: rgba(0,0,0,.04); border-radius: 3px; padding: 2px 6px; text-align: center; }
+
+.diag-rs-arrow { font-size: .85rem; color: var(--color-muted, #64748b); flex-shrink: 0; display: flex; align-items: center; }
+
+.diag-rs-infra { display: flex; justify-content: center; gap: 16px; background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 12px 16px; margin-top: 10px; flex-wrap: wrap; }
+.diag-rs-infra__item { display: flex; align-items: center; gap: 5px; font-size: .72rem; color: var(--color-charcoal, #334155); font-weight: 600; }
+.diag-rs-infra__icon { font-size: .9rem; }
+
+.diag-rs-cycle { display: flex; align-items: center; gap: 12px; background: var(--color-navy, #0f172a); border-radius: 6px; padding: 10px 16px; margin-top: 12px; }
+.diag-rs-cycle__label { font-size: .75rem; font-weight: 700; color: #fff; white-space: nowrap; }
+.diag-rs-cycle__desc  { font-size: .65rem; color: rgba(255,255,255,.65); }
+
+/* =============================================
+   DIAGRAM 3 — .diag--ra-repeat
+   ============================================= */
+.diag-rr-depts { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 0; }
+.diag-rr-dept { font-size: .72rem; font-weight: 700; border-radius: 4px; padding: 5px 14px; border: 1px solid; }
+.diag-rr-dept--mkt   { background: #fff7ed; color: #c2410c; border-color: #fed7aa; }
+.diag-rr-dept--sales { background: #eff6ff; color: #1e40af; border-color: #bfdbfe; }
+.diag-rr-dept--cs    { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
+.diag-rr-dept--crm   { background: #faf5ff; color: #6d28d9; border-color: #ddd6fe; }
+.diag-rr-dept--kpi   { background: #f0f9ff; color: #0369a1; border-color: #bae6fd; }
+.diag-rr-dept--bi    { background: #fdf4ff; color: #7e22ce; border-color: #e9d5ff; }
+.diag-rr-dept--wf    { background: #f8fafc; color: var(--color-charcoal, #334155); border-color: var(--color-border, #e2e8f0); }
+
+.diag-rr-lines { width: 100%; height: 40px; margin: 0; }
+.diag-rr-lines svg { width: 100%; height: 100%; display: block; }
+
+.diag-rr-core { background: var(--color-navy, #0f172a); border-radius: 8px; padding: 18px 20px; text-align: center; }
+.diag-rr-core__label { font-size: .85rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
+.diag-rr-core__tags  { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.diag-rr-core__tags span { font-size: .65rem; background: rgba(255,255,255,.12); color: rgba(255,255,255,.85); border-radius: 3px; padding: 3px 8px; }
+
+.diag-rr-connector { width: 2px; height: 24px; background: #cbd5e1; margin: 0 auto; }
+
+.diag-rr-outcomes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.diag-rr-outcome { background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 14px 12px; text-align: center; }
+.diag-rr-outcome--mid { background: #eff6ff; border-color: #bfdbfe; }
+.diag-rr-outcome__label { font-size: .8rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 6px; }
+.diag-rr-outcome__desc  { font-size: .65rem; color: var(--color-muted, #64748b); line-height: 1.6; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 700px) {
+	.br-pc { display: none; }
+	.article-head { padding: 32px 16px 28px; }
+	.article-body { padding: 0 16px 60px; }
+	.diag { padding: 20px 16px; }
+	.diag-at-grid { grid-template-columns: 1fr; }
+	.diag-at-divider { flex-direction: row; padding-top: 0; }
+	.diag-at-divider__line  { width: 28px; height: 1px; }
+	.diag-at-divider__label { writing-mode: horizontal-tb; }
+	.diag-rs-top { gap: 3px; }
+	.diag-rs-stage { min-width: 72px; padding: 10px 6px; }
+	.diag-rr-outcomes { grid-template-columns: 1fr; }
+	.article-cta { padding: 36px 24px; }
+	.article-numbered__item { grid-template-columns: 40px 1fr; }
+}
+
+@media (max-width: 480px) {
+	.diag-rs-infra { gap: 10px; }
+	.article-cta__title { font-size: 1.2rem; }
+}
+</style>
+
+</BaseLayout>

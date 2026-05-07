@@ -1,0 +1,203 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTA from '../../../components/CTA.astro';
+
+const services = [
+  {
+    number: '01',
+    title: 'Japan Market GTM & Messaging',
+    description: 'Adapt positioning, offers, and conversion paths so they fit how Japanese buyers evaluate trust, risk, and value.',
+    href: '/en/services/japan-market-gtm-messaging/',
+  },
+  {
+    number: '02',
+    title: 'Revenue Architecture Design',
+    description: 'Design the operating structure behind Japan-facing revenue growth — funnel logic, lifecycle definitions, handoff rules, and KPI framework.',
+    href: '/en/services/revenue-architecture-design/',
+  },
+  {
+    number: '03',
+    title: 'CRM / RevOps Implementation',
+    description: 'Turn revenue architecture into CRM configuration, workflows, automation, and reporting that teams can actually use.',
+    href: '/en/services/crm-revops-implementation/',
+  },
+  {
+    number: '04',
+    title: 'HubSpot Implementation & Operations Support',
+    description: 'Set up, improve, and operate HubSpot as part of your revenue system — not as a standalone tool setup project.',
+    href: '/en/services/hubspot-implementation-operations-support/',
+  },
+  {
+    number: '05',
+    title: 'Adoption & Growth Support',
+    description: 'Support the operating habits, reporting cycles, documentation, and improvement routines needed after CRM or GTM changes are launched.',
+    href: '/en/services/adoption-growth-support/',
+  },
+];
+---
+
+<BaseLayout
+  title="Services | Consilegy"
+  description="Consilegy supports global B2B teams across Japan GTM strategy, revenue architecture, CRM implementation, and operational adoption."
+  lang="en"
+  alternateUrl="/services/"
+>
+
+  <section class="sv-hero">
+    <div class="container sv-hero__inner">
+      <p class="sv-hero__eyebrow">Services</p>
+      <h1 class="sv-hero__title">Connected layers of Japan-facing revenue work.</h1>
+      <p class="sv-hero__sub">From messaging and market positioning through to CRM implementation and operational adoption — we work across the full stack, or focus on the layer you need most.</p>
+    </div>
+  </section>
+
+  <section class="sv-list">
+    <div class="container sv-list__inner">
+      {services.map((s) => (
+        <a class="sv-item" href={s.href}>
+          <span class="sv-item__number">{s.number}</span>
+          <div class="sv-item__content">
+            <h2 class="sv-item__title">{s.title}</h2>
+            <p class="sv-item__desc">{s.description}</p>
+          </div>
+          <span class="sv-item__arrow">→</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <CTA
+    title="Not sure which layer applies to your situation?"
+    href="/en/contact/"
+    label="Contact Us"
+  />
+
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .sv-hero {
+    background: var(--color-bg-subtle);
+    border-bottom: 1px solid var(--color-border);
+    padding-block: var(--space-2xl);
+  }
+
+  .sv-hero__inner {
+    max-width: 700px;
+  }
+
+  .sv-hero__eyebrow {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin: 0 0 var(--space-md);
+  }
+
+  .sv-hero__title {
+    font-size: clamp(1.55rem, 3vw, 2.2rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.25;
+    color: var(--color-text);
+    margin: 0 0 var(--space-lg);
+  }
+
+  .sv-hero__sub {
+    font-size: var(--text-lead);
+    color: var(--color-text-muted);
+    line-height: 1.75;
+    margin: 0;
+    max-width: 60ch;
+  }
+
+  /* List */
+  .sv-list {
+    padding-block: var(--space-2xl);
+  }
+
+  .sv-list__inner {
+    max-width: 820px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .sv-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-lg);
+    padding: var(--space-xl) var(--space-xl);
+    border-bottom: 1px solid var(--color-border);
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.15s;
+  }
+
+  .sv-item:last-child {
+    border-bottom: none;
+  }
+
+  .sv-item:hover {
+    background: var(--color-bg-subtle);
+  }
+
+  .sv-item__number {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--color-primary);
+    padding-top: 0.25rem;
+    flex-shrink: 0;
+    width: 2rem;
+  }
+
+  .sv-item__content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .sv-item__title {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 var(--space-sm);
+    letter-spacing: -0.01em;
+    line-height: 1.35;
+  }
+
+  .sv-item__desc {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+
+  .sv-item__arrow {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+    padding-top: 0.15rem;
+    transition: color 0.15s, transform 0.15s;
+  }
+
+  .sv-item:hover .sv-item__arrow {
+    color: var(--color-primary);
+    transform: translateX(3px);
+  }
+
+  @media (max-width: 600px) {
+    .sv-item {
+      padding: var(--space-lg);
+      gap: var(--space-md);
+    }
+
+    .sv-item__arrow {
+      display: none;
+    }
+  }
+</style>

@@ -1,0 +1,131 @@
+---
+import WPPageLayout from '../../layouts/WPPageLayout.astro';
+import HubSpotForm from '../../components/HubSpotForm.astro';
+---
+
+<WPPageLayout
+  title="Contact Us | Consilegy"
+  description="Tell us about your Japan GTM or revenue operations challenge. We work with global B2B teams entering Japan, improving local conversion, or building CRM and RevOps foundations for local execution."
+  lang="en"
+>
+  <div class="contact-en">
+
+    <div class="contact-en__hero">
+      <h1 class="contact-en__heading">Contact Us</h1>
+      <p class="contact-en__lead">
+        Tell us about your Japan GTM or revenue operations challenge.<br>
+        We work with global B2B teams entering Japan, improving Japan-facing conversion,
+        or building CRM and RevOps foundations for local execution.
+      </p>
+    </div>
+
+    <div class="contact-en__topics">
+      <p class="contact-en__topics-label">You can contact us about:</p>
+      <ul class="contact-en__topics-list">
+        <li>Japan market entry and GTM planning</li>
+        <li>Japan-facing messaging and conversion paths</li>
+        <li>Revenue architecture and funnel design</li>
+        <li>CRM / RevOps implementation</li>
+        <li>HubSpot setup, migration, or operations support</li>
+        <li>Adoption, reporting, and operational improvement</li>
+      </ul>
+    </div>
+
+    <div class="contact-en__form">
+      <HubSpotForm
+        portalId="46498743"
+        formId="29d27c94-87f9-453f-a21d-8ef585b53364"
+      />
+    </div>
+
+    <p class="contact-en__note">
+      We usually respond with the most appropriate next step based on your situation, scope, and timing.
+    </p>
+
+  </div>
+</WPPageLayout>
+
+<style>
+  .contact-en {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: var(--space-2xl) var(--space-md) var(--space-2xl);
+  }
+
+  .contact-en__hero {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+  }
+
+  .contact-en__heading {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--color-text);
+    margin: 0 0 var(--space-md);
+  }
+
+  .contact-en__lead {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .contact-en__topics {
+    background: #f8f9fc;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    margin-bottom: var(--space-xl);
+  }
+
+  .contact-en__topics-label {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 0.75rem;
+  }
+
+  .contact-en__topics-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem 2rem;
+  }
+
+  .contact-en__topics-list li {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    padding-left: 1.1rem;
+    position: relative;
+  }
+
+  .contact-en__topics-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-size: 0.8rem;
+  }
+
+  .contact-en__form {
+    margin-bottom: var(--space-lg);
+  }
+
+  .contact-en__note {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    text-align: center;
+    margin: 0;
+    opacity: 0.8;
+  }
+
+  @media (max-width: 600px) {
+    .contact-en__topics-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

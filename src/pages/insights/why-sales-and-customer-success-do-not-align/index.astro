@@ -1,0 +1,532 @@
+---
+import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const pubDate = '2026-05-07';
+const pubDateDisplay = '2026年5月7日';
+const readTime = '約10分';
+
+const articleSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: '営業とカスタマーサクセスが連携できない理由｜RevOpsとRevenue Architecture',
+	description: '営業とカスタマーサクセスが分断される原因を、KPI設計・CRM・Revenue Architectureの観点から解説します。',
+	datePublished: pubDate,
+	dateModified: pubDate,
+	author: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+	url: 'https://consilegy.com/insights/why-sales-and-customer-success-do-not-align/',
+	inLanguage: 'ja',
+};
+
+const breadcrumbSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://consilegy.com/' },
+		{ '@type': 'ListItem', position: 2, name: 'コラム', item: 'https://consilegy.com/insights/' },
+		{ '@type': 'ListItem', position: 3, name: 'なぜ営業とカスタマーサクセスが分断されるのか', item: 'https://consilegy.com/insights/why-sales-and-customer-success-do-not-align/' },
+	],
+};
+---
+
+<BaseLayout
+	title="営業とカスタマーサクセスが連携できない理由｜RevOpsとRevenue Architecture | Consilegy"
+	description="営業とカスタマーサクセスが分断される原因を、KPI設計・CRM・Revenue Architectureの観点から解説します。"
+	lang="ja"
+>
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	</Fragment>
+
+<div class="article-wrap">
+
+	<!-- ===== ARTICLE HEADER ===== -->
+	<header class="article-head container">
+		<nav class="breadcrumb" aria-label="パンくずリスト">
+			<a href="/">ホーム</a>
+			<span aria-hidden="true">›</span>
+			<a href="/insights/">コラム</a>
+			<span aria-hidden="true">›</span>
+			<span aria-current="page">なぜ営業とカスタマーサクセスが分断されるのか</span>
+		</nav>
+		<div class="article-meta">
+			<span class="article-cat">RevOps / Customer Success</span>
+			<span class="article-date">{pubDateDisplay}</span>
+			<span class="article-read">{readTime}</span>
+		</div>
+		<h1>なぜ営業とカスタマーサクセスが<br class="br-pc" />分断されるのか</h1>
+		<p class="article-desc">受注まではうまくいっている。それなのに解約が増え、オンボーディングが荒れ、アップセルにつながらない。この問題の本質は、CS部門の問題ではなく、受注後の構造が設計されていないことにある。</p>
+	</header>
+
+	<!-- ===== ARTICLE BODY ===== -->
+	<article class="article-body container" id="article">
+
+		<!-- はじめに -->
+		<section class="article-section">
+			<h2>はじめに：「受注後」に構造が存在しない</h2>
+			<p>受注まではうまくいっている。営業も頑張り、マーケティングもリードを作れている。それなのに、解約が増え、オンボーディングが荒れ、アップセルにつながらない。CSが「そんな話は聞いていない」と言い、契約後の顧客情報が正確に引き継がれていない——こうした問題は、サブスクリプション・継続課金・アップセル型のBtoB企業では特によく起きます。</p>
+			<div class="article-callout">
+				<p>重要なのは、これはCS部門の問題ではないということです。本当の原因は、「受注まで」と「受注後」が別々に設計されていることにあります。</p>
+			</div>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- 受注で構造が切れている -->
+		<section class="article-section">
+			<h2>多くの会社では、「受注」で構造が切れている</h2>
+			<p>営業組織は受注をゴールに設計されています。商談数・Win Rate・ARR・受注件数を追う。一方CSは、オンボーディング・活用率・更新率・NRR・チャーンを見る。つまり、そもそもKPI構造が分断されています。同じ会社の中で、「受注まで」と「受注後」が別の組織として動いており、それをつなぐ設計が存在しない——これが最初の問題です。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- 典型パターン -->
+		<section class="article-section">
+			<h2>営業とCSが噛み合わない、典型的な3つのパターン</h2>
+
+			<h3>営業は「受注」を優先する</h3>
+			<p>営業は数字を追います。すると、導入条件が曖昧なまま、無理な期待値や過剰提案を含んだ状態で受注するケースが出てきます。営業からすると「まず契約」が重要であり、それ自体は組織の目標に沿った合理的な行動です。しかし、その判断がCS側に無言のコストを転嫁することになります。</p>
+
+			<h3>CSは「運用」を背負わされる</h3>
+			<p>契約後、実際に顧客対応をするのはCSです。すると、想定と違う運用・未共有の要件・引き継ぎ漏れ・期待値ギャップが次々と発覚します。CS側は「営業が無理に売った」と感じ始め、組織内の信頼が失われていきます。</p>
+
+			<h3>顧客体験が分断される</h3>
+			<p>顧客から見ると、営業もCSも同じ会社です。しかし内部では、営業・導入・サポート・更新が別々に動いている。その結果、「契約前と話が違う」という顧客の不満が生まれます。これはRevenue Operationsが機能していない状態の典型例です。</p>
+
+			<!-- DIAGRAM 1 -->
+			<figure class="diag diag--cs-gap" aria-label="営業とカスタマーサクセスが分断されている状態の構造図。引き継ぎ漏れ・期待値ギャップ・情報分断により、顧客体験が一貫しない状態を示す。">
+				<div class="diag-cg-header">
+					<span class="diag-cg-header__label">現状：受注で構造が切れている</span>
+				</div>
+				<div class="diag-cg-grid">
+					<div class="diag-cg-dept">
+						<div class="diag-cg-dept__badge diag-cg-dept__badge--sales">Sales</div>
+						<div class="diag-cg-dept__kpi">ARR・受注件数</div>
+						<div class="diag-cg-dept__tools">
+							<span>Salesforce</span>
+							<span>SFA</span>
+						</div>
+						<div class="diag-cg-dept__goal">受注がゴール</div>
+					</div>
+					<div class="diag-cg-center">
+						<div class="diag-cg-issues">
+							<div class="diag-cg-issue diag-cg-issue--warn">引き継ぎ漏れ</div>
+							<div class="diag-cg-issue diag-cg-issue--warn">期待値ギャップ</div>
+							<div class="diag-cg-issue diag-cg-issue--warn">情報分断</div>
+							<div class="diag-cg-issue">Slack / Excel / 口頭</div>
+						</div>
+						<div class="diag-cg-cut" aria-hidden="true">✂</div>
+					</div>
+					<div class="diag-cg-dept">
+						<div class="diag-cg-dept__badge diag-cg-dept__badge--cs">Customer Success</div>
+						<div class="diag-cg-dept__kpi">NRR・チャーン率</div>
+						<div class="diag-cg-dept__tools">
+							<span>Notion</span>
+							<span>CSツール</span>
+						</div>
+						<div class="diag-cg-dept__goal">継続がゴール</div>
+					</div>
+				</div>
+				<div class="diag-cg-customer">
+					<span class="diag-cg-customer__label">顧客の声</span>
+					<span class="diag-cg-customer__text">「契約前と話が違う」</span>
+				</div>
+				<figcaption class="diag-caption">KPI・ツール・ゴール設定が別々であることが、営業とCSの分断を構造的に生み出している</figcaption>
+			</figure>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- 5つの問題 -->
+		<section class="article-section">
+			<h2>分断される会社に共通する5つの問題</h2>
+
+			<div class="article-numbered">
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">01</p>
+					<h3>顧客情報が分断されている</h3>
+					<p>営業はSalesforce、CSはNotion、サポートは別ツール——という状態では、契約内容・導入背景・期待値・利用状況がつながりません。CS担当者が顧客の過去のやり取りを知らないまま対応することになります。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">02</p>
+					<h3>受注後のKPIが存在しない</h3>
+					<p>営業はARRを見ますが、NRR・Expansion・Health Scoreを営業が見ていない。するとコールドな「売って終わり」の構造になります。受注後のRevenue成長に対して、誰も責任を持たない状態です。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">03</p>
+					<h3>引き継ぎ条件が定義されていない</h3>
+					<p>何を共有するか・いつCSへ渡すか・誰が責任を持つかが曖昧なまま運用されています。これでは属人化を避けられず、担当者が変わるたびに情報が欠落します。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">04</p>
+					<h3>オンボーディングが設計されていない</h3>
+					<p>導入後、最初に何を使うか・いつ定着確認するか・どこで成功を判断するかが未設計です。この状態ではチャーン率が上がり、顧客の期待値コントロールもできません。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">05</p>
+					<h3>Revenue KPIが部門ごとに分断されている</h3>
+					<p>営業は受注、CSは継続、という分断が続く限り、「収益全体」を最大化する視点が生まれません。NRRやExpansionを組織全体のKPIとして持つ設計が必要です。</p>
+				</div>
+			</div>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- Customer Lifecycle Design -->
+		<section class="article-section">
+			<h2>本当に必要なのは「Customer Lifecycle Design」</h2>
+			<p>引き継ぎの問題を解決するために、多くの会社はSlackのチャンネルやNotion上のドキュメントを整備しようとします。しかしそれは対症療法にすぎません。本当に必要なのは、Customer Lifecycle Design——獲得・商談・契約・オンボーディング・活用・更新・アップセルを一つの流れとして設計する考え方です。営業だけでも、CSだけでもなく、「顧客ライフサイクル全体」を見ることが重要です。</p>
+
+			<p>特にSaaS・サブスクリプションモデルでは、受注よりも継続・Expansion・NRRの方が収益上の重要度が高くなります。つまり「受注後」がRevenueの中心です。しかし営業組織だけが強い会社では、ここが切れます。高チャーン・アップセル不足・導入失敗が続くのは、その構造的な結果です。</p>
+
+			<!-- DIAGRAM 2 -->
+			<figure class="diag diag--lifecycle" aria-label="Customer Lifecycle Design構造図。Lead・Opportunity・Contract・Onboarding・Adoption・Renewal・Expansionの各フェーズが一貫して設計されており、営業からCSへRevenue Flowが継続する構造を示す。">
+				<div class="diag-lc-header">
+					<span class="diag-lc-header__label">Customer Lifecycle Design</span>
+					<span class="diag-lc-header__sub">受注後もRevenue Flowが続く設計</span>
+				</div>
+				<div class="diag-lc-stages">
+					<div class="diag-lc-stage">
+						<div class="diag-lc-stage__name">Lead</div>
+						<div class="diag-lc-stage__sys diag-lc-stage__sys--mkt">Marketing</div>
+					</div>
+					<div class="diag-lc-arrow" aria-hidden="true">→</div>
+					<div class="diag-lc-stage diag-lc-stage--sales">
+						<div class="diag-lc-stage__name">Opportunity</div>
+						<div class="diag-lc-stage__sys diag-lc-stage__sys--sales">Sales</div>
+					</div>
+					<div class="diag-lc-arrow" aria-hidden="true">→</div>
+					<div class="diag-lc-stage diag-lc-stage--sales">
+						<div class="diag-lc-stage__name">Contract</div>
+						<div class="diag-lc-stage__sys diag-lc-stage__sys--sales">Sales</div>
+					</div>
+					<div class="diag-lc-arrow diag-lc-arrow--key" aria-hidden="true">→</div>
+					<div class="diag-lc-stage diag-lc-stage--cs">
+						<div class="diag-lc-stage__name">Onboarding</div>
+						<div class="diag-lc-stage__sys diag-lc-stage__sys--cs">CS</div>
+					</div>
+					<div class="diag-lc-arrow" aria-hidden="true">→</div>
+					<div class="diag-lc-stage diag-lc-stage--cs">
+						<div class="diag-lc-stage__name">Adoption</div>
+						<div class="diag-lc-stage__sys diag-lc-stage__sys--cs">CS</div>
+					</div>
+					<div class="diag-lc-arrow" aria-hidden="true">→</div>
+					<div class="diag-lc-stage diag-lc-stage--cs">
+						<div class="diag-lc-stage__name">Renewal</div>
+						<div class="diag-lc-stage__sys diag-lc-stage__sys--cs">CS</div>
+					</div>
+					<div class="diag-lc-arrow" aria-hidden="true">→</div>
+					<div class="diag-lc-stage diag-lc-stage--exp">
+						<div class="diag-lc-stage__name">Expansion</div>
+						<div class="diag-lc-stage__sys diag-lc-stage__sys--exp">NRR↑</div>
+					</div>
+				</div>
+				<div class="diag-lc-handoff">
+					<span class="diag-lc-handoff__label">引き継ぎポイント</span>
+					<span class="diag-lc-handoff__desc">契約内容・導入背景・期待値・利用状況をCRMで引き継ぐ</span>
+				</div>
+				<figcaption class="diag-caption">受注をゴールとせず、Expansionまでを一貫した設計として持つことでRevenue Flowが途切れない</figcaption>
+			</figure>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- Revenue Architecture -->
+		<section class="article-section">
+			<h2>Revenue Architectureという考え方</h2>
+			<p>営業とCSの問題は、部門間のコミュニケーション不足で起きているのではありません。Revenue KPI・Customer Lifecycle・CRM設計・Revenue Data Flow・RevOpsという構造の問題です。ここで重要になるのがRevenue Architecture（レベニューアーキテクチャ）——営業・マーケティング・CS・CRM・KPI・データ・会議体を「収益につながる一つの構造」として設計する考え方です。</p>
+
+			<p>Revenue Architectureを整えることで、営業とCSが同じKPI（ARR・NRR・Expansion・Activation）を見るようになります。顧客情報が統合され、「誰が何を約束したか」が見えるようになります。オンボーディングが構造化され、CSデータが営業にフィードバックされることでアップセルが自然に生まれます。チャーンが減り、期待値ギャップが解消されます。</p>
+
+			<!-- DIAGRAM 3 -->
+			<figure class="diag diag--ra-cs" aria-label="Revenue Architectureが営業・カスタマーサクセスを接続する構造図。Marketing・Sales・Customer Success・CRM・KPI・Revenue DataをRevenue Architectureが統合し、継続収益・NRR向上・アップセルにつながる設計を示す。">
+				<div class="diag-rc-depts">
+					<span class="diag-rc-dept diag-rc-dept--mkt">Marketing</span>
+					<span class="diag-rc-dept diag-rc-dept--sales">Sales</span>
+					<span class="diag-rc-dept diag-rc-dept--cs">Customer Success</span>
+					<span class="diag-rc-dept diag-rc-dept--crm">CRM</span>
+					<span class="diag-rc-dept diag-rc-dept--kpi">KPI</span>
+					<span class="diag-rc-dept diag-rc-dept--data">Revenue Data</span>
+				</div>
+				<div class="diag-rc-lines" aria-hidden="true">
+					<svg viewBox="0 0 600 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+						<line x1="50"  y1="0" x2="300" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
+						<line x1="150" y1="0" x2="300" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
+						<line x1="250" y1="0" x2="300" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
+						<line x1="350" y1="0" x2="300" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
+						<line x1="450" y1="0" x2="300" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
+						<line x1="550" y1="0" x2="300" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
+					</svg>
+				</div>
+				<div class="diag-rc-core">
+					<div class="diag-rc-core__label">Revenue Architecture</div>
+					<div class="diag-rc-core__tags">
+						<span>Customer Lifecycle</span>
+						<span>Revenue KPI</span>
+						<span>CRM設計</span>
+						<span>Data Flow</span>
+						<span>RevOps</span>
+					</div>
+				</div>
+				<div class="diag-rc-connector" aria-hidden="true"></div>
+				<div class="diag-rc-outcomes">
+					<div class="diag-rc-outcome">
+						<div class="diag-rc-outcome__label">継続収益</div>
+						<div class="diag-rc-outcome__desc">チャーン低減<br />解約防止</div>
+					</div>
+					<div class="diag-rc-outcome diag-rc-outcome--mid">
+						<div class="diag-rc-outcome__label">NRR向上</div>
+						<div class="diag-rc-outcome__desc">Expansion<br />Health Score</div>
+					</div>
+					<div class="diag-rc-outcome">
+						<div class="diag-rc-outcome__label">アップセル</div>
+						<div class="diag-rc-outcome__desc">CSデータが<br />営業へ還流</div>
+					</div>
+				</div>
+				<figcaption class="diag-caption">Revenue Architectureは部門・ツール・KPIを接続し、受注後も収益が成長し続ける構造を設計する</figcaption>
+			</figure>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- 日本企業 -->
+		<section class="article-section">
+			<h2>日本企業でこの問題が難しい理由</h2>
+			<p>日本企業では部門分断・属人営業・Excel文化・情報の口頭共有が根強く残っています。その結果、営業とCS連携が崩れやすく、顧客情報の引き継ぎが個人の努力に依存します。欧米型のCS組織モデルをそのまま導入しても、日本企業の商習慣や組織文化とのズレで機能しないことが多い。必要なのは、日本企業に合ったRevenue Architectureの設計です。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- Consilegyの考え方 -->
+		<section class="article-section">
+			<h2>Consilegyの考え方</h2>
+			<p>Consilegyでは、CS改善を単なるサポート改善として捉えていません。本質はRevenue Architecture・Customer Lifecycle・RevOps・Revenue Data Flow・KPI設計にあります。Salesforce・HubSpot・CSツール・BI・Slackなどを横断しながら、「受注後もRevenueが成長する構造」を設計します。目的は契約を取ることではなく、継続収益が積み上がる構造を作ることです。</p>
+
+			<div class="article-table-wrap">
+				<table class="article-table">
+					<thead>
+						<tr>
+							<th>領域</th>
+							<th>Consilegyのサポート</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr><td>Customer Lifecycle設計</td><td>Lead→Expansionまでの一貫したフロー設計</td></tr>
+						<tr><td>引き継ぎ条件の定義</td><td>営業→CSの情報引き継ぎ構造とCRM設計</td></tr>
+						<tr><td>Revenue KPI統合</td><td>ARR・NRR・Expansionを部門横断で接続</td></tr>
+						<tr><td>オンボーディング設計</td><td>定着・成功判断・早期チャーン防止の設計</td></tr>
+						<tr><td>RevOps構築</td><td>会議体・プロセス・KPI・ツール連携の整備</td></tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- まとめ -->
+		<section class="article-section">
+			<h2>まとめ：営業とCSの分断は、Revenue構造の問題</h2>
+			<p>営業とCSが噛み合わない原因は、コミュニケーション不足ではありません。Revenue KPI分断・Customer Lifecycle未設計・Revenue Architecture不足・RevOps未整備が根本原因です。だからこそ必要なのは部門改善ではなく、受注から継続までの構造を設計することです。Revenueは営業だけでなく、Customer Lifecycle全体で生まれます。</p>
+		</section>
+
+		<!-- RELATED -->
+		<aside class="article-related">
+			<h2 class="article-related__title">関連コラム</h2>
+			<ul class="article-related__list">
+				<li><a href="/insights/why-crm-adoption-fails/">なぜCRMは定着しないのか</a></li>
+				<li><a href="/insights/why-sales-meetings-become-number-reporting/">なぜ営業会議は数字確認で終わるのか</a></li>
+				<li><a href="/insights/why-more-leads-do-not-increase-revenue/">なぜ「良いリード」が増えているのに受注が増えないのか</a></li>
+				<li><a href="/insights/why-sales-forecasting-fails-even-with-sfa/">なぜSFAを導入しても売上予測が当たらないのか</a></li>
+			</ul>
+		</aside>
+
+		<!-- CTA -->
+		<div class="article-cta">
+			<p class="article-cta__eyebrow">Revenue Architecture</p>
+			<h2 class="article-cta__title">受注後も収益が成長する<br />構造を設計します</h2>
+			<p class="article-cta__body">Customer Lifecycle・Revenue KPI・CRM・RevOpsを横断した設計で、継続収益とNRR向上を実現します。</p>
+			<a href="/contact/" class="article-cta__btn">まずは相談する</a>
+		</div>
+
+	</article>
+	<NewsletterSidebar />
+</div>
+
+<style>
+/* ===== LAYOUT ===== */
+.article-wrap { background: #fff; }
+.container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+
+/* ===== HEADER ===== */
+.article-head { padding: 48px 24px 40px; }
+.breadcrumb { font-size: .78rem; color: var(--color-muted, #64748b); display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 20px; }
+.breadcrumb a { color: var(--color-muted, #64748b); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.article-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+.article-cat  { font-size: .75rem; font-weight: 600; color: var(--color-primary, #1e40af); background: #eff6ff; border-radius: 4px; padding: 3px 10px; }
+.article-date, .article-read { font-size: .78rem; color: var(--color-muted, #64748b); }
+.article-head h1 { font-size: clamp(1.5rem, 3.5vw, 2rem); font-weight: 700; line-height: 1.45; color: var(--color-navy, #0f172a); margin: 0 0 16px; }
+.article-desc { font-size: 1rem; color: var(--color-charcoal, #334155); line-height: 1.75; margin: 0; }
+.br-pc { display: block; }
+
+/* ===== BODY ===== */
+.article-body { padding: 0 24px 80px; }
+.article-section { margin-bottom: 8px; }
+.article-section h2 { font-size: 1.25rem; font-weight: 700; color: var(--color-navy, #0f172a); margin: 40px 0 16px; border-left: 3px solid var(--color-primary, #1e40af); padding-left: 12px; }
+.article-section h3 { font-size: 1rem; font-weight: 700; color: var(--color-navy, #0f172a); margin: 28px 0 10px; }
+.article-section p  { font-size: .96rem; color: var(--color-charcoal, #334155); line-height: 1.85; margin: 0 0 16px; }
+.article-hr { border: none; border-top: 1px solid var(--color-border, #e2e8f0); margin: 40px 0; }
+
+/* callout */
+.article-callout { background: #f8fafc; border-left: 3px solid var(--color-primary, #1e40af); border-radius: 0 6px 6px 0; padding: 16px 20px; margin: 20px 0; }
+.article-callout p { margin: 0; font-size: .93rem; color: var(--color-charcoal, #334155); line-height: 1.8; }
+
+/* numbered */
+.article-numbered { display: flex; flex-direction: column; gap: 24px; margin: 24px 0 32px; }
+.article-numbered__item { display: grid; grid-template-columns: 48px 1fr; grid-template-rows: auto auto; gap: 0 16px; align-items: start; }
+.article-numbered__num { font-size: .7rem; font-weight: 700; color: var(--color-primary, #1e40af); background: #eff6ff; border-radius: 4px; padding: 4px 0; text-align: center; grid-row: 1 / 3; align-self: start; margin-top: 4px; }
+.article-numbered__item h3 { margin: 0 0 6px; font-size: .97rem; font-weight: 700; color: var(--color-navy, #0f172a); }
+.article-numbered__item p  { margin: 0; font-size: .92rem; line-height: 1.78; color: var(--color-charcoal, #334155); }
+
+/* table */
+.article-table-wrap { overflow-x: auto; margin: 20px 0 28px; border-radius: 8px; border: 1px solid var(--color-border, #e2e8f0); }
+.article-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+.article-table th { background: var(--color-navy, #0f172a); color: #fff; font-weight: 600; padding: 10px 14px; text-align: left; }
+.article-table td { padding: 9px 14px; border-bottom: 1px solid var(--color-border, #e2e8f0); color: var(--color-charcoal, #334155); vertical-align: top; }
+.article-table tbody tr:last-child td { border-bottom: none; }
+.article-table tbody tr:nth-child(even) td { background: #f8fafc; }
+
+/* related */
+.article-related { background: #f8fafc; border-radius: 8px; padding: 28px 28px 24px; margin: 48px 0 0; }
+.article-related__title { font-size: .85rem; font-weight: 700; color: var(--color-muted, #64748b); text-transform: uppercase; letter-spacing: .06em; margin: 0 0 14px; }
+.article-related__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.article-related__list a { font-size: .93rem; color: var(--color-primary, #1e40af); text-decoration: none; }
+.article-related__list a:hover { text-decoration: underline; }
+
+/* CTA */
+.article-cta {
+	margin: 48px 0 0;
+	background:
+		radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%),
+		linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+	border-radius: 8px; padding: 48px 40px; color: #fff; text-align: center;
+}
+.article-cta__eyebrow { font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; opacity: .7; margin: 0 0 12px; }
+.article-cta__title  { font-size: clamp(1.3rem, 2.5vw, 1.7rem); font-weight: 700; line-height: 1.5; margin: 0 0 14px; }
+.article-cta__body   { font-size: .95rem; opacity: .88; line-height: 1.7; margin: 0 0 28px; }
+.article-cta__btn    { display: inline-block; background: #fff; color: var(--color-primary, #1e40af); font-weight: 700; font-size: .95rem; border-radius: 8px; padding: 13px 32px; text-decoration: none; }
+.article-cta__btn:hover { background: #f0f9ff; }
+
+/* =============================================
+   DIAGRAM BASE
+   ============================================= */
+.diag { border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; background: #fff; padding: 28px; margin: 32px 0; overflow: hidden; }
+.diag-caption { display: block; text-align: center; font-size: .78rem; color: var(--color-muted, #64748b); margin-top: 16px; line-height: 1.6; }
+
+/* =============================================
+   DIAGRAM 1 — .diag--cs-gap
+   ============================================= */
+.diag-cg-header { text-align: center; margin-bottom: 24px; }
+.diag-cg-header__label { display: inline-block; font-size: .72rem; font-weight: 700; color: #b91c1c; background: #fef2f2; border: 1px solid #fecaca; border-radius: 4px; padding: 4px 14px; letter-spacing: .04em; }
+
+.diag-cg-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: center; }
+
+.diag-cg-dept { background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 16px 14px; text-align: center; }
+.diag-cg-dept__badge { display: inline-block; font-size: .7rem; font-weight: 700; border-radius: 4px; padding: 3px 10px; margin-bottom: 8px; }
+.diag-cg-dept__badge--sales { background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; }
+.diag-cg-dept__badge--cs    { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
+.diag-cg-dept__kpi  { font-size: .75rem; font-weight: 600; color: var(--color-navy, #0f172a); margin-bottom: 8px; }
+.diag-cg-dept__tools { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; margin-bottom: 8px; }
+.diag-cg-dept__tools span { font-size: .65rem; color: var(--color-muted, #64748b); background: #f1f5f9; border-radius: 3px; padding: 2px 6px; }
+.diag-cg-dept__goal { font-size: .68rem; font-weight: 700; color: var(--color-muted, #64748b); }
+
+.diag-cg-center { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.diag-cg-issues { display: flex; flex-direction: column; gap: 6px; }
+.diag-cg-issue { font-size: .68rem; color: var(--color-charcoal, #334155); background: #f1f5f9; border-radius: 4px; padding: 4px 10px; text-align: center; white-space: nowrap; }
+.diag-cg-issue--warn { background: #fef9c3; color: #92400e; font-weight: 600; }
+.diag-cg-cut { font-size: 1.4rem; color: #b91c1c; margin-top: 4px; }
+
+.diag-cg-customer { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--color-border, #e2e8f0); }
+.diag-cg-customer__label { font-size: .68rem; font-weight: 700; color: var(--color-muted, #64748b); white-space: nowrap; }
+.diag-cg-customer__text  { font-size: .8rem; font-weight: 700; color: #b91c1c; background: #fef2f2; border-radius: 6px; padding: 6px 14px; }
+
+/* =============================================
+   DIAGRAM 2 — .diag--lifecycle
+   ============================================= */
+.diag-lc-header { text-align: center; margin-bottom: 20px; }
+.diag-lc-header__label { display: block; font-size: .85rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 4px; }
+.diag-lc-header__sub   { font-size: .72rem; color: var(--color-muted, #64748b); }
+
+.diag-lc-stages { display: flex; align-items: stretch; gap: 3px; overflow-x: auto; padding-bottom: 4px; }
+
+.diag-lc-stage { display: flex; flex-direction: column; align-items: center; gap: 6px; background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 10px 8px; min-width: 72px; flex: 1; }
+.diag-lc-stage--sales { background: #eff6ff; border-color: #bfdbfe; }
+.diag-lc-stage--cs    { background: #f0fdf4; border-color: #bbf7d0; }
+.diag-lc-stage--exp   { background: #faf5ff; border-color: #ddd6fe; }
+
+.diag-lc-stage__name { font-size: .68rem; font-weight: 700; color: var(--color-navy, #0f172a); text-align: center; }
+.diag-lc-stage__sys  { font-size: .6rem; font-weight: 700; border-radius: 3px; padding: 2px 5px; white-space: nowrap; }
+.diag-lc-stage__sys--mkt   { background: #fff7ed; color: #c2410c; }
+.diag-lc-stage__sys--sales { background: #eff6ff; color: #1e40af; }
+.diag-lc-stage__sys--cs    { background: #f0fdf4; color: #15803d; }
+.diag-lc-stage__sys--exp   { background: #faf5ff; color: #6d28d9; }
+
+.diag-lc-arrow { font-size: .85rem; color: var(--color-muted, #64748b); flex-shrink: 0; display: flex; align-items: center; }
+.diag-lc-arrow--key { color: var(--color-primary, #1e40af); font-weight: 700; }
+
+.diag-lc-handoff { display: flex; align-items: center; gap: 12px; margin-top: 16px; background: #eff6ff; border-radius: 6px; padding: 10px 16px; }
+.diag-lc-handoff__label { font-size: .72rem; font-weight: 700; color: var(--color-primary, #1e40af); white-space: nowrap; }
+.diag-lc-handoff__desc  { font-size: .68rem; color: var(--color-charcoal, #334155); }
+
+/* =============================================
+   DIAGRAM 3 — .diag--ra-cs
+   ============================================= */
+.diag-rc-depts { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 0; }
+.diag-rc-dept { font-size: .72rem; font-weight: 700; border-radius: 4px; padding: 5px 14px; border: 1px solid; }
+.diag-rc-dept--mkt   { background: #fff7ed; color: #c2410c; border-color: #fed7aa; }
+.diag-rc-dept--sales { background: #eff6ff; color: #1e40af; border-color: #bfdbfe; }
+.diag-rc-dept--cs    { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
+.diag-rc-dept--crm   { background: #faf5ff; color: #6d28d9; border-color: #ddd6fe; }
+.diag-rc-dept--kpi   { background: #f0f9ff; color: #0369a1; border-color: #bae6fd; }
+.diag-rc-dept--data  { background: #f8fafc; color: var(--color-charcoal, #334155); border-color: var(--color-border, #e2e8f0); }
+
+.diag-rc-lines { width: 100%; height: 40px; margin: 0; }
+.diag-rc-lines svg { width: 100%; height: 100%; display: block; }
+
+.diag-rc-core { background: var(--color-navy, #0f172a); border-radius: 8px; padding: 18px 20px; text-align: center; }
+.diag-rc-core__label { font-size: .85rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
+.diag-rc-core__tags  { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.diag-rc-core__tags span { font-size: .65rem; background: rgba(255,255,255,.12); color: rgba(255,255,255,.85); border-radius: 3px; padding: 3px 8px; }
+
+.diag-rc-connector { width: 2px; height: 24px; background: #cbd5e1; margin: 0 auto; }
+
+.diag-rc-outcomes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.diag-rc-outcome { background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 14px 12px; text-align: center; }
+.diag-rc-outcome--mid { background: #eff6ff; border-color: #bfdbfe; }
+.diag-rc-outcome__label { font-size: .8rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 6px; }
+.diag-rc-outcome__desc  { font-size: .65rem; color: var(--color-muted, #64748b); line-height: 1.6; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 700px) {
+	.br-pc { display: none; }
+	.article-head { padding: 32px 16px 28px; }
+	.article-body { padding: 0 16px 60px; }
+	.diag { padding: 20px 16px; }
+	.diag-cg-grid { grid-template-columns: 1fr; gap: 12px; }
+	.diag-cg-center { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+	.diag-lc-stages { gap: 2px; }
+	.diag-lc-stage { min-width: 60px; padding: 8px 4px; }
+	.diag-rc-outcomes { grid-template-columns: 1fr; }
+	.article-cta { padding: 36px 24px; }
+	.article-numbered__item { grid-template-columns: 40px 1fr; }
+}
+
+@media (max-width: 480px) {
+	.diag-lc-stage__name { font-size: .6rem; }
+	.article-cta__title { font-size: 1.2rem; }
+}
+</style>
+
+</BaseLayout>

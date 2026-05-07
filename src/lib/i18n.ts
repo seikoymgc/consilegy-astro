@@ -3,17 +3,17 @@
 /** JA → EN の静的URLマッピング */
 export const jaToEn: Record<string, string> = {
   '/': '/en/',
-  '/services/': '/en/services-en/',
-  '/services/revenue-architecture-design/': '/en/services-en/revenue-architecture-design/',
-  '/services/marketing-strategy-design/': '/en/services-en/',
-  '/services/hubspot-implementation-consulting/': '/en/services-en/hubspot-implementation-operations-support/',
-  '/services/revops-ma-crm-sfa-implementation/': '/en/services-en/crm-revops-implementation/',
-  '/services/operational-adoption-optimization/': '/en/services-en/adoption-growth-support/',
-  '/services/digital-nomad/': '/en/services-en/assistance-in-attracting-digital-nomads-and-remote-worker/',
-  '/services/website-for-events/': '/en/services-en/event-website-development-package/',
+  '/services/': '/en/services/',
+  '/services/revenue-architecture-design/': '/en/services/revenue-architecture-design/',
+  '/services/marketing-strategy-design/': '/en/services/',
+  '/services/hubspot-implementation-consulting/': '/en/services/hubspot-implementation-operations-support/',
+  '/services/revops-ma-crm-sfa-implementation/': '/en/services/crm-revops-implementation/',
+  '/services/operational-adoption-optimization/': '/en/services/adoption-growth-support/',
+  '/services/digital-nomad/': '/en/services/assistance-in-attracting-digital-nomads-and-remote-worker/',
+  '/services/website-for-events/': '/en/services/event-website-development-package/',
   '/case-studies/': '/en/case-studies/',
-  '/company/': '/en/company-en/',
-  '/contact/': '/en/contact-en/',
+  '/company/': '/en/company/',
+  '/contact/': '/en/contact/',
   '/privacy-policy/': '/en/privacy-policy/',
   '/about-revops/': '/en/',
   '/revenue-architecture/': '/en/',
@@ -50,7 +50,7 @@ export function getAlternateUrl(
       return '/en/case-studies/';
     }
     // /services/[slug]/ で未マップのもの
-    if (path.startsWith('/services/')) return '/en/services-en/';
+    if (path.startsWith('/services/')) return '/en/services/';
     // fallback
     return '/en/';
   } else {
@@ -61,7 +61,7 @@ export function getAlternateUrl(
       if (alternateSlug) return `/case-studies/${alternateSlug}/`;
       return '/case-studies/';
     }
-    if (path.startsWith('/en/services-en/') && path !== '/en/services-en/') {
+    if (path.startsWith('/en/services/') && path !== '/en/services/') {
       return '/services/';
     }
     if (path.startsWith('/en/')) return '/';

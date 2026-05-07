@@ -1,0 +1,1461 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqItems = [
+	{
+		q: 'レベニューアーキテクチャはRevOpsと同じですか？',
+		a: '同じではありません。RevOpsは収益に関わる業務を運用・改善する機能です。一方、Revenue Architecture（レベニューアーキテクチャ）は、その運用を成立させるために、データ、システム、プロセス、KPIのつながり方を設計する土台です。RevOpsが「どう運用するか」であれば、Revenue Architectureは「何を設計するか」です。',
+	},
+	{
+		q: 'レベニューアーキテクチャとエンタープライズアーキテクチャの違いは何ですか？',
+		a: 'エンタープライズアーキテクチャは、企業全体の業務とIT構造を扱います。Revenue Architectureは、その中でも、顧客獲得から売上化、継続収益までの「収益プロセス」に特化しています。対象範囲と目的が異なります。',
+	},
+	{
+		q: '企業はいつRevenue Architectureを見直すべきですか？',
+		a: 'CRMが定着しない、営業とマーケの数字が合わない、複数ツール運用が複雑化している、ARRやLTV管理が難しくなっている場合は、見直しのサインです。また、新規事業立ち上げ時や、従量課金・複数商材へ移行するタイミングも設計を整える好機です。',
+	},
+	{
+		q: 'Revenue Architectureの責任者は誰ですか？',
+		a: '営業企画、RevOps、マーケティングオペレーション、CS Ops、情報システム、経営企画などが横断的に関与します。特定の1部署が単独で担うものではなく、収益構造に関わる全部門が共通の設計を持つことが重要です。',
+	},
+];
+
+const faqSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faqItems.map(({ q, a }) => ({
+		'@type': 'Question',
+		name: q,
+		acceptedAnswer: { '@type': 'Answer', text: a },
+	})),
+};
+
+const breadcrumbSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://consilegy.com/' },
+		{ '@type': 'ListItem', position: 2, name: 'Revenue Architectureとは', item: 'https://consilegy.com/revenue-architecture/' },
+	],
+};
+
+const structures = [
+	{
+		n: '01',
+		en: 'Revenue Process',
+		desc: 'リード獲得、商談化、受注、継続、アップセルまでの収益プロセス設計。各フェーズの定義、KPI、ハンドオフ条件を整備します。',
+	},
+	{
+		n: '02',
+		en: 'Lifecycle & Handoff',
+		desc: '営業・マーケ・CS間の役割分担、引き継ぎ条件、責任範囲の設計。部門をまたぐ顧客ライフサイクルを一つの流れとして設計します。',
+	},
+	{
+		n: '03',
+		en: 'Revenue Data & Systems',
+		desc: 'CRM、SFA、MA、請求、BIなどを横断したデータ構造とシステム接続設計。ツールではなく、収益データの流れを設計します。',
+	},
+	{
+		n: '04',
+		en: 'Revenue Intelligence',
+		desc: 'KPI、予測、ダッシュボード、レビュー運用を整備し、改善判断ができる状態を作ります。数字が意思決定に使われる組織をつくります。',
+	},
+];
+
+const issues = [
+	'マーケ施策と売上がつながらない',
+	'SalesforceとHubSpotで数字が違う',
+	'ARRやLTVの定義が部門ごとに違う',
+	'CRMが入力されず、Excel管理が残る',
+	'見積・契約・請求の流れが複雑',
+	'更新・アップセルの取りこぼしが起きる',
+	'KPIが多すぎて改善判断できない',
+	'会議が数字確認だけで終わる',
+];
+
+const failures = [
+	'CRMが入力されない',
+	'ダッシュボードが信用されない',
+	'部門ごとに数字が違う',
+	'KPIだけが増える',
+	'Excel管理が残る',
+	'商談化率が改善しない',
+	'マーケ施策のROIが見えない',
+	'更新漏れ・請求漏れが起きる',
+	'属人的な営業から抜け出せない',
+];
+
+const outcomes = [
+	{ label: '施策と売上がつながる', desc: 'どのマーケ施策が受注に寄与したか、CRM上で追跡できます。' },
+	{ label: '数字のズレが減る', desc: '部門間で同じ定義を持つことで、会議での数字議論がなくなります。' },
+	{ label: '営業・マーケ・CSが同じKPIを見る', desc: '収益構造を共有することで、部門を超えた意思決定ができます。' },
+	{ label: '売上予測の精度が上がる', desc: '商談パイプラインと継続収益の両方が可視化されます。' },
+	{ label: '継続収益が可視化される', desc: 'ARR、NRR、LTVを部門横断で追跡できる構造を作ります。' },
+	{ label: '属人的な営業から脱却できる', desc: '再現可能なプロセスと構造が、組織の営業力を底上げします。' },
+	{ label: '複数商材・従量課金にも対応しやすくなる', desc: '収益モデルが変わっても、構造として対応できます。' },
+	{ label: '改善サイクルが回る', desc: 'KPIとレビュー設計により、PDCAが継続的に機能します。' },
+];
+
+const relatedServices = [
+	{ label: 'レベニューアーキテクチャ設計', href: '/services/revenue-architecture-design/', desc: '収益プロセス・KPI・データ構造の上流設計' },
+	{ label: 'CRM / RevOps再設計支援', href: '/services/crm-revops-redesign/', desc: 'Salesforce・HubSpot・Kintoneなど主要CRM横断の設計・実装支援' },
+	{ label: 'GTM / Marketing Strategy設計', href: '/services/b2b-marketing-gtm-design/', desc: 'GTM戦略・商談化プロセス・マーケ連携設計' },
+	{ label: 'HubSpot導入・運用支援', href: '/services/hubspot-implementation-operations/', desc: 'HubSpot設計・実装・運用改善' },
+	{ label: '運用定着・改善伴走支援', href: '/services/adoption-growth-support/', desc: '現場定着・KPIレビュー・継続改善' },
+];
+---
+
+<BaseLayout
+	title="Revenue Architectureとは | レベニューアーキテクチャの定義・RevOpsとの違い・CRM再設計との関係 | Consilegy"
+	description="Revenue Architecture（レベニューアーキテクチャ）とは、マーケティング・営業・カスタマーサクセス・CRM・KPI・データを、売上が生まれる一つの流れとして構造設計する考え方です。RevOps・CRM導入との違い、導入が必要な理由を解説します。"
+	lang="ja"
+>
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	</Fragment>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+	<div class="container">
+		<nav class="breadcrumb" aria-label="パンくずリスト">
+			<a href="/">ホーム</a>
+			<span aria-hidden="true">›</span>
+			<span aria-current="page">Revenue Architectureとは</span>
+		</nav>
+		<div class="hero-body">
+			<div class="hero-text">
+				<h1>営業・マーケ・CRMが分断され、<br class="br-sp" />売上が読めなくなる状態を、<br class="br-sp" />構造から整理する。</h1>
+				<p class="hero-lead">
+					どの施策が受注につながったのか。なぜ営業予測がズレるのか。なぜCRMが定着しないのか。
+				</p>
+				<p class="hero-lead">
+					Revenue Architecture（レベニューアーキテクチャ）は、それらを「収益構造」の問題として整理し、マーケティングから受注・継続までを一つの流れとして設計する考え方です。
+				</p>
+				<div class="hero-actions">
+					<a href="/free-consultation/" class="btn btn--primary">30分無料相談を予約する →</a>
+					<a href="/services/revenue-architecture-design/" class="btn btn--ghost">Revenue Architecture Designを見る</a>
+				</div>
+			</div>
+			<div class="hero-def-card">
+				<p class="def-card__label">Revenue Architecture = 収益構造設計</p>
+				<p class="def-card__text">マーケティング・営業・カスタマーサクセス・CRM・KPI・データ・システムを、売上が生まれる一つの流れとして構造設計する考え方。</p>
+				<div class="def-card__divider"></div>
+				<ul class="def-card__attrs">
+					<li><span>対象</span>収益に関わる全部門・全システム</li>
+					<li><span>目的</span>売上を再現可能な構造として設計する</li>
+					<li><span>手段</span>プロセス・KPI・データ・システムの構造設計</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===== HERO直下 定義 ===== -->
+<section class="section-def-quick" id="revenue-architecture-definition">
+	<div class="container">
+		<div class="def-quick-inner">
+			<h2>Revenue Architecture（レベニューアーキテクチャ）とは</h2>
+			<p class="def-quick-body">Revenue Architectureとは、マーケティング、営業、カスタマーサクセス、CRM、KPI、データ、システムを、売上が生まれる一つの流れとして設計する考え方です。</p>
+			<div class="def-quick-oneline">
+				<strong>収益構造設計（Revenue Architecture）</strong>とは、売上を属人的な活動ではなく、再現可能な構造として設計するための考え方です。
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===== PROBLEM ===== -->
+<section class="section section--soft" id="problem">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">The Problem</p>
+			<h2>「頑張っているのに、売上が読めない」の正体</h2>
+		</div>
+		<div class="problem-body">
+			<div class="problem-text">
+				<p>マーケティングは施策を実行している。営業は商談を進めている。カスタマーサクセスは顧客対応を行っている。</p>
+				<p>それでも売上が安定しない企業の多くは、この3つが分断されたまま動いています。</p>
+				<ul class="problem-list">
+					<li>どのマーケティング施策が受注につながったか分からない</li>
+					<li>営業へ渡したリードがどうなったか見えない</li>
+					<li>契約後に顧客が離れた理由を、共通の言葉で説明できない</li>
+				</ul>
+				<p class="problem-conclusion">Revenue Architecture（レベニューアーキテクチャ）は、この分断をなくし、マーケティングから受注・継続収益までを、一つの流れとして設計する考え方です。</p>
+			</div>
+			<div class="bowtie">
+				<div class="bowtie-left">
+					<p class="bowtie-label">認知・流入・リード育成・商談</p>
+					<ul class="bowtie-items">
+						<li>認知・流入</li>
+						<li>リード育成</li>
+						<li>MQL / SQL</li>
+						<li>商談</li>
+					</ul>
+				</div>
+				<div class="bowtie-center">
+					<p class="bowtie-center-title">Revenue Architecture</p>
+					<p class="bowtie-center-sub">収益構造設計</p>
+					<ul class="bowtie-center-items">
+						<li>CRM</li>
+						<li>KPI</li>
+						<li>Data</li>
+						<li>Process</li>
+						<li>Revenue Operations</li>
+					</ul>
+				</div>
+				<div class="bowtie-right">
+					<p class="bowtie-label">導入・運用定着・継続・アップセル</p>
+					<ul class="bowtie-items">
+						<li>受注・導入</li>
+						<li>運用定着</li>
+						<li>継続</li>
+						<li>アップセル</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===== WHY ===== -->
+<section class="section section--soft" id="why-revenue-architecture">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">Why Now</p>
+			<h2>なぜ今、Revenue Architectureが必要なのか</h2>
+		</div>
+		<div class="issues-grid">
+			{issues.map((issue, i) => (
+				<div class="issue-card">
+					<span class="issue-num">{String(i + 1).padStart(2, '0')}</span>
+					<p>{issue}</p>
+				</div>
+			))}
+		</div>
+		<p class="issues-note">問題は、施策や現場努力ではなく、収益構造そのものにある可能性があります。</p>
+	</div>
+</section>
+
+<!-- ===== 4 STRUCTURES ===== -->
+<section class="section" id="four-structures">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">Four Structures</p>
+			<h2>Revenue Architectureが扱う4つの構造</h2>
+		</div>
+		<div class="structures-grid">
+			{structures.map(s => (
+				<div class="structure-card">
+					<p class="structure-num">{s.n}</p>
+					<h3 class="structure-en">{s.en}</h3>
+					<p class="structure-desc">{s.desc}</p>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<!-- ===== VS REVOPS ===== -->
+<section class="section section--soft" id="vs-revops">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">Comparison</p>
+			<h2>Revenue ArchitectureとRevOpsの違い</h2>
+		</div>
+		<div class="vs-body">
+			<div class="vs-text">
+				<p>RevOps（レベニューオペレーション）は、収益に関わる業務を運用・改善する機能です。</p>
+				<p>一方、Revenue Architecture（レベニューアーキテクチャ）は、そのRevOpsを成立させるために、CRM、データ、KPI、業務プロセスをどう接続するかを設計する土台です。</p>
+				<div class="vs-relation">
+					<div class="vs-relation-box vs-relation-box--top">
+						<strong>Revenue Architecture（レベニューアーキテクチャ）</strong>
+						<span>収益構造の設計</span>
+					</div>
+					<div class="vs-relation-arrow" aria-hidden="true">↓</div>
+					<div class="vs-relation-box vs-relation-box--bottom">
+						<strong>RevOps（レベニューオペレーション）が機能する</strong>
+						<span>構造の上で運用・改善が回る</span>
+					</div>
+				</div>
+			</div>
+			<div class="compare-table">
+				<table>
+					<thead>
+						<tr>
+							<th>Revenue Architecture</th>
+							<th>RevOps</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr><td>構造設計</td><td>運用改善</td></tr>
+						<tr><td>CRM設計</td><td>KPIレビュー</td></tr>
+						<tr><td>データモデル</td><td>会議運営</td></tr>
+						<tr><td>KPI定義</td><td>改善活動</td></tr>
+						<tr><td>システム接続</td><td>部門連携</td></tr>
+						<tr><td>収益プロセス設計</td><td>継続改善</td></tr>
+					</tbody>
+				</table>
+				<a href="/about-revops/" class="compare-cta">RevOpsとは →</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===== VS CRM ===== -->
+<section class="section" id="vs-crm">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">Comparison</p>
+			<h2>Revenue Architectureは「CRM導入」ではありません</h2>
+		</div>
+		<div class="crm-body">
+			<div class="crm-text">
+				<p>CRMは、顧客情報や商談情報を管理するためのツールです。</p>
+				<p>Revenue Architecture（レベニューアーキテクチャ）は、そのCRMを、営業・マーケ・CS・経営が同じ収益構造の中で使える状態にするための設計思想です。</p>
+				<div class="crm-note">
+					<p>CRMを導入しても、KPI定義、データ構造、業務フロー、会議体が分断されたままでは、収益改善にはつながりません。</p>
+				</div>
+			</div>
+			<div class="crm-compare">
+				<div class="crm-compare-col">
+					<p class="crm-compare-label">CRM導入</p>
+					<ul>
+						<li>ツール設定</li>
+						<li>項目作成</li>
+						<li>ワークフロー設定</li>
+					</ul>
+				</div>
+				<div class="crm-compare-sep" aria-hidden="true">→</div>
+				<div class="crm-compare-col crm-compare-col--ra">
+					<p class="crm-compare-label">Revenue Architecture</p>
+					<ul>
+						<li>収益構造設計</li>
+						<li>KPI統一</li>
+						<li>部門横断設計</li>
+						<li>Revenue Data Flow設計</li>
+						<li>改善サイクル設計</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===== FAILURES ===== -->
+<section class="section section--soft" id="failures">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">Common Issues</p>
+			<h2>Revenue Architectureが不十分な企業で起きること</h2>
+		</div>
+		<div class="failures-grid">
+			{failures.map(f => (
+				<div class="failure-tag">
+					<span class="failure-dot" aria-hidden="true"></span>
+					{f}
+				</div>
+			))}
+		</div>
+		<p class="failures-note">これらは個別の問題ではなく、収益構造が設計されていないことから生まれる、構造的な課題です。</p>
+	</div>
+</section>
+
+<!-- ===== OUTCOMES ===== -->
+<section class="section" id="outcomes">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">Outcomes</p>
+			<h2>Revenue Architectureで実現できる状態</h2>
+		</div>
+		<div class="outcomes-grid">
+			{outcomes.map((o, i) => (
+				<div class="outcome-card">
+					<span class="outcome-num">{String(i + 1).padStart(2, '0')}</span>
+					<p class="outcome-label">{o.label}</p>
+					<p class="outcome-desc">{o.desc}</p>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<!-- ===== CONSILEGY ===== -->
+<section class="section section--soft" id="consilegy-approach">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">Our Approach</p>
+			<h2>ConsilegyのRevenue Architecture支援</h2>
+		</div>
+		<div class="approach-body">
+			<p class="approach-lead">Consilegyは、Revenue Architecture（レベニューアーキテクチャ）を、単なるCRM導入やRevOps改善ではなく、「売上構造の設計」と捉えています。</p>
+			<p class="approach-lead">営業、マーケティング、カスタマーサクセス、KPI、データ、CRM、会議体を、一つの収益構造として再設計します。</p>
+			<div class="pillars">
+				<div class="pillar">
+					<p class="pillar-num">01</p>
+					<h3>Revenue Architecture起点</h3>
+					<p>ツール選定やCRM運用の前に、収益構造そのものを設計します。土台がなければ、ツールは定着しません。</p>
+				</div>
+				<div class="pillar">
+					<p class="pillar-num">02</p>
+					<h3>ベンダーフリー</h3>
+					<p>Salesforce・HubSpot・Kintoneなどを横断して設計します。特定ツールのパートナーとしてではなく、構造設計の立場で支援します。</p>
+				</div>
+				<div class="pillar">
+					<p class="pillar-num">03</p>
+					<h3>設計から実装・定着まで</h3>
+					<p>上流の構造設計だけでなく、CRM実装、KPI設計、会議体設計、現場定着まで一貫して支援します。</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===== RELATED SERVICES ===== -->
+<section class="section" id="related-services">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">Services</p>
+			<h2>関連サービス</h2>
+		</div>
+		<div class="services-grid">
+			{relatedServices.map(s => (
+				<a href={s.href} class="service-card">
+					<p class="service-label">{s.label}</p>
+					<p class="service-desc">{s.desc}</p>
+					<span class="service-arrow">→</span>
+				</a>
+			))}
+		</div>
+	</div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section section--soft" id="faq">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">FAQ</p>
+			<h2>よくある質問</h2>
+		</div>
+		<div class="faq-list">
+			{faqItems.map(({ q, a }) => (
+				<details class="faq-item">
+					<summary class="faq-q">{q}</summary>
+					<p class="faq-a">{a}</p>
+				</details>
+			))}
+		</div>
+	</div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="section-cta">
+	<div class="container">
+		<div class="cta-body">
+			<h2>Revenue Architectureを、<br />自社ではどこから整理すべきか。</h2>
+			<p>営業、マーケティング、CRM、KPI、レベニューオペレーション（Revenue Operations）の観点から、現状の構造課題を整理します。</p>
+			<div class="cta-actions">
+				<a href="/free-consultation/" class="btn btn--cta-primary">30分無料相談を予約する →</a>
+				<a href="/services/revenue-architecture-design/" class="btn btn--cta-ghost">Revenue Architecture Designを見る</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+</BaseLayout>
+
+<style>
+	/* ── Shared utilities ──────────────────────────────────── */
+	.container {
+		max-width: 1100px;
+		margin-inline: auto;
+		padding-inline: var(--space-md, 1.5rem);
+	}
+
+	.section {
+		padding-block: 5rem;
+	}
+
+	.section--soft {
+		background: var(--color-bg-soft, #f8fafc);
+	}
+
+	.section-header {
+		text-align: center;
+		margin-bottom: 3rem;
+	}
+
+	.section-header h2 {
+		font-size: clamp(1.4rem, 2.5vw, 2rem);
+		font-weight: 700;
+		color: var(--color-navy, #0f172a);
+		margin-top: 0.5rem;
+		line-height: 1.4;
+	}
+
+	.eyebrow {
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--color-primary, #1e40af);
+		margin: 0;
+	}
+
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4em;
+		padding: 0.75em 1.5em;
+		font-size: 0.9rem;
+		font-weight: 700;
+		border-radius: 6px;
+		text-decoration: none;
+		transition: background 0.15s, color 0.15s, border-color 0.15s;
+	}
+
+	.btn--primary {
+		background: var(--color-primary, #1e40af);
+		color: #fff;
+		border: 2px solid transparent;
+	}
+
+	.btn--primary:hover {
+		background: var(--color-primary-dark, #1d4ed8);
+	}
+
+	.btn--ghost {
+		background: transparent;
+		color: var(--color-primary, #1e40af);
+		border: 2px solid var(--color-primary, #1e40af);
+	}
+
+	.btn--ghost:hover {
+		background: rgba(30, 64, 175, 0.05);
+	}
+
+	/* ── Breadcrumb ────────────────────────────────────────── */
+	.breadcrumb {
+		display: flex;
+		align-items: center;
+		gap: 0.4em;
+		font-size: 0.8rem;
+		color: var(--color-muted, #64748b);
+		margin-bottom: 2rem;
+	}
+
+	.breadcrumb a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	.breadcrumb a:hover { color: var(--color-primary, #1e40af); }
+
+	/* ── HERO ──────────────────────────────────────────────── */
+	.hero {
+		padding-block: 4rem 3.5rem;
+		background: #fff;
+		border-bottom: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.hero-body {
+		display: grid;
+		grid-template-columns: 1fr 380px;
+		gap: 3rem;
+		align-items: start;
+	}
+
+	.hero-text .eyebrow { margin-bottom: 0.75rem; }
+
+	.hero-text h1 {
+		font-size: clamp(2rem, 4vw, 3rem);
+		font-weight: 800;
+		color: var(--color-navy, #0f172a);
+		line-height: 1.2;
+		margin: 0 0 1.5rem;
+	}
+
+	.hero-lead {
+		font-size: 1.05rem;
+		line-height: 1.8;
+		color: var(--color-charcoal, #334155);
+		margin: 0 0 1rem;
+	}
+
+	.hero-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: 2rem;
+	}
+
+	/* ── Hero def card ─────────────────────────────────────── */
+	.hero-def-card {
+		background: var(--color-navy, #0f172a);
+		color: #fff;
+		border-radius: 8px;
+		padding: 1.75rem;
+		position: sticky;
+		top: 80px;
+	}
+
+	.def-card__label {
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: rgba(255,255,255,0.5);
+		margin: 0 0 0.75rem;
+	}
+
+	.def-card__text {
+		font-size: 0.92rem;
+		line-height: 1.75;
+		color: rgba(255,255,255,0.9);
+		margin: 0 0 1.25rem;
+	}
+
+	.def-card__divider {
+		height: 1px;
+		background: rgba(255,255,255,0.12);
+		margin-bottom: 1.25rem;
+	}
+
+	.def-card__attrs {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+	}
+
+	.def-card__attrs li {
+		font-size: 0.82rem;
+		color: rgba(255,255,255,0.75);
+		display: flex;
+		gap: 0.75rem;
+	}
+
+	.def-card__attrs li span {
+		font-weight: 700;
+		color: rgba(255,255,255,0.45);
+		min-width: 3em;
+		flex-shrink: 0;
+	}
+
+	/* ── PROBLEM ───────────────────────────────────────────── */
+	.problem-body {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 3rem;
+		align-items: start;
+	}
+
+	.problem-text p {
+		line-height: 1.8;
+		color: var(--color-charcoal, #334155);
+		margin: 0 0 1rem;
+	}
+
+	.problem-list {
+		list-style: none;
+		padding: 0;
+		margin: 0 0 1.25rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+	}
+
+	.problem-list li {
+		padding-left: 1.25rem;
+		position: relative;
+		color: var(--color-charcoal, #334155);
+		line-height: 1.6;
+		font-size: 0.95rem;
+	}
+
+	.problem-list li::before {
+		content: '—';
+		position: absolute;
+		left: 0;
+		color: var(--color-muted, #64748b);
+	}
+
+	.problem-conclusion {
+		font-weight: 600;
+		color: var(--color-navy, #0f172a) !important;
+		border-left: 3px solid var(--color-primary, #1e40af);
+		padding-left: 1rem;
+	}
+
+	/* ── Bowtie funnel ─────────────────────────────────────── */
+	.bowtie {
+		display: grid;
+		grid-template-columns: 1fr auto 1fr;
+		gap: 0;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		overflow: hidden;
+		font-size: 0.82rem;
+	}
+
+	.bowtie-left,
+	.bowtie-right {
+		padding: 1.25rem;
+	}
+
+	.bowtie-left { background: #fff; }
+	.bowtie-right { background: #fff; }
+
+	.bowtie-label {
+		font-size: 0.7rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		color: var(--color-muted, #64748b);
+		text-transform: uppercase;
+		margin: 0 0 0.75rem;
+	}
+
+	.bowtie-items {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+	}
+
+	.bowtie-items li {
+		padding: 0.3rem 0.6rem;
+		background: var(--color-bg-soft, #f8fafc);
+		border-radius: 4px;
+		color: var(--color-charcoal, #334155);
+		font-size: 0.8rem;
+	}
+
+	.bowtie-center {
+		background: var(--color-navy, #0f172a);
+		padding: 1.25rem 1rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		min-width: 160px;
+	}
+
+	.bowtie-center-title {
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		color: rgba(255,255,255,0.5);
+		text-transform: uppercase;
+		margin: 0 0 0.15rem;
+		text-align: center;
+	}
+
+	.bowtie-center-sub {
+		font-size: 0.7rem;
+		font-weight: 600;
+		color: rgba(255,255,255,0.35);
+		text-align: center;
+		margin: 0 0 0.6rem;
+		letter-spacing: 0.04em;
+	}
+
+	.bowtie-center-items {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.3rem;
+		width: 100%;
+	}
+
+	.bowtie-center-items li {
+		font-size: 0.78rem;
+		font-weight: 600;
+		color: rgba(255,255,255,0.85);
+		text-align: center;
+		padding: 0.25rem 0.5rem;
+		border: 1px solid rgba(255,255,255,0.12);
+		border-radius: 4px;
+	}
+
+	/* ── HERO H1 line break ────────────────────────────────── */
+	.br-sp { display: none; }
+
+	/* ── HERO直下 定義 ──────────────────────────────────────── */
+	.section-def-quick {
+		padding-block: 3rem 3.5rem;
+		background: #fff;
+		border-bottom: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.def-quick-inner {
+		max-width: 780px;
+		margin-inline: auto;
+	}
+
+	.def-quick-inner h2 {
+		font-size: clamp(1.15rem, 2vw, 1.45rem);
+		font-weight: 700;
+		color: var(--color-navy, #0f172a);
+		margin: 0 0 1.25rem;
+		line-height: 1.45;
+	}
+
+	.def-quick-body {
+		font-size: 1rem;
+		line-height: 1.85;
+		color: var(--color-charcoal, #334155);
+		margin: 0 0 1.5rem;
+	}
+
+	.def-quick-oneline {
+		background: var(--color-bg-soft, #f8fafc);
+		border-left: 4px solid var(--color-primary, #1e40af);
+		border-radius: 0 8px 8px 0;
+		padding: 1.1rem 1.5rem;
+		font-size: 0.95rem;
+		line-height: 1.75;
+		color: var(--color-navy, #0f172a);
+	}
+
+	/* ── (legacy, kept for other sections) ─────────────────── */
+	.def-body {
+		max-width: 780px;
+		margin-inline: auto;
+	}
+
+	.def-long {
+		font-size: 1.05rem;
+		line-height: 1.85;
+		color: var(--color-charcoal, #334155);
+		margin: 0 0 2rem;
+	}
+
+	.def-oneline {
+		background: var(--color-bg-soft, #f8fafc);
+		border-left: 4px solid var(--color-primary, #1e40af);
+		border-radius: 0 8px 8px 0;
+		padding: 1.25rem 1.5rem;
+		margin: 0 0 1.5rem;
+	}
+
+	.def-oneline p {
+		margin: 0;
+		font-size: 1rem;
+		line-height: 1.7;
+		color: var(--color-navy, #0f172a);
+	}
+
+	.def-note {
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		padding: 1rem 1.25rem;
+		font-size: 0.875rem;
+		color: var(--color-muted, #64748b);
+		line-height: 1.7;
+	}
+
+	.def-note p { margin: 0; }
+
+	/* ── WHY / ISSUES ──────────────────────────────────────── */
+	.issues-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+		gap: 1rem;
+		margin-bottom: 2rem;
+	}
+
+	.issue-card {
+		background: #fff;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		padding: 1.25rem;
+		display: flex;
+		align-items: flex-start;
+		gap: 0.75rem;
+	}
+
+	.issue-num {
+		font-size: 0.72rem;
+		font-weight: 700;
+		color: var(--color-primary, #1e40af);
+		opacity: 0.6;
+		flex-shrink: 0;
+		padding-top: 0.15rem;
+	}
+
+	.issue-card p {
+		margin: 0;
+		font-size: 0.9rem;
+		line-height: 1.55;
+		color: var(--color-charcoal, #334155);
+		font-weight: 500;
+	}
+
+	.issues-note {
+		text-align: center;
+		font-size: 0.95rem;
+		color: var(--color-charcoal, #334155);
+		font-weight: 500;
+		margin: 0;
+	}
+
+	/* ── 4 STRUCTURES ──────────────────────────────────────── */
+	.structures-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+		gap: 1.5rem;
+	}
+
+	.structure-card {
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		padding: 1.75rem 1.5rem;
+		background: #fff;
+	}
+
+	.structure-num {
+		font-size: 0.72rem;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		color: var(--color-primary, #1e40af);
+		margin: 0 0 0.75rem;
+	}
+
+	.structure-en {
+		font-size: 1.05rem;
+		font-weight: 700;
+		color: var(--color-navy, #0f172a);
+		margin: 0 0 0.75rem;
+		line-height: 1.3;
+	}
+
+	.structure-desc {
+		font-size: 0.875rem;
+		line-height: 1.75;
+		color: var(--color-charcoal, #334155);
+		margin: 0;
+	}
+
+	/* ── VS REVOPS ─────────────────────────────────────────── */
+	.vs-body {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 3rem;
+		align-items: start;
+	}
+
+	.vs-text p {
+		line-height: 1.8;
+		color: var(--color-charcoal, #334155);
+		margin: 0 0 1rem;
+	}
+
+	.vs-relation {
+		margin-top: 1.5rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.25rem;
+	}
+
+	.vs-relation-box {
+		width: 100%;
+		border-radius: 8px;
+		padding: 1rem 1.25rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.3rem;
+	}
+
+	.vs-relation-box--top {
+		background: var(--color-navy, #0f172a);
+		color: #fff;
+	}
+
+	.vs-relation-box--top strong { color: #fff; font-size: 0.9rem; }
+	.vs-relation-box--top span  { font-size: 0.78rem; color: rgba(255,255,255,0.6); }
+
+	.vs-relation-box--bottom {
+		background: var(--color-bg-soft, #f8fafc);
+		border: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.vs-relation-box--bottom strong { font-size: 0.9rem; color: var(--color-navy, #0f172a); }
+	.vs-relation-box--bottom span   { font-size: 0.78rem; color: var(--color-muted, #64748b); }
+
+	.vs-relation-arrow {
+		font-size: 1.25rem;
+		color: var(--color-primary, #1e40af);
+		line-height: 1;
+	}
+
+	.compare-table {
+		background: #fff;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		overflow: hidden;
+	}
+
+	.compare-table table {
+		width: 100%;
+		border-collapse: collapse;
+	}
+
+	.compare-table thead th {
+		padding: 0.875rem 1.25rem;
+		font-size: 0.8rem;
+		font-weight: 700;
+		text-align: left;
+		background: var(--color-navy, #0f172a);
+		color: #fff;
+	}
+
+	.compare-table thead th:first-child {
+		background: var(--color-primary, #1e40af);
+	}
+
+	.compare-table tbody td {
+		padding: 0.7rem 1.25rem;
+		font-size: 0.875rem;
+		color: var(--color-charcoal, #334155);
+		border-bottom: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.compare-table tbody tr:last-child td { border-bottom: none; }
+
+	.compare-table tbody td:first-child {
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		border-right: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.compare-cta {
+		display: block;
+		padding: 0.875rem 1.25rem;
+		font-size: 0.85rem;
+		font-weight: 700;
+		color: var(--color-primary, #1e40af);
+		text-decoration: none;
+		border-top: 2px solid var(--color-border, #e2e8f0);
+		text-align: right;
+	}
+
+	.compare-cta:hover { background: rgba(30, 64, 175, 0.03); }
+
+	/* ── VS CRM ────────────────────────────────────────────── */
+	.crm-body {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 3rem;
+		align-items: start;
+	}
+
+	.crm-text p {
+		line-height: 1.8;
+		color: var(--color-charcoal, #334155);
+		margin: 0 0 1rem;
+	}
+
+	.crm-note {
+		background: var(--color-bg-soft, #f8fafc);
+		border-left: 3px solid var(--color-primary, #1e40af);
+		padding: 1rem 1.25rem;
+		border-radius: 0 6px 6px 0;
+	}
+
+	.crm-note p {
+		margin: 0;
+		font-size: 0.9rem;
+		color: var(--color-charcoal, #334155);
+	}
+
+	.crm-compare {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		background: #fff;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		padding: 1.5rem;
+	}
+
+	.crm-compare-col {
+		flex: 1;
+	}
+
+	.crm-compare-label {
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--color-muted, #64748b);
+		margin: 0 0 0.75rem;
+	}
+
+	.crm-compare-col--ra .crm-compare-label {
+		color: var(--color-primary, #1e40af);
+	}
+
+	.crm-compare-col ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+	}
+
+	.crm-compare-col li {
+		font-size: 0.85rem;
+		color: var(--color-charcoal, #334155);
+		padding: 0.3rem 0.6rem;
+		border-radius: 4px;
+		background: var(--color-bg-soft, #f8fafc);
+	}
+
+	.crm-compare-col--ra li {
+		background: rgba(30, 64, 175, 0.05);
+		color: var(--color-navy, #0f172a);
+		font-weight: 500;
+	}
+
+	.crm-compare-sep {
+		font-size: 1.5rem;
+		color: var(--color-primary, #1e40af);
+		font-weight: 700;
+		flex-shrink: 0;
+		align-self: center;
+	}
+
+	/* ── FAILURES ──────────────────────────────────────────── */
+	.failures-grid {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-bottom: 2rem;
+	}
+
+	.failure-tag {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.5rem 1rem;
+		background: #fff;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 4px;
+		font-size: 0.875rem;
+		color: var(--color-charcoal, #334155);
+	}
+
+	.failure-dot {
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background: var(--color-primary, #1e40af);
+		opacity: 0.5;
+		flex-shrink: 0;
+	}
+
+	.failures-note {
+		text-align: center;
+		font-size: 0.9rem;
+		color: var(--color-muted, #64748b);
+		line-height: 1.7;
+		max-width: 600px;
+		margin-inline: auto;
+	}
+
+	/* ── OUTCOMES ──────────────────────────────────────────── */
+	.outcomes-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+		gap: 1.25rem;
+	}
+
+	.outcome-card {
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		padding: 1.5rem;
+		background: #fff;
+	}
+
+	.outcome-num {
+		font-size: 0.7rem;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		color: var(--color-primary, #1e40af);
+		margin: 0 0 0.5rem;
+		display: block;
+	}
+
+	.outcome-label {
+		font-size: 0.95rem;
+		font-weight: 700;
+		color: var(--color-navy, #0f172a);
+		margin: 0 0 0.5rem;
+		line-height: 1.4;
+	}
+
+	.outcome-desc {
+		font-size: 0.82rem;
+		line-height: 1.65;
+		color: var(--color-muted, #64748b);
+		margin: 0;
+	}
+
+	/* ── CONSILEGY APPROACH ────────────────────────────────── */
+	.approach-body {
+		max-width: 900px;
+		margin-inline: auto;
+	}
+
+	.approach-lead {
+		font-size: 1rem;
+		line-height: 1.85;
+		color: var(--color-charcoal, #334155);
+		margin: 0 0 1rem;
+		text-align: center;
+	}
+
+	.pillars {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.5rem;
+		margin-top: 2.5rem;
+	}
+
+	.pillar {
+		background: #fff;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		padding: 1.75rem 1.5rem;
+	}
+
+	.pillar-num {
+		font-size: 0.72rem;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		color: var(--color-primary, #1e40af);
+		margin: 0 0 0.75rem;
+	}
+
+	.pillar h3 {
+		font-size: 1rem;
+		font-weight: 700;
+		color: var(--color-navy, #0f172a);
+		margin: 0 0 0.75rem;
+	}
+
+	.pillar p {
+		font-size: 0.875rem;
+		line-height: 1.75;
+		color: var(--color-charcoal, #334155);
+		margin: 0;
+	}
+
+	/* ── RELATED SERVICES ──────────────────────────────────── */
+	.services-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+		gap: 1rem;
+	}
+
+	.service-card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+		padding: 1.25rem 1.5rem;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		background: #fff;
+		text-decoration: none;
+		transition: border-color 0.15s, box-shadow 0.15s;
+		position: relative;
+	}
+
+	.service-card:hover {
+		border-color: var(--color-primary, #1e40af);
+		box-shadow: 0 2px 12px rgba(30, 64, 175, 0.08);
+	}
+
+	.service-label {
+		font-size: 0.9rem;
+		font-weight: 700;
+		color: var(--color-navy, #0f172a);
+		margin: 0;
+	}
+
+	.service-desc {
+		font-size: 0.8rem;
+		color: var(--color-muted, #64748b);
+		margin: 0;
+		line-height: 1.55;
+	}
+
+	.service-arrow {
+		font-size: 0.85rem;
+		color: var(--color-primary, #1e40af);
+		margin-top: 0.25rem;
+	}
+
+	/* ── FAQ ───────────────────────────────────────────────── */
+	.faq-list {
+		max-width: 780px;
+		margin-inline: auto;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.faq-item {
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		background: #fff;
+		overflow: hidden;
+	}
+
+	.faq-q {
+		font-size: 0.95rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		padding: 1.1rem 1.25rem;
+		cursor: pointer;
+		list-style: none;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+		line-height: 1.5;
+	}
+
+	.faq-q::-webkit-details-marker { display: none; }
+
+	.faq-q::after {
+		content: '+';
+		font-size: 1.25rem;
+		font-weight: 300;
+		color: var(--color-primary, #1e40af);
+		flex-shrink: 0;
+		transition: transform 0.2s;
+	}
+
+	details[open] .faq-q::after { transform: rotate(45deg); }
+
+	.faq-a {
+		font-size: 0.9rem;
+		line-height: 1.8;
+		color: var(--color-charcoal, #334155);
+		padding: 0 1.25rem 1.25rem;
+		margin: 0;
+	}
+
+	/* ── FINAL CTA ─────────────────────────────────────────── */
+	.section-cta {
+		padding-block: 5rem;
+		background:
+			radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%),
+			linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+	}
+
+	.cta-body {
+		max-width: 680px;
+		margin-inline: auto;
+		text-align: center;
+	}
+
+	.cta-body h2 {
+		font-size: clamp(1.5rem, 3vw, 2.25rem);
+		font-weight: 800;
+		color: #fff;
+		line-height: 1.35;
+		margin: 0 0 1.25rem;
+	}
+
+	.cta-body p {
+		font-size: 1rem;
+		line-height: 1.8;
+		color: rgba(255,255,255,0.8);
+		margin: 0 0 2.5rem;
+	}
+
+	.cta-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		justify-content: center;
+	}
+
+	.btn--cta-primary {
+		background: #fff;
+		color: var(--color-primary, #1e40af);
+		border: 2px solid transparent;
+		padding: 0.9em 1.75em;
+		font-size: 1rem;
+		border-radius: 6px;
+		font-weight: 700;
+		text-decoration: none;
+		transition: background 0.15s;
+	}
+
+	.btn--cta-primary:hover { background: rgba(255,255,255,0.9); }
+
+	.btn--cta-ghost {
+		background: transparent;
+		color: rgba(255,255,255,0.9);
+		border: 2px solid rgba(255,255,255,0.4);
+		padding: 0.9em 1.75em;
+		font-size: 1rem;
+		border-radius: 6px;
+		font-weight: 600;
+		text-decoration: none;
+		transition: border-color 0.15s;
+	}
+
+	.btn--cta-ghost:hover { border-color: rgba(255,255,255,0.8); }
+
+	/* ── Responsive ────────────────────────────────────────── */
+	@media (max-width: 900px) {
+		.br-sp { display: inline; }
+
+		.hero-body {
+			grid-template-columns: 1fr;
+		}
+
+		.hero-def-card { position: static; }
+
+		.problem-body,
+		.vs-body,
+		.crm-body {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+
+		.pillars { grid-template-columns: 1fr; }
+
+		.crm-compare {
+			flex-direction: column;
+			align-items: stretch;
+		}
+
+		.crm-compare-sep {
+			text-align: center;
+			transform: rotate(90deg);
+		}
+
+		.section { padding-block: 3.5rem; }
+		.section-cta { padding-block: 3.5rem; }
+	}
+
+	@media (max-width: 600px) {
+		.structures-grid { grid-template-columns: 1fr; }
+		.outcomes-grid   { grid-template-columns: 1fr; }
+		.bowtie { grid-template-columns: 1fr; }
+		.bowtie-center { min-width: unset; }
+	}
+</style>

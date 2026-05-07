@@ -4,31 +4,30 @@ const isEN = pathname.startsWith('/en');
 
 const services = isEN
 	? [
-		{ label: 'Japan Market GTM & Messaging',          href: '/en/services-en/japan-market-gtm-messaging/' },
-		{ label: 'Revenue Architecture Design',           href: '/en/services-en/revenue-architecture-design/' },
-		{ label: 'CRM / RevOps Implementation',           href: '/en/services-en/crm-revops-implementation/' },
-		{ label: 'HubSpot Implementation & Ops',          href: '/en/services-en/hubspot-implementation-operations-support/' },
-		{ label: 'Adoption & Growth Support',             href: '/en/services-en/adoption-growth-support/' },
+		{ label: 'Japan Market GTM & Messaging',          href: '/en/services/japan-market-gtm-messaging/' },
+		{ label: 'Revenue Architecture Design',           href: '/en/services/revenue-architecture-design/' },
+		{ label: 'CRM / RevOps Implementation',           href: '/en/services/crm-revops-implementation/' },
+		{ label: 'HubSpot Implementation & Ops',          href: '/en/services/hubspot-implementation-operations-support/' },
+		{ label: 'Adoption & Growth Support',             href: '/en/services/adoption-growth-support/' },
 	]
 	: [
 		{ label: 'レベニューアーキテクチャ設計',    href: '/services/revenue-architecture-design/' },
-		{ label: 'マーケティング戦略設計',          href: '/services/marketing-strategy-design/' },
-		{ label: 'MA / CRM / SFA設計・実装支援',   href: '/services/revops-ma-crm-sfa-implementation/' },
-		{ label: 'HubSpot導入・運用支援',          href: '/services/hubspot-implementation-consulting/' },
-		{ label: '運用定着・改善支援',             href: '/services/operational-adoption-optimization/' },
+		{ label: 'マーケティング戦略設計',          href: '/services/b2b-marketing-gtm-design/' },
+		{ label: 'MA / CRM / SFA設計・実装支援',   href: '/services/crm-revops-redesign/' },
+		{ label: 'HubSpot導入・運用支援',          href: '/services/hubspot-implementation-operations/' },
+		{ label: '運用定着・改善支援',             href: '/services/adoption-growth-support/' },
 	];
 
 const resources = isEN
 	? [
 		{ label: 'Case Studies', href: '/en/case-studies/' },
-		{ label: 'About',        href: '/en/company-en/' },
-		{ label: 'Contact',      href: '/en/contact-en/' },
+		{ label: 'About',        href: '/en/company/' },
+		{ label: 'Contact',      href: '/en/contact/' },
 	]
 	: [
 		{ label: 'レベニューアーキテクチャとは', href: '/revenue-architecture/' },
 		{ label: '事例紹介',                   href: '/case-studies/' },
 		{ label: '会社情報',                   href: '/company/' },
-		{ label: '無料相談について',            href: '/free-consultation/' },
 		{ label: 'お問い合わせ',               href: '/contact/' },
 		{ label: '資料ダウンロード',            href: '/download/' },
 	];

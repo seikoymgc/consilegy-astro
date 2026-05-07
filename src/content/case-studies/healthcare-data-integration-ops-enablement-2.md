@@ -6,143 +6,49 @@ sourceUrl: "https://consilegy.com/en/case-studies/healthcare-data-integration-op
 lang: "en"
 translationKey: "healthcare-data-integration"
 modified: "2026-03-18T02:33:22"
-description: " ToolsHubSpot (Marketing Hub / Sales Hub / Data Hub)Key ChallengesFragmented data, operational dependency, inefficient workflows, limited information "
+description: "A healthtech company in rapid growth had customer data in 10+ locations and a marketing team spending 30% of its time on manual data work rather than execution."
 featuredImage: "/images/wp/2026/02/shawn-powar-hDeq8NBTNS8-unsplash.jpg"
 featuredImageAlt: ""
 draft: false
 ---
-<!-- wp:table {"fontSize":"small"} -->
-<figure class="wp-block-table has-small-font-size"><table class="has-fixed-layout"><tbody><tr><td><strong>Tools</strong></td><td>HubSpot (Marketing Hub / Sales Hub / Data Hub)</td></tr><tr><td><strong><strong>Key Challenges</strong></strong></td><td>Fragmented data, operational dependency, inefficient workflows, limited information sharing</td></tr><tr><td><strong>Industry</strong></td><td>Healthcare (Healthtech)</td></tr><tr><td><strong>Company Size</strong></td><td>Approx. 150 employees</td></tr><tr><td><strong>Timeline</strong></td><td>Fall 2023 / Approx. 3 months</td></tr><tr><td><strong>Scope</strong></td><td>Unified data foundation design and operational enablement support</td></tr></tbody></table></figure>
-<!-- /wp:table -->
+<dl class="cs-meta">
+  <dt>Tools</dt><dd>HubSpot (Marketing Hub / Sales Hub / Data Hub)</dd>
+  <dt>Industry</dt><dd>Healthcare (Healthtech)</dd>
+  <dt>Company size</dt><dd>Approx. 150 employees</dd>
+  <dt>Timeline</dt><dd>Fall 2023, approx. 3 months</dd>
+  <dt>Scope</dt><dd>Unified data foundation design and operational enablement</dd>
+</dl>
 
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Background</strong></h2>
-<!-- /wp:heading -->
+<section class="cs-section">
+  <h2 class="cs-label">Problem</h2>
+  <p>During a rapid growth phase in healthcare DX, the company's customer data was fragmented across more than ten locations — internal databases, kintone, Excel files, and other sources. No single system held a reliable view of any given account or contact.</p>
+  <p>The marketing team was spending more than 30% of its working time on data management: compiling contact lists, cleaning records, and preparing campaign inputs manually. The complex many-to-many relationships between healthcare facilities, physicians, and agencies added another layer — that logic lived in the heads of specific individuals, not in any system.</p>
+  <p>The result was a team with limited capacity for strategy or campaign execution, operating on data they couldn't fully trust.</p>
+</section>
 
-<!-- wp:paragraph -->
-<p>During a rapid growth phase in healthcare DX, customer data was fragmented across more than ten locations, including internal databases, kintone, and Excel files.</p>
-<!-- /wp:paragraph -->
+<section class="cs-section">
+  <h2 class="cs-label">Work</h2>
+  <p>We designed this as a data integration and operating model project — not a tool setup. The goal was to give the team a foundation they could use daily without ongoing manual overhead.</p>
+  <ul>
+    <li>Data integration architecture — consolidated all customer data sources into HubSpot as a single source of truth</li>
+    <li>Relationship modeling — recreated the complex many-to-many structure between facilities, physicians, and agencies in HubSpot's object model</li>
+    <li>Automation setup — built integrations with kintone and other source systems to eliminate manual sync and update tasks</li>
+    <li>Operational enablement — provided role-specific training and adoption support so the team could actively use the new foundation from day one</li>
+  </ul>
+</section>
 
-<!-- wp:paragraph -->
-<p>The marketing team was spending a significant portion of its time on operational work such as compiling the latest contact lists and cleaning data, leaving limited capacity for higher-value activities such as campaign planning and strategy development to improve LTV.</p>
-<!-- /wp:paragraph -->
+<section class="cs-section">
+  <h2 class="cs-label">Result</h2>
+  <ul>
+    <li>Data management and extraction work reduced by approximately 65%</li>
+    <li>Marketing team shifted from operational to strategic execution — campaign planning, LTV strategy, and initiative design</li>
+    <li>More personalized campaign execution — customer attributes and relationships now queryable in real time</li>
+    <li>Real-time ROI visibility — initiative-level tracking without manual aggregation</li>
+  </ul>
+</section>
 
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Objective</strong></h2>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>Consolidate fragmented customer data into HubSpot and establish a Single Source of Truth that could be shared across marketing and sales.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>Automate data management and extraction processes so that the team could shift its focus from operational tasks to more strategic work.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Challenges</strong></h2>
-<!-- /wp:heading -->
-
-<!-- wp:list -->
-<ul class="wp-block-list"><!-- wp:list-item -->
-<li><strong>Data silos:</strong> Customer information was fragmented across departments, making it difficult to maintain an accurate view of each account and contact.</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li><strong>Operational overload:</strong> More than 30% of working time was spent on duplicate entry, manual cleanup, and list preparation.</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li><strong>Reduced campaign precision:</strong> Without real-time access to updated data, nurturing efforts were delayed and less effective.</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li><strong>Operational dependency:</strong> Complex logic for linking healthcare facilities, physicians, and related entities depended heavily on specific individuals.</li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
-
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Approach</strong></h2>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>This project was positioned not as a simple tool implementation, but as a redesign of the data flow and operating structure.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:list -->
-<ul class="wp-block-list"><!-- wp:list-item -->
-<li><strong>Data integration design:</strong> Consolidated customer data from multiple systems into HubSpot.</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li><strong>Relationship modeling:</strong> Recreated the complex many-to-many structure between facilities, physicians, and agencies required in the healthcare industry.</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li><strong>Automation setup:</strong> Built automated integrations with systems such as kintone to reduce manual updates and data handling.</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li><strong>Operational enablement:</strong> Provided training and adoption support so the team could actively use the new data foundation in daily operations.</li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
-
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Results</strong></h2>
-<!-- /wp:heading -->
-
-<!-- wp:list -->
-<ul class="wp-block-list"><!-- wp:list-item -->
-<li><strong>Reduced workload:</strong> Cut data management and extraction work by approximately 65%.</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li><strong>Role transformation:</strong> Enabled the marketing team to shift from operational work to more strategic execution.</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li><strong>Improved campaign precision:</strong> Made it possible to execute more personalized initiatives based on customer attributes and relationships.</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li><strong>Real-time visibility:</strong> Enabled real-time tracking of ROI by initiative.</li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
-
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Core Value</strong></h2>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>This project was not just about integrating data.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>It redesigned how the organization operates and makes decisions.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>By establishing a Single Source of Truth, the company created a foundation for consistent decision-making and more effective execution, significantly improving both productivity and scalability.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Applicable Scenarios</strong></h2>
-<!-- /wp:heading -->
-
-<!-- wp:list -->
-<ul class="wp-block-list"><!-- wp:list-item -->
-<li>Organizations with customer data fragmented across multiple tools and internal systems</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Lean marketing teams overwhelmed by operational workload</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Industries such as healthcare, real estate, and education that require complex B2B relationship management</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Companies seeking to improve both data integration and operational adoption at the same time</li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
+<section class="cs-section">
+  <h2 class="cs-label">Why it matters</h2>
+  <p>The constraint wasn't capacity — it was that the team's capacity was entirely consumed by infrastructure work that should have been automated. When 30% of your time goes to list preparation and data cleanup, you don't have a people problem, you have a systems problem.</p>
+  <p>Solving it didn't just free up time. It changed what the team was capable of. Campaign precision, strategic planning, and LTV-level thinking all require a data foundation that's trustworthy and accessible — this project built that foundation and made sure the team could actually use it.</p>
+</section>

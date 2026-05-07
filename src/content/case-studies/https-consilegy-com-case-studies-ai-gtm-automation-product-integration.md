@@ -6,149 +6,48 @@ sourceUrl: "https://consilegy.com/en/case-studies/https-consilegy-com-case-studi
 lang: "en"
 translationKey: "ai-gtm-automation"
 modified: "2026-03-18T19:22:22"
-description: " ToolsHubSpot (Marketing Hub / Operations Hub), Looker Studio, ad platform integrationsKey ChallengesGo-to-market strategy for a new business, system "
+description: "A consulting firm launching a new AI product had unclear positioning, no CRM infrastructure, and a three-person marketing team. Strategy and infrastructure had to be built simultaneously."
 featuredImage: "/images/wp/2026/03/s-o-c-i-a-l-c-u-t-1RT4txDDAbM-unsplash.jpg"
 featuredImageAlt: ""
 draft: false
 ---
-<!-- wp:table {"fontSize":"small"} -->
-<figure class="wp-block-table has-small-font-size"><table class="has-fixed-layout"><tbody><tr><td><strong>Tools</strong></td><td>HubSpot (Marketing Hub / Operations Hub), Looker Studio, ad platform integrations</td></tr><tr><td><strong><strong>Key Challenges</strong></strong></td><td>Go-to-market strategy for a new business, system integration, lean team operations</td></tr><tr><td><strong>Industry</strong></td><td>Consulting (New AI business)</td></tr><tr><td><strong>Company Size</strong></td><td>Approx. 50 employees</td></tr><tr><td><strong>Timeline</strong></td><td>From Winter 2024 / Approx. 9 months</td></tr><tr><td><strong>Scope</strong></td><td>Go-to-market strategy design, product integration foundation, marketing automation design</td></tr></tbody></table></figure>
-<!-- /wp:table -->
+<dl class="cs-meta">
+  <dt>Tools</dt><dd>HubSpot (Marketing Hub / Operations Hub), Looker Studio, ad platform integrations</dd>
+  <dt>Industry</dt><dd>Consulting (New AI business)</dd>
+  <dt>Company size</dt><dd>Approx. 50 employees</dd>
+  <dt>Timeline</dt><dd>From Winter 2024, approx. 9 months</dd>
+  <dt>Scope</dt><dd>GTM strategy design, product integration foundation, marketing automation</dd>
+</dl>
 
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Background</strong></h2>
-<!-- /wp:heading -->
+<section class="cs-section">
+  <h2 class="cs-label">Problem</h2>
+  <p>A consulting firm focused on enterprise services was launching a new AI product business. Product development was outsourced to a Vietnam-based team. Domestic marketing had three people working across multiple responsibilities.</p>
+  <p>There was no clear positioning — target customers and differentiation were undefined. No CRM or lead management infrastructure existed. And there was no operating model for connecting the overseas development team to domestic marketing. The business faced significant launch uncertainty with no system to support early sales activity.</p>
+</section>
 
-<!-- wp:paragraph -->
-<p>The company, primarily focused on consulting services, was launching a new AI product business.</p>
-<!-- /wp:paragraph -->
+<section class="cs-section">
+  <h2 class="cs-label">Work</h2>
+  <p>Rather than implementing tools in isolation, we built a revenue foundation that integrated strategy design and system connectivity — treating GTM and infrastructure as one problem.</p>
+  <ul>
+    <li>Positioning design — defined a clear market position based on competitive analysis and local decision criteria</li>
+    <li>GTM architecture — designed a consistent flow from target definition to acquisition channels and lead capture</li>
+    <li>Product integration — used APIs to connect product user behavior with HubSpot in real time, enabling behavioral follow-up automation</li>
+    <li>Lean automation design — built workflows that a three-person team could operate and maintain sustainably</li>
+  </ul>
+</section>
 
-<!-- wp:paragraph -->
-<p>While product development was outsourced to an overseas team in Vietnam, the domestic marketing function consisted of only three people, all working across multiple responsibilities.</p>
-<!-- /wp:paragraph -->
+<section class="cs-section">
+  <h2 class="cs-label">Result</h2>
+  <ul>
+    <li>Strategic clarity — shared positioning and decision framework adopted across the organization</li>
+    <li>Product-linked infrastructure — automated follow-up based on behavioral signals from the product itself</li>
+    <li>Launch-ready revenue foundation — sales and marketing could operate from day one</li>
+    <li>Lean-team sustainability — three-person team can run ongoing operations without additional headcount</li>
+  </ul>
+</section>
 
-<!-- wp:paragraph -->
-<p>In addition to defining who to sell to, what to sell, and how to sell it, there was no clear ownership of the system design needed to connect the product with marketing. As a result, the business faced significant uncertainty in its initial launch phase.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Objective</strong></h2>
-<!-- /wp:heading -->
-
-<!-- wp:list -->
-<ul class="wp-block-list"><!-- wp:list-item -->
-<li><strong>GTM design:</strong>&nbsp;Define a strategy to bring the new business to market as quickly as possible</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li><strong>Foundation build:</strong>&nbsp;Establish a sales and marketing infrastructure connected to the product</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li><strong>Operational efficiency:</strong>&nbsp;Create an automation framework that can be sustained by a small team</li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
-
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Challenges</strong></h2>
-<!-- /wp:heading -->
-
-<!-- wp:list -->
-<ul class="wp-block-list"><!-- wp:list-item -->
-<li><strong>Undefined strategy:</strong>&nbsp;Target customers and positioning were not clearly defined</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li><strong>Organizational disconnect:</strong>&nbsp;There was no operating model for collaboration between the overseas development team and the domestic marketing team</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li><strong>Lack of infrastructure:</strong>&nbsp;No CRM or lead management framework was in place</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li><strong>Resource constraints:</strong>&nbsp;A very small team needed to support sophisticated operations</li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
-
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Approach</strong></h2>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>Rather than implementing tools in isolation, we built a revenue foundation that integrated strategy design and system connectivity.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:list -->
-<ul class="wp-block-list"><!-- wp:list-item -->
-<li><strong>Positioning design:</strong>&nbsp;Defined a clear winning position based on market and competitive analysis</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li><strong>GTM design:</strong>&nbsp;Designed a consistent flow from target definition to acquisition pathways</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li><strong>Product integration:</strong>&nbsp;Used APIs to connect user behavior with HubSpot in real time</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li><strong>Automation design:</strong>&nbsp;Built workflows that could be operated sustainably by a lean team</li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
-
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Results</strong></h2>
-<!-- /wp:heading -->
-
-<!-- wp:list -->
-<ul class="wp-block-list"><!-- wp:list-item -->
-<li><strong>Strategic clarity:</strong>&nbsp;Established a shared decision-making framework across the organization</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li><strong>Product-linked infrastructure:</strong>&nbsp;Enabled automated follow-up based on behavioral data</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li><strong>Launch-ready revenue foundation:</strong>&nbsp;Created a system that allowed sales and marketing to operate from day one</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li><strong>Lean-team operations:</strong>&nbsp;Built a structure that could be continuously managed by a three-person team</li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
-
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Core Value</strong></h2>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>This project was not simply about supporting a new business launch. It was about designing a revenue foundation that allows a business to operate with minimal resources.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>By designing strategy, product, and marketing as one connected system rather than separate functions, the company was able to achieve both rapid launch and sustainable growth.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Applicable Scenarios</strong></h2>
-<!-- /wp:heading -->
-
-<!-- wp:list -->
-<ul class="wp-block-list"><!-- wp:list-item -->
-<li>Launching a new SaaS or AI business</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Startups or new business units operating with a small team</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Product development environments involving overseas development teams</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Organizations seeking integrated design from strategy through system implementation</li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
+<section class="cs-section">
+  <h2 class="cs-label">Why it matters</h2>
+  <p>Strategy without infrastructure doesn't launch. Infrastructure without strategy doesn't convert. This project designed both as one connected system — and that connection is what allowed a very small team to operate with the leverage of a much larger one.</p>
+  <p>When product behavior feeds directly into CRM and marketing automation, the team doesn't need more people to follow up — they need the right structure. That's what this built.</p>
+</section>

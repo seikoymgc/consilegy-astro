@@ -3,53 +3,281 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-	title="ページが見つかりません | Consilegy"
-	description="お探しのページは移行中か、URLが変更された可能性があります。"
+	title="Page Not Found | Consilegy"
+	description="The page you requested may have moved or the URL may have changed."
 	noindex={true}
 >
-	<section class="container notfound">
-		<p class="notfound__eyebrow">404</p>
-		<h1 class="notfound__title">ページが見つかりません</h1>
-		<p class="notfound__lede">
-			アドレスが間違っているか、ページが移動した可能性があります。トップページまたはサービス一覧からお探しください。
-		</p>
-		<p class="notfound__actions">
-			<a class="btn btn--primary" href="/">トップへ戻る</a>
-			<a class="btn btn--secondary" href="/services/">サービス一覧</a>
-		</p>
-	</section>
+	<Fragment slot="head">
+		<style>
+			body { background: #080f1e; }
+			.site-header { background: transparent; border-bottom: 1px solid rgba(255,255,255,.07); }
+			.site-header__logo-text,
+			.site-header__nav-link,
+			.site-header__cta--outlined { color: rgba(255,255,255,.72) !important; border-color: rgba(255,255,255,.25) !important; }
+			.site-header__cta--outlined:hover { background: rgba(255,255,255,.08) !important; }
+			.site-header__lang-item { color: rgba(255,255,255,.55) !important; }
+			.site-header__lang-item--active { color: rgba(255,255,255,.85) !important; }
+			.site-header__lang-sep { color: rgba(255,255,255,.3) !important; }
+			.site-footer { display: none; }
+		</style>
+	</Fragment>
+
+	<div class="nf-canvas">
+
+		<!-- animated grid -->
+		<div class="nf-grid" aria-hidden="true">
+			<svg class="nf-grid__svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+				<defs>
+					<pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+						<path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(99,130,255,0.07)" stroke-width="1"/>
+					</pattern>
+				</defs>
+				<rect width="100%" height="100%" fill="url(#grid)" />
+			</svg>
+		</div>
+
+		<!-- orbs -->
+		<div class="nf-orb nf-orb--1" aria-hidden="true"></div>
+		<div class="nf-orb nf-orb--2" aria-hidden="true"></div>
+		<div class="nf-orb nf-orb--3" aria-hidden="true"></div>
+
+		<!-- broken revenue flow — label swaps per lang -->
+		<div class="nf-flow" aria-hidden="true">
+			<span class="nf-flow__node nf-flow__node--on">Marketing</span>
+			<span class="nf-flow__dash"></span>
+			<span class="nf-flow__node nf-flow__node--on">Sales</span>
+			<span class="nf-flow__dash"></span>
+			<span class="nf-flow__node nf-flow__node--break">
+				<span class="nf-flow__break-icon">✕</span>
+				<span class="nf-t-ja">このページ</span>
+				<span class="nf-t-en">This page</span>
+			</span>
+			<span class="nf-flow__dash nf-flow__dash--off"></span>
+			<span class="nf-flow__node nf-flow__node--off">Revenue</span>
+		</div>
+
+		<!-- main -->
+		<main class="nf-body">
+			<p class="nf-label">ERROR</p>
+
+			<div class="nf-num" aria-hidden="true">
+				<span class="nf-num__d">4</span>
+				<span class="nf-num__d nf-num__d--mid">0</span>
+				<span class="nf-num__d">4</span>
+			</div>
+
+			<h1 class="nf-title">
+				<span class="nf-t-ja">このページは<br />Revenue Flowの外側にあります</span>
+				<span class="nf-t-en">This page is outside<br />the Revenue Flow</span>
+			</h1>
+
+			<p class="nf-lede">
+				<span class="nf-t-ja">URLが変更されたか、ページが移動した可能性があります。<br class="nf-br" />トップページまたはサービス一覧からお探しください。</span>
+				<span class="nf-t-en">The URL may have changed or the page may have moved.<br class="nf-br" />Please visit the homepage or browse our services.</span>
+			</p>
+
+			<div class="nf-actions">
+				<a class="nf-btn nf-btn--primary nf-link-home" href="/">
+					<span class="nf-t-ja">トップへ戻る</span>
+					<span class="nf-t-en">Back to Home</span>
+				</a>
+				<a class="nf-btn nf-btn--ghost nf-link-services" href="/services/">
+					<span class="nf-t-ja">サービス一覧</span>
+					<span class="nf-t-en">Our Services</span>
+				</a>
+			</div>
+		</main>
+
+	</div>
 </BaseLayout>
 
+<!-- language switch: check URL, apply lang immediately before paint -->
+<script is:inline>
+(function () {
+	var isEn = window.location.pathname.startsWith('/en');
+	var canvas = document.querySelector('.nf-canvas');
+	if (canvas) canvas.setAttribute('data-lang', isEn ? 'en' : 'ja');
+
+	// update links for EN
+	if (isEn) {
+		var home = document.querySelector('.nf-link-home');
+		var svcs = document.querySelector('.nf-link-services');
+		if (home) home.href = '/en/';
+		if (svcs) svcs.href = '/en/services/';
+	}
+})();
+</script>
+
 <style>
-	.notfound {
-		padding-block: var(--space-2xl);
-		max-width: 62ch;
-	}
+/* ── language visibility ── */
+.nf-t-ja, .nf-t-en { display: none; }
+/* default before JS fires: show JA (avoids flash for most visitors) */
+.nf-canvas .nf-t-ja { display: inline; }
+.nf-canvas[data-lang="en"] .nf-t-ja { display: none; }
+.nf-canvas[data-lang="en"] .nf-t-en { display: inline; }
 
-	.notfound__eyebrow {
-		margin: 0 0 var(--space-xs);
-		font-weight: 800;
-		color: var(--color-secondary);
-		letter-spacing: 0.2em;
-	}
+/* ── canvas ── */
+.nf-canvas {
+	position: relative;
+	min-height: calc(100vh - 64px);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 60px 24px 80px;
+	overflow: hidden;
+	isolation: isolate;
+}
 
-	.notfound__title {
-		margin: 0 0 var(--space-md);
-		font-size: clamp(1.5rem, 3vw, 2rem);
-		font-weight: 800;
-	}
+/* ── grid ── */
+.nf-grid {
+	position: absolute; inset: 0; z-index: 0;
+	animation: nf-grid-drift 30s ease-in-out infinite alternate;
+}
+.nf-grid__svg { width: 100%; height: 100%; }
+@keyframes nf-grid-drift {
+	from { transform: translate(0,0); }
+	to   { transform: translate(-30px,-20px); }
+}
 
-	.notfound__lede {
-		margin: 0 0 var(--space-lg);
-		color: #334155;
-		line-height: 1.75;
-		font-size: var(--text-lead);
-	}
+/* ── orbs ── */
+.nf-orb {
+	position: absolute; border-radius: 50%;
+	filter: blur(80px); pointer-events: none; z-index: 0;
+}
+.nf-orb--1 {
+	width: 600px; height: 600px;
+	background: radial-gradient(circle, rgba(30,64,175,0.30) 0%, transparent 70%);
+	top: -160px; left: -160px;
+	animation: nf-orb-drift1 18s ease-in-out infinite alternate;
+}
+.nf-orb--2 {
+	width: 500px; height: 500px;
+	background: radial-gradient(circle, rgba(124,58,237,0.22) 0%, transparent 70%);
+	bottom: -100px; right: -100px;
+	animation: nf-orb-drift2 22s ease-in-out infinite alternate;
+}
+.nf-orb--3 {
+	width: 320px; height: 320px;
+	background: radial-gradient(circle, rgba(56,189,248,0.10) 0%, transparent 70%);
+	top: 40%; left: 55%;
+	animation: nf-orb-drift3 14s ease-in-out infinite alternate;
+}
+@keyframes nf-orb-drift1 { from { transform: translate(0,0); } to { transform: translate(60px,40px); } }
+@keyframes nf-orb-drift2 { from { transform: translate(0,0); } to { transform: translate(-50px,-30px); } }
+@keyframes nf-orb-drift3 { from { transform: translate(0,0); } to { transform: translate(-40px,50px); } }
 
-	.notfound__actions {
-		display: flex;
-		flex-wrap: wrap;
-		gap: var(--space-sm);
-		margin: 0;
-	}
+/* ── revenue flow ── */
+.nf-flow {
+	position: relative; z-index: 2;
+	display: flex; align-items: center; gap: 0;
+	margin-bottom: 48px;
+	animation: nf-fadein 0.6s ease both;
+}
+.nf-flow__node {
+	font-size: .68rem; font-weight: 700;
+	letter-spacing: .06em; text-transform: uppercase;
+	border-radius: 4px; padding: 5px 13px;
+	border: 1px solid; white-space: nowrap;
+}
+.nf-flow__node--on  { background: rgba(30,64,175,0.25); color: #93c5fd; border-color: rgba(147,197,253,0.30); }
+.nf-flow__node--off { background: rgba(255,255,255,0.03); color: rgba(255,255,255,0.20); border-color: rgba(255,255,255,0.08); }
+.nf-flow__node--break {
+	background: rgba(185,28,28,0.20); color: #fca5a5;
+	border-color: rgba(252,165,165,0.35);
+	display: flex; align-items: center; gap: 5px;
+	animation: nf-blink 2.8s ease-in-out infinite;
+}
+.nf-flow__break-icon { font-size: .75rem; }
+.nf-flow__dash {
+	display: block; width: 28px; height: 1px; flex-shrink: 0;
+	background: rgba(147,197,253,0.40);
+}
+.nf-flow__dash--off {
+	background: repeating-linear-gradient(
+		90deg,
+		rgba(255,255,255,0.12) 0px, rgba(255,255,255,0.12) 4px,
+		transparent 4px, transparent 9px
+	);
+}
+@keyframes nf-blink { 0%,100% { opacity: 1; } 50% { opacity: 0.55; } }
+
+/* ── body ── */
+.nf-body { position: relative; z-index: 2; text-align: center; max-width: 640px; }
+
+.nf-label {
+	font-size: .65rem; font-weight: 800; letter-spacing: .25em;
+	color: rgba(147,197,253,0.55); margin: 0 0 16px;
+	animation: nf-fadein 0.5s ease both;
+}
+
+/* ── 404 number ── */
+.nf-num {
+	display: flex; justify-content: center; align-items: baseline;
+	gap: 4px; line-height: 1; margin-bottom: 40px;
+}
+.nf-num__d {
+	font-size: clamp(7rem, 22vw, 14rem);
+	font-weight: 900; letter-spacing: -.02em;
+	background: linear-gradient(160deg, #e2e8f0 0%, #94a3b8 35%, #3b82f6 60%, #1e40af 100%);
+	-webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+	animation: nf-num-in 0.7s cubic-bezier(0.22,1,0.36,1) both;
+}
+.nf-num__d--mid { animation-delay: .06s; filter: drop-shadow(0 0 40px rgba(59,130,246,0.35)); }
+.nf-num__d:last-child { animation-delay: .12s; }
+@keyframes nf-num-in {
+	from { opacity: 0; transform: translateY(30px) scale(0.92); }
+	to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── text ── */
+.nf-title {
+	font-size: clamp(1.15rem, 3vw, 1.55rem); font-weight: 700;
+	color: #f1f5f9; line-height: 1.55; margin: 0 0 18px;
+	animation: nf-fadein 0.7s ease .2s both;
+}
+.nf-lede {
+	font-size: .92rem; color: rgba(203,213,225,0.65);
+	line-height: 1.85; margin: 0 0 40px;
+	animation: nf-fadein 0.7s ease .3s both;
+}
+.nf-br { display: inline; }
+
+/* ── CTAs ── */
+.nf-actions {
+	display: flex; justify-content: center; flex-wrap: wrap; gap: 12px;
+	animation: nf-fadein 0.7s ease .4s both;
+}
+.nf-btn {
+	display: inline-flex; align-items: center;
+	font-size: .9rem; font-weight: 700;
+	border-radius: 8px; padding: 13px 28px; text-decoration: none;
+	transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.nf-btn--primary {
+	background: linear-gradient(135deg, #1e40af, #2563eb);
+	color: #fff; box-shadow: 0 4px 20px rgba(30,64,175,0.45);
+}
+.nf-btn--primary:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 28px rgba(30,64,175,0.60);
+	background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+}
+.nf-btn--ghost {
+	background: rgba(255,255,255,0.05); color: rgba(203,213,225,0.80);
+	border: 1px solid rgba(255,255,255,0.12);
+}
+.nf-btn--ghost:hover { background: rgba(255,255,255,0.10); color: #fff; transform: translateY(-2px); }
+
+@keyframes nf-fadein {
+	from { opacity: 0; transform: translateY(12px); }
+	to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── responsive ── */
+@media (max-width: 600px) {
+	.nf-flow { display: none; }
+	.nf-br { display: none; }
+	.nf-num__d { font-size: clamp(5.5rem, 28vw, 7rem); }
+}
 </style>

@@ -1,15 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
-
-const services = (await getCollection('services', ({ data }) => data.lang !== 'en'))
-	.sort((a, b) => a.data.order - b.data.order)
-	.filter((s) => ['revenue-architecture-design','marketing-strategy-design','revops-ma-crm-sfa-implementation','hubspot-implementation-consulting','operational-adoption-optimization'].includes(s.data.slug));
 ---
 
 <BaseLayout
-	title="サービス一覧 | Consilegy"
-	description="レベニューアーキテクチャ設計、マーケティング戦略設計、CRM / RevOps実装支援、HubSpot導入・運用支援、運用定着・改善支援。Consilegyが提供する5つの支援領域。"
+	title="サービス | Consilegy"
+	description="Salesforce・HubSpot・Kintone・Marketoなど主要CRMを横断し、売上が見える仕組みを設計・実装・定着させる。Consilegyの5つの支援領域。"
 	lang="ja"
 >
 
@@ -17,60 +12,362 @@ const services = (await getCollection('services', ({ data }) => data.lang !== 'e
 <section class="hero">
 	<div class="container">
 		<span class="eyebrow"><span class="eyebrow__dot"></span>Services</span>
-		<h1>サービス</h1>
+		<h1>主要CRMを横断し、<br />売上が見える仕組みを<br /><span class="accent">設計・実装・定着させる。</span></h1>
 		<p class="hero-lead">
-			Consilegyが提供する支援領域。収益プロセスの設計から実装・定着まで、
-			課題のフェーズに合わせて5つのサービスを用意しています。
+			Consilegyは、Salesforce、HubSpot、Kintone、Marketoなど既存ツールを前提に、
+			マーケティング・営業・カスタマーサクセスを横断した収益プロセスを再設計します。
 		</p>
-		<div class="hero-note">
-			料金・プランについては <a href="/pricing/">料金プランページ</a> をご確認ください。
+		<div class="hero-actions">
+			<a href="/free-consultation/" class="btn btn--primary btn--lg">30分無料相談を予約 →</a>
+			<a href="/pricing/" class="btn btn--ghost btn--lg">料金プランを見る</a>
 		</div>
 	</div>
 </section>
 
-<!-- ===================== SERVICE CARDS ===================== -->
+<!-- ===================== AREAS OF EXPERTISE ===================== -->
+<section class="areas">
+	<div class="container">
+		<div class="areas-head">
+			<p class="section-eyebrow">Areas of Expertise</p>
+			<h2>Consilegyの支援領域</h2>
+			<p class="section-lead">
+				部分最適ではなく、全体最適を。収益プロセスの「戦略」から「定着」まで、
+				5つの専門領域が連動して機能します。
+			</p>
+		</div>
+		<div class="areas-grid">
+			<div class="area-item">
+				<div class="area-icon area-icon--01">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+				</div>
+				<div class="area-label">収益設計</div>
+			</div>
+			<div class="area-connector"></div>
+			<div class="area-item">
+				<div class="area-icon area-icon--02">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+				</div>
+				<div class="area-label">GTM戦略</div>
+			</div>
+			<div class="area-connector area-connector--featured"></div>
+			<div class="area-item area-item--featured">
+				<div class="area-icon area-icon--03">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+				</div>
+				<div class="area-label">CRM実装</div>
+				<span class="area-badge">Core</span>
+			</div>
+			<div class="area-connector"></div>
+			<div class="area-item">
+				<div class="area-icon area-icon--04">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+				</div>
+				<div class="area-label">HubSpot</div>
+			</div>
+			<div class="area-connector"></div>
+			<div class="area-item">
+				<div class="area-icon area-icon--05">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"></path><path d="M12 20V4"></path><path d="M6 20v-6"></path></svg>
+				</div>
+				<div class="area-label">定着改善</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== SERVICES LIST ===================== -->
 <section class="services">
 	<div class="container">
-		<div class="svc-list">
-			{services.map((s, i) => (
-				<article class="svc-card" id={s.data.slug}>
-					<div class="svc-card__num">0{i + 1}</div>
-					<div class="svc-card__body">
-						<h2 class="svc-card__title">{s.data.title}</h2>
-						<p class="svc-card__desc">{s.data.description}</p>
-						{s.data.lead && <p class="svc-card__lead">{s.data.lead}</p>}
-						{s.data.target && (
-							<div class="svc-card__target">
-								<span class="target-label">こんな方へ</span>
-								<p>{s.data.target}</p>
-							</div>
-						)}
-						<a href={`/services/${s.data.slug}/`} class="btn btn--primary svc-cta">
-							{s.data.ctaText || '詳しく見る'} →
-						</a>
+		<div class="services-head">
+			<p class="section-eyebrow">Our Services</p>
+			<h2>5つのサービス</h2>
+		</div>
+
+		<!-- 01 -->
+		<article class="svc-card" id="revenue-architecture">
+			<div class="svc-card__meta">
+				<span class="svc-num">01</span>
+				<span class="svc-en">Revenue Architecture Design</span>
+			</div>
+			<div class="svc-card__body">
+				<h3>レベニューアーキテクチャ設計</h3>
+				<p class="svc-desc">売上を生む仕組み全体を設計する上流サービス。収益構造を可視化し、部門間の断絶を解消します。</p>
+				<ul class="svc-tags">
+					<li>収益構造設計</li>
+					<li>獲得〜継続プロセス設計</li>
+					<li>KPI設計</li>
+					<li>部門間連携設計</li>
+				</ul>
+				<a href="/services/revenue-architecture-design/" class="svc-link">詳しく見る →</a>
+			</div>
+		</article>
+
+		<!-- 02 -->
+		<article class="svc-card" id="marketing-strategy">
+			<div class="svc-card__meta">
+				<span class="svc-num">02</span>
+				<span class="svc-en">GTM & Marketing Strategy Design</span>
+			</div>
+			<div class="svc-card__body">
+				<h3>マーケティング・GTM戦略設計</h3>
+				<p class="svc-desc">市場・顧客・導線を整理し、商談化につながるマーケティング戦略を設計します。</p>
+				<ul class="svc-tags">
+					<li>GTM設計</li>
+					<li>ポジショニング・メッセージング</li>
+					<li>CV導線設計</li>
+					<li>リード獲得・商談化設計</li>
+				</ul>
+				<a href="/services/b2b-marketing-gtm-design/" class="svc-link">詳しく見る →</a>
+			</div>
+		</article>
+
+		<!-- 03 FEATURED -->
+		<article class="svc-card svc-card--featured" id="multi-crm">
+			<div class="svc-card__featured-label">
+				<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+				Consilegyの中核サービス
+			</div>
+			<div class="svc-card__meta">
+				<span class="svc-num">03</span>
+				<span class="svc-en">Multi-CRM RevOps Implementation</span>
+			</div>
+			<div class="svc-card__body">
+				<h3>主要CRM横断・RevOps実装支援</h3>
+				<p class="svc-desc">Salesforce・HubSpot・Kintone・Marketoなど主要CRM / SFA / MAの連携と実装支援。ベンダーに縛られない横断設計が強みです。</p>
+				<div class="svc-tools">
+					<span class="svc-tool-pill">Salesforce</span>
+					<span class="svc-tool-pill">HubSpot</span>
+					<span class="svc-tool-pill">Kintone</span>
+					<span class="svc-tool-pill">Marketo</span>
+					<span class="svc-tool-pill">Account Engagement</span>
+					<span class="svc-tool-pill">Zoho CRM</span>
+				</div>
+				<ul class="svc-tags">
+					<li>MA / CRM / SFA連携</li>
+					<li>データ設計</li>
+					<li>ダッシュボード設計</li>
+					<li>営業・マーケ・CS運用設計</li>
+				</ul>
+				<a href="/services/crm-revops-redesign/" class="svc-link svc-link--featured">詳しく見る →</a>
+			</div>
+		</article>
+
+		<!-- 04 -->
+		<article class="svc-card" id="hubspot">
+			<div class="svc-card__meta">
+				<span class="svc-num">04</span>
+				<span class="svc-en">HubSpot Implementation & Operations</span>
+			</div>
+			<div class="svc-card__body">
+				<h3>HubSpot導入・運用改善支援</h3>
+				<p class="svc-desc">HubSpotを利用中の企業向けに、設計・実装・運用改善を支援します。</p>
+				<ul class="svc-tags">
+					<li>ハブスポット設計・実装</li>
+					<li>ワークフロー・自動化設計</li>
+					<li>レポート・ダッシュボード</li>
+					<li>運用改善伴走</li>
+				</ul>
+				<p class="svc-note">※ ConsilegyはHubSpot専業ではなく、主要CRM / SFA / MAを横断して支援します。</p>
+				<a href="/services/hubspot-implementation-operations/" class="svc-link">詳しく見る →</a>
+			</div>
+		</article>
+
+		<!-- 05 -->
+		<article class="svc-card" id="adoption">
+			<div class="svc-card__meta">
+				<span class="svc-num">05</span>
+				<span class="svc-en">Adoption & Growth Support</span>
+			</div>
+			<div class="svc-card__body">
+				<h3>運用定着・改善伴走支援</h3>
+				<p class="svc-desc">ツール導入で終わらず、現場でデータが蓄積し、改善が回る状態まで伴走します。</p>
+				<ul class="svc-tags">
+					<li>入力定着・会議体設計</li>
+					<li>KPIレビュー・レポート改善</li>
+					<li>改善施策の優先順位付け</li>
+					<li>部門間調整</li>
+				</ul>
+				<a href="/services/adoption-growth-support/" class="svc-link">詳しく見る →</a>
+			</div>
+		</article>
+	</div>
+</section>
+
+<!-- ===================== ARCHITECTURE DIAGRAM ===================== -->
+<section class="diagram">
+	<div class="container">
+		<div class="diagram-head">
+			<p class="section-eyebrow">Architecture Diagram</p>
+			<h2>5つのサービスが連動する仕組み</h2>
+			<p class="section-lead">
+				単独サービスとして独立しつつも、相互に連動することで収益基盤（RevOps）を形成します。
+			</p>
+		</div>
+		<div class="diagram-body">
+			<!-- Flow diagram -->
+			<div class="diag-flow">
+				<div class="diag-node diag-node--top">
+					<span class="diag-num">01</span>
+					<span class="diag-name">レベニューアーキテクチャ設計</span>
+					<span class="diag-sub">戦略 / 構造設計</span>
+				</div>
+				<div class="diag-arrow-down">↓</div>
+				<div class="diag-row">
+					<div class="diag-node diag-node--side">
+						<span class="diag-num">02</span>
+						<span class="diag-name">GTM戦略設計</span>
+						<span class="diag-sub">マーケ導線</span>
 					</div>
-				</article>
-			))}
+					<div class="diag-node diag-node--center">
+						<span class="diag-badge">Core</span>
+						<span class="diag-num">03</span>
+						<span class="diag-name">主要CRM横断<br />RevOps実装</span>
+						<span class="diag-sub">CRM / SFA / MA</span>
+					</div>
+					<div class="diag-node diag-node--side">
+						<span class="diag-num">04</span>
+						<span class="diag-name">HubSpot<br />導入・運用</span>
+						<span class="diag-sub">実装・設定</span>
+					</div>
+				</div>
+				<div class="diag-arrow-down">↓</div>
+				<div class="diag-node diag-node--bottom">
+					<span class="diag-num">05</span>
+					<span class="diag-name">運用定着・改善伴走支援</span>
+					<span class="diag-sub">定着 / 継続改善</span>
+				</div>
+				<div class="diag-result">
+					<div class="diag-result__inner">
+						<span class="diag-result__label">Result</span>
+						<span class="diag-result__text">売上が見える収益基盤（RevOps）</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== SUPPORTED TOOLS ===================== -->
+<section class="tools">
+	<div class="container">
+		<div class="tools-head">
+			<p class="section-eyebrow">Supported Tools</p>
+			<h2>対応ツール</h2>
+			<p class="section-lead">
+				特定ベンダーに依存しない、ベンダーフリーの支援を提供します。
+				お使いのツール構成を前提に、最適な実装プランを設計します。
+			</p>
+		</div>
+		<div class="tools-grid">
+			<div class="tools-cat">
+				<div class="tools-cat__label">CRM / SFA</div>
+				<div class="tools-pills">
+					<span class="tool-pill tool-pill--main">Salesforce</span>
+					<span class="tool-pill tool-pill--main">HubSpot CRM</span>
+					<span class="tool-pill">Zoho CRM</span>
+					<span class="tool-pill">kintone</span>
+					<span class="tool-pill">Sansan</span>
+				</div>
+			</div>
+			<div class="tools-cat">
+				<div class="tools-cat__label">MA / メール自動化</div>
+				<div class="tools-pills">
+					<span class="tool-pill tool-pill--main">Marketo</span>
+					<span class="tool-pill tool-pill--main">HubSpot Marketing</span>
+					<span class="tool-pill">Account Engagement</span>
+					<span class="tool-pill">Mailchimp</span>
+				</div>
+			</div>
+			<div class="tools-cat">
+				<div class="tools-cat__label">分析 / BI</div>
+				<div class="tools-pills">
+					<span class="tool-pill tool-pill--main">GA4</span>
+					<span class="tool-pill">Amplitude</span>
+					<span class="tool-pill">Looker Studio</span>
+					<span class="tool-pill">Tableau</span>
+				</div>
+			</div>
+			<div class="tools-cat">
+				<div class="tools-cat__label">その他</div>
+				<div class="tools-pills">
+					<span class="tool-pill">ServiceNow</span>
+					<span class="tool-pill">Intercom</span>
+					<span class="tool-pill">Slack</span>
+					<span class="tool-pill">など</span>
+				</div>
+			</div>
+		</div>
+		<p class="tools-note">
+			上記以外のツールについてもご相談ください。お客様のツール構成に合わせて対応いたします。
+		</p>
+	</div>
+</section>
+
+<!-- ===================== PROCESS FLOW ===================== -->
+<section class="process">
+	<div class="container">
+		<div class="process-head">
+			<p class="section-eyebrow">How It Works</p>
+			<h2>プロジェクト開始までの流れ</h2>
+		</div>
+		<div class="process-steps">
+			<div class="step">
+				<div class="step__num">①</div>
+				<div class="step__body">
+					<h3>お問い合わせ</h3>
+					<p>弊社へお問い合わせください。</p>
+				</div>
+			</div>
+			<div class="step-arrow">→</div>
+			<div class="step">
+				<div class="step__num">②</div>
+				<div class="step__body">
+					<h3>ヒアリング / 無料診断</h3>
+					<p>貴社の現状の施策・状況をお打ち合わせの上でヒアリングします。ツールの利用状況・RevOps無料診断の枠組みでお話しすることも可能です。</p>
+				</div>
+			</div>
+			<div class="step-arrow">→</div>
+			<div class="step">
+				<div class="step__num">③</div>
+				<div class="step__body">
+					<h3>初回ご提案</h3>
+					<p>ご提案書を作成の上でご提案をさせていただきます。</p>
+				</div>
+			</div>
+			<div class="step-arrow">→</div>
+			<div class="step">
+				<div class="step__num">④</div>
+				<div class="step__body">
+					<h3>ご契約</h3>
+					<p>ご支援に関する契約を締結させていただきます。</p>
+				</div>
+			</div>
+			<div class="step-arrow">→</div>
+			<div class="step step--last">
+				<div class="step__num">⑤</div>
+				<div class="step__body">
+					<h3>ご支援開始</h3>
+					<p>キックオフMTGを実施の上で、ご支援を開始させていただきます。</p>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>
 
 <!-- ===================== PRICING BRIDGE ===================== -->
 <section class="pricing-bridge">
-	<div class="container">
-		<div class="bridge-inner">
-			<div class="bridge-copy">
-				<p class="section-eyebrow">Pricing</p>
-				<h2>料金プランはこちら</h2>
-				<p class="section-lead">
-					診断パッケージ（10〜50万円）、マルチCRM再設計プロジェクト（250〜500万円）、
-					伴走・顧問支援（月額30〜100万円）の3つのプランを用意しています。
-				</p>
-			</div>
-			<div class="bridge-actions">
-				<a href="/pricing/" class="btn btn--primary btn--lg">料金プランを見る →</a>
-				<a href="/free-consultation/" class="btn btn--outline btn--lg">CRM / RevOps診断を依頼する</a>
-			</div>
+	<div class="container bridge-inner">
+		<div class="bridge-copy">
+			<p class="section-eyebrow">Pricing & Packages</p>
+			<h2>料金プラン・パッケージ</h2>
+			<p class="section-lead">
+				具体的なプロジェクトの進め方や、パッケージ料金についてはこちらをご覧ください。
+				診断パッケージ（10〜50万円）から、マルチCRM再設計プロジェクト（250〜500万円）、
+				伴走・顧問支援（月額30〜100万円）まで用意しています。
+			</p>
+		</div>
+		<div class="bridge-action">
+			<a href="/pricing/" class="btn btn--primary btn--lg">料金・パッケージを見る →</a>
 		</div>
 	</div>
 </section>
@@ -78,15 +375,15 @@ const services = (await getCollection('services', ({ data }) => data.lang !== 'e
 <!-- ===================== FINAL CTA ===================== -->
 <section class="final-cta">
 	<div class="container cta-inner">
-		<div>
+		<div class="cta-copy">
 			<p class="cta-eyebrow">Get Started</p>
-			<h2>まずはCRM / RevOps診断から<br />ご相談ください</h2>
+			<h2>まずは30分無料相談から<br />はじめましょう</h2>
 			<p class="cta-lead">
 				初回ご相談は無料。現状のツール構成・組織・データフローをヒアリングし、
 				再設計の優先順位とプロジェクト規模感をお伝えします。
 			</p>
 			<div class="cta-actions">
-				<a href="/free-consultation/" class="btn btn--cta-primary btn--lg">CRM / RevOps 診断を依頼する →</a>
+				<a href="/free-consultation/" class="btn btn--cta-primary btn--lg">30分無料相談を予約 →</a>
 				<a href="/download/" class="btn btn--cta-outline btn--lg">サービス資料をダウンロード</a>
 			</div>
 		</div>
@@ -109,80 +406,301 @@ const services = (await getCollection('services', ({ data }) => data.lang !== 'e
 /* ── Shared ──────────────────────────────────────────── */
 .section-eyebrow {
 	font-size: 0.8125rem; font-weight: 600; color: var(--color-primary);
-	letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.75rem;
+	letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 0.875rem; display: inline-block;
 }
-.section-lead { font-size: 1.0625rem; color: var(--color-text-muted); line-height: 1.75; margin: 0; }
+.section-lead { font-size: 1.0625rem; color: var(--color-text-muted); line-height: 1.8; margin: 0; }
 .btn--lg { padding: 1.0625rem 1.875rem; font-size: 1rem; }
 
 /* ── Hero ──────────────────────────────────────────── */
 .hero {
-	background: linear-gradient(180deg, var(--color-bg-subtle) 0%, var(--color-bg) 100%);
-	border-bottom: 1px solid var(--color-border);
 	padding-block: var(--space-2xl) var(--space-xl);
+	background:
+		radial-gradient(900px 420px at 95% -5%, rgba(124,92,191,0.08), transparent 55%),
+		linear-gradient(180deg, var(--color-bg-subtle) 0%, var(--color-bg) 100%);
+	border-bottom: 1px solid var(--color-border);
 }
 .eyebrow {
 	display: inline-flex; align-items: center; gap: 0.5rem;
 	font-size: 0.8125rem; font-weight: 600; color: var(--color-primary);
-	background: rgba(30,64,175,0.08); padding: 0.375rem 0.875rem; border-radius: 999px;
-	letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1.25rem;
+	background: rgba(30,64,175,0.08); padding: 0.375rem 0.875rem; border-radius: 4px;
+	letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1.5rem;
 }
 .eyebrow__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--color-primary); display: inline-block; }
 .hero h1 {
-	font-size: clamp(2.25rem, 4vw, 3.25rem); font-weight: 800;
-	letter-spacing: -0.02em; margin: 0 0 1rem; color: var(--color-text); line-height: 1.2;
+	font-size: clamp(2rem, 4vw, 3.25rem); font-weight: 800;
+	letter-spacing: -0.025em; line-height: 1.25; margin: 0 0 1.25rem; color: var(--color-text);
 }
-.hero-lead { font-size: 1.125rem; line-height: 1.75; color: var(--color-text-muted); max-width: 640px; margin: 0 0 1.5rem; }
-.hero-note {
-	font-size: 0.9375rem; color: var(--color-text-muted);
-	padding: 0.75rem 1.25rem; background: #f0f5ff; border-radius: 8px;
-	border-left: 3px solid var(--color-primary); display: inline-block;
+.accent { color: var(--color-primary); }
+.hero-lead { font-size: 1.125rem; line-height: 1.8; color: var(--color-text-muted); max-width: 640px; margin: 0 0 2rem; }
+.hero-actions { display: flex; gap: 0.875rem; flex-wrap: wrap; align-items: center; }
+.btn--primary {
+	display: inline-flex; align-items: center; justify-content: center;
+	background: var(--color-primary); color: #fff;
+	padding: 0.875rem 1.5rem; border-radius: var(--radius);
+	font-weight: 700; font-size: 0.9375rem; text-decoration: none; border: none;
+	transition: background 0.15s ease;
 }
-.hero-note a { color: var(--color-primary); font-weight: 600; }
+.btn--primary:hover { background: var(--color-primary-dark); color: #fff; }
+.btn--ghost {
+	display: inline-flex; align-items: center;
+	background: transparent; color: var(--color-text-muted);
+	padding: 0.875rem 1.25rem; border-radius: var(--radius);
+	font-weight: 600; font-size: 0.9375rem; text-decoration: none;
+	border: 1.5px solid var(--color-border);
+	transition: all 0.15s ease;
+}
+.btn--ghost:hover { border-color: var(--color-primary); color: var(--color-primary); }
+
+/* ── Areas of Expertise ────────────────────────────── */
+.areas {
+	padding-block: var(--space-xl);
+	background: var(--color-bg-subtle);
+	border-bottom: 1px solid var(--color-border);
+}
+.areas-head { text-align: center; max-width: 640px; margin: 0 auto 3rem; }
+.areas-head h2 { font-size: 1.75rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.75rem; }
+.areas-grid {
+	display: flex; align-items: center; justify-content: center;
+	gap: 0; flex-wrap: nowrap; max-width: 900px; margin: 0 auto;
+}
+.area-item {
+	display: flex; flex-direction: column; align-items: center; gap: 0.625rem;
+	flex-shrink: 0; position: relative;
+}
+.area-icon {
+	width: 60px; height: 60px; border-radius: 8px;
+	border: 1.5px solid var(--color-border); background: var(--color-bg);
+	display: flex; align-items: center; justify-content: center;
+	color: var(--color-text-muted); box-shadow: var(--shadow-sm);
+	transition: all 0.15s ease;
+}
+.area-item--featured .area-icon {
+	width: 76px; height: 76px; border-radius: 8px;
+	background: var(--color-primary); color: #fff; border-color: var(--color-primary);
+	box-shadow: 0 4px 16px rgba(30,64,175,0.35);
+}
+.area-label { font-size: 0.8125rem; font-weight: 600; color: var(--color-text-muted); }
+.area-item--featured .area-label { color: var(--color-primary); font-weight: 700; }
+.area-badge {
+	position: absolute; top: -10px; right: -10px;
+	background: var(--color-primary); color: #fff;
+	font-size: 0.625rem; font-weight: 700; letter-spacing: 0.06em;
+	padding: 0.2rem 0.45rem; border-radius: 4px;
+}
+.area-connector {
+	flex: 1; min-width: 24px; height: 1.5px;
+	background: linear-gradient(90deg, var(--color-border) 0%, var(--color-border) 100%);
+	background-size: 6px 1px; background-repeat: repeat-x;
+	border: none;
+}
+.area-connector--featured {
+	background: linear-gradient(90deg, var(--color-border), var(--color-primary));
+}
 
 /* ── Services ──────────────────────────────────────── */
 .services { padding-block: var(--space-2xl); }
-.svc-list { display: flex; flex-direction: column; gap: 2rem; }
+.services-head { margin-bottom: 2.5rem; }
+.services-head h2 { font-size: 1.875rem; font-weight: 700; color: var(--color-text); margin: 0; }
 
 .svc-card {
-	display: grid; grid-template-columns: 80px 1fr;
-	gap: 2rem; align-items: start;
-	padding: 2.5rem; background: #fff;
-	border: 1px solid var(--color-border); border-radius: 14px;
-	transition: box-shadow 0.15s ease;
+	display: grid; grid-template-columns: 200px 1fr;
+	border: 1px solid var(--color-border); border-radius: 8px;
+	background: var(--color-bg); margin-bottom: 1.25rem;
+	overflow: hidden; transition: box-shadow 0.15s ease;
 }
 .svc-card:hover { box-shadow: var(--shadow-sm); }
+.svc-card--featured {
+	border-color: var(--color-primary);
+	border-width: 2px;
+	box-shadow: 0 4px 24px rgba(30,64,175,0.1);
+	position: relative;
+}
+.svc-card--featured:hover { box-shadow: 0 8px 32px rgba(30,64,175,0.18); }
 
-.svc-card__num {
-	font-size: 2.5rem; font-weight: 800; color: rgba(30,64,175,0.12);
-	letter-spacing: -0.03em; line-height: 1; padding-top: 0.25rem;
-	text-align: center;
+.svc-card__featured-label {
+	position: absolute; top: 1.25rem; right: 1.5rem;
+	display: inline-flex; align-items: center; gap: 0.375rem;
+	background: rgba(30,64,175,0.08); color: var(--color-primary);
+	font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em;
+	padding: 0.35rem 0.75rem; border-radius: 4px;
 }
 
-.svc-card__title { font-size: 1.375rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.75rem; }
-.svc-card__desc { font-size: 1.0625rem; color: var(--color-text-muted); line-height: 1.7; margin: 0 0 1rem; }
-.svc-card__lead { font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.75; margin: 0 0 1.25rem; }
-
-.svc-card__target {
-	padding: 0.875rem 1.125rem; background: var(--color-bg-subtle);
-	border-radius: 8px; border-left: 3px solid var(--color-primary);
-	margin-bottom: 1.5rem;
+.svc-card__meta {
+	padding: 2rem 1.75rem;
+	background: var(--color-bg-subtle);
+	border-right: 1px solid var(--color-border);
+	display: flex; flex-direction: column; gap: 0.75rem;
+	justify-content: flex-start; align-items: flex-start;
 }
-.target-label {
-	font-size: 0.6875rem; font-weight: 700; color: var(--color-primary);
-	text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 0.375rem;
+.svc-card--featured .svc-card__meta {
+	background: rgba(30,64,175,0.04);
+	border-right-color: rgba(30,64,175,0.15);
 }
-.svc-card__target p { margin: 0; font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.65; }
 
-.svc-cta {
+.svc-num {
+	font-size: 2.25rem; font-weight: 800; color: rgba(30,64,175,0.15);
+	letter-spacing: -0.03em; line-height: 1;
+}
+.svc-card--featured .svc-num { color: rgba(30,64,175,0.25); }
+.svc-en { font-size: 0.7rem; font-weight: 600; color: var(--color-text-muted); letter-spacing: 0.04em; line-height: 1.5; }
+
+.svc-card__body { padding: 2rem 2.25rem; }
+.svc-card__body h3 {
+	font-size: 1.3125rem; font-weight: 700; color: var(--color-text);
+	margin: 0 0 0.75rem; line-height: 1.45;
+}
+.svc-card--featured .svc-card__body h3 { font-size: 1.5rem; color: var(--color-primary); }
+.svc-desc { font-size: 1rem; color: var(--color-text-muted); line-height: 1.75; margin: 0 0 1.25rem; }
+
+.svc-tools { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.25rem; }
+.svc-tool-pill {
+	font-size: 0.8125rem; font-weight: 600; color: var(--color-primary);
+	background: rgba(30,64,175,0.07); border: 1px solid rgba(30,64,175,0.2);
+	padding: 0.3rem 0.7rem; border-radius: 6px;
+}
+
+.svc-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; list-style: none; padding: 0; margin: 0 0 1.5rem; }
+.svc-tags li {
+	font-size: 0.8125rem; color: var(--color-text-muted);
+	background: var(--color-bg-subtle); border: 1px solid var(--color-border);
+	padding: 0.3rem 0.7rem; border-radius: 6px;
+}
+.svc-card--featured .svc-tags li { background: rgba(30,64,175,0.04); border-color: rgba(30,64,175,0.12); }
+
+.svc-note { font-size: 0.8125rem; color: var(--color-text-muted); margin: 0 0 1.25rem; font-style: italic; line-height: 1.6; }
+
+.svc-link {
+	display: inline-flex; align-items: center;
+	color: var(--color-primary); font-weight: 600; font-size: 0.9375rem;
+	text-decoration: none; transition: gap 0.15s ease; gap: 0.125rem;
+}
+.svc-link:hover { gap: 0.375rem; }
+.svc-link--featured {
 	display: inline-flex; align-items: center;
 	background: var(--color-primary); color: #fff;
-	padding: 0.75rem 1.5rem; border-radius: var(--radius);
-	font-weight: 600; font-size: 0.9375rem; text-decoration: none; border: none;
+	padding: 0.75rem 1.375rem; border-radius: var(--radius);
+	font-weight: 700; font-size: 0.9375rem; text-decoration: none;
 	transition: background 0.15s ease;
 }
-.svc-cta:hover { background: var(--color-primary-dark); color: #fff; }
+.svc-link--featured:hover { background: var(--color-primary-dark); color: #fff; }
 
-/* ── Pricing bridge ────────────────────────────────── */
+/* ── Architecture Diagram ──────────────────────────── */
+.diagram {
+	padding-block: var(--space-2xl);
+	background: var(--color-bg-subtle);
+	border-top: 1px solid var(--color-border);
+	border-bottom: 1px solid var(--color-border);
+}
+.diagram-head { max-width: 640px; margin-bottom: 3rem; }
+.diagram-head h2 { font-size: 1.75rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.75rem; }
+.diagram-body { max-width: 720px; margin: 0 auto; }
+
+.diag-flow { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+.diag-node {
+	background: var(--color-bg); border: 1px solid var(--color-border);
+	border-radius: 8px; padding: 1.125rem 1.5rem;
+	display: flex; flex-direction: column; align-items: center;
+	text-align: center; gap: 0.25rem; min-width: 180px;
+}
+.diag-node--top, .diag-node--bottom { width: 340px; }
+.diag-node--center {
+	background: var(--color-primary); border-color: var(--color-primary);
+	color: #fff; min-width: 200px; position: relative;
+	box-shadow: 0 4px 20px rgba(30,64,175,0.3);
+}
+.diag-node--side { background: rgba(30,64,175,0.03); border-color: rgba(30,64,175,0.15); }
+.diag-row { display: flex; gap: 1rem; align-items: center; }
+
+.diag-badge {
+	font-size: 0.625rem; font-weight: 700; letter-spacing: 0.08em;
+	background: rgba(255,255,255,0.25); color: #fff;
+	padding: 0.2rem 0.5rem; border-radius: 4px; margin-bottom: 0.25rem;
+}
+.diag-num { font-size: 0.75rem; font-weight: 700; color: var(--color-primary); opacity: 0.7; }
+.diag-node--center .diag-num { color: rgba(255,255,255,0.7); }
+.diag-name { font-size: 0.9375rem; font-weight: 700; color: var(--color-text); line-height: 1.4; }
+.diag-node--center .diag-name { color: #fff; }
+.diag-sub { font-size: 0.75rem; color: var(--color-text-muted); }
+.diag-node--center .diag-sub { color: rgba(255,255,255,0.75); }
+
+.diag-arrow-down { font-size: 1.25rem; color: var(--color-border); line-height: 1; }
+
+.diag-result {
+	margin-top: 0.5rem; width: 340px;
+	background: linear-gradient(135deg, rgba(30,64,175,0.08), rgba(124,92,191,0.08));
+	border: 1.5px dashed var(--color-primary); border-radius: 8px;
+	padding: 1rem 1.5rem;
+}
+.diag-result__inner { display: flex; align-items: center; gap: 0.75rem; justify-content: center; }
+.diag-result__label {
+	font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+	color: var(--color-primary); background: rgba(30,64,175,0.1);
+	padding: 0.25rem 0.5rem; border-radius: 6px;
+}
+.diag-result__text { font-size: 0.9375rem; font-weight: 700; color: var(--color-text); }
+
+/* ── Tools ──────────────────────────────────────────── */
+.tools {
+	padding-block: var(--space-2xl);
+	background: var(--color-bg);
+}
+.tools-head { max-width: 640px; margin-bottom: 3rem; }
+.tools-head h2 { font-size: 1.75rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.75rem; }
+
+.tools-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 1.25rem; }
+.tools-cat {
+	background: var(--color-bg-subtle); border: 1px solid var(--color-border);
+	border-radius: 8px; padding: 1.5rem;
+}
+.tools-cat__label {
+	font-size: 0.75rem; font-weight: 700; color: var(--color-primary);
+	letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.875rem; display: block;
+}
+.tools-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tool-pill {
+	font-size: 0.875rem; color: var(--color-text-muted);
+	background: var(--color-bg); border: 1px solid var(--color-border);
+	padding: 0.4rem 0.8rem; border-radius: 4px;
+}
+.tool-pill--main {
+	color: var(--color-primary); font-weight: 600;
+	background: rgba(30,64,175,0.06); border-color: rgba(30,64,175,0.2);
+}
+.tools-note { font-size: 0.875rem; color: var(--color-text-muted); }
+
+/* ── Process Flow ───────────────────────────────────── */
+.process {
+	padding-block: var(--space-2xl);
+	background: var(--color-bg);
+	border-top: 1px solid var(--color-border);
+}
+.process-head { margin-bottom: 2.5rem; }
+.process-head h2 { font-size: 1.75rem; font-weight: 700; color: var(--color-text); margin: 0; }
+.process-steps {
+	display: flex; align-items: flex-start; gap: 0; flex-wrap: nowrap;
+}
+.step {
+	flex: 1; min-width: 0;
+	background: var(--color-bg-subtle); border: 1px solid var(--color-border);
+	border-radius: 8px; padding: 1.5rem 1.375rem;
+	display: flex; flex-direction: column; gap: 0.875rem;
+}
+.step--last {
+	border-color: var(--color-primary);
+	background: rgba(30,64,175,0.04);
+}
+.step__num {
+	font-size: 1.375rem; font-weight: 800; color: var(--color-primary);
+	line-height: 1;
+}
+.step__body h3 { font-size: 0.9375rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.5rem; line-height: 1.4; }
+.step__body p { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.7; margin: 0; }
+.step-arrow {
+	flex-shrink: 0; padding: 0 0.5rem; margin-top: 1.75rem;
+	font-size: 1.125rem; color: var(--color-border); align-self: flex-start;
+}
+
+/* ── Pricing Bridge ────────────────────────────────── */
 .pricing-bridge {
 	background: var(--color-bg-subtle);
 	border-top: 1px solid var(--color-border);
@@ -194,17 +712,6 @@ const services = (await getCollection('services', ({ data }) => data.lang !== 'e
 	gap: 3rem; flex-wrap: wrap;
 }
 .bridge-copy h2 { font-size: 1.75rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.75rem; }
-.bridge-actions { display: flex; gap: 0.75rem; flex-shrink: 0; flex-wrap: wrap; }
-
-.btn--outline {
-	display: inline-flex; align-items: center;
-	background: transparent; color: var(--color-primary);
-	padding: 1.0625rem 1.875rem; border-radius: var(--radius);
-	font-weight: 600; font-size: 1rem; text-decoration: none;
-	border: 1.5px solid var(--color-primary);
-	transition: all 0.15s ease;
-}
-.btn--outline:hover { background: rgba(30,64,175,0.06); }
 
 /* ── Final CTA ─────────────────────────────────────── */
 .final-cta {
@@ -215,11 +722,8 @@ const services = (await getCollection('services', ({ data }) => data.lang !== 'e
 	padding-block: var(--space-2xl);
 }
 .cta-inner { display: grid; grid-template-columns: 1.3fr 1fr; gap: 4rem; align-items: center; }
-.cta-eyebrow {
-	font-size: 0.8125rem; font-weight: 600; color: #93c5fd;
-	letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 1rem;
-}
-.cta-inner h2 { color: #fff; font-size: clamp(1.75rem, 2.5vw, 2.5rem); line-height: 1.3; font-weight: 700; margin: 0 0 1.25rem; }
+.cta-eyebrow { font-size: 0.8125rem; font-weight: 600; color: #93c5fd; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 1rem; }
+.cta-copy h2 { color: #fff; font-size: clamp(1.75rem, 2.5vw, 2.5rem); line-height: 1.3; font-weight: 700; margin: 0 0 1.25rem; }
 .cta-lead { color: #bfdbfe; font-size: 1.0625rem; line-height: 1.75; margin: 0 0 2rem; }
 .cta-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
 
@@ -231,7 +735,6 @@ const services = (await getCollection('services', ({ data }) => data.lang !== 'e
 	transition: background 0.15s ease;
 }
 .btn--cta-primary:hover { background: #e0eaff; color: var(--color-primary); }
-
 .btn--cta-outline {
 	display: inline-flex; align-items: center; justify-content: center;
 	padding: 1.0625rem 1.875rem; border-radius: var(--radius);
@@ -243,7 +746,7 @@ const services = (await getCollection('services', ({ data }) => data.lang !== 'e
 
 .cta-card {
 	background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
-	border-radius: 12px; padding: 2rem; backdrop-filter: blur(10px);
+	border-radius: 8px; padding: 2rem; backdrop-filter: blur(10px);
 }
 .cta-card h4 { margin: 0 0 1rem; font-size: 0.8125rem; color: #93c5fd; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
 .cta-list { list-style: none; padding: 0; margin: 0; }
@@ -256,13 +759,26 @@ const services = (await getCollection('services', ({ data }) => data.lang !== 'e
 .cta-list li::before { content: ""; flex-shrink: 0; margin-top: 9px; width: 5px; height: 5px; border-radius: 50%; background: #93c5fd; }
 
 /* ── Responsive ─────────────────────────────────────── */
-@media (max-width: 768px) {
-	.svc-card { grid-template-columns: 1fr; gap: 0; }
-	.svc-card__num { display: none; }
+@media (max-width: 860px) {
+	.process-steps { flex-direction: column; gap: 0.75rem; }
+	.step-arrow { display: none; }
+	.svc-card { grid-template-columns: 1fr; }
+	.svc-card__meta {
+		flex-direction: row; align-items: center; gap: 1rem;
+		padding: 1.25rem 1.5rem; border-right: none; border-bottom: 1px solid var(--color-border);
+	}
+	.svc-num { font-size: 1.5rem; }
+	.areas-grid { flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
+	.area-connector { display: none; }
+	.tools-grid { grid-template-columns: 1fr; }
+	.diag-row { flex-direction: column; align-items: center; }
+	.diag-node--top, .diag-node--bottom, .diag-result { width: 100%; max-width: 340px; }
 	.bridge-inner { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
 	.cta-inner { grid-template-columns: 1fr; gap: 2rem; }
 }
 @media (max-width: 560px) {
+	.hero-actions { flex-direction: column; align-items: flex-start; }
 	.cta-actions { flex-direction: column; }
+	.svc-card--featured .svc-card__featured-label { display: none; }
 }
 </style>

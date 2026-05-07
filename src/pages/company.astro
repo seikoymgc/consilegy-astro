@@ -1,154 +1,669 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Section from '../components/Section.astro';
-import CTA from '../components/CTA.astro';
-
-const photo =
-	'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1200&q=80';
 ---
 
 <BaseLayout
 	title="会社情報 | Consilegy"
-	description="Consilegy株式会社の会社概要。レベニューアーキテクチャの設計と、MA/CRM/SFAの実装・運用定着を支援します。"
+	description="Consilegy（コンシレジー）合同会社の会社概要。Revenue Architecture設計会社として、戦略・構造設計・実装・定着を一貫して支援します。"
+	lang="ja"
 >
-	<header class="page-head container">
-		<p class="page-head__eyebrow">Company</p>
-		<h1 class="page-head__title">会社情報</h1>
-		<p class="page-head__lede">
-			私たちは「戦略だけ」「ツールだけ」で終わらせず、収益が継続する構造と運用までを見据えて伴走します。
-		</p>
-	</header>
 
-	<section class="container company-split">
-		<div class="company-split__text">
-			<h2 class="company-split__h2">ミッション</h2>
-			<p>
-				マーケティングとセールス、カスタマーサクセスをつなぐデータとプロセスを設計し、改善が回る組織づくりを支援します。
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+	<div class="container">
+		<div class="hero-inner">
+			<span class="eyebrow"><span class="eyebrow__dot"></span>About Consilegy</span>
+			<h1>
+				戦略を描き、仕組みに落とし込み、<br />
+				<span class="accent">回るまで伴走する。</span>
+			</h1>
+			<p class="hero-lead">
+				Consilegy（コンシレジー）合同会社は、営業・マーケティング・カスタマーサクセスをまたぐ収益プロセスの課題に対して、
+				戦略、構造設計、実装、定着までを一貫して支援する、
+				Revenue Architecture（レベニューアーキテクチャ）設計会社です。
 			</p>
-			<h2 class="company-split__h2">私たちの考え方</h2>
-			<p>
-				ツールは手段です。まず業務と意思決定の流れを言語化し、計測できる形に落とし込みます。現場で使われない設計は、どれほど丁寧でも成果に繋がりません。
-			</p>
-		</div>
-		<div class="company-split__media">
-			<img src={photo} alt="オフィスで仕事をするビジネスパーソン" width="560" height="640" loading="lazy" />
-		</div>
-	</section>
-
-	<Section variant="subtle" title="会社概要（抜粋）" intro="正式な表記は開示資料およびお問い合わせにてご確認ください。">
-		<div class="container company-facts">
-			<dl class="facts">
-				<div class="facts__row">
-					<dt>社名</dt>
-					<dd>Consilegy株式会社（コンサイレジー）</dd>
+			<div class="hero-meta">
+				<div>
+					<div class="meta-lbl">設立</div>
+					<div class="meta-val">2025年5月12日</div>
 				</div>
-				<div class="facts__row">
+				<div>
+					<div class="meta-lbl">所在地</div>
+					<div class="meta-val">東京都港区北青山<br />アールキューブ青山3F</div>
+				</div>
+				<div>
+					<div class="meta-lbl">従業員数</div>
+					<div class="meta-val">5名<br />（バイリンガル体制）</div>
+				</div>
+				<div>
+					<div class="meta-lbl">支援実績</div>
+					<div class="meta-val">10年・30社以上<br />（代表直接関与ベース）</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== CAPABILITIES ===================== -->
+<section class="capabilities">
+	<div class="container">
+		<div class="cap-head">
+			<p class="section-eyebrow">Capabilities</p>
+			<h2>戦略 × 構造設計 × 実装 × 定着。<br />四位一体で前に進めます。</h2>
+			<p class="section-lead">
+				コンサルティングだけ、ツール実装だけ、運用支援だけ——
+				分断された支援では成果が出ない領域に対し、Consilegyは一気通貫で取り組みます。
+			</p>
+		</div>
+		<div class="cap-grid">
+			<div class="cap-card">
+				<div class="cap-num">01</div>
+				<h3>戦略だけで終わらない</h3>
+				<p>マーケティング戦略やKPI設計にとどまらず、実装と運用定着までつなげます。</p>
+			</div>
+			<div class="cap-card">
+				<div class="cap-num">02</div>
+				<h3>PMBOKベースで前に進める</h3>
+				<p>複数部門・複数ツールが関わる案件でも、要件整理、関係者調整、進行管理まで一貫して支援します。</p>
+			</div>
+			<div class="cap-card">
+				<div class="cap-num">03</div>
+				<h3>MA / CRM / SFAの実装知見</h3>
+				<p>構造設計だけで終わらず、実際のツール設定、連携、自動化、可視化まで落とし込めます。</p>
+			</div>
+			<div class="cap-card">
+				<div class="cap-num">04</div>
+				<h3>定着まで見据えている</h3>
+				<p>導入で終わらせず、現場で使われる状態、改善が回る状態まで伴走します。</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== WHY CONSILEGY ===================== -->
+<section class="why">
+	<div class="container why-inner">
+		<div class="why-left">
+			<p class="section-eyebrow">Why Consilegy</p>
+			<h2>Consilegyの強み</h2>
+			<p class="why-lead">
+				Revenue Architectureは、設計と実行の両輪が揃わなければ機能しません。
+				私たちが選ばれる3つの理由を、ご紹介します。
+			</p>
+		</div>
+		<div class="why-right">
+			<div class="why-list">
+				<div class="why-item">
+					<span class="why-num">01</span>
+					<div>
+						<h4>定着から逆算して設計する</h4>
+						<p>設計は、現場が使えて初めて意味を持ちます。最初のヒアリングから、現場目線で逆算して設計しているからこそ、形骸化しません。</p>
+					</div>
+				</div>
+				<div class="why-item">
+					<span class="why-num">02</span>
+					<div>
+						<h4>グローバル最新知識を、日本の現場に直接実装</h4>
+						<p>チーム全員がバイリンガル。欧米で先行するRevenue Architectureの最新手法を英語の一次情報から取り込み、日本企業の現場に合わせて実装します。</p>
+					</div>
+				</div>
+				<div class="why-item">
+					<span class="why-num">03</span>
+					<div>
+						<h4>実績に裏打ちされた設計力</h4>
+						<p>代表 山口聖子が10年・30社以上の支援に直接関与してきた実践知が土台です。理論ではなく、現場で何度も検証された設計です。</p>
+					</div>
+				</div>
+			</div>
+			<p class="why-foot">
+				これらの資産を、現場に入り込む実行支援力で成果につなげます。
+			</p>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== VALUES ===================== -->
+<section class="values">
+	<div class="container">
+		<div class="values-head">
+			<p class="section-eyebrow">Values</p>
+			<h2>私たちが大切にしていること</h2>
+			<p class="section-lead">
+				プロジェクトの進め方、意思決定、関係者とのコミュニケーション。
+				Consilegyの仕事を貫く3つの行動指針です。
+			</p>
+		</div>
+		<div class="values-grid">
+			<div class="value-card">
+				<div class="value-num">VALUE 01</div>
+				<h3>仮説 × データで決める</h3>
+				<p>感覚ではなく、現場で測れる指標と仮説に基づいて意思決定します。合意した成果と、透明性のある進め方を重視します。</p>
+			</div>
+			<div class="value-card">
+				<div class="value-num">VALUE 02</div>
+				<h3>小さく試し、早く学ぶ</h3>
+				<p>綿密な計画を練りつつ、検証と改善が回る状態をつくります。完璧を待つより、動かしながら精度を上げることを優先します。</p>
+			</div>
+			<div class="value-card">
+				<div class="value-num">VALUE 03</div>
+				<h3>約束と成果に責任を持つ</h3>
+				<p>守秘、品質、スコープ管理を徹底し、期待に応える支援を行います。関係者全員が安心して前に進める環境をつくります。</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== FOUNDER + MISSION ===================== -->
+<section class="founder">
+	<div class="container founder-inner">
+		<div class="founder-photo-col">
+			<div class="founder-photo">
+				<div class="founder-photo__placeholder">
+					<span>Founder Photo</span>
+				</div>
+			</div>
+		</div>
+		<div class="founder-content">
+			<span class="founder-tag">Founder's Message</span>
+			<h2 class="founder-name">山口 聖子<span class="founder-name__en">Seiko Yamaguchi</span></h2>
+			<div class="founder-role">代表 / Revenue Architect</div>
+
+			<div class="mission-block">
+				<div class="mission-label">Our Mission</div>
+				<h3>
+					日本の価値と、<br />
+					世界からの可能性を<br />
+					<span class="accent">つなぐ。</span>
+				</h3>
+				<div class="mission-from">— 代表 山口聖子</div>
+			</div>
+
+			<div class="mission-prose">
+				<p>
+					今の日本では、企業が新たな挑戦に踏み出し、未来に投資するための余力を持ちにくい状況が続いています。
+					国内市場の成熟に加え、部門ごとの最適化や連携不足によって、
+					<strong>戦略が成果につながり切らない場面</strong>も少なくありません。
+				</p>
+				<p>
+					一方で、海外での経験を通じて、私自身の価値観や視野は大きく広がりました。
+					日本を好きだと言い、日本と関わりたいと願う方々にも多く出会ってきました。
+					そうした経験から、<strong>日本の中にある価値と、海外から寄せられる関心や可能性を、
+					より良い形でつないでいきたい</strong>と考えるようになりました。
+				</p>
+				<p>
+					Consilegyは、その橋渡しを実務として支えるための会社です。
+					理論だけで終わらせず、現場に入り込み、戦略を仕組みと実行に落とし込みながら、
+					企業が前に進むための伴走を続けていきます。
+				</p>
+			</div>
+
+			<div class="founder-bio">
+				<p>
+					ITコンサルティング会社を経て、2015年に独立。マーケティングコンサルタント・プロジェクトマネージャーとして、東京を中心に活動。お菓子のサブスクリプション事業や台湾の広告代理店におけるアドバイザー業務にも従事。
+				</p>
+				<p>
+					2025年にConsilegy合同会社を設立。Web・DXプロジェクトにおいて、要件定義から実装設計までのプロジェクト推進を多数担当。HubSpot等のCRM導入・活用支援にも強みを持ち、マーケティング・営業・CRMを統合したRevenue Operations設計と、技術理解に基づいたシステム構造設計、リリース後の運用改善まで一気通貫で支援。
+				</p>
+			</div>
+
+			<div class="founder-meta">
+				<div>
+					<h5>専門領域</h5>
+					<ul>
+						<li>レベニューアーキテクチャ設計</li>
+						<li>マーケティング戦略設計</li>
+						<li>MA / CRM / SFA設計・実装支援</li>
+						<li>プロジェクトマネジメント</li>
+					</ul>
+				</div>
+				<div>
+					<h5>認定・資格</h5>
+					<ul>
+						<li>G検定（ジェネラリスト検定）</li>
+						<li>HubSpot Marketing Software 認定</li>
+						<li>Google アナリティクス個人認定資格 (GAIQ)</li>
+						<li>Shopify Theme Development</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== TRACK RECORD ===================== -->
+<section class="track">
+	<div class="container">
+		<div class="track-head">
+			<p class="section-eyebrow">Track Record</p>
+			<h2>主な支援実績</h2>
+			<p class="section-lead">
+				国内大手から外資系SaaS、グローバルEC、専門サービスまで、
+				業種・規模を問わずRevenue Architectureの設計・実装・運用を支援してきました。
+			</p>
+		</div>
+		<div class="track-grid">
+			<div class="track-card">
+				<div class="track-cat">Revenue Architecture / CRM・データ設計 / 運用基盤</div>
+				<h3>レベニューアーキテクチャ設計・データ基盤支援</h3>
+				<div class="track-tags">
+					<span class="track-tag">西川株式会社</span>
+					<span class="track-tag">株式会社elife</span>
+					<span class="track-tag">アリババ株式会社</span>
+					<span class="track-tag">Kaizen Platform株式会社</span>
+				</div>
+			</div>
+			<div class="track-card">
+				<div class="track-cat">Marketing / Project Management</div>
+				<h3>マーケティング支援・PM支援</h3>
+				<div class="track-tags">
+					<span class="track-tag">Moloco株式会社</span>
+					<span class="track-tag">MSL Japan</span>
+					<span class="track-tag">UCC上島珈琲株式会社</span>
+					<span class="track-tag">株式会社イノーバ</span>
+					<span class="track-tag">株式会社THE MOLTS</span>
+					<span class="track-tag">株式会社月曜日のトラ</span>
+					<span class="track-tag">Sazae Pty Ltd</span>
+				</div>
+			</div>
+		</div>
+		<p class="track-note">※ 代表 山口聖子の個人実績を含みます。</p>
+	</div>
+</section>
+
+<!-- ===================== TOOLS STRIP ===================== -->
+<section class="tools-strip">
+	<div class="container tools-inner">
+		<div>
+			<h3>対応ツール</h3>
+			<p>主要なCRM / SFA / MA / 名刺管理 / 業務SaaS / 解析基盤に対応します。</p>
+		</div>
+		<div class="tool-list">
+			<span class="tool-pill">HubSpot</span>
+			<span class="tool-pill">Salesforce</span>
+			<span class="tool-pill">Marketo</span>
+			<span class="tool-pill">Sansan</span>
+			<span class="tool-pill">kintone</span>
+			<span class="tool-pill">ServiceNow</span>
+			<span class="tool-pill">GA4</span>
+			<span class="tool-pill">Amplitude</span>
+			<span class="tool-pill">など</span>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== COMPANY TABLE ===================== -->
+<section class="company">
+	<div class="container company-inner">
+		<div>
+			<p class="section-eyebrow">Company</p>
+			<h2>会社概要</h2>
+			<p class="company-note">
+				登記情報および基本情報は以下の通りです。
+				取材・パートナーシップに関するお問い合わせもこちらからお願いいたします。
+			</p>
+		</div>
+		<div class="company-table">
+			<dl>
+				<div class="company-row">
+					<dt>会社名</dt>
+					<dd>Consilegy（コンシレジー）合同会社 / Consilegy LLC.</dd>
+				</div>
+				<div class="company-row">
+					<dt>代表者名</dt>
+					<dd>山口 聖子（Founder / Revenue Architect）</dd>
+				</div>
+				<div class="company-row">
+					<dt>本社所在地</dt>
+					<dd>〒107-0061 東京都港区北青山1丁目3番1号 アールキューブ青山3階</dd>
+				</div>
+				<div class="company-row">
+					<dt>設立年月日</dt>
+					<dd>2025年5月12日</dd>
+				</div>
+				<div class="company-row">
+					<dt>従業員数</dt>
+					<dd>5名</dd>
+				</div>
+				<div class="company-row">
+					<dt>法人番号</dt>
+					<dd>2010403035111</dd>
+				</div>
+				<div class="company-row">
 					<dt>事業内容</dt>
-					<dd>マーケティング・セールスオペレーションに関するコンサルティング、HubSpot等の設計・実装支援</dd>
+					<dd>Revenue Architecture設計／マーケティング戦略コンサルティング／MA・CRM・SFA設計・実装支援／運用定着・改善支援</dd>
 				</div>
-				<div class="facts__row">
-					<dt>本社</dt>
-					<dd>東京都（※Phase 1 プレースホルダ。正式住所はWordPress / 登記情報に準拠）</dd>
+				<div class="company-row">
+					<dt>対応ツール</dt>
+					<dd>HubSpot, Salesforce, Marketo, Sansan, kintone, ServiceNow, GA4, Amplitude 等</dd>
+				</div>
+				<div class="company-row">
+					<dt>連絡先</dt>
+					<dd><a href="mailto:info@consilegy.com">info@consilegy.com</a></dd>
 				</div>
 			</dl>
 		</div>
-	</Section>
+	</div>
+</section>
 
-	<CTA title="プロジェクトの進め方や体制についてもお気軽にご相談ください。" href="/contact/" label="お問い合わせ" />
+<!-- ===================== FINAL CTA ===================== -->
+<section class="final-cta" id="cta">
+	<div class="container cta-inner">
+		<p class="cta-eyebrow">Get Started</p>
+		<h2>戦略から実装、定着まで<br />一貫して相談したい方へ。</h2>
+		<p class="cta-lead">
+			何から着手すべきか整理したい場合も、具体的な導入や改善を検討している場合も、
+			現在の状況に合わせてご案内します。初回ご相談は無料、オンライン60分で承ります。
+		</p>
+		<div class="cta-actions">
+			<a href="/contact/" class="btn btn--cta-primary btn--lg">無料相談を予約する →</a>
+			<a href="/download/" class="btn btn--cta-outline btn--lg">サービス資料をダウンロード</a>
+		</div>
+	</div>
+</section>
+
 </BaseLayout>
 
 <style>
-	.page-head {
-		padding-block: var(--space-2xl) var(--space-lg);
-		max-width: 65ch;
-	}
+/* ── Shared ──────────────────────────────────────────── */
+.section-eyebrow {
+	font-size: 0.8125rem; font-weight: 600; color: var(--color-primary);
+	letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 0.875rem; display: inline-block;
+}
+.section-lead { font-size: 1.0625rem; color: var(--color-text-muted); line-height: 1.85; margin: 0; }
+.accent { color: var(--color-primary); }
 
-	.page-head__eyebrow {
-		margin: 0 0 var(--space-xs);
-		font-size: 0.85rem;
-		font-weight: 700;
-		letter-spacing: 0.12em;
-		text-transform: uppercase;
-		color: var(--color-secondary);
-	}
+/* ── Hero ──────────────────────────────────────────── */
+.hero {
+	padding-block: 5.5rem 5rem;
+	background:
+		radial-gradient(900px 400px at 90% -10%, rgba(124,92,191,0.06), transparent 60%),
+		linear-gradient(180deg, var(--color-bg-subtle) 0%, var(--color-bg) 100%);
+	border-bottom: 1px solid var(--color-border);
+}
+.hero-inner { max-width: 920px; }
+.eyebrow {
+	display: inline-flex; align-items: center; gap: 0.5rem;
+	font-size: 0.8125rem; font-weight: 600; color: var(--color-primary);
+	background: rgba(30,64,175,0.08); padding: 0.375rem 0.875rem; border-radius: 4px;
+	letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1.25rem;
+}
+.eyebrow__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--color-primary); display: inline-block; }
+.hero h1 {
+	font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+	font-size: clamp(2rem, 4vw, 3rem); font-weight: 600;
+	line-height: 1.45; margin: 1.25rem 0 1.5rem; color: var(--color-text);
+}
+.hero-lead { font-size: 1.1875rem; line-height: 1.85; color: var(--color-text-muted); max-width: 760px; margin: 0; }
+.hero-meta {
+	margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-border);
+	display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
+}
+.meta-lbl { font-size: 0.75rem; font-weight: 600; color: var(--color-text-muted); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.5rem; }
+.meta-val { font-size: 1rem; color: var(--color-text); font-weight: 500; line-height: 1.55; }
 
-	.page-head__title {
-		margin: 0 0 var(--space-sm);
-		font-size: clamp(1.75rem, 3vw, 2.25rem);
-		font-weight: 800;
-		letter-spacing: -0.03em;
-	}
+/* ── Capabilities ──────────────────────────────────── */
+.capabilities {
+	background: var(--color-bg-subtle);
+	border-top: 1px solid var(--color-border);
+	border-bottom: 1px solid var(--color-border);
+	padding-block: 5rem;
+}
+.cap-head { max-width: 720px; margin-bottom: 3rem; }
+.cap-head h2 { font-size: 1.875rem; font-weight: 700; line-height: 1.4; margin: 0 0 1rem; color: var(--color-text); }
+.cap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+.cap-card {
+	background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 8px;
+	padding: 2rem 1.75rem; display: flex; flex-direction: column; gap: 0.75rem;
+	box-shadow: var(--shadow-sm);
+}
+.cap-num {
+	font-family: 'Noto Serif JP', serif; font-size: 1.75rem; font-weight: 600;
+	color: var(--color-primary); line-height: 1; margin-bottom: 0.5rem; letter-spacing: 0.02em;
+}
+.cap-card h3 { font-size: 1.0625rem; font-weight: 700; line-height: 1.5; color: var(--color-text); margin: 0; }
+.cap-card p { font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted); margin: 0; }
 
-	.page-head__lede {
-		margin: 0;
-		font-size: var(--text-lead);
-		line-height: 1.75;
-		color: #334155;
-	}
+/* ── Why ───────────────────────────────────────────── */
+.why { padding-block: 5rem; background: var(--color-bg); }
+.why-inner { display: grid; grid-template-columns: 0.9fr 1.3fr; gap: 4.5rem; align-items: start; }
+.why-left h2 {
+	font-family: 'Noto Serif JP', serif; font-size: 2.25rem; font-weight: 600;
+	line-height: 1.45; margin: 0 0 1.25rem; color: var(--color-text);
+}
+.why-lead { font-size: 1.0625rem; line-height: 1.85; color: var(--color-text-muted); }
+.why-list { display: flex; flex-direction: column; gap: 1.25rem; }
+.why-item {
+	background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 8px;
+	padding: 1.75rem; display: grid; grid-template-columns: 56px 1fr; gap: 1.25rem; align-items: start;
+}
+.why-num {
+	font-family: 'Noto Serif JP', serif; font-size: 1.5rem; font-weight: 600; color: var(--color-primary);
+	width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--color-primary);
+	display: flex; align-items: center; justify-content: center; background: #f7faff; flex-shrink: 0;
+}
+.why-item h4 { font-size: 1.0625rem; font-weight: 700; margin: 0 0 0.5rem; line-height: 1.55; color: var(--color-text); }
+.why-item p { font-size: 0.9375rem; line-height: 1.8; color: var(--color-text-muted); margin: 0; }
+.why-foot {
+	margin-top: 1.5rem; padding: 1.25rem 1.5rem;
+	background: #f1f5fb; border-left: 3px solid var(--color-primary); border-radius: 0 8px 8px 0;
+	font-size: 0.9375rem; color: var(--color-text); line-height: 1.8;
+}
 
-	.company-split {
-		display: grid;
-		grid-template-columns: 1.1fr 0.9fr;
-		gap: var(--space-xl);
-		align-items: start;
-		padding-bottom: var(--space-xl);
-	}
+/* ── Values ─────────────────────────────────────────── */
+.values {
+	padding-block: 5rem;
+	background: #f1f5fb;
+	border-top: 1px solid var(--color-border);
+}
+.values-head { text-align: center; max-width: 720px; margin: 0 auto 3rem; }
+.values-head h2 {
+	font-family: 'Noto Serif JP', serif; font-size: 2.25rem; font-weight: 600;
+	line-height: 1.45; margin: 0 0 1rem; color: var(--color-text);
+}
+.values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.value-card {
+	background: var(--color-bg); border: 1px solid var(--color-border);
+	border-radius: 8px; padding: 2.25rem 2rem;
+}
+.value-num {
+	font-family: 'Noto Serif JP', serif; font-size: 1rem; font-weight: 600;
+	color: var(--color-primary); letter-spacing: 0.1em; margin-bottom: 1rem;
+	display: inline-block; padding-bottom: 0.5rem; border-bottom: 2px solid var(--color-primary);
+}
+.value-card h3 { font-size: 1.1875rem; font-weight: 700; margin: 0 0 0.875rem; line-height: 1.5; color: var(--color-text); }
+.value-card p { font-size: 0.9375rem; line-height: 1.85; color: var(--color-text-muted); margin: 0; }
 
-	.company-split__h2 {
-		margin: var(--space-lg) 0 var(--space-sm);
-		font-size: 1.25rem;
-		font-weight: 750;
-	}
+/* ── Founder ─────────────────────────────────────────── */
+.founder { padding-block: 5rem; background: var(--color-bg); }
+.founder-inner { display: grid; grid-template-columns: 360px 1fr; gap: 4rem; align-items: start; }
+.founder-photo {
+	width: 100%; aspect-ratio: 4 / 5; border-radius: 8px;
+	background: #cfd8ec; border: 1px solid var(--color-border); overflow: hidden;
+}
+.founder-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.founder-photo__placeholder {
+	width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+	font-size: 0.875rem; color: #94a3b8; letter-spacing: 0.04em;
+}
+.founder-tag {
+	font-size: 0.8125rem; letter-spacing: 0.18em; text-transform: uppercase;
+	color: var(--color-primary); font-weight: 600; display: block; margin-bottom: 0.75rem;
+}
+.founder-name {
+	font-family: 'Noto Serif JP', serif; font-size: 2.25rem; font-weight: 600;
+	color: var(--color-text); margin: 0 0 0.25rem;
+}
+.founder-name__en { font-size: 1.1rem; color: var(--color-text-muted); margin-left: 0.75rem; font-weight: 500; font-family: inherit; }
+.founder-role { font-size: 0.95rem; color: var(--color-text-muted); margin-bottom: 2rem; }
 
-	.company-split__text p {
-		margin: 0 0 var(--space-md);
-		color: #334155;
-		line-height: 1.8;
-	}
+.mission-block {
+	background: var(--color-bg-subtle); border-left: 3px solid var(--color-primary);
+	border-radius: 0 12px 12px 0; padding: 2rem 2.25rem; margin-bottom: 2rem;
+}
+.mission-label {
+	font-size: 0.75rem; font-weight: 600; color: var(--color-primary);
+	letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.875rem; display: block;
+}
+.mission-block h3 {
+	font-family: 'Noto Serif JP', serif; font-size: 1.875rem; font-weight: 600;
+	line-height: 1.5; color: var(--color-text); margin: 0;
+}
+.mission-from { margin-top: 1rem; font-size: 0.8125rem; color: var(--color-text-muted); letter-spacing: 0.06em; }
 
-	.company-split__media img {
-		border-radius: calc(var(--radius) * 2);
-		box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
-		width: 100%;
-		height: auto;
-		object-fit: cover;
-	}
+.mission-prose { margin: 0; }
+.mission-prose p { font-size: 0.9875rem; line-height: 2; color: var(--color-text); margin: 0; }
+.mission-prose p + p { margin-top: 1.25rem; }
+.mission-prose strong { color: var(--color-text); font-weight: 600; }
 
-	.company-facts {
-		max-width: 800px;
-	}
+.founder-bio {
+	margin-top: 2rem; padding-top: 2rem;
+	border-top: 1px solid var(--color-border);
+}
+.founder-bio p { font-size: 0.9875rem; line-height: 2; color: var(--color-text); margin: 0; }
+.founder-bio p + p { margin-top: 1.25rem; }
 
-	.facts {
-		margin: 0;
-	}
+.founder-meta { margin-top: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.founder-meta h5 {
+	font-size: 0.75rem; font-weight: 600; color: var(--color-text-muted);
+	letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 0.875rem;
+	padding-bottom: 0.5rem; border-bottom: 1px solid var(--color-border);
+}
+.founder-meta ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.625rem; }
+.founder-meta li { font-size: 0.9375rem; color: var(--color-text); display: flex; gap: 0.625rem; }
+.founder-meta li::before {
+	content: ""; flex-shrink: 0; width: 5px; height: 5px; border-radius: 50%;
+	background: var(--color-primary); margin-top: 0.7em;
+}
 
-	.facts__row {
-		display: grid;
-		grid-template-columns: 160px 1fr;
-		gap: var(--space-md);
-		padding: var(--space-md) 0;
-		border-bottom: 1px solid var(--color-border);
-	}
+/* ── Track Record ────────────────────────────────────── */
+.track {
+	padding-block: 5rem;
+	background: var(--color-bg-subtle);
+	border-top: 1px solid var(--color-border);
+}
+.track-head { max-width: 760px; margin-bottom: 3rem; }
+.track-head h2 {
+	font-family: 'Noto Serif JP', serif; font-size: 2.25rem; font-weight: 600;
+	line-height: 1.45; margin: 0 0 1rem; color: var(--color-text);
+}
+.track-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.track-card {
+	background: var(--color-bg); border: 1px solid var(--color-border);
+	border-radius: 8px; padding: 2rem;
+}
+.track-cat {
+	font-size: 0.75rem; font-weight: 600; color: var(--color-primary);
+	letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem;
+}
+.track-card h3 { font-size: 1.0625rem; font-weight: 700; margin: 0 0 1.25rem; line-height: 1.55; color: var(--color-text); }
+.track-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.track-tag {
+	font-size: 0.875rem; color: var(--color-text); background: #f1f5fb;
+	padding: 0.4rem 0.75rem; border-radius: 6px; border: 1px solid var(--color-border);
+}
+.track-note { margin-top: 1.5rem; font-size: 0.8125rem; color: var(--color-text-muted); font-style: italic; }
 
-	.facts__row dt {
-		margin: 0;
-		font-weight: 700;
-		color: #475569;
-	}
+/* ── Tools Strip ─────────────────────────────────────── */
+.tools-strip {
+	padding-block: 4rem;
+	background: var(--color-bg);
+	border-top: 1px solid var(--color-border);
+}
+.tools-inner { display: grid; grid-template-columns: 0.7fr 2fr; gap: 3rem; align-items: center; }
+.tools-strip h3 {
+	font-family: 'Noto Serif JP', serif; font-size: 1.5rem; font-weight: 600;
+	color: var(--color-text); margin: 0 0 0.5rem;
+}
+.tools-strip p { font-size: 0.9375rem; color: var(--color-text-muted); margin: 0; }
+.tool-list { display: flex; flex-wrap: wrap; gap: 0.625rem; }
+.tool-pill {
+	font-size: 0.9375rem; font-weight: 500; color: var(--color-text);
+	background: var(--color-bg-subtle); border: 1px solid var(--color-border);
+	padding: 0.55rem 1rem; border-radius: 4px;
+}
 
-	.facts__row dd {
-		margin: 0;
-		color: #0f172a;
-		line-height: 1.7;
-	}
+/* ── Company Table ───────────────────────────────────── */
+.company {
+	padding-block: 5rem;
+	background: var(--color-bg-subtle);
+	border-top: 1px solid var(--color-border);
+}
+.company-inner { display: grid; grid-template-columns: 0.85fr 1.4fr; gap: 4.5rem; align-items: start; }
+.company-inner h2 {
+	font-family: 'Noto Serif JP', serif; font-size: 2.25rem; font-weight: 600;
+	line-height: 1.45; color: var(--color-text); margin: 0 0 1rem;
+}
+.company-note { margin-top: 1rem; font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.75; }
+.company-table {
+	background: var(--color-bg); border: 1px solid var(--color-border);
+	border-radius: 8px; overflow: hidden;
+}
+.company-table dl { margin: 0; }
+.company-row { display: grid; grid-template-columns: 200px 1fr; border-bottom: 1px solid var(--color-border); }
+.company-row:last-child { border-bottom: 0; }
+.company-row dt {
+	font-size: 0.875rem; font-weight: 600; color: var(--color-text-muted);
+	padding: 1.25rem 1.5rem; background: var(--color-bg-subtle); letter-spacing: 0.04em;
+}
+.company-row dd {
+	margin: 0; padding: 1.25rem 1.5rem;
+	font-size: 0.9875rem; color: var(--color-text); line-height: 1.7;
+}
+.company-row dd a { color: var(--color-primary); }
 
-	@media (max-width: 900px) {
-		.company-split {
-			grid-template-columns: 1fr;
-		}
+/* ── Final CTA ───────────────────────────────────────── */
+.final-cta {
+	padding-block: var(--space-2xl);
+	background:
+		radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%),
+		linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+	color: #fff;
+}
+.cta-inner { text-align: center; max-width: 780px; margin: 0 auto; }
+.cta-eyebrow {
+	font-size: 0.8125rem; font-weight: 600; color: #93c5fd;
+	letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 1rem;
+}
+.cta-inner h2 {
+	font-family: 'Noto Serif JP', serif; font-weight: 600; color: #fff;
+	font-size: clamp(1.75rem, 2.5vw, 2.25rem); line-height: 1.55; margin: 0 0 1.25rem;
+}
+.cta-lead { color: #bfdbfe; font-size: 1.0625rem; line-height: 1.85; max-width: 620px; margin: 0 auto 2.25rem; }
+.cta-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; }
+.btn--lg { padding: 1.0625rem 1.875rem; font-size: 1rem; }
+.btn--cta-primary {
+	display: inline-flex; align-items: center; justify-content: center;
+	padding: 1.0625rem 1.875rem; border-radius: var(--radius);
+	font-weight: 700; font-size: 1rem; text-decoration: none;
+	background: #fff; color: var(--color-primary); border: none;
+	transition: background 0.15s ease;
+}
+.btn--cta-primary:hover { background: #e0eaff; color: var(--color-primary); }
+.btn--cta-outline {
+	display: inline-flex; align-items: center; justify-content: center;
+	padding: 1.0625rem 1.875rem; border-radius: var(--radius);
+	font-weight: 600; font-size: 1rem; text-decoration: none;
+	background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.45);
+	transition: all 0.15s ease;
+}
+.btn--cta-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
 
-		.facts__row {
-			grid-template-columns: 1fr;
-		}
-	}
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 980px) {
+	.hero h1, .why-left h2, .values-head h2, .track-head h2, .company-inner h2 { font-size: 1.75rem; }
+	.hero-meta { grid-template-columns: 1fr 1fr; }
+	.why-inner, .company-inner, .founder-inner, .tools-inner { grid-template-columns: 1fr; gap: 2rem; }
+	.cap-grid { grid-template-columns: 1fr 1fr; }
+	.track-grid { grid-template-columns: 1fr; }
+	.values-grid { grid-template-columns: 1fr; }
+	.founder-meta { grid-template-columns: 1fr; }
+	.company-row { grid-template-columns: 1fr; }
+	.company-row dt { padding-bottom: 0.25rem; }
+	.mission-block h3 { font-size: 1.375rem; }
+}
+@media (max-width: 600px) {
+	.cap-grid { grid-template-columns: 1fr; }
+	.hero-meta { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+	.cta-actions { flex-direction: column; align-items: center; }
+}
 </style>

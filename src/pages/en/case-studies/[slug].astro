@@ -60,11 +60,11 @@ const alternateUrl = getAlternateUrl(Astro.url.pathname, 'en', jaSlug ?? null);
   backLabel="Case Studies"
   hideLede={true}
 >
-  <div class="wp-content" set:html={entry.body ?? ''} />
+  <div class="wp-content cs-body" set:html={entry.body ?? ''} />
   <div class="case-cta">
     <CTA
       title="Let's discuss your challenge."
-      href="/en/contact-en/"
+      href="/en/contact/"
       label="Get in touch"
     />
   </div>
@@ -73,5 +73,54 @@ const alternateUrl = getAlternateUrl(Astro.url.pathname, 'en', jaSlug ?? null);
 <style>
   .case-cta {
     margin-top: var(--space-2xl);
+  }
+
+  /* Case study section labels */
+  :global(.cs-body .cs-section) {
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--color-border);
+  }
+  :global(.cs-body .cs-section:first-child) {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+  :global(.cs-body .cs-label) {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin: 0 0 var(--space-md);
+  }
+  :global(.cs-body .cs-meta) {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.35rem 1.25rem;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-2xl);
+    padding-bottom: var(--space-xl);
+    border-bottom: 1px solid var(--color-border);
+  }
+  :global(.cs-body .cs-meta dt) {
+    font-weight: 600;
+    color: var(--color-text);
+    white-space: nowrap;
+  }
+  :global(.cs-body .cs-meta dd) {
+    margin: 0;
+  }
+  :global(.cs-body .cs-section p) {
+    margin-top: 0;
+    margin-bottom: var(--space-sm);
+  }
+  :global(.cs-body .cs-section ul) {
+    padding-left: 1.25rem;
+    margin: var(--space-sm) 0 0;
+  }
+  :global(.cs-body .cs-section li) {
+    margin-bottom: 0.35rem;
   }
 </style>

@@ -1,0 +1,114 @@
+---
+import HubSpotForm from './HubSpotForm.astro';
+---
+
+<aside class="nl-sidebar">
+	<div class="nl-box">
+		<p class="nl-eyebrow">NEWSLETTER</p>
+		<h2 class="nl-title">次世代B2Bレベニュー戦略バイブル</h2>
+		<p class="nl-desc">日本初のRevenue Architecture実践メディア。売上が伸びる収益構造の設計から、CRM・MA・SFA導入、RevOps定着まで。マーケ・営業・CSを一つの収益エンジンにつなぐ実践知を、Consilegy代表・山口聖子がお届け。</p>
+		<HubSpotForm portalId="46498743" formId="9a3f7149-ace5-4364-8969-4d487a53faf5" region="na2" />
+	</div>
+</aside>
+
+<style is:global>
+/* ── sidebar grid layout — applied when sidebar is present ── */
+.article-wrap {
+	display: grid;
+	grid-template-columns: 1fr 300px;
+	grid-template-rows: auto 1fr auto;
+	column-gap: 48px;
+	max-width: 1160px;
+	margin-inline: auto;
+	padding-inline: 24px;
+	align-items: start;
+}
+.article-wrap .article-head {
+	grid-column: 1 / -1;
+	grid-row: 1;
+	max-width: none;
+	padding-inline: 0;
+}
+/* override each article's local .container constraint on the body */
+.article-wrap .article-body.container {
+	grid-column: 1;
+	grid-row: 2;
+	max-width: none;
+	padding-inline: 0;
+}
+/* related links section spans full width at bottom */
+.article-wrap .article-related.container {
+	grid-column: 1 / -1;
+	grid-row: 3;
+	max-width: none;
+	padding-inline: 0;
+}
+
+@media (max-width: 960px) {
+	.article-wrap {
+		grid-template-columns: 1fr;
+		max-width: 800px;
+	}
+	.article-wrap .article-body.container,
+	.article-wrap .article-related.container {
+		grid-column: 1;
+	}
+}
+</style>
+
+<style>
+.nl-sidebar {
+	grid-column: 2;
+	grid-row: 2;
+	position: sticky;
+	top: 80px;
+	padding-bottom: 48px;
+}
+
+.nl-box {
+	background: #fff;
+	border: 1px solid #e2e8f0;
+	border-radius: 8px;
+	padding: 24px 20px 20px;
+}
+
+.nl-eyebrow {
+	font-size: .65rem;
+	font-weight: 800;
+	letter-spacing: .18em;
+	text-transform: uppercase;
+	color: #1e40af;
+	margin: 0 0 10px;
+}
+
+.nl-title {
+	font-size: .95rem;
+	font-weight: 800;
+	color: #0f172a;
+	line-height: 1.5;
+	margin: 0 0 12px;
+	letter-spacing: -.01em;
+}
+
+.nl-desc {
+	font-size: .78rem;
+	color: #475569;
+	line-height: 1.75;
+	margin: 0 0 16px;
+	padding-bottom: 16px;
+	border-bottom: 1px solid #f1f5f9;
+}
+
+@media (max-width: 960px) {
+	.nl-sidebar {
+		grid-column: 1;
+		position: static;
+		padding-bottom: 0;
+		margin-bottom: 48px;
+		order: -1; /* show sidebar above article on mobile */
+	}
+	.nl-box {
+		max-width: 560px;
+	}
+}
+</style>

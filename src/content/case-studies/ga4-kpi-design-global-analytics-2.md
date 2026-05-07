@@ -6,161 +6,48 @@ sourceUrl: "https://consilegy.com/en/case-studies/ga4-kpi-design-global-analytic
 lang: "en"
 translationKey: "ga4-kpi-design"
 modified: "2026-03-18T01:54:40"
-description: " ToolsGA4, Looker Studio, BigQueryKey ChallengesMisaligned KPIs, analysis dependency on individuals, lack of connection to decision-makingIndustryEnte"
+description: "A global entertainment company had GA4 deployed but KPIs differed by region and reporting was manual. The issue wasn't data collection — it was that data didn't connect to decisions."
 featuredImage: "/images/wp/2026/02/ga4-looker-studio.png"
 featuredImageAlt: ""
 draft: false
 ---
-<!-- wp:table {"fontSize":"small"} -->
-<figure class="wp-block-table has-small-font-size"><table class="has-fixed-layout"><tbody><tr><td><strong>Tools</strong></td><td>GA4, Looker Studio, BigQuery</td></tr><tr><td><strong><strong>Key Challenges</strong></strong></td><td>Misaligned KPIs, analysis dependency on individuals, lack of connection to decision-making</td></tr><tr><td><strong>Industry</strong></td><td>Entertainment (US-based global company)</td></tr><tr><td><strong>Company Size</strong></td><td>Approx. 3,000 employees</td></tr><tr><td><strong>Timeline</strong></td><td>2024 (approx. 6 months)</td></tr><tr><td><strong>Scope</strong></td><td>Data strategy design, KPI redefinition, dashboard development, global alignment</td></tr></tbody></table></figure>
-<!-- /wp:table -->
+<dl class="cs-meta">
+  <dt>Tools</dt><dd>GA4, Looker Studio, BigQuery</dd>
+  <dt>Industry</dt><dd>Entertainment (US-based global company)</dd>
+  <dt>Company size</dt><dd>Approx. 3,000 employees</dd>
+  <dt>Timeline</dt><dd>2024, approx. 6 months</dd>
+  <dt>Scope</dt><dd>Data strategy design, KPI redefinition, dashboard development, global alignment</dd>
+</dl>
 
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Background</strong></h2>
-<!-- /wp:heading -->
+<section class="cs-section">
+  <h2 class="cs-label">Problem</h2>
+  <p>A US-headquartered global entertainment company had already deployed GA4 as a unified tracking platform. But the data wasn't being used to make decisions. KPI definitions varied by region and team. Reporting was a manual, recurring operational task rather than a decision support tool.</p>
+  <p>The core issue wasn't data collection — it was interpretation and action. There was no framework connecting measurement to investment decisions or optimization. Analysis depended on specific individuals, and reports were produced regularly without meaningfully influencing what the business did next.</p>
+</section>
 
-<!-- wp:paragraph -->
-<p>A global entertainment company headquartered in the United States had already implemented GA4 as a unified tracking platform.</p>
-<!-- /wp:paragraph -->
+<section class="cs-section">
+  <h2 class="cs-label">Work</h2>
+  <p>We focused on designing a structure that connects data to decision-making — not on improving the analytics tooling itself.</p>
+  <ul>
+    <li>KPI framework redesign — rebuilt metrics from the ground up based on business outcomes, not analytics defaults</li>
+    <li>Global definition alignment — standardized KPI definitions across regions, channels, and teams</li>
+    <li>Dashboard architecture in Looker Studio and BigQuery — structured for fast, clear decision-making by executives and channel managers</li>
+    <li>Optimization guidance — provided data-backed channel investment recommendations as part of the enablement process</li>
+  </ul>
+</section>
 
-<!-- wp:paragraph -->
-<p>However, KPI definitions varied across regions and teams, and reporting remained a manual, operational task.</p>
-<!-- /wp:paragraph -->
+<section class="cs-section">
+  <h2 class="cs-label">Result</h2>
+  <ul>
+    <li>Decision infrastructure established — executives can assess business performance quickly without analyst support</li>
+    <li>Faster optimization cycles — data directly informs channel adjustments rather than feeding into reports that sit unread</li>
+    <li>Global KPI alignment achieved — standardized metrics across regions removed interpretation gaps</li>
+    <li>Improved investment decisions — clear visibility into channel contribution and ROI</li>
+  </ul>
+</section>
 
-<!-- wp:paragraph -->
-<p>The core issue was not data collection, but interpretation and utilization.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>There was no foundation to translate data into actionable insights for investment and optimization decisions.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Objective</strong></h2>
-<!-- /wp:heading -->
-
-<!-- wp:list -->
-<ul class="wp-block-list"><!-- wp:list-item -->
-<li>KPI design: Redefine metrics aligned with business outcomes</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Visualization: Build a shared dashboard for decision-making across teams</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Enablement: Establish a process for data-driven optimization and decision-making</li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
-
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Challenges</strong></h2>
-<!-- /wp:heading -->
-
-<!-- wp:list -->
-<ul class="wp-block-list"><!-- wp:list-item -->
-<li>KPI misalignment: Analytics metrics were not aligned with business outcomes</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Operational dependency: Analysis relied on specific individuals</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>No decision linkage: Reports did not lead to actionable decisions</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Global coordination: Required alignment across multiple regions and stakeholders</li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
-
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Approach</strong></h2>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>Rather than focusing on tools, we designed a structure that connects data to decision-making.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:list -->
-<ul class="wp-block-list"><!-- wp:list-item -->
-<li>KPI framework: Rebuilt metrics based on business goals</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Definition alignment: Standardized KPIs across regions and channels</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Dashboard design: Structured insights for fast and clear decision-making</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Optimization guidance: Provided data-backed recommendations for channel investment</li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
-
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Results</strong></h2>
-<!-- /wp:heading -->
-
-<!-- wp:list -->
-<ul class="wp-block-list"><!-- wp:list-item -->
-<li>Decision infrastructure established: Executives can quickly assess business performance</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Faster optimization cycles: Data directly informs actionable improvements</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Global KPI alignment: Standardized metrics across regions</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Improved investment decisions: Clear visibility into channel contribution and ROI</li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
-
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Core Value</strong></h2>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>This project was not about improving analytics tools.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>It established a foundation where data directly informs business decisions.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>By connecting measurement, interpretation, and action,</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>the organization shifted from reporting to continuous optimization.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Applicable Scenarios</strong></h2>
-<!-- /wp:heading -->
-
-<!-- wp:list -->
-<ul class="wp-block-list"><!-- wp:list-item -->
-<li>Organizations with large-scale marketing investments</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Global companies requiring KPI standardization</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Teams with analytics tools but limited decision impact</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Marketing organizations seeking to improve investment efficiency</li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
+<section class="cs-section">
+  <h2 class="cs-label">Why it matters</h2>
+  <p>More data doesn't produce better decisions. What changed here was the structure connecting measurement to action. Different regions interpreting data differently — and building reports manually against metrics that weren't tied to business outcomes — meant that even large analytics investments had limited decision impact.</p>
+  <p>By establishing a shared framework and a decision-ready reporting structure, the organization shifted from reporting as an output to data as an input. That shift is what makes analytics investments worthwhile at scale.</p>
+</section>

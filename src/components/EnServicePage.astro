@@ -1,0 +1,402 @@
+---
+interface CoverItem {
+  title?: string;
+  body: string;
+}
+interface FaqItem {
+  q: string;
+  a: string;
+}
+interface Props {
+  // SEO
+  title: string;
+  description: string;
+
+  // Hero
+  heroTagline: string;
+  heroBrief: string;
+  primaryCta?: string;
+  secondaryCta?: string;
+  secondaryCtaHref?: string;
+
+  // Problem section (optional)
+  problemHeading?: string;
+  problemItems?: string[];
+  problemClose?: string;
+
+  // Best fit (optional)
+  bestFitHeading?: string;
+  bestFitItems?: string[];
+
+  // What this covers / What we design / What we may review (optional)
+  coversHeading?: string;
+  covers?: CoverItem[];
+  coversNote?: string;
+
+  // Good fit (optional)
+  goodFitHeading?: string;
+  goodFitItems?: string[];
+
+  // Not a fit (optional)
+  notAFit?: string[];
+
+  // Special callout box (optional)
+  calloutHeading?: string;
+  calloutBody?: string;
+
+  // Deliverables (optional)
+  deliverables?: string[];
+
+  // Pricing note (optional)
+  pricingNote?: string;
+
+  // Japan GTM connection (optional)
+  japanGTM?: string;
+
+  // FAQ (optional)
+  faq?: FaqItem[];
+}
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const {
+  title,
+  description,
+  heroTagline,
+  heroBrief,
+  primaryCta = 'Contact Us',
+  secondaryCta,
+  secondaryCtaHref = '/en/case-studies/',
+  problemHeading,
+  problemItems,
+  problemClose,
+  bestFitHeading,
+  bestFitItems,
+  coversHeading,
+  covers,
+  coversNote,
+  goodFitHeading,
+  goodFitItems,
+  notAFit,
+  calloutHeading,
+  calloutBody,
+  deliverables,
+  pricingNote,
+  japanGTM,
+  faq,
+} = Astro.props;
+
+const hasProblem = problemItems?.length || problemClose;
+const hasBestFit = bestFitItems?.length;
+const hasCovers = covers?.length;
+const hasGoodFit = goodFitItems?.length;
+const hasNotAFit = notAFit?.length;
+const hasCallout = calloutHeading;
+const hasDeliverables = deliverables?.length;
+const hasFaq = faq?.length;
+---
+
+<BaseLayout title={`${title} | Consilegy`} description={description} lang="en">
+
+  <!-- ── HERO ──────────────────────────────────────── -->
+  <section class="sv-hero">
+    <div class="sv-container">
+      <p class="sv-eyebrow"><a href="/en/services/">← All Services</a></p>
+      <h1 class="sv-hero__h1">{title}</h1>
+      <p class="sv-hero__tagline">{heroTagline}</p>
+      <p class="sv-hero__brief">{heroBrief}</p>
+      <div class="sv-hero__actions">
+        <a href="/en/contact/" class="sv-btn sv-btn--primary">{primaryCta}</a>
+        {secondaryCta && (
+          <a href={secondaryCtaHref} class="sv-btn sv-btn--ghost">{secondaryCta} →</a>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROBLEM ───────────────────────────────────── -->
+  {hasProblem && (
+    <section class="sv-section sv-section--light">
+      <div class="sv-container sv-container--narrow">
+        {problemHeading && <p class="sv-label">{problemHeading}</p>}
+        {problemItems && (
+          <ul class="sv-problem-list">
+            {problemItems.map((item) => <li>{item}</li>)}
+          </ul>
+        )}
+        {problemClose && <p class="sv-problem-close">{problemClose}</p>}
+      </div>
+    </section>
+  )}
+
+  <!-- ── BEST FIT ───────────────────────────────────── -->
+  {hasBestFit && (
+    <section class="sv-section sv-section--subtle">
+      <div class="sv-container sv-container--narrow">
+        <p class="sv-label">Best fit</p>
+        <h2 class="sv-section__h2">{bestFitHeading ?? 'This service is best suited for teams that are:'}</h2>
+        <ul class="sv-fit-list">
+          {bestFitItems!.map((item) => (
+            <li class="sv-fit-list__item">
+              <span class="sv-fit-list__check" aria-hidden="true">✓</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <!-- ── WHAT COVERS ────────────────────────────────── -->
+  {hasCovers && (
+    <section class="sv-section sv-section--white">
+      <div class="sv-container sv-container--narrow">
+        <p class="sv-label">Scope</p>
+        <h2 class="sv-section__h2">{coversHeading ?? 'What this service covers'}</h2>
+        <ul class="sv-covers">
+          {covers!.map((item) => (
+            <li class="sv-covers__item">
+              {item.title && <strong class="sv-covers__title">{item.title}</strong>}
+              <span class={item.title ? 'sv-covers__body' : ''}>{item.body}</span>
+            </li>
+          ))}
+        </ul>
+        {coversNote && <p class="sv-covers-note">{coversNote}</p>}
+      </div>
+    </section>
+  )}
+
+  <!-- ── GOOD FIT ───────────────────────────────────── -->
+  {hasGoodFit && (
+    <section class="sv-section sv-section--subtle">
+      <div class="sv-container sv-container--narrow">
+        <p class="sv-label">Good fit</p>
+        <h2 class="sv-section__h2">{goodFitHeading ?? 'This is a good fit if:'}</h2>
+        <ul class="sv-fit-list">
+          {goodFitItems!.map((item) => (
+            <li class="sv-fit-list__item">
+              <span class="sv-fit-list__check" aria-hidden="true">✓</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <!-- ── NOT A FIT ──────────────────────────────────── -->
+  {hasNotAFit && (
+    <section class="sv-section sv-section--white">
+      <div class="sv-container sv-container--narrow">
+        <p class="sv-label">Scope clarity</p>
+        <h2 class="sv-section__h2">This is not for you if…</h2>
+        <ul class="sv-not-fit">
+          {notAFit!.map((item) => (
+            <li class="sv-not-fit__item">
+              <span class="sv-not-fit__icon" aria-hidden="true">×</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <!-- ── CALLOUT ────────────────────────────────────── -->
+  {hasCallout && (
+    <section class="sv-section sv-section--subtle">
+      <div class="sv-container sv-container--narrow">
+        <div class="sv-callout">
+          <h2 class="sv-callout__heading">{calloutHeading}</h2>
+          <p class="sv-callout__body">{calloutBody}</p>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ── DELIVERABLES ───────────────────────────────── -->
+  {hasDeliverables && (
+    <section class="sv-section sv-section--white">
+      <div class="sv-container sv-container--narrow">
+        <p class="sv-label">What you get</p>
+        <h2 class="sv-section__h2">Deliverables</h2>
+        <ul class="sv-deliverables">
+          {deliverables!.map((d) => (
+            <li class="sv-deliverables__item">
+              <span class="sv-deliverables__check" aria-hidden="true">✓</span>
+              <span>{d}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <!-- ── PRICING NOTE ───────────────────────────────── -->
+  {pricingNote && (
+    <section class="sv-section sv-section--subtle">
+      <div class="sv-container sv-container--narrow">
+        <p class="sv-label">Pricing guidance</p>
+        <p class="sv-pricing-note">{pricingNote}</p>
+      </div>
+    </section>
+  )}
+
+  <!-- ── JAPAN GTM ──────────────────────────────────── -->
+  {japanGTM && (
+    <section class="sv-section sv-section--dark">
+      <div class="sv-container sv-container--narrow">
+        <p class="sv-label sv-label--light">Japan GTM connection</p>
+        <h2 class="sv-section__h2 sv-section__h2--light">How this connects to Japan execution</h2>
+        <p class="sv-japan-body">{japanGTM}</p>
+      </div>
+    </section>
+  )}
+
+  <!-- ── FAQ ───────────────────────────────────────── -->
+  {hasFaq && (
+    <section class="sv-section sv-section--white">
+      <div class="sv-container sv-container--narrow">
+        <p class="sv-label">FAQ</p>
+        <h2 class="sv-section__h2">Frequently asked questions</h2>
+        <dl class="sv-faq">
+          {faq!.map((item) => (
+            <>
+              <dt class="sv-faq__q">{item.q}</dt>
+              <dd class="sv-faq__a">{item.a}</dd>
+            </>
+          ))}
+        </dl>
+      </div>
+    </section>
+  )}
+
+  <!-- ── FINAL CTA ──────────────────────────────────── -->
+  <section class="sv-cta-final">
+    <div class="sv-container sv-container--narrow sv-cta-final__inner">
+      <h2 class="sv-cta-final__h2">Ready to talk about your situation?</h2>
+      <p class="sv-cta-final__body">
+        Tell us where you are and what you are trying to solve.
+        We will let you know if this service fits your situation.
+      </p>
+      <div class="sv-cta-final__actions">
+        <a href="/en/contact/" class="sv-btn sv-btn--primary sv-btn--lg">{primaryCta}</a>
+        {secondaryCta && (
+          <a href={secondaryCtaHref} class="sv-btn sv-btn--ghost-light">{secondaryCta} →</a>
+        )}
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+/* ── Container ─────────────────────────── */
+.sv-container { width: 100%; max-width: 1120px; margin-inline: auto; padding-inline: 1.5rem; }
+.sv-container--narrow { max-width: 720px; }
+
+/* ── Buttons ───────────────────────────── */
+.sv-btn {
+  display: inline-flex; align-items: center; padding: 0.75em 1.5em;
+  font-size: 0.9375rem; font-weight: 700; border-radius: 8px;
+  text-decoration: none; transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.sv-btn--lg { padding: 0.9em 2em; font-size: 1rem; }
+.sv-btn--primary { background: var(--color-primary); color: #fff; border: 2px solid var(--color-primary); }
+.sv-btn--primary:hover { background: var(--color-primary-dark); border-color: var(--color-primary-dark); color: #fff; }
+.sv-btn--ghost { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.4); }
+.sv-btn--ghost:hover { border-color: #fff; color: #fff; }
+.sv-btn--ghost-light { background: transparent; color: var(--color-primary); border: 2px solid var(--color-primary); }
+.sv-btn--ghost-light:hover { background: rgba(30,64,175,0.06); color: var(--color-primary); }
+
+/* ── Labels / Headings ────────────────── */
+.sv-eyebrow a { font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.06em; color: rgba(255,255,255,0.45); text-decoration: none; }
+.sv-eyebrow a:hover { color: rgba(255,255,255,0.8); }
+
+.sv-label { display: block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-primary); margin-bottom: 0.5rem; }
+.sv-label--light { color: rgba(255,255,255,0.55); }
+
+.sv-section__h2 { font-size: clamp(1.375rem, 2.5vw, 1.875rem); font-weight: 700; line-height: 1.3; color: var(--color-text); margin: 0 0 1.5rem; }
+.sv-section__h2--light { color: #fff; }
+
+/* ── Hero ──────────────────────────────── */
+.sv-hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #1e40af 100%); padding: 72px 0 64px; color: #fff; }
+.sv-hero__h1 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); font-weight: 800; line-height: 1.2; margin: 0.75rem 0 0.75rem; color: #fff; }
+.sv-hero__tagline { font-size: 1.125rem; font-weight: 600; line-height: 1.5; color: rgba(255,255,255,0.95); max-width: 640px; margin: 0 0 0.75rem; }
+.sv-hero__brief { font-size: 1rem; line-height: 1.75; color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 0 2rem; }
+.sv-hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+/* ── Sections ──────────────────────────── */
+.sv-section { padding: 72px 0; }
+.sv-section--white  { background: #fff; }
+.sv-section--light  { background: #fff; }
+.sv-section--subtle { background: #f8f9fc; }
+.sv-section--dark   { background: #0f172a; }
+
+/* ── Problem ───────────────────────────── */
+.sv-problem-list {
+  list-style: none; padding: 0; margin: 0 0 1.25rem;
+  border-left: 3px solid var(--color-primary);
+  padding-left: 1.5rem;
+  display: flex; flex-direction: column; gap: 0.75rem;
+}
+.sv-problem-list li { font-size: 1.0625rem; line-height: 1.7; color: var(--color-text); }
+.sv-problem-close { font-size: 1rem; line-height: 1.75; color: var(--color-text-muted); margin: 1rem 0 0; }
+
+/* ── Fit lists (best fit / good fit) ───── */
+.sv-fit-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+.sv-fit-list__item { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 1rem; line-height: 1.65; color: var(--color-text); }
+.sv-fit-list__check { flex-shrink: 0; width: 1.4rem; height: 1.4rem; background: rgba(30,64,175,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: var(--color-primary); margin-top: 0.15rem; }
+
+/* ── Covers ────────────────────────────── */
+.sv-covers { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; }
+.sv-covers__item { padding: 1rem 0; border-bottom: 1px solid var(--color-border); font-size: 0.9375rem; line-height: 1.65; color: var(--color-text-muted); display: flex; flex-direction: column; gap: 0.2rem; }
+.sv-covers__item:first-child { border-top: 1px solid var(--color-border); }
+.sv-covers__title { display: block; font-size: 0.9375rem; font-weight: 700; color: var(--color-text); }
+.sv-covers__body { color: var(--color-text-muted); }
+.sv-covers-note { margin-top: 1.25rem; font-size: 0.9375rem; color: var(--color-text-muted); font-style: italic; }
+
+/* ── Not a fit ─────────────────────────── */
+.sv-not-fit { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+.sv-not-fit__item { display: flex; gap: 0.75rem; align-items: flex-start; font-size: 0.9375rem; line-height: 1.65; color: var(--color-text-muted); background: #f8f9fc; border: 1px solid var(--color-border); border-radius: 8px; padding: 0.875rem 1.25rem; }
+.sv-not-fit__icon { flex-shrink: 0; width: 1.4rem; height: 1.4rem; background: rgba(239,68,68,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; color: #dc2626; margin-top: 0.1rem; }
+
+/* ── Callout ───────────────────────────── */
+.sv-callout { background: #fff; border: 2px solid var(--color-primary); border-radius: 8px; padding: 2rem; }
+.sv-callout__heading { font-size: 1.125rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.75rem; }
+.sv-callout__body { font-size: 1rem; line-height: 1.75; color: var(--color-text-muted); margin: 0; }
+
+/* ── Deliverables ──────────────────────── */
+.sv-deliverables { list-style: none; padding: 0; margin: 0; }
+.sv-deliverables__item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.875rem 0; border-bottom: 1px solid var(--color-border); font-size: 0.9375rem; line-height: 1.65; color: var(--color-text); }
+.sv-deliverables__item:first-child { border-top: 1px solid var(--color-border); }
+.sv-deliverables__check { flex-shrink: 0; width: 1.4rem; height: 1.4rem; background: rgba(30,64,175,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: var(--color-primary); margin-top: 0.1rem; }
+
+/* ── Pricing note ──────────────────────── */
+.sv-pricing-note { font-size: 1rem; line-height: 1.8; color: var(--color-text-muted); margin: 0; }
+
+/* ── Japan GTM ─────────────────────────── */
+.sv-japan-body { font-size: 1.0625rem; line-height: 1.8; color: rgba(255,255,255,0.8); margin: 0; }
+
+/* ── FAQ ───────────────────────────────── */
+.sv-faq { margin: 0; }
+.sv-faq__q { font-size: 1rem; font-weight: 700; color: var(--color-text); margin: 1.5rem 0 0.4rem; border-top: 1px solid var(--color-border); padding-top: 1.25rem; }
+.sv-faq__q:first-of-type { border-top: none; margin-top: 0; padding-top: 0; }
+.sv-faq__a { font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted); margin: 0; }
+
+/* ── Final CTA ─────────────────────────── */
+.sv-cta-final { background: #f8f9fc; border-top: 1px solid var(--color-border); padding: 80px 0; }
+.sv-cta-final__inner { text-align: center; }
+.sv-cta-final__h2 { font-size: clamp(1.375rem, 2.5vw, 1.875rem); font-weight: 700; color: var(--color-text); margin: 0 0 0.75rem; }
+.sv-cta-final__body { font-size: 1rem; line-height: 1.75; color: var(--color-text-muted); margin: 0 0 2rem; }
+.sv-cta-final__actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* ── Responsive ────────────────────────── */
+@media (max-width: 600px) {
+  .sv-hero { padding: 48px 0 40px; }
+  .sv-section { padding: 48px 0; }
+  .sv-cta-final { padding: 56px 0; }
+  .sv-hero__actions { flex-direction: column; align-items: flex-start; }
+  .sv-cta-final__actions { flex-direction: column; align-items: center; }
+}
+</style>

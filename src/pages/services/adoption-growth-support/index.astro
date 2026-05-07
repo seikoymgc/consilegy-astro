@@ -1,0 +1,1212 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const faqItems = [
+	{
+		q: 'CRM導入済みでも依頼できますか？',
+		a: 'はい。むしろ、CRM導入済みで「定着していない」「活用できていない」という状態からの相談が最も多いです。既存のCRM環境を前提に、KPI再設計・ダッシュボード改善・営業マーケ連携・ワークフロー整理など、現状を活かしながら段階的に改善します。ツールの入れ替えや大規模移行を前提とせず、今あるCRMを売上管理に使える状態へ育てることを起点にします。',
+	},
+	{
+		q: '月額伴走だけ依頼できますか？',
+		a: 'はい。Phase 2の月額伴走支援から開始することも可能ですが、まずPhase 1のRevOps運用診断（30万円〜）を経てから伴走支援の範囲・優先施策を設計することをお勧めします。診断なしで伴走を開始すると、改善の優先順位がずれやすく、費用対効果が下がるケースがあります。',
+	},
+	{
+		q: 'KPIレビューも対応できますか？',
+		a: 'はい。月次・隔週でのKPIレビュー運営支援は支援範囲の中心です。単に数字を確認するだけの会議ではなく、KPIから改善アクションを設計し、優先順位を付け、実行まで追跡する会議体の設計と運営支援を行います。',
+	},
+	{
+		q: 'RevOpsとは何ですか？',
+		a: 'RevOps（Revenue Operations）は、営業・マーケティング・カスタマーサクセスなど、収益に関わる部門を横断して、プロセス・データ・ツール・KPIを統合的に運用・改善する機能です。ツール導入だけでは実現せず、業務プロセス設計・KPI定義・会議体設計・継続的な改善サイクルが揃って初めて機能します。CRM・SFA・MAの「定着」と「改善」は、RevOpsの実践そのものです。',
+	},
+	{
+		q: 'Revenue Architectureとの違いは何ですか？',
+		a: 'Revenue Architectureは、営業・マーケ・CS・CRM・KPI・会議体を含む収益構造全体の設計を指します。運用定着・改善支援は、その設計を現場に定着させ、継続的に改善するフェーズの支援です。Revenue Architecture設計が「構造の設計図を作る」なら、Adoption & Growth Supportは「その設計図が現場で機能し続けるように改善し続ける」支援です。',
+	},
+	{
+		q: '会議改善も含まれますか？',
+		a: 'はい。「数字確認で終わる会議」を改善アクションにつながる会議体へ再設計することは、支援の中心のひとつです。会議アジェンダの設計・KPIレビューの構造・改善アクションの追跡・責任者の定義まで含めて設計します。',
+	},
+	{
+		q: 'HubSpot以外にも対応していますか？',
+		a: 'はい。HubSpot・Salesforce・Kintone・Marketo・Account Engagementなど、主要CRM / SFA / MAに対応します。複数ツールが混在する環境でも、横断的なRevOps運用改善が可能です。Consilegyはベンダーフリーの立場で支援します。',
+	},
+	{
+		q: '定着率改善も支援できますか？',
+		a: 'はい。CRM入力率・KPI活用率・ダッシュボード参照率などの定着指標の改善は支援範囲に含まれます。「なぜ入力されないのか」「なぜ使われないのか」の構造的な原因を分析し、入力負荷の軽減・フィードバックループの設計・ワークフロー自動化を通じて改善します。',
+	},
+	{
+		q: '運用代行との違いは何ですか？',
+		a: 'Consilegyは、単なる作業代行ではなく、Revenue Operationsを改善し続けるための運用設計・KPI改善・会議改善まで支援します。運用代行は「決まった作業を継続的に実行する」サービスですが、Consilegyは「何をどう変えれば売上につながるか」を設計・実行・改善するパートナーです。目標は、チームが自走できる状態を作ることです。',
+	},
+];
+
+const faqSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faqItems.map(({ q, a }) => ({
+		'@type': 'Question',
+		name: q,
+		acceptedAnswer: { '@type': 'Answer', text: a },
+	})),
+};
+
+const deliverables = [
+	{ num: '01', title: 'RevOps改善レポート', freq: '月次', kpi: '15項目', savings: '−12h/月' },
+	{ num: '02', title: 'KPI改善提案書', freq: '四半期', kpi: '8項目', savings: '−5h/月' },
+	{ num: '03', title: 'CRM運用改善計画', freq: '隔月', kpi: '20項目', savings: '−8h/月' },
+	{ num: '04', title: 'ダッシュボード改善案', freq: '月次', kpi: '12項目', savings: '−6h/月' },
+	{ num: '05', title: '会議運用設計書', freq: '初回〜改善', kpi: '6項目', savings: '−10h/月' },
+	{ num: '06', title: 'ワークフロー改善案', freq: '随時', kpi: '10項目', savings: '−15h/月' },
+	{ num: '07', title: '入力定着ルール', freq: '初回〜改善', kpi: '8項目', savings: '−7h/月' },
+	{ num: '08', title: 'Revenue Architecture改善提案', freq: '四半期', kpi: '全体', savings: '戦略的' },
+	{ num: '09', title: '月次レビュー資料', freq: '月次', kpi: '12項目', savings: '−8h/月' },
+	{ num: '10', title: '改善ロードマップ', freq: '四半期', kpi: '優先施策', savings: '可視化' },
+];
+---
+
+<BaseLayout
+	title="運用定着・改善支援（Adoption & Growth Support）| Consilegy"
+	description="CRM導入後に定着しない、KPIが使われない、営業マーケ連携が崩れる。Revenue Operationsを継続的に改善するConsilegyの伴走支援。HubSpot / Salesforce / Kintone対応。月額30万〜100万円。"
+	lang="ja"
+>
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+	</Fragment>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+	<div class="container">
+		<div class="hero-nav">
+			<a href="/services/" class="back-link">← サービス一覧</a>
+			<span class="hero-tag">Adoption &amp; Growth Support</span>
+		</div>
+		<div class="hero-service-name">
+			<span class="hero-service-ja">運用定着・改善支援</span>
+			<span class="hero-service-en">Adoption &amp; Growth Support</span>
+		</div>
+		<h1>
+			CRMを導入しただけでは、<br />
+			<span class="accent">Revenue Operationsは定着しない</span>。
+		</h1>
+		<div class="hero-body">
+			<p class="hero-poem">
+				CRMを導入しても、<br />
+				営業が入力しない。<br />
+				KPIが使われない。<br />
+				会議が数字確認だけで終わる。
+			</p>
+			<p class="hero-lead">
+				多くの企業では、導入直後ではなく、<br />
+				「運用フェーズ」でRevenue Operationsが崩れていきます。
+			</p>
+			<p class="hero-value">
+				Consilegyは、CRM / KPI / 営業・マーケ・CS運用を継続的に改善し、<br />
+				売上につながる運用基盤を定着させます。
+			</p>
+		</div>
+		<div class="hero-cta">
+			<a href="/free-consultation/" class="btn btn--primary btn--lg">RevOps運用相談を申し込む →</a>
+			<a href="/download/" class="btn btn--outline btn--lg">サービス資料をダウンロード</a>
+		</div>
+		<div class="hero-keywords">
+			<span class="kw-pill">CRM定着</span>
+			<span class="kw-pill">KPI改善</span>
+			<span class="kw-pill">営業マーケ連携</span>
+			<span class="kw-pill">RevOps運用</span>
+			<span class="kw-pill">Revenue Architecture</span>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== CRM崩壊 ===================== -->
+<section class="collapse">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">What Happens</p>
+			<h2>CRM導入後、多くの企業で運用が止まります。</h2>
+		</div>
+		<div class="collapse-grid">
+			<div class="collapse-card">
+				<span class="collapse-icon">✕</span>
+				<span>営業がCRMを入力しなくなる</span>
+			</div>
+			<div class="collapse-card">
+				<span class="collapse-icon">✕</span>
+				<span>KPIが現場で使われない</span>
+			</div>
+			<div class="collapse-card">
+				<span class="collapse-icon">✕</span>
+				<span>ダッシュボードが放置される</span>
+			</div>
+			<div class="collapse-card">
+				<span class="collapse-icon">✕</span>
+				<span>MQL / SQL定義が崩れる</span>
+			</div>
+			<div class="collapse-card">
+				<span class="collapse-icon">✕</span>
+				<span>会議が数字確認だけになる</span>
+			</div>
+			<div class="collapse-card">
+				<span class="collapse-icon">✕</span>
+				<span>Excel管理へ戻る</span>
+			</div>
+			<div class="collapse-card">
+				<span class="collapse-icon">✕</span>
+				<span>営業とマーケが再び分断する</span>
+			</div>
+			<div class="collapse-card">
+				<span class="collapse-icon">✕</span>
+				<span>レポート作成が属人化する</span>
+			</div>
+			<div class="collapse-card">
+				<span class="collapse-icon">✕</span>
+				<span>データ更新ルールが曖昧になる</span>
+			</div>
+			<div class="collapse-card">
+				<span class="collapse-icon">✕</span>
+				<span>「誰も見ていないCRM」になる</span>
+			</div>
+		</div>
+		<div class="collapse-footer">
+			<p>
+				Revenue Operationsは、導入しただけでは機能しません。<br />
+				入力、レビュー、改善、会議運用まで含めて、<br />
+				継続的に改善される必要があります。
+			</p>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== なぜ定着しないのか ===================== -->
+<section class="root-cause">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Root Cause</p>
+			<h2>問題はツールではなく、「運用構造」にあります。</h2>
+		</div>
+		<div class="cause-grid">
+			<div class="cause-card">
+				<div class="cause-num">01</div>
+				<h3>KPIが現場業務につながっていない</h3>
+				<p>入力しても、現場メリットがない。<br />「なぜ入力するのか」が現場に伝わっていない。</p>
+			</div>
+			<div class="cause-card">
+				<div class="cause-num">02</div>
+				<h3>会議が改善につながっていない</h3>
+				<p>数字を見るだけで、改善アクションが存在しない。<br />確認で終わり、次のアクションが決まらない。</p>
+			</div>
+			<div class="cause-card">
+				<div class="cause-num">03</div>
+				<h3>RevOps改善責任が曖昧</h3>
+				<p>営業、マーケ、CSが再び個別最適へ戻ってしまう。<br />横断的な改善を担う機能が存在しない。</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 定義 ===================== -->
+<section class="definition">
+	<div class="container">
+		<div class="def-box">
+			<p class="eyebrow-label">Definition</p>
+			<h2>運用定着・改善支援とは</h2>
+			<p class="def-lead">
+				運用定着・改善支援は、CRM / KPI / 営業・マーケ・CS運用を継続的に改善し、Revenue Operationsを現場へ定着させる伴走支援です。
+			</p>
+			<p class="def-oneliner">
+				CRMを、「導入しただけ」で終わらせず、<br />
+				売上改善に使われ続ける運用基盤へ育てるサービスです。
+			</p>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 解決する課題 ===================== -->
+<section class="problems">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Problems We Solve</p>
+			<h2>解決する課題</h2>
+		</div>
+		<div class="problems-grid">
+			<div class="problem-card">
+				<div class="problem-num">01</div>
+				<h3>CRM定着不足</h3>
+				<p>入力率・活用率が低い。CRMに情報が蓄積されない。</p>
+			</div>
+			<div class="problem-card">
+				<div class="problem-num">02</div>
+				<h3>KPI形骸化</h3>
+				<p>指標が改善アクションにつながらない。数字があっても意思決定されない。</p>
+			</div>
+			<div class="problem-card">
+				<div class="problem-num">03</div>
+				<h3>営業マーケ分断</h3>
+				<p>MQL/SQL定義が崩れ、部門間の連携が機能しない。</p>
+			</div>
+			<div class="problem-card">
+				<div class="problem-num">04</div>
+				<h3>会議形骸化</h3>
+				<p>数字確認で終わり、改善アクションが生まれない会議体になっている。</p>
+			</div>
+			<div class="problem-card">
+				<div class="problem-num">05</div>
+				<h3>RevOps改善停止</h3>
+				<p>導入後に改善が止まり、Revenue Operationsのサイクルが回っていない。</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 支援範囲 ===================== -->
+<section class="scope">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Scope</p>
+			<h2>支援領域</h2>
+			<p class="section-desc">月額伴走の中で対応する12の支援領域です。Phase 1の診断後、必要な範囲を絞ってご提案します。</p>
+		</div>
+		<div class="scope-grid">
+			<div class="scope-item"><span class="scope-num">01</span><span class="scope-label">CRM運用改善</span></div>
+			<div class="scope-item"><span class="scope-num">02</span><span class="scope-label">KPI改善</span></div>
+			<div class="scope-item"><span class="scope-num">03</span><span class="scope-label">ダッシュボード改善</span></div>
+			<div class="scope-item"><span class="scope-num">04</span><span class="scope-label">RevOpsレビュー運用</span></div>
+			<div class="scope-item"><span class="scope-num">05</span><span class="scope-label">営業マーケCS連携改善</span></div>
+			<div class="scope-item"><span class="scope-num">06</span><span class="scope-label">会議運用改善</span></div>
+			<div class="scope-item"><span class="scope-num">07</span><span class="scope-label">ワークフロー改善</span></div>
+			<div class="scope-item"><span class="scope-num">08</span><span class="scope-label">データ品質改善</span></div>
+			<div class="scope-item"><span class="scope-num">09</span><span class="scope-label">入力定着支援</span></div>
+			<div class="scope-item"><span class="scope-num">10</span><span class="scope-label">Revenue Architecture改善提案</span></div>
+			<div class="scope-item"><span class="scope-num">11</span><span class="scope-label">レポート作成自動化</span></div>
+			<div class="scope-item"><span class="scope-num">12</span><span class="scope-label">Slack / 通知運用改善</span></div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 支援プロセス ===================== -->
+<section class="process">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Process</p>
+			<h2>支援プロセス</h2>
+			<p class="section-desc">単なる保守運用ではなく、Revenue Operationsを改善し続ける伴走支援。</p>
+		</div>
+		<div class="process-flow">
+			<div class="process-step">
+				<div class="step-num">01</div>
+				<div class="step-body">
+					<h3>RevOps現状分析</h3>
+					<p>CRM活用率・KPI品質・プロセス断絶の構造を診断します。</p>
+				</div>
+			</div>
+			<div class="process-step">
+				<div class="step-num">02</div>
+				<div class="step-body">
+					<h3>KPI / CRM分析</h3>
+					<p>KPI体系・CRMデータ品質・ダッシュボード設計を詳細に分析します。</p>
+				</div>
+			</div>
+			<div class="process-step">
+				<div class="step-num">03</div>
+				<div class="step-body">
+					<h3>運用課題整理</h3>
+					<p>部門横断でのボトルネックを整理し、優先度の高い課題を可視化します。</p>
+				</div>
+			</div>
+			<div class="process-step">
+				<div class="step-num">04</div>
+				<div class="step-body">
+					<h3>改善優先順位設計</h3>
+					<p>インパクトと実行コストで施策を評価し、四半期ロードマップを設計します。</p>
+				</div>
+			</div>
+			<div class="process-step">
+				<div class="step-num">05</div>
+				<div class="step-body">
+					<h3>CRM / KPI改善</h3>
+					<p>入力定着施策・プロパティ整理・KPI再定義を実行します。</p>
+				</div>
+			</div>
+			<div class="process-step">
+				<div class="step-num">06</div>
+				<div class="step-body">
+					<h3>会議運用改善</h3>
+					<p>数字確認から改善アクションにつながる会議体を設計・運営します。</p>
+				</div>
+			</div>
+			<div class="process-step">
+				<div class="step-num">07</div>
+				<div class="step-body">
+					<h3>ワークフロー自動化</h3>
+					<p>手作業・属人的なレポートをワークフローとSlack通知で自動化します。</p>
+				</div>
+			</div>
+			<div class="process-step">
+				<div class="step-num">08</div>
+				<div class="step-body">
+					<h3>定着支援</h3>
+					<p>現場チームへの運用定着・トレーニング・ナレッジ整備を行います。</p>
+				</div>
+			</div>
+			<div class="process-step process-step--last">
+				<div class="step-num step-num--cycle">↺</div>
+				<div class="step-body">
+					<h3>継続改善サイクル運用</h3>
+					<p>月次レビューを基盤に、RevOps改善サイクルを継続的に回し続けます。</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== BEFORE / AFTER ===================== -->
+<section class="ba-section">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Before / After</p>
+			<h2>「導入しただけのCRM」を、<br />改善し続けるRevenue Operationsへ。</h2>
+		</div>
+		<div class="ba-layout">
+			<div class="ba-col ba-col--before">
+				<div class="ba-badge ba-badge--before">Before</div>
+				<div class="ba-title">放置されたCRM</div>
+				<ul class="ba-list">
+					<li class="ba-item ba-item--bad"><span class="ba-x">✕</span>入力されないCRM</li>
+					<li class="ba-item ba-item--bad"><span class="ba-x">✕</span>放置されたダッシュボード</li>
+					<li class="ba-item ba-item--bad"><span class="ba-x">✕</span>KPI形骸化</li>
+					<li class="ba-item ba-item--bad"><span class="ba-x">✕</span>Excel逆戻り</li>
+					<li class="ba-item ba-item--bad"><span class="ba-x">✕</span>属人的レポート</li>
+					<li class="ba-item ba-item--bad"><span class="ba-x">✕</span>部門分断</li>
+					<li class="ba-item ba-item--bad"><span class="ba-x">✕</span>会議疲弊</li>
+				</ul>
+			</div>
+			<div class="ba-arrow-col">
+				<div class="ba-arrow-wrap">
+					<div class="ba-arrow-line"></div>
+					<div class="ba-arrow-label">Consilegy<br />伴走支援</div>
+					<div class="ba-arrow-head">→</div>
+				</div>
+			</div>
+			<div class="ba-col ba-col--after">
+				<div class="ba-badge ba-badge--after">After</div>
+				<div class="ba-title">改善サイクルが回るRevOps運用</div>
+				<ul class="ba-list">
+					<li class="ba-item ba-item--good"><span class="ba-check">✓</span>KPI改善サイクル</li>
+					<li class="ba-item ba-item--good"><span class="ba-check">✓</span>RevOpsレビュー運用</li>
+					<li class="ba-item ba-item--good"><span class="ba-check">✓</span>営業マーケCS接続</li>
+					<li class="ba-item ba-item--good"><span class="ba-check">✓</span>定着したCRM</li>
+					<li class="ba-item ba-item--good"><span class="ba-check">✓</span>自動レポート</li>
+					<li class="ba-item ba-item--good"><span class="ba-check">✓</span>改善アクション運用</li>
+					<li class="ba-item ba-item--good"><span class="ba-check">✓</span>売上可視化</li>
+				</ul>
+			</div>
+		</div>
+		<div class="ba-notes">
+			<p class="ba-note">※ ツールを替えるのではなく、今あるCRM・MAを機能させます。</p>
+			<p class="ba-note">※ 運用代行ではなく、チームが自走できる構造を設計します。</p>
+			<p class="ba-note">※ Revenue Architecture設計と組み合わせて、根本から整えることも可能です。</p>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== RevOps改善サイクル ===================== -->
+<section class="cycle-section">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">RevOps Improvement Cycle</p>
+			<h2>
+				Revenue Operationsは、<br />
+				継続改善で初めて機能します。
+			</h2>
+			<p class="section-desc">CRM導入はゴールではなく、改善サイクルのスタートです。</p>
+		</div>
+		<div class="cycle-layout">
+			<div class="cycle-diagram">
+				<div class="cycle-track">
+					<div class="cycle-node cycle-node--active">
+						<div class="cycle-node__num">01</div>
+						<div class="cycle-node__name">Measure</div>
+						<div class="cycle-node__desc">KPIを定義し<br />データを計測する</div>
+					</div>
+					<div class="cycle-arrow">↓</div>
+					<div class="cycle-node">
+						<div class="cycle-node__num">02</div>
+						<div class="cycle-node__name">Review</div>
+						<div class="cycle-node__desc">月次定例でKPIを<br />レビューする</div>
+					</div>
+					<div class="cycle-arrow">↓</div>
+					<div class="cycle-node">
+						<div class="cycle-node__num">03</div>
+						<div class="cycle-node__name">Improve</div>
+						<div class="cycle-node__desc">施策を優先順位付け<br />改善を実行する</div>
+					</div>
+					<div class="cycle-arrow">↓</div>
+					<div class="cycle-node">
+						<div class="cycle-node__num">04</div>
+						<div class="cycle-node__name">Automate</div>
+						<div class="cycle-node__desc">手動作業を自動化し<br />現場負荷を下げる</div>
+					</div>
+					<div class="cycle-arrow">↓</div>
+					<div class="cycle-node">
+						<div class="cycle-node__num">05</div>
+						<div class="cycle-node__name">Operate</div>
+						<div class="cycle-node__desc">チームが自走できる<br />運用基盤を定着させる</div>
+					</div>
+					<div class="cycle-loop">↺ 次の改善サイクルへ</div>
+				</div>
+			</div>
+			<div class="cycle-text">
+				<div class="cycle-text__block">
+					<h3>改善サイクルが止まる理由</h3>
+					<p>多くの企業では、KPIを定義しても「Review」が形骸化し、改善アクションが生まれません。Consilegyは、Measure から Operate まで、各フェーズが実際に機能するよう設計・支援します。</p>
+				</div>
+				<div class="cycle-text__block">
+					<h3>月次を基盤にする</h3>
+					<p>月次RevOpsレビューを会議体の中核に置き、KPI分析・改善施策の優先順位付け・進捗追跡を継続的に実行します。「決めただけ」を「動き続ける」状態へ。</p>
+				</div>
+				<div class="cycle-text__block">
+					<h3>自走化をゴールにする</h3>
+					<p>伴走支援の最終目標は、チームが自律的にRevOps改善サイクルを回せる状態を作ることです。依存を作らず、知識とプロセスを現場へ移転します。</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 成果物 ===================== -->
+<section class="deliverables">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Deliverables</p>
+			<h2>主な成果物</h2>
+			<p class="section-desc">単なるレポートではなく、現場で実際に動くRevOps改善を可視化します。</p>
+		</div>
+		<div class="deliv-layout">
+			<div class="deliv-list-col">
+				<div class="deliv-table-header">
+					<span class="deliv-th">成果物</span>
+					<span class="deliv-th deliv-th--meta">頻度</span>
+					<span class="deliv-th deliv-th--meta">KPI項目</span>
+					<span class="deliv-th deliv-th--meta">削減工数</span>
+				</div>
+				{deliverables.map(d => (
+					<div class="deliv-row">
+						<span class="deliv-num">{d.num}</span>
+						<span class="deliv-name">{d.title}</span>
+						<span class="deliv-meta">{d.freq}</span>
+						<span class="deliv-meta">{d.kpi}</span>
+						<span class="deliv-meta deliv-meta--savings">{d.savings}</span>
+					</div>
+				))}
+			</div>
+			<div class="deliv-mock-col">
+				<div class="deliv-mock-label">成果物 — 動的UI</div>
+				<!-- Dashboard Mock -->
+				<div class="dash-mock">
+					<div class="dash-mock__bar dash-mock__bar--header">
+						<span class="dash-mock__title">RevOps KPI Dashboard</span>
+						<span class="dash-mock__updated">月次自動更新</span>
+					</div>
+					<div class="dash-mock__kpis">
+						<div class="dash-mock__kpi">
+							<div class="dash-mock__kpi-l">Pipeline</div>
+							<div class="dash-mock__kpi-v">¥142M</div>
+							<div class="dash-mock__kpi-d kpi-up">↑ +18%</div>
+						</div>
+						<div class="dash-mock__kpi">
+							<div class="dash-mock__kpi-l">Win Rate</div>
+							<div class="dash-mock__kpi-v">28%</div>
+							<div class="dash-mock__kpi-d kpi-up">↑ +4pt</div>
+						</div>
+						<div class="dash-mock__kpi">
+							<div class="dash-mock__kpi-l">MQL→SQL</div>
+							<div class="dash-mock__kpi-v">42%</div>
+							<div class="dash-mock__kpi-d kpi-dn">↓ −2pt</div>
+						</div>
+					</div>
+					<div class="dash-mock__chart">
+						<div class="dash-mock__bars">
+							<div class="dash-bar" style="height:52%"></div>
+							<div class="dash-bar" style="height:68%"></div>
+							<div class="dash-bar" style="height:44%"></div>
+							<div class="dash-bar dash-bar--hi" style="height:85%"></div>
+							<div class="dash-bar" style="height:70%"></div>
+							<div class="dash-bar dash-bar--hi" style="height:92%"></div>
+						</div>
+						<div class="dash-mock__chart-label">6ヶ月 Pipeline推移</div>
+					</div>
+				</div>
+				<!-- Slack Notification Mock -->
+				<div class="slack-mock">
+					<div class="slack-mock__header">
+						<span class="slack-hash">#</span>
+						<span class="slack-channel">revops-alerts</span>
+					</div>
+					<div class="slack-msg">
+						<div class="slack-msg__meta">
+							<span class="slack-bot">RevOps Bot</span>
+							<span class="slack-time">月曜 9:00</span>
+						</div>
+						<div class="slack-msg__body">
+							<p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg> <strong>週次 KPIサマリー</strong></p>
+							<p>Pipeline: ¥142M（前週比 +¥12M）</p>
+							<p>商談化アラート: 3件 要確認</p>
+						</div>
+					</div>
+					<div class="slack-alert">
+						<span class="slack-alert__icon">⚠</span>
+						<span>Q3 MQL達成率 64%（要対応）</span>
+					</div>
+					<div class="slack-notif">
+						<span class="slack-notif__icon">🔔</span>
+						<span>停滞案件 5件 — 30日以上更新なし</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== なぜConsilegyなのか ===================== -->
+<section class="why-us">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Why Consilegy</p>
+			<h2>なぜConsilegyなのか</h2>
+		</div>
+		<div class="why-grid">
+			<div class="why-card">
+				<div class="why-card__num">01</div>
+				<h3>RevOps改善特化</h3>
+				<p>単なる保守ではなく、Revenue Operations改善を継続支援。月次レビューを「確認」ではなく「改善アクション」にします。</p>
+			</div>
+			<div class="why-card">
+				<div class="why-card__num">02</div>
+				<h3>マルチCRM対応</h3>
+				<p>HubSpot、Salesforce、Kintoneなど横断対応。ベンダーに依存しない視点で、最適な運用設計を提供します。</p>
+			</div>
+			<div class="why-card">
+				<div class="why-card__num">03</div>
+				<h3>Revenue Architecture起点</h3>
+				<p>ツール運用ではなく、売上構造全体を改善。KPI・プロセス・会議体・CRMを接続した設計で支援します。</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 支援事例 ===================== -->
+<section class="cases">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Case Studies</p>
+			<h2>RevOps運用改善の支援事例</h2>
+			<p class="section-desc">※代表 山口聖子の個人実績を含みます。</p>
+		</div>
+		<div class="cases-grid">
+			<div class="case-card">
+				<div class="case-card__head">
+					<span class="case-tag">SaaS / IT</span>
+					<span class="case-label">Case 01</span>
+				</div>
+				<h3>CRM定着改善</h3>
+				<p>導入済みHubSpotの入力率が30%以下。KPIが機能していない状態から伴走開始。プロパティ整理・入力ルール再定義・Slack自動通知設計を実施。</p>
+				<div class="case-metrics">
+					<div class="case-metric">
+						<div class="case-metric__val">+40%</div>
+						<div class="case-metric__label">CRM入力率改善</div>
+					</div>
+					<div class="case-metric">
+						<div class="case-metric__val">−8h</div>
+						<div class="case-metric__label">月間レポート工数削減</div>
+					</div>
+					<div class="case-metric">
+						<div class="case-metric__val">3ヶ月</div>
+						<div class="case-metric__label">定着達成期間</div>
+					</div>
+				</div>
+			</div>
+			<div class="case-card">
+				<div class="case-card__head">
+					<span class="case-tag">BtoB製造</span>
+					<span class="case-label">Case 02</span>
+				</div>
+				<h3>KPIレビュー改善</h3>
+				<p>毎週Excelで20時間の集計工数が発生。会議は数字確認で終わり、改善アクションが生まれていない状態を改善。ダッシュボード自動化・会議体再設計を実施。</p>
+				<div class="case-metrics">
+					<div class="case-metric">
+						<div class="case-metric__val">−20h</div>
+						<div class="case-metric__label">月間集計工数削減</div>
+					</div>
+					<div class="case-metric">
+						<div class="case-metric__val">100%</div>
+						<div class="case-metric__label">改善アクション化率</div>
+					</div>
+					<div class="case-metric">
+						<div class="case-metric__val">自動化</div>
+						<div class="case-metric__label">週次レポート</div>
+					</div>
+				</div>
+			</div>
+			<div class="case-card">
+				<div class="case-card__head">
+					<span class="case-tag">成長企業</span>
+					<span class="case-label">Case 03</span>
+				</div>
+				<h3>RevOps伴走支援</h3>
+				<p>営業・マーケのSLA定義が崩れ、商談化率が低迷。MQL/SQL再定義・営業マーケ連携設計・パイプラインKPI再設計を伴走支援。</p>
+				<div class="case-metrics">
+					<div class="case-metric">
+						<div class="case-metric__val">+15%</div>
+						<div class="case-metric__label">商談化率改善</div>
+					</div>
+					<div class="case-metric">
+						<div class="case-metric__val">定着</div>
+						<div class="case-metric__label">SLA運用</div>
+					</div>
+					<div class="case-metric">
+						<div class="case-metric__val">6ヶ月</div>
+						<div class="case-metric__label">伴走期間</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="cases-cta">
+			<a href="/contact/" class="btn btn--ghost">支援内容の詳細を相談する →</a>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 適している企業 ===================== -->
+<section class="fit">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Good Fit</p>
+			<h2>このような企業に適しています</h2>
+		</div>
+		<div class="fit-grid">
+			<div class="fit-item"><span class="fit-check">✓</span>CRM導入後に運用が止まっている</div>
+			<div class="fit-item"><span class="fit-check">✓</span>KPIが使われていない</div>
+			<div class="fit-item"><span class="fit-check">✓</span>ダッシュボードが放置されている</div>
+			<div class="fit-item"><span class="fit-check">✓</span>RevOps改善担当が不在</div>
+			<div class="fit-item"><span class="fit-check">✓</span>営業マーケ連携が崩れている</div>
+			<div class="fit-item"><span class="fit-check">✓</span>定着支援まで伴走してほしい</div>
+			<div class="fit-item"><span class="fit-check">✓</span>Revenue Operationsを継続改善したい</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 月額伴走の進め方 ===================== -->
+<section class="approach">
+	<div class="container">
+		<div class="approach-inner">
+			<div class="approach-text">
+				<p class="eyebrow-label">How We Work</p>
+				<h2>月額伴走の進め方</h2>
+				<p class="approach-lead">
+					Consilegyでは、単発改善ではなく、継続的にRevenue Operationsを改善する月額伴走支援を提供しています。月次レビュー、KPI分析、CRM改善、会議改善、RevOps改善を継続的に実施します。
+				</p>
+				<div class="approach-micro">
+					<p>Consilegyでは、単に改善提案を行うだけではありません。</p>
+					<p>
+						不要な入力項目の整理、ワークフロー自動化、レポート作成の巻き取り、ダッシュボード整備などを通じて、<strong>現場の入力・集計負荷を下げ、営業が「売ること」に集中できる状態を作ります</strong>。
+					</p>
+				</div>
+				<ul class="approach-list">
+					<li>月次RevOpsレビュー</li>
+					<li>KPI分析</li>
+					<li>CRM改善</li>
+					<li>ダッシュボード改善</li>
+					<li>ワークフロー改善</li>
+					<li>営業マーケ連携改善</li>
+					<li>Slack通知整備</li>
+					<li>自動レポート改善</li>
+				</ul>
+			</div>
+			<div class="approach-visual">
+				<div class="monthly-flow">
+					<div class="monthly-step monthly-step--start">月次スタート</div>
+					<div class="monthly-arrow">↓</div>
+					<div class="monthly-step">KPIレビュー</div>
+					<div class="monthly-arrow">↓</div>
+					<div class="monthly-step">課題整理・優先順位</div>
+					<div class="monthly-arrow">↓</div>
+					<div class="monthly-step">改善実行</div>
+					<div class="monthly-arrow">↓</div>
+					<div class="monthly-step monthly-step--end">次月へ ↺</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 料金 ===================== -->
+<section class="pricing">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Pricing</p>
+			<h2>料金目安</h2>
+		</div>
+		<div class="pricing-pre">
+			<p>
+				CRM導入後に運用が崩れると、営業工数、レポート工数、会議工数、マーケティングROIが継続的に失われます。<br />
+				Revenue Operationsは、導入よりも、<strong>改善運用フェーズで差が生まれます</strong>。
+			</p>
+		</div>
+		<div class="pricing-phases">
+			<div class="pricing-phase">
+				<div class="pricing-phase__phase">Phase 1</div>
+				<h3>RevOps運用診断</h3>
+				<div class="pricing-phase__price">30万円〜</div>
+				<p class="pricing-phase__desc">CRM活用状況・KPI品質・プロセス断絶の構造分析。改善ロードマップを提示します。</p>
+				<ul class="pricing-includes">
+					<li>CRM監査</li>
+					<li>KPI監査</li>
+					<li>RevOps分析</li>
+					<li>運用課題整理</li>
+					<li>改善ロードマップ</li>
+				</ul>
+			</div>
+			<div class="pricing-phase pricing-phase--featured">
+				<div class="pricing-phase__badge">推奨</div>
+				<div class="pricing-phase__phase">Phase 2</div>
+				<h3>運用定着・改善伴走支援</h3>
+				<div class="pricing-phase__price">月額 30万〜100万円</div>
+				<p class="pricing-phase__desc">RevOps改善サイクルの設計・定着・継続改善を伴走支援します。支援範囲に応じてプランを設定。</p>
+				<ul class="pricing-includes">
+					<li>KPI改善</li>
+					<li>CRM改善</li>
+					<li>会議改善</li>
+					<li>RevOpsレビュー</li>
+					<li>営業マーケCS連携改善</li>
+					<li>ワークフロー自動化</li>
+					<li>レポート改善</li>
+				</ul>
+				<p class="pricing-sub">ライト / スタンダード / フルの3段階</p>
+			</div>
+		</div>
+		<div class="pricing-cta">
+			<a href="/free-consultation/" class="btn btn--primary">RevOps運用相談を申し込む →</a>
+			<a href="/services/" class="btn btn--outline">料金プランを見る</a>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 関連サービス ===================== -->
+<section class="related">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Related Services</p>
+			<h2>関連サービス</h2>
+		</div>
+		<div class="related-grid">
+			<a href="/services/revenue-architecture-design/" class="related-card">
+				<div class="related-card__tag">上流設計</div>
+				<h3>Revenue Architecture Design</h3>
+				<p>収益構造全体の設計。定着支援の前段として組み合わせることが多いサービスです。</p>
+			</a>
+			<a href="/services/crm-revops-redesign/" class="related-card">
+				<div class="related-card__tag">CRM再設計</div>
+				<h3>CRM / RevOps再設計支援</h3>
+				<p>既存CRMの運用構造を根本から再設計するプロジェクト型支援。</p>
+			</a>
+			<a href="/services/b2b-marketing-gtm-design/" class="related-card">
+				<div class="related-card__tag">GTM設計</div>
+				<h3>B2B Marketing Strategy / GTM Design</h3>
+				<p>営業・マーケ・CRMを統合したGTM戦略設計と商談化プロセス構築。</p>
+			</a>
+			<a href="/services/hubspot-implementation-operations/" class="related-card">
+				<div class="related-card__tag">HubSpot特化</div>
+				<h3>HubSpot導入・運用支援</h3>
+				<p>HubSpotに特化した導入・再設計・RevOps整備支援。</p>
+			</a>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="faq">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">FAQ</p>
+			<h2>よくある質問</h2>
+		</div>
+		<div class="faq-list">
+			{faqItems.map(({ q, a }) => (
+				<details class="faq-item">
+					<summary class="faq-q">{q}</summary>
+					<div class="faq-a"><p>{a}</p></div>
+				</details>
+			))}
+		</div>
+	</div>
+</section>
+
+<!-- ===================== FINAL CTA ===================== -->
+<section class="cta-final">
+	<div class="container">
+		<p class="cta-final__eyebrow">Next Step</p>
+		<h2>
+			CRMを、<br />
+			「導入しただけ」で終わらせていませんか。
+		</h2>
+		<p class="cta-final__body">
+			現状のCRM運用、KPI、会議体、営業マーケ連携を整理し、<br />
+			どこでRevenue Operationsが崩れているのかを可視化します。
+		</p>
+		<div class="cta-final__btns">
+			<a href="/free-consultation/" class="btn btn--white btn--lg">RevOps運用相談を申し込む →</a>
+			<a href="/download/" class="btn btn--outline-white btn--lg">サービス資料をダウンロード</a>
+		</div>
+	</div>
+</section>
+
+</BaseLayout>
+
+<style>
+/* ===== BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+	--color-primary: #1e40af;
+	--color-primary-dark: #1d4ed8;
+	--color-accent-purple: #7c5cbf;
+	--color-navy: #0f172a;
+	--color-slate: #1e293b;
+	--color-charcoal: #334155;
+	--color-text: #1e293b;
+	--color-muted: #64748b;
+	--color-border: #e2e8f0;
+	--color-border-mid: #cbd5e1;
+	--color-bg-soft: #f8fafc;
+	--color-bg-mid: #f1f5f9;
+	--font-serif: 'Noto Serif JP', Georgia, serif;
+	--font-sans: 'Noto Sans JP', system-ui, sans-serif;
+	--container: 1100px;
+	--radius: 8px;
+}
+
+body { font-family: var(--font-sans); color: var(--color-text); line-height: 1.7; }
+.container { max-width: var(--container); margin: 0 auto; padding: 0 2rem; }
+
+/* ===== SECTION HEADERS ===== */
+.section-header { text-align: center; margin-bottom: 3rem; }
+.eyebrow-label { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-primary); margin-bottom: 0.625rem; }
+.section-header h2 { font-family: var(--font-serif); font-size: clamp(1.5rem, 3vw, 2rem); color: var(--color-navy); line-height: 1.4; }
+.section-desc { margin-top: 1rem; color: var(--color-muted); font-size: 0.9375rem; }
+
+/* ===== BUTTONS ===== */
+.btn { display: inline-flex; align-items: center; justify-content: center; font-weight: 600; border-radius: 5px; text-decoration: none; transition: all 0.18s; font-size: 0.9375rem; padding: 0.75rem 1.5rem; }
+.btn--lg { padding: 0.9rem 2rem; font-size: 1rem; }
+.btn--primary { background: var(--color-primary); color: #fff; border: 2px solid transparent; }
+.btn--primary:hover { background: var(--color-primary-dark); }
+.btn--outline { background: transparent; color: var(--color-primary); border: 2px solid var(--color-primary); }
+.btn--outline:hover { background: var(--color-primary); color: #fff; }
+.btn--ghost { background: transparent; color: var(--color-charcoal); border: 1px solid var(--color-border-mid); padding: 0.625rem 1.25rem; font-size: 0.875rem; }
+.btn--ghost:hover { border-color: var(--color-primary); color: var(--color-primary); }
+.btn--white { background: #fff; color: var(--color-primary); border: 2px solid transparent; }
+.btn--white:hover { background: #f1f5f9; }
+.btn--outline-white { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.55); }
+.btn--outline-white:hover { background: rgba(255,255,255,0.12); }
+
+/* ===== HERO ===== */
+.hero { padding: 5rem 0 4.5rem; background: #fff; border-bottom: 1px solid var(--color-border); }
+.hero-nav { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.back-link { font-size: 0.875rem; color: var(--color-muted); text-decoration: none; }
+.back-link:hover { color: var(--color-primary); }
+.hero-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; color: var(--color-primary); background: #eff6ff; border: 1px solid #bfdbfe; padding: 0.25rem 0.75rem; border-radius: 4px; }
+.hero-service-name { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.75rem; flex-wrap: wrap; }
+.hero-service-ja { font-family: var(--font-serif); font-size: 1rem; color: var(--color-charcoal); font-weight: 700; }
+.hero-service-en { font-size: 0.8125rem; color: var(--color-muted); letter-spacing: 0.04em; }
+.hero h1 { font-family: var(--font-serif); font-size: clamp(1.875rem, 4.5vw, 2.875rem); color: var(--color-navy); line-height: 1.3; margin-bottom: 2rem; }
+.hero h1 .accent { color: var(--color-primary); }
+.hero-body { max-width: 680px; margin-bottom: 2.25rem; }
+.hero-poem { font-size: 1.0625rem; color: var(--color-charcoal); line-height: 2; margin-bottom: 1.25rem; border-left: 3px solid var(--color-border-mid); padding-left: 1.25rem; }
+.hero-lead { font-size: 1rem; color: var(--color-charcoal); line-height: 1.9; margin-bottom: 1rem; }
+.hero-value { font-size: 1rem; color: var(--color-slate); font-weight: 600; line-height: 1.85; }
+.hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+.hero-keywords { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.kw-pill { font-size: 0.8125rem; font-weight: 600; background: var(--color-bg-mid); color: var(--color-charcoal); border: 1px solid var(--color-border-mid); border-radius: 4px; padding: 0.25rem 0.75rem; }
+
+/* ===== COLLAPSE ===== */
+.collapse { padding: 5rem 0; background: var(--color-bg-soft); }
+.collapse-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.875rem; margin-bottom: 3rem; }
+.collapse-card { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius); padding: 1rem; display: flex; align-items: flex-start; gap: 0.625rem; font-size: 0.875rem; color: var(--color-slate); line-height: 1.5; }
+.collapse-icon { color: #dc2626; font-weight: 700; flex-shrink: 0; font-size: 0.875rem; }
+.collapse-footer { max-width: 540px; margin: 0 auto; text-align: center; }
+.collapse-footer p { font-family: var(--font-serif); font-size: 1.0625rem; color: var(--color-charcoal); line-height: 2.1; }
+
+/* ===== ROOT CAUSE ===== */
+.root-cause { padding: 5rem 0; background: #fff; }
+.cause-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.cause-card { padding: 2rem; border: 1px solid var(--color-border); border-radius: var(--radius); background: var(--color-bg-soft); }
+.cause-num { font-size: 2.25rem; font-weight: 700; color: var(--color-border-mid); font-variant-numeric: tabular-nums; line-height: 1; margin-bottom: 1rem; font-family: var(--font-sans); }
+.cause-card h3 { font-family: var(--font-serif); font-size: 1rem; color: var(--color-navy); margin-bottom: 0.625rem; line-height: 1.5; }
+.cause-card p { font-size: 0.875rem; color: var(--color-muted); line-height: 1.85; }
+
+/* ===== DEFINITION ===== */
+.definition { padding: 5rem 0; background: var(--color-navy); }
+.def-box { max-width: 780px; margin: 0 auto; text-align: center; }
+.def-box .eyebrow-label { color: #93c5fd; }
+.def-box h2 { font-family: var(--font-serif); font-size: clamp(1.5rem, 3vw, 2rem); color: #fff; margin-bottom: 1.5rem; }
+.def-lead { font-size: 1.0625rem; color: rgba(255,255,255,0.9); line-height: 1.9; margin-bottom: 1.5rem; }
+.def-oneliner { font-family: var(--font-serif); font-size: 1.125rem; color: #93c5fd; line-height: 2; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 1.5rem; }
+
+/* ===== PROBLEMS ===== */
+.problems { padding: 5rem 0; background: var(--color-bg-soft); }
+.problems-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
+.problem-card { background: #fff; border: 1px solid var(--color-border); border-top: 2px solid var(--color-slate); border-radius: var(--radius); padding: 1.5rem 1.25rem; }
+.problem-num { font-size: 0.72rem; font-weight: 700; color: var(--color-muted); letter-spacing: 0.08em; margin-bottom: 0.75rem; font-variant-numeric: tabular-nums; }
+.problem-card h3 { font-family: var(--font-serif); font-size: 0.9375rem; color: var(--color-navy); margin-bottom: 0.625rem; line-height: 1.4; }
+.problem-card p { font-size: 0.8125rem; color: var(--color-muted); line-height: 1.7; }
+
+/* ===== SCOPE ===== */
+.scope { padding: 5rem 0; background: #fff; }
+.scope-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
+.scope-item { background: var(--color-bg-soft); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 1rem 1.125rem; display: flex; align-items: center; gap: 0.75rem; }
+.scope-num { font-size: 0.6875rem; font-weight: 700; color: var(--color-muted); font-variant-numeric: tabular-nums; flex-shrink: 0; width: 1.5rem; }
+.scope-label { font-size: 0.875rem; font-weight: 600; color: var(--color-slate); }
+
+/* ===== PROCESS ===== */
+.process { padding: 5rem 0; background: var(--color-bg-soft); }
+.process-flow { max-width: 740px; margin: 0 auto; display: flex; flex-direction: column; gap: 0; }
+.process-step { display: flex; gap: 1.5rem; align-items: flex-start; position: relative; padding-bottom: 1.75rem; }
+.process-step:not(.process-step--last)::after { content: ''; position: absolute; left: 1.3125rem; top: 2.625rem; width: 1.5px; height: calc(100% - 1.375rem); background: var(--color-border); }
+.step-num { flex-shrink: 0; width: 2.625rem; height: 2.625rem; border-radius: 50%; background: var(--color-navy); color: #fff; font-size: 0.75rem; font-weight: 700; display: flex; align-items: center; justify-content: center; font-variant-numeric: tabular-nums; z-index: 1; }
+.step-num--cycle { background: var(--color-primary); font-size: 1.125rem; }
+.process-step--last { padding-bottom: 0; }
+.step-body h3 { font-family: var(--font-serif); font-size: 1rem; color: var(--color-navy); margin-bottom: 0.25rem; padding-top: 0.375rem; }
+.step-body p { font-size: 0.875rem; color: var(--color-muted); line-height: 1.75; }
+
+/* ===== BEFORE / AFTER ===== */
+.ba-section { padding: 5rem 0; background: #fff; }
+.ba-layout { display: grid; grid-template-columns: 1fr auto 1fr; gap: 2rem; align-items: start; margin-bottom: 2rem; }
+.ba-col { border-radius: 8px; padding: 1.75rem; }
+.ba-col--before { background: #fafafa; border: 1px solid var(--color-border); }
+.ba-col--after { background: #f0fdf4; border: 1px solid #bbf7d0; }
+.ba-badge { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 3px; margin-bottom: 0.75rem; }
+.ba-badge--before { background: #f1f5f9; color: var(--color-muted); }
+.ba-badge--after { background: #dcfce7; color: #166534; }
+.ba-title { font-family: var(--font-serif); font-size: 0.9375rem; font-weight: 700; color: var(--color-navy); margin-bottom: 1.125rem; }
+.ba-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.ba-item { display: flex; align-items: center; gap: 0.625rem; font-size: 0.875rem; padding: 0.4375rem 0.625rem; border-radius: 5px; }
+.ba-item--bad { background: #fef2f2; color: #7f1d1d; }
+.ba-item--good { background: #dcfce7; color: #14532d; }
+.ba-x { font-weight: 700; color: #dc2626; flex-shrink: 0; }
+.ba-check { font-weight: 700; color: #16a34a; flex-shrink: 0; }
+.ba-arrow-col { display: flex; align-items: center; justify-content: center; padding-top: 5rem; }
+.ba-arrow-wrap { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+.ba-arrow-line { width: 1.5px; height: 40px; background: var(--color-border-mid); }
+.ba-arrow-label { font-size: 0.72rem; font-weight: 600; color: var(--color-primary); text-align: center; line-height: 1.5; }
+.ba-arrow-head { font-size: 1.375rem; color: var(--color-primary); }
+.ba-notes { display: flex; flex-direction: column; gap: 0.5rem; }
+.ba-note { font-size: 0.8125rem; color: var(--color-muted); padding-left: 1rem; border-left: 2px solid var(--color-border); }
+
+/* ===== CYCLE SECTION ===== */
+.cycle-section { padding: 5rem 0; background: var(--color-bg-soft); }
+.cycle-layout { display: grid; grid-template-columns: auto 1fr; gap: 4rem; align-items: start; }
+.cycle-track { display: flex; flex-direction: column; align-items: center; gap: 0; }
+.cycle-node { width: 200px; background: #fff; border: 1.5px solid var(--color-border); border-radius: 8px; padding: 1.125rem 1.25rem; text-align: center; position: relative; transition: border-color 0.2s; }
+.cycle-node--active { border-color: var(--color-primary); background: #eff6ff; }
+.cycle-node__num { font-size: 0.6875rem; font-weight: 700; color: var(--color-primary); letter-spacing: 0.06em; margin-bottom: 0.25rem; font-variant-numeric: tabular-nums; }
+.cycle-node__name { font-family: var(--font-serif); font-size: 1rem; font-weight: 700; color: var(--color-navy); margin-bottom: 0.375rem; }
+.cycle-node__desc { font-size: 0.75rem; color: var(--color-muted); line-height: 1.6; }
+.cycle-arrow { font-size: 1.125rem; color: var(--color-border-mid); padding: 0.125rem 0; }
+.cycle-loop { margin-top: 0.5rem; font-size: 0.8125rem; font-weight: 600; color: var(--color-primary); background: #eff6ff; border: 1px solid #bfdbfe; padding: 0.5rem 1.5rem; border-radius: 4px; }
+.cycle-text { padding-top: 1rem; display: flex; flex-direction: column; gap: 2rem; }
+.cycle-text__block h3 { font-family: var(--font-serif); font-size: 1rem; color: var(--color-navy); margin-bottom: 0.625rem; }
+.cycle-text__block p { font-size: 0.9375rem; color: var(--color-muted); line-height: 1.85; }
+
+/* ===== DELIVERABLES ===== */
+.deliverables { padding: 5rem 0; background: #fff; }
+.deliv-layout { display: grid; grid-template-columns: 1fr 400px; gap: 3rem; align-items: start; }
+.deliv-table-header { display: grid; grid-template-columns: 2rem 1fr repeat(3, 80px); gap: 0.75rem; align-items: center; padding: 0 0.75rem 0.625rem; border-bottom: 2px solid var(--color-navy); margin-bottom: 0.25rem; }
+.deliv-th { font-size: 0.6875rem; font-weight: 700; color: var(--color-muted); letter-spacing: 0.08em; text-transform: uppercase; }
+.deliv-th--meta { text-align: center; }
+.deliv-row { display: grid; grid-template-columns: 2rem 1fr repeat(3, 80px); gap: 0.75rem; align-items: center; padding: 0.75rem; border-bottom: 1px solid var(--color-border); }
+.deliv-row:hover { background: var(--color-bg-soft); }
+.deliv-num { font-size: 0.6875rem; font-weight: 700; color: var(--color-muted); font-variant-numeric: tabular-nums; text-align: right; }
+.deliv-name { font-size: 0.875rem; font-weight: 600; color: var(--color-slate); }
+.deliv-meta { font-size: 0.75rem; color: var(--color-muted); text-align: center; }
+.deliv-meta--savings { color: var(--color-primary); font-weight: 600; }
+.deliv-mock-col { position: sticky; top: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+.deliv-mock-label { font-size: 0.72rem; font-weight: 700; color: var(--color-muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.25rem; }
+
+/* Dashboard Mock */
+.dash-mock { background: #fff; border: 1px solid var(--color-border); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+.dash-mock__bar { display: flex; align-items: center; justify-content: space-between; padding: 0.625rem 1rem; }
+.dash-mock__bar--header { background: var(--color-navy); }
+.dash-mock__title { font-size: 0.75rem; font-weight: 600; color: #fff; }
+.dash-mock__updated { font-size: 0.6875rem; color: rgba(255,255,255,0.55); }
+.dash-mock__kpis { display: flex; border-bottom: 1px solid var(--color-border); }
+.dash-mock__kpi { flex: 1; padding: 0.875rem 0.75rem; text-align: center; border-right: 1px solid var(--color-border); }
+.dash-mock__kpi:last-child { border-right: none; }
+.dash-mock__kpi-l { font-size: 0.6875rem; color: var(--color-muted); margin-bottom: 0.25rem; }
+.dash-mock__kpi-v { font-size: 1.125rem; font-weight: 700; color: var(--color-navy); }
+.dash-mock__kpi-d { font-size: 0.6875rem; font-weight: 600; margin-top: 0.125rem; }
+.kpi-up { color: #16a34a; }
+.kpi-dn { color: #dc2626; }
+.dash-mock__chart { padding: 0.75rem 1rem 0.875rem; }
+.dash-mock__bars { display: flex; align-items: flex-end; gap: 0.375rem; height: 54px; margin-bottom: 0.375rem; }
+.dash-bar { flex: 1; background: #e2e8f0; border-radius: 2px 2px 0 0; }
+.dash-bar--hi { background: var(--color-primary); }
+.dash-mock__chart-label { font-size: 0.6875rem; color: var(--color-muted); text-align: center; }
+
+/* Slack Mock */
+.slack-mock { background: #fff; border: 1px solid var(--color-border); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+.slack-mock__header { background: #4a154b; padding: 0.5rem 0.875rem; display: flex; align-items: center; gap: 0.375rem; }
+.slack-hash { color: rgba(255,255,255,0.6); font-size: 0.875rem; font-weight: 700; }
+.slack-channel { color: #fff; font-size: 0.75rem; font-weight: 600; }
+.slack-msg { padding: 0.875rem; border-bottom: 1px solid var(--color-border); }
+.slack-msg__meta { display: flex; align-items: baseline; gap: 0.5rem; margin-bottom: 0.5rem; }
+.slack-bot { font-weight: 700; font-size: 0.8125rem; color: var(--color-navy); }
+.slack-time { font-size: 0.6875rem; color: var(--color-muted); }
+.slack-msg__body p { font-size: 0.8125rem; color: var(--color-text); line-height: 1.65; }
+.slack-alert { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.875rem; background: #fffbeb; border-bottom: 1px solid var(--color-border); font-size: 0.75rem; color: #92400e; }
+.slack-alert__icon { font-size: 0.875rem; }
+.slack-notif { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.875rem; font-size: 0.75rem; color: var(--color-muted); }
+.slack-notif__icon { font-size: 0.875rem; }
+
+/* ===== WHY US ===== */
+.why-us { padding: 5rem 0; background: var(--color-bg-soft); }
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.why-card { background: #fff; border: 1px solid var(--color-border); border-radius: 8px; padding: 2rem; }
+.why-card__num { font-size: 0.72rem; font-weight: 700; color: var(--color-primary); letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+.why-card h3 { font-family: var(--font-serif); font-size: 1.0625rem; color: var(--color-navy); margin-bottom: 0.75rem; line-height: 1.4; }
+.why-card p { font-size: 0.875rem; color: var(--color-muted); line-height: 1.8; }
+
+/* ===== CASES ===== */
+.cases { padding: 5rem 0; background: #fff; }
+.cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.case-card { background: var(--color-bg-soft); border: 1px solid var(--color-border); border-radius: 8px; padding: 1.75rem; display: flex; flex-direction: column; gap: 0; }
+.case-card__head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.875rem; }
+.case-tag { font-size: 0.72rem; font-weight: 700; background: #fff; color: var(--color-charcoal); border: 1px solid var(--color-border-mid); padding: 0.2rem 0.625rem; border-radius: 3px; }
+.case-label { font-size: 0.72rem; font-weight: 700; color: var(--color-muted); letter-spacing: 0.06em; }
+.case-card h3 { font-family: var(--font-serif); font-size: 1rem; color: var(--color-navy); margin-bottom: 0.75rem; }
+.case-card p { font-size: 0.8125rem; color: var(--color-muted); line-height: 1.8; margin-bottom: 1.5rem; flex: 1; }
+.case-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; border-top: 1px solid var(--color-border); padding-top: 1.25rem; }
+.case-metric { text-align: center; }
+.case-metric__val { font-size: 1.25rem; font-weight: 700; color: var(--color-primary); font-variant-numeric: tabular-nums; line-height: 1.2; }
+.case-metric__label { font-size: 0.6875rem; color: var(--color-muted); line-height: 1.5; margin-top: 0.25rem; }
+.cases-cta { text-align: center; margin-top: 2.5rem; }
+
+/* ===== FIT ===== */
+.fit { padding: 5rem 0; background: var(--color-bg-soft); }
+.fit-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.875rem; }
+.fit-item { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius); padding: 1rem 1.25rem; font-size: 0.9375rem; color: var(--color-slate); display: flex; align-items: center; gap: 0.75rem; line-height: 1.5; }
+.fit-check { color: var(--color-primary); font-weight: 700; flex-shrink: 0; }
+
+/* ===== APPROACH ===== */
+.approach { padding: 5rem 0; background: #fff; }
+.approach-inner { display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: start; }
+.approach-text .eyebrow-label { text-align: left; }
+.approach-text h2 { font-family: var(--font-serif); font-size: clamp(1.5rem, 3vw, 2rem); color: var(--color-navy); margin-bottom: 1.25rem; }
+.approach-lead { font-size: 1rem; color: var(--color-text); line-height: 1.9; margin-bottom: 1.75rem; }
+.approach-micro { background: var(--color-bg-soft); border-left: 3px solid var(--color-primary); padding: 1.25rem 1.5rem; border-radius: 0 8px 8px 0; margin-bottom: 1.75rem; }
+.approach-micro p { font-size: 0.9375rem; color: var(--color-text); line-height: 1.9; margin-bottom: 0.625rem; }
+.approach-micro p:last-child { margin-bottom: 0; }
+.approach-micro strong { color: var(--color-navy); }
+.approach-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.approach-list li { font-size: 0.9375rem; color: var(--color-charcoal); display: flex; align-items: center; gap: 0.625rem; }
+.approach-list li::before { content: '→'; color: var(--color-primary); font-weight: 700; }
+.monthly-flow { display: flex; flex-direction: column; align-items: center; gap: 0; min-width: 200px; }
+.monthly-step { background: #fff; border: 1.5px solid var(--color-border); border-radius: 8px; padding: 0.75rem 1.5rem; text-align: center; font-size: 0.875rem; font-weight: 600; color: var(--color-slate); width: 100%; }
+.monthly-step--start, .monthly-step--end { background: var(--color-navy); color: #fff; border-color: var(--color-navy); }
+.monthly-arrow { font-size: 1rem; color: var(--color-border-mid); padding: 0.25rem 0; }
+
+/* ===== PRICING ===== */
+.pricing { padding: 5rem 0; background: var(--color-bg-soft); }
+.pricing-pre { max-width: 640px; margin: 0 auto 3rem; text-align: center; }
+.pricing-pre p { font-size: 0.9375rem; color: var(--color-charcoal); line-height: 1.9; }
+.pricing-pre strong { color: var(--color-navy); }
+.pricing-phases { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
+.pricing-phase { background: #fff; border: 1px solid var(--color-border); border-radius: 8px; padding: 2rem; position: relative; }
+.pricing-phase--featured { border-color: var(--color-primary); border-width: 2px; }
+.pricing-phase__badge { position: absolute; top: -0.875rem; left: 50%; transform: translateX(-50%); background: var(--color-primary); color: #fff; font-size: 0.72rem; font-weight: 700; padding: 0.3rem 1rem; border-radius: 4px; white-space: nowrap; }
+.pricing-phase__phase { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; color: var(--color-primary); margin-bottom: 0.375rem; }
+.pricing-phase h3 { font-family: var(--font-serif); font-size: 1.125rem; color: var(--color-navy); margin-bottom: 0.75rem; }
+.pricing-phase__price { font-size: 1.5rem; font-weight: 700; color: var(--color-navy); margin-bottom: 0.75rem; }
+.pricing-phase__desc { font-size: 0.875rem; color: var(--color-muted); line-height: 1.75; margin-bottom: 1.25rem; }
+.pricing-includes { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem; }
+.pricing-includes li { font-size: 0.875rem; color: var(--color-text); display: flex; align-items: center; gap: 0.5rem; }
+.pricing-includes li::before { content: '✓'; color: var(--color-primary); font-weight: 700; flex-shrink: 0; }
+.pricing-sub { font-size: 0.8125rem; color: var(--color-muted); background: var(--color-bg-soft); border-radius: 6px; padding: 0.75rem; line-height: 1.7; }
+.pricing-cta { display: flex; gap: 1rem; justify-content: center; }
+
+/* ===== RELATED ===== */
+.related { padding: 5rem 0; background: #fff; }
+.related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.related-card { display: block; background: var(--color-bg-soft); border: 1px solid var(--color-border); border-radius: 8px; padding: 1.5rem; text-decoration: none; transition: all 0.18s; }
+.related-card:hover { border-color: var(--color-primary); box-shadow: 0 4px 16px rgba(30,64,175,0.1); }
+.related-card__tag { font-size: 0.6875rem; font-weight: 700; color: var(--color-primary); background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 3px; padding: 0.125rem 0.5rem; display: inline-block; margin-bottom: 0.625rem; }
+.related-card h3 { font-family: var(--font-serif); font-size: 0.9rem; color: var(--color-navy); margin-bottom: 0.5rem; line-height: 1.45; }
+.related-card p { font-size: 0.8125rem; color: var(--color-muted); line-height: 1.7; }
+
+/* ===== FAQ ===== */
+.faq { padding: 5rem 0; background: var(--color-bg-soft); }
+.faq-list { max-width: 760px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--color-border); }
+.faq-item:first-child { border-top: 1px solid var(--color-border); }
+.faq-q { font-size: 0.9375rem; font-weight: 600; color: var(--color-navy); padding: 1.125rem 2.5rem 1.125rem 0; cursor: pointer; list-style: none; position: relative; line-height: 1.6; }
+.faq-q::after { content: '+'; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: 1.25rem; color: var(--color-primary); font-weight: 300; line-height: 1; }
+details[open] .faq-q::after { content: '−'; }
+.faq-a { padding: 0 0 1.25rem; }
+.faq-a p { font-size: 0.875rem; color: var(--color-muted); line-height: 1.9; }
+
+/* ===== FINAL CTA ===== */
+.cta-final {
+	padding: 6rem 0;
+	background:
+		radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%),
+		linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+	text-align: center;
+	color: #fff;
+}
+.cta-final__eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 1rem; display: block; }
+.cta-final h2 { font-family: var(--font-serif); font-size: clamp(1.625rem, 4vw, 2.375rem); margin-bottom: 1.5rem; line-height: 1.45; }
+.cta-final__body { font-size: 1rem; color: rgba(255,255,255,0.85); line-height: 1.95; margin-bottom: 2.5rem; max-width: 580px; margin-left: auto; margin-right: auto; }
+.cta-final__btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+	.collapse-grid { grid-template-columns: repeat(2, 1fr); }
+	.problems-grid { grid-template-columns: repeat(3, 1fr); }
+	.scope-grid { grid-template-columns: repeat(3, 1fr); }
+	.cases-grid { grid-template-columns: 1fr 1fr; }
+	.why-grid { grid-template-columns: 1fr 1fr; }
+	.related-grid { grid-template-columns: repeat(2, 1fr); }
+	.deliv-layout { grid-template-columns: 1fr; }
+	.deliv-mock-col { position: static; display: grid; grid-template-columns: 1fr 1fr; }
+	.cycle-layout { grid-template-columns: 1fr; }
+	.cycle-track { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 0.25rem; }
+	.cycle-node { width: 150px; }
+	.cycle-arrow { padding: 0 0.125rem; }
+	.cycle-loop { width: 100%; text-align: center; }
+	.approach-inner { grid-template-columns: 1fr; }
+	.monthly-flow { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+	.monthly-arrow { transform: rotate(-90deg); }
+}
+
+@media (max-width: 860px) {
+	.cause-grid { grid-template-columns: 1fr; }
+	.ba-layout { grid-template-columns: 1fr; }
+	.ba-arrow-col { display: none; }
+	.cases-grid { grid-template-columns: 1fr; }
+	.pricing-phases { grid-template-columns: 1fr; }
+	.deliv-table-header { display: none; }
+	.deliv-row { grid-template-columns: 2rem 1fr; }
+	.deliv-meta { display: none; }
+}
+
+@media (max-width: 560px) {
+	.hero h1 { font-size: 1.625rem; }
+	.hero-cta { flex-direction: column; }
+	.collapse-grid { grid-template-columns: 1fr; }
+	.problems-grid { grid-template-columns: 1fr 1fr; }
+	.scope-grid { grid-template-columns: 1fr 1fr; }
+	.why-grid { grid-template-columns: 1fr; }
+	.related-grid { grid-template-columns: 1fr; }
+	.deliv-mock-col { grid-template-columns: 1fr; }
+	.cta-final__btns { flex-direction: column; align-items: center; }
+	.pricing-cta { flex-direction: column; align-items: center; }
+}
+</style>

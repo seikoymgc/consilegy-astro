@@ -1,0 +1,510 @@
+---
+import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const pubDate = '2026-05-07';
+const pubDateDisplay = '2026年5月7日';
+const readTime = '約10分';
+
+const articleSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'CRMを導入すると営業が入力しなくなる理由｜RevOpsとRevenue Architecture',
+	description: 'SalesforceやHubSpotを導入しても営業入力が定着しない原因を、現場UX・KPI・Revenue Architectureの観点から解説します。',
+	datePublished: pubDate,
+	dateModified: pubDate,
+	author: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+	url: 'https://consilegy.com/insights/why-sales-teams-stop-using-crm/',
+	inLanguage: 'ja',
+};
+
+const breadcrumbSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://consilegy.com/' },
+		{ '@type': 'ListItem', position: 2, name: 'コラム', item: 'https://consilegy.com/insights/' },
+		{ '@type': 'ListItem', position: 3, name: 'なぜCRMを導入すると、現場が入力しなくなるのか', item: 'https://consilegy.com/insights/why-sales-teams-stop-using-crm/' },
+	],
+};
+---
+
+<BaseLayout
+	title="CRMを導入すると営業が入力しなくなる理由｜RevOpsとRevenue Architecture | Consilegy"
+	description="SalesforceやHubSpotを導入しても営業入力が定着しない原因を、現場UX・KPI・Revenue Architectureの観点から解説します。"
+	lang="ja"
+>
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	</Fragment>
+
+<div class="article-wrap">
+
+	<!-- ===== ARTICLE HEADER ===== -->
+	<header class="article-head container">
+		<nav class="breadcrumb" aria-label="パンくずリスト">
+			<a href="/">ホーム</a>
+			<span aria-hidden="true">›</span>
+			<a href="/insights/">コラム</a>
+			<span aria-hidden="true">›</span>
+			<span aria-current="page">なぜCRMを導入すると、現場が入力しなくなるのか</span>
+		</nav>
+		<div class="article-meta">
+			<span class="article-cat">CRM / RevOps</span>
+			<span class="article-date">{pubDateDisplay}</span>
+			<span class="article-read">{readTime}</span>
+		</div>
+		<h1>なぜCRMを導入すると、<br class="br-pc" />現場が入力しなくなるのか</h1>
+		<p class="article-desc">Salesforceを導入した。HubSpotも整備した。それなのに現場が入力しない。この問題の本質は意識の低さではなく、「入力したくなる構造」が存在していないことにある。</p>
+	</header>
+
+	<!-- ===== ARTICLE BODY ===== -->
+	<article class="article-body container" id="article">
+
+		<!-- はじめに -->
+		<section class="article-section">
+			<h2>はじめに：CRM入力は「意識の問題」ではない</h2>
+			<p>Salesforceを導入した。HubSpotも整備した。営業管理を仕組み化したかった。それなのに、商談更新が止まり、活動履歴が空白になり、会議前だけ入力が集中し、ステージが信用できず、結局、部長への口頭確認が最も正確な情報源になっている——こうした状況は、日本のBtoB企業で非常によく起きています。</p>
+			<div class="article-callout">
+				<p>経営側は「現場の意識が低い」と感じます。しかしこれは現場の問題ではありません。本当の原因は、<strong>「入力したくなる構造」が存在していないこと</strong>にあります。</p>
+			</div>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- 定着しない会社の共通点 -->
+		<section class="article-section">
+			<h2>CRMが定着しない会社に共通する3つの特徴</h2>
+
+			<div class="article-numbered">
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">01</p>
+					<h3>CRMが「管理ツール」になっている</h3>
+					<p>現場からすると、CRMは報告・管理・監視のために存在しています。「入力しても自分にメリットがない」状態では、誰も自発的に使いません。ツールが管理側のためだけに機能している限り、定着は起きません。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">02</p>
+					<h3>入力項目が多すぎる</h3>
+					<p>必須項目だらけ・誰も見ていない項目・同じ意味の重複入力・更新ルール不明——こうした状態では、CRM入力そのものが「仕事」になってしまいます。営業の時間は有限です。入力コストが高すぎると、当然入力されなくなります。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">03</p>
+					<h3>CRMが営業活動につながっていない</h3>
+					<p>営業が本当に必要な情報は、「次に何をすべきか」「どの案件が危険か」「どこが停滞しているか」「どの案件が受注確度高いか」です。しかし実際には入力だけ求められ、CRMは武器にならない。これでは使われません。</p>
+				</div>
+			</div>
+
+			<!-- DIAGRAM 1 -->
+			<figure class="diag diag--crm-chaos" aria-label="CRM入力が崩壊している営業組織の構造図。SalesforceとExcelとSlackが並立し、あとで入力・会議前だけ更新・最新版不明という状態が続いていることを示す。">
+				<div class="diag-cc-header">
+					<span class="diag-cc-header__label">現状：CRM入力が機能していない</span>
+				</div>
+				<div class="diag-cc-grid">
+					<div class="diag-cc-tool">
+						<div class="diag-cc-tool__badge diag-cc-tool__badge--sf">Salesforce</div>
+						<div class="diag-cc-tool__state">活動履歴：空白</div>
+						<div class="diag-cc-tool__state diag-cc-tool__state--warn">ステージ：1ヶ月更新なし</div>
+					</div>
+					<div class="diag-cc-tool diag-cc-tool--xl">
+						<div class="diag-cc-tool__badge diag-cc-tool__badge--xl">Excel</div>
+						<div class="diag-cc-tool__state">各自管理</div>
+						<div class="diag-cc-tool__state diag-cc-tool__state--warn">最新版どれ？</div>
+					</div>
+					<div class="diag-cc-tool">
+						<div class="diag-cc-tool__badge diag-cc-tool__badge--sl">Slack</div>
+						<div class="diag-cc-tool__state">口頭共有</div>
+						<div class="diag-cc-tool__state">記録なし</div>
+					</div>
+				</div>
+				<div class="diag-cc-bubbles">
+					<div class="diag-cc-bubble">「あとで入力します」</div>
+					<div class="diag-cc-bubble diag-cc-bubble--warn">会議前だけ一気更新</div>
+					<div class="diag-cc-bubble">「口頭で確認した方が早い」</div>
+				</div>
+				<div class="diag-cc-footer">
+					<span>Forecast精度ゼロ</span>
+					<span>データが腐る</span>
+					<span>結局、部長確認</span>
+				</div>
+				<figcaption class="diag-caption">CRMが管理ツールとして機能している組織では、営業はExcelと口頭確認に戻り、データが蓄積されない</figcaption>
+			</figure>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- Excelへ戻る理由 / 入力が嫌なのではない -->
+		<section class="article-section">
+			<h2>営業はCRM入力が嫌なのではなく、「意味のない入力」が嫌なのだ</h2>
+			<p>CRM入力が定着しない会社では、必ずExcelが復活します。理由は単純で、Excelの方が速く、自由で、加工しやすく、会議用に使いやすいからです。つまりCRMのUXが現場の実務に負けています。これは極めて重要な視点です。</p>
+			<p>しかしここを誤解してはいけません。営業は入力が嫌なのではありません。「意味のない入力」が嫌なのです。入力することで停滞案件が見え、次アクションが分かり、Forecastが改善し、会議準備が不要になるなら、入力は自然に定着します。必要なのは入力ルールの強化ではなく、<strong>CRMを営業の武器として設計すること</strong>です。</p>
+
+			<!-- DIAGRAM 2 -->
+			<figure class="diag diag--crm-control" aria-label="CRMが管理ツールになっている構造図。ManagerがCRMを通じて営業を監視・報告させる構造になっており、Sales側には入力メリットがない状態を示す。">
+				<div class="diag-ct-header">
+					<span class="diag-ct-header__label">CRMが「管理ツール」になっている構造</span>
+				</div>
+				<div class="diag-ct-body">
+					<div class="diag-ct-manager">
+						<div class="diag-ct-manager__role">Manager</div>
+						<div class="diag-ct-manager__actions">
+							<span>進捗確認</span>
+							<span>数字レビュー</span>
+							<span>入力督促</span>
+						</div>
+					</div>
+					<div class="diag-ct-arrows" aria-hidden="true">
+						<div class="diag-ct-arrow diag-ct-arrow--up">↑ 報告・監視</div>
+						<div class="diag-ct-arrow diag-ct-arrow--down">↓ 入力指示</div>
+					</div>
+					<div class="diag-ct-crm">
+						<div class="diag-ct-crm__label">CRM</div>
+						<div class="diag-ct-crm__sub">Salesforce / HubSpot</div>
+					</div>
+					<div class="diag-ct-arrows" aria-hidden="true">
+						<div class="diag-ct-arrow diag-ct-arrow--up">↑ 入力（義務）</div>
+						<div class="diag-ct-arrow diag-ct-arrow--down">↓ 管理される</div>
+					</div>
+					<div class="diag-ct-sales">
+						<div class="diag-ct-sales__role">Sales</div>
+						<div class="diag-ct-sales__thought">「入力しても自分にメリットがない」</div>
+					</div>
+				</div>
+				<div class="diag-ct-result">
+					<span>定着しない</span>
+					<span>会議前だけ更新</span>
+					<span>Excel復活</span>
+				</div>
+				<figcaption class="diag-caption">CRMが上位者の管理・報告ツールとして機能している組織では、現場への入力メリットが存在せず定着が起きない</figcaption>
+			</figure>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- 定着する会社の共通点 -->
+		<section class="article-section">
+			<h2>CRMが定着する会社に共通する5つの特徴</h2>
+
+			<div class="article-numbered">
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">01</p>
+					<h3>入力項目が最小限に絞られている</h3>
+					<p>本当に必要なものしか入力させません。「誰が何をいつ」の3点が取れれば十分なケースも多い。過剰な入力項目がなければ、営業の負荷は大きく減ります。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">02</p>
+					<h3>ステージ定義と移行条件が明確</h3>
+					<p>「いつステージを移動するか」が具体的な条件として定義されています。感覚ではなく条件でステージが動くため、Forecast精度が上がり、CRMデータが実態を反映します。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">03</p>
+					<h3>入力が自動化されている</h3>
+					<p>ワークフロー・API連携・自動更新を活用し、人間が手で入力しなくても良い部分を可能な限り自動化します。入力コストが下がると、残りの重要入力への集中度が上がります。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">04</p>
+					<h3>CRMを見ると次アクションが分かる</h3>
+					<p>CRMが「管理画面」ではなく「営業オペレーション画面」になっています。ログインすれば今日やるべきことが分かる状態では、CRMを開く理由が生まれます。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">05</p>
+					<h3>会議がCRMベースで動く</h3>
+					<p>Excel資料を作らなくても会議が回ります。CRMがRevenue Operationsの中心になっている組織では、入力しないことが自分の不利益になるため、自然と定着します。</p>
+				</div>
+			</div>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- Revenue Architecture -->
+		<section class="article-section">
+			<h2>CRM定着は「Revenue Architecture」の問題</h2>
+			<p>CRM問題はツールの問題ではありません。Revenue KPI・営業プロセス・Revenue Data Flow・RevOps・会議設計という構造の問題です。ここで重要になるのがRevenue Architecture（レベニューアーキテクチャ）——営業・マーケティング・CS・CRM・KPI・データを「売上につながる一つの流れ」として設計する考え方です。</p>
+			<p>多くの会社は、まずSalesforceやHubSpotを入れます。しかし本来必要なのは、どのKPIを見るのか・どの商談を追うのか・何をRevenueと定義するのか・どの部門が何を持つのかを先に決めることです。Revenue Architectureが先で、ツールはその後です。順番が逆になると、CRMは管理ツールになります。</p>
+			<p>また、CRM定着はUX設計でもあります。どの画面を最初に見るか・何クリック必要か・どの情報が最重要か・どの通知が飛ぶか・何が自動化されるか——これらの設計次第で、入力率は大きく変わります。CRM定着とは、<strong>Revenue UX設計</strong>でもあるのです。</p>
+
+			<!-- DIAGRAM 3 -->
+			<figure class="diag diag--ra-crm" aria-label="Revenue ArchitectureでCRMが定着する構造図。Marketing・Sales・CS・CRM・KPI・WorkflowをRevenue Architectureが接続し、入力負荷低下・Forecast改善・会議効率化を実現する設計を示す。">
+				<div class="diag-rc-depts">
+					<span class="diag-rc-dept diag-rc-dept--mkt">Marketing</span>
+					<span class="diag-rc-dept diag-rc-dept--sales">Sales</span>
+					<span class="diag-rc-dept diag-rc-dept--cs">CS</span>
+					<span class="diag-rc-dept diag-rc-dept--crm">CRM</span>
+					<span class="diag-rc-dept diag-rc-dept--kpi">KPI</span>
+					<span class="diag-rc-dept diag-rc-dept--wf">Workflow</span>
+				</div>
+				<div class="diag-rc-lines" aria-hidden="true">
+					<svg viewBox="0 0 600 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+						<line x1="50"  y1="0" x2="300" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
+						<line x1="150" y1="0" x2="300" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
+						<line x1="250" y1="0" x2="300" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
+						<line x1="350" y1="0" x2="300" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
+						<line x1="450" y1="0" x2="300" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
+						<line x1="550" y1="0" x2="300" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
+					</svg>
+				</div>
+				<div class="diag-rc-core">
+					<div class="diag-rc-core__label">Revenue Architecture</div>
+					<div class="diag-rc-core__tags">
+						<span>Revenue UX設計</span>
+						<span>入力自動化</span>
+						<span>KPI設計</span>
+						<span>Data Flow</span>
+						<span>RevOps</span>
+					</div>
+				</div>
+				<div class="diag-rc-connector" aria-hidden="true"></div>
+				<div class="diag-rc-outcomes">
+					<div class="diag-rc-outcome">
+						<div class="diag-rc-outcome__label">入力負荷低下</div>
+						<div class="diag-rc-outcome__desc">自動化・最小化<br />UX設計</div>
+					</div>
+					<div class="diag-rc-outcome diag-rc-outcome--mid">
+						<div class="diag-rc-outcome__label">Forecast改善</div>
+						<div class="diag-rc-outcome__desc">データ鮮度向上<br />精度安定</div>
+					</div>
+					<div class="diag-rc-outcome">
+						<div class="diag-rc-outcome__label">会議効率化</div>
+						<div class="diag-rc-outcome__desc">Excel集計不要<br />CRMベース運営</div>
+					</div>
+				</div>
+				<figcaption class="diag-caption">Revenue Architectureが整うと、CRMは管理ツールから営業の武器に変わり、入力が自然に定着する</figcaption>
+			</figure>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- 日本企業 -->
+		<section class="article-section">
+			<h2>日本企業でCRM定着が特に難しい理由</h2>
+			<p>日本企業では属人営業・Excel文化・口頭報告・部門分断が根強く残っています。そのため、海外型のCRM導入アプローチをそのまま適用しても、現場の実務慣行と合わずに失敗しやすい。欧米で機能するCRM設計が日本の商習慣や組織構造ではそのまま機能しないケースは少なくありません。必要なのは、日本企業の現場が実際に動けるRevenue Architectureの設計です。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- Consilegyの考え方 -->
+		<section class="article-section">
+			<h2>Consilegyの考え方</h2>
+			<p>Consilegyでは、CRM導入を単なるツール設定とは考えていません。本質はRevenue Architecture・Revenue UX・RevOps・KPI設計・Revenue Data Flowにあります。Salesforce・HubSpot・Kintone・BI・Slackなどを横断しながら、「入力が自然に回るRevenue Operations」を設計します。目的はCRMを導入することではなく、CRMが現場で使われ続ける構造を作ることです。</p>
+
+			<div class="article-table-wrap">
+				<table class="article-table">
+					<thead>
+						<tr>
+							<th>領域</th>
+							<th>Consilegyのサポート</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr><td>Revenue Architecture設計</td><td>KPI・プロセス・ツールを接続した構造設計</td></tr>
+						<tr><td>CRM UX最適化</td><td>入力項目・画面設計・ワークフロー整備</td></tr>
+						<tr><td>入力自動化</td><td>API連携・ワークフロー・自動更新の設計</td></tr>
+						<tr><td>Revenue KPI設計</td><td>CRMデータとForecastをつなぐKPI体系</td></tr>
+						<tr><td>RevOps構築</td><td>会議体・プロセス・データ運用の整備</td></tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- まとめ -->
+		<section class="article-section">
+			<h2>まとめ：CRM定着は構造とUXの問題</h2>
+			<p>CRMを導入すると現場が入力しなくなる原因は、意識の問題ではありません。Revenue Architecture不足・KPI設計不足・UX設計不足・Revenue Data Flow未整備が根本原因です。だからこそ必要なのは、入力ルールの強化ではなく、「入力したくなるRevenue構造」を設計することです。CRM定着はシステム導入の問題ではなく、Revenue Architectureの問題です。</p>
+		</section>
+
+		<!-- RELATED -->
+		<aside class="article-related">
+			<h2 class="article-related__title">関連コラム</h2>
+			<ul class="article-related__list">
+				<li><a href="/insights/why-crm-adoption-fails/">なぜCRMは定着しないのか</a></li>
+				<li><a href="/insights/why-companies-cannot-stop-using-excel-after-crm/">なぜCRMを導入してもExcelをやめられないのか</a></li>
+				<li><a href="/insights/why-sales-meetings-become-number-reporting/">なぜ営業会議は数字確認で終わるのか</a></li>
+				<li><a href="/insights/why-sales-forecasting-fails-even-with-sfa/">なぜSFAを導入しても売上予測が当たらないのか</a></li>
+			</ul>
+		</aside>
+
+		<!-- CTA -->
+		<div class="article-cta">
+			<p class="article-cta__eyebrow">Revenue Architecture</p>
+			<h2 class="article-cta__title">CRMが現場で使われ続ける<br />構造を設計します</h2>
+			<p class="article-cta__body">Revenue UX・KPI設計・入力自動化・RevOpsを横断した設計で、CRM定着と売上可視化を実現します。</p>
+			<a href="/contact/" class="article-cta__btn">まずは相談する</a>
+		</div>
+
+	</article>
+	<NewsletterSidebar />
+</div>
+
+<style>
+/* ===== LAYOUT ===== */
+.article-wrap { background: #fff; }
+.container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+
+/* ===== HEADER ===== */
+.article-head { padding: 48px 24px 40px; }
+.breadcrumb { font-size: .78rem; color: var(--color-muted, #64748b); display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 20px; }
+.breadcrumb a { color: var(--color-muted, #64748b); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.article-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+.article-cat  { font-size: .75rem; font-weight: 600; color: var(--color-primary, #1e40af); background: #eff6ff; border-radius: 4px; padding: 3px 10px; }
+.article-date, .article-read { font-size: .78rem; color: var(--color-muted, #64748b); }
+.article-head h1 { font-size: clamp(1.5rem, 3.5vw, 2rem); font-weight: 700; line-height: 1.45; color: var(--color-navy, #0f172a); margin: 0 0 16px; }
+.article-desc { font-size: 1rem; color: var(--color-charcoal, #334155); line-height: 1.75; margin: 0; }
+.br-pc { display: block; }
+
+/* ===== BODY ===== */
+.article-body { padding: 0 24px 80px; }
+.article-section { margin-bottom: 8px; }
+.article-section h2 { font-size: 1.25rem; font-weight: 700; color: var(--color-navy, #0f172a); margin: 40px 0 16px; border-left: 3px solid var(--color-primary, #1e40af); padding-left: 12px; }
+.article-section h3 { font-size: 1rem; font-weight: 700; color: var(--color-navy, #0f172a); margin: 28px 0 10px; }
+.article-section p  { font-size: .96rem; color: var(--color-charcoal, #334155); line-height: 1.85; margin: 0 0 16px; }
+.article-hr { border: none; border-top: 1px solid var(--color-border, #e2e8f0); margin: 40px 0; }
+
+/* callout */
+.article-callout { background: #f8fafc; border-left: 3px solid var(--color-primary, #1e40af); border-radius: 0 6px 6px 0; padding: 16px 20px; margin: 20px 0; }
+.article-callout p { margin: 0; font-size: .93rem; color: var(--color-charcoal, #334155); line-height: 1.8; }
+
+/* numbered */
+.article-numbered { display: flex; flex-direction: column; gap: 24px; margin: 24px 0 32px; }
+.article-numbered__item { display: grid; grid-template-columns: 48px 1fr; grid-template-rows: auto auto; gap: 0 16px; align-items: start; }
+.article-numbered__num { font-size: .7rem; font-weight: 700; color: var(--color-primary, #1e40af); background: #eff6ff; border-radius: 4px; padding: 4px 0; text-align: center; grid-row: 1 / 3; align-self: start; margin-top: 4px; }
+.article-numbered__item h3 { margin: 0 0 6px; font-size: .97rem; font-weight: 700; color: var(--color-navy, #0f172a); }
+.article-numbered__item p  { margin: 0; font-size: .92rem; line-height: 1.78; color: var(--color-charcoal, #334155); }
+
+/* table */
+.article-table-wrap { overflow-x: auto; margin: 20px 0 28px; border-radius: 8px; border: 1px solid var(--color-border, #e2e8f0); }
+.article-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+.article-table th { background: var(--color-navy, #0f172a); color: #fff; font-weight: 600; padding: 10px 14px; text-align: left; }
+.article-table td { padding: 9px 14px; border-bottom: 1px solid var(--color-border, #e2e8f0); color: var(--color-charcoal, #334155); vertical-align: top; }
+.article-table tbody tr:last-child td { border-bottom: none; }
+.article-table tbody tr:nth-child(even) td { background: #f8fafc; }
+
+/* related */
+.article-related { background: #f8fafc; border-radius: 8px; padding: 28px 28px 24px; margin: 48px 0 0; }
+.article-related__title { font-size: .85rem; font-weight: 700; color: var(--color-muted, #64748b); text-transform: uppercase; letter-spacing: .06em; margin: 0 0 14px; }
+.article-related__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.article-related__list a { font-size: .93rem; color: var(--color-primary, #1e40af); text-decoration: none; }
+.article-related__list a:hover { text-decoration: underline; }
+
+/* CTA */
+.article-cta {
+	margin: 48px 0 0;
+	background:
+		radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%),
+		linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+	border-radius: 8px; padding: 48px 40px; color: #fff; text-align: center;
+}
+.article-cta__eyebrow { font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; opacity: .7; margin: 0 0 12px; }
+.article-cta__title  { font-size: clamp(1.3rem, 2.5vw, 1.7rem); font-weight: 700; line-height: 1.5; margin: 0 0 14px; }
+.article-cta__body   { font-size: .95rem; opacity: .88; line-height: 1.7; margin: 0 0 28px; }
+.article-cta__btn    { display: inline-block; background: #fff; color: var(--color-primary, #1e40af); font-weight: 700; font-size: .95rem; border-radius: 8px; padding: 13px 32px; text-decoration: none; }
+.article-cta__btn:hover { background: #f0f9ff; }
+
+/* =============================================
+   DIAGRAM BASE
+   ============================================= */
+.diag { border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; background: #fff; padding: 28px; margin: 32px 0; overflow: hidden; }
+.diag-caption { display: block; text-align: center; font-size: .78rem; color: var(--color-muted, #64748b); margin-top: 16px; line-height: 1.6; }
+
+/* =============================================
+   DIAGRAM 1 — .diag--crm-chaos
+   ============================================= */
+.diag-cc-header { text-align: center; margin-bottom: 20px; }
+.diag-cc-header__label { display: inline-block; font-size: .72rem; font-weight: 700; color: #b91c1c; background: #fef2f2; border: 1px solid #fecaca; border-radius: 4px; padding: 4px 14px; letter-spacing: .04em; }
+
+.diag-cc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+.diag-cc-tool { background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 14px 12px; text-align: center; }
+.diag-cc-tool--xl { background: #fefce8; border-color: #fde68a; }
+.diag-cc-tool__badge { display: inline-block; font-size: .7rem; font-weight: 700; border-radius: 4px; padding: 3px 8px; margin-bottom: 8px; }
+.diag-cc-tool__badge--sf { background: #eff6ff; color: #1e40af; }
+.diag-cc-tool__badge--xl { background: #fefce8; color: #92400e; border: 1px solid #fde68a; }
+.diag-cc-tool__badge--sl { background: #fdf4ff; color: #7e22ce; }
+.diag-cc-tool__state { font-size: .65rem; color: var(--color-charcoal, #334155); margin-bottom: 4px; }
+.diag-cc-tool__state--warn { color: #b91c1c; font-weight: 600; }
+
+.diag-cc-bubbles { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 16px; }
+.diag-cc-bubble { font-size: .72rem; color: var(--color-charcoal, #334155); background: #f1f5f9; border-radius: 4px; padding: 5px 12px; }
+.diag-cc-bubble--warn { background: #fef2f2; color: #b91c1c; font-weight: 600; }
+
+.diag-cc-footer { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; padding-top: 14px; border-top: 1px solid var(--color-border, #e2e8f0); }
+.diag-cc-footer span { font-size: .7rem; font-weight: 600; color: #b91c1c; background: #fef2f2; border-radius: 4px; padding: 4px 12px; }
+
+/* =============================================
+   DIAGRAM 2 — .diag--crm-control
+   ============================================= */
+.diag-ct-header { text-align: center; margin-bottom: 20px; }
+.diag-ct-header__label { display: inline-block; font-size: .75rem; font-weight: 700; color: var(--color-navy, #0f172a); }
+
+.diag-ct-body { display: flex; flex-direction: column; align-items: center; gap: 0; }
+
+.diag-ct-manager { background: var(--color-navy, #0f172a); border-radius: 8px; padding: 14px 24px; text-align: center; width: 100%; max-width: 320px; }
+.diag-ct-manager__role { font-size: .85rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.diag-ct-manager__actions { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+.diag-ct-manager__actions span { font-size: .65rem; background: rgba(255,255,255,.12); color: rgba(255,255,255,.8); border-radius: 3px; padding: 3px 8px; }
+
+.diag-ct-arrows { display: flex; justify-content: center; gap: 32px; padding: 8px 0; }
+.diag-ct-arrow { font-size: .72rem; font-weight: 600; }
+.diag-ct-arrow--up   { color: #b91c1c; }
+.diag-ct-arrow--down { color: var(--color-muted, #64748b); }
+
+.diag-ct-crm { background: #f1f5f9; border: 2px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 12px 24px; text-align: center; width: 100%; max-width: 320px; }
+.diag-ct-crm__label { font-size: .85rem; font-weight: 700; color: var(--color-navy, #0f172a); }
+.diag-ct-crm__sub   { font-size: .65rem; color: var(--color-muted, #64748b); margin-top: 4px; }
+
+.diag-ct-sales { background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; padding: 14px 20px; text-align: center; width: 100%; max-width: 320px; }
+.diag-ct-sales__role    { font-size: .85rem; font-weight: 700; color: #b91c1c; margin-bottom: 6px; }
+.diag-ct-sales__thought { font-size: .72rem; color: #b91c1c; }
+
+.diag-ct-result { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--color-border, #e2e8f0); }
+.diag-ct-result span { font-size: .7rem; font-weight: 600; color: #b91c1c; background: #fef2f2; border-radius: 4px; padding: 4px 12px; }
+
+/* =============================================
+   DIAGRAM 3 — .diag--ra-crm
+   ============================================= */
+.diag-rc-depts { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 0; }
+.diag-rc-dept { font-size: .72rem; font-weight: 700; border-radius: 4px; padding: 5px 14px; border: 1px solid; }
+.diag-rc-dept--mkt   { background: #fff7ed; color: #c2410c; border-color: #fed7aa; }
+.diag-rc-dept--sales { background: #eff6ff; color: #1e40af; border-color: #bfdbfe; }
+.diag-rc-dept--cs    { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
+.diag-rc-dept--crm   { background: #faf5ff; color: #6d28d9; border-color: #ddd6fe; }
+.diag-rc-dept--kpi   { background: #f0f9ff; color: #0369a1; border-color: #bae6fd; }
+.diag-rc-dept--wf    { background: #f8fafc; color: var(--color-charcoal, #334155); border-color: var(--color-border, #e2e8f0); }
+
+.diag-rc-lines { width: 100%; height: 40px; margin: 0; }
+.diag-rc-lines svg { width: 100%; height: 100%; display: block; }
+
+.diag-rc-core { background: var(--color-navy, #0f172a); border-radius: 8px; padding: 18px 20px; text-align: center; }
+.diag-rc-core__label { font-size: .85rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
+.diag-rc-core__tags  { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.diag-rc-core__tags span { font-size: .65rem; background: rgba(255,255,255,.12); color: rgba(255,255,255,.85); border-radius: 3px; padding: 3px 8px; }
+
+.diag-rc-connector { width: 2px; height: 24px; background: #cbd5e1; margin: 0 auto; }
+
+.diag-rc-outcomes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.diag-rc-outcome { background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 14px 12px; text-align: center; }
+.diag-rc-outcome--mid { background: #eff6ff; border-color: #bfdbfe; }
+.diag-rc-outcome__label { font-size: .8rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 6px; }
+.diag-rc-outcome__desc  { font-size: .65rem; color: var(--color-muted, #64748b); line-height: 1.6; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 700px) {
+	.br-pc { display: none; }
+	.article-head { padding: 32px 16px 28px; }
+	.article-body { padding: 0 16px 60px; }
+	.diag { padding: 20px 16px; }
+	.diag-cc-grid { grid-template-columns: 1fr; gap: 8px; }
+	.diag-rc-outcomes { grid-template-columns: 1fr; }
+	.article-cta { padding: 36px 24px; }
+	.article-numbered__item { grid-template-columns: 40px 1fr; }
+}
+
+@media (max-width: 480px) {
+	.diag-ct-arrows { gap: 16px; }
+	.article-cta__title { font-size: 1.2rem; }
+}
+</style>
+
+</BaseLayout>

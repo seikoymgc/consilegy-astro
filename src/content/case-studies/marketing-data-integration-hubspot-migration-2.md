@@ -6,169 +6,49 @@ sourceUrl: "https://consilegy.com/en/case-studies/marketing-data-integration-hub
 lang: "en"
 translationKey: "marketing-data-integration"
 modified: "2026-03-18T01:24:01"
-description: " ToolsHubSpot, Salesforce, Sansan, GA4Key ChallengesOperational dependency, fragmented data, lack of system integrationIndustryConsulting (DX and digi"
+description: "A consulting firm's advanced Marketo setup had grown too complex to manage. System fragmentation and single-person dependency made it impossible to connect marketing activity to outcomes."
 featuredImage: "/images/wp/2026/02/apex-virtual-education-KNQUEQwTCY4-unsplash-scaled.jpg"
 featuredImageAlt: ""
 draft: false
 ---
-<!-- wp:table {"fontSize":"small"} -->
-<figure class="wp-block-table has-small-font-size"><table class="has-fixed-layout"><tbody><tr><td><strong>Tools</strong></td><td>HubSpot, Salesforce, Sansan, GA4</td></tr><tr><td><strong><strong>Key Challenges</strong></strong></td><td>Operational dependency, fragmented data, lack of system integration</td></tr><tr><td><strong>Industry</strong></td><td>Consulting (DX and digital marketing services)</td></tr><tr><td><strong>Company Size</strong></td><td>Approx. 150 employees</td></tr><tr><td><strong>Timeline</strong></td><td>2025 (approx. 9 months)</td></tr><tr><td><strong>Scope</strong></td><td>MA migration design, website integration, data pipeline development</td></tr></tbody></table></figure>
-<!-- /wp:table -->
+<dl class="cs-meta">
+  <dt>Tools</dt><dd>HubSpot, Salesforce, Sansan, GA4</dd>
+  <dt>Industry</dt><dd>Consulting (DX and digital marketing services)</dd>
+  <dt>Company size</dt><dd>Approx. 150 employees</dd>
+  <dt>Timeline</dt><dd>2025, approx. 9 months</dd>
+  <dt>Scope</dt><dd>MA migration design, website integration, data pipeline development</dd>
+</dl>
 
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Background</strong></h2>
-<!-- /wp:heading -->
+<section class="cs-section">
+  <h2 class="cs-label">Problem</h2>
+  <p>A leading consulting firm had built advanced marketing automation in Marketo — but the system had grown too complex to manage. Operational knowledge concentrated in a single person, and the overall setup had fragmented across tools with no shared data layer.</p>
+  <p>The website and CRM were not connected, so customer behavior was invisible beyond the point of form fill. Marketing couldn't see which activities led to outcomes. Workflows were difficult to interpret or modify without deep system knowledge.</p>
+  <p>The result: high maintenance cost, slow operations, and no clear path from marketing activity to revenue visibility.</p>
+</section>
 
-<!-- wp:paragraph -->
-<p>The client, a leading consulting firm with strong expertise in digital transformation, had implemented advanced marketing automation using Marketo.</p>
-<!-- /wp:paragraph -->
+<section class="cs-section">
+  <h2 class="cs-label">Work</h2>
+  <p>Rather than a straight tool migration, we redesigned the underlying marketing architecture and data structure. The migration was the mechanism — the goal was a system that multiple people could operate and that connected data across the full revenue stack.</p>
+  <ul>
+    <li>Architecture simplification — rebuilt Marketo workflows into a maintainable and scalable HubSpot structure</li>
+    <li>Data integration — reconnected Salesforce and Sansan to ensure consistency across CRM and contact data sources</li>
+    <li>Website consolidation — moved the site into HubSpot CMS to unify behavioral tracking with contact records</li>
+    <li>Phased migration management — executed transition without disrupting ongoing campaigns or operations</li>
+  </ul>
+</section>
 
-<!-- wp:paragraph -->
-<p>However, increasing complexity led to operational dependency on specific individuals and fragmentation across systems.</p>
-<!-- /wp:paragraph -->
+<section class="cs-section">
+  <h2 class="cs-label">Result</h2>
+  <ul>
+    <li>Unified data foundation — website, MA, and CRM now operate as a single connected view</li>
+    <li>Distributed ownership — multiple team members can manage the system independently</li>
+    <li>Consistent data flow — reliable pipeline across all integrated tools</li>
+    <li>Scalable infrastructure — built to grow with the business without increasing operational complexity</li>
+  </ul>
+</section>
 
-<!-- wp:paragraph -->
-<p>In particular, the lack of integration between the website and CRM resulted in incomplete visibility of customer behavior, limiting the ability to connect marketing activities to outcomes.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>To address these issues, a full migration to HubSpot and a redesign of the underlying architecture were initiated.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Objective</strong></h2>
-<!-- /wp:heading -->
-
-<!-- wp:list -->
-<ul class="wp-block-list"><!-- wp:list-item -->
-<li>Migration: Transition data and operational logic from Marketo to HubSpot</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Integration: Unify website, marketing automation, and CRM into a single system</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Alignment: Rebuild data integration with Salesforce and Sansan</li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
-
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Challenges</strong></h2>
-<!-- /wp:heading -->
-
-<!-- wp:list -->
-<ul class="wp-block-list"><!-- wp:list-item -->
-<li>Structural complexity: Workflows became overly complex and difficult to manage</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Data fragmentation: Website and CRM data were not synchronized</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Operational dependency: System operation relied on a single specialist</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>High maintenance cost: Multiple tools and custom integrations increased overhead</li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
-
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Approach</strong></h2>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>Rather than a simple tool migration,</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>we redesigned the overall marketing architecture and data structure.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:list -->
-<ul class="wp-block-list"><!-- wp:list-item -->
-<li>Architecture redesign: Simplified workflows into a manageable and scalable structure</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Data integration: Rebuilt connections with Salesforce and Sansan to ensure consistency</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Website integration: Consolidated the website into HubSpot CMS to unify tracking and data</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Migration management: Executed a phased migration without interrupting ongoing operations</li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
-
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Results</strong></h2>
-<!-- /wp:heading -->
-
-<!-- wp:list -->
-<ul class="wp-block-list"><!-- wp:list-item -->
-<li>Unified data foundation: Integrated website, MA, and CRM into a single view</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Reduced operational burden: Enabled multiple team members to manage the system</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Improved data consistency: Established a reliable data flow across all systems</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Flexible infrastructure: Built a scalable foundation adaptable to business growth</li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
-
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Core Value</strong></h2>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>This project was not just a migration.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>It rebuilt the foundation that connects fragmented systems and enables marketing operations to function as a cohesive whole.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>By removing complexity and ensuring data consistency,</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>the organization achieved a sustainable and scalable operating model.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Applicable Scenarios</strong></h2>
-<!-- /wp:heading -->
-
-<!-- wp:list -->
-<ul class="wp-block-list"><!-- wp:list-item -->
-<li>Organizations struggling with overcomplicated MA systems</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Companies with fragmented website, MA, and CRM environments</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Teams planning to migrate to HubSpot while redesigning their architecture</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Businesses seeking to maintain Salesforce integration while improving usability</li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
-
-<!-- wp:paragraph -->
-<p></p>
-<!-- /wp:paragraph -->
+<section class="cs-section">
+  <h2 class="cs-label">Why it matters</h2>
+  <p>Fragmented systems don't just create operational overhead — they break the connection between marketing activity and business outcomes. When website data and CRM data don't talk to each other, the team is effectively operating blind on half the funnel.</p>
+  <p>This project rebuilt that connection at the architecture level. The migration was necessary, but what changed the team's operating capability was having a foundation they could see, trust, and manage without depending on any single person.</p>
+</section>

@@ -2,177 +2,244 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HubSpotForm from '../components/HubSpotForm.astro';
 
-const portalId = '00000000';
-const formId = '00000000-0000-0000-0000-000000000001';
+const portalId = '46498743';
+const formId = 'cc38289e-4949-4119-908b-eb1c81b4631e';
+
+const faqItems = [
+	{
+		q: 'どの問い合わせ種別を選べばよいですか？',
+		a: 'フォーム内の「お問い合わせ内容」欄に、ご相談の内容を自由にご記入ください。サービス相談、協業・取材・登壇依頼など、種別を問わず同じフォームからご連絡いただけます。内容を拝見してから適切な担当者よりご返信します。',
+	},
+	{
+		q: 'まだ課題が整理できていなくても問い合わせできますか？',
+		a: 'はい、問題ありません。「CRMを導入したが定着していない」「営業・マーケの連携がうまくいっていない」など、課題の輪郭がぼんやりしている段階でも歓迎しています。初回のご連絡では、現状の体制やご利用中のツールを教えていただければ、こちらで整理します。',
+	},
+	{
+		q: '営業目的の連絡は可能ですか？',
+		a: 'Consilegyのサービスや支援に関するご相談はすべて歓迎しています。ただし、弊社へのツール・サービス販売を目的とした営業のご連絡はお断りしています。',
+	},
+	{
+		q: '返信までどれくらいかかりますか？',
+		a: 'フォーム送信後、通常2〜3営業日以内にご返信します。内容によっては詳細を確認するために追加でご質問させていただく場合があります。急ぎのご相談は info@consilegy.com へ直接ご連絡ください。',
+	},
+];
 ---
 
 <BaseLayout
 	title="お問い合わせ | Consilegy"
-	description="プロジェクトのご相談、サービスに関するお問い合わせはこちら。担当より折り返しご連絡します。"
+	description="Consilegyへのご相談、協業、取材、登壇、その他のお問い合わせはこちらからご連絡ください。"
+	lang="ja"
 >
-	<div class="contact-hero">
-		<div class="container contact-hero__inner">
-			<p class="eyebrow">Contact</p>
-			<h1 class="contact-hero__title">お問い合わせ</h1>
-			<p class="contact-hero__lede">
-				課題が整理できていない段階でも問題ありません。現在の体制やツール、短期で効く打ち手から一緒に確認します。
-			</p>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+	<div class="container">
+		<p class="eyebrow">Contact</p>
+		<h1>お問い合わせ</h1>
+		<p class="hero-sub">
+			Consilegyへのご相談、協業、取材、登壇、その他のお問い合わせはこちらからご連絡ください。
+		</p>
+	</div>
+</section>
+
+<!-- ===== FORM ===== -->
+<section class="form-section">
+	<div class="container">
+		<div class="form-layout">
+			<div class="form-main">
+				<HubSpotForm portalId={portalId} formId={formId} region="na2" />
+			</div>
+			<aside class="form-aside">
+				<div class="aside-block">
+					<h2 class="aside-heading">メールでのお問い合わせ</h2>
+					<a href="mailto:info@consilegy.com" class="aside-email">info@consilegy.com</a>
+					<p class="aside-note">フォーム送信後、通常2〜3営業日以内にご返信します。</p>
+				</div>
+				<div class="aside-block">
+					<h2 class="aside-heading">こんなご相談に対応しています</h2>
+					<ul class="aside-list">
+						<li>CRM / RevOps設計・定着・改善</li>
+						<li>Revenue Architecture設計</li>
+						<li>営業・マーケ・CS連携改善</li>
+						<li>HubSpot / Salesforce / Kintone支援</li>
+						<li>B2B GTM戦略・マーケ設計</li>
+						<li>協業・取材・登壇のご依頼</li>
+					</ul>
+				</div>
+			</aside>
 		</div>
 	</div>
+</section>
 
-	<div class="container contact-layout">
-		<aside class="contact-aside">
-			<section class="contact-aside__section">
-				<h2 class="contact-aside__heading">こんなご相談に対応しています</h2>
-				<ul class="contact-aside__list">
-					<li>MA・CRM・SFAの選定・導入・定着</li>
-					<li>レベニューアーキテクチャ（収益構造）の設計</li>
-					<li>マーケティング戦略の見直しと実行支援</li>
-					<li>GA4・BI ツールの設計と運用改善</li>
-					<li>HubSpot の活用・再設計</li>
-					<li>その他、データとプロセスに関するご相談</li>
-				</ul>
-			</section>
-
-			<section class="contact-aside__section">
-				<h2 class="contact-aside__heading">事前にご共有いただけると助かること</h2>
-				<ul class="contact-aside__list">
-					<li>現在の体制・チーム規模</li>
-					<li>利用中のツール（MA・CRM・SFA など）</li>
-					<li>直近で困っていること・解決したい課題</li>
-					<li>ご支援を希望する時期やスケジュール感</li>
-				</ul>
-				<p class="contact-aside__note">
-					上記が揃っていなくてもお気軽にご連絡ください。初回ヒアリングで一緒に整理します。
-				</p>
-			</section>
-
-			<section class="contact-aside__section">
-				<h2 class="contact-aside__heading">メールでのお問い合わせ</h2>
-				<p class="contact-aside__email">
-					<a href="mailto:info@consilegy.com">info@consilegy.com</a>
-				</p>
-				<p class="contact-aside__note">
-					フォーム送信後、通常 2〜3 営業日以内にご返信します。
-				</p>
-			</section>
-		</aside>
-
-		<div class="contact-form">
-			<h2 class="visually-hidden">お問い合わせフォーム</h2>
-			<HubSpotForm portalId={portalId} formId={formId} region="na1" />
+<!-- ===== BRANCH: 診断 ===== -->
+<section class="branch-section">
+	<div class="container">
+		<div class="branch-grid">
+			<div class="branch-card branch-card--primary">
+				<p class="branch-eyebrow">Diagnosis</p>
+				<h2>CRM / RevOpsがうまくいかない方へ</h2>
+				<p>CRMが定着しない、営業・マーケ連携に課題がある、KPIやダッシュボードが機能していない場合は、専用の診断ページからご相談いただくとスムーズです。</p>
+				<a href="/free-consultation/" class="btn btn--primary">30分無料相談を予約 →</a>
+			</div>
+			<div class="branch-card">
+				<p class="branch-eyebrow">Resources</p>
+				<h2>まず資料で確認したい方へ</h2>
+				<p>Consilegyのサービス内容・支援実績・料金目安をまとめた資料をご用意しています。ご検討の参考にお役立てください。</p>
+				<a href="/download/" class="btn btn--secondary">サービス資料をダウンロード →</a>
+			</div>
 		</div>
 	</div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq-section">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">FAQ</p>
+			<h2>よくある質問</h2>
+		</div>
+		<div class="faq-list">
+			{faqItems.map(({ q, a }) => (
+				<details class="faq-item">
+					<summary class="faq-q">{q}</summary>
+					<div class="faq-a"><p>{a}</p></div>
+				</details>
+			))}
+		</div>
+	</div>
+</section>
+
 </BaseLayout>
 
 <style>
-	.contact-hero {
-		background: linear-gradient(160deg, #f0f4ff 0%, #ffffff 70%);
-		border-bottom: 1px solid var(--color-border);
-		padding-block: var(--space-2xl) var(--space-xl);
-	}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-	.contact-hero__inner {
-		max-width: 640px;
-	}
+:root {
+	--color-primary: #1e40af;
+	--color-primary-dark: #1d4ed8;
+	--color-navy: #0f172a;
+	--color-charcoal: #334155;
+	--color-muted: #64748b;
+	--color-border: #e2e8f0;
+	--color-border-mid: #cbd5e1;
+	--color-bg-soft: #f8fafc;
+	--font-serif: 'Noto Serif JP', Georgia, serif;
+	--font-sans: 'Noto Sans JP', system-ui, sans-serif;
+	--container: 1100px;
+}
 
-	.contact-hero__title {
-		margin: var(--space-xs) 0 var(--space-md);
-		font-size: clamp(1.75rem, 3vw, 2.4rem);
-		font-weight: 800;
-		letter-spacing: -0.03em;
-		line-height: 1.2;
-	}
+body { font-family: var(--font-sans); color: var(--color-navy); line-height: 1.7; }
+.container { max-width: var(--container); margin: 0 auto; padding: 0 2rem; }
 
-	.contact-hero__lede {
-		margin: 0;
-		font-size: var(--text-lead);
-		line-height: 1.8;
-		color: var(--color-text-muted);
-		max-width: 52ch;
-	}
+.eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-primary); margin-bottom: 0.625rem; display: block; }
+.section-header { text-align: center; margin-bottom: 2.5rem; }
+.section-header h2 { font-family: var(--font-serif); font-size: clamp(1.375rem, 2.5vw, 1.75rem); color: var(--color-navy); }
 
-	/* Layout */
-	.contact-layout {
-		display: grid;
-		grid-template-columns: 1fr 1.15fr;
-		gap: var(--space-2xl);
-		align-items: start;
-		padding-block: var(--space-2xl);
-	}
+.btn { display: inline-flex; align-items: center; font-weight: 600; border-radius: 5px; text-decoration: none; transition: all 0.18s; font-size: 0.9375rem; padding: 0.75rem 1.5rem; }
+.btn--primary { background: var(--color-primary); color: #fff; border: 2px solid transparent; }
+.btn--primary:hover { background: var(--color-primary-dark); }
+.btn--outline { background: transparent; color: var(--color-primary); border: 2px solid var(--color-primary); }
+.btn--outline:hover { background: var(--color-primary); color: #fff; }
 
-	/* Aside */
-	.contact-aside {
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-xl);
-	}
+/* ===== HERO ===== */
+.hero {
+	padding: 4rem 0 3.5rem;
+	background: linear-gradient(160deg, #f0f4ff 0%, #ffffff 70%);
+	border-bottom: 1px solid var(--color-border);
+}
+.hero h1 {
+	font-family: var(--font-serif);
+	font-size: clamp(2rem, 4vw, 2.75rem);
+	color: var(--color-navy);
+	margin-bottom: 1rem;
+	line-height: 1.3;
+}
+.hero-sub {
+	font-size: 1rem;
+	color: var(--color-charcoal);
+	line-height: 1.85;
+	max-width: 52ch;
+}
 
-	.contact-aside__section {
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-sm);
-	}
+/* ===== FORM ===== */
+.form-section { padding: 4rem 0; background: #fff; }
+.form-layout { display: grid; grid-template-columns: 1fr 300px; gap: 3rem; align-items: start; }
+.form-main { min-width: 0; }
+.form-aside { display: flex; flex-direction: column; gap: 2rem; position: sticky; top: 5rem; }
+.aside-block { display: flex; flex-direction: column; gap: 0.75rem; }
+.aside-heading {
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--color-muted);
+	padding-bottom: 0.625rem;
+	border-bottom: 1px solid var(--color-border);
+}
+.aside-email {
+	font-size: 0.9375rem;
+	font-weight: 600;
+	color: var(--color-primary);
+	text-decoration: none;
+}
+.aside-email:hover { text-decoration: underline; }
+.aside-note { font-size: 0.8125rem; color: var(--color-muted); line-height: 1.7; }
+.aside-list {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+.aside-list li {
+	font-size: 0.875rem;
+	color: var(--color-charcoal);
+	padding-left: 1rem;
+	position: relative;
+	line-height: 1.6;
+}
+.aside-list li::before { content: '—'; position: absolute; left: 0; color: var(--color-border-mid); }
 
-	.contact-aside__heading {
-		margin: 0;
-		font-size: 0.85rem;
-		font-weight: 700;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-		color: var(--color-text-muted);
-		padding-bottom: var(--space-xs);
-		border-bottom: 1px solid var(--color-border);
-	}
+/* ===== BRANCH ===== */
+.branch-section { padding: 4rem 0; background: var(--color-bg-soft); border-top: 1px solid var(--color-border); }
+.branch-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.branch-card {
+	background: #fff;
+	border: 1px solid var(--color-border);
+	border-radius: 8px;
+	padding: 2.25rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+.branch-card--primary { border-color: var(--color-primary); border-width: 1.5px; }
+.branch-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-primary); }
+.branch-card h2 { font-family: var(--font-serif); font-size: 1.125rem; color: var(--color-navy); line-height: 1.45; }
+.branch-card p { font-size: 0.9rem; color: var(--color-muted); line-height: 1.8; flex: 1; }
 
-	.contact-aside__list {
-		margin: 0;
-		padding-left: 1.25em;
-		display: flex;
-		flex-direction: column;
-		gap: 0.4em;
-		color: var(--color-text);
-		font-size: 0.95rem;
-		line-height: 1.7;
-	}
+/* ===== FAQ ===== */
+.faq-section { padding: 4rem 0; background: #fff; border-top: 1px solid var(--color-border); }
+.faq-list { max-width: 700px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--color-border); }
+.faq-item:first-child { border-top: 1px solid var(--color-border); }
+.faq-q {
+	font-size: 0.9375rem;
+	font-weight: 600;
+	color: var(--color-navy);
+	padding: 1.125rem 2.5rem 1.125rem 0;
+	cursor: pointer;
+	list-style: none;
+	position: relative;
+	line-height: 1.6;
+}
+.faq-q::after { content: '+'; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: 1.25rem; color: var(--color-primary); font-weight: 300; line-height: 1; }
+details[open] .faq-q::after { content: '−'; }
+.faq-a { padding: 0 0 1.25rem; }
+.faq-a p { font-size: 0.875rem; color: var(--color-muted); line-height: 1.9; }
 
-	.contact-aside__note {
-		margin: 0;
-		font-size: 0.875rem;
-		color: var(--color-text-muted);
-		line-height: 1.7;
-	}
-
-	.contact-aside__email {
-		margin: 0;
-		font-size: 1rem;
-		font-weight: 600;
-	}
-
-	.contact-aside__email a {
-		color: var(--color-primary);
-		text-decoration: none;
-	}
-
-	.contact-aside__email a:hover {
-		text-decoration: underline;
-	}
-
-	/* Form area */
-	.contact-form {
-		position: sticky;
-		top: calc(60px + var(--space-lg));
-	}
-
-	@media (max-width: 860px) {
-		.contact-layout {
-			grid-template-columns: 1fr;
-			gap: var(--space-xl);
-			padding-block: var(--space-xl);
-		}
-
-		.contact-form {
-			position: static;
-		}
-	}
+/* ===== RESPONSIVE ===== */
+@media (max-width: 860px) {
+	.form-layout { grid-template-columns: 1fr; }
+	.form-aside { position: static; }
+	.branch-grid { grid-template-columns: 1fr; }
+}
 </style>

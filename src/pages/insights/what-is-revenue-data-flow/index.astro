@@ -1,0 +1,478 @@
+---
+import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const pubDate = '2026-05-07';
+const pubDateDisplay = '2026年5月7日';
+const readTime = '約10分';
+
+const articleSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'Revenue Data Flowとは何か｜なぜ数字がつながらないのか',
+	description: 'Salesforce、HubSpot、Kintone、BIなどで数字が一致しない原因を、Revenue Data FlowとRevenue Architectureの観点から解説します。',
+	datePublished: pubDate,
+	dateModified: pubDate,
+	author: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+	url: 'https://consilegy.com/insights/what-is-revenue-data-flow/',
+	inLanguage: 'ja',
+};
+
+const breadcrumbSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://consilegy.com/' },
+		{ '@type': 'ListItem', position: 2, name: 'コラム', item: 'https://consilegy.com/insights/' },
+		{ '@type': 'ListItem', position: 3, name: 'Revenue Data Flowとは何か —— なぜ「数字がつながらない」のか', item: 'https://consilegy.com/insights/what-is-revenue-data-flow/' },
+	],
+};
+---
+
+<BaseLayout
+	title="Revenue Data Flowとは何か｜なぜ数字がつながらないのか | Consilegy"
+	description="Salesforce、HubSpot、Kintone、BIなどで数字が一致しない原因を、Revenue Data FlowとRevenue Architectureの観点から解説します。"
+	lang="ja"
+>
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	</Fragment>
+
+<div class="article-wrap">
+
+	<!-- ===== ARTICLE HEADER ===== -->
+	<header class="article-head container">
+		<nav class="breadcrumb" aria-label="パンくずリスト">
+			<a href="/">ホーム</a>
+			<span aria-hidden="true">›</span>
+			<a href="/insights/">コラム</a>
+			<span aria-hidden="true">›</span>
+			<span aria-current="page">Revenue Data Flowとは何か</span>
+		</nav>
+		<div class="article-meta">
+			<span class="article-cat">Revenue Architecture</span>
+			<span class="article-date">{pubDateDisplay}</span>
+			<span class="article-read">{readTime}</span>
+		</div>
+		<h1>Revenue Data Flowとは何か<br class="br-pc" />—— なぜ「数字がつながらない」のか</h1>
+		<p class="article-desc">SalesforceとHubSpotの数字が違い、BIとも合わず、最終的にExcelで調整している。この問題の原因はAPI連携の不足ではなく、Revenue Data Flowが設計されていないことにある。</p>
+	</header>
+
+	<!-- ===== ARTICLE BODY ===== -->
+	<div class="article-body container">
+
+		<div class="article-section">
+			<p>SalesforceとHubSpotの数字が違う。BIとも合わない。営業資料の数字も違う。そして最終的にExcelで調整している——これは日本のBtoB企業で非常によく起きています。SaaS導入が増え、CRMが増え、部門が分かれ、KPI管理が始まるタイミングで「どの数字を信じればいいのか分からない」問題が発生します。</p>
+			<p>多くの企業は「システム連携を強化しよう」と考えます。しかし<strong>問題はAPI連携不足ではありません</strong>。本当の原因は、Revenue Data Flowが設計されていないことにあります。</p>
+		</div>
+
+		<!-- DIAGRAM 1: 分断されたRevenue Data環境 -->
+		<figure class="diag-wrap" aria-label="分断された収益データ環境：ツールごとに数字が異なり手作業補正が常態化する状態">
+			<div class="diag diag--rdf-chaos">
+				<div class="rdfc-tools">
+					<div class="rdfc-tool">
+						<div class="rdfc-icon icon-hs">HS</div>
+						<div class="rdfc-name">HubSpot</div>
+						<div class="rdfc-sub">リード管理</div>
+					</div>
+					<div class="rdfc-tool">
+						<div class="rdfc-icon icon-sf">SF</div>
+						<div class="rdfc-name">Salesforce</div>
+						<div class="rdfc-sub">商談管理</div>
+					</div>
+					<div class="rdfc-tool">
+						<div class="rdfc-icon icon-kt">KT</div>
+						<div class="rdfc-name">Kintone</div>
+						<div class="rdfc-sub">顧客管理</div>
+					</div>
+					<div class="rdfc-tool">
+						<div class="rdfc-icon icon-ac">AC</div>
+						<div class="rdfc-name">会計システム</div>
+						<div class="rdfc-sub">売上</div>
+					</div>
+					<div class="rdfc-tool">
+						<div class="rdfc-icon icon-bi">BI</div>
+						<div class="rdfc-name">BIツール</div>
+						<div class="rdfc-sub">レポート</div>
+					</div>
+				</div>
+				<div class="rdfc-center">
+					<div class="rdfc-person"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></div>
+					<div class="rdfc-person-label">手作業で補正</div>
+				</div>
+				<div class="rdfc-bubbles">
+					<div class="rdfc-bubble">数字が違う</div>
+					<div class="rdfc-bubble rdfc-bubble--warn">どれが正しい？</div>
+					<div class="rdfc-bubble">Excelで調整</div>
+				</div>
+				<div class="rdfc-footer">
+					<span class="rdfc-tag bad">✕ 正データ 未定義</span>
+					<span class="rdfc-tag bad">✕ 収益の流れ 未設計</span>
+					<span class="rdfc-tag bad">✕ 経営判断 不安定</span>
+				</div>
+			</div>
+			<figcaption class="diag-caption">分断された収益データ環境：部門ごとにツールが異なり、数字の根拠が統一されないまま手作業補正が続く</figcaption>
+		</figure>
+
+		<div class="article-section">
+			<h2>Revenue Data Flowとは何か</h2>
+			<p>Revenue Data Flowとは、見込み客の発生から受注・請求・契約更新・追加受注に至るまでの収益データが「どこで生成され、どこへ流れ、どこで使われるか」を設計する考え方です。重要なのはデータの保存ではありません。<strong>収益を一貫して追えること</strong>が目的です。</p>
+			<p>多くの企業ではデータは存在しています。しかし、マーケティング・営業・カスタマーサクセス・財務がそれぞれ別のツールを使い、データがつながっていません。収益データが存在しても、収益の流れが設計されていなければ意思決定に使えません。</p>
+		</div>
+
+		<div class="article-section">
+			<h2>「数字が合わない」原因となる5つの構造問題</h2>
+			<ol class="article-numbered">
+				<li>
+					<strong>正データの所在が決まっていない</strong>
+					<p>売上はSalesforce基準、顧客数はHubSpot基準、請求は会計システム基準——それぞれが別々の数字を持つと、部門ごとに異なる数字が出てきます。「どこが正しいか」を定義しない限り、統合しても数字は揃いません。</p>
+				</li>
+				<li>
+					<strong>KPIの定義が部門ごとにずれている</strong>
+					<p>「SQL」「年間売上」「アクティブ顧客」「解約率」の定義が部門によって違うと、会議の冒頭で必ず「その数字の定義は？」という確認から始まります。議論の前提を揃えるためにKPI定義の統一が不可欠です。</p>
+				</li>
+				<li>
+					<strong>収益の流れが部門で分断されている</strong>
+					<p>マーケティングは見込み客獲得まで、営業は受注まで、カスタマーサクセスは契約後——それぞれが担当範囲だけを見ていると、収益全体の流れが誰にも見えなくなります。</p>
+				</li>
+				<li>
+					<strong>Excelが「最終的な正」になっている</strong>
+					<p>BIもCRMもあるが最終的にExcelで補正が走る。この状態が続くと収益の可視性は維持できません。Excelによる補正は個人の知識に依存するため、担当者が変わると再現できなくなります。</p>
+				</li>
+				<li>
+					<strong>データ責任者が存在しない</strong>
+					<p>KPI定義・収益データ・マスタデータを誰が管理するか不明な状態は典型的な問題です。データの責任範囲が曖昧なまま複数のツールを導入すると、定義の乱立が加速します。</p>
+				</li>
+			</ol>
+		</div>
+
+		<div class="article-section">
+			<h2>「システム連携」だけでは解決しない</h2>
+			<p>多くの会社は収益データの問題をAPI連携の問題として捉えます。しかし本当に必要なのは収益構造の設計です。SalesforceとHubSpotをつないでも、KPI定義・収益の流れ・データの責任者が曖昧なら数字は崩れます。問題は接続ではなく、<strong>Revenue Data Architecture（収益データ構造の設計）</strong>です。</p>
+			<p class="article-callout">ツールをつなぐ前に、収益データの流れと正データの所在を設計することが先決です。</p>
+		</div>
+
+		<!-- DIAGRAM 2: Revenue Data Flow構造図 -->
+		<figure class="diag-wrap" aria-label="Revenue Data Flow構造図：見込み客から更新・追加受注まで収益データが一貫して流れる設計">
+			<div class="diag diag--rdf-flow">
+				<div class="rdff-header">Revenue Data Flow</div>
+				<div class="rdff-flow">
+					<div class="rdff-stage">
+						<div class="rdff-box box-lead">見込み客<br /><small>Lead</small></div>
+						<div class="rdff-sot">HubSpot</div>
+					</div>
+					<div class="rdff-arrow">→</div>
+					<div class="rdff-stage">
+						<div class="rdff-box box-mql">優良見込み<br /><small>MQL</small></div>
+						<div class="rdff-sot">HubSpot</div>
+					</div>
+					<div class="rdff-arrow">→</div>
+					<div class="rdff-stage">
+						<div class="rdff-box box-sql">商談候補<br /><small>SQL</small></div>
+						<div class="rdff-sot">Salesforce</div>
+					</div>
+					<div class="rdff-arrow">→</div>
+					<div class="rdff-stage">
+						<div class="rdff-box box-opp">商談<br /><small>Opportunity</small></div>
+						<div class="rdff-sot">Salesforce</div>
+					</div>
+					<div class="rdff-arrow">→</div>
+					<div class="rdff-stage">
+						<div class="rdff-box box-contract">契約<br /><small>Contract</small></div>
+						<div class="rdff-sot">Kintone</div>
+					</div>
+					<div class="rdff-arrow">→</div>
+					<div class="rdff-stage">
+						<div class="rdff-box box-invoice">請求<br /><small>Invoice</small></div>
+						<div class="rdff-sot">会計</div>
+					</div>
+					<div class="rdff-arrow">→</div>
+					<div class="rdff-stage">
+						<div class="rdff-box box-renewal">更新<br /><small>Renewal</small></div>
+						<div class="rdff-sot">Salesforce</div>
+					</div>
+				</div>
+				<div class="rdff-sst-bar">
+					<span class="rdff-sst-label">正データの所在（Single Source of Truth）を各ステージで定義</span>
+				</div>
+				<div class="rdff-footer">
+					<span class="rdff-tag good">✓ 収益を一貫して追える</span>
+					<span class="rdff-tag good">✓ 数字が揃う</span>
+					<span class="rdff-tag good">✓ 経営判断の精度が上がる</span>
+				</div>
+			</div>
+			<figcaption class="diag-caption">Revenue Data Flow：見込み客発生から更新まで、各ステージで正データの所在を定義し収益データを一貫させる</figcaption>
+		</figure>
+
+		<div class="article-section">
+			<h2>本当に必要なのは「収益の可視化」</h2>
+			<p>Revenue Visibility（収益可視性）とは、営業・マーケティング・カスタマーサクセス・財務を含めて「収益を一貫して追える状態」を指します。重要なのはダッシュボードの画面ではありません。どの施策が収益につながったか、どこで収益が失われたか、どこが詰まっているか——これが見えることが目的です。</p>
+		</div>
+
+		<div class="article-section">
+			<h2>収益データの流れを整えると何が変わるのか</h2>
+			<p>Revenue Data Flowが整うと、会議で数字確認をしなくなります。経営判断が速くなり、見通し精度が改善し、KPI議論から改善議論へと会議の中身が変わります。マーケティング・営業・カスタマーサクセスがつながり、Excelへの依存が下がります。これらは個別のツール改善では実現せず、収益の流れを構造として設計することで初めて得られます。</p>
+		</div>
+
+		<div class="article-section">
+			<h2>Revenue Architecture という考え方</h2>
+			<p>収益データの問題はシステムの問題ではありません。営業・マーケティング・カスタマーサクセス・CRM・KPI・データを「収益につながる一つの構造」として設計するRevenue Architectureの問題です。Revenue Architecture・Revenue Data Flow・RevOps・KPI設計・収益可視化という構造が整って初めて、数字は一貫してつながります。</p>
+		</div>
+
+		<!-- DIAGRAM 3: Revenue Architectureによる統合図 -->
+		<figure class="diag-wrap" aria-label="Revenue Architectureによる収益データ統合：7つの部門・機能をRevenue Architectureが接続する構造">
+			<div class="diag diag--ra-rdf">
+				<div class="ra-pills-row">
+					<span class="ra-pill">マーケティング</span>
+					<span class="ra-pill">営業</span>
+					<span class="ra-pill">CS</span>
+					<span class="ra-pill">財務</span>
+					<span class="ra-pill">CRM</span>
+					<span class="ra-pill">KPI</span>
+					<span class="ra-pill">BI</span>
+				</div>
+				<svg class="ra-svg" viewBox="0 0 620 60" preserveAspectRatio="none" aria-hidden="true">
+					<line x1="44"  y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+					<line x1="132" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+					<line x1="220" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+					<line x1="310" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+					<line x1="398" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+					<line x1="486" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+					<line x1="576" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+				</svg>
+				<div class="ra-core">
+					<div class="ra-core-title">Revenue Architecture</div>
+					<div class="ra-core-tags">
+						<span>Revenue Data Flow</span>
+						<span>正データ設計</span>
+						<span>KPI統一</span>
+						<span>収益可視化</span>
+						<span>RevOps</span>
+					</div>
+				</div>
+				<div class="ra-connector-bar"></div>
+				<div class="ra-outcomes">
+					<div class="ra-outcome">
+						<div class="ra-outcome-title">収益の可視化</div>
+						<div class="ra-outcome-sub">数字が揃い<br />会議コストが下がる</div>
+					</div>
+					<div class="ra-outcome ra-outcome--mid">
+						<div class="ra-outcome-title">見通し精度向上</div>
+						<div class="ra-outcome-sub">収益の流れが<br />一貫して見える</div>
+					</div>
+					<div class="ra-outcome">
+						<div class="ra-outcome-title">Excel依存の低下</div>
+						<div class="ra-outcome-sub">データが自動的に<br />つながる構造になる</div>
+					</div>
+				</div>
+			</div>
+			<figcaption class="diag-caption">Revenue Architectureによる収益データ統合：7つの部門・機能を接続し、収益データが一貫して流れる構造を実現する</figcaption>
+		</figure>
+
+		<div class="article-section">
+			<h2>日本企業で特に難しい理由</h2>
+			<p>日本企業ではExcel文化・部門最適・属人運用・SaaSの乱立が根強く残っています。そのため収益データの流れが人力で補完されやすく、担当者の経験と記憶がシステムの代わりになっているケースが多い。必要なのは「収益が自然に流れる構造」であり、日本企業の組織文化に合ったRevenue Architectureの設計が求められます。</p>
+		</div>
+
+		<div class="article-section">
+			<h2>Consilegyの考え方</h2>
+			<p>ConsilegyではCRM連携やBI構築を単なるシステム連携とは考えていません。本質はRevenue Architecture・Revenue Data Flow・RevOps・収益可視化・KPI設計にあります。Salesforce・HubSpot・Kintone・BI・Slack・会計システムを横断しながら、「収益が一貫して流れる構造」を設計します。目的はシステムを増やすことではなく、収益が自然につながる構造を作ることです。</p>
+			<div class="article-table-wrap">
+				<table>
+					<thead>
+						<tr>
+							<th>課題</th>
+							<th>Consilegyのアプローチ</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>ツールごとに数字が違う</td>
+							<td>正データ設計 + Revenue Data Flow構築</td>
+						</tr>
+						<tr>
+							<td>KPIの定義が揃わない</td>
+							<td>KPI統一設計 + 定義の明文化</td>
+						</tr>
+						<tr>
+							<td>Excel補正が終わらない</td>
+							<td>収益の流れの自動化 + RevOps整備</td>
+						</tr>
+						<tr>
+							<td>収益全体が見えない</td>
+							<td>Revenue Visibility構築 + BI設計</td>
+						</tr>
+						<tr>
+							<td>部門間でデータが分断される</td>
+							<td>Revenue Architecture設計 + データ責任者の定義</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="article-section">
+			<h2>まとめ：数字の問題はRevenue Data Flowの問題</h2>
+			<p>「数字がつながらない」原因はAPI不足ではありません。Revenue Architecture不足・Revenue Data Flow未設計・KPI設計不足・RevOps未整備が本質的な原因です。だからこそ必要なのはシステムの追加ではなく、「収益が流れる構造」を設計することです。Revenue Data FlowはRevenue Architectureの中核であり、ここが整うことで初めて収益データは経営判断の武器になります。</p>
+		</div>
+
+		<!-- ===== CTA ===== -->
+		<div class="article-cta">
+			<p class="article-cta__catch">収益データを「補正作業」から「経営の武器」へ</p>
+			<p class="article-cta__body">ConsilegyはRevenue Data Flowの設計から正データの定義まで、収益が一貫して見える構造を支援します。まずは現状の数字の分断を整理するところから始めましょう。</p>
+			<a href="/contact/" class="article-cta__btn">無料相談を予約する</a>
+		</div>
+
+		<!-- ===== RELATED ===== -->
+		<nav class="article-related" aria-label="関連記事">
+			<h2 class="article-related__heading">関連記事</h2>
+			<ul>
+				<li><a href="/insights/why-more-kpis-create-less-revenue-visibility/">KPIが増えるほど収益可視性が下がる理由</a></li>
+				<li><a href="/insights/why-dashboards-do-not-improve-executive-decisions/">なぜダッシュボードは経営判断を改善しないのか</a></li>
+				<li><a href="/insights/why-crm-integration-projects-fail/">CRM統合プロジェクトが失敗する理由</a></li>
+			</ul>
+		</nav>
+
+	</div><!-- /.article-body -->
+	<NewsletterSidebar />
+</div><!-- /.article-wrap -->
+
+<style>
+/* ===== LAYOUT ===== */
+.article-wrap { background: #fff; padding-bottom: 80px; }
+.container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+
+/* ===== HEADER ===== */
+.article-head { padding-top: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--color-border, #e2e8f0); }
+.breadcrumb { font-size: 0.78rem; color: var(--color-muted, #64748b); margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.breadcrumb a { color: var(--color-muted, #64748b); text-decoration: none; }
+.breadcrumb a:hover { color: var(--color-primary, #1e40af); }
+.article-meta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; font-size: 0.8rem; color: var(--color-muted, #64748b); }
+.article-cat { background: #eff6ff; color: var(--color-primary, #1e40af); padding: 2px 10px; border-radius: 4px; font-weight: 600; font-size: 0.75rem; }
+.article-head h1 { font-size: clamp(1.4rem, 3.2vw, 2rem); font-weight: 800; color: var(--color-navy, #0f172a); line-height: 1.35; margin-bottom: 16px; }
+.article-desc { font-size: 1rem; color: var(--color-charcoal, #334155); line-height: 1.75; }
+.br-pc { display: inline; }
+
+/* ===== BODY ===== */
+.article-body { padding-top: 48px; }
+.article-section { margin-bottom: 56px; }
+.article-section h2 { font-size: 1.25rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 16px; padding-left: 14px; border-left: 4px solid var(--color-primary, #1e40af); line-height: 1.4; }
+.article-section p { font-size: 0.975rem; color: var(--color-charcoal, #334155); line-height: 1.85; margin-bottom: 16px; }
+.article-section p:last-child { margin-bottom: 0; }
+.article-callout { background: #f8fafc; border-left: 3px solid var(--color-primary, #1e40af); padding: 14px 18px; border-radius: 0 6px 6px 0; font-size: 0.95rem !important; color: var(--color-navy, #0f172a) !important; }
+
+/* ===== NUMBERED LIST ===== */
+.article-numbered { list-style: none; counter-reset: item; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 24px; }
+.article-numbered li { counter-increment: item; display: grid; grid-template-columns: 36px 1fr; gap: 0 16px; }
+.article-numbered li::before { content: counter(item); display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--color-primary, #1e40af); color: #fff; border-radius: 50%; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px; }
+.article-numbered li strong { grid-column: 2; display: block; font-size: 1rem; color: var(--color-navy, #0f172a); margin-bottom: 6px; line-height: 1.4; }
+.article-numbered li p { grid-column: 2; font-size: 0.925rem; color: var(--color-charcoal, #334155); line-height: 1.8; margin: 0; }
+
+/* ===== TABLE ===== */
+.article-table-wrap { overflow-x: auto; margin-top: 24px; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; }
+.article-table-wrap table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.article-table-wrap th { background: var(--color-navy, #0f172a); color: #fff; padding: 12px 16px; text-align: left; font-weight: 600; font-size: 0.85rem; }
+.article-table-wrap td { padding: 12px 16px; border-bottom: 1px solid var(--color-border, #e2e8f0); color: var(--color-charcoal, #334155); vertical-align: top; line-height: 1.6; }
+.article-table-wrap tr:last-child td { border-bottom: none; }
+.article-table-wrap tr:nth-child(even) td { background: #f8fafc; }
+
+/* ===== DIAGRAMS ===== */
+.diag-wrap { margin: 0 0 56px; padding: 0; border: none; }
+.diag { background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 28px 24px; }
+.diag-caption { font-size: 0.78rem; color: var(--color-muted, #64748b); text-align: center; margin-top: 10px; line-height: 1.5; }
+
+/* --- DIAGRAM 1: RDF Chaos --- */
+.diag--rdf-chaos { display: flex; flex-direction: column; gap: 14px; }
+.rdfc-tools { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.rdfc-tool { display: flex; flex-direction: column; align-items: center; gap: 4px; background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 12px 12px; min-width: 84px; }
+.rdfc-icon { width: 36px; height: 36px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 700; color: #fff; }
+.icon-hs { background: #ff7a59; }
+.icon-sf { background: #00a1e0; }
+.icon-kt { background: #e03131; }
+.icon-ac { background: #4a5568; }
+.icon-bi { background: #f2c811; color: #1a1a1a; }
+.rdfc-name { font-size: 0.72rem; font-weight: 600; color: var(--color-navy, #0f172a); text-align: center; }
+.rdfc-sub { font-size: 0.65rem; color: var(--color-muted, #64748b); }
+.rdfc-center { display: flex; align-items: center; justify-content: center; gap: 10px; background: #fff3cd; border: 1px dashed #fbbf24; border-radius: 8px; padding: 10px 16px; }
+.rdfc-person { font-size: 1.4rem; }
+.rdfc-person-label { font-size: 0.82rem; font-weight: 600; color: #92400e; }
+.rdfc-bubbles { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.rdfc-bubble { background: #fee2e2; border: 1px solid #fca5a5; border-radius: 8px; padding: 6px 14px; font-size: 0.78rem; color: #991b1b; font-weight: 600; }
+.rdfc-bubble--warn { background: #fff3cd; border-color: #fbbf24; color: #92400e; }
+.rdfc-footer { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.rdfc-tag { font-size: 0.75rem; font-weight: 600; }
+.bad { color: #dc2626; }
+.good { color: #16a34a; }
+
+/* --- DIAGRAM 2: Revenue Data Flow --- */
+.diag--rdf-flow { display: flex; flex-direction: column; gap: 14px; }
+.rdff-header { text-align: center; font-size: 0.9rem; font-weight: 700; color: var(--color-navy, #0f172a); letter-spacing: 0.03em; }
+.rdff-flow { display: flex; align-items: flex-start; justify-content: center; gap: 4px; flex-wrap: wrap; }
+.rdff-stage { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+.rdff-box { padding: 8px 8px; border-radius: 6px; font-size: 0.72rem; font-weight: 700; color: #fff; text-align: center; line-height: 1.3; }
+.rdff-box small { font-size: 0.6rem; font-weight: 400; opacity: 0.85; display: block; }
+.box-lead     { background: #93c5fd; color: #1e3a8a; }
+.box-mql      { background: #60a5fa; }
+.box-sql      { background: #3b82f6; }
+.box-opp      { background: #2563eb; }
+.box-contract { background: #1d4ed8; }
+.box-invoice  { background: #1e40af; }
+.box-renewal  { background: #0f172a; }
+.rdff-sot { font-size: 0.65rem; color: var(--color-muted, #64748b); background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 4px; padding: 2px 6px; white-space: nowrap; }
+.rdff-arrow { font-size: 0.9rem; color: var(--color-muted, #64748b); flex-shrink: 0; padding-top: 8px; }
+.rdff-sst-bar { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px; padding: 10px 16px; text-align: center; }
+.rdff-sst-label { font-size: 0.78rem; font-weight: 600; color: var(--color-primary, #1e40af); }
+.rdff-footer { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+.rdff-tag { font-size: 0.75rem; font-weight: 600; }
+
+/* --- DIAGRAM 3: RA Hub --- */
+.diag--ra-rdf { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
+.ra-pills-row { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; padding-bottom: 4px; }
+.ra-pill { background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 4px; padding: 5px 14px; font-size: 0.75rem; font-weight: 600; color: var(--color-charcoal, #334155); white-space: nowrap; }
+.ra-svg { width: 100%; height: 60px; display: block; }
+.ra-core { background: var(--color-navy, #0f172a); color: #fff; border-radius: 8px; padding: 18px 20px; text-align: center; }
+.ra-core-title { font-size: 1rem; font-weight: 700; margin-bottom: 10px; letter-spacing: 0.02em; }
+.ra-core-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.ra-core-tags span { font-size: 0.7rem; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; padding: 3px 9px; color: #e2e8f0; }
+.ra-connector-bar { height: 24px; background: linear-gradient(180deg, var(--color-navy, #0f172a) 0%, #334155 100%); width: 2px; margin: 0 auto; }
+.ra-outcomes { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+.ra-outcome { background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 14px 12px; text-align: center; }
+.ra-outcome--mid { border-color: var(--color-primary, #1e40af); box-shadow: 0 0 0 1px var(--color-primary, #1e40af); }
+.ra-outcome-title { font-size: 0.82rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 6px; }
+.ra-outcome-sub { font-size: 0.72rem; color: var(--color-muted, #64748b); line-height: 1.5; }
+
+/* ===== CTA ===== */
+.article-cta { background: radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%), linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%); border-radius: 8px; padding: 40px 36px; text-align: center; margin-bottom: 48px; }
+.article-cta__catch { font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
+.article-cta__body { font-size: 0.92rem; color: rgba(255,255,255,0.88); line-height: 1.75; margin-bottom: 24px; }
+.article-cta__btn { display: inline-block; background: #fff; color: var(--color-primary, #1e40af); font-weight: 700; font-size: 0.9rem; padding: 12px 28px; border-radius: 6px; text-decoration: none; transition: opacity 0.2s; }
+.article-cta__btn:hover { opacity: 0.9; }
+
+/* ===== RELATED ===== */
+.article-related { border-top: 1px solid var(--color-border, #e2e8f0); padding-top: 32px; }
+.article-related__heading { font-size: 0.9rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 16px; }
+.article-related ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.article-related li a { font-size: 0.9rem; color: var(--color-primary, #1e40af); text-decoration: none; }
+.article-related li a:hover { text-decoration: underline; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 700px) {
+	.article-head h1 { font-size: 1.35rem; }
+	.br-pc { display: none; }
+	.rdff-flow { gap: 3px; }
+	.rdff-box { font-size: 0.65rem; padding: 6px 6px; }
+	.rdff-arrow { font-size: 0.8rem; }
+	.ra-outcomes { grid-template-columns: 1fr; gap: 8px; }
+	.article-cta { padding: 28px 20px; }
+	.rdfc-tools { gap: 8px; }
+}
+@media (max-width: 480px) {
+	.container { padding: 0 16px; }
+	.rdff-sot { display: none; }
+	.ra-outcomes { grid-template-columns: 1fr 1fr; }
+}
+</style>
+
+</BaseLayout>

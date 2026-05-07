@@ -7,81 +7,142 @@ interface Props {
 const { lang: langProp, alternateUrl: alternateUrlProp } = Astro.props;
 const pathname = Astro.url.pathname;
 const isEN = langProp !== undefined ? langProp === 'en' : pathname.startsWith('/en');
-const lang = isEN ? 'en' : 'ja';
 const defaultAlternateUrl = isEN ? '/' : '/en/';
 const alternateUrl = alternateUrlProp ?? defaultAlternateUrl;
 
-const navJA = [
-	{ label: 'RevOps再設計とは',        href: '/about-revops/' },
+// ── JA Row 1: 会社・コンセプト系 ──────────────────────────
+const navJA_top = [
+	{ label: '会社概要', href: '/company/' },
+];
+
+// ── JA Row 2: サービス・集客導線 ──────────────────────────
+const navJA_bottom: { label: string; href: string | null; children?: { label: string; href: string }[] }[] = [
 	{
 		label: 'サービス',
 		href: '/services/',
 		children: [
-			{ label: 'レベニューアーキテクチャ設計',    href: '/services/revenue-architecture-design/' },
-			{ label: 'マーケティング戦略設計',         href: '/services/marketing-strategy-design/' },
-			{ label: 'CRM / RevOps実装支援',        href: '/services/revops-ma-crm-sfa-implementation/' },
-			{ label: 'HubSpot導入・運用支援',         href: '/services/hubspot-implementation-consulting/' },
-			{ label: '運用定着・改善支援',             href: '/services/operational-adoption-optimization/' },
+			{ label: 'レベニューアーキテクチャ設計', href: '/services/revenue-architecture-design/' },
+			{ label: 'マーケティング戦略設計',         href: '/services/b2b-marketing-gtm-design/' },
+			{ label: 'CRM / RevOps実装支援',          href: '/services/crm-revops-redesign/' },
+			{ label: 'HubSpot導入・運用支援',          href: '/services/hubspot-implementation-operations/' },
+			{ label: '運用定着・改善支援',              href: '/services/adoption-growth-support/' },
 		],
 	},
-	{ label: '料金プラン',               href: '/pricing/' },
-	{ label: 'レベニューアーキテクチャ設計', href: '/revenue-architecture/' },
-	{ label: '導入事例',               href: '/case-studies/' },
-	{ label: 'コラム',                 href: '/insights/' },
-	{ label: '会社情報',               href: '/company/' },
-	{ label: '資料ダウンロード',         href: '/download/' },
+	{ label: '導入事例', href: '/case-studies/' },
+	{
+		label: 'コラム',
+		href: null,
+		children: [
+			{ label: 'レベニューアーキテクチャ設計とは', href: '/revenue-architecture/' },
+			{ label: 'RevOps再設計とは',                href: '/about-revops/' },
+			{ label: '記事一覧',                        href: '/insights/' },
+			{ label: 'メルマガ',                          href: '/newsletter/' },
+		],
+	},
+	{ label: '料金', href: '/pricing/' },
 ];
 
+// ── EN: single row (unchanged) ────────────────────────────
 const navEN = [
 	{
 		label: 'Services',
-		href: '/en/services-en/',
+		href: '/en/services/',
 		children: [
-			{ label: 'Japan Market GTM & Messaging',          href: '/en/services-en/japan-market-gtm-messaging/' },
-			{ label: 'Revenue Architecture Design',           href: '/en/services-en/revenue-architecture-design/' },
-			{ label: 'CRM / RevOps Implementation',           href: '/en/services-en/crm-revops-implementation/' },
-			{ label: 'HubSpot Implementation & Ops',          href: '/en/services-en/hubspot-implementation-operations-support/' },
-			{ label: 'Adoption & Growth Support',             href: '/en/services-en/adoption-growth-support/' },
+			{ label: 'Japan Market GTM & Messaging',   href: '/en/services/japan-market-gtm-messaging/' },
+			{ label: 'Revenue Architecture Design',     href: '/en/services/revenue-architecture-design/' },
+			{ label: 'CRM / RevOps Implementation',     href: '/en/services/crm-revops-implementation/' },
+			{ label: 'HubSpot Implementation & Ops',    href: '/en/services/hubspot-implementation-operations-support/' },
+			{ label: 'Adoption & Growth Support',       href: '/en/services/adoption-growth-support/' },
 		],
 	},
 	{ label: 'Case Studies', href: '/en/case-studies/' },
-	{ label: 'About',        href: '/en/company-en/' },
+	{ label: 'About',        href: '/en/company/' },
+	{ label: 'Contact',      href: '/en/contact/' },
 ];
 
-const nav = isEN ? navEN : navJA;
-
-const langLabel = isEN ? 'JA' : 'EN';
-const targetLang = isEN ? 'ja' : 'en';
+const isActive = (href: string | null) =>
+	!!href && pathname.startsWith(href.replace(/\/$/, '')) && href !== '/';
 ---
 
-<header class="site-header">
+{isEN ? (
+<!-- ══════════════════════════════════════════════
+     EN: single-row (unchanged)
+     ══════════════════════════════════════════════ -->
+<header class="site-header site-header--en">
 	<div class="container site-header__inner">
-
-		<a class="site-header__logo" href={isEN ? '/en/' : '/'}>
+		<a class="site-header__logo" href="/en/">
 			<img src="/images/common/consilegy-logo.svg" alt="Consilegy" height="30" width="166" />
 		</a>
-
-		<button
-			class="site-header__toggle"
-			aria-label={isEN ? 'Open menu' : 'メニューを開く'}
-			aria-expanded="false"
-			aria-controls="site-nav"
-		>
+		<button class="site-header__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
 			<span class="site-header__burger"></span>
 		</button>
-
-		<nav class="site-header__nav" id="site-nav" aria-label={isEN ? 'Global navigation' : 'グローバルナビゲーション'}>
+		<nav class="site-header__nav" id="site-nav" aria-label="Global navigation">
 			<ul class="site-header__list">
-				{nav.map(({ label, href, children }) => (
+				{navEN.map(({ label, href, children }) => (
 					<li class={children ? 'has-dropdown' : undefined}>
-						<a href={href} aria-current={pathname.startsWith(href.replace(/\/$/, '')) ? 'page' : undefined}>
-							{label}{children && <span class="dropdown-arrow" aria-hidden="true">▾</span>}
+						<a href={href} aria-current={isActive(href) ? 'page' : undefined}>
+							{label}{children && <svg class="dropdown-arrow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>}
 						</a>
 						{children && (
 							<ul class="site-header__dropdown">
 								{children.map(child => (
+									<li><a href={child.href}>{child.label}</a></li>
+								))}
+							</ul>
+						)}
+					</li>
+				))}
+			</ul>
+			<div class="site-header__end">
+				<span class="site-header__lang-pair">
+					<a href="/" class="site-header__lang-item" data-lang-switch data-target-lang="ja">JP</a>
+					<span class="site-header__lang-sep" aria-hidden="true"></span>
+					<span class="site-header__lang-item site-header__lang-item--active">EN</span>
+				</span>
+			</div>
+			<ul class="site-header__sp-extras">
+				<li>
+					<span class="site-header__lang-pair">
+						<a href="/" class="site-header__lang-item" data-lang-switch data-target-lang="ja">JP</a>
+						<span class="site-header__lang-sep" aria-hidden="true"></span>
+						<span class="site-header__lang-item site-header__lang-item--active">EN</span>
+					</span>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</header>
+) : (
+<!-- ══════════════════════════════════════════════
+     JA: single-row layout
+     ══════════════════════════════════════════════ -->
+<header class="site-header site-header--ja">
+
+	<!-- ── Single row: ロゴ / ナビ / 言語 / CTA / SPハンバーガー ── -->
+	<div class="container sh-row__inner">
+
+		<a class="site-header__logo" href="/">
+			<img src="/images/common/consilegy-logo.svg" alt="Consilegy" height="28" width="154" />
+		</a>
+
+		<!-- PC: main nav (bottom items + top items combined) -->
+		<nav class="sh-mainnav" aria-label="グローバルナビゲーション">
+			<ul class="sh-mainlist">
+				{navJA_bottom.map(({ label, href, children }) => (
+					<li class={children ? 'has-dropdown' : undefined}>
+						{href
+							? <a href={href} aria-current={isActive(href) ? 'page' : undefined}>
+									{label}{children && <svg class="dropdown-arrow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>}
+								</a>
+							: <button type="button" class="sh-nav-trigger" aria-haspopup="listbox">
+									{label}<svg class="dropdown-arrow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+								</button>
+						}
+						{children && (
+							<ul class="site-header__dropdown">
+								{children.map(child => (
 									<li>
-										<a href={child.href} aria-current={pathname.startsWith(child.href.replace(/\/$/, '')) ? 'page' : undefined}>
+										<a href={child.href} aria-current={isActive(child.href) ? 'page' : undefined}>
 											{child.label}
 										</a>
 									</li>
@@ -90,394 +151,481 @@ const targetLang = isEN ? 'ja' : 'en';
 						)}
 					</li>
 				))}
-			</ul>
-
-			<div class="site-header__end">
-				<a
-				href={alternateUrl}
-				class="site-header__lang"
-				data-lang-switch
-				data-target-lang={targetLang}
-			>{langLabel}</a>
-				{isEN ? (
-					<a href="/en/contact-en/" class="site-header__cta site-header__cta--filled">Contact</a>
-				) : (
-					<>
-						<a href="/contact/" class="site-header__cta site-header__cta--outlined">お問い合わせ</a>
-						<a href="/free-consultation/" class="site-header__cta site-header__cta--filled">CRM / RevOps診断を依頼する</a>
-					</>
-				)}
-			</div>
-
-			<!-- SP only extras -->
-			<ul class="site-header__sp-extras">
-				{isEN ? (
-					<li><a href="/en/contact-en/">Contact</a></li>
-				) : (
-					<>
-						<li><a href="/contact/">お問い合わせ</a></li>
-						<li><a href="/free-consultation/">CRM / RevOps診断を依頼する</a></li>
-					</>
-				)}
-				<li>
-					<a
-						href={alternateUrl}
-						data-lang-switch
-						data-target-lang={targetLang}
-					>{langLabel}</a>
-				</li>
+				{navJA_top.map(({ label, href }) => (
+					<li>
+						<a href={href} class="sh-toplink" aria-current={isActive(href) ? 'page' : undefined}>
+							{label}
+						</a>
+					</li>
+				))}
 			</ul>
 		</nav>
 
+		<!-- PC: CTA buttons -->
+		<div class="sh-ctas">
+			<a href="/contact/"           class="site-header__cta site-header__cta--outlined">お問い合わせ</a>
+			<a href="/download/"          class="site-header__cta site-header__cta--dl">資料ダウンロード</a>
+			<a href="/free-consultation/" class="site-header__cta site-header__cta--filled">無料相談を予約</a>
+		</div>
+
+		<!-- PC: language switcher (rightmost) -->
+		<span class="site-header__lang-pair sh-lang">
+			<a href="/en/" class="site-header__lang-item" data-lang-switch data-target-lang="en">EN</a>
+			<span class="site-header__lang-sep" aria-hidden="true"></span>
+			<span class="site-header__lang-item site-header__lang-item--active">日本語</span>
+		</span>
+
+		<!-- SP: hamburger -->
+		<button
+			class="site-header__toggle"
+			aria-label="メニューを開く"
+			aria-expanded="false"
+			aria-controls="site-nav-ja"
+		>
+			<span class="site-header__burger"></span>
+		</button>
+
 	</div>
+
+	<!-- ── SP nav drawer (all items) ── -->
+	<nav class="site-header__sp-nav" id="site-nav-ja" aria-label="スマートフォンメニュー">
+		<ul class="site-header__list">
+			{/* Row2 items first (primary) */}
+			{navJA_bottom.map(({ label, href, children }) => (
+				<li class={children ? 'has-dropdown' : undefined}>
+					{href
+						? <a href={href}>{label}{children && <svg class="dropdown-arrow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>}</a>
+						: <span class="sh-sp-grouplabel">{label}</span>
+					}
+					{children && (
+						<ul class="site-header__dropdown">
+							{children.map(child => (
+								<li><a href={child.href}>{child.label}</a></li>
+							))}
+						</ul>
+					)}
+				</li>
+			))}
+			{/* Row1 items (secondary) */}
+			{navJA_top.map(({ label, href }) => (
+				<li><a href={href}>{label}</a></li>
+			))}
+		</ul>
+		<ul class="site-header__sp-extras">
+			<li><a href="/contact/">お問い合わせ</a></li>
+			<li><a href="/download/">資料ダウンロード</a></li>
+			<li><a href="/free-consultation/" class="sp-cta-primary">無料相談を予約</a></li>
+			<li>
+				<span class="site-header__lang-pair">
+					<a href="/en/" class="site-header__lang-item" data-lang-switch data-target-lang="en">EN</a>
+					<span class="site-header__lang-sep" aria-hidden="true"></span>
+					<span class="site-header__lang-item site-header__lang-item--active">日本語</span>
+				</span>
+			</li>
+		</ul>
+	</nav>
+
 </header>
+)}
 
 <script>
-	// Language switch: save preference to localStorage
+	// Language preference
 	document.querySelectorAll<HTMLAnchorElement>('[data-lang-switch]').forEach(el => {
 		el.addEventListener('click', () => {
-			const targetLang = el.dataset.targetLang;
-			if (targetLang) localStorage.setItem('languagePreference', targetLang);
+			const t = el.dataset.targetLang;
+			if (t) localStorage.setItem('languagePreference', t);
 		});
 	});
 
+	// Hamburger (works for both EN #site-nav and JA #site-nav-ja)
 	const toggle = document.querySelector('.site-header__toggle') as HTMLButtonElement | null;
-	const nav = document.getElementById('site-nav');
+	const spNav  = document.getElementById('site-nav-ja') ?? document.getElementById('site-nav');
 
 	function closeMenu() {
 		toggle?.setAttribute('aria-expanded', 'false');
-		nav?.classList.remove('is-open');
+		spNav?.classList.remove('is-open');
 	}
 
 	toggle?.addEventListener('click', () => {
 		const expanded = toggle.getAttribute('aria-expanded') === 'true';
 		toggle.setAttribute('aria-expanded', String(!expanded));
-		nav?.classList.toggle('is-open', !expanded);
+		spNav?.classList.toggle('is-open', !expanded);
 	});
 
-	// Close on link click (SP)
-	nav?.querySelectorAll('a').forEach(link => {
+	spNav?.querySelectorAll('a').forEach(link => {
 		link.addEventListener('click', closeMenu);
 	});
 
-	// Close on outside click
 	document.addEventListener('click', e => {
-		if (!toggle || !nav) return;
+		if (!toggle || !spNav) return;
 		const t = e.target as Node;
-		if (!toggle.contains(t) && !nav.contains(t)) closeMenu();
+		if (!toggle.contains(t) && !spNav.contains(t)) closeMenu();
 	});
 </script>
 
 <style>
-	/* ── Base ──────────────────────────────────────────────── */
-	.site-header {
-		position: sticky;
-		top: 0;
-		z-index: 200;
-		background: rgba(255, 255, 255, 0.97);
-		backdrop-filter: blur(10px);
+/* ═══════════════════════════════════════════════════════
+   SHARED
+   ═══════════════════════════════════════════════════════ */
+.site-header {
+	position: sticky;
+	top: 0;
+	z-index: 200;
+	background: rgba(255,255,255,0.97);
+	backdrop-filter: blur(10px);
+	border-bottom: 1px solid var(--color-border);
+}
+
+.site-header__logo {
+	display: flex;
+	align-items: center;
+	flex-shrink: 0;
+	text-decoration: none;
+}
+.site-header__logo img { height: 28px; width: auto; display: block; }
+
+/* ── Dropdown (shared) ── */
+.site-header__dropdown {
+	display: none;
+	position: absolute;
+	top: calc(100% + 6px);
+	left: 0;
+	min-width: 240px;
+	list-style: none;
+	margin: 0; padding: 0.35rem 0;
+	background: #fff;
+	border: 1px solid var(--color-border);
+	border-radius: 8px;
+	box-shadow: var(--shadow-md);
+	z-index: 10;
+}
+.has-dropdown { position: relative; }
+.has-dropdown::after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 100%; left: 0; right: 0;
+	height: 8px;
+}
+.has-dropdown:hover .site-header__dropdown,
+.has-dropdown:focus-within .site-header__dropdown { display: block; }
+
+.site-header__dropdown li a {
+	display: block;
+	padding: 0.5em 1em;
+	font-size: 0.77rem;
+	font-weight: 500;
+	color: #1a172f;
+	text-decoration: none;
+	white-space: nowrap;
+	transition: color 0.12s, background 0.12s;
+}
+.site-header__dropdown li a:hover {
+	color: var(--color-primary);
+	background: rgba(30,64,175,0.05);
+}
+.dropdown-arrow { display: inline-block; vertical-align: middle; margin-left: 2px; opacity: 0.65; flex-shrink: 0; }
+
+/* ── Lang pair (shared) ── */
+.site-header__lang-pair {
+	display: inline-flex;
+	align-items: center;
+	gap: 0;
+	background: #f1f5f9;
+	border: 1px solid var(--color-border);
+	border-radius: 6px;
+	overflow: hidden;
+	white-space: nowrap;
+	flex-shrink: 0;
+}
+.site-header__lang-item {
+	display: inline-block;
+	font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em;
+	color: var(--color-text-muted);
+	text-decoration: none;
+	padding: 0.28em 0.6em;
+	transition: color 0.15s, background 0.15s;
+}
+a.site-header__lang-item:hover { color: var(--color-primary); background: rgba(30,64,175,0.07); }
+.site-header__lang-item--active {
+	color: #fff;
+	background: var(--color-primary);
+}
+.site-header__lang-sep { width: 1px; height: 1em; background: var(--color-border); align-self: center; }
+
+/* ── CTA buttons (shared) ── */
+.site-header__cta {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.34em 0.8em;
+	font-size: 0.74rem;
+	font-weight: 700;
+	border-radius: var(--radius);
+	text-decoration: none;
+	white-space: nowrap;
+	transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.site-header__cta--outlined {
+	background: #fff; color: var(--color-charcoal, #334155);
+	border: 1.5px solid var(--color-border);
+}
+.site-header__cta--outlined:hover { border-color: var(--color-primary); color: var(--color-primary); }
+.site-header__cta--dl {
+	background: #fff; color: var(--color-charcoal, #334155);
+	border: 1.5px solid var(--color-border);
+}
+.site-header__cta--dl:hover { border-color: var(--color-primary); color: var(--color-primary); }
+.site-header__cta--filled {
+	background: var(--color-primary); color: #fff;
+	border: 1.5px solid transparent;
+}
+.site-header__cta--filled:hover { background: var(--color-primary-dark); }
+
+/* ── Hamburger ── */
+.site-header__toggle {
+	display: none;
+	background: none; border: none; cursor: pointer;
+	padding: 0.5rem; flex-shrink: 0;
+}
+.site-header__burger,
+.site-header__burger::before,
+.site-header__burger::after {
+	display: block; width: 22px; height: 2px;
+	background: var(--color-text); border-radius: 2px;
+	transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.site-header__burger { position: relative; }
+.site-header__burger::before,
+.site-header__burger::after { content: ''; position: absolute; left: 0; }
+.site-header__burger::before { top: -6px; }
+.site-header__burger::after  { top:  6px; }
+[aria-expanded='true'] .site-header__burger            { background: transparent; }
+[aria-expanded='true'] .site-header__burger::before    { transform: rotate(45deg) translate(4px,4px); }
+[aria-expanded='true'] .site-header__burger::after     { transform: rotate(-45deg) translate(4px,-4px); }
+
+
+/* ═══════════════════════════════════════════════════════
+   EN: single row
+   ═══════════════════════════════════════════════════════ */
+.site-header--en .site-header__inner {
+	display: flex; align-items: center;
+	height: 62px; gap: 0;
+}
+.site-header--en .site-header__logo { margin-right: auto; }
+
+.site-header--en .site-header__nav {
+	display: flex; align-items: center; gap: 0.5rem;
+}
+.site-header--en .site-header__list {
+	list-style: none; margin: 0; padding: 0;
+	display: flex; flex-direction: row; align-items: center; gap: 0;
+}
+.site-header--en .site-header__list > li > a {
+	display: flex; align-items: center; gap: 0.2em;
+	padding: 0.35em 0.65em;
+	font-weight: 600; font-size: 0.82rem;
+	color: var(--color-text-muted);
+	text-decoration: none; white-space: nowrap;
+	border-radius: 5px;
+	transition: color 0.15s, background 0.15s;
+}
+.site-header--en .site-header__list > li > a:hover { color: var(--color-text); background: rgba(15,23,42,0.05); }
+.site-header--en .site-header__list > li > a[aria-current='page'] { color: var(--color-primary); background: rgba(30,64,175,0.06); }
+
+.site-header--en .site-header__end {
+	display: flex; align-items: center; gap: 0.4rem;
+	margin-left: 0.5rem; flex-shrink: 0;
+}
+.site-header--en .site-header__sp-extras { display: none; }
+
+
+/* ═══════════════════════════════════════════════════════
+   JA: single-row
+   ═══════════════════════════════════════════════════════ */
+
+.sh-row__inner {
+	display: flex;
+	align-items: center;
+	height: 58px;
+	gap: 0;
+}
+
+/* Main nav */
+.sh-mainnav { margin-left: auto; }
+
+.sh-mainlist {
+	list-style: none; margin: 0; padding: 0;
+	display: flex; align-items: center; gap: 0;
+}
+.sh-mainlist > li { position: relative; }
+.sh-mainlist > li > a {
+	display: flex; align-items: center; gap: 0.2em;
+	padding: 0.32em 0.65em;
+	font-weight: 600;
+	font-size: 0.78rem;
+	color: #1a172f;
+	text-decoration: none;
+	white-space: nowrap;
+	border-radius: 5px;
+	font-feature-settings: "palt";
+	transition: color 0.15s, background 0.15s;
+}
+.sh-mainlist > li > a:hover { color: #1a172f; background: rgba(26,23,47,0.06); }
+.sh-mainlist > li > a[aria-current='page'] { color: var(--color-primary); background: rgba(30,64,175,0.06); }
+
+/* 会社概要 link — slightly muted weight to differentiate */
+.sh-toplink {
+	display: flex; align-items: center;
+	padding: 0.32em 0.65em;
+	font-size: 0.75rem;
+	font-weight: 500;
+	color: #1a172f;
+	text-decoration: none;
+	white-space: nowrap;
+	border-radius: 5px;
+	font-feature-settings: "palt";
+	transition: color 0.15s, background 0.15s;
+}
+.sh-toplink:hover { background: rgba(26,23,47,0.06); }
+.sh-toplink[aria-current='page'] { color: var(--color-primary); }
+
+/* button trigger (href-less dropdown parent) */
+.sh-nav-trigger {
+	display: flex; align-items: center; gap: 0.2em;
+	padding: 0.32em 0.65em;
+	font-weight: 600;
+	font-size: 0.78rem;
+	color: #1a172f;
+	background: none;
+	border: none;
+	cursor: pointer;
+	white-space: nowrap;
+	border-radius: 5px;
+	font-feature-settings: "palt";
+	font-family: inherit;
+	transition: color 0.15s, background 0.15s;
+}
+.sh-nav-trigger:hover { background: rgba(26,23,47,0.06); }
+
+/* dropdown bridge gap */
+.sh-mainlist .has-dropdown::after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 100%; left: 0; right: 0;
+	height: 8px;
+}
+
+/* SP: group label for href-less parents */
+.sh-sp-grouplabel {
+	display: block;
+	padding: 0.9rem var(--space-md);
+	font-size: 0.95rem; font-weight: 600;
+	color: var(--color-text-muted);
+}
+
+.sh-lang { margin-left: 0.75rem; flex-shrink: 0; }
+
+.sh-ctas {
+	display: flex; align-items: center; gap: 0.4rem;
+	margin-left: 0.75rem; flex-shrink: 0;
+}
+
+/* ── SP nav drawer (JA) ── */
+.site-header__sp-nav {
+	display: none;
+	position: absolute;
+	top: 58px; /* single row height */
+	left: 0; right: 0;
+	flex-direction: column;
+	background: #fff;
+	border-bottom: 1px solid var(--color-border);
+	box-shadow: var(--shadow-md);
+	max-height: calc(100vh - 58px);
+	overflow-y: auto;
+	z-index: 100;
+}
+.site-header__sp-nav.is-open { display: flex; }
+
+.site-header__list {
+	list-style: none; margin: 0; padding: 0;
+}
+.site-header__sp-nav .site-header__list {
+	flex-direction: column; align-items: stretch;
+}
+.site-header__sp-nav .site-header__list > li { border-bottom: 1px solid var(--color-border); }
+.site-header__sp-nav .site-header__list > li > a {
+	display: block;
+	padding: 0.9rem var(--space-md);
+	font-size: 0.95rem; font-weight: 600;
+	color: var(--color-text-muted);
+	text-decoration: none;
+}
+/* SP: flatten dropdown inline */
+.site-header__sp-nav .site-header__dropdown {
+	display: block; position: static;
+	box-shadow: none; border: none; border-radius: 0;
+	padding: 0; background: #f8fafc;
+}
+.site-header__sp-nav .site-header__dropdown li { border-bottom: 1px solid var(--color-border); }
+.site-header__sp-nav .site-header__dropdown li a {
+	padding: 0.75rem var(--space-md);
+	padding-left: calc(var(--space-md) + 1.25rem);
+	font-size: 0.875rem;
+}
+
+.site-header__sp-extras {
+	display: flex; flex-direction: column;
+	list-style: none; margin: 0; padding: 0;
+	border-top: 2px solid var(--color-border);
+}
+.site-header__sp-extras li { border-bottom: 1px solid var(--color-border); }
+.site-header__sp-extras li a {
+	display: block;
+	padding: 0.9rem var(--space-md);
+	font-size: 0.95rem; font-weight: 700;
+	color: var(--color-primary);
+	text-decoration: none;
+}
+.sp-cta-primary { color: var(--color-primary) !important; }
+.site-header__sp-extras li:last-child {
+	padding: 0.75rem var(--space-md);
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE (≤ 900px)
+   ═══════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+	/* EN: show hamburger, hide nav */
+	.site-header--en .site-header__toggle { display: block; }
+	.site-header--en .site-header__nav {
+		display: none;
+		position: absolute;
+		top: 62px; left: 0; right: 0;
+		flex-direction: column; align-items: stretch;
+		gap: 0; background: #fff;
 		border-bottom: 1px solid var(--color-border);
-	}
-
-	.site-header__inner {
-		display: flex;
-		align-items: center;
-		height: 62px;
-		gap: 0;
-	}
-
-	/* ── Logo ──────────────────────────────────────────────── */
-	.site-header__logo {
-		display: flex;
-		align-items: center;
-		flex-shrink: 0;
-		margin-right: auto;
-		text-decoration: none;
-	}
-
-	.site-header__logo img {
-		height: 30px;
-		width: auto;
-		display: block;
-	}
-
-	/* ── Nav wrapper ───────────────────────────────────────── */
-	.site-header__nav {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-	}
-
-	/* ── Nav list (PC) ─────────────────────────────────────── */
-	.site-header__list {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		display: flex;
-		align-items: center;
-		gap: 0;
-	}
-
-	.site-header__list > li {
-		position: relative;
-	}
-
-	.site-header__list > li > a {
-		display: flex;
-		align-items: center;
-		gap: 0.2em;
-		padding: 0.35em 0.6em;
-		font-weight: 600;
-		font-size: 0.8rem;
-		color: var(--color-text-muted);
-		text-decoration: none;
-		white-space: nowrap;
-		border-radius: 5px;
-		transition: color 0.15s, background 0.15s;
-	}
-
-	.site-header__list > li > a:hover {
-		color: var(--color-text);
-		background: rgba(15, 23, 42, 0.05);
-	}
-
-	.site-header__list > li > a[aria-current='page'] {
-		color: var(--color-primary);
-		background: rgba(30, 64, 175, 0.06);
-	}
-
-	.dropdown-arrow {
-		font-size: 0.65em;
-		opacity: 0.6;
-	}
-
-	/* ── Dropdown (PC hover) ───────────────────────────────── */
-	.site-header__dropdown {
-		display: none;
-		position: absolute;
-		top: calc(100% + 6px);
-		left: 0;
-		min-width: 240px;
-		list-style: none;
-		margin: 0;
-		padding: 0.35rem 0;
-		background: #fff;
-		border: 1px solid var(--color-border);
-		border-radius: 8px;
 		box-shadow: var(--shadow-md);
-		z-index: 10;
+		max-height: calc(100vh - 62px);
+		overflow-y: auto;
 	}
+	.site-header--en .site-header__nav.is-open { display: flex; }
+	.site-header--en .site-header__list { flex-direction: column; align-items: stretch; }
+	.site-header--en .site-header__list > li { border-bottom: 1px solid var(--color-border); }
+	.site-header--en .site-header__list > li > a { padding: 0.9rem var(--space-md); font-size: 0.95rem; border-radius: 0; }
+	.site-header--en .site-header__dropdown { display: block; position: static; box-shadow: none; border: none; border-radius: 0; padding: 0; background: #f8fafc; }
+	.site-header--en .site-header__dropdown li { border-bottom: 1px solid var(--color-border); }
+	.site-header--en .site-header__dropdown li a { padding: 0.75rem var(--space-md); padding-left: calc(var(--space-md) + 1.25rem); font-size: 0.875rem; }
+	.site-header--en .site-header__end { display: none; }
+	.site-header--en .site-header__sp-extras { display: flex; flex-direction: column; border-top: 2px solid var(--color-border); }
+	.site-header--en .site-header__sp-extras li { border-bottom: 1px solid var(--color-border); }
+	.site-header--en .site-header__sp-extras li a { display: block; padding: 0.9rem var(--space-md); font-size: 0.95rem; font-weight: 600; color: var(--color-text-muted); text-decoration: none; }
 
-	.has-dropdown:hover .site-header__dropdown,
-	.has-dropdown:focus-within .site-header__dropdown {
-		display: block;
-	}
-
-	.site-header__dropdown li a {
-		display: block;
-		padding: 0.5em 1em;
-		font-size: 0.8rem;
-		font-weight: 500;
-		color: var(--color-text-muted);
-		text-decoration: none;
-		white-space: nowrap;
-		transition: color 0.12s, background 0.12s;
-	}
-
-	.site-header__dropdown li a:hover {
-		color: var(--color-primary);
-		background: rgba(30, 64, 175, 0.05);
-	}
-
-	/* ── End area (PC): lang + CTAs ────────────────────────── */
-	.site-header__end {
-		display: flex;
-		align-items: center;
-		gap: 0.4rem;
-		margin-left: 0.5rem;
-		flex-shrink: 0;
-	}
-
-	.site-header__lang {
-		font-size: 0.75rem;
-		font-weight: 700;
-		color: var(--color-text-muted);
-		text-decoration: none;
-		padding: 0.3em 0.5em;
-		border: 1px solid var(--color-border);
-		border-radius: 4px;
-		letter-spacing: 0.04em;
-		white-space: nowrap;
-		transition: color 0.15s, border-color 0.15s;
-	}
-
-	.site-header__lang:hover {
-		color: var(--color-primary);
-		border-color: var(--color-primary);
-	}
-
-	.site-header__cta {
-		display: inline-flex;
-		align-items: center;
-		padding: 0.4em 0.85em;
-		font-size: 0.8rem;
-		font-weight: 700;
-		border-radius: var(--radius);
-		text-decoration: none;
-		white-space: nowrap;
-		transition: background 0.15s, color 0.15s, border-color 0.15s;
-	}
-
-	.site-header__cta--outlined {
-		background: #fff;
-		color: var(--color-primary);
-		border: 2px solid var(--color-primary);
-	}
-
-	.site-header__cta--outlined:hover {
-		background: rgba(30, 64, 175, 0.05);
-	}
-
-	.site-header__cta--filled {
-		background: var(--color-primary);
-		color: #fff;
-		border: 2px solid transparent;
-	}
-
-	.site-header__cta--filled:hover {
-		background: var(--color-primary-dark);
-		color: #fff;
-	}
-
-	/* ── SP extras (hidden on PC) ──────────────────────────── */
-	.site-header__sp-extras {
-		display: none;
-	}
-
-	/* ── Hamburger toggle ──────────────────────────────────── */
-	.site-header__toggle {
-		display: none;
-		background: none;
-		border: none;
-		cursor: pointer;
-		padding: 0.5rem;
-		margin-left: 0.5rem;
-		flex-shrink: 0;
-	}
-
-	.site-header__burger,
-	.site-header__burger::before,
-	.site-header__burger::after {
-		display: block;
-		width: 22px;
-		height: 2px;
-		background: var(--color-text);
-		border-radius: 2px;
-		transition: transform 0.2s ease, opacity 0.2s ease;
-	}
-
-	.site-header__burger { position: relative; }
-
-	.site-header__burger::before,
-	.site-header__burger::after {
-		content: '';
-		position: absolute;
-		left: 0;
-	}
-
-	.site-header__burger::before { top: -6px; }
-	.site-header__burger::after  { top:  6px; }
-
-	[aria-expanded='true'] .site-header__burger            { background: transparent; }
-	[aria-expanded='true'] .site-header__burger::before    { transform: rotate(45deg) translate(4px, 4px); }
-	[aria-expanded='true'] .site-header__burger::after     { transform: rotate(-45deg) translate(4px, -4px); }
-
-	/* ── SP (≤ 900px) ──────────────────────────────────────── */
-	@media (max-width: 900px) {
-		.site-header__toggle { display: block; }
-
-		.site-header__nav {
-			display: none;
-			position: absolute;
-			top: 62px;
-			left: 0;
-			right: 0;
-			flex-direction: column;
-			align-items: stretch;
-			gap: 0;
-			background: #fff;
-			border-bottom: 1px solid var(--color-border);
-			box-shadow: var(--shadow-md);
-			max-height: calc(100vh - 62px);
-			overflow-y: auto;
-		}
-
-		.site-header__nav.is-open { display: flex; }
-
-		.site-header__list {
-			flex-direction: column;
-			align-items: stretch;
-			gap: 0;
-		}
-
-		.site-header__list > li { border-bottom: 1px solid var(--color-border); }
-
-		.site-header__list > li > a {
-			padding: 0.9rem var(--space-md);
-			font-size: 0.95rem;
-			border-radius: 0;
-			background: none;
-		}
-
-		.site-header__list > li > a[aria-current='page'] {
-			background: rgba(30, 64, 175, 0.04);
-		}
-
-		/* SP: flatten dropdown inline */
-		.site-header__dropdown {
-			display: block;
-			position: static;
-			box-shadow: none;
-			border: none;
-			border-radius: 0;
-			padding: 0;
-			background: #f8fafc;
-		}
-
-		.site-header__dropdown li { border-bottom: 1px solid var(--color-border); }
-
-		.site-header__dropdown li a {
-			padding: 0.75rem var(--space-md);
-			padding-left: calc(var(--space-md) + 1.25rem);
-			font-size: 0.875rem;
-			color: var(--color-text-muted);
-		}
-
-		.site-header__end { display: none; }
-
-		.site-header__sp-extras {
-			display: flex;
-			flex-direction: column;
-			list-style: none;
-			margin: 0;
-			padding: 0;
-			border-top: 2px solid var(--color-border);
-		}
-
-		.site-header__sp-extras li { border-bottom: 1px solid var(--color-border); }
-
-		.site-header__sp-extras li a {
-			display: block;
-			padding: 0.9rem var(--space-md);
-			font-size: 0.95rem;
-			font-weight: 700;
-			color: var(--color-primary);
-			text-decoration: none;
-		}
-
-		.site-header__sp-extras li:last-child a {
-			color: var(--color-text-muted);
-			font-weight: 600;
-		}
-	}
+	/* JA: show hamburger, hide main nav / lang / ctas */
+	.site-header--ja .site-header__toggle { display: block; margin-left: auto; }
+	.sh-mainnav { display: none; }
+	.sh-lang    { display: none; }
+	.sh-ctas    { display: none; }
+}
 </style>

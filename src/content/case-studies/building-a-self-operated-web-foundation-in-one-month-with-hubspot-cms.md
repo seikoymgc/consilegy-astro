@@ -6,165 +6,48 @@ sourceUrl: "https://consilegy.com/en/case-studies/building-a-self-operated-web-f
 lang: "en"
 translationKey: "hubspot-cms-migration"
 modified: "2026-03-18T01:18:06"
-description: " ToolsHubSpot (Content Hub / Marketing Hub)Key ChallengesOperational rigidity, slow execution cycles, dependency on development resourcesIndustryRetai"
+description: "Japan operations of a global skincare brand couldn't update their website without developer involvement. Every campaign page took weeks, and missed execution windows were the norm."
 featuredImage: "/images/wp/2026/02/campaign-creators-OGOWDVLbMSc-unsplash-scaled.jpg"
 featuredImageAlt: ""
 draft: false
 ---
-<!-- wp:table {"fontSize":"small"} -->
-<figure class="wp-block-table has-small-font-size"><table class="has-fixed-layout"><tbody><tr><td><strong>Tools</strong></td><td>HubSpot (Content Hub / Marketing Hub)</td></tr><tr><td><strong><strong>Key Challenges</strong></strong></td><td>Operational rigidity, slow execution cycles, dependency on development resources</td></tr><tr><td><strong>Industry</strong></td><td>Retail (Global DTC brand)</td></tr><tr><td><strong>Company Size</strong></td><td>Approx. 20,000 employees</td></tr><tr><td><strong>Timeline</strong></td><td>Q2 2025 (approx. 1 month)</td></tr><tr><td><strong>Scope</strong></td><td>CMS migration, marketing operation redesign, enablement for in-house execution</td></tr></tbody></table></figure>
-<!-- /wp:table -->
+<dl class="cs-meta">
+  <dt>Tools</dt><dd>HubSpot (Content Hub / Marketing Hub)</dd>
+  <dt>Industry</dt><dd>Retail (Global DTC brand)</dd>
+  <dt>Company size</dt><dd>Approx. 20,000 employees</dd>
+  <dt>Timeline</dt><dd>Q2 2025, approx. 1 month</dd>
+  <dt>Scope</dt><dd>CMS migration, marketing operation redesign, enablement for in-house execution</dd>
+</dl>
 
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Background</strong></h2>
-<!-- /wp:heading -->
+<section class="cs-section">
+  <h2 class="cs-label">Problem</h2>
+  <p>The Japan market operations of a global skincare brand ran on a CMS that required developer involvement for any change. Even minor content updates went through an external vendor queue. In a DTC model that requires rapid iteration, this created a fundamental execution constraint.</p>
+  <p>New campaign pages took weeks to build. Marketers had no direct control over their own web presence. Frequent reliance on external resources increased cost and lead time for every initiative. The result was missed execution windows and a growing gap between what the marketing team wanted to do and what the system allowed them to do.</p>
+</section>
 
-<!-- wp:paragraph -->
-<p>This project involved the Japan market operations of a global skincare brand.</p>
-<!-- /wp:paragraph -->
+<section class="cs-section">
+  <h2 class="cs-label">Work</h2>
+  <p>We designed and implemented a self-operated marketing infrastructure — not just a CMS migration. The goal was to transfer execution ownership to the marketing team while maintaining global brand standards, and to complete it within one month without disrupting live campaigns.</p>
+  <ul>
+    <li>No-code editing environment — built a drag-and-drop page system accessible to non-engineers, eliminating the developer dependency for standard updates</li>
+    <li>Brand-aligned template architecture — created reusable page structures that enforce visual consistency without requiring design review for every page</li>
+    <li>Publishing workflow redesign — streamlined the process from planning to publish to minimize lead time</li>
+    <li>Phased migration management — executed the full transition within the one-month window without downtime or campaign interruption</li>
+  </ul>
+</section>
 
-<!-- wp:paragraph -->
-<p>In a DTC model, timely content updates and rapid iteration are critical. However, the existing system structure significantly limited execution speed.</p>
-<!-- /wp:paragraph -->
+<section class="cs-section">
+  <h2 class="cs-label">Result</h2>
+  <ul>
+    <li>Migration completed on schedule — no downtime, no disruption to live campaigns</li>
+    <li>Same-day execution — marketers can now launch and update pages without waiting on development</li>
+    <li>External resource dependency reduced — vendor reliance cut significantly for standard content operations</li>
+    <li>Rapid iteration enabled — team can now test, adjust, and respond to market conditions in real time</li>
+  </ul>
+</section>
 
-<!-- wp:paragraph -->
-<p>Even minor updates required development resources, preventing marketers from acting independently. This resulted in delays and missed market opportunities. A rapid transition to a system that enables direct, on-the-ground execution was required, while maintaining global brand standards.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Objective</strong></h2>
-<!-- /wp:heading -->
-
-<!-- wp:list -->
-<ul class="wp-block-list"><!-- wp:list-item -->
-<li>Migration: Migrate the existing website to HubSpot CMS within one month</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Enablement: Enable marketers to create and update pages independently</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Speed: Maximize execution speed and accelerate iteration cycles</li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
-
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Challenges</strong></h2>
-<!-- /wp:heading -->
-
-<!-- wp:list -->
-<ul class="wp-block-list"><!-- wp:list-item -->
-<li>Development dependency: Marketing initiatives required engineers or external vendors, limiting speed</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Slow execution: New campaign pages took weeks to build, causing missed opportunities</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Operational overhead: Frequent reliance on external resources increased cost and lead time</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Time constraint: Migration had to be completed within one month without disrupting ongoing campaigns</li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
-
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Approach</strong></h2>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>Rather than a simple CMS migration,</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>we designed and implemented an operational foundation that enables marketers to execute independently.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:list -->
-<ul class="wp-block-list"><!-- wp:list-item -->
-<li>No-code environment: Built a drag-and-drop editing system accessible to non-engineers</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Template architecture: Created reusable page structures aligned with brand guidelines</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Workflow redesign: Streamlined the process from planning to publishing to minimize lead time</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Execution management: Delivered a phased migration within a one-month window</li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
-
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Results</strong></h2>
-<!-- /wp:heading -->
-
-<!-- wp:list -->
-<ul class="wp-block-list"><!-- wp:list-item -->
-<li>Migration: Completed within one month without downtime or disruption</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Execution speed: Marketers can now launch and update pages on the same day</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Cost reduction: Reduced reliance on external resources and improved turnaround time</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Iteration: Enabled rapid testing and response to market changes</li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
-
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Core Value</strong></h2>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>This project was not just a CMS migration.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>It removed execution constraints and enabled a self-operated marketing environment.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>By shortening the distance between decision and execution,</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>the organization can now continuously iterate and respond to market dynamics.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:heading -->
-<h2 class="wp-block-heading"><strong>Applicable Scenarios</strong></h2>
-<!-- /wp:heading -->
-
-<!-- wp:list -->
-<ul class="wp-block-list"><!-- wp:list-item -->
-<li>DTC brands seeking to modernize web operations</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Organizations constrained by development dependency</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Teams aiming to shift to no-code, in-house execution</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Projects requiring rapid CMS migration under tight timelines</li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
-
-<!-- wp:paragraph -->
-<p></p>
-<!-- /wp:paragraph -->
+<section class="cs-section">
+  <h2 class="cs-label">Why it matters</h2>
+  <p>Execution speed is a competitive advantage in DTC. When the gap between decision and live page is measured in weeks rather than hours, campaigns lose relevance before they launch.</p>
+  <p>What this project transferred was not just a CMS — it was ownership of the execution layer. The marketing team no longer waits on development queues to respond to what's happening in the market. That operational shift is what makes the migration meaningful beyond the technical delivery.</p>
+</section>

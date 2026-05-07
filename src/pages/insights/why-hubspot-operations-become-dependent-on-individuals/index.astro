@@ -1,0 +1,464 @@
+---
+import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const pubDate = '2026-05-07';
+const pubDateDisplay = '2026年5月7日';
+const readTime = '約10分';
+
+const articleSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'なぜHubSpot運用は属人化するのか｜RevOpsとRevenue Architecture',
+	description: 'HubSpot運用が一部担当者に依存し、ブラックボックス化する原因を、Revenue ArchitectureとRevOpsの観点から解説します。',
+	datePublished: pubDate,
+	dateModified: pubDate,
+	author: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+	url: 'https://consilegy.com/insights/why-hubspot-operations-become-dependent-on-individuals/',
+	inLanguage: 'ja',
+};
+
+const breadcrumbSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://consilegy.com/' },
+		{ '@type': 'ListItem', position: 2, name: 'コラム', item: 'https://consilegy.com/insights/' },
+		{ '@type': 'ListItem', position: 3, name: 'なぜHubSpot運用は「属人化」するのか', item: 'https://consilegy.com/insights/why-hubspot-operations-become-dependent-on-individuals/' },
+	],
+};
+---
+
+<BaseLayout
+	title="なぜHubSpot運用は属人化するのか｜RevOpsとRevenue Architecture | Consilegy"
+	description="HubSpot運用が一部担当者に依存し、ブラックボックス化する原因を、Revenue ArchitectureとRevOpsの観点から解説します。"
+	lang="ja"
+>
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	</Fragment>
+
+<div class="article-wrap">
+
+	<!-- ===== ARTICLE HEADER ===== -->
+	<header class="article-head container">
+		<nav class="breadcrumb" aria-label="パンくずリスト">
+			<a href="/">ホーム</a>
+			<span aria-hidden="true">›</span>
+			<a href="/insights/">コラム</a>
+			<span aria-hidden="true">›</span>
+			<span aria-current="page">なぜHubSpot運用は「属人化」するのか</span>
+		</nav>
+		<div class="article-meta">
+			<span class="article-cat">HubSpot / RevOps</span>
+			<span class="article-date">{pubDateDisplay}</span>
+			<span class="article-read">{readTime}</span>
+		</div>
+		<h1>なぜHubSpot運用は<br class="br-pc" />「属人化」するのか</h1>
+		<p class="article-desc">ワークフローも設定も増えたのに「この設定、誰も分からない」状態になっている。HubSpot運用の属人化は担当者の能力問題ではなく、収益につながる運用構造が設計されていないことが原因だ。</p>
+	</header>
+
+	<!-- ===== ARTICLE BODY ===== -->
+	<div class="article-body container">
+
+		<div class="article-section">
+			<p>HubSpotを導入し、ワークフローも増え、フォームもスコアリングも作った。しかし気づくと「この設定、誰も分からない」状態になっている。これは日本のBtoB企業で非常によく起きています。MA導入・インサイドセールス立ち上げ・マーケティング強化のタイミングで、HubSpot運用の属人化が急激に進みます。特定担当者しか触れない、ワークフローがブラックボックス、プロパティが乱立、Salesforce連携が不明、退職すると誰も分からない——この状況は日本のBtoB企業に広く共通しています。</p>
+			<p>しかし<strong>これは担当者の能力問題ではありません</strong>。本当の原因は、収益につながる運用構造が設計されていないことにあります。</p>
+		</div>
+
+		<div class="article-section">
+			<h2>なぜHubSpotは属人化しやすいのか</h2>
+			<p>HubSpotは非常に柔軟です。プロパティ追加・ワークフロー・リスト・スコアリング・ライフサイクル・自動化などを簡単に作れます。しかしそれは裏を返せば「設計思想なしでも運用できてしまう」ということです。短期的には便利ですが、長期的には構造が崩壊しやすい。柔軟性が属人化の温床になります。</p>
+		</div>
+
+		<!-- DIAGRAM 1: 属人化したHubSpot環境 -->
+		<figure class="diag-wrap" aria-label="属人化したHubSpot環境：ワークフローと設定が錯綜しブラックボックス化した状態">
+			<div class="diag diag--hs-chaos">
+				<div class="hsc-header">属人化したHubSpot環境</div>
+				<div class="hsc-center">
+					<div class="hsc-hub">
+						<div class="hsc-hub-icon">HS</div>
+						<div class="hsc-hub-label">HubSpot</div>
+					</div>
+					<div class="hsc-flows">
+						<div class="hsc-flow hsc-flow--1">ワークフロー A</div>
+						<div class="hsc-flow hsc-flow--2">ワークフロー B</div>
+						<div class="hsc-flow hsc-flow--3">ワークフロー C</div>
+						<div class="hsc-flow hsc-flow--4">ワークフロー D</div>
+						<div class="hsc-flow hsc-flow--5">リスト / フォーム</div>
+						<div class="hsc-flow hsc-flow--6">プロパティ ×87</div>
+					</div>
+				</div>
+				<div class="hsc-bubbles">
+					<div class="hsc-bubble">「これ誰が作った？」</div>
+					<div class="hsc-bubble hsc-bubble--warn">「触ると壊れそう」</div>
+					<div class="hsc-bubble">「Salesforceと何が同期？」</div>
+				</div>
+				<div class="hsc-footer">
+					<span class="hsc-tag bad">✕ 担当者依存</span>
+					<span class="hsc-tag bad">✕ ブラックボックス化</span>
+					<span class="hsc-tag bad">✕ 引き継ぎ不可</span>
+				</div>
+			</div>
+			<figcaption class="diag-caption">属人化したHubSpot環境：設計思想なしに積み重なったワークフローと設定が誰にも把握できない状態になる</figcaption>
+		</figure>
+
+		<div class="article-section">
+			<h2>属人化したHubSpotで起きる5つの問題</h2>
+			<ol class="article-numbered">
+				<li>
+					<strong>プロパティが増殖する</strong>
+					<p>「Lead Source」「Lead Source 2」「Source Detail」「Original Source」など似た項目が積み重なり、誰も正のデータがどこにあるか分からなくなります。データの根拠が失われると、どの数字を信じるかという問題が生まれます。</p>
+				</li>
+				<li>
+					<strong>ワークフローがスパゲッティ化する</strong>
+					<p>条件分岐・自動更新・Slack通知・ステータス変更が積み重なり、誰も全体構造を理解できなくなります。触ると何かが壊れるかもしれないという恐れが、改善を止めます。</p>
+				</li>
+				<li>
+					<strong>Salesforce連携がブラックボックス化する</strong>
+					<p>HubSpotとSalesforceが連携されていても「どちらが正か」「どちらが更新元か」「何が同期されるか」が不明になると、収益データの流れが崩れます。連携の設計書がなければ、誰も全体を把握できません。</p>
+				</li>
+				<li>
+					<strong>マーケティングと営業の定義がずれる</strong>
+					<p>見込み客・商談候補・ライフサイクルステージの定義が曖昧になると、マーケティングと営業が分断されます。HubSpotの設定と運用が一致していない状態が続きます。</p>
+				</li>
+				<li>
+					<strong>「HubSpot担当者」が単独で抱え込む</strong>
+					<p>設計が個人の頭の中に入っている状態では、その人が退職した瞬間に誰も運用できなくなります。ツールが個人依存システムになってしまいます。</p>
+				</li>
+			</ol>
+		</div>
+
+		<div class="article-section">
+			<h2>多くの企業が見落としていること</h2>
+			<p>多くの会社はHubSpot運用を「マーケティング自動化の運用」と考えています。しかし本来HubSpotは収益全体へ接続されるべきです。マーケティング・営業・カスタマーサクセス・収益指標・収益データとの統合が必要です。つまりHubSpotの問題はHubSpotの問題ではなく、<strong>Revenue Architectureの問題</strong>です。</p>
+			<p class="article-callout">ツールが柔軟であるほど、設計思想がなければ運用は壊れやすくなります。</p>
+		</div>
+
+		<!-- DIAGRAM 2: HubSpot Architecture構造図 -->
+		<figure class="diag-wrap" aria-label="HubSpot Architecture：収益の流れを中心に構造化されたHubSpot設計">
+			<div class="diag diag--hs-arch">
+				<div class="hsa-header">HubSpot Architecture</div>
+				<div class="hsa-layers">
+					<div class="hsa-layer layer-top">
+						<div class="hsa-layer-label">収益指標への接続</div>
+						<div class="hsa-layer-items">
+							<span class="hsa-item item-kpi">収益 KPI</span>
+							<span class="hsa-item item-sf">Salesforce</span>
+							<span class="hsa-item item-bi">BI / 分析</span>
+						</div>
+					</div>
+					<div class="hsa-arrow">↑ 収益データが流れる</div>
+					<div class="hsa-layer layer-mid">
+						<div class="hsa-layer-label">ライフサイクル設計（統一定義）</div>
+						<div class="hsa-lifecycle">
+							<div class="lc-stage lc-visitor">訪問者</div>
+							<div class="lc-arrow">→</div>
+							<div class="lc-stage lc-mql">見込み客<br /><small>MQL</small></div>
+							<div class="lc-arrow">→</div>
+							<div class="lc-stage lc-sql">商談候補<br /><small>SQL</small></div>
+							<div class="lc-arrow">→</div>
+							<div class="lc-stage lc-opp">商談</div>
+							<div class="lc-arrow">→</div>
+							<div class="lc-stage lc-cust">顧客</div>
+						</div>
+					</div>
+					<div class="hsa-arrow">↑ 正規化されたデータ</div>
+					<div class="hsa-layer layer-bot">
+						<div class="hsa-layer-label">データ基盤（設計思想あり）</div>
+						<div class="hsa-layer-items">
+							<span class="hsa-item">プロパティ設計</span>
+							<span class="hsa-item">ワークフロー管理</span>
+							<span class="hsa-item">フォーム設計</span>
+							<span class="hsa-item">同期ルール</span>
+						</div>
+					</div>
+				</div>
+				<div class="hsa-footer">
+					<span class="hsa-tag good">✓ 担当者が変わっても動く</span>
+					<span class="hsa-tag good">✓ 収益の流れが見える</span>
+				</div>
+			</div>
+			<figcaption class="diag-caption">HubSpot Architecture：収益の流れを起点にプロパティ・ライフサイクル・Salesforce連携を構造として設計した状態</figcaption>
+		</figure>
+
+		<div class="article-section">
+			<h2>本当に必要なのは「HubSpot Architecture」</h2>
+			<p>どのデータを持つか、どのプロパティを正とするか、どのワークフローを設計するか、Salesforceとどう連携するか、収益にどう接続するか——これを構造として設計することが必要です。重要なのは自動化の数ではなく、<strong>収益につながる構造</strong>です。HubSpot Architectureとは、ツールを個人依存から組織依存へ転換する設計です。</p>
+		</div>
+
+		<div class="article-section">
+			<h2>Revenue Architectureという考え方</h2>
+			<p>HubSpot問題の本質はマーケティング自動化の問題ではありません。営業・マーケティング・カスタマーサクセス・CRM・KPI・データを「収益につながる一つの構造」として設計するRevenue Architectureの問題です。Revenue Architecture・収益の流れ設計・RevOps・KPI設計・収益可視化という構造が整うことで、HubSpotは属人化しない運用が可能になります。</p>
+		</div>
+
+		<!-- DIAGRAM 3: Revenue Architecture統合図 -->
+		<figure class="diag-wrap" aria-label="Revenue ArchitectureによるHubSpot統合：6つの要素を接続し属人化しない収益運用構造を実現する">
+			<div class="diag diag--ra-hs">
+				<div class="ra-pills-row">
+					<span class="ra-pill">HubSpot</span>
+					<span class="ra-pill">Salesforce</span>
+					<span class="ra-pill">BI</span>
+					<span class="ra-pill">KPI</span>
+					<span class="ra-pill">RevOps</span>
+					<span class="ra-pill">収益の流れ</span>
+				</div>
+				<svg class="ra-svg" viewBox="0 0 620 60" preserveAspectRatio="none" aria-hidden="true">
+					<line x1="52"  y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+					<line x1="156" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+					<line x1="260" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+					<line x1="364" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+					<line x1="468" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+					<line x1="572" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
+				</svg>
+				<div class="ra-core">
+					<div class="ra-core-title">Revenue Architecture</div>
+					<div class="ra-core-tags">
+						<span>HubSpot設計思想</span>
+						<span>ライフサイクル統一</span>
+						<span>同期ルール設計</span>
+						<span>収益可視化</span>
+						<span>RevOps運用</span>
+					</div>
+				</div>
+				<div class="ra-connector-bar"></div>
+				<div class="ra-outcomes">
+					<div class="ra-outcome">
+						<div class="ra-outcome-title">属人化の防止</div>
+						<div class="ra-outcome-sub">誰でも運用できる<br />構造になる</div>
+					</div>
+					<div class="ra-outcome ra-outcome--mid">
+						<div class="ra-outcome-title">収益の可視化</div>
+						<div class="ra-outcome-sub">施策が収益に<br />つながって見える</div>
+					</div>
+					<div class="ra-outcome">
+						<div class="ra-outcome-title">運用の安定化</div>
+						<div class="ra-outcome-sub">引き継ぎができる<br />ドキュメント設計</div>
+					</div>
+				</div>
+			</div>
+			<figcaption class="diag-caption">Revenue ArchitectureによるHubSpot統合：HubSpot・Salesforce・BI・KPI・RevOps・収益の流れを接続し、属人化しない収益運用構造を実現する</figcaption>
+		</figure>
+
+		<div class="article-section">
+			<h2>運用が整理されているHubSpotの共通点</h2>
+			<p>収益運用が安定している会社には共通点があります。プロパティに設計思想があり増殖しない。ライフサイクルの定義がマーケティングと営業で統一されている。ワークフローの責任者が明確でブラックボックス化しない。Salesforce連携のルールが文書化されており収益の流れが崩れない。RevOpsが全体を管理しており個人依存になっていない。</p>
+		</div>
+
+		<div class="article-section">
+			<h2>日本企業で特に属人化しやすい理由</h2>
+			<p>日本企業では担当者依存・引き継ぎ不足・ドキュメント不足・Excel補完文化が根強く残っています。そのためHubSpot運用が「個人の努力」で成立しやすく、その人が動き続ける限り問題が顕在化しません。しかし退職や異動が起きた瞬間に構造崩壊します。必要なのは「誰でも回る収益構造」であり、日本企業に合ったRevenue Architectureの設計が求められます。</p>
+		</div>
+
+		<div class="article-section">
+			<h2>Consilegyの考え方</h2>
+			<p>ConsilegyではHubSpot改善を単なる設定支援とは考えていません。本質はRevenue Architecture・収益可視化・収益の流れ設計・RevOps・CRM設計にあります。HubSpot・Salesforce・Kintone・BI・Slackを横断しながら、「属人化しない収益運用構造」を設計します。目的はワークフローを増やすことではなく、収益が継続的に回る構造を作ることです。</p>
+			<div class="article-table-wrap">
+				<table>
+					<thead>
+						<tr>
+							<th>課題</th>
+							<th>Consilegyのアプローチ</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>特定担当者しか運用できない</td>
+							<td>HubSpot Architecture設計 + ドキュメント化</td>
+						</tr>
+						<tr>
+							<td>ワークフローがブラックボックス化</td>
+							<td>ワークフロー整理 + 責任者定義</td>
+						</tr>
+						<tr>
+							<td>Salesforce連携が不明</td>
+							<td>同期ルール設計 + 収益の流れ定義</td>
+						</tr>
+						<tr>
+							<td>マーケと営業で定義がずれる</td>
+							<td>ライフサイクル統一 + MQL・SQL条件合意</td>
+						</tr>
+						<tr>
+							<td>施策が収益につながっているか分からない</td>
+							<td>収益可視化 + KPI設計</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="article-section">
+			<h2>まとめ：HubSpotの属人化はRevenue構造の問題</h2>
+			<p>HubSpot運用が属人化する原因は担当者の能力不足ではありません。Revenue Architecture不足・収益の流れ未設計・KPI設計不足・RevOps未整備が本質的な原因です。だからこそ必要なのは自動化の追加ではなく、「収益につながる運用構造」を設計することです。HubSpotはRevenue Architecture全体として設計されるべきです。</p>
+		</div>
+
+		<!-- ===== CTA ===== -->
+		<div class="article-cta">
+			<p class="article-cta__catch">HubSpotを「個人依存」から「組織の収益資産」へ</p>
+			<p class="article-cta__body">ConsilegyはHubSpot Architecture設計から収益の流れの可視化まで、属人化しない収益運用構造を支援します。まずは現状のHubSpot運用の課題を整理するところから始めましょう。</p>
+			<a href="/contact/" class="article-cta__btn">無料相談を予約する</a>
+		</div>
+
+		<!-- ===== RELATED ===== -->
+		<nav class="article-related" aria-label="関連記事">
+			<h2 class="article-related__heading">関連記事</h2>
+			<ul>
+				<li><a href="/insights/why-marketing-automation-does-not-improve-pipeline/">なぜMAは商談パイプラインを改善しないのか</a></li>
+				<li><a href="/insights/why-sql-definitions-break-between-marketing-and-sales/">なぜマーケと営業でSQL定義がズレるのか</a></li>
+				<li><a href="/insights/why-crm-integration-projects-fail/">CRM統合プロジェクトが失敗する理由</a></li>
+			</ul>
+		</nav>
+
+	</div><!-- /.article-body -->
+	<NewsletterSidebar />
+</div><!-- /.article-wrap -->
+
+<style>
+/* ===== LAYOUT ===== */
+.article-wrap { background: #fff; padding-bottom: 80px; }
+.container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+
+/* ===== HEADER ===== */
+.article-head { padding-top: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--color-border, #e2e8f0); }
+.breadcrumb { font-size: 0.78rem; color: var(--color-muted, #64748b); margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.breadcrumb a { color: var(--color-muted, #64748b); text-decoration: none; }
+.breadcrumb a:hover { color: var(--color-primary, #1e40af); }
+.article-meta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; font-size: 0.8rem; color: var(--color-muted, #64748b); }
+.article-cat { background: #eff6ff; color: var(--color-primary, #1e40af); padding: 2px 10px; border-radius: 4px; font-weight: 600; font-size: 0.75rem; }
+.article-head h1 { font-size: clamp(1.5rem, 3.5vw, 2.1rem); font-weight: 800; color: var(--color-navy, #0f172a); line-height: 1.35; margin-bottom: 16px; }
+.article-desc { font-size: 1rem; color: var(--color-charcoal, #334155); line-height: 1.75; }
+.br-pc { display: inline; }
+
+/* ===== BODY ===== */
+.article-body { padding-top: 48px; }
+.article-section { margin-bottom: 56px; }
+.article-section h2 { font-size: 1.25rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 16px; padding-left: 14px; border-left: 4px solid var(--color-primary, #1e40af); line-height: 1.4; }
+.article-section p { font-size: 0.975rem; color: var(--color-charcoal, #334155); line-height: 1.85; margin-bottom: 16px; }
+.article-section p:last-child { margin-bottom: 0; }
+.article-callout { background: #f8fafc; border-left: 3px solid var(--color-primary, #1e40af); padding: 14px 18px; border-radius: 0 6px 6px 0; font-size: 0.95rem !important; color: var(--color-navy, #0f172a) !important; }
+
+/* ===== NUMBERED LIST ===== */
+.article-numbered { list-style: none; counter-reset: item; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 24px; }
+.article-numbered li { counter-increment: item; display: grid; grid-template-columns: 36px 1fr; gap: 0 16px; }
+.article-numbered li::before { content: counter(item); display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--color-primary, #1e40af); color: #fff; border-radius: 50%; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px; }
+.article-numbered li strong { grid-column: 2; display: block; font-size: 1rem; color: var(--color-navy, #0f172a); margin-bottom: 6px; line-height: 1.4; }
+.article-numbered li p { grid-column: 2; font-size: 0.925rem; color: var(--color-charcoal, #334155); line-height: 1.8; margin: 0; }
+
+/* ===== TABLE ===== */
+.article-table-wrap { overflow-x: auto; margin-top: 24px; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; }
+.article-table-wrap table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.article-table-wrap th { background: var(--color-navy, #0f172a); color: #fff; padding: 12px 16px; text-align: left; font-weight: 600; font-size: 0.85rem; }
+.article-table-wrap td { padding: 12px 16px; border-bottom: 1px solid var(--color-border, #e2e8f0); color: var(--color-charcoal, #334155); vertical-align: top; line-height: 1.6; }
+.article-table-wrap tr:last-child td { border-bottom: none; }
+.article-table-wrap tr:nth-child(even) td { background: #f8fafc; }
+
+/* ===== DIAGRAMS ===== */
+.diag-wrap { margin: 0 0 56px; padding: 0; border: none; }
+.diag { background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 28px 24px; }
+.diag-caption { font-size: 0.78rem; color: var(--color-muted, #64748b); text-align: center; margin-top: 10px; line-height: 1.5; }
+
+/* --- DIAGRAM 1: HubSpot Chaos --- */
+.diag--hs-chaos { display: flex; flex-direction: column; gap: 14px; }
+.hsc-header { text-align: center; font-size: 0.82rem; font-weight: 700; color: var(--color-muted, #64748b); letter-spacing: 0.04em; }
+.hsc-center { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+.hsc-hub { display: flex; flex-direction: column; align-items: center; gap: 6px; flex-shrink: 0; }
+.hsc-hub-icon { width: 52px; height: 52px; background: #ff7a59; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 700; color: #fff; }
+.hsc-hub-label { font-size: 0.78rem; font-weight: 700; color: var(--color-navy, #0f172a); }
+.hsc-flows { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.hsc-flow { font-size: 0.7rem; background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 4px; padding: 5px 10px; color: var(--color-charcoal, #334155); }
+.hsc-flow--1 { border-left: 3px solid #fbbf24; }
+.hsc-flow--2 { border-left: 3px solid #f59e0b; }
+.hsc-flow--3 { border-left: 3px solid #d97706; }
+.hsc-flow--4 { border-left: 3px solid #92400e; }
+.hsc-flow--5 { border-left: 3px solid #94a3b8; }
+.hsc-flow--6 { border-left: 3px solid #dc2626; color: #dc2626; font-weight: 600; }
+.hsc-bubbles { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+.hsc-bubble { background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 5px 12px; font-size: 0.75rem; color: var(--color-charcoal, #334155); }
+.hsc-bubble--warn { background: #fee2e2; border-color: #fca5a5; color: #991b1b; font-weight: 600; }
+.hsc-footer { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.hsc-tag { font-size: 0.75rem; font-weight: 600; }
+.bad  { color: #dc2626; }
+.good { color: #16a34a; }
+
+/* --- DIAGRAM 2: HubSpot Architecture --- */
+.diag--hs-arch { display: flex; flex-direction: column; gap: 12px; }
+.hsa-header { text-align: center; font-size: 0.9rem; font-weight: 700; color: var(--color-navy, #0f172a); letter-spacing: 0.03em; }
+.hsa-layers { display: flex; flex-direction: column; gap: 8px; }
+.hsa-layer { border-radius: 8px; padding: 12px 14px; }
+.hsa-layer-label { font-size: 0.75rem; font-weight: 600; margin-bottom: 8px; }
+.layer-top { background: var(--color-navy, #0f172a); }
+.layer-top .hsa-layer-label { color: rgba(255,255,255,0.7); }
+.layer-mid { background: #fff; border: 2px solid var(--color-primary, #1e40af); }
+.layer-mid .hsa-layer-label { color: var(--color-primary, #1e40af); }
+.layer-bot { background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); }
+.layer-bot .hsa-layer-label { color: var(--color-charcoal, #334155); }
+.hsa-layer-items { display: flex; gap: 8px; flex-wrap: wrap; }
+.hsa-item { font-size: 0.7rem; border-radius: 4px; padding: 3px 8px; }
+.layer-top .hsa-item { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: #e2e8f0; }
+.layer-bot .hsa-item { background: #fff; border: 1px solid var(--color-border, #e2e8f0); color: var(--color-charcoal, #334155); }
+.item-kpi { background: rgba(255,255,255,0.2) !important; }
+.item-sf  { background: rgba(0,161,224,0.3) !important; }
+.item-bi  { background: rgba(242,200,17,0.25) !important; color: #92400e !important; }
+.hsa-lifecycle { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; justify-content: center; }
+.lc-stage { font-size: 0.7rem; font-weight: 700; color: #fff; border-radius: 5px; padding: 6px 8px; text-align: center; line-height: 1.3; }
+.lc-stage small { font-size: 0.6rem; font-weight: 400; display: block; opacity: 0.85; }
+.lc-visitor  { background: #93c5fd; color: #1e3a8a; }
+.lc-mql      { background: #60a5fa; }
+.lc-sql      { background: #2563eb; }
+.lc-opp      { background: #1d4ed8; }
+.lc-cust     { background: #0f172a; }
+.lc-arrow { color: var(--color-muted, #64748b); font-size: 0.85rem; flex-shrink: 0; }
+.hsa-arrow { text-align: center; font-size: 0.75rem; color: var(--color-muted, #64748b); font-weight: 500; }
+.hsa-footer { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.hsa-tag { font-size: 0.75rem; font-weight: 600; }
+
+/* --- DIAGRAM 3: RA Hub --- */
+.diag--ra-hs { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
+.ra-pills-row { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; padding-bottom: 4px; }
+.ra-pill { background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 4px; padding: 5px 14px; font-size: 0.75rem; font-weight: 600; color: var(--color-charcoal, #334155); white-space: nowrap; }
+.ra-svg { width: 100%; height: 60px; display: block; }
+.ra-core { background: var(--color-navy, #0f172a); color: #fff; border-radius: 8px; padding: 18px 20px; text-align: center; }
+.ra-core-title { font-size: 1rem; font-weight: 700; margin-bottom: 10px; letter-spacing: 0.02em; }
+.ra-core-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.ra-core-tags span { font-size: 0.7rem; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; padding: 3px 9px; color: #e2e8f0; }
+.ra-connector-bar { height: 24px; background: linear-gradient(180deg, var(--color-navy, #0f172a) 0%, #334155 100%); width: 2px; margin: 0 auto; }
+.ra-outcomes { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+.ra-outcome { background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 14px 12px; text-align: center; }
+.ra-outcome--mid { border-color: var(--color-primary, #1e40af); box-shadow: 0 0 0 1px var(--color-primary, #1e40af); }
+.ra-outcome-title { font-size: 0.82rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 6px; }
+.ra-outcome-sub { font-size: 0.72rem; color: var(--color-muted, #64748b); line-height: 1.5; }
+
+/* ===== CTA ===== */
+.article-cta { background: radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%), linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%); border-radius: 8px; padding: 40px 36px; text-align: center; margin-bottom: 48px; }
+.article-cta__catch { font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
+.article-cta__body { font-size: 0.92rem; color: rgba(255,255,255,0.88); line-height: 1.75; margin-bottom: 24px; }
+.article-cta__btn { display: inline-block; background: #fff; color: var(--color-primary, #1e40af); font-weight: 700; font-size: 0.9rem; padding: 12px 28px; border-radius: 6px; text-decoration: none; transition: opacity 0.2s; }
+.article-cta__btn:hover { opacity: 0.9; }
+
+/* ===== RELATED ===== */
+.article-related { border-top: 1px solid var(--color-border, #e2e8f0); padding-top: 32px; }
+.article-related__heading { font-size: 0.9rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 16px; }
+.article-related ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.article-related li a { font-size: 0.9rem; color: var(--color-primary, #1e40af); text-decoration: none; }
+.article-related li a:hover { text-decoration: underline; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 700px) {
+	.article-head h1 { font-size: 1.4rem; }
+	.br-pc { display: none; }
+	.hsc-flows { grid-template-columns: 1fr; }
+	.hsa-lifecycle { gap: 3px; }
+	.lc-stage { font-size: 0.65rem; padding: 5px 6px; }
+	.ra-outcomes { grid-template-columns: 1fr; gap: 8px; }
+	.article-cta { padding: 28px 20px; }
+}
+@media (max-width: 480px) {
+	.container { padding: 0 16px; }
+	.ra-outcomes { grid-template-columns: 1fr 1fr; }
+	.hsa-lifecycle { justify-content: flex-start; }
+}
+</style>
+
+</BaseLayout>

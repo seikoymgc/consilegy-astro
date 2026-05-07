@@ -1,0 +1,1118 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const faqItems = [
+	{
+		q: 'HubSpot導入だけ依頼できますか？',
+		a: 'はい、新規導入も対応しています。ただし、Consilegyではツールの設定代行を主目的とせず、営業プロセス、KPI定義、マーケティング連携、RunOps設計を前提にHubSpotを設計します。「HubSpotをどう設定するか」よりも「HubSpotを使って売上管理にどう機能させるか」を起点に支援します。',
+	},
+	{
+		q: 'Salesforce連携にも対応できますか？',
+		a: 'はい。HubSpot ↔ Salesforceの双方向連携設計に対応しています。どちらを主系とするか、どのデータを同期するか、重複データをどう処理するか、KPIをどちらで計測するかを含めた連携設計と実装支援を行います。',
+	},
+	{
+		q: 'Marketing Hubにも対応していますか？',
+		a: 'はい。Marketing Hub（リード管理・ナーチャリング・スコアリング・メール・フォーム・ランディングページ・レポート）、Sales Hub（パイプライン・シーケンス・商談管理）、Operations Hub（データ同期・ワークフロー・データクレンジング）のいずれにも対応しています。',
+	},
+	{
+		q: 'RevOpsとは何ですか？',
+		a: 'RevOps（Revenue Operations）は、営業・マーケティング・カスタマーサクセスなど、収益に関わる部門を横断して、プロセス・データ・ツール・KPIを統合的に運用・改善する機能です。HubSpotはRevOpsを実現するためのプラットフォームの一つですが、RevOpsはツール導入だけでは実現しません。業務プロセス設計・KPI定義・会議体設計が伴って初めて機能します。',
+	},
+	{
+		q: 'Revenue Architectureとの違いは何ですか？',
+		a: 'Revenue Architectureは、営業・マーケ・CS・CRM・KPI・会議体を含む収益構造全体の設計を指します。HubSpot導入・運用支援は、Revenue Architectureの設計をHubSpotというプラットフォーム上に実装し、現場で運用できる状態に落とし込む支援です。設計から実装・定着まで一気通貫で支援する場合、Revenue Architecture Designと組み合わせてご提案します。',
+	},
+	{
+		q: '定着支援まで依頼できますか？',
+		a: 'はい。HubSpotの設計・実装完了後、現場定着と継続改善を支援する伴走支援も提供しています。月次KPIレビュー、ダッシュボード改善、ワークフロー改善、営業・マーケチームへの定例支援まで対応します。設計で終わらず、現場の使用定着と成果創出まで責任を持って支援します。',
+	},
+	{
+		q: 'ワークフロー整理も含まれますか？',
+		a: 'はい。複雑化・スパゲッティ化したワークフローの整理・再設計は支援範囲に含まれます。どのワークフローが有効・無効か、何を目的としているか、想定通りに動いているかを分析し、シンプルで運用可能な状態に再設計します。',
+	},
+	{
+		q: '既存のHubSpot環境を活かせますか？',
+		a: 'はい。原則として既存のHubSpot環境を前提に設計します。プロパティ・ワークフロー・連絡先データ・レポートを分析し、何を活かし、何を整理・削除するかを設計した上で、段階的に改善します。既存環境をすべて白紙にする必要はありません。',
+	},
+	{
+		q: 'HubSpot専門代理店との違いは何ですか？',
+		a: 'HubSpot専門代理店は、HubSpotの設定・実装を主なサービスとしています。ConsilegyはHubSpotをツールの一つとして捉え、営業・マーケ・CS・KPI・Revenue Operations全体を前提に設計します。「HubSpotをどう設定するか」ではなく「売上につながる運用構造を、HubSpotを使ってどう実現するか」が出発点です。',
+	},
+];
+
+const faqSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faqItems.map(({ q, a }) => ({
+		'@type': 'Question',
+		name: q,
+		acceptedAnswer: { '@type': 'Answer', text: a },
+	})),
+};
+
+const deliverables = [
+	{ num: '01', title: 'HubSpot設計方針書', desc: 'CRM / MA / RevOpsを前提にしたHubSpot設計の基本方針' },
+	{ num: '02', title: 'KPI定義書', desc: '営業・マーケ・CS各層の共通KPI体系と測定定義' },
+	{ num: '03', title: 'プロパティ設計書', desc: 'データ項目・プロパティ・グループ構造の整理と設計' },
+	{ num: '04', title: 'ワークフロー設計図', desc: '整理されたワークフロー構造とトリガー・アクション定義' },
+	{ num: '05', title: 'MQL / SQL定義書', desc: '部門共通のリード評価基準と営業への引き継ぎ条件' },
+	{ num: '06', title: 'ダッシュボード要件定義書', desc: '経営・営業・マーケ用の可視化要件と優先順位' },
+	{ num: '07', title: '営業マーケ連携定義書', desc: 'ハンドオフルール・責任分担・共通指標の設計' },
+	{ num: '08', title: 'RevOps運用ルール', desc: '入力ルール・更新タイミング・データガバナンス設計' },
+	{ num: '09', title: '定着化運用計画書', desc: '現場定着のための段階的トレーニングと改善計画' },
+	{ num: '10', title: 'データクレンジング設計書', desc: '重複排除・名寄せ・データ品質改善の方針と手順' },
+	{ num: '11', title: 'データ移行・マッピング設計書', desc: '既存システムからのデータ移行設計とフィールドマッピング' },
+];
+
+const scopeItems = [
+	{ label: 'HubSpot CRM設計', desc: 'コンタクト・会社・取引オブジェクトの設計と最適化' },
+	{ label: 'Marketing Hub設計', desc: 'リード管理・スコアリング・ナーチャリング・フォーム設計' },
+	{ label: 'Sales Hub設計', desc: 'パイプライン・シーケンス・商談管理の設計と定着' },
+	{ label: 'KPI / ダッシュボード設計', desc: '経営・営業・マーケが判断できる可視化基盤の構築' },
+	{ label: '営業マーケ連携設計', desc: 'MQL/SQL定義・ハンドオフ・共通KPIの整備' },
+	{ label: 'ワークフロー設計', desc: '複雑化したワークフローの整理・再設計・最適化' },
+	{ label: 'Salesforce連携', desc: 'HubSpot ↔ Salesforce双方向連携設計と実装' },
+	{ label: 'RevOps運用設計', desc: '入力ルール・データガバナンス・会議体設計' },
+	{ label: '定着支援', desc: 'HubSpot定着化に向けた現場支援・トレーニング' },
+	{ label: 'データクレンジング・名寄せ', desc: '重複データ排除・データ品質改善・統一化' },
+	{ label: 'データ移行設計', desc: '既存システムからの安全なデータ移行設計と実行支援' },
+];
+---
+
+<BaseLayout
+	title="HubSpot導入・運用支援 | Consilegy"
+	description="HubSpot CRM / Marketing Hub / Sales Hubの導入・再設計・RevOps整備を支援。営業・マーケ・CS連携、KPI設計、Salesforce連携まで含む上流支援。HubSpot代理店ではなく、Revenue Architecture起点で設計します。"
+	lang="ja"
+>
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+	</Fragment>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+	<div class="container">
+		<div class="hero-nav">
+			<a href="/services/" class="back-link">← サービス一覧</a>
+			<span class="hero-tag">HubSpot Implementation &amp; Operations</span>
+		</div>
+		<div class="hero-service-name">
+			<span class="hero-service-ja">HubSpot導入・運用支援</span>
+			<span class="hero-service-en">HubSpot Implementation &amp; Operations</span>
+		</div>
+		<h1>HubSpotを入れたのに、<br /><span class="accent">営業・マーケ・売上管理がつながらない</span>。</h1>
+		<p class="hero-sub">
+			HubSpotを導入しても、営業が入力しない。<br />
+			リードが商談につながらない。ダッシュボードが信用されない。
+		</p>
+		<p class="hero-lead">
+			その原因は、HubSpotの機能不足ではなく、<br />
+			営業・マーケ・CS・KPI・運用ルールが分断されたままになっていることにあります。<br />
+			Consilegyは、HubSpot単体ではなく、Revenue Operations全体を再設計し、<br />
+			売上につながる運用基盤へ整理します。
+		</p>
+		<div class="hero-cta">
+			<a href="/free-consultation/" class="btn btn--primary btn--lg">HubSpot / RevOps相談を申し込む →</a>
+			<a href="/download/" class="btn btn--outline btn--lg">サービス資料をダウンロード</a>
+		</div>
+		<div class="hero-tools">
+			<span class="tools-label">対応ツール</span>
+			<div class="tools-pills">
+				<span class="tool-pill tool-pill--primary">HubSpot</span>
+				<span class="tool-pill">Salesforce</span>
+				<span class="tool-pill">Kintone</span>
+				<span class="tool-pill">Marketo</span>
+				<span class="tool-pill">Account Engagement</span>
+				<span class="tool-pill">Slack</span>
+				<span class="tool-pill">Notion</span>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== よくある状態 ===================== -->
+<section class="symptoms">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Symptoms</p>
+			<h2>こんな状態なら、HubSpot再設計が必要です。</h2>
+		</div>
+		<div class="symptoms-grid">
+			<div class="symptom-card">HubSpotが<strong>営業日報化している</strong></div>
+			<div class="symptom-card">リードは増えているが<strong>商談化しない</strong></div>
+			<div class="symptom-card">営業が<strong>HubSpotを入力しない</strong></div>
+			<div class="symptom-card"><strong>MQL / SQL定義</strong>が曖昧</div>
+			<div class="symptom-card"><strong>ワークフローが複雑化</strong>している</div>
+			<div class="symptom-card">レポートが<strong>経営判断に使えない</strong></div>
+			<div class="symptom-card"><strong>プロパティが乱立</strong>している</div>
+			<div class="symptom-card"><strong>Salesforceとの連携が崩れている</strong></div>
+			<div class="symptom-card"><strong>顧客データが重複</strong>している</div>
+			<div class="symptom-card">HubSpotを導入したが<strong>定着していない</strong></div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 問題の本質 ===================== -->
+<section class="root-cause">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Root Cause</p>
+			<h2>問題はHubSpotではなく、運用構造です。</h2>
+		</div>
+		<div class="cause-grid">
+			<div class="cause-card">
+				<div class="cause-card__num">01</div>
+				<h3>ツールだけ導入している</h3>
+				<p>営業プロセスやKPI設計なしにHubSpotだけ導入している。ツールが揃っても、運用構造がなければ機能しない。</p>
+			</div>
+			<div class="cause-card">
+				<div class="cause-card__num">02</div>
+				<h3>営業とマーケが分断している</h3>
+				<p>リード定義、引き継ぎ条件、KPIが統一されていない。同じHubSpotを見ているのに、解釈が部門ごとに異なる。</p>
+			</div>
+			<div class="cause-card">
+				<div class="cause-card__num">03</div>
+				<h3>Revenue Architectureが存在しない</h3>
+				<p>CRM / MA / KPI / 会議体 / データ構造が接続されていない。設定はされているが、売上構造として機能していない。</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 定義 ===================== -->
+<section class="definition" id="hubspot-implementation-operations">
+	<div class="container">
+		<div class="definition-inner">
+			<p class="eyebrow-label">Definition</p>
+			<h2>HubSpot導入・運用支援とは</h2>
+			<p class="definition-body">
+				HubSpot導入・運用支援は、HubSpot CRM、Marketing Hub、Sales Hubを中心に、
+				営業・マーケ・CS・RevOps運用を再設計し、売上につながる運用基盤へ整備する支援です。
+				HubSpotの設定代行ではなく、Revenue Operations全体を前提に設計・実装・定着まで支援します。
+			</p>
+			<div class="definition-oneliner">
+				HubSpotを「入力ツール」ではなく、<br />
+				売上改善の運用基盤へ再設計するサービスです。
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 解決する課題 ===================== -->
+<section class="problems">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Problems We Solve</p>
+			<h2>解決する課題</h2>
+		</div>
+		<div class="problems-grid">
+			<div class="problem-card">
+				<div class="problem-card__en">Adoption Failure</div>
+				<h3>HubSpot定着不足</h3>
+				<p>営業が入力せず、運用ルールが形骸化している。</p>
+			</div>
+			<div class="problem-card">
+				<div class="problem-card__en">KPI Misalignment</div>
+				<h3>KPI不一致</h3>
+				<p>営業・マーケで数字の定義と計算が一致していない。</p>
+			</div>
+			<div class="problem-card">
+				<div class="problem-card__en">Conversion Gap</div>
+				<h3>商談化不足</h3>
+				<p>リード獲得はできているが、受注につながらない。</p>
+			</div>
+			<div class="problem-card">
+				<div class="problem-card__en">Report Distrust</div>
+				<h3>レポート不信</h3>
+				<p>ダッシュボードの数字が経営判断に使われていない。</p>
+			</div>
+			<div class="problem-card">
+				<div class="problem-card__en">Workflow Collapse</div>
+				<h3>ワークフロー崩壊</h3>
+				<p>複雑化・スパゲッティ化し、誰も把握できていない。</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 支援範囲 ===================== -->
+<section class="scope">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Scope</p>
+			<h2>支援領域</h2>
+		</div>
+		<div class="scope-grid">
+			{scopeItems.map(item => (
+				<div class="scope-card">
+					<div class="scope-card__label">{item.label}</div>
+					<p>{item.desc}</p>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 支援プロセス ===================== -->
+<section class="process">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Process</p>
+			<h2>支援プロセス</h2>
+			<p class="section-note">単なるHubSpot設定代行ではなく、Revenue Operations全体を前提に再設計する支援です。</p>
+		</div>
+		<div class="process-flow">
+			<div class="pstep">
+				<div class="pstep__num">①</div>
+				<div class="pstep__body">
+					<strong>現状診断</strong>
+					<p>HubSpot環境・営業プロセス・KPI・データ構造を把握。</p>
+				</div>
+			</div>
+			<div class="pstep-arrow">→</div>
+			<div class="pstep">
+				<div class="pstep__num">②</div>
+				<div class="pstep__body">
+					<strong>HubSpot環境分析</strong>
+					<p>プロパティ・ワークフロー・データ品質・連携状況を分析。</p>
+				</div>
+			</div>
+			<div class="pstep-arrow">→</div>
+			<div class="pstep">
+				<div class="pstep__num">③</div>
+				<div class="pstep__body">
+					<strong>データクレンジング・名寄せ</strong>
+					<p>重複データ・データ品質の整理と改善方針を設計。</p>
+				</div>
+			</div>
+			<div class="pstep-arrow">→</div>
+			<div class="pstep">
+				<div class="pstep__num">④</div>
+				<div class="pstep__body">
+					<strong>KPI / 運用分析</strong>
+					<p>どのKPIを・誰が・どの会議で使うかを整理。</p>
+				</div>
+			</div>
+			<div class="pstep-arrow">→</div>
+			<div class="pstep">
+				<div class="pstep__num">⑤</div>
+				<div class="pstep__body">
+					<strong>Revenue Architecture設計</strong>
+					<p>収益構造全体のKPI・データ・業務フロー設計。</p>
+				</div>
+			</div>
+			<div class="pstep-arrow">→</div>
+			<div class="pstep">
+				<div class="pstep__num">⑥</div>
+				<div class="pstep__body">
+					<strong>HubSpot再設計</strong>
+					<p>CRM・Hub設定・プロパティ・オブジェクトを再構成。</p>
+				</div>
+			</div>
+			<div class="pstep-arrow">→</div>
+			<div class="pstep">
+				<div class="pstep__num">⑦</div>
+				<div class="pstep__body">
+					<strong>ワークフロー整理</strong>
+					<p>複雑化したワークフローをシンプルに再設計。</p>
+				</div>
+			</div>
+			<div class="pstep-arrow">→</div>
+			<div class="pstep">
+				<div class="pstep__num">⑧</div>
+				<div class="pstep__body">
+					<strong>レポート整備</strong>
+					<p>経営・営業・マーケが判断できるダッシュボードを構築。</p>
+				</div>
+			</div>
+			<div class="pstep-arrow">→</div>
+			<div class="pstep">
+				<div class="pstep__num">⑨</div>
+				<div class="pstep__body">
+					<strong>定着支援</strong>
+					<p>現場トレーニング・運用ルール浸透・改善サイクル確立。</p>
+				</div>
+			</div>
+			<div class="pstep-arrow">→</div>
+			<div class="pstep pstep--last">
+				<div class="pstep__num">⑩</div>
+				<div class="pstep__body">
+					<strong>改善運用開始</strong>
+					<p>月次KPIレビューと継続改善でRevOps運用を定着。</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== Before / After ===================== -->
+<section class="ba-section">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Before / After</p>
+			<h2>HubSpotを、<br />売上につながる運用基盤へ変える</h2>
+		</div>
+		<div class="ba-diagram">
+			<div class="ba-panel ba-panel--before">
+				<div class="ba-panel__label">Before — スパゲッティ化したHubSpot環境</div>
+				<div class="chaos-grid">
+					<div class="chaos-item chaos-item--prop">プロパティ乱立<span>200+項目</span></div>
+					<div class="chaos-item chaos-item--wf">謎ワークフロー<span>誰も把握できない</span></div>
+					<div class="chaos-item chaos-item--data">重複データ<span>整合性なし</span></div>
+					<div class="chaos-item chaos-item--auto">不明な自動化<span>動いている理由不明</span></div>
+					<div class="chaos-item chaos-item--dept">部門ごとの別管理<span>KPI不一致</span></div>
+					<div class="chaos-item chaos-item--report">信用できないレポート<span>Excel集計が残存</span></div>
+				</div>
+				<div class="ba-status ba-status--bad">HubSpotが機能していない状態</div>
+			</div>
+			<div class="ba-arrow">
+				<div class="ba-arrow__line"></div>
+				<div class="ba-arrow__label">RevOps<br />再設計</div>
+			</div>
+			<div class="ba-panel ba-panel--after">
+				<div class="ba-panel__label">After — Revenue Architecture基盤としてのHubSpot</div>
+				<div class="ra-structure">
+					<div class="ra-top">Revenue Architecture</div>
+					<div class="ra-row">
+						<div class="ra-node ra-node--hub">Marketing Hub</div>
+						<div class="ra-node ra-node--hub">Sales Hub</div>
+						<div class="ra-node ra-node--hub">CRM</div>
+					</div>
+					<div class="ra-row">
+						<div class="ra-node ra-node--output">統一KPI</div>
+						<div class="ra-node ra-node--output">整理されたデータ</div>
+						<div class="ra-node ra-node--output">シンプルなWF</div>
+					</div>
+				</div>
+				<div class="ba-status ba-status--good">売上が見え、改善できる状態</div>
+			</div>
+		</div>
+		<div class="ba-notes">
+			<span class="ba-note">✓ Revenue Architectureの一部としてHubSpotを設計</span>
+			<span class="ba-note">✓ 既存環境を活かして段階的に整理</span>
+			<span class="ba-note">✓ HubSpot代理店ではなくRevOpsパートナー</span>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 成果物 ===================== -->
+<section class="deliverables">
+	<div class="container">
+		<div class="deliverables-inner">
+			<div class="section-header">
+				<p class="eyebrow-label">Deliverables</p>
+				<h2>主な成果物</h2>
+				<p class="section-note">プロジェクト終了時に、以下のドキュメントをご提供します。</p>
+			</div>
+			<div class="deliverables-layout">
+				<ul class="deliverables-list">
+					{deliverables.map(d => (
+						<li>
+							<span class="deliv-num">{d.num}</span>
+							<div>
+								<strong>{d.title}</strong>
+								<p>{d.desc}</p>
+							</div>
+						</li>
+					))}
+				</ul>
+				<div class="deliverables-mockup" aria-hidden="true">
+					<div class="doc-mock">
+						<div class="doc-mock__header">
+							<div class="doc-mock__logo-bar"></div>
+							<div class="doc-mock__label">HubSpot設計方針書</div>
+							<div class="doc-mock__subtitle">HubSpot Implementation &amp; Operations</div>
+						</div>
+						<div class="doc-mock__body">
+							<div class="doc-mock__section-title"></div>
+							<div class="doc-mock__table">
+								<div class="doc-mock__row doc-mock__row--head">
+									<div class="doc-mock__cell doc-mock__cell--head"></div>
+									<div class="doc-mock__cell doc-mock__cell--head"></div>
+								</div>
+								{[1,2,3,4,5,6].map(() => (
+									<div class="doc-mock__row">
+										<div class="doc-mock__cell"></div>
+										<div class="doc-mock__cell"></div>
+									</div>
+								))}
+							</div>
+						</div>
+					</div>
+					<div class="doc-mock">
+						<div class="doc-mock__header">
+							<div class="doc-mock__label">ワークフロー設計図</div>
+						</div>
+						<div class="doc-mock__body">
+							<div class="wf-mock">
+								<div class="wf-trigger">トリガー</div>
+								<div class="wf-arrow-v"></div>
+								<div class="wf-row">
+									<div class="wf-action">条件分岐</div>
+								</div>
+								<div class="wf-branches">
+									<div class="wf-branch">
+										<div class="wf-arrow-v wf-arrow-v--sm"></div>
+										<div class="wf-action wf-action--sm">アクションA</div>
+									</div>
+									<div class="wf-branch">
+										<div class="wf-arrow-v wf-arrow-v--sm"></div>
+										<div class="wf-action wf-action--sm wf-action--accent">アクションB</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== なぜConsilegyなのか ===================== -->
+<section class="why-us">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Why Consilegy</p>
+			<h2>なぜConsilegyなのか</h2>
+		</div>
+		<div class="why-us-grid">
+			<div class="why-card">
+				<h3>マルチCRM・システム連携の知見</h3>
+				<p>HubSpot単体ではなく、Salesforce、Kintone、Marketoなどを含め、複数システムを横断したRevOps設計に対応しています。HubSpot ↔ Salesforce連携設計も支援範囲です。</p>
+				<div class="why-card__notes">
+					<span>HubSpot ↔ Salesforce連携対応</span>
+					<span>マルチCRM並存環境を前提に設計</span>
+				</div>
+			</div>
+			<div class="why-card">
+				<h3>RevOps起点で設計する</h3>
+				<p>ツール設定が目的ではなく、売上運用構造から逆算してHubSpotを設計します。「どう設定するか」より「売上管理にどう機能させるか」が出発点です。</p>
+				<div class="why-card__notes">
+					<span>設定代行ではなく設計支援</span>
+					<span>定着まで責任を持つ</span>
+				</div>
+			</div>
+			<div class="why-card">
+				<h3>Revenue Architecture起点</h3>
+				<p>営業・マーケ・CS・KPI・データ構造を接続した収益構造全体を前提にHubSpotを設計します。HubSpotはRevenue Architectureを実現する手段の一つです。</p>
+				<div class="why-card__notes">
+					<span>上流設計から実装まで一貫</span>
+					<span>経営と現場を接続する設計</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 支援事例 ===================== -->
+<section class="cases">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Case Studies</p>
+			<h2>HubSpot / RevOps改善の支援事例</h2>
+			<p class="section-note">※ 代表 山口聖子の個人実績を含む</p>
+		</div>
+		<div class="cases-grid">
+			<article class="case-card">
+				<div class="case-card__meta">
+					<span class="case-tag">IT（バックオフィスSaaS）</span>
+					<span class="case-size">約200名</span>
+				</div>
+				<h3 class="case-card__title">リード増加と売上の乖離を解消。HubSpotで構築する営業引き渡しと商談創出の標準化</h3>
+				<p class="case-card__body">マーケティングから営業への引き渡し基準を標準化し、行動スコアリングとシナリオベースのナーチャリングを設計。MQLからSQLへの転換率が最大20%向上し、パイプラインの予測可能性を実現。</p>
+				<div class="case-card__footer">
+					<div class="case-tools">
+						<span>HubSpot Marketing Hub</span>
+						<span>HubSpot Sales Hub</span>
+					</div>
+					<a href="/case-studies/hubspot-sales-handoff-lead-to-revenue/" class="case-link">事例を読む →</a>
+				</div>
+			</article>
+			<article class="case-card">
+				<div class="case-card__meta">
+					<span class="case-tag">医療（医療テック）</span>
+					<span class="case-size">約150名</span>
+				</div>
+				<h3 class="case-card__title">4種類の分散データをHubSpotへ統合。マーケティングチームを単純作業から戦略実行へ解放</h3>
+				<p class="case-card__body">国内DB・Kintone・Excelなど10箇所以上に分散した顧客データをHubSpotへ統合。データ管理業務を自動化し、マーケティングチームの役割をオペレーションから戦略へ転換。6ヶ月で運用基盤を構築。</p>
+				<div class="case-card__footer">
+					<div class="case-tools">
+						<span>HubSpot Marketing Hub</span>
+						<span>HubSpot Sales Hub</span>
+						<span>HubSpot Operations Hub</span>
+					</div>
+					<a href="/case-studies/healthcare-data-integration-ops-enablement/" class="case-link">事例を読む →</a>
+				</div>
+			</article>
+			<article class="case-card">
+				<div class="case-card__meta">
+					<span class="case-tag">小売（国内大手・新規事業）</span>
+					<span class="case-size">1,500名</span>
+				</div>
+				<h3 class="case-card__title">新規サブスクEC事業の収益判断を支える運用基盤を構築。LTV起点の意思決定を実現</h3>
+				<p class="case-card__body">スクラッチECと分析ツールを横断するデータ連携アーキテクチャを設計。サブスク特有のLTV指標を定義し、施策と継続収益を結びつける意思決定基盤を9ヶ月で構築。</p>
+				<div class="case-card__footer">
+					<div class="case-tools">
+						<span>GA4</span>
+						<span>Amplitude</span>
+						<span>Looker Studio</span>
+					</div>
+					<a href="/case-studies/ec-subscription-ltv-data-architecture/" class="case-link">事例を読む →</a>
+				</div>
+			</article>
+		</div>
+		<div class="cases-cta">
+			<a href="/case-studies/" class="btn btn--outline">すべての導入事例を見る</a>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 適している企業 ===================== -->
+<section class="fit">
+	<div class="container">
+		<div class="fit-inner">
+			<div class="section-header">
+				<p class="eyebrow-label">Best Fit</p>
+				<h2>このような企業に適しています</h2>
+			</div>
+			<ul class="fit-list">
+				<li>HubSpotを導入済みだが、現場に定着していない</li>
+				<li>営業がHubSpotを使わず、Excel管理が残っている</li>
+				<li>リード獲得はできているが、商談化・受注につながらない</li>
+				<li>MQL / SQL定義が曖昧で、引き渡しが属人的</li>
+				<li>KPIが営業・マーケで統一されていない</li>
+				<li>ワークフローが複雑化し、誰も全体を把握できていない</li>
+				<li>Salesforce連携に課題があり、データが分断している</li>
+				<li>Revenue Operationsを整備し、HubSpotを売上管理基盤として使いたい</li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== アセスメントから始める ===================== -->
+<section class="approach">
+	<div class="container">
+		<div class="approach-inner">
+			<div class="approach-copy">
+				<p class="eyebrow-label">Getting Started</p>
+				<h2>HubSpot / RevOpsアセスメントから<br />始めることも可能です</h2>
+				<p>
+					まずはHubSpot環境・営業プロセス・マーケティング運用・KPI・ダッシュボード・ワークフローを整理する
+					「HubSpot / RevOpsアセスメント（現状監査）」からスタートします。
+				</p>
+				<p>
+					どこでRevenue Operationsが崩れているのかを可視化し、
+					優先順位の高い課題から着手する進め方をご提案します。
+				</p>
+				<a href="/free-consultation/" class="btn btn--primary">HubSpot / RevOps相談を申し込む →</a>
+			</div>
+			<div class="approach-checklist">
+				<p class="checklist-label">アセスメントで確認する項目</p>
+				<ul>
+					<li>HubSpot監査（設計・データ品質・定着状況）</li>
+					<li>KPI監査（定義の整合性・計算方法）</li>
+					<li>ワークフロー分析（動作・意図・整理対象）</li>
+					<li>CRM分析（プロパティ・データ構造）</li>
+					<li>データ構造分析（重複・整合・連携）</li>
+					<li>RevOps運用分析（会議体・入力ルール）</li>
+					<li>営業マーケ連携分析</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 料金目安 ===================== -->
+<section class="pricing">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Pricing</p>
+			<h2>料金目安</h2>
+		</div>
+		<p class="pricing-pretext">
+			HubSpotが機能していない状態では、リード獲得コスト、営業工数、レポート作成工数、マーケティングROIが
+			見えないまま積み上がります。<br />
+			Consilegyは、HubSpotを単なるCRMではなく、Revenue Operations基盤として再設計します。
+		</p>
+		<div class="pricing-phases">
+			<div class="pricing-phase">
+				<div class="pricing-phase__header">
+					<div class="pricing-phase__label">Phase 1</div>
+					<div class="pricing-phase__name">HubSpot / RevOps現状監査</div>
+					<div class="pricing-phase__amount">100万円〜</div>
+				</div>
+				<ul class="pricing-phase__items">
+					<li>HubSpot環境監査</li>
+					<li>KPI・ダッシュボード監査</li>
+					<li>ワークフロー・データ分析</li>
+					<li>RevOps現状分析・改善提案書</li>
+				</ul>
+			</div>
+			<div class="pricing-phase pricing-phase--featured">
+				<div class="pricing-phase__header">
+					<div class="pricing-phase__label">Phase 2</div>
+					<div class="pricing-phase__name">HubSpot再設計・RevOps実装プロジェクト</div>
+					<div class="pricing-phase__amount">250万〜600万円</div>
+				</div>
+				<ul class="pricing-phase__items">
+					<li>CRM / Hub設計・再構成</li>
+					<li>Revenue Architecture整備</li>
+					<li>Salesforce連携設計・実装</li>
+					<li>KPI統合・ダッシュボード構築</li>
+					<li>定着支援・RevOps運用定着</li>
+				</ul>
+			</div>
+		</div>
+		<p class="pricing-note-full">対象Hub数、連携範囲、営業組織規模、定着支援範囲により変動します。プロジェクト型・月額型伴走支援の両方に対応しています。</p>
+		<div class="pricing-cta">
+			<a href="/free-consultation/" class="btn btn--primary btn--lg">HubSpot / RevOps相談を申し込む →</a>
+			<a href="/services/" class="btn btn--ghost">料金プランを見る</a>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 関連サービス ===================== -->
+<section class="related">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Related Services</p>
+			<h2>関連サービス</h2>
+		</div>
+		<div class="related-grid">
+			<a href="/services/revenue-architecture-design/" class="related-card">
+				<div class="related-card__num">01</div>
+				<h3>Revenue Architecture Design</h3>
+				<p>HubSpot設計の上位概念。収益構造全体の設計から支援。</p>
+			</a>
+			<a href="/services/crm-revops-redesign/" class="related-card">
+				<div class="related-card__num">02</div>
+				<h3>CRM / RevOps再設計支援</h3>
+				<p>マルチCRM環境でのRevOps再設計。Salesforce・Kintone対応。</p>
+			</a>
+			<a href="/services/b2b-marketing-gtm-design/" class="related-card">
+				<div class="related-card__num">03</div>
+				<h3>B2B Marketing Strategy / GTM Design</h3>
+				<p>GTM・商談化設計の上流支援。Marketing Hubと組み合わせ可能。</p>
+			</a>
+			<a href="/services/" class="related-card">
+				<div class="related-card__num">04</div>
+				<h3>Adoption &amp; Growth Support</h3>
+				<p>HubSpot定着後の継続改善を支援する月額伴走プログラム。</p>
+			</a>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="faq">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">FAQ</p>
+			<h2>よくある質問</h2>
+		</div>
+		<dl class="faq-list">
+			{faqItems.map(item => (
+				<details class="faq-item">
+					<summary class="faq-q">{item.q}</summary>
+					<div class="faq-a"><p>{item.a}</p></div>
+				</details>
+			))}
+		</dl>
+	</div>
+</section>
+
+<!-- ===================== 最終CTA ===================== -->
+<section class="cta-final">
+	<div class="container">
+		<div class="cta-inner">
+			<div class="cta-copy">
+				<h2>HubSpotを、<br />売上につながる運用基盤へ<br />整理しませんか。</h2>
+				<p>
+					現状のHubSpot環境、営業プロセス、マーケティング運用、KPI、ワークフローを整理し、
+					どこでRevenue Operationsが崩れているのかを可視化します。
+				</p>
+			</div>
+			<div class="cta-actions">
+				<a href="/free-consultation/" class="btn btn--white btn--lg">HubSpot / RevOps相談を申し込む →</a>
+				<a href="/download/" class="btn btn--white-outline btn--lg">サービス資料をダウンロード</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+/* ── Base ──────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+	--color-text: #111827;
+	--color-text-muted: #6b7280;
+	--color-text-subtle: #9ca3af;
+	--color-primary: #1e40af;
+	--color-primary-dark: #1d4ed8;
+	--color-accent-purple: #7c5cbf;
+	--color-hs-orange: #ff7a59;
+	--color-bg: #ffffff;
+	--color-bg-subtle: #f8f9fb;
+	--color-border: #e5e7eb;
+	--color-border-strong: #d1d5db;
+	--shadow-xs: 0 1px 2px rgba(0,0,0,.06);
+	--shadow-sm: 0 2px 8px rgba(0,0,0,.08);
+	--font-sans: 'Noto Sans JP', 'Hiragino Sans', system-ui, sans-serif;
+	--font-serif: 'Noto Serif JP', 'Hiragino Mincho ProN', Georgia, serif;
+}
+
+.container { max-width: 1080px; margin: 0 auto; padding: 0 2rem; }
+h1, h2, h3 { font-family: var(--font-serif); line-height: 1.4; }
+p { font-family: var(--font-sans); line-height: 1.8; color: var(--color-text-muted); }
+
+.btn {
+	display: inline-flex; align-items: center; justify-content: center;
+	padding: 0.75rem 1.5rem; border-radius: 6px; font-size: 0.9375rem;
+	font-weight: 700; font-family: var(--font-sans); text-decoration: none;
+	cursor: pointer; transition: all 0.2s; white-space: nowrap;
+}
+.btn--lg { padding: 0.9rem 1.75rem; font-size: 1rem; }
+.btn--primary { background: var(--color-primary); color: #fff; }
+.btn--primary:hover { background: var(--color-primary-dark); }
+.btn--outline { background: transparent; color: var(--color-primary); border: 1.5px solid var(--color-primary); }
+.btn--outline:hover { background: rgba(30,64,175,.06); }
+.btn--ghost { background: transparent; color: var(--color-text-muted); border: 1.5px solid var(--color-border-strong); font-weight: 500; }
+.btn--ghost:hover { border-color: var(--color-primary); color: var(--color-primary); }
+.btn--white { background: #fff; color: var(--color-primary); }
+.btn--white:hover { background: #f0f4ff; }
+.btn--white-outline { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.55); }
+.btn--white-outline:hover { background: rgba(255,255,255,.08); }
+
+.section-header { margin-bottom: 3rem; }
+.eyebrow-label {
+	font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.14em;
+	text-transform: uppercase; color: var(--color-primary);
+	font-family: var(--font-sans); margin-bottom: 0.625rem;
+}
+.section-header h2 { font-size: 1.875rem; color: var(--color-text); margin-bottom: 0.75rem; }
+.section-note { font-size: 0.875rem; color: var(--color-text-subtle); margin-top: 0.5rem; }
+
+/* ── Hero ──────────────────────────────────────────── */
+.hero { background: #fff; padding: 5rem 0 4rem; border-bottom: 1px solid var(--color-border); }
+.hero-nav { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+.back-link { font-size: 0.8125rem; color: var(--color-text-muted); text-decoration: none; font-family: var(--font-sans); }
+.back-link:hover { color: var(--color-primary); }
+.hero-tag {
+	font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+	color: var(--color-primary); background: rgba(30,64,175,.07);
+	padding: 0.2rem 0.7rem; border-radius: 4px; font-family: var(--font-sans);
+}
+.hero-service-name { display: flex; flex-direction: column; gap: 0.125rem; margin-bottom: 1.5rem; }
+.hero-service-ja { font-size: 0.9375rem; font-weight: 700; color: var(--color-text-muted); font-family: var(--font-sans); }
+.hero-service-en { font-size: 0.75rem; letter-spacing: 0.08em; color: var(--color-text-subtle); font-family: var(--font-sans); }
+.hero h1 { font-size: 2.5rem; color: var(--color-text); margin-bottom: 1.5rem; line-height: 1.35; }
+.hero h1 .accent { color: var(--color-primary); }
+.hero-sub { font-size: 1.0625rem; color: var(--color-text-muted); margin-bottom: 1rem; line-height: 1.9; }
+.hero-lead { font-size: 0.9375rem; color: var(--color-text-muted); margin-bottom: 2.5rem; line-height: 1.9; }
+.hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+.hero-tools { display: flex; flex-direction: column; gap: 0.625rem; }
+.tools-label { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-subtle); font-family: var(--font-sans); }
+.tools-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.tool-pill {
+	font-size: 0.75rem; font-weight: 600; font-family: var(--font-sans);
+	color: var(--color-text-muted); background: var(--color-bg-subtle);
+	border: 1px solid var(--color-border); padding: 0.25rem 0.75rem;
+	border-radius: 4px;
+}
+.tool-pill--primary {
+	color: var(--color-primary); border-color: rgba(30,64,175,.3);
+	background: rgba(30,64,175,.06);
+}
+
+/* ── Symptoms ──────────────────────────────────────────── */
+.symptoms { background: var(--color-bg-subtle); padding: 5rem 0; }
+.symptoms-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.875rem; }
+.symptom-card {
+	background: #fff; border: 1px solid var(--color-border); border-radius: 8px;
+	padding: 1rem 1.125rem; font-size: 0.875rem; color: var(--color-text-muted);
+	font-family: var(--font-sans); line-height: 1.55;
+}
+.symptom-card strong { color: var(--color-text); font-weight: 700; display: block; }
+
+/* ── Root Cause ──────────────────────────────────────────── */
+.root-cause { background: #fff; padding: 5rem 0; }
+.cause-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.cause-card { border-top: 2px solid var(--color-border); padding-top: 1.5rem; }
+.cause-card__num { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.08em; color: var(--color-primary); font-family: var(--font-sans); margin-bottom: 0.75rem; }
+.cause-card h3 { font-size: 1.0625rem; color: var(--color-text); margin-bottom: 0.75rem; font-family: var(--font-serif); }
+.cause-card p { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.8; margin: 0; }
+
+/* ── Definition ──────────────────────────────────────────── */
+.definition { background: var(--color-bg-subtle); padding: 5rem 0; }
+.definition-inner { max-width: 720px; }
+.definition-inner h2 { font-size: 1.75rem; color: var(--color-text); margin-bottom: 1.5rem; }
+.definition-body { font-size: 1.0625rem; color: var(--color-text-muted); line-height: 1.9; margin-bottom: 2rem; }
+.definition-oneliner {
+	font-family: var(--font-serif); font-size: 1.25rem; color: var(--color-text);
+	line-height: 1.7; border-left: 3px solid var(--color-primary); padding-left: 1.25rem;
+}
+
+/* ── Problems ──────────────────────────────────────────── */
+.problems { background: #fff; padding: 5rem 0; }
+.problems-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
+.problem-card { background: var(--color-bg-subtle); border: 1px solid var(--color-border); border-radius: 8px; padding: 1.5rem 1.25rem; }
+.problem-card__en { font-size: 0.625rem; font-weight: 700; letter-spacing: 0.1em; color: var(--color-primary); font-family: var(--font-sans); text-transform: uppercase; margin-bottom: 0.5rem; }
+.problem-card h3 { font-size: 1rem; color: var(--color-text); margin-bottom: 0.5rem; font-family: var(--font-serif); }
+.problem-card p { font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.7; margin: 0; }
+
+/* ── Scope ──────────────────────────────────────────── */
+.scope { background: var(--color-bg-subtle); padding: 5rem 0; }
+.scope-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.scope-card { background: #fff; border: 1px solid var(--color-border); border-radius: 8px; padding: 1.25rem; }
+.scope-card__label { font-size: 0.875rem; font-weight: 700; color: var(--color-text); font-family: var(--font-sans); margin-bottom: 0.5rem; }
+.scope-card p { font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.7; margin: 0; }
+
+/* ── Process ──────────────────────────────────────────── */
+.process { background: #fff; padding: 5rem 0; }
+.process-flow { display: flex; flex-wrap: wrap; align-items: flex-start; }
+.pstep {
+	flex: 1; min-width: 80px; background: var(--color-bg-subtle);
+	border: 1px solid var(--color-border); border-radius: 8px;
+	padding: 1rem 0.875rem; display: flex; flex-direction: column; gap: 0.4rem;
+}
+.pstep--last { border-color: var(--color-primary); }
+.pstep__num { font-size: 1.125rem; font-weight: 700; color: var(--color-primary); font-family: var(--font-sans); line-height: 1; }
+.pstep__body strong { font-size: 0.8125rem; color: var(--color-text); display: block; margin-bottom: 0.2rem; font-family: var(--font-sans); }
+.pstep__body p { font-size: 0.6875rem; color: var(--color-text-muted); line-height: 1.6; margin: 0; }
+.pstep-arrow { display: flex; align-items: center; padding: 0 0.2rem; color: var(--color-text-subtle); font-size: 1rem; flex-shrink: 0; margin-top: 1rem; }
+
+/* ── Before / After ──────────────────────────────────────────── */
+.ba-section { background: var(--color-bg-subtle); padding: 5rem 0; }
+.ba-diagram {
+	display: grid; grid-template-columns: 1fr auto 1fr; gap: 1.5rem;
+	align-items: center; background: #fff; border: 1px solid var(--color-border);
+	border-radius: 8px; padding: 2rem; margin-bottom: 1.5rem;
+}
+.ba-panel { display: flex; flex-direction: column; gap: 1rem; }
+.ba-panel__label { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.08em; color: var(--color-text-subtle); font-family: var(--font-sans); }
+
+/* Chaos grid - Before */
+.chaos-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+.chaos-item {
+	border-radius: 6px; padding: 0.625rem 0.75rem;
+	border: 1px dashed; font-size: 0.75rem; font-weight: 700;
+	font-family: var(--font-sans);
+}
+.chaos-item span { display: block; font-size: 0.625rem; font-weight: 400; margin-top: 0.15rem; }
+.chaos-item--prop { background: #fff7ed; border-color: #fed7aa; color: #9a3412; }
+.chaos-item--wf   { background: #fef2f2; border-color: #fecaca; color: #991b1b; }
+.chaos-item--data { background: #fff7ed; border-color: #fed7aa; color: #9a3412; }
+.chaos-item--auto { background: #fef2f2; border-color: #fecaca; color: #991b1b; }
+.chaos-item--dept { background: #fff7ed; border-color: #fed7aa; color: #9a3412; }
+.chaos-item--report { background: #fef2f2; border-color: #fecaca; color: #991b1b; }
+
+/* RA structure - After */
+.ra-structure { display: flex; flex-direction: column; gap: 0.625rem; }
+.ra-top {
+	text-align: center; font-size: 0.875rem; font-weight: 700; color: #fff;
+	background: var(--color-primary); border-radius: 8px; padding: 0.5rem 1rem;
+	font-family: var(--font-sans);
+}
+.ra-row { display: flex; gap: 0.5rem; }
+.ra-node {
+	flex: 1; text-align: center; font-size: 0.75rem; font-weight: 600;
+	border-radius: 6px; padding: 0.5rem 0.375rem; font-family: var(--font-sans);
+}
+.ra-node--hub { background: rgba(30,64,175,.08); border: 1px solid rgba(30,64,175,.2); color: var(--color-primary); }
+.ra-node--output { background: #f0fdf4; border: 1px solid #86efac; color: #166534; }
+
+.ba-status {
+	font-size: 0.75rem; font-weight: 600; font-family: var(--font-sans);
+	padding: 0.35rem 0.875rem; border-radius: 4px; align-self: flex-start;
+}
+.ba-status--bad { background: #fee2e2; color: #dc2626; }
+.ba-status--good { background: #dcfce7; color: #16a34a; }
+.ba-arrow { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+.ba-arrow__line { width: 2px; height: 60px; background: var(--color-border-strong); position: relative; }
+.ba-arrow__line::after { content: '▼'; position: absolute; bottom: -14px; left: 50%; transform: translateX(-50%); color: var(--color-text-subtle); font-size: 0.875rem; }
+.ba-arrow__label { font-size: 0.625rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-primary); font-family: var(--font-sans); writing-mode: vertical-rl; white-space: nowrap; text-align: center; }
+.ba-notes { display: flex; flex-wrap: wrap; gap: 1.25rem; justify-content: center; }
+.ba-note { font-size: 0.875rem; font-weight: 700; color: var(--color-primary); font-family: var(--font-sans); }
+
+/* ── Deliverables ──────────────────────────────────────────── */
+.deliverables { background: #fff; padding: 5rem 0; }
+.deliverables-layout { display: grid; grid-template-columns: 1fr 300px; gap: 3rem; align-items: start; }
+.deliverables-list { list-style: none; }
+.deliverables-list li { display: flex; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid var(--color-border); }
+.deliverables-list li:last-child { border-bottom: none; }
+.deliv-num { font-size: 0.6875rem; font-weight: 700; color: var(--color-primary); letter-spacing: 0.04em; flex-shrink: 0; width: 2rem; text-align: right; margin-top: 0.2rem; font-family: var(--font-sans); }
+.deliverables-list strong { font-size: 0.9375rem; color: var(--color-text); display: block; margin-bottom: 0.2rem; font-family: var(--font-sans); }
+.deliverables-list p { font-size: 0.8125rem; color: var(--color-text-muted); margin: 0; line-height: 1.65; }
+
+/* Mockup */
+.deliverables-mockup { display: flex; flex-direction: column; gap: 1rem; position: sticky; top: 2rem; }
+.doc-mock { background: #fff; border: 1px solid var(--color-border); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow-sm); }
+.doc-mock__header { background: var(--color-bg-subtle); border-bottom: 1px solid var(--color-border); padding: 0.75rem 1rem; display: flex; flex-direction: column; gap: 0.25rem; }
+.doc-mock__logo-bar { width: 3rem; height: 4px; background: var(--color-primary); border-radius: 2px; margin-bottom: 0.375rem; }
+.doc-mock__label { font-size: 0.6875rem; font-weight: 700; color: var(--color-primary); font-family: var(--font-sans); letter-spacing: 0.06em; text-transform: uppercase; }
+.doc-mock__subtitle { font-size: 0.625rem; color: var(--color-text-subtle); font-family: var(--font-sans); }
+.doc-mock__body { padding: 1rem; }
+.doc-mock__section-title { height: 6px; background: var(--color-border); border-radius: 3px; width: 40%; margin-bottom: 0.75rem; }
+.doc-mock__table { display: flex; flex-direction: column; gap: 1px; }
+.doc-mock__row { display: grid; grid-template-columns: 1.5fr 2fr; gap: 1px; }
+.doc-mock__row--head .doc-mock__cell { background: var(--color-border); }
+.doc-mock__cell { height: 14px; background: var(--color-bg-subtle); border-radius: 2px; }
+
+/* Workflow mockup */
+.wf-mock { display: flex; flex-direction: column; align-items: center; gap: 0; }
+.wf-trigger {
+	font-size: 0.625rem; font-weight: 700; font-family: var(--font-sans);
+	background: rgba(30,64,175,.1); border: 1px solid rgba(30,64,175,.3);
+	color: var(--color-primary); padding: 4px 12px; border-radius: 4px;
+}
+.wf-arrow-v { width: 1px; height: 14px; background: var(--color-border-strong); }
+.wf-arrow-v--sm { height: 10px; }
+.wf-row { display: flex; justify-content: center; }
+.wf-action {
+	font-size: 0.625rem; font-weight: 600; font-family: var(--font-sans);
+	background: var(--color-bg-subtle); border: 1px solid var(--color-border);
+	color: var(--color-text-muted); padding: 4px 10px; border-radius: 4px;
+}
+.wf-action--sm { font-size: 0.5625rem; }
+.wf-action--accent { background: #f0fdf4; border-color: #86efac; color: #166534; }
+.wf-branches { display: flex; gap: 1rem; }
+.wf-branch { display: flex; flex-direction: column; align-items: center; gap: 0; }
+
+/* ── Why Us ──────────────────────────────────────────── */
+.why-us { background: var(--color-bg-subtle); padding: 5rem 0; }
+.why-us-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.why-card { background: #fff; border: 1px solid var(--color-border); border-radius: 8px; padding: 1.75rem; }
+.why-card h3 { font-size: 1.0625rem; color: var(--color-text); margin-bottom: 0.75rem; font-family: var(--font-serif); }
+.why-card p { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.8; margin-bottom: 1rem; }
+.why-card__notes { display: flex; flex-direction: column; gap: 0.25rem; }
+.why-card__notes span { font-size: 0.75rem; font-weight: 600; color: var(--color-primary); font-family: var(--font-sans); }
+.why-card__notes span::before { content: '✓ '; }
+
+/* ── Cases ──────────────────────────────────────────── */
+.cases { background: #fff; padding: 5rem 0; }
+.cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2.5rem; }
+.case-card { background: var(--color-bg-subtle); border: 1px solid var(--color-border); border-radius: 8px; padding: 1.75rem; display: flex; flex-direction: column; gap: 1rem; transition: box-shadow 0.2s; }
+.case-card:hover { box-shadow: var(--shadow-sm); border-color: var(--color-primary); }
+.case-card__meta { display: flex; align-items: center; gap: 0.625rem; flex-wrap: wrap; }
+.case-tag { font-size: 0.75rem; font-weight: 600; color: var(--color-primary); background: rgba(30,64,175,.07); padding: 0.2rem 0.6rem; border-radius: 4px; font-family: var(--font-sans); }
+.case-size { font-size: 0.75rem; color: var(--color-text-muted); font-family: var(--font-sans); }
+.case-card__title { font-size: 0.9375rem; font-weight: 700; color: var(--color-text); line-height: 1.55; margin: 0; font-family: var(--font-serif); }
+.case-card__body { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.75; margin: 0; flex: 1; }
+.case-card__footer { display: flex; flex-direction: column; gap: 0.75rem; margin-top: auto; }
+.case-tools { display: flex; flex-wrap: wrap; gap: 0.375rem; }
+.case-tools span { font-size: 0.7rem; color: var(--color-text-muted); background: #fff; border: 1px solid var(--color-border); padding: 0.15rem 0.5rem; border-radius: 4px; font-family: var(--font-sans); }
+.case-link { font-size: 0.8125rem; font-weight: 600; color: var(--color-primary); text-decoration: none; font-family: var(--font-sans); }
+.case-link:hover { text-decoration: underline; }
+.cases-cta { text-align: center; }
+
+/* ── Fit ──────────────────────────────────────────── */
+.fit { background: var(--color-bg-subtle); padding: 5rem 0; }
+.fit-inner { max-width: 680px; }
+.fit-list { list-style: none; }
+.fit-list li { font-size: 0.9375rem; color: var(--color-text-muted); padding: 0.875rem 0; border-bottom: 1px solid var(--color-border); display: flex; gap: 0.875rem; font-family: var(--font-sans); line-height: 1.6; }
+.fit-list li:last-child { border-bottom: none; }
+.fit-list li::before { content: ''; display: block; width: 6px; height: 6px; background: var(--color-primary); border-radius: 50%; flex-shrink: 0; margin-top: 0.45rem; }
+
+/* ── Approach ──────────────────────────────────────────── */
+.approach { background: #fff; padding: 5rem 0; }
+.approach-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+.approach-copy h2 { font-size: 1.625rem; color: var(--color-text); margin-bottom: 1.25rem; }
+.approach-copy p { font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.85; margin-bottom: 1rem; }
+.approach-copy .btn { margin-top: 1rem; }
+.checklist-label { font-size: 0.8125rem; font-weight: 700; color: var(--color-text); margin-bottom: 1rem; font-family: var(--font-sans); }
+.approach-checklist ul { list-style: none; }
+.approach-checklist li { font-size: 0.9375rem; color: var(--color-text-muted); padding: 0.75rem 0; border-bottom: 1px solid var(--color-border); display: flex; gap: 0.875rem; font-family: var(--font-sans); line-height: 1.6; }
+.approach-checklist li:last-child { border-bottom: none; }
+.approach-checklist li::before { content: '✓'; color: var(--color-primary); font-weight: 700; flex-shrink: 0; font-size: 0.875rem; }
+
+/* ── Pricing ──────────────────────────────────────────── */
+.pricing { background: var(--color-bg-subtle); padding: 5rem 0; }
+.pricing-pretext { font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.9; margin-bottom: 2.5rem; font-family: var(--font-sans); }
+.pricing-phases { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+.pricing-phase {
+	background: #fff; border: 1px solid var(--color-border); border-radius: 8px; overflow: hidden;
+}
+.pricing-phase--featured { border-color: var(--color-primary); }
+.pricing-phase__header { padding: 2rem; border-bottom: 1px solid var(--color-border); }
+.pricing-phase--featured .pricing-phase__header { background: rgba(30,64,175,.03); border-color: rgba(30,64,175,.15); }
+.pricing-phase__label { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-primary); font-family: var(--font-sans); margin-bottom: 0.375rem; }
+.pricing-phase__name { font-size: 0.9375rem; font-weight: 700; color: var(--color-text); font-family: var(--font-sans); margin-bottom: 0.75rem; line-height: 1.4; }
+.pricing-phase__amount { font-size: 2rem; font-weight: 900; color: var(--color-text); font-family: var(--font-serif); }
+.pricing-phase__items { list-style: none; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.pricing-phase__items li { font-size: 0.875rem; color: var(--color-text-muted); font-family: var(--font-sans); display: flex; gap: 0.625rem; align-items: flex-start; }
+.pricing-phase__items li::before { content: '—'; color: var(--color-primary); flex-shrink: 0; font-weight: 700; }
+.pricing-note-full { font-size: 0.8125rem; color: var(--color-text-subtle); margin-bottom: 2rem; font-family: var(--font-sans); }
+.pricing-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+/* ── Related ──────────────────────────────────────────── */
+.related { background: #fff; padding: 5rem 0; }
+.related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.related-card { background: var(--color-bg-subtle); border: 1px solid var(--color-border); border-radius: 8px; padding: 1.25rem; text-decoration: none; display: block; transition: all 0.2s; }
+.related-card:hover { box-shadow: var(--shadow-sm); border-color: var(--color-primary); }
+.related-card__num { font-size: 0.6875rem; font-weight: 700; color: var(--color-primary); font-family: var(--font-sans); margin-bottom: 0.5rem; }
+.related-card h3 { font-size: 0.9375rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.375rem; line-height: 1.45; font-family: var(--font-serif); }
+.related-card p { font-size: 0.8125rem; color: var(--color-text-muted); margin: 0; }
+
+/* ── FAQ ──────────────────────────────────────────── */
+.faq { background: var(--color-bg-subtle); padding: 5rem 0; }
+.faq-list { max-width: 720px; }
+.faq-item { border-bottom: 1px solid var(--color-border); }
+.faq-item:first-of-type { border-top: 1px solid var(--color-border); }
+.faq-q { font-size: 0.9375rem; font-weight: 700; color: var(--color-text); font-family: var(--font-sans); padding: 1.25rem 0; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.faq-q::after { content: '+'; font-size: 1.25rem; color: var(--color-primary); flex-shrink: 0; }
+details[open] .faq-q::after { content: '−'; }
+.faq-a { padding: 0 0 1.25rem; }
+.faq-a p { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.85; margin: 0; }
+
+/* ── Final CTA ──────────────────────────────────────────── */
+.cta-final {
+	background:
+		radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%),
+		linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+	padding: 5rem 0;
+}
+.cta-inner { display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: center; }
+.cta-copy h2 { font-size: 2rem; color: #fff; margin-bottom: 1rem; line-height: 1.4; }
+.cta-copy p { font-size: 0.9375rem; color: rgba(255,255,255,.8); line-height: 1.85; margin: 0; }
+.cta-actions { display: flex; flex-direction: column; gap: 0.875rem; }
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 1024px) {
+	.symptoms-grid { grid-template-columns: repeat(3, 1fr); }
+	.problems-grid { grid-template-columns: repeat(3, 1fr); }
+	.scope-grid { grid-template-columns: repeat(3, 1fr); }
+	.cases-grid { grid-template-columns: 1fr; }
+	.related-grid { grid-template-columns: repeat(2, 1fr); }
+	.deliverables-layout { grid-template-columns: 1fr; }
+	.deliverables-mockup { flex-direction: row; position: static; }
+	.process-flow { flex-direction: column; gap: 0.5rem; }
+	.pstep-arrow { transform: rotate(90deg); margin: 0 auto; }
+}
+@media (max-width: 860px) {
+	.hero h1 { font-size: 1.875rem; }
+	.symptoms-grid { grid-template-columns: repeat(2, 1fr); }
+	.cause-grid { grid-template-columns: 1fr; }
+	.problems-grid { grid-template-columns: repeat(2, 1fr); }
+	.why-us-grid { grid-template-columns: 1fr; }
+	.ba-diagram { grid-template-columns: 1fr; }
+	.ba-arrow { flex-direction: row; justify-content: center; }
+	.ba-arrow__label { writing-mode: horizontal-tb; }
+	.approach-inner { grid-template-columns: 1fr; gap: 2rem; }
+	.pricing-phases { grid-template-columns: 1fr; }
+	.cta-inner { grid-template-columns: 1fr; gap: 2rem; }
+	.scope-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+	.hero h1 { font-size: 1.625rem; }
+	.hero-cta { flex-direction: column; align-items: flex-start; }
+	.symptoms-grid { grid-template-columns: repeat(2, 1fr); }
+	.problems-grid { grid-template-columns: 1fr; }
+	.scope-grid { grid-template-columns: 1fr; }
+	.related-grid { grid-template-columns: 1fr; }
+	.deliverables-mockup { flex-direction: column; }
+	.chaos-grid { grid-template-columns: 1fr; }
+	.pricing-cta { flex-direction: column; }
+}
+</style>
+</BaseLayout>

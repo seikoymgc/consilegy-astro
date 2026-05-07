@@ -7,7 +7,7 @@ lang: "en"
 translationKey: "japan-market-entry-gtm"
 modified: "2026-03-18T00:40:04"
 description: "A large global tech company was entering Japan with strong global market share but messaging built for Western buying behavior. Without structural adaptation, marketing wouldn't connect to sales."
-featuredImage: "/images/wp/2026/02/jackie-alexander-tV79ff0YlXM-unsplash-scaled.jpg"
+featuredImage: "/images/media/2026/02/jackie-alexander-tV79ff0YlXM-unsplash-scaled.jpg"
 featuredImageAlt: ""
 draft: false
 ---

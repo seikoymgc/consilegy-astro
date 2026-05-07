@@ -6,7 +6,7 @@ sourceUrl: "https://consilegy.com/analytics/site-kit-by-google/"
 pubDate: "2021-08-14T22:07:27"
 updatedDate: "2021-12-16T05:07:00"
 description: " Webサイトを立ち上げる時、最低でもGoogle アナリティクスとSearch Consoleを設定して、タグ一括管理したければGTMを入れて…という作業が必要になってきます。    これだけならGoogle アナリティクスor GTMのスニペットをWebサイトに追加して、Search Conso"
-featuredImage: "/images/wp/2021/08/sitekitbygoogle-1.png"
+featuredImage: "/images/media/2021/08/sitekitbygoogle-1.png"
 featuredImageAlt: ""
 draft: false
 categories:

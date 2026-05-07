@@ -6,7 +6,7 @@ sourceUrl: "https://consilegy.com/marketing/hubspot-lead-workflow/"
 pubDate: "2025-02-06T16:55:07"
 updatedDate: "2025-02-06T19:06:59"
 description: " BtoB企業の商談はしばしば長期化し、獲得したリードをいかに育成して商談化につなげるかが重要な課題となります。その際、多くの方が「営業を効率化したい」と考え、このフェーズに着目しますが、実はマーケティング施策も大きなカギを握っているのをご存知でしょうか。    今回は、HubSpotのCRM・MA"
-featuredImage: "/images/wp/2025/02/campaign-creators-kQ4tBklJI-unsplash.jpg"
+featuredImage: "/images/media/2025/02/campaign-creators-kQ4tBklJI-unsplash.jpg"
 featuredImageAlt: ""
 draft: false
 categories:

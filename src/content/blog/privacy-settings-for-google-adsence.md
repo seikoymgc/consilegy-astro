@@ -6,7 +6,7 @@ sourceUrl: "https://consilegy.com/marketing/privacy-settings-for-google-adsence/
 pubDate: "2022-05-15T19:31:41"
 updatedDate: "2023-10-01T14:38:10"
 description: " Google AdSence広告の基本設定時、忘れてはいけないけれどつい忘れがちになるのがプライバシーの設定です。プライバシーに関するルールは年々厳しくなっていっています。    欧州だと日本よりこれが進んでいるのですが、日本はまだ緩いのでどうしても軽視しがちになってしまうんですよね。    Go"
-featuredImage: "/images/wp/2023/10/google-privacy.jpg"
+featuredImage: "/images/media/2023/10/google-privacy.jpg"
 featuredImageAlt: ""
 draft: false
 categories:

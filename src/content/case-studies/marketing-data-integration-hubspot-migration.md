@@ -7,7 +7,7 @@ lang: "ja"
 translationKey: "marketing-data-integration"
 modified: "2026-03-18T01:21:01"
 description: " 項目内容導入ツールHubSpot, Salesforce, Sansan, GA4主な課題属人化による運用リスク、ツール間のデータ分断、複雑化したMA構造による運用負荷業界コンサルティング（DX推進・デジタルマーケティング支援）導入時期 / 期間2025年 / 9ヶ月従業員数約150名支援内容MA"
-featuredImage: "/images/wp/2026/02/apex-virtual-education-KNQUEQwTCY4-unsplash-scaled.jpg"
+featuredImage: "/images/media/2026/02/apex-virtual-education-KNQUEQwTCY4-unsplash-scaled.jpg"
 featuredImageAlt: ""
 draft: false
 ---

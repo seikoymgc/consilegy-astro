@@ -6,7 +6,7 @@ sourceUrl: "https://consilegy.com/marketing/marketing-target/"
 pubDate: "2021-08-16T23:07:30"
 updatedDate: "2021-08-16T23:07:31"
 description: " マーケティングを実施するにあたって適切な目標は非常に大切です。ここでのマーケティングとは広告や宣伝活動のことを指します。    「とりあえず試してみよう」で初めた場合にも、目標は大切です。    なぜかというと時間とお金が減るからです。    また、目標を定めておくことで結果を測定した際に「次に実"
-featuredImage: "/images/wp/2021/08/target.png"
+featuredImage: "/images/media/2021/08/target.png"
 featuredImageAlt: ""
 draft: false
 categories:

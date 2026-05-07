@@ -6,7 +6,7 @@ sourceUrl: "https://consilegy.com/analytics/microsoft-clarity-masking/"
 pubDate: "2022-04-18T23:00:00"
 updatedDate: "2022-04-26T00:39:46"
 description: " Microsoft Clarityを使用する際、お客様の個人情報が見えてしまうとまずいシーンは結構あると思います。    個人情報は取り扱い要注意情報です。個人情報が見えてしまうだけでメンバー管理が煩雑になったり、分析データを気軽に共有できなくなったり、さまざまな問題が発生します。    Micr"
-featuredImage: "/images/wp/2022/04/clarity-masking-1.jpg"
+featuredImage: "/images/media/2022/04/clarity-masking-1.jpg"
 featuredImageAlt: ""
 draft: false
 categories:

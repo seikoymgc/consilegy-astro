@@ -7,7 +7,7 @@ lang: "ja"
 translationKey: "healthcare-data-integration"
 modified: "2026-04-02T13:40:16"
 description: " 項目内容ツールHubSpot (Marketing Hub / Sales Hub / Operations Hub)主な課題データ分散、属人化、業務負荷、情報共有の断絶業界医療（医療テック）導入時期 / 期間2023年秋 / 6ヶ月従業員数約150名支援内容データ統合基盤の構築・運用定着支援  "
-featuredImage: "/images/wp/2026/02/shawn-powar-hDeq8NBTNS8-unsplash.jpg"
+featuredImage: "/images/media/2026/02/shawn-powar-hDeq8NBTNS8-unsplash.jpg"
 featuredImageAlt: ""
 draft: false
 ---

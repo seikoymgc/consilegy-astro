@@ -6,7 +6,7 @@ sourceUrl: "https://consilegy.com/project-management/project-manegement-roles/"
 pubDate: "2025-01-23T16:00:00"
 updatedDate: "2025-01-20T19:31:24"
 description: " 戦略立案はうまくいったのに、実際の実行段階でプロジェクトが思うように前に進まない…」そんな課題に直面した経験はないでしょうか？私自身、マーケティングオートメーションの導入やステム開発など、さまざまな現場でPM（プロジェクトマネジメント）を担当してきましたが、最終的な成果の優劣を分けるのは、戦略その"
-featuredImage: "/images/wp/2025/01/marvin-meyer-SYTO3xs06fU-unsplash-2.jpg"
+featuredImage: "/images/media/2025/01/marvin-meyer-SYTO3xs06fU-unsplash-2.jpg"
 featuredImageAlt: "プロジェクトマネジメント"
 draft: false
 categories:

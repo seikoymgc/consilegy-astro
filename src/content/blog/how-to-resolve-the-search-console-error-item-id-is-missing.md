@@ -6,7 +6,7 @@ sourceUrl: "https://consilegy.com/analytics/how-to-resolve-the-search-console-er
 pubDate: "2022-04-23T18:00:00"
 updatedDate: "2023-10-01T14:25:34"
 description: " Search Consoleのエラーを確認していて出てくるこの解消方法、よく聞かれるのでまとめました。        たまに見かけるエラーが出ています。『項目「id」がありません』。これの対処方法ですが、大体はhttps://schema.org/BreadcrumbList記載のタグとの差分を確"
-featuredImage: "/images/wp/2023/10/id.jpg"
+featuredImage: "/images/media/2023/10/id.jpg"
 featuredImageAlt: ""
 draft: false
 categories:

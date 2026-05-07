@@ -6,7 +6,7 @@ sourceUrl: "https://consilegy.com/en/"
 status: "publish"
 modified: "2026-03-24T21:43:23"
 description: "     ━━ For global B2B teams building in Japan    We don’t hand off. We stay until it works.    We help global teams design revenue operations that ac"
-featuredImage: "/images/wp/2026/03/cover.png"
+featuredImage: "/images/media/2026/03/cover.png"
 featuredImageAlt: ""
 draft: false
 hasShortcodes: true

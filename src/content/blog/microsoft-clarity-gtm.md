@@ -6,7 +6,7 @@ sourceUrl: "https://consilegy.com/analytics/microsoft-clarity-gtm/"
 pubDate: "2022-04-16T12:00:00"
 updatedDate: "2022-04-25T23:34:54"
 description: " ヒートマップ大好きなんですが、最近はなかなか現場で使う機会がなく悲しいです。    さて、ヒートマップでは主にhotjarを使ってきました私ですが、Microsoft Clarityの機能追加が著しく、最近とても良い感じですね。正直乗り換え候補として有力すぎます。    新規のご提案ではhotja"
-featuredImage: "/images/wp/2022/04/microsoftclarity.jpg"
+featuredImage: "/images/media/2022/04/microsoftclarity.jpg"
 featuredImageAlt: ""
 draft: false
 categories:

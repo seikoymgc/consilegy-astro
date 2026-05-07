@@ -7,7 +7,7 @@ lang: "ja"
 translationKey: "hubspot-sales-handoff"
 modified: "2026-03-18T02:17:45"
 description: " 項目内容ツールHubSpot (Marketing Hub / Sales Hub)主な課題リード評価の標準化, 部門間連携, 収益可視化業界IT（バックオフィスSaaS）導入時期 / 期間2024年 / 4ヶ月従業員数約200名支援内容Revenue Architecture（レベニューアーキテ"
-featuredImage: "/images/wp/2026/02/dx.png"
+featuredImage: "/images/media/2026/02/dx.png"
 featuredImageAlt: ""
 draft: false
 ---

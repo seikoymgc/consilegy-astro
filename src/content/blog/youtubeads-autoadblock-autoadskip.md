@@ -6,7 +6,7 @@ sourceUrl: "https://consilegy.com/marketing/youtubeads-autoadblock-autoadskip/"
 pubDate: "2021-08-14T22:06:58"
 updatedDate: "2021-08-16T06:52:57"
 description: " YouTubeの広告フォーマットには、スキップ不可のインストリーム広告と、スキップ可能なインストリーム広告があります。    インストリーム広告というのは、動画の「再生画面内」で再生前、再生中、再生後に表示される動画広告のことで、    名前のとおりインストリーム広告の中に「スキップ不可」のものと"
-featuredImage: "/images/wp/2021/08/youtubeads.png"
+featuredImage: "/images/media/2021/08/youtubeads.png"
 featuredImageAlt: ""
 draft: false
 categories:

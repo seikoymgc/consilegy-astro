@@ -7,7 +7,7 @@ lang: "ja"
 translationKey: "ga4-kpi-design"
 modified: "2026-03-18T01:50:15"
 description: " 項目内容導入ツールGA4, Looker Studio, BigQuery主な課題KPI定義の不整合、分析の属人化、意思決定への未接続業界エンターテインメント（米国拠点・グローバル大手）導入時期 / 期間2024年 / 6ヶ月従業員数約3,000名支援内容データ活用戦略策定・KPI再設計・ダッシュ"
-featuredImage: "/images/wp/2026/02/ga4-looker-studio.png"
+featuredImage: "/images/media/2026/02/ga4-looker-studio.png"
 featuredImageAlt: ""
 draft: false
 ---

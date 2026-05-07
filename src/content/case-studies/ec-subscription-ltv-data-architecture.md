@@ -7,7 +7,7 @@ lang: "ja"
 translationKey: "ec-subscription-ltv"
 modified: "2026-04-02T13:39:51"
 description: " 項目内容導入ツールGA4, Amplitude, Looker Studio主な課題計測の分断、サブスク特有の指標設計、プロダクト分析の欠如業界小売（国内大手ライフスタイル企業・新規事業部門）従業員数1,500名導入時期 / 期間2023年7月〜 / 9ヶ月支援内容データ連携アーキテクチャ設計・L"
-featuredImage: "/images/wp/2026/02/sumup-ShB9pI4mpRg-unsplash-scaled.jpg"
+featuredImage: "/images/media/2026/02/sumup-ShB9pI4mpRg-unsplash-scaled.jpg"
 featuredImageAlt: ""
 draft: false
 ---

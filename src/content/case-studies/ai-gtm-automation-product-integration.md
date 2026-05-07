@@ -7,7 +7,7 @@ lang: "ja"
 translationKey: "ai-gtm-automation"
 modified: "2026-03-18T19:22:55"
 description: " 項目内容ツールHubSpot (Marketing Hub / Operations Hub), Looker Studio, 各種広告連携主な課題新規事業の市場参入戦略, システム連携, 少人数運用業界コンサルティング（新規AI事業）導入時期 / 期間2024年冬〜 / 9ヶ月従業員数約50名支"
-featuredImage: "/images/wp/2026/03/s-o-c-i-a-l-c-u-t-1RT4txDDAbM-unsplash.jpg"
+featuredImage: "/images/media/2026/03/s-o-c-i-a-l-c-u-t-1RT4txDDAbM-unsplash.jpg"
 featuredImageAlt: ""
 draft: false
 ---

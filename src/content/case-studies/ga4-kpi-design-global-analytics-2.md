@@ -7,7 +7,7 @@ lang: "en"
 translationKey: "ga4-kpi-design"
 modified: "2026-03-18T01:54:40"
 description: "A global entertainment company had GA4 deployed but KPIs differed by region and reporting was manual. The issue wasn't data collection — it was that data didn't connect to decisions."
-featuredImage: "/images/wp/2026/02/ga4-looker-studio.png"
+featuredImage: "/images/media/2026/02/ga4-looker-studio.png"
 featuredImageAlt: ""
 draft: false
 ---

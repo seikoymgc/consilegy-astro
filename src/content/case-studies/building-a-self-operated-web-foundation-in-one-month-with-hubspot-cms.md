@@ -7,7 +7,7 @@ lang: "en"
 translationKey: "hubspot-cms-migration"
 modified: "2026-03-18T01:18:06"
 description: "Japan operations of a global skincare brand couldn't update their website without developer involvement. Every campaign page took weeks, and missed execution windows were the norm."
-featuredImage: "/images/wp/2026/02/campaign-creators-OGOWDVLbMSc-unsplash-scaled.jpg"
+featuredImage: "/images/media/2026/02/campaign-creators-OGOWDVLbMSc-unsplash-scaled.jpg"
 featuredImageAlt: ""
 draft: false
 ---

@@ -6,7 +6,7 @@ sourceUrl: "https://consilegy.com/my-opinion/ai-introduction-checklist-chatgpt-g
 pubDate: "2025-05-30T14:40:54"
 updatedDate: "2025-05-30T14:46:28"
 description: "     &nbsp;    近年、ChatGPTやGeminiなどの先進AIを導入する企業が増えています。実際に「とりあえず試してみた」「話題だから導入してみた」という声を多く耳にするようになりました。    しかし、この話題だから導入というアプローチ、しばしば導入後の現場を混乱させてしまうことも"
-featuredImage: "/images/wp/2025/05/image-4.jpg"
+featuredImage: "/images/media/2025/05/image-4.jpg"
 featuredImageAlt: ""
 draft: false
 categories:

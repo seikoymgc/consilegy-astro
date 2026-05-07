@@ -6,7 +6,7 @@ sourceUrl: "https://consilegy.com/marketing/seo-to-geo-generative-engine-optimiz
 pubDate: "2025-06-12T17:45:50"
 updatedDate: "2025-06-12T17:47:36"
 description: " こんにちは。デジタルマーケティング戦略コンサルタントの山口聖子です。   近年、検索技術が劇的に進化し、私たちが「情報を探す」方法も大きく変わりつつあります。キーワードを打ち込んで検索結果をクリックする――そんな従来の検索体験から、AIが質問に直接回答してくれる時代へと突入しています。   こうし"
-featuredImage: "/images/wp/2025/06/solen-feyissa-Aj7cDaR6QXs-unsplash.jpg"
+featuredImage: "/images/media/2025/06/solen-feyissa-Aj7cDaR6QXs-unsplash.jpg"
 featuredImageAlt: ""
 draft: false
 categories:

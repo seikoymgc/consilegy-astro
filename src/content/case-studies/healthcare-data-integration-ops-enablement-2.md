@@ -7,7 +7,7 @@ lang: "en"
 translationKey: "healthcare-data-integration"
 modified: "2026-03-18T02:33:22"
 description: "A healthtech company in rapid growth had customer data in 10+ locations and a marketing team spending 30% of its time on manual data work rather than execution."
-featuredImage: "/images/wp/2026/02/shawn-powar-hDeq8NBTNS8-unsplash.jpg"
+featuredImage: "/images/media/2026/02/shawn-powar-hDeq8NBTNS8-unsplash.jpg"
 featuredImageAlt: ""
 draft: false
 ---

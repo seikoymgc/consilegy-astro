@@ -6,7 +6,7 @@ sourceUrl: "https://consilegy.com/marketing/sales-force-pardot/"
 pubDate: "2021-12-02T18:16:00"
 updatedDate: "2023-10-01T14:30:34"
 description: " SalesforceとPardot、併用されている企業様多いですね。Salesforceの導入支援をお手伝いさせていただくことがたまにあるのですが、やっぱり便利で導入も頷けるなと毎度思います。やや機能が詳細すぎてかえってわかりにくくなっている感はありますが。    そしてこれまたたまに、Pardo"
-featuredImage: "/images/wp/2022/05/saleforce-pardot.jpg"
+featuredImage: "/images/media/2022/05/saleforce-pardot.jpg"
 featuredImageAlt: ""
 draft: false
 categories:

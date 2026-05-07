@@ -7,7 +7,7 @@ lang: "en"
 translationKey: "marketing-data-integration"
 modified: "2026-03-18T01:24:01"
 description: "A consulting firm's advanced Marketo setup had grown too complex to manage. System fragmentation and single-person dependency made it impossible to connect marketing activity to outcomes."
-featuredImage: "/images/wp/2026/02/apex-virtual-education-KNQUEQwTCY4-unsplash-scaled.jpg"
+featuredImage: "/images/media/2026/02/apex-virtual-education-KNQUEQwTCY4-unsplash-scaled.jpg"
 featuredImageAlt: ""
 draft: false
 ---

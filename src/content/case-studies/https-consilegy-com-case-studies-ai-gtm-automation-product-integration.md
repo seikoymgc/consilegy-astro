@@ -7,7 +7,7 @@ lang: "en"
 translationKey: "ai-gtm-automation"
 modified: "2026-03-18T19:22:22"
 description: "A consulting firm launching a new AI product had unclear positioning, no CRM infrastructure, and a three-person marketing team. Strategy and infrastructure had to be built simultaneously."
-featuredImage: "/images/wp/2026/03/s-o-c-i-a-l-c-u-t-1RT4txDDAbM-unsplash.jpg"
+featuredImage: "/images/media/2026/03/s-o-c-i-a-l-c-u-t-1RT4txDDAbM-unsplash.jpg"
 featuredImageAlt: ""
 draft: false
 ---

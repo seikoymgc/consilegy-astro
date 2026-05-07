@@ -6,7 +6,7 @@ sourceUrl: "https://consilegy.com/marketing/marketing-automation-tool/"
 pubDate: "2025-04-22T17:29:48"
 updatedDate: "2025-04-22T18:51:01"
 description: " マーケティングオートメーション（MA）ツールとは？営業活動の自動化や顧客データの一元管理を実現する、デジタルマーケティングに不可欠なプラットフォームです。   本記事では、2025年におすすめのMAツール5選を徹底比較・解説します。   マーケティングオートメーション（MA）ツールを選ぶ基準って？"
-featuredImage: "/images/wp/2025/04/MarketingAutomation.jpg"
+featuredImage: "/images/media/2025/04/MarketingAutomation.jpg"
 featuredImageAlt: ""
 draft: false
 categories:

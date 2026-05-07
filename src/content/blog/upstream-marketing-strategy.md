@@ -6,7 +6,7 @@ sourceUrl: "https://consilegy.com/marketing/upstream-marketing-strategy/"
 pubDate: "2025-01-16T21:18:11"
 updatedDate: "2025-03-20T19:29:47"
 description: " 企業の成長を考えるうえで欠かせないのが「マーケティング戦略」の立案です。特に、SNS運用や広告配信などの“下流”の施策に目が行きがちですが、その前段階である“上流戦略”を固めておくことこそが、成果に大きく影響します。    なぜなら、この上流工程で「ビジネスゴール」「顧客・市場の理解」「施策の優先"
-featuredImage: "/images/wp/2025/01/image.jpg"
+featuredImage: "/images/media/2025/01/image.jpg"
 featuredImageAlt: ""
 draft: false
 categories:

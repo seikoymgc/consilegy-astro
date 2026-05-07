@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import WPPageLayout from '../layouts/WPPageLayout.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 
 export async function getStaticPaths() {
   // Must be defined inside getStaticPaths — Astro runs this in a separate context
@@ -57,6 +57,6 @@ const slug = Astro.params.slug ?? '';
 const lang = slug === 'en' || slug.startsWith('en/') ? 'en' : 'ja';
 ---
 
-<WPPageLayout title={title} description={description} lang={lang}>
+<PageLayout title={title} description={description} lang={lang}>
   <div set:html={htmlContent} />
-</WPPageLayout>
+</PageLayout>

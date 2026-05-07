@@ -7,7 +7,7 @@ lang: "en"
 translationKey: "ec-subscription-ltv"
 modified: "2026-03-18T00:40:45"
 description: "A major enterprise launching a subscription e-commerce business had no visibility into which acquisition channels drove revenue or which users would retain. Decisions were data-poor close to launch."
-featuredImage: "/images/wp/2026/02/sumup-ShB9pI4mpRg-unsplash-scaled.jpg"
+featuredImage: "/images/media/2026/02/sumup-ShB9pI4mpRg-unsplash-scaled.jpg"
 featuredImageAlt: ""
 draft: false
 ---

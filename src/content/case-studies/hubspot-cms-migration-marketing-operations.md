@@ -7,7 +7,7 @@ lang: "ja"
 translationKey: "hubspot-cms-migration"
 modified: "2026-03-18T00:52:15"
 description: " 項目内容導入ツールHubSpot (Content Hub / Marketing Hub)主な課題運用の硬直化、施策実行の遅延、開発依存業界小売（グローバルDTCブランド）導入時期 / 期間2025年 Q2 / 1ヶ月従業員数約20,000名支援内容CMS移行・マーケティング自動化基盤の構築・内"
-featuredImage: "/images/wp/2026/02/campaign-creators-OGOWDVLbMSc-unsplash-scaled.jpg"
+featuredImage: "/images/media/2026/02/campaign-creators-OGOWDVLbMSc-unsplash-scaled.jpg"
 featuredImageAlt: ""
 draft: false
 ---

@@ -7,7 +7,7 @@ lang: "en"
 translationKey: "hubspot-sales-handoff"
 modified: "2026-03-18T02:21:52"
 description: "Lead volume was growing but marketing and sales were misaligned. No shared handoff criteria meant high-potential leads were missed and low-quality ones consumed sales capacity."
-featuredImage: "/images/wp/2026/02/dx.png"
+featuredImage: "/images/media/2026/02/dx.png"
 featuredImageAlt: ""
 draft: false
 ---

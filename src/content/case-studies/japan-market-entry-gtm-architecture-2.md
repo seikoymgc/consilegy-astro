@@ -7,7 +7,7 @@ lang: "ja"
 translationKey: "japan-market-entry-gtm"
 modified: "2026-03-18T01:48:25"
 description: " 項目内容主な課題意思決定との乖離、検討情報の不足、営業接続の断絶業界IT（グローバルEC・テクノロジー企業）売上規模20兆円（グローバル）導入時期 / 期間2023年4月〜 / 6ヶ月従業員数約120,000名支援内容日本市場参入戦略（GTM）策定・LPアーキテクチャ設計    プロジェクト背景 "
-featuredImage: "/images/wp/2026/02/jackie-alexander-tV79ff0YlXM-unsplash-scaled.jpg"
+featuredImage: "/images/media/2026/02/jackie-alexander-tV79ff0YlXM-unsplash-scaled.jpg"
 featuredImageAlt: ""
 draft: false
 ---

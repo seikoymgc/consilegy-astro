@@ -6,7 +6,7 @@ sourceUrl: "https://consilegy.com/marketing/https-seikoyamaguchi-com-googleanaly
 pubDate: "2025-01-30T17:00:08"
 updatedDate: "2025-02-17T16:11:22"
 description: " デジタルマーケティングを成功に導くうえで「データドリブン」というキーワードが欠かせなくなって久しいですね。    Webサイトへのアクセス解析やユーザー行動の把握には、さまざまなツールを使うことが可能ですが、その代表格として多くの企業やマーケターが頼りにしているのがGoogleアナリティクスです。"
-featuredImage: "/images/wp/2025/01/google-analytics.jpg"
+featuredImage: "/images/media/2025/01/google-analytics.jpg"
 featuredImageAlt: ""
 draft: false
 categories:

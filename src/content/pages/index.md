@@ -6,7 +6,7 @@ sourceUrl: "https://consilegy.com/"
 status: "publish"
 modified: "2026-05-04T01:53:03"
 description: "     ━━We don’t hand off. We stay until it works.    導入して終わりにしない。成果が出る運用まで伴走する。    戦略と現場をつなぎ、マーケティングから継続収益までを、構造として一気通貫で設計・実装します。                     "
-featuredImage: "/images/wp/2026/03/cover.png"
+featuredImage: "/images/media/2026/03/cover.png"
 featuredImageAlt: ""
 draft: false
 hasShortcodes: true

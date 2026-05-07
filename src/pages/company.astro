@@ -283,7 +283,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				登記情報および基本情報は以下の通りです。
 				取材・パートナーシップに関するお問い合わせもこちらからお願いいたします。
 			</p>
-			<p class="company-name-origin">consulting, strategy, synergy の思想をもとにした造語。企業の成長戦略を、現場で機能する仕組みへ変え、組織と顧客の接点に一貫性を生み出す——その思想を込めた名前です。</p>
+			<div class="company-name-origin">
+				<span class="company-name-origin__label">社名の由来</span>
+				<p>consulting, strategy, synergy の思想をもとにした造語。企業の成長戦略を、現場で機能する仕組みへ変え、組織と顧客の接点に一貫性を生み出す——その思想を込めた名前です。</p>
+			</div>
 		</div>
 		<div class="company-table">
 			<dl>
@@ -589,7 +592,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	margin-top: 1.75rem; padding: 1.125rem 1.25rem;
 	background: var(--color-bg); border: 1px solid var(--color-border);
 	border-left: 3px solid var(--color-primary); border-radius: 0 6px 6px 0;
-	font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.85;
+}
+.company-name-origin__label {
+	display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+	text-transform: uppercase; color: var(--color-primary); margin-bottom: 0.5rem;
+}
+.company-name-origin p {
+	font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.85; margin: 0;
 }
 .company-table {
 	background: var(--color-bg); border: 1px solid var(--color-border);

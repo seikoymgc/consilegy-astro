@@ -62,6 +62,17 @@ const breadcrumbSchema = {
 
 	<!-- ===== ARTICLE BODY ===== -->
 	<article class="article-body container" id="article">
+		<div class="article-eyecatch">
+			<img
+				src="/images/insights/why-dashboards-do-not-improve-executive-decisions.svg"
+				alt=""
+				width="1200"
+				height="630"
+				class="article-eyecatch__img"
+				loading="eager"
+				aria-hidden="true"
+			/>
+		</div>
 
 		<!-- はじめに -->
 		<section class="article-section">
@@ -343,6 +354,17 @@ const breadcrumbSchema = {
 </div>
 
 <style>
+	/* ── Eyecatch ─── */
+	.article-eyecatch {
+		margin-bottom: 2rem;
+		border-radius: 8px;
+		overflow: hidden;
+		max-height: 360px;
+	}
+	.article-eyecatch__img {
+		width: 100%; height: auto; display: block;
+		max-height: 360px; object-fit: cover;
+	}
 /* ===== LAYOUT ===== */
 .article-wrap { background: #fff; }
 .container { max-width: 780px; margin: 0 auto; padding: 0 24px; }

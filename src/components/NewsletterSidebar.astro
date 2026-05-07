@@ -4,7 +4,7 @@ import HubSpotForm from './HubSpotForm.astro';
 
 <aside class="nl-sidebar">
 	<div class="nl-box">
-		<p class="nl-eyebrow">NEWSLETTER</p>
+		<p class="nl-eyebrow">ニュースレター</p>
 		<h2 class="nl-title">次世代B2Bレベニュー戦略バイブル</h2>
 		<p class="nl-desc">日本初のRevenue Architecture実践メディア。売上が伸びる収益構造の設計から、CRM・MA・SFA導入、RevOps定着まで。マーケ・営業・CSを一つの収益エンジンにつなぐ実践知を、Consilegy代表・山口聖子がお届け。</p>
 		<HubSpotForm portalId="46498743" formId="9a3f7149-ace5-4364-8969-4d487a53faf5" region="na2" />
@@ -26,8 +26,13 @@ import HubSpotForm from './HubSpotForm.astro';
 .article-wrap .article-head {
 	grid-column: 1 / -1;
 	grid-row: 1;
-	max-width: none;
-	padding-inline: 0;
+}
+/* override local scoped .container constraints on the header */
+.article-wrap .article-head.container,
+.article-wrap .article-head {
+	max-width: none !important;
+	padding-inline: 0 !important;
+	margin-inline: 0 !important;
 }
 /* override each article's local .container constraint on the body */
 .article-wrap .article-body.container {

@@ -42,6 +42,14 @@ const services = [
   lang="en"
   alternateUrl="/services/"
 >
+<script type="application/ld+json" slot="head" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://consilegy.com/en/"},
+    {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://consilegy.com/en/services/"}
+  ]
+})} />
 
   <section class="sv-hero">
     <div class="container sv-hero__inner">

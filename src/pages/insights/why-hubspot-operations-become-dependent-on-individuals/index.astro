@@ -62,6 +62,17 @@ const breadcrumbSchema = {
 
 	<!-- ===== ARTICLE BODY ===== -->
 	<div class="article-body container">
+		<div class="article-eyecatch">
+			<img
+				src="/images/insights/why-hubspot-operations-become-dependent-on-individuals.svg"
+				alt=""
+				width="1200"
+				height="630"
+				class="article-eyecatch__img"
+				loading="eager"
+				aria-hidden="true"
+			/>
+		</div>
 
 		<div class="article-section">
 			<p>HubSpotを導入し、ワークフローも増え、フォームもスコアリングも作った。しかし気づくと「この設定、誰も分からない」状態になっている。これは日本のBtoB企業で非常によく起きています。MA導入・インサイドセールス立ち上げ・マーケティング強化のタイミングで、HubSpot運用の属人化が急激に進みます。特定担当者しか触れない、ワークフローがブラックボックス、プロパティが乱立、Salesforce連携が不明、退職すると誰も分からない——この状況は日本のBtoB企業に広く共通しています。</p>
@@ -333,6 +344,17 @@ const breadcrumbSchema = {
 </div><!-- /.article-wrap -->
 
 <style>
+	/* ── Eyecatch ─── */
+	.article-eyecatch {
+		margin-bottom: 2rem;
+		border-radius: 8px;
+		overflow: hidden;
+		max-height: 360px;
+	}
+	.article-eyecatch__img {
+		width: 100%; height: auto; display: block;
+		max-height: 360px; object-fit: cover;
+	}
 /* ===== LAYOUT ===== */
 .article-wrap { background: #fff; padding-bottom: 80px; }
 .container { max-width: 780px; margin: 0 auto; padding: 0 24px; }

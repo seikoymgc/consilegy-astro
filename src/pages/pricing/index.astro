@@ -7,6 +7,95 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 	description="診断パッケージ（10〜50万円）、マルチCRM再設計プロジェクト（300〜800万円）、伴走・顧問支援（月額30〜100万円）。目的に応じて選べる3つのプランをご用意しています。"
 	lang="ja"
 >
+<script type="application/ld+json" slot="head" set:html={JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://consilegy.com/"},
+		{"@type": "ListItem", "position": 2, "name": "パッケージ料金", "item": "https://consilegy.com/pricing/"}
+	]
+})} />
+<script type="application/ld+json" slot="head" set:html={JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "WebPage",
+	"@id": "https://consilegy.com/pricing/#webpage",
+	"url": "https://consilegy.com/pricing/",
+	"name": "パッケージ料金 | Consilegy",
+	"description": "診断パッケージ（10〜50万円）、マルチCRM再設計プロジェクト（300〜800万円）、伴走・顧問支援（月額30〜100万円）",
+	"publisher": { "@id": "https://consilegy.com/#organization" },
+	"mainEntity": {
+		"@type": "ItemList",
+		"name": "Consilegy サービスプラン一覧",
+		"itemListElement": [
+			{
+				"@type": "ListItem",
+				"position": 1,
+				"item": {
+					"@type": "Service",
+					"name": "簡易診断",
+					"description": "現状のヒアリングと課題仮説の提示。オンラインMTG数回とレポート作成に絞った入口商品。",
+					"provider": { "@id": "https://consilegy.com/#organization" },
+					"offers": { "@type": "Offer", "priceCurrency": "JPY", "priceRange": "¥100,000〜¥150,000" }
+				}
+			},
+			{
+				"@type": "ListItem",
+				"position": 2,
+				"item": {
+					"@type": "Service",
+					"name": "詳細診断",
+					"description": "CRM / SFA / MA運用とデータ構造のフルレビュー。ボトルネックの根拠と再設計ロードマップを提示。",
+					"provider": { "@id": "https://consilegy.com/#organization" },
+					"offers": { "@type": "Offer", "priceCurrency": "JPY", "priceRange": "¥300,000〜¥500,000" }
+				}
+			},
+			{
+				"@type": "ListItem",
+				"position": 3,
+				"item": {
+					"@type": "Service",
+					"name": "マルチCRM再設計プロジェクト",
+					"description": "Salesforce / HubSpot / Kintone / Marketoなど複数ツールが混在する収益オペレーションを再設計。営業プロセス・データモデル・KPI基盤を一体で再構築。",
+					"provider": { "@id": "https://consilegy.com/#organization" },
+					"offers": { "@type": "Offer", "priceCurrency": "JPY", "priceRange": "¥3,000,000〜¥8,000,000" }
+				}
+			},
+			{
+				"@type": "ListItem",
+				"position": 4,
+				"item": {
+					"@type": "Service",
+					"name": "ライト伴走支援",
+					"description": "月1〜2回の定例会とダッシュボード改善アドバイスを中心とした月額伴走支援。",
+					"provider": { "@id": "https://consilegy.com/#organization" },
+					"offers": { "@type": "Offer", "priceCurrency": "JPY", "priceRange": "¥300,000〜¥400,000/月" }
+				}
+			},
+			{
+				"@type": "ListItem",
+				"position": 5,
+				"item": {
+					"@type": "Service",
+					"name": "スタンダード伴走支援",
+					"description": "営業・マーケ・CS各部門への定例伴走。KPIレビューからレポート改善・施策優先順位づけまで対応。",
+					"provider": { "@id": "https://consilegy.com/#organization" },
+					"offers": { "@type": "Offer", "priceCurrency": "JPY", "priceRange": "¥500,000〜¥800,000/月" }
+				}
+			},
+			{
+				"@type": "ListItem",
+				"position": 6,
+				"item": {
+					"@type": "Service",
+					"name": "フル伴走支援",
+					"description": "施策の設計・実行まで入り込む最も深い関与。部門間調整や改善プロジェクトのリードまで担当。",
+					"provider": { "@id": "https://consilegy.com/#organization" },
+					"offers": { "@type": "Offer", "priceCurrency": "JPY", "priceRange": "¥800,000〜/月" }
+				}
+			}
+		]
+	}
+})} />
 
 <!-- ===================== HERO ===================== -->
 <section class="hero">

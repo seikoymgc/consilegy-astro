@@ -20,14 +20,73 @@ const { alternateUrl: altProp, ...seo } = Astro.props;
 const htmlLang = seo.lang ?? 'ja';
 const pathname = Astro.url.pathname;
 const alternateUrl = altProp ?? getAlternateUrl(pathname, htmlLang as 'ja' | 'en');
+
+const site = Astro.site ?? new URL('https://consilegy.com');
+const canonicalHref = new URL(pathname, site).href;
+const alternateHref = alternateUrl.startsWith('http')
+	? alternateUrl
+	: new URL(alternateUrl, site).href;
+const alternateLang = htmlLang === 'ja' ? 'en' : 'ja';
+const xDefaultHref = new URL('/en/', site).href;
 ---
 
 <!doctype html>
 <html lang={htmlLang}>
 	<head>
 		<SEO {...seo} />
+		<link rel="alternate" hreflang={htmlLang} href={canonicalHref} />
+		<link rel="alternate" hreflang={alternateLang} href={alternateHref} />
+		<link rel="alternate" hreflang="x-default" href={xDefaultHref} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<script type="application/ld+json" set:html={JSON.stringify([
+			{
+				"@context": "https://schema.org",
+				"@type": ["Organization", "ProfessionalService"],
+				"@id": "https://consilegy.com/#organization",
+				"name": "Consilegy合同会社",
+				"alternateName": ["Consilegy LLC", "コンシレジー"],
+				"url": "https://consilegy.com",
+				"logo": {
+					"@type": "ImageObject",
+					"url": "https://consilegy.com/images/common/consilegy-logo.svg"
+				},
+				"description": "営業・マーケティング・CSをつなぐ収益構造の設計と実装を支援するRevenue Architecture設計会社。CRM・SFA・MA再設計、HubSpot導入・運用支援、B2B GTM設計を提供。",
+				"foundingDate": "2025-05-12",
+				"founder": {
+					"@type": "Person",
+					"@id": "https://consilegy.com/company/#founder",
+					"name": "山口 聖子",
+					"alternateName": "Seiko Yamaguchi",
+					"jobTitle": "Founder / Revenue Architect"
+				},
+				"address": {
+					"@type": "PostalAddress",
+					"streetAddress": "北青山1丁目3番1号 アールキューブ青山3階",
+					"addressLocality": "港区",
+					"addressRegion": "東京都",
+					"postalCode": "107-0061",
+					"addressCountry": "JP"
+				},
+				"email": "info@consilegy.com",
+				"areaServed": ["JP"],
+				"knowsLanguage": ["ja", "en"],
+				"serviceType": ["Revenue Architecture Design", "CRM Implementation", "RevOps Consulting", "HubSpot Implementation", "B2B GTM Strategy"],
+				"sameAs": [
+					"https://www.linkedin.com/company/consilegy",
+					"https://note.com/consilegy"
+				]
+			},
+			{
+				"@context": "https://schema.org",
+				"@type": "WebSite",
+				"@id": "https://consilegy.com/#website",
+				"url": "https://consilegy.com",
+				"name": "Consilegy",
+				"publisher": { "@id": "https://consilegy.com/#organization" },
+				"inLanguage": ["ja", "en"]
+			}
+		])} />
 		<slot name="head" />
 	</head>
 	<body>

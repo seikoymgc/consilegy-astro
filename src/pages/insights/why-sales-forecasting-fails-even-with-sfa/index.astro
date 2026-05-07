@@ -62,6 +62,17 @@ const breadcrumbSchema = {
 
 	<!-- ===== ARTICLE BODY ===== -->
 	<article class="article-body container" id="article">
+		<div class="article-eyecatch">
+			<img
+				src="/images/insights/why-sales-forecasting-fails-even-with-sfa.svg"
+				alt=""
+				width="1200"
+				height="630"
+				class="article-eyecatch__img"
+				loading="eager"
+				aria-hidden="true"
+			/>
+		</div>
 
 		<!-- はじめに -->
 		<section class="article-section">
@@ -374,6 +385,17 @@ const breadcrumbSchema = {
 </BaseLayout>
 
 <style>
+	/* ── Eyecatch ─── */
+	.article-eyecatch {
+		margin-bottom: 2rem;
+		border-radius: 8px;
+		overflow: hidden;
+		max-height: 360px;
+	}
+	.article-eyecatch__img {
+		width: 100%; height: auto; display: block;
+		max-height: 360px; object-fit: cover;
+	}
 	/* ── Layout ────────────────────────────────────────────── */
 	.article-wrap { background: #fff; }
 

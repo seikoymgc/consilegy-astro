@@ -62,6 +62,17 @@ const breadcrumbSchema = {
 
 	<!-- ===== ARTICLE BODY ===== -->
 	<div class="article-body container">
+		<div class="article-eyecatch">
+			<img
+				src="/images/insights/why-sfa-becomes-just-a-pipeline-sheet.svg"
+				alt=""
+				width="1200"
+				height="630"
+				class="article-eyecatch__img"
+				loading="eager"
+				aria-hidden="true"
+			/>
+		</div>
 
 		<div class="article-section">
 			<p>Salesforceを導入し、案件管理を始め、商談ステージも作った。それなのに結局「Excelの案件管理表がWeb化しただけ」になっている。商談は入力されていて金額もステージ管理もある。それでもForecastは当たらず、ボトルネックが見えず、営業改善につながらず、会議は長く、Excelが残り続ける。つまり、SFAが「Revenue改善装置」になっていません。</p>
@@ -315,6 +326,17 @@ const breadcrumbSchema = {
 </div><!-- /.article-wrap -->
 
 <style>
+	/* ── Eyecatch ─── */
+	.article-eyecatch {
+		margin-bottom: 2rem;
+		border-radius: 8px;
+		overflow: hidden;
+		max-height: 360px;
+	}
+	.article-eyecatch__img {
+		width: 100%; height: auto; display: block;
+		max-height: 360px; object-fit: cover;
+	}
 /* ===== LAYOUT ===== */
 .article-wrap { background: #fff; padding-bottom: 80px; }
 .container { max-width: 780px; margin: 0 auto; padding: 0 24px; }

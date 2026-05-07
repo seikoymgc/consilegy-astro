@@ -83,7 +83,7 @@ const showLede = !hideLede && !!base.description;
 	}
 
 	.article__header-inner {
-		max-width: 760px;
+		/* no inner max-width: aligns to the same left edge as article__body */
 	}
 
 	.article__back {
@@ -116,6 +116,7 @@ const showLede = !hideLede && !!base.description;
 		letter-spacing: -0.03em;
 		line-height: 1.25;
 		color: var(--color-text);
+		max-width: 760px;
 	}
 
 	.article__lede {
@@ -129,13 +130,11 @@ const showLede = !hideLede && !!base.description;
 	/* Body */
 	.article__body {
 		padding-block: var(--space-xl) var(--space-2xl);
-		/* Constrain reading width while allowing full-width WP tables to scroll */
-		max-width: 820px;
 	}
 
 	/* Constrain inner .wp-content to reading width, but let scrollable table wrappers break out */
 	.article__body :global(.wp-content) {
-		max-width: 65ch;
+		max-width: 720px;
 	}
 
 	.article__body :global(.wp-content .wp-block-table),

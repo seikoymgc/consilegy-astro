@@ -62,6 +62,17 @@ const breadcrumbSchema = {
 
 	<!-- ===== ARTICLE BODY ===== -->
 	<div class="article-body container">
+		<div class="article-eyecatch">
+			<img
+				src="/images/insights/why-salesforce-implementations-fail.svg"
+				alt=""
+				width="1200"
+				height="630"
+				class="article-eyecatch__img"
+				loading="eager"
+				aria-hidden="true"
+			/>
+		</div>
 
 		<div class="article-section">
 			<p>Salesforceを導入した。数百万円、時には数千万円をかけた。外部ベンダーも入った。しかし数ヶ月後、営業が入力しない、ダッシュボードが見られない、Excel運用が残る、Forecastが当たらない、商談ステージが崩壊している——という状況になっていないでしょうか。営業組織の拡大・マネージャー増加・KPI管理強化のタイミングでSalesforce導入が始まり、その後「運用崩壊」が発生するパターンは日本のBtoB企業で非常によく起きています。</p>
@@ -330,6 +341,17 @@ const breadcrumbSchema = {
 </div><!-- /.article-wrap -->
 
 <style>
+	/* ── Eyecatch ─── */
+	.article-eyecatch {
+		margin-bottom: 2rem;
+		border-radius: 8px;
+		overflow: hidden;
+		max-height: 360px;
+	}
+	.article-eyecatch__img {
+		width: 100%; height: auto; display: block;
+		max-height: 360px; object-fit: cover;
+	}
 /* ===== LAYOUT ===== */
 .article-wrap { background: #fff; }
 .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }

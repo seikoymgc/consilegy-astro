@@ -62,6 +62,17 @@ const breadcrumbSchema = {
 
 	<!-- ===== ARTICLE BODY ===== -->
 	<div class="article-body container">
+		<div class="article-eyecatch">
+			<img
+				src="/images/insights/why-sales-forecasting-fails.svg"
+				alt=""
+				width="1200"
+				height="630"
+				class="article-eyecatch__img"
+				loading="eager"
+				aria-hidden="true"
+			/>
+		</div>
 
 		<div class="article-section">
 			<p>月末に数字が崩れる、案件が突然消える、「今月いけます」が外れる、経営が数字を信用していない——これは日本のBtoB企業で非常によく起きています。CRM導入が進み、マネージャー層が増えるタイミングで、Forecast問題が深刻化します。多くの場合、企業は「もっと入力を徹底しよう」と考えます。しかし<strong>問題は入力不足だけではありません</strong>。本当の原因は、Revenueが予測できる構造が設計されていないことにあります。</p>
@@ -334,6 +345,17 @@ const breadcrumbSchema = {
 </div><!-- /.article-wrap -->
 
 <style>
+	/* ── Eyecatch ─── */
+	.article-eyecatch {
+		margin-bottom: 2rem;
+		border-radius: 8px;
+		overflow: hidden;
+		max-height: 360px;
+	}
+	.article-eyecatch__img {
+		width: 100%; height: auto; display: block;
+		max-height: 360px; object-fit: cover;
+	}
 /* ===== LAYOUT ===== */
 .article-wrap { background: #fff; padding-bottom: 80px; }
 .container { max-width: 780px; margin: 0 auto; padding: 0 24px; }

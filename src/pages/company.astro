@@ -7,6 +7,32 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	description="Consilegy（コンシレジー）合同会社の会社概要。Revenue Architecture設計会社として、戦略・構造設計・実装・定着を一貫して支援します。"
 	lang="ja"
 >
+<script type="application/ld+json" slot="head" set:html={JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://consilegy.com/"},
+		{"@type": "ListItem", "position": 2, "name": "会社情報", "item": "https://consilegy.com/company/"}
+	]
+})} />
+<script type="application/ld+json" slot="head" set:html={JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "Person",
+	"@id": "https://consilegy.com/company/#founder",
+	"name": "山口 聖子",
+	"alternateName": "Seiko Yamaguchi",
+	"jobTitle": "Founder / Revenue Architect",
+	"worksFor": { "@id": "https://consilegy.com/#organization" },
+	"url": "https://consilegy.com/company/",
+	"image": "https://consilegy.com/images/common/seiko-yamaguchi.jpg",
+	"knowsAbout": ["Revenue Architecture", "RevOps", "CRM Implementation", "HubSpot", "Salesforce", "B2B Marketing", "MA", "SFA"],
+	"hasCredential": [
+		{ "@type": "EducationalOccupationalCredential", "name": "HubSpot Marketing Software 認定" },
+		{ "@type": "EducationalOccupationalCredential", "name": "Google Analytics 認定" },
+		{ "@type": "EducationalOccupationalCredential", "name": "PMBOK準拠プロジェクトマネジメント" }
+	],
+	"sameAs": ["https://www.linkedin.com/company/consilegy"]
+})} />
 
 <!-- ===================== HERO ===================== -->
 <section class="hero">
@@ -198,14 +224,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 						<li>プロジェクトマネジメント</li>
 					</ul>
 				</div>
-				<div>
-					<h5>認定・資格</h5>
-					<ul>
-						<li>G検定（ジェネラリスト検定）</li>
-						<li>HubSpot Marketing Software 認定</li>
-						<li>Google アナリティクス個人認定資格 (GAIQ)</li>
-						<li>Shopify Theme Development</li>
-					</ul>
+			</div>
+			<div class="founder-certs">
+				<h5 class="founder-certs__heading">認定・資格</h5>
+				<div class="founder-certs__badges">
+					<span class="cert-badge cert-badge--hubspot">HubSpot Marketing Software 認定</span>
+					<span class="cert-badge cert-badge--google">Google アナリティクス個人認定（GAIQ）</span>
+					<span class="cert-badge cert-badge--google">Google 広告認定（検索・ディスプレイ・動画・ショッピング・測定）</span>
+					<span class="cert-badge cert-badge--g">G検定（ジェネラリスト検定）</span>
+					<span class="cert-badge cert-badge--shopify">Shopify Theme Development</span>
 				</div>
 			</div>
 		</div>
@@ -527,6 +554,37 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 .founder-meta li::before {
 	content: ""; flex-shrink: 0; width: 5px; height: 5px; border-radius: 50%;
 	background: var(--color-primary); margin-top: 0.7em;
+}
+
+/* ── Certification Badges ───────────────────────────── */
+.founder-certs {
+	margin-top: 1.75rem;
+}
+.founder-certs__heading {
+	font-size: 0.75rem; font-weight: 600; color: var(--color-text-muted);
+	letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 0.875rem;
+	padding-bottom: 0.5rem; border-bottom: 1px solid var(--color-border);
+}
+.founder-certs__badges {
+	display: flex; flex-wrap: wrap; gap: 0.5rem;
+}
+.cert-badge {
+	display: inline-flex; align-items: center; gap: 0.375rem;
+	font-size: 0.8125rem; font-weight: 600;
+	padding: 0.375rem 0.875rem; border-radius: 5px;
+	border: 1px solid transparent;
+}
+.cert-badge--hubspot {
+	background: #fff4ee; color: #c05a1f; border-color: #f9c5a7;
+}
+.cert-badge--google {
+	background: #f0f5ff; color: #1e40af; border-color: #bfdbfe;
+}
+.cert-badge--g {
+	background: #f0fdf4; color: #166534; border-color: #bbf7d0;
+}
+.cert-badge--shopify {
+	background: #f0fdf4; color: #1a6b41; border-color: #6ee7b7;
 }
 
 /* ── Track Record ────────────────────────────────────── */

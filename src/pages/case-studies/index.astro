@@ -15,6 +15,14 @@ const cases = (await getCollection('caseStudies'))
 	title="導入事例 | Consilegy"
 	description="マーケティングオペレーションと収益構造の設計・実装における支援事例。業種・フェーズ問わず、データとプロセスの設計を軸に伴走しています。"
 >
+<script type="application/ld+json" slot="head" set:html={JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://consilegy.com/"},
+		{"@type": "ListItem", "position": 2, "name": "導入事例", "item": "https://consilegy.com/case-studies/"}
+	]
+})} />
 	<PageHero
 		eyebrow="Case Studies"
 		title="導入事例"

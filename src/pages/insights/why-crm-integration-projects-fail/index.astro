@@ -62,6 +62,17 @@ const breadcrumbSchema = {
 
 	<!-- ===== ARTICLE BODY ===== -->
 	<div class="article-body container">
+		<div class="article-eyecatch">
+			<img
+				src="/images/insights/why-crm-integration-projects-fail.svg"
+				alt=""
+				width="1200"
+				height="630"
+				class="article-eyecatch__img"
+				loading="eager"
+				aria-hidden="true"
+			/>
+		</div>
 
 		<div class="article-section">
 			<p>SalesforceとHubSpotを両方使いながら、KintoneやExcel、BI、会計システム、Slackも存在している。そして経営から「全部つなげたい」という話が出る。これは多くのBtoB企業で繰り返されている光景です。部門ごとにツール導入が進み、SaaSが増え、データが分断された結果、「CRM統合プロジェクト」が始まります。</p>
@@ -379,6 +390,17 @@ const breadcrumbSchema = {
 </div><!-- /.article-wrap -->
 
 <style>
+	/* ── Eyecatch ─── */
+	.article-eyecatch {
+		margin-bottom: 2rem;
+		border-radius: 8px;
+		overflow: hidden;
+		max-height: 360px;
+	}
+	.article-eyecatch__img {
+		width: 100%; height: auto; display: block;
+		max-height: 360px; object-fit: cover;
+	}
 /* ===== LAYOUT ===== */
 .article-wrap { background: #fff; padding-bottom: 80px; }
 .container { max-width: 780px; margin: 0 auto; padding: 0 24px; }

@@ -24,6 +24,14 @@ function slugFor(entry: (typeof cases)[number]) {
 	description="Revenue operations and go-to-market execution case studies. We help global B2B teams design and implement structures that actually work in Japan."
 	lang="en"
 >
+<script type="application/ld+json" slot="head" set:html={JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://consilegy.com/en/"},
+		{"@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://consilegy.com/en/case-studies/"}
+	]
+})} />
 	<PageHero
 		eyebrow="Case Studies"
 		title="Case Studies"

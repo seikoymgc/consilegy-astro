@@ -62,6 +62,17 @@ const breadcrumbSchema = {
 
 	<!-- ===== ARTICLE BODY ===== -->
 	<div class="article-body container">
+		<div class="article-eyecatch">
+			<img
+				src="/images/insights/what-is-revenue-data-flow.svg"
+				alt=""
+				width="1200"
+				height="630"
+				class="article-eyecatch__img"
+				loading="eager"
+				aria-hidden="true"
+			/>
+		</div>
 
 		<div class="article-section">
 			<p>SalesforceとHubSpotの数字が違う。BIとも合わない。営業資料の数字も違う。そして最終的にExcelで調整している——これは日本のBtoB企業で非常によく起きています。SaaS導入が増え、CRMが増え、部門が分かれ、KPI管理が始まるタイミングで「どの数字を信じればいいのか分からない」問題が発生します。</p>
@@ -357,6 +368,17 @@ const breadcrumbSchema = {
 </div><!-- /.article-wrap -->
 
 <style>
+	/* ── Eyecatch ─── */
+	.article-eyecatch {
+		margin-bottom: 2rem;
+		border-radius: 8px;
+		overflow: hidden;
+		max-height: 360px;
+	}
+	.article-eyecatch__img {
+		width: 100%; height: auto; display: block;
+		max-height: 360px; object-fit: cover;
+	}
 /* ===== LAYOUT ===== */
 .article-wrap { background: #fff; padding-bottom: 80px; }
 .container { max-width: 780px; margin: 0 auto; padding: 0 24px; }

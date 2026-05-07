@@ -9,6 +9,33 @@ import CTA from '../../components/CTA.astro';
   lang="en"
   alternateUrl="/company/"
 >
+<script type="application/ld+json" slot="head" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://consilegy.com/en/"},
+    {"@type": "ListItem", "position": 2, "name": "About", "item": "https://consilegy.com/en/company/"}
+  ]
+})} />
+<script type="application/ld+json" slot="head" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://consilegy.com/company/#founder",
+  "name": "Seiko Yamaguchi",
+  "alternateName": "山口 聖子",
+  "jobTitle": "Founder / Revenue Architect",
+  "worksFor": { "@id": "https://consilegy.com/#organization" },
+  "url": "https://consilegy.com/en/company/",
+  "image": "https://consilegy.com/images/common/seiko-yamaguchi.jpg",
+  "knowsLanguage": ["ja", "en"],
+  "knowsAbout": ["Revenue Architecture", "RevOps", "Japan GTM", "CRM Implementation", "HubSpot", "Salesforce", "B2B Marketing"],
+  "hasCredential": [
+    { "@type": "EducationalOccupationalCredential", "name": "HubSpot Marketing Software Certification" },
+    { "@type": "EducationalOccupationalCredential", "name": "Google Analytics Certification" },
+    { "@type": "EducationalOccupationalCredential", "name": "Shopify Partner Certification" }
+  ],
+  "sameAs": ["https://www.linkedin.com/company/consilegy"]
+})} />
 
   <!-- Hero -->
   <section class="ab-hero">
@@ -89,6 +116,37 @@ import CTA from '../../components/CTA.astro';
     </div>
   </section>
 
+  <!-- Track Record -->
+  <section class="ab-track">
+    <div class="container ab-track__inner">
+      <h2 class="ab-section-label">Track Record</h2>
+      <p class="ab-track__lead">10+ years, 30+ engagements across SaaS, consulting, healthcare, retail, entertainment, and cross-border B2B.</p>
+      <div class="ab-track__grid">
+        <div class="ab-track__card">
+          <p class="ab-track__cat">Revenue Architecture / CRM / Data Infrastructure</p>
+          <div class="ab-track__tags">
+            <span class="ab-track__tag">Nishikawa Co., Ltd.</span>
+            <span class="ab-track__tag">elife Inc.</span>
+            <span class="ab-track__tag">Alibaba Japan</span>
+            <span class="ab-track__tag">Kaizen Platform</span>
+          </div>
+        </div>
+        <div class="ab-track__card">
+          <p class="ab-track__cat">Marketing Strategy / Project Management</p>
+          <div class="ab-track__tags">
+            <span class="ab-track__tag">Moloco Japan</span>
+            <span class="ab-track__tag">MSL Japan</span>
+            <span class="ab-track__tag">UCC Ueshima Coffee</span>
+            <span class="ab-track__tag">Innova Inc.</span>
+            <span class="ab-track__tag">THE MOLTS</span>
+            <span class="ab-track__tag">Sazae Pty Ltd</span>
+          </div>
+        </div>
+      </div>
+      <p class="ab-track__note">Includes representative engagements by founder Seiko Yamaguchi.</p>
+    </div>
+  </section>
+
   <!-- What we believe -->
   <section class="ab-beliefs">
     <div class="container ab-beliefs__inner">
@@ -121,7 +179,7 @@ import CTA from '../../components/CTA.astro';
       <dl class="ab-info__dl">
         <dt>Company name</dt><dd>Consilegy LLC</dd>
         <dt>Founded</dt><dd>May 2025</dd>
-        <dt>Location</dt><dd>Aoyama, Minato-ku, Tokyo, Japan</dd>
+        <dt>Location</dt><dd>〒107-0061 R-Cube Aoyama 3F, 1-3-1 Kita-Aoyama, Minato-ku, Tokyo, Japan</dd>
         <dt>Corporate number</dt><dd>2010403035111</dd>
       </dl>
     </div>
@@ -153,10 +211,6 @@ import CTA from '../../components/CTA.astro';
     padding-block: var(--space-2xl);
   }
 
-  .ab-hero__inner {
-    max-width: 760px;
-  }
-
   .ab-hero__eyebrow {
     font-size: 0.78rem;
     font-weight: 700;
@@ -173,6 +227,7 @@ import CTA from '../../components/CTA.astro';
     line-height: 1.25;
     color: var(--color-text);
     margin: 0 0 var(--space-lg);
+    max-width: 760px;
   }
 
   .ab-hero__sub {
@@ -336,6 +391,57 @@ import CTA from '../../components/CTA.astro';
   }
 
   /* ── Beliefs ───────────────────────────────────── */
+  .ab-track {
+    padding-block: var(--space-xl);
+    background: var(--color-bg);
+    border-top: 1px solid var(--color-border);
+  }
+  .ab-track__inner { max-width: 900px; }
+  .ab-track__lead {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    margin: 0.5rem 0 1.75rem;
+    line-height: 1.7;
+  }
+  .ab-track__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  .ab-track__card {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-bg-subtle);
+  }
+  .ab-track__cat {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 0.875rem;
+  }
+  .ab-track__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .ab-track__tag {
+    font-size: 0.8125rem;
+    color: var(--color-text);
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 0.25rem 0.625rem;
+  }
+  .ab-track__note {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
   .ab-beliefs {
     padding-block: var(--space-2xl);
     background: var(--color-bg-subtle);

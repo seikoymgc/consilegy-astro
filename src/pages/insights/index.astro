@@ -34,7 +34,7 @@ const articles = [
     slug: 'why-sales-and-customer-success-do-not-align',
     title: '営業とカスタマーサクセスが連携できない理由',
     desc: '営業とカスタマーサクセスが分断される原因を、KPI設計・CRM・Revenue Architectureの観点から解説します。',
-    cat: 'RevOps / Customer Success',
+    cat: 'RevOps / CS',
     date: '2026-05-07',
   },
   {
@@ -156,14 +156,28 @@ const articles = [
     cat: 'Revenue Architecture',
     date: '2026-05-07',
   },
+  {
+    slug: 'why-good-marketing-strategies-fail-to-scale',
+    title: 'なぜ「良い施策」を打っても再現性が生まれないのか',
+    desc: '一時的に成果が出ても再現性が続かない原因を、Revenue Architecture・RevOps・Revenue Visibilityの観点から解説します。',
+    cat: 'Revenue Architecture',
+    date: '2026-05-07',
+  },
+  {
+    slug: 'why-kpi-meetings-become-status-update-sessions',
+    title: 'なぜKPI会議は「数字確認会」で終わってしまうのか',
+    desc: 'KPI会議が改善につながらず、数字確認だけで終わってしまう原因を、Revenue ArchitectureとRevOpsの観点から解説します。',
+    cat: 'RevOps / KPI',
+    date: '2026-05-07',
+  },
 ];
 
-// カテゴリの色マッピング
+// カテゴリ色マップ
 const catColor: Record<string, string> = {
   'Revenue Architecture': 'cat--ra',
   'CRM / RevOps':         'cat--crm',
   'RevOps / KPI':         'cat--kpi',
-  'RevOps / Customer Success': 'cat--cs',
+  'RevOps / CS':          'cat--cs',
   'Marketing / RevOps':   'cat--mkt',
   'Marketing / Sales':    'cat--mkt',
   'BI / RevOps':          'cat--bi',
@@ -182,6 +196,10 @@ function fmtDate(iso: string) {
   const [y, m, d] = iso.split('-');
   return `${y}年${parseInt(m)}月${parseInt(d)}日`;
 }
+
+// ユニークカテゴリ（出現順）
+const allCats = articles.map(a => a.cat);
+const uniqueCats = ['すべて', ...Array.from(new Set(allCats))];
 ---
 
 <BaseLayout
@@ -193,34 +211,57 @@ function fmtDate(iso: string) {
   <!-- ===== HEADER ===== -->
   <header class="ins-head">
     <div class="container"><div class="ins-head__inner">
-      <p class="ins-head__eyebrow">Insights</p>
+      <p class="ins-head__eyebrow">コラム</p>
       <h1 class="ins-head__title">コラム</h1>
       <p class="ins-head__lede">RevOps・Revenue Architecture・CRM・KPI設計に関する実践コラム。<br class="br-pc" />日本のBtoB企業が直面する課題の構造を、実務の観点から解説します。</p>
-      <p class="ins-head__count">{articles.length}本の記事</p>
     </div></div>
   </header>
 
+  <!-- ===== FILTER ===== -->
+  <div class="ins-filter-wrap container">
+    <div class="ins-filter" role="group" aria-label="カテゴリで絞り込み">
+      {uniqueCats.map((cat) => (
+        <button
+          class={`ins-filter__btn${cat === 'すべて' ? ' is-active' : ''}`}
+          data-cat={cat}
+          type="button"
+        >{cat}</button>
+      ))}
+    </div>
+  </div>
+
   <!-- ===== GRID ===== -->
   <section class="ins-grid-wrap container">
-    <ul class="ins-grid" role="list">
+    <ul class="ins-grid" role="list" id="ins-grid">
       {articles.map((a, i) => (
-        <li class="ins-card">
+        <li class="ins-card" data-cat={a.cat}>
           <a href={`/insights/${a.slug}/`} class="ins-card__link">
-            <div class="ins-card__top">
-              <span class={`ins-card__cat ${catClass(a.cat)}`}>{a.cat}</span>
-              {i < 3 && <span class="ins-card__new">NEW</span>}
+            <div class="ins-card__thumb">
+              <img
+                src={`/images/insights/${a.slug}.svg`}
+                alt={a.cat}
+                width="1200"
+                height="630"
+                loading="lazy"
+                class="ins-card__img"
+              />
+              {i < 3 && <span class="ins-card__new">新着</span>}
             </div>
-            <h2 class="ins-card__title">{a.title}</h2>
-            <p class="ins-card__desc">{a.desc}</p>
-            <div class="ins-card__foot">
-              <span class="ins-card__date">{fmtDate(a.date)}</span>
-              <span class="ins-card__read">約10分</span>
-              <span class="ins-card__arrow" aria-hidden="true">→</span>
+            <div class="ins-card__body">
+              <span class={`ins-card__cat ${catClass(a.cat)}`}>{a.cat}</span>
+              <h2 class="ins-card__title">{a.title}</h2>
+              <p class="ins-card__desc">{a.desc}</p>
+              <div class="ins-card__foot">
+                <span class="ins-card__date">{fmtDate(a.date)}</span>
+                <span class="ins-card__read">約10分</span>
+                <span class="ins-card__arrow" aria-hidden="true">→</span>
+              </div>
             </div>
           </a>
         </li>
       ))}
     </ul>
+    <p class="ins-no-result" id="ins-no-result" hidden>該当する記事がありません。</p>
   </section>
 
   <!-- ===== CTA ===== -->
@@ -234,6 +275,28 @@ function fmtDate(iso: string) {
   </div>
 
 </div>
+
+<script>
+  const btns = document.querySelectorAll<HTMLButtonElement>('.ins-filter__btn');
+  const cards = document.querySelectorAll<HTMLElement>('.ins-card');
+  const noResult = document.getElementById('ins-no-result') as HTMLElement;
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const cat = btn.dataset.cat ?? 'すべて';
+      btns.forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+
+      let visible = 0;
+      cards.forEach(card => {
+        const show = cat === 'すべて' || card.dataset.cat === cat;
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      noResult.hidden = visible > 0;
+    });
+  });
+</script>
 </BaseLayout>
 
 <style>
@@ -256,27 +319,63 @@ function fmtDate(iso: string) {
   color: #0f172a; letter-spacing: -.03em; margin: 0 0 16px; line-height: 1.2;
 }
 .ins-head__lede {
-  font-size: 1rem; color: #334155; line-height: 1.8; margin: 0 0 20px;
-}
-.ins-head__count {
-  display: inline-block; font-size: .78rem; font-weight: 600;
-  color: #64748b; background: #fff; border: 1px solid #e2e8f0;
-  border-radius: 4px; padding: 4px 14px; margin: 0;
+  font-size: 1rem; color: #334155; line-height: 1.8; margin: 0;
 }
 .br-pc { display: block; }
 
+/* ===== FILTER ===== */
+.ins-filter-wrap {
+  padding: 28px 24px 0;
+}
+.ins-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.ins-filter__btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1.5px solid #e2e8f0;
+  background: #fff;
+  color: #475569;
+  font-size: .8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .15s;
+  white-space: nowrap;
+}
+.ins-filter__btn:hover {
+  border-color: #93c5fd;
+  color: #1e40af;
+  background: #eff6ff;
+}
+.ins-filter__btn.is-active {
+  background: #1e40af;
+  border-color: #1e40af;
+  color: #fff;
+}
+
 /* ===== GRID ===== */
-.ins-grid-wrap { padding: 56px 24px 48px; }
+.ins-grid-wrap { padding: 32px 24px 48px; }
 .ins-grid {
   list-style: none; padding: 0; margin: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 24px;
+}
+.ins-no-result {
+  text-align: center;
+  color: #64748b;
+  font-size: .9rem;
+  padding: 40px 0;
 }
 
 /* ===== CARD ===== */
 .ins-card {
-  border: 1px solid #e2e8f0; border-radius: 8px; background: #fff;
+  border: 1px solid #e2e8f0; border-radius: 10px; background: #fff;
+  overflow: hidden;
   transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
 }
 .ins-card:hover {
@@ -285,18 +384,45 @@ function fmtDate(iso: string) {
   border-color: #bfdbfe;
 }
 .ins-card__link {
-  display: flex; flex-direction: column; gap: 0;
-  padding: 24px 22px 20px; height: 100%; text-decoration: none; color: inherit;
+  display: flex; flex-direction: column;
+  height: 100%; text-decoration: none; color: inherit;
 }
 
-.ins-card__top {
-  display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
+/* Thumbnail */
+.ins-card__thumb {
+  position: relative;
+  aspect-ratio: 1200 / 630;
+  overflow: hidden;
+  background: #0f172a;
+  flex-shrink: 0;
 }
+.ins-card__img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform .3s ease;
+}
+.ins-card:hover .ins-card__img { transform: scale(1.03); }
+
+.ins-card__new {
+  position: absolute; top: 10px; right: 10px;
+  font-size: .62rem; font-weight: 800; letter-spacing: .06em;
+  background: #1e40af; color: #fff; border-radius: 4px; padding: 3px 8px;
+}
+
+/* Body */
+.ins-card__body {
+  display: flex; flex-direction: column; gap: 0;
+  padding: 18px 20px 16px; flex-grow: 1;
+}
+
 .ins-card__cat {
+  display: inline-block;
   font-size: .68rem; font-weight: 700; letter-spacing: .04em;
   border-radius: 4px; padding: 3px 10px; border: 1px solid;
+  margin-bottom: 10px;
+  align-self: flex-start;
 }
-/* category colors — 2-tone system: accent (navy) or muted (slate) */
+/* category colors */
 .cat--ra,
 .cat--crm,
 .cat--kpi,
@@ -309,27 +435,22 @@ function fmtDate(iso: string) {
 .cat--sales,
 .cat--default { background: #f8fafc; color: #475569; border-color: #e2e8f0; }
 
-.ins-card__new {
-  font-size: .6rem; font-weight: 800; letter-spacing: .08em;
-  background: #1e40af; color: #fff; border-radius: 3px; padding: 2px 6px;
-}
-
 .ins-card__title {
-  font-size: .97rem; font-weight: 700; color: #0f172a;
-  line-height: 1.55; margin: 0 0 10px; flex-grow: 1;
+  font-size: .95rem; font-weight: 700; color: #0f172a;
+  line-height: 1.55; margin: 0 0 8px; flex-grow: 1;
 }
 .ins-card:hover .ins-card__title { color: #1e40af; }
 
 .ins-card__desc {
-  font-size: .82rem; color: #64748b; line-height: 1.7;
-  margin: 0 0 16px;
-  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  font-size: .8rem; color: #64748b; line-height: 1.7;
+  margin: 0 0 14px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
 .ins-card__foot {
   display: flex; align-items: center; gap: 10px;
-  padding-top: 14px; border-top: 1px solid #f1f5f9;
+  padding-top: 12px; border-top: 1px solid #f1f5f9;
   margin-top: auto;
 }
 .ins-card__date { font-size: .72rem; color: #94a3b8; }
@@ -369,10 +490,11 @@ function fmtDate(iso: string) {
 @media (max-width: 600px) {
   .br-pc { display: none; }
   .ins-head { padding: 40px 0 32px; }
-  .ins-grid-wrap { padding: 36px 16px 32px; }
-  .ins-grid { grid-template-columns: 1fr; gap: 14px; }
-  .ins-card__link { padding: 20px 18px 16px; }
+  .ins-grid-wrap { padding: 24px 16px 32px; }
+  .ins-grid { grid-template-columns: 1fr; gap: 16px; }
+  .ins-card__body { padding: 16px 16px 14px; }
   .ins-cta__inner { padding: 36px 24px; }
   .ins-cta { padding: 0 16px 60px; }
+  .ins-filter-wrap { padding: 20px 16px 0; }
 }
 </style>

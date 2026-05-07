@@ -62,6 +62,17 @@ const breadcrumbSchema = {
 
 	<!-- ===== ARTICLE BODY ===== -->
 	<div class="article-body container">
+		<div class="article-eyecatch">
+			<img
+				src="/images/insights/why-good-marketing-strategies-fail-to-scale.svg"
+				alt=""
+				width="1200"
+				height="630"
+				class="article-eyecatch__img"
+				loading="eager"
+				aria-hidden="true"
+			/>
+		</div>
 
 		<div class="article-section">
 			<p>広告が当たった。ウェビナーが成功した。大型案件も取れた。一時的に数字も伸びた。それなのに数ヶ月後には元に戻り、同じ施策が再現できず、「なぜ成功したのか」を説明できない——こんな状況になっていないでしょうか。マーケティング投資の増加・CRM導入・インサイドセールス立ち上げのタイミングで「単発成果」は出る、しかし「収益として再現できない」状態が発生するパターンは、日本のBtoB企業に広く見られます。</p>
@@ -360,6 +371,17 @@ const breadcrumbSchema = {
 </div><!-- /.article-wrap -->
 
 <style>
+	/* ── Eyecatch ─── */
+	.article-eyecatch {
+		margin-bottom: 2rem;
+		border-radius: 8px;
+		overflow: hidden;
+		max-height: 360px;
+	}
+	.article-eyecatch__img {
+		width: 100%; height: auto; display: block;
+		max-height: 360px; object-fit: cover;
+	}
 /* ===== LAYOUT ===== */
 .article-wrap { background: #fff; }
 .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }

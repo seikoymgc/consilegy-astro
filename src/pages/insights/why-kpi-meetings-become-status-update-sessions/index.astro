@@ -62,6 +62,17 @@ const breadcrumbSchema = {
 
 	<!-- ===== ARTICLE BODY ===== -->
 	<div class="article-body container">
+		<div class="article-eyecatch">
+			<img
+				src="/images/insights/why-kpi-meetings-become-status-update-sessions.svg"
+				alt=""
+				width="1200"
+				height="630"
+				class="article-eyecatch__img"
+				loading="eager"
+				aria-hidden="true"
+			/>
+		</div>
 
 		<div class="article-section">
 			<p>毎週KPI会議をしている。Salesforceもある。ダッシュボードもある。数字も出ている。それなのに会議が終わる頃には、疲れていて改善策が決まっておらず、宿題だけ増えて「来月頑張ります」で終わる——こんな状況になっていないでしょうか。KPI管理強化・CRM導入・BI導入のタイミングでKPI会議が急激に増え、しかし同時に「会議しているのに改善しない」状態が発生するパターンは、日本のBtoB企業に広く見られます。</p>
@@ -317,6 +328,17 @@ const breadcrumbSchema = {
 </div><!-- /.article-wrap -->
 
 <style>
+	/* ── Eyecatch ─── */
+	.article-eyecatch {
+		margin-bottom: 2rem;
+		border-radius: 8px;
+		overflow: hidden;
+		max-height: 360px;
+	}
+	.article-eyecatch__img {
+		width: 100%; height: auto; display: block;
+		max-height: 360px; object-fit: cover;
+	}
 /* ===== LAYOUT ===== */
 .article-wrap { background: #fff; }
 .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }

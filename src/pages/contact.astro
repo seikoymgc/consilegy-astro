@@ -30,6 +30,23 @@ const faqItems = [
 	description="Consilegyへのご相談、協業、取材、登壇、その他のお問い合わせはこちらからご連絡ください。"
 	lang="ja"
 >
+<script type="application/ld+json" slot="head" set:html={JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://consilegy.com/"},
+		{"@type": "ListItem", "position": 2, "name": "お問い合わせ", "item": "https://consilegy.com/contact/"}
+	]
+})} />
+<script type="application/ld+json" slot="head" set:html={JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "FAQPage",
+	"mainEntity": faqItems.map(({ q, a }) => ({
+		"@type": "Question",
+		"name": q,
+		"acceptedAnswer": { "@type": "Answer", "text": a }
+	}))
+})} />
 
 <!-- ===== HERO ===== -->
 <section class="hero">

@@ -33,6 +33,14 @@ const insightsPosts = [
 	description="Salesforce・HubSpot・Kintone・Marketoなど複数ツールが混在する収益オペレーションを、ベンダーフリーの立場から再設計します。RevOps・マルチCRM再設計・伴走支援。"
 	lang="ja"
 >
+	<link
+		rel="preload"
+		as="image"
+		href="/images/common/hero-visual.webp"
+		type="image/webp"
+		fetchpriority="high"
+		slot="head"
+	/>
 	<script slot="head">
 		if (window.location.pathname === '/' || window.location.pathname === '') {
 			const pref = localStorage.getItem('languagePreference');
@@ -453,9 +461,17 @@ section { padding-block: var(--space-2xl); }
 /* ── Hero ──────────────────────────────────────────── */
 .hero {
 	position: relative; overflow: hidden;
-	background: url('/images/common/hero-visual.jpg') center/cover no-repeat;
+	background-image: url('/images/common/hero-visual-720.webp');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 	border-bottom: 1px solid var(--color-border);
 	padding-block: 0;
+}
+@media (min-width: 769px) {
+	.hero {
+		background-image: url('/images/common/hero-visual.webp');
+	}
 }
 .hero-bg {
 	position: absolute; inset: 0; pointer-events: none; z-index: 0;

@@ -13,6 +13,14 @@ const cases = (await getCollection('caseStudies'))
   lang="en"
   alternateUrl="/"
 >
+<link
+  rel="preload"
+  as="image"
+  href="/images/common/hero-visual.webp"
+  type="image/webp"
+  fetchpriority="high"
+  slot="head"
+/>
 
 <!-- ═══════════════════════════════════════════════════
      1. HERO
@@ -188,7 +196,10 @@ const cases = (await getCollection('caseStudies'))
     <div class="en-cases">
       <a href="/en/case-studies/hubspot-sales-handoff-lead-to-revenue-2/" class="en-case">
         <div class="en-case__img">
-          <img src="/images/media/2026/02/dx.png" alt="Closing the Gap Between Lead Volume and Revenue" loading="lazy" />
+          <picture>
+            <source srcset="/images/media/2026/02/dx.webp" type="image/webp" />
+            <img src="/images/media/2026/02/dx.png" alt="Closing the Gap Between Lead Volume and Revenue" loading="lazy" width="700" height="394" />
+          </picture>
         </div>
         <div class="en-case__meta">
           <span class="en-case__tag">HubSpot · Lead Operations</span>
@@ -208,7 +219,10 @@ const cases = (await getCollection('caseStudies'))
       </a>
       <a href="/en/case-studies/https-consilegy-com-case-studies-ai-gtm-automation-product-integration/" class="en-case">
         <div class="en-case__img">
-          <img src="/images/media/2026/03/s-o-c-i-a-l-c-u-t-1RT4txDDAbM-unsplash.jpg" alt="Building a Revenue Foundation for a New AI Business" loading="lazy" />
+          <picture>
+            <source srcset="/images/media/2026/03/s-o-c-i-a-l-c-u-t-1RT4txDDAbM-unsplash.webp" type="image/webp" />
+            <img src="/images/media/2026/03/s-o-c-i-a-l-c-u-t-1RT4txDDAbM-unsplash.jpg" alt="Building a Revenue Foundation for a New AI Business" loading="lazy" width="700" height="466" />
+          </picture>
         </div>
         <div class="en-case__meta">
           <span class="en-case__tag">GTM · CRM Build</span>
@@ -228,7 +242,10 @@ const cases = (await getCollection('caseStudies'))
       </a>
       <a href="/en/case-studies/marketing-data-integration-hubspot-migration-2/" class="en-case">
         <div class="en-case__img">
-          <img src="/images/media/2026/02/apex-virtual-education-KNQUEQwTCY4-unsplash-scaled.jpg" alt="Redesigning a Complex Marketing Stack" loading="lazy" />
+          <picture>
+            <source srcset="/images/media/2026/02/apex-virtual-education-KNQUEQwTCY4-unsplash.webp" type="image/webp" />
+            <img src="/images/media/2026/02/apex-virtual-education-KNQUEQwTCY4-unsplash-scaled.jpg" alt="Redesigning a Complex Marketing Stack" loading="lazy" width="700" height="394" />
+          </picture>
         </div>
         <div class="en-case__meta">
           <span class="en-case__tag">HubSpot · Marketing Ops</span>
@@ -439,9 +456,17 @@ const cases = (await getCollection('caseStudies'))
    1. HERO
 ═══════════════════════════════════════════════ */
 .en-hero {
-  background: url('/images/common/hero-visual.jpg') center/cover no-repeat;
+  background-image: url('/images/common/hero-visual-720.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding: 96px 0 88px;
   color: #fff;
+}
+@media (min-width: 769px) {
+  .en-hero {
+    background-image: url('/images/common/hero-visual.webp');
+  }
 }
 .en-eyebrow {
   font-size: 0.8125rem;

@@ -14,6 +14,20 @@ ErrorDocument 404 /404.html
 	RewriteRule ^en/27775-2/?$ /en/privacy-policy/ [R=301,L]
 </IfModule>
 
+# ── Cache: immutable hashed assets (Astro fingerprints _astro/* files)
+<IfModule mod_headers.c>
+	<FilesMatch "\.(js|css|woff2?|ttf|otf|eot)$">
+		Header set Cache-Control "public, max-age=31536000, immutable"
+	</FilesMatch>
+	<FilesMatch "\.(webp|jpg|jpeg|png|gif|svg|ico|avif)$">
+		Header set Cache-Control "public, max-age=31536000, immutable"
+	</FilesMatch>
+	# HTML pages: allow caching but require revalidation
+	<FilesMatch "\.html$">
+		Header set Cache-Control "public, max-age=3600, must-revalidate"
+	</FilesMatch>
+</IfModule>
+
 <IfModule mod_headers.c>
 	Header always set X-Content-Type-Options "nosniff"
 	Header always set X-Frame-Options "SAMEORIGIN"

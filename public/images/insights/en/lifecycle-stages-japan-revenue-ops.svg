@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 220" role="img" aria-label="Lifecycle Stages for Japan-Facing Revenue Operations">
+  <defs>
+    <style>text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }</style>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#1e40af"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="760" height="220" fill="#f8fafc"/>
+
+  <!-- Title -->
+  <text x="380" y="22" text-anchor="middle" font-size="12" font-weight="700" fill="#64748b" letter-spacing="0.07em">LIFECYCLE STAGES FOR JAPAN-FACING REVENUE OPERATIONS</text>
+
+  <!-- Stage boxes: w=90, gap=28. Positions: 20, 138, 256, 374, 492, 610 (but last w=98 fits to 760) -->
+  <!-- Box widths: 6 boxes, total space = 760 - 40 (margins) = 720. 5 gaps × 16 = 80. Each box = (720-80)/6 = 106.7 ~ use w=100, gap=18 -->
+  <!-- x positions: 20, 138, 256, 374, 492, 610 with w=108 each and gap=10 -->
+  <!-- Let's use: w=102, gap=14, 6 boxes. Total = 6*102 + 5*14 = 612+70 = 682. Start x=39 -->
+  <!-- Simpler: x=20,w=99 | x=133,w=99 | x=246,w=99 | x=359,w=99 | x=472,w=99 | x=585,w=99  gaps=14 -->
+
+  <!-- Subscriber -->
+  <rect x="20" y="44" width="99" height="48" rx="6" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="70" y="73" text-anchor="middle" font-size="10.5" font-weight="600" fill="#1e40af">Subscriber</text>
+
+  <!-- Arrow 1 -->
+  <line x1="119" y1="68" x2="131" y2="68" stroke="#1e40af" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- MQL -->
+  <rect x="133" y="44" width="99" height="48" rx="6" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="183" y="73" text-anchor="middle" font-size="10.5" font-weight="600" fill="#1e40af">MQL</text>
+
+  <!-- Arrow 2 -->
+  <line x1="232" y1="68" x2="244" y2="68" stroke="#1e40af" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- SQL -->
+  <rect x="246" y="44" width="99" height="48" rx="6" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="296" y="73" text-anchor="middle" font-size="10.5" font-weight="600" fill="#1e40af">SQL</text>
+
+  <!-- Arrow 3 -->
+  <line x1="345" y1="68" x2="357" y2="68" stroke="#1e40af" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Meeting Booked (2 lines) -->
+  <rect x="359" y="44" width="99" height="48" rx="6" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="409" y="65" text-anchor="middle" font-size="10" font-weight="600" fill="#1e40af">Meeting</text>
+  <text x="409" y="79" text-anchor="middle" font-size="10" font-weight="600" fill="#1e40af">Booked</text>
+
+  <!-- Arrow 4 -->
+  <line x1="458" y1="68" x2="470" y2="68" stroke="#1e40af" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Opportunity (2 lines) -->
+  <rect x="472" y="44" width="99" height="48" rx="6" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="522" y="65" text-anchor="middle" font-size="10" font-weight="600" fill="#1e40af">Oppor-</text>
+  <text x="522" y="79" text-anchor="middle" font-size="10" font-weight="600" fill="#1e40af">tunity</text>
+
+  <!-- Arrow 5 -->
+  <line x1="571" y1="68" x2="583" y2="68" stroke="#1e40af" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Customer (filled blue) -->
+  <rect x="585" y="44" width="99" height="48" rx="6" fill="#1e40af" stroke="#1e40af" stroke-width="1.5"/>
+  <text x="635" y="73" text-anchor="middle" font-size="10.5" font-weight="600" fill="#fff">Customer</text>
+
+  <!-- Vertical connectors -->
+  <line x1="70" y1="92" x2="70" y2="106" stroke="#cbd5e1" stroke-width="1.5"/>
+  <line x1="183" y1="92" x2="183" y2="106" stroke="#cbd5e1" stroke-width="1.5"/>
+  <line x1="296" y1="92" x2="296" y2="106" stroke="#cbd5e1" stroke-width="1.5"/>
+  <line x1="409" y1="92" x2="409" y2="106" stroke="#cbd5e1" stroke-width="1.5"/>
+  <line x1="522" y1="92" x2="522" y2="106" stroke="#cbd5e1" stroke-width="1.5"/>
+  <line x1="635" y1="92" x2="635" y2="106" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <!-- Note boxes -->
+  <rect x="20" y="106" width="99" height="28" rx="4" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="70" y="124" text-anchor="middle" font-size="9.5" fill="#475569">Any contact</text>
+
+  <rect x="133" y="106" width="99" height="28" rx="4" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="183" y="124" text-anchor="middle" font-size="9.5" fill="#475569">Engaged + fits ICP</text>
+
+  <rect x="246" y="106" width="99" height="28" rx="4" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="296" y="124" text-anchor="middle" font-size="9.5" fill="#475569">Confirmed fit</text>
+
+  <rect x="359" y="106" width="99" height="28" rx="4" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="409" y="124" text-anchor="middle" font-size="9.5" fill="#475569">Call agreed</text>
+
+  <rect x="472" y="106" width="99" height="28" rx="4" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="522" y="124" text-anchor="middle" font-size="9.5" fill="#475569">Active deal</text>
+
+  <rect x="585" y="106" width="99" height="28" rx="4" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="635" y="124" text-anchor="middle" font-size="9.5" fill="#475569">Closed</text>
+
+  <!-- Caption bar -->
+  <rect x="0" y="152" width="760" height="28" fill="#1e40af"/>
+  <text x="380" y="170" text-anchor="middle" font-size="10" fill="#fff">In Japan, stage definitions must account for longer evaluation windows and multi-stakeholder sign-off.</text>
+</svg>

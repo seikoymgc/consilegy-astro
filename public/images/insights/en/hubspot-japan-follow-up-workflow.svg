@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 230" role="img" aria-label="HubSpot workflow for Japan lead follow-up: form submitted, wait 1 day, email sent, wait 3 days, no response triggers sales task creation">
+  <defs>
+    <style>text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }</style>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#1e40af"/>
+    </marker>
+    <marker id="arr-amber" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#92400e"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="760" height="230" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="380" y="24" font-size="12" font-weight="700" fill="#64748b" letter-spacing="0.07em" text-anchor="middle">HUBSPOT WORKFLOW: JAPAN LEAD FOLLOW-UP</text>
+
+  <!-- Box 1: Form Submitted (x=10, y=80, w=130, h=50) -->
+  <rect x="10" y="80" width="130" height="50" rx="8" fill="#1e40af"/>
+  <text x="75" y="101" font-size="10" font-weight="700" fill="#fff" text-anchor="middle">Lead Form</text>
+  <text x="75" y="115" font-size="10" font-weight="700" fill="#fff" text-anchor="middle">Submitted</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="140" y1="105" x2="158" y2="105" stroke="#1e40af" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Box 2: Wait 1 Day (x=160, y=80, w=120, h=50) -->
+  <rect x="160" y="80" width="120" height="50" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="220" y="101" font-size="10" font-weight="600" fill="#1e40af" text-anchor="middle">Wait</text>
+  <text x="220" y="115" font-size="10" font-weight="600" fill="#1e40af" text-anchor="middle">1 Business Day</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="280" y1="105" x2="298" y2="105" stroke="#1e40af" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Box 3: Email Sent (x=300, y=80, w=130, h=50) -->
+  <rect x="300" y="80" width="130" height="50" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="365" y="101" font-size="10" font-weight="600" fill="#1e40af" text-anchor="middle">Follow-up</text>
+  <text x="365" y="115" font-size="10" font-weight="600" fill="#1e40af" text-anchor="middle">Email Sent</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="430" y1="105" x2="448" y2="105" stroke="#1e40af" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Box 4: Wait 3 Days (x=450, y=80, w=100, h=50) -->
+  <rect x="450" y="80" width="100" height="50" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="500" y="101" font-size="10" font-weight="600" fill="#1e40af" text-anchor="middle">Wait</text>
+  <text x="500" y="115" font-size="10" font-weight="600" fill="#1e40af" text-anchor="middle">3 Days</text>
+
+  <!-- Arrow 4→5 -->
+  <line x1="550" y1="105" x2="568" y2="105" stroke="#92400e" stroke-width="1.5" marker-end="url(#arr-amber)"/>
+
+  <!-- Box 5: No Response (x=570, y=80, w=170, h=50) -->
+  <rect x="570" y="80" width="170" height="50" rx="8" fill="#fff7ed" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="655" y="101" font-size="10" font-weight="600" fill="#92400e" text-anchor="middle">No Response</text>
+  <text x="655" y="115" font-size="10" font-weight="600" fill="#92400e" text-anchor="middle">Detected</text>
+
+  <!-- Down arrow from Box 5 -->
+  <line x1="655" y1="130" x2="655" y2="150" stroke="#92400e" stroke-width="1.5" marker-end="url(#arr-amber)"/>
+
+  <!-- Box 6: Sales Task Created (x=490, y=152, w=330, h=36) -->
+  <rect x="490" y="152" width="260" height="36" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="620" y="174" font-size="11" font-weight="600" fill="#334155" text-anchor="middle">Sales Task Created</text>
+
+  <!-- Note bar -->
+  <rect x="10" y="148" width="460" height="28" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="240" y="166" font-size="9.5" fill="#475569" text-anchor="middle">If meeting booked at any stage → update lifecycle stage to SQL automatically</text>
+
+  <!-- Caption bar -->
+  <rect x="0" y="192" width="760" height="22" fill="#f1f5f9"/>
+  <text x="380" y="207" font-size="10" fill="#64748b" text-anchor="middle">Japan follow-up workflows need longer wait windows and manual sales task triggers than global defaults.</text>
+</svg>

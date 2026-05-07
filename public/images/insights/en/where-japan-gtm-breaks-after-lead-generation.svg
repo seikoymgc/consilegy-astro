@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 200" role="img" aria-label="Where Japan GTM Breaks After Lead Generation — pipeline flow diagram with break points at each stage">
+  <title>Where Japan GTM Breaks After Lead Generation</title>
+  <defs>
+    <style>text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }</style>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#1e40af"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="760" height="200" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="380" y="28" text-anchor="middle" font-size="12" font-weight="700" letter-spacing="0.07em" fill="#64748b">WHERE JAPAN GTM BREAKS AFTER LEAD GENERATION</text>
+
+  <!-- ══ STAGE BOXES (y=44, h=52, cy=70) ══ -->
+
+  <!-- Box 1: Campaign -->
+  <rect x="26" y="44" width="88" height="52" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="70" y="74" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">Campaign</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="114" y1="70" x2="148" y2="70" stroke="#1e40af" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Box 2: Lead Captured -->
+  <rect x="150" y="44" width="88" height="52" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="194" y="65" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">Lead</text>
+  <text x="194" y="79" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">Captured</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="238" y1="70" x2="272" y2="70" stroke="#1e40af" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Box 3: Qualified Lead -->
+  <rect x="274" y="44" width="88" height="52" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="318" y="65" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">Qualified</text>
+  <text x="318" y="79" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">Lead</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="362" y1="70" x2="396" y2="70" stroke="#1e40af" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Box 4: Sales Follow-up -->
+  <rect x="398" y="44" width="88" height="52" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="442" y="65" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">Sales</text>
+  <text x="442" y="79" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">Follow-up</text>
+
+  <!-- Arrow 4→5 -->
+  <line x1="486" y1="70" x2="520" y2="70" stroke="#1e40af" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Box 5: Pipeline -->
+  <rect x="522" y="44" width="88" height="52" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="566" y="74" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">Pipeline</text>
+
+  <!-- Arrow 5→6 -->
+  <line x1="610" y1="70" x2="644" y2="70" stroke="#1e40af" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Box 6: Revenue Visibility -->
+  <rect x="646" y="44" width="88" height="52" rx="8" fill="#1e40af" stroke="#1e40af" stroke-width="1.5"/>
+  <text x="690" y="65" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">Revenue</text>
+  <text x="690" y="79" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">Visibility</text>
+
+  <!-- ══ DASHED CONNECTORS (box bottom=96 to pill top=110) ══ -->
+  <line x1="70"  y1="96" x2="70"  y2="110" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="2,3"/>
+  <line x1="194" y1="96" x2="194" y2="110" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="2,3"/>
+  <line x1="318" y1="96" x2="318" y2="110" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="2,3"/>
+  <line x1="442" y1="96" x2="442" y2="110" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="2,3"/>
+  <line x1="566" y1="96" x2="566" y2="110" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="2,3"/>
+  <line x1="690" y1="96" x2="690" y2="110" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="2,3"/>
+
+  <!-- ══ BREAK POINT PILLS (y=110, h=30) ══ -->
+
+  <!-- Pill 1: Weak CTA -->
+  <rect x="28"  y="110" width="84" height="30" rx="6" fill="#fefce8" stroke="#fde68a" stroke-width="1.2"/>
+  <text x="70"  y="122" text-anchor="middle" font-size="9.5" font-weight="600" fill="#854d0e">Weak</text>
+  <text x="70"  y="134" text-anchor="middle" font-size="9.5" font-weight="600" fill="#854d0e">CTA</text>
+
+  <!-- Pill 2: Unclear qualification -->
+  <rect x="152" y="110" width="84" height="30" rx="6" fill="#fefce8" stroke="#fde68a" stroke-width="1.2"/>
+  <text x="194" y="122" text-anchor="middle" font-size="9.5" font-weight="600" fill="#854d0e">Unclear</text>
+  <text x="194" y="134" text-anchor="middle" font-size="9.5" font-weight="600" fill="#854d0e">qualification</text>
+
+  <!-- Pill 3: No owner -->
+  <rect x="276" y="110" width="84" height="30" rx="6" fill="#fefce8" stroke="#fde68a" stroke-width="1.2"/>
+  <text x="318" y="122" text-anchor="middle" font-size="9.5" font-weight="600" fill="#854d0e">No</text>
+  <text x="318" y="134" text-anchor="middle" font-size="9.5" font-weight="600" fill="#854d0e">owner</text>
+
+  <!-- Pill 4: Slow follow-up -->
+  <rect x="400" y="110" width="84" height="30" rx="6" fill="#fefce8" stroke="#fde68a" stroke-width="1.2"/>
+  <text x="442" y="122" text-anchor="middle" font-size="9.5" font-weight="600" fill="#854d0e">Slow</text>
+  <text x="442" y="134" text-anchor="middle" font-size="9.5" font-weight="600" fill="#854d0e">follow-up</text>
+
+  <!-- Pill 5: CRM mismatch -->
+  <rect x="524" y="110" width="84" height="30" rx="6" fill="#fefce8" stroke="#fde68a" stroke-width="1.2"/>
+  <text x="566" y="122" text-anchor="middle" font-size="9.5" font-weight="600" fill="#854d0e">CRM</text>
+  <text x="566" y="134" text-anchor="middle" font-size="9.5" font-weight="600" fill="#854d0e">mismatch</text>
+
+  <!-- Pill 6: Poor reporting -->
+  <rect x="648" y="110" width="84" height="30" rx="6" fill="#fefce8" stroke="#fde68a" stroke-width="1.2"/>
+  <text x="690" y="122" text-anchor="middle" font-size="9.5" font-weight="600" fill="#854d0e">Poor</text>
+  <text x="690" y="134" text-anchor="middle" font-size="9.5" font-weight="600" fill="#854d0e">reporting</text>
+
+  <!-- ══ CAPTION BAR ══ -->
+  <rect x="26" y="152" width="708" height="38" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="380" y="167" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1e40af">Lead generation does not create revenue unless qualification,</text>
+  <text x="380" y="182" text-anchor="middle" font-size="11.5" fill="#334155">ownership, follow-up, CRM, and reporting are designed together.</text>
+</svg>

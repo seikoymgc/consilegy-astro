@@ -1,0 +1,472 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+
+const pubDate = '2026-05-07';
+const readTime = 'About 5 min';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Lead Handoff Rules for Japan GTM Teams',
+  description: 'Lead handoff rules define when a lead moves from marketing to sales, who owns follow-up at each stage, and what criteria must be met. Without them, Japan pipeline breaks between capture and close.',
+  datePublished: pubDate,
+  dateModified: pubDate,
+  author: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+  publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+  url: 'https://consilegy.com/en/insights/lead-handoff-rules-for-japan-gtm-teams/',
+  inLanguage: 'en',
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://consilegy.com/en/' },
+    { '@type': 'ListItem', position: 2, name: 'Insights', item: 'https://consilegy.com/en/insights/' },
+    { '@type': 'ListItem', position: 3, name: 'Lead Handoff Rules for Japan GTM Teams', item: 'https://consilegy.com/en/insights/lead-handoff-rules-for-japan-gtm-teams/' },
+  ],
+};
+---
+
+<BaseLayout
+  title="Lead Handoff Rules for Japan GTM Teams | Consilegy"
+  description="Lead handoff rules define when a lead moves from marketing to sales, who owns follow-up at each stage, and what criteria must be met. Without them, Japan pipeline breaks between capture and close."
+  lang="en"
+  alternateUrl="/insights/"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+
+<div class="article-wrap">
+
+  <!-- ===== ARTICLE HEADER ===== -->
+  <header class="article-head container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/en/">Home</a>
+      <span aria-hidden="true">›</span>
+      <a href="/en/insights/">Insights</a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">Lead Handoff Rules for Japan GTM Teams</span>
+    </nav>
+    <div class="article-meta">
+      <span class="article-cat">Revenue Architecture</span>
+      <span class="article-date">{pubDate}</span>
+      <span class="article-read">{readTime}</span>
+    </div>
+    <h1>Lead Handoff Rules for Japan GTM Teams</h1>
+    <p class="article-desc">Lead handoff rules define when a lead moves from marketing to sales, who owns follow-up at each stage, and what criteria must be met. Without them, Japan pipeline breaks between capture and close.</p>
+  </header>
+
+  <!-- ===== ARTICLE BODY ===== -->
+  <article class="article-body container" id="article">
+
+    <section class="article-section">
+      <p>In most Japan GTM failures, leads are not lost at lead generation. They are lost at the handoff — the transition from marketing ownership to sales ownership that no one formally designed.</p>
+    </section>
+
+    <hr class="article-hr" />
+
+    <section class="article-section">
+      <h2>The problem of undefined ownership</h2>
+      <p>When no handoff rule exists, leads age in marketing queues while sales waits for qualified contacts, or sales picks up early-stage leads and wastes time on contacts that are not ready. In Japan — where relationships take longer to develop and follow-up timing matters — this creates compounding delays.</p>
+      <p>The damage is often invisible in reporting. Leads appear to be progressing through stages. Time passes. Nothing closes. The CRM records activity without recording why nothing converted. Only when teams look at the gap between lead volume and pipeline creation does the handoff problem become visible.</p>
+    </section>
+
+    <hr class="article-hr" />
+
+    <section class="article-section">
+      <h2>What a handoff rule defines</h2>
+      <p>A handoff rule answers five questions:</p>
+      <ul>
+        <li>When does a lead become sales-ready?</li>
+        <li>Who makes the handoff decision?</li>
+        <li>What information must be passed to sales?</li>
+        <li>What response time does sales commit to?</li>
+        <li>What happens if sales rejects a lead?</li>
+      </ul>
+      <p>Each question, left unanswered, creates a point where leads can stall or fall between teams. Together, they form the contract between marketing and sales that the handoff process needs to function.</p>
+    </section>
+
+    <hr class="article-hr" />
+
+    <section class="article-section">
+      <h2>Five elements of a Japan-ready handoff rule</h2>
+
+      <div class="article-breakdown">
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">01</div>
+          <div class="article-breakdown__body">
+            <strong>ICP fit confirmed</strong>
+            <p>The lead matches the defined target segment for Japan. Company size, industry, and geography must be verified — not assumed from the contact's email domain or job title alone.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">02</div>
+          <div class="article-breakdown__body">
+            <strong>Engagement threshold met</strong>
+            <p>Meaningful engagement logged — not just a page view. In Japan, where buyers research extensively before making contact, engagement that indicates genuine interest must be distinguished from passive browsing.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">03</div>
+          <div class="article-breakdown__body">
+            <strong>Japan-specific intent signal</strong>
+            <p>Has asked a Japan-relevant question or attended a Japan-focused event. Generic engagement may not indicate Japan readiness. A contact who downloaded a global whitepaper is not the same as one who attended a Japan-market webinar or asked a question about local support.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">04</div>
+          <div class="article-breakdown__body">
+            <strong>Decision-maker identified</strong>
+            <p>The contact can influence or approve internally. In Japan's multi-stakeholder buying environment, knowing whether the contact has any internal authority — or is purely an evaluator — changes how sales should approach the relationship.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">05</div>
+          <div class="article-breakdown__body">
+            <strong>No disqualifying condition</strong>
+            <p>Not a competitor, student, or out-of-territory contact. Basic disqualification criteria prevent sales time from being spent on contacts that should never have been handed off.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="article-hr" />
+
+    <section class="article-section">
+      <h2>Common failure patterns</h2>
+      <p>The most common failures: handoff based on lead score alone (ignores Japan's slower engagement patterns), no SLA for sales response time, no rejection process (leads returned to marketing without feedback).</p>
+      <p>Lead score-only handoffs are particularly problematic in Japan. A contact who has been passively receiving emails for months can accumulate a high score without ever exhibiting real intent. A contact with a low score who attended a targeted Japan event may be far more valuable. Score without context produces wrong handoff timing in both directions.</p>
+    </section>
+
+    <hr class="article-hr" />
+
+    <section class="article-section">
+      <h2>How to document and enforce in CRM</h2>
+      <p>Create a shared handoff document. Configure CRM so leads cannot advance to SQL without checklist completion. Set a 48-hour response SLA for Japan leads. Create a rejection reason field so marketing can learn what is not meeting the bar.</p>
+      <p>The rejection reason field is often overlooked but creates significant value over time. When sales returns a lead, marketing needs to know why. Without that feedback loop, marketing continues generating leads that sales considers unqualified — and the handoff problem persists indefinitely.</p>
+
+      <div class="article-callout">
+        <p><strong>A handoff rule is not a process document. It is a contract between marketing and sales about what each team is accountable for — and what the lead must have before ownership transfers.</strong></p>
+      </div>
+    </section>
+
+    <hr class="article-hr" />
+
+    <section class="article-section">
+      <h2>The diagram</h2>
+      <p>The diagram below shows the handoff flow from marketing to sales, with the five criteria that must be met before a lead advances to SQL.</p>
+      <div class="article-diagram">
+        <img
+          src="/images/insights/en/lead-handoff-rules-japan-gtm.svg"
+          alt="Lead handoff flow diagram: Marketing (MQL) → five handoff criteria → Sales (SQL), with criteria: fits ICP, engaged with content, Japan-relevant intent signal, decision-maker confirmed, no disqualifying factors"
+          width="760"
+          height="230"
+          loading="lazy"
+        />
+      </div>
+    </section>
+
+  </article>
+
+  <!-- ===== RELATED ===== -->
+  <aside class="article-related container">
+    <p class="article-related__label">Related</p>
+    <div class="article-related__grid">
+      <a href="/en/insights/where-japan-gtm-breaks-after-lead-generation/" class="article-related__card">
+        <p class="article-related__card-cat">Japan GTM</p>
+        <p class="article-related__card-title">Where Japan GTM Breaks After Lead Generation</p>
+        <span class="article-related__card-arrow">→</span>
+      </a>
+      <a href="/en/insights/how-to-define-lifecycle-stages-for-japan-facing-revenue-operations/" class="article-related__card">
+        <p class="article-related__card-cat">Revenue Architecture</p>
+        <p class="article-related__card-title">How to Define Lifecycle Stages for Japan-Facing Revenue Operations</p>
+        <span class="article-related__card-arrow">→</span>
+      </a>
+      <a href="/en/insights/how-to-design-a-japan-ready-revenue-funnel-before-hiring-sales/" class="article-related__card">
+        <p class="article-related__card-cat">Japan GTM</p>
+        <p class="article-related__card-title">How to Design a Japan-Ready Revenue Funnel Before Hiring Sales</p>
+        <span class="article-related__card-arrow">→</span>
+      </a>
+      <a href="/en/insights/why-crm-implementation-fails-without-revenue-architecture/" class="article-related__card">
+        <p class="article-related__card-cat">Revenue Architecture</p>
+        <p class="article-related__card-title">Why CRM Implementation Fails Without Revenue Architecture</p>
+        <span class="article-related__card-arrow">→</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ===== CTA ===== -->
+  <section class="article-cta">
+    <div class="container">
+      <div class="article-cta__body">
+        <h2>Ready to design your Japan revenue system?</h2>
+        <p>Consilegy helps global B2B teams design the revenue architecture, CRM structure, and Japan-facing operations their pipeline actually needs. Talk to us about where to start.</p>
+        <div class="article-cta__actions">
+          <a href="/en/contact/" class="article-cta__btn article-cta__btn--primary">Talk to us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<style>
+/* ── Wrap / Container ─────────────────────── */
+.article-wrap { background: #fff; }
+.container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+/* ── Header ──────────────────────────────── */
+.article-head {
+  padding-top: 48px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+}
+.breadcrumb {
+  font-size: 0.8rem;
+  color: var(--color-text-muted, #64748b);
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+}
+.breadcrumb a { color: var(--color-text-muted, #64748b); text-decoration: none; }
+.breadcrumb a:hover { color: var(--color-primary, #1e40af); text-decoration: underline; }
+
+.article-meta {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 20px; flex-wrap: wrap;
+}
+.article-cat {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  background: #eff6ff; color: var(--color-primary, #1e40af);
+  padding: 3px 10px; border-radius: 10px;
+}
+.article-date, .article-read {
+  font-size: 0.8rem; color: var(--color-text-muted, #64748b);
+}
+
+.article-head h1 {
+  font-size: clamp(1.6rem, 3.5vw, 2.25rem);
+  font-weight: 800;
+  color: var(--color-navy, #0f172a);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px;
+}
+.article-desc {
+  font-size: 1.0625rem;
+  color: var(--color-text-muted, #64748b);
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ── Body ────────────────────────────────── */
+.article-body {
+  padding-top: 48px;
+  padding-bottom: 64px;
+}
+.article-section {
+  margin-bottom: 0;
+}
+.article-section h2 {
+  font-size: 1.3125rem;
+  font-weight: 700;
+  color: var(--color-navy, #0f172a);
+  margin: 0 0 16px;
+  line-height: 1.35;
+}
+.article-section h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-navy, #0f172a);
+  margin: 24px 0 10px;
+}
+.article-section p {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--color-text, #1e293b);
+  margin: 0 0 16px;
+}
+.article-section ul {
+  padding-left: 1.5rem;
+  margin: 0 0 16px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.article-section li {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-text, #1e293b);
+}
+.article-section a {
+  color: var(--color-primary, #1e40af);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.article-subsection { margin-bottom: 8px; }
+
+.article-callout {
+  background: #eff6ff;
+  border-left: 4px solid var(--color-primary, #1e40af);
+  border-radius: 0 8px 8px 0;
+  padding: 16px 20px;
+  margin: 24px 0;
+}
+.article-callout p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-navy, #0f172a);
+}
+
+.article-hr {
+  border: none;
+  border-top: 1px solid var(--color-border, #e2e8f0);
+  margin: 48px 0;
+}
+
+/* ── Diagram ─────────────────────────────── */
+.article-diagram {
+  margin: 24px 0;
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+.article-diagram img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ── Numbered breakdown ──────────────────── */
+.article-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 24px 0;
+  border-top: 1px solid var(--color-border, #e2e8f0);
+}
+.article-breakdown__item {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+  align-items: flex-start;
+}
+.article-breakdown__num {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-primary, #1e40af);
+  opacity: 0.3;
+  flex-shrink: 0;
+  line-height: 1.5;
+  min-width: 2.5rem;
+}
+.article-breakdown__body strong {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-navy, #0f172a);
+  margin-bottom: 6px;
+}
+.article-breakdown__body p {
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--color-text-muted, #64748b);
+  margin: 0;
+}
+
+/* ── Related ─────────────────────────────── */
+.article-related {
+  padding: 48px 0;
+  border-top: 1px solid var(--color-border, #e2e8f0);
+}
+.article-related__label {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--color-primary, #1e40af);
+  margin: 0 0 20px;
+}
+.article-related__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.article-related__card {
+  background: #f8fafc;
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 8px;
+  padding: 16px 18px;
+  text-decoration: none;
+  display: flex; flex-direction: column; gap: 6px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.article-related__card:hover {
+  border-color: var(--color-primary, #1e40af);
+  box-shadow: 0 2px 12px rgba(30,64,175,0.07);
+}
+.article-related__card-cat {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--color-primary, #1e40af); margin: 0;
+}
+.article-related__card-title {
+  font-size: 0.875rem; font-weight: 600;
+  color: var(--color-navy, #0f172a); line-height: 1.45; margin: 0; flex: 1;
+}
+.article-related__card-arrow {
+  font-size: 0.875rem; color: var(--color-primary, #1e40af); font-weight: 600;
+}
+
+/* ── CTA ─────────────────────────────────── */
+.article-cta {
+  background: #f8fafc;
+  border-top: 1px solid var(--color-border, #e2e8f0);
+  padding: 64px 0;
+}
+.article-cta__body {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto;
+}
+.article-cta__body h2 {
+  font-size: clamp(1.25rem, 3vw, 1.625rem);
+  font-weight: 700;
+  color: var(--color-navy, #0f172a);
+  margin: 0 0 12px;
+}
+.article-cta__body p {
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  color: var(--color-text-muted, #64748b);
+  margin: 0 0 28px;
+}
+.article-cta__actions {
+  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+}
+.article-cta__btn {
+  display: inline-flex; align-items: center;
+  padding: 0.75em 1.75em;
+  border-radius: 8px; font-size: 0.9375rem; font-weight: 700;
+  text-decoration: none; transition: background 0.15s, color 0.15s;
+}
+.article-cta__btn--primary {
+  background: var(--color-primary, #1e40af); color: #fff;
+  border: 2px solid var(--color-primary, #1e40af);
+}
+.article-cta__btn--primary:hover { background: #1e3a8a; border-color: #1e3a8a; }
+.article-cta__btn--ghost {
+  background: transparent; color: var(--color-primary, #1e40af);
+  border: 2px solid var(--color-primary, #1e40af);
+}
+.article-cta__btn--ghost:hover { background: rgba(30,64,175,0.06); }
+
+/* ── Responsive ──────────────────────────── */
+@media (max-width: 600px) {
+  .article-head { padding-top: 32px; }
+  .article-related__grid { grid-template-columns: 1fr; }
+  .article-breakdown__num { font-size: 1rem; min-width: 2rem; }
+}
+</style>
+
+</BaseLayout>

@@ -1,0 +1,559 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+
+const pubDate = '2026-05-07';
+const readTime = 'About 8 min';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Where Japan GTM Breaks After Lead Generation',
+  description: 'Japan GTM often does not break at lead generation. It breaks after leads are captured — when qualification, ownership, follow-up, CRM stages, and reporting are unclear or undesigned.',
+  datePublished: pubDate,
+  dateModified: pubDate,
+  author: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+  publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+  url: 'https://consilegy.com/en/insights/where-japan-gtm-breaks-after-lead-generation/',
+  inLanguage: 'en',
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://consilegy.com/en/' },
+    { '@type': 'ListItem', position: 2, name: 'Insights', item: 'https://consilegy.com/en/insights/' },
+    { '@type': 'ListItem', position: 3, name: 'Where Japan GTM Breaks After Lead Generation', item: 'https://consilegy.com/en/insights/where-japan-gtm-breaks-after-lead-generation/' },
+  ],
+};
+---
+
+<BaseLayout
+  title="Where Japan GTM Breaks After Lead Generation | Consilegy"
+  description="Japan GTM often does not break at lead generation. It breaks after leads are captured — when qualification, ownership, follow-up, CRM stages, and reporting are unclear or undesigned."
+  lang="en"
+  alternateUrl="/insights/japan-lead-generation-gap/"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+
+<div class="article-wrap">
+
+  <!-- ===== ARTICLE HEADER ===== -->
+  <header class="article-head container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/en/">Home</a>
+      <span aria-hidden="true">›</span>
+      <a href="/en/insights/">Insights</a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">Where Japan GTM Breaks After Lead Generation</span>
+    </nav>
+    <div class="article-meta">
+      <span class="article-cat">Japan GTM</span>
+      <span class="article-date">{pubDate}</span>
+      <span class="article-read">{readTime}</span>
+    </div>
+    <h1>Where Japan GTM Breaks After Lead Generation</h1>
+    <p class="article-desc">Most Japan GTM effort goes into generating leads. But for many global B2B teams, that is not where the problem is. The problem is in the six stages after a lead is captured — and the failure is almost always a design failure, not a people failure.</p>
+  </header>
+
+  <!-- ===== ARTICLE BODY ===== -->
+  <article class="article-body container" id="article">
+
+    <!-- Introduction -->
+    <section class="article-section">
+      <h2>The attention goes to the wrong problem</h2>
+      <p>Most Japan GTM conversations center on lead generation: the website, the message, the campaign. The implicit assumption is that if the right people find you and fill out a form, the revenue side will follow. The hard part, the assumption goes, is getting the lead. The rest is execution.</p>
+      <p>This framing explains a specific and common failure pattern: teams invest in Japan-facing campaigns, generate a reasonable volume of inbound leads, and then watch those leads disappear into a pipeline that produces little or nothing. Conversion rates are low. Sales cycles are unclear. Reporting does not show where things stalled.</p>
+      <p>The campaign was not the problem. The system that was supposed to receive and process those leads did not exist — or was built for a different market.</p>
+      <div class="article-callout">
+        <p><strong>Japan GTM rarely breaks at lead generation. It breaks after leads are captured</strong> — when the qualification, ownership, follow-up, CRM configuration, and reporting have not been designed to handle Japan-facing revenue motion.</p>
+      </div>
+    </section>
+
+    <hr class="article-hr" />
+
+    <!-- Why lead generation is not enough -->
+    <section class="article-section">
+      <h2>Why lead generation is not enough</h2>
+      <p>A captured lead is a contact record. It is not pipeline, and it is not revenue. Between a form submission and a closed deal, six things need to happen correctly, in sequence, without design failures:</p>
+      <ol>
+        <li>The lead needs to be <strong>qualified</strong> — assessed against clear criteria for whether this is someone worth pursuing in Japan's context</li>
+        <li>Someone needs to <strong>own</strong> it — with explicit responsibility for what happens next</li>
+        <li>Follow-up needs to happen — at the right pace, in the right channel, with the right message for Japan's communication norms</li>
+        <li>The deal needs to be <strong>tracked in the CRM</strong> in a way that reflects how Japan-facing deals actually progress</li>
+        <li>Progress needs to be <strong>visible in reporting</strong> so management can see whether Japan is advancing or stalling</li>
+        <li>Marketing and sales need to be <strong>working from shared definitions</strong> of what a Japan-ready lead looks like and what success means</li>
+      </ol>
+      <p>In many global B2B operations, these elements are assumed rather than designed. In Japan-facing operations, none of them can be assumed. Each one needs to be explicitly built.</p>
+    </section>
+
+    <hr class="article-hr" />
+
+    <!-- Diagram -->
+    <section class="article-section">
+      <h2>Where the pipeline breaks</h2>
+      <p>The diagram below shows the six stages between campaign and revenue visibility, and the specific break point at each stage. All six can fail independently — and in most under-designed Japan GTM operations, several fail at once.</p>
+      <div class="article-diagram">
+        <img
+          src="/images/insights/en/where-japan-gtm-breaks-after-lead-generation.svg"
+          alt="Pipeline flow: Campaign (Weak CTA) → Lead Captured (Unclear qualification) → Qualified Lead (No owner) → Sales Follow-up (Slow follow-up) → Pipeline (CRM mismatch) → Revenue Visibility (Poor reporting)"
+          width="760"
+          height="200"
+          loading="lazy"
+        />
+      </div>
+    </section>
+
+    <hr class="article-hr" />
+
+    <!-- Common post-lead failure points -->
+    <section class="article-section">
+      <h2>Common post-lead failure points</h2>
+      <p>Each break point in the pipeline has a specific cause and a specific fix. Understanding each one separately makes it easier to diagnose where a Japan GTM system is actually failing.</p>
+
+      <div class="article-subsection">
+        <h3>No clear qualification criteria</h3>
+        <p>When a Japan-facing lead arrives, who decides whether it is worth pursuing — and based on what? In most undesigned systems, the answer is: sales intuition, applied inconsistently. One rep pursues every inbound lead immediately. Another holds leads until they look "ready," by criteria that are never documented.</p>
+        <p>Japan adds a specific complication: the signals that indicate genuine purchase intent in Western markets often do not apply. A Japan-based buyer who downloads a whitepaper may be much more seriously evaluating than a Western prospect in the same position — or much less so. Without Japan-specific qualification criteria, the team cannot tell the difference.</p>
+      </div>
+
+      <div class="article-subsection">
+        <h3>No ownership rules</h3>
+        <p>After qualification, who is responsible for the lead? Marketing assumes sales will take it. Sales assumes they will receive a warm handoff. The lead sits in a CRM field with no activity logged, because no one explicitly owns the next action.</p>
+        <p>In Japan-facing operations, this gap is particularly costly. Japan buyers who do not receive a timely and appropriate response after first contact often do not follow up again. The window for engagement closes quietly, without any visible signal in the CRM.</p>
+      </div>
+
+      <div class="article-subsection">
+        <h3>Slow or inconsistent follow-up</h3>
+        <p>Even when ownership is clear, follow-up can fail in Japan-specific ways. The timing, channel, and tone of follow-up all carry weight in Japan's B2B communication culture. A follow-up sequence calibrated for Western buyers — aggressive email cadencing, urgent calls-to-action, short timelines — often reads as inappropriate in Japan. The lead goes cold, not because the buyer lost interest, but because the follow-up style did not fit the context.</p>
+        <p>The reverse is also true: follow-up that is too infrequent or too informal can also fail, because it signals that the vendor is not serious. There is a Japan-specific band of appropriate follow-up frequency and format that needs to be designed deliberately.</p>
+      </div>
+
+      <div class="article-subsection">
+        <h3>CRM stages copied from a global template</h3>
+        <p>The most common CRM failure in Japan-facing operations is using pipeline stages that were built for a different market's deal velocity. Stages like MQL → SQL → Demo → Proposal → Close assume a relatively direct, short-cycle journey with a single decision-maker. Japan-facing deals often involve committee consensus, extended evaluation periods, multiple rounds of internal discussion, and a pace of progression that does not map to these stage definitions.</p>
+        <p>When the CRM stages do not fit, one of two things happens: either the team forces Japan deals into ill-fitting stages and produces misleading pipeline data, or the team stops updating the CRM because the stages do not reflect what is actually happening. Either outcome makes management reporting unreliable.</p>
+      </div>
+
+      <div class="article-subsection">
+        <h3>Japan activity invisible in dashboards</h3>
+        <p>Early-stage Japan business development often involves activities that do not register in a standard marketing funnel: referral introductions, relationship meetings, informal conversations at industry events. These activities can represent genuine progress toward a commercial outcome — but if they are not captured in the CRM, they do not appear in dashboards.</p>
+        <p>The result is a reporting gap: leadership sees a Japan pipeline that looks thin or stagnant, while the team on the ground is actively moving relationships forward. Neither side has the information needed to make good decisions about where to invest or what to adjust.</p>
+      </div>
+
+      <div class="article-subsection">
+        <h3>Marketing and sales working from different definitions</h3>
+        <p>If marketing and sales do not agree on what a Japan-ready lead looks like, the handoff between them is a source of constant friction. Marketing passes leads it considers qualified; sales considers those same leads premature and does not prioritize them. Sales asks for leads that are "more ready"; marketing does not know what that means in operational terms.</p>
+        <p>This misalignment is common in any market, but it is amplified in Japan-facing operations because the criteria for readiness are genuinely different from what either team may have learned in other markets. Resolving it requires defining Japan-specific lead criteria explicitly — and agreeing on them before leads start arriving.</p>
+      </div>
+    </section>
+
+    <hr class="article-hr" />
+
+    <!-- Why especially important in Japan -->
+    <section class="article-section">
+      <h2>Why post-lead failures are especially costly in Japan</h2>
+      <p>Post-lead failures hurt in every market. In Japan, they are especially difficult to recover from — for four reasons specific to Japan's B2B buying environment.</p>
+
+      <div class="article-subsection">
+        <h3>Longer trust-building cycles</h3>
+        <p>Japan's B2B relationships take longer to build than in most Western markets. A lead that enters the pipeline in Japan is likely to stay in early or mid stages for a longer period before progressing to a commercial conversation. A system that is not designed to sustain engagement over that longer cycle — through appropriate follow-up, useful content, and consistent presence — will lose leads that were actually in genuine evaluation.</p>
+      </div>
+
+      <div class="article-subsection">
+        <h3>Multiple internal stakeholders</h3>
+        <p>Enterprise buying decisions in Japan typically involve multiple internal approvers, often including the person who first made contact, their manager, a procurement function, and sometimes legal or IT depending on the solution. A qualification and follow-up system designed around a single decision-maker will not track the breadth of stakeholder engagement that Japan-facing deals require.</p>
+      </div>
+
+      <div class="article-subsection">
+        <h3>Risk-sensitive decision culture</h3>
+        <p>Japan's enterprise buyers tend to be highly risk-averse. Choosing an unfamiliar vendor, committing to a new solution, or changing an established process all carry internal risk for the buyer's organization. Vendors who do not demonstrate stability, local commitment, and relevant proof points are routinely passed over in favor of safer options. A post-lead system that cannot communicate these signals through its follow-up and nurture structure will lose Japan opportunities to more established competitors.</p>
+      </div>
+
+      <div class="article-subsection">
+        <h3>Silent attrition</h3>
+        <p>When Japan-based buyers lose interest, they rarely say so directly. There is no explicit "we're going in a different direction" message. Follow-up emails receive no reply. Meeting requests are declined without explanation. The lead appears active in the CRM because no one has marked it lost — but it is effectively gone. A post-lead system that does not include explicit rules for identifying and handling silent attrition will accumulate stale pipeline that distorts forecasting and wastes sales time.</p>
+      </div>
+    </section>
+
+    <hr class="article-hr" />
+
+    <!-- How to fix -->
+    <section class="article-section">
+      <h2>How to fix the post-lead system</h2>
+      <p>Fixing the post-lead system is a design project, not a motivation project. The team does not need to try harder. It needs a system that tells each person what to do, when, and based on what criteria. Six design decisions address the six failure points:</p>
+
+      <div class="article-breakdown">
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">01</div>
+          <div class="article-breakdown__body">
+            <strong>Define lead stages explicitly for Japan.</strong>
+            <p>Document what each lifecycle stage means in Japan's context — what a contact must have done, demonstrated, or been confirmed to have before moving to the next stage. Make these definitions specific enough that two different team members would categorize the same lead the same way.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">02</div>
+          <div class="article-breakdown__body">
+            <strong>Define routing and ownership rules.</strong>
+            <p>At each stage transition, document who is responsible and what the next action is. This does not need to be a complex playbook — it needs to be clear enough that there is never ambiguity about whose lead it is or what should happen next.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">03</div>
+          <div class="article-breakdown__body">
+            <strong>Align follow-up rules to Japan's communication norms.</strong>
+            <p>Define the expected timing, channel, and tone for follow-up at each stage. This includes specifying response time windows for inbound inquiries (Japan buyers often expect faster acknowledgment than Western norms assume), email cadence for nurture sequences, and the escalation path when a lead goes quiet.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">04</div>
+          <div class="article-breakdown__body">
+            <strong>Rebuild CRM stages and fields for Japan.</strong>
+            <p>Replace generic pipeline stages with stages that reflect how Japan-facing deals actually progress. Add contact properties that capture Japan-relevant qualification signals. Configure deal records to track the stakeholder breadth and internal approval status that Japan's buying process involves.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">05</div>
+          <div class="article-breakdown__body">
+            <strong>Build reporting that shows Japan-specific pipeline health.</strong>
+            <p>Design dashboards that show the metrics that matter for Japan-facing revenue: time-in-stage by lifecycle phase, stakeholder engagement breadth, follow-up activity against SLA, and pipeline progression rate adjusted for Japan's longer cycle. Reporting that shows Japan pipeline through Western metrics will consistently misrepresent what is happening.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">06</div>
+          <div class="article-breakdown__body">
+            <strong>Review the system regularly against real pipeline behavior.</strong>
+            <p>Stage definitions, qualification criteria, and follow-up rules that made sense at design time will need adjustment as the team accumulates real data about how Japan-facing deals move. Build a quarterly review into the operating cadence to assess what the data is showing and where the system needs to be refined.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="article-hr" />
+
+    <!-- How Consilegy helps -->
+    <section class="article-section">
+      <h2>How Consilegy helps</h2>
+      <p>Consilegy works with global B2B teams to design and build the post-lead system that Japan-facing revenue operations require. The work typically covers three areas:</p>
+
+      <div class="article-subsection">
+        <h3>Revenue architecture design</h3>
+        <p>Defining the lifecycle stage structure, qualification criteria, handoff rules, and KPI framework that fit Japan-facing operations. This is the design layer — the documented operating model that implementation and adoption work builds from. Covered under <strong><a href="/en/services/revenue-architecture-design/">Revenue Architecture Design</a></strong>.</p>
+      </div>
+
+      <div class="article-subsection">
+        <h3>CRM and RevOps implementation</h3>
+        <p>Building the CRM configuration, pipeline stages, contact properties, automation workflows, and reporting that reflect the designed architecture. For teams using HubSpot, this includes portal-level configuration for Japan-facing operations specifically — not a generic onboarding setup. Covered under <strong><a href="/en/services/crm-revops-implementation/">CRM / RevOps Implementation</a></strong> and <strong><a href="/en/services/hubspot-implementation-operations-support/">HubSpot Implementation &amp; Operations Support</a></strong>.</p>
+      </div>
+
+      <div class="article-subsection">
+        <h3>Adoption and operating support</h3>
+        <p>Supporting the operating habits, documentation, and review cadences that make the designed system part of how the team actually works. In Japan-facing operations, this often means working directly with local team leads to build operating rules that fit how Japan-side teams communicate and escalate. Covered under <strong><a href="/en/services/adoption-growth-support/">Adoption &amp; Growth Support</a></strong>.</p>
+      </div>
+
+      <p>These services can be engaged as a connected sequence or at specific entry points. For teams that already have leads but are not converting them to pipeline, the right starting point is usually a review of the post-lead system — what exists, where the gaps are, and what the highest-priority design decisions are.</p>
+    </section>
+
+  </article>
+
+  <!-- ===== RELATED ===== -->
+  <aside class="article-related container">
+    <p class="article-related__label">Related</p>
+    <div class="article-related__grid">
+      <a href="/en/services/revenue-architecture-design/" class="article-related__card">
+        <p class="article-related__card-cat">Service</p>
+        <p class="article-related__card-title">Revenue Architecture Design</p>
+        <span class="article-related__card-arrow">→</span>
+      </a>
+      <a href="/en/services/crm-revops-implementation/" class="article-related__card">
+        <p class="article-related__card-cat">Service</p>
+        <p class="article-related__card-title">CRM / RevOps Implementation</p>
+        <span class="article-related__card-arrow">→</span>
+      </a>
+      <a href="/en/insights/what-revenue-architecture-means-for-japan-gtm/" class="article-related__card">
+        <p class="article-related__card-cat">Insights</p>
+        <p class="article-related__card-title">What Revenue Architecture Means for Japan GTM</p>
+        <span class="article-related__card-arrow">→</span>
+      </a>
+      <a href="/en/insights/why-japan-gtm-is-not-just-localization/" class="article-related__card">
+        <p class="article-related__card-cat">Insights</p>
+        <p class="article-related__card-title">Why Japan GTM Is Not Just Localization</p>
+        <span class="article-related__card-arrow">→</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ===== CTA ===== -->
+  <section class="article-cta">
+    <div class="container">
+      <div class="article-cta__body">
+        <h2>Japan leads not becoming qualified pipeline?</h2>
+        <p>Tell us where the system is breaking. We will be direct about what needs to be designed and how we can help build it.</p>
+        <div class="article-cta__actions">
+          <a href="/en/contact/" class="article-cta__btn article-cta__btn--primary">Contact Us</a>
+          <a href="/en/services/" class="article-cta__btn article-cta__btn--ghost">View All Services →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<style>
+/* ── Wrap / Container ─────────────────────── */
+.article-wrap { background: #fff; }
+.container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+/* ── Header ──────────────────────────────── */
+.article-head {
+  padding-top: 48px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+}
+.breadcrumb {
+  font-size: 0.8rem;
+  color: var(--color-text-muted, #64748b);
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+}
+.breadcrumb a { color: var(--color-text-muted, #64748b); text-decoration: none; }
+.breadcrumb a:hover { color: var(--color-primary, #1e40af); text-decoration: underline; }
+
+.article-meta {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 20px; flex-wrap: wrap;
+}
+.article-cat {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  background: #eff6ff; color: var(--color-primary, #1e40af);
+  padding: 3px 10px; border-radius: 10px;
+}
+.article-date, .article-read {
+  font-size: 0.8rem; color: var(--color-text-muted, #64748b);
+}
+
+.article-head h1 {
+  font-size: clamp(1.6rem, 3.5vw, 2.25rem);
+  font-weight: 800;
+  color: var(--color-navy, #0f172a);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px;
+}
+.article-desc {
+  font-size: 1.0625rem;
+  color: var(--color-text-muted, #64748b);
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ── Body ────────────────────────────────── */
+.article-body {
+  padding-top: 48px;
+  padding-bottom: 64px;
+}
+.article-section { margin-bottom: 0; }
+.article-section h2 {
+  font-size: 1.3125rem;
+  font-weight: 700;
+  color: var(--color-navy, #0f172a);
+  margin: 0 0 16px;
+  line-height: 1.35;
+}
+.article-section h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-navy, #0f172a);
+  margin: 24px 0 10px;
+}
+.article-section p {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--color-text, #1e293b);
+  margin: 0 0 16px;
+}
+.article-section ol {
+  padding-left: 1.5rem;
+  margin: 0 0 16px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.article-section li {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-text, #1e293b);
+}
+.article-section a {
+  color: var(--color-primary, #1e40af);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.article-subsection { margin-bottom: 8px; }
+
+.article-callout {
+  background: #eff6ff;
+  border-left: 4px solid var(--color-primary, #1e40af);
+  border-radius: 0 8px 8px 0;
+  padding: 16px 20px;
+  margin: 24px 0;
+}
+.article-callout p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-navy, #0f172a);
+}
+
+.article-hr {
+  border: none;
+  border-top: 1px solid var(--color-border, #e2e8f0);
+  margin: 48px 0;
+}
+
+/* ── Diagram ─────────────────────────────── */
+.article-diagram {
+  margin: 24px 0;
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+.article-diagram img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ── Numbered breakdown ──────────────────── */
+.article-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 24px 0;
+  border-top: 1px solid var(--color-border, #e2e8f0);
+}
+.article-breakdown__item {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+  align-items: flex-start;
+}
+.article-breakdown__num {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-primary, #1e40af);
+  opacity: 0.3;
+  flex-shrink: 0;
+  line-height: 1.5;
+  min-width: 2.5rem;
+}
+.article-breakdown__body strong {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-navy, #0f172a);
+  margin-bottom: 6px;
+}
+.article-breakdown__body p {
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--color-text-muted, #64748b);
+  margin: 0;
+}
+
+/* ── Related ─────────────────────────────── */
+.article-related {
+  padding: 48px 0;
+  border-top: 1px solid var(--color-border, #e2e8f0);
+}
+.article-related__label {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--color-primary, #1e40af);
+  margin: 0 0 20px;
+}
+.article-related__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.article-related__card {
+  background: #f8fafc;
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 8px;
+  padding: 16px 18px;
+  text-decoration: none;
+  display: flex; flex-direction: column; gap: 6px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.article-related__card:hover {
+  border-color: var(--color-primary, #1e40af);
+  box-shadow: 0 2px 12px rgba(30,64,175,0.07);
+}
+.article-related__card-cat {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--color-primary, #1e40af); margin: 0;
+}
+.article-related__card-title {
+  font-size: 0.875rem; font-weight: 600;
+  color: var(--color-navy, #0f172a); line-height: 1.45; margin: 0; flex: 1;
+}
+.article-related__card-arrow {
+  font-size: 0.875rem; color: var(--color-primary, #1e40af); font-weight: 600;
+}
+
+/* ── CTA ─────────────────────────────────── */
+.article-cta {
+  background: #f8fafc;
+  border-top: 1px solid var(--color-border, #e2e8f0);
+  padding: 64px 0;
+}
+.article-cta__body {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto;
+}
+.article-cta__body h2 {
+  font-size: clamp(1.25rem, 3vw, 1.625rem);
+  font-weight: 700;
+  color: var(--color-navy, #0f172a);
+  margin: 0 0 12px;
+}
+.article-cta__body p {
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  color: var(--color-text-muted, #64748b);
+  margin: 0 0 28px;
+}
+.article-cta__actions {
+  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+}
+.article-cta__btn {
+  display: inline-flex; align-items: center;
+  padding: 0.75em 1.75em;
+  border-radius: 8px; font-size: 0.9375rem; font-weight: 700;
+  text-decoration: none; transition: background 0.15s, color 0.15s;
+}
+.article-cta__btn--primary {
+  background: var(--color-primary, #1e40af); color: #fff;
+  border: 2px solid var(--color-primary, #1e40af);
+}
+.article-cta__btn--primary:hover { background: #1e3a8a; border-color: #1e3a8a; }
+.article-cta__btn--ghost {
+  background: transparent; color: var(--color-primary, #1e40af);
+  border: 2px solid var(--color-primary, #1e40af);
+}
+.article-cta__btn--ghost:hover { background: rgba(30,64,175,0.06); }
+
+/* ── Responsive ──────────────────────────── */
+@media (max-width: 600px) {
+  .article-head { padding-top: 32px; }
+  .article-related__grid { grid-template-columns: 1fr; }
+  .article-breakdown__num { font-size: 1rem; min-width: 2rem; }
+}
+</style>
+
+</BaseLayout>

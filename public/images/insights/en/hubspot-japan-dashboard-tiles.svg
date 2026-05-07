@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 220" role="img" aria-label="HubSpot Japan revenue dashboard: six metric tiles showing MQL volume, MQL-to-SQL rate, pipeline value, sales cycle, win rate, and quarterly revenue">
+  <defs>
+    <style>text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }</style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="760" height="220" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="380" y="24" font-size="12" font-weight="700" fill="#64748b" letter-spacing="0.07em" text-anchor="middle">HUBSPOT JAPAN REVENUE DASHBOARD</text>
+
+  <!-- Row 1 Tiles (y=40, h=72) -->
+
+  <!-- Tile 1: Japan MQL Volume (x=40) -->
+  <rect x="40" y="40" width="216" height="72" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="148" y="58" font-size="9" font-weight="700" fill="#64748b" letter-spacing="0.05em" text-anchor="middle">JAPAN MQL VOLUME</text>
+  <text x="148" y="84" font-size="18" font-weight="800" fill="#1e40af" text-anchor="middle">24 / mo</text>
+  <text x="148" y="102" font-size="9" fill="#16a34a" text-anchor="middle">+12% MoM</text>
+
+  <!-- Tile 2: MQL→SQL Rate (x=272) -->
+  <rect x="272" y="40" width="216" height="72" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="380" y="58" font-size="9" font-weight="700" fill="#64748b" letter-spacing="0.05em" text-anchor="middle">MQL→SQL RATE</text>
+  <text x="380" y="84" font-size="18" font-weight="800" fill="#1e40af" text-anchor="middle">18%</text>
+  <text x="380" y="102" font-size="9" fill="#64748b" text-anchor="middle">Japan avg</text>
+
+  <!-- Tile 3: Pipeline Value (x=504) -->
+  <rect x="504" y="40" width="216" height="72" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="612" y="58" font-size="9" font-weight="700" fill="#64748b" letter-spacing="0.05em" text-anchor="middle">PIPELINE VALUE</text>
+  <text x="612" y="84" font-size="18" font-weight="800" fill="#1e40af" text-anchor="middle">¥ 42M</text>
+  <text x="612" y="102" font-size="9" fill="#64748b" text-anchor="middle">Active deals</text>
+
+  <!-- Row 2 Tiles (y=128, h=72) -->
+
+  <!-- Tile 4: Sales Cycle (x=40) -->
+  <rect x="40" y="128" width="216" height="72" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="148" y="146" font-size="9" font-weight="700" fill="#64748b" letter-spacing="0.05em" text-anchor="middle">SALES CYCLE</text>
+  <text x="148" y="172" font-size="18" font-weight="800" fill="#1e40af" text-anchor="middle">87 days</text>
+  <text x="148" y="190" font-size="9" fill="#64748b" text-anchor="middle">Japan avg</text>
+
+  <!-- Tile 5: Win Rate (x=272) -->
+  <rect x="272" y="128" width="216" height="72" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="380" y="146" font-size="9" font-weight="700" fill="#64748b" letter-spacing="0.05em" text-anchor="middle">WIN RATE</text>
+  <text x="380" y="172" font-size="18" font-weight="800" fill="#1e40af" text-anchor="middle">22%</text>
+  <text x="380" y="190" font-size="9" fill="#64748b" text-anchor="middle">Japan only</text>
+
+  <!-- Tile 6: Revenue (x=504, dark) -->
+  <rect x="504" y="128" width="216" height="72" rx="8" fill="#1e40af" stroke="#1e40af" stroke-width="1.5"/>
+  <text x="612" y="146" font-size="9" font-weight="700" fill="#93c5fd" letter-spacing="0.05em" text-anchor="middle">REVENUE</text>
+  <text x="612" y="172" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">This Qtr</text>
+  <text x="612" y="190" font-size="9" fill="#93c5fd" text-anchor="middle">Track separately</text>
+
+  <!-- Caption bar -->
+  <rect x="0" y="200" width="760" height="20" fill="#f1f5f9"/>
+  <text x="380" y="214" font-size="10" fill="#64748b" text-anchor="middle">Japan revenue metrics must be filtered separately — global dashboards aggregate away the signal.</text>
+</svg>

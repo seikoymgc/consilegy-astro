@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-	title="料金プラン | Consilegy"
+	title="パッケージ料金 | Consilegy"
 	description="診断パッケージ（10〜50万円）、マルチCRM再設計プロジェクト（300〜800万円）、伴走・顧問支援（月額30〜100万円）。目的に応じて選べる3つのプランをご用意しています。"
 	lang="ja"
 >
@@ -12,7 +12,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 <section class="hero">
 	<div class="container">
 		<span class="eyebrow"><span class="eyebrow__dot"></span>Pricing</span>
-		<h1>料金プラン</h1>
+		<h1>パッケージ料金</h1>
 		<p class="hero-lead">
 			目的に応じて選べる3つのプラン。まず現状を把握したい企業から、
 			CRM基盤を根本から作り直したい企業まで、フェーズに合わせてご選択ください。
@@ -29,6 +29,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 	<div class="container">
 		<h2 class="pn-title">料金体系について</h2>
 		<p class="pn-lead">Consilegyでは、目的に応じて以下の2つの料金体系をご用意しています。</p>
+		<p class="pn-custom-note">表示価格はパッケージ料金の目安です。プロジェクトの規模・期間・要件に応じてカスタマイズが可能ですので、お気軽にご相談ください。</p>
 		<div class="pn-grid">
 			<div class="pn-item">
 				<span class="pn-type">プロジェクト型</span>
@@ -164,7 +165,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 				<p class="plan-tag">フル伴走</p>
 				<p class="plan-sub">施策の設計・実行まで入り込む、最も深い関与。部門間調整や改善プロジェクトのリードまで担当。</p>
 				<div class="plan-price">
-					<div class="plan-price__amount">¥800,000〜1,000,000</div>
+					<div class="plan-price__amount">¥800,000〜</div>
 					<span class="plan-price__unit">月額 / 最低6ヶ月〜</span>
 				</div>
 				<ul class="plan-features">
@@ -264,6 +265,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 	letter-spacing: 0.04em;
 }
 .pn-item p { margin: 0; font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.65; }
+.pn-custom-note {
+	margin: 1rem 0 0; padding: 0.875rem 1.125rem;
+	background: #fff; border: 1px solid rgba(30,64,175,0.2);
+	border-left: 3px solid var(--color-primary); border-radius: 0 6px 6px 0;
+	font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.7;
+}
 
 /* ── Hero ──────────────────────────────────────────── */
 .hero {

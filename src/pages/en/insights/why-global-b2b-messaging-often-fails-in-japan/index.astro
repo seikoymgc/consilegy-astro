@@ -1,0 +1,558 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+
+const pubDate = '2026-05-07';
+const readTime = 'About 9 min';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Why Global B2B Messaging Often Fails in Japan',
+  description: 'Global B2B messaging often fails in Japan not because the product is weak, but because the message does not match how Japanese buyers evaluate trust, risk, urgency, internal consensus, and operational fit.',
+  datePublished: pubDate,
+  dateModified: pubDate,
+  author: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+  publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+  url: 'https://consilegy.com/en/insights/why-global-b2b-messaging-often-fails-in-japan/',
+  inLanguage: 'en',
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://consilegy.com/en/' },
+    { '@type': 'ListItem', position: 2, name: 'Insights', item: 'https://consilegy.com/en/insights/' },
+    { '@type': 'ListItem', position: 3, name: 'Why Global B2B Messaging Often Fails in Japan', item: 'https://consilegy.com/en/insights/why-global-b2b-messaging-often-fails-in-japan/' },
+  ],
+};
+---
+
+<BaseLayout
+  title="Why Global B2B Messaging Often Fails in Japan | Consilegy"
+  description="Global B2B messaging often fails in Japan not because the product is weak, but because the message does not match how Japanese buyers evaluate trust, risk, urgency, internal consensus, and operational fit."
+  lang="en"
+  alternateUrl="/insights/b2b-messaging-japan/"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+
+<div class="article-wrap">
+
+  <!-- ===== ARTICLE HEADER ===== -->
+  <header class="article-head container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/en/">Home</a>
+      <span aria-hidden="true">›</span>
+      <a href="/en/insights/">Insights</a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">Why Global B2B Messaging Often Fails in Japan</span>
+    </nav>
+    <div class="article-meta">
+      <span class="article-cat">Japan GTM</span>
+      <span class="article-date">{pubDate}</span>
+      <span class="article-read">{readTime}</span>
+    </div>
+    <h1>Why Global B2B Messaging Often Fails in Japan</h1>
+    <p class="article-desc">The product is rarely the reason global B2B messaging fails in Japan. The reason is almost always the same: the message assumes a buyer evaluation logic that does not match how Japanese buyers actually make decisions.</p>
+  </header>
+
+  <!-- ===== ARTICLE BODY ===== -->
+  <article class="article-body container" id="article">
+
+    <!-- Introduction -->
+    <section class="article-section">
+      <h2>The assumption that does not travel</h2>
+      <p>Most global B2B messaging is built around a shared set of assumptions about what makes buyers act: speed and scale are compelling, innovation is a differentiator, urgency creates momentum, and clear ROI claims close deals. These assumptions work in some markets. In Japan's B2B context, they often work against the vendor.</p>
+      <p>The failure is not about language. A well-translated version of global messaging still fails in Japan if the underlying argument is wrong — if it makes claims Japan buyers find implausible, applies pressure before trust is established, or skips the proof elements that Japan's risk-sensitive evaluation process depends on.</p>
+      <p>Understanding why Japan messaging fails requires understanding how Japan buyers evaluate — not just what they read, but what criteria they apply, in what sequence, and what they need to see before they will engage.</p>
+      <div class="article-callout">
+        <p><strong>Global messaging fails in Japan not because the product is weak, but because the message is built for a different evaluation logic.</strong> Fixing it requires redesigning the argument, not just retranslating the copy.</p>
+      </div>
+    </section>
+
+    <hr class="article-hr" />
+
+    <!-- Why global messaging loses power -->
+    <section class="article-section">
+      <h2>Why global messaging loses power in Japan</h2>
+      <p>There are five structural reasons that global B2B messaging consistently underperforms in Japan. Each one reflects a mismatch between what the message assumes and how Japan buyers actually evaluate.</p>
+
+      <div class="article-subsection">
+        <h3>Too much urgency, too early</h3>
+        <p>Western B2B messaging often applies urgency as a conversion tool: limited-time offers, "act now" language, competitive scarcity framing. In Japan's B2B buying culture, urgency applied before trust is established reads as pressure — and pressure before trust creates disengagement, not action.</p>
+        <p>Japan buyers who feel rushed before they have had sufficient time to evaluate, verify, and build internal consensus will simply stop engaging. The urgency that was meant to close the deal often ends it.</p>
+      </div>
+
+      <div class="article-subsection">
+        <h3>Too little trust-building</h3>
+        <p>Western messaging often assumes the brand name and a few customer logos are sufficient credentials. In Japan, a foreign vendor may have low brand recognition, customer logos from other markets carry limited weight, and the absence of Japan-specific references is read as a risk signal — not as a neutral absence of evidence.</p>
+        <p>Trust in Japan's B2B context is built through accumulated proof: Japan-relevant case studies, local presence or partnerships, demonstrated understanding of Japan's business environment, and the kind of consistent, appropriate follow-up that signals the vendor takes the Japan market seriously. Global messaging rarely includes any of this.</p>
+      </div>
+
+      <div class="article-subsection">
+        <h3>Feature-forward messaging before the buyer accepts the problem</h3>
+        <p>Feature-forward messaging assumes the buyer already understands why they need the solution and is now evaluating which one to choose. Japan's enterprise buying often starts earlier in the awareness curve. A buyer who has not yet accepted the problem frame will not evaluate features — they will simply not engage.</p>
+        <p>Leading with "the most advanced platform for X" before the buyer has internalized that X is a real problem they need to solve means the message lands on unready ground. In Japan, where buying processes are deliberate and evaluation periods are long, this timing mismatch is especially costly.</p>
+      </div>
+
+      <div class="article-subsection">
+        <h3>Outcome claims without operational grounding</h3>
+        <p>Global messaging often operates at the level of outcomes: "grow revenue," "reduce costs," "accelerate your team." These claims are true but abstract. Japan's enterprise buyers need to understand how a solution will fit into their existing systems, workflows, team structures, and operational context before they can evaluate whether it is worth pursuing.</p>
+        <p>A message that stays at outcome level without connecting to operational specifics leaves Japan buyers with a gap they cannot bridge on their own — and will not ask about unless they already trust the vendor enough to start a conversation.</p>
+      </div>
+
+      <div class="article-subsection">
+        <h3>Proof designed for a different risk profile</h3>
+        <p>Japan's enterprise buyers carry internal risk when they advocate for a new vendor. If the evaluation goes poorly, the failure reflects on the person who brought the vendor in — not just on the vendor. This means the bar for proof is higher, and the type of proof that matters is different.</p>
+        <p>G2 ratings, global analyst endorsements, and investor-backed growth stories — the proof architecture of Western SaaS messaging — do not effectively reduce the internal risk Japan buyers face. What reduces that risk is Japan-side evidence: references from Japanese companies, demonstrations of operational stability, support structure clarity, and signals that the vendor understands Japan's business environment well enough to be a reliable partner.</p>
+      </div>
+    </section>
+
+    <hr class="article-hr" />
+
+    <!-- How Japanese B2B buyers evaluate -->
+    <section class="article-section">
+      <h2>How Japanese B2B buyers actually evaluate</h2>
+      <p>Japan's B2B buyers do not follow the same evaluation path that Western buyers typically follow. Understanding the actual evaluation sequence is the prerequisite for building messaging that works.</p>
+
+      <div class="article-diagram">
+        <img
+          src="/images/insights/en/why-global-messaging-fails-in-japan.svg"
+          alt="Three-column diagram: Global Message (Speed, Scale, Innovation, Feature value) → Mismatch (Trust gap, Risk gap, Proof gap, Operational fit gap) → Japan Buyer Evaluation (Trust, Risk reduction, Internal consensus, Vendor stability, Operational fit)"
+          width="760"
+          height="300"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="article-subsection">
+        <h3>Trust</h3>
+        <p>Before a Japan buyer will evaluate your solution on its merits, they need to establish that you are a credible vendor worth evaluating. This is not about brand recognition — it is about the accumulated signals that tell a buyer this vendor has substance: local references, clear company history, stable team, Japan-relevant communication. Without this foundation, feature claims and ROI promises are not evaluated; they are filtered out as unverified.</p>
+      </div>
+
+      <div class="article-subsection">
+        <h3>Risk reduction</h3>
+        <p>Once basic trust is established, Japan buyers evaluate risk — specifically the internal risk of recommending this vendor to their organization. What happens if the implementation fails? What if the vendor disappears? Who is accountable? Messaging that does not address these questions leaves buyers with unresolved risk that blocks progression, regardless of how compelling the product benefits are.</p>
+      </div>
+
+      <div class="article-subsection">
+        <h3>Internal consensus</h3>
+        <p>Japan's enterprise buying decisions rarely rest with a single person. The buyer who first contacts you is often not the final decision-maker. Building internal consensus — across the original contact, their manager, procurement, and potentially legal or IT — is a built-in part of the Japan buying process. Messaging that helps the initial contact make the case internally is more useful than messaging that attempts to sell directly to them.</p>
+      </div>
+
+      <div class="article-subsection">
+        <h3>Vendor stability</h3>
+        <p>Japan's buyers evaluate vendors not just for the quality of the product but for the likelihood that the vendor will be there — supporting, maintaining, and improving the solution — over a multi-year horizon. A fast-growing startup that signals "growth at all costs" may read as unstable in Japan's context. Stability indicators — tenure, Japan-specific investment, support structure, local relationships — matter here in ways they may not in other markets.</p>
+      </div>
+
+      <div class="article-subsection">
+        <h3>Operational fit and long-term support</h3>
+        <p>The final evaluation criteria are operational: will this work with our systems? Will our team be able to use it? Who supports us after the contract is signed, and how responsive will they be? Global messaging that focuses on what the product does without addressing how it integrates into an existing operational environment consistently fails at this stage — because the buyer has unresolved implementation questions that the message did not help them answer.</p>
+      </div>
+    </section>
+
+    <hr class="article-hr" />
+
+    <!-- Common messaging mistakes -->
+    <section class="article-section">
+      <h2>Common Japan messaging mistakes</h2>
+      <p>Most Japan messaging failures fall into one of five patterns. Each one is a direct consequence of applying global messaging logic to a market where the buyer evaluation sequence works differently.</p>
+
+      <div class="article-breakdown">
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">01</div>
+          <div class="article-breakdown__body">
+            <strong>Direct translation of the global homepage.</strong>
+            <p>The structure of a global homepage — hero benefit claim, feature highlights, customer logos, "get a demo" CTA — is optimized for a buyer who is already in active evaluation. Japan buyers arriving at a translated version of this page are often much earlier in the process. The content answers questions they have not yet asked, skips the trust-building they require, and asks for a commitment they are not ready to make.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">02</div>
+          <div class="article-breakdown__body">
+            <strong>Imported urgency language.</strong>
+            <p>Time-limited offers, "limited seats," competitive urgency framing, and aggressive follow-up cadences are standard tools in Western B2B marketing. In Japan, these tools create the opposite of the intended effect: they signal that the vendor prioritizes conversion over relationship, which undermines trust exactly when trust is most needed.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">03</div>
+          <div class="article-breakdown__body">
+            <strong>Abstract value propositions without operational grounding.</strong>
+            <p>Messaging built around high-level outcomes — "transform your revenue," "lead your market," "future-proof your business" — is too abstract to help a Japan buyer build internal consensus. The buyer needs to be able to explain to their manager and procurement team exactly what this solution does, how it fits their current environment, and what specific problem it solves. Abstract messaging makes that conversation impossible.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">04</div>
+          <div class="article-breakdown__body">
+            <strong>No Japan-relevant proof points.</strong>
+            <p>Customer logos from the US and Europe, analyst reports from global research firms, and testimonials from foreign executives do not effectively reduce the risk Japan buyers perceive. They confirm that the product works somewhere — not that it works in Japan, for Japanese companies, with the support structure Japan buyers need. The absence of Japan-specific proof is read as an unresolved risk, not as a neutral data gap.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">05</div>
+          <div class="article-breakdown__body">
+            <strong>CTAs that ask for too much, too early.</strong>
+            <p>"Book a demo," "start your free trial," "talk to sales" — these engagement offers work when the buyer is already in active evaluation. Japan's B2B buying often starts with a longer research and consideration phase before any direct vendor contact. A CTA that asks for a commercial conversation before the buyer has established trust and reduced internal risk will consistently be ignored — not because the buyer is uninterested, but because the ask does not match where they are in the process.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="article-hr" />
+
+    <!-- What Japan-ready messaging should include -->
+    <section class="article-section">
+      <h2>What Japan-ready messaging should include</h2>
+      <p>Japan-ready messaging is not a cosmetic change to global copy. It is a restructuring of the argument — what is said, in what sequence, and what evidence is brought in to support each claim. Six elements make messaging genuinely effective for Japan's B2B evaluation process.</p>
+
+      <div class="article-subsection">
+        <h3>Clear problem framing</h3>
+        <p>Before Japan buyers evaluate a solution, they need to recognize the problem. Messaging should open by describing the specific situation Japan-based buyers face — in terms they recognize from their own operational context, not in terms borrowed from a Western market analysis. The problem framing earns the buyer's attention by proving that the vendor understands their situation before making any claims about the solution.</p>
+      </div>
+
+      <div class="article-subsection">
+        <h3>Local buyer context</h3>
+        <p>Effective Japan messaging references the conditions specific to Japan's B2B environment: the buying process characteristics, the operational constraints, the risk considerations that Japan buyers navigate. This is not about stereotyping Japan — it is about demonstrating that the vendor has enough context to be a credible partner in Japan's specific business environment.</p>
+      </div>
+
+      <div class="article-subsection">
+        <h3>Risk reduction evidence</h3>
+        <p>Every claim in Japan-facing messaging should be accompanied by evidence that reduces the buyer's internal risk. This includes Japan-relevant case studies, references from Japanese companies if available, clarity on support structure and response time, and signals of vendor stability and Japan-market commitment. Risk reduction is not a section of the page — it is woven into every proof point the message uses.</p>
+      </div>
+
+      <div class="article-subsection">
+        <h3>Operational specifics</h3>
+        <p>Japan buyers need to be able to visualize implementation before they can engage. Messaging should connect product value to specific operational outcomes: which workflow improves, which team role benefits, how the integration works, what the implementation timeline typically looks like. Operational grounding converts abstract value claims into evaluable specifics that Japan buyers can take into internal discussions.</p>
+      </div>
+
+      <div class="article-subsection">
+        <h3>Appropriate proof structure</h3>
+        <p>Proof in Japan-facing messaging should be structured around the criteria Japan buyers apply: trust indicators, operational evidence, and stability signals. This may include Japan-side testimonials, co-authored case studies with Japanese clients, local partnership announcements, or support structure documentation. The sequence matters: trust proof comes before performance proof, because Japan buyers will not evaluate performance claims from a vendor they have not yet decided to trust.</p>
+      </div>
+
+      <div class="article-subsection">
+        <h3>An appropriate first step</h3>
+        <p>The engagement offer at the end of Japan-facing messaging should match where buyers actually are. A lower-commitment first step — a detailed guide, a diagnostic assessment, an introductory consultation framed as diagnostic rather than sales — fits Japan's first-contact norms better than a direct demo request. The goal is to offer a next step that a buyer who is still building trust is willing to take, rather than a next step that only a fully decided buyer would accept.</p>
+      </div>
+    </section>
+
+    <hr class="article-hr" />
+
+    <!-- How Consilegy helps -->
+    <section class="article-section">
+      <h2>How Consilegy helps</h2>
+      <p>Consilegy works with global B2B teams to redesign their Japan-facing messaging from the argument structure up — not just the language. This work falls under <strong><a href="/en/services/japan-market-gtm-messaging/">Japan Market GTM &amp; Messaging</a></strong> and typically covers four areas:</p>
+
+      <div class="article-subsection">
+        <h3>Positioning for Japan's evaluation criteria</h3>
+        <p>Defining how your offer is framed for Japan's buyer evaluation sequence — which benefits to lead with, which proof points to prioritize, and how to structure the argument so it maps to trust, risk, and operational fit rather than speed, scale, and innovation.</p>
+      </div>
+
+      <div class="article-subsection">
+        <h3>Messaging hierarchy</h3>
+        <p>Building the full message structure from problem framing through proof to engagement offer. This includes headline logic, supporting claim architecture, proof point sequencing, and objection handling for the specific risk concerns Japan buyers typically raise.</p>
+      </div>
+
+      <div class="article-subsection">
+        <h3>Landing page structure</h3>
+        <p>Redesigning the page structure, section sequence, and CTA approach for Japan's first-contact behavior. This is different from global page design — it requires a longer trust-building sequence, earlier operational proof, and a lower-commitment first action than global defaults assume.</p>
+      </div>
+
+      <div class="article-subsection">
+        <h3>Conversion path review</h3>
+        <p>Assessing the full path from Japan-facing traffic through to contact — where buyers are dropping off, which CTAs are failing, and what changes to the message structure or conversion architecture would improve performance. This review connects messaging decisions to actual funnel data, so changes are grounded in evidence rather than assumption.</p>
+      </div>
+    </section>
+
+  </article>
+
+  <!-- ===== RELATED ===== -->
+  <aside class="article-related container">
+    <p class="article-related__label">Related</p>
+    <div class="article-related__grid">
+      <a href="/en/services/japan-market-gtm-messaging/" class="article-related__card">
+        <p class="article-related__card-cat">Service</p>
+        <p class="article-related__card-title">Japan Market GTM &amp; Messaging</p>
+        <span class="article-related__card-arrow">→</span>
+      </a>
+      <a href="/en/services/revenue-architecture-design/" class="article-related__card">
+        <p class="article-related__card-cat">Service</p>
+        <p class="article-related__card-title">Revenue Architecture Design</p>
+        <span class="article-related__card-arrow">→</span>
+      </a>
+      <a href="/en/insights/why-japan-gtm-is-not-just-localization/" class="article-related__card">
+        <p class="article-related__card-cat">Insights</p>
+        <p class="article-related__card-title">Why Japan GTM Is Not Just Localization</p>
+        <span class="article-related__card-arrow">→</span>
+      </a>
+      <a href="/en/insights/where-japan-gtm-breaks-after-lead-generation/" class="article-related__card">
+        <p class="article-related__card-cat">Insights</p>
+        <p class="article-related__card-title">Where Japan GTM Breaks After Lead Generation</p>
+        <span class="article-related__card-arrow">→</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ===== CTA ===== -->
+  <section class="article-cta">
+    <div class="container">
+      <div class="article-cta__body">
+        <h2>Japan-facing messaging not converting?</h2>
+        <p>Tell us what you have built and where it is falling short. We will assess the messaging structure and tell you directly where the argument is losing Japan buyers.</p>
+        <div class="article-cta__actions">
+          <a href="/en/contact/" class="article-cta__btn article-cta__btn--primary">Contact Us</a>
+          <a href="/en/services/japan-market-gtm-messaging/" class="article-cta__btn article-cta__btn--ghost">Japan GTM &amp; Messaging →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<style>
+/* ── Wrap / Container ─────────────────────── */
+.article-wrap { background: #fff; }
+.container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+/* ── Header ──────────────────────────────── */
+.article-head {
+  padding-top: 48px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+}
+.breadcrumb {
+  font-size: 0.8rem;
+  color: var(--color-text-muted, #64748b);
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+}
+.breadcrumb a { color: var(--color-text-muted, #64748b); text-decoration: none; }
+.breadcrumb a:hover { color: var(--color-primary, #1e40af); text-decoration: underline; }
+
+.article-meta {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 20px; flex-wrap: wrap;
+}
+.article-cat {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  background: #eff6ff; color: var(--color-primary, #1e40af);
+  padding: 3px 10px; border-radius: 10px;
+}
+.article-date, .article-read {
+  font-size: 0.8rem; color: var(--color-text-muted, #64748b);
+}
+
+.article-head h1 {
+  font-size: clamp(1.6rem, 3.5vw, 2.25rem);
+  font-weight: 800;
+  color: var(--color-navy, #0f172a);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px;
+}
+.article-desc {
+  font-size: 1.0625rem;
+  color: var(--color-text-muted, #64748b);
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ── Body ────────────────────────────────── */
+.article-body {
+  padding-top: 48px;
+  padding-bottom: 64px;
+}
+.article-section { margin-bottom: 0; }
+.article-section h2 {
+  font-size: 1.3125rem;
+  font-weight: 700;
+  color: var(--color-navy, #0f172a);
+  margin: 0 0 16px;
+  line-height: 1.35;
+}
+.article-section h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-navy, #0f172a);
+  margin: 24px 0 10px;
+}
+.article-section p {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--color-text, #1e293b);
+  margin: 0 0 16px;
+}
+.article-section a {
+  color: var(--color-primary, #1e40af);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.article-subsection { margin-bottom: 8px; }
+
+.article-callout {
+  background: #eff6ff;
+  border-left: 4px solid var(--color-primary, #1e40af);
+  border-radius: 0 8px 8px 0;
+  padding: 16px 20px;
+  margin: 24px 0;
+}
+.article-callout p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-navy, #0f172a);
+}
+
+.article-hr {
+  border: none;
+  border-top: 1px solid var(--color-border, #e2e8f0);
+  margin: 48px 0;
+}
+
+/* ── Diagram ─────────────────────────────── */
+.article-diagram {
+  margin: 24px 0;
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+.article-diagram img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ── Numbered breakdown ──────────────────── */
+.article-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 24px 0;
+  border-top: 1px solid var(--color-border, #e2e8f0);
+}
+.article-breakdown__item {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+  align-items: flex-start;
+}
+.article-breakdown__num {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-primary, #1e40af);
+  opacity: 0.3;
+  flex-shrink: 0;
+  line-height: 1.5;
+  min-width: 2.5rem;
+}
+.article-breakdown__body strong {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-navy, #0f172a);
+  margin-bottom: 6px;
+}
+.article-breakdown__body p {
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--color-text-muted, #64748b);
+  margin: 0;
+}
+
+/* ── Related ─────────────────────────────── */
+.article-related {
+  padding: 48px 0;
+  border-top: 1px solid var(--color-border, #e2e8f0);
+}
+.article-related__label {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--color-primary, #1e40af);
+  margin: 0 0 20px;
+}
+.article-related__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.article-related__card {
+  background: #f8fafc;
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 8px;
+  padding: 16px 18px;
+  text-decoration: none;
+  display: flex; flex-direction: column; gap: 6px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.article-related__card:hover {
+  border-color: var(--color-primary, #1e40af);
+  box-shadow: 0 2px 12px rgba(30,64,175,0.07);
+}
+.article-related__card-cat {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--color-primary, #1e40af); margin: 0;
+}
+.article-related__card-title {
+  font-size: 0.875rem; font-weight: 600;
+  color: var(--color-navy, #0f172a); line-height: 1.45; margin: 0; flex: 1;
+}
+.article-related__card-arrow {
+  font-size: 0.875rem; color: var(--color-primary, #1e40af); font-weight: 600;
+}
+
+/* ── CTA ─────────────────────────────────── */
+.article-cta {
+  background: #f8fafc;
+  border-top: 1px solid var(--color-border, #e2e8f0);
+  padding: 64px 0;
+}
+.article-cta__body {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto;
+}
+.article-cta__body h2 {
+  font-size: clamp(1.25rem, 3vw, 1.625rem);
+  font-weight: 700;
+  color: var(--color-navy, #0f172a);
+  margin: 0 0 12px;
+}
+.article-cta__body p {
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  color: var(--color-text-muted, #64748b);
+  margin: 0 0 28px;
+}
+.article-cta__actions {
+  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+}
+.article-cta__btn {
+  display: inline-flex; align-items: center;
+  padding: 0.75em 1.75em;
+  border-radius: 8px; font-size: 0.9375rem; font-weight: 700;
+  text-decoration: none; transition: background 0.15s, color 0.15s;
+}
+.article-cta__btn--primary {
+  background: var(--color-primary, #1e40af); color: #fff;
+  border: 2px solid var(--color-primary, #1e40af);
+}
+.article-cta__btn--primary:hover { background: #1e3a8a; border-color: #1e3a8a; }
+.article-cta__btn--ghost {
+  background: transparent; color: var(--color-primary, #1e40af);
+  border: 2px solid var(--color-primary, #1e40af);
+}
+.article-cta__btn--ghost:hover { background: rgba(30,64,175,0.06); }
+
+/* ── Responsive ──────────────────────────── */
+@media (max-width: 600px) {
+  .article-head { padding-top: 32px; }
+  .article-related__grid { grid-template-columns: 1fr; }
+  .article-breakdown__num { font-size: 1rem; min-width: 2rem; }
+}
+</style>
+
+</BaseLayout>

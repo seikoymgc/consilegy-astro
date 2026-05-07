@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 230" role="img" aria-label="When to use HubSpot for Japan market entry: three scenarios — already using HubSpot (best fit), HubSpot unconfigured (configure first), not using HubSpot (evaluate fit first)">
+  <defs>
+    <style>text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }</style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="760" height="230" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="380" y="24" font-size="12" font-weight="700" fill="#64748b" letter-spacing="0.07em" text-anchor="middle">WHEN TO USE HUBSPOT FOR JAPAN MARKET ENTRY</text>
+
+  <!-- Col 1: Already Using HubSpot (x=20, w=210, y=44, h=130) -->
+  <rect x="20" y="44" width="210" height="130" rx="8" fill="#eff6ff" stroke="#1e40af" stroke-width="2"/>
+  <!-- Header -->
+  <rect x="20" y="44" width="210" height="34" rx="8" fill="#1e40af"/>
+  <rect x="20" y="60" width="210" height="18" fill="#1e40af"/>
+  <text x="125" y="65" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">Already Using HubSpot</text>
+  <!-- Body -->
+  <text x="125" y="106" font-size="10" fill="#475569" text-anchor="middle">Already deployed globally?</text>
+  <text x="125" y="128" font-size="14" font-weight="800" fill="#166534" text-anchor="middle">✓ Best Fit</text>
+  <text x="125" y="150" font-size="10" fill="#1e40af" text-anchor="middle">Configure for Japan</text>
+
+  <!-- Col 2: HubSpot + Not Configured (x=275, w=210, y=44, h=130) -->
+  <rect x="275" y="44" width="210" height="130" rx="8" fill="#fff7ed" stroke="#f59e0b" stroke-width="1.5"/>
+  <!-- Header -->
+  <rect x="275" y="44" width="210" height="34" rx="8" fill="#f59e0b"/>
+  <rect x="275" y="60" width="210" height="18" fill="#f59e0b"/>
+  <text x="380" y="65" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">HubSpot, Not Configured</text>
+  <!-- Body -->
+  <text x="380" y="106" font-size="10" fill="#475569" text-anchor="middle">Using defaults only?</text>
+  <text x="380" y="128" font-size="13" font-weight="800" fill="#b45309" text-anchor="middle">⚠ Configure First</text>
+  <text x="380" y="150" font-size="10" fill="#92400e" text-anchor="middle">Defaults will mislead you</text>
+
+  <!-- Col 3: Not Using HubSpot (x=530, w=210, y=44, h=130) -->
+  <rect x="530" y="44" width="210" height="130" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <!-- Header -->
+  <rect x="530" y="44" width="210" height="34" rx="8" fill="#334155"/>
+  <rect x="530" y="60" width="210" height="18" fill="#334155"/>
+  <text x="635" y="65" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">Not Using HubSpot</text>
+  <!-- Body -->
+  <text x="635" y="106" font-size="10" fill="#475569" text-anchor="middle">No CRM yet?</text>
+  <text x="635" y="128" font-size="13" font-weight="800" fill="#334155" text-anchor="middle">→ Evaluate fit</text>
+  <text x="635" y="150" font-size="10" fill="#64748b" text-anchor="middle">Match to team size first</text>
+
+  <!-- Caption bar -->
+  <rect x="0" y="190" width="760" height="24" fill="#f1f5f9"/>
+  <text x="380" y="206" font-size="10" fill="#64748b" text-anchor="middle">HubSpot fits Japan GTM best when already deployed and properly configured for Japan's buying context.</text>
+</svg>

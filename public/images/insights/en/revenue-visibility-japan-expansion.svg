@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 190" role="img" aria-label="Revenue Visibility for Japan Market Expansion">
+  <defs>
+    <style>text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }</style>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#1e40af"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="760" height="190" fill="#f8fafc"/>
+
+  <!-- Title -->
+  <text x="380" y="22" text-anchor="middle" font-size="12" font-weight="700" fill="#64748b" letter-spacing="0.07em">REVENUE VISIBILITY FOR JAPAN MARKET EXPANSION</text>
+
+  <!-- Tile 1: JAPAN PIPELINE VALUE -->
+  <rect x="20" y="44" width="160" height="96" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="100" y="64" text-anchor="middle" font-size="9" font-weight="700" fill="#64748b" letter-spacing="0.04em">JAPAN PIPELINE VALUE</text>
+  <text x="100" y="98" text-anchor="middle" font-size="22" font-weight="800" fill="#1e40af">¥ ?</text>
+  <text x="100" y="128" text-anchor="middle" font-size="9" fill="#94a3b8">Undefined without Japan filter</text>
+
+  <!-- Tile 2: MQL→SQL RATE -->
+  <rect x="200" y="44" width="160" height="96" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="280" y="64" text-anchor="middle" font-size="9" font-weight="700" fill="#64748b" letter-spacing="0.04em">MQL→SQL RATE</text>
+  <text x="280" y="98" text-anchor="middle" font-size="22" font-weight="800" fill="#1e40af">— %</text>
+  <text x="280" y="128" text-anchor="middle" font-size="9" fill="#94a3b8">Needs Japan-segmented data</text>
+
+  <!-- Tile 3: SALES CYCLE LENGTH -->
+  <rect x="380" y="44" width="160" height="96" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="460" y="64" text-anchor="middle" font-size="9" font-weight="700" fill="#64748b" letter-spacing="0.04em">SALES CYCLE LENGTH</text>
+  <text x="460" y="98" text-anchor="middle" font-size="20" font-weight="800" fill="#1e40af">? days</text>
+  <text x="460" y="128" text-anchor="middle" font-size="9" fill="#94a3b8">Longer in Japan than global</text>
+
+  <!-- Tile 4: WIN RATE (filled blue) -->
+  <rect x="560" y="44" width="180" height="96" rx="8" fill="#1e40af" stroke="#1e40af" stroke-width="1.5"/>
+  <text x="650" y="64" text-anchor="middle" font-size="9" font-weight="700" fill="#bfdbfe" letter-spacing="0.04em">WIN RATE</text>
+  <text x="650" y="98" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Target</text>
+  <text x="650" y="120" text-anchor="middle" font-size="9" fill="#bfdbfe">Track Japan separately</text>
+
+  <!-- Caption bar -->
+  <rect x="0" y="152" width="760" height="28" fill="#1e40af"/>
+  <text x="380" y="170" text-anchor="middle" font-size="10" fill="#fff">Japan revenue metrics tracked inside global dashboards are invisible. Segment and track Japan separately.</text>
+</svg>

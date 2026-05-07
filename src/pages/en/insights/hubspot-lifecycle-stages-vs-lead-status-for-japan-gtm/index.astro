@@ -1,0 +1,467 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+
+const pubDate = '2026-05-07';
+const readTime = 'About 5 min';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'HubSpot Lifecycle Stages vs Lead Status for Japan GTM',
+  description: 'HubSpot uses two systems to track leads: lifecycle stages and lead status. Understanding how both work — and configuring each for Japan\'s buying cycle — is essential for accurate Japan GTM reporting.',
+  datePublished: pubDate,
+  dateModified: pubDate,
+  author: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+  publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+  url: 'https://consilegy.com/en/insights/hubspot-lifecycle-stages-vs-lead-status-for-japan-gtm/',
+  inLanguage: 'en',
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://consilegy.com/en/' },
+    { '@type': 'ListItem', position: 2, name: 'Insights', item: 'https://consilegy.com/en/insights/' },
+    { '@type': 'ListItem', position: 3, name: 'HubSpot Lifecycle Stages vs Lead Status for Japan GTM', item: 'https://consilegy.com/en/insights/hubspot-lifecycle-stages-vs-lead-status-for-japan-gtm/' },
+  ],
+};
+---
+
+<BaseLayout
+  title="HubSpot Lifecycle Stages vs Lead Status for Japan GTM | Consilegy"
+  description="HubSpot uses two systems to track leads: lifecycle stages and lead status. Understanding how both work — and configuring each for Japan's buying cycle — is essential for accurate Japan GTM reporting."
+  lang="en"
+  alternateUrl="/insights/"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+
+<div class="article-wrap">
+
+  <!-- ===== ARTICLE HEADER ===== -->
+  <header class="article-head container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/en/">Home</a>
+      <span aria-hidden="true">›</span>
+      <a href="/en/insights/">Insights</a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">HubSpot Lifecycle Stages vs Lead Status for Japan GTM</span>
+    </nav>
+    <div class="article-meta">
+      <span class="article-cat">HubSpot &amp; CRM</span>
+      <span class="article-date">{pubDate}</span>
+      <span class="article-read">{readTime}</span>
+    </div>
+    <h1>HubSpot Lifecycle Stages vs Lead Status for Japan GTM</h1>
+    <p class="article-desc">HubSpot uses two systems to track leads: lifecycle stages and lead status. Understanding how both work — and configuring each for Japan's buying cycle — is essential for accurate Japan GTM reporting.</p>
+  </header>
+
+  <!-- ===== ARTICLE BODY ===== -->
+  <article class="article-body container" id="article">
+
+    <section class="article-section">
+      <p>HubSpot has two separate systems for tracking where a lead is: lifecycle stage and lead status. Many Japan GTM teams use only one, or use both interchangeably, which produces inaccurate reports and broken workflows.</p>
+    </section>
+
+    <hr class="article-hr" />
+
+    <section class="article-section">
+      <h2>The difference between lifecycle stage and lead status</h2>
+      <p>Lifecycle stage tracks the buyer's journey position: Subscriber, Lead, MQL, SQL, Opportunity, Customer. Lead status tracks the sales team's activity against a specific contact: New, Attempting, Connected, Open Deal, Unqualified. They answer different questions and should never be used as substitutes for each other.</p>
+    </section>
+
+    <hr class="article-hr" />
+
+    <section class="article-section">
+      <h2>Why they serve different purposes</h2>
+      <p>Lifecycle stage tells you "where is this contact in the funnel?" Lead status tells you "what has sales done with this contact recently?" For Japan reporting, you need both — lifecycle stages to track pipeline progression, lead status to track follow-up activity and sales-side execution.</p>
+    </section>
+
+    <hr class="article-hr" />
+
+    <section class="article-section">
+      <h2>How to use lifecycle stages for Japan</h2>
+
+      <div class="article-breakdown">
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">01</div>
+          <div class="article-breakdown__body">
+            <strong>Subscriber</strong>
+            <p>Any Japan contact in the database — no action required yet. Useful for tracking total Japan audience size and nurture reach.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">02</div>
+          <div class="article-breakdown__body">
+            <strong>MQL</strong>
+            <p>Japan contact that fits ICP and has shown meaningful engagement. Requires a Japan-specific threshold that is higher than the global default — content downloads alone do not qualify in Japan's context.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">03</div>
+          <div class="article-breakdown__body">
+            <strong>SQL</strong>
+            <p>Japan MQL that has been qualified by sales. Requires confirmation of decision-maker and a budget signal. Japan's multi-stakeholder buying process means SQL criteria need explicit documentation.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">04</div>
+          <div class="article-breakdown__body">
+            <strong>Opportunity</strong>
+            <p>Active deal with a Japan company. Stage advancement requires a deal record to be created in HubSpot. This connects lifecycle stage to pipeline reporting.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">05</div>
+          <div class="article-breakdown__body">
+            <strong>Customer</strong>
+            <p>Closed and contracted in Japan. Marking Customer stage correctly enables Japan win rate calculation and cohort analysis over time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="article-hr" />
+
+    <section class="article-section">
+      <h2>How to use lead status for Japan follow-up</h2>
+      <p>Set lead status to "Attempting" when sales first contacts a Japan lead. "Connected" when a response is received — Japan response rates are lower than global averages, so this milestone matters and should be tracked. "Open Deal" when an opportunity is created. "Unqualified" with a reason field when rejected, so the rejection reason is captured for future analysis.</p>
+    </section>
+
+    <hr class="article-hr" />
+
+    <section class="article-section">
+      <h2>A simple mapping example</h2>
+      <p>When a Japan contact reaches MQL, lead status should reset to "New" to trigger sales outreach. When sales marks "Connected," the next lifecycle stage advancement to SQL should be triggered. When SQL is confirmed, lead status moves to "Open Deal." Configure this logic in HubSpot workflows so the two systems stay synchronized rather than drifting apart.</p>
+    </section>
+
+    <hr class="article-hr" />
+
+    <section class="article-section">
+      <h2>Common mistakes</h2>
+      <p>Using lifecycle stage as a proxy for sales activity — it is not. Updating lead status without updating lifecycle stage, which creates reporting gaps. Not defining what "Attempting" means in Japan's context: how many attempts, over how many days, through which channels. Without that definition, the field is used inconsistently and the data becomes unreliable.</p>
+      <div class="article-callout">
+        <p>Lifecycle stage and lead status are two lenses on the same contact. One shows the buyer's journey. The other shows what sales is doing about it. Japan GTM needs both.</p>
+      </div>
+    </section>
+
+    <hr class="article-hr" />
+
+    <section class="article-section">
+      <h2>Lifecycle stage vs lead status diagram</h2>
+      <p>The diagram below shows the two systems side by side — what each tracks and how they work together for Japan GTM reporting.</p>
+      <div class="article-diagram">
+        <img
+          src="/images/insights/en/hubspot-lifecycle-vs-lead-status.svg"
+          alt="Two-panel diagram comparing HubSpot lifecycle stage (Subscriber, Lead, MQL, SQL, Opportunity, Customer) with lead status (New, Attempting, Connected, Open Deal, Unqualified) for Japan GTM"
+          width="760"
+          height="310"
+          loading="lazy"
+        />
+      </div>
+    </section>
+
+  </article>
+
+  <!-- ===== RELATED ===== -->
+  <aside class="article-related container">
+    <p class="article-related__label">Related</p>
+    <div class="article-related__grid">
+      <a href="/en/insights/hubspot-implementation-for-japan-gtm-what-to-configure-first/" class="article-related__card">
+        <p class="article-related__card-cat">HubSpot &amp; CRM</p>
+        <p class="article-related__card-title">HubSpot Implementation for Japan GTM: What to Configure First</p>
+        <span class="article-related__card-arrow">→</span>
+      </a>
+      <a href="/en/insights/how-to-design-hubspot-workflows-for-japan-lead-follow-up/" class="article-related__card">
+        <p class="article-related__card-cat">HubSpot &amp; CRM</p>
+        <p class="article-related__card-title">How to Design HubSpot Workflows for Japan Lead Follow-Up</p>
+        <span class="article-related__card-arrow">→</span>
+      </a>
+      <a href="/en/insights/how-to-define-lifecycle-stages-for-japan-facing-revenue-operations/" class="article-related__card">
+        <p class="article-related__card-cat">Revenue Architecture</p>
+        <p class="article-related__card-title">How to Define Lifecycle Stages for Japan-Facing Revenue Operations</p>
+        <span class="article-related__card-arrow">→</span>
+      </a>
+      <a href="/en/insights/lead-handoff-rules-for-japan-gtm-teams/" class="article-related__card">
+        <p class="article-related__card-cat">Revenue Architecture</p>
+        <p class="article-related__card-title">Lead Handoff Rules for Japan GTM Teams</p>
+        <span class="article-related__card-arrow">→</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ===== CTA ===== -->
+  <section class="article-cta">
+    <div class="container">
+      <div class="article-cta__body">
+        <h2>Ready to design your Japan revenue system?</h2>
+        <p>Tell us where you are — what you have tried, where you are seeing friction, and what you are trying to solve. We will be direct about whether and how we can help.</p>
+        <div class="article-cta__actions">
+          <a href="/en/contact/" class="article-cta__btn article-cta__btn--primary">Talk to us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<style>
+/* ── Wrap / Container ─────────────────────── */
+.article-wrap { background: #fff; }
+.container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+/* ── Header ──────────────────────────────── */
+.article-head {
+  padding-top: 48px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+}
+.breadcrumb {
+  font-size: 0.8rem;
+  color: var(--color-text-muted, #64748b);
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+}
+.breadcrumb a { color: var(--color-text-muted, #64748b); text-decoration: none; }
+.breadcrumb a:hover { color: var(--color-primary, #1e40af); text-decoration: underline; }
+
+.article-meta {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 20px; flex-wrap: wrap;
+}
+.article-cat {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  background: #eff6ff; color: var(--color-primary, #1e40af);
+  padding: 3px 10px; border-radius: 10px;
+}
+.article-date, .article-read {
+  font-size: 0.8rem; color: var(--color-text-muted, #64748b);
+}
+
+.article-head h1 {
+  font-size: clamp(1.6rem, 3.5vw, 2.25rem);
+  font-weight: 800;
+  color: var(--color-navy, #0f172a);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px;
+}
+.article-desc {
+  font-size: 1.0625rem;
+  color: var(--color-text-muted, #64748b);
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ── Body ────────────────────────────────── */
+.article-body {
+  padding-top: 48px;
+  padding-bottom: 64px;
+}
+.article-section {
+  margin-bottom: 0;
+}
+.article-section h2 {
+  font-size: 1.3125rem;
+  font-weight: 700;
+  color: var(--color-navy, #0f172a);
+  margin: 0 0 16px;
+  line-height: 1.35;
+}
+.article-section h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-navy, #0f172a);
+  margin: 24px 0 10px;
+}
+.article-section p {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--color-text, #1e293b);
+  margin: 0 0 16px;
+}
+.article-section ul {
+  padding-left: 1.5rem;
+  margin: 0 0 16px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.article-section li {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-text, #1e293b);
+}
+.article-section a {
+  color: var(--color-primary, #1e40af);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.article-subsection { margin-bottom: 8px; }
+
+.article-callout {
+  background: #eff6ff;
+  border-left: 4px solid var(--color-primary, #1e40af);
+  border-radius: 0 8px 8px 0;
+  padding: 16px 20px;
+  margin: 24px 0;
+}
+.article-callout p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-navy, #0f172a);
+}
+
+.article-hr {
+  border: none;
+  border-top: 1px solid var(--color-border, #e2e8f0);
+  margin: 48px 0;
+}
+
+/* ── Diagram ─────────────────────────────── */
+.article-diagram {
+  margin: 24px 0;
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+.article-diagram img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ── Numbered breakdown ──────────────────── */
+.article-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 24px 0;
+  border-top: 1px solid var(--color-border, #e2e8f0);
+}
+.article-breakdown__item {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+  align-items: flex-start;
+}
+.article-breakdown__num {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-primary, #1e40af);
+  opacity: 0.3;
+  flex-shrink: 0;
+  line-height: 1.5;
+  min-width: 2.5rem;
+}
+.article-breakdown__body strong {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-navy, #0f172a);
+  margin-bottom: 6px;
+}
+.article-breakdown__body p {
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--color-text-muted, #64748b);
+  margin: 0;
+}
+
+/* ── Related ─────────────────────────────── */
+.article-related {
+  padding: 48px 0;
+  border-top: 1px solid var(--color-border, #e2e8f0);
+}
+.article-related__label {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--color-primary, #1e40af);
+  margin: 0 0 20px;
+}
+.article-related__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.article-related__card {
+  background: #f8fafc;
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 8px;
+  padding: 16px 18px;
+  text-decoration: none;
+  display: flex; flex-direction: column; gap: 6px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.article-related__card:hover {
+  border-color: var(--color-primary, #1e40af);
+  box-shadow: 0 2px 12px rgba(30,64,175,0.07);
+}
+.article-related__card-cat {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--color-primary, #1e40af); margin: 0;
+}
+.article-related__card-title {
+  font-size: 0.875rem; font-weight: 600;
+  color: var(--color-navy, #0f172a); line-height: 1.45; margin: 0; flex: 1;
+}
+.article-related__card-arrow {
+  font-size: 0.875rem; color: var(--color-primary, #1e40af); font-weight: 600;
+}
+
+/* ── CTA ─────────────────────────────────── */
+.article-cta {
+  background: #f8fafc;
+  border-top: 1px solid var(--color-border, #e2e8f0);
+  padding: 64px 0;
+}
+.article-cta__body {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto;
+}
+.article-cta__body h2 {
+  font-size: clamp(1.25rem, 3vw, 1.625rem);
+  font-weight: 700;
+  color: var(--color-navy, #0f172a);
+  margin: 0 0 12px;
+}
+.article-cta__body p {
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  color: var(--color-text-muted, #64748b);
+  margin: 0 0 28px;
+}
+.article-cta__actions {
+  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+}
+.article-cta__btn {
+  display: inline-flex; align-items: center;
+  padding: 0.75em 1.75em;
+  border-radius: 8px; font-size: 0.9375rem; font-weight: 700;
+  text-decoration: none; transition: background 0.15s, color 0.15s;
+}
+.article-cta__btn--primary {
+  background: var(--color-primary, #1e40af); color: #fff;
+  border: 2px solid var(--color-primary, #1e40af);
+}
+.article-cta__btn--primary:hover { background: #1e3a8a; border-color: #1e3a8a; }
+.article-cta__btn--ghost {
+  background: transparent; color: var(--color-primary, #1e40af);
+  border: 2px solid var(--color-primary, #1e40af);
+}
+.article-cta__btn--ghost:hover { background: rgba(30,64,175,0.06); }
+
+/* ── Responsive ──────────────────────────── */
+@media (max-width: 600px) {
+  .article-head { padding-top: 32px; }
+  .article-related__grid { grid-template-columns: 1fr; }
+  .article-breakdown__num { font-size: 1rem; min-width: 2rem; }
+}
+</style>
+
+</BaseLayout>

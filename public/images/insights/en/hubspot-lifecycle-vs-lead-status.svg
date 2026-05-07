@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 310" role="img" aria-label="HubSpot lifecycle stage vs lead status for Japan GTM: two panels showing the difference between buyer journey tracking and sales activity tracking">
+  <defs>
+    <style>text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }</style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="760" height="310" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="380" y="28" font-size="12" font-weight="700" fill="#64748b" letter-spacing="0.07em" text-anchor="middle">HUBSPOT: LIFECYCLE STAGE vs LEAD STATUS FOR JAPAN GTM</text>
+
+  <!-- LEFT panel background -->
+  <rect x="20" y="44" width="320" height="220" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <!-- Left header -->
+  <rect x="20" y="44" width="320" height="34" rx="8" fill="#1e40af"/>
+  <rect x="20" y="60" width="320" height="18" fill="#1e40af"/>
+  <text x="180" y="65" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">LIFECYCLE STAGE</text>
+
+  <!-- Left stage pills -->
+  <!-- Subscriber -->
+  <rect x="44" y="90" width="248" height="22" rx="5" fill="#fff" stroke="#93c5fd" stroke-width="1"/>
+  <text x="168" y="105" font-size="11" font-weight="600" fill="#1e40af" text-anchor="middle">Subscriber</text>
+  <!-- Lead -->
+  <rect x="44" y="116" width="248" height="22" rx="5" fill="#fff" stroke="#93c5fd" stroke-width="1"/>
+  <text x="168" y="131" font-size="11" font-weight="600" fill="#1e40af" text-anchor="middle">Lead</text>
+  <!-- MQL -->
+  <rect x="44" y="142" width="248" height="22" rx="5" fill="#fff" stroke="#93c5fd" stroke-width="1"/>
+  <text x="168" y="157" font-size="11" font-weight="600" fill="#1e40af" text-anchor="middle">MQL</text>
+  <!-- SQL -->
+  <rect x="44" y="168" width="248" height="22" rx="5" fill="#fff" stroke="#93c5fd" stroke-width="1"/>
+  <text x="168" y="183" font-size="11" font-weight="600" fill="#1e40af" text-anchor="middle">SQL</text>
+  <!-- Opportunity -->
+  <rect x="44" y="194" width="248" height="22" rx="5" fill="#fff" stroke="#93c5fd" stroke-width="1"/>
+  <text x="168" y="209" font-size="11" font-weight="600" fill="#1e40af" text-anchor="middle">Opportunity</text>
+  <!-- Customer -->
+  <rect x="44" y="220" width="248" height="22" rx="5" fill="#fff" stroke="#93c5fd" stroke-width="1"/>
+  <text x="168" y="235" font-size="11" font-weight="600" fill="#1e40af" text-anchor="middle">Customer</text>
+
+  <!-- Bridge dashed line -->
+  <line x1="340" y1="155" x2="420" y2="155" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="380" y="148" font-size="10" fill="#94a3b8" text-anchor="middle">works together</text>
+
+  <!-- RIGHT panel background -->
+  <rect x="420" y="44" width="320" height="220" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <!-- Right header -->
+  <rect x="420" y="44" width="320" height="34" rx="8" fill="#334155"/>
+  <rect x="420" y="60" width="320" height="18" fill="#334155"/>
+  <text x="580" y="65" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">LEAD STATUS</text>
+
+  <!-- Right status pills -->
+  <!-- New -->
+  <rect x="444" y="90" width="248" height="22" rx="5" fill="#fff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="568" y="105" font-size="11" font-weight="600" fill="#475569" text-anchor="middle">New</text>
+  <!-- Attempting -->
+  <rect x="444" y="116" width="248" height="22" rx="5" fill="#fff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="568" y="131" font-size="11" font-weight="600" fill="#475569" text-anchor="middle">Attempting</text>
+  <!-- Connected -->
+  <rect x="444" y="142" width="248" height="22" rx="5" fill="#fff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="568" y="157" font-size="11" font-weight="600" fill="#475569" text-anchor="middle">Connected</text>
+  <!-- Open Deal -->
+  <rect x="444" y="168" width="248" height="22" rx="5" fill="#fff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="568" y="183" font-size="11" font-weight="600" fill="#475569" text-anchor="middle">Open Deal</text>
+  <!-- Unqualified -->
+  <rect x="444" y="194" width="248" height="22" rx="5" fill="#fff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="568" y="209" font-size="11" font-weight="600" fill="#475569" text-anchor="middle">Unqualified</text>
+
+  <!-- Sub-labels under panels -->
+  <text x="180" y="276" font-size="10" fill="#64748b" text-anchor="middle">Tracks where a contact is in the buyer journey</text>
+  <text x="580" y="276" font-size="10" fill="#64748b" text-anchor="middle">Tracks sales activity status for a contact</text>
+
+  <!-- Caption bar -->
+  <rect x="0" y="284" width="760" height="26" fill="#f1f5f9"/>
+  <text x="380" y="300" font-size="10" fill="#64748b" text-anchor="middle">Lifecycle stage = buyer journey position. Lead status = sales activity state. Both are needed for Japan GTM reporting.</text>
+</svg>

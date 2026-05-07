@@ -9,6 +9,21 @@ import EnServicePage from '../../../components/EnServicePage.astro';
   heroBrief="We support the operating habits, reporting cycles, documentation, training, and improvement routines needed after CRM, RevOps, or GTM changes are launched."
   secondaryCta="View Case Studies"
   secondaryCtaHref="/en/case-studies/"
+  problemItems={[
+    "The system was implemented but the team reverted to spreadsheets and manual updates within weeks",
+    "Data quality is degrading — fields aren't filled, stages aren't updated, and pipeline accuracy can't be trusted",
+    "Dashboards exist but aren't part of how meetings are run or decisions are made",
+    "Management has little visibility into what's actually happening in the pipeline or funnel",
+  ]}
+  problemClose="Most adoption failures aren't team failures. They're design failures — operating rules, reporting structures, and system logic that don't match how the team actually works."
+  bestFitHeading="Who this is for"
+  bestFitItems={[
+    "Teams post-CRM implementation where adoption has stalled or regressed",
+    "Organizations where system usage is inconsistent across team members or regions",
+    "Revenue leaders trying to make weekly or monthly pipeline reviews more useful",
+    "Teams managing Japan-facing operations where process compliance requires culture-aware reinforcement",
+    "Companies that have invested in RevOps infrastructure and want to see it actually used",
+  ]}
   coversHeading="What this service covers"
   covers={[
     { body: "Operating rules and documentation — written guidance on how each team should use the system, by role and by process step" },
@@ -35,6 +50,24 @@ import EnServicePage from '../../../components/EnServicePage.astro';
     "Usage and data quality monitoring — regular checks on whether the system reflects operational reality",
     "Continuous optimization — process and configuration adjustments based on real usage",
     "Escalation support — handling edge cases and process questions as they arise",
+  ]}
+  faq={[
+    {
+      q: "When should this service start relative to implementation?",
+      a: "Ideally before or during implementation — adoption design affects how training, documentation, and workflows are built. In practice, many clients engage us after implementation when adoption problems become visible.",
+    },
+    {
+      q: "How long does an adoption support engagement run?",
+      a: "Most adoption engagements run three to six months, with regular check-ins to assess usage patterns, adjust operating rules, and address new friction points as they emerge.",
+    },
+    {
+      q: "Do you work with Japan-side teams directly?",
+      a: "Yes. Japan-facing adoption support may include working directly with local team leads, managers, or operational staff, depending on where the friction is.",
+    },
+    {
+      q: "What if the CRM itself needs configuration changes as part of adoption?",
+      a: "That often happens. We adjust workflows, stage definitions, automation logic, and reporting as part of the adoption engagement when configuration is part of the problem.",
+    },
   ]}
   japanGTM="Adoption in Japan-facing teams has specific dynamics. Japan-side sales teams often operate with implicit knowledge that doesn't naturally translate into CRM fields. Management reporting norms differ from Western defaults. Resistance to process change is often expressed indirectly. Effective adoption support in a Japan context requires designing operating rules that fit how Japan-side teams actually work, building reporting that matches what Japan-facing managers actually review, and reinforcing usage in ways that fit the team's communication culture."
 />

@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const articles = [
+  {
+    slug: 'what-revenue-architecture-means-for-japan-gtm',
+    title: 'What Revenue Architecture Means for Japan GTM',
+    desc: 'For Japan GTM, revenue architecture means designing the operating structure that connects market messaging, lead flow, CRM stages, handoff rules, reporting, and adoption so Japan-facing revenue execution can work in practice.',
+    cat: 'Revenue Architecture',
+    date: '2026-05-07',
+  },
+  {
+    slug: 'why-japan-gtm-is-not-just-localization',
+    title: 'Why Japan GTM Is Not Just Localization',
+    desc: 'Japan GTM is not simply translating global assets into Japanese. It requires adapting messaging, trust signals, conversion paths, sales follow-up, and revenue operations to Japan\'s buying context.',
+    cat: 'Japan GTM',
+    date: '2026-05-07',
+  },
+];
+---
+
+<BaseLayout
+  title="Insights | Consilegy"
+  description="Practical articles on Revenue Architecture, Japan GTM, CRM adoption, and RevOps for global B2B teams operating in Japan."
+  lang="en"
+  alternateUrl="/insights/"
+>
+
+<div class="ins-wrap">
+
+  <section class="ins-hero">
+    <div class="ins-container">
+      <p class="ins-eyebrow">Insights</p>
+      <h1>Insights</h1>
+      <p class="ins-hero-desc">Practical articles on Revenue Architecture, Japan GTM, CRM adoption, and RevOps — for global B2B teams operating in Japan.</p>
+    </div>
+  </section>
+
+  <section class="ins-list-section">
+    <div class="ins-container">
+      <div class="ins-list">
+        {articles.map(({ slug, title, desc, cat, date }) => (
+          <a href={`/en/insights/${slug}/`} class="ins-card">
+            <div class="ins-card__meta">
+              <span class="ins-card__cat">{cat}</span>
+              <span class="ins-card__date">{date}</span>
+            </div>
+            <h2 class="ins-card__title">{title}</h2>
+            <p class="ins-card__desc">{desc}</p>
+            <span class="ins-card__link">Read article →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<style>
+.ins-wrap { background: #fff; }
+.ins-container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+
+.ins-hero {
+  background: var(--color-bg-subtle, #f8fafc);
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+  padding: 64px 0 56px;
+}
+.ins-eyebrow {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--color-primary, #1e40af);
+  margin: 0 0 12px;
+}
+.ins-hero h1 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: var(--color-navy, #0f172a);
+  margin: 0 0 16px;
+  letter-spacing: -0.03em;
+}
+.ins-hero-desc {
+  font-size: 1rem;
+  color: var(--color-text-muted, #64748b);
+  line-height: 1.8;
+  margin: 0;
+  max-width: 560px;
+}
+
+.ins-list-section { padding: 64px 0; }
+.ins-list { display: flex; flex-direction: column; gap: 0; }
+
+.ins-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+  text-decoration: none;
+  transition: background 0.12s;
+}
+.ins-card:first-child { border-top: 1px solid var(--color-border, #e2e8f0); }
+.ins-card:hover .ins-card__title { color: var(--color-primary, #1e40af); }
+
+.ins-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.ins-card__cat {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: #eff6ff; color: var(--color-primary, #1e40af);
+  padding: 3px 10px; border-radius: 10px;
+}
+.ins-card__date {
+  font-size: 0.8rem;
+  color: var(--color-text-muted, #64748b);
+}
+.ins-card__title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-navy, #0f172a);
+  margin: 0;
+  line-height: 1.4;
+  transition: color 0.15s;
+}
+.ins-card__desc {
+  font-size: 0.9rem;
+  color: var(--color-text-muted, #64748b);
+  line-height: 1.75;
+  margin: 0;
+}
+.ins-card__link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-primary, #1e40af);
+  margin-top: 4px;
+}
+</style>
+
+</BaseLayout>

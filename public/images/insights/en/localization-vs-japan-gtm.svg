@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 460" role="img" aria-label="Localization vs Japan GTM comparison diagram">
+  <title>Localization vs Japan GTM</title>
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="760" height="460" fill="#ffffff" rx="0"/>
+
+  <!-- Diagram title -->
+  <text x="380" y="36" text-anchor="middle" font-size="15" font-weight="700" letter-spacing="0.08em" fill="#64748b" text-transform="uppercase">LOCALIZATION vs JAPAN GTM</text>
+
+  <!-- ── LEFT PANEL: Localization ── -->
+  <rect x="20" y="54" width="340" height="330" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+
+  <!-- Left header -->
+  <rect x="20" y="54" width="340" height="52" rx="10" fill="#e2e8f0"/>
+  <rect x="20" y="94" width="340" height="12" fill="#e2e8f0"/>
+  <text x="190" y="86" text-anchor="middle" font-size="14" font-weight="700" letter-spacing="0.06em" fill="#475569">LOCALIZATION</text>
+
+  <!-- Left items -->
+  <!-- Item 1 -->
+  <circle cx="50" cy="141" r="10" fill="#fff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="50" y="146" text-anchor="middle" font-size="11" font-weight="700" fill="#94a3b8">—</text>
+  <text x="72" y="146" font-size="13.5" fill="#475569">Translate content</text>
+
+  <!-- Item 2 -->
+  <circle cx="50" cy="183" r="10" fill="#fff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="50" y="188" text-anchor="middle" font-size="11" font-weight="700" fill="#94a3b8">—</text>
+  <text x="72" y="188" font-size="13.5" fill="#475569">Adjust wording</text>
+
+  <!-- Item 3 -->
+  <circle cx="50" cy="225" r="10" fill="#fff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="50" y="230" text-anchor="middle" font-size="11" font-weight="700" fill="#94a3b8">—</text>
+  <text x="72" y="230" font-size="13.5" fill="#475569">Adapt surface-level language</text>
+
+  <!-- Item 4 -->
+  <circle cx="50" cy="267" r="10" fill="#fff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="50" y="272" text-anchor="middle" font-size="11" font-weight="700" fill="#94a3b8">—</text>
+  <text x="72" y="272" font-size="13.5" fill="#475569">Prepare Japanese assets</text>
+
+  <!-- "Surface layer" label -->
+  <rect x="44" y="306" width="148" height="26" rx="13" fill="#e2e8f0"/>
+  <text x="118" y="323" text-anchor="middle" font-size="11" font-weight="600" fill="#64748b">Surface layer only</text>
+
+  <!-- ── CENTER: VS ── -->
+  <circle cx="380" cy="219" r="22" fill="#1e40af"/>
+  <text x="380" y="225" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff">vs</text>
+
+  <!-- ── RIGHT PANEL: Japan GTM ── -->
+  <rect x="400" y="54" width="340" height="330" rx="10" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+
+  <!-- Right header -->
+  <rect x="400" y="54" width="340" height="52" rx="10" fill="#1e40af"/>
+  <rect x="400" y="94" width="340" height="12" fill="#1e40af"/>
+  <text x="570" y="86" text-anchor="middle" font-size="14" font-weight="700" letter-spacing="0.06em" fill="#ffffff">JAPAN GTM</text>
+
+  <!-- Right items -->
+  <!-- Item 1 -->
+  <circle cx="430" cy="141" r="10" fill="#1e40af"/>
+  <text x="430" y="146" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">✓</text>
+  <text x="452" y="146" font-size="13.5" fill="#1e3a8a">Adapt positioning</text>
+
+  <!-- Item 2 -->
+  <circle cx="430" cy="177" r="10" fill="#1e40af"/>
+  <text x="430" y="182" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">✓</text>
+  <text x="452" y="182" font-size="13.5" fill="#1e3a8a">Build trust signals</text>
+
+  <!-- Item 3 -->
+  <circle cx="430" cy="213" r="10" fill="#1e40af"/>
+  <text x="430" y="218" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">✓</text>
+  <text x="452" y="218" font-size="13.5" fill="#1e3a8a">Redesign conversion paths</text>
+
+  <!-- Item 4 -->
+  <circle cx="430" cy="249" r="10" fill="#1e40af"/>
+  <text x="430" y="254" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">✓</text>
+  <text x="452" y="254" font-size="13.5" fill="#1e3a8a">Define lead flow</text>
+
+  <!-- Item 5 -->
+  <circle cx="430" cy="285" r="10" fill="#1e40af"/>
+  <text x="430" y="290" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">✓</text>
+  <text x="452" y="290" font-size="13.5" fill="#1e3a8a">Align CRM and sales handoff</text>
+
+  <!-- Item 6 -->
+  <circle cx="430" cy="321" r="10" fill="#1e40af"/>
+  <text x="430" y="326" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">✓</text>
+  <text x="452" y="326" font-size="13.5" fill="#1e3a8a">Support revenue execution</text>
+
+  <!-- ── CONCLUSION BAR ── -->
+  <rect x="20" y="400" width="720" height="48" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="380" y="421" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">Japan GTM is not a language layer.</text>
+  <text x="380" y="440" text-anchor="middle" font-size="13" fill="#334155">It is a revenue execution system for the Japanese market.</text>
+</svg>

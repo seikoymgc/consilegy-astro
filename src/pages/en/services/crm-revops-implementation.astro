@@ -9,6 +9,21 @@ import EnServicePage from '../../../components/EnServicePage.astro';
   heroBrief="We help global B2B teams translate revenue flow, lifecycle logic, handoff rules, and KPI requirements into CRM configuration, automation, dashboards, and operating processes."
   secondaryCta="View HubSpot Support"
   secondaryCtaHref="/en/services/hubspot-implementation-operations-support/"
+  problemItems={[
+    "CRM data is incomplete, inconsistent, or not trusted by the team — so it's not used for decisions",
+    "Pipeline stages don't reflect how deals actually progress in Japan, making forecasts unreliable",
+    "Handoffs between marketing and sales depend on email or Slack, not system-driven workflows",
+    "Reports exist but nobody reviews them — they don't show what actually needs managing",
+  ]}
+  problemClose="Most CRM problems are not tool problems. They are configuration problems: the system was built to match a generic template rather than your actual revenue flow."
+  bestFitHeading="Who this is for"
+  bestFitItems={[
+    "Teams that have completed revenue architecture or GTM design and need it built into a CRM",
+    "Organizations with an existing CRM that needs to be restructured, not replaced",
+    "Marketing and sales teams working from different definitions and needing system-enforced alignment",
+    "Teams where reporting depends on manual exports because the system doesn't produce trustworthy data",
+    "Companies scaling Japan-facing operations and needing a CRM that reflects Japan's sales motion",
+  ]}
   coversHeading="What this service covers"
   covers={[
     { body: "CRM structure and object design — contact, company, deal, and custom object setup based on your revenue model" },
@@ -36,6 +51,24 @@ import EnServicePage from '../../../components/EnServicePage.astro';
     "Reporting and dashboards — metrics configured for each team's visibility needs",
     "Process documentation — written record of how the system is configured and why",
     "End-to-end testing before handoff — verified lead flow, automation triggers, and reporting accuracy",
+  ]}
+  faq={[
+    {
+      q: "Which CRM platforms do you work with?",
+      a: "We work primarily with HubSpot and Salesforce. For HubSpot-focused engagements, see our dedicated HubSpot Implementation & Operations Support service.",
+    },
+    {
+      q: "Do you need an existing revenue architecture document?",
+      a: "Having one makes implementation faster and cleaner. If you don't have one, we can scope a combined architecture and implementation engagement, or begin with a brief discovery phase.",
+    },
+    {
+      q: "How is this different from the HubSpot Implementation service?",
+      a: "CRM / RevOps Implementation is platform-neutral and covers architecture-to-system translation for any CRM. The HubSpot service is focused specifically on HubSpot configuration, migration, and ongoing operations.",
+    },
+    {
+      q: "What does handoff look like at the end of the engagement?",
+      a: "We deliver documented CRM configuration and a process runbook, run end-to-end testing, and confirm the system reflects your revenue model before handoff. Ongoing operations support is available separately.",
+    },
   ]}
   japanGTM="Japan-facing CRM implementation requires decisions that differ from standard setups. Lead scoring logic needs to reflect Japan-specific qualification signals. Pipeline stages need to account for the extended trust-building phase before formal sales engagement. Handoff timing rules need to fit Japan's relationship-driven sales motion. Reporting needs to surface the metrics that matter for Japan's longer decision cycles. We build the CRM around these realities, not around a generic template that assumes Western buying behavior."
 />

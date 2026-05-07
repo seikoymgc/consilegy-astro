@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 210" role="img" aria-label="Revenue Architecture for Japan GTM — horizontal flow diagram showing 7 connected stages">
+  <title>Revenue Architecture for Japan GTM</title>
+  <defs>
+    <style>text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }</style>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#1e40af"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="760" height="210" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="380" y="30" text-anchor="middle" font-size="12.5" font-weight="700" letter-spacing="0.08em" fill="#64748b">REVENUE ARCHITECTURE FOR JAPAN GTM</text>
+
+  <!-- ── Box 1: Market Messaging ── -->
+  <rect x="18" y="52" width="86" height="64" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="61" y="80" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">Market</text>
+  <text x="61" y="95" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">Messaging</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="104" y1="84" x2="122" y2="84" stroke="#1e40af" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- ── Box 2: Conversion Path ── -->
+  <rect x="124" y="52" width="86" height="64" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="167" y="80" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">Conversion</text>
+  <text x="167" y="95" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">Path</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="210" y1="84" x2="228" y2="84" stroke="#1e40af" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- ── Box 3: Lead Flow ── -->
+  <rect x="230" y="52" width="86" height="64" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="273" y="80" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">Lead</text>
+  <text x="273" y="95" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">Flow</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="316" y1="84" x2="334" y2="84" stroke="#1e40af" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- ── Box 4: CRM Structure ── -->
+  <rect x="336" y="52" width="86" height="64" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="379" y="80" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">CRM</text>
+  <text x="379" y="95" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">Structure</text>
+
+  <!-- Arrow 4→5 -->
+  <line x1="422" y1="84" x2="440" y2="84" stroke="#1e40af" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- ── Box 5: Handoff Rules ── -->
+  <rect x="442" y="52" width="86" height="64" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="485" y="80" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">Handoff</text>
+  <text x="485" y="95" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">Rules</text>
+
+  <!-- Arrow 5→6 -->
+  <line x1="528" y1="84" x2="546" y2="84" stroke="#1e40af" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- ── Box 6: Revenue Visibility ── -->
+  <rect x="548" y="52" width="86" height="64" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="591" y="80" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">Revenue</text>
+  <text x="591" y="95" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">Visibility</text>
+
+  <!-- Arrow 6→7 -->
+  <line x1="634" y1="84" x2="652" y2="84" stroke="#1e40af" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- ── Box 7: Adoption (outcome — filled) ── -->
+  <rect x="654" y="52" width="86" height="64" rx="8" fill="#1e40af" stroke="#1e40af" stroke-width="1.5"/>
+  <text x="697" y="87" text-anchor="middle" font-size="11.5" font-weight="700" fill="#ffffff">Adoption</text>
+
+  <!-- ── Caption bar ── -->
+  <rect x="18" y="132" width="724" height="56" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="380" y="154" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">Revenue architecture connects Japan-facing GTM strategy</text>
+  <text x="380" y="174" text-anchor="middle" font-size="12" fill="#334155">with the operating system needed to execute it.</text>
+</svg>

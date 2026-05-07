@@ -25,17 +25,27 @@ const resources = isEN
 		{ label: 'Contact',      href: '/en/contact/' },
 	]
 	: [
+		{ label: '導入事例',                   href: '/case-studies/' },
+		{ label: 'インサイト',                  href: '/insights/' },
 		{ label: 'レベニューアーキテクチャとは', href: '/revenue-architecture/' },
-		{ label: '事例紹介',                   href: '/case-studies/' },
-		{ label: '会社情報',                   href: '/company/' },
-		{ label: 'お問い合わせ',               href: '/contact/' },
-		{ label: '資料ダウンロード',            href: '/download/' },
+		{ label: 'RevOpsとは',                 href: '/about-revops/' },
+		{ label: 'ニュースレター',              href: '/newsletter/' },
+	];
+
+const company = isEN
+	? []
+	: [
+		{ label: '会社概要',       href: '/company/' },
+		{ label: '料金',           href: '/pricing/' },
+		{ label: '資料ダウンロード', href: '/download/' },
+		{ label: 'お問い合わせ',   href: '/contact/' },
+		{ label: '無料相談',       href: '/free-consultation/' },
 	];
 
 const privacyHref = isEN ? '/en/privacy-policy/' : '/privacy-policy/';
 ---
 
-<footer class="site-footer">
+<footer class={`site-footer${isEN ? ' site-footer--en' : ''}`}>
 	<div class="container site-footer__grid">
 
 		<!-- Brand -->
@@ -69,7 +79,7 @@ const privacyHref = isEN ? '/en/privacy-policy/' : '/privacy-policy/';
 
 		<!-- Resources -->
 		<div>
-			<p class="site-footer__heading">Resources</p>
+			<p class="site-footer__heading">{isEN ? 'Resources' : 'リソース'}</p>
 			<ul class="site-footer__links">
 				{resources.map(({ label, href }) => (
 					<li><a href={href}>{label}</a></li>
@@ -77,9 +87,21 @@ const privacyHref = isEN ? '/en/privacy-policy/' : '/privacy-policy/';
 			</ul>
 		</div>
 
+		<!-- Company & Contact (JA only) / Follow Us (EN) -->
+		{!isEN && (
+			<div>
+				<p class="site-footer__heading">会社・連絡先</p>
+				<ul class="site-footer__links">
+					{company.map(({ label, href }) => (
+						<li><a href={href}>{label}</a></li>
+					))}
+				</ul>
+			</div>
+		)}
+
 		<!-- Follow Us -->
 		<div>
-			<p class="site-footer__heading">Follow Us</p>
+			<p class="site-footer__heading">{isEN ? 'Follow Us' : 'フォロー'}</p>
 			<ul class="site-footer__links">
 				<li>
 					<a
@@ -130,10 +152,15 @@ const privacyHref = isEN ? '/en/privacy-policy/' : '/privacy-policy/';
 
 	.site-footer__grid {
 		display: grid;
-		grid-template-columns: 1.4fr 1fr 1fr 0.7fr;
+		grid-template-columns: 1.4fr 1fr 1fr 1fr 0.7fr;
 		gap: var(--space-xl);
 		padding-block: var(--space-2xl) var(--space-xl);
 		align-items: start;
+	}
+
+	/* EN: 4 columns (no company column) */
+	.site-footer--en .site-footer__grid {
+		grid-template-columns: 1.4fr 1fr 1fr 0.7fr;
 	}
 
 	/* Brand */
@@ -229,9 +256,9 @@ const privacyHref = isEN ? '/en/privacy-policy/' : '/privacy-policy/';
 	.site-footer__privacy:hover { color: #94a3b8; }
 
 	/* Tablet */
-	@media (max-width: 960px) {
+	@media (max-width: 1080px) {
 		.site-footer__grid {
-			grid-template-columns: 1fr 1fr;
+			grid-template-columns: 1fr 1fr 1fr;
 			gap: var(--space-lg);
 		}
 
@@ -240,6 +267,12 @@ const privacyHref = isEN ? '/en/privacy-policy/' : '/privacy-policy/';
 		}
 
 		.site-footer__desc { max-width: 100%; }
+	}
+
+	@media (max-width: 720px) {
+		.site-footer__grid {
+			grid-template-columns: 1fr 1fr;
+		}
 	}
 
 	/* SP */

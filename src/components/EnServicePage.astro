@@ -133,7 +133,7 @@ const hasFaq = faq?.length;
   {hasBestFit && (
     <section class="sv-section sv-section--subtle">
       <div class="sv-container sv-container--narrow">
-        <p class="sv-label">Best fit</p>
+        <p class="sv-label">Who this is for</p>
         <h2 class="sv-section__h2">{bestFitHeading ?? 'This service is best suited for teams that are:'}</h2>
         <ul class="sv-fit-list">
           {bestFitItems!.map((item) => (
@@ -151,7 +151,7 @@ const hasFaq = faq?.length;
   {hasCovers && (
     <section class="sv-section sv-section--white">
       <div class="sv-container sv-container--narrow">
-        <p class="sv-label">Scope</p>
+        <p class="sv-label">What we do</p>
         <h2 class="sv-section__h2">{coversHeading ?? 'What this service covers'}</h2>
         <ul class="sv-covers">
           {covers!.map((item) => (

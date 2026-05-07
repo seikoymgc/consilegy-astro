@@ -1,0 +1,532 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+
+const pubDate = '2026-05-07';
+const readTime = 'About 8 min';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Why Japan GTM Is Not Just Localization',
+  description: 'Japan GTM is not simply translating global assets into Japanese. It requires adapting messaging, trust signals, conversion paths, sales follow-up, and revenue operations to Japan\'s buying context.',
+  datePublished: pubDate,
+  dateModified: pubDate,
+  author: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+  publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+  url: 'https://consilegy.com/en/insights/why-japan-gtm-is-not-just-localization/',
+  inLanguage: 'en',
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://consilegy.com/en/' },
+    { '@type': 'ListItem', position: 2, name: 'Insights', item: 'https://consilegy.com/en/insights/' },
+    { '@type': 'ListItem', position: 3, name: 'Why Japan GTM Is Not Just Localization', item: 'https://consilegy.com/en/insights/why-japan-gtm-is-not-just-localization/' },
+  ],
+};
+---
+
+<BaseLayout
+  title="Why Japan GTM Is Not Just Localization | Consilegy"
+  description="Japan GTM is not simply translating global assets into Japanese. It requires adapting messaging, trust signals, conversion paths, sales follow-up, and revenue operations to Japan's buying context."
+  lang="en"
+  alternateUrl="/insights/why-revops-is-hard-in-japanese-companies/"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+
+<div class="article-wrap">
+
+  <!-- ===== ARTICLE HEADER ===== -->
+  <header class="article-head container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/en/">Home</a>
+      <span aria-hidden="true">›</span>
+      <a href="/en/insights/">Insights</a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">Why Japan GTM Is Not Just Localization</span>
+    </nav>
+    <div class="article-meta">
+      <span class="article-cat">Japan GTM</span>
+      <span class="article-date">{pubDate}</span>
+      <span class="article-read">{readTime}</span>
+    </div>
+    <h1>Why Japan GTM Is Not Just Localization</h1>
+    <p class="article-desc">Many global B2B teams treat Japan entry as a translation and localization project. That framing produces the wrong output — and explains why so many Japan launches underperform despite significant investment.</p>
+  </header>
+
+  <!-- ===== ARTICLE BODY ===== -->
+  <article class="article-body container" id="article">
+
+    <!-- Introduction -->
+    <section class="article-section">
+      <h2>The localization framing is a trap</h2>
+      <p>When a global B2B team decides to enter Japan, the first instinct is usually: <em>translate the website, localize the collateral, hire someone who speaks Japanese.</em> The assumption is that the product or service is strong enough — it just needs to be made accessible in Japanese.</p>
+      <p>This framing is understandable. It is also wrong in a way that causes real, measurable damage: lower conversion rates, longer sales cycles, pipeline that never converts, and CRM data that tells the wrong story about what is happening on the ground.</p>
+      <div class="article-callout">
+        <p><strong>Localization solves a language problem. Japan GTM solves a revenue execution problem.</strong> These are not the same thing, and treating them as equivalent is the most common reason Japan market entry underperforms.</p>
+      </div>
+    </section>
+
+    <hr class="article-hr" />
+
+    <!-- What localization covers -->
+    <section class="article-section">
+      <h2>What localization actually covers</h2>
+      <p>To be clear: localization has a real and necessary role. Done well, it involves:</p>
+      <ul>
+        <li>Translating website copy, product descriptions, and sales materials into Japanese</li>
+        <li>Adjusting phrasing, tone, and register for a Japanese-speaking audience</li>
+        <li>Adapting visual and cultural references that would read as foreign or confusing</li>
+        <li>Preparing Japanese-language versions of key assets</li>
+      </ul>
+      <p>These are legitimate activities. They matter. But they address a single layer: <strong>the surface</strong>. They do not change how your offer is positioned, how trust is built, how leads are qualified, or how deals progress through the pipeline.</p>
+      <p>A localized website that does not convert is still a non-converting website — just one that Japanese buyers can read before leaving.</p>
+    </section>
+
+    <hr class="article-hr" />
+
+    <!-- What Japan GTM actually requires -->
+    <section class="article-section">
+      <h2>What Japan GTM actually requires</h2>
+      <p>Japan GTM operates at a different layer. It is not about translating what already exists. It is about redesigning what needs to exist for revenue to actually flow in Japan.</p>
+
+      <div class="article-subsection">
+        <h3>Positioning and messaging</h3>
+        <p>Global positioning built around speed, disruption, or aggressive ROI claims often fails in Japan, where buyers prioritize reliability, risk reduction, and long-term relationships. The message that works in North America may create distrust in Japan — not because of the language, but because of the underlying claim structure.</p>
+        <p>Japan GTM requires asking: what does a Japan-based buyer need to believe before they will commit? What evidence structure supports that belief? What framing fits Japan's decision-making culture?</p>
+      </div>
+
+      <div class="article-subsection">
+        <h3>Trust signals</h3>
+        <p>In Japan's B2B context, trust is built differently. Case studies from Western markets carry less weight than locally relevant references. Certifications, partnerships, and local presence matter more than they might in other markets. The absence of Japan-specific social proof is often read as a risk signal — not as a neutral absence.</p>
+        <p>Japan GTM involves understanding which trust signals matter in Japan and building them deliberately into the market-facing system.</p>
+      </div>
+
+      <div class="article-subsection">
+        <h3>Buying committee and decision process</h3>
+        <p>Japan's enterprise buying decisions typically involve multiple internal approvers, often with a bottom-up proposal process (ringi). The pace of evaluation is slower. The person who contacts you first may not be the decision-maker. The person who is a decision-maker may never appear in any form interaction.</p>
+        <p>A conversion path designed for a single-buyer, fast-close Western sales motion will misfire at multiple points in a Japan buying process.</p>
+      </div>
+
+      <div class="article-subsection">
+        <h3>Conversion path</h3>
+        <p>Japan buyers often move through a longer consideration phase before making contact. The ask that triggers conversion in other markets — "book a demo," "start a free trial," "talk to sales" — may be too high-commitment too early in Japan's trust-building context.</p>
+        <p>The conversion path needs to be designed around Japan's actual entry behavior: how buyers research, what form of first contact they are comfortable with, and what sequence of engagement moves them toward a commercial conversation.</p>
+      </div>
+
+      <div class="article-subsection">
+        <h3>Sales follow-up and relationship management</h3>
+        <p>After first contact, the expectations for how a vendor communicates are different. Frequency, formality, channel preference, and the nature of check-ins all have Japan-specific norms. A follow-up sequence calibrated for Western buyers can easily feel aggressive or impersonal in Japan — and the damage shows up as silent attrition: leads who stop responding without explanation.</p>
+      </div>
+
+      <div class="article-subsection">
+        <h3>CRM and funnel readiness</h3>
+        <p>If the CRM is configured for a standard Western funnel — short cycles, single buyer, fast handoff from marketing to sales — it will not reflect how Japan-facing deals actually move. Lifecycle stages will be skipped or forced. Pipeline data will be inaccurate. Reporting will show the wrong bottlenecks. The team will lose confidence in the data and stop using the system.</p>
+        <p>Japan GTM requires CRM and funnel design that reflects Japan's actual buying motion.</p>
+      </div>
+    </section>
+
+    <hr class="article-hr" />
+
+    <!-- Diagram -->
+    <section class="article-section">
+      <h2>Localization vs Japan GTM</h2>
+      <p>The diagram below illustrates the distinction. Localization addresses the surface layer. Japan GTM connects market messaging with revenue execution.</p>
+      <div class="article-diagram">
+        <img
+          src="/images/insights/en/localization-vs-japan-gtm.svg"
+          alt="Comparison diagram: Localization (translate content, adjust wording, adapt surface-level language, prepare Japanese assets) vs Japan GTM (adapt positioning, build trust signals, redesign conversion paths, define lead flow, align CRM and sales handoff, support revenue execution)"
+          width="760"
+          height="460"
+          loading="lazy"
+        />
+      </div>
+    </section>
+
+    <hr class="article-hr" />
+
+    <!-- Where localization-only breaks -->
+    <section class="article-section">
+      <h2>Where the localization-only approach breaks</h2>
+      <p>The failure pattern is consistent across organizations that treat Japan as a localization project. It tends to show up in five places:</p>
+
+      <div class="article-breakdown">
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">01</div>
+          <div class="article-breakdown__body">
+            <strong>Translated messaging does not create urgency.</strong>
+            <p>The value proposition is clear in Japanese, but it does not map to Japan buyers' actual priorities. The message is readable but not persuasive. Traffic does not convert.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">02</div>
+          <div class="article-breakdown__body">
+            <strong>Landing pages explain but do not convert.</strong>
+            <p>Content is thorough. Trust signals are absent or irrelevant to Japan buyers. The CTA asks for more commitment than Japan's first-contact norms support. Bounce rates are high; contact form submissions are low.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">03</div>
+          <div class="article-breakdown__body">
+            <strong>Leads are captured but not qualified.</strong>
+            <p>When contact does happen, the qualification criteria built for Western markets do not fit. Budget authority, urgency, and timeline signals read differently. Leads are marked qualified and handed to sales prematurely — or held too long and lost.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">04</div>
+          <div class="article-breakdown__body">
+            <strong>Sales handoff is unclear.</strong>
+            <p>Marketing and sales disagree on what a Japan-ready lead looks like. Handoff rules designed for Western deal velocity misfire on Japan's longer trust-building phase. Leads fall through the gap between teams.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">05</div>
+          <div class="article-breakdown__body">
+            <strong>CRM stages do not reflect Japan-side buying behavior.</strong>
+            <p>Pipeline accuracy degrades. The team loses confidence in the data. Forecasting becomes guesswork. Management cannot tell whether Japan is a pipeline problem, a messaging problem, or an execution problem — because the system was not built to distinguish between them.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="article-hr" />
+
+    <!-- How to think about Japan GTM properly -->
+    <section class="article-section">
+      <h2>How to think about Japan GTM properly</h2>
+      <p>Japan GTM is best understood as a <strong>connected system</strong>, not a collection of separate tasks. The components are:</p>
+      <ul>
+        <li><strong>Message</strong> — what you say, how you say it, and what Japan buyers need to believe before they will engage</li>
+        <li><strong>Funnel</strong> — how leads enter, how they are nurtured, and what triggers a sales conversation</li>
+        <li><strong>CRM</strong> — how the system reflects Japan's actual deal progression and where ownership transfers</li>
+        <li><strong>Execution</strong> — how follow-up, qualification, and pipeline management actually happen on the ground</li>
+      </ul>
+      <p>When these four elements are designed together and aligned to Japan's buying reality, the system works. When one layer is missing — or when the entire system is replaced by "just translate the website" — it breaks, usually at the exact point where revenue was supposed to happen.</p>
+      <div class="article-callout">
+        <p>Localization is one input into Japan GTM. It is not Japan GTM itself. The difference matters most when you are looking at pipeline data that does not explain why Japan is underperforming.</p>
+      </div>
+    </section>
+
+    <hr class="article-hr" />
+
+    <!-- How Consilegy helps -->
+    <section class="article-section">
+      <h2>How Consilegy helps</h2>
+      <p>Consilegy works with global B2B teams to design and implement the revenue execution layer behind Japan-facing growth. This is not translation support, marketing agency work, or generic CRM setup.</p>
+      <p>Depending on where your situation starts, the work may cover:</p>
+      <ul>
+        <li><strong><a href="/en/services/japan-market-gtm-messaging/">Japan Market GTM &amp; Messaging</a></strong> — Adapting positioning, ICP definition, conversion path design, and trust signal structure for Japan's buying context</li>
+        <li><strong><a href="/en/services/revenue-architecture-design/">Revenue Architecture Design</a></strong> — Designing the funnel logic, lifecycle definitions, handoff rules, and KPI framework that Japan-facing revenue operations require</li>
+        <li><strong><a href="/en/services/crm-revops-implementation/">CRM / RevOps Implementation</a></strong> — Building the CRM configuration, workflows, and reporting that reflect Japan's actual sales motion</li>
+        <li><strong><a href="/en/services/hubspot-implementation-operations-support/">HubSpot Implementation &amp; Operations Support</a></strong> — Configuring HubSpot specifically for Japan-facing operations, not for a generic onboarding template</li>
+      </ul>
+      <p>These services can be engaged separately or as a connected sequence. Most Japan GTM situations benefit from starting with messaging and architecture before moving into system implementation.</p>
+    </section>
+
+  </article>
+
+  <!-- ===== RELATED ===== -->
+  <aside class="article-related container">
+    <p class="article-related__label">Related</p>
+    <div class="article-related__grid">
+      <a href="/en/services/japan-market-gtm-messaging/" class="article-related__card">
+        <p class="article-related__card-cat">Service</p>
+        <p class="article-related__card-title">Japan Market GTM &amp; Messaging</p>
+        <span class="article-related__card-arrow">→</span>
+      </a>
+      <a href="/en/services/revenue-architecture-design/" class="article-related__card">
+        <p class="article-related__card-cat">Service</p>
+        <p class="article-related__card-title">Revenue Architecture Design</p>
+        <span class="article-related__card-arrow">→</span>
+      </a>
+      <a href="/en/case-studies/japan-market-entry-gtm-architecture/" class="article-related__card">
+        <p class="article-related__card-cat">Case Study</p>
+        <p class="article-related__card-title">Japan Market Entry GTM Architecture</p>
+        <span class="article-related__card-arrow">→</span>
+      </a>
+      <a href="/en/case-studies/hubspot-sales-handoff-lead-to-revenue-2/" class="article-related__card">
+        <p class="article-related__card-cat">Case Study</p>
+        <p class="article-related__card-title">Closing the Gap Between Lead Volume and Revenue</p>
+        <span class="article-related__card-arrow">→</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ===== CTA ===== -->
+  <section class="article-cta">
+    <div class="container">
+      <div class="article-cta__body">
+        <h2>Thinking about Japan GTM?</h2>
+        <p>Tell us where you are — what you have tried, where you are seeing friction, and what you are trying to solve. We will be direct about whether and how we can help.</p>
+        <div class="article-cta__actions">
+          <a href="/en/contact/" class="article-cta__btn article-cta__btn--primary">Contact Us</a>
+          <a href="/en/services/" class="article-cta__btn article-cta__btn--ghost">View All Services →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<style>
+/* ── Wrap / Container ─────────────────────── */
+.article-wrap { background: #fff; }
+.container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+/* ── Header ──────────────────────────────── */
+.article-head {
+  padding-top: 48px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+}
+.breadcrumb {
+  font-size: 0.8rem;
+  color: var(--color-text-muted, #64748b);
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+}
+.breadcrumb a { color: var(--color-text-muted, #64748b); text-decoration: none; }
+.breadcrumb a:hover { color: var(--color-primary, #1e40af); text-decoration: underline; }
+
+.article-meta {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 20px; flex-wrap: wrap;
+}
+.article-cat {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  background: #eff6ff; color: var(--color-primary, #1e40af);
+  padding: 3px 10px; border-radius: 10px;
+}
+.article-date, .article-read {
+  font-size: 0.8rem; color: var(--color-text-muted, #64748b);
+}
+
+.article-head h1 {
+  font-size: clamp(1.6rem, 3.5vw, 2.25rem);
+  font-weight: 800;
+  color: var(--color-navy, #0f172a);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px;
+}
+.article-desc {
+  font-size: 1.0625rem;
+  color: var(--color-text-muted, #64748b);
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ── Body ────────────────────────────────── */
+.article-body {
+  padding-top: 48px;
+  padding-bottom: 64px;
+}
+.article-section {
+  margin-bottom: 0;
+}
+.article-section h2 {
+  font-size: 1.3125rem;
+  font-weight: 700;
+  color: var(--color-navy, #0f172a);
+  margin: 0 0 16px;
+  line-height: 1.35;
+}
+.article-section h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-navy, #0f172a);
+  margin: 24px 0 10px;
+}
+.article-section p {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--color-text, #1e293b);
+  margin: 0 0 16px;
+}
+.article-section ul {
+  padding-left: 1.5rem;
+  margin: 0 0 16px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.article-section li {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-text, #1e293b);
+}
+.article-section a {
+  color: var(--color-primary, #1e40af);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.article-subsection { margin-bottom: 8px; }
+
+.article-callout {
+  background: #eff6ff;
+  border-left: 4px solid var(--color-primary, #1e40af);
+  border-radius: 0 8px 8px 0;
+  padding: 16px 20px;
+  margin: 24px 0;
+}
+.article-callout p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-navy, #0f172a);
+}
+
+.article-hr {
+  border: none;
+  border-top: 1px solid var(--color-border, #e2e8f0);
+  margin: 48px 0;
+}
+
+/* ── Diagram ─────────────────────────────── */
+.article-diagram {
+  margin: 24px 0;
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+.article-diagram img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ── Numbered breakdown ──────────────────── */
+.article-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 24px 0;
+  border-top: 1px solid var(--color-border, #e2e8f0);
+}
+.article-breakdown__item {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+  align-items: flex-start;
+}
+.article-breakdown__num {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-primary, #1e40af);
+  opacity: 0.3;
+  flex-shrink: 0;
+  line-height: 1.5;
+  min-width: 2.5rem;
+}
+.article-breakdown__body strong {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-navy, #0f172a);
+  margin-bottom: 6px;
+}
+.article-breakdown__body p {
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--color-text-muted, #64748b);
+  margin: 0;
+}
+
+/* ── Related ─────────────────────────────── */
+.article-related {
+  padding: 48px 0;
+  border-top: 1px solid var(--color-border, #e2e8f0);
+}
+.article-related__label {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--color-primary, #1e40af);
+  margin: 0 0 20px;
+}
+.article-related__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.article-related__card {
+  background: #f8fafc;
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 8px;
+  padding: 16px 18px;
+  text-decoration: none;
+  display: flex; flex-direction: column; gap: 6px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.article-related__card:hover {
+  border-color: var(--color-primary, #1e40af);
+  box-shadow: 0 2px 12px rgba(30,64,175,0.07);
+}
+.article-related__card-cat {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--color-primary, #1e40af); margin: 0;
+}
+.article-related__card-title {
+  font-size: 0.875rem; font-weight: 600;
+  color: var(--color-navy, #0f172a); line-height: 1.45; margin: 0; flex: 1;
+}
+.article-related__card-arrow {
+  font-size: 0.875rem; color: var(--color-primary, #1e40af); font-weight: 600;
+}
+
+/* ── CTA ─────────────────────────────────── */
+.article-cta {
+  background: #f8fafc;
+  border-top: 1px solid var(--color-border, #e2e8f0);
+  padding: 64px 0;
+}
+.article-cta__body {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto;
+}
+.article-cta__body h2 {
+  font-size: clamp(1.25rem, 3vw, 1.625rem);
+  font-weight: 700;
+  color: var(--color-navy, #0f172a);
+  margin: 0 0 12px;
+}
+.article-cta__body p {
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  color: var(--color-text-muted, #64748b);
+  margin: 0 0 28px;
+}
+.article-cta__actions {
+  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+}
+.article-cta__btn {
+  display: inline-flex; align-items: center;
+  padding: 0.75em 1.75em;
+  border-radius: 8px; font-size: 0.9375rem; font-weight: 700;
+  text-decoration: none; transition: background 0.15s, color 0.15s;
+}
+.article-cta__btn--primary {
+  background: var(--color-primary, #1e40af); color: #fff;
+  border: 2px solid var(--color-primary, #1e40af);
+}
+.article-cta__btn--primary:hover { background: #1e3a8a; border-color: #1e3a8a; }
+.article-cta__btn--ghost {
+  background: transparent; color: var(--color-primary, #1e40af);
+  border: 2px solid var(--color-primary, #1e40af);
+}
+.article-cta__btn--ghost:hover { background: rgba(30,64,175,0.06); }
+
+/* ── Responsive ──────────────────────────── */
+@media (max-width: 600px) {
+  .article-head { padding-top: 32px; }
+  .article-related__grid { grid-template-columns: 1fr; }
+  .article-breakdown__num { font-size: 1rem; min-width: 2rem; }
+}
+</style>
+
+</BaseLayout>

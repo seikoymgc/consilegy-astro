@@ -9,6 +9,14 @@ import EnServicePage from '../../../components/EnServicePage.astro';
   heroBrief="We align marketing, sales, customer success, and CRM operations around a working revenue flow — from lead generation and qualification to handoff, pipeline logic, reporting, and adoption."
   secondaryCta="View Case Studies"
   secondaryCtaHref="/en/case-studies/"
+  bestFitHeading="Who this is for"
+  bestFitItems={[
+    "Global B2B teams entering Japan without a defined revenue flow or funnel structure",
+    "Organizations where marketing, sales, and CS define stages, ownership, and quality criteria differently",
+    "Teams implementing or replacing a CRM and needing a clear model to configure against",
+    "Revenue leaders who want pipeline forecasts and KPIs that reflect how Japan deals actually progress",
+    "Companies where handoffs between teams are managed by manual communication rather than system logic",
+  ]}
   problemHeading="Why this matters in Japan"
   problemItems={[
     "Japan-facing revenue work often breaks when global teams copy existing funnel definitions, CRM stages, or handoff rules into a market with different trust-building cycles, stakeholder expectations, and buying behavior.",
@@ -46,5 +54,23 @@ import EnServicePage from '../../../components/EnServicePage.astro';
     "Written architecture document with implementation-ready specifications",
   ]}
   pricingNote="Engagements are scoped based on the complexity of your revenue flow, the number of teams involved, current system readiness, and whether the work continues into implementation. For smaller scopes, we may begin with a focused assessment before moving into design."
+  faq={[
+    {
+      q: "Do we need a CRM in place before this work?",
+      a: "No. Revenue architecture design often happens before or alongside CRM selection and implementation. The architecture defines what the CRM needs to do.",
+    },
+    {
+      q: "What is the difference between this and a sales process design?",
+      a: "Sales process design focuses on the steps a salesperson takes. Revenue architecture covers the full system — how leads enter, qualify, move between teams, are tracked, and convert — with CRM, KPI, and reporting implications.",
+    },
+    {
+      q: "How long does this engagement take?",
+      a: "A focused engagement covering funnel logic and handoff rules typically runs three to six weeks. More complex organizations with multiple teams or products may require a longer scoping phase.",
+    },
+    {
+      q: "What happens after the architecture is designed?",
+      a: "Most clients move into CRM implementation or HubSpot configuration. The architecture document becomes the specification for those builds.",
+    },
+  ]}
   japanGTM="Japan's buying process adds specific structural requirements to revenue architecture. Decision cycles often involve multiple internal approvers, trust-building happens before formal qualification, and the gap between first conversation and purchase decision is often longer than in Western markets. Revenue architecture built without these realities produces pipeline stages that don't reflect how deals progress, handoff rules that misfire on Japan-specific timing, and reporting that shows the wrong bottlenecks. We design the architecture around how Japan's revenue motion actually works."
 />

@@ -24,32 +24,26 @@ const pageSchema = {
 
 const themes = [
 	{
-		icon: '🏗',
 		title: 'Revenue Architecture設計',
 		desc: '収益を再現可能な構造として設計する方法論。なぜ施策が続かないのか、その本質的な原因と解決アプローチ。',
 	},
 	{
-		icon: '⚙️',
 		title: 'CRM / SFA / MA実装の落とし穴',
 		desc: 'Salesforce・HubSpot・Kintoneの導入が機能しない理由と、現場に定着する設計のポイント。',
 	},
 	{
-		icon: '🔁',
 		title: 'RevOps定着の実務',
 		desc: 'マーケ・営業・CSを一つの収益エンジンにつなぐ組織・プロセス・KPIの設計方法。',
 	},
 	{
-		icon: '📊',
 		title: 'Revenue Visibility向上',
 		desc: '経営判断に使えるKPI会議・Forecast設計・ダッシュボードの作り方。データが収益改善につながる構造とは。',
 	},
 	{
-		icon: '🇯🇵',
 		title: '日本企業特有の課題と解決策',
 		desc: '属人営業・Excel文化・部門分断——日本のBtoB企業が直面する構造的な問題への実践的アプローチ。',
 	},
 	{
-		icon: '🌏',
 		title: 'グローバルB2B最新動向',
 		desc: '北米・欧州のRevOps・Revenue Architecture最新トレンドを日本市場の文脈で解説。',
 	},
@@ -161,9 +155,8 @@ const recentPosts = [
 				<p class="nl-section-desc">Revenue Architecture・RevOps・CRMの実務に直結する内容を、理論だけでなく現場の視点からお届けします。</p>
 			</header>
 			<div class="nl-themes-grid">
-				{themes.map(({ icon, title, desc }) => (
+				{themes.map(({ title, desc }) => (
 					<div class="nl-theme-card">
-						<div class="nl-theme-icon">{icon}</div>
 						<h3 class="nl-theme-title">{title}</h3>
 						<p class="nl-theme-desc">{desc}</p>
 					</div>
@@ -253,17 +246,11 @@ const recentPosts = [
 			<div class="nl-cta-copy">
 				<p class="nl-cta-eyebrow">無料購読</p>
 				<h2>Revenue Architectureの<br />実践知を、定期的に受け取る</h2>
-				<p class="nl-cta-desc">LinkedInニュースレターを購読すると、新着記事が公開されるたびに通知が届きます。購読は無料です。</p>
+				<p class="nl-cta-desc">フォームに登録するだけ。新着号が発行されるたびにメールでお届けします。登録は無料、いつでも解除できます。</p>
 			</div>
 			<div class="nl-cta-action">
-				<a
-					href="https://www.linkedin.com/newsletters/consilegy/"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="nl-btn nl-btn--cta"
-				>
-					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-					LinkedInで購読する（無料）
+				<a href="#signup" class="nl-btn nl-btn--cta">
+					無料で登録する →
 				</a>
 				<p class="nl-cta-note">約2,000人のB2Bマーケ・営業・経営者が購読中</p>
 			</div>

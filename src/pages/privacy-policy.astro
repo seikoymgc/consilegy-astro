@@ -1,68 +1,190 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const updated = '2026年5月7日';
 ---
 
 <BaseLayout
 	title="プライバシーポリシー | Consilegy"
-	description="Consilegy株式会社のプライバシーポリシー（Phase 1 プレースホルダ）。正式な文言は WordPress 本番の内容へ差し替えてください。"
+	description="Consilegy合同会社のプライバシーポリシー。個人情報の取り扱い、利用目的、アクセス解析ツールの使用、お問い合わせ窓口について説明します。"
+	lang="ja"
 >
 	<header class="page-head container">
 		<p class="page-head__eyebrow">Legal</p>
 		<h1 class="page-head__title">プライバシーポリシー</h1>
-		<p class="page-head__lede">
-			本文は移行作業用のサンプルです。公開前に法務レビューおよび WordPress 掲載文の反映を行ってください。
-		</p>
+		<p class="page-head__meta">制定・最終更新：{updated}</p>
 	</header>
 
 	<article class="container prose legal-body">
-		<h2>1. 個人情報の取り扱い</h2>
-		<p>
-			当社は、お問い合わせや資料請求等を通じて取得する個人情報について、適法かつ公正な手段により取得し、利用目的の範囲内で利用します。
+
+		<p class="intro">
+			Consilegy合同会社（以下「当社」）は、お客様の個人情報を適切に保護することを重要な責務と認識し、個人情報の保護に関する法律（以下「個人情報保護法」）およびその他関連法令・ガイドラインを遵守します。本ポリシーは、当社が運営するウェブサイト（consilegy.com、以下「本サイト」）を通じて取得する個人情報の取り扱いについて定めるものです。
 		</p>
-		<h2>2. 利用目的</h2>
+
+		<h2>1. 事業者の名称および連絡先</h2>
+		<table class="info-table">
+			<tr><th>名称</th><td>Consilegy合同会社</td></tr>
+			<tr><th>所在地</th><td>〒107-0061 東京都港区北青山1丁目3番1号 アールキューブ青山3階</td></tr>
+			<tr><th>代表者</th><td>山口 聖子</td></tr>
+			<tr><th>メール</th><td><a href="mailto:info@consilegy.com">info@consilegy.com</a></td></tr>
+		</table>
+
+		<h2>2. 取得する個人情報の種類</h2>
+		<p>当社は、以下の方法および手段により個人情報を取得します。</p>
 		<ul>
-			<li>お問い合わせ対応、資料送付、サービス提供に関する連絡</li>
-			<li>サービス改善のための分析（特定の個人が識別されない形での統計利用を含む）</li>
+			<li><strong>お問い合わせ・無料相談フォーム：</strong>氏名、会社名、メールアドレス、電話番号、お問い合わせ内容</li>
+			<li><strong>ニュースレター登録フォーム：</strong>メールアドレス、氏名（任意）</li>
+			<li><strong>資料ダウンロード：</strong>氏名、会社名、メールアドレス</li>
+			<li><strong>アクセス解析：</strong>IPアドレス、閲覧ページ、滞在時間、使用端末・ブラウザ情報（クッキーを含む）など（以下「アクセスログ」）。アクセスログは単独では特定個人を識別できない場合がありますが、他の情報と照合することで個人情報となり得る場合があります。</li>
 		</ul>
-		<h2>3. 第三者提供・委託</h2>
-		<p>
-			法令に基づく場合を除き、本人の同意なく第三者に個人情報を提供しません。業務委託に伴い外部に取り扱いを委託する場合は、適切な監督を行います。
-		</p>
-		<h2>4. お問い合わせ</h2>
-		<p>個人情報の開示・訂正・削除等のご請求は、お問い合わせフォームよりご連絡ください（連絡先は別途整備）。</p>
+
+		<h2>3. 個人情報の利用目的</h2>
+		<p>取得した個人情報は、以下の目的のために利用します。</p>
+		<ol>
+			<li>お問い合わせ・無料相談への回答および業務上の連絡</li>
+			<li>サービス提案書・資料の送付</li>
+			<li>契約締結・履行に必要な手続き</li>
+			<li>ニュースレター（メールマガジン）の配信
+				<br /><span class="note-inline">※ ニュースレター登録フォームにご入力いただいたメールアドレスは、当社ニュースレターの配信に使用します。配信停止はメール末尾のリンクからいつでも行えます。</span>
+			</li>
+			<li>サービス改善・マーケティング施策の立案を目的とした統計的分析（個人を特定しない形を含む）</li>
+			<li>法令上必要な対応</li>
+		</ol>
+
+		<h2>4. 第三者への提供</h2>
+		<p>当社は、以下の場合を除き、本人の同意なく個人情報を第三者に提供しません。</p>
+		<ul>
+			<li>法令に基づき開示が必要な場合</li>
+			<li>人の生命・身体・財産の保護のために必要であり、本人の同意を得ることが困難な場合</li>
+			<li>国または地方公共団体等が法令の定める事務を遂行する場合</li>
+		</ul>
+
+		<h2>5. 業務委託および越境移転</h2>
+		<p>当社は、利用目的の達成に必要な範囲で、以下の外部サービスに個人情報の取り扱いを委託することがあります。これらのサービスは日本国外（米国等）のサーバーを使用しており、委託に伴い個人情報が外国に移転される場合があります。当社は、各サービスプロバイダの利用規約・データ処理契約（DPA）に基づき適切な安全管理措置を確認しています。</p>
+		<table class="info-table">
+			<thead><tr><th>サービス名</th><th>運営会社</th><th>利用目的</th><th>所在国</th></tr></thead>
+			<tbody>
+				<tr><td>HubSpot</td><td>HubSpot, Inc.</td><td>フォーム管理、CRM、メール配信（ニュースレター含む）</td><td>米国</td></tr>
+				<tr><td>Google Analytics 4（GA4）</td><td>Google LLC</td><td>アクセス解析</td><td>米国</td></tr>
+				<tr><td>Google Tag Manager</td><td>Google LLC</td><td>タグ管理</td><td>米国</td></tr>
+			</tbody>
+		</table>
+		<p>各サービスのプライバシーポリシーは以下をご参照ください。</p>
+		<ul>
+			<li><a href="https://legal.hubspot.com/privacy-policy" target="_blank" rel="noopener noreferrer">HubSpot Privacy Policy</a></li>
+			<li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></li>
+		</ul>
+
+		<h2>6. アクセス解析ツール・Cookieの使用</h2>
+		<p>本サイトでは、以下のアクセス解析ツールを使用しています。これらのツールはCookie（クッキー）を使用して情報を収集します。収集された情報は各サービスの規約に従い取り扱われます。</p>
+		<ul>
+			<li><strong>Google Analytics 4（GA4）：</strong>ページビュー、セッション、ユーザー属性、参照元などを収集します。IPアドレスは匿名化されます。ブラウザの設定によりCookieを無効化することができます。</li>
+			<li><strong>HubSpot：</strong>フォーム送信の管理、訪問者のウェブ行動の追跡（HubSpot Cookieを使用）を行います。</li>
+		</ul>
+		<p>Cookie の無効化については、ご利用のブラウザのヘルプをご参照ください。なお、Cookieを無効化すると本サイトの一部機能が正常に動作しない場合があります。</p>
+
+		<h2>7. 安全管理措置</h2>
+		<p>当社は、個人情報の漏えい・滅失・毀損を防止するため、SSL通信の使用、アクセス権限の制限、パスワード管理等の安全管理措置を実施します。個人情報の取り扱いを従業員に委託する場合は、適切な監督を行います。</p>
+
+		<h2>8. 個人情報の保有期間</h2>
+		<p>当社は、利用目的の達成に必要な期間、個人情報を保有します。お問い合わせ・相談対応の記録は最終連絡日から3年間、ニュースレター登録情報は購読停止後1年以内を目安に削除します。法令により保存が義務付けられている場合はこの限りではありません。</p>
+
+		<h2>9. 個人情報の開示・訂正・削除・利用停止等</h2>
+		<p>ご本人またはその代理人の方は、当社が保有する個人情報について、以下の請求を行うことができます。</p>
+		<ul>
+			<li>利用目的の通知</li>
+			<li>開示（第三者提供記録の開示を含む）</li>
+			<li>内容の訂正・追加・削除</li>
+			<li>利用の停止・消去</li>
+			<li>第三者提供の停止</li>
+		</ul>
+		<p>ご請求は下記お問い合わせ窓口へメールにてお申し出ください。本人確認書類の提示をお願いする場合があります。法令に基づき請求に応じられない場合はその旨ご連絡します。</p>
+
+		<h2>10. 未成年者の個人情報</h2>
+		<p>本サイトのサービスは成人を対象としています。18歳未満の方からの個人情報は意図的に収集しておらず、判明した場合は速やかに削除します。</p>
+
+		<h2>11. 本ポリシーの変更</h2>
+		<p>法令の改正や事業内容の変更に伴い、本ポリシーを変更することがあります。変更後のポリシーは本ページに掲載し、掲載日をもって効力を生じるものとします。重要な変更の場合は本サイト上でお知らせします。</p>
+
+		<h2>12. お問い合わせ窓口</h2>
+		<p>個人情報の取り扱いに関するお問い合わせ・苦情・ご相談は、以下までご連絡ください。</p>
+		<address>
+			Consilegy合同会社 個人情報担当<br />
+			メール：<a href="mailto:info@consilegy.com">info@consilegy.com</a>
+		</address>
+		<p>なお、個人情報保護に関する苦情については、以下の認定個人情報保護団体または個人情報保護委員会（<a href="https://www.ppc.go.jp/" target="_blank" rel="noopener noreferrer">ppc.go.jp</a>）にお申し立ていただくことも可能です。</p>
+
 	</article>
 </BaseLayout>
 
 <style>
-	.page-head {
-		padding-block: var(--space-2xl) var(--space-lg);
-		max-width: 65ch;
-	}
+.page-head {
+	padding-block: var(--space-2xl) var(--space-lg);
+	max-width: 800px;
+}
+.page-head__eyebrow {
+	margin: 0 0 var(--space-xs);
+	font-size: 0.85rem; font-weight: 700;
+	letter-spacing: 0.12em; text-transform: uppercase;
+	color: var(--color-primary);
+}
+.page-head__title {
+	margin: 0 0 0.5rem;
+	font-size: clamp(1.75rem, 3vw, 2.25rem);
+	font-weight: 800; letter-spacing: -0.03em;
+}
+.page-head__meta {
+	margin: 0; font-size: 0.875rem; color: var(--color-text-muted);
+}
 
-	.page-head__eyebrow {
-		margin: 0 0 var(--space-xs);
-		font-size: 0.85rem;
-		font-weight: 700;
-		letter-spacing: 0.12em;
-		text-transform: uppercase;
-		color: var(--color-secondary);
-	}
+.legal-body {
+	padding-bottom: var(--space-2xl);
+	max-width: 800px;
+}
+.intro {
+	font-size: 0.9875rem; line-height: 1.85; color: var(--color-text-muted);
+	margin-bottom: 2.5rem;
+}
+.legal-body h2 {
+	font-size: 1.0625rem; font-weight: 700; color: var(--color-text);
+	margin: 2.5rem 0 0.875rem;
+	padding-left: 0.875rem; border-left: 3px solid var(--color-primary);
+	line-height: 1.45;
+}
+.legal-body p, .legal-body address {
+	font-size: 0.9375rem; line-height: 1.85; color: var(--color-text);
+	margin: 0 0 1rem;
+}
+.legal-body ul, .legal-body ol {
+	padding-left: 1.375rem; margin: 0 0 1rem;
+}
+.legal-body li {
+	font-size: 0.9375rem; line-height: 1.8; color: var(--color-text);
+	margin-bottom: 0.375rem;
+}
+.note-inline {
+	display: inline-block; font-size: 0.8375rem;
+	color: var(--color-text-muted); margin-top: 0.25rem; line-height: 1.7;
+}
+.legal-body a { color: var(--color-primary); text-decoration: underline; }
+.legal-body a:hover { opacity: 0.8; }
+.legal-body address { font-style: normal; }
 
-	.page-head__title {
-		margin: 0 0 var(--space-sm);
-		font-size: clamp(1.75rem, 3vw, 2.25rem);
-		font-weight: 800;
-		letter-spacing: -0.03em;
-	}
-
-	.page-head__lede {
-		margin: 0;
-		font-size: var(--text-lead);
-		line-height: 1.75;
-		color: #334155;
-	}
-
-	.legal-body {
-		padding-bottom: var(--space-2xl);
-	}
+.info-table {
+	width: 100%; border-collapse: collapse;
+	font-size: 0.9rem; margin: 0.75rem 0 1.5rem;
+	border: 1px solid var(--color-border); border-radius: 8px; overflow: hidden;
+}
+.info-table th, .info-table td {
+	padding: 0.75rem 1rem; border-bottom: 1px solid var(--color-border);
+	text-align: left; vertical-align: top; line-height: 1.65;
+}
+.info-table tr:last-child th, .info-table tr:last-child td { border-bottom: none; }
+.info-table th {
+	background: var(--color-bg-subtle); font-weight: 600;
+	color: var(--color-text-muted); white-space: nowrap; width: 160px;
+}
+.info-table thead th {
+	background: var(--color-navy, #0f172a); color: #fff;
+}
+.info-table td { color: var(--color-text); }
 </style>

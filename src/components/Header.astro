@@ -316,7 +316,7 @@ const isActive = (href: string | null) =>
 	padding: 0.5em 1em;
 	font-size: 0.77rem;
 	font-weight: 500;
-	color: #1a172f;
+	color: #1f072a;
 	text-decoration: none;
 	white-space: nowrap;
 	transition: color 0.12s, background 0.12s;
@@ -400,6 +400,8 @@ a.site-header__lang-item:hover { color: var(--color-text-muted); }
    EN: single row
    ═══════════════════════════════════════════════════════ */
 .site-header--en .site-header__inner {
+	/* Reset --container so html[lang="en"]'s 72ch doesn't narrow the nav */
+	--container: 1120px;
 	display: flex; align-items: center;
 	height: 62px; gap: 0;
 }
@@ -455,14 +457,14 @@ a.site-header__lang-item:hover { color: var(--color-text-muted); }
 	padding: 0.32em 0.65em;
 	font-weight: 600;
 	font-size: 0.78rem;
-	color: #1a172f;
+	color: #1f072a;
 	text-decoration: none;
 	white-space: nowrap;
 	border-radius: 5px;
 	font-feature-settings: "palt";
 	transition: color 0.15s, background 0.15s;
 }
-.sh-mainlist > li > a:hover { color: #1a172f; background: rgba(26,23,47,0.06); }
+.sh-mainlist > li > a:hover { color: #1f072a; background: rgba(26,23,47,0.06); }
 .sh-mainlist > li > a[aria-current='page'] { color: var(--color-primary); background: rgba(30,64,175,0.06); }
 
 /* 会社概要 link — slightly muted weight to differentiate */
@@ -471,7 +473,7 @@ a.site-header__lang-item:hover { color: var(--color-text-muted); }
 	padding: 0.32em 0.65em;
 	font-size: 0.75rem;
 	font-weight: 500;
-	color: #1a172f;
+	color: #1f072a;
 	text-decoration: none;
 	white-space: nowrap;
 	border-radius: 5px;
@@ -487,7 +489,7 @@ a.site-header__lang-item:hover { color: var(--color-text-muted); }
 	padding: 0.32em 0.65em;
 	font-weight: 600;
 	font-size: 0.78rem;
-	color: #1a172f;
+	color: #1f072a;
 	background: none;
 	border: none;
 	cursor: pointer;

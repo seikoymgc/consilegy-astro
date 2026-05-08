@@ -34,6 +34,9 @@ const xDefaultHref = new URL('/en/', site).href;
 <html lang={htmlLang}>
 	<head>
 		<SEO {...seo} />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+JP:wght@400;500;600&display=swap" />
 		<link rel="alternate" hreflang={htmlLang} href={canonicalHref} />
 		<link rel="alternate" hreflang={alternateLang} href={alternateHref} />
 		<link rel="alternate" hreflang="x-default" href={xDefaultHref} />

@@ -153,6 +153,8 @@ const privacyHref = isEN ? '/en/privacy-policy/' : '/privacy-policy/';
 	}
 
 	.site-footer__grid {
+		/* Reset --container: html[lang="en"] sets 72ch which would narrow the footer */
+		--container: 1120px;
 		display: grid;
 		grid-template-columns: 1.4fr 1fr 1fr 1fr 0.7fr;
 		gap: var(--space-xl);

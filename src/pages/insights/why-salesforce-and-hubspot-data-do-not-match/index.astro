@@ -9,7 +9,7 @@ const readTime = '約10分';
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
-	headline: 'SalesforceとHubSpotで数字が合わない理由｜CRM・RevOps・データ設計の問題',
+	headline: 'SalesforceとHubSpotで数字が合わない理由｜CRM・RevOps（Revenue Operations）・データ設計の問題',
 	description: 'SalesforceとHubSpotで数字がズレる原因を、データ構造・KPI定義・Revenue Architectureの観点から解説します。',
 	datePublished: pubDate,
 	dateModified: pubDate,
@@ -90,7 +90,7 @@ const breadcrumbSchema = {
 		<section class="article-section">
 			<h2>なぜSalesforceとHubSpotで数字がズレるのか</h2>
 			<p>多くの企業では、SalesforceとHubSpotが別々の目的で導入されています。HubSpotはマーケティング・リード管理、Salesforceは営業・商談管理——この構成は自然です。しかし、問題はその後に起きます。</p>
-			<p>HubSpotは「マーケティング視点」でデータを構成します。フォーム送信、広告流入、MQL、メール開封、スコアリングといった情報が、リード単位で蓄積されます。一方Salesforceは「営業視点」の構造です。商談、案件金額、受注予測、パイプライン、営業活動が中心になります。</p>
+			<p>HubSpotは「マーケティング視点」でデータを構成します。フォーム送信、広告流入、MQL（Marketing Qualified Lead：マーケティングが商談化の前段として評価した見込み客）、メール開封、スコアリングといった情報が、リード単位で蓄積されます。一方Salesforceは「営業視点」の構造です。商談、案件金額、受注予測、パイプライン、営業活動が中心になります。</p>
 			<p>この2つのシステムが並走するとき、問題はツールの性能ではなく、<strong>定義と役割が設計されていないこと</strong>から生まれます。</p>
 
 			<!-- DIAGRAM 1 -->
@@ -98,7 +98,7 @@ const breadcrumbSchema = {
 				<div class="diag-compare-grid">
 					<div class="diag-compare-side diag-compare-side--hub">
 						<div class="diag-compare-side__badge">HubSpot</div>
-						<div class="diag-compare-side__role">Marketing</div>
+						<div class="diag-compare-side__role">マーケティング</div>
 						<div class="diag-compare-side__metrics">
 							<span>MQL数</span>
 							<span>リード数</span>
@@ -121,7 +121,7 @@ const breadcrumbSchema = {
 					</div>
 					<div class="diag-compare-side diag-compare-side--sf">
 						<div class="diag-compare-side__badge">Salesforce</div>
-						<div class="diag-compare-side__role">Sales</div>
+						<div class="diag-compare-side__role">営業</div>
 						<div class="diag-compare-side__metrics">
 							<span>商談金額</span>
 							<span>受注数</span>
@@ -263,9 +263,9 @@ const breadcrumbSchema = {
 			<!-- DIAGRAM 3 -->
 			<figure class="diag diag--rahub" aria-label="Revenue Architectureが営業・マーケティング・カスタマーサクセスを接続し、HubSpotとSalesforceを含むシステム全体を収益構造として統合する図。施策から継続収益までの一気通貫フローを示す。">
 				<div class="diag-rahub-top">
-					<span class="diag-rahub-dept">Marketing</span>
-					<span class="diag-rahub-dept">Sales</span>
-					<span class="diag-rahub-dept">Customer Success</span>
+					<span class="diag-rahub-dept">マーケティング</span>
+					<span class="diag-rahub-dept">営業</span>
+					<span class="diag-rahub-dept">カスタマーサクセス</span>
 				</div>
 				<div class="diag-rahub-connectors" aria-hidden="true">
 					<span class="diag-rahub-line"></span>
@@ -351,7 +351,7 @@ const breadcrumbSchema = {
 							<td>商談ステージ・KPI・ハンドオフ条件の定義</td>
 						</tr>
 						<tr>
-							<td>Operations</td>
+							<td>オペレーション</td>
 							<td>会議体設計・RevOps体制構築・定着支援</td>
 						</tr>
 						<tr>
@@ -526,7 +526,7 @@ const breadcrumbSchema = {
 
 	.article-head h1 {
 		font-size: clamp(1.5rem, 3vw, 2.1rem);
-		font-weight: 800;
+		font-weight: 600;
 		color: var(--color-navy, #0f172a);
 		line-height: 1.35;
 		margin: 0 0 1rem;
@@ -546,7 +546,7 @@ const breadcrumbSchema = {
 
 	.article-section h2 {
 		font-size: clamp(1.15rem, 2.2vw, 1.4rem);
-		font-weight: 700;
+		font-weight: 600;
 		color: var(--color-navy, #0f172a);
 		margin: 0 0 1.25rem;
 		line-height: 1.45;
@@ -556,7 +556,7 @@ const breadcrumbSchema = {
 
 	.article-section h3 {
 		font-size: 1rem;
-		font-weight: 700;
+		font-weight: 600;
 		color: var(--color-navy, #0f172a);
 		margin: 2rem 0 0.75rem;
 	}
@@ -645,7 +645,7 @@ const breadcrumbSchema = {
 	.article-numbered__item h3 {
 		margin: 0 0 0.75rem;
 		font-size: 1rem;
-		font-weight: 700;
+		font-weight: 600;
 		color: var(--color-navy, #0f172a);
 	}
 
@@ -771,7 +771,7 @@ const breadcrumbSchema = {
 
 	.article-cta__body h2 {
 		font-size: clamp(1.2rem, 2.5vw, 1.65rem);
-		font-weight: 700;
+		font-weight: 600;
 		color: #fff;
 		line-height: 1.5;
 		margin: 0 0 1.5rem;
@@ -1030,7 +1030,7 @@ const breadcrumbSchema = {
 
 	.diag-rdflow-stage__name {
 		font-size: 0.78rem;
-		font-weight: 700;
+		font-weight: 600;
 		color: var(--color-navy, #0f172a);
 		text-align: center;
 	}

@@ -20,7 +20,7 @@ const articles = [
     slug: 'why-marketing-automation-does-not-improve-pipeline',
     title: 'MAを導入しても商談化率が改善しない理由',
     desc: 'HubSpotやMarketoなどのMAを導入しても商談化率が改善しない原因を、Revenue ArchitectureとRevOpsの観点から解説します。',
-    cat: 'Marketing / RevOps',
+    cat: 'マーケティング / RevOps',
     date: '2026-05-07',
   },
   {
@@ -41,7 +41,7 @@ const articles = [
     slug: 'why-more-leads-do-not-increase-revenue',
     title: 'リードは増えているのに受注が増えない理由',
     desc: 'リード獲得数が増えているのに売上につながらない原因を、営業・マーケ連携、KPI設計、Revenue Architectureの観点から解説します。',
-    cat: 'Marketing / RevOps',
+    cat: 'マーケティング / RevOps',
     date: '2026-05-07',
   },
   {
@@ -118,7 +118,7 @@ const articles = [
     slug: 'why-sales-forecasting-fails',
     title: '営業予測（Forecast）が当たらない理由',
     desc: 'SalesforceやHubSpotを導入しても営業予測が当たらない原因を、Revenue ArchitectureとRevOpsの観点から解説します。',
-    cat: 'Sales / RevOps',
+    cat: '営業 / RevOps',
     date: '2026-05-07',
   },
   {
@@ -132,14 +132,14 @@ const articles = [
     slug: 'why-sfa-becomes-just-a-pipeline-sheet',
     title: 'なぜSFAは案件管理表になるのか',
     desc: 'SalesforceなどのSFAが単なる案件管理表になってしまう原因を、Revenue ArchitectureとRevOpsの観点から解説します。',
-    cat: 'Sales / CRM',
+    cat: '営業 / CRM',
     date: '2026-05-07',
   },
   {
     slug: 'why-sql-definitions-break-between-marketing-and-sales',
     title: 'なぜSQL定義がズレるのか',
     desc: 'MQLやSQLの定義が営業とマーケティングでズレる原因を、Revenue ArchitectureとRevOpsの観点から解説します。',
-    cat: 'Marketing / Sales',
+    cat: 'マーケティング / 営業',
     date: '2026-05-07',
   },
   {
@@ -315,8 +315,8 @@ const uniqueCats = ['すべて', ...Array.from(new Set(allCats))];
   text-transform: uppercase; color: #1e40af; margin: 0 0 14px;
 }
 .ins-head__title {
-  font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800;
-  color: #0f172a; letter-spacing: -.03em; margin: 0 0 16px; line-height: 1.2;
+  font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 600;
+  color: #0f172a; letter-spacing: 0.01em; margin: 0 0 16px; line-height: 1.2;
 }
 .ins-head__lede {
   font-size: 1rem; color: #334155; line-height: 1.8; margin: 0;
@@ -436,7 +436,7 @@ const uniqueCats = ['すべて', ...Array.from(new Set(allCats))];
 .cat--default { background: #f8fafc; color: #475569; border-color: #e2e8f0; }
 
 .ins-card__title {
-  font-size: .95rem; font-weight: 700; color: #0f172a;
+  font-size: .95rem; font-weight: 600; color: #0f172a;
   line-height: 1.55; margin: 0 0 8px; flex-grow: 1;
 }
 .ins-card:hover .ins-card__title { color: #1e40af; }

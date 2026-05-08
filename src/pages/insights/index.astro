@@ -245,6 +245,7 @@ const uniqueCats = ['すべて', ...Array.from(new Set(allCats))];
                 loading="lazy"
                 class="ins-card__img"
               />
+              <span class="ins-card__cat-overlay">{a.cat}</span>
               {i < 3 && <span class="ins-card__new">新着</span>}
             </div>
             <div class="ins-card__body">
@@ -405,6 +406,13 @@ const uniqueCats = ['すべて', ...Array.from(new Set(allCats))];
   font-size: .62rem; font-weight: 800; letter-spacing: .06em;
   background: #1e40af; color: #fff; border-radius: 4px; padding: 3px 8px;
 }
+.ins-card__cat-overlay {
+  position: absolute; bottom: 10px; left: 10px;
+  font-size: .7rem; font-weight: 700; letter-spacing: .04em;
+  background: rgba(15,23,42,0.6); color: #fff;
+  border-radius: 4px; padding: 3px 10px;
+  backdrop-filter: blur(4px);
+}
 
 /* Body */
 .ins-card__body {
@@ -453,7 +461,7 @@ const uniqueCats = ['すべて', ...Array.from(new Set(allCats))];
 .ins-card__date { font-size: .72rem; color: #94a3b8; }
 .ins-card__read { font-size: .72rem; color: #94a3b8; }
 .ins-card__arrow {
-  margin-left: auto; font-size: .9rem; color: #bfdbfe;
+  margin-left: auto; font-size: .9rem; color: #1e40af;
   transition: transform .18s ease, color .18s ease;
 }
 .ins-card:hover .ins-card__arrow { transform: translateX(4px); color: #1e40af; }

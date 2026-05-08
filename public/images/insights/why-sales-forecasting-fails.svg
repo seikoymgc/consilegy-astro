@@ -158,7 +158,5 @@
   <circle cx="916" cy="338" r="7" fill="white" opacity="0.14"/>
   <circle cx="1016" cy="238" r="7" fill="white" opacity="0.14"/>
   <circle cx="1136" cy="158" r="7" fill="white" opacity="0.14"/>
-  <rect x="48" y="42" width="158" height="36" rx="7" fill="#86efac" opacity="0.18"/>
-  <text x="64" y="66" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="700" fill="#86efac">Sales / RevOps</text>
   <rect x="0" y="614" width="1200" height="16" fill="#86efac" opacity="0.45"/>
 </svg>

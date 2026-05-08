@@ -178,7 +178,5 @@
   <circle cx="1020" cy="440" r="10" fill="white" opacity="0.14"/>
   <circle cx="1020" cy="440" r="5" fill="white" opacity="0.18"/>
   <circle cx="980" cy="280" r="300" fill="white" opacity="0.03"/>
-  <rect x="48" y="42" width="140" height="36" rx="7" fill="#93c5fd" opacity="0.18"/>
-  <text x="64" y="66" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="700" fill="#93c5fd">CRM / RevOps</text>
   <rect x="0" y="614" width="1200" height="16" fill="#93c5fd" opacity="0.45"/>
 </svg>

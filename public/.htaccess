@@ -19,8 +19,11 @@ ErrorDocument 404 /404.html
 	<FilesMatch "\.(js|css|woff2?|ttf|otf|eot)$">
 		Header set Cache-Control "public, max-age=31536000, immutable"
 	</FilesMatch>
-	<FilesMatch "\.(webp|jpg|jpeg|png|gif|svg|ico|avif)$">
-		Header set Cache-Control "public, max-age=31536000, immutable"
+	<FilesMatch "\.(webp|jpg|jpeg|png|gif|ico|avif)$">
+		Header set Cache-Control "public, max-age=604800, must-revalidate"
+	</FilesMatch>
+	<FilesMatch "\.svg$">
+		Header set Cache-Control "public, max-age=86400, must-revalidate"
 	</FilesMatch>
 	# HTML pages: allow caching but require revalidation
 	<FilesMatch "\.html$">

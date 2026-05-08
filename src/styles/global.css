@@ -517,3 +517,11 @@ a:hover {
 	color: var(--color-primary, #1e40af);
 	margin-top: 4px;
 }
+
+.article-pubdate {
+	font-size: 0.75rem;
+	color: var(--color-text-muted);
+	margin-top: 2.5rem;
+	padding-top: 1.25rem;
+	border-top: 1px solid var(--color-border);
+}

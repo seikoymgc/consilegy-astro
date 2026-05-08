@@ -25,13 +25,6 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Check secrets
-        run: |
-          echo "SSH_HOST exists: ${{ secrets.SSH_HOST != '' }}"
-          echo "SSH_USER exists: ${{ secrets.SSH_USER != '' }}"
-          echo "SSH_PORT exists: ${{ secrets.SSH_PORT != '' }}"
-          echo "SSH_KEY exists: ${{ secrets.SSH_KEY != '' }}"
-
       - name: Deploy via SSH
         uses: easingthemes/ssh-deploy@main
         with:

@@ -402,7 +402,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 }
 .eyebrow__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--color-primary); display: inline-block; }
 .hero h1 {
-	font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+	font-family: var(--font-sans);
 	font-size: clamp(2rem, 4vw, 3rem); font-weight: 600;
 	line-height: 1.45; margin: 1.25rem 0 1.5rem; color: var(--color-text);
 }
@@ -430,7 +430,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	box-shadow: var(--shadow-sm);
 }
 .cap-num {
-	font-family: 'Noto Serif JP', serif; font-size: 1.75rem; font-weight: 600;
+	font-family: var(--font-sans); font-size: 1.75rem; font-weight: 600;
 	color: var(--color-primary); line-height: 1; margin-bottom: 0.5rem; letter-spacing: 0.02em;
 }
 .cap-card h3 { font-size: 1.0625rem; font-weight: 700; line-height: 1.5; color: var(--color-text); margin: 0; }
@@ -440,7 +440,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 .why { padding-block: 5rem; background: var(--color-bg); }
 .why-inner { display: grid; grid-template-columns: 0.9fr 1.3fr; gap: 4.5rem; align-items: start; }
 .why-left h2 {
-	font-family: 'Noto Serif JP', serif; font-size: 2.25rem; font-weight: 600;
+	font-family: var(--font-sans); font-size: 2.25rem; font-weight: 600;
 	line-height: 1.45; margin: 0 0 1.25rem; color: var(--color-text);
 }
 .why-lead { font-size: 1.0625rem; line-height: 1.85; color: var(--color-text-muted); }
@@ -450,7 +450,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	padding: 1.75rem; display: grid; grid-template-columns: 56px 1fr; gap: 1.25rem; align-items: start;
 }
 .why-num {
-	font-family: 'Noto Serif JP', serif; font-size: 1.5rem; font-weight: 600; color: var(--color-primary);
+	font-family: var(--font-sans); font-size: 1.5rem; font-weight: 600; color: var(--color-primary);
 	width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--color-primary);
 	display: flex; align-items: center; justify-content: center; background: #f7faff; flex-shrink: 0;
 }
@@ -470,7 +470,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 }
 .values-head { text-align: center; max-width: 720px; margin: 0 auto 3rem; }
 .values-head h2 {
-	font-family: 'Noto Serif JP', serif; font-size: 2.25rem; font-weight: 600;
+	font-family: var(--font-sans); font-size: 2.25rem; font-weight: 600;
 	line-height: 1.45; margin: 0 0 1rem; color: var(--color-text);
 }
 .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
@@ -479,7 +479,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	border-radius: 8px; padding: 2.25rem 2rem;
 }
 .value-num {
-	font-family: 'Noto Serif JP', serif; font-size: 1rem; font-weight: 600;
+	font-family: var(--font-sans); font-size: 1rem; font-weight: 600;
 	color: var(--color-primary); letter-spacing: 0.1em; margin-bottom: 1rem;
 	display: inline-block; padding-bottom: 0.5rem; border-bottom: 2px solid var(--color-primary);
 }
@@ -511,7 +511,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	color: var(--color-primary); font-weight: 600; display: block; margin-bottom: 0.75rem;
 }
 .founder-name {
-	font-family: 'Noto Serif JP', serif; font-size: 2.25rem; font-weight: 600;
+	font-family: var(--font-sans); font-size: 2.25rem; font-weight: 600;
 	color: var(--color-text); margin: 0 0 0.25rem;
 }
 .founder-name__en { font-size: 1.1rem; color: var(--color-text-muted); margin-left: 0.75rem; font-weight: 500; font-family: inherit; }
@@ -526,7 +526,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.875rem; display: block;
 }
 .mission-block h3 {
-	font-family: 'Noto Serif JP', serif; font-size: 1.875rem; font-weight: 600;
+	font-family: var(--font-sans); font-size: 1.875rem; font-weight: 600;
 	line-height: 1.5; color: var(--color-text); margin: 0;
 }
 .mission-from { margin-top: 1rem; font-size: 0.8125rem; color: var(--color-text-muted); letter-spacing: 0.06em; }
@@ -595,7 +595,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 }
 .track-head { max-width: 760px; margin-bottom: 3rem; }
 .track-head h2 {
-	font-family: 'Noto Serif JP', serif; font-size: 2.25rem; font-weight: 600;
+	font-family: var(--font-sans); font-size: 2.25rem; font-weight: 600;
 	line-height: 1.45; margin: 0 0 1rem; color: var(--color-text);
 }
 .track-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
@@ -623,7 +623,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 }
 .tools-inner { display: grid; grid-template-columns: 0.7fr 2fr; gap: 3rem; align-items: center; }
 .tools-strip h3 {
-	font-family: 'Noto Serif JP', serif; font-size: 1.5rem; font-weight: 600;
+	font-family: var(--font-sans); font-size: 1.5rem; font-weight: 600;
 	color: var(--color-text); margin: 0 0 0.5rem;
 }
 .tools-strip p { font-size: 0.9375rem; color: var(--color-text-muted); margin: 0; }
@@ -642,7 +642,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 }
 .company-inner { display: grid; grid-template-columns: 0.85fr 1.4fr; gap: 4.5rem; align-items: start; }
 .company-inner h2 {
-	font-family: 'Noto Serif JP', serif; font-size: 2.25rem; font-weight: 600;
+	font-family: var(--font-sans); font-size: 2.25rem; font-weight: 600;
 	line-height: 1.45; color: var(--color-text); margin: 0 0 1rem;
 }
 .company-note { margin-top: 1rem; font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.75; }
@@ -689,7 +689,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 1rem;
 }
 .cta-inner h2 {
-	font-family: 'Noto Serif JP', serif; font-weight: 600; color: #fff;
+	font-family: var(--font-sans); font-weight: 600; color: #fff;
 	font-size: clamp(1.75rem, 2.5vw, 2.25rem); line-height: 1.55; margin: 0 0 1.25rem;
 }
 .cta-lead { color: #bfdbfe; font-size: 1.0625rem; line-height: 1.85; max-width: 620px; margin: 0 auto 2.25rem; }

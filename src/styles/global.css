@@ -8,7 +8,7 @@
 	--color-bg: #ffffff;
 	--color-bg-subtle: #f8f9fc;
 	--color-border: #e2e8f0;
-	--font-sans: 'Inter', 'Noto Sans JP', 'Hiragino Sans', sans-serif;
+	--font-sans: 'Inter', 'Noto Sans JP', 'Hiragino Sans', system-ui, sans-serif;
 	--container: 1120px;
 	--space-xs: 0.5rem;
 	--space-sm: 1rem;
@@ -41,7 +41,7 @@ html {
 }
 
 html[lang="en"] {
-	--font-sans: 'Inter', sans-serif;
+	--font-sans: 'Inter', 'Noto Sans JP', sans-serif;
 	--container: 72ch;
 }
 

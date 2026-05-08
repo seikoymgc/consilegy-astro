@@ -381,8 +381,15 @@ const insightsPosts = [
 			<p class="section-lead">RevOps・CRM運用・データ活用に関するナレッジを公開しています。</p>
 		</header>
 		<div class="blog-grid">
-			{insightsPosts.map((post) => (
+			{insightsPosts.map((post) => {
+				const slug = post.href.replace('/insights/', '').replace(/\/$/, '');
+				return (
 				<article class="blog-card">
+					<a href={post.href} class="blog-img-link">
+						<div class="blog-img">
+							<img src={`/images/insights/${slug}.svg`} alt={post.category} loading="lazy" width="1200" height="630" />
+						</div>
+					</a>
 					<div class="blog-body">
 						<span class="blog-cat">{post.category}</span>
 						<h3 class="blog-title">
@@ -391,7 +398,8 @@ const insightsPosts = [
 						<p class="blog-desc">{post.description}</p>
 					</div>
 				</article>
-			))}
+				);
+			})}
 		</div>
 		<p style="margin-top: var(--space-lg); text-align: center;">
 			<a class="btn btn--secondary" href="/insights/">コラム一覧へ</a>

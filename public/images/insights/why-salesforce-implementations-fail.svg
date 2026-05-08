@@ -160,7 +160,6 @@
   <line x1="1054" y1="380" x2="1034" y2="480" stroke="white" stroke-width="1.5" opacity="0.07"/>
   <line x1="1154" y1="380" x2="1134" y2="480" stroke="white" stroke-width="1.5" opacity="0.07"/>
   <line x1="1254" y1="380" x2="1234" y2="480" stroke="white" stroke-width="1.5" opacity="0.07"/>
-  <text x="1185" y="608" font-family="ui-monospace,monospace" font-size="300" font-weight="900" fill="white" opacity="0.04" text-anchor="end">18</text>
   <rect x="48" y="42" width="203" height="36" rx="7" fill="#7dd3fc" opacity="0.18"/>
   <text x="64" y="66" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="700" fill="#7dd3fc">Salesforce / RevOps</text>
   <rect x="0" y="614" width="1200" height="16" fill="#7dd3fc" opacity="0.45"/>

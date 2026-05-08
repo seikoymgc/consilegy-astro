@@ -40,5 +40,5 @@ jobs:
           REMOTE_USER: ${{ secrets.SSH_USER }}
           REMOTE_PORT: ${{ secrets.SSH_PORT }}
           SOURCE: "dist/"
-          TARGET: "/virtual/consilegy/public_html/"
+          TARGET: "public_html/"
           ARGS: "-avz --delete"

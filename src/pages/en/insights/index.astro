@@ -236,6 +236,20 @@ const hubspot = [
     </div>
   </section>
 
+  <!-- Newsletter CTA -->
+  <section class="ins-nl">
+    <div class="ins-container">
+      <div class="ins-nl__inner">
+        <div class="ins-nl__copy">
+          <p class="ins-nl__eyebrow">Newsletter</p>
+          <h2 class="ins-nl__title">Get new articles by email</h2>
+          <p class="ins-nl__desc">The Consilegy B2B Revenue Playbook covers Revenue Architecture, Japan GTM, and CRM operations. Each issue is one practical topic you can apply directly to your work.</p>
+        </div>
+        <a href="/en/newsletter/" class="ins-nl__btn">See the newsletter →</a>
+      </div>
+    </div>
+  </section>
+
 </div>
 
 <style>
@@ -367,6 +381,48 @@ const hubspot = [
   margin-top: 4px;
 }
 
+/* ── Newsletter CTA ───────────────────────────────── */
+.ins-nl {
+  background: #0f172a;
+  padding: 64px 0;
+}
+.ins-nl__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.ins-nl__eyebrow {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: #93c5fd;
+  margin: 0 0 10px;
+}
+.ins-nl__title {
+  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+  font-weight: 700; color: #fff;
+  margin: 0 0 12px; line-height: 1.3;
+}
+.ins-nl__desc {
+  font-size: 0.9375rem; color: rgba(255,255,255,0.7);
+  line-height: 1.75; margin: 0; max-width: 520px;
+}
+.ins-nl__btn {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+  background: #fff;
+  color: #0f172a;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+.ins-nl__btn:hover { opacity: 0.88; }
+
 /* ── Responsive ───────────────────────────────────── */
 @media (max-width: 900px) {
   .ins-grid { grid-template-columns: repeat(2, 1fr); }
@@ -375,6 +431,7 @@ const hubspot = [
   .ins-grid { grid-template-columns: 1fr; }
   .ins-featured-card { padding: 24px 20px; }
   .ins-featured-card__meta { flex-wrap: wrap; }
+  .ins-nl__inner { flex-direction: column; align-items: flex-start; gap: 24px; }
 }
 </style>
 

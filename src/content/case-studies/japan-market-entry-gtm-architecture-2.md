@@ -6,13 +6,15 @@ sourceUrl: "https://consilegy.com/case-studies/japan-market-entry-gtm-architectu
 lang: "ja"
 translationKey: "japan-market-entry-gtm"
 modified: "2026-03-18T01:48:25"
-description: " 項目内容主な課題意思決定との乖離、検討情報の不足、営業接続の断絶業界IT（グローバルEC・テクノロジー企業）売上規模20兆円（グローバル）導入時期 / 期間2023年4月〜 / 6ヶ月従業員数約120,000名支援内容日本市場参入戦略（GTM）策定・LPアーキテクチャ設計    プロジェクト背景 "
+description: "従業員約120,000名・グローバル売上$130B+規模のEC / テクノロジー企業に対し、2023年4月から6ヶ月で日本市場向けGTM戦略とLPアーキテクチャを設計。認知・評価・営業接点の3段階ジャーニーを構築しました。"
+industry: "IT（グローバルEC・テクノロジー）"
+service: "GTM戦略設計・LPアーキテクチャ設計"
 featuredImage: "/images/media/2026/02/jackie-alexander-tV79ff0YlXM-unsplash-scaled.jpg"
 featuredImageAlt: ""
 draft: false
 ---
 <!-- wp:table {"fontSize":"small"} -->
-<figure class="wp-block-table has-small-font-size"><table class="has-fixed-layout"><thead><tr><td><strong>項目</strong></td><td><strong>内容</strong></td></tr></thead><tbody><tr><td><strong>主な課題</strong></td><td>意思決定との乖離、検討情報の不足、営業接続の断絶</td></tr><tr><td><strong>業界</strong></td><td>IT（グローバルEC・テクノロジー企業）</td></tr><tr><td><strong>売上規模</strong></td><td>20兆円（グローバル）</td></tr><tr><td><strong>導入時期 / 期間</strong></td><td>2023年4月〜 / 6ヶ月</td></tr><tr><td><strong>従業員数</strong></td><td>約120,000名</td></tr><tr><td><strong>支援内容</strong></td><td>日本市場参入戦略（GTM）策定・LPアーキテクチャ設計</td></tr></tbody></table></figure>
+<figure class="wp-block-table has-small-font-size"><table class="has-fixed-layout"><thead><tr><td><strong>項目</strong></td><td><strong>内容</strong></td></tr></thead><tbody><tr><td><strong>主な課題</strong></td><td>意思決定との乖離、検討情報の不足、営業接続の断絶</td></tr><tr><td><strong>業界</strong></td><td>IT（グローバルEC・テクノロジー企業）</td></tr><tr><td><strong>企業規模</strong></td><td>従業員約120,000名 / グローバル売上$130B+（約20兆円規模）</td></tr><tr><td><strong>導入時期 / 期間</strong></td><td>2023年4月〜 / 6ヶ月</td></tr><tr><td><strong>支援内容</strong></td><td>日本市場参入戦略（GTM）策定・LPアーキテクチャ設計</td></tr></tbody></table></figure>
 <!-- /wp:table -->
 
 <!-- wp:heading -->
@@ -20,7 +22,7 @@ draft: false
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>世界市場で高いシェアを持つテクノロジー製品の日本ローンチ。<br>グローバル本社のクリエイティブは「シンプルかつ抽象的」である一方、日本市場では「詳細な仕様」「信頼性」「導入後のサポート」が意思決定に強く影響します。</p>
+<p>従業員約120,000名・グローバル売上$130B+規模のEC / テクノロジー企業による、日本市場向けテクノロジー製品のローンチ。<br>グローバル本社のクリエイティブは「シンプルかつ抽象的」である一方、日本市場では「詳細な仕様」「信頼性の証明」「導入範囲」「導入後のサポート」という4つの判断材料が意思決定に強く影響します。</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
@@ -66,7 +68,7 @@ draft: false
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>単なるLP制作ではなく、日本市場における意思決定構造と営業導線を前提としたアーキテクチャ設計を行いました。</p>
+<p>2023年4月から6ヶ月間、単なるLP制作ではなく、日本市場における意思決定構造と営業導線を前提としたアーキテクチャ設計を行いました。</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:list -->
@@ -75,11 +77,11 @@ draft: false
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li>意思決定起点の情報設計：検討フェーズごとに必要な情報を整理し、段階的に意思決定を促進</li>
+<li>意思決定起点の情報設計：認知・評価・営業接点の3段階で必要な情報を整理し、段階的に意思決定を促進</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li>導線の再構築：マーケティングから営業接触までの一貫した流れを設計</li>
+<li>導線の再構築：コンテンツ接触から直接の営業接点までの一貫した流れを設計</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
@@ -93,15 +95,15 @@ draft: false
 
 <!-- wp:list -->
 <ul class="wp-block-list"><!-- wp:list-item -->
-<li>営業接続率の高いリード創出：意思決定に必要な情報を網羅することで、質の高いリードを安定的に獲得</li>
+<li>6ヶ月の支援期間を通じ、営業接続可能なリードを継続的に創出</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li>パイプライン品質の向上：単なる問い合わせではなく、受注可能性の高い案件を創出</li>
+<li>パイプライン品質の向上：広い興味関心から、高意向の問い合わせへと流入の質を改善</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li>ブランドと成果の両立：グローバルブランドの一貫性を維持しつつ、日本市場での成果を最大化</li>
+<li>認知・評価・営業接点までをつなぐ3段階のバイヤージャーニーを構築</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->

@@ -20,7 +20,7 @@ const articles = [
     slug: 'why-marketing-automation-does-not-improve-pipeline',
     title: 'MAを導入しても商談化率が改善しない理由',
     desc: 'HubSpotやMarketoなどのMAを導入しても商談化率が改善しない原因を、Revenue ArchitectureとRevOpsの観点から解説します。',
-    cat: 'CRM・MA・SFA',
+    cat: 'CRM',
     date: '2026-05-07',
   },
   {
@@ -48,14 +48,14 @@ const articles = [
     slug: 'why-sales-teams-stop-using-crm',
     title: 'CRMを導入すると営業が入力しなくなる理由',
     desc: 'SalesforceやHubSpotを導入しても営業入力が定着しない原因を、現場UX・KPI・Revenue Architectureの観点から解説します。',
-    cat: 'CRM・MA・SFA',
+    cat: 'CRM',
     date: '2026-05-07',
   },
   {
     slug: 'why-salesforce-and-hubspot-data-do-not-match',
     title: 'SalesforceとHubSpotで数字が合わない理由',
     desc: 'SalesforceとHubSpotで数字がズレる原因を、データ構造・KPI定義・Revenue Architectureの観点から解説します。',
-    cat: 'CRM・MA・SFA',
+    cat: 'CRM',
     date: '2026-05-07',
   },
   {
@@ -69,21 +69,21 @@ const articles = [
     slug: 'why-sales-forecasting-fails-even-with-sfa',
     title: 'SFAを導入しても売上予測が当たらない理由',
     desc: 'SalesforceなどのSFAを導入しても売上予測が外れる原因を、商談定義・KPI・Revenue Architectureの観点から解説します。',
-    cat: 'CRM・MA・SFA',
+    cat: 'CRM',
     date: '2026-05-07',
   },
   {
     slug: 'why-companies-cannot-stop-using-excel-after-crm',
     title: 'CRMを導入してもExcel集計が残る理由',
     desc: 'CRMを導入してもExcel集計が残る原因を、KPI設計・データ構造・Revenue Architectureの観点から解説します。',
-    cat: 'CRM・MA・SFA',
+    cat: 'CRM',
     date: '2026-05-07',
   },
   {
     slug: 'why-crm-adoption-fails',
     title: 'CRMが定着しない本当の理由',
     desc: 'CRMが定着しない原因を、営業現場の意識ではなく、KPI設計・商談ステージ定義・データ構造・Revenue Architectureの観点から解説します。',
-    cat: 'CRM・MA・SFA',
+    cat: 'CRM',
     date: '2026-05-06',
   },
   {
@@ -97,14 +97,14 @@ const articles = [
     slug: 'why-crm-integration-projects-fail',
     title: 'CRM統合プロジェクトが失敗する理由',
     desc: 'Salesforce・HubSpot・KintoneなどのCRM統合プロジェクトが失敗する原因を、Revenue ArchitectureとRevOpsの観点から解説します。',
-    cat: 'CRM・MA・SFA',
+    cat: 'CRM',
     date: '2026-05-07',
   },
   {
     slug: 'why-hubspot-operations-become-dependent-on-individuals',
     title: 'なぜHubSpot運用は属人化するのか',
     desc: 'HubSpot運用が一部担当者に依存し、ブラックボックス化する原因を、Revenue ArchitectureとRevOpsの観点から解説します。',
-    cat: 'CRM・MA・SFA',
+    cat: 'CRM',
     date: '2026-05-07',
   },
   {
@@ -125,14 +125,14 @@ const articles = [
     slug: 'why-salesforce-implementations-fail',
     title: 'なぜSalesforce導入は失敗しやすいのか',
     desc: 'Salesforce導入が失敗する本当の原因を、Revenue Architecture・RevOps・運用定着の観点から解説します。',
-    cat: 'CRM・MA・SFA',
+    cat: 'CRM',
     date: '2026-05-07',
   },
   {
     slug: 'why-sfa-becomes-just-a-pipeline-sheet',
     title: 'なぜSFAは案件管理表になるのか',
     desc: 'SalesforceなどのSFAが単なる案件管理表になってしまう原因を、Revenue ArchitectureとRevOpsの観点から解説します。',
-    cat: 'CRM・MA・SFA',
+    cat: 'CRM',
     date: '2026-05-07',
   },
   {
@@ -176,8 +176,8 @@ const articles = [
 const catColor: Record<string, string> = {
   'レベニューアーキテクチャ': 'cat--ra',
   'RevOps':                   'cat--revops',
-  'CRM・MA・SFA':             'cat--crm',
   'KPI・BI':                  'cat--kpi',
+  'CRM':                      'cat--crm',
   'マーケティング':           'cat--mkt',
   '営業':                     'cat--sales',
   'カスタマーサクセス':       'cat--cs',
@@ -192,9 +192,24 @@ function fmtDate(iso: string) {
   return `${y}年${parseInt(m)}月${parseInt(d)}日`;
 }
 
-// ユニークカテゴリ（出現順）
+const categoryOrder = [
+  'レベニューアーキテクチャ',
+  'RevOps',
+  'KPI・BI',
+  'CRM',
+  'マーケティング',
+  '営業',
+  'カスタマーサクセス',
+];
+
+// ユニークカテゴリ（指定順）
 const allCats = articles.map(a => a.cat);
-const uniqueCats = ['すべて', ...Array.from(new Set(allCats))];
+const availableCats = new Set(allCats);
+const uniqueCats = [
+  'すべて',
+  ...categoryOrder.filter(cat => availableCats.has(cat)),
+  ...Array.from(availableCats).filter(cat => !categoryOrder.includes(cat)),
+];
 ---
 
 <BaseLayout

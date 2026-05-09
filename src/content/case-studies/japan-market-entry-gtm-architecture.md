@@ -1,37 +1,40 @@
 ---
 wpId: 28559
-title: "Designing a GTM structure for Japan through localized messaging and conversion architecture"
+title: "Designing Decision-Making Architecture for Japan Market Entry"
 slug: "japan-market-entry-gtm-architecture"
 sourceUrl: "https://consilegy.com/en/case-studies/japan-market-entry-gtm-architecture/"
 lang: "en"
 translationKey: "japan-market-entry-gtm"
 modified: "2026-03-18T00:40:04"
-description: "A large global tech company was entering Japan with strong global market share but messaging built for Western buying behavior. Without structural adaptation, marketing wouldn't connect to sales."
+description: "For a global EC and technology company with approximately 120,000 employees and $130B+ in global revenue, Consilegy redesigned Japan GTM messaging and LP architecture over a 6-month engagement, creating a 3-stage buyer journey from awareness to evaluation to sales contact."
+industry: "IT — Global EC & Technology"
+service: "GTM Strategy Design, LP Architecture Design"
 featuredImage: "/images/media/2026/02/jackie-alexander-tV79ff0YlXM-unsplash-scaled.jpg"
 featuredImageAlt: ""
 draft: false
 ---
 <dl class="cs-meta">
-  <dt>Industry</dt><dd>IT (Global technology company, e-commerce product)</dd>
+  <dt>Industry</dt><dd>IT — Global EC & Technology</dd>
   <dt>Company size</dt><dd>Approx. 120,000 employees</dd>
-  <dt>Timeline</dt><dd>From April 2023, approx. 6 months</dd>
-  <dt>Scope</dt><dd>Japan market entry (GTM) strategy and landing page architecture design</dd>
+  <dt>Global revenue</dt><dd>$130B+</dd>
+  <dt>Engagement</dt><dd>April 2023 — 6 months</dd>
+  <dt>Services</dt><dd>GTM Strategy Design, LP Architecture Design</dd>
 </dl>
 
 <section class="cs-section">
   <h2 class="cs-label">Problem</h2>
-  <p>A global technology product with strong market share was preparing for launch in Japan. The global creative followed a minimal and abstract approach — but Japan's enterprise buying process relies heavily on detailed specifications, reliability proof, and information about post-implementation support.</p>
+  <p>A global technology product from a company with approximately 120,000 employees and $130B+ in global revenue was preparing for launch in Japan. The global creative followed a minimal and abstract approach — but Japan's enterprise buying process relies heavily on four concrete decision inputs: clear specifications, reliability proof, implementation scope, and support clarity.</p>
   <p>Global messaging that performs well in other markets wasn't designed for how Japanese stakeholders evaluate and decide. There was no structured path from marketing touchpoint to sales conversation. And content at the translation level — without genuine market adaptation — left significant gaps in what decision-makers needed to progress through evaluation.</p>
   <p>Without addressing these structural issues, marketing spend would generate interest that didn't convert to pipeline.</p>
 </section>
 
 <section class="cs-section">
   <h2 class="cs-label">Work</h2>
-  <p>We designed a go-to-market architecture aligned with Japan's decision-making dynamics — while maintaining the global brand standards required by headquarters.</p>
+  <p>Over a 6-month engagement starting in April 2023, we designed a go-to-market architecture aligned with Japan's decision-making dynamics — while maintaining the global brand standards required by headquarters.</p>
   <ul>
     <li>Repositioning for Japan — redefined the value proposition based on local competitive landscape and the decision criteria that matter to Japanese enterprise buyers</li>
-    <li>Decision-driven information architecture — structured content to support each stage of Japan's evaluation process, not just introduce the product</li>
-    <li>End-to-end conversion flow — built a structured path from marketing touchpoints to sales engagement, with clear handoff triggers</li>
+    <li>Decision-driven information architecture — structured content around a 3-stage buyer journey from awareness to evaluation to sales contact</li>
+    <li>End-to-end conversion flow — rebuilt the path from content engagement to direct sales contact, with clear handoff triggers</li>
     <li>Global alignment — maintained brand consistency while introducing the information depth Japan buyers require</li>
   </ul>
 </section>
@@ -39,10 +42,10 @@ draft: false
 <section class="cs-section">
   <h2 class="cs-label">Result</h2>
   <ul>
-    <li>Higher-quality, sales-ready leads — leads were better qualified and aligned with what the sales team needed to engage</li>
-    <li>Improved pipeline conversion potential — opportunities entered the pipeline at a higher readiness level</li>
-    <li>Local performance without brand compromise — strong results in Japan without deviating from global standards</li>
-    <li>Reusable framework — established a foundation for ongoing Japan GTM activity, not a one-off campaign fix</li>
+    <li>Sales-ready leads were generated consistently over the 6-month engagement</li>
+    <li>Pipeline quality improved by shifting from broad interest to high-intent inquiries</li>
+    <li>A reusable 3-stage buyer journey was built from awareness to evaluation to sales contact</li>
+    <li>A replicable Japan GTM framework was created for ongoing expansion</li>
   </ul>
 </section>
 

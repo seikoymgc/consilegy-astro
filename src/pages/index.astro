@@ -8,22 +8,22 @@ const cases = (await getCollection('caseStudies'))
 
 const insightsPosts = [
 	{
-		href: '/insights/why-good-marketing-strategies-fail-to-scale/',
-		title: 'なぜ「良い施策」を打っても再現性が生まれないのか',
-		description: '一時的に成果が出ても再現性が続かない原因を、Revenue Architecture・RevOps・Revenue Visibilityの観点から解説します。',
-		category: 'Revenue Architecture',
+		slug: 'why-good-marketing-does-not-create-repeatable-growth',
+		title: 'なぜ「良い施策」を打っているのに、組織が再現性を持てないのか',
+		description: '優秀な施策や営業人材がいるのに成長が再現しない原因を、Revenue ArchitectureとRevOpsの観点から解説します。',
+		category: 'レベニューアーキテクチャ',
 	},
 	{
-		href: '/insights/why-kpi-meetings-become-status-update-sessions/',
-		title: 'なぜKPI会議は「数字確認会」で終わってしまうのか',
-		description: 'KPI会議が改善につながらず、数字確認だけで終わってしまう原因を、Revenue ArchitectureとRevOpsの観点から解説します。',
-		category: 'RevOps / KPI',
+		slug: 'why-dashboards-do-not-improve-executive-decisions',
+		title: 'ダッシュボードを作っても意思決定が速くならない理由',
+		description: 'BIやダッシュボードを整備しても経営判断が速くならない原因を、KPI設計・Revenue Architecture・RevOpsの観点から解説します。',
+		category: 'KPI・BI',
 	},
 	{
-		href: '/insights/why-salesforce-implementations-fail/',
-		title: 'なぜSalesforce導入は失敗しやすいのか',
-		description: 'Salesforce導入が失敗する本当の原因を、Revenue Architecture・RevOps・運用定着の観点から解説します。',
-		category: 'Salesforce / RevOps',
+		slug: 'why-marketing-automation-does-not-improve-pipeline',
+		title: 'MAを導入しても商談化率が改善しない理由',
+		description: 'HubSpotやMarketoなどのMAを導入しても商談化率が改善しない原因を、Revenue ArchitectureとRevOpsの観点から解説します。',
+		category: 'CRM',
 	},
 ];
 ---
@@ -381,23 +381,31 @@ const insightsPosts = [
 			<p class="section-lead">RevOps・CRM運用・データ活用に関するナレッジを公開しています。</p>
 		</header>
 		<div class="blog-grid">
-			{insightsPosts.map((post) => {
-				const slug = post.href.replace('/insights/', '').replace(/\/$/, '');
-				return (
+			{insightsPosts.map((post) => (
 				<article class="blog-card">
-					<a href={post.href} class="blog-card__link">
+					<a href={`/insights/${post.slug}/`} class="blog-card__link">
 						<div class="blog-img">
-							<img src={`/images/insights/${slug}.svg`} alt={post.category} loading="lazy" width="1200" height="630" />
+							<img
+								src={`/images/insights/${post.slug}.svg`}
+								alt={post.category}
+								loading="lazy"
+								width="1200"
+								height="630"
+								class="blog-img__asset"
+							/>
+							<span class="blog-cat-overlay">{post.category}</span>
+							<span class="blog-new">新着</span>
 						</div>
 						<div class="blog-body">
-							<span class="blog-cat">{post.category}</span>
 							<h3 class="blog-title">{post.title}</h3>
 							<p class="blog-desc">{post.description}</p>
+							<div class="blog-foot">
+								<span class="blog-arrow" aria-hidden="true">→</span>
+							</div>
 						</div>
 					</a>
 				</article>
-				);
-			})}
+			))}
 		</div>
 		<p style="margin-top: var(--space-lg); text-align: center;">
 			<a class="btn btn--secondary" href="/insights/">コラム一覧へ</a>
@@ -802,29 +810,75 @@ section { padding-block: var(--space-2xl); }
 
 /* ── Blog ──────────────────────────────────────────── */
 .blog-section {
-	background: var(--color-bg-subtle);
-	border-top: 1px solid var(--color-border);
-	border-bottom: 1px solid var(--color-border);
+	background: #fff;
+	border-top: 1px solid #e2e8f0;
+	border-bottom: 1px solid #e2e8f0;
 }
-.blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .blog-card {
-	background: #fff; border: 1px solid var(--color-border);
-	border-radius: 8px; overflow: hidden;
+	background: #fff; border: 1px solid #e2e8f0;
+	border-radius: 10px; overflow: hidden;
 	display: flex; flex-direction: column;
-	transition: box-shadow 0.15s ease;
+	transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
 }
-.blog-card:hover { box-shadow: var(--shadow-md); }
+.blog-card:hover {
+	box-shadow: 0 8px 32px rgba(15,23,42,.10);
+	transform: translateY(-3px);
+	border-color: #bfdbfe;
+}
 .blog-card__link {
-	display: flex; flex-direction: column; flex: 1;
-	text-decoration: none; color: inherit;
+	display: flex; flex-direction: column;
+	height: 100%; text-decoration: none; color: inherit;
 }
-.blog-img { aspect-ratio: 16/9; overflow: hidden; background: var(--color-bg-subtle); }
-.blog-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.blog-body { padding: 1.25rem; flex: 1; }
-.blog-cat { display: inline-block; background: #eff6ff; color: #1e40af; font-size: 0.72rem; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
-.blog-title { margin: 0 0 0.5rem; font-size: 0.9375rem; font-weight: 600; line-height: 1.5; color: var(--color-text); }
-.blog-card:hover .blog-title { color: var(--color-primary); }
-.blog-desc { margin: 0; font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.6; }
+.blog-img {
+	position: relative;
+	aspect-ratio: 1200 / 630;
+	overflow: hidden;
+	background: #0f172a;
+	flex-shrink: 0;
+}
+.blog-img__asset {
+	width: 100%; height: 100%;
+	object-fit: cover; display: block;
+	transition: transform .3s ease;
+}
+.blog-card:hover .blog-img__asset { transform: scale(1.03); }
+.blog-new {
+	position: absolute; top: 10px; right: 10px;
+	font-size: .62rem; font-weight: 800; letter-spacing: .06em;
+	background: #1e40af; color: #fff; border-radius: 4px; padding: 3px 8px;
+}
+.blog-cat-overlay {
+	position: absolute; top: 10px; left: 10px;
+	font-size: .7rem; font-weight: 700; letter-spacing: .04em;
+	background: rgba(15,23,42,0.6); color: #fff;
+	border-radius: 4px; padding: 3px 10px;
+	backdrop-filter: blur(4px);
+}
+.blog-body {
+	display: flex; flex-direction: column; gap: 0;
+	padding: 18px 20px 16px; flex-grow: 1;
+}
+.blog-title {
+	margin: 0 0 8px; font-size: .95rem; font-weight: 600;
+	line-height: 1.55; color: #0f172a; flex-grow: 1;
+}
+.blog-card:hover .blog-title { color: #1e40af; }
+.blog-desc {
+	margin: 0 0 14px; font-size: .8rem; color: #64748b; line-height: 1.7;
+	display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+	overflow: hidden;
+}
+.blog-foot {
+	display: flex; align-items: center; gap: 10px;
+	padding-top: 12px; border-top: 1px solid #f1f5f9;
+	margin-top: auto;
+}
+.blog-arrow {
+	margin-left: auto; font-size: .9rem; color: #1e40af;
+	transition: transform .18s ease, color .18s ease;
+}
+.blog-card:hover .blog-arrow { transform: translateX(4px); color: #1e40af; }
 
 /* ── Newsletter CTA strip ──────────────────────────── */
 .nl-cta-strip {

@@ -6,7 +6,7 @@ sourceUrl: "https://consilegy.com/en/case-studies/healthcare-data-integration-op
 lang: "en"
 translationKey: "healthcare-data-integration"
 modified: "2026-03-18T02:33:22"
-description: "A healthtech company in rapid growth had customer data in 10+ locations and a marketing team spending 30% of its time on manual data work rather than execution."
+description: "A healthtech company unified customer data from 10+ locations into HubSpot, reducing data management and extraction work by approximately 65% and freeing about 100 hours per month for a four-person marketing team."
 featuredImage: "/images/media/2026/02/shawn-powar-hDeq8NBTNS8-unsplash.jpg"
 featuredImageAlt: ""
 draft: false
@@ -40,7 +40,7 @@ draft: false
 <section class="cs-section">
   <h2 class="cs-label">Result</h2>
   <ul>
-    <li>Data management and extraction work reduced by approximately 65%</li>
+    <li>Data management and extraction work reduced by approximately 65%, freeing about 100 hours per month across the marketing team</li>
     <li>Marketing team shifted from operational to strategic execution — campaign planning, LTV strategy, and initiative design</li>
     <li>More personalized campaign execution — customer attributes and relationships now queryable in real time</li>
     <li>Real-time ROI visibility — initiative-level tracking without manual aggregation</li>

@@ -6,7 +6,7 @@ sourceUrl: "https://consilegy.com/case-studies/healthcare-data-integration-ops-e
 lang: "ja"
 translationKey: "healthcare-data-integration"
 modified: "2026-04-02T13:40:16"
-description: " 項目内容ツールHubSpot (Marketing Hub / Sales Hub / Operations Hub)主な課題データ分散、属人化、業務負荷、情報共有の断絶業界医療（医療テック）導入時期 / 期間2023年秋 / 6ヶ月従業員数約150名支援内容データ統合基盤の構築・運用定着支援  "
+description: "10箇所以上に分散していた顧客データをHubSpotへ統合し、データ管理・抽出業務を約65%削減。4名のマーケティングチームで月約100時間の工数を創出した医療テック企業の支援事例。"
 featuredImage: "/images/media/2026/02/shawn-powar-hDeq8NBTNS8-unsplash.jpg"
 featuredImageAlt: ""
 draft: false
@@ -97,7 +97,7 @@ draft: false
 
 <!-- wp:list -->
 <ul class="wp-block-list"><!-- wp:list-item -->
-<li><strong>工数削減:</strong> データ管理・抽出業務を約65%削減。</li>
+<li><strong>工数削減:</strong> データ管理・抽出業務を約65%削減し、マーケティングチーム全体で月約100時間の工数を創出。</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->

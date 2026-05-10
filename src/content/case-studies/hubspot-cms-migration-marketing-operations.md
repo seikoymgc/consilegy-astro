@@ -6,7 +6,7 @@ sourceUrl: "https://consilegy.com/case-studies/hubspot-cms-migration-marketing-o
 lang: "ja"
 translationKey: "hubspot-cms-migration"
 modified: "2026-03-18T00:52:15"
-description: " 項目内容導入ツールHubSpot (Content Hub / Marketing Hub)主な課題運用の硬直化、施策実行の遅延、開発依存業界小売（グローバルDTCブランド）導入時期 / 期間2025年 Q2 / 1ヶ月従業員数約20,000名支援内容CMS移行・マーケティング自動化基盤の構築・内"
+description: "HubSpot CMSへの移行により、企画から公開までのリードタイムを約70〜80%短縮。マーケター自身が即日〜数営業日で施策を実行できるWeb基盤を構築した支援事例。"
 featuredImage: "/images/media/2026/02/campaign-creators-OGOWDVLbMSc-unsplash-scaled.jpg"
 featuredImageAlt: ""
 draft: false
@@ -103,11 +103,11 @@ draft: false
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><strong>施策実行の即時化</strong>：ページ更新や新規作成をマーケター自身で即日対応可能に</li>
+<li><strong>施策実行の即時化</strong>：企画から公開までのリードタイムを約70〜80%短縮し、ページ更新や新規作成をマーケター自身で即日〜数営業日で対応できる体制を構築</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><strong>外注依存からの脱却</strong>：運用コストとリードタイムを大幅に削減</li>
+<li><strong>外注依存からの脱却</strong>：開発・外注依存を抑え、運用コストと施策実行までのリードタイムを大幅に削減</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->

@@ -6,7 +6,7 @@ sourceUrl: "https://consilegy.com/en/case-studies/building-a-self-operated-web-f
 lang: "en"
 translationKey: "hubspot-cms-migration"
 modified: "2026-03-18T01:18:06"
-description: "Japan operations of a global skincare brand couldn't update their website without developer involvement. Every campaign page took weeks, and missed execution windows were the norm."
+description: "HubSpot CMS migration for a global DTC brand reduced planning-to-publish lead time by approximately 70-80%, enabling marketers to update and launch pages in the same day to a few business days."
 featuredImage: "/images/media/2026/02/campaign-creators-OGOWDVLbMSc-unsplash-scaled.jpg"
 featuredImageAlt: ""
 draft: false
@@ -40,8 +40,8 @@ draft: false
   <h2 class="cs-label">Result</h2>
   <ul>
     <li>Migration completed on schedule — no downtime, no disruption to live campaigns</li>
-    <li>Same-day execution — marketers can now launch and update pages without waiting on development</li>
-    <li>External resource dependency reduced — vendor reliance cut significantly for standard content operations</li>
+    <li>Lead time from planning to publish reduced by approximately 70-80%, with marketers now able to update and launch pages in the same day to a few business days</li>
+    <li>External resource dependency reduced — vendor reliance and execution lead time cut significantly for standard content operations</li>
     <li>Rapid iteration enabled — team can now test, adjust, and respond to market conditions in real time</li>
   </ul>
 </section>

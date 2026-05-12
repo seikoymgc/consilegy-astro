@@ -9,8 +9,8 @@ const readTime = '約10分';
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
-	headline: 'KPIが増えるほど売上が見えなくなる理由｜RevOpsとRevenue Architecture',
-	description: 'KPIを増やしているのに意思決定が遅くなる原因を、Revenue ArchitectureとRevOpsの観点から解説します。',
+	headline: 'KPIが増えるほど売上が見えなくなる理由',
+	description: '各国・各部門でKPIが乱立していたグローバル企業が、共通指標を確立して改善サイクルを定着させた事例から——KPIが多いほど意思決定が遅くなる構造的な理由を解説します。',
 	datePublished: pubDate,
 	dateModified: pubDate,
 	author: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
@@ -31,8 +31,8 @@ const breadcrumbSchema = {
 ---
 
 <BaseLayout
-	title="KPIが増えるほど売上が見えなくなる理由｜RevOpsとRevenue Architecture | Consilegy"
-	description="KPIを増やしているのに意思決定が遅くなる原因を、Revenue ArchitectureとRevOpsの観点から解説します。"
+	title="KPIが増えるほど売上が見えなくなる理由 | Consilegy"
+	description="各国・各部門でKPIが乱立していたグローバル企業が、共通指標を確立して改善サイクルを定着させた事例から——KPIが多いほど意思決定が遅くなる構造的な理由を解説します。"
 	lang="ja"
 >
 	<Fragment slot="head">
@@ -55,11 +55,11 @@ const breadcrumbSchema = {
 			<span class="article-cat">KPI・BI</span>
 		</div>
 		<h1>なぜ部門ごとにKPIが増えるほど、<br class="br-pc" />売上が見えなくなるのか</h1>
-		<p class="article-desc">ダッシュボードを整備した。KPIも定義した。それなのに会議が長くなり、意思決定が遅くなる。この問題の本質は分析不足ではなく、RevenueにつながるKPI構造が設計されていないことにある。</p>
+		<p class="article-desc">各国・各部門でKPIが乱立していたグローバル企業が、共通指標を確立して改善サイクルを定着させた事例から——KPIが多いほど意思決定が遅くなる構造的な理由を解説します。</p>
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
-	<article class="article-body container" id="article">
+	<div class="article-body container">
 		<div class="article-eyecatch">
 			<img
 				src="/images/insights/why-more-kpis-create-less-revenue-visibility.svg"
@@ -72,330 +72,140 @@ const breadcrumbSchema = {
 			/>
 		</div>
 
-		<!-- はじめに -->
-		<section class="article-section">
-			<h2>はじめに：KPIが増えるほど、意思決定が遅くなる</h2>
-			<p>ダッシュボードを整備した。KPIも定義した。営業・マーケティング・CSそれぞれで数字を追っている。それなのに、どこを改善すべきか分からず、会議は長く、数字確認だけで終わり、部門ごとに言っていることが違い、「結局、今月まずいのか」が把握できない——こうした状況は、多くのBtoB企業で起きています。</p>
-			<div class="article-callout">
-				<p>これは分析不足ではありません。本当の原因は、<strong>「RevenueにつながるKPI構造」が設計されていないこと</strong>にあります。KPIを増やすほど意思決定が遅くなるのは、KPI自体の問題ではなく、KPI Architecture（KPI構造設計）の問題です。</p>
-			</div>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- KPIが機能しない5つのパターン -->
-		<section class="article-section">
-			<h2>KPIが機能しない会社に共通する5つのパターン</h2>
-			<p>多くの企業では、問題が起きるたびにKPIを追加します。営業では商談数・提案数・Win Rate・行動量・Forecastが増え、マーケでは CV・CPA・CTR・MQL・SQLが積み重なり、CSではNRR・チャーン・Health Score・オンボーディング率が加わります。ダッシュボードは充実しますが、「で、結局どこが問題なのか」が分からなくなる。以下はその典型パターンです。</p>
-
-			<div class="article-numbered">
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">01</p>
-					<h3>部門ごとにKPIが独立している</h3>
-					<p>営業は受注、マーケはリード、CSは継続——Revenue全体ではなく部分最適で管理されています。各部門が自分のKPIを最大化しても、Revenue全体が改善するとは限りません。部門間で意思決定がつながらない構造です。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">02</p>
-					<h3>「見るだけKPI」が増えている</h3>
-					<p>KPIはあるが、誰が改善するのか・どの会議で見るのか・何を変えるのかが決まっていない。測って終わりになっています。改善アクションと接続されていないKPIは、レポートのための数字でしかありません。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">03</p>
-					<h3>KPI同士がつながっていない</h3>
-					<p>MQLが増えたのに商談化率が悪化し、Win Rateも低下している——こうした連鎖がダッシュボードの部門別表示では見えません。KPI間の因果関係が設計されていないため、どこがボトルネックかを特定できません。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">04</p>
-					<h3>経営KPIと現場KPIが切れている</h3>
-					<p>経営はARRを見ており、現場は行動量を見ていますが、その間がつながっていない。「このKPIを改善するとRevenueがどう変わるか」が分からないため、現場の努力が経営の指標に反映されているかどうか誰も判断できません。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">05</p>
-					<h3>KPI定義が部門ごとに統一されていない</h3>
-					<p>SQL・ARR・Active Customer・Churnの定義が部門ごとに違う。会議でまず「その数字の基準は何？」から始まります。定義統一がなければ、数字を見比べることすらできません。これはRevenue Operations崩壊の典型例です。</p>
-				</div>
-			</div>
-
-			<!-- DIAGRAM 1 -->
-			<figure class="diag diag--kpi-chaos" aria-label="KPIが増えすぎて意思決定が混乱している組織の構造図。Marketing・Sales・CSのKPIがそれぞれ独立して積み重なり、どれを見るべきかが不明な状態を示す。">
-				<div class="diag-kc-header">
-					<span class="diag-kc-header__label">現状：KPIが増えるほど見えなくなる</span>
-				</div>
-				<div class="diag-kc-grid">
-					<div class="diag-kc-dept">
-						<div class="diag-kc-dept__badge diag-kc-dept__badge--mkt">Marketing KPI</div>
-						<div class="diag-kc-items">
-							<span>CV数</span><span>CPA</span><span>CTR</span>
-							<span>MQL</span><span>SQL</span><span>CAC</span>
-						</div>
-					</div>
-					<div class="diag-kc-dept">
-						<div class="diag-kc-dept__badge diag-kc-dept__badge--sales">Sales KPI</div>
-						<div class="diag-kc-items">
-							<span>商談数</span><span>Win Rate</span><span>ARR</span>
-							<span>Forecast</span><span>提案数</span><span>行動量</span>
-						</div>
-					</div>
-					<div class="diag-kc-dept">
-						<div class="diag-kc-dept__badge diag-kc-dept__badge--cs">CS KPI</div>
-						<div class="diag-kc-items">
-							<span>NRR</span><span>チャーン</span><span>Health</span>
-							<span>継続率</span><span>活用率</span><span>CSAT</span>
-						</div>
-					</div>
-				</div>
-				<div class="diag-kc-bubble">
-					<span class="diag-kc-bubble__text">「どれを見るべき？」</span>
-					<span class="diag-kc-bubble__sub">会議が長い / 数字が違う / 結局口頭確認</span>
-				</div>
-				<div class="diag-kc-footer">
-					<span>意思決定が遅い</span>
-					<span>ボトルネックが見えない</span>
-					<span>「今月まずいの？」が分からない</span>
-				</div>
-				<figcaption class="diag-caption">部門ごとに独立したKPIが積み重なると、全体のRevenueが見えなくなり意思決定が遅くなる</figcaption>
-			</figure>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- KPI Architecture -->
-		<section class="article-section">
-			<h2>本当に必要なのは「KPI Architecture」</h2>
-			<p>なぜKPIが増えると意思決定が遅くなるのか。理由は単純で、「RevenueへのKPI接続順序」が存在しないからです。本来KPIは、売上につながる構造として設計されるべきです。しかし多くの企業では、KPIが「部門別リスト」になっているため、どれが重要か・どれが先行指標か・どこがボトルネックかが見えません。</p>
-
-			<p>KPI Architecture（KPI構造設計）とは、RevenueにつながるようにKPI同士の関係性を設計する考え方です。重要なのは「KPI単体」ではなく「KPIの流れ」です。</p>
-
-			<div class="article-table-wrap">
-				<table class="article-table">
-					<thead>
-						<tr>
-							<th>Revenue KPI</th>
-							<th>Driver KPI（先行指標）</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr><td>ARR</td><td>Win Rate × 商談数 × 平均ARR</td></tr>
-						<tr><td>Win Rate</td><td>商談品質・SQL条件・提案精度</td></tr>
-						<tr><td>商談化率</td><td>SQL定義・MQL品質・インサイドセールス</td></tr>
-						<tr><td>MQL品質</td><td>流入チャネル・スコア設計・コンテンツ</td></tr>
-						<tr><td>NRR</td><td>Health Score・オンボーディング・CS活動</td></tr>
-					</tbody>
-				</table>
-			</div>
-
-			<!-- DIAGRAM 2 -->
-			<figure class="diag diag--kpi-arch" aria-label="KPI Architecture構造図。Traffic・MQL・SQL・Opportunity・ARR・NRRの各ステージがDriver KPIとRevenue KPIで接続されており、KPIがRevenueへつながる構造を示す。">
-				<div class="diag-ka-header">
-					<span class="diag-ka-header__label">KPI Architecture</span>
-					<span class="diag-ka-header__sub">Driver KPI → Revenue KPIへの接続構造</span>
-				</div>
-				<div class="diag-ka-stages">
-					<div class="diag-ka-stage">
-						<div class="diag-ka-stage__name">Traffic</div>
-						<div class="diag-ka-stage__driver">CTR / 流入</div>
-						<div class="diag-ka-stage__sys">広告・SEO</div>
-					</div>
-					<div class="diag-ka-arrow" aria-hidden="true">→</div>
-					<div class="diag-ka-stage diag-ka-stage--mql">
-						<div class="diag-ka-stage__name">MQL</div>
-						<div class="diag-ka-stage__driver">CV率 / スコア</div>
-						<div class="diag-ka-stage__sys">MA</div>
-					</div>
-					<div class="diag-ka-arrow" aria-hidden="true">→</div>
-					<div class="diag-ka-stage diag-ka-stage--sql">
-						<div class="diag-ka-stage__name">SQL</div>
-						<div class="diag-ka-stage__driver">商談化率</div>
-						<div class="diag-ka-stage__sys">IS</div>
-					</div>
-					<div class="diag-ka-arrow" aria-hidden="true">→</div>
-					<div class="diag-ka-stage diag-ka-stage--sql">
-						<div class="diag-ka-stage__name">Opportunity</div>
-						<div class="diag-ka-stage__driver">Win Rate</div>
-						<div class="diag-ka-stage__sys">SFA</div>
-					</div>
-					<div class="diag-ka-arrow" aria-hidden="true">→</div>
-					<div class="diag-ka-stage diag-ka-stage--arr">
-						<div class="diag-ka-stage__name">ARR</div>
-						<div class="diag-ka-stage__driver">受注・契約</div>
-						<div class="diag-ka-stage__sys">CRM</div>
-					</div>
-					<div class="diag-ka-arrow" aria-hidden="true">→</div>
-					<div class="diag-ka-stage diag-ka-stage--nrr">
-						<div class="diag-ka-stage__name">NRR</div>
-						<div class="diag-ka-stage__driver">継続・拡張</div>
-						<div class="diag-ka-stage__sys">CS</div>
-					</div>
-				</div>
-				<div class="diag-ka-bar">
-					<span class="diag-ka-bar__label">Revenue KPI</span>
-					<span class="diag-ka-bar__desc">各Driver KPIの変化がARR・NRRへどう影響するかを設計する</span>
-				</div>
-				<figcaption class="diag-caption">KPIをRevenueへの接続順序として設計することで、どのKPIがどのRevenue指標に影響するかが見えるようになる</figcaption>
-			</figure>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- Revenue Architecture -->
-		<section class="article-section">
-			<h2>Revenue Architectureという考え方</h2>
-			<p>KPI問題の本質はBIツールの問題ではありません。KPI Architecture・Revenue Data Flow・RevOps・CRM構造・会議設計という構造の問題です。Revenue Architecture（レベニューアーキテクチャ）——営業・マーケティング・CS・CRM・KPI・データを「収益につながる一つの構造」として設計する考え方——がここで必要になります。</p>
-
-			<p>多くの会社はLooker StudioやBIを導入します。しかしダッシュボードが増えるほど意思決定が遅くなるケースがあります。「どの数字を見ればいいか」が未設計だからです。必要なのはダッシュボードではなく、Revenue Architectureです。Revenue Architectureが整うと、KPI同士がつながり、会議が短くなり、ボトルネックが見え、経営判断が速くなります。</p>
-
-			<!-- DIAGRAM 3 -->
-			<figure class="diag diag--ra-kpi" aria-label="Revenue Architectureが組織全体のKPIを統合する構造図。Marketing・Sales・CS・CRM・KPI・BI・MeetingをRevenue Architectureが接続し、意思決定高速化・ボトルネック可視化・Revenue Visibilityを実現する設計を示す。">
-				<div class="diag-rk-depts">
-					<span class="diag-rk-dept diag-rk-dept--mkt">マーケティング</span>
-					<span class="diag-rk-dept diag-rk-dept--sales">営業</span>
-					<span class="diag-rk-dept diag-rk-dept--cs">CS</span>
-					<span class="diag-rk-dept diag-rk-dept--crm">CRM</span>
-					<span class="diag-rk-dept diag-rk-dept--kpi">KPI</span>
-					<span class="diag-rk-dept diag-rk-dept--bi">BI</span>
-					<span class="diag-rk-dept diag-rk-dept--mtg">ミーティング</span>
-				</div>
-				<div class="diag-rk-lines" aria-hidden="true">
-					<svg viewBox="0 0 700 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-						<line x1="50"  y1="0" x2="350" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
-						<line x1="133" y1="0" x2="350" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
-						<line x1="216" y1="0" x2="350" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
-						<line x1="299" y1="0" x2="350" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
-						<line x1="400" y1="0" x2="350" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
-						<line x1="483" y1="0" x2="350" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
-						<line x1="566" y1="0" x2="350" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
-					</svg>
-				</div>
-				<div class="diag-rk-core">
-					<div class="diag-rk-core__label">Revenue Architecture</div>
-					<div class="diag-rk-core__tags">
-						<span>KPI Architecture</span>
-						<span>Revenue Data Flow</span>
-						<span>KPI定義統一</span>
-						<span>RevOps</span>
-						<span>会議設計</span>
-					</div>
-				</div>
-				<div class="diag-rk-connector" aria-hidden="true"></div>
-				<div class="diag-rk-outcomes">
-					<div class="diag-rk-outcome">
-						<div class="diag-rk-outcome__label">意思決定高速化</div>
-						<div class="diag-rk-outcome__desc">会議が短くなる<br />改善議論ができる</div>
-					</div>
-					<div class="diag-rk-outcome diag-rk-outcome--mid">
-						<div class="diag-rk-outcome__label">ボトルネック可視化</div>
-						<div class="diag-rk-outcome__desc">どこを改善するか<br />が分かる</div>
-					</div>
-					<div class="diag-rk-outcome">
-						<div class="diag-rk-outcome__label">Revenue Visibility</div>
-						<div class="diag-rk-outcome__desc">経営とRevenue<br />がつながる</div>
-					</div>
-				</div>
-				<figcaption class="diag-caption">Revenue Architectureは部門・KPI・BI・会議体を接続し、数字が売上改善につながる構造を設計する</figcaption>
-			</figure>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- KPI設計が強い会社 -->
-		<section class="article-section">
-			<h2>KPI設計が機能している会社に共通する5つの特徴</h2>
-
-			<div class="article-numbered">
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">01</p>
-					<h3>KPI数が少ない</h3>
-					<p>本当に重要なものだけを見ます。部門あたり3〜5個に絞られており、全員がそのKPIの意味とRevenueへの影響を理解しています。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">02</p>
-					<h3>RevenueとKPIの接続が明確</h3>
-					<p>「このKPIを10%改善すると、ARRにどう影響するか」が定量的に把握されています。改善の優先順位が数字で判断できます。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">03</p>
-					<h3>会議設計と連動している</h3>
-					<p>どのKPIをどの会議で見て、誰が改善アクションを決めるかがセットになっています。KPIを見るだけでなく、改善まで設計されています。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">04</p>
-					<h3>先行指標が整理されている</h3>
-					<p>結果KPI（ARR・NRR）だけでなく、Driver KPI（商談化率・Health Score）を先行指標として管理します。問題が顕在化する前に察知できます。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">05</p>
-					<h3>部門横断で定義が統一されている</h3>
-					<p>SQLとは何か・ARRの計算式は何か・チャーンの定義は何かが全部門で一致しています。会議の冒頭を定義確認に使わずに済みます。</p>
-				</div>
-			</div>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- 日本企業 -->
-		<section class="article-section">
-			<h2>日本企業でこの問題が起きやすい理由</h2>
-			<p>日本企業では部門分断・Excel文化・属人管理・稟議文化が根強く残っています。そのためKPIが「報告用」になりやすく、改善アクションと切り離された状態で管理される傾向があります。本来必要なのは「Revenue改善のためのKPI」であり、日本企業の組織構造と商習慣に合ったRevenue Architectureの設計が前提となります。</p>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- Consilegyの考え方 -->
-		<section class="article-section">
-			<h2>Consilegyの考え方</h2>
-			<p>Consilegyでは、KPI改善を単なるダッシュボード整備として捉えていません。本質はRevenue Architecture・KPI Architecture・RevOps・Revenue Data Flow・会議設計にあります。Salesforce・HubSpot・BI・Slack・Kintoneなどを横断しながら、「RevenueにつながるKPI構造」を設計します。目的はKPIを増やすことではなく、Revenueが見える構造を作ることです。</p>
-
-			<div class="article-table-wrap">
-				<table class="article-table">
-					<thead>
-						<tr>
-							<th>領域</th>
-							<th>Consilegyのサポート</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr><td>KPI Architecture設計</td><td>Driver KPI〜Revenue KPIの接続構造設計</td></tr>
-						<tr><td>KPI定義統一</td><td>SQL・ARR・NRR等の部門横断定義整備</td></tr>
-						<tr><td>Revenue Data Flow</td><td>KPIデータをRevenueへつなぐデータ基盤</td></tr>
-						<tr><td>会議体設計</td><td>KPIと改善アクションを接続する会議設計</td></tr>
-						<tr><td>RevOps構築</td><td>部門横断のKPI運用プロセス整備</td></tr>
-					</tbody>
-				</table>
-			</div>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- まとめ -->
-		<section class="article-section">
-			<h2>まとめ：KPI問題は、Revenue構造の問題</h2>
-			<p>KPIが増えるほど売上が見えなくなる原因は、分析不足ではありません。KPI Architecture不足・Revenue Architecture不足・Revenue Data Flow未設計・RevOps未整備が根本原因です。だからこそ必要なのはKPIを追加することではなく、RevenueにつながるKPI構造を設計することです。KPIは部門管理のためではなく、Revenue Architecture全体として設計されるべきものです。</p>
-		</section>
-
-		<!-- RELATED -->
-		<aside class="article-related">
-			<h2 class="article-related__title">関連コラム</h2>
-			<ul class="article-related__list">
-				<li><a href="/insights/why-sales-meetings-become-number-reporting/">なぜ営業会議は数字確認で終わるのか</a></li>
-				<li><a href="/insights/why-salesforce-and-hubspot-data-do-not-match/">なぜSalesforceとHubSpotのデータは一致しないのか</a></li>
-				<li><a href="/insights/why-sales-forecasting-fails-even-with-sfa/">なぜSFAを導入しても売上予測が当たらないのか</a></li>
-				<li><a href="/insights/why-more-leads-do-not-increase-revenue/">なぜ「良いリード」が増えているのに受注が増えないのか</a></li>
-			</ul>
-		</aside>
-
-		<!-- CTA -->
-		<div class="article-cta">
-			<p class="article-cta__eyebrow">Revenue Architecture</p>
-			<h2 class="article-cta__title">Revenueが見える<br />KPI構造を設計します</h2>
-			<p class="article-cta__body">KPI Architecture・Revenue Data Flow・RevOpsを横断した設計で、意思決定の速度と精度を改善します。</p>
-			<a href="/contact/" class="article-cta__btn">まずは相談する</a>
+		<div class="article-section">
+			<p>米国拠点のグローバルエンターテインメント企業（従業員約3,000名）では、GA4による計測基盤はすでに整備されていました。しかし各国・各部門が独自の指標を追いかけており、KPIの定義が統一されていませんでした。データはあるのに、「今月全体でどうなのか」「どこに問題があるのか」が把握できない状態が続いていました。</p>
+			<p>KPI定義を見直し、事業目標から逆算した指標体系を再構築した結果、<strong>グローバル共通指標を確立し、データから具体的な施策へ繋がる改善サイクルが定着</strong>しました。KPIを増やしたのではなく、「何を追うか」を絞り直したことで変わりました。</p>
 		</div>
 
-		<p class="article-pubdate">公開日：2026年5月7日</p>
-	</article>
+		<div class="article-section">
+			<h2>あなたの組織は大丈夫か——5つの確認項目</h2>
+			<ol class="article-numbered">
+				<li>
+					<strong>部門ごとに違うKPIを追っている</strong>
+					<p>マーケはセッション数・リード数、営業は商談数・受注率、CSは継続率・NPS——それぞれが別の指標を最適化していると、「全体として売上につながっているか」が誰にも見えません。</p>
+				</li>
+				<li>
+					<strong>KPI会議で「この数字の定義は何ですか」という確認が起きる</strong>
+					<p>「商談化率」の分母が部門ごとに違う、「アクティブユーザー」の定義が人によって違う——この確認が会議で発生している場合、KPIは定義されていません。</p>
+				</li>
+				<li>
+					<strong>KPIは達成しているのに売上が上がらない</strong>
+					<p>各部門のKPIがすべてグリーンなのに今月の受注が足りない——この状態は、KPIが売上目標から逆算されていないことを示しています。</p>
+				</li>
+				<li>
+					<strong>KPIの数が増え続けている</strong>
+					<p>「この指標も見よう」「あの数字も追おう」と追加し続けた結果、何十ものKPIが存在する場合、どれを見て何を判断するかが不明確になっています。</p>
+				</li>
+				<li>
+					<strong>月次レポートの作成に数日かかる</strong>
+					<p>レポート作成が目的化しており、本来やるべき分析・改善提案に時間を使えていない場合、KPI構造が複雑になりすぎています。</p>
+				</li>
+			</ol>
+			<p class="article-callout">3つ以上当てはまる場合、KPIの問題ではなくKPI設計の問題です。追う指標を増やすことが解決策ではありません。</p>
+		</div>
 
+		<div class="article-section">
+			<h2>KPIが増えるほど売上が見えなくなる3つのパターン</h2>
+			<ol class="article-numbered">
+				<li>
+					<strong>KPIがビジネスゴールから逆算されていない</strong>
+					<p>「計測できるから追う」という積み重ねでKPIが増えた場合、その指標が売上にどう繋がるかの因果関係が設計されていません。セッション数が上がっても受注が増えない、NPS改善しても継続率が変わらない——この「KPIと売上の断絶」は、KPIをゴールから逆算して設計していないときに必ず起きます。</p>
+					<p><strong>判断基準：</strong>現在のKPIリストを見て「このKPIが10%改善したら受注はいくら増えるか」に答えられるものが半数以下なら、逆算設計が不足しています。</p>
+				</li>
+				<li>
+					<strong>部門ごとのKPIが同じ言葉で違う定義になっている</strong>
+					<p>前述のグローバル企業でも「各国・各部門で指標の定義が統一されておらず」という問題がありました。「リード」「商談」「アクティブ」——これらの言葉の定義が部門ごとに違う場合、全社合計を出しても意味のある数字になりません。定義の統一なしにKPIを統合しようとすると、「合計」という形をしたでたらめな数字が生まれます。</p>
+					<p><strong>判断基準：</strong>「今月のリード数」をマーケと営業にそれぞれ聞いて、同じ数字が返ってくるかどうかで確認できます。</p>
+				</li>
+				<li>
+					<strong>KPIが多すぎて「何を優先するか」が決められない</strong>
+					<p>20個のKPIのうち15個が「問題なし」で5個が「要注意」だった場合、5個の中でどれを最優先にするかが決まらなければ何も変わりません。KPIは「何を判断するか」のためにあります。判断の優先順位が設計されていなければ、多いほど意思決定が遅くなります。</p>
+					<p><strong>判断基準：</strong>「今月1つだけ改善するとしたら何ですか」と聞いたとき、会議室で即答できる人がいなければ、優先順位が設計されていません。</p>
+				</li>
+			</ol>
+		</div>
+
+		<div class="article-section">
+			<h2>KPI再設計後に何が変わったか</h2>
+			<p>前述のグローバルエンターテインメント企業では、ビジネスゴールから逆算してKPIを再設計したことで、以下の変化が起きました。</p>
+			<ol class="article-numbered">
+				<li>
+					<strong>グローバル共通指標を確立</strong>
+					<p>各国・各チャネルで分断されていた定義を統合し、全社で同じ言葉・同じ定義でKPIを議論できる状態になりました。</p>
+				</li>
+				<li>
+					<strong>データから具体的な施策へ繋がる体制が定着</strong>
+					<p>KPIと改善アクションが紐づく設計になったことで、「数字を見て何をするか」が会議前に決まるようになりました。</p>
+				</li>
+				<li>
+					<strong>投資判断の精度が向上</strong>
+					<p>広告・施策の貢献度がKPIとして可視化されたことで、「どこに予算を集中するか」の判断が根拠を持てるようになりました。</p>
+				</li>
+			</ol>
+			<p class="article-callout">KPIを減らしたのではなく、「何のためのKPIか」を整理したことで変わりました。</p>
+		</div>
+
+		<div class="article-section">
+			<h2>まず3日でできること</h2>
+			<ol class="article-numbered">
+				<li>
+					<strong>現在のKPIを「売上に直結するか否か」で仕分ける</strong>
+					<p>すべてのKPIをリストアップし、「このKPIが改善したら受注・売上はどう変わるか」を書き出します。答えられないものは「現状把握用」の指標で、「意思決定用」のKPIではありません。</p>
+				</li>
+				<li>
+					<strong>「商談化率」の定義を営業とマーケで揃える</strong>
+					<p>全KPIを統一するのは大仕事ですが、「商談化率の分母は何か」という1つの定義を揃えるだけで、議論の質が変わります。最も摩擦が多い1つの指標から始めてください。</p>
+				</li>
+				<li>
+					<strong>次の月次会議で「今月改善する1つ」を決めるルールを作る</strong>
+					<p>KPIを見た後に「今月この1つを変える」という決定を会議のゴールにします。複数のKPIを報告して終わるより、1つのアクションを決める方が改善サイクルが回ります。</p>
+				</li>
+			</ol>
+		</div>
+
+		<div class="article-section">
+			<h2>まとめ：KPIは増やすより「絞る」ことが先</h2>
+			<p>KPIが増えるほど売上が見えなくなる理由は、データ不足でも分析不足でもありません。ビジネスゴールから逆算されていない、定義が統一されていない、優先順位が設計されていない——この3つが重なると、どれだけデータを集めても意思決定は遅くなります。</p>
+			<p>新しいKPIを追加する前に、「今のKPIが売上にどう繋がるか」を1枚の紙に書いてください。書けない指標は、まだKPIではありません。</p>
+		</div>
+
+		<!-- ===== CTA ===== -->
+		<div class="article-cta">
+			<p class="article-cta__catch">KPIを「報告用の数字」から「判断の根拠」へ</p>
+			<p class="article-cta__body">ConsilegyはKPI再設計からダッシュボード構造の見直しまで、意思決定に使えるKPI基盤の構築を支援します。まずは現状のKPI構造の課題を整理するところから始めましょう。</p>
+			<a href="/contact/" class="article-cta__btn">無料相談を予約する</a>
+		</div>
+
+		<!-- ===== RELATED ===== -->
+		<nav class="article-related" aria-label="関連記事">
+			<h2 class="article-related__heading">関連記事</h2>
+			<ul>
+				<li><a href="/insights/why-dashboards-do-not-improve-executive-decisions/">ダッシュボードを作っても意思決定が速くならない理由</a></li>
+				<li><a href="/insights/why-kpi-meetings-become-status-update-sessions/">KPI会議が数字確認で終わる理由</a></li>
+				<li><a href="/insights/why-sales-forecasting-fails/">なぜ売上予測は外れ続けるのか</a></li>
+			</ul>
+		</nav>
+
+	</div><!-- /.article-body -->
+
+	<!-- ===== RELATED SERVICES ===== -->
+	<nav class="article-services" aria-label="関連サービス">
+		<h2 class="article-services__heading">関連サービス</h2>
+		<div class="article-services__grid">
+		<a href="/services/kpi-bi-design/" class="article-services__card">
+				<span class="article-services__cat">サービス</span>
+				<span class="article-services__title">KPI・BI設計支援</span>
+				<span class="article-services__arrow">→</span>
+			</a>
+		<a href="/services/revenue-architecture-design/" class="article-services__card">
+				<span class="article-services__cat">サービス</span>
+				<span class="article-services__title">レベニューアーキテクチャ設計</span>
+				<span class="article-services__arrow">→</span>
+			</a>
+		</div>
+	</nav>
 	<NewsletterSidebar />
-</div>
+</div><!-- /.article-wrap -->
 
 <style>
 	/* ── Eyecatch ─── */
@@ -410,170 +220,57 @@ const breadcrumbSchema = {
 		max-height: 360px; object-fit: cover;
 	}
 /* ===== LAYOUT ===== */
-.article-wrap { background: #fff; }
+.article-wrap { background: #fff; padding-bottom: 80px; }
 .container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
 
 /* ===== HEADER ===== */
-.article-head { padding: 48px 24px 40px; }
-.breadcrumb { font-size: .78rem; color: var(--color-muted, #64748b); display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 20px; }
+.article-head { padding-top: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--color-border, #e2e8f0); }
+.breadcrumb { font-size: 0.78rem; color: var(--color-muted, #64748b); margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .breadcrumb a { color: var(--color-muted, #64748b); text-decoration: none; }
-.breadcrumb a:hover { text-decoration: underline; }
-.article-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
-.article-cat  { font-size: .75rem; font-weight: 600; color: var(--color-primary, #1e40af); background: #eff6ff; border-radius: 4px; padding: 3px 10px; }
-.article-date, .article-read { font-size: .78rem; color: var(--color-muted, #64748b); }
-.article-head h1 { font-size: clamp(1.5rem, 3.5vw, 2rem); font-weight: 600; line-height: 1.45; color: var(--color-navy, #0f172a); margin: 0 0 16px; }
-.article-desc { font-size: 1rem; color: var(--color-charcoal, #334155); line-height: 1.75; margin: 0; }
-.br-pc { display: block; }
+.breadcrumb a:hover { color: var(--color-primary, #1e40af); }
+.article-meta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; font-size: 0.8rem; color: var(--color-muted, #64748b); }
+.article-cat { background: #eff6ff; color: var(--color-primary, #1e40af); padding: 2px 10px; border-radius: 4px; font-weight: 600; font-size: 0.75rem; }
+.article-head h1 { font-size: clamp(1.5rem, 3.5vw, 2.1rem); font-weight: 600; color: var(--color-navy, #0f172a); line-height: 1.35; margin-bottom: 16px; }
+.article-desc { font-size: 1rem; color: var(--color-charcoal, #334155); line-height: 1.75; }
+.br-pc { display: inline; }
 
 /* ===== BODY ===== */
-.article-body { padding: 0 24px 80px; }
-.article-section { margin-bottom: 8px; }
-.article-section h2 { font-size: 1.25rem; font-weight: 700; color: var(--color-navy, #0f172a); margin: 40px 0 16px; border-left: 3px solid var(--color-primary, #1e40af); padding-left: 12px; }
-.article-section h3 { font-size: 1rem; font-weight: 700; color: var(--color-navy, #0f172a); margin: 28px 0 10px; }
-.article-section p  { font-size: .96rem; color: var(--color-charcoal, #334155); line-height: 1.85; margin: 0 0 16px; }
-.article-hr { border: none; border-top: 1px solid var(--color-border, #e2e8f0); margin: 40px 0; }
+.article-body { padding-top: 48px; }
+.article-section { margin-bottom: 56px; }
+.article-section h2 { font-size: 1.25rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 16px; padding-left: 14px; border-left: 4px solid var(--color-primary, #1e40af); line-height: 1.4; }
+.article-section p { font-size: 0.975rem; color: var(--color-charcoal, #334155); line-height: 1.85; margin-bottom: 16px; }
+.article-section p:last-child { margin-bottom: 0; }
+.article-callout { background: #f8fafc; border-left: 3px solid var(--color-primary, #1e40af); padding: 14px 18px; border-radius: 0 6px 6px 0; font-size: 0.95rem !important; color: var(--color-navy, #0f172a) !important; }
 
-/* callout */
-.article-callout { background: #f8fafc; border-left: 3px solid var(--color-primary, #1e40af); border-radius: 0 6px 6px 0; padding: 16px 20px; margin: 20px 0; }
-.article-callout p { margin: 0; font-size: .93rem; color: var(--color-charcoal, #334155); line-height: 1.8; }
+/* ===== NUMBERED LIST ===== */
+.article-numbered { list-style: none; counter-reset: item; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 24px; }
+.article-numbered li { counter-increment: item; display: grid; grid-template-columns: 36px 1fr; gap: 0 16px; }
+.article-numbered li::before { content: counter(item); display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--color-primary, #1e40af); color: #fff; border-radius: 50%; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px; }
+.article-numbered li strong { grid-column: 2; display: block; font-size: 1rem; color: var(--color-navy, #0f172a); margin-bottom: 6px; line-height: 1.4; }
+.article-numbered li p { grid-column: 2; font-size: 0.925rem; color: var(--color-charcoal, #334155); line-height: 1.8; margin: 0; }
 
-/* numbered */
-.article-numbered { display: flex; flex-direction: column; gap: 24px; margin: 24px 0 32px; }
-.article-numbered__item { display: grid; grid-template-columns: 48px 1fr; grid-template-rows: auto auto; gap: 0 16px; align-items: start; }
-.article-numbered__num { font-size: .7rem; font-weight: 700; color: var(--color-primary, #1e40af); background: #eff6ff; border-radius: 4px; padding: 4px 0; text-align: center; grid-row: 1 / 3; align-self: start; margin-top: 4px; }
-.article-numbered__item h3 { margin: 0 0 6px; font-size: .97rem; font-weight: 700; color: var(--color-navy, #0f172a); }
-.article-numbered__item p  { margin: 0; font-size: .92rem; line-height: 1.78; color: var(--color-charcoal, #334155); }
+/* ===== CTA ===== */
+.article-cta { background: radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%), linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%); border-radius: 8px; padding: 40px 36px; text-align: center; margin-bottom: 48px; }
+.article-cta__catch { font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
+.article-cta__body { font-size: 0.92rem; color: rgba(255,255,255,0.88); line-height: 1.75; margin-bottom: 24px; }
+.article-cta__btn { display: inline-block; background: #fff; color: var(--color-primary, #1e40af); font-weight: 700; font-size: 0.9rem; padding: 12px 28px; border-radius: 6px; text-decoration: none; transition: opacity 0.2s; }
+.article-cta__btn:hover { opacity: 0.9; }
 
-/* table */
-.article-table-wrap { overflow-x: auto; margin: 20px 0 28px; border-radius: 8px; border: 1px solid var(--color-border, #e2e8f0); }
-.article-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
-.article-table th { background: var(--color-navy, #0f172a); color: #fff; font-weight: 600; padding: 10px 14px; text-align: left; }
-.article-table td { padding: 9px 14px; border-bottom: 1px solid var(--color-border, #e2e8f0); color: var(--color-charcoal, #334155); vertical-align: top; }
-.article-table tbody tr:last-child td { border-bottom: none; }
-.article-table tbody tr:nth-child(even) td { background: #f8fafc; }
-
-/* related */
-.article-related { background: #f8fafc; border-radius: 8px; padding: 28px 28px 24px; margin: 48px 0 0; }
-.article-related__title { font-size: .85rem; font-weight: 700; color: var(--color-muted, #64748b); text-transform: uppercase; letter-spacing: .06em; margin: 0 0 14px; }
-.article-related__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
-.article-related__list a { font-size: .93rem; color: var(--color-primary, #1e40af); text-decoration: none; }
-.article-related__list a:hover { text-decoration: underline; }
-
-/* CTA */
-.article-cta {
-	margin: 48px 0 0;
-	background:
-		radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%),
-		linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
-	border-radius: 8px; padding: 48px 40px; color: #fff; text-align: center;
-}
-.article-cta__eyebrow { font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; opacity: .7; margin: 0 0 12px; }
-.article-cta__title  { font-size: clamp(1.3rem, 2.5vw, 1.7rem); font-weight: 700; line-height: 1.5; margin: 0 0 14px; }
-.article-cta__body   { font-size: .95rem; opacity: .88; line-height: 1.7; margin: 0 0 28px; }
-.article-cta__btn    { display: inline-block; background: #fff; color: var(--color-primary, #1e40af); font-weight: 700; font-size: .95rem; border-radius: 8px; padding: 13px 32px; text-decoration: none; }
-.article-cta__btn:hover { background: #f0f9ff; }
-
-/* =============================================
-   DIAGRAM BASE
-   ============================================= */
-.diag { border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; background: #fff; padding: 28px; margin: 32px 0; overflow: hidden; }
-.diag-caption { display: block; text-align: center; font-size: .78rem; color: var(--color-muted, #64748b); margin-top: 16px; line-height: 1.6; }
-
-/* =============================================
-   DIAGRAM 1 — .diag--kpi-chaos
-   ============================================= */
-.diag-kc-header { text-align: center; margin-bottom: 20px; }
-.diag-kc-header__label { display: inline-block; font-size: .72rem; font-weight: 700; color: #b91c1c; background: #fef2f2; border: 1px solid #fecaca; border-radius: 4px; padding: 4px 14px; letter-spacing: .04em; }
-
-.diag-kc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
-
-.diag-kc-dept { background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 14px 12px; }
-.diag-kc-dept__badge { display: block; font-size: .68rem; font-weight: 700; border-radius: 4px; padding: 3px 8px; margin-bottom: 10px; text-align: center; }
-.diag-kc-dept__badge--mkt   { background: #fff7ed; color: #c2410c; }
-.diag-kc-dept__badge--sales { background: #eff6ff; color: #1e40af; }
-.diag-kc-dept__badge--cs    { background: #f0fdf4; color: #15803d; }
-
-.diag-kc-items { display: flex; flex-wrap: wrap; gap: 4px; }
-.diag-kc-items span { font-size: .6rem; color: var(--color-charcoal, #334155); background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 3px; padding: 2px 6px; }
-
-.diag-kc-bubble { display: flex; flex-direction: column; align-items: center; gap: 6px; background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; padding: 12px 16px; margin-bottom: 14px; }
-.diag-kc-bubble__text { font-size: .82rem; font-weight: 700; color: #b91c1c; }
-.diag-kc-bubble__sub  { font-size: .65rem; color: #b91c1c; opacity: .8; }
-
-.diag-kc-footer { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; padding-top: 14px; border-top: 1px solid var(--color-border, #e2e8f0); }
-.diag-kc-footer span { font-size: .7rem; font-weight: 600; color: #b91c1c; background: #fef2f2; border-radius: 4px; padding: 4px 12px; }
-
-/* =============================================
-   DIAGRAM 2 — .diag--kpi-arch
-   ============================================= */
-.diag-ka-header { text-align: center; margin-bottom: 20px; }
-.diag-ka-header__label { display: block; font-size: .85rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 4px; }
-.diag-ka-header__sub   { font-size: .72rem; color: var(--color-muted, #64748b); }
-
-.diag-ka-stages { display: flex; align-items: stretch; gap: 3px; overflow-x: auto; padding-bottom: 4px; }
-
-.diag-ka-stage { display: flex; flex-direction: column; align-items: center; gap: 5px; background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 10px 6px; min-width: 72px; flex: 1; }
-.diag-ka-stage--mql  { background: #fff7ed; border-color: #fed7aa; }
-.diag-ka-stage--sql  { background: #eff6ff; border-color: #bfdbfe; }
-.diag-ka-stage--arr  { background: #f0fdf4; border-color: #bbf7d0; }
-.diag-ka-stage--nrr  { background: #f0fdf4; border-color: #86efac; }
-
-.diag-ka-stage__name   { font-size: .68rem; font-weight: 700; color: var(--color-navy, #0f172a); text-align: center; }
-.diag-ka-stage__driver { font-size: .6rem; color: var(--color-muted, #64748b); text-align: center; line-height: 1.4; }
-.diag-ka-stage__sys    { font-size: .58rem; font-weight: 700; color: var(--color-muted, #64748b); background: rgba(0,0,0,.05); border-radius: 3px; padding: 2px 5px; }
-
-.diag-ka-arrow { font-size: .85rem; color: var(--color-muted, #64748b); flex-shrink: 0; display: flex; align-items: center; }
-
-.diag-ka-bar { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 16px; background: var(--color-navy, #0f172a); border-radius: 6px; padding: 9px 16px; }
-.diag-ka-bar__label { font-size: .75rem; font-weight: 700; color: #fff; white-space: nowrap; }
-.diag-ka-bar__desc  { font-size: .65rem; color: rgba(255,255,255,.6); }
-
-/* =============================================
-   DIAGRAM 3 — .diag--ra-kpi
-   ============================================= */
-.diag-rk-depts { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 0; }
-.diag-rk-dept { font-size: .72rem; font-weight: 700; border-radius: 4px; padding: 5px 14px; border: 1px solid; }
-.diag-rk-dept--mkt   { background: #fff7ed; color: #c2410c; border-color: #fed7aa; }
-.diag-rk-dept--sales { background: #eff6ff; color: #1e40af; border-color: #bfdbfe; }
-.diag-rk-dept--cs    { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
-.diag-rk-dept--crm   { background: #faf5ff; color: #6d28d9; border-color: #ddd6fe; }
-.diag-rk-dept--kpi   { background: #f0f9ff; color: #0369a1; border-color: #bae6fd; }
-.diag-rk-dept--bi    { background: #fdf4ff; color: #7e22ce; border-color: #e9d5ff; }
-.diag-rk-dept--mtg   { background: #f8fafc; color: var(--color-charcoal, #334155); border-color: var(--color-border, #e2e8f0); }
-
-.diag-rk-lines { width: 100%; height: 40px; margin: 0; }
-.diag-rk-lines svg { width: 100%; height: 100%; display: block; }
-
-.diag-rk-core { background: var(--color-navy, #0f172a); border-radius: 8px; padding: 18px 20px; text-align: center; }
-.diag-rk-core__label { font-size: .85rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
-.diag-rk-core__tags  { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
-.diag-rk-core__tags span { font-size: .65rem; background: rgba(255,255,255,.12); color: rgba(255,255,255,.85); border-radius: 3px; padding: 3px 8px; }
-
-.diag-rk-connector { width: 2px; height: 24px; background: #cbd5e1; margin: 0 auto; }
-
-.diag-rk-outcomes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-.diag-rk-outcome { background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 14px 12px; text-align: center; }
-.diag-rk-outcome--mid { background: #eff6ff; border-color: #bfdbfe; }
-.diag-rk-outcome__label { font-size: .78rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 6px; }
-.diag-rk-outcome__desc  { font-size: .65rem; color: var(--color-muted, #64748b); line-height: 1.6; }
+/* ===== RELATED ===== */
+.article-related { border-top: 1px solid var(--color-border, #e2e8f0); padding-top: 32px; }
+.article-related__heading { font-size: 0.9rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 16px; }
+.article-related ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.article-related li a { font-size: 0.9rem; color: var(--color-primary, #1e40af); text-decoration: none; }
+.article-related li a:hover { text-decoration: underline; }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 700px) {
+	.article-head h1 { font-size: 1.4rem; }
 	.br-pc { display: none; }
-	.article-head { padding: 32px 16px 28px; }
-	.article-body { padding: 0 16px 60px; }
-	.diag { padding: 20px 16px; }
-	.diag-kc-grid { grid-template-columns: 1fr; gap: 8px; }
-	.diag-ka-stages { gap: 2px; }
-	.diag-ka-stage { min-width: 60px; padding: 8px 4px; }
-	.diag-rk-outcomes { grid-template-columns: 1fr; }
-	.article-cta { padding: 36px 24px; }
-	.article-numbered__item { grid-template-columns: 40px 1fr; }
+	.article-cta { padding: 28px 20px; }
 }
-
 @media (max-width: 480px) {
-	.diag-ka-stage__name { font-size: .6rem; }
-	.article-cta__title { font-size: 1.2rem; }
+	.container { padding: 0 16px; }
 }
 </style>
 

@@ -55,7 +55,7 @@ const breadcrumbSchema = {
 			<span class="article-cat">CRM</span>
 		</div>
 		<h1>なぜHubSpot運用は<br class="br-pc" />「属人化」するのか</h1>
-		<p class="article-desc">ワークフローも設定も増えたのに「この設定、誰も分からない」状態になっている。HubSpot運用の属人化は担当者の能力問題ではなく、収益につながる運用構造が設計されていないことが原因だ。</p>
+		<p class="article-desc">DX支援会社がHubSpotへ移行する際、ワークフローのブラックボックス化と属人化を解消し、分析工数を約30%削減した事例から——属人化は担当者の問題ではなく、設計構造の問題です。</p>
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
@@ -73,237 +73,104 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<p>HubSpotを導入し、ワークフローも増え、フォームもスコアリングも作った。しかし気づくと「この設定、誰も分からない」状態になっている。これは日本のBtoB企業で非常によく起きています。MA導入・インサイドセールス立ち上げ・マーケティング強化のタイミングで、HubSpot運用の属人化が急激に進みます。特定担当者しか触れない、ワークフローがブラックボックス、プロパティが乱立、Salesforce連携が不明、退職すると誰も分からない——この状況は日本のBtoB企業に広く共通しています。</p>
-			<p>しかし<strong>これは担当者の能力問題ではありません</strong>。本当の原因は、収益につながる運用構造が設計されていないことにあります。</p>
+			<p>国内トップクラスのDX支援を手がけるコンサルティング企業（従業員約150名）は、Marketoを使った高度なマーケティング自動化を実現していました。しかし数年後、その環境は「誰も全体を把握できない」状態に変わっていました。ワークフローは複雑に絡み合い、変更するたびに何かが壊れるリスクがある。設定の意図が特定の担当者の頭の中にしかない。</p>
+			<p>同社がHubSpotへの移行と同時に基盤を再設計した結果、<strong>分析工数を約30%削減し、顧客行動の100%可視化を実現</strong>しました。専門担当者以外でも施策を実行できる体制が整い、引き継ぎ可能な運用構造に変わりました。</p>
+			<p>この問題は「担当者の能力不足」ではありません。MAツールを設計思想なしに運用し続けると、必ず起きる構造的な問題です。</p>
 		</div>
 
 		<div class="article-section">
-			<h2>なぜHubSpotは属人化しやすいのか</h2>
-			<p>HubSpotは非常に柔軟です。プロパティ追加・ワークフロー・リスト・スコアリング・ライフサイクル・自動化などを簡単に作れます。しかしそれは裏を返せば「設計思想なしでも運用できてしまう」ということです。短期的には便利ですが、長期的には構造が崩壊しやすい。柔軟性が属人化の温床になります。</p>
-		</div>
-
-		<!-- DIAGRAM 1: 属人化したHubSpot環境 -->
-		<figure class="diag-wrap" aria-label="属人化したHubSpot環境：ワークフローと設定が錯綜しブラックボックス化した状態">
-			<div class="diag diag--hs-chaos">
-				<div class="hsc-header">属人化したHubSpot環境</div>
-				<div class="hsc-center">
-					<div class="hsc-hub">
-						<div class="hsc-hub-icon">HS</div>
-						<div class="hsc-hub-label">HubSpot</div>
-					</div>
-					<div class="hsc-flows">
-						<div class="hsc-flow hsc-flow--1">ワークフロー A</div>
-						<div class="hsc-flow hsc-flow--2">ワークフロー B</div>
-						<div class="hsc-flow hsc-flow--3">ワークフロー C</div>
-						<div class="hsc-flow hsc-flow--4">ワークフロー D</div>
-						<div class="hsc-flow hsc-flow--5">リスト / フォーム</div>
-						<div class="hsc-flow hsc-flow--6">プロパティ ×87</div>
-					</div>
-				</div>
-				<div class="hsc-bubbles">
-					<div class="hsc-bubble">「これ誰が作った？」</div>
-					<div class="hsc-bubble hsc-bubble--warn">「触ると壊れそう」</div>
-					<div class="hsc-bubble">「Salesforceと何が同期？」</div>
-				</div>
-				<div class="hsc-footer">
-					<span class="hsc-tag bad">✕ 担当者依存</span>
-					<span class="hsc-tag bad">✕ ブラックボックス化</span>
-					<span class="hsc-tag bad">✕ 引き継ぎ不可</span>
-				</div>
-			</div>
-			<figcaption class="diag-caption">属人化したHubSpot環境：設計思想なしに積み重なったワークフローと設定が誰にも把握できない状態になる</figcaption>
-		</figure>
-
-		<div class="article-section">
-			<h2>属人化したHubSpotで起きる5つの問題</h2>
+			<h2>あなたのHubSpotは大丈夫か——5つの確認項目</h2>
 			<ol class="article-numbered">
 				<li>
-					<strong>プロパティが増殖する</strong>
-					<p>「Lead Source」「Lead Source 2」「Source Detail」「Original Source」など似た項目が積み重なり、誰も正のデータがどこにあるか分からなくなります。データの根拠が失われると、どの数字を信じるかという問題が生まれます。</p>
+					<strong>特定の担当者がいなければ、ワークフローの修正ができない</strong>
+					<p>「この設定、○○さんしか分からない」という会話が社内で起きていませんか。</p>
+				</li>
+				<li>
+					<strong>プロパティの数が増え続け、どれが正しいか分からない</strong>
+					<p>「Lead Source」と「Lead Source 2」が混在し、正のデータがどこにあるか誰も把握できていない。</p>
+				</li>
+				<li>
+					<strong>ワークフローに触ると「何かが壊れそう」で手が出せない</strong>
+					<p>条件分岐が積み重なり、影響範囲が不明なため改善を止めている。</p>
+				</li>
+				<li>
+					<strong>SalesforceやSansanとの連携ルールが文書化されていない</strong>
+					<p>どちらが更新元か、何が同期されるかが担当者の記憶にしか存在しない。</p>
+				</li>
+				<li>
+					<strong>担当者が退職したとき、引き継ぎができるか自信がない</strong>
+					<p>設計書がなく、現在の運用が個人の知識に依存している。</p>
+				</li>
+			</ol>
+			<p class="article-callout">3つ以上当てはまる場合、HubSpotは「組織の資産」ではなく「個人の負債」になっています。ツールの問題ではなく、設計構造の問題です。</p>
+		</div>
+
+		<div class="article-section">
+			<h2>属人化を生む3つのパターン</h2>
+			<ol class="article-numbered">
+				<li>
+					<strong>プロパティが増殖し続ける</strong>
+					<p>「とりあえず追加」を繰り返した結果、類似するプロパティが乱立します。どのプロパティを参照すべきかが不明になると、レポートの数字に対する信頼が失われます。</p>
+					<p><strong>判断基準：</strong>使用されていないプロパティが全体の20%を超えていたら、増殖が始まっています。</p>
 				</li>
 				<li>
 					<strong>ワークフローがスパゲッティ化する</strong>
-					<p>条件分岐・自動更新・Slack通知・ステータス変更が積み重なり、誰も全体構造を理解できなくなります。触ると何かが壊れるかもしれないという恐れが、改善を止めます。</p>
+					<p>条件分岐・自動更新・通知・ステータス変更が積み重なり、誰も全体構造を説明できなくなります。前述の企業でも、ワークフロー変更に「高いリスクと工数が発生する」状態が続いていました。</p>
+					<p><strong>判断基準：</strong>「このワークフロー、全部説明できますか」と聞いたとき、担当者が言葉に詰まったらスパゲッティ化しています。</p>
 				</li>
 				<li>
-					<strong>Salesforce連携がブラックボックス化する</strong>
-					<p>HubSpotとSalesforceが連携されていても「どちらが正か」「どちらが更新元か」「何が同期されるか」が不明になると、収益データの流れが崩れます。連携の設計書がなければ、誰も全体を把握できません。</p>
-				</li>
-				<li>
-					<strong>マーケティングと営業の定義がずれる</strong>
-					<p>見込み客・商談候補・ライフサイクルステージの定義が曖昧になると、マーケティングと営業が分断されます。HubSpotの設定と運用が一致していない状態が続きます。</p>
-				</li>
-				<li>
-					<strong>「HubSpot担当者」が単独で抱え込む</strong>
-					<p>設計が個人の頭の中に入っている状態では、その人が退職した瞬間に誰も運用できなくなります。ツールが個人依存システムになってしまいます。</p>
+					<strong>設計書が存在しない</strong>
+					<p>ライフサイクルステージの定義、MQL・SQLの条件、Salesforceとの同期ルール——これらが文書化されていない組織では、担当者が変わるたびに運用が変わります。設計書がないことが、属人化の最大の原因です。</p>
+					<p><strong>判断基準：</strong>「HubSpotの設計書を今すぐ見せてください」と言われて即座に出せるものがなければ、設計書は存在しないと考えてください。</p>
 				</li>
 			</ol>
 		</div>
 
 		<div class="article-section">
-			<h2>多くの企業が見落としていること</h2>
-			<p>多くの会社はHubSpot運用を「マーケティング自動化の運用」と考えています。しかし本来HubSpotは収益全体へ接続されるべきです。マーケティング・営業・カスタマーサクセス・収益指標・収益データとの統合が必要です。つまりHubSpotの問題はHubSpotの問題ではなく、<strong>Revenue Architectureの問題</strong>です。</p>
-			<p class="article-callout">ツールが柔軟であるほど、設計思想がなければ運用は壊れやすくなります。</p>
-		</div>
-
-		<!-- DIAGRAM 2: HubSpot Architecture構造図 -->
-		<figure class="diag-wrap" aria-label="HubSpot Architecture：収益の流れを中心に構造化されたHubSpot設計">
-			<div class="diag diag--hs-arch">
-				<div class="hsa-header">HubSpot Architecture</div>
-				<div class="hsa-layers">
-					<div class="hsa-layer layer-top">
-						<div class="hsa-layer-label">収益指標への接続</div>
-						<div class="hsa-layer-items">
-							<span class="hsa-item item-kpi">収益 KPI</span>
-							<span class="hsa-item item-sf">Salesforce</span>
-							<span class="hsa-item item-bi">BI / 分析</span>
-						</div>
-					</div>
-					<div class="hsa-arrow">↑ 収益データが流れる</div>
-					<div class="hsa-layer layer-mid">
-						<div class="hsa-layer-label">ライフサイクル設計（統一定義）</div>
-						<div class="hsa-lifecycle">
-							<div class="lc-stage lc-visitor">訪問者</div>
-							<div class="lc-arrow">→</div>
-							<div class="lc-stage lc-mql">見込み客<br /><small>MQL</small></div>
-							<div class="lc-arrow">→</div>
-							<div class="lc-stage lc-sql">商談候補<br /><small>SQL</small></div>
-							<div class="lc-arrow">→</div>
-							<div class="lc-stage lc-opp">商談</div>
-							<div class="lc-arrow">→</div>
-							<div class="lc-stage lc-cust">顧客</div>
-						</div>
-					</div>
-					<div class="hsa-arrow">↑ 正規化されたデータ</div>
-					<div class="hsa-layer layer-bot">
-						<div class="hsa-layer-label">データ基盤（設計思想あり）</div>
-						<div class="hsa-layer-items">
-							<span class="hsa-item">プロパティ設計</span>
-							<span class="hsa-item">ワークフロー管理</span>
-							<span class="hsa-item">フォーム設計</span>
-							<span class="hsa-item">同期ルール</span>
-						</div>
-					</div>
-				</div>
-				<div class="hsa-footer">
-					<span class="hsa-tag good">✓ 担当者が変わっても動く</span>
-					<span class="hsa-tag good">✓ 収益の流れが見える</span>
-				</div>
-			</div>
-			<figcaption class="diag-caption">HubSpot Architecture：収益の流れを起点にプロパティ・ライフサイクル・Salesforce連携を構造として設計した状態</figcaption>
-		</figure>
-
-		<div class="article-section">
-			<h2>本当に必要なのは「HubSpot Architecture」</h2>
-			<p>どのデータを持つか、どのプロパティを正とするか、どのワークフローを設計するか、Salesforceとどう連携するか、収益にどう接続するか——これを構造として設計することが必要です。重要なのは自動化の数ではなく、<strong>収益につながる構造</strong>です。HubSpot Architectureとは、ツールを個人依存から組織依存へ転換する設計です。</p>
+			<h2>再設計後に何が変わったか</h2>
+			<p>前述のコンサルティング企業では、HubSpotへの移行と同時に運用構造を再設計したことで、以下の変化が起きました。</p>
+			<ol class="article-numbered">
+				<li>
+					<strong>分析工数を約30%削減</strong>
+					<p>自動化ロジックをシンプルに再設計し、専門担当者以外でも施策を実行できる体制になりました。</p>
+				</li>
+				<li>
+					<strong>顧客行動の100%可視化を実現</strong>
+					<p>Web・MA・CRMが一本化され、どの施策がどの顧客に影響を与えているかが把握できるようになりました。</p>
+				</li>
+				<li>
+					<strong>Salesforce・Sansan・GA4との連携を再設計</strong>
+					<p>接点情報から商談データまで、不整合のないデータ循環を確立しました。担当者が変わっても同じ運用が継続できます。</p>
+				</li>
+			</ol>
+			<p class="article-callout">ツールを変えるだけでは同じ問題が再現します。変えるべきは「設計思想」です。</p>
 		</div>
 
 		<div class="article-section">
-			<h2>Revenue Architectureという考え方</h2>
-			<p>HubSpot問題の本質はマーケティング自動化の問題ではありません。営業・マーケティング・カスタマーサクセス・CRM・KPI・データを「収益につながる一つの構造」として設計するRevenue Architectureの問題です。Revenue Architecture・収益の流れ設計・RevOps・KPI設計・収益可視化という構造が整うことで、HubSpotは属人化しない運用が可能になります。</p>
-		</div>
-
-		<!-- DIAGRAM 3: Revenue Architecture統合図 -->
-		<figure class="diag-wrap" aria-label="Revenue ArchitectureによるHubSpot統合：6つの要素を接続し属人化しない収益運用構造を実現する">
-			<div class="diag diag--ra-hs">
-				<div class="ra-pills-row">
-					<span class="ra-pill">HubSpot</span>
-					<span class="ra-pill">Salesforce</span>
-					<span class="ra-pill">BI</span>
-					<span class="ra-pill">KPI</span>
-					<span class="ra-pill">RevOps</span>
-					<span class="ra-pill">収益の流れ</span>
-				</div>
-				<svg class="ra-svg" viewBox="0 0 620 60" preserveAspectRatio="none" aria-hidden="true">
-					<line x1="52"  y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
-					<line x1="156" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
-					<line x1="260" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
-					<line x1="364" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
-					<line x1="468" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
-					<line x1="572" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
-				</svg>
-				<div class="ra-core">
-					<div class="ra-core-title">Revenue Architecture</div>
-					<div class="ra-core-tags">
-						<span>HubSpot設計思想</span>
-						<span>ライフサイクル統一</span>
-						<span>同期ルール設計</span>
-						<span>収益可視化</span>
-						<span>RevOps運用</span>
-					</div>
-				</div>
-				<div class="ra-connector-bar"></div>
-				<div class="ra-outcomes">
-					<div class="ra-outcome">
-						<div class="ra-outcome-title">属人化の防止</div>
-						<div class="ra-outcome-sub">誰でも運用できる<br />構造になる</div>
-					</div>
-					<div class="ra-outcome ra-outcome--mid">
-						<div class="ra-outcome-title">収益の可視化</div>
-						<div class="ra-outcome-sub">施策が収益に<br />つながって見える</div>
-					</div>
-					<div class="ra-outcome">
-						<div class="ra-outcome-title">運用の安定化</div>
-						<div class="ra-outcome-sub">引き継ぎができる<br />ドキュメント設計</div>
-					</div>
-				</div>
-			</div>
-			<figcaption class="diag-caption">Revenue ArchitectureによるHubSpot統合：HubSpot・Salesforce・BI・KPI・RevOps・収益の流れを接続し、属人化しない収益運用構造を実現する</figcaption>
-		</figure>
-
-		<div class="article-section">
-			<h2>運用が整理されているHubSpotの共通点</h2>
-			<p>収益運用が安定している会社には共通点があります。プロパティに設計思想があり増殖しない。ライフサイクルの定義がマーケティングと営業で統一されている。ワークフローの責任者が明確でブラックボックス化しない。Salesforce連携のルールが文書化されており収益の流れが崩れない。RevOpsが全体を管理しており個人依存になっていない。</p>
+			<h2>まず3日でできること</h2>
+			<ol class="article-numbered">
+				<li>
+					<strong>使われていないプロパティを棚卸しする</strong>
+					<p>HubSpotのプロパティ一覧を開き、過去90日間使用されていないプロパティをリストアップします。「削除できるか確認する」ではなく「なぜ存在するか説明できるか」を基準に棚卸しします。</p>
+				</li>
+				<li>
+					<strong>すべてのワークフローに責任者を1人定義する</strong>
+					<p>全ワークフローに「このワークフローの責任者は誰か」を紐づけます。責任者を決めるだけで、変更が必要になったときに「誰に聞けばいいか」が明確になります。</p>
+				</li>
+				<li>
+					<strong>ライフサイクルとMQLの定義を1枚の文書にまとめる</strong>
+					<p>MQL・SQLの条件、ライフサイクルステージの定義、Salesforceとの同期ルールを1枚のスプレッドシートに書き出します。この文書が存在するかどうかが、引き継ぎ可能な運用構造かどうかの分岐点です。</p>
+				</li>
+			</ol>
 		</div>
 
 		<div class="article-section">
-			<h2>日本企業で特に属人化しやすい理由</h2>
-			<p>日本企業では担当者依存・引き継ぎ不足・ドキュメント不足・Excel補完文化が根強く残っています。そのためHubSpot運用が「個人の努力」で成立しやすく、その人が動き続ける限り問題が顕在化しません。しかし退職や異動が起きた瞬間に構造崩壊します。必要なのは「誰でも回る収益構造」であり、日本企業に合ったRevenue Architectureの設計が求められます。</p>
+			<h2>まとめ：属人化はツールの問題ではない</h2>
+			<p>HubSpotが属人化する本質的な理由は、ツールの柔軟性ではなく、設計思想がないまま運用が積み重なることにあります。プロパティ・ワークフロー・ライフサイクル定義・連携ルールが構造として設計されていなければ、どれだけ高機能なツールも個人依存のシステムになります。</p>
+			<p>引き継ぎができる。変更しても壊れない。担当者が変わっても同じ運用が続く——この状態は、設計書1枚から始まります。</p>
 		</div>
 
-		<div class="article-section">
-			<h2>Consilegyの考え方</h2>
-			<p>ConsilegyではHubSpot改善を単なる設定支援とは考えていません。本質はRevenue Architecture・収益可視化・収益の流れ設計・RevOps・CRM設計にあります。HubSpot・Salesforce・Kintone・BI・Slackを横断しながら、「属人化しない収益運用構造」を設計します。目的はワークフローを増やすことではなく、収益が継続的に回る構造を作ることです。</p>
-			<div class="article-table-wrap">
-				<table>
-					<thead>
-						<tr>
-							<th>課題</th>
-							<th>Consilegyのアプローチ</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>特定担当者しか運用できない</td>
-							<td>HubSpot Architecture設計 + ドキュメント化</td>
-						</tr>
-						<tr>
-							<td>ワークフローがブラックボックス化</td>
-							<td>ワークフロー整理 + 責任者定義</td>
-						</tr>
-						<tr>
-							<td>Salesforce連携が不明</td>
-							<td>同期ルール設計 + 収益の流れ定義</td>
-						</tr>
-						<tr>
-							<td>マーケと営業で定義がずれる</td>
-							<td>ライフサイクル統一 + MQL・SQL条件合意</td>
-						</tr>
-						<tr>
-							<td>施策が収益につながっているか分からない</td>
-							<td>収益可視化 + KPI設計</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-
-		<div class="article-section">
-			<h2>まとめ：HubSpotの属人化はRevenue構造の問題</h2>
-			<p>HubSpot運用が属人化する原因は担当者の能力不足ではありません。Revenue Architecture不足・収益の流れ未設計・KPI設計不足・RevOps未整備が本質的な原因です。だからこそ必要なのは自動化の追加ではなく、「収益につながる運用構造」を設計することです。HubSpotはRevenue Architecture全体として設計されるべきです。</p>
-		</div>
-
-		<!-- ===== CTA ===== -->
+				<!-- ===== CTA ===== -->
 		<div class="article-cta">
 			<p class="article-cta__catch">HubSpotを「個人依存」から「組織の収益資産」へ</p>
 			<p class="article-cta__body">ConsilegyはHubSpot Architecture設計から収益の流れの可視化まで、属人化しない収益運用構造を支援します。まずは現状のHubSpot運用の課題を整理するところから始めましょう。</p>

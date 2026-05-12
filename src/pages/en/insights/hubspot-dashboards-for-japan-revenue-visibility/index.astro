@@ -2,13 +2,13 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
-const readTime = 'About 5 min';
+const readTime = 'About 7 min';
 
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: 'HubSpot Dashboards for Japan Revenue Visibility',
-  description: 'Default HubSpot dashboards show global aggregate data. Japan-facing teams need separate dashboard views tracking Japan MQL volume, pipeline value, sales cycle length, win rate, and quarterly revenue.',
+  description: 'A US-based global entertainment company (approx. 3,000 employees) had GA4 deployed and KPIs defined — but data differed by region and reporting was produced manually without influencing decisions. After restructuring dashboards for decision-making, executives could assess performance without analyst support. Japan-facing HubSpot dashboards require the same design shift.',
   datePublished: pubDate,
   dateModified: pubDate,
   author: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
@@ -30,7 +30,7 @@ const breadcrumbSchema = {
 
 <BaseLayout
   title="HubSpot Dashboards for Japan Revenue Visibility | Consilegy"
-  description="Default HubSpot dashboards show global aggregate data. Japan-facing teams need separate dashboard views tracking Japan MQL volume, pipeline value, sales cycle length, win rate, and quarterly revenue."
+  description="A US-based global entertainment company (approx. 3,000 employees) had GA4 deployed and KPIs defined — but data differed by region and reporting was produced manually without influencing decisions. After restructuring dashboards for decision-making, executives could assess performance without analyst support."
   lang="en"
   alternateUrl="/insights/"
 >
@@ -41,7 +41,6 @@ const breadcrumbSchema = {
 
 <div class="article-wrap">
 
-  <!-- ===== ARTICLE HEADER ===== -->
   <header class="article-head container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="/en/">Home</a>
@@ -51,74 +50,81 @@ const breadcrumbSchema = {
       <span aria-current="page">HubSpot Dashboards for Japan Revenue Visibility</span>
     </nav>
     <div class="article-meta">
-      <span class="article-cat">HubSpot &amp; CRM</span>
+      <span class="article-cat">Revenue Architecture</span>
       <span class="article-date">{pubDate}</span>
       <span class="article-read">{readTime}</span>
     </div>
     <h1>HubSpot Dashboards for Japan Revenue Visibility</h1>
-    <p class="article-desc">Default HubSpot dashboards show global aggregate data. Japan-facing teams need separate dashboard views tracking Japan MQL volume, pipeline value, sales cycle length, win rate, and quarterly revenue.</p>
+    <p class="article-desc">A US-based global entertainment company (approx. 3,000 employees) had GA4, Looker Studio, and BigQuery deployed — but KPI definitions differed by region, reporting was manual, and data wasn't connected to decisions. After redesigning the dashboard structure around decision-making rather than data collection, executives could assess performance without analyst support and optimization cycles became faster. Japan-facing HubSpot dashboards require the same shift: not more reports, but reports that answer Japan-specific questions.</p>
   </header>
 
-  <!-- ===== ARTICLE BODY ===== -->
   <article class="article-body container" id="article">
 
     <section class="article-section">
-      <p>HubSpot's default dashboards show aggregate data across all contacts, companies, and deals. For global teams with a Japan focus, this means Japan pipeline is folded into APAC or worldwide numbers that cannot tell you how Japan is actually performing.</p>
+      <p>HubSpot's default dashboards show aggregate data across all contacts, companies, and deals. For teams with a Japan focus, this means Japan pipeline is folded into APAC or worldwide numbers that tell you nothing about how Japan is actually performing. MQL volume looks fine globally even if Japan MQL is zero. Sales cycle length is averaged across all regions, hiding Japan's longer timelines. Win rate is diluted by faster-closing deals from other markets.</p>
+      <p>The data is technically accurate. It just cannot answer any Japan-specific question. And if you can't answer Japan-specific questions, you can't make Japan-specific decisions.</p>
     </section>
 
     <hr class="article-hr" />
 
     <section class="article-section">
-      <h2>Why default dashboards fail for Japan</h2>
-      <p>Without Japan-specific filters, reports mix Japan leads with leads from other markets. MQL volume looks fine globally even if Japan MQL is zero. Sales cycle length is averaged across all regions, hiding Japan's longer timelines. Win rate is diluted by faster-closing deals from other markets. The data is technically accurate, but it cannot answer any Japan-specific question.</p>
+      <h2>Five signs your HubSpot dashboards don't show Japan performance</h2>
+
+      <div class="article-checklist">
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Do your main pipeline dashboards include Japan and non-Japan deals in the same view?</p>
+          <p class="article-checklist__detail">Mixed pipeline dashboards make Japan performance invisible. You cannot tell whether Japan is underperforming or simply small relative to other markets without a Japan-only view.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Do you know your Japan MQL volume as a standalone number — not as a percentage of global?</p>
+          <p class="article-checklist__detail">Japan MQL as a percentage of global changes when other markets grow, independent of what Japan is doing. You need Japan MQL as an absolute number tracked over time to see Japan-specific trend.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Is Japan sales cycle length tracked separately from your global average?</p>
+          <p class="article-checklist__detail">Japan enterprise sales cycles are typically 3–6 months for straightforward decisions. Mixed into a global average, Japan deals will always look like they're stalling relative to a benchmark built on faster-moving markets.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">When someone asks how Japan is performing this quarter, does answering require pulling a custom report?</p>
+          <p class="article-checklist__detail">If Japan performance isn't visible without manual extraction, it won't be checked regularly. Reporting that requires work to produce gets produced monthly at best and stops informing weekly decisions.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Are your HubSpot reports based on a "Japan" or "Market" property that was set up when the CRM was configured?</p>
+          <p class="article-checklist__detail">Japan dashboards built on ad-hoc contact tags or inconsistent manual fields will produce unreliable data. The property architecture has to be designed first for reports to be trustworthy.</p>
+        </div>
+      </div>
     </section>
 
     <hr class="article-hr" />
 
     <section class="article-section">
-      <h2>The six reports every Japan-facing team needs</h2>
+      <h2>Three patterns that make dashboards useless for Japan decisions</h2>
 
       <div class="article-breakdown">
         <div class="article-breakdown__item">
           <div class="article-breakdown__num">01</div>
           <div class="article-breakdown__body">
-            <strong>Japan MQL volume (monthly)</strong>
-            <p>Total MQLs where Target Market = Japan. Tells you whether top-of-funnel is generating demand in the Japan market, or whether the pipeline is empty and the rest is noise.</p>
+            <strong>Dashboards are built before Japan properties are configured</strong>
+            <p>HubSpot dashboards can only filter on properties that exist and are consistently populated. If the Japan GTM started without a "Market" or "Target Region" property on contact and deal records, every Japan dashboard will require workarounds — filtering by company country, contact owner, or campaign name — that produce inconsistent and unreliable data.</p>
+            <p>This is the most common reason Japan reporting breaks down in HubSpot. The dashboard was built before the architecture was in place to support it. The fix is not a better report formula — it's configuring the property, backfilling existing Japan records, and then rebuilding the reports on a stable foundation.</p>
+            <p><strong>Judgment criterion:</strong> Can you filter all Japan contacts, companies, and deals with a single property filter in HubSpot? If not, the foundation needs to be fixed before reports are meaningful.</p>
           </div>
         </div>
         <div class="article-breakdown__item">
           <div class="article-breakdown__num">02</div>
           <div class="article-breakdown__body">
-            <strong>Japan MQL-to-SQL conversion rate</strong>
-            <p>Of Japan MQLs, what percentage advances to SQL. Measures qualification effectiveness and identifies whether the MQL definition is calibrated correctly for Japan's buyer behavior.</p>
+            <strong>Reports show data but don't answer decisions</strong>
+            <p>More data doesn't produce better decisions. This was the core finding when a global entertainment company rebuilt its reporting infrastructure: KPI definitions differed by region, reports were produced manually on a recurring schedule, and analysis depended on specific individuals. The data existed — it just wasn't connected to the questions that needed to be answered.</p>
+            <p>Japan HubSpot dashboards fall into the same pattern when they're designed around available data rather than around the decisions the team actually makes. A dashboard that shows total contacts, recent activities, and email open rates doesn't help you decide whether to increase Japan MQL targets, adjust the sales team's focus, or change the qualification criteria. Reports should be designed backwards from decisions, not forwards from available data.</p>
+            <p><strong>Judgment criterion:</strong> For each HubSpot report visible in your Japan dashboard, what specific decision does it inform? If the answer is unclear, the report is generating data activity, not decision support.</p>
           </div>
         </div>
         <div class="article-breakdown__item">
           <div class="article-breakdown__num">03</div>
           <div class="article-breakdown__body">
-            <strong>Japan pipeline value</strong>
-            <p>Total deal value in open opportunities where company = Japan. Tracks revenue potential and flags whether Japan pipeline is growing, flat, or shrinking each quarter.</p>
-          </div>
-        </div>
-        <div class="article-breakdown__item">
-          <div class="article-breakdown__num">04</div>
-          <div class="article-breakdown__body">
-            <strong>Japan sales cycle length</strong>
-            <p>Average days from MQL to Closed Won for Japan deals. Benchmarks velocity and helps set realistic forecast windows that account for Japan's longer evaluation process.</p>
-          </div>
-        </div>
-        <div class="article-breakdown__item">
-          <div class="article-breakdown__num">05</div>
-          <div class="article-breakdown__body">
-            <strong>Japan win rate</strong>
-            <p>Closed Won Japan deals divided by total Japan deals closed. Measures close effectiveness and tracks whether the sales team is improving its ability to convert Japan opportunities.</p>
-          </div>
-        </div>
-        <div class="article-breakdown__item">
-          <div class="article-breakdown__num">06</div>
-          <div class="article-breakdown__body">
-            <strong>Japan revenue by quarter</strong>
-            <p>Closed Won value for Japan deals per quarter. Tracks actual revenue realization versus pipeline and enables trend analysis over time.</p>
+            <strong>Japan metrics use global definitions that don't fit Japan's buying pattern</strong>
+            <p>HubSpot's default lifecycle stage thresholds and deal stage definitions were not designed for Japan's market dynamics. An MQL definition that requires two content downloads and a pricing page visit reflects a market where buyers self-educate quickly and signal intent digitally. Japan's enterprise buyers engage differently: more deliberate, more relationship-driven, with longer gaps between touches that do not indicate disengagement.</p>
+            <p>Using global MQL definitions for Japan consistently results in either over-qualification (too few Japan MQLs because the threshold assumes faster-paced digital behavior) or under-qualification (too many Japan MQLs because the bar was lowered to compensate, without addressing the underlying definition problem).</p>
+            <p><strong>Judgment criterion:</strong> Are your Japan MQL and SQL definitions explicitly documented for Japan's context — specifying what engagement signals and confirmation criteria apply to Japan specifically? Or are they inherited from global defaults?</p>
           </div>
         </div>
       </div>
@@ -127,80 +133,83 @@ const breadcrumbSchema = {
     <hr class="article-hr" />
 
     <section class="article-section">
-      <h2>How to filter for Japan data</h2>
-      <p>All Japan reports depend on a "Target Market: Japan" property existing on contacts and companies. Once created, every HubSpot report can be filtered by this property. Create a saved filter called "Japan" and apply it to each report individually. Group these reports in a dedicated "Japan Revenue" dashboard so the full picture is visible in one place.</p>
-    </section>
+      <h2>What changed when dashboards were redesigned for decisions</h2>
+      <p>A US-based global entertainment company had already deployed GA4 as a unified tracking platform. KPIs were defined. Reporting was happening. But KPI definitions varied by region, reports were produced manually, and analysis depended on specific individuals. The data existed — it just wasn't being used to make decisions.</p>
+      <p>Over a 6-month engagement, the KPI framework was rebuilt from the ground up based on business outcomes rather than analytics defaults. KPI definitions were standardized across regions. Dashboard architecture in Looker Studio and BigQuery was restructured for fast, clear decision-making by executives and channel managers rather than for comprehensive data display.</p>
 
-    <hr class="article-hr" />
-
-    <section class="article-section">
-      <h2>How to set up deal pipeline reporting</h2>
-      <p>Create a deal pipeline view filtered to Japan. Add custom columns: deal stage, company name, expected close date, deal owner, and days in current stage. Set up a Japan deal forecast report using HubSpot's forecast tool with the Japan filter applied. The days-in-stage column is especially important for Japan, as it surfaces deals that are stalling in Internal Review or Legal Review stages that are common in Japan enterprise sales.</p>
-    </section>
-
-    <hr class="article-hr" />
-
-    <section class="article-section">
-      <h2>How to track Japan-specific velocity metrics</h2>
-      <p>Sales cycle length requires a calculated property or report: date of first MQL through to date of Closed Won. Win rate requires a filter on both Closed Won and Closed Lost deals in Japan. Set these as recurring reports with weekly refresh so the team can track trends rather than point-in-time snapshots.</p>
       <div class="article-callout">
-        <p>A Japan revenue dashboard is not a luxury for large teams. It is the minimum visibility required to make intentional decisions about Japan GTM investment and adjustment.</p>
+        <p><strong>Executives could assess business performance without analyst support. Optimization cycles became faster because data directly informed channel adjustments rather than feeding into reports that sat unread. Global KPI alignment removed interpretation gaps across regions.</strong></p>
       </div>
+
+      <p>Japan HubSpot dashboards require the same shift: from reporting as an output to data as an input to decisions that actually happen.</p>
     </section>
 
     <hr class="article-hr" />
 
     <section class="article-section">
-      <h2>Japan revenue dashboard example</h2>
-      <p>The diagram below shows the six key metric tiles for a Japan revenue dashboard: MQL volume, MQL-to-SQL rate, pipeline value, sales cycle, win rate, and quarterly revenue tracking.</p>
-      <div class="article-diagram">
-        <img
-          src="/images/insights/en/hubspot-japan-dashboard-tiles.svg"
-          alt="HubSpot Japan revenue dashboard with six metric tiles: Japan MQL volume (24/mo, +12% MoM), MQL-to-SQL rate (18%), pipeline value (¥42M), sales cycle (87 days), win rate (22%), and quarterly revenue"
-          width="760"
-          height="220"
-          loading="lazy"
-        />
+      <h2>Three places to start</h2>
+
+      <div class="article-breakdown">
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">01</div>
+          <div class="article-breakdown__body">
+            <strong>Configure a Japan market property and apply it consistently before building reports</strong>
+            <p>Create a "Market" contact and deal property in HubSpot and apply it to all Japan-facing records. This is the prerequisite for every Japan report. Without it, filters will be inconsistent and data will be unreliable.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">02</div>
+          <div class="article-breakdown__body">
+            <strong>Build six Japan-specific reports before adding any others</strong>
+            <p>Japan MQL volume (Japan-only), MQL-to-SQL conversion rate, open pipeline value by Japan deals, average sales cycle length for Japan, Japan win rate, and quarterly closed-won revenue from Japan. These six reports give a complete view of Japan funnel performance. Build them first and use them for 60 days before adding complexity.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">03</div>
+          <div class="article-breakdown__body">
+            <strong>Document Japan-specific MQL and SQL criteria before configuring lifecycle stage reports</strong>
+            <p>Before building lifecycle stage funnel reports for Japan, write down what MQL and SQL mean in Japan's context — what engagement signals, what confirmation criteria, what Japan-specific buying behavior the definitions should account for. Reports built on undefined or globally-inherited stage definitions will produce numbers that don't reflect Japan's actual pipeline reality.</p>
+          </div>
+        </div>
       </div>
     </section>
 
   </article>
 
-  <!-- ===== RELATED ===== -->
   <aside class="article-related container">
     <p class="article-related__label">Related</p>
     <div class="article-related__grid">
-      <a href="/en/insights/hubspot-implementation-for-japan-gtm-what-to-configure-first/" class="article-related__card">
-        <p class="article-related__card-cat">HubSpot &amp; CRM</p>
-        <p class="article-related__card-title">HubSpot Implementation for Japan GTM: What to Configure First</p>
-        <span class="article-related__card-arrow">→</span>
-      </a>
       <a href="/en/insights/how-to-build-revenue-visibility-for-japan-market-expansion/" class="article-related__card">
         <p class="article-related__card-cat">Revenue Architecture</p>
         <p class="article-related__card-title">How to Build Revenue Visibility for Japan Market Expansion</p>
         <span class="article-related__card-arrow">→</span>
       </a>
-      <a href="/en/insights/hubspot-lifecycle-stages-vs-lead-status-for-japan-gtm/" class="article-related__card">
-        <p class="article-related__card-cat">HubSpot &amp; CRM</p>
-        <p class="article-related__card-title">HubSpot Lifecycle Stages vs Lead Status for Japan GTM</p>
+      <a href="/en/insights/hubspot-implementation-for-japan-gtm-what-to-configure-first/" class="article-related__card">
+        <p class="article-related__card-cat">Revenue Architecture</p>
+        <p class="article-related__card-title">HubSpot Implementation for Japan GTM: What to Configure First</p>
         <span class="article-related__card-arrow">→</span>
       </a>
-      <a href="/en/insights/revops-for-japan-gtm-what-global-teams-need-to-localize/" class="article-related__card">
+      <a href="/en/insights/how-to-define-lifecycle-stages-for-japan-facing-revenue-operations/" class="article-related__card">
         <p class="article-related__card-cat">Revenue Architecture</p>
-        <p class="article-related__card-title">RevOps for Japan GTM: What Global Teams Need to Localize</p>
+        <p class="article-related__card-title">How to Define Lifecycle Stages for Japan-Facing Revenue Operations</p>
+        <span class="article-related__card-arrow">→</span>
+      </a>
+      <a href="/en/services/revenue-architecture-design/" class="article-related__card">
+        <p class="article-related__card-cat">Service</p>
+        <p class="article-related__card-title">Revenue Architecture Design</p>
         <span class="article-related__card-arrow">→</span>
       </a>
     </div>
   </aside>
 
-  <!-- ===== CTA ===== -->
   <section class="article-cta">
     <div class="container">
       <div class="article-cta__body">
-        <h2>Ready to design your Japan revenue system?</h2>
-        <p>Tell us where you are: what you have tried, where you are seeing friction, and what you are trying to solve. We will be direct about whether and how we can help.</p>
+        <h2>HubSpot data not showing Japan performance clearly?</h2>
+        <p>Tell us how your reporting is currently structured. We'll identify what configuration changes would make Japan visible and what reports to build first.</p>
         <div class="article-cta__actions">
-          <a href="/en/contact/" class="article-cta__btn article-cta__btn--primary">Talk to us</a>
+          <a href="/en/contact/" class="article-cta__btn article-cta__btn--primary">Contact Us</a>
+          <a href="/en/services/" class="article-cta__btn article-cta__btn--ghost">View All Services →</a>
         </div>
       </div>
     </div>
@@ -209,11 +218,9 @@ const breadcrumbSchema = {
 </div>
 
 <style>
-/* ── Wrap / Container ─────────────────────── */
 .article-wrap { background: #fff; }
 .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
 
-/* ── Header ──────────────────────────────── */
 .article-head {
   padding-top: 48px;
   padding-bottom: 40px;
@@ -256,50 +263,23 @@ const breadcrumbSchema = {
   margin: 0;
 }
 
-/* ── Body ────────────────────────────────── */
-.article-body {
-  padding-top: 48px;
-  padding-bottom: 64px;
-}
-.article-section {
-  margin-bottom: 0;
-}
+.article-body { padding-top: 48px; padding-bottom: 64px; }
+.article-section { margin-bottom: 0; }
 .article-section h2 {
-  font-size: 1.3125rem;
-  font-weight: 600;
+  font-size: 1.3125rem; font-weight: 600;
   color: var(--color-navy, #0f172a);
-  margin: 0 0 16px;
-  line-height: 1.35;
-}
-.article-section h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-navy, #0f172a);
-  margin: 24px 0 10px;
+  margin: 0 0 16px; line-height: 1.35;
 }
 .article-section p {
-  font-size: 1rem;
-  line-height: 1.85;
+  font-size: 1rem; line-height: 1.85;
   color: var(--color-text, #1e293b);
   margin: 0 0 16px;
-}
-.article-section ul {
-  padding-left: 1.5rem;
-  margin: 0 0 16px;
-  display: flex; flex-direction: column; gap: 8px;
-}
-.article-section li {
-  font-size: 1rem;
-  line-height: 1.75;
-  color: var(--color-text, #1e293b);
 }
 .article-section a {
   color: var(--color-primary, #1e40af);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
-
-.article-subsection { margin-bottom: 8px; }
 
 .article-callout {
   background: #eff6ff;
@@ -309,9 +289,7 @@ const breadcrumbSchema = {
   margin: 24px 0;
 }
 .article-callout p {
-  margin: 0;
-  font-size: 1rem;
-  line-height: 1.75;
+  margin: 0; font-size: 1rem; line-height: 1.75;
   color: var(--color-navy, #0f172a);
 }
 
@@ -321,59 +299,60 @@ const breadcrumbSchema = {
   margin: 48px 0;
 }
 
-/* ── Diagram ─────────────────────────────── */
-.article-diagram {
+.article-checklist {
+  display: flex; flex-direction: column; gap: 0;
   margin: 24px 0;
-  border: 1px solid var(--color-border, #e2e8f0);
-  border-radius: 10px;
-  overflow: hidden;
-  background: #fff;
+  border-top: 1px solid var(--color-border, #e2e8f0);
 }
-.article-diagram img {
-  display: block;
-  width: 100%;
-  height: auto;
+.article-checklist__item {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+}
+.article-checklist__q {
+  font-size: 0.9375rem; font-weight: 700;
+  color: var(--color-navy, #0f172a);
+  margin-bottom: 8px;
+  padding-left: 1.5rem;
+  position: relative;
+}
+.article-checklist__q::before {
+  content: '?';
+  position: absolute; left: 0;
+  font-size: 0.875rem; font-weight: 800;
+  color: var(--color-primary, #1e40af); opacity: 0.4;
+}
+.article-checklist__detail {
+  font-size: 0.9375rem; line-height: 1.75;
+  color: var(--color-text-muted, #64748b);
+  margin: 0; padding-left: 1.5rem;
 }
 
-/* ── Numbered breakdown ──────────────────── */
 .article-breakdown {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+  display: flex; flex-direction: column; gap: 0;
   margin: 24px 0;
   border-top: 1px solid var(--color-border, #e2e8f0);
 }
 .article-breakdown__item {
-  display: flex;
-  gap: 20px;
+  display: flex; gap: 20px;
   padding: 20px 0;
   border-bottom: 1px solid var(--color-border, #e2e8f0);
   align-items: flex-start;
 }
 .article-breakdown__num {
-  font-size: 1.25rem;
-  font-weight: 800;
+  font-size: 1.25rem; font-weight: 800;
   color: var(--color-primary, #1e40af);
-  opacity: 0.3;
-  flex-shrink: 0;
-  line-height: 1.5;
-  min-width: 2.5rem;
+  opacity: 0.3; flex-shrink: 0; line-height: 1.5; min-width: 2.5rem;
 }
 .article-breakdown__body strong {
-  display: block;
-  font-size: 0.9375rem;
-  font-weight: 700;
-  color: var(--color-navy, #0f172a);
-  margin-bottom: 6px;
+  display: block; font-size: 0.9375rem; font-weight: 700;
+  color: var(--color-navy, #0f172a); margin-bottom: 6px;
 }
 .article-breakdown__body p {
-  font-size: 0.9375rem;
-  line-height: 1.75;
-  color: var(--color-text-muted, #64748b);
-  margin: 0;
+  font-size: 0.9375rem; line-height: 1.75;
+  color: var(--color-text-muted, #64748b); margin: 0 0 10px;
 }
+.article-breakdown__body p:last-child { margin-bottom: 0; }
 
-/* ── Related ─────────────────────────────── */
 .article-related {
   padding: 48px 0;
   border-top: 1px solid var(--color-border, #e2e8f0);
@@ -384,15 +363,12 @@ const breadcrumbSchema = {
   margin: 0 0 20px;
 }
 .article-related__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
 }
 .article-related__card {
   background: #f8fafc;
   border: 1px solid var(--color-border, #e2e8f0);
-  border-radius: 8px;
-  padding: 16px 18px;
+  border-radius: 8px; padding: 16px 18px;
   text-decoration: none;
   display: flex; flex-direction: column; gap: 6px;
   transition: border-color 0.15s, box-shadow 0.15s;
@@ -413,28 +389,19 @@ const breadcrumbSchema = {
   font-size: 0.875rem; color: var(--color-primary, #1e40af); font-weight: 600;
 }
 
-/* ── CTA ─────────────────────────────────── */
 .article-cta {
   background: #f8fafc;
   border-top: 1px solid var(--color-border, #e2e8f0);
   padding: 64px 0;
 }
-.article-cta__body {
-  text-align: center;
-  max-width: 560px;
-  margin: 0 auto;
-}
+.article-cta__body { text-align: center; max-width: 560px; margin: 0 auto; }
 .article-cta__body h2 {
-  font-size: clamp(1.25rem, 3vw, 1.625rem);
-  font-weight: 600;
-  color: var(--color-navy, #0f172a);
-  margin: 0 0 12px;
+  font-size: clamp(1.25rem, 3vw, 1.625rem); font-weight: 600;
+  color: var(--color-navy, #0f172a); margin: 0 0 12px;
 }
 .article-cta__body p {
-  font-size: 0.9375rem;
-  line-height: 1.8;
-  color: var(--color-text-muted, #64748b);
-  margin: 0 0 28px;
+  font-size: 0.9375rem; line-height: 1.8;
+  color: var(--color-text-muted, #64748b); margin: 0 0 28px;
 }
 .article-cta__actions {
   display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
@@ -456,11 +423,10 @@ const breadcrumbSchema = {
 }
 .article-cta__btn--ghost:hover { background: rgba(30,64,175,0.06); }
 
-/* ── Responsive ──────────────────────────── */
 @media (max-width: 600px) {
   .article-head { padding-top: 32px; }
   .article-related__grid { grid-template-columns: 1fr; }
-  .article-breakdown__num { font-size: 1rem; min-width: 2rem; }
+  .article-checklist__q, .article-checklist__detail { padding-left: 1.25rem; }
 }
 </style>
 

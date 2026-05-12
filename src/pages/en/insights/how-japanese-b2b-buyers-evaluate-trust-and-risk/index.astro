@@ -2,13 +2,13 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
-const readTime = 'About 8 min';
+const readTime = 'About 9 min';
 
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: 'How Japanese B2B Buyers Evaluate Trust and Risk',
-  description: 'Understanding how Japan B2B buyers evaluate trust, risk, vendor credibility, internal consensus, long-term support, and proof is the prerequisite for building messaging and conversion paths that work in Japan.',
+  description: 'A global technology company (approx. 120,000 employees) launched in Japan with strong global creative and generated almost no sales-ready pipeline. The problem was not the product. It was that the evaluation sequence Japan buyers follow was never addressed.',
   datePublished: pubDate,
   dateModified: pubDate,
   author: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
@@ -30,7 +30,7 @@ const breadcrumbSchema = {
 
 <BaseLayout
   title="How Japanese B2B Buyers Evaluate Trust and Risk | Consilegy"
-  description="Understanding how Japan B2B buyers evaluate trust, risk, vendor credibility, internal consensus, long-term support, and proof is the prerequisite for building messaging and conversion paths that work in Japan."
+  description="A global technology company (approx. 120,000 employees) launched in Japan with strong global creative and generated almost no sales-ready pipeline. The problem was not the product. It was that the evaluation sequence Japan buyers follow was never addressed."
   lang="en"
   alternateUrl="/insights/"
 >
@@ -41,7 +41,6 @@ const breadcrumbSchema = {
 
 <div class="article-wrap">
 
-  <!-- ===== ARTICLE HEADER ===== -->
   <header class="article-head container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="/en/">Home</a>
@@ -56,142 +55,139 @@ const breadcrumbSchema = {
       <span class="article-read">{readTime}</span>
     </div>
     <h1>How Japanese B2B Buyers Evaluate Trust and Risk</h1>
-    <p class="article-desc">Understanding how Japan B2B buyers evaluate trust, risk, vendor credibility, internal consensus, long-term support, and proof is the prerequisite for building messaging and conversion paths that work in Japan.</p>
+    <p class="article-desc">A global technology company (approx. 120,000 employees, $130B+ revenue) prepared a Japan product launch with creative that performed well in other markets. After redesigning the messaging architecture and conversion flow for Japan's evaluation logic, they shifted from near-zero pipeline to consistent sales-ready lead generation. The product didn't change. The evaluation model they were addressing did.</p>
   </header>
 
-  <!-- ===== ARTICLE BODY ===== -->
   <article class="article-body container" id="article">
 
-    <!-- Introduction -->
     <section class="article-section">
-      <h2>The evaluation sequence Japan buyers follow</h2>
-      <p>Japan B2B buyers follow a specific evaluation sequence before they engage commercially with a vendor. That sequence is not random. It reflects a coherent set of priorities that differ in order and emphasis from the evaluation patterns that Western GTM is typically designed to address.</p>
-      <p>In Western B2B markets, evaluation tends to begin with product fit: does this solution address the problem we have? Trust and vendor stability are evaluated, but often in parallel with feature assessment and ROI calculation. The buyer is willing to engage with a vendor, have a demo, enter a trial, before trust has been fully established, because the cost of early engagement is low and the value of fast assessment is high.</p>
-      <p>Japan enterprise buyers approach vendor evaluation differently. Trust formation precedes feature evaluation. The buyer needs to establish a baseline level of confidence in the vendor's stability, Japan commitment, and support depth before they are ready to evaluate whether the product fits their specific requirements. Engaging commercially before that trust baseline is established feels premature, and vendors who push for that engagement before the buyer is ready often damage the relationship rather than advance it.</p>
+      <p>Japan B2B buyers do not evaluate vendors the way Western enterprise buyers do. The sequence is different, the criteria are different, and the signals that move a buyer forward are different. Global teams that apply their standard GTM motion to Japan and then conclude "Japan is a slow market" are often misreading the result. The problem is not the market. It is that the evaluation framework the GTM was designed for does not match how Japan buyers decide.</p>
+      <p>Understanding the evaluation sequence Japan buyers follow is the prerequisite for messaging, funnel, and conversion path design that actually works in Japan. Without it, you are optimizing the wrong things.</p>
+    </section>
+
+    <hr class="article-hr" />
+
+    <section class="article-section">
+      <h2>Five signs your Japan GTM is not addressing the evaluation sequence</h2>
+
+      <div class="article-checklist">
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Does your Japan messaging lead with product benefits or ROI claims in the first touch?</p>
+          <p class="article-checklist__detail">First-touch content that leads with outcomes assumes the buyer has already decided the vendor is worth evaluating. Japan buyers haven't made that judgment yet at first contact.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Is your primary proof from global customer logos rather than Japan-relevant or comparable-industry cases?</p>
+          <p class="article-checklist__detail">Fortune 500 logos reduce vendor credibility risk in markets where those brands are reference points. They don't address the specific risk question Japan enterprise buyers ask.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Does your CTA ask for a demo or direct sales conversation as the primary conversion action?</p>
+          <p class="article-checklist__detail">In Japan, commercial engagement before trust is established feels premature. Buyers who aren't ready for a demo don't decline — they disengage silently.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Is your funnel designed for a single decision-maker rather than a five-to-ten person evaluation committee?</p>
+          <p class="article-checklist__detail">Japan enterprise purchases require internal consensus across IT, finance, procurement, and the business unit. A funnel that addresses only the champion stalls when it reaches the others.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Have deals stalled in the evaluation phase without a clear reason from the buyer's side?</p>
+          <p class="article-checklist__detail">Silent stalls in Japan typically mean the evaluation failed at one of the six criteria — most often trust, risk, or internal consensus — not that the buyer found a better product.</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="article-hr" />
+
+    <section class="article-section">
+      <h2>Three patterns that break Japan buyer evaluation</h2>
+
+      <div class="article-breakdown">
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">01</div>
+          <div class="article-breakdown__body">
+            <strong>Messaging skips trust formation</strong>
+            <p>Global B2B messaging is typically built around a benefit-first structure: here is the outcome you get, here is the ROI, here is why leading companies use us. That structure works in markets where buyers are willing to evaluate claims before trust is established. Japan buyers are not. Trust formation precedes feature evaluation. Messaging that skips it asks the buyer to take a product claim seriously before they have established whether the vendor is worth evaluating at all.</p>
+            <p><strong>Judgment criterion:</strong> Are your Japan first-touch assets designed to demonstrate Japan expertise and operational credibility, or to present product benefits? If it's the latter, you're starting the evaluation conversation at step two when Japan buyers need step one addressed first.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">02</div>
+          <div class="article-breakdown__body">
+            <strong>Proof is designed for a different market's risk question</strong>
+            <p>Every Japan enterprise vendor selection carries internal risk for the person advocating it. If the vendor fails, the advocate bears professional accountability. The proof that reduces this risk is Japan-specific: companies the buyer's organization recognizes, comparable-industry implementations, documentation showing the vendor has operational depth in Japan. Global analyst rankings and Fortune 500 logos do not answer this question. They answer a different market's risk question.</p>
+            <p><strong>Judgment criterion:</strong> Can your Japan prospect point to a case study from a company comparable to theirs — in size, industry, or Japan context — that demonstrates a completed, successful implementation? If not, the proof gap is the place to work on first.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">03</div>
+          <div class="article-breakdown__body">
+            <strong>Funnel is designed for one decision-maker, not a consensus process</strong>
+            <p>Japan enterprise buying typically involves five to ten stakeholders whose alignment must be achieved before a decision is made. IT evaluates security and integration. Finance evaluates total cost and contract terms. The business unit evaluates functional fit. Procurement evaluates vendor risk. Each applies different criteria. A funnel that generates a strong champion but doesn't provide material for the other evaluators will stall as soon as the champion tries to build internal consensus. The vendor never sees why — the buyer stops responding without explanation.</p>
+            <p><strong>Judgment criterion:</strong> Do your sales assets address the evaluation criteria of IT, finance, and procurement stakeholders, not just the business champion who found you? If your proposal only speaks to one role's concerns, the others will block or delay the decision.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="article-hr" />
+
+    <section class="article-section">
+      <h2>What changed when the evaluation model was addressed</h2>
+      <p>A global technology company preparing for Japan launch had strong global creative that performed in other markets. The Japan GTM was essentially a direct deployment of that creative with Japanese translation. The result was interest without conversion — marketing engagement that didn't become pipeline.</p>
+      <p>Over a 6-month engagement, the messaging architecture was redesigned for Japan's evaluation sequence. The argument structure was rebuilt to address trust formation before product claims. Proof was reoriented around Japan-context and comparable-industry evidence. The conversion path was redesigned as a 3-stage buyer journey from awareness to evaluation to sales contact, with each stage addressing the specific evidence Japan buyers need to progress.</p>
+
       <div class="article-callout">
-        <p><strong>Japan buyers don't reject vendors because the product is wrong. They reject vendors because the evaluation process stalled, usually at trust, risk, or internal consensus.</strong></p>
+        <p><strong>The result was consistent sales-ready lead generation and a shift from broad marketing interest to high-intent pipeline inquiries — without changing the product or the global brand positioning.</strong></p>
       </div>
+
+      <p>What changed was which question the messaging was answering. Not "here is what our product does" but "here is why a Japan enterprise buyer can trust us enough to begin evaluating what our product does."</p>
     </section>
 
     <hr class="article-hr" />
 
-    <!-- The six evaluation criteria -->
     <section class="article-section">
-      <h2>The six evaluation criteria</h2>
-      <p>Japan B2B buyer evaluation operates across six dimensions. Each dimension represents a specific question the buyer is trying to answer, and a specific type of evidence that answers it effectively.</p>
+      <h2>Three places to start</h2>
 
-      <div class="article-subsection">
-        <h3>Trust Formation</h3>
-        <p>Trust formation is the prerequisite for all other evaluation. Japan buyers need to establish a baseline level of confidence in a vendor before they are willing to invest time in evaluating the solution in detail. Trust is not formed through product demonstrations or ROI presentations. It is formed through signals that indicate the vendor is a legitimate, stable, serious organization that understands Japan's market context.</p>
-        <p>The signals that form trust early in Japan's evaluation include: evidence of Japan-specific investment (local team, Japan-language materials, Japan case studies), references from organizations the buyer knows or recognizes, consistency between what the vendor presents and what their actual capabilities are, and the quality of early interactions, specifically whether the vendor is responsive, knowledgeable, and capable of communicating without creating confusion or misalignment.</p>
-        <p>Messaging that jumps past trust formation, leading immediately with product benefits or ROI claims, often fails in Japan because it asks the buyer to evaluate something before they have enough confidence in the vendor to take that evaluation seriously.</p>
+      <div class="article-breakdown">
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">01</div>
+          <div class="article-breakdown__body">
+            <strong>Audit your first-touch Japan content against the trust formation question</strong>
+            <p>Read your most-used Japan landing page or introduction deck as a first-time Japan enterprise buyer. Does it lead with credibility signals — Japan investment, Japan-specific team, Japan context — or with product benefits and ROI claims? The answer tells you where the evaluation sequence is breaking.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">02</div>
+          <div class="article-breakdown__body">
+            <strong>Inventory your Japan-relevant proof assets</strong>
+            <p>List every case study, reference, and implementation evidence you have. Mark which ones come from Japan customers or comparable-industry customers. If the list is short or empty, proof gap is the highest-priority item to address before optimization elsewhere.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">03</div>
+          <div class="article-breakdown__body">
+            <strong>Map your CTA to the trust-building stage Japan buyers need first</strong>
+            <p>Before asking Japan buyers to book a demo or contact sales, ask whether trust formation has been completed. If your primary CTA is commercial engagement, add a lower-commitment path — content download, assessment, or reference documentation — that allows buyers to complete trust evaluation before they are asked to engage commercially.</p>
+          </div>
+        </div>
       </div>
-
-      <div class="article-subsection">
-        <h3>Risk Reduction</h3>
-        <p>Every vendor selection decision in Japan's enterprise environment carries internal risk for the person or team making it. If the vendor fails to deliver, the person who advocated for the selection bears professional accountability. The more novel or foreign the vendor, the higher the perceived internal risk.</p>
-        <p>Risk reduction is therefore a primary evaluation criterion, often more important than price or feature differentiation. Buyers are asking: what is the probability that this vendor will fail to deliver, and what would happen to me and my team if they do? Evidence that reduces this perceived risk includes: existing Japan customers in comparable industries, detailed implementation methodology documentation, clear escalation paths, contractual protections, and indicators that the vendor has the organizational depth to support a Japan customer through implementation difficulties.</p>
-        <p>GTM messaging that does not address internal risk reduction will stall at this evaluation stage even if the product is technically superior to alternatives.</p>
-      </div>
-
-      <div class="article-subsection">
-        <h3>Vendor Credibility</h3>
-        <p>Vendor credibility in Japan is evaluated across three dimensions: financial and organizational stability, Japan-specific commitment, and team depth. Buyers want to know whether this vendor will still exist in three years, whether they are genuinely committed to Japan as a market (not treating it as a low-priority test), and whether the team that would serve them has the expertise and organizational backing to deliver effectively.</p>
-        <p>Global brand recognition contributes to credibility but does not substitute for Japan-specific signals. A well-known global SaaS company with no Japan track record, a thin Japan team, and no Japan case studies will score lower on vendor credibility with a Japan enterprise buyer than a less well-known company that has clearly invested in Japan and can demonstrate operational depth there.</p>
-      </div>
-
-      <div class="article-subsection">
-        <h3>Internal Consensus</h3>
-        <p>Japan's enterprise buying process typically involves multiple internal stakeholders, often five to ten people in a large organization, whose alignment must be achieved before a commercial decision is made. The process is sometimes described as ringi: a formal or informal circulation of the decision for internal endorsement. No single person can typically authorize a significant vendor selection unilaterally.</p>
-        <p>This means that vendor evaluation is not a linear progression from champion to decision-maker. It is a distributed process where different stakeholders apply different evaluation criteria: IT evaluates security and integration; finance evaluates total cost and contract terms; the business unit evaluates functional fit; procurement evaluates vendor risk. Messaging and sales engagement that addresses only the champion's priorities will stall when it reaches other stakeholders in the consensus process.</p>
-      </div>
-
-      <div class="article-subsection">
-        <h3>Long-term Support</h3>
-        <p>Japan enterprise buyers evaluate post-implementation support expectations with unusual specificity. This reflects Japan's operational culture, where implementation is understood as the beginning of a long relationship rather than the end of a sales process. Buyers want to know: who will support us after go-live? What are the escalation paths? What is the response commitment? Is there a Japan-based support team, or will issues be routed through a global support structure that may not understand Japan's operational context?</p>
-        <p>Vendors who address post-implementation support credibly, with documented support structures, Japan-facing team descriptions, and realistic SLA (Service Level Agreement) commitments, differentiate positively at this evaluation stage. Vendors who treat support as a secondary topic that can be addressed after commitment is made often lose deals to competitors who have addressed it explicitly in their messaging and proposals.</p>
-      </div>
-
-      <div class="article-subsection">
-        <h3>Proof &amp; Reassurance</h3>
-        <p>Proof in Japan's evaluation process serves a specific function: it provides the evidence that allows buyers to reduce their internal risk assessment. The proof elements that are most effective are those that address the specific risk questions Japan buyers ask, not the proof elements that are most impressive in other markets.</p>
-        <p>Japan-relevant case studies from companies in similar industries, ideally in Japan, are the most effective proof. Detailed operational evidence such as implementation timelines, onboarding process documentation, and escalation procedures provides reassurance at the risk reduction stage. References from trusted organizations carry weight that global analyst rankings do not. The proof structure should be designed to answer the specific questions that Japan buyers are asking at each stage of the evaluation, not to showcase the vendor's global scale or market position.</p>
-      </div>
-    </section>
-
-    <hr class="article-hr" />
-
-    <!-- SVG diagram -->
-    <section class="article-section">
-      <h2>Japan B2B Buyer Evaluation Model</h2>
-      <p>The diagram below shows the six evaluation dimensions Japan buyers apply when assessing vendors. Effective messaging and funnel design must address all six, as stalling at any one of them interrupts the evaluation process.</p>
-      <div class="article-diagram">
-        <img
-          src="/images/insights/en/japan-b2b-buyer-evaluation-model.svg"
-          alt="Japan B2B Buyer Evaluation Model: center circle labeled Japan B2B Buyer with six spokes connecting to Trust Formation, Risk Reduction, Vendor Credibility, Proof and Reassurance, Internal Consensus, and Long-term Support."
-          width="760"
-          height="360"
-          loading="lazy"
-        />
-      </div>
-    </section>
-
-    <hr class="article-hr" />
-
-    <!-- Implications for messaging and funnel design -->
-    <section class="article-section">
-      <h2>Implications for messaging and funnel design</h2>
-      <p>Each evaluation criterion maps directly to a specific design decision in messaging and funnel architecture. Understanding the mapping is what allows GTM design to address Japan buyer evaluation systematically rather than trying to optimize individual elements in isolation.</p>
-
-      <div class="article-subsection">
-        <h3>Trust formation maps to early content and first contact design</h3>
-        <p>The materials that a buyer encounters before they are willing to engage should be designed to form trust, not convert interest. This means early content that signals Japan expertise, operational credibility, and genuine market commitment, not content that leads with product features or outcome claims.</p>
-      </div>
-
-      <div class="article-subsection">
-        <h3>Risk reduction maps to proof structure</h3>
-        <p>The proof elements embedded in messaging, landing pages, proposals, and sales conversations should be designed to reduce Japan buyer internal risk, not to demonstrate global market leadership. Japan case studies, operational documentation, and support structure evidence serve this function; global logos and analyst rankings do not.</p>
-      </div>
-
-      <div class="article-subsection">
-        <h3>Internal consensus maps to multi-stakeholder nurture</h3>
-        <p>Funnel design should account for the reality that multiple stakeholders will evaluate the vendor at different points in the process. Content, proposals, and sales engagement should address the evaluation criteria of each stakeholder type (IT, finance, business unit, procurement), not just the champion's priorities.</p>
-      </div>
-
-      <div class="article-subsection">
-        <h3>Long-term support maps to proposal and pre-close messaging</h3>
-        <p>Support structure information should appear in the evaluation materials that buyers review before making a commitment decision, not as an afterthought in implementation planning. Vendors who address long-term support credibly during the evaluation phase close faster because they remove a late-stage uncertainty that otherwise delays decision-making.</p>
-      </div>
-    </section>
-
-    <hr class="article-hr" />
-
-    <!-- How Consilegy helps -->
-    <section class="article-section">
-      <h2>How Consilegy helps</h2>
-      <p>Consilegy works with global B2B companies to design messaging and conversion paths that address Japan's six buyer evaluation criteria, from trust formation through proof structure to multi-stakeholder consensus design.</p>
-
-      <div class="article-subsection">
-        <h3>Japan messaging and proof structure</h3>
-        <p>Building the argument architecture, proof elements, and conversion path design that reflects how Japan buyers actually evaluate vendors. Covered under <strong><a href="/en/services/japan-market-gtm-messaging/">Japan Market GTM &amp; Messaging</a></strong>.</p>
-      </div>
-
-      <p>The starting point for most engagements is a review of the current messaging and conversion path against Japan's evaluation criteria, identifying where the evaluation process is stalling and what changes would address the specific gaps.</p>
     </section>
 
   </article>
 
-  <!-- ===== RELATED ===== -->
   <aside class="article-related container">
     <p class="article-related__label">Related</p>
     <div class="article-related__grid">
       <a href="/en/insights/why-global-b2b-messaging-often-fails-in-japan/" class="article-related__card">
-        <p class="article-related__card-cat">Insights</p>
+        <p class="article-related__card-cat">Japan GTM</p>
         <p class="article-related__card-title">Why Global B2B Messaging Often Fails in Japan</p>
         <span class="article-related__card-arrow">→</span>
       </a>
+      <a href="/en/insights/how-to-adapt-a-global-b2b-landing-page-for-japan/" class="article-related__card">
+        <p class="article-related__card-cat">Japan GTM</p>
+        <p class="article-related__card-title">How to Adapt a Global B2B Landing Page for Japan</p>
+        <span class="article-related__card-arrow">→</span>
+      </a>
       <a href="/en/insights/why-japan-gtm-is-not-just-localization/" class="article-related__card">
-        <p class="article-related__card-cat">Insights</p>
+        <p class="article-related__card-cat">Japan GTM</p>
         <p class="article-related__card-title">Why Japan GTM Is Not Just Localization</p>
         <span class="article-related__card-arrow">→</span>
       </a>
@@ -200,20 +196,14 @@ const breadcrumbSchema = {
         <p class="article-related__card-title">Japan Market GTM &amp; Messaging</p>
         <span class="article-related__card-arrow">→</span>
       </a>
-      <a href="/en/services/revenue-architecture-design/" class="article-related__card">
-        <p class="article-related__card-cat">Service</p>
-        <p class="article-related__card-title">Revenue Architecture Design</p>
-        <span class="article-related__card-arrow">→</span>
-      </a>
     </div>
   </aside>
 
-  <!-- ===== CTA ===== -->
   <section class="article-cta">
     <div class="container">
       <div class="article-cta__body">
-        <h2>Japan messaging not resonating?</h2>
-        <p>Tell us what you are running today. We will assess where the evaluation process is breaking and what messaging structure would work better.</p>
+        <h2>Japan pipeline stalling without a clear reason?</h2>
+        <p>Tell us what you're running today. We'll identify where in the evaluation sequence the funnel is breaking and what changes would address it.</p>
         <div class="article-cta__actions">
           <a href="/en/contact/" class="article-cta__btn article-cta__btn--primary">Contact Us</a>
           <a href="/en/services/" class="article-cta__btn article-cta__btn--ghost">View All Services →</a>
@@ -225,11 +215,9 @@ const breadcrumbSchema = {
 </div>
 
 <style>
-/* ── Wrap / Container ─────────────────────── */
 .article-wrap { background: #fff; }
 .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
 
-/* ── Header ──────────────────────────────── */
 .article-head {
   padding-top: 48px;
   padding-bottom: 40px;
@@ -272,18 +260,12 @@ const breadcrumbSchema = {
   margin: 0;
 }
 
-/* ── Body ────────────────────────────────── */
 .article-body { padding-top: 48px; padding-bottom: 64px; }
 .article-section { margin-bottom: 0; }
 .article-section h2 {
   font-size: 1.3125rem; font-weight: 600;
   color: var(--color-navy, #0f172a);
   margin: 0 0 16px; line-height: 1.35;
-}
-.article-section h3 {
-  font-size: 1rem; font-weight: 600;
-  color: var(--color-navy, #0f172a);
-  margin: 24px 0 10px;
 }
 .article-section p {
   font-size: 1rem; line-height: 1.85;
@@ -295,7 +277,6 @@ const breadcrumbSchema = {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
-.article-subsection { margin-bottom: 8px; }
 
 .article-callout {
   background: #eff6ff;
@@ -315,17 +296,6 @@ const breadcrumbSchema = {
   margin: 48px 0;
 }
 
-/* ── Diagram ─────────────────────────────── */
-.article-diagram {
-  margin: 24px 0;
-  border: 1px solid var(--color-border, #e2e8f0);
-  border-radius: 10px;
-  overflow: hidden;
-  background: #fff;
-}
-.article-diagram img { display: block; width: 100%; height: auto; }
-
-/* ── Checklist ───────────────────────────── */
 .article-checklist {
   display: flex; flex-direction: column; gap: 0;
   margin: 24px 0;
@@ -360,7 +330,6 @@ const breadcrumbSchema = {
   padding-left: 1.5rem;
 }
 
-/* ── Numbered breakdown ──────────────────── */
 .article-breakdown {
   display: flex; flex-direction: column; gap: 0;
   margin: 24px 0;
@@ -383,10 +352,10 @@ const breadcrumbSchema = {
 }
 .article-breakdown__body p {
   font-size: 0.9375rem; line-height: 1.75;
-  color: var(--color-text-muted, #64748b); margin: 0;
+  color: var(--color-text-muted, #64748b); margin: 0 0 10px;
 }
+.article-breakdown__body p:last-child { margin-bottom: 0; }
 
-/* ── Related ─────────────────────────────── */
 .article-related {
   padding: 48px 0;
   border-top: 1px solid var(--color-border, #e2e8f0);
@@ -423,7 +392,6 @@ const breadcrumbSchema = {
   font-size: 0.875rem; color: var(--color-primary, #1e40af); font-weight: 600;
 }
 
-/* ── CTA ─────────────────────────────────── */
 .article-cta {
   background: #f8fafc;
   border-top: 1px solid var(--color-border, #e2e8f0);
@@ -460,7 +428,6 @@ const breadcrumbSchema = {
 }
 .article-cta__btn--ghost:hover { background: rgba(30,64,175,0.06); }
 
-/* ── Responsive ──────────────────────────── */
 @media (max-width: 600px) {
   .article-head { padding-top: 32px; }
   .article-related__grid { grid-template-columns: 1fr; }

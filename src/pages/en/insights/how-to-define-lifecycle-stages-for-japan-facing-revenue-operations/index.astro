@@ -2,13 +2,13 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
-const readTime = 'About 6 min';
+const readTime = 'About 8 min';
 
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: 'How to Define Lifecycle Stages for Japan-Facing Revenue Operations',
-  description: 'Defining lifecycle stages for Japan-facing revenue operations requires adapting global stage definitions to Japan\'s longer evaluation cycles, multi-stakeholder approval patterns, and relationship-first buying context.',
+  description: 'An IT back-office SaaS company (approx. 200 employees) had growing lead volume but no shared criteria for when a lead was ready for sales. After defining lifecycle stages and SQL criteria specific to Japan\'s buying context, MQL-to-SQL conversion increased by up to 20%. The stage definitions — not the tool configuration — were the missing piece.',
   datePublished: pubDate,
   dateModified: pubDate,
   author: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
@@ -30,7 +30,7 @@ const breadcrumbSchema = {
 
 <BaseLayout
   title="How to Define Lifecycle Stages for Japan-Facing Revenue Operations | Consilegy"
-  description="Defining lifecycle stages for Japan-facing revenue operations requires adapting global stage definitions to Japan's longer evaluation cycles, multi-stakeholder approval patterns, and relationship-first buying context."
+  description="An IT back-office SaaS company (approx. 200 employees) had growing lead volume but no shared criteria for when a lead was ready for sales. After defining lifecycle stages and SQL criteria specific to Japan's buying context, MQL-to-SQL conversion increased by up to 20%."
   lang="en"
   alternateUrl="/insights/"
 >
@@ -41,7 +41,6 @@ const breadcrumbSchema = {
 
 <div class="article-wrap">
 
-  <!-- ===== ARTICLE HEADER ===== -->
   <header class="article-head container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="/en/">Home</a>
@@ -56,70 +55,76 @@ const breadcrumbSchema = {
       <span class="article-read">{readTime}</span>
     </div>
     <h1>How to Define Lifecycle Stages for Japan-Facing Revenue Operations</h1>
-    <p class="article-desc">Defining lifecycle stages for Japan-facing revenue operations requires adapting global stage definitions to Japan's longer evaluation cycles, multi-stakeholder approval patterns, and relationship-first buying context.</p>
+    <p class="article-desc">An IT back-office SaaS company (approx. 200 employees) had steadily growing lead volume, but sales raised concerns about quality while marketing had no visibility into why leads weren't converting. There was no shared definition of when a lead was ready for handoff. After defining lifecycle stages and qualification criteria specific to Japan's buying context over a 4-month engagement, MQL-to-SQL conversion increased by up to 20%. The stage definitions — not the tool configuration — were the missing piece.</p>
   </header>
 
-  <!-- ===== ARTICLE BODY ===== -->
   <article class="article-body container" id="article">
 
     <section class="article-section">
-      <p>Lifecycle stages are the foundation of revenue operations, but most global teams deploy them without defining what each stage actually means in Japan's buying context.</p>
+      <p>Lifecycle stages are the foundation of revenue operations, but most global teams deploy them without defining what each stage actually means in Japan's buying context. They inherit global defaults — Subscriber, Lead, MQL, SQL, Opportunity, Customer — configure them in the CRM, and assume the definitions travel.</p>
+      <p>They don't. Japan's longer evaluation cycles, multi-stakeholder approval patterns, and relationship-first buying context change what each stage should require. When stages are undefined or globally inherited, CRM data becomes unreliable, pipeline reporting becomes guesswork, and handoffs between marketing and sales become a recurring source of friction.</p>
     </section>
 
     <hr class="article-hr" />
 
     <section class="article-section">
-      <h2>Why lifecycle stage definitions matter</h2>
-      <p>Undefined stages mean CRM data is unreliable, pipeline reporting is inaccurate, and handoffs between teams become ambiguous. For Japan, where sales cycles are longer and multi-stakeholder, ambiguity has larger downstream effects.</p>
-      <p>When a stage means different things to different people on the team, pipeline forecasts become guesswork. The stage name appears consistent but the underlying reality varies contact by contact. In Japan, where trust takes longer to build and deal progression moves in smaller steps, this inconsistency compresses into longer sales cycles and more pipeline stalls.</p>
+      <h2>Five signs lifecycle stages aren't defined for Japan</h2>
+
+      <div class="article-checklist">
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Do marketing and sales use the same definition of "MQL" — and is it written down?</p>
+          <p class="article-checklist__detail">If the definition lives in someone's head rather than a shared document, it will drift. In Japan's longer sales cycles, misaligned MQL definitions compound into months of wasted sales time on leads that were never actually qualified.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Does your SQL definition require confirmation of a decision-maker and an active internal process — not just company fit?</p>
+          <p class="article-checklist__detail">Japan's multi-stakeholder buying process means SQL requires more confirmation than in faster-moving markets. Company fit alone is not sufficient. Someone needs to be actively driving the evaluation internally.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Are MQL thresholds calibrated for Japan's slower digital engagement pace?</p>
+          <p class="article-checklist__detail">A content download plus a pricing page visit might signal strong intent in a US market. Japan buyers consume content more slowly and signal intent differently. Global thresholds will either under-qualify (too few Japan MQLs) or over-qualify (too much noise sent to sales).</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Is the "first sales meeting scheduled" tracked as a distinct lifecycle milestone?</p>
+          <p class="article-checklist__detail">In Japan, reaching a first meeting is a significant milestone — it can represent weeks of trust-building. Treating it as invisible inside the Opportunity stage hides an important leading indicator and understates the effort required to get there.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">When a deal stalls at Opportunity, can you tell whether it's progressing internally at the buyer's organization?</p>
+          <p class="article-checklist__detail">Japan enterprise deals often stall in Opportunity during the internal approval process (ringi). That is not the same as a deal going cold. Lifecycle stage definitions that can't distinguish these two states produce inaccurate pipeline forecasts.</p>
+        </div>
+      </div>
     </section>
 
     <hr class="article-hr" />
 
     <section class="article-section">
-      <h2>The six stages and what they mean for Japan</h2>
+      <h2>Three stage definition problems that break Japan pipeline</h2>
 
       <div class="article-breakdown">
         <div class="article-breakdown__item">
           <div class="article-breakdown__num">01</div>
           <div class="article-breakdown__body">
-            <strong>Subscriber</strong>
-            <p>Any contact in the database, with no intent signal yet. This stage is a holding category. It requires no action from sales and should not generate follow-up until an engagement signal appears.</p>
+            <strong>MQL definitions inherit global engagement thresholds that don't fit Japan</strong>
+            <p>Global MQL definitions are typically built around digital engagement signals: content downloads, page visits, email clicks, webinar attendance. Those signals reflect a market where buyers actively self-educate, engage frequently with vendor content, and signal intent digitally. Japan enterprise buyers engage more selectively. Meaningful engagement in Japan often looks like a single high-intent action — a whitepaper download on a specific operational topic, a direct inquiry — rather than multi-touch digital activity.</p>
+            <p>A global MQL threshold applied to Japan will either produce very few MQLs (because the digital activity threshold is too high for Japan's engagement pace) or too many (because the threshold was lowered to compensate, without addressing the underlying definition problem). Both outcomes break the marketing-to-sales handoff for different reasons.</p>
+            <p><strong>Judgment criterion:</strong> Is your Japan MQL definition written for Japan's actual engagement patterns — specifying what meaningful engagement looks like in Japan's context — or is it a copy of the global MQL threshold?</p>
           </div>
         </div>
         <div class="article-breakdown__item">
           <div class="article-breakdown__num">02</div>
           <div class="article-breakdown__body">
-            <strong>MQL (Marketing Qualified Lead)</strong>
-            <p>Engaged with content and fits ICP criteria. In Japan, this threshold is often higher because engagement is slower. A single page view or email open does not constitute MQL in a Japan context. Meaningful engagement and ICP fit must both be confirmed.</p>
+            <strong>SQL criteria don't require the confirmation Japan's buying process demands</strong>
+            <p>SQL in most global revenue systems means "confirmed fit via qualification." In Japan's enterprise context, that confirmation requires more than company fit and stated interest. Japan SQLs require: confirmation that a decision-maker is identified and engaged, evidence that there is an active internal process rather than exploratory interest, and some signal of internal readiness — whether a budget cycle is underway, whether internal approval has been initiated.</p>
+            <p>Teams that apply global SQL criteria to Japan hand off leads that are technically qualified but not actually ready for sales. Sales complains about lead quality. Marketing doesn't understand why leads that met the criteria aren't converting. The real problem is that the criteria never accounted for how Japan buying processes work.</p>
+            <p><strong>Judgment criterion:</strong> Does your Japan SQL definition explicitly require a confirmed decision-maker and evidence of an active internal evaluation process — or does it rely on company fit and engagement score alone?</p>
           </div>
         </div>
         <div class="article-breakdown__item">
           <div class="article-breakdown__num">03</div>
           <div class="article-breakdown__body">
-            <strong>SQL (Sales Qualified Lead)</strong>
-            <p>Confirmed fit via qualification. Japan SQLs often require more confirmation than US counterparts before handoff. The qualification conversation needs to establish not just company fit but internal readiness: whether there is a defined need, whether there is a process underway, and who is involved in the decision.</p>
-          </div>
-        </div>
-        <div class="article-breakdown__item">
-          <div class="article-breakdown__num">04</div>
-          <div class="article-breakdown__body">
-            <strong>Meeting Booked</strong>
-            <p>First sales conversation scheduled, a major milestone in Japan given the time it takes to establish contact. Reaching this stage typically represents weeks of engagement. It deserves to be tracked explicitly and treated as a meaningful leading indicator.</p>
-          </div>
-        </div>
-        <div class="article-breakdown__item">
-          <div class="article-breakdown__num">05</div>
-          <div class="article-breakdown__body">
-            <strong>Opportunity</strong>
-            <p>Active deal with clear stakeholder and budget. Japan opportunities can sit here longer due to internal approval cycles. The ringi process, bottom-up internal approval, means deals can stall at this stage for extended periods while still being actively pursued internally by the buyer.</p>
-          </div>
-        </div>
-        <div class="article-breakdown__item">
-          <div class="article-breakdown__num">06</div>
-          <div class="article-breakdown__body">
-            <strong>Customer</strong>
-            <p>Closed and contracted. In Japan, even this stage requires care: the relationship after contract matters for renewal, expansion, and referral, which are often the primary growth drivers in Japan B2B markets.</p>
+            <strong>Opportunity stage doesn't account for Japan's internal approval cycle</strong>
+            <p>Japan enterprise deals regularly stall in Opportunity during the internal approval process. This is not deal death — it is a normal part of Japan's procurement cycle. A deal can sit in Opportunity for two to three months while the buyer is actively building internal consensus and preparing for approval. During this time, there is often little visible activity from the vendor's perspective.</p>
+            <p>Pipeline systems that don't account for this dynamic will consistently flag Japan Opportunity deals as at-risk based on activity timeframes designed for faster markets. Sales will apply unnecessary pressure at exactly the wrong moment, potentially damaging a relationship that was progressing on the buyer's timeline. Or worse, management will pull resources from deals that were still live.</p>
+            <p><strong>Judgment criterion:</strong> Does your Opportunity stage have Japan-specific activity expectations — separate from global deal velocity benchmarks — that account for the internal approval cycle buyers go through?</p>
           </div>
         </div>
       </div>
@@ -128,48 +133,53 @@ const breadcrumbSchema = {
     <hr class="article-hr" />
 
     <section class="article-section">
-      <h2>Japan-specific considerations for each stage</h2>
-      <p>Japan buyers often engage late and decide slowly. MQL-to-SQL conversion in Japan can take 2–4× longer than global benchmarks. Meeting Booked is a meaningful leading indicator. Opportunity-to-close often involves multiple internal approvals invisible to the seller.</p>
-      <p>These patterns are not deviations from normal. They are Japan's normal. Stage definitions that do not account for them will produce CRM data that consistently misrepresents where deals actually are in the buying process.</p>
-    </section>
-
-    <hr class="article-hr" />
-
-    <section class="article-section">
-      <h2>How to implement in CRM</h2>
-      <p>Define entry and exit criteria for each stage. Document them in writing. Configure your CRM so stages can only advance when criteria are met. Build a report that shows average time-in-stage for Japan contacts vs global.</p>
-      <p>The time-in-stage report is particularly useful: it shows where Japan deals slow down relative to global benchmarks and creates a factual basis for conversations about pipeline health and resource allocation.</p>
+      <h2>What defined stages changed</h2>
+      <p>An IT back-office SaaS company had growing lead volume but no quantitative model for prioritizing leads by conversion likelihood. SQL conversion rates fluctuated, making forecasting unreliable. There was no shared, documented definition of what each lifecycle stage required — the standards existed informally and varied person by person.</p>
+      <p>Over a 4-month engagement, lifecycle stage transitions were defined with explicit criteria and ownership rules agreed across marketing and sales. Stage-specific nurturing scenarios were aligned to buyer journey and intent level. SQL criteria were documented specifically for Japan's buying context — requiring confirmation of a decision-maker and an active internal process, not just company fit.</p>
 
       <div class="article-callout">
-        <p><strong>A lifecycle stage without an exit criterion is just a label. Define what must be true for a contact to move forward, not what you hope is true.</strong></p>
+        <p><strong>MQL-to-SQL conversion increased by up to 20%. Sales time on low-quality leads decreased. Marketing gained pipeline visibility that gave them a line-of-sight to revenue outcomes, not just MQL counts.</strong></p>
       </div>
     </section>
 
     <hr class="article-hr" />
 
     <section class="article-section">
-      <h2>The diagram</h2>
-      <p>The diagram below shows the six lifecycle stages and what each represents in a Japan-facing revenue context.</p>
-      <div class="article-diagram">
-        <img
-          src="/images/insights/en/lifecycle-stages-japan-revenue-ops.svg"
-          alt="Six lifecycle stages for Japan revenue operations: Subscriber, MQL, SQL, Meeting Booked, Opportunity, Customer, with Japan-specific notes for each stage"
-          width="760"
-          height="220"
-          loading="lazy"
-        />
+      <h2>Three places to start</h2>
+
+      <div class="article-breakdown">
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">01</div>
+          <div class="article-breakdown__body">
+            <strong>Write down the current MQL and SQL definitions — and check whether marketing and sales agree</strong>
+            <p>The most common finding when this exercise is done is that marketing and sales have different mental models for what each stage means. Making the definitions explicit surfaces the disagreement. Resolving it is what makes the handoff work.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">02</div>
+          <div class="article-breakdown__body">
+            <strong>Add Japan-specific confirmation criteria to your SQL definition</strong>
+            <p>At minimum, Japan SQL should require: a confirmed decision-maker is identified and has been engaged, and there is evidence of an active internal evaluation process. These criteria filter out Japan contacts that fit the ICP but have no internal momentum — which is the most common source of low-quality leads in Japan pipeline.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">03</div>
+          <div class="article-breakdown__body">
+            <strong>Add Japan-specific Opportunity activity expectations that differ from global benchmarks</strong>
+            <p>Document what normal Opportunity progression looks like in Japan's context — including realistic timelines for internal approval cycles. Set Japan-specific deal velocity benchmarks that account for the 2–3 month stalls that are normal, not alarming, in Japan enterprise procurement.</p>
+          </div>
+        </div>
       </div>
     </section>
 
   </article>
 
-  <!-- ===== RELATED ===== -->
   <aside class="article-related container">
     <p class="article-related__label">Related</p>
     <div class="article-related__grid">
-      <a href="/en/insights/why-crm-implementation-fails-without-revenue-architecture/" class="article-related__card">
+      <a href="/en/insights/hubspot-lifecycle-stages-vs-lead-status-for-japan-gtm/" class="article-related__card">
         <p class="article-related__card-cat">Revenue Architecture</p>
-        <p class="article-related__card-title">Why CRM Implementation Fails Without Revenue Architecture</p>
+        <p class="article-related__card-title">HubSpot Lifecycle Stages vs Lead Status for Japan GTM</p>
         <span class="article-related__card-arrow">→</span>
       </a>
       <a href="/en/insights/lead-handoff-rules-for-japan-gtm-teams/" class="article-related__card">
@@ -177,27 +187,27 @@ const breadcrumbSchema = {
         <p class="article-related__card-title">Lead Handoff Rules for Japan GTM Teams</p>
         <span class="article-related__card-arrow">→</span>
       </a>
-      <a href="/en/insights/where-japan-gtm-breaks-after-lead-generation/" class="article-related__card">
-        <p class="article-related__card-cat">Japan GTM</p>
-        <p class="article-related__card-title">Where Japan GTM Breaks After Lead Generation</p>
+      <a href="/en/insights/hubspot-implementation-for-japan-gtm-what-to-configure-first/" class="article-related__card">
+        <p class="article-related__card-cat">Revenue Architecture</p>
+        <p class="article-related__card-title">HubSpot Implementation for Japan GTM: What to Configure First</p>
         <span class="article-related__card-arrow">→</span>
       </a>
-      <a href="/en/insights/what-revenue-architecture-means-for-japan-gtm/" class="article-related__card">
-        <p class="article-related__card-cat">Revenue Architecture</p>
-        <p class="article-related__card-title">What Revenue Architecture Means for Japan GTM</p>
+      <a href="/en/services/revenue-architecture-design/" class="article-related__card">
+        <p class="article-related__card-cat">Service</p>
+        <p class="article-related__card-title">Revenue Architecture Design</p>
         <span class="article-related__card-arrow">→</span>
       </a>
     </div>
   </aside>
 
-  <!-- ===== CTA ===== -->
   <section class="article-cta">
     <div class="container">
       <div class="article-cta__body">
-        <h2>Ready to design your Japan revenue system?</h2>
-        <p>Consilegy helps global B2B teams design the revenue architecture, CRM structure, and Japan-facing operations their pipeline actually needs. Talk to us about where to start.</p>
+        <h2>Japan leads not converting despite growing volume?</h2>
+        <p>Share your current lifecycle stage definitions. We'll identify where the qualification criteria are breaking down and what Japan-specific adjustments would improve conversion.</p>
         <div class="article-cta__actions">
-          <a href="/en/contact/" class="article-cta__btn article-cta__btn--primary">Talk to us</a>
+          <a href="/en/contact/" class="article-cta__btn article-cta__btn--primary">Contact Us</a>
+          <a href="/en/services/" class="article-cta__btn article-cta__btn--ghost">View All Services →</a>
         </div>
       </div>
     </div>
@@ -206,259 +216,55 @@ const breadcrumbSchema = {
 </div>
 
 <style>
-/* ── Wrap / Container ─────────────────────── */
 .article-wrap { background: #fff; }
 .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
-
-/* ── Header ──────────────────────────────── */
-.article-head {
-  padding-top: 48px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid var(--color-border, #e2e8f0);
-}
-.breadcrumb {
-  font-size: 0.8rem;
-  color: var(--color-text-muted, #64748b);
-  margin-bottom: 20px;
-  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
-}
+.article-head { padding-top: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--color-border, #e2e8f0); }
+.breadcrumb { font-size: 0.8rem; color: var(--color-text-muted, #64748b); margin-bottom: 20px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 .breadcrumb a { color: var(--color-text-muted, #64748b); text-decoration: none; }
 .breadcrumb a:hover { color: var(--color-primary, #1e40af); text-decoration: underline; }
-
-.article-meta {
-  display: flex; align-items: center; gap: 12px;
-  margin-bottom: 20px; flex-wrap: wrap;
-}
-.article-cat {
-  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
-  background: #eff6ff; color: var(--color-primary, #1e40af);
-  padding: 3px 10px; border-radius: 10px;
-}
-.article-date, .article-read {
-  font-size: 0.8rem; color: var(--color-text-muted, #64748b);
-}
-
-.article-head h1 {
-  font-size: clamp(1.6rem, 3.5vw, 2.25rem);
-  font-weight: 600;
-  color: var(--color-navy, #0f172a);
-  line-height: 1.25;
-  letter-spacing: 0.01em;
-  margin: 0 0 16px;
-}
-.article-desc {
-  font-size: 1.0625rem;
-  color: var(--color-text-muted, #64748b);
-  line-height: 1.8;
-  margin: 0;
-}
-
-/* ── Body ────────────────────────────────── */
-.article-body {
-  padding-top: 48px;
-  padding-bottom: 64px;
-}
-.article-section {
-  margin-bottom: 0;
-}
-.article-section h2 {
-  font-size: 1.3125rem;
-  font-weight: 600;
-  color: var(--color-navy, #0f172a);
-  margin: 0 0 16px;
-  line-height: 1.35;
-}
-.article-section h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-navy, #0f172a);
-  margin: 24px 0 10px;
-}
-.article-section p {
-  font-size: 1rem;
-  line-height: 1.85;
-  color: var(--color-text, #1e293b);
-  margin: 0 0 16px;
-}
-.article-section ul {
-  padding-left: 1.5rem;
-  margin: 0 0 16px;
-  display: flex; flex-direction: column; gap: 8px;
-}
-.article-section li {
-  font-size: 1rem;
-  line-height: 1.75;
-  color: var(--color-text, #1e293b);
-}
-.article-section a {
-  color: var(--color-primary, #1e40af);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.article-subsection { margin-bottom: 8px; }
-
-.article-callout {
-  background: #eff6ff;
-  border-left: 4px solid var(--color-primary, #1e40af);
-  border-radius: 0 8px 8px 0;
-  padding: 16px 20px;
-  margin: 24px 0;
-}
-.article-callout p {
-  margin: 0;
-  font-size: 1rem;
-  line-height: 1.75;
-  color: var(--color-navy, #0f172a);
-}
-
-.article-hr {
-  border: none;
-  border-top: 1px solid var(--color-border, #e2e8f0);
-  margin: 48px 0;
-}
-
-/* ── Diagram ─────────────────────────────── */
-.article-diagram {
-  margin: 24px 0;
-  border: 1px solid var(--color-border, #e2e8f0);
-  border-radius: 10px;
-  overflow: hidden;
-  background: #fff;
-}
-.article-diagram img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-/* ── Numbered breakdown ──────────────────── */
-.article-breakdown {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  margin: 24px 0;
-  border-top: 1px solid var(--color-border, #e2e8f0);
-}
-.article-breakdown__item {
-  display: flex;
-  gap: 20px;
-  padding: 20px 0;
-  border-bottom: 1px solid var(--color-border, #e2e8f0);
-  align-items: flex-start;
-}
-.article-breakdown__num {
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: var(--color-primary, #1e40af);
-  opacity: 0.3;
-  flex-shrink: 0;
-  line-height: 1.5;
-  min-width: 2.5rem;
-}
-.article-breakdown__body strong {
-  display: block;
-  font-size: 0.9375rem;
-  font-weight: 700;
-  color: var(--color-navy, #0f172a);
-  margin-bottom: 6px;
-}
-.article-breakdown__body p {
-  font-size: 0.9375rem;
-  line-height: 1.75;
-  color: var(--color-text-muted, #64748b);
-  margin: 0;
-}
-
-/* ── Related ─────────────────────────────── */
-.article-related {
-  padding: 48px 0;
-  border-top: 1px solid var(--color-border, #e2e8f0);
-}
-.article-related__label {
-  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--color-primary, #1e40af);
-  margin: 0 0 20px;
-}
-.article-related__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
-.article-related__card {
-  background: #f8fafc;
-  border: 1px solid var(--color-border, #e2e8f0);
-  border-radius: 8px;
-  padding: 16px 18px;
-  text-decoration: none;
-  display: flex; flex-direction: column; gap: 6px;
-  transition: border-color 0.15s, box-shadow 0.15s;
-}
-.article-related__card:hover {
-  border-color: var(--color-primary, #1e40af);
-  box-shadow: 0 2px 12px rgba(30,64,175,0.07);
-}
-.article-related__card-cat {
-  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em;
-  text-transform: uppercase; color: var(--color-primary, #1e40af); margin: 0;
-}
-.article-related__card-title {
-  font-size: 0.875rem; font-weight: 600;
-  color: var(--color-navy, #0f172a); line-height: 1.45; margin: 0; flex: 1;
-}
-.article-related__card-arrow {
-  font-size: 0.875rem; color: var(--color-primary, #1e40af); font-weight: 600;
-}
-
-/* ── CTA ─────────────────────────────────── */
-.article-cta {
-  background: #f8fafc;
-  border-top: 1px solid var(--color-border, #e2e8f0);
-  padding: 64px 0;
-}
-.article-cta__body {
-  text-align: center;
-  max-width: 560px;
-  margin: 0 auto;
-}
-.article-cta__body h2 {
-  font-size: clamp(1.25rem, 3vw, 1.625rem);
-  font-weight: 600;
-  color: var(--color-navy, #0f172a);
-  margin: 0 0 12px;
-}
-.article-cta__body p {
-  font-size: 0.9375rem;
-  line-height: 1.8;
-  color: var(--color-text-muted, #64748b);
-  margin: 0 0 28px;
-}
-.article-cta__actions {
-  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
-}
-.article-cta__btn {
-  display: inline-flex; align-items: center;
-  padding: 0.75em 1.75em;
-  border-radius: 8px; font-size: 0.9375rem; font-weight: 700;
-  text-decoration: none; transition: background 0.15s, color 0.15s;
-}
-.article-cta__btn--primary {
-  background: var(--color-primary, #1e40af); color: #fff;
-  border: 2px solid var(--color-primary, #1e40af);
-}
+.article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+.article-cat { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: #eff6ff; color: var(--color-primary, #1e40af); padding: 3px 10px; border-radius: 10px; }
+.article-date, .article-read { font-size: 0.8rem; color: var(--color-text-muted, #64748b); }
+.article-head h1 { font-size: clamp(1.6rem, 3.5vw, 2.25rem); font-weight: 600; color: var(--color-navy, #0f172a); line-height: 1.25; letter-spacing: 0.01em; margin: 0 0 16px; }
+.article-desc { font-size: 1.0625rem; color: var(--color-text-muted, #64748b); line-height: 1.8; margin: 0; }
+.article-body { padding-top: 48px; padding-bottom: 64px; }
+.article-section { margin-bottom: 0; }
+.article-section h2 { font-size: 1.3125rem; font-weight: 600; color: var(--color-navy, #0f172a); margin: 0 0 16px; line-height: 1.35; }
+.article-section p { font-size: 1rem; line-height: 1.85; color: var(--color-text, #1e293b); margin: 0 0 16px; }
+.article-section a { color: var(--color-primary, #1e40af); text-decoration: underline; text-underline-offset: 2px; }
+.article-callout { background: #eff6ff; border-left: 4px solid var(--color-primary, #1e40af); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 24px 0; }
+.article-callout p { margin: 0; font-size: 1rem; line-height: 1.75; color: var(--color-navy, #0f172a); }
+.article-hr { border: none; border-top: 1px solid var(--color-border, #e2e8f0); margin: 48px 0; }
+.article-checklist { display: flex; flex-direction: column; gap: 0; margin: 24px 0; border-top: 1px solid var(--color-border, #e2e8f0); }
+.article-checklist__item { padding: 20px 0; border-bottom: 1px solid var(--color-border, #e2e8f0); }
+.article-checklist__q { font-size: 0.9375rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 8px; padding-left: 1.5rem; position: relative; }
+.article-checklist__q::before { content: '?'; position: absolute; left: 0; font-size: 0.875rem; font-weight: 800; color: var(--color-primary, #1e40af); opacity: 0.4; }
+.article-checklist__detail { font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted, #64748b); margin: 0; padding-left: 1.5rem; }
+.article-breakdown { display: flex; flex-direction: column; gap: 0; margin: 24px 0; border-top: 1px solid var(--color-border, #e2e8f0); }
+.article-breakdown__item { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--color-border, #e2e8f0); align-items: flex-start; }
+.article-breakdown__num { font-size: 1.25rem; font-weight: 800; color: var(--color-primary, #1e40af); opacity: 0.3; flex-shrink: 0; line-height: 1.5; min-width: 2.5rem; }
+.article-breakdown__body strong { display: block; font-size: 0.9375rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 6px; }
+.article-breakdown__body p { font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted, #64748b); margin: 0 0 10px; }
+.article-breakdown__body p:last-child { margin-bottom: 0; }
+.article-related { padding: 48px 0; border-top: 1px solid var(--color-border, #e2e8f0); }
+.article-related__label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-primary, #1e40af); margin: 0 0 20px; }
+.article-related__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.article-related__card { background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 16px 18px; text-decoration: none; display: flex; flex-direction: column; gap: 6px; transition: border-color 0.15s, box-shadow 0.15s; }
+.article-related__card:hover { border-color: var(--color-primary, #1e40af); box-shadow: 0 2px 12px rgba(30,64,175,0.07); }
+.article-related__card-cat { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-primary, #1e40af); margin: 0; }
+.article-related__card-title { font-size: 0.875rem; font-weight: 600; color: var(--color-navy, #0f172a); line-height: 1.45; margin: 0; flex: 1; }
+.article-related__card-arrow { font-size: 0.875rem; color: var(--color-primary, #1e40af); font-weight: 600; }
+.article-cta { background: #f8fafc; border-top: 1px solid var(--color-border, #e2e8f0); padding: 64px 0; }
+.article-cta__body { text-align: center; max-width: 560px; margin: 0 auto; }
+.article-cta__body h2 { font-size: clamp(1.25rem, 3vw, 1.625rem); font-weight: 600; color: var(--color-navy, #0f172a); margin: 0 0 12px; }
+.article-cta__body p { font-size: 0.9375rem; line-height: 1.8; color: var(--color-text-muted, #64748b); margin: 0 0 28px; }
+.article-cta__actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.article-cta__btn { display: inline-flex; align-items: center; padding: 0.75em 1.75em; border-radius: 8px; font-size: 0.9375rem; font-weight: 700; text-decoration: none; transition: background 0.15s, color 0.15s; }
+.article-cta__btn--primary { background: var(--color-primary, #1e40af); color: #fff; border: 2px solid var(--color-primary, #1e40af); }
 .article-cta__btn--primary:hover { background: #1e3a8a; border-color: #1e3a8a; }
-.article-cta__btn--ghost {
-  background: transparent; color: var(--color-primary, #1e40af);
-  border: 2px solid var(--color-primary, #1e40af);
-}
+.article-cta__btn--ghost { background: transparent; color: var(--color-primary, #1e40af); border: 2px solid var(--color-primary, #1e40af); }
 .article-cta__btn--ghost:hover { background: rgba(30,64,175,0.06); }
-
-/* ── Responsive ──────────────────────────── */
-@media (max-width: 600px) {
-  .article-head { padding-top: 32px; }
-  .article-related__grid { grid-template-columns: 1fr; }
-  .article-breakdown__num { font-size: 1rem; min-width: 2rem; }
-}
+@media (max-width: 600px) { .article-head { padding-top: 32px; } .article-related__grid { grid-template-columns: 1fr; } .article-checklist__q, .article-checklist__detail { padding-left: 1.25rem; } }
 </style>
 
 </BaseLayout>

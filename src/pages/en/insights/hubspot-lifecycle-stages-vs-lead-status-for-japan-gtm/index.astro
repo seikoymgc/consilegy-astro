@@ -2,13 +2,13 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
-const readTime = 'About 5 min';
+const readTime = 'About 7 min';
 
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: 'HubSpot Lifecycle Stages vs Lead Status for Japan GTM',
-  description: 'HubSpot uses two systems to track leads: lifecycle stages and lead status. Understanding how both work, and configuring each for Japan\'s buying cycle, is essential for accurate Japan GTM reporting.',
+  description: 'An IT back-office SaaS company (approx. 200 employees) had inconsistent pipeline reporting because lifecycle stage and lead status were being used interchangeably. After separating the two systems and configuring each for Japan\'s buying context, MQL-to-SQL conversion increased by up to 20% and forecasting became reliable.',
   datePublished: pubDate,
   dateModified: pubDate,
   author: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
@@ -30,7 +30,7 @@ const breadcrumbSchema = {
 
 <BaseLayout
   title="HubSpot Lifecycle Stages vs Lead Status for Japan GTM | Consilegy"
-  description="HubSpot uses two systems to track leads: lifecycle stages and lead status. Understanding how both work, and configuring each for Japan's buying cycle, is essential for accurate Japan GTM reporting."
+  description="An IT back-office SaaS company (approx. 200 employees) had inconsistent pipeline reporting because lifecycle stage and lead status were being used interchangeably. After separating the two systems and configuring each for Japan's buying context, MQL-to-SQL conversion increased by up to 20%."
   lang="en"
   alternateUrl="/insights/"
 >
@@ -41,7 +41,6 @@ const breadcrumbSchema = {
 
 <div class="article-wrap">
 
-  <!-- ===== ARTICLE HEADER ===== -->
   <header class="article-head container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="/en/">Home</a>
@@ -51,74 +50,81 @@ const breadcrumbSchema = {
       <span aria-current="page">HubSpot Lifecycle Stages vs Lead Status for Japan GTM</span>
     </nav>
     <div class="article-meta">
-      <span class="article-cat">HubSpot &amp; CRM</span>
+      <span class="article-cat">Revenue Architecture</span>
       <span class="article-date">{pubDate}</span>
       <span class="article-read">{readTime}</span>
     </div>
     <h1>HubSpot Lifecycle Stages vs Lead Status for Japan GTM</h1>
-    <p class="article-desc">HubSpot uses two systems to track leads: lifecycle stages and lead status. Understanding how both work, and configuring each for Japan's buying cycle, is essential for accurate Japan GTM reporting.</p>
+    <p class="article-desc">An IT back-office SaaS company (approx. 200 employees) had growing lead volume but sales couldn't tell which leads were worth pursuing and marketing had no visibility into downstream conversion. Lifecycle stages and lead status were being used interchangeably, producing unreliable pipeline data. After separating the two systems and configuring each for Japan's buying context, MQL-to-SQL conversion increased by up to 20% and sales time on low-quality leads decreased significantly.</p>
   </header>
 
-  <!-- ===== ARTICLE BODY ===== -->
   <article class="article-body container" id="article">
 
     <section class="article-section">
-      <p>HubSpot has two separate systems for tracking where a lead is: lifecycle stage and lead status. Many Japan GTM teams use only one, or use both interchangeably, which produces inaccurate reports and broken workflows.</p>
+      <p>HubSpot has two separate systems for tracking where a contact is: lifecycle stage and lead status. Many Japan GTM teams use only one, or use both interchangeably. The result is pipeline reports that don't accurately reflect where contacts actually are, handoff logic that fires at the wrong moments, and sales activity that isn't tracked in a way that connects back to revenue outcomes.</p>
+      <p>Understanding the distinction between the two systems — and configuring each for Japan's specific buying context — is the foundational step that makes everything else in HubSpot's pipeline reporting work correctly.</p>
     </section>
 
     <hr class="article-hr" />
 
     <section class="article-section">
-      <h2>The difference between lifecycle stage and lead status</h2>
-      <p>Lifecycle stage tracks the buyer's journey position: Subscriber, Lead, MQL, SQL, Opportunity, Customer. Lead status tracks the sales team's activity against a specific contact: New, Attempting, Connected, Open Deal, Unqualified. They answer different questions and should never be used as substitutes for each other.</p>
+      <h2>Five signs your HubSpot setup conflates lifecycle stage and lead status</h2>
+
+      <div class="article-checklist">
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Does your pipeline report use lifecycle stage to track whether sales has followed up?</p>
+          <p class="article-checklist__detail">Lifecycle stage tracks funnel position. Lead status tracks sales activity. Using lifecycle stage for both creates ambiguity: a contact shown as "MQL" might mean "ready for sales" or "sales tried once and got no response" — with no way to distinguish the two.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Does "SQL" in your system mean "sales has contacted this person" rather than "qualified by specific criteria"?</p>
+          <p class="article-checklist__detail">SQL should be a buyer position (confirmed fit, active process), not a sales activity (contacted, reached, attempted). When they're mixed, SQL counts reflect sales effort rather than pipeline quality.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Can you tell which Japan MQLs are genuinely new vs which have already been worked by sales and deemed unqualified?</p>
+          <p class="article-checklist__detail">Without lead status separating "New" from "Attempting" from "Unqualified," MQL volume reports will include contacts that sales has already evaluated and moved on from — inflating the apparent pipeline.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Does your handoff workflow trigger on lifecycle stage change, lead status change, or both?</p>
+          <p class="article-checklist__detail">Handoff automation should trigger on lifecycle stage change (MQL → SQL transition). Lead status changes should trigger follow-up task reminders and escalations. Mixing the triggers creates duplicate notifications or missed handoffs.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">When a Japan deal goes quiet for 6 weeks, can your system distinguish between a stalled opportunity and a contact sales hasn't reached yet?</p>
+          <p class="article-checklist__detail">In Japan, 6 weeks of silence during Opportunity is often normal — internal approval processes move slowly and don't generate vendor-visible activity. Lead status "Attempting" on a contact who is actually in active internal review looks the same as a contact who has never been reached.</p>
+        </div>
+      </div>
     </section>
 
     <hr class="article-hr" />
 
     <section class="article-section">
-      <h2>Why they serve different purposes</h2>
-      <p>Lifecycle stage tells you "where is this contact in the funnel?" Lead status tells you "what has sales done with this contact recently?" For Japan reporting, you need both: lifecycle stages to track pipeline progression, lead status to track follow-up activity and sales-side execution.</p>
-    </section>
-
-    <hr class="article-hr" />
-
-    <section class="article-section">
-      <h2>How to use lifecycle stages for Japan</h2>
+      <h2>Three configuration problems that break Japan pipeline data</h2>
 
       <div class="article-breakdown">
         <div class="article-breakdown__item">
           <div class="article-breakdown__num">01</div>
           <div class="article-breakdown__body">
-            <strong>Subscriber</strong>
-            <p>Any Japan contact in the database, no action required yet. Useful for tracking total Japan audience size and nurture reach.</p>
+            <strong>Lifecycle stages advance based on sales activity rather than buyer position</strong>
+            <p>Lifecycle stage should reflect where the buyer is in the evaluation process — a state that is defined by what the buyer has done and confirmed, not what the sales team has done. When lifecycle stages advance because a sales rep marked a contact as "contacted" or "responded," the stage data reflects sales effort rather than buyer readiness. This makes pipeline reports unreliable: a large MQL count might mean many buyers are genuinely ready, or it might mean many contacts have simply received an email.</p>
+            <p>For Japan specifically, this creates a second-order problem. Japan buyers engage slowly and their engagement signals are often subtle. A contact who opened one email and visited the pricing page once may be a strong Japan MQL by behavioral intent — or may be noise. Without clean lifecycle stage definitions tied to buyer behavior rather than sales activity, these cannot be distinguished.</p>
+            <p><strong>Judgment criterion:</strong> Can you explain the criteria that move a contact from Lead to MQL, and from MQL to SQL, in terms of what the buyer did — not what the sales team did?</p>
           </div>
         </div>
         <div class="article-breakdown__item">
           <div class="article-breakdown__num">02</div>
           <div class="article-breakdown__body">
-            <strong>MQL</strong>
-            <p>Japan contact that fits ICP and has shown meaningful engagement. Requires a Japan-specific threshold that is higher than the global default. Content downloads alone do not qualify in Japan's context.</p>
+            <strong>Lead status values don't reflect Japan's follow-up reality</strong>
+            <p>HubSpot's default lead status values (New, Open, In Progress, Open Deal, Unqualified, Attempted to Contact, Connected, Bad Timing) were designed for markets with shorter follow-up cycles. In Japan, the "Attempting" phase can last weeks without being a sign of a bad lead — Japan enterprise buyers respond to initial outreach more slowly and often need multiple touches spread over a longer timeline before engaging.</p>
+            <p>Teams that use global lead status values for Japan will routinely mark Japan contacts as "Attempted to Contact" and deprioritize them after two or three touches, missing leads that were genuinely interested but moving at Japan's pace. Lead status values for Japan should include explicit states for extended follow-up windows and a clear process for how long to wait before changing status to Unqualified.</p>
+            <p><strong>Judgment criterion:</strong> Does your Japan lead status workflow include an explicit "Extended Follow-Up" or equivalent state that accounts for Japan's slower response timeline — distinguishing cold from slow?</p>
           </div>
         </div>
         <div class="article-breakdown__item">
           <div class="article-breakdown__num">03</div>
           <div class="article-breakdown__body">
-            <strong>SQL</strong>
-            <p>Japan MQL that has been qualified by sales. Requires confirmation of decision-maker and a budget signal. Japan's multi-stakeholder buying process means SQL criteria need explicit documentation.</p>
-          </div>
-        </div>
-        <div class="article-breakdown__item">
-          <div class="article-breakdown__num">04</div>
-          <div class="article-breakdown__body">
-            <strong>Opportunity</strong>
-            <p>Active deal with a Japan company. Stage advancement requires a deal record to be created in HubSpot. This connects lifecycle stage to pipeline reporting.</p>
-          </div>
-        </div>
-        <div class="article-breakdown__item">
-          <div class="article-breakdown__num">05</div>
-          <div class="article-breakdown__body">
-            <strong>Customer</strong>
-            <p>Closed and contracted in Japan. Marking Customer stage correctly enables Japan win rate calculation and cohort analysis over time.</p>
+            <strong>Handoff triggers conflate lifecycle stage change with lead status change</strong>
+            <p>The handoff from marketing to sales should trigger when a contact reaches MQL — a lifecycle stage change that should fire automatically when the defined qualification criteria are met. Sales follow-up reminders and escalations should trigger based on lead status changes: no response after X days in "New," task created when status moves to "Attempting."</p>
+            <p>When these two trigger types are mixed — when a lifecycle stage change creates a follow-up task, or when a lead status change advances the lifecycle stage — the result is either duplicate notifications that sales learns to ignore, or missed handoffs because the trigger was configured on the wrong property. For Japan, where the timing of sales outreach affects relationship quality, getting this wiring right matters.</p>
+            <p><strong>Judgment criterion:</strong> Are your HubSpot enrollment triggers for handoff workflows set on lifecycle stage change, and your follow-up task reminders set on lead status change — as separate, distinct automations?</p>
           </div>
         </div>
       </div>
@@ -127,59 +133,50 @@ const breadcrumbSchema = {
     <hr class="article-hr" />
 
     <section class="article-section">
-      <h2>How to use lead status for Japan follow-up</h2>
-      <p>Set lead status to "Attempting" when sales first contacts a Japan lead. "Connected" when a response is received. Japan response rates are lower than global averages, so this milestone matters and should be tracked. "Open Deal" when an opportunity is created. "Unqualified" with a reason field when rejected, so the rejection reason is captured for future analysis.</p>
-    </section>
+      <h2>What separating the two systems changed</h2>
+      <p>An IT back-office SaaS company had MQL volume growing but sales couldn't see which leads were worth pursuing. There was no quantitative model for prioritizing leads by conversion likelihood. SQL conversion rates fluctuated, making forecasting unreliable. Marketing had no visibility into what happened to leads after handoff.</p>
+      <p>After separating lifecycle stages and lead status into distinct systems — each with clear definitions, documented ownership rules, and proper automation triggers — the team could see where each contact was in the buyer journey independently of where sales was in the follow-up process. Behavior-based lead scoring was added to prioritize within the MQL pool. Stage-specific nurturing was aligned to lifecycle stage, not lead status.</p>
 
-    <hr class="article-hr" />
-
-    <section class="article-section">
-      <h2>A simple mapping example</h2>
-      <p>When a Japan contact reaches MQL, lead status should reset to "New" to trigger sales outreach. When sales marks "Connected," the next lifecycle stage advancement to SQL should be triggered. When SQL is confirmed, lead status moves to "Open Deal." Configure this logic in HubSpot workflows so the two systems stay synchronized rather than drifting apart.</p>
-    </section>
-
-    <hr class="article-hr" />
-
-    <section class="article-section">
-      <h2>Common mistakes</h2>
-      <p>Using lifecycle stage as a proxy for sales activity is incorrect. Updating lead status without updating lifecycle stage, which creates reporting gaps. Not defining what "Attempting" means in Japan's context: how many attempts, over how many days, through which channels. Without that definition, the field is used inconsistently and the data becomes unreliable.</p>
       <div class="article-callout">
-        <p>Lifecycle stage and lead status are two lenses on the same contact. One shows the buyer's journey. The other shows what sales is doing about it. Japan GTM needs both.</p>
+        <p><strong>MQL-to-SQL conversion increased by up to 20%. Sales reduced time on low-quality leads and focused on high-intent prospects. Forecasting became reliable because pipeline stages reflected actual buyer position rather than sales activity.</strong></p>
       </div>
     </section>
 
     <hr class="article-hr" />
 
     <section class="article-section">
-      <h2>Lifecycle stage vs lead status diagram</h2>
-      <p>The diagram below shows the two systems side by side: what each tracks and how they work together for Japan GTM reporting.</p>
-      <div class="article-diagram">
-        <img
-          src="/images/insights/en/hubspot-lifecycle-vs-lead-status.svg"
-          alt="Two-panel diagram comparing HubSpot lifecycle stage (Subscriber, Lead, MQL, SQL, Opportunity, Customer) with lead status (New, Attempting, Connected, Open Deal, Unqualified) for Japan GTM"
-          width="760"
-          height="310"
-          loading="lazy"
-        />
+      <h2>Three places to start</h2>
+
+      <div class="article-breakdown">
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">01</div>
+          <div class="article-breakdown__body">
+            <strong>Audit your current lifecycle stage and lead status values and document what each one means</strong>
+            <p>Write down what criteria must be true for a contact to be in each lifecycle stage. Then write down what each lead status value means in terms of sales activity. If the two systems overlap — if stage definitions include sales actions, or if status values describe buyer position — that is the configuration problem to fix first.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">02</div>
+          <div class="article-breakdown__body">
+            <strong>Add a Japan-specific lead status value for extended follow-up</strong>
+            <p>Create a lead status value that explicitly accounts for Japan's slower response timeline — something like "Japan Extended Follow-Up" with a documented process: attempt contact at day 1, day 5, day 15, day 30, then evaluate for Unqualified. This prevents Japan leads from being deprioritized based on follow-up timelines built for faster-moving markets.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">03</div>
+          <div class="article-breakdown__body">
+            <strong>Separate handoff workflow triggers from follow-up task triggers</strong>
+            <p>Configure your MQL → Sales handoff workflow to enroll based on lifecycle stage change to MQL. Configure your follow-up reminder and escalation workflows to enroll based on lead status changes. Keep the two automation systems separate so lifecycle stage reports reflect buyer position and lead status reports reflect sales activity — and neither contaminates the other.</p>
+          </div>
+        </div>
       </div>
     </section>
 
   </article>
 
-  <!-- ===== RELATED ===== -->
   <aside class="article-related container">
     <p class="article-related__label">Related</p>
     <div class="article-related__grid">
-      <a href="/en/insights/hubspot-implementation-for-japan-gtm-what-to-configure-first/" class="article-related__card">
-        <p class="article-related__card-cat">HubSpot &amp; CRM</p>
-        <p class="article-related__card-title">HubSpot Implementation for Japan GTM: What to Configure First</p>
-        <span class="article-related__card-arrow">→</span>
-      </a>
-      <a href="/en/insights/how-to-design-hubspot-workflows-for-japan-lead-follow-up/" class="article-related__card">
-        <p class="article-related__card-cat">HubSpot &amp; CRM</p>
-        <p class="article-related__card-title">How to Design HubSpot Workflows for Japan Lead Follow-Up</p>
-        <span class="article-related__card-arrow">→</span>
-      </a>
       <a href="/en/insights/how-to-define-lifecycle-stages-for-japan-facing-revenue-operations/" class="article-related__card">
         <p class="article-related__card-cat">Revenue Architecture</p>
         <p class="article-related__card-title">How to Define Lifecycle Stages for Japan-Facing Revenue Operations</p>
@@ -190,17 +187,27 @@ const breadcrumbSchema = {
         <p class="article-related__card-title">Lead Handoff Rules for Japan GTM Teams</p>
         <span class="article-related__card-arrow">→</span>
       </a>
+      <a href="/en/insights/hubspot-implementation-for-japan-gtm-what-to-configure-first/" class="article-related__card">
+        <p class="article-related__card-cat">Revenue Architecture</p>
+        <p class="article-related__card-title">HubSpot Implementation for Japan GTM: What to Configure First</p>
+        <span class="article-related__card-arrow">→</span>
+      </a>
+      <a href="/en/services/crm-revops-implementation/" class="article-related__card">
+        <p class="article-related__card-cat">Service</p>
+        <p class="article-related__card-title">CRM &amp; RevOps Implementation</p>
+        <span class="article-related__card-arrow">→</span>
+      </a>
     </div>
   </aside>
 
-  <!-- ===== CTA ===== -->
   <section class="article-cta">
     <div class="container">
       <div class="article-cta__body">
-        <h2>Ready to design your Japan revenue system?</h2>
-        <p>Tell us where you are: what you have tried, where you are seeing friction, and what you are trying to solve. We will be direct about whether and how we can help.</p>
+        <h2>HubSpot pipeline data not reflecting Japan reality?</h2>
+        <p>Share how your lifecycle stages and lead status are currently configured. We'll identify where the systems are conflated and what changes would make pipeline reporting reliable.</p>
         <div class="article-cta__actions">
-          <a href="/en/contact/" class="article-cta__btn article-cta__btn--primary">Talk to us</a>
+          <a href="/en/contact/" class="article-cta__btn article-cta__btn--primary">Contact Us</a>
+          <a href="/en/services/" class="article-cta__btn article-cta__btn--ghost">View All Services →</a>
         </div>
       </div>
     </div>
@@ -209,259 +216,55 @@ const breadcrumbSchema = {
 </div>
 
 <style>
-/* ── Wrap / Container ─────────────────────── */
 .article-wrap { background: #fff; }
 .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
-
-/* ── Header ──────────────────────────────── */
-.article-head {
-  padding-top: 48px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid var(--color-border, #e2e8f0);
-}
-.breadcrumb {
-  font-size: 0.8rem;
-  color: var(--color-text-muted, #64748b);
-  margin-bottom: 20px;
-  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
-}
+.article-head { padding-top: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--color-border, #e2e8f0); }
+.breadcrumb { font-size: 0.8rem; color: var(--color-text-muted, #64748b); margin-bottom: 20px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 .breadcrumb a { color: var(--color-text-muted, #64748b); text-decoration: none; }
 .breadcrumb a:hover { color: var(--color-primary, #1e40af); text-decoration: underline; }
-
-.article-meta {
-  display: flex; align-items: center; gap: 12px;
-  margin-bottom: 20px; flex-wrap: wrap;
-}
-.article-cat {
-  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
-  background: #eff6ff; color: var(--color-primary, #1e40af);
-  padding: 3px 10px; border-radius: 10px;
-}
-.article-date, .article-read {
-  font-size: 0.8rem; color: var(--color-text-muted, #64748b);
-}
-
-.article-head h1 {
-  font-size: clamp(1.6rem, 3.5vw, 2.25rem);
-  font-weight: 600;
-  color: var(--color-navy, #0f172a);
-  line-height: 1.25;
-  letter-spacing: 0.01em;
-  margin: 0 0 16px;
-}
-.article-desc {
-  font-size: 1.0625rem;
-  color: var(--color-text-muted, #64748b);
-  line-height: 1.8;
-  margin: 0;
-}
-
-/* ── Body ────────────────────────────────── */
-.article-body {
-  padding-top: 48px;
-  padding-bottom: 64px;
-}
-.article-section {
-  margin-bottom: 0;
-}
-.article-section h2 {
-  font-size: 1.3125rem;
-  font-weight: 600;
-  color: var(--color-navy, #0f172a);
-  margin: 0 0 16px;
-  line-height: 1.35;
-}
-.article-section h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-navy, #0f172a);
-  margin: 24px 0 10px;
-}
-.article-section p {
-  font-size: 1rem;
-  line-height: 1.85;
-  color: var(--color-text, #1e293b);
-  margin: 0 0 16px;
-}
-.article-section ul {
-  padding-left: 1.5rem;
-  margin: 0 0 16px;
-  display: flex; flex-direction: column; gap: 8px;
-}
-.article-section li {
-  font-size: 1rem;
-  line-height: 1.75;
-  color: var(--color-text, #1e293b);
-}
-.article-section a {
-  color: var(--color-primary, #1e40af);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.article-subsection { margin-bottom: 8px; }
-
-.article-callout {
-  background: #eff6ff;
-  border-left: 4px solid var(--color-primary, #1e40af);
-  border-radius: 0 8px 8px 0;
-  padding: 16px 20px;
-  margin: 24px 0;
-}
-.article-callout p {
-  margin: 0;
-  font-size: 1rem;
-  line-height: 1.75;
-  color: var(--color-navy, #0f172a);
-}
-
-.article-hr {
-  border: none;
-  border-top: 1px solid var(--color-border, #e2e8f0);
-  margin: 48px 0;
-}
-
-/* ── Diagram ─────────────────────────────── */
-.article-diagram {
-  margin: 24px 0;
-  border: 1px solid var(--color-border, #e2e8f0);
-  border-radius: 10px;
-  overflow: hidden;
-  background: #fff;
-}
-.article-diagram img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-/* ── Numbered breakdown ──────────────────── */
-.article-breakdown {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  margin: 24px 0;
-  border-top: 1px solid var(--color-border, #e2e8f0);
-}
-.article-breakdown__item {
-  display: flex;
-  gap: 20px;
-  padding: 20px 0;
-  border-bottom: 1px solid var(--color-border, #e2e8f0);
-  align-items: flex-start;
-}
-.article-breakdown__num {
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: var(--color-primary, #1e40af);
-  opacity: 0.3;
-  flex-shrink: 0;
-  line-height: 1.5;
-  min-width: 2.5rem;
-}
-.article-breakdown__body strong {
-  display: block;
-  font-size: 0.9375rem;
-  font-weight: 700;
-  color: var(--color-navy, #0f172a);
-  margin-bottom: 6px;
-}
-.article-breakdown__body p {
-  font-size: 0.9375rem;
-  line-height: 1.75;
-  color: var(--color-text-muted, #64748b);
-  margin: 0;
-}
-
-/* ── Related ─────────────────────────────── */
-.article-related {
-  padding: 48px 0;
-  border-top: 1px solid var(--color-border, #e2e8f0);
-}
-.article-related__label {
-  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--color-primary, #1e40af);
-  margin: 0 0 20px;
-}
-.article-related__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
-.article-related__card {
-  background: #f8fafc;
-  border: 1px solid var(--color-border, #e2e8f0);
-  border-radius: 8px;
-  padding: 16px 18px;
-  text-decoration: none;
-  display: flex; flex-direction: column; gap: 6px;
-  transition: border-color 0.15s, box-shadow 0.15s;
-}
-.article-related__card:hover {
-  border-color: var(--color-primary, #1e40af);
-  box-shadow: 0 2px 12px rgba(30,64,175,0.07);
-}
-.article-related__card-cat {
-  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em;
-  text-transform: uppercase; color: var(--color-primary, #1e40af); margin: 0;
-}
-.article-related__card-title {
-  font-size: 0.875rem; font-weight: 600;
-  color: var(--color-navy, #0f172a); line-height: 1.45; margin: 0; flex: 1;
-}
-.article-related__card-arrow {
-  font-size: 0.875rem; color: var(--color-primary, #1e40af); font-weight: 600;
-}
-
-/* ── CTA ─────────────────────────────────── */
-.article-cta {
-  background: #f8fafc;
-  border-top: 1px solid var(--color-border, #e2e8f0);
-  padding: 64px 0;
-}
-.article-cta__body {
-  text-align: center;
-  max-width: 560px;
-  margin: 0 auto;
-}
-.article-cta__body h2 {
-  font-size: clamp(1.25rem, 3vw, 1.625rem);
-  font-weight: 600;
-  color: var(--color-navy, #0f172a);
-  margin: 0 0 12px;
-}
-.article-cta__body p {
-  font-size: 0.9375rem;
-  line-height: 1.8;
-  color: var(--color-text-muted, #64748b);
-  margin: 0 0 28px;
-}
-.article-cta__actions {
-  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
-}
-.article-cta__btn {
-  display: inline-flex; align-items: center;
-  padding: 0.75em 1.75em;
-  border-radius: 8px; font-size: 0.9375rem; font-weight: 700;
-  text-decoration: none; transition: background 0.15s, color 0.15s;
-}
-.article-cta__btn--primary {
-  background: var(--color-primary, #1e40af); color: #fff;
-  border: 2px solid var(--color-primary, #1e40af);
-}
+.article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+.article-cat { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: #eff6ff; color: var(--color-primary, #1e40af); padding: 3px 10px; border-radius: 10px; }
+.article-date, .article-read { font-size: 0.8rem; color: var(--color-text-muted, #64748b); }
+.article-head h1 { font-size: clamp(1.6rem, 3.5vw, 2.25rem); font-weight: 600; color: var(--color-navy, #0f172a); line-height: 1.25; letter-spacing: 0.01em; margin: 0 0 16px; }
+.article-desc { font-size: 1.0625rem; color: var(--color-text-muted, #64748b); line-height: 1.8; margin: 0; }
+.article-body { padding-top: 48px; padding-bottom: 64px; }
+.article-section { margin-bottom: 0; }
+.article-section h2 { font-size: 1.3125rem; font-weight: 600; color: var(--color-navy, #0f172a); margin: 0 0 16px; line-height: 1.35; }
+.article-section p { font-size: 1rem; line-height: 1.85; color: var(--color-text, #1e293b); margin: 0 0 16px; }
+.article-section a { color: var(--color-primary, #1e40af); text-decoration: underline; text-underline-offset: 2px; }
+.article-callout { background: #eff6ff; border-left: 4px solid var(--color-primary, #1e40af); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 24px 0; }
+.article-callout p { margin: 0; font-size: 1rem; line-height: 1.75; color: var(--color-navy, #0f172a); }
+.article-hr { border: none; border-top: 1px solid var(--color-border, #e2e8f0); margin: 48px 0; }
+.article-checklist { display: flex; flex-direction: column; gap: 0; margin: 24px 0; border-top: 1px solid var(--color-border, #e2e8f0); }
+.article-checklist__item { padding: 20px 0; border-bottom: 1px solid var(--color-border, #e2e8f0); }
+.article-checklist__q { font-size: 0.9375rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 8px; padding-left: 1.5rem; position: relative; }
+.article-checklist__q::before { content: '?'; position: absolute; left: 0; font-size: 0.875rem; font-weight: 800; color: var(--color-primary, #1e40af); opacity: 0.4; }
+.article-checklist__detail { font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted, #64748b); margin: 0; padding-left: 1.5rem; }
+.article-breakdown { display: flex; flex-direction: column; gap: 0; margin: 24px 0; border-top: 1px solid var(--color-border, #e2e8f0); }
+.article-breakdown__item { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--color-border, #e2e8f0); align-items: flex-start; }
+.article-breakdown__num { font-size: 1.25rem; font-weight: 800; color: var(--color-primary, #1e40af); opacity: 0.3; flex-shrink: 0; line-height: 1.5; min-width: 2.5rem; }
+.article-breakdown__body strong { display: block; font-size: 0.9375rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 6px; }
+.article-breakdown__body p { font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted, #64748b); margin: 0 0 10px; }
+.article-breakdown__body p:last-child { margin-bottom: 0; }
+.article-related { padding: 48px 0; border-top: 1px solid var(--color-border, #e2e8f0); }
+.article-related__label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-primary, #1e40af); margin: 0 0 20px; }
+.article-related__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.article-related__card { background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 16px 18px; text-decoration: none; display: flex; flex-direction: column; gap: 6px; transition: border-color 0.15s, box-shadow 0.15s; }
+.article-related__card:hover { border-color: var(--color-primary, #1e40af); box-shadow: 0 2px 12px rgba(30,64,175,0.07); }
+.article-related__card-cat { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-primary, #1e40af); margin: 0; }
+.article-related__card-title { font-size: 0.875rem; font-weight: 600; color: var(--color-navy, #0f172a); line-height: 1.45; margin: 0; flex: 1; }
+.article-related__card-arrow { font-size: 0.875rem; color: var(--color-primary, #1e40af); font-weight: 600; }
+.article-cta { background: #f8fafc; border-top: 1px solid var(--color-border, #e2e8f0); padding: 64px 0; }
+.article-cta__body { text-align: center; max-width: 560px; margin: 0 auto; }
+.article-cta__body h2 { font-size: clamp(1.25rem, 3vw, 1.625rem); font-weight: 600; color: var(--color-navy, #0f172a); margin: 0 0 12px; }
+.article-cta__body p { font-size: 0.9375rem; line-height: 1.8; color: var(--color-text-muted, #64748b); margin: 0 0 28px; }
+.article-cta__actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.article-cta__btn { display: inline-flex; align-items: center; padding: 0.75em 1.75em; border-radius: 8px; font-size: 0.9375rem; font-weight: 700; text-decoration: none; transition: background 0.15s, color 0.15s; }
+.article-cta__btn--primary { background: var(--color-primary, #1e40af); color: #fff; border: 2px solid var(--color-primary, #1e40af); }
 .article-cta__btn--primary:hover { background: #1e3a8a; border-color: #1e3a8a; }
-.article-cta__btn--ghost {
-  background: transparent; color: var(--color-primary, #1e40af);
-  border: 2px solid var(--color-primary, #1e40af);
-}
+.article-cta__btn--ghost { background: transparent; color: var(--color-primary, #1e40af); border: 2px solid var(--color-primary, #1e40af); }
 .article-cta__btn--ghost:hover { background: rgba(30,64,175,0.06); }
-
-/* ── Responsive ──────────────────────────── */
-@media (max-width: 600px) {
-  .article-head { padding-top: 32px; }
-  .article-related__grid { grid-template-columns: 1fr; }
-  .article-breakdown__num { font-size: 1rem; min-width: 2rem; }
-}
+@media (max-width: 600px) { .article-head { padding-top: 32px; } .article-related__grid { grid-template-columns: 1fr; } .article-checklist__q, .article-checklist__detail { padding-left: 1.25rem; } }
 </style>
 
 </BaseLayout>

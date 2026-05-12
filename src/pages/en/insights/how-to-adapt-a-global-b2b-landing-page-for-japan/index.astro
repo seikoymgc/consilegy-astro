@@ -2,13 +2,13 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
-const readTime = 'About 7 min';
+const readTime = 'About 8 min';
 
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: 'How to Adapt a Global B2B Landing Page for Japan',
-  description: 'A translated global landing page rarely converts Japan B2B buyers. The headline logic, proof structure, CTA, trust signals, and page architecture all need to be redesigned for how Japan buyers actually evaluate vendors.',
+  description: 'A global technology company (approx. 120,000 employees) found that translating their landing page produced interest but not pipeline. Rebuilding the argument structure, proof logic, and conversion path for Japan\'s evaluation sequence changed that.',
   datePublished: pubDate,
   dateModified: pubDate,
   author: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
@@ -30,7 +30,7 @@ const breadcrumbSchema = {
 
 <BaseLayout
   title="How to Adapt a Global B2B Landing Page for Japan | Consilegy"
-  description="A translated global landing page rarely converts Japan B2B buyers. The headline logic, proof structure, CTA, trust signals, and page architecture all need to be redesigned for how Japan buyers actually evaluate vendors."
+  description="A global technology company (approx. 120,000 employees) found that translating their landing page produced interest but not pipeline. Rebuilding the argument structure, proof logic, and conversion path for Japan's evaluation sequence changed that."
   lang="en"
   alternateUrl="/insights/"
 >
@@ -41,7 +41,6 @@ const breadcrumbSchema = {
 
 <div class="article-wrap">
 
-  <!-- ===== ARTICLE HEADER ===== -->
   <header class="article-head container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="/en/">Home</a>
@@ -56,129 +55,141 @@ const breadcrumbSchema = {
       <span class="article-read">{readTime}</span>
     </div>
     <h1>How to Adapt a Global B2B Landing Page for Japan</h1>
-    <p class="article-desc">A translated global landing page rarely converts Japan B2B buyers. The headline logic, proof structure, CTA, trust signals, and page architecture all need to be redesigned for how Japan buyers actually evaluate vendors.</p>
+    <p class="article-desc">A global technology company ($130B+ revenue, approx. 120,000 employees) launched in Japan with creative that performed well in other markets. After rebuilding the argument structure, proof logic, and conversion path for Japan's evaluation sequence over a 6-month engagement, they shifted from broad interest to consistent sales-ready pipeline. Translation was not the problem. The structural argument was.</p>
   </header>
 
-  <!-- ===== ARTICLE BODY ===== -->
   <article class="article-body container" id="article">
 
-    <!-- Introduction -->
     <section class="article-section">
-      <h2>Why translation is not adaptation</h2>
-      <p>When a global B2B company prepares to enter Japan, translating the website is usually one of the first things that gets done. It is visible, measurable, and has a clear completion state. The problem is that translation, however accurate, does not change the argument structure of the page. And argument structure is exactly what needs to change for a Japan B2B landing page to work.</p>
-      <p>A global B2B landing page is typically constructed around a specific persuasion logic: a benefit-first headline that captures attention by promising an outcome, proof from recognized customers that validates the claim, a value proposition framed around ROI or productivity improvement, and a CTA that asks the interested buyer to engage immediately. That logic works in markets where buyers share the evaluative framework it assumes. It does not work in Japan, because Japan buyers come to the page in a different mindset, with different questions, and a different threshold for what constitutes readiness to engage.</p>
-      <p>A Japan buyer reading a translated global landing page sees the right words in the right language, but an argument that does not address what they are actually evaluating. Trust has not been established. Risk has not been addressed. The CTA asks for a level of commitment that is premature for where the buyer is in the trust-building process. The page does not fail because of bad translation. It fails because the structural logic behind it was never adapted for Japan.</p>
+      <p>Translating a global B2B landing page for Japan is usually one of the first things that gets done before Japan launch. It is visible, has a clear completion state, and feels like market preparation. The problem is that translation does not change the argument structure of the page — and argument structure is exactly what needs to change.</p>
+      <p>A Japan buyer reading a translated global landing page sees the right words in the right language, but an argument that does not address what they are actually evaluating. Trust has not been established. Risk has not been addressed. The CTA asks for commercial engagement before the buyer is ready. The page does not fail because of bad translation. It fails because the structural logic was built for a different market's evaluation criteria.</p>
+    </section>
+
+    <hr class="article-hr" />
+
+    <section class="article-section">
+      <h2>Five signs your Japan landing page is still a translated global page</h2>
+
+      <div class="article-checklist">
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Does your headline lead with a promised outcome before establishing vendor credibility?</p>
+          <p class="article-checklist__detail">Benefit-first headlines assume the buyer trusts the vendor enough to evaluate the outcome claim. Japan buyers at first contact haven't reached that trust threshold yet.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Is your primary social proof from global brand logos rather than Japan-context or comparable-industry cases?</p>
+          <p class="article-checklist__detail">Global logos answer the wrong risk question for Japan enterprise buyers. The question they're asking is whether a company comparable to theirs, in Japan or their industry, has implemented this successfully.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Is "Book a Demo" or "Contact Sales" the only primary CTA on the page?</p>
+          <p class="article-checklist__detail">In Japan's evaluation sequence, commercial engagement comes after trust is established. A single high-commitment CTA removes the intermediate steps Japan buyers need before they're ready to talk to sales.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Does the page provide specification depth, implementation scope, and support structure information?</p>
+          <p class="article-checklist__detail">Japan enterprise buyers evaluate four concrete inputs: specifications, reliability proof, implementation scope, and support clarity. Pages that lead with ROI and skip these inputs fail at the evaluation stage, not the awareness stage.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Is the content structure a single page designed to capture interest — rather than a staged journey through evaluation?</p>
+          <p class="article-checklist__detail">Japan B2B evaluation follows a 3-stage progression: awareness → evaluation → sales contact. A single page designed for immediate conversion skips two of those three stages.</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="article-hr" />
+
+    <section class="article-section">
+      <h2>Three structural problems that translated pages don't fix</h2>
+
+      <div class="article-breakdown">
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">01</div>
+          <div class="article-breakdown__body">
+            <strong>The headline logic is wrong for Japan's evaluation sequence</strong>
+            <p>Global landing page headlines are typically benefit-first: "Increase team productivity by 40%," "The platform enterprise teams trust." These headlines work in markets where buyers are willing to evaluate outcome claims before trust is established. Japan buyers are not. They need to establish that the vendor is credible and Japan-committed before they will invest time evaluating what the product does.</p>
+            <p>Japan-ready headlines are problem-first. They name the specific operational challenge the buyer is experiencing, in terms that reflect Japan's organizational context. A headline that accurately names the buyer's problem signals market understanding — which contributes to trust formation in a way that a benefit claim cannot.</p>
+            <p><strong>Judgment criterion:</strong> Does your Japan headline demonstrate that you understand the buyer's context, or does it claim an outcome the buyer hasn't yet decided to take seriously?</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">02</div>
+          <div class="article-breakdown__body">
+            <strong>The proof structure addresses a different market's risk question</strong>
+            <p>Global landing pages use proof from the strongest available brand names. In markets where buyers share a reference framework for those brands, this carries weight. Japan enterprise buyers evaluate vendor risk differently: they ask whether organizations comparable to their own — in their industry or in Japan — have successfully implemented the solution. A Fortune 500 logo that doesn't answer that question doesn't reduce their perceived internal risk.</p>
+            <p>Japan-relevant proof includes: case studies from comparable-industry or Japan-market implementations, operational documentation (implementation timelines, onboarding process, support structure), and references from organizations the buyer's organization would recognize. The proof structure should be designed to answer the question Japan buyers are asking — not to showcase global market position.</p>
+            <p><strong>Judgment criterion:</strong> Can a Japan enterprise buyer reading your page find evidence that reduces their specific internal risk question, or does the proof only address a different market's evaluation criteria?</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">03</div>
+          <div class="article-breakdown__body">
+            <strong>The conversion path skips the evaluation stage Japan buyers need</strong>
+            <p>A global landing page typically has one conversion path: book a demo or contact sales. That path assumes the buyer is ready for commercial engagement at the point of first contact. Japan buyers are not. They need to complete trust formation and evaluation before they are willing to engage commercially. A page that offers only the final conversion step removes the intermediate steps the buyer needs to get there.</p>
+            <p>Japan-ready conversion paths include lower-commitment intermediate steps: specification downloads, implementation documentation, case study access. These allow buyers to self-qualify through evaluation before being asked to engage with sales. Buyers who complete those steps before booking a demo are materially higher quality pipeline.</p>
+            <p><strong>Judgment criterion:</strong> Does your Japan conversion path offer the buyer a way to complete evaluation before commercial engagement — or does it force a binary choice between engaging immediately and leaving?</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="article-hr" />
+
+    <section class="article-section">
+      <h2>What changed when the argument structure was redesigned</h2>
+      <p>A global technology company prepared for Japan launch with a translated version of global creative. The creative was strong — it had performed in other markets. In Japan, it generated engagement without pipeline. The product was competitive, the messaging was technically accurate, the page looked professional. The team couldn't identify why it wasn't converting.</p>
+      <p>Over a 6-month engagement, the argument structure was rebuilt for Japan's evaluation sequence. Messaging was repositioned around Japan-specific decision criteria. A 3-stage buyer journey was designed from awareness to evaluation to sales contact, with each stage providing the evidence Japan buyers need to progress to the next. The conversion path was rebuilt to match the trust-building pace Japan enterprise buyers require.</p>
+
       <div class="article-callout">
-        <p><strong>A Japan buyer reading a translated global landing page sees the right words and the wrong argument.</strong></p>
+        <p><strong>The result: sales-ready leads generated consistently, pipeline shifted from broad interest to high-intent inquiries, and a replicable Japan GTM framework was built for ongoing expansion — without changing the product or the global brand.</strong></p>
       </div>
     </section>
 
     <hr class="article-hr" />
 
-    <!-- Seven elements to adapt -->
     <section class="article-section">
-      <h2>Seven elements to adapt</h2>
-      <p>Adapting a global B2B landing page for Japan requires changes to seven structural elements. Each one addresses a different point in Japan's buyer evaluation sequence.</p>
+      <h2>Three places to start</h2>
 
-      <div class="article-subsection">
-        <h3>Headline</h3>
-        <p>Global landing page headlines are typically benefit-first: "Increase team productivity by 40%," "Automate your revenue reporting," "The platform that enterprise teams trust." These headlines assume the reader has already formed enough trust to care about the promised outcome. Japan buyers at first contact have not formed that trust. They are still evaluating whether this vendor is worth investigating further.</p>
-        <p>Japan-ready headlines are problem-first: they identify the specific operational challenge the buyer is experiencing, in terms that reflect Japan's organizational context, before making any claim about what the vendor can do. A headline that names the buyer's problem accurately signals market understanding, which contributes to trust formation in a way that a benefit claim cannot.</p>
+      <div class="article-breakdown">
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">01</div>
+          <div class="article-breakdown__body">
+            <strong>Rewrite the headline for problem-first, not benefit-first</strong>
+            <p>Identify the specific operational challenge your Japan target buyer is experiencing and put that in the headline, not the outcome you deliver. A headline that names a real problem accurately signals Japan market understanding before you've established anything else about the vendor.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">02</div>
+          <div class="article-breakdown__body">
+            <strong>Replace or supplement global logos with Japan-context proof</strong>
+            <p>Add at least one case study or reference that speaks to Japan enterprise buyers' specific risk question: has a company comparable to mine implemented this, and did it work? If you don't have Japan case studies yet, comparable-industry implementations from other markets serve as an intermediate step while Japan-specific cases are developed.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">03</div>
+          <div class="article-breakdown__body">
+            <strong>Add an intermediate conversion step between first contact and sales demo</strong>
+            <p>Before asking Japan buyers to book a demo, offer a lower-commitment path — specification documentation, an implementation overview, or a detailed case study. This allows buyers to complete trust evaluation at their own pace. Buyers who take the intermediate step before booking a demo are materially better pipeline quality than those forced to choose between immediate commitment and leaving.</p>
+          </div>
+        </div>
       </div>
-
-      <div class="article-subsection">
-        <h3>Proof structure</h3>
-        <p>Global landing pages use proof from the strongest available brand names, such as Fortune 500 logos, well-known global technology companies, and high-profile enterprise brands. In markets where buyers share a reference framework for those brands, this proof carries weight. Japan enterprise buyers do not evaluate vendor risk by asking whether Google or Salesforce uses the product. They evaluate risk by asking whether organizations comparable to their own, in their industry or in Japan, have successfully implemented the solution.</p>
-        <p>Japan-relevant proof means case studies from Japan customers or customers in industries Japan buyers recognize. It means operational detail such as what was implemented, how long it took, and what the support experience was, not just outcome claims. When Japan-specific case studies are not yet available, the next best option is detailed operational documentation that reduces implementation risk through transparency, not through proxy credibility from global brands.</p>
-      </div>
-
-      <div class="article-subsection">
-        <h3>Value proposition framing</h3>
-        <p>ROI and productivity improvement framing, the default value proposition structure in Western SaaS, addresses what buyers want to know after trust is established. Japan buyers evaluating a vendor for the first time are not yet at the stage where ROI matters; they are at the stage where risk matters. A value proposition framed around risk reduction, implementation reliability, and operational stability resonates at Japan's early evaluation stage in ways that efficiency and productivity claims do not.</p>
-        <p>This does not mean the ROI story is irrelevant. It belongs later in the page, after the trust and risk dimensions have been addressed. The argument order matters as much as the argument content.</p>
-      </div>
-
-      <div class="article-subsection">
-        <h3>Operational specifics</h3>
-        <p>Japan buyers want to know what implementation looks like before they are willing to commit to an evaluation conversation. How long does onboarding take? What does the integration process involve? What is the typical scope for a company of their size and complexity? What support is available during implementation?</p>
-        <p>Global landing pages typically save this information for the sales conversation. Japan landing pages should surface enough operational specificity to allow buyers to self-qualify and reduce their implementation risk assessment without needing to initiate contact first. Operational detail is a trust signal. It indicates the vendor understands implementation complexity and is not hiding it behind a sales process.</p>
-      </div>
-
-      <div class="article-subsection">
-        <h3>CTA design</h3>
-        <p>The standard global SaaS CTA, such as "Book a demo," "Start a free trial," or "Get a quote," asks for a level of commitment that is premature for Japan buyers at early-stage trust formation. Booking a demo means entering a commercial conversation with a salesperson, which in Japan's evaluation context signals a level of purchase intent that the buyer does not yet have and is not ready to signal.</p>
-        <p>Japan-appropriate first CTAs offer something the buyer can engage with before they are ready for a commercial conversation: a detailed guide, an implementation overview, a readiness assessment, a case study package. These offers allow buyers to continue evaluating the vendor without the implicit commitment that a demo request carries. The conversion metric changes from demo requests to content engagements, but the pipeline quality improves because the leads that eventually do request a conversation have already done meaningful evaluation work.</p>
-      </div>
-
-      <div class="article-subsection">
-        <h3>Trust signals</h3>
-        <p>Trust signals on a Japan landing page are different from proof elements. Proof elements provide evidence that the product works. Trust signals provide evidence that the vendor is a credible, stable organization with genuine Japan commitment. These include: Japan team information (not just a global team page), Japan office or partner presence, Japan-language support availability, length of Japan market operation, and any Japan-specific certifications, partnerships, or recognitions.</p>
-        <p>Many global SaaS companies operating in Japan have more Japan trust signals than their landing pages communicate. Japan-specific market presence is often buried in an "About Us" page or omitted from the main conversion pages entirely, on the assumption that global credibility signals are sufficient. They are not. Surfacing Japan-specific trust signals on conversion pages directly addresses one of the primary early-stage evaluation questions Japan buyers are asking.</p>
-      </div>
-
-      <div class="article-subsection">
-        <h3>FAQ section</h3>
-        <p>Japan B2B buyers come to landing pages with specific questions that global pages do not address: What does implementation look like for a Japan organization? Is there Japanese-language support? What is the contract structure? What happens if something goes wrong: who do we contact and how fast do you respond? Are there other Japan customers we can speak with?</p>
-        <p>An FAQ section designed for Japan's specific concerns does two things: it answers questions that would otherwise require a sales conversation to address, and it signals that the vendor understands Japan's evaluation context well enough to anticipate what buyers will need to know. Both effects contribute to trust formation and reduce the friction that causes Japan buyers to leave a page without converting.</p>
-      </div>
-    </section>
-
-    <hr class="article-hr" />
-
-    <!-- SVG diagram -->
-    <section class="article-section">
-      <h2>Global vs Japan-ready landing page</h2>
-      <p>The diagram below contrasts the structural elements of a typical global landing page with the adapted elements required for Japan's buyer evaluation logic.</p>
-      <div class="article-diagram">
-        <img
-          src="/images/insights/en/global-vs-japan-landing-page.svg"
-          alt="Two-column comparison: Global Landing Page with feature-first headline, global logos, ROI value prop, abstract claims, urgency CTA, no Japan references, no FAQ; versus Japan-Ready Landing Page with problem-first headline, Japan case studies, risk reduction framing, operational specifics, trust-building CTA, Japan proof and support, and FAQ addressing Japan concerns."
-          width="760"
-          height="400"
-          loading="lazy"
-        />
-      </div>
-    </section>
-
-    <hr class="article-hr" />
-
-    <!-- How adaptation connects to conversion -->
-    <section class="article-section">
-      <h2>How adaptation connects to conversion</h2>
-      <p>The relationship between structural adaptation and conversion is not additive. It is multiplicative. Changing one element while leaving others unchanged produces limited improvement, because the overall argument structure still fails Japan's evaluation logic at the points that were not adapted.</p>
-      <p>The most common partial adaptation pattern is translating the page and changing the CTA, replacing "Book a demo" with a softer offer, while keeping the benefit-first headline, global proof, and ROI-framed value proposition intact. The result is a page that asks for less commitment at conversion but still fails to address the trust and risk questions that precede conversion readiness. The CTA change reduces friction at one point; the rest of the page creates friction at every other point. Conversion improves marginally, but the structural mismatch remains.</p>
-      <p>Full structural adaptation, reworking headline logic, proof structure, value proposition framing, operational specifics, CTA, trust signals, and FAQ together, produces a page where the argument follows Japan's buyer evaluation sequence from first impression through conversion. Each element addresses a different stage of the evaluation; the overall page moves a Japan buyer from initial trust assessment through risk reduction to conversion readiness, rather than jumping immediately to an outcome claim and a commercial ask.</p>
-    </section>
-
-    <hr class="article-hr" />
-
-    <!-- How Consilegy helps -->
-    <section class="article-section">
-      <h2>How Consilegy helps</h2>
-      <p>Consilegy works with global B2B companies to redesign Japan landing pages for structural effectiveness, reviewing the argument architecture against Japan's buyer evaluation criteria, identifying the specific elements that are failing, and redesigning the page structure from headline through conversion path.</p>
-
-      <div class="article-subsection">
-        <h3>Japan LP adaptation and messaging design</h3>
-        <p>Structural redesign of landing pages for Japan's buyer logic, covering headline, proof, value proposition, CTA, trust signals, and FAQ. Covered under <strong><a href="/en/services/japan-market-gtm-messaging/">Japan Market GTM &amp; Messaging</a></strong>.</p>
-      </div>
-
-      <p>The engagement typically begins with a review of the current page against Japan's evaluation criteria, identifying which structural elements are misaligned and what changes would address each gap. Most landing page adaptations can be scoped and sequenced within a six to eight week engagement.</p>
     </section>
 
   </article>
 
-  <!-- ===== RELATED ===== -->
   <aside class="article-related container">
     <p class="article-related__label">Related</p>
     <div class="article-related__grid">
+      <a href="/en/insights/how-japanese-b2b-buyers-evaluate-trust-and-risk/" class="article-related__card">
+        <p class="article-related__card-cat">Japan GTM</p>
+        <p class="article-related__card-title">How Japanese B2B Buyers Evaluate Trust and Risk</p>
+        <span class="article-related__card-arrow">→</span>
+      </a>
       <a href="/en/insights/why-global-b2b-messaging-often-fails-in-japan/" class="article-related__card">
-        <p class="article-related__card-cat">Insights</p>
+        <p class="article-related__card-cat">Japan GTM</p>
         <p class="article-related__card-title">Why Global B2B Messaging Often Fails in Japan</p>
         <span class="article-related__card-arrow">→</span>
       </a>
-      <a href="/en/insights/how-japanese-b2b-buyers-evaluate-trust-and-risk/" class="article-related__card">
-        <p class="article-related__card-cat">Insights</p>
-        <p class="article-related__card-title">How Japanese B2B Buyers Evaluate Trust and Risk</p>
+      <a href="/en/insights/japan-market-entry-for-b2b-saas-common-gtm-mistakes/" class="article-related__card">
+        <p class="article-related__card-cat">Japan GTM</p>
+        <p class="article-related__card-title">Japan Market Entry for B2B SaaS: Common GTM Mistakes</p>
         <span class="article-related__card-arrow">→</span>
       </a>
       <a href="/en/services/japan-market-gtm-messaging/" class="article-related__card">
@@ -186,20 +197,14 @@ const breadcrumbSchema = {
         <p class="article-related__card-title">Japan Market GTM &amp; Messaging</p>
         <span class="article-related__card-arrow">→</span>
       </a>
-      <a href="/en/insights/where-japan-gtm-breaks-after-lead-generation/" class="article-related__card">
-        <p class="article-related__card-cat">Insights</p>
-        <p class="article-related__card-title">Where Japan GTM Breaks After Lead Generation</p>
-        <span class="article-related__card-arrow">→</span>
-      </a>
     </div>
   </aside>
 
-  <!-- ===== CTA ===== -->
   <section class="article-cta">
     <div class="container">
       <div class="article-cta__body">
-        <h2>Japan landing page not converting?</h2>
-        <p>Tell us what you are running. We will assess the argument structure and tell you where Japan buyers are dropping off.</p>
+        <h2>Japan pages generating traffic but not pipeline?</h2>
+        <p>Share what you're running today. We'll assess where the argument structure is breaking and what a Japan-adapted version would look like.</p>
         <div class="article-cta__actions">
           <a href="/en/contact/" class="article-cta__btn article-cta__btn--primary">Contact Us</a>
           <a href="/en/services/" class="article-cta__btn article-cta__btn--ghost">View All Services →</a>
@@ -211,11 +216,9 @@ const breadcrumbSchema = {
 </div>
 
 <style>
-/* ── Wrap / Container ─────────────────────── */
 .article-wrap { background: #fff; }
 .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
 
-/* ── Header ──────────────────────────────── */
 .article-head {
   padding-top: 48px;
   padding-bottom: 40px;
@@ -258,18 +261,12 @@ const breadcrumbSchema = {
   margin: 0;
 }
 
-/* ── Body ────────────────────────────────── */
 .article-body { padding-top: 48px; padding-bottom: 64px; }
 .article-section { margin-bottom: 0; }
 .article-section h2 {
   font-size: 1.3125rem; font-weight: 600;
   color: var(--color-navy, #0f172a);
   margin: 0 0 16px; line-height: 1.35;
-}
-.article-section h3 {
-  font-size: 1rem; font-weight: 600;
-  color: var(--color-navy, #0f172a);
-  margin: 24px 0 10px;
 }
 .article-section p {
   font-size: 1rem; line-height: 1.85;
@@ -281,7 +278,6 @@ const breadcrumbSchema = {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
-.article-subsection { margin-bottom: 8px; }
 
 .article-callout {
   background: #eff6ff;
@@ -301,17 +297,6 @@ const breadcrumbSchema = {
   margin: 48px 0;
 }
 
-/* ── Diagram ─────────────────────────────── */
-.article-diagram {
-  margin: 24px 0;
-  border: 1px solid var(--color-border, #e2e8f0);
-  border-radius: 10px;
-  overflow: hidden;
-  background: #fff;
-}
-.article-diagram img { display: block; width: 100%; height: auto; }
-
-/* ── Checklist ───────────────────────────── */
 .article-checklist {
   display: flex; flex-direction: column; gap: 0;
   margin: 24px 0;
@@ -346,7 +331,6 @@ const breadcrumbSchema = {
   padding-left: 1.5rem;
 }
 
-/* ── Numbered breakdown ──────────────────── */
 .article-breakdown {
   display: flex; flex-direction: column; gap: 0;
   margin: 24px 0;
@@ -369,10 +353,10 @@ const breadcrumbSchema = {
 }
 .article-breakdown__body p {
   font-size: 0.9375rem; line-height: 1.75;
-  color: var(--color-text-muted, #64748b); margin: 0;
+  color: var(--color-text-muted, #64748b); margin: 0 0 10px;
 }
+.article-breakdown__body p:last-child { margin-bottom: 0; }
 
-/* ── Related ─────────────────────────────── */
 .article-related {
   padding: 48px 0;
   border-top: 1px solid var(--color-border, #e2e8f0);
@@ -409,7 +393,6 @@ const breadcrumbSchema = {
   font-size: 0.875rem; color: var(--color-primary, #1e40af); font-weight: 600;
 }
 
-/* ── CTA ─────────────────────────────────── */
 .article-cta {
   background: #f8fafc;
   border-top: 1px solid var(--color-border, #e2e8f0);
@@ -446,7 +429,6 @@ const breadcrumbSchema = {
 }
 .article-cta__btn--ghost:hover { background: rgba(30,64,175,0.06); }
 
-/* ── Responsive ──────────────────────────── */
 @media (max-width: 600px) {
   .article-head { padding-top: 32px; }
   .article-related__grid { grid-template-columns: 1fr; }

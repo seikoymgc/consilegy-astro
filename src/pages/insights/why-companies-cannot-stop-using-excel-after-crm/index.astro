@@ -74,252 +74,95 @@ const breadcrumbSchema = {
 
 		<!-- はじめに -->
 		<section class="article-section">
-			<h2>はじめに：ツールを増やしても、Excelは消えない</h2>
-			<p>Salesforceを導入した。HubSpotも使っている。BIツールも入れた。それでも営業会議の前になると、誰かがExcelを開いている。CSVをダウンロードし、数字をコピペし、VLOOKUPを組み、「最新版どれですか？」が始まる。</p>
-			<p>これは現場のITリテラシーが低いからではありません。CRM導入後にかえってExcel作業が増えたというケースすらあります。問題は、<strong>「Excelを使わなくても意思決定できる構造」が設計されていないこと</strong>にあります。</p>
+			<h2>顧客データが10箇所以上に分散していた会社の話</h2>
+			<p>医療テック企業でのことです。CRMを導入していました。MAも使っていました。それでもマーケティングチームの業務時間の約30%以上が、毎週同じ作業に使われていました。国内DB、kintone、Excelファイル、メールの添付——10箇所以上に分散した顧客データを手でかき集め、クレンジングし、「最新版どれですか？」を繰り返す。</p>
+			<p>ツールが足りなかったわけではありません。データを「どこに、誰が、どう持つか」が設計されていなかっただけです。</p>
 			<div class="article-callout">
-				<p>CRMは「データを入れる箱」です。そのデータをどう意思決定へ接続するかは別問題です。箱を用意しただけでは、数字は統一されません。</p>
+				<p>CRMを入れてもExcelが消えないとき、問題はツールではありません。「Excelを使わなくても意思決定できる構造」が設計されていないことが原因です。</p>
 			</div>
 		</section>
 
 		<hr class="article-hr" />
 
-		<!-- 5つの構造問題 -->
+		<!-- 自己診断 -->
 		<section class="article-section">
-			<h2>Excelが残る5つの構造問題</h2>
-			<p>CRMを導入してもExcelが消えない企業には、共通する構造問題があります。</p>
+			<h2>まず確認してください：なぜExcelを手放せないのか</h2>
+			<p>CRM導入後もExcelが残っている場合、以下のどれが当てはまるか確認してみてください。</p>
+			<ul>
+				<li>SalesforceとHubSpotで売上の数字が違う</li>
+				<li>MQLやSQLの定義が部門によって違う</li>
+				<li>会議前に誰かがCSVをダウンロードしてVLOOKUPを組んでいる</li>
+				<li>「最新版はどのファイルですか」が定期的に発生する</li>
+				<li>CRMのダッシュボードを信用していない</li>
+			</ul>
+			<div class="article-callout">
+				<p><strong>2つ以上当てはまる場合、Excelはシステム間の「設計の欠落」を補っています。</strong>ツールを追加しても、この状態は解決しません。</p>
+			</div>
+		</section>
 
+		<hr class="article-hr" />
+
+		<!-- 3つのパターン -->
+		<section class="article-section">
+			<h2>Excel集計が残る3つの構造パターン</h2>
 			<div class="article-numbered">
 				<div class="article-numbered__item">
 					<p class="article-numbered__num">01</p>
-					<h3>「どの数字を正とするか」が決まっていない</h3>
-					<p>Salesforceの売上、HubSpotの売上、会計システムの売上、Excel集計の売上——これらが全部違う。現場は「とりあえずExcelで合わせよう」を始めます。Excelが便利だから使われているのではなく、<strong>数字の不一致を埋めるために</strong>使われています。</p>
+					<h3>「どの数字が正しいか」が決まっていない</h3>
+					<p>Salesforceの売上、HubSpotの売上、会計システムの売上、Excel集計の売上——これらが全部違う状態では、誰も「CRMの数字でいい」とは言えません。現場は安全策としてExcelで突き合わせを続けます。</p>
+					<p>ExcelはCRMが使えないから使われているのではなく、<strong>どのシステムの数字が正かが決まっていないから</strong>使われています。</p>
+					<p><strong>判断基準：</strong>「売上はどのシステムの数字を正とするか」を全員が同じ答えで言えるかどうかを確認してください。答えが複数出るなら、正システムが未定義です。</p>
 				</div>
 				<div class="article-numbered__item">
 					<p class="article-numbered__num">02</p>
 					<h3>KPI定義が部門ごとに違う</h3>
-					<p>MQL（Marketing Qualified Lead）・SQL（Sales Qualified Lead）・商談化率・ARR・受注の定義が部門ごとに異なる状態では、ダッシュボードを作っても意味がありません。数字が揃わないため、会議前にExcelで調整することが常態化します。</p>
+					<p>「商談化率」をマーケティングは「MQL→SQL転換数÷MQL数」で計算し、営業は「初回面談数÷リード数」で計算している。この状態では、同じKPIを見ていても数字が合いません。会議のたびにExcelで調整する作業が発生します。</p>
+					<p><strong>判断基準：</strong>「商談化率の計算式は何ですか」とマーケティングと営業それぞれに聞いてください。答えが一致しなければ、KPI定義がずれています。</p>
 				</div>
 				<div class="article-numbered__item">
 					<p class="article-numbered__num">03</p>
-					<h3>CRM項目が整理されていない</h3>
-					<p>CRM導入時によく起きるのが項目増殖です。同じ意味の項目、古い項目、誰も見ていない項目、手入力項目が増え続けると、「CRMの数字は信用できない」状態になります。信用できないシステムの数字は使われず、現場はExcelへ戻ります。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">04</p>
-					<h3>会議がCRMベースで設計されていない</h3>
-					<p>CRM画面を表示するだけでは不十分です。どのKPIを見るか、どの停滞案件を確認するか、何を改善するかまで設計されていなければ、結局Excelで補足資料を作り始めます。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">05</p>
-					<h3>CRMが「現場の武器」になっていない</h3>
-					<p>Excelは自由に加工でき、欲しい形式で出せ、会議向けにすぐ整形できます。一方CRMは入力が重く、欲しいレポートがなく、カスタマイズされていない——この差がある限り、現場はExcelへ戻ります。CRMが現場にとってメリットのある設計になっていなければ、定着しません。</p>
+					<h3>システム間のデータがつながっていない</h3>
+					<p>HubSpotのリードがSalesforceの商談に、Salesforceの受注が会計システムの請求に、正しく自動で流れていなければ、誰かが必ず手でつなぎます。その「手でつなぐ作業」がExcelです。</p>
+					<p>前述の医療テック企業では、10箇所以上に分散したデータを統合したことで、データ管理・抽出業務を約65%削減できました。Excelで手作業していた時間が、そのまま削減された工数です。</p>
+					<p><strong>判断基準：</strong>「HubSpotのコンタクトとSalesforceの取引先は自動で同期されていますか」と確認してください。手作業が入っているなら、その箇所がExcel依存の発生源です。</p>
 				</div>
 			</div>
-
-			<!-- DIAGRAM 1 -->
-			<figure class="diag diag--excel-chaos" aria-label="CRM導入後もExcel集計が残る状態の構造図。Salesforce・HubSpot・BI・会計システムがバラバラに存在し、人がExcelで手作業接続している。「最新版どれ？」「数字が違う」という問題が発生する。">
-				<div class="diag-ec-header">
-					<span class="diag-ec-header__label">現状：手作業でつながれたシステム群</span>
-				</div>
-				<div class="diag-ec-grid">
-					<div class="diag-ec-sys">
-						<div class="diag-ec-sys__badge diag-ec-sys__badge--sf">Salesforce</div>
-						<div class="diag-ec-sys__role">商談・受注</div>
-					</div>
-					<div class="diag-ec-sys">
-						<div class="diag-ec-sys__badge diag-ec-sys__badge--hub">HubSpot</div>
-						<div class="diag-ec-sys__role">リード・MA</div>
-					</div>
-					<div class="diag-ec-sys">
-						<div class="diag-ec-sys__badge diag-ec-sys__badge--bi">BI</div>
-						<div class="diag-ec-sys__role">レポート</div>
-					</div>
-					<div class="diag-ec-sys">
-						<div class="diag-ec-sys__badge diag-ec-sys__badge--acc">会計</div>
-						<div class="diag-ec-sys__role">請求・ARR</div>
-					</div>
-				</div>
-				<div class="diag-ec-connector" aria-hidden="true">
-					<span class="diag-ec-connector__line"></span>
-					<span class="diag-ec-connector__text">人が手作業接続</span>
-					<span class="diag-ec-connector__line"></span>
-				</div>
-				<div class="diag-ec-excel">
-					<div class="diag-ec-excel__badge">Excel</div>
-					<div class="diag-ec-excel__role">VLOOKUP / CSV貼り付け / 手集計</div>
-				</div>
-				<div class="diag-ec-bubbles">
-					<span>最新版どれ？</span>
-					<span>数字が違う</span>
-					<span>誰かが修正してる</span>
-				</div>
-				<figcaption class="diag-caption">Excelが悪いのではなく、システム間の設計がないためExcelが「正システム」の代替として機能している</figcaption>
-			</figure>
 		</section>
 
 		<hr class="article-hr" />
 
-		<!-- Excelは悪くない -->
+		<!-- 変わること -->
 		<section class="article-section">
-			<h2>Excel自体は問題ではない</h2>
-			<p>ここは重要な点です。Excel自体が悪いわけではありません。問題は、Excelが「補助ツール」ではなく「正システム」になっていることです。本来Excelは分析や一時加工に使うべきです。しかし多くの企業では、正式KPI・売上予測・会議資料・ARR管理がExcel中心になっています。</p>
-			<p>Excelは構造設計不足のしわ寄せを引き受けている道具です。マーケはHubSpot、営業はSalesforce、CSはNotion、請求は会計システム——この構成は悪くありません。問題は「その間を誰も設計していない」ことです。設計がなければ、最後に人間がExcelでつなぐしかなくなります。</p>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- Revenue Data Flow -->
-		<section class="article-section">
-			<h2>本当に必要なのは「Revenue Data Flow」の設計</h2>
-			<p>Excel問題を解決するのはツールの追加ではなく、Revenue Data Flowの設計です。どのデータをどのシステムで持ち、誰が更新し、どのKPIに使い、どこへ連携するか——これを定義することです。すべてを一つに統合することが目的ではなく、各ツールの役割を明確にすることが重要です。</p>
-
-			<div class="article-table-wrap">
-				<table class="article-table">
-					<thead>
-						<tr>
-							<th>データ</th>
-							<th>正システム（Single Source of Truth）</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr><td>リード情報</td><td>HubSpot</td></tr>
-						<tr><td>商談・受注</td><td>Salesforce</td></tr>
-						<tr><td>契約情報</td><td>Salesforce</td></tr>
-						<tr><td>請求・入金</td><td>会計システム</td></tr>
-						<tr><td>KPI集計・分析</td><td>BI</td></tr>
-						<tr><td>会議ダッシュボード</td><td>BI / Dashboard</td></tr>
-					</tbody>
-				</table>
+			<h2>構造を直すと、何が変わるか</h2>
+			<p>前述の医療テック企業では、データ統合基盤の構築後、4名のマーケティングチームで月約100時間の工数が生まれました。毎週繰り返していた「最新リストの作成」「手動クレンジング」「突き合わせ集計」がなくなり、その時間がキャンペーン設計やLTV改善に使えるようになりました。</p>
+			<p>ツールが変わったわけではありません。「どのデータをどこで持ち、誰が更新し、どこへ流すか」を設計しただけです。</p>
+			<div class="article-callout">
+				<p>Excel集計が消えると、チームの役割が変わります。<strong>「データを集める人」から「データを使って判断する人」へ。</strong>これが本来のCRM導入の目的です。</p>
 			</div>
-			<p>Excelはこの設計の中に「補助ツール」として位置づけられます。正システムにはなりません。</p>
-
-			<!-- DIAGRAM 2 -->
-			<figure class="diag diag--rdflow2" aria-label="Revenue Data Flowの構造図。Lead・MQL・商談・契約・請求・更新の各ステージで正システムを定義し、Excelを補助ツールとして位置づける図。">
-				<div class="diag-rd2-header">
-					<span class="diag-rd2-header__label">Revenue Data Flow</span>
-					<span class="diag-rd2-header__sub">各ステージの正システム</span>
-				</div>
-				<div class="diag-rd2-stages">
-					<div class="diag-rd2-stage">
-						<div class="diag-rd2-stage__name">リード</div>
-						<div class="diag-rd2-stage__sys diag-rd2-stage__sys--hub">HubSpot</div>
-					</div>
-					<div class="diag-rd2-arrow" aria-hidden="true">→</div>
-					<div class="diag-rd2-stage">
-						<div class="diag-rd2-stage__name">商談</div>
-						<div class="diag-rd2-stage__sys diag-rd2-stage__sys--sf">Salesforce</div>
-					</div>
-					<div class="diag-rd2-arrow" aria-hidden="true">→</div>
-					<div class="diag-rd2-stage">
-						<div class="diag-rd2-stage__name">契約</div>
-						<div class="diag-rd2-stage__sys diag-rd2-stage__sys--sf">Salesforce</div>
-					</div>
-					<div class="diag-rd2-arrow" aria-hidden="true">→</div>
-					<div class="diag-rd2-stage">
-						<div class="diag-rd2-stage__name">請求</div>
-						<div class="diag-rd2-stage__sys diag-rd2-stage__sys--acc">会計</div>
-					</div>
-					<div class="diag-rd2-arrow" aria-hidden="true">→</div>
-					<div class="diag-rd2-stage">
-						<div class="diag-rd2-stage__name">分析</div>
-						<div class="diag-rd2-stage__sys diag-rd2-stage__sys--bi">BI</div>
-					</div>
-				</div>
-				<div class="diag-rd2-excel-note">
-					<span class="diag-rd2-excel-note__icon" aria-hidden="true">↑</span>
-					<span>Excel は分析・一時加工の補助ツール。正システムにはならない。</span>
-				</div>
-				<figcaption class="diag-caption">正システムを定義することで、Excelが「補助」から「正式KPI管理」に格上げされる状態を防ぐ</figcaption>
-			</figure>
 		</section>
 
 		<hr class="article-hr" />
 
-		<!-- Revenue Architecture -->
+		<!-- 最初の一手 -->
 		<section class="article-section">
-			<h2>Revenue ArchitectureがないとExcelは消えない</h2>
-			<p>Revenue Architecture（レベニューアーキテクチャ）とは、営業・マーケティング・CS・CRM・KPI・データ・会議体を、売上につながる一つの流れとして設計する考え方です。Excel問題も実はツール問題ではありません。KPI設計・データ構造・システム役割・Revenue Data Flow・RevOps運用の問題です。</p>
-			<p>日本企業では、稟議・部門分断・承認文化・属人運用が強く残っているため、「正式な数字」が部門ごとに存在しやすい状態になっています。これがExcel依存を強めます。必要なのは海外ツールの導入ではなく、日本企業の運用に合ったRevenue Architectureです。</p>
-
-			<!-- DIAGRAM 3 -->
-			<figure class="diag diag--ra-excel" aria-label="Revenue Architectureが営業・マーケティング・CS・CRM・KPI・BI・会議体を接続し、Excel依存低下・会議工数削減・数字統一を実現する構造図。">
-				<div class="diag-rae-top">
-					<span class="diag-rae-dept">マーケティング</span>
-					<span class="diag-rae-dept">営業</span>
-					<span class="diag-rae-dept">カスタマーサクセス</span>
+			<h2>最初の一手：何から始めるか</h2>
+			<p>ツールを追加する前に、以下の3つを順番に整理してください。</p>
+			<div class="article-numbered">
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">01</p>
+					<h3>「どのデータをどのシステムで持つか」を1枚の表にする</h3>
+					<p>リード情報はHubSpot、商談・受注はSalesforce、請求は会計システム——という役割分担を、まず1枚の表に書き出してください。書けない箇所があれば、そこが設計の抜けです。</p>
 				</div>
-				<div class="diag-rae-connectors" aria-hidden="true">
-					<span class="diag-rae-line"></span>
-					<span class="diag-rae-line"></span>
-					<span class="diag-rae-line"></span>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">02</p>
+					<h3>主要KPIの計算式を全部門で揃える</h3>
+					<p>商談化率・MQL・SQL・ARRなど、会議で使うKPIを3〜5個に絞り、計算式と集計場所を全部門で揃えてください。定義を揃えるだけで、会議前のExcel突き合わせの大半はなくなります。</p>
 				</div>
-				<div class="diag-rae-core">
-					<div class="diag-rae-core__tag">Revenue Architecture</div>
-					<div class="diag-rae-core__label">収益構造設計</div>
-					<div class="diag-rae-core__tools">
-						<span>CRM</span>
-						<span>KPI定義</span>
-						<span>Data Flow</span>
-						<span>BI</span>
-						<span>会議体</span>
-					</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">03</p>
+					<h3>次の会議でExcelを使わないと決める</h3>
+					<p>完璧に準備してからではなく、「次の会議ではCRMのダッシュボードだけを使う」と決めることが有効です。不完全でも使い始めることで、何が足りないかが明確になります。完璧を待つと、Excelは永遠に残ります。</p>
 				</div>
-				<div class="diag-rae-outcomes">
-					<div class="diag-rae-outcome">
-						<div class="diag-rae-outcome__icon" aria-hidden="true">↓</div>
-						<div class="diag-rae-outcome__label">Excel依存低下</div>
-						<div class="diag-rae-outcome__body">正システムが明確になり、手作業接続が不要に</div>
-					</div>
-					<div class="diag-rae-outcome">
-						<div class="diag-rae-outcome__icon" aria-hidden="true">↓</div>
-						<div class="diag-rae-outcome__label">会議工数削減</div>
-						<div class="diag-rae-outcome__body">資料作成ではなく改善議論に時間を使える</div>
-					</div>
-					<div class="diag-rae-outcome">
-						<div class="diag-rae-outcome__icon" aria-hidden="true">↓</div>
-						<div class="diag-rae-outcome__label">数字統一</div>
-						<div class="diag-rae-outcome__body">全部門が同じKPI・同じデータを見られる</div>
-					</div>
-				</div>
-				<figcaption class="diag-caption">Revenue Architectureの目的はExcelを禁止することではなく、Excelに依存しなくても回る構造を作ること</figcaption>
-			</figure>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- Consilegy -->
-		<section class="article-section">
-			<h2>Consilegyの考え方</h2>
-			<p>Consilegyでは、Excel問題を単なるレポート改善とは捉えていません。本質はRevenue Architecture・KPI定義・CRM設計・Revenue Data Flow・RevOpsの再設計にあります。</p>
-			<p>Salesforce・HubSpot・Kintone・BI・Slack・会計システムを横断しながら、「Excelを介さなくても意思決定できる状態」を設計します。目的はExcelを禁止することではなく、Excelに依存しなくても回る構造を作ることです。</p>
-			<div class="article-table-wrap">
-				<table class="article-table">
-					<thead>
-						<tr>
-							<th>支援領域</th>
-							<th>内容</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Architecture</td>
-							<td>Revenue Data Flow設計・正システム定義・KPI体系設計</td>
-						</tr>
-						<tr>
-							<td>Process</td>
-							<td>商談ステージ・KPI定義・ハンドオフ条件の設計</td>
-						</tr>
-						<tr>
-							<td>オペレーション</td>
-							<td>会議体設計・RevOps体制構築・改善サイクル設計</td>
-						</tr>
-						<tr>
-							<td>Technology</td>
-							<td>HubSpot / Salesforce / BI 等のダッシュボード設計・実装</td>
-						</tr>
-					</tbody>
-				</table>
 			</div>
 		</section>
 
@@ -327,11 +170,11 @@ const breadcrumbSchema = {
 
 		<!-- まとめ -->
 		<section class="article-section">
-			<h2>まとめ：Excel依存は、構造問題</h2>
-			<p>CRMを導入してもExcelが消えない原因は、ツール不足ではありません。多くの場合、KPI定義・データ構造・Revenue Data Flow・Revenue Architectureが設計されていないことが原因です。</p>
-			<p>新しいツールを追加する前に、「どの数字を、誰が、どこで扱うか」を整理する必要があります。Excel依存をなくすには、まず収益構造から見直す必要があります。</p>
+			<h2>まとめ：Excel依存はツール問題ではなく、設計問題です</h2>
+			<p>CRMを入れてもExcelが消えないとき、新しいツールを追加しても解決しません。「どの数字が正か」「KPIの定義が揃っているか」「システム間がつながっているか」——この3点を整理することが先です。</p>
+			<p>月100時間の手作業工数は、ツールではなく設計で生まれます。そしてその工数は、チームが本来使うべき仕事に戻すことができます。</p>
 			<div class="article-callout">
-				<p>Consilegyは、CRM導入やBI導入ではなく、<strong>Revenue Architectureの観点から、営業・マーケティング・データ構造を横断して再設計します</strong>。Excelが減るのは、ツールが変わるのではなく、構造が変わるからです。</p>
+				<p>Excelを禁止する必要はありません。Excelに頼らなくても回る構造ができれば、自然と使われなくなります。</p>
 			</div>
 		</section>
 

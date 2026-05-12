@@ -9,8 +9,8 @@ const readTime = '約10分';
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
-	headline: 'なぜKPI会議は数字確認会になるのか｜RevOpsとRevenue Architecture',
-	description: 'KPI会議が改善につながらず、数字確認だけで終わってしまう原因を、Revenue ArchitectureとRevOpsの観点から解説します。',
+	headline: 'なぜKPI会議は「数字確認会」で終わってしまうのか',
+	description: 'グローバルDTCブランド（約20,000名）が施策実行のリードタイムを70〜80%短縮し、改善サイクルを定着させた事例から——KPI会議が報告で終わる原因は会議の進め方ではなく、「数字が出たとき変えられる速度」の問題です。',
 	datePublished: pubDate,
 	dateModified: pubDate,
 	author: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
@@ -31,8 +31,8 @@ const breadcrumbSchema = {
 ---
 
 <BaseLayout
-	title="なぜKPI会議は数字確認会になるのか｜RevOpsとRevenue Architecture | Consilegy"
-	description="KPI会議が改善につながらず、数字確認だけで終わってしまう原因を、Revenue ArchitectureとRevOpsの観点から解説します。"
+	title="なぜKPI会議は「数字確認会」で終わってしまうのか | Consilegy"
+	description="グローバルDTCブランド（約20,000名）が施策実行のリードタイムを70〜80%短縮し、改善サイクルを定着させた事例から——KPI会議が報告で終わる原因は会議の進め方ではなく、「数字が出たとき変えられる速度」の問題です。"
 	lang="ja"
 >
 	<Fragment slot="head">
@@ -55,7 +55,7 @@ const breadcrumbSchema = {
 			<span class="article-cat">KPI・BI</span>
 		</div>
 		<h1>なぜKPI会議は<br class="br-pc" />「数字確認会」で終わってしまうのか</h1>
-		<p class="article-desc">SalesforceもBIもダッシュボードもある。それなのに会議が終わると疲れていて改善策は決まっていない——この状況は多くのBtoB企業で起きている。問題は会議の進め方ではなく、収益改善の構造が設計されていないことにある。</p>
+		<p class="article-desc">グローバルDTCブランド（約20,000名）が施策実行のリードタイムを70〜80%短縮し、改善サイクルを定着させた事例から——KPI会議が報告で終わる原因は会議の進め方ではなく、「数字が出たとき変えられる速度」の問題です。</p>
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
@@ -73,255 +73,137 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<p>毎週KPI会議をしている。Salesforceもある。ダッシュボードもある。数字も出ている。それなのに会議が終わる頃には、疲れていて改善策が決まっておらず、宿題だけ増えて「来月頑張ります」で終わる——こんな状況になっていないでしょうか。KPI管理強化・CRM導入・BI導入のタイミングでKPI会議が急激に増え、しかし同時に「会議しているのに改善しない」状態が発生するパターンは、日本のBtoB企業に広く見られます。</p>
-			<p>多くの企業は「もっと細かくKPIを見よう」と考えます。しかし<strong>問題はKPIの数ではありません</strong>。本当の原因は、収益改善の構造が存在していないことにあります。</p>
+			<p>グローバルDTCブランド（従業員約20,000名）では、施策の実行速度が大きな制約になっていました。軽微な修正にも開発工程が必要で、キャンペーンページの制作に数週間かかる状態では、KPI会議で「この数字が低い、変えよう」と決めても、変えた結果が次の会議に届きません。KPI会議は毎回「今月の数字はこうでした」という報告で終わり、改善議論になりませんでした。</p>
+			<p>HubSpot CMSへの移行により、<strong>企画から公開までのリードタイムを約70〜80%短縮。マーケター自身が即日〜数営業日で施策を実行できる体制を構築し、改善サイクルが定着</strong>しました。会議の進め方を変えたのではなく、「会議で決めたことを即実行できる基盤」を整えたことで変わりました。</p>
 		</div>
 
 		<div class="article-section">
-			<h2>KPI会議が機能しない5つの理由</h2>
+			<h2>あなたの組織は大丈夫か——5つの確認項目</h2>
 			<ol class="article-numbered">
 				<li>
-					<strong>数字確認だけで終わる</strong>
-					<p>MQL数・商談数・受注数・Forecastを順番に読み上げる。しかし「なぜそうなったのか」の分析がない。数字を確認することと、収益改善のための判断をすることはまったく別の行為です。</p>
+					<strong>KPI会議の大半が「今月の数字はいくつでした」の確認で終わる</strong>
+					<p>前回の会議と同じKPIを見て同じ現状を確認している場合、会議が改善に接続されていません。</p>
 				</li>
 				<li>
-					<strong>KPI定義が部門間でそろっていない</strong>
-					<p>マーケティングと営業でSQL定義が違う、財務と営業でARR定義が違う——この状態では会議が「定義確認」で終わります。共通の数字がなければ、共通の判断もできません。</p>
+					<strong>「変えよう」と決めても、実行できるまでに数週間かかる</strong>
+					<p>会議でアクションを決めても、外部依頼・開発依頼・承認フローにより実行まで時間がかかる場合、会議の意思決定が行動につながっていません。</p>
 				</li>
 				<li>
-					<strong>Revenue Flowが見えていない</strong>
-					<p>MQLは増えた。しかし商談化率・Win Rate・継続率との接続が見えない。指標がつながっていなければ、どこにボトルネックがあるかが特定できず、改善行動を起こせません。</p>
+					<strong>先月の会議で決めた改善が今月の数字に反映されていない</strong>
+					<p>毎月同じ課題を議論しているが、数字が変わっていない場合、改善サイクルが実質的に存在しません。</p>
 				</li>
 				<li>
-					<strong>会議が報告の場になっている</strong>
-					<p>本来必要なのは収益改善のための判断です。しかし実際には進捗報告・数字説明・言い訳で終わる。構造的に改善議論が起きにくい会議設計になっています。</p>
+					<strong>会議後にアクションリストが作られるが、次回確認されない</strong>
+					<p>「次回確認しましょう」が口癖になっていて、実際にアクションの進捗を確認する場がない場合、会議は報告の場になっています。</p>
 				</li>
 				<li>
-					<strong>KPIが増殖して優先順位がない</strong>
-					<p>指標が多すぎると重要指標が分からなくなり、どこを改善すれば収益に効くかが見えなくなります。KPIの増加は改善速度の低下につながります。</p>
+					<strong>「この数字が悪い理由」の分析に会議時間の大半が使われる</strong>
+					<p>理由の分析が終わった頃には時間が尽き、「どう変えるか」を決める時間が残っていない場合、会議の設計に問題があります。</p>
+				</li>
+			</ol>
+			<p class="article-callout">3つ以上当てはまる場合、問題は会議のファシリテーションではありません。「会議で決めたことを速く実行できる環境」がないことが本質です。</p>
+		</div>
+
+		<div class="article-section">
+			<h2>KPI会議が数字確認で終わる3つのパターン</h2>
+			<ol class="article-numbered">
+				<li>
+					<strong>実行速度が「決める速度」に追いついていない</strong>
+					<p>KPI会議で改善策を決めても、実行まで数週間かかる環境では「会議で決めたことが次の会議に反映されない」状態が常態化します。前述のグローバルDTCブランドでは、キャンペーンページの制作に数週間を要していたため、「すぐ試せる・すぐ変えられる」が存在しませんでした。会議の質より実行速度が、改善サイクルの律速です。</p>
+					<p><strong>判断基準：</strong>前回のKPI会議で決めた改善アクションが、今日の数字に反映されているかどうかで確認できます。</p>
+				</li>
+				<li>
+					<strong>KPIが「何を変えるか」ではなく「何が起きたか」の指標になっている</strong>
+					<p>「先月のセッション数は〇万でした」「転換率は〇%でした」という報告は、事実の確認です。「このKPIが悪化したら、この施策を変える」という行動トリガーが設定されていなければ、どれだけKPIを見ても改善は起きません。KPIは現状確認のためではなく、意思決定のための指標として設計することが必要です。</p>
+					<p><strong>判断基準：</strong>主要KPIを1つ選び「この数字が10%悪化したとき、何を変えますか」と即答できるかどうかで確認できます。</p>
+				</li>
+				<li>
+					<strong>「改善できた」を確認する会議設計になっていない</strong>
+					<p>毎月「今月はどうだったか」を確認する会議は存在するが、「先月変えたことが効果を出したか」を確認する会議がない場合、学習サイクルが存在しません。前述のDTCブランドでは、実行速度が上がったことで「変えた→確認した→また変えた」のサイクルが同一月内で回るようになりました。</p>
+					<p><strong>判断基準：</strong>直近3回のKPI会議の議事録を見て、「先月と比較して何が改善したか・しなかったか」の確認が含まれているかどうかで判断できます。</p>
 				</li>
 			</ol>
 		</div>
 
-		<!-- DIAGRAM 1: 崩壊したKPI会議 -->
-		<figure class="diag-wrap" aria-label="崩壊したKPI会議：数字確認・疲弊・宿題増加というサイクルが繰り返される状態">
-			<div class="diag diag--kpi-chaos">
-				<div class="kpic-header">崩壊したKPI会議</div>
-				<div class="kpic-body">
-					<div class="kpic-room">
-						<div class="kpic-screen">
-							<div class="kpic-screen-label">KPI ダッシュボード</div>
-							<div class="kpic-screen-rows">
-								<div class="kpic-row"><span class="kpic-label">MQL</span><span class="kpic-val">142</span><span class="kpic-diff diff-up">↑12</span></div>
-								<div class="kpic-row"><span class="kpic-label">SQL</span><span class="kpic-val">38</span><span class="kpic-diff diff-dn">↓5</span></div>
-								<div class="kpic-row"><span class="kpic-label">受注</span><span class="kpic-val">9</span><span class="kpic-diff diff-dn">↓2</span></div>
-								<div class="kpic-row"><span class="kpic-label">Forecast</span><span class="kpic-val">??</span><span class="kpic-diff diff-warn">要確認</span></div>
-							</div>
-						</div>
-						<div class="kpic-xl">
-							<div class="kpic-xl-icon">XL</div>
-							<div class="kpic-xl-label">Excel 補正版</div>
-						</div>
-					</div>
-				</div>
-				<div class="kpic-bubbles">
-					<div class="kpic-bubble">「数字合ってる？」</div>
-					<div class="kpic-bubble kpic-bubble--warn">「来月頑張ります」</div>
-					<div class="kpic-bubble">「原因不明です」</div>
-				</div>
-				<div class="kpic-footer">
-					<span class="kpic-tag bad">✕ 改善策ゼロ</span>
-					<span class="kpic-tag bad">✕ 宿題だけ増える</span>
-					<span class="kpic-tag bad">✕ 収益変わらない</span>
-				</div>
-			</div>
-			<figcaption class="diag-caption">崩壊したKPI会議：数字確認・原因不明・来月頑張りますのサイクルが繰り返され、収益改善の議論が生まれない状態</figcaption>
-		</figure>
-
 		<div class="article-section">
-			<h2>多くの企業が見落としていること</h2>
-			<p>多くの企業はKPI会議の問題を「会議運営の問題」と考えます。ファシリテーションを改善しようとする、会議時間を短くしようとする——しかし本質は会議ではありません。本質はRevenue Visibility・KPI設計・収益の流れ・RevOpsの問題です。つまりKPI会議の問題とは、<strong>Revenue Architectureの問題</strong>です。</p>
-			<p class="article-callout">数字を見る会議は設計できる。しかし収益改善につなげるには、数字の背景にある構造の設計が先に必要です。</p>
+			<h2>設計を変えた後に何が起きたか</h2>
+			<p>前述のグローバルDTCブランドでは、会議の進め方を変えたのではなく、「会議で決めたことを即実行できる基盤」を整えました。その結果、以下の変化が起きました。</p>
+			<ol class="article-numbered">
+				<li>
+					<strong>企画から公開までのリードタイムを約70〜80%短縮</strong>
+					<p>HubSpot CMSへの移行により、マーケター自身がページを作成・更新できる環境を構築。外部ベンダーへの依頼なしに施策を実行できるようになりました。</p>
+				</li>
+				<li>
+					<strong>マーケター自身が即日〜数営業日で施策を実行できる体制を構築</strong>
+					<p>ドラッグ&ドロップで編集可能な環境を整備し、「KPI会議で決めたことを翌日試せる」状態になりました。改善の検証期間が週単位から日単位になりました。</p>
+				</li>
+				<li>
+					<strong>改善サイクルが加速し、市場変化に応じた施策実行が可能に</strong>
+					<p>実行速度が上がったことで、KPI会議が「先月試したことの結果確認」「今月試すことの決定」という改善会議に変わりました。</p>
+				</li>
+			</ol>
+			<p class="article-callout">会議のアジェンダを変えたのではなく、「会議で決めたことを速く実行できる環境」を作りました。</p>
 		</div>
 
 		<div class="article-section">
-			<h2>本当に必要なのは「Revenue Decision Design」</h2>
-			<p>何を見るか、何を異常とするか、どのKPIで意思決定するか、どこで改善アクションを起こすか——これを設計することが必要です。Revenue Decision Designとは、KPIを「判断の道具」として機能させるための構造設計です。重要なのはKPIの数ではなく、<strong>収益改善の判断ができること</strong>です。</p>
-		</div>
-
-		<!-- DIAGRAM 2: Revenue Decision Design構造図 -->
-		<figure class="diag-wrap" aria-label="Revenue Decision Designサイクル：KPI・分析・判断・アクション・Revenueが循環する収益改善の構造">
-			<div class="diag diag--rdd">
-				<div class="rdd-header">Revenue Decision Design</div>
-				<div class="rdd-cycle-wrap">
-					<div class="rdd-cycle">
-						<div class="rdd-node rdd-node--kpi">
-							<div class="rdd-node-icon">KPI</div>
-							<div class="rdd-node-label">指標の観測</div>
-							<div class="rdd-node-sub">重要指標を絞る<br />定義を統一する</div>
-						</div>
-						<div class="rdd-arrow rdd-arrow--right">→</div>
-						<div class="rdd-node rdd-node--ana">
-							<div class="rdd-node-icon">分析</div>
-							<div class="rdd-node-label">原因の特定</div>
-							<div class="rdd-node-sub">Revenue Flowで<br />ボトルネックを探す</div>
-						</div>
-						<div class="rdd-arrow rdd-arrow--right">→</div>
-						<div class="rdd-node rdd-node--dec">
-							<div class="rdd-node-icon">判断</div>
-							<div class="rdd-node-label">意思決定</div>
-							<div class="rdd-node-sub">優先度を決める<br />責任者を決める</div>
-						</div>
-					</div>
-					<div class="rdd-bottom-row">
-						<div class="rdd-arrow rdd-arrow--up">↑</div>
-						<div class="rdd-spacer"></div>
-						<div class="rdd-arrow rdd-arrow--dn">↓</div>
-					</div>
-					<div class="rdd-cycle rdd-cycle--bot">
-						<div class="rdd-node rdd-node--rev">
-							<div class="rdd-node-icon">収益</div>
-							<div class="rdd-node-label">Revenue改善</div>
-							<div class="rdd-node-sub">Forecast精度向上<br />ARR成長</div>
-						</div>
-						<div class="rdd-arrow rdd-arrow--left">←</div>
-						<div class="rdd-node rdd-node--act">
-							<div class="rdd-node-icon">実行</div>
-							<div class="rdd-node-label">改善アクション</div>
-							<div class="rdd-node-sub">施策を動かす<br />結果を測定する</div>
-						</div>
-						<div class="rdd-spacer rdd-spacer--wide"></div>
-					</div>
-				</div>
-				<div class="rdd-footer">
-					<span class="rdd-tag good">✓ 会議が短くなる</span>
-					<span class="rdd-tag good">✓ 改善議論が増える</span>
-					<span class="rdd-tag good">✓ Forecast精度が上がる</span>
-				</div>
-			</div>
-			<figcaption class="diag-caption">Revenue Decision Designサイクル：KPI観測・原因分析・意思決定・改善アクション・収益成長が循環する構造。数字確認ではなく判断を起点とする会議設計</figcaption>
-		</figure>
-
-		<div class="article-section">
-			<h2>Revenue Architectureという考え方</h2>
-			<p>KPI会議問題の本質は会議ファシリテーションの問題ではありません。営業・マーケティング・カスタマーサクセス・CRM・KPI・データを「収益につながる一つの構造」として設計するRevenue Architectureの問題です。Revenue Architecture・収益可視化・KPI設計・収益の流れ・RevOpsという構造が整うことで、KPI会議は初めて「収益改善の場」として機能し始めます。</p>
+			<h2>今週から始められる3つのアクション</h2>
+			<ol class="article-numbered">
+				<li>
+					<strong>前回のKPI会議のアクションリストを今日確認する</strong>
+					<p>前回の会議で決めたアクションが実行されているかを確認します。実行されていない場合、その理由を「時間不足」「外部依存」「承認フロー」のいずれかに分類します。</p>
+				</li>
+				<li>
+					<strong>最後に「施策実行の遅れが原因で機会を逃した」ことを特定する</strong>
+					<p>「このタイミングで変えていれば数字が違った」という事例を1つ特定します。この事例が、実行速度の改善を優先すべき根拠になります。</p>
+				</li>
+				<li>
+					<strong>次のKPI会議に「先月から何を変えて数字がどう変わったか」を準備する</strong>
+					<p>次回の会議の冒頭に「先月の改善の結果確認」を5分設けます。この1ステップで、会議が「報告会」から「改善確認会」に変わります。</p>
+				</li>
+			</ol>
 		</div>
 
 		<div class="article-section">
-			<h2>改善につながるKPI会議の共通点</h2>
-			<p>収益成長している会社には共通点があります。Revenue KPIが絞られており重要指標が明確です。KPI定義がマーケティング・営業・カスタマーサクセスで統一されており定義確認が不要です。Revenue Flowが可視化されボトルネックが特定できます。Forecastと接続されており将来の収益が見えます。RevOpsが会議設計に関与しており、報告ではなく判断の場になっています。</p>
+			<h2>まとめ：KPI会議の質は「実行速度の問題」</h2>
+			<p>KPI会議が数字確認で終わる原因は、会議のファシリテーションや参加者の質の問題ではありません。「実行速度が決める速度に追いついていないこと」「KPIが行動トリガーとして設計されていないこと」「改善を確認する会議設計になっていないこと」が構造的な原因です。</p>
+			<p>グローバルDTCブランドの事例が示すように、リードタイムを70〜80%短縮したことで会議の性質が変わりました。KPI会議を改善するには、会議の中を変えるより、会議の外の「実行基盤」を変える方が効果的です。</p>
 		</div>
 
-		<!-- DIAGRAM 3: Revenue Architecture統合図 -->
-		<figure class="diag-wrap" aria-label="Revenue ArchitectureによるKPI統合：7つの要素を接続しRevenue Visibility・意思決定高速化・Forecast精度向上を実現する">
-			<div class="diag diag--ra-kpi">
-				<div class="ra-pills-row">
-					<span class="ra-pill">マーケティング</span>
-					<span class="ra-pill">営業</span>
-					<span class="ra-pill">CS</span>
-					<span class="ra-pill">KPI</span>
-					<span class="ra-pill">Forecast</span>
-					<span class="ra-pill">BI</span>
-					<span class="ra-pill">RevOps</span>
-				</div>
-				<svg class="ra-svg" viewBox="0 0 700 60" preserveAspectRatio="none" aria-hidden="true">
-					<line x1="50"  y1="0" x2="350" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
-					<line x1="150" y1="0" x2="350" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
-					<line x1="250" y1="0" x2="350" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
-					<line x1="350" y1="0" x2="350" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
-					<line x1="450" y1="0" x2="350" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
-					<line x1="550" y1="0" x2="350" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
-					<line x1="650" y1="0" x2="350" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
-				</svg>
-				<div class="ra-core">
-					<div class="ra-core-title">Revenue Architecture</div>
-					<div class="ra-core-tags">
-						<span>KPI設計統一</span>
-						<span>Revenue Flow可視化</span>
-						<span>Forecast構造設計</span>
-						<span>RevOps会議設計</span>
-						<span>ボトルネック特定</span>
-					</div>
-				</div>
-				<div class="ra-connector-bar"></div>
-				<div class="ra-outcomes">
-					<div class="ra-outcome">
-						<div class="ra-outcome-title">Revenue Visibility</div>
-						<div class="ra-outcome-sub">収益の流れが<br />全体で見える</div>
-					</div>
-					<div class="ra-outcome ra-outcome--mid">
-						<div class="ra-outcome-title">意思決定の高速化</div>
-						<div class="ra-outcome-sub">会議が判断の場に<br />変わる</div>
-					</div>
-					<div class="ra-outcome">
-						<div class="ra-outcome-title">Forecast精度向上</div>
-						<div class="ra-outcome-sub">将来収益の予測が<br />精度高く出る</div>
-					</div>
-				</div>
-			</div>
-			<figcaption class="diag-caption">Revenue ArchitectureによるKPI統合：マーケティング・営業・CS・KPI・Forecast・BI・RevOpsを接続し、Revenue Visibility・意思決定高速化・Forecast精度向上を実現する</figcaption>
-		</figure>
-
-		<div class="article-section">
-			<h2>日本企業でKPI会議が特に崩れやすい理由</h2>
-			<p>日本企業では報告文化・稟議文化・Excel文化・部門分断が根強く残っています。そのためKPI会議が「報告会」になりやすく、数字を読み上げることが目的になってしまいます。しかし本来必要なのは「収益改善会議」です。日本企業の文化と組織構造を踏まえたRevenue Architectureの設計が、KPI会議の機能を変えます。</p>
+		<!-- ===== CTA ===== -->
+		<div class="article-cta">
+			<p class="article-cta__catch">KPI会議を「改善会議」に変える</p>
+			<p class="article-cta__body">Consilegyは施策実行基盤の再設計からKPI設計まで、「数字が出たとき即実行できる環境」の構築を支援します。まずは現状の実行速度のボトルネックを整理するところから始めましょう。</p>
+			<a href="/contact/" class="article-cta__btn">無料相談を予約する</a>
 		</div>
 
-		<div class="article-section">
-			<h2>Consilegyの考え方</h2>
-			<p>ConsilegyではKPI改善を単なるダッシュボード整備とは考えていません。本質はRevenue Architecture・収益可視化・KPI設計・収益の流れ・RevOpsにあります。Salesforce・HubSpot・BI・Slack・Kintoneを横断しながら、「収益改善できる意思決定構造」を設計します。目的はKPIを増やすことではなく、収益改善の判断ができる組織を作ることです。</p>
-			<div class="article-table-wrap">
-				<table>
-					<thead>
-						<tr>
-							<th>課題</th>
-							<th>Consilegyのアプローチ</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>会議が数字確認で終わる</td>
-							<td>Revenue Decision Design + KPI定義統一</td>
-						</tr>
-						<tr>
-							<td>部門間でKPI定義がずれる</td>
-							<td>共通KPI設計 + Single Source of Truth構築</td>
-						</tr>
-						<tr>
-							<td>ボトルネックが特定できない</td>
-							<td>Revenue Flow設計 + 可視化ダッシュボード</td>
-						</tr>
-						<tr>
-							<td>Forecast精度が出ない</td>
-							<td>Forecast構造設計 + Revenue Predictability向上</td>
-						</tr>
-						<tr>
-							<td>KPIが増殖して優先度がない</td>
-							<td>重要KPI絞り込み + RevOps会議設計</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-
-		<div class="article-section">
-			<h2>まとめ：KPI会議問題は、Revenue構造の問題</h2>
-			<p>KPI会議が数字確認会になる原因は会議進行の問題ではありません。多くの場合、Revenue Architecture不足・収益可視化の欠如・KPI設計不足・RevOps未整備が原因です。だからこそ必要なのはKPIの追加ではなく、<strong>収益改善の判断ができる構造を設計すること</strong>です。KPI会議は、Revenue Architecture全体のなかで設計されるべきです。</p>
-		</div>
+		<!-- ===== RELATED ===== -->
+		<nav class="article-related" aria-label="関連記事">
+			<h2 class="article-related__heading">関連記事</h2>
+			<ul>
+				<li><a href="/insights/why-more-kpis-create-less-revenue-visibility/">KPIが増えるほど売上が見えなくなる理由</a></li>
+				<li><a href="/insights/why-dashboards-do-not-improve-executive-decisions/">ダッシュボードを整備しても経営判断が速くならない理由</a></li>
+				<li><a href="/insights/why-good-marketing-does-not-create-repeatable-growth/">良いマーケティングが再現性ある成長を生まない理由</a></li>
+			</ul>
+		</nav>
 
 	</div><!-- /.article-body -->
 
-	<!-- ===== CTA ===== -->
-	<section class="article-cta">
-		<div class="container">
-			<p class="cta-label">Revenue Architectureについて相談する</p>
-			<h2 class="cta-title">KPI設計・RevOpsについて<br />まずは話してみませんか</h2>
-			<p class="cta-body">ConsilegyではKPI会議を収益改善の場に変えるRevenue Architecture設計を支援しています。現状の課題診断から設計・運用支援まで、まずはお気軽にご相談ください。</p>
-			<a href="/contact/" class="cta-btn">無料相談を予約する</a>
+	<!-- ===== RELATED SERVICES ===== -->
+	<nav class="article-services" aria-label="関連サービス">
+		<h2 class="article-services__heading">関連サービス</h2>
+		<div class="article-services__grid">
+		<a href="/services/kpi-bi-design/" class="article-services__card">
+				<span class="article-services__cat">サービス</span>
+				<span class="article-services__title">KPI・BI設計支援</span>
+				<span class="article-services__arrow">→</span>
+			</a>
+		<a href="/services/adoption-growth-support/" class="article-services__card">
+				<span class="article-services__cat">サービス</span>
+				<span class="article-services__title">運用定着・改善支援</span>
+				<span class="article-services__arrow">→</span>
+			</a>
 		</div>
-	</section>
-
-
+	</nav>
 	<NewsletterSidebar />
 </div><!-- /.article-wrap -->
 
@@ -338,127 +220,58 @@ const breadcrumbSchema = {
 		max-height: 360px; object-fit: cover;
 	}
 /* ===== LAYOUT ===== */
-.article-wrap { background: #fff; }
-.container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+.article-wrap { background: #fff; padding-bottom: 80px; }
+.container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
 
 /* ===== HEADER ===== */
-.article-head { padding: 48px 24px 40px; }
-.breadcrumb { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--color-muted, #64748b); margin-bottom: 20px; flex-wrap: wrap; }
+.article-head { padding-top: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--color-border, #e2e8f0); }
+.breadcrumb { font-size: 0.78rem; color: var(--color-muted, #64748b); margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .breadcrumb a { color: var(--color-muted, #64748b); text-decoration: none; }
 .breadcrumb a:hover { color: var(--color-primary, #1e40af); }
-.article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
-.article-cat { display: inline-block; background: #eff6ff; color: var(--color-primary, #1e40af); font-size: 0.78rem; font-weight: 600; padding: 4px 12px; border-radius: 4px; }
-.article-date, .article-read { font-size: 0.82rem; color: var(--color-muted, #64748b); }
-h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 600; color: var(--color-navy, #0f172a); line-height: 1.3; margin: 0 0 16px; }
-.article-desc { font-size: 1rem; color: var(--color-charcoal, #334155); line-height: 1.8; margin: 0; }
-.br-pc { display: none; }
-@media (min-width: 640px) { .br-pc { display: block; } }
+.article-meta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; font-size: 0.8rem; color: var(--color-muted, #64748b); }
+.article-cat { background: #eff6ff; color: var(--color-primary, #1e40af); padding: 2px 10px; border-radius: 4px; font-weight: 600; font-size: 0.75rem; }
+.article-head h1 { font-size: clamp(1.5rem, 3.5vw, 2.1rem); font-weight: 600; color: var(--color-navy, #0f172a); line-height: 1.35; margin-bottom: 16px; }
+.article-desc { font-size: 1rem; color: var(--color-charcoal, #334155); line-height: 1.75; }
+.br-pc { display: inline; }
 
 /* ===== BODY ===== */
-.article-body { padding: 40px 24px 64px; }
-.article-section { margin-bottom: 48px; }
-.article-section h2 { font-size: 1.25rem; font-weight: 700; color: var(--color-navy, #0f172a); margin: 0 0 16px; padding-bottom: 10px; border-bottom: 2px solid var(--color-border, #e2e8f0); }
-.article-section p { font-size: 0.975rem; color: var(--color-charcoal, #334155); line-height: 1.9; margin: 0 0 16px; }
+.article-body { padding-top: 48px; }
+.article-section { margin-bottom: 56px; }
+.article-section h2 { font-size: 1.25rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 16px; padding-left: 14px; border-left: 4px solid var(--color-primary, #1e40af); line-height: 1.4; }
+.article-section p { font-size: 0.975rem; color: var(--color-charcoal, #334155); line-height: 1.85; margin-bottom: 16px; }
 .article-section p:last-child { margin-bottom: 0; }
-.article-callout { background: #f8fafc; border-left: 3px solid var(--color-primary, #1e40af); padding: 14px 18px; border-radius: 0 6px 6px 0; font-size: 0.92rem !important; color: var(--color-navy, #0f172a) !important; }
+.article-callout { background: #f8fafc; border-left: 3px solid var(--color-primary, #1e40af); padding: 14px 18px; border-radius: 0 6px 6px 0; font-size: 0.95rem !important; color: var(--color-navy, #0f172a) !important; }
 
 /* ===== NUMBERED LIST ===== */
-.article-numbered { list-style: none; padding: 0; margin: 0; counter-reset: item; display: flex; flex-direction: column; gap: 24px; }
+.article-numbered { list-style: none; counter-reset: item; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 24px; }
 .article-numbered li { counter-increment: item; display: grid; grid-template-columns: 36px 1fr; gap: 0 16px; }
 .article-numbered li::before { content: counter(item); display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--color-primary, #1e40af); color: #fff; border-radius: 50%; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px; }
 .article-numbered li strong { grid-column: 2; display: block; font-size: 1rem; color: var(--color-navy, #0f172a); margin-bottom: 6px; line-height: 1.4; }
 .article-numbered li p { grid-column: 2; font-size: 0.925rem; color: var(--color-charcoal, #334155); line-height: 1.8; margin: 0; }
 
-/* ===== TABLE ===== */
-.article-table-wrap { overflow-x: auto; margin-top: 24px; }
-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-th { background: var(--color-navy, #0f172a); color: #fff; padding: 10px 14px; text-align: left; font-weight: 600; }
-td { padding: 10px 14px; border-bottom: 1px solid var(--color-border, #e2e8f0); color: var(--color-charcoal, #334155); }
-tr:last-child td { border-bottom: none; }
-tr:nth-child(even) td { background: #f8fafc; }
-
-/* ===== DIAGRAM WRAPPER ===== */
-.diag-wrap { margin: 0 0 48px; }
-.diag { border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; overflow: hidden; background: #fff; }
-.diag-caption { display: block; font-size: 0.78rem; color: var(--color-muted, #64748b); margin-top: 8px; line-height: 1.5; }
-
-/* ===================================================
-   DIAGRAM 1: diag--kpi-chaos
-   =================================================== */
-.diag--kpi-chaos { font-family: inherit; }
-.kpic-header { background: var(--color-navy, #0f172a); color: #fff; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em; padding: 8px 16px; }
-.kpic-body { padding: 20px 20px 12px; }
-.kpic-room { display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
-.kpic-screen { flex: 1; min-width: 200px; background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 14px 16px; }
-.kpic-screen-label { font-size: 0.72rem; font-weight: 700; color: var(--color-muted, #64748b); letter-spacing: 0.05em; margin-bottom: 10px; text-transform: uppercase; }
-.kpic-screen-rows { display: flex; flex-direction: column; gap: 6px; }
-.kpic-row { display: flex; align-items: center; gap: 8px; padding: 6px 10px; background: #fff; border: 1px solid #e2e8f0; border-radius: 4px; }
-.kpic-label { font-size: 0.72rem; color: var(--color-muted, #64748b); width: 60px; flex-shrink: 0; }
-.kpic-val { font-size: 0.88rem; font-weight: 700; color: var(--color-navy, #0f172a); flex: 1; }
-.kpic-diff { font-size: 0.68rem; font-weight: 600; padding: 2px 6px; border-radius: 3px; }
-.diff-up { background: #dcfce7; color: #15803d; }
-.diff-dn { background: #fee2e2; color: #991b1b; }
-.diff-warn { background: #fef9c3; color: #713f12; }
-.kpic-xl { flex: 0 0 auto; background: #f0fdf4; border: 1px solid #86efac; border-radius: 8px; padding: 14px 16px; display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 100px; }
-.kpic-xl-icon { width: 32px; height: 32px; background: #16a34a; color: #fff; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; }
-.kpic-xl-label { font-size: 0.68rem; font-weight: 600; color: #15803d; text-align: center; }
-.kpic-bubbles { display: flex; flex-wrap: wrap; gap: 8px; padding: 4px 20px 16px; }
-.kpic-bubble { background: #fef9c3; border: 1px solid #fde047; border-radius: 8px; padding: 6px 14px; font-size: 0.78rem; color: #713f12; font-weight: 500; }
-.kpic-bubble--warn { background: #fef2f2; border-color: #fca5a5; color: #991b1b; }
-.kpic-footer { display: flex; gap: 8px; padding: 12px 20px; background: #fef2f2; flex-wrap: wrap; }
-.kpic-tag { font-size: 0.72rem; font-weight: 600; padding: 3px 10px; border-radius: 4px; }
-.kpic-tag.bad { background: #fee2e2; color: #991b1b; }
-
-/* ===================================================
-   DIAGRAM 2: diag--rdd  (Revenue Decision Design cycle)
-   =================================================== */
-.diag--rdd { font-family: inherit; }
-.rdd-header { background: var(--color-navy, #0f172a); color: #fff; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em; padding: 8px 16px; }
-.rdd-cycle-wrap { padding: 24px 16px 12px; }
-.rdd-cycle { display: flex; align-items: center; justify-content: center; gap: 0; flex-wrap: nowrap; overflow-x: auto; }
-.rdd-cycle--bot { margin-top: 0; flex-direction: row-reverse; }
-.rdd-node { flex: 1; min-width: 90px; max-width: 160px; background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 12px 10px; text-align: center; }
-.rdd-node-icon { font-size: 0.72rem; font-weight: 700; color: #fff; background: var(--color-primary, #1e40af); border-radius: 4px; padding: 3px 8px; display: inline-block; margin-bottom: 6px; }
-.rdd-node--rev .rdd-node-icon { background: var(--color-navy, #0f172a); }
-.rdd-node--act .rdd-node-icon { background: #475569; }
-.rdd-node-label { font-size: 0.78rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 4px; }
-.rdd-node-sub { font-size: 0.65rem; color: var(--color-muted, #64748b); line-height: 1.4; }
-.rdd-arrow { padding: 0 6px; color: #94a3b8; font-size: 1.1rem; font-weight: 700; flex-shrink: 0; }
-.rdd-arrow--left { color: #94a3b8; }
-.rdd-bottom-row { display: flex; justify-content: space-between; padding: 4px 16px; }
-.rdd-arrow--up, .rdd-arrow--dn { color: #94a3b8; font-size: 1.1rem; font-weight: 700; }
-.rdd-spacer { flex: 1; }
-.rdd-spacer--wide { flex: 2; }
-.rdd-footer { display: flex; gap: 8px; padding: 12px 16px; background: #f0fdf4; flex-wrap: wrap; }
-.rdd-tag { font-size: 0.72rem; font-weight: 600; padding: 3px 10px; border-radius: 4px; }
-.rdd-tag.good { background: #dcfce7; color: #15803d; }
-
-/* ===================================================
-   DIAGRAM 3: diag--ra-kpi  (standard RA hub, 7 pills)
-   =================================================== */
-.diag--ra-kpi { padding: 28px 20px 24px; display: flex; flex-direction: column; align-items: center; gap: 0; }
-.ra-pills-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; width: 100%; margin-bottom: 0; }
-.ra-pill { background: #f1f5f9; border: 1px solid var(--color-border, #e2e8f0); border-radius: 4px; padding: 6px 16px; font-size: 0.78rem; font-weight: 600; color: var(--color-charcoal, #334155); }
-.ra-svg { width: 100%; height: 60px; display: block; }
-.ra-core { background: var(--color-navy, #0f172a); border-radius: 8px; padding: 18px 24px; width: 100%; max-width: 480px; text-align: center; }
-.ra-core-title { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 10px; letter-spacing: 0.02em; }
-.ra-core-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
-.ra-core-tags span { background: rgba(255,255,255,0.12); color: #cbd5e1; font-size: 0.68rem; padding: 3px 10px; border-radius: 8px; }
-.ra-connector-bar { width: 2px; height: 24px; background: var(--color-border, #e2e8f0); }
-.ra-outcomes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; width: 100%; max-width: 520px; }
-.ra-outcome { background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 14px 12px; text-align: center; }
-.ra-outcome--mid { border-color: var(--color-primary, #1e40af); background: #eff6ff; }
-.ra-outcome--mid .ra-outcome-title { color: var(--color-primary, #1e40af); }
-.ra-outcome-title { font-size: 0.78rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 6px; }
-.ra-outcome-sub { font-size: 0.68rem; color: var(--color-muted, #64748b); line-height: 1.5; }
-
 /* ===== CTA ===== */
-.article-cta { background: radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%), linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%); padding: 64px 24px; text-align: center; color: #fff; }
-.cta-label { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7; margin: 0 0 12px; }
-.cta-title { font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 800; margin: 0 0 16px; line-height: 1.4; }
-.cta-body { font-size: 0.95rem; opacity: 0.85; max-width: 520px; margin: 0 auto 28px; line-height: 1.7; }
-.cta-btn { display: inline-block; background: #fff; color: var(--color-primary, #1e40af); font-weight: 700; font-size: 0.95rem; padding: 14px 36px; border-radius: 6px; text-decoration: none; transition: opacity 0.2s; }
-.cta-btn:hover { opacity: 0.9; }
+.article-cta { background: radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%), linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%); border-radius: 8px; padding: 40px 36px; text-align: center; margin-bottom: 48px; }
+.article-cta__catch { font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
+.article-cta__body { font-size: 0.92rem; color: rgba(255,255,255,0.88); line-height: 1.75; margin-bottom: 24px; }
+.article-cta__btn { display: inline-block; background: #fff; color: var(--color-primary, #1e40af); font-weight: 700; font-size: 0.9rem; padding: 12px 28px; border-radius: 6px; text-decoration: none; transition: opacity 0.2s; }
+.article-cta__btn:hover { opacity: 0.9; }
+
+/* ===== RELATED ===== */
+.article-related { border-top: 1px solid var(--color-border, #e2e8f0); padding-top: 32px; }
+.article-related__heading { font-size: 0.9rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 16px; }
+.article-related ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.article-related li a { font-size: 0.9rem; color: var(--color-primary, #1e40af); text-decoration: none; }
+.article-related li a:hover { text-decoration: underline; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 700px) {
+	.article-head h1 { font-size: 1.4rem; }
+	.br-pc { display: none; }
+	.article-cta { padding: 28px 20px; }
+}
+@media (max-width: 480px) {
+	.container { padding: 0 16px; }
+}
 </style>
 
 </BaseLayout>

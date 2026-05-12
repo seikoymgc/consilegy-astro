@@ -9,8 +9,8 @@ const readTime = '約10分';
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
-	headline: 'MAを導入しても商談化率が改善しない理由｜RevOpsとRevenue Architecture',
-	description: 'HubSpotやMarketoなどのMAを導入しても商談化率が改善しない原因を、Revenue ArchitectureとRevOpsの観点から解説します。',
+	headline: 'MAを導入しても商談化率が改善しない理由',
+	description: 'コンサルティング企業の新規AIプロダクト部門（3名兼務）が、GTM設計とMA自動化を統合し、2ヶ月でGTM方針を合意・3名でも運用できる収益エンジンを構築。MAがメール配信ツールで止まっている組織の構造問題を解説します。',
 	datePublished: pubDate,
 	dateModified: pubDate,
 	author: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
@@ -25,14 +25,14 @@ const breadcrumbSchema = {
 	itemListElement: [
 		{ '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://consilegy.com/' },
 		{ '@type': 'ListItem', position: 2, name: 'コラム', item: 'https://consilegy.com/insights/' },
-		{ '@type': 'ListItem', position: 3, name: 'なぜMAを導入しても、商談化率が改善しないのか', item: 'https://consilegy.com/insights/why-marketing-automation-does-not-improve-pipeline/' },
+		{ '@type': 'ListItem', position: 3, name: 'MAを導入しても商談化率が改善しない理由', item: 'https://consilegy.com/insights/why-marketing-automation-does-not-improve-pipeline/' },
 	],
 };
 ---
 
 <BaseLayout
-	title="MAを導入しても商談化率が改善しない理由｜RevOpsとRevenue Architecture | Consilegy"
-	description="HubSpotやMarketoなどのMAを導入しても商談化率が改善しない原因を、Revenue ArchitectureとRevOpsの観点から解説します。"
+	title="MAを導入しても商談化率が改善しない理由 | Consilegy"
+	description="コンサルティング企業の新規AIプロダクト部門（3名兼務）が、GTM設計とMA自動化を統合し、2ヶ月でGTM方針を合意・3名でも運用できる収益エンジンを構築。MAがメール配信ツールで止まっている組織の構造問題を解説します。"
 	lang="ja"
 >
 	<Fragment slot="head">
@@ -49,17 +49,17 @@ const breadcrumbSchema = {
 			<span aria-hidden="true">›</span>
 			<a href="/insights/">コラム</a>
 			<span aria-hidden="true">›</span>
-			<span aria-current="page">なぜMAを導入しても、商談化率が改善しないのか</span>
+			<span aria-current="page">MAを導入しても商談化率が改善しない理由</span>
 		</nav>
 		<div class="article-meta">
-			<span class="article-cat">CRM</span>
+			<span class="article-cat">マーケティング・GTM</span>
 		</div>
-		<h1>なぜMAを導入しても、<br class="br-pc" />商談化率が改善しないのか</h1>
-		<p class="article-desc">HubSpotを導入した。スコアリングも設定した。MQLも増えている。それなのに商談化率が上がらず、営業から「質が低い」と言われる。この問題の本質は、シナリオ不足ではなくRevenueにつながる構造が設計されていないことにある。</p>
+		<h1>MAを導入しても<br class="br-pc" />商談化率が改善しない理由</h1>
+		<p class="article-desc">コンサルティング企業の新規AIプロダクト部門（3名兼務）が、GTM設計とMA自動化を統合し、2ヶ月でGTM方針を合意・3名でも運用できる収益エンジンを構築。MAがメール配信ツールで止まっている組織の構造問題を解説します。</p>
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
-	<article class="article-body container" id="article">
+	<div class="article-body container">
 		<div class="article-eyecatch">
 			<img
 				src="/images/insights/why-marketing-automation-does-not-improve-pipeline.svg"
@@ -72,276 +72,140 @@ const breadcrumbSchema = {
 			/>
 		</div>
 
-		<!-- はじめに -->
-		<section class="article-section">
-			<h2>はじめに：MAは「メール配信ツール」ではない</h2>
-			<p>HubSpotを導入した。Marketoも入れた。スコアリングを設定し、メール配信を自動化し、ナーチャリングも動いている。MQL（Marketing Qualified Lead：マーケティングが営業に渡す準備ができたと判断した見込み客）も増えている。それなのに、営業からは「結局、質が低い」と言われ、商談化率が改善しない——こうした状況は、BtoB企業のMA導入後に非常によく起きます。多くの場合、企業は「もっとシナリオを増やそう」と考えます。しかし問題の本質はシナリオ数にはありません。</p>
-			<div class="article-callout">
-				<p>MA（Marketing Automation）は本来、メール配信ツールではありません。本来の役割は「Revenueにつながる顧客行動を設計すること」です。この前提が抜けている限り、MAを改善し続けても商談化率は上がりません。</p>
-			</div>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- 商談化率が改善しない5つの原因 -->
-		<section class="article-section">
-			<h2>商談化率が改善しない5つの原因</h2>
-
-			<div class="article-numbered">
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">01</p>
-					<h3>MQL定義が曖昧</h3>
-					<p>資料ダウンロード・セミナー参加・スコア50点でMQL化している企業は多くあります。しかし営業からすると、導入時期不明・情報収集段階・決裁権なしのリードは追う価値が低い。マーケと営業で「良いリード」の定義が違うまま運用している状態です。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">02</p>
-					<h3>スコアリングが行動量だけを見ている</h3>
-					<p>メール開封・ページ閲覧・資料ダウンロードだけでスコアを加算すると、情報収集だけのユーザーも高スコアになります。本来必要なのは企業属性・導入タイミング・課題一致・Revenue Potentialを反映したスコアリング設計です。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">03</p>
-					<h3>MAと営業プロセスが切れている</h3>
-					<p>MA側はMQL化した時点で完了します。しかし営業側ではSQL化・商談化・受注まで続いています。Revenue FlowがMQL地点で切れているため、MAが生み出したMQLが商談化率に反映されません。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">04</p>
-					<h3>シナリオが施策中心になっている</h3>
-					<p>メルマガ・ホワイトペーパー・セミナー導線ばかりが増えます。しかし本来必要なのは「どのタイミングで、何を意思決定させるか」という設計です。施策の積み重ねではなく、Revenue Journey設計が必要です。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">05</p>
-					<h3>MAがRevenue KPIと接続されていない</h3>
-					<p>マーケはCV・MQL・開封率を見ており、経営はARR・Win Rate・NRRを見ています。この間がつながっていないため、MAの活動がRevenueへの貢献として評価されず、投資判断の根拠にもなりません。</p>
-				</div>
-			</div>
-
-			<!-- DIAGRAM 1 -->
-			<figure class="diag diag--ma-gap" aria-label="MA導入後も商談化しない状態の構造図。HubSpotやMarketoが大量のMQLを生成しているが、SQL定義が未設計のまま営業へ渡されるため商談化されず滞留し、営業から質が低いと評価されている状態を示す。">
-				<div class="diag-mg-header">
-					<span class="diag-mg-header__label">現状：MQLが増えても商談化しない</span>
-				</div>
-				<div class="diag-mg-grid">
-					<div class="diag-mg-ma">
-						<div class="diag-mg-ma__tools">
-							<span class="diag-mg-tool diag-mg-tool--hub">HubSpot</span>
-							<span class="diag-mg-tool diag-mg-tool--mkt">Marketo</span>
-						</div>
-						<div class="diag-mg-ma__label">MA / MAツール</div>
-						<div class="diag-mg-ma__kpis">
-							<span>開封率↑</span><span>MQL↑</span><span>CV↑</span>
-						</div>
-					</div>
-					<div class="diag-mg-center">
-						<div class="diag-mg-mqls">
-							<div class="diag-mg-mql">情報収集のみ</div>
-							<div class="diag-mg-mql diag-mg-mql--warn">決裁権なし</div>
-							<div class="diag-mg-mql">導入時期未定</div>
-							<div class="diag-mg-mql diag-mg-mql--warn">スコアだけ高い</div>
-						</div>
-						<div class="diag-mg-center__label">SQL定義なし</div>
-					</div>
-					<div class="diag-mg-vs" aria-hidden="true">✕</div>
-					<div class="diag-mg-sales">
-						<div class="diag-mg-sales__badge">営業</div>
-						<div class="diag-mg-sales__thought">「質が低い」</div>
-						<div class="diag-mg-sales__action">MAリードを追わない</div>
-					</div>
-				</div>
-				<div class="diag-mg-footer">
-					<span>商談化されない</span>
-					<span>MQLが滞留する</span>
-					<span>営業・マーケ対立</span>
-				</div>
-				<figcaption class="diag-caption">MQL定義・SQL条件が未設計のまま大量のリードが渡される状態では、MAがRevenueにつながらない</figcaption>
-			</figure>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- Revenue Journey設計 -->
-		<section class="article-section">
-			<h2>本当に必要なのは「Revenue Journey設計」</h2>
-			<p>MAが機能している会社には共通点があります。まずMQL条件が厳密で、従業員規模・部署・課題・導入時期まで定義されています。次にSQL条件が営業と合意されており、「どの状態で営業へ渡すか」が明確です。さらにCV数ではなく商談化率・Win Rate・ARR・CAC PaybackまでをRevenue KPIとして追っています。MAとCRMが構造的に連携し、HubSpotだけでなくSalesforce・BI・CSデータまでつながっています。そして最も重要なのが、施策ではなく「顧客が何を判断するか」を中心にRevenue Journeyとして設計されていることです。</p>
-
-			<p>Revenue Journey設計とは、認知・比較・検討・商談・契約・活用・継続を一つのRevenue Flowとして捉える考え方です。MA問題は、メール配信問題ではなく、Revenue Architecture・Revenue KPI・SQL定義・CRM・RevOpsという構造の問題です。</p>
-
-			<!-- DIAGRAM 2 -->
-			<figure class="diag diag--revenue-journey" aria-label="Revenue Journey構造図。Awareness・Consideration・MQL・SQL・Opportunity・ARR・Renewalの各フェーズが一貫した設計でつながっており、MAがRevenue全体の一部として機能する構造を示す。">
-				<div class="diag-rj-header">
-					<span class="diag-rj-header__label">Revenue Journey構造</span>
-					<span class="diag-rj-header__sub">MAはRevenue全体の途中に存在する</span>
-				</div>
-				<div class="diag-rj-stages">
-					<div class="diag-rj-stage">
-						<div class="diag-rj-stage__name">Awareness</div>
-						<div class="diag-rj-stage__sys diag-rj-stage__sys--mkt">広告・SEO</div>
-					</div>
-					<div class="diag-rj-arrow" aria-hidden="true">→</div>
-					<div class="diag-rj-stage diag-rj-stage--ma">
-						<div class="diag-rj-stage__name">Consideration</div>
-						<div class="diag-rj-stage__sys diag-rj-stage__sys--ma">MA</div>
-					</div>
-					<div class="diag-rj-arrow" aria-hidden="true">→</div>
-					<div class="diag-rj-stage diag-rj-stage--ma">
-						<div class="diag-rj-stage__name">MQL</div>
-						<div class="diag-rj-stage__sys diag-rj-stage__sys--ma">MA</div>
-					</div>
-					<div class="diag-rj-arrow diag-rj-arrow--key" aria-hidden="true">→</div>
-					<div class="diag-rj-stage diag-rj-stage--sales">
-						<div class="diag-rj-stage__name">SQL</div>
-						<div class="diag-rj-stage__sys diag-rj-stage__sys--sales">IS</div>
-					</div>
-					<div class="diag-rj-arrow" aria-hidden="true">→</div>
-					<div class="diag-rj-stage diag-rj-stage--sales">
-						<div class="diag-rj-stage__name">Opportunity</div>
-						<div class="diag-rj-stage__sys diag-rj-stage__sys--sales">SFA</div>
-					</div>
-					<div class="diag-rj-arrow" aria-hidden="true">→</div>
-					<div class="diag-rj-stage diag-rj-stage--rev">
-						<div class="diag-rj-stage__name">ARR</div>
-						<div class="diag-rj-stage__sys diag-rj-stage__sys--rev">CRM</div>
-					</div>
-					<div class="diag-rj-arrow" aria-hidden="true">→</div>
-					<div class="diag-rj-stage diag-rj-stage--rev">
-						<div class="diag-rj-stage__name">Renewal</div>
-						<div class="diag-rj-stage__sys diag-rj-stage__sys--cs">CS</div>
-					</div>
-				</div>
-				<div class="diag-rj-ma-scope">
-					<div class="diag-rj-ma-scope__bar"></div>
-					<div class="diag-rj-ma-scope__label">MA の担当範囲</div>
-					<div class="diag-rj-ma-scope__note">MAはRevenue Architectureの一部として設計する</div>
-				</div>
-				<figcaption class="diag-caption">Revenue Journey全体の中でMAを位置づけることで、MQLがRevenue Flowとしてつながるようになる</figcaption>
-			</figure>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- Revenue Architecture -->
-		<section class="article-section">
-			<h2>Revenue Architectureという考え方</h2>
-			<p>Revenue Architecture（レベニューアーキテクチャ）とは、営業・マーケティング・CS・CRM・KPI・データを「収益につながる一つの構造」として設計する考え方です。MAもマーケ単体のツールではなく、Revenue Architectureの一部です。この設計がなければ、HubSpotやMarketoを入れてもRevenueは改善しません。Revenueは Marketing・Sales・CS・CRM・KPI・Data全体で決まるからです。</p>
-
-			<p>Revenue Architectureが整うと、MQLの質が上がり商談化率が改善します。営業とマーケが共通KPIで動くようになり対立が減ります。MAがARRまで追えるようになり、マーケ投資判断がCPAではなくRevenueベースに変わります。</p>
-
-			<!-- DIAGRAM 3 -->
-			<figure class="diag diag--ra-ma" aria-label="Revenue Architectureがマーケティング・営業・CSを統合する構造図。Marketing・Sales・CS・MA・CRM・KPI・DataをRevenue Architectureが接続し、商談化率向上・Revenue Visibility・MQL品質改善を実現する設計を示す。">
-				<div class="diag-rm-depts">
-					<span class="diag-rm-dept diag-rm-dept--mkt">マーケティング</span>
-					<span class="diag-rm-dept diag-rm-dept--sales">営業</span>
-					<span class="diag-rm-dept diag-rm-dept--cs">CS</span>
-					<span class="diag-rm-dept diag-rm-dept--ma">MA</span>
-					<span class="diag-rm-dept diag-rm-dept--crm">CRM</span>
-					<span class="diag-rm-dept diag-rm-dept--kpi">KPI</span>
-					<span class="diag-rm-dept diag-rm-dept--data">データ</span>
-				</div>
-				<div class="diag-rm-lines" aria-hidden="true">
-					<svg viewBox="0 0 700 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-						<line x1="50"  y1="0" x2="350" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
-						<line x1="133" y1="0" x2="350" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
-						<line x1="216" y1="0" x2="350" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
-						<line x1="299" y1="0" x2="350" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
-						<line x1="400" y1="0" x2="350" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
-						<line x1="483" y1="0" x2="350" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
-						<line x1="566" y1="0" x2="350" y2="40" stroke="#cbd5e1" stroke-width="1.5"/>
-					</svg>
-				</div>
-				<div class="diag-rm-core">
-					<div class="diag-rm-core__label">Revenue Architecture</div>
-					<div class="diag-rm-core__tags">
-						<span>Revenue Journey</span>
-						<span>MQL / SQL定義</span>
-						<span>Revenue KPI</span>
-						<span>Data Flow</span>
-						<span>RevOps</span>
-					</div>
-				</div>
-				<div class="diag-rm-connector" aria-hidden="true"></div>
-				<div class="diag-rm-outcomes">
-					<div class="diag-rm-outcome">
-						<div class="diag-rm-outcome__label">商談化率向上</div>
-						<div class="diag-rm-outcome__desc">SQL条件整備<br />営業接続</div>
-					</div>
-					<div class="diag-rm-outcome diag-rm-outcome--mid">
-						<div class="diag-rm-outcome__label">Revenue Visibility</div>
-						<div class="diag-rm-outcome__desc">MAからARRまで<br />追える</div>
-					</div>
-					<div class="diag-rm-outcome">
-						<div class="diag-rm-outcome__label">MQL品質改善</div>
-						<div class="diag-rm-outcome__desc">Revenue Potential<br />スコアリング</div>
-					</div>
-				</div>
-				<figcaption class="diag-caption">Revenue Architectureが整うと、MAはメール配信ツールから商談化率を動かす収益設計の一部に変わる</figcaption>
-			</figure>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- 日本企業 -->
-		<section class="article-section">
-			<h2>日本企業でこの問題が起きやすい理由</h2>
-			<p>日本企業では部門分断・属人営業・Excel管理・KPI分断が根強く残っています。そのためMA単体を導入しても、営業との接続が設計されないまま「大量配信ツール」として使われ続けます。欧米型のMA活用アプローチをそのまま適用しても、日本の組織構造や商習慣とのズレで機能しないことが多い。必要なのは、日本企業に合ったRevenue Architectureの設計です。</p>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- Consilegyの考え方 -->
-		<section class="article-section">
-			<h2>Consilegyの考え方</h2>
-			<p>Consilegyでは、MA改善を単なるメール配信改善として捉えていません。本質はRevenue Architecture・Revenue Journey・RevOps・Revenue KPI・Revenue Data Flowにあります。HubSpot・Marketo・Salesforce・BI・Slackなどを横断しながら、「MQLをRevenueへ変える構造」を設計します。目的はリードを増やすことではなく、Revenueにつながる商談を増やすことです。</p>
-
-			<div class="article-table-wrap">
-				<table class="article-table">
-					<thead>
-						<tr>
-							<th>領域</th>
-							<th>Consilegyのサポート</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr><td>MQL / SQL定義設計</td><td>営業合意済みの転換条件とスコアリング設計</td></tr>
-						<tr><td>Revenue Journey設計</td><td>認知からRenewalまでの一貫したフロー設計</td></tr>
-						<tr><td>MA × CRM連携</td><td>HubSpot・Marketo・SalesforceのData Flow</td></tr>
-						<tr><td>Revenue KPI設計</td><td>MAからARR・NRRまでつながるKPI体系</td></tr>
-						<tr><td>RevOps構築</td><td>マーケ・営業を横断する会議体・プロセス整備</td></tr>
-					</tbody>
-				</table>
-			</div>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- まとめ -->
-		<section class="article-section">
-			<h2>まとめ：MA問題は、Revenue構造の問題</h2>
-			<p>MAを導入しても商談化率が改善しない原因は、シナリオ不足ではありません。Revenue Architecture不足・Revenue KPI未整備・SQL定義不足・Revenue Journey未設計が根本原因です。だからこそ必要なのはMA運用改善ではなく、Revenueにつながる構造を設計することです。MAは単なるマーケティングツールではなく、Revenue Architectureの一部として設計されるべきものです。</p>
-		</section>
-
-		<!-- RELATED -->
-		<aside class="article-related">
-			<h2 class="article-related__title">関連コラム</h2>
-			<ul class="article-related__list">
-				<li><a href="/insights/why-more-leads-do-not-increase-revenue/">なぜ「良いリード」が増えているのに受注が増えないのか</a></li>
-				<li><a href="/insights/why-salesforce-and-hubspot-data-do-not-match/">なぜSalesforceとHubSpotのデータは一致しないのか</a></li>
-				<li><a href="/insights/why-more-kpis-create-less-revenue-visibility/">なぜKPIが増えるほど売上が見えなくなるのか</a></li>
-				<li><a href="/insights/why-sales-and-customer-success-do-not-align/">なぜ営業とカスタマーサクセスが分断されるのか</a></li>
-			</ul>
-		</aside>
-
-		<!-- CTA -->
-		<div class="article-cta">
-			<p class="article-cta__eyebrow">Revenue Architecture</p>
-			<h2 class="article-cta__title">MQLをRevenueへ変える<br />構造を設計します</h2>
-			<p class="article-cta__body">Revenue Journey・MQL/SQL定義・Revenue KPI・RevOpsを横断した設計で、商談化率と売上可視化を改善します。</p>
-			<a href="/contact/" class="article-cta__btn">まずは相談する</a>
+		<div class="article-section">
+			<p>コンサルティング企業の新規AIプロダクト部門では、国内のマーケティングチームは他業務と兼務する3名のみで、開発はベトナムの外部チームに委託している状況でした。HubSpotは導入済みでしたが、「誰に・何を・どう売るか」というGTM方針が組織内で合意されておらず、MAはメール配信のみで稼働していました。リードは集まりますが、どのリードが商談に近いのかが分からず、営業への引き渡しも不定期でした。</p>
+			<p>GTM設計とプロダクト利用データとMAの連携基盤を構築したことで、<strong>2ヶ月で組織全体のGTM方針を合意し、3名の兼務チームでも継続運用できる収益エンジンを確立しました</strong>。MAの機能を広げたのではなく、「誰に・何のタイミングで・何を届けるか」の設計を作ったことで変わりました。</p>
 		</div>
 
-		<p class="article-pubdate">公開日：2026年5月7日</p>
-	</article>
+		<div class="article-section">
+			<h2>あなたの組織は大丈夫か——5つの確認項目</h2>
+			<ol class="article-numbered">
+				<li>
+					<strong>MAで送っているメールのほとんどが「全員への一斉配信」になっている</strong>
+					<p>セグメントや行動トリガーではなく、リスト全体に同じメールを配信している場合、MAはメール配信ツールとして機能しています。</p>
+				</li>
+				<li>
+					<strong>「商談化率」を改善する施策がMAで設計されていない</strong>
+					<p>MAのKPIが「開封率」「クリック率」に止まり、商談化や受注との接続が測定されていない場合、MAが収益に接続されていません。</p>
+				</li>
+				<li>
+					<strong>リードスコアリングが存在しない、または設定したまま機能していない</strong>
+					<p>「どの行動をしたリードが商談に近いか」のスコアリングが設計されていない場合、優先度の判断が担当者の感覚に依存しています。</p>
+				</li>
+				<li>
+					<strong>MAのデータがSFAの商談パイプラインに反映されていない</strong>
+					<p>MAでリードが動いても、その情報が営業の商談管理ツールに渡らない場合、マーケティングの成果が商談として認識されません。</p>
+				</li>
+				<li>
+					<strong>「どの施策が商談を作ったか」がレポートできない</strong>
+					<p>先月打った施策が何件の商談につながったかを即答できない場合、施策と収益のデータが断絶しています。</p>
+				</li>
+			</ol>
+			<p class="article-callout">3つ以上当てはまる場合、問題はMAの機能不足ではありません。「誰に・何のタイミングで・何を届けるか」の設計が存在していないことが本質です。</p>
+		</div>
 
+		<div class="article-section">
+			<h2>MAが商談化率を改善しない3つのパターン</h2>
+			<ol class="article-numbered">
+				<li>
+					<strong>MAがコンテンツ配信ツールになっている</strong>
+					<p>MAを導入した後、「メルマガ配信」「ダウンロードコンテンツの送付」のみに活用し、行動トリガーやスコアリングを設計しないまま運用が始まると、MAは施策実行の自動化ではなく配信の効率化ツールになります。前述のAIプロダクト部門では、GTMを設計する前にMAが稼働していたため、送るコンテンツは存在してもそれが誰の・どのフェーズの行動に接続されているか不明でした。配信の前に、「誰が・何をしたタイミングで・何を受け取るべきか」を設計することが先です。</p>
+					<p><strong>判断基準：</strong>「最後に設定したワークフローは何のために作りましたか」と問うたとき、商談化との接続を説明できるかどうかで確認できます。</p>
+				</li>
+				<li>
+					<strong>スコアリングがなく、優先リードと非優先リードが区別されない</strong>
+					<p>リードが蓄積しても、「今すぐ営業が話すべきリード」と「まだナーチャリング段階のリード」が同列で扱われている場合、営業リソースが分散します。前述の部門では、プロダクト利用データとHubSpotを連携することで、「試用を開始した」「特定機能を複数回使用した」などのシグナルをスコアに変換し、営業通知のトリガーを設計しました。行動の質によって優先度を変える仕組みが、商談化率改善の実効性を持ちます。</p>
+					<p><strong>判断基準：</strong>「直近の受注顧客は、引き渡し前にMAでどんな行動をしていましたか」と問うたとき、具体的な行動パターンを答えられるかどうかで確認できます。</p>
+				</li>
+				<li>
+					<strong>MAと商談パイプラインが接続されていない</strong>
+					<p>MAがメール配信・スコアリングまで機能していても、その情報がSFAの商談パイプラインに渡らなければ、マーケティングの成果は営業に見えません。施策と商談の因果関係も測定できません。前述の部門では、HubSpotのMAとCRMを同一プラットフォームで設計し、リードの行動履歴・スコア・担当施策が商談レコードに紐づく構造を構築しました。3名でも運用できたのは、MA→CRM→商談の情報移動が自動化されていたためです。</p>
+					<p><strong>判断基準：</strong>「この商談のリードは、最初にどの施策で獲得されましたか」をSFAで確認できるかどうかで確認できます。</p>
+				</li>
+			</ol>
+		</div>
+
+		<div class="article-section">
+			<h2>設計を変えた後に何が起きたか</h2>
+			<p>前述のAIプロダクト部門では、MAの機能を増やすのではなく、「GTM設計・スコアリング・MA→CRM自動連携」を一体で構築しました。その結果、以下の変化が起きました。</p>
+			<ol class="article-numbered">
+				<li>
+					<strong>2ヶ月で組織全体のGTM方針を合意</strong>
+					<p>「誰に・何を・どう売るか」がドキュメント化され、プロダクト・マーケティング・営業が同じ方針で動ける状態が整いました。</p>
+				</li>
+				<li>
+					<strong>プロダクト利用データと連動した商談化トリガーを確立</strong>
+					<p>試用段階の顧客の行動がスコアリングに反映され、「今話すべきリード」が自動で営業に通知されるようになりました。</p>
+				</li>
+				<li>
+					<strong>3名兼務チームでも継続運用できる収益エンジンを構築</strong>
+					<p>自動化ワークフローにより、人手を増やさずに施策実行・リード管理・商談引き渡しを維持できる体制が整いました。</p>
+				</li>
+			</ol>
+			<p class="article-callout">MAの機能を広げたのではなく、「誰に・何のタイミングで」の設計を作ったことで変わりました。</p>
+		</div>
+
+		<div class="article-section">
+			<h2>今週から始められる3つのアクション</h2>
+			<ol class="article-numbered">
+				<li>
+					<strong>直近6ヶ月の受注案件について、「MAでの最後の行動」を書き出す</strong>
+					<p>受注した顧客がMAでどんな行動をしていたかを確認します。「特定ページを訪問した」「ある資料をダウンロードした」などの共通パターンが、スコアリング設計の起点になります。</p>
+				</li>
+				<li>
+					<strong>MAのワークフローを「配信型」と「トリガー型」に分類する</strong>
+					<p>稼働中のすべてのワークフローを書き出し、「特定の行動に反応して動くもの」と「定期的に一斉送信するもの」に分けます。トリガー型が少ない場合、MAが配信ツールになっています。</p>
+				</li>
+				<li>
+					<strong>「商談になったリード」のスコアを過去データで確認する</strong>
+					<p>スコアリングを設定している場合、商談化したリードの引き渡し時のスコアを確認します。設定していない場合は、「商談になったリードに共通する行動」を1つ選んでスコアを付けることから始めます。</p>
+				</li>
+			</ol>
+		</div>
+
+		<div class="article-section">
+			<h2>まとめ：MAの問題は「設定」より「設計」</h2>
+			<p>MAを導入しても商談化率が改善しない原因は、MAの機能不足でも設定の問題でもありません。「MAがコンテンツ配信ツールになっていること」「スコアリングによる優先度設計がないこと」「MAと商談パイプラインが接続されていないこと」が構造的な原因です。</p>
+			<p>AIプロダクト部門の事例が示すように、2ヶ月でのGTM合意・3名での収益エンジン運用を実現したのは、GTM設計とMA自動化を一体で構築したためです。「誰に・何のタイミングで・何を届けるか」の設計が、MAを商談化エンジンに変える第一歩です。</p>
+		</div>
+
+		<!-- ===== CTA ===== -->
+		<div class="article-cta">
+			<p class="article-cta__catch">MAを「配信ツール」から「商談化エンジン」に設計し直す</p>
+			<p class="article-cta__body">ConsilegyはGTM設計・リードスコアリング・MA×CRM自動連携まで、マーケティング自動化の収益接続を支援します。まずは「どの施策が商談を作っているか」を整理するところから始めましょう。</p>
+			<a href="/contact/" class="article-cta__btn">無料相談を予約する</a>
+		</div>
+
+		<!-- ===== RELATED ===== -->
+		<nav class="article-related" aria-label="関連記事">
+			<h2 class="article-related__heading">関連記事</h2>
+			<ul>
+				<li><a href="/insights/why-more-leads-do-not-increase-revenue/">リードが増えても受注が増えない理由</a></li>
+				<li><a href="/insights/why-crm-does-not-align-sales-and-marketing/">CRMがあっても営業とマーケティングが連携できない理由</a></li>
+				<li><a href="/insights/why-good-marketing-strategies-fail-to-scale/">マーケティング戦略がスケールしない理由</a></li>
+			</ul>
+		</nav>
+
+	</div><!-- /.article-body -->
+
+	<!-- ===== RELATED SERVICES ===== -->
+	<nav class="article-services" aria-label="関連サービス">
+		<h2 class="article-services__heading">関連サービス</h2>
+		<div class="article-services__grid">
+		<a href="/services/revenue-architecture-design/" class="article-services__card">
+				<span class="article-services__cat">サービス</span>
+				<span class="article-services__title">レベニューアーキテクチャ設計</span>
+				<span class="article-services__arrow">→</span>
+			</a>
+		<a href="/services/crm-revops-redesign/" class="article-services__card">
+				<span class="article-services__cat">サービス</span>
+				<span class="article-services__title">CRM / RevOps再設計支援</span>
+				<span class="article-services__arrow">→</span>
+			</a>
+		</div>
+	</nav>
 	<NewsletterSidebar />
-</div>
+</div><!-- /.article-wrap -->
 
 <style>
 	/* ── Eyecatch ─── */
@@ -356,185 +220,64 @@ const breadcrumbSchema = {
 		max-height: 360px; object-fit: cover;
 	}
 /* ===== LAYOUT ===== */
-.article-wrap { background: #fff; }
+.article-wrap { background: #fff; padding-bottom: 80px; }
 .container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
 
 /* ===== HEADER ===== */
-.article-head { padding: 48px 24px 40px; }
-.breadcrumb { font-size: .78rem; color: var(--color-muted, #64748b); display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 20px; }
+.article-head { padding-top: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--color-border, #e2e8f0); }
+.breadcrumb { font-size: 0.78rem; color: var(--color-muted, #64748b); margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .breadcrumb a { color: var(--color-muted, #64748b); text-decoration: none; }
-.breadcrumb a:hover { text-decoration: underline; }
-.article-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
-.article-cat  { font-size: .75rem; font-weight: 600; color: var(--color-primary, #1e40af); background: #eff6ff; border-radius: 4px; padding: 3px 10px; }
-.article-date, .article-read { font-size: .78rem; color: var(--color-muted, #64748b); }
-.article-head h1 { font-size: clamp(1.5rem, 3.5vw, 2rem); font-weight: 600; line-height: 1.45; color: var(--color-navy, #0f172a); margin: 0 0 16px; }
-.article-desc { font-size: 1rem; color: var(--color-charcoal, #334155); line-height: 1.75; margin: 0; }
-.br-pc { display: block; }
+.breadcrumb a:hover { color: var(--color-primary, #1e40af); }
+.article-meta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; font-size: 0.8rem; color: var(--color-muted, #64748b); }
+.article-cat { background: #eff6ff; color: var(--color-primary, #1e40af); padding: 2px 10px; border-radius: 4px; font-weight: 600; font-size: 0.75rem; }
+.article-head h1 { font-size: clamp(1.5rem, 3.5vw, 2.1rem); font-weight: 600; color: var(--color-navy, #0f172a); line-height: 1.35; margin-bottom: 16px; }
+.article-desc { font-size: 1rem; color: var(--color-charcoal, #334155); line-height: 1.75; }
+.br-pc { display: inline; }
 
 /* ===== BODY ===== */
-.article-body { padding: 0 24px 80px; }
-.article-section { margin-bottom: 8px; }
-.article-section h2 { font-size: 1.25rem; font-weight: 700; color: var(--color-navy, #0f172a); margin: 40px 0 16px; border-left: 3px solid var(--color-primary, #1e40af); padding-left: 12px; }
-.article-section h3 { font-size: 1rem; font-weight: 700; color: var(--color-navy, #0f172a); margin: 28px 0 10px; }
-.article-section p  { font-size: .96rem; color: var(--color-charcoal, #334155); line-height: 1.85; margin: 0 0 16px; }
-.article-hr { border: none; border-top: 1px solid var(--color-border, #e2e8f0); margin: 40px 0; }
+.article-body { padding-top: 48px; }
+.article-section { margin-bottom: 56px; }
+.article-section h2 { font-size: 1.25rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 16px; padding-left: 14px; border-left: 4px solid var(--color-primary, #1e40af); line-height: 1.4; }
+.article-section p { font-size: 0.975rem; color: var(--color-charcoal, #334155); line-height: 1.85; margin-bottom: 16px; }
+.article-section p:last-child { margin-bottom: 0; }
+.article-callout { background: #f8fafc; border-left: 3px solid var(--color-primary, #1e40af); padding: 14px 18px; border-radius: 0 6px 6px 0; font-size: 0.95rem !important; color: var(--color-navy, #0f172a) !important; }
 
-/* callout */
-.article-callout { background: #f8fafc; border-left: 3px solid var(--color-primary, #1e40af); border-radius: 0 6px 6px 0; padding: 16px 20px; margin: 20px 0; }
-.article-callout p { margin: 0; font-size: .93rem; color: var(--color-charcoal, #334155); line-height: 1.8; }
+/* ===== NUMBERED LIST ===== */
+.article-numbered { list-style: none; counter-reset: item; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 24px; }
+.article-numbered li { counter-increment: item; display: grid; grid-template-columns: 36px 1fr; gap: 0 16px; }
+.article-numbered li::before { content: counter(item); display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--color-primary, #1e40af); color: #fff; border-radius: 50%; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px; }
+.article-numbered li strong { grid-column: 2; display: block; font-size: 1rem; color: var(--color-navy, #0f172a); margin-bottom: 6px; line-height: 1.4; }
+.article-numbered li p { grid-column: 2; margin-bottom: 8px; }
+.article-numbered li p:last-child { margin-bottom: 0; }
 
-/* numbered */
-.article-numbered { display: flex; flex-direction: column; gap: 24px; margin: 24px 0 32px; }
-.article-numbered__item { display: grid; grid-template-columns: 48px 1fr; grid-template-rows: auto auto; gap: 0 16px; align-items: start; }
-.article-numbered__num { font-size: .7rem; font-weight: 700; color: var(--color-primary, #1e40af); background: #eff6ff; border-radius: 4px; padding: 4px 0; text-align: center; grid-row: 1 / 3; align-self: start; margin-top: 4px; }
-.article-numbered__item h3 { margin: 0 0 6px; font-size: .97rem; font-weight: 700; color: var(--color-navy, #0f172a); }
-.article-numbered__item p  { margin: 0; font-size: .92rem; line-height: 1.78; color: var(--color-charcoal, #334155); }
+/* ===== CTA ===== */
+.article-cta { background: radial-gradient(ellipse at 70% 50%, rgba(59,130,246,0.18) 0%, transparent 60%), linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%); border-radius: 12px; padding: 40px 36px; margin-bottom: 48px; color: #fff; }
+.article-cta__catch { font-size: 1.15rem; font-weight: 700; margin-bottom: 12px; line-height: 1.4; }
+.article-cta__body { font-size: 0.95rem; line-height: 1.8; margin-bottom: 24px; opacity: 0.92; }
+.article-cta__btn { display: inline-block; background: #fff; color: var(--color-primary, #1e40af); font-weight: 700; font-size: 0.95rem; padding: 12px 28px; border-radius: 6px; text-decoration: none; transition: opacity 0.15s; }
+.article-cta__btn:hover { opacity: 0.88; }
 
-/* table */
-.article-table-wrap { overflow-x: auto; margin: 20px 0 28px; border-radius: 8px; border: 1px solid var(--color-border, #e2e8f0); }
-.article-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
-.article-table th { background: var(--color-navy, #0f172a); color: #fff; font-weight: 600; padding: 10px 14px; text-align: left; }
-.article-table td { padding: 9px 14px; border-bottom: 1px solid var(--color-border, #e2e8f0); color: var(--color-charcoal, #334155); vertical-align: top; }
-.article-table tbody tr:last-child td { border-bottom: none; }
-.article-table tbody tr:nth-child(even) td { background: #f8fafc; }
+/* ===== RELATED ARTICLES ===== */
+.article-related { margin-bottom: 48px; }
+.article-related__heading { font-size: 1rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--color-border, #e2e8f0); }
+.article-related ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.article-related li::before { content: none; }
+.article-related a { font-size: 0.9rem; color: var(--color-primary, #1e40af); text-decoration: none; line-height: 1.5; }
+.article-related a:hover { text-decoration: underline; }
 
-/* related */
-.article-related { background: #f8fafc; border-radius: 8px; padding: 28px 28px 24px; margin: 48px 0 0; }
-.article-related__title { font-size: .85rem; font-weight: 700; color: var(--color-muted, #64748b); text-transform: uppercase; letter-spacing: .06em; margin: 0 0 14px; }
-.article-related__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
-.article-related__list a { font-size: .93rem; color: var(--color-primary, #1e40af); text-decoration: none; }
-.article-related__list a:hover { text-decoration: underline; }
+/* ===== RELATED SERVICES ===== */
+.article-services { background: #f8fafc; border-top: 1px solid var(--color-border, #e2e8f0); padding: 40px 24px; }
+.article-services__heading { max-width: 780px; margin: 0 auto 20px; font-size: 1rem; font-weight: 700; color: var(--color-navy, #0f172a); }
+.article-services__grid { max-width: 780px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.article-services__card { display: flex; align-items: center; gap: 12px; background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 16px 20px; text-decoration: none; transition: border-color 0.15s, box-shadow 0.15s; }
+.article-services__card:hover { border-color: var(--color-primary, #1e40af); box-shadow: 0 2px 8px rgba(30,64,175,0.08); }
+.article-services__cat { font-size: 0.7rem; color: var(--color-muted, #64748b); background: #eff6ff; padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.article-services__title { flex: 1; font-size: 0.9rem; font-weight: 600; color: var(--color-navy, #0f172a); line-height: 1.4; }
+.article-services__arrow { font-size: 1rem; color: var(--color-primary, #1e40af); }
 
-/* CTA */
-.article-cta {
-	margin: 48px 0 0;
-	background:
-		radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%),
-		linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
-	border-radius: 8px; padding: 48px 40px; color: #fff; text-align: center;
-}
-.article-cta__eyebrow { font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; opacity: .7; margin: 0 0 12px; }
-.article-cta__title  { font-size: clamp(1.3rem, 2.5vw, 1.7rem); font-weight: 700; line-height: 1.5; margin: 0 0 14px; }
-.article-cta__body   { font-size: .95rem; opacity: .88; line-height: 1.7; margin: 0 0 28px; }
-.article-cta__btn    { display: inline-block; background: #fff; color: var(--color-primary, #1e40af); font-weight: 700; font-size: .95rem; border-radius: 8px; padding: 13px 32px; text-decoration: none; }
-.article-cta__btn:hover { background: #f0f9ff; }
-
-/* =============================================
-   DIAGRAM BASE
-   ============================================= */
-.diag { border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; background: #fff; padding: 28px; margin: 32px 0; overflow: hidden; }
-.diag-caption { display: block; text-align: center; font-size: .78rem; color: var(--color-muted, #64748b); margin-top: 16px; line-height: 1.6; }
-
-/* =============================================
-   DIAGRAM 1 — .diag--ma-gap
-   ============================================= */
-.diag-mg-header { text-align: center; margin-bottom: 20px; }
-.diag-mg-header__label { display: inline-block; font-size: .72rem; font-weight: 700; color: #b91c1c; background: #fef2f2; border: 1px solid #fecaca; border-radius: 4px; padding: 4px 14px; letter-spacing: .04em; }
-
-.diag-mg-grid { display: grid; grid-template-columns: 1fr auto auto auto 1fr; gap: 10px; align-items: center; margin-bottom: 16px; }
-
-.diag-mg-ma { background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 14px 12px; text-align: center; }
-.diag-mg-ma__tools { display: flex; justify-content: center; gap: 6px; margin-bottom: 8px; flex-wrap: wrap; }
-.diag-mg-tool { font-size: .65rem; font-weight: 700; border-radius: 4px; padding: 3px 8px; }
-.diag-mg-tool--hub { background: #fff7ed; color: #c2410c; }
-.diag-mg-tool--mkt { background: #faf5ff; color: #7e22ce; }
-.diag-mg-ma__label { font-size: .7rem; color: var(--color-muted, #64748b); margin-bottom: 8px; }
-.diag-mg-ma__kpis { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; }
-.diag-mg-ma__kpis span { font-size: .62rem; color: var(--color-charcoal, #334155); background: #f0fdf4; border-radius: 3px; padding: 2px 6px; }
-
-.diag-mg-center { display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 0 4px; }
-.diag-mg-mqls { display: flex; flex-direction: column; gap: 4px; }
-.diag-mg-mql { font-size: .65rem; color: var(--color-charcoal, #334155); background: #f1f5f9; border-radius: 4px; padding: 3px 8px; white-space: nowrap; }
-.diag-mg-mql--warn { background: #fef9c3; color: #92400e; }
-.diag-mg-center__label { font-size: .62rem; font-weight: 700; color: #b91c1c; background: #fef2f2; border-radius: 3px; padding: 2px 8px; }
-
-.diag-mg-vs { font-size: 1.4rem; font-weight: 700; color: #b91c1c; padding: 0 2px; }
-
-.diag-mg-sales { background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; padding: 14px 12px; text-align: center; }
-.diag-mg-sales__badge  { display: inline-block; font-size: .7rem; font-weight: 700; background: #eff6ff; color: #1e40af; border-radius: 4px; padding: 3px 10px; margin-bottom: 8px; }
-.diag-mg-sales__thought { font-size: .75rem; font-weight: 700; color: #b91c1c; margin-bottom: 6px; }
-.diag-mg-sales__action  { font-size: .65rem; color: #b91c1c; }
-
-.diag-mg-footer { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; padding-top: 14px; border-top: 1px solid var(--color-border, #e2e8f0); }
-.diag-mg-footer span { font-size: .7rem; font-weight: 600; color: #b91c1c; background: #fef2f2; border-radius: 4px; padding: 4px 12px; }
-
-/* =============================================
-   DIAGRAM 2 — .diag--revenue-journey
-   ============================================= */
-.diag-rj-header { text-align: center; margin-bottom: 20px; }
-.diag-rj-header__label { display: block; font-size: .85rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 4px; }
-.diag-rj-header__sub   { font-size: .72rem; color: var(--color-muted, #64748b); }
-
-.diag-rj-stages { display: flex; align-items: stretch; gap: 3px; overflow-x: auto; padding-bottom: 4px; }
-
-.diag-rj-stage { display: flex; flex-direction: column; align-items: center; gap: 5px; background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 10px 6px; min-width: 70px; flex: 1; }
-.diag-rj-stage--ma    { background: #fff7ed; border-color: #fed7aa; }
-.diag-rj-stage--sales { background: #eff6ff; border-color: #bfdbfe; }
-.diag-rj-stage--rev   { background: #f0fdf4; border-color: #bbf7d0; }
-
-.diag-rj-stage__name { font-size: .65rem; font-weight: 700; color: var(--color-navy, #0f172a); text-align: center; }
-.diag-rj-stage__sys  { font-size: .58rem; font-weight: 700; border-radius: 3px; padding: 2px 5px; white-space: nowrap; }
-.diag-rj-stage__sys--mkt   { background: #f1f5f9; color: var(--color-muted, #64748b); }
-.diag-rj-stage__sys--ma    { background: #fff7ed; color: #c2410c; }
-.diag-rj-stage__sys--sales { background: #eff6ff; color: #1e40af; }
-.diag-rj-stage__sys--rev   { background: #f0fdf4; color: #15803d; }
-.diag-rj-stage__sys--cs    { background: #f0fdf4; color: #15803d; }
-
-.diag-rj-arrow { font-size: .85rem; color: var(--color-muted, #64748b); flex-shrink: 0; display: flex; align-items: center; }
-.diag-rj-arrow--key { color: var(--color-primary, #1e40af); font-weight: 700; }
-
-.diag-rj-ma-scope { margin-top: 14px; }
-.diag-rj-ma-scope__bar { height: 3px; background: #fed7aa; border-radius: 2px; width: 38%; margin-bottom: 6px; }
-.diag-rj-ma-scope__label { font-size: .7rem; font-weight: 700; color: #c2410c; margin-bottom: 4px; }
-.diag-rj-ma-scope__note  { font-size: .65rem; color: var(--color-muted, #64748b); }
-
-/* =============================================
-   DIAGRAM 3 — .diag--ra-ma
-   ============================================= */
-.diag-rm-depts { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 0; }
-.diag-rm-dept { font-size: .72rem; font-weight: 700; border-radius: 4px; padding: 5px 14px; border: 1px solid; }
-.diag-rm-dept--mkt   { background: #fff7ed; color: #c2410c; border-color: #fed7aa; }
-.diag-rm-dept--sales { background: #eff6ff; color: #1e40af; border-color: #bfdbfe; }
-.diag-rm-dept--cs    { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
-.diag-rm-dept--ma    { background: #fdf4ff; color: #7e22ce; border-color: #e9d5ff; }
-.diag-rm-dept--crm   { background: #faf5ff; color: #6d28d9; border-color: #ddd6fe; }
-.diag-rm-dept--kpi   { background: #f0f9ff; color: #0369a1; border-color: #bae6fd; }
-.diag-rm-dept--data  { background: #f8fafc; color: var(--color-charcoal, #334155); border-color: var(--color-border, #e2e8f0); }
-
-.diag-rm-lines { width: 100%; height: 40px; margin: 0; }
-.diag-rm-lines svg { width: 100%; height: 100%; display: block; }
-
-.diag-rm-core { background: var(--color-navy, #0f172a); border-radius: 8px; padding: 18px 20px; text-align: center; }
-.diag-rm-core__label { font-size: .85rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
-.diag-rm-core__tags  { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
-.diag-rm-core__tags span { font-size: .65rem; background: rgba(255,255,255,.12); color: rgba(255,255,255,.85); border-radius: 3px; padding: 3px 8px; }
-
-.diag-rm-connector { width: 2px; height: 24px; background: #cbd5e1; margin: 0 auto; }
-
-.diag-rm-outcomes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-.diag-rm-outcome { background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 14px 12px; text-align: center; }
-.diag-rm-outcome--mid { background: #eff6ff; border-color: #bfdbfe; }
-.diag-rm-outcome__label { font-size: .78rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 6px; }
-.diag-rm-outcome__desc  { font-size: .65rem; color: var(--color-muted, #64748b); line-height: 1.6; }
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 700px) {
+@media (max-width: 600px) {
+	.article-cta { padding: 28px 20px; }
 	.br-pc { display: none; }
-	.article-head { padding: 32px 16px 28px; }
-	.article-body { padding: 0 16px 60px; }
-	.diag { padding: 20px 16px; }
-	.diag-mg-grid { grid-template-columns: 1fr; gap: 8px; }
-	.diag-mg-vs { text-align: center; }
-	.diag-rj-stages { gap: 2px; }
-	.diag-rj-stage { min-width: 58px; padding: 8px 4px; }
-	.diag-rm-outcomes { grid-template-columns: 1fr; }
-	.article-cta { padding: 36px 24px; }
-	.article-numbered__item { grid-template-columns: 40px 1fr; }
-}
-
-@media (max-width: 480px) {
-	.diag-rj-stage__name { font-size: .58rem; }
-	.article-cta__title { font-size: 1.2rem; }
 }
 </style>
 

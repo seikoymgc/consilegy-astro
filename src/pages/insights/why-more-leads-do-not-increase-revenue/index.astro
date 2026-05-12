@@ -9,8 +9,8 @@ const readTime = '約10分';
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
-	headline: 'リードは増えているのに受注が増えない理由｜RevOpsとRevenue Architecture',
-	description: 'リード獲得数が増えているのに売上につながらない原因を、営業・マーケ連携、KPI設計、Revenue Architectureの観点から解説します。',
+	headline: 'リードが増えても受注が増えない理由',
+	description: 'リード数は増加していたのに受注が増えなかったITバックオフィスSaaS企業（200名）が、引き渡し設計の標準化でMQL→SQL転換率を最大20%向上。リードが増えても受注が増えない原因は施策の質ではなく、転換構造の設計の問題です。',
 	datePublished: pubDate,
 	dateModified: pubDate,
 	author: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
@@ -25,14 +25,14 @@ const breadcrumbSchema = {
 	itemListElement: [
 		{ '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://consilegy.com/' },
 		{ '@type': 'ListItem', position: 2, name: 'コラム', item: 'https://consilegy.com/insights/' },
-		{ '@type': 'ListItem', position: 3, name: 'なぜ「良いリード」が増えているのに、受注が増えないのか', item: 'https://consilegy.com/insights/why-more-leads-do-not-increase-revenue/' },
+		{ '@type': 'ListItem', position: 3, name: 'リードが増えても受注が増えない理由', item: 'https://consilegy.com/insights/why-more-leads-do-not-increase-revenue/' },
 	],
 };
 ---
 
 <BaseLayout
-	title="リードは増えているのに受注が増えない理由｜RevOpsとRevenue Architecture | Consilegy"
-	description="リード獲得数が増えているのに売上につながらない原因を、営業・マーケ連携、KPI設計、Revenue Architectureの観点から解説します。"
+	title="リードが増えても受注が増えない理由 | Consilegy"
+	description="リード数は増加していたのに受注が増えなかったITバックオフィスSaaS企業（200名）が、引き渡し設計の標準化でMQL→SQL転換率を最大20%向上。リードが増えても受注が増えない原因は施策の質ではなく、転換構造の設計の問題です。"
 	lang="ja"
 >
 	<Fragment slot="head">
@@ -49,17 +49,17 @@ const breadcrumbSchema = {
 			<span aria-hidden="true">›</span>
 			<a href="/insights/">コラム</a>
 			<span aria-hidden="true">›</span>
-			<span aria-current="page">なぜ「良いリード」が増えているのに、受注が増えないのか</span>
+			<span aria-current="page">リードが増えても受注が増えない理由</span>
 		</nav>
 		<div class="article-meta">
-			<span class="article-cat">マーケティング</span>
+			<span class="article-cat">CRM・MA・SFA</span>
 		</div>
-		<h1>なぜ「良いリード」が増えているのに、<br class="br-pc" />受注が増えないのか</h1>
-		<p class="article-desc">リード数は増えている。CPAも改善している。それでも受注が増えない。この問題の本質は、マーケティング施策ではなく、リードから受注までの構造が設計されていないことにある。</p>
+		<h1>リードが増えても<br class="br-pc" />受注が増えない理由</h1>
+		<p class="article-desc">リード数は増加していたのに受注が増えなかったITバックオフィスSaaS企業（200名）が、引き渡し設計の標準化でMQL→SQL転換率を最大20%向上。リードが増えても受注が増えない原因は施策の質ではなく、転換構造の設計の問題です。</p>
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
-	<article class="article-body container" id="article">
+	<div class="article-body container">
 		<div class="article-eyecatch">
 			<img
 				src="/images/insights/why-more-leads-do-not-increase-revenue.svg"
@@ -72,133 +72,140 @@ const breadcrumbSchema = {
 			/>
 		</div>
 
-		<!-- はじめに -->
-		<section class="article-section">
-			<h2>「リードの質が低い」「いや量が足りない」——この議論、どこかで見ましたか</h2>
-			<p>バックオフィスSaaSの会社でのことです。リード数は順調に増えていました。広告もコンテンツも機能していて、毎月のMQL数は目標を達成していました。それでも営業からは「リードの質が低い」という声が上がり、マーケティング側は「なぜ商談にならないのかわからない」という状態が続いていました。</p>
-			<p>問題はリードの量でも質でもありませんでした。マーケティングと営業が「どのリードを商談にすべきか」の基準を共有していなかっただけです。</p>
-			<div class="article-callout">
-				<p>リードが増えても受注が増えないとき、原因はリードの量や質ではなく、<strong>マーケティングから営業への「引き渡し基準」が設計されていないこと</strong>にあります。</p>
-			</div>
-		</section>
+		<div class="article-section">
+			<p>ITバックオフィスSaaS企業（従業員約200名）では、リード数は順調に増加していました。マーケティングの施策は機能しており、CPAも改善していました。しかし営業からは「リードの質が低い」との不満が上がり、商談化率は月ごとに変動し、「なぜ商談にならないのか」が分からない状態が続いていました。問題はマーケティングにあったのではありません。リードから受注までの転換構造が設計されていなかったことが本質でした。</p>
+			<p>行動スコアリングの導入・フェーズ別ナーチャリング設計・引き渡し自動化を経て、<strong>MQL→SQL転換率が最大20%向上し、低確度リードへの接触を削減してナーチャリング最適化によるCAC改善を実現</strong>しました。リードの量を増やしたのではなく、リードの転換プロセスを設計し直したことで変わりました。</p>
+		</div>
 
-		<hr class="article-hr" />
+		<div class="article-section">
+			<h2>あなたの組織は大丈夫か——5つの確認項目</h2>
+			<ol class="article-numbered">
+				<li>
+					<strong>リード数は増えているが受注数は横ばい</strong>
+					<p>月次のリード獲得数は成長しているが、受注数・売上が追随していない場合、リードと受注の間に転換の問題があります。</p>
+				</li>
+				<li>
+					<strong>大量のリードが「商談にならずに終わる」理由が分からない</strong>
+					<p>リードを送っても商談にならなかったリードがどんな状態で終わっているかが追えない場合、転換プロセスがブラックボックスになっています。</p>
+				</li>
+				<li>
+					<strong>営業が全リードに同じように接触している</strong>
+					<p>購買意欲の高いリードも低いリードも、同じようにアウトリーチしている場合、営業リソースが非効率に使われています。</p>
+				</li>
+				<li>
+					<strong>どの施策が受注に最も貢献しているか分からない</strong>
+					<p>リード獲得に使った施策と最終的な受注の関係が追えない場合、「どこに予算を投じるべきか」の判断根拠がありません。</p>
+				</li>
+				<li>
+					<strong>商談化率が月ごとに大きく変動する</strong>
+					<p>月によって商談化率が10〜30%変動する場合、転換の構造ではなく担当者やタイミングに依存しています。</p>
+				</li>
+			</ol>
+			<p class="article-callout">3つ以上当てはまる場合、問題はリードの量でも施策のクリエイティブでもありません。リードから受注への転換プロセスが設計されていないことが本質です。</p>
+		</div>
 
-		<!-- 自己診断 -->
-		<section class="article-section">
-			<h2>まず確認してください：あなたの組織はどの状態ですか</h2>
+		<div class="article-section">
+			<h2>リードが増えても受注が増えない3つのパターン</h2>
+			<ol class="article-numbered">
+				<li>
+					<strong>リードの優先順位が設計されていない</strong>
+					<p>全リードを同じ優先度で扱っている場合、営業リソースは確度の低い案件に分散します。前述のSaaS企業では、定量的なスコアリングが存在せず、本来優先すべきリードが適切に扱われていませんでした。行動スコアリングを導入し、「受注に近い行動」を数値化することで、高確度リードへの集中が可能になりました。</p>
+					<p><strong>判断基準：</strong>現在のリードを「購買意欲の高さ」で3段階に分類して、営業のアクションを変えているかどうかで確認できます。</p>
+				</li>
+				<li>
+					<strong>検討フェーズに関係なく同じコミュニケーションを送っている</strong>
+					<p>資料請求直後の初期検討者と、価格ページを複数回訪問した後期検討者に同じナーチャリングを送っている場合、コミュニケーションの精度が低くなります。前述のSaaS企業では、検討フェーズに応じたシナリオベースのコミュニケーション設計が存在していませんでした。フェーズを設計することで、ナーチャリングの効果が変わりました。</p>
+					<p><strong>判断基準：</strong>現在のメール・コンテンツが「初めてサービスを知った人向け」か「比較検討中の人向け」かを分けているかどうかで確認できます。</p>
+				</li>
+				<li>
+					<strong>引き渡し基準が存在せず、タイミングが不適切</strong>
+					<p>引き渡しが早すぎると営業が「まだ温まっていない」と感じ、遅すぎると検討が他社で進んでしまいます。前述のSaaS企業では、一定スコアに到達したタイミングで、必要な情報とともに営業へ自動通知する仕組みを整備しました。引き渡しのタイミングを設計することが、転換率改善の核心です。</p>
+					<p><strong>判断基準：</strong>「このリードはいつ営業に渡すか」の基準が、全担当者が同じ答えを返せる形で存在するかどうかで確認できます。</p>
+				</li>
+			</ol>
+		</div>
+
+		<div class="article-section">
+			<h2>設計を変えた後に何が起きたか</h2>
+			<p>前述のSaaS企業では、リードを増やすのではなく「既存リードの転換プロセスを設計し直す」ことからプロジェクトを進めました。その結果、以下の変化が起きました。</p>
+			<ol class="article-numbered">
+				<li>
+					<strong>MQL→SQL転換率が最大20%向上</strong>
+					<p>行動スコアリングにより高確度リードが正確に特定されるようになり、引き渡し精度が上がりました。同じリード数でより多くの商談が生まれる状態になりました。</p>
+				</li>
+				<li>
+					<strong>低確度リードへの接触を削減し、高スコアリードへの集中が可能に</strong>
+					<p>営業リソースを確度の高い案件に集中させることで、商談あたりの効率が改善しました。同じ営業人数でより多くの成果を出せる構造になりました。</p>
+				</li>
+				<li>
+					<strong>ナーチャリング最適化によりCACを改善</strong>
+					<p>フェーズ別のナーチャリング設計により、広告依存度を抑えた商談創出構造を実現しました。リードへの適切なコミュニケーションが、広告コストをかけずに転換率を上げる手段になりました。</p>
+				</li>
+			</ol>
+			<p class="article-callout">リードの量を増やしたのではなく、転換プロセスを設計しました。</p>
+		</div>
+
+		<div class="article-section">
+			<h2>今週から始められる3つのアクション</h2>
+			<ol class="article-numbered">
+				<li>
+					<strong>直近3ヶ月の受注案件の「引き渡し前の行動」を5件調べる</strong>
+					<p>受注した商談のリードが、営業に引き渡される前にどんな行動をしていたかを確認します。「価格ページを見た」「複数回サイトを訪問した」などの共通パターンが、スコアリングの起点になります。</p>
+				</li>
+				<li>
+					<strong>現在のリードを「購買意欲の高さ」で3段階に分類する</strong>
+					<p>高・中・低の3段階で分類し、それぞれに対して営業のアクションを変えているかを確認します。分けていない場合、優先順位の設計から始めることが転換率改善の第一歩です。</p>
+				</li>
+				<li>
+					<strong>最もコストをかけた施策と最も受注につながった施策を比較する</strong>
+					<p>予算をかけている施策と実際に受注につながった施策を並べます。一致しない場合、リソースの最適化余地があります。</p>
+				</li>
+			</ol>
+		</div>
+
+		<div class="article-section">
+			<h2>まとめ：「リードが受注に変わる構造」を設計する</h2>
+			<p>リードが増えても受注が増えない原因は、マーケティング施策の質でもリードの量でもありません。「リードの優先順位が設計されていないこと」「検討フェーズを無視したコミュニケーションを送っていること」「引き渡し基準が存在しないこと」が構造的な原因です。</p>
+			<p>SaaS企業の事例が示すように、MQL→SQL 最大20%向上は新しい施策から生まれたのではなく、「既存リードの転換プロセスの設計」から生まれました。リードを増やす前に、転換の設計を見直すことが先です。</p>
+		</div>
+
+		<!-- ===== CTA ===== -->
+		<div class="article-cta">
+			<p class="article-cta__catch">リードが受注に変わる転換構造を設計する</p>
+			<p class="article-cta__body">ConsilegyはMQL・SQL設計から行動スコアリング・ナーチャリング設計・引き渡し自動化まで、リードから受注への転換プロセスの構築を支援します。まずは現状の転換フローの課題を整理するところから始めましょう。</p>
+			<a href="/contact/" class="article-cta__btn">無料相談を予約する</a>
+		</div>
+
+		<!-- ===== RELATED ===== -->
+		<nav class="article-related" aria-label="関連記事">
+			<h2 class="article-related__heading">関連記事</h2>
 			<ul>
-				<li>MQLの定義をマーケティングと営業が同じ言葉で説明できない</li>
-				<li>営業が「渡されたリードの半分以上は商談にならない」と言っている</li>
-				<li>どの流入経路のリードが受注につながっているか把握できていない</li>
-				<li>ナーチャリングメールを送っているが、商談化への影響が不明</li>
-				<li>月によって商談化率が大きく変わり、予測が立てられない</li>
+				<li><a href="/insights/why-sql-definitions-break-between-marketing-and-sales/">マーケティングと営業でSQL定義が噛み合わない理由</a></li>
+				<li><a href="/insights/why-crm-does-not-align-sales-and-marketing/">CRMがあっても営業・マーケが連携できない理由</a></li>
+				<li><a href="/insights/why-marketing-automation-does-not-improve-pipeline/">MAがパイプラインを改善しない理由</a></li>
 			</ul>
-			<div class="article-callout">
-				<p><strong>2つ以上当てはまる場合、リードの増減ではなく「引き渡し設計」に問題があります。</strong>リードを増やしても、この構造は改善しません。</p>
-			</div>
-		</section>
+		</nav>
 
-		<hr class="article-hr" />
-
-		<!-- 3つのパターン -->
-		<section class="article-section">
-			<h2>受注につながらない3つの構造パターン</h2>
-			<div class="article-numbered">
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">01</p>
-					<h3>MQL→SQLの引き渡し基準が属人的</h3>
-					<p>「このリードは営業に渡していいか」の判断が、担当者の感覚に依存しています。ある担当者は「資料請求したら渡す」、別の担当者は「2回以上コンテンツを見たら渡す」と判断している——このばらつきがある限り、商談化率は安定しません。</p>
-					<p>前述のSaaS企業では、行動データに基づくスコアリングを導入し、「受注に近い行動」を定義することで、MQLからSQLへの転換率が最大20%向上しました。変えたのはリードの数ではなく、引き渡す基準です。</p>
-					<p><strong>判断基準：</strong>「このリードをなぜ営業に渡しましたか」という問いに、チーム全員が同じ基準で答えられるかどうかを確認してください。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">02</p>
-					<h3>どの施策が受注につながっているか見えていない</h3>
-					<p>広告・SEO・ウェビナー・ホワイトペーパー——どの施策が最終的に受注に貢献したかが追えない状態では、予算をどこに使うべきかの判断ができません。「リードが増えた施策」と「受注につながった施策」は、必ずしも一致しません。</p>
-					<p>マーケティングが「CPAが良かった」と評価している施策が、営業側では「質が低いリードが多い」と感じている——このすれ違いは、流入経路から受注まで一本でつながっていないシステム構造から生まれます。</p>
-					<p><strong>判断基準：</strong>「先月受注した案件の最初の接点はどの施策でしたか」という問いに、CRMから答えを出せるかどうかを確認してください。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">03</p>
-					<h3>ナーチャリングが検討フェーズと関係ない</h3>
-					<p>資料請求した全員に同じメールを送る、登録から一定期間後に自動でフォローする——このような一律配信では、すでに比較検討を終えているリードにも、まだ課題を認識していないリードにも同じコンテンツが届きます。</p>
-					<p>ナーチャリングの目的は「送ること」ではなく「検討フェーズを前に進めること」です。フェーズに関係ないコンテンツは、ノイズになります。</p>
-					<p><strong>判断基準：</strong>「このメールは、検討初期の人と比較検討中の人に、それぞれ何をしてほしくて送っていますか」という問いに答えられるかどうかを確認してください。</p>
-				</div>
-			</div>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- 変わること -->
-		<section class="article-section">
-			<h2>引き渡し設計を直すと、何が変わるか</h2>
-			<p>前述のSaaS企業では、引き渡し基準の標準化後に複数の変化が起きました。MQL→SQL転換率が最大20%向上しただけでなく、営業が「確度の低いリードへの対応」に使っていた時間が減り、高スコアのリードへ集中できるようになりました。</p>
-			<p>また、パイプラインが可視化されたことで、「今月の売上見込みがなぜこの数字なのか」を施策レベルで説明できるようになりました。マーケティングと営業の「質の議論」がなくなり、「次にどの施策を強化するか」の議論に変わりました。</p>
-			<div class="article-callout">
-				<p>リード数を増やす前に、「今のリードが商談にならない理由」を構造で把握することが、最短の改善ルートです。</p>
-			</div>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- 最初の一手 -->
-		<section class="article-section">
-			<h2>最初の一手：何から始めるか</h2>
-			<p>リード→受注のフローを改善するために、まず取り組むべきことは3つです。</p>
-			<div class="article-numbered">
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">01</p>
-					<h3>直近3ヶ月の受注案件の「最初の接点」を調べる</h3>
-					<p>CRMで追えるなら追ってください。追えないなら営業に聞いてください。「どの施策・どの行動が受注につながったか」がわかれば、どこに投資すべきかが見えます。この調査だけで、施策の優先順位が変わることがあります。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">02</p>
-					<h3>MQLの定義をマーケティングと営業で揃える</h3>
-					<p>「どういう状態のリードを営業に渡すか」を、行動ベースで定義してください。「資料請求した人」ではなく「料金ページを2回以上見て資料請求した人」のように、具体的な行動条件にすることで、引き渡しの基準がチームで揃います。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">03</p>
-					<h3>月次で「商談化率」と「失注理由」を確認する習慣を作る</h3>
-					<p>どのリードが商談になり、どこで失注したかを月次で確認してください。「リード数の報告」だけで会議が終わる状態では、改善のサイクルは回りません。失注理由がわかれば、ナーチャリングで何を変えるべきかが明確になります。</p>
-				</div>
-			</div>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- まとめ -->
-		<section class="article-section">
-			<h2>まとめ：リードを増やす前に、引き渡しの設計を確認してください</h2>
-			<p>リードが増えても受注が増えないとき、広告予算を増やしても改善しません。MQLの定義をマーケティングと営業で揃え、引き渡し基準を行動ベースで設計し、どの施策が受注につながっているかを把握できる状態を作ることが先です。</p>
-			<p>転換率20%の改善は、リードを20%増やしたからではありません。今あるリードを正しく扱う設計を整えたことで生まれました。</p>
-			<div class="article-callout">
-				<p>「リードの質が低い」「量が足りない」という議論が始まったとき、まず確認すべきは引き渡し基準です。そこが設計されていれば、議論の内容が変わります。</p>
-			</div>
-		</section>
-
-		<p class="article-pubdate">公開日：2026年5月7日</p>
-	</article>
+	</div><!-- /.article-body -->
 
 	<!-- ===== RELATED SERVICES ===== -->
 	<nav class="article-services" aria-label="関連サービス">
 		<h2 class="article-services__heading">関連サービス</h2>
 		<div class="article-services__grid">
-		<a href="/services/b2b-marketing-gtm-design/" class="article-services__card">
+		<a href="/services/crm-revops-redesign/" class="article-services__card">
 				<span class="article-services__cat">サービス</span>
-				<span class="article-services__title">B2Bマーケティング / GTM設計</span>
+				<span class="article-services__title">CRM / RevOps再設計支援</span>
 				<span class="article-services__arrow">→</span>
 			</a>
-		<a href="/services/revenue-architecture-design/" class="article-services__card">
+		<a href="/services/marketing-automation-gtm/" class="article-services__card">
 				<span class="article-services__cat">サービス</span>
-				<span class="article-services__title">レベニューアーキテクチャ設計</span>
+				<span class="article-services__title">マーケティング自動化・GTM支援</span>
 				<span class="article-services__arrow">→</span>
 			</a>
 		</div>
 	</nav>
 	<NewsletterSidebar />
-</div>
+</div><!-- /.article-wrap -->
 
 <style>
 	/* ── Eyecatch ─── */
@@ -213,179 +220,57 @@ const breadcrumbSchema = {
 		max-height: 360px; object-fit: cover;
 	}
 /* ===== LAYOUT ===== */
-.article-wrap { background: #fff; }
+.article-wrap { background: #fff; padding-bottom: 80px; }
 .container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
 
 /* ===== HEADER ===== */
-.article-head { padding: 48px 24px 40px; }
-.breadcrumb { font-size: .78rem; color: var(--color-muted, #64748b); display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 20px; }
+.article-head { padding-top: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--color-border, #e2e8f0); }
+.breadcrumb { font-size: 0.78rem; color: var(--color-muted, #64748b); margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .breadcrumb a { color: var(--color-muted, #64748b); text-decoration: none; }
-.breadcrumb a:hover { text-decoration: underline; }
-.article-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
-.article-cat  { font-size: .75rem; font-weight: 600; color: var(--color-primary, #1e40af); background: #eff6ff; border-radius: 4px; padding: 3px 10px; }
-.article-date, .article-read { font-size: .78rem; color: var(--color-muted, #64748b); }
-.article-head h1 { font-size: clamp(1.5rem, 3.5vw, 2rem); font-weight: 600; line-height: 1.45; color: var(--color-navy, #0f172a); margin: 0 0 16px; }
-.article-desc { font-size: 1rem; color: var(--color-charcoal, #334155); line-height: 1.75; margin: 0; }
-.br-pc { display: block; }
+.breadcrumb a:hover { color: var(--color-primary, #1e40af); }
+.article-meta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; font-size: 0.8rem; color: var(--color-muted, #64748b); }
+.article-cat { background: #eff6ff; color: var(--color-primary, #1e40af); padding: 2px 10px; border-radius: 4px; font-weight: 600; font-size: 0.75rem; }
+.article-head h1 { font-size: clamp(1.5rem, 3.5vw, 2.1rem); font-weight: 600; color: var(--color-navy, #0f172a); line-height: 1.35; margin-bottom: 16px; }
+.article-desc { font-size: 1rem; color: var(--color-charcoal, #334155); line-height: 1.75; }
+.br-pc { display: inline; }
 
 /* ===== BODY ===== */
-.article-body { padding: 0 24px 80px; }
-.article-section { margin-bottom: 8px; }
-.article-section h2 { font-size: 1.25rem; font-weight: 700; color: var(--color-navy, #0f172a); margin: 40px 0 16px; border-left: 3px solid var(--color-primary, #1e40af); padding-left: 12px; }
-.article-section h3 { font-size: 1rem; font-weight: 700; color: var(--color-navy, #0f172a); margin: 28px 0 10px; }
-.article-section p  { font-size: .96rem; color: var(--color-charcoal, #334155); line-height: 1.85; margin: 0 0 16px; }
-.article-hr { border: none; border-top: 1px solid var(--color-border, #e2e8f0); margin: 40px 0; }
+.article-body { padding-top: 48px; }
+.article-section { margin-bottom: 56px; }
+.article-section h2 { font-size: 1.25rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 16px; padding-left: 14px; border-left: 4px solid var(--color-primary, #1e40af); line-height: 1.4; }
+.article-section p { font-size: 0.975rem; color: var(--color-charcoal, #334155); line-height: 1.85; margin-bottom: 16px; }
+.article-section p:last-child { margin-bottom: 0; }
+.article-callout { background: #f8fafc; border-left: 3px solid var(--color-primary, #1e40af); padding: 14px 18px; border-radius: 0 6px 6px 0; font-size: 0.95rem !important; color: var(--color-navy, #0f172a) !important; }
 
-/* callout */
-.article-callout { background: #f8fafc; border-left: 3px solid var(--color-primary, #1e40af); border-radius: 0 6px 6px 0; padding: 16px 20px; margin: 20px 0; }
-.article-callout p { margin: 0; font-size: .93rem; color: var(--color-charcoal, #334155); line-height: 1.8; }
+/* ===== NUMBERED LIST ===== */
+.article-numbered { list-style: none; counter-reset: item; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 24px; }
+.article-numbered li { counter-increment: item; display: grid; grid-template-columns: 36px 1fr; gap: 0 16px; }
+.article-numbered li::before { content: counter(item); display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--color-primary, #1e40af); color: #fff; border-radius: 50%; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px; }
+.article-numbered li strong { grid-column: 2; display: block; font-size: 1rem; color: var(--color-navy, #0f172a); margin-bottom: 6px; line-height: 1.4; }
+.article-numbered li p { grid-column: 2; font-size: 0.925rem; color: var(--color-charcoal, #334155); line-height: 1.8; margin: 0; }
 
-/* numbered */
-.article-numbered { display: flex; flex-direction: column; gap: 24px; margin: 24px 0 32px; }
-.article-numbered__item { display: grid; grid-template-columns: 48px 1fr; grid-template-rows: auto auto; gap: 0 16px; align-items: start; }
-.article-numbered__num { font-size: .7rem; font-weight: 700; color: var(--color-primary, #1e40af); background: #eff6ff; border-radius: 4px; padding: 4px 0; text-align: center; grid-row: 1 / 3; align-self: start; margin-top: 4px; }
-.article-numbered__item h3 { margin: 0 0 6px; font-size: .97rem; font-weight: 700; color: var(--color-navy, #0f172a); }
-.article-numbered__item p  { margin: 0; font-size: .92rem; line-height: 1.78; color: var(--color-charcoal, #334155); }
+/* ===== CTA ===== */
+.article-cta { background: radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%), linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%); border-radius: 8px; padding: 40px 36px; text-align: center; margin-bottom: 48px; }
+.article-cta__catch { font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
+.article-cta__body { font-size: 0.92rem; color: rgba(255,255,255,0.88); line-height: 1.75; margin-bottom: 24px; }
+.article-cta__btn { display: inline-block; background: #fff; color: var(--color-primary, #1e40af); font-weight: 700; font-size: 0.9rem; padding: 12px 28px; border-radius: 6px; text-decoration: none; transition: opacity 0.2s; }
+.article-cta__btn:hover { opacity: 0.9; }
 
-/* table */
-.article-table-wrap { overflow-x: auto; margin: 20px 0 28px; border-radius: 8px; border: 1px solid var(--color-border, #e2e8f0); }
-.article-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
-.article-table th { background: var(--color-navy, #0f172a); color: #fff; font-weight: 600; padding: 10px 14px; text-align: left; }
-.article-table td { padding: 9px 14px; border-bottom: 1px solid var(--color-border, #e2e8f0); color: var(--color-charcoal, #334155); vertical-align: top; }
-.article-table tbody tr:last-child td { border-bottom: none; }
-.article-table tbody tr:nth-child(even) td { background: #f8fafc; }
-
-/* related */
-.article-related { background: #f8fafc; border-radius: 8px; padding: 28px 28px 24px; margin: 48px 0 0; }
-.article-related__title { font-size: .85rem; font-weight: 700; color: var(--color-muted, #64748b); text-transform: uppercase; letter-spacing: .06em; margin: 0 0 14px; }
-.article-related__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
-.article-related__list a { font-size: .93rem; color: var(--color-primary, #1e40af); text-decoration: none; }
-.article-related__list a:hover { text-decoration: underline; }
-
-/* CTA */
-.article-cta {
-	margin: 48px 0 0;
-	background:
-		radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%),
-		linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
-	border-radius: 8px; padding: 48px 40px; color: #fff; text-align: center;
-}
-.article-cta__eyebrow { font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; opacity: .7; margin: 0 0 12px; }
-.article-cta__title  { font-size: clamp(1.3rem, 2.5vw, 1.7rem); font-weight: 700; line-height: 1.5; margin: 0 0 14px; }
-.article-cta__body   { font-size: .95rem; opacity: .88; line-height: 1.7; margin: 0 0 28px; }
-.article-cta__btn    { display: inline-block; background: #fff; color: var(--color-primary, #1e40af); font-weight: 700; font-size: .95rem; border-radius: 8px; padding: 13px 32px; text-decoration: none; }
-.article-cta__btn:hover { background: #f0f9ff; }
-
-/* =============================================
-   DIAGRAM BASE
-   ============================================= */
-.diag { border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; background: #fff; padding: 28px; margin: 32px 0; overflow: hidden; }
-.diag-caption { display: block; text-align: center; font-size: .78rem; color: var(--color-muted, #64748b); margin-top: 16px; line-height: 1.6; }
-
-/* =============================================
-   DIAGRAM 1 — .diag--lead-gap
-   ============================================= */
-.diag--lead-gap {}
-
-.diag-lg-header { text-align: center; margin-bottom: 24px; }
-.diag-lg-header__label { display: inline-block; font-size: .72rem; font-weight: 700; color: #b91c1c; background: #fef2f2; border: 1px solid #fecaca; border-radius: 4px; padding: 4px 14px; letter-spacing: .04em; }
-
-.diag-lg-grid { display: grid; grid-template-columns: 1fr auto auto auto 1fr; gap: 12px; align-items: center; }
-
-.diag-lg-dept { background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 16px 14px; text-align: center; }
-.diag-lg-dept__badge { display: inline-block; font-size: .7rem; font-weight: 700; border-radius: 4px; padding: 3px 10px; margin-bottom: 8px; }
-.diag-lg-dept__badge--mkt   { background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
-.diag-lg-dept__badge--sales { background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; }
-.diag-lg-dept__kpi   { font-size: .75rem; font-weight: 600; color: var(--color-navy, #0f172a); margin-bottom: 8px; }
-.diag-lg-dept__tools { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; }
-.diag-lg-dept__tools span { font-size: .65rem; color: var(--color-muted, #64748b); background: #f1f5f9; border-radius: 3px; padding: 2px 6px; }
-
-.diag-lg-flow { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 0 4px; }
-.diag-lg-flow__leads { display: flex; flex-direction: column; gap: 4px; }
-.diag-lg-lead { font-size: .68rem; color: var(--color-charcoal, #334155); background: #f1f5f9; border-radius: 4px; padding: 3px 8px; white-space: nowrap; }
-.diag-lg-lead--warn { background: #fef9c3; color: #92400e; }
-.diag-lg-flow__label { font-size: .65rem; font-weight: 700; color: #b91c1c; background: #fef2f2; border-radius: 3px; padding: 2px 8px; }
-
-.diag-lg-vs { font-size: 1.4rem; font-weight: 700; color: #b91c1c; padding: 0 4px; }
-
-.diag-lg-footer { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--color-border, #e2e8f0); }
-.diag-lg-footer span { font-size: .7rem; font-weight: 600; color: #b91c1c; background: #fef2f2; border-radius: 4px; padding: 4px 12px; }
-
-/* =============================================
-   DIAGRAM 2 — .diag--revenue-flow
-   ============================================= */
-.diag--revenue-flow {}
-
-.diag-rf-header { text-align: center; margin-bottom: 20px; }
-.diag-rf-header__label { display: block; font-size: .85rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 4px; }
-.diag-rf-header__sub   { font-size: .72rem; color: var(--color-muted, #64748b); }
-
-.diag-rf-stages { display: flex; align-items: stretch; gap: 4px; overflow-x: auto; padding-bottom: 4px; }
-.diag-rf-stage { display: flex; flex-direction: column; align-items: center; gap: 6px; background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 12px 10px; min-width: 80px; flex: 1; }
-.diag-rf-stage--active { background: #eff6ff; border-color: #bfdbfe; }
-.diag-rf-stage--commit { background: #f0fdf4; border-color: #bbf7d0; }
-.diag-rf-stage--won    { background: #f0fdf4; border-color: #86efac; }
-
-.diag-rf-stage__name { font-size: .72rem; font-weight: 700; color: var(--color-navy, #0f172a); white-space: nowrap; }
-.diag-rf-stage__kpi  { font-size: .62rem; color: var(--color-muted, #64748b); text-align: center; line-height: 1.5; }
-.diag-rf-stage__sys  { font-size: .6rem; font-weight: 700; border-radius: 3px; padding: 2px 6px; white-space: nowrap; }
-.diag-rf-stage__sys--mkt  { background: #fff7ed; color: #c2410c; }
-.diag-rf-stage__sys--sf   { background: #eff6ff; color: #1e40af; }
-.diag-rf-stage__sys--bi   { background: #faf5ff; color: #6d28d9; }
-.diag-rf-stage__sys--cs   { background: #f0fdf4; color: #15803d; }
-
-.diag-rf-arrow { font-size: 1rem; color: var(--color-muted, #64748b); flex-shrink: 0; display: flex; align-items: center; }
-
-.diag-rf-bar { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 16px; background: var(--color-navy, #0f172a); border-radius: 6px; padding: 9px 16px; }
-.diag-rf-bar__label { font-size: .75rem; font-weight: 700; color: #fff; white-space: nowrap; }
-.diag-rf-bar__desc  { font-size: .68rem; color: rgba(255,255,255,.65); }
-
-/* =============================================
-   DIAGRAM 3 — .diag--ra-lead
-   ============================================= */
-.diag--ra-lead {}
-
-.diag-rl-depts { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 0; }
-.diag-rl-dept { font-size: .72rem; font-weight: 700; border-radius: 4px; padding: 5px 14px; border: 1px solid; }
-.diag-rl-dept--mkt   { background: #fff7ed; color: #c2410c; border-color: #fed7aa; }
-.diag-rl-dept--sales { background: #eff6ff; color: #1e40af; border-color: #bfdbfe; }
-.diag-rl-dept--cs    { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
-.diag-rl-dept--crm   { background: #faf5ff; color: #6d28d9; border-color: #ddd6fe; }
-.diag-rl-dept--kpi   { background: #f0f9ff; color: #0369a1; border-color: #bae6fd; }
-.diag-rl-dept--data  { background: #f8fafc; color: var(--color-charcoal, #334155); border-color: var(--color-border, #e2e8f0); }
-
-.diag-rl-lines { width: 100%; height: 40px; margin: 0; }
-.diag-rl-lines svg { width: 100%; height: 100%; display: block; }
-
-.diag-rl-core { background: var(--color-navy, #0f172a); border-radius: 8px; padding: 18px 20px; text-align: center; }
-.diag-rl-core__label { font-size: .85rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
-.diag-rl-core__tags  { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
-.diag-rl-core__tags span { font-size: .65rem; background: rgba(255,255,255,.12); color: rgba(255,255,255,.85); border-radius: 3px; padding: 3px 8px; }
-
-.diag-rl-connector { width: 2px; height: 24px; background: #cbd5e1; margin: 0 auto; }
-
-.diag-rl-flow { display: flex; align-items: center; justify-content: center; gap: 8px; background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 14px 20px; }
-.diag-rl-flow__step { font-size: .8rem; font-weight: 600; color: var(--color-navy, #0f172a); }
-.diag-rl-flow__step--highlight { color: var(--color-primary, #1e40af); font-weight: 700; }
-.diag-rl-flow__arrow { color: var(--color-muted, #64748b); font-size: .9rem; }
+/* ===== RELATED ===== */
+.article-related { border-top: 1px solid var(--color-border, #e2e8f0); padding-top: 32px; }
+.article-related__heading { font-size: 0.9rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 16px; }
+.article-related ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.article-related li a { font-size: 0.9rem; color: var(--color-primary, #1e40af); text-decoration: none; }
+.article-related li a:hover { text-decoration: underline; }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 700px) {
+	.article-head h1 { font-size: 1.4rem; }
 	.br-pc { display: none; }
-	.article-head { padding: 32px 16px 28px; }
-	.article-body { padding: 0 16px 60px; }
-	.diag { padding: 20px 16px; }
-	.diag-lg-grid { grid-template-columns: 1fr; grid-template-rows: auto auto auto auto auto; gap: 8px; }
-	.diag-lg-vs { text-align: center; }
-	.diag-rf-stages { gap: 3px; }
-	.diag-rf-stage { min-width: 64px; padding: 10px 6px; }
-	.article-cta { padding: 36px 24px; }
-	.article-numbered__item { grid-template-columns: 40px 1fr; }
+	.article-cta { padding: 28px 20px; }
 }
-
 @media (max-width: 480px) {
-	.diag-rl-flow { flex-wrap: wrap; gap: 6px; }
-	.article-cta__title { font-size: 1.2rem; }
+	.container { padding: 0 16px; }
 }
 </style>
 

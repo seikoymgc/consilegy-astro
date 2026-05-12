@@ -9,8 +9,8 @@ const readTime = '約10分';
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
-	headline: '営業予測（Forecast）が当たらない理由｜RevOpsとRevenue Architecture',
-	description: 'SalesforceやHubSpotを導入しても営業予測が当たらない原因を、Revenue ArchitectureとRevOpsの観点から解説します。',
+	headline: 'なぜ売上予測（Forecast）は外れ続けるのか',
+	description: 'リリース直前まで「どのチャネルが良い顧客を連れてくるか」が分からなかった新規サブスクEC事業が、LTV起点のデータ設計で予測の根拠を構築。売上予測が外れる原因は入力不足ではなく、予測できるデータ設計がないことです。',
 	datePublished: pubDate,
 	dateModified: pubDate,
 	author: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
@@ -25,14 +25,14 @@ const breadcrumbSchema = {
 	itemListElement: [
 		{ '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://consilegy.com/' },
 		{ '@type': 'ListItem', position: 2, name: 'コラム', item: 'https://consilegy.com/insights/' },
-		{ '@type': 'ListItem', position: 3, name: 'なぜ営業予測（Forecast）は当たらないのか', item: 'https://consilegy.com/insights/why-sales-forecasting-fails/' },
+		{ '@type': 'ListItem', position: 3, name: 'なぜ売上予測（Forecast）は外れ続けるのか', item: 'https://consilegy.com/insights/why-sales-forecasting-fails/' },
 	],
 };
 ---
 
 <BaseLayout
-	title="営業予測（Forecast）が当たらない理由｜RevOpsとRevenue Architecture | Consilegy"
-	description="SalesforceやHubSpotを導入しても営業予測が当たらない原因を、Revenue ArchitectureとRevOpsの観点から解説します。"
+	title="なぜ売上予測（Forecast）は外れ続けるのか | Consilegy"
+	description="リリース直前まで「どのチャネルが良い顧客を連れてくるか」が分からなかった新規サブスクEC事業が、LTV起点のデータ設計で予測の根拠を構築。売上予測が外れる原因は入力不足ではなく、予測できるデータ設計がないことです。"
 	lang="ja"
 >
 	<Fragment slot="head">
@@ -49,13 +49,13 @@ const breadcrumbSchema = {
 			<span aria-hidden="true">›</span>
 			<a href="/insights/">コラム</a>
 			<span aria-hidden="true">›</span>
-			<span aria-current="page">なぜ営業予測（Forecast）は当たらないのか</span>
+			<span aria-current="page">なぜ売上予測（Forecast）は外れ続けるのか</span>
 		</nav>
 		<div class="article-meta">
-			<span class="article-cat">営業</span>
+			<span class="article-cat">KPI・BI</span>
 		</div>
-		<h1>なぜ営業予測（Forecast）は<br class="br-pc" />当たらないのか</h1>
-		<p class="article-desc">毎月Forecast会議をしている。SalesforceもダッシュボードもあるのにForecast精度が低い。問題は入力不足だけではない。本当の原因は「Revenueが予測できる構造」が設計されていないことにある。</p>
+		<h1>なぜ売上予測（Forecast）は<br class="br-pc" />外れ続けるのか</h1>
+		<p class="article-desc">リリース直前まで「どのチャネルが良い顧客を連れてくるか」が分からなかった新規サブスクEC事業が、LTV起点のデータ設計で予測の根拠を構築。売上予測が外れる原因は入力不足ではなく、予測できるデータ設計がないことです。</p>
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
@@ -73,257 +73,106 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<p>月末に数字が崩れる、案件が突然消える、「今月いけます」が外れる、経営が数字を信用していない——これは日本のBtoB企業で非常によく起きています。CRM導入が進み、マネージャー層が増えるタイミングで、Forecast問題が深刻化します。多くの場合、企業は「もっと入力を徹底しよう」と考えます。しかし<strong>問題は入力不足だけではありません</strong>。本当の原因は、Revenueが予測できる構造が設計されていないことにあります。</p>
+			<p>国内大手ライフスタイル企業（従業員約1,500名）の新規事業部門が、サブスクリプション型EC事業を立ち上げていました。リリース直前の段階でも、「どのチャネルが良い顧客を連れてくるか」「どのユーザーが継続するか」「翌月の売上がどう推移するか」が分からない状態でした。予測の根拠となるデータが存在しなかったからです。</p>
+			<p>9ヶ月のプロジェクトを経て、<strong>LTVベースの投資判断が可能になり、継続率の高いチャネルを特定し、リアルタイムで事業状況を把握できる環境を構築</strong>しました。予測精度を改善したのはツールではなく、「予測できるデータの設計」でした。</p>
 		</div>
 
-		<!-- DIAGRAM 1: Forecastが崩壊している営業会議 -->
-		<figure class="diag-wrap" aria-label="Forecastが崩壊している営業会議：感覚依存と数字の不一致が常態化した状態">
-			<div class="diag diag--fc-chaos">
-				<div class="fcc-header">Forecast Meeting</div>
-				<div class="fcc-grid">
-					<div class="fcc-tool">
-						<div class="fcc-tool-icon icon-sf">SF</div>
-						<div class="fcc-tool-name">Salesforce</div>
-					</div>
-					<div class="fcc-tool">
-						<div class="fcc-tool-icon icon-xl">XL</div>
-						<div class="fcc-tool-name">Excel 補正</div>
-					</div>
-					<div class="fcc-tool">
-						<div class="fcc-tool-icon icon-mt">MT</div>
-						<div class="fcc-tool-name">感覚報告</div>
-					</div>
-				</div>
-				<div class="fcc-bubbles">
-					<div class="fcc-bubble b-left">この案件まだ生きてる？</div>
-					<div class="fcc-bubble b-center b-warn">数字が合わない</div>
-					<div class="fcc-bubble b-right">今月いけます</div>
-				</div>
-				<div class="fcc-result">
-					<span class="fcc-tag tag-bad">✕ 月末に崩れる</span>
-					<span class="fcc-tag tag-bad">✕ 経営が信用しない</span>
-					<span class="fcc-tag tag-bad">✕ Forecast精度 低</span>
-				</div>
-			</div>
-			<figcaption class="diag-caption">Forecastが崩壊する営業会議：ツールと感覚報告が混在し、数字の根拠が共有されない状態</figcaption>
-		</figure>
-
 		<div class="article-section">
-			<h2>Forecastが外れる会社の5つの共通点</h2>
+			<h2>あなたの組織は大丈夫か——5つの確認項目</h2>
 			<ol class="article-numbered">
 				<li>
-					<strong>案件ステージの定義が曖昧</strong>
-					<p>「提案済み」「検討中」「稟議中」の意味が担当者によって異なります。ステージ定義が揃っていないと、Forecastは営業の感覚依存になります。Stage Exit Criteriaの欠如が、精度低下の根本原因です。</p>
+					<strong>月末に数字の着地がいつも読めない</strong>
+					<p>月中に「今月は大丈夫そう」と思っていた数字が月末に崩れる、あるいは逆に予想外に積み上がる——この繰り返しが続いているなら、予測の根拠が存在しません。</p>
 				</li>
 				<li>
-					<strong>「希望」がForecastに混ざる</strong>
-					<p>「たぶんいける」「先方温度感高い」「期待値込み」でForecastを積むと、Pipelineは膨らみますがRevenueは着地しません。Commitの条件が感覚ベースである限り、この問題は繰り返されます。</p>
+					<strong>Forecast会議が「今月いけますか」の確認で終わる</strong>
+					<p>各担当者の感覚や経験則に依存した口頭確認が予測の実態になっている場合、データによる予測基盤がありません。</p>
 				</li>
 				<li>
-					<strong>CRM入力がリアルタイムでない</strong>
-					<p>会議前だけ更新されるCRMは、「先週の世界」を映しています。Forecastが現在の状況を反映しないまま意思決定が行われると、経営判断の精度も下がります。</p>
+					<strong>どの施策が来月の売上につながるか分からない</strong>
+					<p>今週実行した施策が3週間後の売上にどう影響するかを数字で追えない場合、施策と売上の因果関係が見えていません。</p>
 				</li>
 				<li>
-					<strong>失注理由が構造化されていない</strong>
-					<p>価格・競合・稟議・タイミングなどの失注理由が整理されていないと、Forecast精度は改善しません。過去データから学習する仕組みがなければ、同じ外れ方を繰り返します。</p>
+					<strong>獲得コストは分かるがLTVは分からない</strong>
+					<p>初回獲得コストは把握しているが、そのチャネルで獲得した顧客の継続率や将来収益が不明な場合、表面的な指標しか見えていません。</p>
 				</li>
 				<li>
-					<strong>Forecast会議が「報告会」になっている</strong>
-					<p>数字確認・案件読み上げ・精神論が中心の会議は、Revenueリスクを分析していません。会議の目的をリスク分析と打ち手の議論に転換することが必要です。</p>
+					<strong>解約・失注が起きてから初めて理由を分析する</strong>
+					<p>解約・失注の兆候をデータで事前に捉えられず、起きてから振り返る運用になっている場合、予測ではなく事後確認になっています。</p>
+				</li>
+			</ol>
+			<p class="article-callout">3つ以上当てはまる場合、問題は入力不足でも担当者のコミットメントの問題でもありません。予測できるデータ設計がないことが本質です。</p>
+		</div>
+
+		<div class="article-section">
+			<h2>売上予測が外れ続ける3つのパターン</h2>
+			<ol class="article-numbered">
+				<li>
+					<strong>予測の基準が「獲得コスト」で、「継続収益」が見えていない</strong>
+					<p>サブスクビジネスやリピート購買を前提とするビジネスでは、初回獲得コストだけで最適化すると、LTVの低い顧客を大量獲得するリスクがあります。前述のサブスクEC事業では、サブスク特有の指標（LTV・継続率・解約率）を軸とした予測設計が存在しませんでした。「今月いくら売れたか」は分かっても、「来月いくら継続収益が入るか」を予測できる構造がなかったのです。</p>
+					<p><strong>判断基準：</strong>来月の売上予測を立てるとき、その根拠が「担当者の感覚」でなく「データの傾向」から出せるかどうかで確認できます。</p>
+				</li>
+				<li>
+					<strong>売上と行動データが分断されており、因果関係が追えない</strong>
+					<p>購買データとユーザー行動データが別システムにあり、「この行動パターンの顧客は継続率が高い」という分析ができない場合、予測の精度は上がりません。前述の事業では、Amplitudeによるプロダクト分析導入で継続ユーザーの行動パターンを特定し、解約に影響する行動の「兆候」が見えるようになりました。売上と行動をつないだ設計が予測精度の基盤です。</p>
+					<p><strong>判断基準：</strong>解約率が高い顧客と低い顧客で、使い方や行動にどんな違いがあるかを即答できるかどうかで確認できます。</p>
+				</li>
+				<li>
+					<strong>予測に使う指標が「計測しやすいもの」になっている</strong>
+					<p>セッション数・CTR・開封率は計測しやすいですが、「来月の売上予測に使えるか」は別の問いです。予測に使える指標は、「今のこの数字が来月の売上とどう相関するか」が設計されていなければなりません。表面指標の集積だけでは、どれだけデータがあっても予測精度は上がりません。</p>
+					<p><strong>判断基準：</strong>週次のレポートを見て「来月はこうなる」という予測が即座に出るかどうかで確認できます。</p>
 				</li>
 			</ol>
 		</div>
 
 		<div class="article-section">
-			<h2>Forecastは「営業力」の問題ではない</h2>
-			<p>Forecast問題は営業個人の問題ではありません。本質はKPI構造・CRM設計・Revenue Data Flow・Pipeline定義・RevOpsの問題です。つまり、Forecastとは<strong>Revenue Architectureの問題</strong>です。</p>
-			<p>SalesforceやHubSpotを導入すると、Forecast機能は存在します。しかし多くの会社では機能しません。理由は単純で、Revenue構造が未設計だからです。商談定義・SQL定義・Stage条件・Commit条件・更新ルールが曖昧なまま高機能ツールを使っても、Forecastは崩れ続けます。</p>
-			<p class="article-callout">問題はツールではなく、ツールを機能させるRevenue構造が設計されていないことです。</p>
-		</div>
-
-		<!-- DIAGRAM 2: Revenue Predictability構造図 -->
-		<figure class="diag-wrap" aria-label="Revenue Predictability構造図：LeadからARRまでStage Exit Criteriaで接続されたForecast構造">
-			<div class="diag diag--rev-pred">
-				<div class="rp-header">Revenue Predictability</div>
-				<div class="rp-flow">
-					<div class="rp-stage">
-						<div class="rp-box box-lead">Lead</div>
-						<div class="rp-exit">SQL条件</div>
-					</div>
-					<div class="rp-arrow">→</div>
-					<div class="rp-stage">
-						<div class="rp-box box-sql">SQL</div>
-						<div class="rp-exit">商談条件</div>
-					</div>
-					<div class="rp-arrow">→</div>
-					<div class="rp-stage">
-						<div class="rp-box box-opp">Opportunity</div>
-						<div class="rp-exit">Commit条件</div>
-					</div>
-					<div class="rp-arrow">→</div>
-					<div class="rp-stage">
-						<div class="rp-box box-commit">Commit</div>
-						<div class="rp-exit">受注確度</div>
-					</div>
-					<div class="rp-arrow">→</div>
-					<div class="rp-stage">
-						<div class="rp-box box-won">Closed Won</div>
-						<div class="rp-exit">ARR確定</div>
-					</div>
-					<div class="rp-arrow">→</div>
-					<div class="rp-stage">
-						<div class="rp-box box-arr">ARR</div>
-						<div class="rp-exit">Revenue KPI</div>
-					</div>
-				</div>
-				<div class="rp-criteria-bar">
-					<span class="rp-criteria-label">Stage Exit Criteria（各ステージの進行条件を定義）</span>
-				</div>
-				<div class="rp-footer">
-					<span class="rp-tag">✓ Forecast精度 向上</span>
-					<span class="rp-tag">✓ Revenue Visibility 実現</span>
-					<span class="rp-tag">✓ 経営判断 高速化</span>
-				</div>
-			</div>
-			<figcaption class="diag-caption">Revenue Predictability構造：LeadからARRまでStage Exit Criteriaで条件定義し、Forecastを感覚から構造へ転換する</figcaption>
-		</figure>
-
-		<div class="article-section">
-			<h2>本当に必要なのは「Revenue Predictability」</h2>
-			<p>Revenue Predictability（収益予測可能性）とは、Pipeline・KPI・CRM・Activity・Revenue Dataを通じて「将来Revenueをどれだけ高精度で予測できるか」を設計する考え方です。営業勘ではなく、<strong>Revenueが予測できる構造</strong>を設計することが目的です。</p>
-			<p>Forecast精度が高い会社には共通点があります。Stage Exit Criteriaが明確で「次ステージへ進む条件」が定義されている。Commit条件が感覚ではなく条件ベースになっている。Revenue KPIと接続された案件評価ができている。Pipeline Hygieneが存在し古い案件が放置されない。そしてRevOpsがForecast運営を構造として支えている——この5点が揃うと、Forecastは安定します。</p>
-		</div>
-
-		<div class="article-section">
-			<h2>Revenue Architectureという考え方</h2>
-			<p>Forecast問題の本質は営業管理の問題ではありません。Marketing・Sales・CS・CRM・KPI・データを「収益につながる一つの構造」として設計するRevenue Architectureの問題です。Revenue Architecture・Revenue Visibility・RevOps・Revenue Data Flow・KPI Architectureという構造が整って初めて、Forecastは機能します。</p>
-		</div>
-
-		<!-- DIAGRAM 3: Revenue ArchitectureによるForecast改善図 -->
-		<figure class="diag-wrap" aria-label="Revenue ArchitectureによるForecast改善：6つの要素をRevenue Architectureが接続しForecast精度を高める">
-			<div class="diag diag--ra-fc">
-				<div class="ra-pills-row">
-					<span class="ra-pill">営業</span>
-					<span class="ra-pill">CRM</span>
-					<span class="ra-pill">KPI</span>
-					<span class="ra-pill">Pipeline</span>
-					<span class="ra-pill">RevOps</span>
-					<span class="ra-pill">BI</span>
-				</div>
-				<svg class="ra-svg" viewBox="0 0 620 60" preserveAspectRatio="none" aria-hidden="true">
-					<line x1="52"  y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
-					<line x1="156" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
-					<line x1="260" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
-					<line x1="364" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
-					<line x1="468" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
-					<line x1="572" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
-				</svg>
-				<div class="ra-core">
-					<div class="ra-core-title">Revenue Architecture</div>
-					<div class="ra-core-tags">
-						<span>Revenue Predictability</span>
-						<span>Stage Exit Criteria</span>
-						<span>KPI Architecture</span>
-						<span>Revenue Visibility</span>
-						<span>RevOps</span>
-					</div>
-				</div>
-				<div class="ra-connector-bar"></div>
-				<div class="ra-outcomes">
-					<div class="ra-outcome">
-						<div class="ra-outcome-title">Forecast精度向上</div>
-						<div class="ra-outcome-sub">勘依存が減り<br />条件ベースになる</div>
-					</div>
-					<div class="ra-outcome ra-outcome--mid">
-						<div class="ra-outcome-title">Revenue Visibility</div>
-						<div class="ra-outcome-sub">Pipelineが<br />リアルに見える</div>
-					</div>
-					<div class="ra-outcome">
-						<div class="ra-outcome-title">意思決定高速化</div>
-						<div class="ra-outcome-sub">経営が数字を<br />信頼できる</div>
-					</div>
-				</div>
-			</div>
-			<figcaption class="diag-caption">Revenue ArchitectureによるForecast改善：Sales・CRM・KPI・Pipeline・RevOps・BIを接続し、構造的なForecast精度向上を実現する</figcaption>
-		</figure>
-
-		<div class="article-section">
-			<h2>Revenue構造が整うと何が変わるのか</h2>
+			<h2>設計を変えた後に何が起きたか</h2>
+			<p>前述のサブスクEC事業では、「計測を増やす」のではなく「売上と行動を一貫して捉えるデータ構造」を設計しました。その結果、以下の変化が起きました。</p>
 			<ol class="article-numbered">
 				<li>
-					<strong>経営判断が速くなる</strong>
-					<p>Revenueが高精度で予測できると、投資判断と採用判断が数字ベースで行えます。</p>
+					<strong>LTVベースの投資判断が可能に</strong>
+					<p>獲得コストではなく将来収益を前提とした広告配分に転換しました。「このチャネルは獲得コストは高いが、継続率も高い」という判断を数字で持てるようになりました。</p>
 				</li>
 				<li>
-					<strong>営業会議が短くなる</strong>
-					<p>数字確認が不要になり、会議がリスク分析と打ち手の議論に集中します。</p>
+					<strong>継続率の高いチャネルを特定</strong>
+					<p>チャネル別の収益性を可視化し、施策の優先順位を最適化しました。同じ予算をかけても継続収益の大きいチャネルを選べるようになりました。</p>
 				</li>
 				<li>
-					<strong>Pipelineの健全性が上がる</strong>
-					<p>Pipeline Hygieneが機能し、古い案件の放置がなくなります。</p>
+					<strong>プロダクト改善の優先順位が変わった</strong>
+					<p>継続・解約に影響するユーザー行動を特定したことで、UI改善の優先順位を根拠を持って決められるようになりました。感覚ではなくデータで「何を先に直すか」が決まります。</p>
+				</li>
+			</ol>
+			<p class="article-callout">予測精度を高めたのは、入力ルールの強化ではありません。予測できるデータ設計でした。</p>
+		</div>
+
+		<div class="article-section">
+			<h2>今週から始められる3つのアクション</h2>
+			<ol class="article-numbered">
+				<li>
+					<strong>来月の売上予測を立て、その根拠を書き出す</strong>
+					<p>来月の売上着地の予測を立てるとき、「なぜその数字になるか」の根拠を書き出します。根拠が「担当者の感覚」しか出てこない場合、予測できるデータ設計がないことが確認できます。</p>
 				</li>
 				<li>
-					<strong>Forecast精度が上がる</strong>
-					<p>Stage Exit CriteriaとCommit条件が整うと、感覚依存が構造依存に変わります。</p>
+					<strong>直近6ヶ月の解約・失注を振り返り、共通点を探す</strong>
+					<p>解約・失注した顧客の行動・属性・接触施策に共通パターンがあるか確認します。パターンが見えれば、予測のための先行指標が設計できます。</p>
 				</li>
 				<li>
-					<strong>Revenue Visibilityが高まる</strong>
-					<p>Pipelineから未来のRevenueが見えるようになり、組織全体の判断精度が上がります。</p>
+					<strong>「獲得コスト」と「3ヶ月後継続率」を並べて見る</strong>
+					<p>チャネル別に獲得コストと3ヶ月後の継続率を並べます。この2つを同時に見るだけで、「本当に良いチャネル」と「コストが安いだけのチャネル」の違いが見えてきます。</p>
 				</li>
 			</ol>
 		</div>
 
 		<div class="article-section">
-			<h2>日本企業でForecastが難しい理由</h2>
-			<p>日本企業では属人営業・空気文化・Excel管理・精神論営業が根強く残っています。そのためForecastが「期待値会議」になりやすく、Revenueリスク管理に転換できないケースが多い。必要なのは日本企業の組織文化に合った<strong>Revenue Architectureの設計</strong>です。</p>
-		</div>
-
-		<div class="article-section">
-			<h2>Consilegyの考え方</h2>
-			<p>ConsilegyではForecast改善を単なるCRM入力改善とは考えていません。本質はRevenue Architecture・Revenue Predictability・RevOps・Revenue Visibility・Pipeline Designにあります。Salesforce・HubSpot・BI・Slack・Kintoneを横断しながら、「Revenueが予測できる構造」を設計します。目的はForecast資料を作ることではなく、Revenue予測精度を上げることです。</p>
-			<div class="article-table-wrap">
-				<table>
-					<thead>
-						<tr>
-							<th>課題</th>
-							<th>Consilegyのアプローチ</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Forecast精度が低い</td>
-							<td>Stage Exit Criteria設計 + Commit条件定義</td>
-						</tr>
-						<tr>
-							<td>感覚でForecastを積む</td>
-							<td>Pipeline Hygiene + Revenue KPI設計</td>
-						</tr>
-						<tr>
-							<td>CRMが更新されない</td>
-							<td>Revenue UX設計 + 入力自動化</td>
-						</tr>
-						<tr>
-							<td>失注理由が分析できない</td>
-							<td>Revenue Data Flow + 失注構造化</td>
-						</tr>
-						<tr>
-							<td>経営が数字を信用しない</td>
-							<td>Revenue Visibility構築 + RevOps整備</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-
-		<div class="article-section">
-			<h2>まとめ：Forecast問題はRevenue構造の問題</h2>
-			<p>営業予測が当たらない原因は営業個人の問題ではありません。Revenue Architecture不足・KPI Architecture不足・Revenue Visibility不足・RevOps未整備が本質的な原因です。だからこそ必要なのは入力強化ではなく、「Revenueが予測できる構造」を設計することです。Forecastは単なる営業管理ではなく、Revenue Architecture全体で決まります。</p>
+			<h2>まとめ：売上予測は「設計の問題」</h2>
+			<p>売上予測が外れ続ける原因は、入力不足でも担当者のコミットメントの問題でもありません。「予測の基準が継続収益を見ていないこと」「売上と行動データが分断していること」「予測に使える指標が設計されていないこと」が構造的な原因です。</p>
+			<p>サブスクEC事業の事例が示すように、LTV起点の予測を可能にしたのはツールではなく「予測できるデータの設計」でした。まず「来月の売上予測の根拠はどこから来るか」を問い直すことが、予測精度改善の第一歩です。</p>
 		</div>
 
 		<!-- ===== CTA ===== -->
 		<div class="article-cta">
-			<p class="article-cta__catch">Forecastを「感覚」から「構造」へ変える</p>
-			<p class="article-cta__body">ConsilegyはStage Exit Criteria設計からRevOps整備まで、Revenue Predictabilityを高める構造設計を支援します。まずは現状のForecast課題を整理するところから始めましょう。</p>
+			<p class="article-cta__catch">予測できる売上基盤を設計する</p>
+			<p class="article-cta__body">ConsilegyはKPI設計からデータ基盤構築まで、「来月の売上が根拠を持って予測できる」環境の構築を支援します。まずは現状の予測プロセスの課題を整理するところから始めましょう。</p>
 			<a href="/contact/" class="article-cta__btn">無料相談を予約する</a>
 		</div>
 
@@ -331,14 +180,30 @@ const breadcrumbSchema = {
 		<nav class="article-related" aria-label="関連記事">
 			<h2 class="article-related__heading">関連記事</h2>
 			<ul>
-				<li><a href="/insights/why-sales-teams-stop-using-crm/">なぜ営業チームはCRMを使わなくなるのか</a></li>
-				<li><a href="/insights/why-more-kpis-create-less-revenue-visibility/">KPIが増えるほどRevenue可視性が下がる理由</a></li>
-				<li><a href="/insights/why-crm-integration-projects-fail/">CRM統合プロジェクトが失敗する理由</a></li>
+				<li><a href="/insights/what-is-revenue-visibility/">Revenue Visibilityとは何か</a></li>
+				<li><a href="/insights/why-sales-forecasting-fails-even-with-sfa/">SFAを導入しても売上予測が当たらない理由</a></li>
+				<li><a href="/insights/why-more-kpis-create-less-revenue-visibility/">KPIが増えるほど売上が見えなくなる理由</a></li>
 			</ul>
 		</nav>
 
 	</div><!-- /.article-body -->
 
+	<!-- ===== RELATED SERVICES ===== -->
+	<nav class="article-services" aria-label="関連サービス">
+		<h2 class="article-services__heading">関連サービス</h2>
+		<div class="article-services__grid">
+		<a href="/services/kpi-bi-design/" class="article-services__card">
+				<span class="article-services__cat">サービス</span>
+				<span class="article-services__title">KPI・BI設計支援</span>
+				<span class="article-services__arrow">→</span>
+			</a>
+		<a href="/services/revenue-architecture-design/" class="article-services__card">
+				<span class="article-services__cat">サービス</span>
+				<span class="article-services__title">レベニューアーキテクチャ設計</span>
+				<span class="article-services__arrow">→</span>
+			</a>
+		</div>
+	</nav>
 	<NewsletterSidebar />
 </div><!-- /.article-wrap -->
 
@@ -384,72 +249,6 @@ const breadcrumbSchema = {
 .article-numbered li strong { grid-column: 2; display: block; font-size: 1rem; color: var(--color-navy, #0f172a); margin-bottom: 6px; line-height: 1.4; }
 .article-numbered li p { grid-column: 2; font-size: 0.925rem; color: var(--color-charcoal, #334155); line-height: 1.8; margin: 0; }
 
-/* ===== TABLE ===== */
-.article-table-wrap { overflow-x: auto; margin-top: 24px; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; }
-.article-table-wrap table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-.article-table-wrap th { background: var(--color-navy, #0f172a); color: #fff; padding: 12px 16px; text-align: left; font-weight: 600; font-size: 0.85rem; }
-.article-table-wrap td { padding: 12px 16px; border-bottom: 1px solid var(--color-border, #e2e8f0); color: var(--color-charcoal, #334155); vertical-align: top; line-height: 1.6; }
-.article-table-wrap tr:last-child td { border-bottom: none; }
-.article-table-wrap tr:nth-child(even) td { background: #f8fafc; }
-
-/* ===== DIAGRAMS ===== */
-.diag-wrap { margin: 0 0 56px; padding: 0; border: none; }
-.diag { background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 28px 24px; }
-.diag-caption { font-size: 0.78rem; color: var(--color-muted, #64748b); text-align: center; margin-top: 10px; line-height: 1.5; }
-
-/* --- DIAGRAM 1: Forecast Chaos --- */
-.diag--fc-chaos { display: flex; flex-direction: column; gap: 16px; }
-.fcc-header { text-align: center; font-size: 0.82rem; font-weight: 700; color: var(--color-muted, #64748b); letter-spacing: 0.05em; text-transform: uppercase; }
-.fcc-grid { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
-.fcc-tool { display: flex; flex-direction: column; align-items: center; gap: 6px; background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 14px 18px; min-width: 100px; }
-.fcc-tool-icon { width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 700; color: #fff; }
-.icon-sf { background: #00a1e0; }
-.icon-xl { background: #217346; }
-.icon-mt { background: #94a3b8; }
-.fcc-tool-name { font-size: 0.78rem; font-weight: 600; color: var(--color-charcoal, #334155); text-align: center; }
-.fcc-bubbles { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
-.fcc-bubble { background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 7px 14px; font-size: 0.78rem; color: var(--color-charcoal, #334155); position: relative; }
-.fcc-bubble::before { content: ''; position: absolute; top: -8px; left: 50%; transform: translateX(-50%); border: 4px solid transparent; border-bottom-color: var(--color-border, #e2e8f0); }
-.b-warn { background: #fff3cd; border-color: #fbbf24; color: #92400e; font-weight: 600; }
-.fcc-result { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; padding-top: 4px; }
-.fcc-tag { font-size: 0.75rem; font-weight: 600; }
-.tag-bad { color: #dc2626; }
-
-/* --- DIAGRAM 2: Revenue Predictability --- */
-.diag--rev-pred { display: flex; flex-direction: column; gap: 14px; }
-.rp-header { text-align: center; font-size: 0.9rem; font-weight: 700; color: var(--color-navy, #0f172a); letter-spacing: 0.03em; }
-.rp-flow { display: flex; align-items: flex-start; justify-content: center; gap: 4px; flex-wrap: wrap; }
-.rp-stage { display: flex; flex-direction: column; align-items: center; gap: 5px; }
-.rp-box { padding: 8px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; color: #fff; text-align: center; white-space: nowrap; }
-.box-lead   { background: #60a5fa; }
-.box-sql    { background: #3b82f6; }
-.box-opp    { background: #2563eb; }
-.box-commit { background: #1d4ed8; }
-.box-won    { background: #1e40af; }
-.box-arr    { background: #0f172a; }
-.rp-exit { font-size: 0.67rem; color: var(--color-muted, #64748b); background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 4px; padding: 2px 6px; white-space: nowrap; }
-.rp-arrow { font-size: 1rem; color: var(--color-muted, #64748b); flex-shrink: 0; padding-top: 8px; }
-.rp-criteria-bar { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px; padding: 10px 16px; text-align: center; }
-.rp-criteria-label { font-size: 0.78rem; font-weight: 600; color: var(--color-primary, #1e40af); }
-.rp-footer { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-.rp-tag { font-size: 0.75rem; color: #16a34a; font-weight: 600; }
-
-/* --- DIAGRAM 3: RA Forecast Hub --- */
-.diag--ra-fc { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
-.ra-pills-row { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; padding-bottom: 4px; }
-.ra-pill { background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 4px; padding: 5px 14px; font-size: 0.75rem; font-weight: 600; color: var(--color-charcoal, #334155); white-space: nowrap; }
-.ra-svg { width: 100%; height: 60px; display: block; }
-.ra-core { background: var(--color-navy, #0f172a); color: #fff; border-radius: 8px; padding: 18px 20px; text-align: center; }
-.ra-core-title { font-size: 1rem; font-weight: 700; margin-bottom: 10px; letter-spacing: 0.02em; }
-.ra-core-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
-.ra-core-tags span { font-size: 0.7rem; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; padding: 3px 9px; color: #e2e8f0; }
-.ra-connector-bar { height: 24px; background: linear-gradient(180deg, var(--color-navy, #0f172a) 0%, #334155 100%); width: 2px; margin: 0 auto; }
-.ra-outcomes { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
-.ra-outcome { background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 14px 12px; text-align: center; }
-.ra-outcome--mid { border-color: var(--color-primary, #1e40af); box-shadow: 0 0 0 1px var(--color-primary, #1e40af); }
-.ra-outcome-title { font-size: 0.82rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 6px; }
-.ra-outcome-sub { font-size: 0.72rem; color: var(--color-muted, #64748b); line-height: 1.5; }
-
 /* ===== CTA ===== */
 .article-cta { background: radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%), linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%); border-radius: 8px; padding: 40px 36px; text-align: center; margin-bottom: 48px; }
 .article-cta__catch { font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
@@ -468,18 +267,10 @@ const breadcrumbSchema = {
 @media (max-width: 700px) {
 	.article-head h1 { font-size: 1.4rem; }
 	.br-pc { display: none; }
-	.rp-flow { gap: 4px; }
-	.rp-box { font-size: 0.68rem; padding: 7px 7px; }
-	.rp-arrow { font-size: 0.85rem; }
-	.ra-outcomes { grid-template-columns: 1fr; gap: 8px; }
 	.article-cta { padding: 28px 20px; }
-	.fcc-grid { gap: 10px; }
 }
 @media (max-width: 480px) {
 	.container { padding: 0 16px; }
-	.rp-flow { gap: 3px; }
-	.rp-exit { display: none; }
-	.ra-outcomes { grid-template-columns: 1fr 1fr; }
 }
 </style>
 

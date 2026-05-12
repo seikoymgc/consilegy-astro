@@ -89,7 +89,7 @@ draft: false
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><strong>運用負荷の劇的改善：</strong>&nbsp;自動化ロジックをシンプルに再設計し、専門担当者以外でも施策を実行できる体制を構築。</li>
+<li><strong>運用負荷の劇的改善：</strong>&nbsp;自動化ロジックをシンプルに再設計し、分析工数を約30%削減。専門担当者以外でも施策を実行できる体制を構築。</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->

@@ -9,8 +9,8 @@ const readTime = '約10分';
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
-	headline: 'SalesforceとHubSpotで数字が合わない理由｜CRM・RevOps（Revenue Operations）・データ設計の問題',
-	description: 'SalesforceとHubSpotで数字がズレる原因を、データ構造・KPI定義・Revenue Architectureの観点から解説します。',
+	headline: 'SalesforceとHubSpotで数字が合わない理由｜CRM・RevOps・データ設計の問題',
+	description: 'Salesforce・HubSpot・Sansan・GA4の連携を再設計し、分析工数30%削減・顧客行動100%可視化を実現した事例から——数字ズレはツールではなく設計の問題です。',
 	datePublished: pubDate,
 	dateModified: pubDate,
 	author: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
@@ -32,7 +32,7 @@ const breadcrumbSchema = {
 
 <BaseLayout
 	title="SalesforceとHubSpotで数字が合わない理由｜CRM・RevOps・データ設計の問題 | Consilegy"
-	description="SalesforceとHubSpotで数字がズレる原因を、データ構造・KPI定義・Revenue Architectureの観点から解説します。"
+	description="Salesforce・HubSpot・Sansan・GA4の連携を再設計し、分析工数30%削減・顧客行動100%可視化を実現した事例から——数字ズレはツールではなく設計の問題です。"
 	lang="ja"
 >
 	<Fragment slot="head">
@@ -52,14 +52,14 @@ const breadcrumbSchema = {
 			<span aria-current="page">SalesforceとHubSpotで数字が合わない理由</span>
 		</nav>
 		<div class="article-meta">
-			<span class="article-cat">CRM</span>
+			<span class="article-cat">CRM・MA・SFA</span>
 		</div>
 		<h1>SalesforceとHubSpotを両方使う企業で、<br class="br-pc" />なぜ数字がズレ続けるのか</h1>
-		<p class="article-desc">同じ月の受注額がSalesforceとHubSpotで食い違う。原因はツールの性能ではなく、KPI定義・データ構造・Revenue Data Flowが設計されていないことにある。</p>
+		<p class="article-desc">Salesforce・HubSpot・Sansan・GA4の連携を再設計し、分析工数約30%削減・顧客行動の100%可視化を実現。数字ズレはツールではなく、設計の問題です。</p>
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
-	<article class="article-body container" id="article">
+	<div class="article-body container">
 		<div class="article-eyecatch">
 			<img
 				src="/images/insights/why-salesforce-and-hubspot-data-do-not-match.svg"
@@ -72,309 +72,121 @@ const breadcrumbSchema = {
 			/>
 		</div>
 
-		<!-- はじめに -->
-		<section class="article-section">
-			<h2>はじめに：どちらの数字が正しいのか</h2>
-			<p>Salesforceでは今月の受注が「2.1億円」。HubSpotでは「1.8億円」。営業会議は、どちらを信じるかという確認から始まる——こんな状況が、実際の現場で起きています。</p>
-			<p>マーケティングがHubSpot、営業がSalesforce、集計はExcel、レポートはLooker Studioという構成になっている場合、この問題は特に起きやすくなります。</p>
-			<div class="article-callout">
-				<p>最初に確認しておきたいことがあります。この問題の原因は、<strong>SalesforceにもHubSpotにもありません</strong>。問題は、「どの数字を、何の定義で、どのシステムを正として扱うか」が設計されていないことにあります。</p>
-			</div>
-		</section>
+		<div class="article-section">
+			<p>国内トップクラスのDX支援を手がけるコンサルティング企業（従業員約150名）では、HubSpot・Salesforce・Sansan・GA4を並行して使っていました。しかし「今月の受注額」をそれぞれのシステムで確認すると、数字が一致しない。どれを信じるか確認する作業が毎月の会議で発生していました。</p>
+			<p>原因はツールの性能ではありませんでした。<strong>どのシステムを「正」とするか、誰がどのルールで更新するかが設計されていなかった</strong>ことが本質でした。連携を再設計した結果、分析工数を約30%削減し、顧客行動の100%可視化を実現しました。</p>
+		</div>
 
-		<hr class="article-hr" />
+		<div class="article-section">
+			<h2>あなたの組織は大丈夫か——5つの確認項目</h2>
+			<ol class="article-numbered">
+				<li>
+					<strong>同じ月の受注額がSalesforceとHubSpotで食い違う</strong>
+					<p>どちらが正しいか確認する作業が毎月発生していませんか。</p>
+				</li>
+				<li>
+					<strong>同じ顧客が複数のシステムに別々の情報で登録されている</strong>
+					<p>HubSpotはメールアドレス基準、Salesforceは会社名基準で管理していると、同じ会社が複数登録され名寄せされないまま情報が分断されます。</p>
+				</li>
+				<li>
+					<strong>「どちらのシステムが更新元か」が担当者によって認識が違う</strong>
+					<p>Sansanで更新した名刺情報がHubSpotに反映されていない、あるいはHubSpotで変更した内容がSalesforceに上書きされるといった状態が起きていませんか。</p>
+				</li>
+				<li>
+					<strong>連携しているのに数字が信用されていない</strong>
+					<p>「連携はしているけどExcelで確認する」という運用が残っている場合、連携ルールの設計に問題があります。</p>
+				</li>
+				<li>
+					<strong>施策とSalesforce商談が結びついていない</strong>
+					<p>HubSpotの施策がどの商談・受注に貢献したか分からない場合、マーケティング投資の判断根拠が存在しないことになります。</p>
+				</li>
+			</ol>
+			<p class="article-callout">3つ以上当てはまる場合、問題はツールではなく「どのデータを、何の定義で、どのシステムを正として扱うか」が設計されていないことです。</p>
+		</div>
 
-		<!-- なぜズレるのか -->
-		<section class="article-section">
-			<h2>なぜSalesforceとHubSpotで数字がズレるのか</h2>
-			<p>多くの企業では、SalesforceとHubSpotが別々の目的で導入されています。HubSpotはマーケティング・リード管理、Salesforceは営業・商談管理——この構成は自然です。しかし、問題はその後に起きます。</p>
-			<p>HubSpotは「マーケティング視点」でデータを構成します。フォーム送信、広告流入、MQL（Marketing Qualified Lead：マーケティングが商談化の前段として評価した見込み客）、メール開封、スコアリングといった情報が、リード単位で蓄積されます。一方Salesforceは「営業視点」の構造です。商談、案件金額、受注予測、パイプライン、営業活動が中心になります。</p>
-			<p>この2つのシステムが並走するとき、問題はツールの性能ではなく、<strong>定義と役割が設計されていないこと</strong>から生まれます。</p>
+		<div class="article-section">
+			<h2>数字がズレる3つのパターン</h2>
+			<ol class="article-numbered">
+				<li>
+					<strong>どのシステムを「正」とするか決まっていない</strong>
+					<p>HubSpotはマーケティング視点でリード・MQL・行動データを管理し、Salesforceは営業視点で商談・受注・売上を管理します。この2つが並走するとき、受注額・商談数・顧客数のどれについても「どちらを信じるか」が組織内で合意されていなければ、数字は必ずズレます。</p>
+					<p><strong>判断基準：</strong>「受注額の正システムはどちらですか」と各部門に聞いて、答えが揃わなければ「正」は決まっていません。</p>
+				</li>
+				<li>
+					<strong>同期ルールが担当者の記憶にしかない</strong>
+					<p>「SansanからHubSpotへ名刺情報を連携する」「HubSpotからSalesforceへMQLが渡ったら商談を作る」——これらのルールが文書化されていない場合、担当者が変わるたびに連携の動きが変わります。前述のコンサルティング企業でも、ワークフローがブラックボックス化し、変更に「高いリスクと工数が発生する」状態が続いていました。</p>
+					<p><strong>判断基準：</strong>「現在の連携ルールを説明してください」と言われて、即座に1枚の図を出せない場合、ルールは文書化されていません。</p>
+				</li>
+				<li>
+					<strong>「顧客」の定義がシステムごとに違う</strong>
+					<p>HubSpotでは担当者個人が「コンタクト」として管理され、Salesforceでは会社が「アカウント」として管理されます。Sansanでは名刺単位で登録されます。この3つをつなぐ「同一顧客の判定ルール」がなければ、LTV・顧客数・接点回数はシステムごとに違う値になります。</p>
+					<p><strong>判断基準：</strong>同じ会社の担当者が3人いるとき、HubSpot・Salesforce・Sansanそれぞれで何件として数えられているか、即答できれば設計されています。</p>
+				</li>
+			</ol>
+		</div>
 
-			<!-- DIAGRAM 1 -->
-			<figure class="diag diag--compare" aria-label="HubSpotとSalesforceで異なるデータ視点と数字ズレの構造。HubSpotはマーケティング視点、Salesforceは営業視点で別々にデータを保持し、定義がないため数字がズレる。">
-				<div class="diag-compare-grid">
-					<div class="diag-compare-side diag-compare-side--hub">
-						<div class="diag-compare-side__badge">HubSpot</div>
-						<div class="diag-compare-side__role">マーケティング</div>
-						<div class="diag-compare-side__metrics">
-							<span>MQL数</span>
-							<span>リード数</span>
-							<span>開封率</span>
-							<span>フォーム送信</span>
-							<span>スコア</span>
-						</div>
-						<div class="diag-compare-side__number">「1.8億円」</div>
-					</div>
-					<div class="diag-compare-center">
-						<div class="diag-compare-center__icon" aria-hidden="true">
-							<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="#ef4444" stroke-width="1.5"/><path d="M8 8l12 12M20 8L8 20" stroke="#ef4444" stroke-width="1.5" stroke-linecap="round"/></svg>
-						</div>
-						<div class="diag-compare-center__label">数字ズレ</div>
-						<div class="diag-compare-center__tags">
-							<span>KPI定義の不一致</span>
-							<span>重複データ</span>
-							<span>同期タイミングのズレ</span>
-						</div>
-					</div>
-					<div class="diag-compare-side diag-compare-side--sf">
-						<div class="diag-compare-side__badge">Salesforce</div>
-						<div class="diag-compare-side__role">営業</div>
-						<div class="diag-compare-side__metrics">
-							<span>商談金額</span>
-							<span>受注数</span>
-							<span>パイプライン</span>
-							<span>営業活動</span>
-							<span>売上予測</span>
-						</div>
-						<div class="diag-compare-side__number">「2.1億円」</div>
-					</div>
-				</div>
-				<div class="diag-compare-footer">
-					<span class="diag-compare-footer__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg></span>
-					<span>結局、Excelで集計して会議に臨む</span>
-				</div>
-				<figcaption class="diag-caption">2つのシステムが異なる「視点」で構成されている場合、定義がなければ同じ月の受注額すら食い違う</figcaption>
-			</figure>
-		</section>
+		<div class="article-section">
+			<h2>再設計後に何が変わったか</h2>
+			<p>前述のコンサルティング企業では、Salesforce・Sansan・GA4とHubSpotの連携を再設計したことで、以下の変化が起きました。</p>
+			<ol class="article-numbered">
+				<li>
+					<strong>分析工数を約30%削減</strong>
+					<p>自動化ロジックをシンプルに再設計し、「どのシステムで何を見るか」が明確になったことで、データ確認・集計作業が大幅に減りました。</p>
+				</li>
+				<li>
+					<strong>顧客行動の100%可視化を実現</strong>
+					<p>Web・MA・CRMが一本化され、SansanからGA4まで、顧客のすべての接点が一つの流れで把握できるようになりました。</p>
+				</li>
+				<li>
+					<strong>不整合のないデータ循環を確立</strong>
+					<p>Sansanの接点情報からSalesforceの商談データまで、どのデータがどのシステムに流れるかが設計されたことで、「どちらが正か」という議論がなくなりました。</p>
+				</li>
+			</ol>
+			<p class="article-callout">連携ツールを追加する前に、「何を正とするか」の設計が必要です。設計のない連携は、問題を隠すのではなく増幅させます。</p>
+		</div>
 
-		<hr class="article-hr" />
+		<div class="article-section">
+			<h2>まず3日でできること</h2>
+			<ol class="article-numbered">
+				<li>
+					<strong>「正システム」を決める表を1枚作る</strong>
+					<p>受注額・顧客数・MQL数・商談数——それぞれについて「どのシステムを正として参照するか」を1枚のスプレッドシートに書き出します。合意できない項目があれば、それが現在の最大のズレポイントです。</p>
+				</li>
+				<li>
+					<strong>現在の同期ルールを1枚の図に描く</strong>
+					<p>HubSpot→Salesforce、Sansan→HubSpot、GA4→HubSpotのデータフローを矢印で描きます。描けない、または描いてみたら複数の人が違う図を描いた場合、同期ルールは設計されていません。</p>
+				</li>
+				<li>
+					<strong>「先週データが食い違っていた事例」を1件共有する</strong>
+					<p>次の週次MTGで「先週、システム間でデータが食い違った事例を1件持ち寄る」議題を入れます。事例が1件でも出れば、そこから設計の優先順位を決められます。</p>
+				</li>
+			</ol>
+		</div>
 
-		<!-- よくある数字ズレの実例 -->
-		<section class="article-section">
-			<h2>よくある「数字ズレ」の実例</h2>
-			<p>数字がズレる原因は1つではありません。現場でよく見られるパターンは、次の4つです。</p>
+		<div class="article-section">
+			<h2>まとめ：数字ズレは構造の問題</h2>
+			<p>SalesforceとHubSpotで数字がズレる原因は、ツールの性能ではありません。「どのデータを、何の定義で、どのシステムを正として扱うか」が設計されていないことが本質です。</p>
+			<p>新しい連携ツールを追加する前に、まず「正システムの定義」と「同期ルールの文書化」を1枚ずつ作ることから始めてください。</p>
+		</div>
 
-			<div class="article-numbered">
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">01</p>
-					<h3>商談作成タイミングが違う</h3>
-					<p>マーケティング側では「問い合わせが来た時点」を商談化とみなし、営業側では「初回商談が終わったら」を商談化とする。このズレが生じると、商談数・商談化率・SQL数がシステムごとに異なる値になります。どちらかが間違っているのではなく、タイミングの定義が揃っていないことが原因です。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">02</p>
-					<h3>同じ顧客が複数のシステムに存在する</h3>
-					<p>HubSpotはメールアドレス基準で顧客を管理し、Salesforceは会社名基準で管理する。この違いから、同じ会社が複数登録され、名寄せされないままアカウントが重複する状態になります。これがARR・顧客数・LTVのズレとして表れます。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">03</p>
-					<h3>ステージ定義が違う</h3>
-					<p>HubSpotでは「MQL」、Salesforceでは「SQL」という言葉を使っていても、何をMQLとするか、いつSQLへ移行するかの条件が曖昧なままになっているケースがあります。この状態では、営業は「リードの質が低い」と感じ、マーケティングは「営業が追っていない」と感じます。これはツール問題ではなく、定義設計の問題です。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">04</p>
-					<h3>更新タイミングが違う</h3>
-					<p>HubSpotはリアルタイム更新、Salesforceは夜間バッチ同期——この組み合わせでは、ダッシュボード・KPI・売上予測が数時間から1日ズレます。現場ではこのズレの仕組みが共有されないまま、「数字がおかしい」という不信感だけが積み重なっていきます。</p>
-				</div>
-			</div>
-		</section>
+		<!-- ===== CTA ===== -->
+		<div class="article-cta">
+			<p class="article-cta__catch">SalesforceとHubSpotの数字ズレは、設計から整理できます。</p>
+			<p class="article-cta__body">ConsilegyはSalesforce・HubSpot・Sansan・GA4を横断した連携設計から運用定着まで、不整合のないデータ循環の構築を支援します。まずは現状のデータフローを整理するところから始めましょう。</p>
+			<a href="/contact/" class="article-cta__btn">無料相談を予約する</a>
+		</div>
 
-		<hr class="article-hr" />
+		<!-- ===== RELATED ===== -->
+		<nav class="article-related" aria-label="関連記事">
+			<h2 class="article-related__heading">関連記事</h2>
+			<ul>
+				<li><a href="/insights/why-crm-adoption-fails/">CRMが定着しない本当の理由</a></li>
+				<li><a href="/insights/why-hubspot-operations-become-dependent-on-individuals/">なぜHubSpot運用は「属人化」するのか</a></li>
+				<li><a href="/insights/why-crm-integration-projects-fail/">CRM統合プロジェクトが失敗する理由</a></li>
+			</ul>
+		</nav>
 
-		<!-- Revenue Data Flow -->
-		<section class="article-section">
-			<h2>本当に必要なのは「Revenue Data Flow」の設計</h2>
-			<p>SalesforceとHubSpotを両方使う企業に必要なのは、新しいツールではありません。必要なのは、Revenue Data Flow（収益データの流れ）の設計です。</p>
-			<p>Revenue Data Flowとは、どのデータがどこで発生し、どのシステムへ流れ、誰が更新し、何を正として扱うかを定義する考え方です。たとえば次のように整理します。</p>
-
-			<div class="article-table-wrap">
-				<table class="article-table">
-					<thead>
-						<tr>
-							<th>データ</th>
-							<th>正システム（Single Source of Truth）</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr><td>リード情報</td><td>HubSpot</td></tr>
-						<tr><td>商談情報</td><td>Salesforce</td></tr>
-						<tr><td>契約・受注情報</td><td>Salesforce</td></tr>
-						<tr><td>メール配信履歴</td><td>HubSpot</td></tr>
-						<tr><td>売上予測</td><td>Salesforce</td></tr>
-						<tr><td>マーケ施策分析</td><td>HubSpot + BI</td></tr>
-					</tbody>
-				</table>
-			</div>
-			<p>重要なのは、すべてを一つのツールに寄せることではありません。どのツールを、何の役割で使うかを明確にすることです。</p>
-
-			<!-- DIAGRAM 2 -->
-			<figure class="diag diag--rdflow" aria-label="Revenue Data Flowの構造図。Lead・MQL・SQL・商談・受注・継続の各ステージで担当するシステムを整理した図。どのステージをどのシステムが正として持つかを定義する。">
-				<div class="diag-rdflow-header">
-					<span class="diag-rdflow-header__label">Revenue Data Flow</span>
-					<span class="diag-rdflow-header__sub">各ステージの正システム</span>
-				</div>
-				<div class="diag-rdflow-stages">
-					<div class="diag-rdflow-stage">
-						<div class="diag-rdflow-stage__name">Lead</div>
-						<div class="diag-rdflow-stage__sys diag-rdflow-stage__sys--hub">HubSpot</div>
-					</div>
-					<div class="diag-rdflow-arrow" aria-hidden="true">→</div>
-					<div class="diag-rdflow-stage">
-						<div class="diag-rdflow-stage__name">MQL</div>
-						<div class="diag-rdflow-stage__sys diag-rdflow-stage__sys--hub">HubSpot</div>
-					</div>
-					<div class="diag-rdflow-arrow" aria-hidden="true">→</div>
-					<div class="diag-rdflow-stage">
-						<div class="diag-rdflow-stage__name">SQL</div>
-						<div class="diag-rdflow-stage__sys diag-rdflow-stage__sys--handoff">引き継ぎ</div>
-					</div>
-					<div class="diag-rdflow-arrow" aria-hidden="true">→</div>
-					<div class="diag-rdflow-stage">
-						<div class="diag-rdflow-stage__name">商談</div>
-						<div class="diag-rdflow-stage__sys diag-rdflow-stage__sys--sf">Salesforce</div>
-					</div>
-					<div class="diag-rdflow-arrow" aria-hidden="true">→</div>
-					<div class="diag-rdflow-stage">
-						<div class="diag-rdflow-stage__name">受注</div>
-						<div class="diag-rdflow-stage__sys diag-rdflow-stage__sys--sf">Salesforce</div>
-					</div>
-					<div class="diag-rdflow-arrow" aria-hidden="true">→</div>
-					<div class="diag-rdflow-stage">
-						<div class="diag-rdflow-stage__name">継続</div>
-						<div class="diag-rdflow-stage__sys diag-rdflow-stage__sys--bi">BI / CS</div>
-					</div>
-				</div>
-				<figcaption class="diag-caption">どのステージをどのシステムが「正」として持つかを定義することが、数字ズレをなくす最初のステップ</figcaption>
-			</figure>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- 連携だけでは解決しない -->
-		<section class="article-section">
-			<h2>「連携」だけでは解決しない</h2>
-			<p>SalesforceとHubSpotを連携すれば解決する——そう考える企業は少なくありません。しかし実際には、項目定義・同期条件・ステージ定義・更新ルール・KPI定義が整理されていなければ、連携してもカオスが高速化するだけです。</p>
-			<div class="article-callout">
-				<p>連携の前に設計が必要です。システムをつなぐことは手段であり、<strong>「何を正とするか」「誰がどの定義で更新するか」を決めること</strong>が目的です。設計のない連携は、問題を隠すのではなく、増幅させます。</p>
-			</div>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- Revenue Architecture -->
-		<section class="article-section">
-			<h2>Revenue Architectureという考え方</h2>
-			<p>ここで必要になるのが、Revenue Architecture（レベニューアーキテクチャ）です。Revenue Architectureとは、営業・マーケティング・カスタマーサクセス・CRM・KPI・データを、売上につながる一つの流れとして設計する考え方です。</p>
-			<p>SalesforceとHubSpotの問題も、実際にはツール問題ではありません。誰が、どの定義で、どのタイミングで、何を更新し、どのKPIを見るか——という「収益構造」の問題です。</p>
-			<p>海外のRevOps事例でSalesforce・HubSpot・BI・CDPを高度に連携している企業が多くありますが、日本企業では同じ構成を入れてもうまく定着しないケースが少なくありません。営業文化・Excel運用・稟議構造・会議運営が異なるためです。重要なのは、海外ツールを入れることではなく、自社で機能する構造へ翻訳することです。</p>
-
-			<!-- DIAGRAM 3 -->
-			<figure class="diag diag--rahub" aria-label="Revenue Architectureが営業・マーケティング・カスタマーサクセスを接続し、HubSpotとSalesforceを含むシステム全体を収益構造として統合する図。施策から継続収益までの一気通貫フローを示す。">
-				<div class="diag-rahub-top">
-					<span class="diag-rahub-dept">マーケティング</span>
-					<span class="diag-rahub-dept">営業</span>
-					<span class="diag-rahub-dept">カスタマーサクセス</span>
-				</div>
-				<div class="diag-rahub-connectors" aria-hidden="true">
-					<span class="diag-rahub-line"></span>
-					<span class="diag-rahub-line"></span>
-					<span class="diag-rahub-line"></span>
-				</div>
-				<div class="diag-rahub-core">
-					<div class="diag-rahub-core__tag">Revenue Architecture</div>
-					<div class="diag-rahub-core__label">収益構造設計</div>
-					<div class="diag-rahub-core__tools">
-						<span>HubSpot</span>
-						<span>Salesforce</span>
-						<span>KPI定義</span>
-						<span>Data Flow</span>
-						<span>会議体</span>
-					</div>
-				</div>
-				<div class="diag-rahub-flow" aria-label="施策から継続収益までの一気通貫フロー">
-					<div class="diag-rahub-flow__step">施策</div>
-					<div class="diag-rahub-flow__arrow" aria-hidden="true">→</div>
-					<div class="diag-rahub-flow__step">商談</div>
-					<div class="diag-rahub-flow__arrow" aria-hidden="true">→</div>
-					<div class="diag-rahub-flow__step">受注</div>
-					<div class="diag-rahub-flow__arrow" aria-hidden="true">→</div>
-					<div class="diag-rahub-flow__step">継続収益</div>
-				</div>
-				<figcaption class="diag-caption">Revenue Architectureを設計することで、SalesforceとHubSpotの役割が明確になり、一気通貫のデータ管理が実現する</figcaption>
-			</figure>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- 何が変わるのか -->
-		<section class="article-section">
-			<h2>Revenue Architectureを整えると、何が変わるのか</h2>
-
-			<div class="article-numbered">
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">01</p>
-					<h3>数字ズレが減る</h3>
-					<p>営業・マーケティング・CS・経営が同じ定義・同じデータソースを見るようになります。「どちらが正しいか」という確認が不要になり、会議の時間を改善議論に使えるようになります。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">02</p>
-					<h3>CRMが信頼される</h3>
-					<p>「CRMの数字は信用できない」という声がなくなります。これは、ツールが変わるのではなく、数字を作る構造が変わるために起きることです。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">03</p>
-					<h3>施策と売上がつながる</h3>
-					<p>どの施策が商談・受注・ARR・継続収益へつながったかを、一気通貫で見られるようになります。マーケティングの投資対効果が明確になり、予算配分の判断精度が上がります。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">04</p>
-					<h3>売上が予測できるようになる</h3>
-					<p>パイプラインの精度が上がり、来月・来四半期の売上見込みを経営判断に使えるようになります。これは、CRMの使い方ではなく、設計の精度に依存する変化です。</p>
-				</div>
-			</div>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- Consilegy -->
-		<section class="article-section">
-			<h2>Consilegyの考え方</h2>
-			<p>Consilegyでは、Salesforce導入・HubSpot導入を単独のツール導入として捉えていません。重要なのは、データ構造・KPI定義・Revenue Data Flow・営業プロセス・マーケティング連携・RevOps運用を、一つの収益構造として設計することです。</p>
-			<p>Salesforce・HubSpot・Kintone・BI・Slackなどを横断しながら、Revenue Architectureとして再設計します。目的は、ツールを増やすことではなく、売上が見える構造を作ることです。</p>
-			<div class="article-table-wrap">
-				<table class="article-table">
-					<thead>
-						<tr>
-							<th>支援領域</th>
-							<th>内容</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Architecture</td>
-							<td>Revenue Data Flow設計・CRM / SFA構造再設計</td>
-						</tr>
-						<tr>
-							<td>Process</td>
-							<td>商談ステージ・KPI・ハンドオフ条件の定義</td>
-						</tr>
-						<tr>
-							<td>オペレーション</td>
-							<td>会議体設計・RevOps体制構築・定着支援</td>
-						</tr>
-						<tr>
-							<td>Technology</td>
-							<td>HubSpot / Salesforce等の実装・改善</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- まとめ -->
-		<section class="article-section">
-			<h2>まとめ：数字ズレは、構造問題</h2>
-			<p>SalesforceとHubSpotで数字がズレる原因は、ツール性能ではありません。多くの場合、KPI定義・データ構造・同期ルール・Revenue Data Flow・Revenue Architectureが設計されていないことが原因です。</p>
-			<p>「連携ツールを追加する」前に、「どのデータを、誰が、どの定義で扱うのか」を整理する必要があります。数字ズレをなくすには、まず構造から見直す必要があります。</p>
-			<div class="article-callout">
-				<p>Consilegyは、CRM導入ではなく、Revenue Architectureの観点から、<strong>営業・マーケティング・データ構造を横断して再設計します</strong>。SalesforceとHubSpotのどちらを使うかではなく、両者をどう機能させるかを、収益構造から設計します。</p>
-			</div>
-		</section>
-
-		<p class="article-pubdate">公開日：2026年5月7日</p>
-	</article>
+	</div><!-- /.article-body -->
 
 	<!-- ===== RELATED SERVICES ===== -->
 	<nav class="article-services" aria-label="関連サービス">
@@ -393,56 +205,7 @@ const breadcrumbSchema = {
 		</div>
 	</nav>
 	<NewsletterSidebar />
-
-	<!-- ===== RELATED LINKS ===== -->
-	<aside class="article-related container">
-		<p class="article-related__label">関連コンテンツ</p>
-		<div class="article-related__grid">
-			<a href="/revenue-architecture/" class="article-related__card">
-				<p class="article-related__card-cat">概念解説</p>
-				<p class="article-related__card-title">Revenue Architecture（レベニューアーキテクチャ）とは</p>
-				<span class="article-related__card-arrow">→</span>
-			</a>
-			<a href="/about-revops/" class="article-related__card">
-				<p class="article-related__card-cat">概念解説</p>
-				<p class="article-related__card-title">RevOps（レベニューオペレーション）とは</p>
-				<span class="article-related__card-arrow">→</span>
-			</a>
-			<a href="/services/crm-revops-redesign/" class="article-related__card">
-				<p class="article-related__card-cat">サービス</p>
-				<p class="article-related__card-title">CRM / RevOps再設計支援</p>
-				<span class="article-related__card-arrow">→</span>
-			</a>
-			<a href="/insights/why-crm-adoption-fails/" class="article-related__card">
-				<p class="article-related__card-cat">関連記事</p>
-				<p class="article-related__card-title">CRMが定着しない本当の理由</p>
-				<span class="article-related__card-arrow">→</span>
-			</a>
-		</div>
-	</aside>
-
-	<!-- ===== CTA ===== -->
-	<section class="article-cta">
-		<div class="container">
-			<div class="article-cta__body">
-				<h2>SalesforceとHubSpotの数字ズレは、<br class="br-pc" />設計から整理できます。</h2>
-				<ul class="article-cta__list">
-					<li>SalesforceとHubSpotで受注数が合わない</li>
-					<li>KPIの定義が部門によって違う</li>
-					<li>連携しても数字が信用されない</li>
-					<li>どちらを「正」とすればいいか分からない</li>
-				</ul>
-				<p class="article-cta__note">ツールの前に、Revenue Data Flowから整理します。</p>
-				<div class="article-cta__actions">
-					<a href="/free-consultation/" class="btn btn--cta-primary">30分無料相談を予約する →</a>
-					<a href="/services/crm-revops-redesign/" class="btn btn--cta-ghost">CRM / RevOps再設計支援を見る</a>
-				</div>
-			</div>
-		</div>
-	</section>
-
-</div>
-</BaseLayout>
+</div><!-- /.article-wrap -->
 
 <style>
 	/* ── Eyecatch ─── */
@@ -456,737 +219,59 @@ const breadcrumbSchema = {
 		width: 100%; height: auto; display: block;
 		max-height: 360px; object-fit: cover;
 	}
-	/* ── Layout ────────────────────────────────────────────── */
-	.article-wrap { background: #fff; }
-
-	.container {
-		max-width: 800px;
-		margin-inline: auto;
-		padding-inline: var(--space-md, 1.5rem);
-	}
-
-	.br-pc { display: inline; }
-
-	/* ── Breadcrumb ────────────────────────────────────────── */
-	.breadcrumb {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		gap: 0.4em;
-		font-size: 0.8rem;
-		color: var(--color-muted, #64748b);
-		margin-bottom: 2rem;
-	}
-
-	.breadcrumb a { color: inherit; text-decoration: none; }
-	.breadcrumb a:hover { color: var(--color-primary, #1e40af); }
-
-	/* ── Article header ────────────────────────────────────── */
-	.article-head {
-		padding-top: 3rem;
-		padding-bottom: 2.5rem;
-		border-bottom: 1px solid var(--color-border, #e2e8f0);
-	}
-
-	.article-meta {
-		display: flex;
-		align-items: center;
-		gap: 0.75rem;
-		margin-bottom: 1.25rem;
-		flex-wrap: wrap;
-	}
-
-	.article-cat {
-		font-size: 0.72rem;
-		font-weight: 700;
-		letter-spacing: 0.1em;
-		text-transform: uppercase;
-		color: var(--color-primary, #1e40af);
-		background: rgba(30, 64, 175, 0.07);
-		padding: 0.2em 0.7em;
-		border-radius: 4px;
-	}
-
-	.article-date,
-	.article-read {
-		font-size: 0.8rem;
-		color: var(--color-muted, #64748b);
-	}
-
-	.article-date::before {
-		content: '';
-		display: inline-block;
-		width: 1px;
-		height: 0.9em;
-		background: var(--color-border, #e2e8f0);
-		margin-right: 0.75rem;
-		vertical-align: middle;
-	}
-
-	.article-head h1 {
-		font-size: clamp(1.5rem, 3vw, 2.1rem);
-		font-weight: 600;
-		color: var(--color-navy, #0f172a);
-		line-height: 1.35;
-		margin: 0 0 1rem;
-	}
-
-	.article-desc {
-		font-size: 1rem;
-		line-height: 1.75;
-		color: var(--color-charcoal, #334155);
-		margin: 0;
-	}
-
-	/* ── Article body ──────────────────────────────────────── */
-	.article-body { padding-block: 3rem; }
-
-	.article-section { margin-bottom: 0; }
-
-	.article-section h2 {
-		font-size: clamp(1.15rem, 2.2vw, 1.4rem);
-		font-weight: 600;
-		color: var(--color-navy, #0f172a);
-		margin: 0 0 1.25rem;
-		line-height: 1.45;
-		padding-bottom: 0.6rem;
-		border-bottom: 2px solid var(--color-border, #e2e8f0);
-	}
-
-	.article-section h3 {
-		font-size: 1rem;
-		font-weight: 600;
-		color: var(--color-navy, #0f172a);
-		margin: 2rem 0 0.75rem;
-	}
-
-	.article-section p {
-		font-size: 0.975rem;
-		line-height: 1.9;
-		color: var(--color-charcoal, #334155);
-		margin: 0 0 1rem;
-	}
-
-	.article-section ul {
-		margin: 0 0 1.25rem;
-		padding: 0;
-		list-style: none;
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-	}
-
-	.article-section ul li {
-		padding-left: 1.25rem;
-		position: relative;
-		font-size: 0.95rem;
-		line-height: 1.7;
-		color: var(--color-charcoal, #334155);
-	}
-
-	.article-section ul li::before {
-		content: '';
-		position: absolute;
-		left: 0;
-		top: 0.65em;
-		width: 5px;
-		height: 5px;
-		border-radius: 50%;
-		background: var(--color-primary, #1e40af);
-		opacity: 0.5;
-	}
-
-	.article-hr {
-		border: none;
-		border-top: 1px solid var(--color-border, #e2e8f0);
-		margin: 3rem 0;
-	}
-
-	/* ── Callout ───────────────────────────────────────────── */
-	.article-callout {
-		background: var(--color-bg-soft, #f8fafc);
-		border-left: 4px solid var(--color-primary, #1e40af);
-		border-radius: 0 8px 8px 0;
-		padding: 1.1rem 1.5rem;
-		margin: 1.5rem 0;
-	}
-
-	.article-callout p {
-		margin: 0;
-		font-size: 0.95rem;
-		line-height: 1.8;
-		color: var(--color-navy, #0f172a);
-	}
-
-	/* ── Numbered blocks ───────────────────────────────────── */
-	.article-numbered {
-		display: flex;
-		flex-direction: column;
-		gap: 1.5rem;
-		margin-top: 1.5rem;
-	}
-
-	.article-numbered__item {
-		border: 1px solid var(--color-border, #e2e8f0);
-		border-radius: 8px;
-		padding: 1.5rem;
-		background: #fff;
-	}
-
-	.article-numbered__num {
-		font-size: 0.7rem;
-		font-weight: 800;
-		letter-spacing: 0.12em;
-		color: var(--color-primary, #1e40af);
-		margin: 0 0 0.5rem;
-	}
-
-	.article-numbered__item h3 {
-		margin: 0 0 0.75rem;
-		font-size: 1rem;
-		font-weight: 600;
-		color: var(--color-navy, #0f172a);
-	}
-
-	.article-numbered__item p {
-		margin: 0;
-		font-size: 0.9rem;
-		line-height: 1.8;
-		color: var(--color-charcoal, #334155);
-	}
-
-	/* ── Table ─────────────────────────────────────────────── */
-	.article-table-wrap {
-		overflow-x: auto;
-		margin: 1.5rem 0;
-		border: 1px solid var(--color-border, #e2e8f0);
-		border-radius: 8px;
-	}
-
-	.article-table {
-		width: 100%;
-		border-collapse: collapse;
-		font-size: 0.9rem;
-	}
-
-	.article-table thead th {
-		padding: 0.75rem 1.25rem;
-		background: var(--color-navy, #0f172a);
-		color: #fff;
-		font-weight: 700;
-		text-align: left;
-		white-space: nowrap;
-	}
-
-	.article-table tbody td {
-		padding: 0.75rem 1.25rem;
-		border-bottom: 1px solid var(--color-border, #e2e8f0);
-		color: var(--color-charcoal, #334155);
-		line-height: 1.6;
-	}
-
-	.article-table tbody tr:last-child td { border-bottom: none; }
-
-	.article-table tbody td:first-child {
-		font-weight: 700;
-		color: var(--color-navy, #0f172a);
-		white-space: nowrap;
-		border-right: 1px solid var(--color-border, #e2e8f0);
-	}
-
-	/* ── Related ───────────────────────────────────────────── */
-	.article-related {
-		padding-block: 2.5rem 3rem;
-		border-top: 1px solid var(--color-border, #e2e8f0);
-	}
-
-	.article-related__label {
-		font-size: 0.72rem;
-		font-weight: 700;
-		letter-spacing: 0.12em;
-		text-transform: uppercase;
-		color: var(--color-muted, #64748b);
-		margin: 0 0 1rem;
-	}
-
-	.article-related__grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-		gap: 0.75rem;
-	}
-
-	.article-related__card {
-		display: flex;
-		flex-direction: column;
-		gap: 0.3rem;
-		padding: 1rem 1.25rem;
-		border: 1px solid var(--color-border, #e2e8f0);
-		border-radius: 8px;
-		text-decoration: none;
-		transition: border-color 0.15s, box-shadow 0.15s;
-	}
-
-	.article-related__card:hover {
-		border-color: var(--color-primary, #1e40af);
-		box-shadow: 0 2px 10px rgba(30, 64, 175, 0.07);
-	}
-
-	.article-related__card-cat {
-		font-size: 0.68rem;
-		font-weight: 700;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-		color: var(--color-primary, #1e40af);
-		margin: 0;
-	}
-
-	.article-related__card-title {
-		font-size: 0.875rem;
-		font-weight: 600;
-		color: var(--color-navy, #0f172a);
-		margin: 0;
-		line-height: 1.45;
-	}
-
-	.article-related__card-arrow {
-		font-size: 0.85rem;
-		color: var(--color-primary, #1e40af);
-		margin-top: 0.25rem;
-	}
-
-	/* ── CTA ───────────────────────────────────────────────── */
-	.article-cta {
-		padding-block: 4rem;
-		background:
-			radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%),
-			linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
-	}
-
-	.article-cta__body {
-		max-width: 700px;
-		margin-inline: auto;
-		text-align: center;
-	}
-
-	.article-cta__body h2 {
-		font-size: clamp(1.2rem, 2.5vw, 1.65rem);
-		font-weight: 600;
-		color: #fff;
-		line-height: 1.5;
-		margin: 0 0 1.5rem;
-	}
-
-	.article-cta__list {
-		display: flex;
-		flex-direction: column;
-		gap: 0.4rem;
-		margin: 0 auto 1.5rem;
-		padding: 0;
-		list-style: none;
-		text-align: left;
-		max-width: 420px;
-	}
-
-	.article-cta__list li {
-		font-size: 0.875rem;
-		color: rgba(255,255,255,0.85);
-		padding-left: 1.1rem;
-		position: relative;
-		line-height: 1.6;
-	}
-
-	.article-cta__list li::before {
-		content: '·';
-		position: absolute;
-		left: 0;
-		color: rgba(255,255,255,0.5);
-		font-size: 1.2em;
-	}
-
-	.article-cta__note {
-		font-size: 0.9rem;
-		color: rgba(255,255,255,0.7);
-		margin: 0 0 2rem;
-	}
-
-	.article-cta__actions {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 1rem;
-		justify-content: center;
-	}
-
-	.btn--cta-primary {
-		display: inline-flex;
-		align-items: center;
-		background: #fff;
-		color: var(--color-primary, #1e40af);
-		border: 2px solid transparent;
-		padding: 0.85em 1.75em;
-		font-size: 0.95rem;
-		border-radius: 6px;
-		font-weight: 700;
-		text-decoration: none;
-		transition: background 0.15s;
-	}
-
-	.btn--cta-primary:hover { background: rgba(255,255,255,0.9); }
-
-	.btn--cta-ghost {
-		display: inline-flex;
-		align-items: center;
-		background: transparent;
-		color: rgba(255,255,255,0.9);
-		border: 2px solid rgba(255,255,255,0.4);
-		padding: 0.85em 1.75em;
-		font-size: 0.95rem;
-		border-radius: 6px;
-		font-weight: 600;
-		text-decoration: none;
-		transition: border-color 0.15s;
-	}
-
-	.btn--cta-ghost:hover { border-color: rgba(255,255,255,0.8); }
-
-	/* ══════════════════════════════════════════════════════════
-	   DIAGRAMS
-	══════════════════════════════════════════════════════════ */
-	.diag {
-		margin: 2rem 0;
-		border: 1px solid var(--color-border, #e2e8f0);
-		border-radius: 8px;
-		overflow: hidden;
-		background: #fff;
-	}
-
-	.diag-caption {
-		display: block;
-		font-size: 0.78rem;
-		color: var(--color-muted, #64748b);
-		text-align: center;
-		padding: 0.75rem 1rem;
-		background: var(--color-bg-soft, #f8fafc);
-		border-top: 1px solid var(--color-border, #e2e8f0);
-		line-height: 1.5;
-		margin: 0;
-	}
-
-	/* ── Diagram 1: Compare (HubSpot vs Salesforce) ───────── */
-	.diag--compare { padding: 1.5rem 1.5rem 0; }
-
-	.diag-compare-grid {
-		display: grid;
-		grid-template-columns: 1fr auto 1fr;
-		gap: 0.75rem;
-		margin-bottom: 0.75rem;
-		align-items: start;
-	}
-
-	.diag-compare-side {
-		border: 1px solid var(--color-border, #e2e8f0);
-		border-radius: 8px;
-		padding: 1.25rem 1rem;
-		background: var(--color-bg-soft, #f8fafc);
-	}
-
-	.diag-compare-side--hub { border-top: 3px solid #ff7a59; }
-	.diag-compare-side--sf  { border-top: 3px solid #00a1e0; }
-
-	.diag-compare-side__badge {
-		font-size: 0.7rem;
-		font-weight: 800;
-		letter-spacing: 0.08em;
-		margin-bottom: 0.25rem;
-	}
-
-	.diag-compare-side--hub .diag-compare-side__badge { color: #c2410c; }
-	.diag-compare-side--sf  .diag-compare-side__badge { color: #0070a8; }
-
-	.diag-compare-side__role {
-		font-size: 0.85rem;
-		font-weight: 700;
-		color: var(--color-navy, #0f172a);
-		margin-bottom: 0.75rem;
-	}
-
-	.diag-compare-side__metrics {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.35rem;
-		margin-bottom: 0.75rem;
-	}
-
-	.diag-compare-side__metrics span {
-		font-size: 0.7rem;
-		padding: 0.15em 0.55em;
-		border-radius: 4px;
-		background: #fff;
-		border: 1px solid var(--color-border, #e2e8f0);
-		color: var(--color-charcoal, #334155);
-	}
-
-	.diag-compare-side__number {
-		font-size: 0.9rem;
-		font-weight: 800;
-		color: var(--color-navy, #0f172a);
-		text-align: center;
-		padding: 0.4rem 0.5rem;
-		background: #fff;
-		border: 1px solid var(--color-border, #e2e8f0);
-		border-radius: 6px;
-	}
-
-	.diag-compare-center {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: flex-start;
-		gap: 0.5rem;
-		padding: 0.75rem 0.5rem;
-		min-width: 110px;
-	}
-
-	.diag-compare-center__label {
-		font-size: 0.78rem;
-		font-weight: 800;
-		color: #dc2626;
-		letter-spacing: 0.04em;
-	}
-
-	.diag-compare-center__tags {
-		display: flex;
-		flex-direction: column;
-		gap: 0.3rem;
-	}
-
-	.diag-compare-center__tags span {
-		font-size: 0.63rem;
-		padding: 0.2em 0.45em;
-		background: #fef2f2;
-		border: 1px solid #fecaca;
-		border-radius: 4px;
-		color: #dc2626;
-		text-align: center;
-		white-space: nowrap;
-	}
-
-	.diag-compare-footer {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 0.5rem;
-		padding: 0.65rem 1rem;
-		margin-bottom: 1.25rem;
-		background: #fffbeb;
-		border: 1px solid #fde68a;
-		border-radius: 6px;
-		font-size: 0.82rem;
-		font-weight: 600;
-		color: #92400e;
-	}
-
-	/* ── Diagram 2: Revenue Data Flow ─────────────────────── */
-	.diag--rdflow { padding: 1.5rem 1.5rem 0; }
-
-	.diag-rdflow-header {
-		display: flex;
-		align-items: baseline;
-		gap: 0.75rem;
-		margin-bottom: 1.25rem;
-	}
-
-	.diag-rdflow-header__label {
-		font-size: 0.72rem;
-		font-weight: 800;
-		letter-spacing: 0.1em;
-		text-transform: uppercase;
-		color: var(--color-navy, #0f172a);
-	}
-
-	.diag-rdflow-header__sub {
-		font-size: 0.7rem;
-		color: var(--color-muted, #64748b);
-	}
-
-	.diag-rdflow-stages {
-		display: flex;
-		align-items: center;
-		gap: 0.25rem;
-		overflow-x: auto;
-		padding-bottom: 0.25rem;
-		margin-bottom: 1.25rem;
-		flex-wrap: nowrap;
-	}
-
-	.diag-rdflow-stage {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 0.4rem;
-		min-width: 68px;
-		flex-shrink: 0;
-	}
-
-	.diag-rdflow-stage__name {
-		font-size: 0.78rem;
-		font-weight: 600;
-		color: var(--color-navy, #0f172a);
-		text-align: center;
-	}
-
-	.diag-rdflow-stage__sys {
-		font-size: 0.63rem;
-		font-weight: 700;
-		padding: 0.2em 0.5em;
-		border-radius: 4px;
-		text-align: center;
-		white-space: nowrap;
-	}
-
-	.diag-rdflow-stage__sys--hub {
-		background: rgba(255, 122, 89, 0.1);
-		border: 1px solid rgba(255, 122, 89, 0.3);
-		color: #c2410c;
-	}
-
-	.diag-rdflow-stage__sys--sf {
-		background: rgba(0, 161, 224, 0.1);
-		border: 1px solid rgba(0, 161, 224, 0.3);
-		color: #0070a8;
-	}
-
-	.diag-rdflow-stage__sys--handoff {
-		background: rgba(30, 64, 175, 0.07);
-		border: 1px solid rgba(30, 64, 175, 0.2);
-		color: var(--color-primary, #1e40af);
-	}
-
-	.diag-rdflow-stage__sys--bi {
-		background: var(--color-bg-soft, #f8fafc);
-		border: 1px solid var(--color-border, #e2e8f0);
-		color: var(--color-charcoal, #334155);
-	}
-
-	.diag-rdflow-arrow {
-		font-size: 0.9rem;
-		color: var(--color-muted, #64748b);
-		flex-shrink: 0;
-		margin-bottom: 1rem;
-	}
-
-	/* ── Diagram 3: RA Hub ────────────────────────────────── */
-	.diag--rahub { padding: 1.5rem 1.5rem 0; }
-
-	.diag-rahub-top {
-		display: flex;
-		justify-content: center;
-		gap: 0.75rem;
-		flex-wrap: wrap;
-		margin-bottom: 0.5rem;
-	}
-
-	.diag-rahub-dept {
-		font-size: 0.75rem;
-		font-weight: 700;
-		padding: 0.3em 0.9em;
-		border-radius: 4px;
-		background: var(--color-bg-soft, #f8fafc);
-		border: 1px solid var(--color-border, #e2e8f0);
-		color: var(--color-charcoal, #334155);
-	}
-
-	.diag-rahub-connectors {
-		display: flex;
-		justify-content: center;
-		gap: 5rem;
-		height: 1.5rem;
-		padding: 0 2rem;
-		overflow: hidden;
-	}
-
-	.diag-rahub-line {
-		width: 1px;
-		background: var(--color-border, #e2e8f0);
-		flex-shrink: 0;
-	}
-
-	.diag-rahub-core {
-		background: var(--color-navy, #0f172a);
-		border-radius: 8px;
-		padding: 1.25rem;
-		text-align: center;
-	}
-
-	.diag-rahub-core__tag {
-		font-size: 0.63rem;
-		font-weight: 700;
-		letter-spacing: 0.1em;
-		text-transform: uppercase;
-		color: rgba(255,255,255,0.4);
-		margin-bottom: 0.3rem;
-	}
-
-	.diag-rahub-core__label {
-		font-size: 1rem;
-		font-weight: 800;
-		color: #fff;
-		margin-bottom: 0.75rem;
-	}
-
-	.diag-rahub-core__tools {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.35rem;
-		justify-content: center;
-	}
-
-	.diag-rahub-core__tools span {
-		font-size: 0.72rem;
-		font-weight: 500;
-		padding: 0.2em 0.65em;
-		border-radius: 4px;
-		background: rgba(255,255,255,0.1);
-		border: 1px solid rgba(255,255,255,0.12);
-		color: rgba(255,255,255,0.8);
-	}
-
-	.diag-rahub-flow {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: 0.4rem;
-		padding: 0.75rem 1rem;
-		margin-top: 0.75rem;
-		margin-bottom: 1.25rem;
-		background: rgba(30, 64, 175, 0.04);
-		border: 1px solid rgba(30, 64, 175, 0.15);
-		border-radius: 8px;
-		flex-wrap: wrap;
-	}
-
-	.diag-rahub-flow__step {
-		font-size: 0.78rem;
-		font-weight: 700;
-		color: var(--color-navy, #0f172a);
-		padding: 0.2em 0.6em;
-		background: #fff;
-		border: 1px solid var(--color-border, #e2e8f0);
-		border-radius: 5px;
-	}
-
-	.diag-rahub-flow__arrow {
-		font-size: 0.85rem;
-		color: var(--color-primary, #1e40af);
-	}
-
-	/* ── Responsive ────────────────────────────────────────── */
-	@media (max-width: 700px) {
-		.br-pc { display: none; }
-		.article-related__grid { grid-template-columns: 1fr; }
-		.article-head { padding-top: 2rem; }
-		.diag-compare-grid { grid-template-columns: 1fr; }
-		.diag-compare-center { flex-direction: row; flex-wrap: wrap; justify-content: flex-start; padding: 0.5rem 0; }
-		.diag-compare-center__tags { flex-direction: row; flex-wrap: wrap; }
-		.diag-rahub-connectors { display: none; }
-	}
+/* ===== LAYOUT ===== */
+.article-wrap { background: #fff; padding-bottom: 80px; }
+.container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+
+/* ===== HEADER ===== */
+.article-head { padding-top: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--color-border, #e2e8f0); }
+.breadcrumb { font-size: 0.78rem; color: var(--color-muted, #64748b); margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.breadcrumb a { color: var(--color-muted, #64748b); text-decoration: none; }
+.breadcrumb a:hover { color: var(--color-primary, #1e40af); }
+.article-meta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; font-size: 0.8rem; color: var(--color-muted, #64748b); }
+.article-cat { background: #eff6ff; color: var(--color-primary, #1e40af); padding: 2px 10px; border-radius: 4px; font-weight: 600; font-size: 0.75rem; }
+.article-head h1 { font-size: clamp(1.5rem, 3.5vw, 2.1rem); font-weight: 600; color: var(--color-navy, #0f172a); line-height: 1.35; margin-bottom: 16px; }
+.article-desc { font-size: 1rem; color: var(--color-charcoal, #334155); line-height: 1.75; }
+.br-pc { display: inline; }
+
+/* ===== BODY ===== */
+.article-body { padding-top: 48px; }
+.article-section { margin-bottom: 56px; }
+.article-section h2 { font-size: 1.25rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 16px; padding-left: 14px; border-left: 4px solid var(--color-primary, #1e40af); line-height: 1.4; }
+.article-section p { font-size: 0.975rem; color: var(--color-charcoal, #334155); line-height: 1.85; margin-bottom: 16px; }
+.article-section p:last-child { margin-bottom: 0; }
+.article-callout { background: #f8fafc; border-left: 3px solid var(--color-primary, #1e40af); padding: 14px 18px; border-radius: 0 6px 6px 0; font-size: 0.95rem !important; color: var(--color-navy, #0f172a) !important; }
+
+/* ===== NUMBERED LIST ===== */
+.article-numbered { list-style: none; counter-reset: item; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 24px; }
+.article-numbered li { counter-increment: item; display: grid; grid-template-columns: 36px 1fr; gap: 0 16px; }
+.article-numbered li::before { content: counter(item); display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--color-primary, #1e40af); color: #fff; border-radius: 50%; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px; }
+.article-numbered li strong { grid-column: 2; display: block; font-size: 1rem; color: var(--color-navy, #0f172a); margin-bottom: 6px; line-height: 1.4; }
+.article-numbered li p { grid-column: 2; font-size: 0.925rem; color: var(--color-charcoal, #334155); line-height: 1.8; margin: 0; }
+
+/* ===== CTA ===== */
+.article-cta { background: radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%), linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%); border-radius: 8px; padding: 40px 36px; text-align: center; margin-bottom: 48px; }
+.article-cta__catch { font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
+.article-cta__body { font-size: 0.92rem; color: rgba(255,255,255,0.88); line-height: 1.75; margin-bottom: 24px; }
+.article-cta__btn { display: inline-block; background: #fff; color: var(--color-primary, #1e40af); font-weight: 700; font-size: 0.9rem; padding: 12px 28px; border-radius: 6px; text-decoration: none; transition: opacity 0.2s; }
+.article-cta__btn:hover { opacity: 0.9; }
+
+/* ===== RELATED ===== */
+.article-related { border-top: 1px solid var(--color-border, #e2e8f0); padding-top: 32px; }
+.article-related__heading { font-size: 0.9rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 16px; }
+.article-related ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.article-related li a { font-size: 0.9rem; color: var(--color-primary, #1e40af); text-decoration: none; }
+.article-related li a:hover { text-decoration: underline; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 700px) {
+	.article-head h1 { font-size: 1.4rem; }
+	.br-pc { display: none; }
+	.article-cta { padding: 28px 20px; }
+}
+@media (max-width: 480px) {
+	.container { padding: 0 16px; }
+}
 </style>
+
+</BaseLayout>

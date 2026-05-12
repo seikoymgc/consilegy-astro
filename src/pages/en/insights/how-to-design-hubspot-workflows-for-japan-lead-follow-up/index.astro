@@ -2,13 +2,13 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
-const readTime = 'About 6 min';
+const readTime = 'About 7 min';
 
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: 'How to Design HubSpot Workflows for Japan Lead Follow-Up',
-  description: 'Japan lead follow-up requires a different workflow design than global defaults. Timing, messaging tone, task assignment logic, and handoff triggers all need to be adapted to Japan\'s evaluation pace.',
+  description: 'An IT back-office SaaS company (approx. 200 employees) was running global-default HubSpot workflows for Japan leads — fast sequences, aggressive follow-up, generic nurture. After redesigning workflows for Japan\'s evaluation pace, MQL-to-SQL conversion increased by up to 20% and sales stopped losing leads to silent disengagement.',
   datePublished: pubDate,
   dateModified: pubDate,
   author: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
@@ -30,7 +30,7 @@ const breadcrumbSchema = {
 
 <BaseLayout
   title="How to Design HubSpot Workflows for Japan Lead Follow-Up | Consilegy"
-  description="Japan lead follow-up requires a different workflow design than global defaults. Timing, messaging tone, task assignment logic, and handoff triggers all need to be adapted to Japan's evaluation pace."
+  description="An IT back-office SaaS company (approx. 200 employees) was running global-default HubSpot workflows for Japan leads. After redesigning workflows for Japan's evaluation pace, MQL-to-SQL conversion increased by up to 20% and sales stopped losing leads to silent disengagement."
   lang="en"
   alternateUrl="/insights/"
 >
@@ -41,7 +41,6 @@ const breadcrumbSchema = {
 
 <div class="article-wrap">
 
-  <!-- ===== ARTICLE HEADER ===== -->
   <header class="article-head container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="/en/">Home</a>
@@ -51,60 +50,81 @@ const breadcrumbSchema = {
       <span aria-current="page">How to Design HubSpot Workflows for Japan Lead Follow-Up</span>
     </nav>
     <div class="article-meta">
-      <span class="article-cat">HubSpot &amp; CRM</span>
+      <span class="article-cat">Revenue Architecture</span>
       <span class="article-date">{pubDate}</span>
       <span class="article-read">{readTime}</span>
     </div>
     <h1>How to Design HubSpot Workflows for Japan Lead Follow-Up</h1>
-    <p class="article-desc">Japan lead follow-up requires a different workflow design than global defaults. Timing, messaging tone, task assignment logic, and handoff triggers all need to be adapted to Japan's evaluation pace.</p>
+    <p class="article-desc">An IT back-office SaaS company (approx. 200 employees) was using HubSpot's standard workflow templates for Japan follow-up — fast initial sequences, frequent touchpoints, generic nurture content. Japan leads were engaging but not converting. After rebuilding workflows for Japan's evaluation pace and intent signals, MQL-to-SQL conversion increased by up to 20%. The tool wasn't the problem. The workflow design was.</p>
   </header>
 
-  <!-- ===== ARTICLE BODY ===== -->
   <article class="article-body container" id="article">
 
     <section class="article-section">
-      <p>HubSpot's default workflow templates are optimized for markets where rapid follow-up and high-frequency email sequences are standard. In Japan, those defaults produce the wrong results: too fast, too aggressive, and disconnected from how Japanese B2B buyers prefer to engage.</p>
+      <p>HubSpot's default workflow templates are optimized for markets where rapid follow-up and high-frequency email sequences are standard practice. In those markets, speed signals responsiveness and persistence signals confidence. In Japan's B2B context, those same behaviors signal something different: urgency that feels premature, pressure that arrives before trust is established, contact frequency that disrupts rather than nurtures.</p>
+      <p>Japan lead follow-up workflows need to be designed for how Japan buyers engage — not adapted from templates built for a different market's norms. The architecture is different. The timing is different. The triggers are different.</p>
     </section>
 
     <hr class="article-hr" />
 
     <section class="article-section">
-      <h2>How Japan lead follow-up differs</h2>
-      <p>Japan leads expect prompt but respectful initial contact, typically within one business day. Aggressive multi-touch sequences within 72 hours feel intrusive in Japan's B2B context. Nurture should be informational and low-pressure. Sales tasks should be triggered based on engagement signals rather than time elapsed alone.</p>
+      <h2>Five signs your Japan follow-up workflows are built for the wrong market</h2>
+
+      <div class="article-checklist">
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Do your workflows send 3–5 follow-up touches within the first week of a new Japan lead?</p>
+          <p class="article-checklist__detail">High-frequency early sequences feel intrusive in Japan's B2B context. Japan buyers who don't respond to the first touch within a week are not cold — they're processing. Multi-touch sequences in week one are more likely to trigger silent disengagement than pipeline progression.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Are your nurture emails designed to push the lead toward a demo or sales call as the primary CTA?</p>
+          <p class="article-checklist__detail">Japan nurture should be informational and low-pressure. Nurture CTAs that repeatedly push toward commercial engagement before trust is established create the opposite effect: leads opt out or stop engaging rather than progressing.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Do sales tasks fire based on time elapsed since contact — regardless of whether the lead has shown any engagement signals?</p>
+          <p class="article-checklist__detail">Time-elapsed triggers create sales activity on leads that haven't shown intent. In Japan, where sales outreach before intent is established can damage early relationships, task triggers should be based on engagement signals, not calendar intervals.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Is the handoff workflow to sales triggered by MQL criteria — or by a sales rep manually moving a contact?</p>
+          <p class="article-checklist__detail">Manual handoff processes are inconsistent and slow. Automated handoff triggered by documented MQL criteria ensures high-intent Japan leads reach sales with context, immediately, without depending on someone checking a queue.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Does the handoff notification include Japan-specific context — engagement history, company size, and why the lead qualified — or just a contact name?</p>
+          <p class="article-checklist__detail">In Japan, the quality of the first sales interaction matters significantly. Sales reaching out without context on what the lead engaged with and why they were qualified will often approach the contact incorrectly, damaging the early relationship.</p>
+        </div>
+      </div>
     </section>
 
     <hr class="article-hr" />
 
     <section class="article-section">
-      <h2>The problem with global workflow templates</h2>
-      <p>Global templates assume 3–5 touch points in the first week. For Japan, a better rhythm is one email within 24 hours, a 3-day wait, then a sales task if no response. Shorter sequences that do more listening than pushing. The goal is to stay present without creating pressure that drives the lead to disengage silently.</p>
-    </section>
-
-    <hr class="article-hr" />
-
-    <section class="article-section">
-      <h2>Three workflow types for Japan</h2>
+      <h2>Three workflow design problems that break Japan follow-up</h2>
 
       <div class="article-breakdown">
         <div class="article-breakdown__item">
           <div class="article-breakdown__num">01</div>
           <div class="article-breakdown__body">
-            <strong>Initial response workflow</strong>
-            <p>Triggered when a lead form is submitted. Sends a personalized confirmation email within 1 business day. Waits 3 days. If no meeting is booked, creates a sales task with the lead context included.</p>
+            <strong>Initial response workflows fire too fast and too frequently</strong>
+            <p>A form submission from a Japan enterprise buyer is not a signal that they are ready for immediate commercial follow-up. It is a signal that they are in early exploration — evaluating whether the vendor is worth further attention. The first automated response should confirm receipt and provide information that supports the evaluation. It should not be followed by a four-email sequence over the next five days.</p>
+            <p>A Japan-appropriate initial workflow: send a personalized confirmation email within one business day. Wait three days. If no meeting is booked, create a single sales task with the lead context included — not a follow-up email sequence. The goal of the first touch is to stay visible and provide value, not to convert immediately.</p>
+            <p><strong>Judgment criterion:</strong> Does your initial Japan response workflow have a gap of at least 3 days between the confirmation email and any follow-up touch — with no more than two automated emails in the first two weeks?</p>
           </div>
         </div>
         <div class="article-breakdown__item">
           <div class="article-breakdown__num">02</div>
           <div class="article-breakdown__body">
-            <strong>Nurture workflow</strong>
-            <p>For leads in Subscriber or early Lead stage. Monthly content delivery with no aggressive CTAs. Designed to stay visible without pressure. Japan buyers move at their own pace and need space to self-qualify.</p>
+            <strong>Nurture workflows push toward conversion rather than supporting evaluation</strong>
+            <p>Japan B2B buyers move through evaluation at their own pace. Nurture workflows designed to accelerate that pace — through urgency language, repeated demo CTAs, or countdown sequences — create pressure that Japan buyers respond to by disengaging quietly. They don't push back or unsubscribe visibly. They simply stop opening emails and reduce engagement.</p>
+            <p>Japan nurture workflows should be designed to maintain presence and provide relevant information at intervals that match Japan's evaluation pace — typically monthly for contacts in early lifecycle stages. Content should be informational: implementation details, comparable case studies, operational specifics. CTAs should be low-commitment: read more, download this, learn how. The goal is to remain useful and visible while the buyer self-evaluates at their own timeline.</p>
+            <p><strong>Judgment criterion:</strong> Does your Japan nurture workflow send monthly or less frequently for early-stage contacts — with informational CTAs rather than commercial engagement requests?</p>
           </div>
         </div>
         <div class="article-breakdown__item">
           <div class="article-breakdown__num">03</div>
           <div class="article-breakdown__body">
-            <strong>Handoff workflow</strong>
-            <p>Triggered when a lead reaches MQL criteria. Assigns the lead to sales, sets lead status to "New," creates a task with Japan-specific context notes, and sets a 48-hour response SLA with escalation if unactioned.</p>
+            <strong>MQL handoff workflows pass a contact name without Japan-specific context</strong>
+            <p>When a Japan lead reaches MQL and gets handed to sales, the quality of that handoff determines the quality of the first sales interaction. A notification that says "New MQL: [Contact Name], [Company]" leaves sales without the context needed to approach the contact appropriately. Sales either doesn't act quickly (the notification looks like many others and lacks urgency) or acts without context (reaching out generically to someone who engaged with specific technical content).</p>
+            <p>Japan handoff notifications should include: what the contact engaged with and when, what MQL criteria they met and why, company size and industry context, and a suggested first-touch angle based on what they've shown interest in. This gives sales what they need to make the first Japan interaction relevant — which is more important in Japan's relationship-sensitive environment than in faster-moving markets.</p>
+            <p><strong>Judgment criterion:</strong> Does your MQL handoff workflow notification include engagement history, the specific criteria that triggered MQL status, and company context — or just a contact name and company?</p>
           </div>
         </div>
       </div>
@@ -113,73 +133,81 @@ const breadcrumbSchema = {
     <hr class="article-hr" />
 
     <section class="article-section">
-      <h2>How to design the initial response workflow</h2>
-      <p>Trigger: form submitted. Action 1: send confirmation email in human tone with no urgency language. Wait: 1 business day. Action 2: internal notification to Japan sales rep. Wait: 3 days. Branch: if meeting booked, advance lifecycle stage to SQL. If no response, create a sales task with lead status set to "Attempting."</p>
-    </section>
+      <h2>What workflow redesign changed</h2>
+      <p>An IT back-office SaaS company had nurturing workflows running on global templates — fast initial sequences, high-frequency touchpoints, demo-focused CTAs. Lead volume was growing but SQL conversion was low and sales reported leads as low quality. The same leads were being engaged by marketing and deprioritized by sales because both teams were working against the wrong workflow logic.</p>
+      <p>After rebuilding workflows around Japan's evaluation pace — stage-specific nurture aligned to buyer journey, intent-triggered sales tasks rather than time-elapsed tasks, and MQL handoff notifications with context — the picture changed. Sales received leads with engagement history and context. Marketing had visibility into downstream conversion. The follow-up process matched what Japan buyers needed to progress.</p>
 
-    <hr class="article-hr" />
-
-    <section class="article-section">
-      <h2>How to design the handoff workflow</h2>
-      <p>Trigger: lifecycle stage = MQL. Action 1: assign contact owner to Japan sales rep. Action 2: update lead status to "New." Action 3: create task "Follow up with Japan lead: review context before outreach." Wait: 48 hours. Action 4: if no activity logged, send an escalation notification to the sales manager. This ensures MQLs do not disappear silently into the queue.</p>
       <div class="article-callout">
-        <p>Workflows automate your follow-up logic, but only if that logic was designed for Japan first. Automating the wrong process makes the problem faster, not better.</p>
+        <p><strong>MQL-to-SQL conversion increased by up to 20%. CAC decreased through more effective nurturing rather than increased paid acquisition. Sales focused time on high-intent prospects rather than working through low-quality lists.</strong></p>
       </div>
     </section>
 
     <hr class="article-hr" />
 
     <section class="article-section">
-      <h2>Japan follow-up workflow diagram</h2>
-      <p>The diagram below shows the initial response workflow for Japan: from form submission through the wait period to sales task creation when no response is received.</p>
-      <div class="article-diagram">
-        <img
-          src="/images/insights/en/hubspot-japan-follow-up-workflow.svg"
-          alt="HubSpot Japan lead follow-up workflow: lead form submitted, wait 1 business day, follow-up email sent, wait 3 days, if no response then sales task created"
-          width="760"
-          height="230"
-          loading="lazy"
-        />
+      <h2>Three places to start</h2>
+
+      <div class="article-breakdown">
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">01</div>
+          <div class="article-breakdown__body">
+            <strong>Audit your current Japan workflow touchpoint frequency and CTA language</strong>
+            <p>Pull your three most active HubSpot workflows that touch Japan contacts. Check how many emails fire in the first two weeks and what the CTAs are asking for. If the sequence is weekly or faster, or if every CTA pushes toward a demo or sales call, those workflows are likely creating disengagement rather than pipeline progression in Japan's context.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">02</div>
+          <div class="article-breakdown__body">
+            <strong>Switch sales task triggers from time-elapsed to engagement-signal-based</strong>
+            <p>Replace "create sales task after 7 days if no response" with "create sales task when contact visits pricing page" or "when contact downloads the implementation guide." Intent-based triggers send sales to contacts who have shown readiness signals — not contacts who happened to receive an email a week ago.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">03</div>
+          <div class="article-breakdown__body">
+            <strong>Rebuild your MQL handoff notification to include Japan-specific context</strong>
+            <p>Update the internal notification email or task that fires when a Japan lead reaches MQL. Include: what content or actions triggered the MQL criteria, what the contact's company does and approximate size, and a suggested first-touch angle based on what they engaged with. This takes 20 minutes to configure and materially improves the quality of the first sales interaction.</p>
+          </div>
+        </div>
       </div>
     </section>
 
   </article>
 
-  <!-- ===== RELATED ===== -->
   <aside class="article-related container">
     <p class="article-related__label">Related</p>
     <div class="article-related__grid">
-      <a href="/en/insights/hubspot-implementation-for-japan-gtm-what-to-configure-first/" class="article-related__card">
-        <p class="article-related__card-cat">HubSpot &amp; CRM</p>
-        <p class="article-related__card-title">HubSpot Implementation for Japan GTM: What to Configure First</p>
-        <span class="article-related__card-arrow">→</span>
-      </a>
-      <a href="/en/insights/hubspot-lifecycle-stages-vs-lead-status-for-japan-gtm/" class="article-related__card">
-        <p class="article-related__card-cat">HubSpot &amp; CRM</p>
-        <p class="article-related__card-title">HubSpot Lifecycle Stages vs Lead Status for Japan GTM</p>
-        <span class="article-related__card-arrow">→</span>
-      </a>
       <a href="/en/insights/lead-handoff-rules-for-japan-gtm-teams/" class="article-related__card">
         <p class="article-related__card-cat">Revenue Architecture</p>
         <p class="article-related__card-title">Lead Handoff Rules for Japan GTM Teams</p>
         <span class="article-related__card-arrow">→</span>
       </a>
-      <a href="/en/insights/where-japan-gtm-breaks-after-lead-generation/" class="article-related__card">
-        <p class="article-related__card-cat">Japan GTM</p>
-        <p class="article-related__card-title">Where Japan GTM Breaks After Lead Generation</p>
+      <a href="/en/insights/how-to-define-lifecycle-stages-for-japan-facing-revenue-operations/" class="article-related__card">
+        <p class="article-related__card-cat">Revenue Architecture</p>
+        <p class="article-related__card-title">How to Define Lifecycle Stages for Japan-Facing Revenue Operations</p>
+        <span class="article-related__card-arrow">→</span>
+      </a>
+      <a href="/en/insights/hubspot-implementation-for-japan-gtm-what-to-configure-first/" class="article-related__card">
+        <p class="article-related__card-cat">Revenue Architecture</p>
+        <p class="article-related__card-title">HubSpot Implementation for Japan GTM: What to Configure First</p>
+        <span class="article-related__card-arrow">→</span>
+      </a>
+      <a href="/en/services/crm-revops-implementation/" class="article-related__card">
+        <p class="article-related__card-cat">Service</p>
+        <p class="article-related__card-title">CRM &amp; RevOps Implementation</p>
         <span class="article-related__card-arrow">→</span>
       </a>
     </div>
   </aside>
 
-  <!-- ===== CTA ===== -->
   <section class="article-cta">
     <div class="container">
       <div class="article-cta__body">
-        <h2>Ready to design your Japan revenue system?</h2>
-        <p>Tell us where you are: what you have tried, where you are seeing friction, and what you are trying to solve. We will be direct about whether and how we can help.</p>
+        <h2>Japan leads engaging but not converting in HubSpot?</h2>
+        <p>Share your current workflow setup. We'll identify where the follow-up logic is misaligned with Japan's evaluation pace and what changes would improve conversion.</p>
         <div class="article-cta__actions">
-          <a href="/en/contact/" class="article-cta__btn article-cta__btn--primary">Talk to us</a>
+          <a href="/en/contact/" class="article-cta__btn article-cta__btn--primary">Contact Us</a>
+          <a href="/en/services/" class="article-cta__btn article-cta__btn--ghost">View All Services →</a>
         </div>
       </div>
     </div>
@@ -188,259 +216,55 @@ const breadcrumbSchema = {
 </div>
 
 <style>
-/* ── Wrap / Container ─────────────────────── */
 .article-wrap { background: #fff; }
 .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
-
-/* ── Header ──────────────────────────────── */
-.article-head {
-  padding-top: 48px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid var(--color-border, #e2e8f0);
-}
-.breadcrumb {
-  font-size: 0.8rem;
-  color: var(--color-text-muted, #64748b);
-  margin-bottom: 20px;
-  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
-}
+.article-head { padding-top: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--color-border, #e2e8f0); }
+.breadcrumb { font-size: 0.8rem; color: var(--color-text-muted, #64748b); margin-bottom: 20px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 .breadcrumb a { color: var(--color-text-muted, #64748b); text-decoration: none; }
 .breadcrumb a:hover { color: var(--color-primary, #1e40af); text-decoration: underline; }
-
-.article-meta {
-  display: flex; align-items: center; gap: 12px;
-  margin-bottom: 20px; flex-wrap: wrap;
-}
-.article-cat {
-  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
-  background: #eff6ff; color: var(--color-primary, #1e40af);
-  padding: 3px 10px; border-radius: 10px;
-}
-.article-date, .article-read {
-  font-size: 0.8rem; color: var(--color-text-muted, #64748b);
-}
-
-.article-head h1 {
-  font-size: clamp(1.6rem, 3.5vw, 2.25rem);
-  font-weight: 600;
-  color: var(--color-navy, #0f172a);
-  line-height: 1.25;
-  letter-spacing: 0.01em;
-  margin: 0 0 16px;
-}
-.article-desc {
-  font-size: 1.0625rem;
-  color: var(--color-text-muted, #64748b);
-  line-height: 1.8;
-  margin: 0;
-}
-
-/* ── Body ────────────────────────────────── */
-.article-body {
-  padding-top: 48px;
-  padding-bottom: 64px;
-}
-.article-section {
-  margin-bottom: 0;
-}
-.article-section h2 {
-  font-size: 1.3125rem;
-  font-weight: 600;
-  color: var(--color-navy, #0f172a);
-  margin: 0 0 16px;
-  line-height: 1.35;
-}
-.article-section h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-navy, #0f172a);
-  margin: 24px 0 10px;
-}
-.article-section p {
-  font-size: 1rem;
-  line-height: 1.85;
-  color: var(--color-text, #1e293b);
-  margin: 0 0 16px;
-}
-.article-section ul {
-  padding-left: 1.5rem;
-  margin: 0 0 16px;
-  display: flex; flex-direction: column; gap: 8px;
-}
-.article-section li {
-  font-size: 1rem;
-  line-height: 1.75;
-  color: var(--color-text, #1e293b);
-}
-.article-section a {
-  color: var(--color-primary, #1e40af);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.article-subsection { margin-bottom: 8px; }
-
-.article-callout {
-  background: #eff6ff;
-  border-left: 4px solid var(--color-primary, #1e40af);
-  border-radius: 0 8px 8px 0;
-  padding: 16px 20px;
-  margin: 24px 0;
-}
-.article-callout p {
-  margin: 0;
-  font-size: 1rem;
-  line-height: 1.75;
-  color: var(--color-navy, #0f172a);
-}
-
-.article-hr {
-  border: none;
-  border-top: 1px solid var(--color-border, #e2e8f0);
-  margin: 48px 0;
-}
-
-/* ── Diagram ─────────────────────────────── */
-.article-diagram {
-  margin: 24px 0;
-  border: 1px solid var(--color-border, #e2e8f0);
-  border-radius: 10px;
-  overflow: hidden;
-  background: #fff;
-}
-.article-diagram img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-/* ── Numbered breakdown ──────────────────── */
-.article-breakdown {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  margin: 24px 0;
-  border-top: 1px solid var(--color-border, #e2e8f0);
-}
-.article-breakdown__item {
-  display: flex;
-  gap: 20px;
-  padding: 20px 0;
-  border-bottom: 1px solid var(--color-border, #e2e8f0);
-  align-items: flex-start;
-}
-.article-breakdown__num {
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: var(--color-primary, #1e40af);
-  opacity: 0.3;
-  flex-shrink: 0;
-  line-height: 1.5;
-  min-width: 2.5rem;
-}
-.article-breakdown__body strong {
-  display: block;
-  font-size: 0.9375rem;
-  font-weight: 700;
-  color: var(--color-navy, #0f172a);
-  margin-bottom: 6px;
-}
-.article-breakdown__body p {
-  font-size: 0.9375rem;
-  line-height: 1.75;
-  color: var(--color-text-muted, #64748b);
-  margin: 0;
-}
-
-/* ── Related ─────────────────────────────── */
-.article-related {
-  padding: 48px 0;
-  border-top: 1px solid var(--color-border, #e2e8f0);
-}
-.article-related__label {
-  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--color-primary, #1e40af);
-  margin: 0 0 20px;
-}
-.article-related__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
-.article-related__card {
-  background: #f8fafc;
-  border: 1px solid var(--color-border, #e2e8f0);
-  border-radius: 8px;
-  padding: 16px 18px;
-  text-decoration: none;
-  display: flex; flex-direction: column; gap: 6px;
-  transition: border-color 0.15s, box-shadow 0.15s;
-}
-.article-related__card:hover {
-  border-color: var(--color-primary, #1e40af);
-  box-shadow: 0 2px 12px rgba(30,64,175,0.07);
-}
-.article-related__card-cat {
-  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em;
-  text-transform: uppercase; color: var(--color-primary, #1e40af); margin: 0;
-}
-.article-related__card-title {
-  font-size: 0.875rem; font-weight: 600;
-  color: var(--color-navy, #0f172a); line-height: 1.45; margin: 0; flex: 1;
-}
-.article-related__card-arrow {
-  font-size: 0.875rem; color: var(--color-primary, #1e40af); font-weight: 600;
-}
-
-/* ── CTA ─────────────────────────────────── */
-.article-cta {
-  background: #f8fafc;
-  border-top: 1px solid var(--color-border, #e2e8f0);
-  padding: 64px 0;
-}
-.article-cta__body {
-  text-align: center;
-  max-width: 560px;
-  margin: 0 auto;
-}
-.article-cta__body h2 {
-  font-size: clamp(1.25rem, 3vw, 1.625rem);
-  font-weight: 600;
-  color: var(--color-navy, #0f172a);
-  margin: 0 0 12px;
-}
-.article-cta__body p {
-  font-size: 0.9375rem;
-  line-height: 1.8;
-  color: var(--color-text-muted, #64748b);
-  margin: 0 0 28px;
-}
-.article-cta__actions {
-  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
-}
-.article-cta__btn {
-  display: inline-flex; align-items: center;
-  padding: 0.75em 1.75em;
-  border-radius: 8px; font-size: 0.9375rem; font-weight: 700;
-  text-decoration: none; transition: background 0.15s, color 0.15s;
-}
-.article-cta__btn--primary {
-  background: var(--color-primary, #1e40af); color: #fff;
-  border: 2px solid var(--color-primary, #1e40af);
-}
+.article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+.article-cat { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: #eff6ff; color: var(--color-primary, #1e40af); padding: 3px 10px; border-radius: 10px; }
+.article-date, .article-read { font-size: 0.8rem; color: var(--color-text-muted, #64748b); }
+.article-head h1 { font-size: clamp(1.6rem, 3.5vw, 2.25rem); font-weight: 600; color: var(--color-navy, #0f172a); line-height: 1.25; letter-spacing: 0.01em; margin: 0 0 16px; }
+.article-desc { font-size: 1.0625rem; color: var(--color-text-muted, #64748b); line-height: 1.8; margin: 0; }
+.article-body { padding-top: 48px; padding-bottom: 64px; }
+.article-section { margin-bottom: 0; }
+.article-section h2 { font-size: 1.3125rem; font-weight: 600; color: var(--color-navy, #0f172a); margin: 0 0 16px; line-height: 1.35; }
+.article-section p { font-size: 1rem; line-height: 1.85; color: var(--color-text, #1e293b); margin: 0 0 16px; }
+.article-section a { color: var(--color-primary, #1e40af); text-decoration: underline; text-underline-offset: 2px; }
+.article-callout { background: #eff6ff; border-left: 4px solid var(--color-primary, #1e40af); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 24px 0; }
+.article-callout p { margin: 0; font-size: 1rem; line-height: 1.75; color: var(--color-navy, #0f172a); }
+.article-hr { border: none; border-top: 1px solid var(--color-border, #e2e8f0); margin: 48px 0; }
+.article-checklist { display: flex; flex-direction: column; gap: 0; margin: 24px 0; border-top: 1px solid var(--color-border, #e2e8f0); }
+.article-checklist__item { padding: 20px 0; border-bottom: 1px solid var(--color-border, #e2e8f0); }
+.article-checklist__q { font-size: 0.9375rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 8px; padding-left: 1.5rem; position: relative; }
+.article-checklist__q::before { content: '?'; position: absolute; left: 0; font-size: 0.875rem; font-weight: 800; color: var(--color-primary, #1e40af); opacity: 0.4; }
+.article-checklist__detail { font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted, #64748b); margin: 0; padding-left: 1.5rem; }
+.article-breakdown { display: flex; flex-direction: column; gap: 0; margin: 24px 0; border-top: 1px solid var(--color-border, #e2e8f0); }
+.article-breakdown__item { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--color-border, #e2e8f0); align-items: flex-start; }
+.article-breakdown__num { font-size: 1.25rem; font-weight: 800; color: var(--color-primary, #1e40af); opacity: 0.3; flex-shrink: 0; line-height: 1.5; min-width: 2.5rem; }
+.article-breakdown__body strong { display: block; font-size: 0.9375rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 6px; }
+.article-breakdown__body p { font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted, #64748b); margin: 0 0 10px; }
+.article-breakdown__body p:last-child { margin-bottom: 0; }
+.article-related { padding: 48px 0; border-top: 1px solid var(--color-border, #e2e8f0); }
+.article-related__label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-primary, #1e40af); margin: 0 0 20px; }
+.article-related__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.article-related__card { background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 16px 18px; text-decoration: none; display: flex; flex-direction: column; gap: 6px; transition: border-color 0.15s, box-shadow 0.15s; }
+.article-related__card:hover { border-color: var(--color-primary, #1e40af); box-shadow: 0 2px 12px rgba(30,64,175,0.07); }
+.article-related__card-cat { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-primary, #1e40af); margin: 0; }
+.article-related__card-title { font-size: 0.875rem; font-weight: 600; color: var(--color-navy, #0f172a); line-height: 1.45; margin: 0; flex: 1; }
+.article-related__card-arrow { font-size: 0.875rem; color: var(--color-primary, #1e40af); font-weight: 600; }
+.article-cta { background: #f8fafc; border-top: 1px solid var(--color-border, #e2e8f0); padding: 64px 0; }
+.article-cta__body { text-align: center; max-width: 560px; margin: 0 auto; }
+.article-cta__body h2 { font-size: clamp(1.25rem, 3vw, 1.625rem); font-weight: 600; color: var(--color-navy, #0f172a); margin: 0 0 12px; }
+.article-cta__body p { font-size: 0.9375rem; line-height: 1.8; color: var(--color-text-muted, #64748b); margin: 0 0 28px; }
+.article-cta__actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.article-cta__btn { display: inline-flex; align-items: center; padding: 0.75em 1.75em; border-radius: 8px; font-size: 0.9375rem; font-weight: 700; text-decoration: none; transition: background 0.15s, color 0.15s; }
+.article-cta__btn--primary { background: var(--color-primary, #1e40af); color: #fff; border: 2px solid var(--color-primary, #1e40af); }
 .article-cta__btn--primary:hover { background: #1e3a8a; border-color: #1e3a8a; }
-.article-cta__btn--ghost {
-  background: transparent; color: var(--color-primary, #1e40af);
-  border: 2px solid var(--color-primary, #1e40af);
-}
+.article-cta__btn--ghost { background: transparent; color: var(--color-primary, #1e40af); border: 2px solid var(--color-primary, #1e40af); }
 .article-cta__btn--ghost:hover { background: rgba(30,64,175,0.06); }
-
-/* ── Responsive ──────────────────────────── */
-@media (max-width: 600px) {
-  .article-head { padding-top: 32px; }
-  .article-related__grid { grid-template-columns: 1fr; }
-  .article-breakdown__num { font-size: 1rem; min-width: 2rem; }
-}
+@media (max-width: 600px) { .article-head { padding-top: 32px; } .article-related__grid { grid-template-columns: 1fr; } .article-checklist__q, .article-checklist__detail { padding-left: 1.25rem; } }
 </style>
 
 </BaseLayout>

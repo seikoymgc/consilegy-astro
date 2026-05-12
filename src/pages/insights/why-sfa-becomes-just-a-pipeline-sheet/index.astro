@@ -9,8 +9,8 @@ const readTime = '約10分';
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
-	headline: 'なぜSFAは案件管理表になるのか｜RevOpsとRevenue Architecture',
-	description: 'SalesforceなどのSFAが単なる案件管理表になってしまう原因を、Revenue ArchitectureとRevOpsの観点から解説します。',
+	headline: 'SFAがパイプライン管理表になってしまう理由',
+	description: 'DXコンサルティング企業（150名）がHubSpot・Salesforce・Sansan・GA4を統合し、顧客行動100%可視化・分析工数30%削減を実現。SFAが「入力するだけのツール」に止まる組織の構造問題を解説します。',
 	datePublished: pubDate,
 	dateModified: pubDate,
 	author: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
@@ -25,14 +25,14 @@ const breadcrumbSchema = {
 	itemListElement: [
 		{ '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://consilegy.com/' },
 		{ '@type': 'ListItem', position: 2, name: 'コラム', item: 'https://consilegy.com/insights/' },
-		{ '@type': 'ListItem', position: 3, name: 'なぜSFAは「案件管理表」になってしまうのか', item: 'https://consilegy.com/insights/why-sfa-becomes-just-a-pipeline-sheet/' },
+		{ '@type': 'ListItem', position: 3, name: 'SFAがパイプライン管理表になってしまう理由', item: 'https://consilegy.com/insights/why-sfa-becomes-just-a-pipeline-sheet/' },
 	],
 };
 ---
 
 <BaseLayout
-	title="なぜSFAは案件管理表になるのか｜RevOpsとRevenue Architecture | Consilegy"
-	description="SalesforceなどのSFAが単なる案件管理表になってしまう原因を、Revenue ArchitectureとRevOpsの観点から解説します。"
+	title="SFAがパイプライン管理表になってしまう理由 | Consilegy"
+	description="DXコンサルティング企業（150名）がHubSpot・Salesforce・Sansan・GA4を統合し、顧客行動100%可視化・分析工数30%削減を実現。SFAが「入力するだけのツール」に止まる組織の構造問題を解説します。"
 	lang="ja"
 >
 	<Fragment slot="head">
@@ -49,13 +49,13 @@ const breadcrumbSchema = {
 			<span aria-hidden="true">›</span>
 			<a href="/insights/">コラム</a>
 			<span aria-hidden="true">›</span>
-			<span aria-current="page">なぜSFAは「案件管理表」になってしまうのか</span>
+			<span aria-current="page">SFAがパイプライン管理表になってしまう理由</span>
 		</nav>
 		<div class="article-meta">
-			<span class="article-cat">CRM</span>
+			<span class="article-cat">CRM・MA・SFA</span>
 		</div>
-		<h1>なぜSFAは「案件管理表」に<br class="br-pc" />なってしまうのか</h1>
-		<p class="article-desc">Salesforceを導入し、商談ステージも作った。それなのに「ExcelがWeb化しただけ」になっている。Forecastは当たらず、ボトルネックも見えず、会議は長いまま。問題はSalesforceの機能ではなく、Revenueを改善する構造が設計されていないことにある。</p>
+		<h1>SFAがパイプライン<br class="br-pc" />管理表になってしまう理由</h1>
+		<p class="article-desc">DXコンサルティング企業（150名）がHubSpot・Salesforce・Sansan・GA4を統合し、顧客行動100%可視化・分析工数30%削減を実現。SFAが「入力するだけのツール」に止まる組織の構造問題を解説します。</p>
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
@@ -73,238 +73,106 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<p>Salesforceを導入し、案件管理を始め、商談ステージも作った。それなのに結局「Excelの案件管理表がWeb化しただけ」になっている。商談は入力されていて金額もステージ管理もある。それでもForecastは当たらず、ボトルネックが見えず、営業改善につながらず、会議は長く、Excelが残り続ける。つまり、SFAが「Revenue改善装置」になっていません。</p>
-			<p>多くの企業は「もっと入力を徹底しよう」と考えます。しかし<strong>問題は入力不足だけではありません</strong>。本当の原因は、Revenueを改善する構造が設計されていないことにあります。</p>
-		</div>
-
-		<!-- DIAGRAM 1: 案件管理表化したSFA -->
-		<figure class="diag-wrap" aria-label="案件管理表化したSFA：Salesforceが履歴台帳になりRevenue改善に機能しない状態">
-			<div class="diag diag--sfa-chaos">
-				<div class="sfa-header">SFA の現実</div>
-				<div class="sfa-row">
-					<div class="sfa-tool">
-						<div class="sfa-icon icon-sf">SF</div>
-						<div class="sfa-tool-label">Salesforce</div>
-						<div class="sfa-tool-sub">商談一覧</div>
-					</div>
-					<div class="sfa-divider">→</div>
-					<div class="sfa-tool">
-						<div class="sfa-icon icon-mtg">MT</div>
-						<div class="sfa-tool-label">営業会議</div>
-						<div class="sfa-tool-sub">案件読み上げ</div>
-					</div>
-					<div class="sfa-divider">→</div>
-					<div class="sfa-tool">
-						<div class="sfa-icon icon-xl">XL</div>
-						<div class="sfa-tool-label">Excel</div>
-						<div class="sfa-tool-sub">補正シート</div>
-					</div>
-				</div>
-				<div class="sfa-bubbles">
-					<div class="sfa-bubble">「更新してください」</div>
-					<div class="sfa-bubble sfa-bubble--warn">「これ結局Excelで良くない？」</div>
-					<div class="sfa-bubble">「この案件どうなった？」</div>
-				</div>
-				<div class="sfa-result">
-					<span class="sfa-tag bad">✕ Revenue改善につながらない</span>
-					<span class="sfa-tag bad">✕ Forecast精度 低</span>
-					<span class="sfa-tag bad">✕ 管理台帳化</span>
-				</div>
-			</div>
-			<figcaption class="diag-caption">案件管理表化したSFA：Salesforceが入力・監視の道具になり、Revenue改善に機能していない状態</figcaption>
-		</figure>
-
-		<div class="article-section">
-			<h2>多くのSFAは「記録ツール」で止まっている</h2>
-			<p>本来SFAは、Pipeline分析・Forecast改善・Win Pattern分析・Revenue改善のために存在します。しかし多くの企業では、案件入力・進捗報告・管理だけで終わります。つまり「履歴管理ツール」になっている。SFAを導入してもRevenue改善につながらない最大の理由はここにあります。</p>
+			<p>国内トップクラスのDX知見を持つコンサルティング企業（従業員約150名）では、Salesforceを中心にした営業管理体制を構築していました。パイプラインの数字は入力されていました。しかし、Webサイトでの顧客行動はCRMに反映されず、MAのスコアリング情報は商談レコードにつながらず、Sansanの名刺データとSalesforceの顧客データが別物として存在していました。SFAは「入力する場所」として機能していましたが、「顧客の状態を判断する場所」にはなっていませんでした。</p>
+			<p>MA移行・データパイプライン再設計・Web統合を経て、<strong>顧客行動の100%可視化・分析工数30%削減・全ツールの整合性確立を実現しました</strong>。SFAを変えたのではなく、「SFAに流れ込むデータの設計」を変えたことで、SFAが意思決定の中心として機能するようになりました。</p>
 		</div>
 
 		<div class="article-section">
-			<h2>SFAが案件管理表になる5つの理由</h2>
+			<h2>あなたの組織は大丈夫か——5つの確認項目</h2>
 			<ol class="article-numbered">
 				<li>
-					<strong>商談ステージ定義が曖昧</strong>
-					<p>「提案中」「検討中」「稟議中」の意味が営業担当者によって異なると、Pipeline分析ができません。ステージが人によって解釈される限り、Forecastは感覚依存になります。</p>
+					<strong>SFAのデータと営業担当者の「感覚」が乖離している</strong>
+					<p>「SFAの数字より自分の感覚の方が正確」という認識が担当者にある場合、SFAが意思決定の根拠として機能していません。</p>
 				</li>
 				<li>
-					<strong>SFAが「管理のため」に使われている</strong>
-					<p>営業からするとSFAが「報告・監視・詰められる場所」になっている。これではRevenue改善ツールになりません。入力が義務感で行われる限り、データの質は上がりません。</p>
+					<strong>商談レコードに「顧客がどこから来たか」が記録されていない</strong>
+					<p>どのマーケティング施策・どのチャネルから来た顧客かがSFAの商談に紐づいていない場合、施策と受注の因果関係が見えません。</p>
 				</li>
 				<li>
-					<strong>KPIと接続されていない</strong>
-					<p>SFAに案件はあるが、Win Rate・Sales Cycle・Conversion・ARRとの接続が弱い。案件数は管理できてもRevenue構造が見えないため、改善アクションにつながりません。</p>
+					<strong>SFAのデータを使って「次にどのリードを優先すべきか」を判断できない</strong>
+					<p>今週のアクション優先度を決めるためにSFAを使わず、担当者の経験値で判断している場合、SFAがパイプライン記録ツールになっています。</p>
 				</li>
 				<li>
-					<strong>会議設計が変わっていない</strong>
-					<p>SFA導入後も営業会議が案件読み上げ・精神論・進捗確認で終わると、SFAはRevenue改善へ使われません。会議の設計がSFAの活用度を決定します。</p>
+					<strong>SFAとMAが別システムとして動いており、データが一致しない</strong>
+					<p>MAでのリードスコアや行動履歴がSFAの商談レコードに反映されていない場合、マーケティングと営業のデータが分断しています。</p>
 				</li>
 				<li>
-					<strong>Revenue Data Flowが未設計</strong>
-					<p>Marketing・Sales・CS・Financeが切れている状態では、案件は管理できてもRevenue全体が見えません。SFAを単体で設計しても、Revenue構造は見えてきません。</p>
+					<strong>月末に「SFAの数字を集計してレポートを作る」工数が発生している</strong>
+					<p>SFAからレポートを作るたびに手動でデータを抽出・整形している場合、SFAが自動でレポーティングできる設計になっていません。</p>
+				</li>
+			</ol>
+			<p class="article-callout">3つ以上当てはまる場合、問題はSFAの機能でも入力率でもありません。「SFAに流れ込むデータの設計」が存在していないことが本質です。</p>
+		</div>
+
+		<div class="article-section">
+			<h2>SFAがパイプライン管理表になる3つのパターン</h2>
+			<ol class="article-numbered">
+				<li>
+					<strong>SFAが「報告のためのシステム」として機能している</strong>
+					<p>「上司に報告するために入力する」という認識が現場に定着している場合、SFAは情報収集ツールとして機能しますが、担当者が活用するツールにはなりません。前述のコンサルティング企業では、SFAへの入力は行われていましたが、その情報が「次のアクションを判断する材料」として返ってこない設計でした。Web行動・MAスコア・名刺情報がSFAに統合されたことで、担当者が「SFAを見ると次に何をすべきか分かる」状態になりました。</p>
+					<p><strong>判断基準：</strong>「SFAを開くと、今日優先すべきアクションが分かる」と担当者が感じているかどうかで確認できます。</p>
+				</li>
+				<li>
+					<strong>SFAに流れ込むデータが「手入力のみ」で完結している</strong>
+					<p>担当者が手動で入力した情報だけがSFAに存在し、Webサイトでの行動・MAでのスコアリング・名刺管理ツールの接点情報が自動で統合されていない場合、SFAのデータは「担当者が知っていること」しか反映しません。前述の企業では、Sansan・MA・GA4のデータがSalesforceに自動で連携される設計を構築しました。担当者が意識しなくても顧客の最新状態がSFAに反映される状態になりました。</p>
+					<p><strong>判断基準：</strong>「昨日顧客がWebサイトの価格ページを見た」という情報がSFAの商談レコードに自動で入っているかどうかで確認できます。</p>
+				</li>
+				<li>
+					<strong>SFAのデータをレポートするために毎回集計が必要</strong>
+					<p>SFAに入力されているデータを活用するために、毎回Excelにエクスポートして集計する工数が発生している場合、SFAが自動でインサイトを提供できる設計になっていません。前述の企業では、自動化ロジックをシンプルに再設計し、分析工数を約30%削減しました。「SFAのデータがそのままレポートになる」設計が、活用頻度を上げます。</p>
+					<p><strong>判断基準：</strong>「今月の商談別の進捗レポート」を追加作業なしでSFAから出せるかどうかで確認できます。</p>
 				</li>
 			</ol>
 		</div>
 
 		<div class="article-section">
-			<h2>「SFA導入」と「Revenue改善」は別物</h2>
-			<p>Salesforceを入れ、案件管理を始めた。しかしRevenueは改善しない。これは普通に起こります。SFA導入とRevenue改善は別だからです。必要なのは「RevenueにつながるSFA構造」であり、ツールの導入だけではその構造は生まれません。</p>
-			<p class="article-callout">SFAはRevenue改善の手段です。SFA導入がゴールになった瞬間、Revenue改善は止まります。</p>
-		</div>
-
-		<!-- DIAGRAM 2: Revenue Pipeline Design -->
-		<figure class="diag-wrap" aria-label="Revenue Pipeline Design：LeadからClosed WonまでStage Exit Criteriaで設計されたRevenue Flowの構造">
-			<div class="diag diag--rpd">
-				<div class="rpd-header">Revenue Pipeline Design</div>
-				<div class="rpd-flow">
-					<div class="rpd-stage">
-						<div class="rpd-box box-lead">Lead</div>
-						<div class="rpd-exit">SQL条件</div>
-					</div>
-					<div class="rpd-arrow">→</div>
-					<div class="rpd-stage">
-						<div class="rpd-box box-sql">SQL</div>
-						<div class="rpd-exit">商談条件</div>
-					</div>
-					<div class="rpd-arrow">→</div>
-					<div class="rpd-stage">
-						<div class="rpd-box box-opp">Opportunity</div>
-						<div class="rpd-exit">提案条件</div>
-					</div>
-					<div class="rpd-arrow">→</div>
-					<div class="rpd-stage">
-						<div class="rpd-box box-prop">Proposal</div>
-						<div class="rpd-exit">Commit条件</div>
-					</div>
-					<div class="rpd-arrow">→</div>
-					<div class="rpd-stage">
-						<div class="rpd-box box-commit">Commit</div>
-						<div class="rpd-exit">受注確度</div>
-					</div>
-					<div class="rpd-arrow">→</div>
-					<div class="rpd-stage">
-						<div class="rpd-box box-won">Closed Won</div>
-						<div class="rpd-exit">ARR確定</div>
-					</div>
-				</div>
-				<div class="rpd-bar">
-					<span class="rpd-bar-label">Stage Exit Criteria（各ステージの進行条件を定義・Revenue視点で設計）</span>
-				</div>
-				<div class="rpd-metrics">
-					<span class="rpd-metric">Win Rate</span>
-					<span class="rpd-metric">Sales Cycle</span>
-					<span class="rpd-metric">Conversion Rate</span>
-					<span class="rpd-metric">ARR</span>
-					<span class="rpd-metric">Forecast精度</span>
-				</div>
-			</div>
-			<figcaption class="diag-caption">Revenue Pipeline Design：LeadからClosed WonまでStage Exit Criteriaで設計し、案件管理をRevenue改善につなげる構造</figcaption>
-		</figure>
-
-		<div class="article-section">
-			<h2>本当に必要なのは「Revenue Pipeline Design」</h2>
-			<p>Revenue Pipeline Designとは、どの案件を追い、どこで失注し、何がWin要因で、どのKPIを見るかをRevenue視点で設計する考え方です。重要なのは案件数ではありません。<strong>Revenueがどこで生まれ、どこで失われるかを見える化すること</strong>が目的です。</p>
-			<p>Revenue改善できるSFAには共通点があります。Stage Exit Criteriaが存在し「次ステージへ進む条件」が明確になっている。Pipeline分析ができ、案件一覧ではなく構造分析が行われている。Revenue KPIと接続されている。ForecastとPipeline健全性が連動している。そして会議設計がRevenue中心になっている。</p>
+			<h2>設計を変えた後に何が起きたか</h2>
+			<p>前述のコンサルティング企業では、SFAを変えるのではなく、「SFAに流れ込むデータを自動で統合する設計」から始めました。その結果、以下の変化が起きました。</p>
+			<ol class="article-numbered">
+				<li>
+					<strong>顧客行動の100%可視化を実現</strong>
+					<p>WebサイトでのGA4行動データからSalesforceの商談ステータスまで、顧客の動きが一本のタイムラインで確認できるようになりました。</p>
+				</li>
+				<li>
+					<strong>分析工数を約30%削減</strong>
+					<p>ツールをまたいだ手動集計が自動化され、SFAのデータがそのまま意思決定の材料として使えるようになりました。</p>
+				</li>
+				<li>
+					<strong>SFAが「報告ツール」から「意思決定ツール」に変化</strong>
+					<p>担当者がSFAを開くと顧客の最新状態が分かり、次のアクションを判断できる状態が整いました。</p>
+				</li>
+			</ol>
+			<p class="article-callout">SFAの機能を変えたのではなく、「SFAに流れ込むデータの設計」を変えました。</p>
 		</div>
 
 		<div class="article-section">
-			<h2>Revenue Architectureという考え方</h2>
-			<p>SFA問題の本質はSalesforceの問題ではありません。Marketing・Sales・CS・CRM・KPI・データを「収益につながる一つの構造」として設計するRevenue Architectureの問題です。Revenue Architecture・Revenue Pipeline Design・RevOps・Revenue Visibility・Revenue Data Flowという構造が整って初めて、SFAはRevenue改善装置として機能します。</p>
-		</div>
-
-		<!-- DIAGRAM 3: Revenue Architecture SFA改善図 -->
-		<figure class="diag-wrap" aria-label="Revenue ArchitectureによるSFA改善：Sales・CRM・KPI・Forecast・Pipeline・RevOpsをRevenue Architectureが接続する構造">
-			<div class="diag diag--ra-sfa">
-				<div class="ra-pills-row">
-					<span class="ra-pill">営業</span>
-					<span class="ra-pill">CRM</span>
-					<span class="ra-pill">KPI</span>
-					<span class="ra-pill">Forecast</span>
-					<span class="ra-pill">Pipeline</span>
-					<span class="ra-pill">RevOps</span>
-				</div>
-				<svg class="ra-svg" viewBox="0 0 620 60" preserveAspectRatio="none" aria-hidden="true">
-					<line x1="52"  y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
-					<line x1="156" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
-					<line x1="260" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
-					<line x1="364" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
-					<line x1="468" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
-					<line x1="572" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
-				</svg>
-				<div class="ra-core">
-					<div class="ra-core-title">Revenue Architecture</div>
-					<div class="ra-core-tags">
-						<span>Revenue Pipeline Design</span>
-						<span>Stage Exit Criteria</span>
-						<span>KPI Architecture</span>
-						<span>Revenue Visibility</span>
-						<span>RevOps</span>
-					</div>
-				</div>
-				<div class="ra-connector-bar"></div>
-				<div class="ra-outcomes">
-					<div class="ra-outcome">
-						<div class="ra-outcome-title">Forecast精度向上</div>
-						<div class="ra-outcome-sub">Pipeline構造が<br />見えるようになる</div>
-					</div>
-					<div class="ra-outcome ra-outcome--mid">
-						<div class="ra-outcome-title">Revenue Visibility</div>
-						<div class="ra-outcome-sub">経営判断が<br />数字ベースになる</div>
-					</div>
-					<div class="ra-outcome">
-						<div class="ra-outcome-title">Win Pattern分析</div>
-						<div class="ra-outcome-sub">属人化が減り<br />再現性が生まれる</div>
-					</div>
-				</div>
-			</div>
-			<figcaption class="diag-caption">Revenue ArchitectureによるSFA改善：6つの要素を接続し、SFAをRevenue改善装置として機能させる構造</figcaption>
-		</figure>
-
-		<div class="article-section">
-			<h2>Consilegyの考え方</h2>
-			<p>ConsilegyではSFA改善を単なるSalesforce設定とは考えていません。本質はRevenue Architecture・Revenue Pipeline Design・RevOps・Revenue Visibility・Revenue Data Flowにあります。Salesforce・HubSpot・BI・Slack・Kintoneを横断しながら、「Revenue改善できるSFA構造」を設計します。目的は案件を入力することではなく、Revenue改善できる営業構造を作ることです。</p>
-			<div class="article-table-wrap">
-				<table>
-					<thead>
-						<tr>
-							<th>課題</th>
-							<th>Consilegyのアプローチ</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>SFAが管理台帳になっている</td>
-							<td>Revenue Pipeline Design + Stage Exit Criteria設計</td>
-						</tr>
-						<tr>
-							<td>Forecast精度が低い</td>
-							<td>Pipeline Hygiene + Commit条件定義</td>
-						</tr>
-						<tr>
-							<td>Revenue KPIと接続できていない</td>
-							<td>KPI Architecture + Revenue Data Flow設計</td>
-						</tr>
-						<tr>
-							<td>Win Patternが見えない</td>
-							<td>Revenue Visibility + 失注構造化</td>
-						</tr>
-						<tr>
-							<td>営業会議が報告会になっている</td>
-							<td>RevOps + Revenue中心の会議設計</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
+			<h2>今週から始められる3つのアクション</h2>
+			<ol class="article-numbered">
+				<li>
+					<strong>SFAの商談レコードに「流入元」フィールドを1つ追加する</strong>
+					<p>どのマーケティング施策・チャネルからの顧客かをSFAに記録するフィールドを設けます。受注した商談の流入元が蓄積されることで、「どの施策が受注につながるか」が可視化できます。</p>
+				</li>
+				<li>
+					<strong>MAのリードスコアをSFAの商談ビューに表示する</strong>
+					<p>HubSpotなどのMAのスコアリング情報をSFAのビューに統合します。担当者がSFAを開いたとき、そのリードが「今どの程度の確度か」をスコアで確認できる状態を作ります。</p>
+				</li>
+				<li>
+					<strong>「SFAのデータで答えられること・答えられないこと」をリストアップする</strong>
+					<p>「今月のパイプライン」は答えられるが「先月との差分の理由」は答えられない、という形で確認します。答えられないことの数が、SFA設計の改善余地の大きさです。</p>
+				</li>
+			</ol>
 		</div>
 
 		<div class="article-section">
-			<h2>まとめ：SFA問題はRevenue構造の問題</h2>
-			<p>SFAが案件管理表になる原因はSalesforceの機能不足ではありません。Revenue Architecture不足・Revenue Pipeline Design不足・Revenue Visibility不足・RevOps未整備が本質的な原因です。だからこそ必要なのは入力強化ではなく、「Revenue改善できる構造」を設計することです。SFAは単なる営業管理ではなく、Revenue Architecture全体として設計されるべきです。</p>
+			<h2>まとめ：SFAの問題は「データフロー設計の問題」</h2>
+			<p>SFAがパイプライン管理表になってしまう原因は、SFAの機能不足でも入力率の問題でもありません。「SFAが報告のためのシステムになっていること」「SFAに流れ込むデータが手入力のみであること」「SFAのデータをレポートするたびに集計が必要なこと」が構造的な原因です。</p>
+			<p>DXコンサルティング企業の事例が示すように、顧客行動100%可視化・分析工数30%削減は、SFAを変えたのではなく「Web・MA・名刺管理のデータがSFAに自動で統合される設計」を整えたことで実現しました。最初の一歩は、SFAの商談レコードに「流入元」フィールドを1つ追加することから始まります。</p>
 		</div>
 
 		<!-- ===== CTA ===== -->
 		<div class="article-cta">
-			<p class="article-cta__catch">SFAを「管理台帳」から「Revenue Engine」へ</p>
-			<p class="article-cta__body">ConsilegyはRevenue Pipeline DesignとStage Exit Criteria設計から、SFAがRevenue改善につながる構造を支援します。まずは現状のSFA活用課題を整理するところから始めましょう。</p>
+			<p class="article-cta__catch">SFAを「報告ツール」から「意思決定ツール」に変える</p>
+			<p class="article-cta__body">ConsilegyはSFA・MA・Webアナリティクス・名刺管理のデータ統合設計から、自動レポーティング基盤の構築まで支援します。まずはSFAに流れ込むべきデータの整理から始めましょう。</p>
 			<a href="/contact/" class="article-cta__btn">無料相談を予約する</a>
 		</div>
 
@@ -312,14 +180,30 @@ const breadcrumbSchema = {
 		<nav class="article-related" aria-label="関連記事">
 			<h2 class="article-related__heading">関連記事</h2>
 			<ul>
-				<li><a href="/insights/why-sales-teams-stop-using-crm/">なぜ営業チームはCRMを使わなくなるのか</a></li>
-				<li><a href="/insights/why-sales-forecasting-fails/">なぜ営業予測（Forecast）は当たらないのか</a></li>
-				<li><a href="/insights/why-crm-integration-projects-fail/">CRM統合プロジェクトが失敗する理由</a></li>
+				<li><a href="/insights/why-salesforce-implementations-fail/">Salesforce導入が失敗する理由</a></li>
+				<li><a href="/insights/why-sales-teams-stop-using-crm/">営業がCRMを使わなくなる理由</a></li>
+				<li><a href="/insights/what-is-revenue-data-flow/">Revenue Data Flowとは何か</a></li>
 			</ul>
 		</nav>
 
 	</div><!-- /.article-body -->
 
+	<!-- ===== RELATED SERVICES ===== -->
+	<nav class="article-services" aria-label="関連サービス">
+		<h2 class="article-services__heading">関連サービス</h2>
+		<div class="article-services__grid">
+		<a href="/services/crm-revops-redesign/" class="article-services__card">
+				<span class="article-services__cat">サービス</span>
+				<span class="article-services__title">CRM / RevOps再設計支援</span>
+				<span class="article-services__arrow">→</span>
+			</a>
+		<a href="/services/revenue-architecture-design/" class="article-services__card">
+				<span class="article-services__cat">サービス</span>
+				<span class="article-services__title">レベニューアーキテクチャ設計</span>
+				<span class="article-services__arrow">→</span>
+			</a>
+		</div>
+	</nav>
 	<NewsletterSidebar />
 </div><!-- /.article-wrap -->
 
@@ -363,104 +247,37 @@ const breadcrumbSchema = {
 .article-numbered li { counter-increment: item; display: grid; grid-template-columns: 36px 1fr; gap: 0 16px; }
 .article-numbered li::before { content: counter(item); display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--color-primary, #1e40af); color: #fff; border-radius: 50%; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px; }
 .article-numbered li strong { grid-column: 2; display: block; font-size: 1rem; color: var(--color-navy, #0f172a); margin-bottom: 6px; line-height: 1.4; }
-.article-numbered li p { grid-column: 2; font-size: 0.925rem; color: var(--color-charcoal, #334155); line-height: 1.8; margin: 0; }
-
-/* ===== TABLE ===== */
-.article-table-wrap { overflow-x: auto; margin-top: 24px; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; }
-.article-table-wrap table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-.article-table-wrap th { background: var(--color-navy, #0f172a); color: #fff; padding: 12px 16px; text-align: left; font-weight: 600; font-size: 0.85rem; }
-.article-table-wrap td { padding: 12px 16px; border-bottom: 1px solid var(--color-border, #e2e8f0); color: var(--color-charcoal, #334155); vertical-align: top; line-height: 1.6; }
-.article-table-wrap tr:last-child td { border-bottom: none; }
-.article-table-wrap tr:nth-child(even) td { background: #f8fafc; }
-
-/* ===== DIAGRAMS ===== */
-.diag-wrap { margin: 0 0 56px; padding: 0; border: none; }
-.diag { background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 28px 24px; }
-.diag-caption { font-size: 0.78rem; color: var(--color-muted, #64748b); text-align: center; margin-top: 10px; line-height: 1.5; }
-
-/* --- DIAGRAM 1: SFA Chaos --- */
-.diag--sfa-chaos { display: flex; flex-direction: column; gap: 16px; }
-.sfa-header { text-align: center; font-size: 0.82rem; font-weight: 700; color: var(--color-muted, #64748b); letter-spacing: 0.05em; text-transform: uppercase; }
-.sfa-row { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
-.sfa-tool { display: flex; flex-direction: column; align-items: center; gap: 6px; background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 14px 18px; min-width: 100px; }
-.sfa-icon { width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 700; color: #fff; }
-.icon-sf  { background: #00a1e0; }
-.icon-mtg { background: #94a3b8; }
-.icon-xl  { background: #217346; }
-.sfa-tool-label { font-size: 0.78rem; font-weight: 600; color: var(--color-charcoal, #334155); }
-.sfa-tool-sub { font-size: 0.7rem; color: var(--color-muted, #64748b); }
-.sfa-divider { font-size: 1.2rem; color: var(--color-muted, #64748b); flex-shrink: 0; }
-.sfa-bubbles { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
-.sfa-bubble { background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 7px 14px; font-size: 0.78rem; color: var(--color-charcoal, #334155); }
-.sfa-bubble--warn { background: #fff3cd; border-color: #fbbf24; color: #92400e; font-weight: 600; }
-.sfa-result { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; padding-top: 4px; }
-.sfa-tag { font-size: 0.75rem; font-weight: 600; }
-.bad { color: #dc2626; }
-
-/* --- DIAGRAM 2: Revenue Pipeline Design --- */
-.diag--rpd { display: flex; flex-direction: column; gap: 14px; }
-.rpd-header { text-align: center; font-size: 0.9rem; font-weight: 700; color: var(--color-navy, #0f172a); letter-spacing: 0.03em; }
-.rpd-flow { display: flex; align-items: flex-start; justify-content: center; gap: 4px; flex-wrap: wrap; }
-.rpd-stage { display: flex; flex-direction: column; align-items: center; gap: 5px; }
-.rpd-box { padding: 8px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; color: #fff; text-align: center; white-space: nowrap; }
-.box-lead   { background: #60a5fa; }
-.box-sql    { background: #3b82f6; }
-.box-opp    { background: #2563eb; }
-.box-prop   { background: #1d4ed8; }
-.box-commit { background: #1e40af; }
-.box-won    { background: #0f172a; }
-.rpd-exit { font-size: 0.67rem; color: var(--color-muted, #64748b); background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 4px; padding: 2px 6px; white-space: nowrap; }
-.rpd-arrow { font-size: 1rem; color: var(--color-muted, #64748b); flex-shrink: 0; padding-top: 8px; }
-.rpd-bar { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px; padding: 10px 16px; text-align: center; }
-.rpd-bar-label { font-size: 0.78rem; font-weight: 600; color: var(--color-primary, #1e40af); }
-.rpd-metrics { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
-.rpd-metric { font-size: 0.72rem; background: #fff; border: 1px solid var(--color-border, #e2e8f0); color: var(--color-charcoal, #334155); border-radius: 8px; padding: 3px 10px; }
-
-/* --- DIAGRAM 3: RA SFA Hub --- */
-.diag--ra-sfa { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
-.ra-pills-row { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; padding-bottom: 4px; }
-.ra-pill { background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 4px; padding: 5px 14px; font-size: 0.75rem; font-weight: 600; color: var(--color-charcoal, #334155); white-space: nowrap; }
-.ra-svg { width: 100%; height: 60px; display: block; }
-.ra-core { background: var(--color-navy, #0f172a); color: #fff; border-radius: 8px; padding: 18px 20px; text-align: center; }
-.ra-core-title { font-size: 1rem; font-weight: 700; margin-bottom: 10px; letter-spacing: 0.02em; }
-.ra-core-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
-.ra-core-tags span { font-size: 0.7rem; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; padding: 3px 9px; color: #e2e8f0; }
-.ra-connector-bar { height: 24px; background: linear-gradient(180deg, var(--color-navy, #0f172a) 0%, #334155 100%); width: 2px; margin: 0 auto; }
-.ra-outcomes { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
-.ra-outcome { background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 14px 12px; text-align: center; }
-.ra-outcome--mid { border-color: var(--color-primary, #1e40af); box-shadow: 0 0 0 1px var(--color-primary, #1e40af); }
-.ra-outcome-title { font-size: 0.82rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 6px; }
-.ra-outcome-sub { font-size: 0.72rem; color: var(--color-muted, #64748b); line-height: 1.5; }
+.article-numbered li p { grid-column: 2; margin-bottom: 8px; }
+.article-numbered li p:last-child { margin-bottom: 0; }
 
 /* ===== CTA ===== */
-.article-cta { background: radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%), linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%); border-radius: 8px; padding: 40px 36px; text-align: center; margin-bottom: 48px; }
-.article-cta__catch { font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
-.article-cta__body { font-size: 0.92rem; color: rgba(255,255,255,0.88); line-height: 1.75; margin-bottom: 24px; }
-.article-cta__btn { display: inline-block; background: #fff; color: var(--color-primary, #1e40af); font-weight: 700; font-size: 0.9rem; padding: 12px 28px; border-radius: 6px; text-decoration: none; transition: opacity 0.2s; }
-.article-cta__btn:hover { opacity: 0.9; }
+.article-cta { background: radial-gradient(ellipse at 70% 50%, rgba(59,130,246,0.18) 0%, transparent 60%), linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%); border-radius: 12px; padding: 40px 36px; margin-bottom: 48px; color: #fff; }
+.article-cta__catch { font-size: 1.15rem; font-weight: 700; margin-bottom: 12px; line-height: 1.4; }
+.article-cta__body { font-size: 0.95rem; line-height: 1.8; margin-bottom: 24px; opacity: 0.92; }
+.article-cta__btn { display: inline-block; background: #fff; color: var(--color-primary, #1e40af); font-weight: 700; font-size: 0.95rem; padding: 12px 28px; border-radius: 6px; text-decoration: none; transition: opacity 0.15s; }
+.article-cta__btn:hover { opacity: 0.88; }
 
-/* ===== RELATED ===== */
-.article-related { border-top: 1px solid var(--color-border, #e2e8f0); padding-top: 32px; }
-.article-related__heading { font-size: 0.9rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 16px; }
+/* ===== RELATED ARTICLES ===== */
+.article-related { margin-bottom: 48px; }
+.article-related__heading { font-size: 1rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--color-border, #e2e8f0); }
 .article-related ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
-.article-related li a { font-size: 0.9rem; color: var(--color-primary, #1e40af); text-decoration: none; }
-.article-related li a:hover { text-decoration: underline; }
+.article-related li::before { content: none; }
+.article-related a { font-size: 0.9rem; color: var(--color-primary, #1e40af); text-decoration: none; line-height: 1.5; }
+.article-related a:hover { text-decoration: underline; }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 700px) {
-	.article-head h1 { font-size: 1.4rem; }
-	.br-pc { display: none; }
-	.rpd-flow { gap: 4px; }
-	.rpd-box { font-size: 0.68rem; padding: 7px 7px; }
-	.rpd-arrow { font-size: 0.85rem; }
-	.ra-outcomes { grid-template-columns: 1fr; gap: 8px; }
+/* ===== RELATED SERVICES ===== */
+.article-services { background: #f8fafc; border-top: 1px solid var(--color-border, #e2e8f0); padding: 40px 24px; }
+.article-services__heading { max-width: 780px; margin: 0 auto 20px; font-size: 1rem; font-weight: 700; color: var(--color-navy, #0f172a); }
+.article-services__grid { max-width: 780px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.article-services__card { display: flex; align-items: center; gap: 12px; background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 16px 20px; text-decoration: none; transition: border-color 0.15s, box-shadow 0.15s; }
+.article-services__card:hover { border-color: var(--color-primary, #1e40af); box-shadow: 0 2px 8px rgba(30,64,175,0.08); }
+.article-services__cat { font-size: 0.7rem; color: var(--color-muted, #64748b); background: #eff6ff; padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.article-services__title { flex: 1; font-size: 0.9rem; font-weight: 600; color: var(--color-navy, #0f172a); line-height: 1.4; }
+.article-services__arrow { font-size: 1rem; color: var(--color-primary, #1e40af); }
+
+@media (max-width: 600px) {
 	.article-cta { padding: 28px 20px; }
-	.sfa-row { gap: 8px; }
-}
-@media (max-width: 480px) {
-	.container { padding: 0 16px; }
-	.rpd-exit { display: none; }
-	.ra-outcomes { grid-template-columns: 1fr 1fr; }
+	.br-pc { display: none; }
 }
 </style>
 

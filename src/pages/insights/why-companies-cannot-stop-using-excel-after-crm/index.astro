@@ -9,8 +9,8 @@ const readTime = '約10分';
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
-	headline: 'CRMを導入してもExcel集計が残る理由｜RevOpsとRevenue Architectureの問題',
-	description: 'CRMを導入してもExcel集計が残る原因を、KPI設計・データ構造・Revenue Architectureの観点から解説します。',
+	headline: 'CRMを導入してもExcelが止まらない理由',
+	description: '医療テック企業（150名）が10箇所以上に分散した顧客データをHubSpotへ統合し、データ管理業務65%削減・月100時間創出。CRMがあっても「Excelの方が使いやすい」が続く組織の構造問題を解説します。',
 	datePublished: pubDate,
 	dateModified: pubDate,
 	author: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
@@ -25,14 +25,14 @@ const breadcrumbSchema = {
 	itemListElement: [
 		{ '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://consilegy.com/' },
 		{ '@type': 'ListItem', position: 2, name: 'コラム', item: 'https://consilegy.com/insights/' },
-		{ '@type': 'ListItem', position: 3, name: 'なぜExcel集計から抜け出せないのか', item: 'https://consilegy.com/insights/why-companies-cannot-stop-using-excel-after-crm/' },
+		{ '@type': 'ListItem', position: 3, name: 'CRMを導入してもExcelが止まらない理由', item: 'https://consilegy.com/insights/why-companies-cannot-stop-using-excel-after-crm/' },
 	],
 };
 ---
 
 <BaseLayout
-	title="なぜExcel集計から抜け出せないのか｜CRMを入れても手作業が消えない本当の理由 | Consilegy"
-	description="CRMを導入してもExcel集計が残る原因を、KPI設計・データ構造・Revenue Architectureの観点から解説します。"
+	title="CRMを導入してもExcelが止まらない理由 | Consilegy"
+	description="医療テック企業（150名）が10箇所以上に分散した顧客データをHubSpotへ統合し、データ管理業務65%削減・月100時間創出。CRMがあっても「Excelの方が使いやすい」が続く組織の構造問題を解説します。"
 	lang="ja"
 >
 	<Fragment slot="head">
@@ -49,17 +49,17 @@ const breadcrumbSchema = {
 			<span aria-hidden="true">›</span>
 			<a href="/insights/">コラム</a>
 			<span aria-hidden="true">›</span>
-			<span aria-current="page">なぜExcel集計から抜け出せないのか</span>
+			<span aria-current="page">CRMを導入してもExcelが止まらない理由</span>
 		</nav>
 		<div class="article-meta">
-			<span class="article-cat">CRM</span>
+			<span class="article-cat">CRM・MA・SFA</span>
 		</div>
-		<h1>なぜExcel集計から抜け出せないのか<br class="br-pc" />——CRMを入れても手作業が消えない本当の理由</h1>
-		<p class="article-desc">SalesforceもHubSpotもBIも入れた。それでも会議前にExcelを開いている。原因はITリテラシーではなく、「Excelを使わなくても意思決定できる構造」が設計されていないことにある。</p>
+		<h1>CRMを導入しても<br class="br-pc" />Excelが止まらない理由</h1>
+		<p class="article-desc">医療テック企業（150名）が10箇所以上に分散した顧客データをHubSpotへ統合し、データ管理業務65%削減・月100時間創出。CRMがあっても「Excelの方が使いやすい」が続く組織の構造問題を解説します。</p>
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
-	<article class="article-body container" id="article">
+	<div class="article-body container">
 		<div class="article-eyecatch">
 			<img
 				src="/images/insights/why-companies-cannot-stop-using-excel-after-crm.svg"
@@ -72,166 +72,140 @@ const breadcrumbSchema = {
 			/>
 		</div>
 
-		<!-- はじめに -->
-		<section class="article-section">
-			<h2>顧客データが10箇所以上に分散していた会社の話</h2>
-			<p>医療テック企業でのことです。CRMを導入していました。MAも使っていました。それでもマーケティングチームの業務時間の約30%以上が、毎週同じ作業に使われていました。国内DB、kintone、Excelファイル、メールの添付——10箇所以上に分散した顧客データを手でかき集め、クレンジングし、「最新版どれですか？」を繰り返す。</p>
-			<p>ツールが足りなかったわけではありません。データを「どこに、誰が、どう持つか」が設計されていなかっただけです。</p>
-			<div class="article-callout">
-				<p>CRMを入れてもExcelが消えないとき、問題はツールではありません。「Excelを使わなくても意思決定できる構造」が設計されていないことが原因です。</p>
-			</div>
-		</section>
+		<div class="article-section">
+			<p>医療DXを推進する医療テック企業（従業員約150名）では、急成長フェーズにおいて顧客情報が国内データベース・kintone・Excelなど10箇所以上に分散していました。HubSpotは導入済みでしたが、担当者は「HubSpotより自分のExcelの方が最新情報が早く確認できる」と感じていました。CRMへの入力は義務として行われていましたが、実際の業務判断はExcelで行われる二重管理状態が続いていました。</p>
+			<p>HubSpotへのデータ統合・自動化基盤の構築・入力負荷の削減を経て、<strong>データ管理・抽出業務を約65%削減し、4名のチームで月約100時間の工数を創出しました</strong>。Excelが止まらない原因は「CRMの使い方の問題」ではなく、「CRMが持っているデータが常に最新かつ自動で更新される設計になっていなかった」ことでした。</p>
+		</div>
 
-		<hr class="article-hr" />
+		<div class="article-section">
+			<h2>あなたの組織は大丈夫か——5つの確認項目</h2>
+			<ol class="article-numbered">
+				<li>
+					<strong>CRMの顧客情報が「最新かどうか分からない」という感覚がある</strong>
+					<p>「CRMのデータが更新されているか確認してから使う」という行動が発生している場合、CRMが信頼できるデータソースになっていません。</p>
+				</li>
+				<li>
+					<strong>レポート作成のためにExcelでデータを加工している</strong>
+					<p>CRMのデータをそのままレポートに使えず、毎回エクスポートして整形する工数が発生している場合、CRMが必要な形式でデータを提供できていません。</p>
+				</li>
+				<li>
+					<strong>CRMとExcelに「同じ情報」が別々に管理されている</strong>
+					<p>新規リードをCRMに登録した後、「念のためExcelにも記録しておく」という行動がある場合、CRMが信頼の中心になっていません。</p>
+				</li>
+				<li>
+					<strong>「最新の顧客リスト」を作るたびにExcelで手動整形している</strong>
+					<p>施策実行のたびに「まずExcelでリストを作る」という工程が入っている場合、CRMから直接リストを抽出する設計になっていません。</p>
+				</li>
+				<li>
+					<strong>CRMへの入力が「管理側のためのもの」と現場が感じている</strong>
+					<p>「入力しても自分の仕事に役立たない」という感覚が担当者にある場合、CRMが現場の業務判断を支援するツールになっていません。</p>
+				</li>
+			</ol>
+			<p class="article-callout">3つ以上当てはまる場合、問題は現場の意識でもCRMのUIでもありません。「CRMのデータが自動で最新状態に保たれ、現場がすぐに使える形で提供される設計」が存在していないことが本質です。</p>
+		</div>
 
-		<!-- 自己診断 -->
-		<section class="article-section">
-			<h2>まず確認してください：なぜExcelを手放せないのか</h2>
-			<p>CRM導入後もExcelが残っている場合、以下のどれが当てはまるか確認してみてください。</p>
+		<div class="article-section">
+			<h2>Excelが止まらない3つのパターン</h2>
+			<ol class="article-numbered">
+				<li>
+					<strong>CRMへの入力が手動のみで、データが常に最新でない</strong>
+					<p>CRMのデータが担当者の手動入力だけに依存している場合、入力のタイミングによってCRMの情報が遅れます。「CRMより自分のExcelの方が最新」という状況が生まれると、Excelが実質的なデータの中心になります。前述の医療テック企業では、複数ツールに分散していたデータをHubSpotに自動で統合する設計を構築しました。担当者が「CRMを開けば最新状態が確認できる」という信頼が生まれたことで、Excelの二重管理が解消されました。</p>
+					<p><strong>判断基準：</strong>「CRMのデータと手元のExcelのどちらが最新ですか」と担当者に聞いたとき、「CRM」と全員が答えるかどうかで確認できます。</p>
+				</li>
+				<li>
+					<strong>CRMから必要な形式でデータが取り出せない</strong>
+					<p>「施策用のリストが欲しい」「この条件の顧客を絞り込みたい」という要求に対して、CRMがそのまま答えられず、毎回Excelで加工が必要な場合、Excelが「CRMのデータを使いやすくするためのツール」として機能し始めます。前述の企業では、HubSpotのリスト機能とフィルタリングを適切に設計することで、「最新リストはHubSpotから直接取り出す」運用に移行しました。</p>
+					<p><strong>判断基準：</strong>「来週の施策用のターゲットリストをCRMから直接出力できますか」を即答できるかどうかで確認できます。</p>
+				</li>
+				<li>
+					<strong>CRMへの入力が現場の仕事を楽にしない設計になっている</strong>
+					<p>CRMへの入力が追加業務として設計されており、「入力すると自分の仕事が楽になる」という体験がない場合、現場はExcelを続けます。前述の医療テック企業では、重複入力や手動クレンジングに業務時間の30%以上を消費していました。データ統合により手動作業が自動化され、チームが「CRMに入力するより楽になった」と感じる設計に変わったことで、定着が進みました。</p>
+					<p><strong>判断基準：</strong>「CRMへの入力をやめると自分の仕事はどう変わりますか」と担当者に聞いたとき、「楽になる」ではなく「不便になる」という答えが返るかどうかで確認できます。</p>
+				</li>
+			</ol>
+		</div>
+
+		<div class="article-section">
+			<h2>設計を変えた後に何が起きたか</h2>
+			<p>前述の医療テック企業では、「CRMへの入力を強制する」のではなく、「CRMのデータが自動で最新状態になり、現場がすぐ使える形で取り出せる設計」から始めました。その結果、以下の変化が起きました。</p>
+			<ol class="article-numbered">
+				<li>
+					<strong>データ管理・抽出業務を約65%削減</strong>
+					<p>手動で行っていた最新リスト作成・重複入力・データ整備が自動化され、業務工数が大幅に削減されました。</p>
+				</li>
+				<li>
+					<strong>月約100時間の工数を戦略業務へ転換</strong>
+					<p>Excelでの手動作業から解放されたチームが、施策設計・LTV向上・解約予防に集中できるようになりました。</p>
+				</li>
+				<li>
+					<strong>CRMが信頼できるデータソースとして機能するようになった</strong>
+					<p>担当者が「CRMを開けば最新状態が分かる」という体験を得たことで、Excelの二重管理が自然に解消されました。</p>
+				</li>
+			</ol>
+			<p class="article-callout">CRMの使い方を変えたのではなく、「CRMが常に最新で現場が使える設計」にしたことで変わりました。</p>
+		</div>
+
+		<div class="article-section">
+			<h2>今週から始められる3つのアクション</h2>
+			<ol class="article-numbered">
+				<li>
+					<strong>「CRMとExcelで二重管理されている情報」をリストアップする</strong>
+					<p>同じ情報がCRMとExcelの両方に存在する項目を書き出します。その項目が「自動でCRMに更新される設計」にできるかを確認することが、二重管理解消の出発点です。</p>
+				</li>
+				<li>
+					<strong>「施策用リスト作成の手順」を書き出す</strong>
+					<p>来月の施策で使うリストをどうやって作るかのステップを書き出します。「CRMから直接出力」以外の工程が含まれている場合、それがExcel依存の構造です。</p>
+				</li>
+				<li>
+					<strong>「CRMへの入力で担当者が得るメリット」を1つ設計する</strong>
+					<p>「このデータを入力すると、自動でフォローアップのリマインダーが設定される」など、CRMへの入力が担当者の仕事を楽にする体験を1つ作ります。強制ではなく、便利さでCRMを使う動機を作ることが先です。</p>
+				</li>
+			</ol>
+		</div>
+
+		<div class="article-section">
+			<h2>まとめ：Excelが止まらない原因は「CRM設計の問題」</h2>
+			<p>CRMを導入してもExcelが止まらない原因は、現場の意識でもCRMのUIでもありません。「CRMのデータが常に最新でないこと」「CRMから必要な形式でデータが取り出せないこと」「CRMへの入力が現場の仕事を楽にしない設計になっていること」が構造的な原因です。</p>
+			<p>医療テック企業の事例が示すように、データ管理65%削減・月100時間の工数創出は、Excelをなくすと決めたのではなく、「CRMが自動で最新状態になり、現場がすぐ使える設計」を整えたことで自然に実現しました。最初の一歩は、CRMとExcelで二重管理されている情報を書き出すことから始まります。</p>
+		</div>
+
+		<!-- ===== CTA ===== -->
+		<div class="article-cta">
+			<p class="article-cta__catch">Excelではなく「CRMを開けば分かる」状態を設計する</p>
+			<p class="article-cta__body">ConsilegyはCRMのデータ統合設計・自動化基盤構築・現場定着支援まで、「使われるCRM」の設計を支援します。まずはExcelとCRMの二重管理の構造を整理するところから始めましょう。</p>
+			<a href="/contact/" class="article-cta__btn">無料相談を予約する</a>
+		</div>
+
+		<!-- ===== RELATED ===== -->
+		<nav class="article-related" aria-label="関連記事">
+			<h2 class="article-related__heading">関連記事</h2>
 			<ul>
-				<li>SalesforceとHubSpotで売上の数字が違う</li>
-				<li>MQLやSQLの定義が部門によって違う</li>
-				<li>会議前に誰かがCSVをダウンロードしてVLOOKUPを組んでいる</li>
-				<li>「最新版はどのファイルですか」が定期的に発生する</li>
-				<li>CRMのダッシュボードを信用していない</li>
+				<li><a href="/insights/why-crm-adoption-fails/">CRM定着が失敗する理由</a></li>
+				<li><a href="/insights/why-sales-teams-stop-using-crm/">営業がCRMを使わなくなる理由</a></li>
+				<li><a href="/insights/why-salesforce-implementations-fail/">Salesforce導入が失敗する理由</a></li>
 			</ul>
-			<div class="article-callout">
-				<p><strong>2つ以上当てはまる場合、Excelはシステム間の「設計の欠落」を補っています。</strong>ツールを追加しても、この状態は解決しません。</p>
-			</div>
-		</section>
+		</nav>
 
-		<hr class="article-hr" />
+	</div><!-- /.article-body -->
 
-		<!-- 3つのパターン -->
-		<section class="article-section">
-			<h2>Excel集計が残る3つの構造パターン</h2>
-			<div class="article-numbered">
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">01</p>
-					<h3>「どの数字が正しいか」が決まっていない</h3>
-					<p>Salesforceの売上、HubSpotの売上、会計システムの売上、Excel集計の売上——これらが全部違う状態では、誰も「CRMの数字でいい」とは言えません。現場は安全策としてExcelで突き合わせを続けます。</p>
-					<p>ExcelはCRMが使えないから使われているのではなく、<strong>どのシステムの数字が正かが決まっていないから</strong>使われています。</p>
-					<p><strong>判断基準：</strong>「売上はどのシステムの数字を正とするか」を全員が同じ答えで言えるかどうかを確認してください。答えが複数出るなら、正システムが未定義です。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">02</p>
-					<h3>KPI定義が部門ごとに違う</h3>
-					<p>「商談化率」をマーケティングは「MQL→SQL転換数÷MQL数」で計算し、営業は「初回面談数÷リード数」で計算している。この状態では、同じKPIを見ていても数字が合いません。会議のたびにExcelで調整する作業が発生します。</p>
-					<p><strong>判断基準：</strong>「商談化率の計算式は何ですか」とマーケティングと営業それぞれに聞いてください。答えが一致しなければ、KPI定義がずれています。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">03</p>
-					<h3>システム間のデータがつながっていない</h3>
-					<p>HubSpotのリードがSalesforceの商談に、Salesforceの受注が会計システムの請求に、正しく自動で流れていなければ、誰かが必ず手でつなぎます。その「手でつなぐ作業」がExcelです。</p>
-					<p>前述の医療テック企業では、10箇所以上に分散したデータを統合したことで、データ管理・抽出業務を約65%削減できました。Excelで手作業していた時間が、そのまま削減された工数です。</p>
-					<p><strong>判断基準：</strong>「HubSpotのコンタクトとSalesforceの取引先は自動で同期されていますか」と確認してください。手作業が入っているなら、その箇所がExcel依存の発生源です。</p>
-				</div>
-			</div>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- 変わること -->
-		<section class="article-section">
-			<h2>構造を直すと、何が変わるか</h2>
-			<p>前述の医療テック企業では、データ統合基盤の構築後、4名のマーケティングチームで月約100時間の工数が生まれました。毎週繰り返していた「最新リストの作成」「手動クレンジング」「突き合わせ集計」がなくなり、その時間がキャンペーン設計やLTV改善に使えるようになりました。</p>
-			<p>ツールが変わったわけではありません。「どのデータをどこで持ち、誰が更新し、どこへ流すか」を設計しただけです。</p>
-			<div class="article-callout">
-				<p>Excel集計が消えると、チームの役割が変わります。<strong>「データを集める人」から「データを使って判断する人」へ。</strong>これが本来のCRM導入の目的です。</p>
-			</div>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- 最初の一手 -->
-		<section class="article-section">
-			<h2>最初の一手：何から始めるか</h2>
-			<p>ツールを追加する前に、以下の3つを順番に整理してください。</p>
-			<div class="article-numbered">
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">01</p>
-					<h3>「どのデータをどのシステムで持つか」を1枚の表にする</h3>
-					<p>リード情報はHubSpot、商談・受注はSalesforce、請求は会計システム——という役割分担を、まず1枚の表に書き出してください。書けない箇所があれば、そこが設計の抜けです。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">02</p>
-					<h3>主要KPIの計算式を全部門で揃える</h3>
-					<p>商談化率・MQL・SQL・ARRなど、会議で使うKPIを3〜5個に絞り、計算式と集計場所を全部門で揃えてください。定義を揃えるだけで、会議前のExcel突き合わせの大半はなくなります。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">03</p>
-					<h3>次の会議でExcelを使わないと決める</h3>
-					<p>完璧に準備してからではなく、「次の会議ではCRMのダッシュボードだけを使う」と決めることが有効です。不完全でも使い始めることで、何が足りないかが明確になります。完璧を待つと、Excelは永遠に残ります。</p>
-				</div>
-			</div>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- まとめ -->
-		<section class="article-section">
-			<h2>まとめ：Excel依存はツール問題ではなく、設計問題です</h2>
-			<p>CRMを入れてもExcelが消えないとき、新しいツールを追加しても解決しません。「どの数字が正か」「KPIの定義が揃っているか」「システム間がつながっているか」——この3点を整理することが先です。</p>
-			<p>月100時間の手作業工数は、ツールではなく設計で生まれます。そしてその工数は、チームが本来使うべき仕事に戻すことができます。</p>
-			<div class="article-callout">
-				<p>Excelを禁止する必要はありません。Excelに頼らなくても回る構造ができれば、自然と使われなくなります。</p>
-			</div>
-		</section>
-
-		<p class="article-pubdate">公開日：2026年5月7日</p>
-	</article>
-
+	<!-- ===== RELATED SERVICES ===== -->
+	<nav class="article-services" aria-label="関連サービス">
+		<h2 class="article-services__heading">関連サービス</h2>
+		<div class="article-services__grid">
+		<a href="/services/crm-revops-redesign/" class="article-services__card">
+				<span class="article-services__cat">サービス</span>
+				<span class="article-services__title">CRM / RevOps再設計支援</span>
+				<span class="article-services__arrow">→</span>
+			</a>
+		<a href="/services/revenue-architecture-design/" class="article-services__card">
+				<span class="article-services__cat">サービス</span>
+				<span class="article-services__title">レベニューアーキテクチャ設計</span>
+				<span class="article-services__arrow">→</span>
+			</a>
+		</div>
+	</nav>
 	<NewsletterSidebar />
-
-	<!-- ===== RELATED LINKS ===== -->
-	<aside class="article-related container">
-		<p class="article-related__label">関連コンテンツ</p>
-		<div class="article-related__grid">
-			<a href="/revenue-architecture/" class="article-related__card">
-				<p class="article-related__card-cat">概念解説</p>
-				<p class="article-related__card-title">Revenue Architecture（レベニューアーキテクチャ）とは</p>
-				<span class="article-related__card-arrow">→</span>
-			</a>
-			<a href="/insights/why-salesforce-and-hubspot-data-do-not-match/" class="article-related__card">
-				<p class="article-related__card-cat">関連記事</p>
-				<p class="article-related__card-title">SalesforceとHubSpotで数字が合わない理由</p>
-				<span class="article-related__card-arrow">→</span>
-			</a>
-			<a href="/insights/why-sales-meetings-become-number-reporting/" class="article-related__card">
-				<p class="article-related__card-cat">関連記事</p>
-				<p class="article-related__card-title">なぜ営業会議が「数字確認会」になってしまうのか</p>
-				<span class="article-related__card-arrow">→</span>
-			</a>
-			<a href="/services/crm-revops-redesign/" class="article-related__card">
-				<p class="article-related__card-cat">サービス</p>
-				<p class="article-related__card-title">CRM / RevOps再設計支援</p>
-				<span class="article-related__card-arrow">→</span>
-			</a>
-		</div>
-	</aside>
-
-	<!-- ===== CTA ===== -->
-	<section class="article-cta">
-		<div class="container">
-			<div class="article-cta__body">
-				<h2>Excel集計からの脱却は、<br class="br-pc" />ツールではなく設計から始まります。</h2>
-				<ul class="article-cta__list">
-					<li>CRMを入れたのにExcelが増えた</li>
-					<li>会議前に毎回手作業で集計している</li>
-					<li>どのシステムの数字が正しいか分からない</li>
-					<li>ダッシュボードを作っても誰も見ない</li>
-				</ul>
-				<p class="article-cta__note">Revenue Data Flowの設計から、一緒に整理します。</p>
-				<div class="article-cta__actions">
-					<a href="/free-consultation/" class="btn btn--cta-primary">30分無料相談を予約する →</a>
-					<a href="/services/crm-revops-redesign/" class="btn btn--cta-ghost">CRM / RevOps再設計支援を見る</a>
-				</div>
-			</div>
-		</div>
-	</section>
-
-</div>
-</BaseLayout>
+</div><!-- /.article-wrap -->
 
 <style>
 	/* ── Eyecatch ─── */
@@ -245,778 +219,66 @@ const breadcrumbSchema = {
 		width: 100%; height: auto; display: block;
 		max-height: 360px; object-fit: cover;
 	}
-	/* ── Layout ────────────────────────────────────────────── */
-	.article-wrap { background: #fff; }
-
-	.container {
-		max-width: 800px;
-		margin-inline: auto;
-		padding-inline: var(--space-md, 1.5rem);
-	}
-
-	.br-pc { display: inline; }
-
-	/* ── Breadcrumb ────────────────────────────────────────── */
-	.breadcrumb {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		gap: 0.4em;
-		font-size: 0.8rem;
-		color: var(--color-muted, #64748b);
-		margin-bottom: 2rem;
-	}
-
-	.breadcrumb a { color: inherit; text-decoration: none; }
-	.breadcrumb a:hover { color: var(--color-primary, #1e40af); }
-
-	/* ── Article header ────────────────────────────────────── */
-	.article-head {
-		padding-top: 3rem;
-		padding-bottom: 2.5rem;
-		border-bottom: 1px solid var(--color-border, #e2e8f0);
-	}
-
-	.article-meta {
-		display: flex;
-		align-items: center;
-		gap: 0.75rem;
-		margin-bottom: 1.25rem;
-		flex-wrap: wrap;
-	}
-
-	.article-cat {
-		font-size: 0.72rem;
-		font-weight: 700;
-		letter-spacing: 0.1em;
-		text-transform: uppercase;
-		color: var(--color-primary, #1e40af);
-		background: rgba(30, 64, 175, 0.07);
-		padding: 0.2em 0.7em;
-		border-radius: 4px;
-	}
-
-	.article-date,
-	.article-read {
-		font-size: 0.8rem;
-		color: var(--color-muted, #64748b);
-	}
-
-	.article-date::before {
-		content: '';
-		display: inline-block;
-		width: 1px;
-		height: 0.9em;
-		background: var(--color-border, #e2e8f0);
-		margin-right: 0.75rem;
-		vertical-align: middle;
-	}
-
-	.article-head h1 {
-		font-size: clamp(1.5rem, 3vw, 2.1rem);
-		font-weight: 600;
-		color: var(--color-navy, #0f172a);
-		line-height: 1.35;
-		margin: 0 0 1rem;
-	}
-
-	.article-desc {
-		font-size: 1rem;
-		line-height: 1.75;
-		color: var(--color-charcoal, #334155);
-		margin: 0;
-	}
-
-	/* ── Article body ──────────────────────────────────────── */
-	.article-body { padding-block: 3rem; }
-
-	.article-section { margin-bottom: 0; }
-
-	.article-section h2 {
-		font-size: clamp(1.15rem, 2.2vw, 1.4rem);
-		font-weight: 600;
-		color: var(--color-navy, #0f172a);
-		margin: 0 0 1.25rem;
-		line-height: 1.45;
-		padding-bottom: 0.6rem;
-		border-bottom: 2px solid var(--color-border, #e2e8f0);
-	}
-
-	.article-section h3 {
-		font-size: 1rem;
-		font-weight: 600;
-		color: var(--color-navy, #0f172a);
-		margin: 2rem 0 0.75rem;
-	}
-
-	.article-section p {
-		font-size: 0.975rem;
-		line-height: 1.9;
-		color: var(--color-charcoal, #334155);
-		margin: 0 0 1rem;
-	}
-
-	.article-section ul {
-		margin: 0 0 1.25rem;
-		padding: 0;
-		list-style: none;
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-	}
-
-	.article-section ul li {
-		padding-left: 1.25rem;
-		position: relative;
-		font-size: 0.95rem;
-		line-height: 1.7;
-		color: var(--color-charcoal, #334155);
-	}
-
-	.article-section ul li::before {
-		content: '';
-		position: absolute;
-		left: 0;
-		top: 0.65em;
-		width: 5px;
-		height: 5px;
-		border-radius: 50%;
-		background: var(--color-primary, #1e40af);
-		opacity: 0.5;
-	}
-
-	.article-hr {
-		border: none;
-		border-top: 1px solid var(--color-border, #e2e8f0);
-		margin: 3rem 0;
-	}
-
-	/* ── Callout ───────────────────────────────────────────── */
-	.article-callout {
-		background: var(--color-bg-soft, #f8fafc);
-		border-left: 4px solid var(--color-primary, #1e40af);
-		border-radius: 0 8px 8px 0;
-		padding: 1.1rem 1.5rem;
-		margin: 1.5rem 0;
-	}
-
-	.article-callout p {
-		margin: 0;
-		font-size: 0.95rem;
-		line-height: 1.8;
-		color: var(--color-navy, #0f172a);
-	}
-
-	/* ── Numbered blocks ───────────────────────────────────── */
-	.article-numbered {
-		display: flex;
-		flex-direction: column;
-		gap: 1.5rem;
-		margin-top: 1.5rem;
-	}
-
-	.article-numbered__item {
-		border: 1px solid var(--color-border, #e2e8f0);
-		border-radius: 8px;
-		padding: 1.5rem;
-		background: #fff;
-	}
-
-	.article-numbered__num {
-		font-size: 0.7rem;
-		font-weight: 800;
-		letter-spacing: 0.12em;
-		color: var(--color-primary, #1e40af);
-		margin: 0 0 0.5rem;
-	}
-
-	.article-numbered__item h3 {
-		margin: 0 0 0.75rem;
-		font-size: 1rem;
-		font-weight: 600;
-		color: var(--color-navy, #0f172a);
-	}
-
-	.article-numbered__item p {
-		margin: 0;
-		font-size: 0.9rem;
-		line-height: 1.8;
-		color: var(--color-charcoal, #334155);
-	}
-
-	/* ── Table ─────────────────────────────────────────────── */
-	.article-table-wrap {
-		overflow-x: auto;
-		margin: 1.5rem 0;
-		border: 1px solid var(--color-border, #e2e8f0);
-		border-radius: 8px;
-	}
-
-	.article-table {
-		width: 100%;
-		border-collapse: collapse;
-		font-size: 0.9rem;
-	}
-
-	.article-table thead th {
-		padding: 0.75rem 1.25rem;
-		background: var(--color-navy, #0f172a);
-		color: #fff;
-		font-weight: 700;
-		text-align: left;
-		white-space: nowrap;
-	}
-
-	.article-table tbody td {
-		padding: 0.75rem 1.25rem;
-		border-bottom: 1px solid var(--color-border, #e2e8f0);
-		color: var(--color-charcoal, #334155);
-		line-height: 1.6;
-	}
-
-	.article-table tbody tr:last-child td { border-bottom: none; }
-
-	.article-table tbody td:first-child {
-		font-weight: 700;
-		color: var(--color-navy, #0f172a);
-		white-space: nowrap;
-		border-right: 1px solid var(--color-border, #e2e8f0);
-	}
-
-	/* ── Related ───────────────────────────────────────────── */
-	.article-related {
-		padding-block: 2.5rem 3rem;
-		border-top: 1px solid var(--color-border, #e2e8f0);
-	}
-
-	.article-related__label {
-		font-size: 0.72rem;
-		font-weight: 700;
-		letter-spacing: 0.12em;
-		text-transform: uppercase;
-		color: var(--color-muted, #64748b);
-		margin: 0 0 1rem;
-	}
-
-	.article-related__grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-		gap: 0.75rem;
-	}
-
-	.article-related__card {
-		display: flex;
-		flex-direction: column;
-		gap: 0.3rem;
-		padding: 1rem 1.25rem;
-		border: 1px solid var(--color-border, #e2e8f0);
-		border-radius: 8px;
-		text-decoration: none;
-		transition: border-color 0.15s, box-shadow 0.15s;
-	}
-
-	.article-related__card:hover {
-		border-color: var(--color-primary, #1e40af);
-		box-shadow: 0 2px 10px rgba(30, 64, 175, 0.07);
-	}
-
-	.article-related__card-cat {
-		font-size: 0.68rem;
-		font-weight: 700;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-		color: var(--color-primary, #1e40af);
-		margin: 0;
-	}
-
-	.article-related__card-title {
-		font-size: 0.875rem;
-		font-weight: 600;
-		color: var(--color-navy, #0f172a);
-		margin: 0;
-		line-height: 1.45;
-	}
-
-	.article-related__card-arrow {
-		font-size: 0.85rem;
-		color: var(--color-primary, #1e40af);
-		margin-top: 0.25rem;
-	}
-
-	/* ── CTA ───────────────────────────────────────────────── */
-	.article-cta {
-		padding-block: 4rem;
-		background:
-			radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%),
-			linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
-	}
-
-	.article-cta__body {
-		max-width: 700px;
-		margin-inline: auto;
-		text-align: center;
-	}
-
-	.article-cta__body h2 {
-		font-size: clamp(1.2rem, 2.5vw, 1.65rem);
-		font-weight: 600;
-		color: #fff;
-		line-height: 1.5;
-		margin: 0 0 1.5rem;
-	}
-
-	.article-cta__list {
-		display: flex;
-		flex-direction: column;
-		gap: 0.4rem;
-		margin: 0 auto 1.5rem;
-		padding: 0;
-		list-style: none;
-		text-align: left;
-		max-width: 420px;
-	}
-
-	.article-cta__list li {
-		font-size: 0.875rem;
-		color: rgba(255,255,255,0.85);
-		padding-left: 1.1rem;
-		position: relative;
-		line-height: 1.6;
-	}
-
-	.article-cta__list li::before {
-		content: '·';
-		position: absolute;
-		left: 0;
-		color: rgba(255,255,255,0.5);
-		font-size: 1.2em;
-	}
-
-	.article-cta__note {
-		font-size: 0.9rem;
-		color: rgba(255,255,255,0.7);
-		margin: 0 0 2rem;
-	}
-
-	.article-cta__actions {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 1rem;
-		justify-content: center;
-	}
-
-	.btn--cta-primary {
-		display: inline-flex;
-		align-items: center;
-		background: #fff;
-		color: var(--color-primary, #1e40af);
-		border: 2px solid transparent;
-		padding: 0.85em 1.75em;
-		font-size: 0.95rem;
-		border-radius: 6px;
-		font-weight: 700;
-		text-decoration: none;
-		transition: background 0.15s;
-	}
-
-	.btn--cta-primary:hover { background: rgba(255,255,255,0.9); }
-
-	.btn--cta-ghost {
-		display: inline-flex;
-		align-items: center;
-		background: transparent;
-		color: rgba(255,255,255,0.9);
-		border: 2px solid rgba(255,255,255,0.4);
-		padding: 0.85em 1.75em;
-		font-size: 0.95rem;
-		border-radius: 6px;
-		font-weight: 600;
-		text-decoration: none;
-		transition: border-color 0.15s;
-	}
-
-	.btn--cta-ghost:hover { border-color: rgba(255,255,255,0.8); }
-
-	/* ══════════════════════════════════════════════════════════
-	   DIAGRAMS
-	══════════════════════════════════════════════════════════ */
-	.diag {
-		margin: 2rem 0;
-		border: 1px solid var(--color-border, #e2e8f0);
-		border-radius: 8px;
-		overflow: hidden;
-		background: #fff;
-	}
-
-	.diag-caption {
-		display: block;
-		font-size: 0.78rem;
-		color: var(--color-muted, #64748b);
-		text-align: center;
-		padding: 0.75rem 1rem;
-		background: var(--color-bg-soft, #f8fafc);
-		border-top: 1px solid var(--color-border, #e2e8f0);
-		line-height: 1.5;
-		margin: 0;
-	}
-
-	/* ── Diagram 1: Excel Chaos ───────────────────────────── */
-	.diag--excel-chaos { padding: 1.5rem 1.5rem 0; }
-
-	.diag-ec-header { margin-bottom: 1rem; }
-
-	.diag-ec-header__label {
-		font-size: 0.72rem;
-		font-weight: 800;
-		letter-spacing: 0.1em;
-		text-transform: uppercase;
-		color: var(--color-navy, #0f172a);
-	}
-
-	.diag-ec-grid {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		gap: 0.5rem;
-		margin-bottom: 0.5rem;
-	}
-
-	.diag-ec-sys {
-		border: 1px solid var(--color-border, #e2e8f0);
-		border-radius: 8px;
-		padding: 0.75rem 0.5rem;
-		text-align: center;
-		background: var(--color-bg-soft, #f8fafc);
-	}
-
-	.diag-ec-sys__badge {
-		font-size: 0.68rem;
-		font-weight: 800;
-		padding: 0.15em 0.5em;
-		border-radius: 4px;
-		margin-bottom: 0.3rem;
-		display: inline-block;
-	}
-
-	.diag-ec-sys__badge--sf {
-		background: rgba(0, 161, 224, 0.1);
-		border: 1px solid rgba(0, 161, 224, 0.3);
-		color: #0070a8;
-	}
-
-	.diag-ec-sys__badge--hub {
-		background: rgba(255, 122, 89, 0.1);
-		border: 1px solid rgba(255, 122, 89, 0.3);
-		color: #c2410c;
-	}
-
-	.diag-ec-sys__badge--bi {
-		background: rgba(124, 92, 191, 0.1);
-		border: 1px solid rgba(124, 92, 191, 0.25);
-		color: #6d28d9;
-	}
-
-	.diag-ec-sys__badge--acc {
-		background: rgba(21, 128, 61, 0.1);
-		border: 1px solid rgba(21, 128, 61, 0.25);
-		color: #166534;
-	}
-
-	.diag-ec-sys__role {
-		font-size: 0.65rem;
-		color: var(--color-muted, #64748b);
-		line-height: 1.3;
-	}
-
-	.diag-ec-connector {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		margin-bottom: 0.5rem;
-	}
-
-	.diag-ec-connector__line {
-		flex: 1;
-		height: 1px;
-		background: var(--color-border, #e2e8f0);
-		border-top: 1px dashed var(--color-border, #e2e8f0);
-		background: none;
-	}
-
-	.diag-ec-connector__text {
-		font-size: 0.68rem;
-		color: var(--color-muted, #64748b);
-		white-space: nowrap;
-		font-weight: 600;
-	}
-
-	.diag-ec-excel {
-		border: 2px solid #92400e;
-		background: #fffbeb;
-		border-radius: 8px;
-		padding: 0.85rem 1.25rem;
-		text-align: center;
-		margin-bottom: 0.75rem;
-	}
-
-	.diag-ec-excel__badge {
-		font-size: 0.85rem;
-		font-weight: 800;
-		color: #92400e;
-		margin-bottom: 0.25rem;
-	}
-
-	.diag-ec-excel__role {
-		font-size: 0.7rem;
-		color: #92400e;
-		opacity: 0.8;
-	}
-
-	.diag-ec-bubbles {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.4rem;
-		justify-content: center;
-		padding: 0.65rem 0;
-		margin-bottom: 1.25rem;
-		border-top: 1px dashed var(--color-border, #e2e8f0);
-	}
-
-	.diag-ec-bubbles span {
-		font-size: 0.72rem;
-		font-weight: 600;
-		padding: 0.2em 0.6em;
-		background: #fef2f2;
-		border: 1px solid #fecaca;
-		border-radius: 4px;
-		color: #dc2626;
-	}
-
-	/* ── Diagram 2: Revenue Data Flow 2 ───────────────────── */
-	.diag--rdflow2 { padding: 1.5rem 1.5rem 0; }
-
-	.diag-rd2-header {
-		display: flex;
-		align-items: baseline;
-		gap: 0.75rem;
-		margin-bottom: 1.25rem;
-	}
-
-	.diag-rd2-header__label {
-		font-size: 0.72rem;
-		font-weight: 800;
-		letter-spacing: 0.1em;
-		text-transform: uppercase;
-		color: var(--color-navy, #0f172a);
-	}
-
-	.diag-rd2-header__sub {
-		font-size: 0.7rem;
-		color: var(--color-muted, #64748b);
-	}
-
-	.diag-rd2-stages {
-		display: flex;
-		align-items: center;
-		gap: 0.25rem;
-		overflow-x: auto;
-		padding-bottom: 0.25rem;
-		margin-bottom: 0.5rem;
-		flex-wrap: nowrap;
-	}
-
-	.diag-rd2-stage {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 0.4rem;
-		min-width: 68px;
-		flex-shrink: 0;
-	}
-
-	.diag-rd2-stage__name {
-		font-size: 0.78rem;
-		font-weight: 600;
-		color: var(--color-navy, #0f172a);
-		text-align: center;
-	}
-
-	.diag-rd2-stage__sys {
-		font-size: 0.63rem;
-		font-weight: 700;
-		padding: 0.2em 0.5em;
-		border-radius: 4px;
-		text-align: center;
-		white-space: nowrap;
-	}
-
-	.diag-rd2-stage__sys--hub {
-		background: rgba(255, 122, 89, 0.1);
-		border: 1px solid rgba(255, 122, 89, 0.3);
-		color: #c2410c;
-	}
-
-	.diag-rd2-stage__sys--sf {
-		background: rgba(0, 161, 224, 0.1);
-		border: 1px solid rgba(0, 161, 224, 0.3);
-		color: #0070a8;
-	}
-
-	.diag-rd2-stage__sys--acc {
-		background: rgba(21, 128, 61, 0.1);
-		border: 1px solid rgba(21, 128, 61, 0.25);
-		color: #166534;
-	}
-
-	.diag-rd2-stage__sys--bi {
-		background: rgba(124, 92, 191, 0.1);
-		border: 1px solid rgba(124, 92, 191, 0.25);
-		color: #6d28d9;
-	}
-
-	.diag-rd2-arrow {
-		font-size: 0.9rem;
-		color: var(--color-muted, #64748b);
-		flex-shrink: 0;
-		margin-bottom: 1rem;
-	}
-
-	.diag-rd2-excel-note {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 0.4rem;
-		padding: 0.55rem 1rem;
-		margin-bottom: 1.25rem;
-		background: #fffbeb;
-		border: 1px solid #fde68a;
-		border-radius: 6px;
-		font-size: 0.78rem;
-		font-weight: 600;
-		color: #92400e;
-	}
-
-	.diag-rd2-excel-note__icon {
-		opacity: 0.7;
-	}
-
-	/* ── Diagram 3: RA reduces Excel ─────────────────────── */
-	.diag--ra-excel { padding: 1.5rem 1.5rem 0; }
-
-	.diag-rae-top {
-		display: flex;
-		justify-content: center;
-		gap: 0.75rem;
-		flex-wrap: wrap;
-		margin-bottom: 0.5rem;
-	}
-
-	.diag-rae-dept {
-		font-size: 0.75rem;
-		font-weight: 700;
-		padding: 0.3em 0.9em;
-		border-radius: 4px;
-		background: var(--color-bg-soft, #f8fafc);
-		border: 1px solid var(--color-border, #e2e8f0);
-		color: var(--color-charcoal, #334155);
-	}
-
-	.diag-rae-connectors {
-		display: flex;
-		justify-content: center;
-		gap: 5rem;
-		height: 1.25rem;
-		padding: 0 2rem;
-		overflow: hidden;
-	}
-
-	.diag-rae-line {
-		width: 1px;
-		background: var(--color-border, #e2e8f0);
-		flex-shrink: 0;
-	}
-
-	.diag-rae-core {
-		background: var(--color-navy, #0f172a);
-		border-radius: 8px;
-		padding: 1.25rem;
-		text-align: center;
-		margin-bottom: 0.75rem;
-	}
-
-	.diag-rae-core__tag {
-		font-size: 0.63rem;
-		font-weight: 700;
-		letter-spacing: 0.1em;
-		text-transform: uppercase;
-		color: rgba(255,255,255,0.4);
-		margin-bottom: 0.3rem;
-	}
-
-	.diag-rae-core__label {
-		font-size: 1rem;
-		font-weight: 800;
-		color: #fff;
-		margin-bottom: 0.75rem;
-	}
-
-	.diag-rae-core__tools {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.35rem;
-		justify-content: center;
-	}
-
-	.diag-rae-core__tools span {
-		font-size: 0.72rem;
-		font-weight: 500;
-		padding: 0.2em 0.65em;
-		border-radius: 4px;
-		background: rgba(255,255,255,0.1);
-		border: 1px solid rgba(255,255,255,0.12);
-		color: rgba(255,255,255,0.8);
-	}
-
-	.diag-rae-outcomes {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 0.5rem;
-		margin-bottom: 1.25rem;
-	}
-
-	.diag-rae-outcome {
-		border: 1px solid rgba(30, 64, 175, 0.18);
-		border-radius: 8px;
-		padding: 0.85rem 0.75rem;
-		background: rgba(30, 64, 175, 0.03);
-		text-align: center;
-	}
-
-	.diag-rae-outcome__icon {
-		font-size: 0.8rem;
-		color: var(--color-primary, #1e40af);
-		margin-bottom: 0.25rem;
-	}
-
-	.diag-rae-outcome__label {
-		font-size: 0.75rem;
-		font-weight: 700;
-		color: var(--color-navy, #0f172a);
-		margin-bottom: 0.35rem;
-	}
-
-	.diag-rae-outcome__body {
-		font-size: 0.68rem;
-		line-height: 1.4;
-		color: var(--color-charcoal, #334155);
-	}
-
-	/* ── Responsive ────────────────────────────────────────── */
-	@media (max-width: 700px) {
-		.br-pc { display: none; }
-		.article-related__grid { grid-template-columns: 1fr; }
-		.article-head { padding-top: 2rem; }
-		.diag-ec-grid { grid-template-columns: repeat(2, 1fr); }
-		.diag-rae-connectors { display: none; }
-		.diag-rae-outcomes { grid-template-columns: 1fr; }
-	}
+/* ===== LAYOUT ===== */
+.article-wrap { background: #fff; padding-bottom: 80px; }
+.container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+
+/* ===== HEADER ===== */
+.article-head { padding-top: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--color-border, #e2e8f0); }
+.breadcrumb { font-size: 0.78rem; color: var(--color-muted, #64748b); margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.breadcrumb a { color: var(--color-muted, #64748b); text-decoration: none; }
+.breadcrumb a:hover { color: var(--color-primary, #1e40af); }
+.article-meta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; font-size: 0.8rem; color: var(--color-muted, #64748b); }
+.article-cat { background: #eff6ff; color: var(--color-primary, #1e40af); padding: 2px 10px; border-radius: 4px; font-weight: 600; font-size: 0.75rem; }
+.article-head h1 { font-size: clamp(1.5rem, 3.5vw, 2.1rem); font-weight: 600; color: var(--color-navy, #0f172a); line-height: 1.35; margin-bottom: 16px; }
+.article-desc { font-size: 1rem; color: var(--color-charcoal, #334155); line-height: 1.75; }
+.br-pc { display: inline; }
+
+/* ===== BODY ===== */
+.article-body { padding-top: 48px; }
+.article-section { margin-bottom: 56px; }
+.article-section h2 { font-size: 1.25rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 16px; padding-left: 14px; border-left: 4px solid var(--color-primary, #1e40af); line-height: 1.4; }
+.article-section p { font-size: 0.975rem; color: var(--color-charcoal, #334155); line-height: 1.85; margin-bottom: 16px; }
+.article-section p:last-child { margin-bottom: 0; }
+.article-callout { background: #f8fafc; border-left: 3px solid var(--color-primary, #1e40af); padding: 14px 18px; border-radius: 0 6px 6px 0; font-size: 0.95rem !important; color: var(--color-navy, #0f172a) !important; }
+
+/* ===== NUMBERED LIST ===== */
+.article-numbered { list-style: none; counter-reset: item; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 24px; }
+.article-numbered li { counter-increment: item; display: grid; grid-template-columns: 36px 1fr; gap: 0 16px; }
+.article-numbered li::before { content: counter(item); display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--color-primary, #1e40af); color: #fff; border-radius: 50%; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px; }
+.article-numbered li strong { grid-column: 2; display: block; font-size: 1rem; color: var(--color-navy, #0f172a); margin-bottom: 6px; line-height: 1.4; }
+.article-numbered li p { grid-column: 2; margin-bottom: 8px; }
+.article-numbered li p:last-child { margin-bottom: 0; }
+
+/* ===== CTA ===== */
+.article-cta { background: radial-gradient(ellipse at 70% 50%, rgba(59,130,246,0.18) 0%, transparent 60%), linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%); border-radius: 12px; padding: 40px 36px; margin-bottom: 48px; color: #fff; }
+.article-cta__catch { font-size: 1.15rem; font-weight: 700; margin-bottom: 12px; line-height: 1.4; }
+.article-cta__body { font-size: 0.95rem; line-height: 1.8; margin-bottom: 24px; opacity: 0.92; }
+.article-cta__btn { display: inline-block; background: #fff; color: var(--color-primary, #1e40af); font-weight: 700; font-size: 0.95rem; padding: 12px 28px; border-radius: 6px; text-decoration: none; transition: opacity 0.15s; }
+.article-cta__btn:hover { opacity: 0.88; }
+
+/* ===== RELATED ARTICLES ===== */
+.article-related { margin-bottom: 48px; }
+.article-related__heading { font-size: 1rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--color-border, #e2e8f0); }
+.article-related ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.article-related li::before { content: none; }
+.article-related a { font-size: 0.9rem; color: var(--color-primary, #1e40af); text-decoration: none; line-height: 1.5; }
+.article-related a:hover { text-decoration: underline; }
+
+/* ===== RELATED SERVICES ===== */
+.article-services { background: #f8fafc; border-top: 1px solid var(--color-border, #e2e8f0); padding: 40px 24px; }
+.article-services__heading { max-width: 780px; margin: 0 auto 20px; font-size: 1rem; font-weight: 700; color: var(--color-navy, #0f172a); }
+.article-services__grid { max-width: 780px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.article-services__card { display: flex; align-items: center; gap: 12px; background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 16px 20px; text-decoration: none; transition: border-color 0.15s, box-shadow 0.15s; }
+.article-services__card:hover { border-color: var(--color-primary, #1e40af); box-shadow: 0 2px 8px rgba(30,64,175,0.08); }
+.article-services__cat { font-size: 0.7rem; color: var(--color-muted, #64748b); background: #eff6ff; padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.article-services__title { flex: 1; font-size: 0.9rem; font-weight: 600; color: var(--color-navy, #0f172a); line-height: 1.4; }
+.article-services__arrow { font-size: 1rem; color: var(--color-primary, #1e40af); }
+
+@media (max-width: 600px) {
+	.article-cta { padding: 28px 20px; }
+	.br-pc { display: none; }
+}
 </style>
+
+</BaseLayout>

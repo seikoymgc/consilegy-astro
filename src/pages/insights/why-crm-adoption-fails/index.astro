@@ -55,7 +55,7 @@ const breadcrumbSchema = {
 			<span class="article-cat">CRM</span>
 		</div>
 		<h1>CRMが定着しない本当の理由<br class="br-pc" />——営業が入力しないのは現場のせいではない</h1>
-		<p class="article-desc">CRM・MAを導入しても「入力されない」「数字が信用されない」状態が続く企業には、共通した構造問題がある。原因は現場の意識ではなく、設計の不足にある。</p>
+		<p class="article-desc">ある会社のCRMには商談ステージが79段階あり、実際に使われていたのは5段階でした。入力項目30個のうち営業が埋めていたのは10個。CRM定着を阻む具体的なパターンと、最初に何から直すべきかを解説します。</p>
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
@@ -74,300 +74,97 @@ const breadcrumbSchema = {
 
 		<!-- はじめに -->
 		<section class="article-section">
-			<h2>はじめに：導入して数ヶ月後に訪れる、よくある光景</h2>
-			<p>CRMを導入した。営業プロセスも設計した。ダッシュボードも作った。</p>
-			<p>それでも、数ヶ月経つとこうなっていないでしょうか。</p>
-			<ul>
-				<li>営業がCRMに入力しない</li>
-				<li>商談ステージが更新されない</li>
-				<li>活動履歴が残らない</li>
-				<li>ダッシュボードの数字が信用されない</li>
-				<li>結局、営業会議前にExcelで集計している</li>
-				<li>マネージャーが毎回「ちゃんと入力して」と言い続けている</li>
-			</ul>
+			<h2>ある営業チームのCRMに、商談ステージが79段階ありました</h2>
+			<p>導入から1年。チームの誰もそのすべてを使っていませんでした。実際に更新されていたのは5段階。残りの74段階は、導入プロジェクト中に「将来使うかもしれない」と設定され、そのまま残っていました。</p>
+			<p>入力項目は30個。営業が実際に埋めていたのは10個でした。残りの20個は「あとで分析する用」に作られましたが、誰もそのデータを見ていませんでした。</p>
+			<p>マネージャーは毎週「ちゃんと入力してください」と言い続けていました。入力率は上がりませんでした。</p>
 			<div class="article-callout">
-				<p>最初に明確にしておきたいことがあります。CRMが定着しない原因は、<strong>営業担当者の意識が低いからではありません</strong>。多くの場合、原因は現場ではなく、CRMを機能させるための構造が設計されていないことにあります。<a href="https://prtimes.jp/main/html/rd/p/000000004.000081593.html" target="_blank" rel="noopener">TSUIDE調査（2022年）</a>によると、日本企業の90.9%がSFA・CRMを「活用できていない」と回答しており、導入後の定着が構造的な課題であることが分かる。</p>
+				<p>CRMが定着しないとき、原因はほぼ決まって「設計」にあります。営業は意味のないシステムには入力しません。これは意識の問題ではなく、合理的な判断です。</p>
 			</div>
 		</section>
 
 		<hr class="article-hr" />
 
-		<!-- CRMは導入だけでは使われない -->
+		<!-- 自己診断 -->
 		<section class="article-section">
-			<h2>CRMは、導入すれば自然に使われるものではない</h2>
-			<p>HubSpot、Salesforce、Kintone——どれも、適切に設計されれば強力な武器になります。しかし、CRMを導入しただけでは、次のことは自動では整いません。</p>
+			<h2>まず確認してください：あなたのCRMは「営業ツール」ですか、「報告ツール」ですか</h2>
+			<p>以下のうち、いくつ当てはまるか確認してみてください。</p>
 			<ul>
-				<li>誰が、いつ、何を入力するのか</li>
-				<li>どの情報が営業の意思決定に必要なのか</li>
-				<li>入力されたデータが会議や改善にどう使われるのか</li>
-				<li>入力することで営業現場にどんなメリットがあるのか</li>
+				<li>営業会議でCRMを開かずに話が進む</li>
+				<li>ダッシュボードを見ているのはマネージャーだけ</li>
+				<li>商談ステージを更新しなくても、誰も困らない</li>
+				<li>CRMのデータをExcelに出力して集計している</li>
+				<li>入力しても、現場に何も返ってこない</li>
 			</ul>
-			<p>この設計がないままCRMを導入すると、営業にとってCRMは「売るための道具」ではなく、「管理されるための作業」になります。その瞬間から、CRMは定着しなくなります。</p>
+			<div class="article-callout">
+				<p><strong>3つ以上当てはまる場合、CRMはすでに現場にとって「報告義務」になっています。</strong>その状態でいくら「もっと入力してください」と伝えても、構造は変わりません。</p>
+			</div>
 		</section>
 
 		<hr class="article-hr" />
 
-		<!-- 営業が入力しない理由 -->
+		<!-- 3つのパターン -->
 		<section class="article-section">
-			<h2>営業が入力しない理由は、入力する意味が見えないから</h2>
-			<p>営業担当者の日常は、商談準備・提案・顧客対応・社内調整・見積・契約確認の繰り返しです。その中でCRM入力の優先順位が下がるのは、実は合理的な判断です。</p>
-			<p>特に、次のような状態では入力されません。</p>
-			<ul>
-				<li>入力項目が多すぎる</li>
-				<li>入力しても営業本人にメリットがない</li>
-				<li>マネージャーが見るだけで、現場には何も返ってこない</li>
-				<li>どの項目が重要なのか分からない</li>
-				<li>入力ルールが人によって違う</li>
-				<li>入力しても会議で活用されない</li>
-			</ul>
-			<p>営業がCRMを入力しないのではなく、<strong>営業が入力したくなる構造になっていない</strong>のです。</p>
-
-			<!-- DIAGRAM 1 -->
-			<figure class="diag diag--flow" aria-label="CRMが営業日報として機能している状態。営業活動→CRM入力→管理者確認という一方通行の流れで、営業本人にメリットが返ってこない。">
-				<div class="diag-flow-track">
-					<div class="diag-flow-node">
-						<div class="diag-flow-node__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></div>
-						<div class="diag-flow-node__label">営業活動</div>
-						<div class="diag-flow-node__sub">商談 / 提案 / 訪問</div>
-					</div>
-					<div class="diag-flow-arrow" aria-hidden="true">
-						<svg width="32" height="16" viewBox="0 0 32 16" fill="none"><path d="M0 8h28M22 2l8 6-8 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-						<span class="diag-flow-arrow__label">入力</span>
-					</div>
-					<div class="diag-flow-node diag-flow-node--center">
-						<div class="diag-flow-node__icon" aria-hidden="true">🗂</div>
-						<div class="diag-flow-node__label">CRM入力</div>
-						<div class="diag-flow-node__sub">活動記録 / 進捗更新</div>
-					</div>
-					<div class="diag-flow-arrow" aria-hidden="true">
-						<svg width="32" height="16" viewBox="0 0 32 16" fill="none"><path d="M0 8h28M22 2l8 6-8 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-						<span class="diag-flow-arrow__label">確認</span>
-					</div>
-					<div class="diag-flow-node">
-						<div class="diag-flow-node__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg></div>
-						<div class="diag-flow-node__label">管理者の確認</div>
-						<div class="diag-flow-node__sub">レポート / 進捗把握</div>
-					</div>
-				</div>
-				<div class="diag-flow-nofeedback">
-					<span class="diag-flow-nofeedback__icon" aria-hidden="true">↩</span>
-					<span>営業本人にメリットが返ってこない</span>
-				</div>
-				<figcaption class="diag-caption">CRMが「活動記録」と「管理報告」の道具になると、現場には入力する動機が生まれない</figcaption>
-			</figure>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- CRMが営業日報になると -->
-		<section class="article-section">
-			<h2>CRMが「営業日報」になると、定着しない</h2>
-			<p>CRMが定着しない企業では、CRMが営業日報のように扱われています。何件訪問したか。何件電話したか。どんな活動をしたか。</p>
-			<p>もちろん活動履歴は重要です。しかし、CRMの本来の役割は活動の記録だけではありません。</p>
-			<p>本来のCRMは、次のことを判断するための基盤です。</p>
-			<ul>
-				<li>商談がどこで止まっているか</li>
-				<li>どの顧客が受注しやすいか</li>
-				<li>どの施策が商談化につながっているか</li>
-				<li>どのステージで失注が多いか</li>
-				<li>来月以降の売上見込みはどれくらいか</li>
-			</ul>
-			<p>CRMが「活動を記録する場所」だけになると、営業にとっては負担になります。「売上を前に進めるための道具」として機能するとき、現場で使われるようになります。</p>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- 5つの構造問題 -->
-		<section class="article-section">
-			<h2>CRM定着を妨げる5つの構造問題</h2>
-			<p>CRMが定着しない企業には、共通する構造問題があります。</p>
-
+			<h2>定着しない3つの具体的なパターン</h2>
 			<div class="article-numbered">
 				<div class="article-numbered__item">
 					<p class="article-numbered__num">01</p>
-					<h3>入力項目が多すぎる</h3>
-					<p>CRM導入時に「将来使うかもしれない」という理由で項目を作りすぎると、必須項目が増え、意味の似た項目が重複し、誰も見ていない項目が残り続けます。この状態では、CRM入力は現場にとって純粋な負担になります。必要なのは、項目を増やすことではなく、売上判断と改善に必要な項目に絞ることです。</p>
+					<h3>商談ステージに「移行条件」がない</h3>
+					<p>79段階のケースでは、ステージの「名前」はありました。しかし「どうなったら次のステージに進むのか」が決まっていませんでした。</p>
+					<p>結果、営業Aは「提案書を送ったら提案中」、営業Bは「顧客が前向きなら提案中」と判断していました。同じダッシュボードを見ても、数字の意味が人によって違います。パイプラインは飾りになります。</p>
+					<p><strong>判断基準：</strong>チームの誰かに「このステージに進む条件は何ですか」と聞いて、全員が同じ答えを言えるかどうかを確認してください。言えなければ、定義されていないのと同じです。</p>
 				</div>
 				<div class="article-numbered__item">
 					<p class="article-numbered__num">02</p>
-					<h3>商談ステージの定義が曖昧</h3>
-					<p>「初回商談」「提案中」「クロージング」といったステージ名だけあっても、移行条件が明確でなければ営業ごとに判断がバラつきます。ある営業は「提案書を送ったら提案中」、別の営業は「顧客が前向きなら提案中」と考える。この状態ではパイプラインも売上予測も信用できません。ステージ定義には、名前だけでなく<strong>移行条件</strong>まで含める必要があります。</p>
+					<h3>入力項目が「将来の分析用」に増殖している</h3>
+					<p>30項目のうち10項目しか使われていなかったケースでは、残りの20項目はすべて「いつか分析したい」という理由で追加されたものでした。</p>
+					<p>導入プロジェクト中に「受注確度も入れよう」「競合情報も記録しよう」「顧客の予算規模も」と積み上がった結果、営業は毎回30項目の入力を求められ、データは溜まるが誰も見ない状態になっていました。</p>
+					<p><strong>判断基準：</strong>各入力項目について「このデータを、いつ、誰が、何の判断に使いましたか」を答えられるかどうか確認してください。答えられない項目は削除候補です。</p>
 				</div>
 				<div class="article-numbered__item">
 					<p class="article-numbered__num">03</p>
-					<h3>KPIとCRM項目がつながっていない</h3>
-					<p>経営が商談化率を見たくても、CRM上でどの時点を「商談化」とするかが定義されていない。マーケティングがMQL（Marketing Qualified Lead：マーケティングが営業に渡す準備ができたと判断した見込み客）を追跡したくても、営業側でSQL（Sales Qualified Lead：営業が商談対象と判断した見込み客）の判断基準が決まっていない。この状態では、ダッシュボードは作れても意思決定には使えません。CRM定着に必要なのは入力項目の整備ではなく、KPIと業務プロセスの接続です。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">04</p>
-					<h3>会議でCRMが使われていない</h3>
-					<p>営業会議でExcelや個別資料を使う。CRMのダッシュボードは表示するが、数字確認だけで終わり、改善アクションが決まらない。これでは、営業にとってCRMを更新する理由がありません。CRMを定着させるには、会議の中で「どのKPIを見るか」「どの停滞案件を議論するか」「次回までに何を改善するか」まで決める必要があります。CRMは、会議と改善アクションに接続されて初めて定着します。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">05</p>
-					<h3>現場にメリットが返ってこない</h3>
-					<p>次に対応すべき顧客が分かる、停滞案件が自動で通知される、提案タイミングを逃さない、会議資料を作らなくて済む——こうした現場メリットがあれば、CRMは使われやすくなります。逆に、入力しても管理側だけが得をする設計では、現場には定着しません。</p>
+					<h3>入力したデータが会議で使われていない</h3>
+					<p>営業会議でExcelを使う、CRMのダッシュボードは「一応表示する」が数字の確認だけで終わる——この状態では、営業がCRMを更新する理由がなくなります。</p>
+					<p>「入力しても何も変わらない」という認識が現場に定着すると、設計をどれだけ改善しても使われなくなります。会議での使われ方が、定着の最終的な決め手になります。</p>
+					<p><strong>判断基準：</strong>「先週CRMに入力したデータが、今週の会議でどう使われましたか」という問いに、具体的に答えられるかどうかを確認してください。</p>
 				</div>
 			</div>
 		</section>
 
 		<hr class="article-hr" />
 
-		<!-- 6つの設計要素 -->
+		<!-- CRMが機能したとき -->
 		<section class="article-section">
-			<h2>CRM定着のために見直すべき6つのポイント</h2>
-			<p>CRMが定着していない場合、まず見直すべきポイントは次の6つです。単なるチェックリストではなく、これらが有機的につながっているかどうかが重要です。</p>
-
-			<!-- DIAGRAM 2 -->
-			<figure class="diag diag--hex" aria-label="CRM定着に必要な6つの設計要素。入力項目・商談ステージ・KPI定義・ダッシュボード・会議体・現場メリットがCRM Adoptionを支える。">
-				<div class="diag-hex-center">
-					<div class="diag-hex-center__label">CRM</div>
-					<div class="diag-hex-center__sub">Adoption</div>
-				</div>
-				<div class="diag-hex-grid">
-					<div class="diag-hex-card">
-						<p class="diag-hex-card__num">01</p>
-						<p class="diag-hex-card__title">入力項目</p>
-						<p class="diag-hex-card__body">必要な項目だけに絞る。不要な項目を削除する。</p>
-					</div>
-					<div class="diag-hex-card">
-						<p class="diag-hex-card__num">02</p>
-						<p class="diag-hex-card__title">商談ステージ</p>
-						<p class="diag-hex-card__body">名前だけでなく、移行条件まで定義する。</p>
-					</div>
-					<div class="diag-hex-card">
-						<p class="diag-hex-card__num">03</p>
-						<p class="diag-hex-card__title">KPI定義</p>
-						<p class="diag-hex-card__body">経営のKPIとCRM項目を接続する。</p>
-					</div>
-					<div class="diag-hex-card">
-						<p class="diag-hex-card__num">04</p>
-						<p class="diag-hex-card__title">ダッシュボード</p>
-						<p class="diag-hex-card__body">誰が何のために見るかを役割で分ける。</p>
-					</div>
-					<div class="diag-hex-card">
-						<p class="diag-hex-card__num">05</p>
-						<p class="diag-hex-card__title">会議体</p>
-						<p class="diag-hex-card__body">CRMの数字を使って改善議論する。</p>
-					</div>
-					<div class="diag-hex-card">
-						<p class="diag-hex-card__num">06</p>
-						<p class="diag-hex-card__title">現場メリット</p>
-						<p class="diag-hex-card__body">入力が現場の負荷を下げる設計にする。</p>
-					</div>
-				</div>
-				<figcaption class="diag-caption">CRM定着は「入力率改善」だけで達成されるものではなく、6つの設計要素が揃ってはじめて機能する</figcaption>
-			</figure>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- RevOpsの視点 -->
-		<section class="article-section">
-			<h2>CRM定着には、RevOpsの視点が必要</h2>
-			<p>CRMを定着させるには、単なる入力ルールの徹底では足りません。必要なのは、RevOps（Revenue Operations）の視点です。</p>
-			<p>CRM定着は、営業部門だけの問題ではありません。マーケティングがどんなリードを渡すのか、営業がどの条件で商談化するのか、CSがどの顧客情報を引き継ぐのか、経営がどの数字で判断するのか——これらがつながっていなければ、CRMは定着しません。</p>
+			<h2>CRMが機能したとき、何が変わるか</h2>
+			<p>正しく設計されたCRMが機能すると、まず「集計作業」がなくなります。会議前のExcel集計、進捗確認のための個別ヒアリング、マネージャーが毎回行っていた「状況把握のための1on1」——CRMに情報が正しく入っていれば、これらは不要になります。</p>
+			<p>5人で対応していた週次の数字管理が、1人で回るようになります。空いた4人分のリソースは、顧客対応・提案・改善に使えます。</p>
 			<div class="article-callout">
-				<p>CRM定着とは、<strong>入力率を上げることではなく、Revenue Operations全体を機能させること</strong>です。</p>
+				<p>CRMは「入力管理のツール」ではありません。正しく機能すれば、<strong>マネジメントコストそのものを下げるインフラ</strong>になります。</p>
 			</div>
 		</section>
 
 		<hr class="article-hr" />
 
-		<!-- Revenue Architecture -->
+		<!-- 最初の一手 -->
 		<section class="article-section">
-			<h2>Revenue Architectureがないと、CRMは使われない</h2>
-			<p>RevOpsを機能させる土台として必要なのが、Revenue Architecture（レベニューアーキテクチャ）です。Revenue Architectureとは、マーケティング、営業、カスタマーサクセス、CRM、KPI、データ、システムを、売上が生まれる一つの流れとして設計する考え方です。</p>
-			<p>CRM定着において重要な問いは、次の5つです。</p>
-			<ul>
-				<li>どのデータをCRMに入れるのか</li>
-				<li>誰がそのデータを更新するのか</li>
-				<li>どのタイミングで次の部門へ渡すのか</li>
-				<li>どのKPIに使うのか</li>
-				<li>どの会議で見て、どう改善するのか</li>
-			</ul>
-			<p>これらが設計されていなければ、CRMは入力されません。ツールの設定ではなく、収益構造の設計が必要です。</p>
-
-			<!-- DIAGRAM 3 -->
-			<figure class="diag diag--pyramid" aria-label="Revenue Architectureが土台となり、その上にCRM・KPI・データ・プロセス・会議体が置かれ、RevOpsの運用改善が機能し、最終的に定着したCRM・売上可視化・改善サイクルが実現する構造図">
-				<div class="diag-pyramid-tier diag-pyramid-tier--ra">
-					<div class="diag-pyramid-tier__tag">Revenue Architecture</div>
-					<div class="diag-pyramid-tier__role">収益構造設計</div>
-					<div class="diag-pyramid-tier__items">
-						<span>データ設計</span>
-						<span>KPI定義</span>
-						<span>プロセス設計</span>
-						<span>システム接続</span>
-					</div>
+			<h2>最初の一手：何から直せばいいか</h2>
+			<p>CRM定着のために最初に取り組むべきことは、次の3つです。順番が重要です。</p>
+			<div class="article-numbered">
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">01</p>
+					<h3>使われていない入力項目を削除する</h3>
+					<p>30個あるなら、まず「実際に使われている10個」だけを残してください。「将来使うかもしれない」は削除の理由になります。項目を減らすことへの抵抗は出ますが、使われないデータに価値はありません。</p>
 				</div>
-				<div class="diag-pyramid-arrow" aria-hidden="true">↓</div>
-				<div class="diag-pyramid-tier diag-pyramid-tier--mid">
-					<div class="diag-pyramid-tier__tag">CRM / RevOps基盤</div>
-					<div class="diag-pyramid-tier__items">
-						<span>CRM</span>
-						<span>KPI</span>
-						<span>データ</span>
-						<span>Process</span>
-						<span>ミーティング</span>
-					</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">02</p>
+					<h3>商談ステージの移行条件をチームで言語化する</h3>
+					<p>ステージの名前を変えるのではなく、「このステージに進む条件」をチームで揃えてください。全員が同じ答えを言えるまで詰めることが重要です。これだけで、パイプラインの信頼性が変わります。</p>
 				</div>
-				<div class="diag-pyramid-arrow" aria-hidden="true">↓</div>
-				<div class="diag-pyramid-tier diag-pyramid-tier--revops">
-					<div class="diag-pyramid-tier__tag">RevOps</div>
-					<div class="diag-pyramid-tier__role">運用・改善</div>
-					<div class="diag-pyramid-tier__items">
-						<span>KPIレビュー</span>
-						<span>改善活動</span>
-						<span>部門連携</span>
-					</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">03</p>
+					<h3>次の営業会議でCRMのパイプラインを使う</h3>
+					<p>資料を作らず、CRMを画面に出して会議を進めてみてください。最初の1回が、習慣を変えます。「CRMを見れば状況がわかる」という体験を現場が得ると、更新する動機が生まれます。</p>
 				</div>
-				<div class="diag-pyramid-arrow" aria-hidden="true">↓</div>
-				<div class="diag-pyramid-tier diag-pyramid-tier--outcome">
-					<div class="diag-pyramid-tier__tag">実現できる状態</div>
-					<div class="diag-pyramid-tier__items">
-						<span>定着したCRM</span>
-						<span>売上可視化</span>
-						<span>改善サイクル</span>
-					</div>
-				</div>
-				<figcaption class="diag-caption">Revenue Architectureという「設計図」があってはじめて、RevOpsとCRM運用が正しく機能し、定着する</figcaption>
-			</figure>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- Consilegy -->
-		<section class="article-section">
-			<h2>Consilegyの考え方</h2>
-			<p>Consilegyでは、CRM定着を「入力率改善」の問題とは捉えていません。CRMが定着しない背景には、KPI設計・営業プロセス・マーケティング連携・会議運用・データ構造・Revenue Architectureの問題が複合的に存在します。</p>
-			<p>そのため、CRM単体ではなく、営業・マーケティング・カスタマーサクセスを横断したRevenue Operationsとして再設計します。目的は、CRMを「管理のためのツール」から「売上改善に使われる基盤」へ変えることです。</p>
-			<div class="article-table-wrap">
-				<table class="article-table">
-					<thead>
-						<tr>
-							<th>支援領域</th>
-							<th>内容</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Architecture</td>
-							<td>Revenue Data Flow設計・CRM / SFA構造再設計</td>
-						</tr>
-						<tr>
-							<td>Process</td>
-							<td>商談ステージ・KPI・ハンドオフ条件の定義</td>
-						</tr>
-						<tr>
-							<td>オペレーション</td>
-							<td>会議体設計・RevOps体制構築・定着支援</td>
-						</tr>
-						<tr>
-							<td>Technology</td>
-							<td>HubSpot / Salesforce等の実装・改善</td>
-						</tr>
-					</tbody>
-				</table>
 			</div>
 		</section>
 
@@ -375,11 +172,11 @@ const breadcrumbSchema = {
 
 		<!-- まとめ -->
 		<section class="article-section">
-			<h2>まとめ：CRMが定着しないのは、現場のせいではない</h2>
-			<p>CRMが定着しないとき、「もっと入力して」と言い続けても根本的な解決にはなりません。必要なのは、入力を強制することではなく、入力する意味がある構造を作ることです。</p>
-			<p>CRMが定着しない原因は、現場の意識ではなく、設計の不足にある。だからこそ、CRM定着にはRevOpsとRevenue Architectureの視点が必要です。</p>
+			<h2>まとめ：「ちゃんと入力して」が必要な状況は、設計で解決できます</h2>
+			<p>CRMが定着しない原因は、現場の意識や習慣ではありません。使われない項目、定義されていないステージ、会議で使われないダッシュボード——これらは設計の問題であり、設計で解決できます。</p>
+			<p>最初にすべきことは現場への説得ではなく、使われていない項目の削除とステージ定義の言語化です。その2つを終えてから、会議の運営を変えてください。</p>
 			<div class="article-callout">
-				<p>CRMを導入しても売上管理に使えていない場合、まずはこの問いから始めるべきです。<br /><br /><strong>「このCRMは、誰のために、何を判断するために、どう使われる設計になっているのか。」</strong><br /><br />この問いに答えられないCRMは、入力されません。そして、使われません。</p>
+				<p>「ちゃんと入力してください」と言い続ける必要がなくなったとき、CRMは初めて機能しています。</p>
 			</div>
 		</section>
 

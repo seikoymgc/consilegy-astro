@@ -10,7 +10,7 @@ const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
 	headline: 'なぜSQL定義がズレるのか｜RevOpsとRevenue Architecture',
-	description: 'MQLやSQLの定義が営業とマーケティングでズレる原因を、Revenue ArchitectureとRevOpsの観点から解説します。',
+	description: 'MQLからSQLへの引き渡し基準を揃えた結果、転換率が最大20%向上。「リードの質」の議論は定義設計の問題です。',
 	datePublished: pubDate,
 	dateModified: pubDate,
 	author: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
@@ -32,7 +32,7 @@ const breadcrumbSchema = {
 
 <BaseLayout
 	title="なぜSQL定義がズレるのか｜RevOpsとRevenue Architecture | Consilegy"
-	description="MQLやSQLの定義が営業とマーケティングでズレる原因を、Revenue ArchitectureとRevOpsの観点から解説します。"
+	description="MQLからSQLへの引き渡し基準を揃えた結果、転換率が最大20%向上。「リードの質」の議論は定義設計の問題です。"
 	lang="ja"
 >
 	<Fragment slot="head">
@@ -55,7 +55,7 @@ const breadcrumbSchema = {
 			<span class="article-cat">マーケティング</span>
 		</div>
 		<h1>なぜマーケと営業で<br class="br-pc" />「SQL定義」がズレるのか</h1>
-		<p class="article-desc">マーケティングは「良いリードを送っている」と言い、営業は「質が低い」と言う。この対立はコミュニケーション不足ではなく、収益につながる顧客の定義が設計されていないことが原因だ。</p>
+		<p class="article-desc">ITバックオフィスSaaS企業がMQL・SQL定義を揃えた結果、転換率が最大20%向上。「リードの質」の議論は、定義設計の問題です。</p>
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
@@ -73,233 +73,100 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<p>マーケティングは「良いリードを送っている」と言い、営業は「質が低い」と言う。これは日本のBtoB企業で非常によく起きています。MA導入・インサイドセールス立ち上げ・MQL運用開始・CRM本格活用のタイミングで、営業とマーケティングの摩擦が急激に増えます。「SQLの定義って何？」「営業が追ってくれない」「商談化率が低すぎる」「マーケと営業で数字が違う」といった言葉が会議に出始めます。</p>
-			<p>しかし<strong>これはコミュニケーション不足ではありません</strong>。本当の原因は、収益につながる顧客の定義が構造として設計されていないことにあります。MQLとSQLの分断は、収益の流れが整備されていない組織では必ず起きます。マーケティングと営業は本来、別の指標で動いているからです。</p>
+			<p>ITバックオフィスSaaSを手がける企業（従業員約200名）では、リード数は順調に増えていました。しかし営業現場からは「質が低い」という声が上がり続け、マーケティング側は「なぜ商談にならないのか分からない」という状態が続いていました。議論は半年近く繰り返されましたが、解決しませんでした。</p>
+			<p>原因は部門の仲の問題ではありませんでした。<strong>MQLからSQLへの引き渡し基準が属人的で、マーケティングと営業で「良いリード」の定義が一致していなかった</strong>ことが本質でした。収益基準を揃えた結果、MQL→SQL転換率が最大20%向上し、低確度リードへの無駄な接触が削減されました。</p>
 		</div>
 
-		<!-- DIAGRAM 1: MarketingとSalesの分断 -->
-		<figure class="diag-wrap" aria-label="マーケティングと営業の分断：MQL定義と商談候補の基準がズレている状態">
-			<div class="diag diag--sql-gap">
-				<div class="sql-cols">
-					<div class="sql-side side-mkt">
-						<div class="sql-side-title">マーケティング</div>
-						<div class="sql-kpis">
-							<div class="sql-kpi">資料DL数 ↑</div>
-							<div class="sql-kpi">セミナー参加 ↑</div>
-							<div class="sql-kpi">スコア 50点 ↑</div>
-							<div class="sql-kpi sql-kpi--good">MQL送付 ✓</div>
-						</div>
-						<div class="sql-bubble bubble-mkt">「良いリードを<br />送っている」</div>
-					</div>
-
-					<div class="sql-wall">
-						<div class="sql-wall-inner">
-							<div class="wall-label">定義<br />の壁</div>
-							<div class="wall-icons">
-								<span>✕</span>
-								<span>✕</span>
-								<span>✕</span>
-							</div>
-						</div>
-					</div>
-
-					<div class="sql-side side-sales">
-						<div class="sql-side-title">営業</div>
-						<div class="sql-kpis">
-							<div class="sql-kpi">導入時期 不明</div>
-							<div class="sql-kpi">決裁権 なし</div>
-							<div class="sql-kpi">情報収集 段階</div>
-							<div class="sql-kpi sql-kpi--bad">商談化 困難</div>
-						</div>
-						<div class="sql-bubble bubble-sales">「質が低い<br />リードばかり」</div>
-					</div>
-				</div>
-				<div class="sql-footer">
-					<span class="sql-tag bad">✕ SQL条件が合意されていない</span>
-					<span class="sql-tag bad">✕ 収益KPIが分断している</span>
-				</div>
-			</div>
-			<figcaption class="diag-caption">マーケティングと営業の分断：MQL判定基準と商談候補の定義がずれ、両部門が別々の指標を最適化する</figcaption>
-		</figure>
-
 		<div class="article-section">
-			<h2>SQL定義がズレる5つの構造的原因</h2>
+			<h2>あなたの組織は大丈夫か——5つの確認項目</h2>
 			<ol class="article-numbered">
 				<li>
-					<strong>「良い顧客」の定義が部門で異なる</strong>
-					<p>マーケティングは獲得件数・見込み客数・スコアを追い、営業は受注・年間売上・成約率を追います。見ている収益地点が違うため、同じ見込み客を「良い」と見るか「使えない」と見るかが自然にずれます。</p>
+					<strong>「マーケが送るリードは質が低い」という言葉が会議で出る</strong>
+					<p>この言葉が出ている組織では、ほぼ例外なくMQL・SQLの定義が合意されていません。</p>
 				</li>
 				<li>
-					<strong>見込み客の条件が行動量だけで決まっている</strong>
-					<p>資料ダウンロード・セミナー参加・スコア数点といった行動量だけで見込み客を絞り込むと、導入時期不明・決裁権なし・情報収集段階の連絡先が大量に送られます。行動量と受注可能性は別物です。</p>
+					<strong>MQLの条件がスコア点数だけで決まっている</strong>
+					<p>資料ダウンロード・セミナー参加・ページ閲覧回数の合計だけでMQLを判定すると、「情報収集段階」「決裁権なし」「導入時期不明」のリードが大量に流れます。</p>
 				</li>
 				<li>
-					<strong>商談候補の条件が担当者ごとに違う</strong>
-					<p>営業マネージャーごとに「これは追う」「これはいらない」の判断が異なると、商談候補の基準は崩れます。基準が個人の経験に依存する限り、部門間の摩擦は解消されません。</p>
+					<strong>「このリードは追うか追わないか」が担当者ごとに違う</strong>
+					<p>営業マネージャーや担当者によって判断基準が異なる場合、SQLの定義はその人数分だけ存在しています。</p>
 				</li>
 				<li>
-					<strong>指標の定義が統一されていない</strong>
-					<p>マーケティングが見込み客数を追い、営業が商談転換率を追っていても、両者の定義がずれていれば会議は「数字の責任論」になります。共通の収益指標の土台がなければ、議論は建設的になりません。</p>
+					<strong>商談化率が月ごとに大きく変動する</strong>
+					<p>基準が属人的なままだと、担当者の状態や月のノルマ進捗によって商談化率が安定しません。</p>
 				</li>
 				<li>
-					<strong>収益の流れが部門で分断されている</strong>
-					<p>マーケティングは見込み客獲得まで、営業は商談から——それぞれが担当範囲だけを見ていると、収益全体の流れが誰にも見えなくなります。これが分断の本質です。</p>
+					<strong>マーケと営業が「成功した案件」を振り返る習慣がない</strong>
+					<p>受注した案件の最初の接触・行動履歴・引き渡しタイミングを定期的に分析していない場合、改善の根拠がないまま同じ議論が繰り返されます。</p>
+				</li>
+			</ol>
+			<p class="article-callout">3つ以上当てはまる場合、MQL・SQLの議論は「感情の問題」に見えて、実は「定義設計の問題」です。</p>
+		</div>
+
+		<div class="article-section">
+			<h2>SQL定義がズレる3つのパターン</h2>
+			<ol class="article-numbered">
+				<li>
+					<strong>MQL基準が行動量だけになっている</strong>
+					<p>スコアリングを導入したこと自体は正しい判断です。ただ、スコアが「資料DL×3点、ページ閲覧×1点」という行動量の合計に過ぎない場合、「情報収集に積極的な担当者」がMQLになるだけで、受注可能性とは無関係です。受注に近い行動——「料金ページ閲覧」「導入事例の複数閲覧」「比較記事の閲覧」——をスコアに反映することが必要です。</p>
+					<p><strong>判断基準：</strong>スコアが高い順に並べたリストを営業に見せたとき、「これは追いたい」と言われるリードが上位に来ていなければ、基準がズレています。</p>
+				</li>
+				<li>
+					<strong>引き渡し判断が担当者の「感覚」に依存している</strong>
+					<p>MQLの条件がシステムで定義されていても、最終的な判断が担当者の経験則に委ねられている場合、引き渡し基準は属人化したままです。前述のSaaS企業でも、「本来優先すべきリードが適切に扱われず、確度の低いリードに営業リソースを割く構造」が続いていました。</p>
+					<p><strong>判断基準：</strong>「なぜこのリードを今週営業に渡したか」を聞かれて条件を即答できない担当者がいたら、引き渡しルールは定義されていません。</p>
+				</li>
+				<li>
+					<strong>マーケと営業で「成功の定義」が違う</strong>
+					<p>マーケティングはMQL数・商談化率・リード獲得コストを最適化し、営業は受注数・平均単価・営業サイクル長を最適化します。見ている指標が違う限り、同じリードを「良い」「悪い」と評価するのは必然です。共通のゴール——「受注に近い行動をしているICP企業の担当者」——を揃えて初めて、定義は機能します。</p>
+					<p><strong>判断基準：</strong>マーケと営業が「今月うまくいった案件」として挙げる案件が一致していなければ、成功の定義がズレています。</p>
 				</li>
 			</ol>
 		</div>
 
 		<div class="article-section">
-			<h2>SQL定義問題は「部門仲の問題」ではない</h2>
-			<p>多くの会社はSQL問題を「部門連携不足」として捉えます。しかし本質は感情ではありません。指標の設計・収益の流れ・定義の統一・RevOpsの問題です。つまり<strong>SQL定義の問題は、Revenue Architectureの問題</strong>です。</p>
-			<p class="article-callout">コミュニケーション改善を試みても、収益構造が設計されていなければ同じ摩擦が繰り返されます。</p>
-		</div>
-
-		<!-- DIAGRAM 2: Revenue Qualification Design -->
-		<figure class="diag-wrap" aria-label="Revenue Qualification Design：流入からARRまで収益につながる条件で顧客を定義する構造">
-			<div class="diag diag--rqd">
-				<div class="rqd-header">Revenue Qualification Design</div>
-				<div class="rqd-flow">
-					<div class="rqd-stage">
-						<div class="rqd-box box-traffic">流入<br /><small>Traffic</small></div>
-						<div class="rqd-cond">属性条件</div>
-					</div>
-					<div class="rqd-arrow">→</div>
-					<div class="rqd-stage">
-						<div class="rqd-box box-mql">優良見込み<br /><small>MQL</small></div>
-						<div class="rqd-cond">ICP合致<br />行動条件</div>
-					</div>
-					<div class="rqd-arrow">→</div>
-					<div class="rqd-stage">
-						<div class="rqd-box box-sql">商談候補<br /><small>SQL</small></div>
-						<div class="rqd-cond">決裁権<br />時期確認</div>
-					</div>
-					<div class="rqd-arrow">→</div>
-					<div class="rqd-stage">
-						<div class="rqd-box box-opp">商談<br /><small>Opportunity</small></div>
-						<div class="rqd-cond">課題合致<br />予算確認</div>
-					</div>
-					<div class="rqd-arrow">→</div>
-					<div class="rqd-stage">
-						<div class="rqd-box box-arr">年間売上<br /><small>ARR</small></div>
-						<div class="rqd-cond">収益確定</div>
-					</div>
-				</div>
-				<div class="rqd-bar">
-					<span class="rqd-bar-label">各ステージで「収益につながる条件」を定義し、マーケティングと営業が合意する</span>
-				</div>
-				<div class="rqd-footer">
-					<span class="rqd-tag good">✓ 商談化率が改善する</span>
-					<span class="rqd-tag good">✓ 部門間の摩擦が減る</span>
-					<span class="rqd-tag good">✓ 収益見通しの精度が上がる</span>
-				</div>
-			</div>
-			<figcaption class="diag-caption">Revenue Qualification Design：流入から年間売上まで、各ステージで収益基準の条件を定義し両部門が共通認識を持つ構造</figcaption>
-		</figure>
-
-		<div class="article-section">
-			<h2>本当に必要なのは「収益基準での顧客定義」</h2>
-			<p>どの顧客を、どの条件で、どのタイミングで収益候補とみなすか——これを定義する設計が必要です。重要なのは見込み客数ではなく、<strong>収益につながる顧客を定義すること</strong>です。この定義が整うと、マーケティングは収益に向けた獲得を最適化し、営業は質が揃った商談候補を受け取れます。</p>
-			<p>SQL定義が機能している会社には共通点があります。狙う顧客像（ICP）が明確に定義されている。見込み客の条件が収益基準で決まっており、行動量だけで判断していない。商談候補の条件が営業との合意のもとで設定されている。成功パターンが構造化されており再現できる。RevOpsが両部門の間に立って設計を維持している。</p>
+			<h2>定義を揃えた後に何が変わったか</h2>
+			<p>前述のITバックオフィスSaaS企業では、HubSpotを使って収益基準を再設計したことで、以下の変化が起きました。</p>
+			<ol class="article-numbered">
+				<li>
+					<strong>MQL→SQL転換率が最大20%向上</strong>
+					<p>行動スコアリングにICP条件と受注近接行動を加えたことで、営業が「追いたい」と感じるリードの比率が上がりました。</p>
+				</li>
+				<li>
+					<strong>低確度リードへの接触を削減</strong>
+					<p>スコア基準と引き渡しルールを明文化したことで、営業が高スコアリードへの集中が可能になりました。</p>
+				</li>
+				<li>
+					<strong>パイプライン可視化により施策と収益の因果関係を把握</strong>
+					<p>どの流入経路・どの行動が最終的な受注に寄与しているかが分かるようになり、マーケティング投資の判断根拠が生まれました。</p>
+				</li>
+			</ol>
+			<p class="article-callout">「質の問題」ではなく「定義の問題」でした。揃えると、議論の内容が変わります。</p>
 		</div>
 
 		<div class="article-section">
-			<h2>Revenue Architecture という考え方</h2>
-			<p>SQL定義問題の本質はマーケティング問題ではありません。営業・マーケティング・カスタマーサクセス・CRM・KPI・データを「収益につながる一つの構造」として設計するRevenue Architectureの問題です。Revenue Architecture・収益基準での顧客定義・RevOps・KPI設計・収益の流れという構造が整うことで、SQL定義は部門を超えて機能するようになります。</p>
-		</div>
-
-		<!-- DIAGRAM 3: Revenue Architecture統合図 -->
-		<figure class="diag-wrap" aria-label="Revenue ArchitectureによるマーケティングとSalesの統合：6つの要素を接続し商談化率を高める構造">
-			<div class="diag diag--ra-sql">
-				<div class="ra-pills-row">
-					<span class="ra-pill">マーケティング</span>
-					<span class="ra-pill">営業</span>
-					<span class="ra-pill">CRM</span>
-					<span class="ra-pill">KPI</span>
-					<span class="ra-pill">RevOps</span>
-					<span class="ra-pill">BI</span>
-				</div>
-				<svg class="ra-svg" viewBox="0 0 620 60" preserveAspectRatio="none" aria-hidden="true">
-					<line x1="52"  y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
-					<line x1="156" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
-					<line x1="260" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
-					<line x1="364" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
-					<line x1="468" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
-					<line x1="572" y1="0" x2="310" y2="60" stroke="#cbd5e1" stroke-width="1.5"/>
-				</svg>
-				<div class="ra-core">
-					<div class="ra-core-title">Revenue Architecture</div>
-					<div class="ra-core-tags">
-						<span>収益基準の顧客定義</span>
-						<span>MQL・SQL条件合意</span>
-						<span>KPI統一設計</span>
-						<span>収益可視化</span>
-						<span>RevOps</span>
-					</div>
-				</div>
-				<div class="ra-connector-bar"></div>
-				<div class="ra-outcomes">
-					<div class="ra-outcome">
-						<div class="ra-outcome-title">商談化率の向上</div>
-						<div class="ra-outcome-sub">質の揃った商談候補が<br />営業に届く</div>
-					</div>
-					<div class="ra-outcome ra-outcome--mid">
-						<div class="ra-outcome-title">収益の可視化</div>
-						<div class="ra-outcome-sub">マーケから受注まで<br />一貫して追える</div>
-					</div>
-					<div class="ra-outcome">
-						<div class="ra-outcome-title">部門間の連携改善</div>
-						<div class="ra-outcome-sub">共通の収益指標で<br />両部門が動く</div>
-					</div>
-				</div>
-			</div>
-			<figcaption class="diag-caption">Revenue Architectureによる統合：マーケティング・営業・CRM・KPI・RevOps・BIを接続し、収益につながる商談化率を高める</figcaption>
-		</figure>
-
-		<div class="article-section">
-			<h2>日本企業でSQL問題が起きやすい理由</h2>
-			<p>日本企業では部門分断・属人営業・指標の分断・Excel文化が根強く残っています。そのためマーケティングと営業が「別組織」として動きやすく、収益チームとして連携するための構造が整いにくい。必要なのは「収益チーム」として動くための共通設計であり、日本企業の組織文化に合ったRevenue Architectureの導入が求められます。</p>
+			<h2>まず3日でできること</h2>
+			<ol class="article-numbered">
+				<li>
+					<strong>直近3ヶ月の受注案件の「最初の接触」を調べる</strong>
+					<p>CRMまたはMAで、受注した案件がどの流入経路・どのコンテンツから始まったかをリストアップします。「受注に近かったリードの共通点」が見えてきます。これがMQL・SQL再定義の出発点です。</p>
+				</li>
+				<li>
+					<strong>現在のMQL条件を1枚のスプレッドシートに書き出す</strong>
+					<p>スコア基準・属性条件・行動条件を文書化します。書いてみると「スコア点数しかない」「業種・規模の条件がない」ことが分かります。この文書を営業に見せて「これで追いたいリードが来ますか」と確認します。</p>
+				</li>
+				<li>
+					<strong>次の週次MTGで「今週商談になったリードの共通点」を5分話す</strong>
+					<p>マーケと営業が同じ場で「今週商談になったリードはどんな人だったか」を確認するだけで、定義のズレが具体的になります。この習慣を月1回続けるだけで、定義は少しずつ揃っていきます。</p>
+				</li>
+			</ol>
 		</div>
 
 		<div class="article-section">
-			<h2>Consilegyの考え方</h2>
-			<p>ConsilegyではMQL・SQL改善を単なるMAの運用改善とは考えていません。本質はRevenue Architecture・収益基準での顧客定義・RevOps・収益可視化・収益の流れの設計にあります。HubSpot・Salesforce・BI・Slack・Kintoneを横断しながら、「収益につながる顧客選別の構造」を設計します。目的は見込み客数を増やすことではなく、収益につながる商談を増やすことです。</p>
-			<div class="article-table-wrap">
-				<table>
-					<thead>
-						<tr>
-							<th>課題</th>
-							<th>Consilegyのアプローチ</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>マーケと営業でSQL基準がズレる</td>
-							<td>ICP定義 + 商談候補条件の合意設計</td>
-						</tr>
-						<tr>
-							<td>見込み客の商談転換率が低い</td>
-							<td>収益基準の見込み客条件設計</td>
-						</tr>
-						<tr>
-							<td>指標の定義が部門ごとに違う</td>
-							<td>KPI統一設計 + 定義の明文化</td>
-						</tr>
-						<tr>
-							<td>部門間の摩擦が続く</td>
-							<td>RevOps整備 + 収益チーム設計</td>
-						</tr>
-						<tr>
-							<td>収益全体が見えない</td>
-							<td>収益の流れ設計 + 収益可視化構築</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-
-		<div class="article-section">
-			<h2>まとめ：SQL問題はRevenue構造の問題</h2>
-			<p>マーケティングと営業でSQL定義がズレる原因は部門仲の問題ではありません。Revenue Architecture不足・KPI設計不足・収益基準での顧客定義未設計・RevOps未整備が本質的な原因です。だからこそ必要なのは見込み客数の改善ではなく、「収益につながる顧客選別の構造」を設計することです。SQL定義はRevenue Architecture全体として設計されるべきです。</p>
+			<h2>まとめ：SQL定義のズレは設計の問題</h2>
+			<p>マーケと営業の摩擦は、コミュニケーション不足や部門の仲の問題ではありません。「良いリード」の定義が揃っていないまま、それぞれの指標を最適化しているから起きます。</p>
+			<p>MQL・SQLの条件を収益基準で設計し直し、マーケと営業が同じ定義で動ける状態を作ることが先です。議論の前に、定義を1枚の文書にしてください。</p>
 		</div>
 
 		<!-- ===== CTA ===== -->
@@ -382,77 +249,6 @@ const breadcrumbSchema = {
 .article-numbered li strong { grid-column: 2; display: block; font-size: 1rem; color: var(--color-navy, #0f172a); margin-bottom: 6px; line-height: 1.4; }
 .article-numbered li p { grid-column: 2; font-size: 0.925rem; color: var(--color-charcoal, #334155); line-height: 1.8; margin: 0; }
 
-/* ===== TABLE ===== */
-.article-table-wrap { overflow-x: auto; margin-top: 24px; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; }
-.article-table-wrap table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-.article-table-wrap th { background: var(--color-navy, #0f172a); color: #fff; padding: 12px 16px; text-align: left; font-weight: 600; font-size: 0.85rem; }
-.article-table-wrap td { padding: 12px 16px; border-bottom: 1px solid var(--color-border, #e2e8f0); color: var(--color-charcoal, #334155); vertical-align: top; line-height: 1.6; }
-.article-table-wrap tr:last-child td { border-bottom: none; }
-.article-table-wrap tr:nth-child(even) td { background: #f8fafc; }
-
-/* ===== DIAGRAMS ===== */
-.diag-wrap { margin: 0 0 56px; padding: 0; border: none; }
-.diag { background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 28px 24px; }
-.diag-caption { font-size: 0.78rem; color: var(--color-muted, #64748b); text-align: center; margin-top: 10px; line-height: 1.5; }
-
-/* --- DIAGRAM 1: SQL Gap --- */
-.diag--sql-gap { display: flex; flex-direction: column; gap: 16px; }
-.sql-cols { display: grid; grid-template-columns: 1fr 48px 1fr; gap: 0; align-items: stretch; }
-.sql-side { background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 16px 14px; display: flex; flex-direction: column; gap: 10px; }
-.side-mkt { border-top: 3px solid #3b82f6; }
-.side-sales { border-top: 3px solid #64748b; }
-.sql-side-title { font-size: 0.8rem; font-weight: 700; color: var(--color-navy, #0f172a); text-align: center; }
-.sql-kpis { display: flex; flex-direction: column; gap: 5px; }
-.sql-kpi { font-size: 0.72rem; color: var(--color-charcoal, #334155); background: #f8fafc; border-radius: 4px; padding: 4px 8px; }
-.sql-kpi--good { background: #eff6ff; color: var(--color-primary, #1e40af); font-weight: 600; }
-.sql-kpi--bad  { background: #fee2e2; color: #991b1b; font-weight: 600; }
-.sql-bubble { font-size: 0.75rem; font-weight: 600; text-align: center; background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 8px 10px; line-height: 1.4; }
-.bubble-mkt   { color: var(--color-primary, #1e40af); }
-.bubble-sales { color: #991b1b; }
-.sql-wall { display: flex; align-items: center; justify-content: center; }
-.sql-wall-inner { background: #fee2e2; border: 1px dashed #fca5a5; border-radius: 6px; padding: 12px 6px; display: flex; flex-direction: column; align-items: center; gap: 4px; height: 100%; justify-content: center; }
-.wall-label { font-size: 0.65rem; font-weight: 700; color: #dc2626; text-align: center; line-height: 1.3; }
-.wall-icons { display: flex; flex-direction: column; gap: 2px; align-items: center; font-size: 0.7rem; color: #fca5a5; }
-.sql-footer { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
-.sql-tag { font-size: 0.75rem; font-weight: 600; }
-.bad  { color: #dc2626; }
-.good { color: #16a34a; }
-
-/* --- DIAGRAM 2: Revenue Qualification Design --- */
-.diag--rqd { display: flex; flex-direction: column; gap: 14px; }
-.rqd-header { text-align: center; font-size: 0.9rem; font-weight: 700; color: var(--color-navy, #0f172a); letter-spacing: 0.03em; }
-.rqd-flow { display: flex; align-items: flex-start; justify-content: center; gap: 4px; flex-wrap: wrap; }
-.rqd-stage { display: flex; flex-direction: column; align-items: center; gap: 5px; }
-.rqd-box { padding: 8px 8px; border-radius: 6px; font-size: 0.72rem; font-weight: 700; color: #fff; text-align: center; line-height: 1.3; }
-.rqd-box small { font-size: 0.6rem; font-weight: 400; opacity: 0.85; display: block; }
-.box-traffic { background: #93c5fd; color: #1e3a8a; }
-.box-mql     { background: #60a5fa; }
-.box-sql     { background: #2563eb; }
-.box-opp     { background: #1d4ed8; }
-.box-arr     { background: #0f172a; }
-.rqd-cond { font-size: 0.65rem; color: var(--color-muted, #64748b); background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 4px; padding: 3px 7px; text-align: center; line-height: 1.4; white-space: nowrap; }
-.rqd-arrow { font-size: 1rem; color: var(--color-muted, #64748b); flex-shrink: 0; padding-top: 8px; }
-.rqd-bar { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px; padding: 10px 16px; text-align: center; }
-.rqd-bar-label { font-size: 0.78rem; font-weight: 600; color: var(--color-primary, #1e40af); }
-.rqd-footer { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
-.rqd-tag { font-size: 0.75rem; font-weight: 600; }
-
-/* --- DIAGRAM 3: RA Hub --- */
-.diag--ra-sql { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
-.ra-pills-row { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; padding-bottom: 4px; }
-.ra-pill { background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 4px; padding: 5px 14px; font-size: 0.75rem; font-weight: 600; color: var(--color-charcoal, #334155); white-space: nowrap; }
-.ra-svg { width: 100%; height: 60px; display: block; }
-.ra-core { background: var(--color-navy, #0f172a); color: #fff; border-radius: 8px; padding: 18px 20px; text-align: center; }
-.ra-core-title { font-size: 1rem; font-weight: 700; margin-bottom: 10px; letter-spacing: 0.02em; }
-.ra-core-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
-.ra-core-tags span { font-size: 0.7rem; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; padding: 3px 9px; color: #e2e8f0; }
-.ra-connector-bar { height: 24px; background: linear-gradient(180deg, var(--color-navy, #0f172a) 0%, #334155 100%); width: 2px; margin: 0 auto; }
-.ra-outcomes { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
-.ra-outcome { background: #fff; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 14px 12px; text-align: center; }
-.ra-outcome--mid { border-color: var(--color-primary, #1e40af); box-shadow: 0 0 0 1px var(--color-primary, #1e40af); }
-.ra-outcome-title { font-size: 0.82rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 6px; }
-.ra-outcome-sub { font-size: 0.72rem; color: var(--color-muted, #64748b); line-height: 1.5; }
-
 /* ===== CTA ===== */
 .article-cta { background: radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%), linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%); border-radius: 8px; padding: 40px 36px; text-align: center; margin-bottom: 48px; }
 .article-cta__catch { font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
@@ -471,18 +267,10 @@ const breadcrumbSchema = {
 @media (max-width: 700px) {
 	.article-head h1 { font-size: 1.4rem; }
 	.br-pc { display: none; }
-	.sql-cols { grid-template-columns: 1fr 36px 1fr; }
-	.rqd-flow { gap: 3px; }
-	.rqd-box { font-size: 0.65rem; padding: 6px 6px; }
-	.rqd-arrow { font-size: 0.8rem; }
-	.ra-outcomes { grid-template-columns: 1fr; gap: 8px; }
 	.article-cta { padding: 28px 20px; }
 }
 @media (max-width: 480px) {
 	.container { padding: 0 16px; }
-	.sql-cols { grid-template-columns: 1fr 28px 1fr; }
-	.rqd-cond { white-space: normal; font-size: 0.6rem; }
-	.ra-outcomes { grid-template-columns: 1fr 1fr; }
 }
 </style>
 

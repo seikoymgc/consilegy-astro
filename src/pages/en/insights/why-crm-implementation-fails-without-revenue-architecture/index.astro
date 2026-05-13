@@ -41,7 +41,6 @@ const breadcrumbSchema = {
 
 <div class="article-wrap">
 
-  <!-- ===== ARTICLE HEADER ===== -->
   <header class="article-head container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="/en/">Home</a>
@@ -56,108 +55,124 @@ const breadcrumbSchema = {
       <span class="article-read">{readTime}</span>
     </div>
     <h1>Why CRM Implementation Fails Without Revenue Architecture</h1>
-    <p class="article-desc">Most CRM implementations fail not because of the tool but because the revenue structure it needs, including lifecycle stages, handoff rules, qualification criteria, and reporting logic, was never designed first.</p>
+    <p class="article-desc">A healthtech company (~150 employees) implemented HubSpot to solve a data management problem. After 3 months, the CRM was live and the data problem remained. Contacts were being logged, but pipeline data was unreliable, ownership was unclear, and reporting didn't answer the questions management was asking. The CRM was configured — but it had no revenue architecture underneath it. Rebuilding the architecture first reduced data management time by ~65% and freed ~100 hours per month that the team had been spending on operational tasks.</p>
   </header>
 
-  <!-- ===== ARTICLE BODY ===== -->
   <article class="article-body container" id="article">
 
     <section class="article-section">
-      <p>Most CRM implementations are deployed, adopted for a few months, then quietly abandoned or left inconsistent. The problem is rarely the tool.</p>
+      <p>CRM implementation projects fail at a consistently high rate. The failure is rarely caused by the tool. HubSpot, Salesforce, and comparable platforms are capable of supporting sophisticated revenue operations. The failure is almost always caused by the same missing layer: the revenue architecture that the CRM is supposed to implement was never designed first.</p>
+      <p>Revenue architecture is the operating model that defines what the CRM is supposed to do: how leads are classified, who owns them at each stage, what the handoff criteria are, what the pipeline stages mean, and what the reporting is supposed to show. When this model is missing, the CRM has no structure to implement. It becomes a contact database with inconsistent usage — logging activity without generating the pipeline visibility that justified the investment.</p>
     </section>
 
     <hr class="article-hr" />
 
     <section class="article-section">
-      <h2>The assumption most teams make</h2>
-      <p>Teams assume the CRM will organize their revenue process. In practice, CRM tools surface whatever data exists. If the underlying revenue structure is not designed, including who owns what, when something moves, and what counts as qualified, the CRM reflects that disorder.</p>
-      <p>A CRM configured before the revenue architecture is defined is not a system of record. It is a place where undefined processes become permanent, inconsistent data accumulates, and teams eventually lose confidence in what the tool is telling them.</p>
+      <h2>Five signs CRM implementation is running without revenue architecture</h2>
+
+      <div class="article-checklist">
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Are different team members using the CRM's pipeline stages differently — with no shared definition of what each stage requires?</p>
+          <p class="article-checklist__detail">When stage definitions are interpreted individually, pipeline data can't be trusted. One rep marks a contact at "Proposal Sent" after sending a one-pager. Another marks the same stage only after a formal contract review has started. Aggregate pipeline numbers are the sum of different standards — not a reliable forecast.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">When a lead enters the CRM, is it unclear who owns it next — or when they need to act?</p>
+          <p class="article-checklist__detail">CRM tools can route and assign contacts automatically, but the routing logic has to be defined first. Without documented ownership rules, leads sit in assigned queues with no action. The CRM records assignment but not activity — and the difference only becomes visible when pipeline is reviewed and opportunities that should have been worked are months old.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Is the CRM data used primarily for reporting to management — rather than as an operational tool the team uses to decide what to do next?</p>
+          <p class="article-checklist__detail">When the CRM is a reporting tool rather than an operational one, it gets updated after decisions are made rather than before. Data quality degrades because there's no operational incentive to keep it current. The CRM shows what happened, not what to do — and the team reverts to email, spreadsheets, and individual judgment for actual decisions.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Did the CRM get configured before the team agreed on qualification criteria, handoff rules, and lifecycle stage definitions?</p>
+          <p class="article-checklist__detail">CRM configuration that precedes architecture design builds a structure that doesn't fit the team's actual revenue motion. The pipeline stages get used because they exist — not because they reflect how deals actually move. Changing them later requires re-staging every active deal and explaining to the team why the system they just learned now works differently.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Is CRM data cleaned manually by one person on a recurring basis — rather than being maintained as a natural byproduct of how the team works?</p>
+          <p class="article-checklist__detail">Manual data cleaning is a symptom of a CRM that isn't integrated into the team's actual workflow. When data entry is a separate task rather than part of how work gets done, it falls behind. One person's cleanup cycle maintains minimum usability but doesn't solve the structural problem: the CRM isn't designed for how the team actually operates.</p>
+        </div>
+      </div>
     </section>
 
     <hr class="article-hr" />
 
     <section class="article-section">
-      <h2>What revenue architecture provides that CRM cannot</h2>
-      <p>Revenue architecture is the design layer that sits above CRM. It defines: lifecycle stages and exit criteria, lead ownership rules, qualification thresholds, handoff triggers, and reporting structure. Without it, CRM deployment is just data entry.</p>
-      <p>The CRM executes the architecture. It cannot substitute for it. Every configuration decision in a CRM, including which fields to require, when stages advance, and what triggers a handoff, needs a prior decision from the architecture layer. Teams that skip the architecture layer end up making those decisions reactively, inside the tool, under pressure, in ways that are inconsistent across the team.</p>
-    </section>
-
-    <hr class="article-hr" />
-
-    <section class="article-section">
-      <h2>Four elements CRM needs to be built on</h2>
+      <h2>Three failures that consistently appear in CRM implementations without architecture</h2>
 
       <div class="article-breakdown">
         <div class="article-breakdown__item">
           <div class="article-breakdown__num">01</div>
           <div class="article-breakdown__body">
-            <strong>Lifecycle stage definitions</strong>
-            <p>Each stage needs a clear entry and exit criterion. Without defined criteria, stages become labels that different people use differently, and the CRM data becomes unreliable as a result.</p>
+            <strong>CRM configured before lifecycle stages and qualification criteria were defined</strong>
+            <p>The healthtech company had implemented HubSpot with six pipeline stages: New Lead, Contacted, Qualified, Demo Completed, Proposal Sent, Closed. These stages were adopted directly from HubSpot's default sales pipeline template. Nobody had defined what "Qualified" meant in the company's specific context — which customers qualified, what signals indicated qualification, or who made the qualification decision. Each team member interpreted it differently.</p>
+            <p>When the architecture layer was added — defining qualification criteria specifically for the company's customer base, documenting who owns each stage transition, and reconfiguring the pipeline to reflect actual deal progression — the pipeline stage distribution changed significantly. Several contacts that had been marked "Qualified" for months were reclassified as early-stage. The pipeline looked smaller, but it was accurate. Management could make decisions from it for the first time.</p>
+            <p><strong>Judgment criterion:</strong> Were lifecycle stage definitions, qualification criteria, and handoff rules documented and agreed on before the CRM was configured — or was the CRM configured first and the definitions interpreted afterward?</p>
           </div>
         </div>
         <div class="article-breakdown__item">
           <div class="article-breakdown__num">02</div>
           <div class="article-breakdown__body">
-            <strong>Qualification criteria</strong>
-            <p>What makes a lead sales-ready must be decided before it enters CRM. If the threshold is undefined, leads are handed off too early or held too long, neither of which the CRM can fix.</p>
+            <strong>No ownership rules — contacts logged but not worked</strong>
+            <p>The healthtech company's HubSpot had a contact ownership field, but ownership assignment was informal. When a new contact entered, whoever noticed it first either took ownership or left it for someone else. No rule defined what happened at which trigger. No task was created at ownership assignment. No SLA specified when the first action needed to happen.</p>
+            <p>The result: contacts that had been assigned for weeks with no activity. The CRM showed ownership — it didn't show inaction. A simple configuration change — creating a task automatically at ownership assignment, with a 48-hour completion window — made the gap visible immediately. The number of contacts with overdue tasks was the first honest picture management had seen of how the team was actually handling inbound leads.</p>
+            <p><strong>Judgment criterion:</strong> When a lead enters the CRM and is assigned, does a task automatically appear for the owner — with a defined deadline that makes inaction visible to management?</p>
           </div>
         </div>
         <div class="article-breakdown__item">
           <div class="article-breakdown__num">03</div>
           <div class="article-breakdown__body">
-            <strong>Handoff rules</strong>
-            <p>CRM cannot enforce handoffs it was never given. Who passes what to whom, when, and under what conditions: these decisions must be made outside the tool before they can be configured inside it.</p>
+            <strong>Data management treated as a CRM maintenance task — not as a structural design problem</strong>
+            <p>The healthtech company had a team member spending approximately 100 hours per month on HubSpot data management: merging duplicate contacts, correcting stage assignments, updating ownership records, and cleaning contact properties that had been filled in inconsistently. This was treated as a maintenance necessity — the cost of keeping the CRM usable.</p>
+            <p>The root cause was structural: the CRM was configured with optional fields that became inconsistently filled, default settings that allowed duplicate creation, and no validation rules that prevented common data quality errors at the point of entry. Adding required fields for key properties, configuring duplicate detection, and building validation into the CRM's intake flows reduced data management time by approximately 65% within 3 months. The maintenance task had been treated as inevitable — it was actually a solvable design problem.</p>
+            <p><strong>Judgment criterion:</strong> Are your CRM's most common data quality problems caused by inconsistent data entry — which configuration changes could prevent — or by deliberate decisions to ignore data standards?</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="article-hr" />
+
+    <section class="article-section">
+      <h2>What building architecture before (and after) CRM implementation changed</h2>
+      <p>After 3 months of architecture work at the healthtech company — defining qualification criteria, documenting ownership rules, rebuilding pipeline stages, and configuring HubSpot to enforce the new structure — the concrete results were: approximately 65% reduction in data management time, approximately 100 hours per month freed from operational tasks, and a team that had shifted from managing the CRM to operating from it.</p>
+
+      <div class="article-callout">
+        <p><strong>The CRM tool hadn't changed. What changed was that the revenue architecture it was supposed to implement had been designed — and the CRM had been configured to enforce rather than ignore that architecture.</strong></p>
+      </div>
+    </section>
+
+    <hr class="article-hr" />
+
+    <section class="article-section">
+      <h2>Three places to start</h2>
+
+      <div class="article-breakdown">
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">01</div>
+          <div class="article-breakdown__body">
+            <strong>Audit your current CRM pipeline stages against your actual deal progression</strong>
+            <p>Pull every deal currently in the pipeline. For each one, check: does the stage this deal is in actually reflect where it is in the buying process? If more than 20% of active deals feel misclassified against their current stage, the stage definitions aren't working. Document what each stage should require before a deal advances — and rebuild the definitions around those requirements, not around HubSpot's defaults.</p>
           </div>
         </div>
         <div class="article-breakdown__item">
-          <div class="article-breakdown__num">04</div>
+          <div class="article-breakdown__num">02</div>
           <div class="article-breakdown__body">
-            <strong>Reporting logic</strong>
-            <p>What gets measured must be designed, not discovered. If reporting structure is not specified upfront, teams end up with dashboards full of data that does not answer the questions management is actually asking.</p>
+            <strong>Add required fields and duplicate detection to prevent the most common data quality errors</strong>
+            <p>Identify the top 3 data quality problems in your CRM (typically: duplicates, missing company association, inconsistently filled qualification fields). Configure HubSpot to prevent each one at the point of entry: required fields for key properties, duplicate detection on contact creation, and validation rules that flag likely errors before they get saved. This reduces maintenance burden faster than any other single change.</p>
           </div>
         </div>
-      </div>
-    </section>
-
-    <hr class="article-hr" />
-
-    <section class="article-section">
-      <h2>What breaks without architecture</h2>
-      <p>Pipeline data becomes unreliable. Stages are used inconsistently. Reporting shows noise rather than signal. Sales and marketing disagree on what each stage means.</p>
-      <p>These are not CRM problems. They are architecture problems that surface inside the CRM. Fixing them with CRM configurations such as adding validation rules, changing stage names, or creating new fields treats the symptom. The root cause is that the structure was never designed.</p>
-    </section>
-
-    <hr class="article-hr" />
-
-    <section class="article-section">
-      <h2>How revenue architecture changes the outcome</h2>
-      <p>When the structure is designed first, CRM becomes a tool for tracking decisions rather than a place where decisions happen reactively. Stage movements reflect real qualification progress, not whoever clicked the dropdown last. Handoffs happen on defined criteria, not on individual judgment calls. Reporting answers real questions rather than reflecting whatever data happened to get entered.</p>
-      <p>The result is a CRM that teams trust and actually use, because it reflects a process that was intentionally designed, not one that accumulated by default.</p>
-
-      <div class="article-callout">
-        <p><strong>The CRM is not the system of record for your revenue process. It is a reflection of the system you designed, or failed to design.</strong></p>
-      </div>
-    </section>
-
-    <hr class="article-hr" />
-
-    <section class="article-section">
-      <h2>The diagram</h2>
-      <p>The comparison below illustrates the difference between a CRM-first approach and a revenue architecture-first approach.</p>
-      <div class="article-diagram">
-        <img
-          src="/images/insights/en/crm-failure-without-revenue-architecture.svg"
-          alt="Two-column comparison: CRM-First Approach (no lifecycle definitions, no handoff criteria, no qualification logic, no reporting structure) vs Revenue Architecture First (stages defined before build, handoff rules documented, qualification criteria set, reporting designed upfront)"
-          width="760"
-          height="260"
-          loading="lazy"
-        />
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">03</div>
+          <div class="article-breakdown__body">
+            <strong>Configure task creation at ownership assignment with a defined completion window</strong>
+            <p>Set up a HubSpot workflow that creates a task automatically when a contact is assigned to an owner, with a completion deadline (start with 48 hours for inbound leads). This makes inaction visible immediately — owners see overdue tasks, managers see which assignments are not being worked. It costs one hour to configure and produces more operational accountability than any management process intervention.</p>
+          </div>
+        </div>
       </div>
     </section>
 
   </article>
 
-  <!-- ===== RELATED ===== -->
   <aside class="article-related container">
     <p class="article-related__label">Related</p>
     <div class="article-related__grid">
@@ -166,14 +181,9 @@ const breadcrumbSchema = {
         <p class="article-related__card-title">What Revenue Architecture Means for Japan GTM</p>
         <span class="article-related__card-arrow">→</span>
       </a>
-      <a href="/en/insights/how-to-define-lifecycle-stages-for-japan-facing-revenue-operations/" class="article-related__card">
-        <p class="article-related__card-cat">Revenue Architecture</p>
-        <p class="article-related__card-title">How to Define Lifecycle Stages for Japan-Facing Revenue Operations</p>
-        <span class="article-related__card-arrow">→</span>
-      </a>
-      <a href="/en/insights/lead-handoff-rules-for-japan-gtm-teams/" class="article-related__card">
-        <p class="article-related__card-cat">Revenue Architecture</p>
-        <p class="article-related__card-title">Lead Handoff Rules for Japan GTM Teams</p>
+      <a href="/en/insights/hubspot-implementation-for-japan-gtm-what-to-configure-first/" class="article-related__card">
+        <p class="article-related__card-cat">HubSpot</p>
+        <p class="article-related__card-title">HubSpot Implementation for Japan GTM: What to Configure First</p>
         <span class="article-related__card-arrow">→</span>
       </a>
       <a href="/en/insights/where-japan-gtm-breaks-after-lead-generation/" class="article-related__card">
@@ -181,17 +191,22 @@ const breadcrumbSchema = {
         <p class="article-related__card-title">Where Japan GTM Breaks After Lead Generation</p>
         <span class="article-related__card-arrow">→</span>
       </a>
+      <a href="/en/services/crm-revops-implementation/" class="article-related__card">
+        <p class="article-related__card-cat">Service</p>
+        <p class="article-related__card-title">CRM / RevOps Implementation</p>
+        <span class="article-related__card-arrow">→</span>
+      </a>
     </div>
   </aside>
 
-  <!-- ===== CTA ===== -->
   <section class="article-cta">
     <div class="container">
       <div class="article-cta__body">
-        <h2>Ready to design your Japan revenue system?</h2>
-        <p>Consilegy helps global B2B teams design the revenue architecture, CRM structure, and Japan-facing operations their pipeline actually needs. Talk to us about where to start.</p>
+        <h2>CRM implemented but not producing reliable pipeline data?</h2>
+        <p>Tell us how your CRM is currently configured. We'll identify the architecture gaps and what to fix first.</p>
         <div class="article-cta__actions">
-          <a href="/en/contact/" class="article-cta__btn article-cta__btn--primary">Talk to us</a>
+          <a href="/en/contact/" class="article-cta__btn article-cta__btn--primary">Contact Us</a>
+          <a href="/en/services/" class="article-cta__btn article-cta__btn--ghost">View All Services →</a>
         </div>
       </div>
     </div>
@@ -200,259 +215,55 @@ const breadcrumbSchema = {
 </div>
 
 <style>
-/* ── Wrap / Container ─────────────────────── */
 .article-wrap { background: #fff; }
 .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
-
-/* ── Header ──────────────────────────────── */
-.article-head {
-  padding-top: 48px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid var(--color-border, #e2e8f0);
-}
-.breadcrumb {
-  font-size: 0.8rem;
-  color: var(--color-text-muted, #64748b);
-  margin-bottom: 20px;
-  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
-}
+.article-head { padding-top: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--color-border, #e2e8f0); }
+.breadcrumb { font-size: 0.8rem; color: var(--color-text-muted, #64748b); margin-bottom: 20px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 .breadcrumb a { color: var(--color-text-muted, #64748b); text-decoration: none; }
 .breadcrumb a:hover { color: var(--color-primary, #1e40af); text-decoration: underline; }
-
-.article-meta {
-  display: flex; align-items: center; gap: 12px;
-  margin-bottom: 20px; flex-wrap: wrap;
-}
-.article-cat {
-  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
-  background: #eff6ff; color: var(--color-primary, #1e40af);
-  padding: 3px 10px; border-radius: 10px;
-}
-.article-date, .article-read {
-  font-size: 0.8rem; color: var(--color-text-muted, #64748b);
-}
-
-.article-head h1 {
-  font-size: clamp(1.6rem, 3.5vw, 2.25rem);
-  font-weight: 600;
-  color: var(--color-navy, #0f172a);
-  line-height: 1.25;
-  letter-spacing: 0.01em;
-  margin: 0 0 16px;
-}
-.article-desc {
-  font-size: 1.0625rem;
-  color: var(--color-text-muted, #64748b);
-  line-height: 1.8;
-  margin: 0;
-}
-
-/* ── Body ────────────────────────────────── */
-.article-body {
-  padding-top: 48px;
-  padding-bottom: 64px;
-}
-.article-section {
-  margin-bottom: 0;
-}
-.article-section h2 {
-  font-size: 1.3125rem;
-  font-weight: 600;
-  color: var(--color-navy, #0f172a);
-  margin: 0 0 16px;
-  line-height: 1.35;
-}
-.article-section h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-navy, #0f172a);
-  margin: 24px 0 10px;
-}
-.article-section p {
-  font-size: 1rem;
-  line-height: 1.85;
-  color: var(--color-text, #1e293b);
-  margin: 0 0 16px;
-}
-.article-section ul {
-  padding-left: 1.5rem;
-  margin: 0 0 16px;
-  display: flex; flex-direction: column; gap: 8px;
-}
-.article-section li {
-  font-size: 1rem;
-  line-height: 1.75;
-  color: var(--color-text, #1e293b);
-}
-.article-section a {
-  color: var(--color-primary, #1e40af);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.article-subsection { margin-bottom: 8px; }
-
-.article-callout {
-  background: #eff6ff;
-  border-left: 4px solid var(--color-primary, #1e40af);
-  border-radius: 0 8px 8px 0;
-  padding: 16px 20px;
-  margin: 24px 0;
-}
-.article-callout p {
-  margin: 0;
-  font-size: 1rem;
-  line-height: 1.75;
-  color: var(--color-navy, #0f172a);
-}
-
-.article-hr {
-  border: none;
-  border-top: 1px solid var(--color-border, #e2e8f0);
-  margin: 48px 0;
-}
-
-/* ── Diagram ─────────────────────────────── */
-.article-diagram {
-  margin: 24px 0;
-  border: 1px solid var(--color-border, #e2e8f0);
-  border-radius: 10px;
-  overflow: hidden;
-  background: #fff;
-}
-.article-diagram img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-/* ── Numbered breakdown ──────────────────── */
-.article-breakdown {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  margin: 24px 0;
-  border-top: 1px solid var(--color-border, #e2e8f0);
-}
-.article-breakdown__item {
-  display: flex;
-  gap: 20px;
-  padding: 20px 0;
-  border-bottom: 1px solid var(--color-border, #e2e8f0);
-  align-items: flex-start;
-}
-.article-breakdown__num {
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: var(--color-primary, #1e40af);
-  opacity: 0.3;
-  flex-shrink: 0;
-  line-height: 1.5;
-  min-width: 2.5rem;
-}
-.article-breakdown__body strong {
-  display: block;
-  font-size: 0.9375rem;
-  font-weight: 700;
-  color: var(--color-navy, #0f172a);
-  margin-bottom: 6px;
-}
-.article-breakdown__body p {
-  font-size: 0.9375rem;
-  line-height: 1.75;
-  color: var(--color-text-muted, #64748b);
-  margin: 0;
-}
-
-/* ── Related ─────────────────────────────── */
-.article-related {
-  padding: 48px 0;
-  border-top: 1px solid var(--color-border, #e2e8f0);
-}
-.article-related__label {
-  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--color-primary, #1e40af);
-  margin: 0 0 20px;
-}
-.article-related__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
-.article-related__card {
-  background: #f8fafc;
-  border: 1px solid var(--color-border, #e2e8f0);
-  border-radius: 8px;
-  padding: 16px 18px;
-  text-decoration: none;
-  display: flex; flex-direction: column; gap: 6px;
-  transition: border-color 0.15s, box-shadow 0.15s;
-}
-.article-related__card:hover {
-  border-color: var(--color-primary, #1e40af);
-  box-shadow: 0 2px 12px rgba(30,64,175,0.07);
-}
-.article-related__card-cat {
-  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em;
-  text-transform: uppercase; color: var(--color-primary, #1e40af); margin: 0;
-}
-.article-related__card-title {
-  font-size: 0.875rem; font-weight: 600;
-  color: var(--color-navy, #0f172a); line-height: 1.45; margin: 0; flex: 1;
-}
-.article-related__card-arrow {
-  font-size: 0.875rem; color: var(--color-primary, #1e40af); font-weight: 600;
-}
-
-/* ── CTA ─────────────────────────────────── */
-.article-cta {
-  background: #f8fafc;
-  border-top: 1px solid var(--color-border, #e2e8f0);
-  padding: 64px 0;
-}
-.article-cta__body {
-  text-align: center;
-  max-width: 560px;
-  margin: 0 auto;
-}
-.article-cta__body h2 {
-  font-size: clamp(1.25rem, 3vw, 1.625rem);
-  font-weight: 600;
-  color: var(--color-navy, #0f172a);
-  margin: 0 0 12px;
-}
-.article-cta__body p {
-  font-size: 0.9375rem;
-  line-height: 1.8;
-  color: var(--color-text-muted, #64748b);
-  margin: 0 0 28px;
-}
-.article-cta__actions {
-  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
-}
-.article-cta__btn {
-  display: inline-flex; align-items: center;
-  padding: 0.75em 1.75em;
-  border-radius: 8px; font-size: 0.9375rem; font-weight: 700;
-  text-decoration: none; transition: background 0.15s, color 0.15s;
-}
-.article-cta__btn--primary {
-  background: var(--color-primary, #1e40af); color: #fff;
-  border: 2px solid var(--color-primary, #1e40af);
-}
+.article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+.article-cat { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: #eff6ff; color: var(--color-primary, #1e40af); padding: 3px 10px; border-radius: 10px; }
+.article-date, .article-read { font-size: 0.8rem; color: var(--color-text-muted, #64748b); }
+.article-head h1 { font-size: clamp(1.6rem, 3.5vw, 2.25rem); font-weight: 600; color: var(--color-navy, #0f172a); line-height: 1.25; letter-spacing: 0.01em; margin: 0 0 16px; }
+.article-desc { font-size: 1.0625rem; color: var(--color-text-muted, #64748b); line-height: 1.8; margin: 0; }
+.article-body { padding-top: 48px; padding-bottom: 64px; }
+.article-section { margin-bottom: 0; }
+.article-section h2 { font-size: 1.3125rem; font-weight: 600; color: var(--color-navy, #0f172a); margin: 0 0 16px; line-height: 1.35; }
+.article-section p { font-size: 1rem; line-height: 1.85; color: var(--color-text, #1e293b); margin: 0 0 16px; }
+.article-section a { color: var(--color-primary, #1e40af); text-decoration: underline; text-underline-offset: 2px; }
+.article-callout { background: #eff6ff; border-left: 4px solid var(--color-primary, #1e40af); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 24px 0; }
+.article-callout p { margin: 0; font-size: 1rem; line-height: 1.75; color: var(--color-navy, #0f172a); }
+.article-hr { border: none; border-top: 1px solid var(--color-border, #e2e8f0); margin: 48px 0; }
+.article-checklist { display: flex; flex-direction: column; gap: 0; margin: 24px 0; border-top: 1px solid var(--color-border, #e2e8f0); }
+.article-checklist__item { padding: 20px 0; border-bottom: 1px solid var(--color-border, #e2e8f0); }
+.article-checklist__q { font-size: 0.9375rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 8px; padding-left: 1.5rem; position: relative; }
+.article-checklist__q::before { content: '?'; position: absolute; left: 0; font-size: 0.875rem; font-weight: 800; color: var(--color-primary, #1e40af); opacity: 0.4; }
+.article-checklist__detail { font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted, #64748b); margin: 0; padding-left: 1.5rem; }
+.article-breakdown { display: flex; flex-direction: column; gap: 0; margin: 24px 0; border-top: 1px solid var(--color-border, #e2e8f0); }
+.article-breakdown__item { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--color-border, #e2e8f0); align-items: flex-start; }
+.article-breakdown__num { font-size: 1.25rem; font-weight: 800; color: var(--color-primary, #1e40af); opacity: 0.3; flex-shrink: 0; line-height: 1.5; min-width: 2.5rem; }
+.article-breakdown__body strong { display: block; font-size: 0.9375rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 6px; }
+.article-breakdown__body p { font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted, #64748b); margin: 0 0 10px; }
+.article-breakdown__body p:last-child { margin-bottom: 0; }
+.article-related { padding: 48px 0; border-top: 1px solid var(--color-border, #e2e8f0); }
+.article-related__label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-primary, #1e40af); margin: 0 0 20px; }
+.article-related__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.article-related__card { background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 16px 18px; text-decoration: none; display: flex; flex-direction: column; gap: 6px; transition: border-color 0.15s, box-shadow 0.15s; }
+.article-related__card:hover { border-color: var(--color-primary, #1e40af); box-shadow: 0 2px 12px rgba(30,64,175,0.07); }
+.article-related__card-cat { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-primary, #1e40af); margin: 0; }
+.article-related__card-title { font-size: 0.875rem; font-weight: 600; color: var(--color-navy, #0f172a); line-height: 1.45; margin: 0; flex: 1; }
+.article-related__card-arrow { font-size: 0.875rem; color: var(--color-primary, #1e40af); font-weight: 600; }
+.article-cta { background: #f8fafc; border-top: 1px solid var(--color-border, #e2e8f0); padding: 64px 0; }
+.article-cta__body { text-align: center; max-width: 560px; margin: 0 auto; }
+.article-cta__body h2 { font-size: clamp(1.25rem, 3vw, 1.625rem); font-weight: 600; color: var(--color-navy, #0f172a); margin: 0 0 12px; }
+.article-cta__body p { font-size: 0.9375rem; line-height: 1.8; color: var(--color-text-muted, #64748b); margin: 0 0 28px; }
+.article-cta__actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.article-cta__btn { display: inline-flex; align-items: center; padding: 0.75em 1.75em; border-radius: 8px; font-size: 0.9375rem; font-weight: 700; text-decoration: none; transition: background 0.15s, color 0.15s; }
+.article-cta__btn--primary { background: var(--color-primary, #1e40af); color: #fff; border: 2px solid var(--color-primary, #1e40af); }
 .article-cta__btn--primary:hover { background: #1e3a8a; border-color: #1e3a8a; }
-.article-cta__btn--ghost {
-  background: transparent; color: var(--color-primary, #1e40af);
-  border: 2px solid var(--color-primary, #1e40af);
-}
+.article-cta__btn--ghost { background: transparent; color: var(--color-primary, #1e40af); border: 2px solid var(--color-primary, #1e40af); }
 .article-cta__btn--ghost:hover { background: rgba(30,64,175,0.06); }
-
-/* ── Responsive ──────────────────────────── */
-@media (max-width: 600px) {
-  .article-head { padding-top: 32px; }
-  .article-related__grid { grid-template-columns: 1fr; }
-  .article-breakdown__num { font-size: 1rem; min-width: 2rem; }
-}
+@media (max-width: 600px) { .article-head { padding-top: 32px; } .article-related__grid { grid-template-columns: 1fr; } .article-checklist__q, .article-checklist__detail { padding-left: 1.25rem; } }
 </style>
 
 </BaseLayout>

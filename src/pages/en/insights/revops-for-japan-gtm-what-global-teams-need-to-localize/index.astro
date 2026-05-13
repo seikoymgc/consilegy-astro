@@ -41,7 +41,6 @@ const breadcrumbSchema = {
 
 <div class="article-wrap">
 
-  <!-- ===== ARTICLE HEADER ===== -->
   <header class="article-head container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="/en/">Home</a>
@@ -56,63 +55,76 @@ const breadcrumbSchema = {
       <span class="article-read">{readTime}</span>
     </div>
     <h1>RevOps for Japan GTM: What Global Teams Need to Localize</h1>
-    <p class="article-desc">Revenue operations designed for US or European markets often fails in Japan. Five areas require localization: CRM stage definitions, lead qualification criteria, handoff rules, follow-up logic, and reporting.</p>
+    <p class="article-desc">A consulting firm launching an AI product had a 3-person part-time team and no dedicated RevOps support. Rather than inheriting global RevOps defaults, they defined Japan-specific qualification criteria, pipeline stages, and follow-up logic from scratch before day one. GTM was defined in 2 months. A product-connected revenue infrastructure was running at launch. The lesson wasn't that they needed more resources — it was that Japan RevOps localization is a design decision, not a headcount decision.</p>
   </header>
 
-  <!-- ===== ARTICLE BODY ===== -->
   <article class="article-body container" id="article">
 
     <section class="article-section">
-      <p>Global revenue operations teams build systems optimized for their primary markets, usually the US or Western Europe. When those same systems are applied to Japan without modification, they produce inaccurate data, misaligned expectations, and stalled pipelines.</p>
+      <p>Global RevOps teams often approach Japan market entry as a geography extension: add Japan as a property in the CRM, assign a Japan rep, route inbound Japan leads to that rep, and measure against the same KPIs used everywhere else. This approach works until it doesn't — and in Japan, it stops working faster than in most markets.</p>
+      <p>Japan's enterprise buying environment has specific characteristics that global RevOps defaults don't account for: longer evaluation cycles, multi-stakeholder consensus requirements, relationship-sensitivity in follow-up timing, and a pattern of silent attrition that doesn't show up in standard dashboards. Global RevOps that isn't localized for Japan produces systematically misleading data and systematically wrong decisions about what's working.</p>
     </section>
 
     <hr class="article-hr" />
 
     <section class="article-section">
-      <h2>What RevOps assumes about buyer behavior</h2>
-      <p>Global RevOps is typically built on assumptions about deal velocity (shorter cycles), lead responsiveness (faster replies), and pipeline progression (cleaner stage movement). Japan's B2B buying context violates most of these assumptions.</p>
-      <p>Japan buyers evaluate more carefully, engage later in the purchase process, involve more internal stakeholders, and require longer trust-building before committing. A RevOps system calibrated to a 30-day sales cycle, single-buyer decision, and high-responsiveness contact behavior will misfire repeatedly in Japan, not because something is wrong with the Japan team, but because the system was not designed for Japan's buying reality.</p>
+      <h2>Five signs global RevOps hasn't been localized for Japan</h2>
+
+      <div class="article-checklist">
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Are your Japan CRM pipeline stages the same ones used for US or European deals — with the same expected conversion rates and time-in-stage benchmarks?</p>
+          <p class="article-checklist__detail">Japan-facing deals move at a different pace and involve stakeholder patterns that global stage definitions misrepresent. When Japan deals are measured against Western benchmarks, healthy Japan pipeline appears stalled and management draws the wrong conclusions about what's working.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Is Japan lead qualification based on the same scoring model used globally — without Japan-specific intent signals as required criteria?</p>
+          <p class="article-checklist__detail">Engagement signals that indicate purchase intent in Western markets often don't translate. A Japan enterprise buyer doing serious evaluation may exhibit very different engagement patterns from a US prospect at the same stage. Global qualification models produce wrong timing and wrong priority in both directions.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Is Japan follow-up using the same cadence template as global — same timing, same email frequency, same urgency structure?</p>
+          <p class="article-checklist__detail">Follow-up calibrated for Western sales culture reads differently in Japan's B2B environment. Aggressive cadencing and urgency-driven CTAs can signal low cultural competence. Japan follow-up needs to be designed around relationship-building norms, not conversion pressure.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Does Japan pipeline appear in the same dashboards as global pipeline — with no Japan-specific view or Japan-calibrated KPIs?</p>
+          <p class="article-checklist__detail">Without a Japan-specific pipeline view, Japan-specific patterns are invisible in aggregate data. Silent attrition — where Japan buyers disengage without any explicit signal — is particularly hard to detect in global dashboards where Japan activity looks similar to any other low-volume region.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Are handoff rules between marketing and sales the same for Japan as for other markets — with no Japan-specific context requirements at the point of transfer?</p>
+          <p class="article-checklist__detail">Japan enterprise deals require more context at handoff: which stakeholders are involved, what the buyer has engaged with, what Japan-specific questions have been raised. Handoffs without this context mean sales approaches Japan conversations without the foundation they need.</p>
+        </div>
+      </div>
     </section>
 
     <hr class="article-hr" />
 
     <section class="article-section">
-      <h2>Five areas that require Japan localization</h2>
+      <h2>Three RevOps areas that require Japan-specific localization</h2>
 
       <div class="article-breakdown">
         <div class="article-breakdown__item">
           <div class="article-breakdown__num">01</div>
           <div class="article-breakdown__body">
-            <strong>CRM stage definitions</strong>
-            <p>Standard stages like MQL and SQL need Japan-specific exit criteria. A stage that advances on a single email reply in a US context should require confirmed engagement and ICP fit in Japan, where early interactions carry less commercial intent than they might elsewhere.</p>
+            <strong>Pipeline stage definitions — rebuilt for Japan's deal pace and stakeholder structure</strong>
+            <p>The consulting firm launching an AI product started with a clean slate: no inherited global pipeline, no legacy stage definitions to work around. This turned out to be an advantage. They were able to define pipeline stages that reflected how Japan enterprise evaluation actually progresses — from initial awareness through trust establishment, evaluation, internal advocacy building, and final approval — without the cognitive overhead of reconciling Japan's reality against a global template that didn't fit.</p>
+            <p>For teams that already have a global pipeline, Japan localization doesn't require a separate CRM instance. It requires Japan-specific stage definitions, Japan-calibrated time-in-stage benchmarks, and a filtered Japan pipeline view that shows Japan activity against Japan criteria. The configuration is a half-day of work. The management signal it produces is worth the effort immediately.</p>
+            <p><strong>Judgment criterion:</strong> Are your Japan pipeline stage definitions documented to reflect Japan's buying process specifically — with time-in-stage benchmarks based on Japan deal data rather than global averages?</p>
           </div>
         </div>
         <div class="article-breakdown__item">
           <div class="article-breakdown__num">02</div>
           <div class="article-breakdown__body">
-            <strong>Lead qualification criteria</strong>
-            <p>Global ICP may underweight trust and risk factors that Japan buyers prioritize. A lead that looks qualified by global standards, with the right company size, right role, and engagement with content, may not be ready to buy in Japan without local references, support capability proof, or internal approval process clarity.</p>
+            <strong>Lead qualification criteria — documented with Japan-specific intent requirements</strong>
+            <p>The AI product launch team wrote their Japan qualification criteria before the first lead arrived. The definition required ICP fit (consulting, technology, or services firms evaluating AI automation), confirmed Japan responsibility or Japan-based operations, and at least one signal indicating active evaluation (direct inquiry, attended Japan-specific event, or asked a question about Japan implementation specifics). This was stricter than what a global scoring model would have produced — and intentionally so.</p>
+            <p>A small Japan-focused team cannot afford to spend time on contacts who aren't genuinely in the buying process. Strict Japan qualification criteria mean fewer total leads enter the pipeline — but the leads that do enter are at a stage where sales time generates returns. The AI product team's GTM was defined in 2 months partly because their qualification criteria were tight enough to concentrate attention on the contacts that mattered.</p>
+            <p><strong>Judgment criterion:</strong> Are your Japan MQL criteria documented specifically enough that a new team member reading them would qualify the same contact the same way — including Japan-specific intent signals as required criteria?</p>
           </div>
         </div>
         <div class="article-breakdown__item">
           <div class="article-breakdown__num">03</div>
           <div class="article-breakdown__body">
-            <strong>Handoff rules</strong>
-            <p>Japan-standard follow-up timing differs from global norms. Handoff criteria need to account for Japan's slower qualification path. Sales response SLAs need to reflect Japan's communication expectations rather than global defaults.</p>
-          </div>
-        </div>
-        <div class="article-breakdown__item">
-          <div class="article-breakdown__num">04</div>
-          <div class="article-breakdown__body">
-            <strong>Follow-up logic</strong>
-            <p>Automated sequences built for Western buyers often feel too aggressive in Japan. High-frequency email sequences, direct calls to action, and urgency-based messaging can damage trust with Japan prospects who expect a more measured, relationship-first communication approach.</p>
-          </div>
-        </div>
-        <div class="article-breakdown__item">
-          <div class="article-breakdown__num">05</div>
-          <div class="article-breakdown__body">
-            <strong>Reporting structure</strong>
-            <p>Global-aggregate reporting hides Japan's pipeline health entirely. Without Japan-specific metrics such as MQL volume, conversion rates, cycle length, and win rate, the team cannot see how Japan is performing and cannot make data-driven decisions about Japan market investment.</p>
+            <strong>Follow-up logic — designed around Japan's communication norms, not Western cadence defaults</strong>
+            <p>The AI product team's follow-up sequences were designed from scratch with Japan's enterprise communication context in mind. Initial response to an inbound inquiry: same-day acknowledgment, substantive (not promotional), with an offer of relevant information before any request for a meeting. Nurture content: problem-focused, case study-led, with no urgency pressure. First meeting request: framed as understanding their situation, not as a demo or evaluation session.</p>
+            <p>This approach looks lower-conversion-pressure than Western cadences. It is. Japan enterprise buyers who experience conversion pressure from an unfamiliar vendor at early contact stages typically disengage — not by saying so, but by simply not responding. The AI product team's sequences were designed to sustain engagement through Japan's evaluation timeline rather than to accelerate it artificially.</p>
+            <p><strong>Judgment criterion:</strong> Is your Japan follow-up logic explicitly designed for Japan's B2B communication norms — or is it a global template applied to Japan contacts?</p>
           </div>
         </div>
       </div>
@@ -121,84 +133,80 @@ const breadcrumbSchema = {
     <hr class="article-hr" />
 
     <section class="article-section">
-      <h2>CRM stage localization</h2>
-      <p>The most urgent fix. If MQL in Japan means the same as MQL in the US, your Japan pipeline data will be unreliable. Define Japan-specific entry and exit criteria for each stage.</p>
-      <p>This does not require rebuilding the CRM. It requires writing down what each stage means in Japan, specifically what must be true for a contact to enter and exit each stage, and configuring the CRM to enforce those criteria. The Japan definitions can coexist with global definitions if the CRM allows market-level segmentation.</p>
-    </section>
-
-    <hr class="article-hr" />
-
-    <section class="article-section">
-      <h2>Qualification criteria localization</h2>
-      <p>Japan buyers evaluate risk differently. A lead that looks qualified by global standards, with the right company size, right role, and engagement with content, may not be ready to buy in Japan if there is no local reference, no proof of support capability, or no understanding of the internal approval process.</p>
-      <p>Adding Japan-specific qualification checkpoints such as local reference available, Japan-language support confirmed, and decision-maker accessibility understood changes the handoff quality significantly. SQLs that have cleared these Japan-specific criteria have a materially higher probability of closing than those that have not.</p>
-    </section>
-
-    <hr class="article-hr" />
-
-    <section class="article-section">
-      <h2>How to prioritize</h2>
-      <p>Start with CRM stage definitions. Then fix handoff rules. Then reporting. Qualification criteria and follow-up logic can follow once the structural elements are in place.</p>
-      <p>The sequence matters because downstream fixes depend on upstream accuracy. Reporting is only as useful as the stage data it draws from. Handoff rules are only effective if the stages they reference are clearly defined. Starting with stages creates the foundation everything else requires.</p>
+      <h2>What Japan RevOps localization enabled</h2>
+      <p>The AI product consulting firm ran a 9-month engagement with a 3-person part-time team. They had no global RevOps infrastructure to adapt — which meant they had to build Japan-specific from the start. GTM was defined in 2 months. A product-connected revenue infrastructure was running at launch. The team had a sustainable revenue engine that didn't require headcount proportional to a traditional sales operation.</p>
 
       <div class="article-callout">
-        <p><strong>RevOps localization is not rebuilding your entire system. It is identifying the five decisions that were made for your primary market and making them again with Japan in mind.</strong></p>
+        <p><strong>Japan RevOps localization is not about more complexity — it is about designing for Japan's actual buying environment rather than inheriting defaults that were built for a different market.</strong></p>
       </div>
     </section>
 
     <hr class="article-hr" />
 
     <section class="article-section">
-      <h2>The diagram</h2>
-      <p>The table below compares global RevOps assumptions with the Japan-specific adaptations each area requires.</p>
-      <div class="article-diagram">
-        <img
-          src="/images/insights/en/revops-japan-gtm-localization.svg"
-          alt="Table comparing global RevOps assumptions vs Japan-required adaptations across five areas: CRM stage definitions, ICP qualification, lead flow, reporting structure, and handoff rules"
-          width="760"
-          height="320"
-          loading="lazy"
-        />
+      <h2>Three places to start</h2>
+
+      <div class="article-breakdown">
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">01</div>
+          <div class="article-breakdown__body">
+            <strong>Create a Japan-specific pipeline view with Japan-calibrated stage benchmarks</strong>
+            <p>Configure a filtered Japan pipeline view in your CRM that separates Japan deals from global. Set time-in-stage expectations based on Japan's actual deal pace — not global averages. Even rough Japan benchmarks (derived from your own Japan deal history or industry estimates) will immediately change how management reads Japan pipeline health.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">02</div>
+          <div class="article-breakdown__body">
+            <strong>Document Japan lead qualification criteria with Japan-specific intent requirements</strong>
+            <p>Write a Japan MQL definition that goes beyond global scoring. Require at minimum: confirmed Japan ICP fit, meaningful Japan-relevant content engagement, and one signal indicating active Japan evaluation. Share the definition with both marketing and sales. Run the last 20 Japan inbound leads against the new criteria to see what the qualification rate should actually be.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">03</div>
+          <div class="article-breakdown__body">
+            <strong>Audit your Japan follow-up sequences against Japan's communication norms</strong>
+            <p>Pull your current Japan follow-up templates and read them as a Japan enterprise buyer receiving them. Does the tone and timing fit a relationship-building context or a conversion-pressure context? Identify the single highest-friction element — usually the first-contact CTA or the email cadence timing — and redesign that one element first before adjusting the full sequence.</p>
+          </div>
+        </div>
       </div>
     </section>
 
   </article>
 
-  <!-- ===== RELATED ===== -->
   <aside class="article-related container">
     <p class="article-related__label">Related</p>
     <div class="article-related__grid">
-      <a href="/en/insights/how-to-build-revenue-visibility-for-japan-market-expansion/" class="article-related__card">
+      <a href="/en/insights/what-revenue-architecture-means-for-japan-gtm/" class="article-related__card">
         <p class="article-related__card-cat">Revenue Architecture</p>
-        <p class="article-related__card-title">How to Build Revenue Visibility for Japan Market Expansion</p>
+        <p class="article-related__card-title">What Revenue Architecture Means for Japan GTM</p>
         <span class="article-related__card-arrow">→</span>
       </a>
-      <a href="/en/insights/why-crm-implementation-fails-without-revenue-architecture/" class="article-related__card">
-        <p class="article-related__card-cat">Revenue Architecture</p>
-        <p class="article-related__card-title">Why CRM Implementation Fails Without Revenue Architecture</p>
+      <a href="/en/insights/how-to-design-a-japan-ready-revenue-funnel-before-hiring-sales/" class="article-related__card">
+        <p class="article-related__card-cat">Japan GTM</p>
+        <p class="article-related__card-title">How to Design a Japan-Ready Revenue Funnel Before Hiring Sales</p>
         <span class="article-related__card-arrow">→</span>
       </a>
-      <a href="/en/insights/lead-handoff-rules-for-japan-gtm-teams/" class="article-related__card">
-        <p class="article-related__card-cat">Revenue Architecture</p>
-        <p class="article-related__card-title">Lead Handoff Rules for Japan GTM Teams</p>
+      <a href="/en/insights/where-japan-gtm-breaks-after-lead-generation/" class="article-related__card">
+        <p class="article-related__card-cat">Japan GTM</p>
+        <p class="article-related__card-title">Where Japan GTM Breaks After Lead Generation</p>
         <span class="article-related__card-arrow">→</span>
       </a>
-      <a href="/en/insights/how-to-define-lifecycle-stages-for-japan-facing-revenue-operations/" class="article-related__card">
-        <p class="article-related__card-cat">Revenue Architecture</p>
-        <p class="article-related__card-title">How to Define Lifecycle Stages for Japan-Facing Revenue Operations</p>
+      <a href="/en/services/revenue-architecture-design/" class="article-related__card">
+        <p class="article-related__card-cat">Service</p>
+        <p class="article-related__card-title">Revenue Architecture Design</p>
         <span class="article-related__card-arrow">→</span>
       </a>
     </div>
   </aside>
 
-  <!-- ===== CTA ===== -->
   <section class="article-cta">
     <div class="container">
       <div class="article-cta__body">
-        <h2>Ready to design your Japan revenue system?</h2>
-        <p>Consilegy helps global B2B teams design the revenue architecture, CRM structure, and Japan-facing operations their pipeline actually needs. Talk to us about where to start.</p>
+        <h2>Global RevOps not working for Japan?</h2>
+        <p>Tell us how your current revenue operations are configured. We'll identify what needs to be localized for Japan and what to change first.</p>
         <div class="article-cta__actions">
-          <a href="/en/contact/" class="article-cta__btn article-cta__btn--primary">Talk to us</a>
+          <a href="/en/contact/" class="article-cta__btn article-cta__btn--primary">Contact Us</a>
+          <a href="/en/services/" class="article-cta__btn article-cta__btn--ghost">View All Services →</a>
         </div>
       </div>
     </div>
@@ -207,259 +215,55 @@ const breadcrumbSchema = {
 </div>
 
 <style>
-/* ── Wrap / Container ─────────────────────── */
 .article-wrap { background: #fff; }
 .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
-
-/* ── Header ──────────────────────────────── */
-.article-head {
-  padding-top: 48px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid var(--color-border, #e2e8f0);
-}
-.breadcrumb {
-  font-size: 0.8rem;
-  color: var(--color-text-muted, #64748b);
-  margin-bottom: 20px;
-  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
-}
+.article-head { padding-top: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--color-border, #e2e8f0); }
+.breadcrumb { font-size: 0.8rem; color: var(--color-text-muted, #64748b); margin-bottom: 20px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 .breadcrumb a { color: var(--color-text-muted, #64748b); text-decoration: none; }
 .breadcrumb a:hover { color: var(--color-primary, #1e40af); text-decoration: underline; }
-
-.article-meta {
-  display: flex; align-items: center; gap: 12px;
-  margin-bottom: 20px; flex-wrap: wrap;
-}
-.article-cat {
-  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
-  background: #eff6ff; color: var(--color-primary, #1e40af);
-  padding: 3px 10px; border-radius: 10px;
-}
-.article-date, .article-read {
-  font-size: 0.8rem; color: var(--color-text-muted, #64748b);
-}
-
-.article-head h1 {
-  font-size: clamp(1.6rem, 3.5vw, 2.25rem);
-  font-weight: 600;
-  color: var(--color-navy, #0f172a);
-  line-height: 1.25;
-  letter-spacing: 0.01em;
-  margin: 0 0 16px;
-}
-.article-desc {
-  font-size: 1.0625rem;
-  color: var(--color-text-muted, #64748b);
-  line-height: 1.8;
-  margin: 0;
-}
-
-/* ── Body ────────────────────────────────── */
-.article-body {
-  padding-top: 48px;
-  padding-bottom: 64px;
-}
-.article-section {
-  margin-bottom: 0;
-}
-.article-section h2 {
-  font-size: 1.3125rem;
-  font-weight: 600;
-  color: var(--color-navy, #0f172a);
-  margin: 0 0 16px;
-  line-height: 1.35;
-}
-.article-section h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-navy, #0f172a);
-  margin: 24px 0 10px;
-}
-.article-section p {
-  font-size: 1rem;
-  line-height: 1.85;
-  color: var(--color-text, #1e293b);
-  margin: 0 0 16px;
-}
-.article-section ul {
-  padding-left: 1.5rem;
-  margin: 0 0 16px;
-  display: flex; flex-direction: column; gap: 8px;
-}
-.article-section li {
-  font-size: 1rem;
-  line-height: 1.75;
-  color: var(--color-text, #1e293b);
-}
-.article-section a {
-  color: var(--color-primary, #1e40af);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.article-subsection { margin-bottom: 8px; }
-
-.article-callout {
-  background: #eff6ff;
-  border-left: 4px solid var(--color-primary, #1e40af);
-  border-radius: 0 8px 8px 0;
-  padding: 16px 20px;
-  margin: 24px 0;
-}
-.article-callout p {
-  margin: 0;
-  font-size: 1rem;
-  line-height: 1.75;
-  color: var(--color-navy, #0f172a);
-}
-
-.article-hr {
-  border: none;
-  border-top: 1px solid var(--color-border, #e2e8f0);
-  margin: 48px 0;
-}
-
-/* ── Diagram ─────────────────────────────── */
-.article-diagram {
-  margin: 24px 0;
-  border: 1px solid var(--color-border, #e2e8f0);
-  border-radius: 10px;
-  overflow: hidden;
-  background: #fff;
-}
-.article-diagram img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-/* ── Numbered breakdown ──────────────────── */
-.article-breakdown {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  margin: 24px 0;
-  border-top: 1px solid var(--color-border, #e2e8f0);
-}
-.article-breakdown__item {
-  display: flex;
-  gap: 20px;
-  padding: 20px 0;
-  border-bottom: 1px solid var(--color-border, #e2e8f0);
-  align-items: flex-start;
-}
-.article-breakdown__num {
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: var(--color-primary, #1e40af);
-  opacity: 0.3;
-  flex-shrink: 0;
-  line-height: 1.5;
-  min-width: 2.5rem;
-}
-.article-breakdown__body strong {
-  display: block;
-  font-size: 0.9375rem;
-  font-weight: 700;
-  color: var(--color-navy, #0f172a);
-  margin-bottom: 6px;
-}
-.article-breakdown__body p {
-  font-size: 0.9375rem;
-  line-height: 1.75;
-  color: var(--color-text-muted, #64748b);
-  margin: 0;
-}
-
-/* ── Related ─────────────────────────────── */
-.article-related {
-  padding: 48px 0;
-  border-top: 1px solid var(--color-border, #e2e8f0);
-}
-.article-related__label {
-  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--color-primary, #1e40af);
-  margin: 0 0 20px;
-}
-.article-related__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
-.article-related__card {
-  background: #f8fafc;
-  border: 1px solid var(--color-border, #e2e8f0);
-  border-radius: 8px;
-  padding: 16px 18px;
-  text-decoration: none;
-  display: flex; flex-direction: column; gap: 6px;
-  transition: border-color 0.15s, box-shadow 0.15s;
-}
-.article-related__card:hover {
-  border-color: var(--color-primary, #1e40af);
-  box-shadow: 0 2px 12px rgba(30,64,175,0.07);
-}
-.article-related__card-cat {
-  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em;
-  text-transform: uppercase; color: var(--color-primary, #1e40af); margin: 0;
-}
-.article-related__card-title {
-  font-size: 0.875rem; font-weight: 600;
-  color: var(--color-navy, #0f172a); line-height: 1.45; margin: 0; flex: 1;
-}
-.article-related__card-arrow {
-  font-size: 0.875rem; color: var(--color-primary, #1e40af); font-weight: 600;
-}
-
-/* ── CTA ─────────────────────────────────── */
-.article-cta {
-  background: #f8fafc;
-  border-top: 1px solid var(--color-border, #e2e8f0);
-  padding: 64px 0;
-}
-.article-cta__body {
-  text-align: center;
-  max-width: 560px;
-  margin: 0 auto;
-}
-.article-cta__body h2 {
-  font-size: clamp(1.25rem, 3vw, 1.625rem);
-  font-weight: 600;
-  color: var(--color-navy, #0f172a);
-  margin: 0 0 12px;
-}
-.article-cta__body p {
-  font-size: 0.9375rem;
-  line-height: 1.8;
-  color: var(--color-text-muted, #64748b);
-  margin: 0 0 28px;
-}
-.article-cta__actions {
-  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
-}
-.article-cta__btn {
-  display: inline-flex; align-items: center;
-  padding: 0.75em 1.75em;
-  border-radius: 8px; font-size: 0.9375rem; font-weight: 700;
-  text-decoration: none; transition: background 0.15s, color 0.15s;
-}
-.article-cta__btn--primary {
-  background: var(--color-primary, #1e40af); color: #fff;
-  border: 2px solid var(--color-primary, #1e40af);
-}
+.article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+.article-cat { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: #eff6ff; color: var(--color-primary, #1e40af); padding: 3px 10px; border-radius: 10px; }
+.article-date, .article-read { font-size: 0.8rem; color: var(--color-text-muted, #64748b); }
+.article-head h1 { font-size: clamp(1.6rem, 3.5vw, 2.25rem); font-weight: 600; color: var(--color-navy, #0f172a); line-height: 1.25; letter-spacing: 0.01em; margin: 0 0 16px; }
+.article-desc { font-size: 1.0625rem; color: var(--color-text-muted, #64748b); line-height: 1.8; margin: 0; }
+.article-body { padding-top: 48px; padding-bottom: 64px; }
+.article-section { margin-bottom: 0; }
+.article-section h2 { font-size: 1.3125rem; font-weight: 600; color: var(--color-navy, #0f172a); margin: 0 0 16px; line-height: 1.35; }
+.article-section p { font-size: 1rem; line-height: 1.85; color: var(--color-text, #1e293b); margin: 0 0 16px; }
+.article-section a { color: var(--color-primary, #1e40af); text-decoration: underline; text-underline-offset: 2px; }
+.article-callout { background: #eff6ff; border-left: 4px solid var(--color-primary, #1e40af); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 24px 0; }
+.article-callout p { margin: 0; font-size: 1rem; line-height: 1.75; color: var(--color-navy, #0f172a); }
+.article-hr { border: none; border-top: 1px solid var(--color-border, #e2e8f0); margin: 48px 0; }
+.article-checklist { display: flex; flex-direction: column; gap: 0; margin: 24px 0; border-top: 1px solid var(--color-border, #e2e8f0); }
+.article-checklist__item { padding: 20px 0; border-bottom: 1px solid var(--color-border, #e2e8f0); }
+.article-checklist__q { font-size: 0.9375rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 8px; padding-left: 1.5rem; position: relative; }
+.article-checklist__q::before { content: '?'; position: absolute; left: 0; font-size: 0.875rem; font-weight: 800; color: var(--color-primary, #1e40af); opacity: 0.4; }
+.article-checklist__detail { font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted, #64748b); margin: 0; padding-left: 1.5rem; }
+.article-breakdown { display: flex; flex-direction: column; gap: 0; margin: 24px 0; border-top: 1px solid var(--color-border, #e2e8f0); }
+.article-breakdown__item { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--color-border, #e2e8f0); align-items: flex-start; }
+.article-breakdown__num { font-size: 1.25rem; font-weight: 800; color: var(--color-primary, #1e40af); opacity: 0.3; flex-shrink: 0; line-height: 1.5; min-width: 2.5rem; }
+.article-breakdown__body strong { display: block; font-size: 0.9375rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 6px; }
+.article-breakdown__body p { font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted, #64748b); margin: 0 0 10px; }
+.article-breakdown__body p:last-child { margin-bottom: 0; }
+.article-related { padding: 48px 0; border-top: 1px solid var(--color-border, #e2e8f0); }
+.article-related__label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-primary, #1e40af); margin: 0 0 20px; }
+.article-related__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.article-related__card { background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 16px 18px; text-decoration: none; display: flex; flex-direction: column; gap: 6px; transition: border-color 0.15s, box-shadow 0.15s; }
+.article-related__card:hover { border-color: var(--color-primary, #1e40af); box-shadow: 0 2px 12px rgba(30,64,175,0.07); }
+.article-related__card-cat { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-primary, #1e40af); margin: 0; }
+.article-related__card-title { font-size: 0.875rem; font-weight: 600; color: var(--color-navy, #0f172a); line-height: 1.45; margin: 0; flex: 1; }
+.article-related__card-arrow { font-size: 0.875rem; color: var(--color-primary, #1e40af); font-weight: 600; }
+.article-cta { background: #f8fafc; border-top: 1px solid var(--color-border, #e2e8f0); padding: 64px 0; }
+.article-cta__body { text-align: center; max-width: 560px; margin: 0 auto; }
+.article-cta__body h2 { font-size: clamp(1.25rem, 3vw, 1.625rem); font-weight: 600; color: var(--color-navy, #0f172a); margin: 0 0 12px; }
+.article-cta__body p { font-size: 0.9375rem; line-height: 1.8; color: var(--color-text-muted, #64748b); margin: 0 0 28px; }
+.article-cta__actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.article-cta__btn { display: inline-flex; align-items: center; padding: 0.75em 1.75em; border-radius: 8px; font-size: 0.9375rem; font-weight: 700; text-decoration: none; transition: background 0.15s, color 0.15s; }
+.article-cta__btn--primary { background: var(--color-primary, #1e40af); color: #fff; border: 2px solid var(--color-primary, #1e40af); }
 .article-cta__btn--primary:hover { background: #1e3a8a; border-color: #1e3a8a; }
-.article-cta__btn--ghost {
-  background: transparent; color: var(--color-primary, #1e40af);
-  border: 2px solid var(--color-primary, #1e40af);
-}
+.article-cta__btn--ghost { background: transparent; color: var(--color-primary, #1e40af); border: 2px solid var(--color-primary, #1e40af); }
 .article-cta__btn--ghost:hover { background: rgba(30,64,175,0.06); }
-
-/* ── Responsive ──────────────────────────── */
-@media (max-width: 600px) {
-  .article-head { padding-top: 32px; }
-  .article-related__grid { grid-template-columns: 1fr; }
-  .article-breakdown__num { font-size: 1rem; min-width: 2rem; }
-}
+@media (max-width: 600px) { .article-head { padding-top: 32px; } .article-related__grid { grid-template-columns: 1fr; } .article-checklist__q, .article-checklist__detail { padding-left: 1.25rem; } }
 </style>
 
 </BaseLayout>

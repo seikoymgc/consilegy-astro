@@ -32,7 +32,7 @@ const breadcrumbSchema = {
   title="What Revenue Architecture Means for Japan GTM | Consilegy"
   description="For Japan GTM, revenue architecture means designing the operating structure that connects market messaging, lead flow, CRM stages, handoff rules, reporting, and adoption so Japan-facing revenue execution can work in practice."
   lang="en"
-  alternateUrl="/insights/revenue-architecture-japan/"
+  alternateUrl="/insights/"
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
@@ -41,7 +41,6 @@ const breadcrumbSchema = {
 
 <div class="article-wrap">
 
-  <!-- ===== ARTICLE HEADER ===== -->
   <header class="article-head container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="/en/">Home</a>
@@ -56,142 +55,76 @@ const breadcrumbSchema = {
       <span class="article-read">{readTime}</span>
     </div>
     <h1>What Revenue Architecture Means for Japan GTM</h1>
-    <p class="article-desc">Japan GTM does not end with messaging or campaign launch. Revenue must move through a designed operating structure, one that connects market-facing activity with actual commercial outcomes. That structure is what revenue architecture describes.</p>
+    <p class="article-desc">A consulting firm (~150 employees) had HubSpot, Salesforce, Sansan, and GA4 connected and generating data. After 9 months of operation, they had no clear answer to a basic question: which marketing activities were actually generating revenue? Their tools were integrated but their revenue architecture was not. Building a unified data foundation — with shared definitions, distributed ownership, and reporting that connected activities to outcomes — gave them the decision infrastructure their tools alone could not provide.</p>
   </header>
 
-  <!-- ===== ARTICLE BODY ===== -->
   <article class="article-body container" id="article">
 
-    <!-- Introduction -->
     <section class="article-section">
-      <h2>The challenge Japan GTM creates</h2>
-      <p>For many global B2B teams, the gap between market entry strategy and revenue execution becomes visible only after launch. Messaging is in place. The website is localized. A sales team is active. And yet the pipeline is thin, conversion is slower than expected, and reporting does not explain why.</p>
-      <p>The explanation is usually the same: the execution infrastructure was not designed for Japan.</p>
-      <p>Revenue architecture is the term for that infrastructure: the operating design that connects what the market-facing team does with the revenue outcomes that are supposed to follow. In Japan's B2B context, this design matters more than it does in many other markets, because the gap between Western default settings and Japan's actual buying behavior is wide enough to make an undesigned system fail consistently.</p>
-      <div class="article-callout">
-        <p><strong>Revenue architecture is not a methodology. It is a practical operating design:</strong> the specific structure of how messaging, lead flow, CRM stages, handoff rules, and reporting are connected in a way that lets Japan-facing revenue execution actually work.</p>
+      <p>Revenue architecture is a term used in different ways. For Japan GTM specifically, it means one thing: the operating structure that allows Japan-facing revenue execution to work in practice. This includes more than tools and data. It includes how leads are defined, how pipeline stages map to Japan's buying process, how marketing and sales share definitions, how data flows between systems, and how reporting reflects Japan's actual revenue motion rather than global defaults.</p>
+      <p>Without revenue architecture, Japan GTM teams have tools without infrastructure. They can log activity. They cannot make reliable decisions from what they log. The data exists but the operating model to interpret and act on it does not.</p>
+    </section>
+
+    <hr class="article-hr" />
+
+    <section class="article-section">
+      <h2>Five signs revenue architecture is missing</h2>
+
+      <div class="article-checklist">
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Is the same activity being defined differently by marketing and sales — with no shared Japan-specific definitions for MQL, SQL, or opportunity?</p>
+          <p class="article-checklist__detail">When marketing and sales operate against different definitions, the numbers each team reports don't connect. Marketing shows 40 Japan MQLs this quarter. Sales shows 8 qualified contacts. Neither is wrong — they're measuring different things. Revenue architecture starts with shared definitions that both teams actually use.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Do you have multiple tools generating Japan data — HubSpot, Salesforce, GA4, Sansan — but no clear answer to which activities drove revenue?</p>
+          <p class="article-checklist__detail">Tool integration produces data volume, not revenue visibility. Revenue visibility requires that the data from each tool connects to a shared definition of what revenue motion looks like — so that a lead in GA4, a contact in HubSpot, and a deal in Salesforce all tell parts of the same story rather than separate stories.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Does your Japan pipeline reporting show activity (calls made, emails sent, meetings booked) rather than progression (contacts advancing through qualification stages)?</p>
+          <p class="article-checklist__detail">Activity metrics measure effort, not momentum. Revenue architecture produces progression metrics: how many Japan contacts moved from MQL to SQL this month, and where the conversion rate dropped. Activity-based reporting prevents the team from seeing where Japan revenue motion is actually stalling.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">Are Japan reporting dashboards built for whoever asked for them — rather than designed to answer the specific decisions Japan GTM management needs to make?</p>
+          <p class="article-checklist__detail">Dashboards built on request produce charts that show data but don't answer questions. Revenue architecture reverses the design sequence: start with the decisions that need to be made about Japan GTM, then build reporting that directly answers those decisions. Most teams have more data than they can act on and less visibility than they need.</p>
+        </div>
+        <div class="article-checklist__item">
+          <p class="article-checklist__q">When marketing or sales changes a process — a new follow-up sequence, a revised qualification criteria — does no one own updating the system to reflect the change?</p>
+          <p class="article-checklist__detail">Revenue architecture includes ownership: who is responsible for keeping the Japan revenue system current when processes change. Without distributed ownership, the documented architecture becomes stale within months and teams revert to working around rather than through the system.</p>
+        </div>
       </div>
     </section>
 
     <hr class="article-hr" />
 
-    <!-- What revenue architecture means -->
     <section class="article-section">
-      <h2>What revenue architecture means in a Japan GTM context</h2>
-      <p>The term "revenue architecture" sometimes appears in generic frameworks that describe how marketing, sales, and customer success should cooperate. That is not what this article is about.</p>
-      <p>In a Japan GTM context, revenue architecture refers to the concrete, documented design of how Japan-facing revenue operations are structured, from how the market receives your message, to how that message creates a lead, to how that lead becomes a qualified opportunity, to how that opportunity becomes a customer, to how that outcome is measured and reported.</p>
-      <p>The architecture question is not abstract. It is operational:</p>
-      <ul>
-        <li>What lifecycle stages exist, and what triggers movement between them?</li>
-        <li>What does a Japan-ready lead actually look like, and who decides?</li>
-        <li>Where does marketing ownership end and sales ownership begin?</li>
-        <li>How does the CRM capture Japan-specific deal progression?</li>
-        <li>What does the pipeline report show, and does it reflect reality?</li>
-      </ul>
-      <p>When these questions are answered in advance and built into the system, Japan GTM operates with a structure that can be managed. When they are not answered, when a global CRM and a generic funnel are applied to Japan without adaptation, the system produces noise rather than signal.</p>
-    </section>
-
-    <hr class="article-hr" />
-
-    <!-- Core components -->
-    <section class="article-section">
-      <h2>Core components of revenue architecture for Japan GTM</h2>
-      <p>Revenue architecture for Japan-facing operations typically covers seven connected components. Each one can be addressed in isolation, but the system only works when they are designed together.</p>
-
-      <div class="article-subsection">
-        <h3>Messaging and offer logic</h3>
-        <p>What your market-facing communication says, who it addresses, and how the offer is framed for Japan's buying context. This includes ICP definition, positioning logic, the proof points that matter to Japan-based buyers, and the framing that moves a prospect from awareness to interest without triggering the skepticism that Western-style urgency messaging often creates in Japan.</p>
-      </div>
-
-      <div class="article-subsection">
-        <h3>Funnel and lifecycle definitions</h3>
-        <p>What stages exist between first awareness and closed revenue, what moves a contact from one stage to the next, and how Japan's longer trust-building cycle maps to those stages. A funnel designed for fast conversion will produce misleading data in Japan, where evaluation periods are longer and the signals of genuine progress are different from Western defaults.</p>
-      </div>
-
-      <div class="article-subsection">
-        <h3>Lead qualification and routing</h3>
-        <p>How leads are scored, what criteria determine sales-readiness in Japan's context, and how qualified leads reach the right person at the right point in the process. Qualification frameworks built for Western deal velocity systematically misidentify Japan-stage prospects, flagging early-stage explorers as ready for sales conversations, or holding genuinely interested buyers too long in marketing nurture.</p>
-      </div>
-
-      <div class="article-subsection">
-        <h3>CRM and HubSpot structure</h3>
-        <p>How pipeline stages, contact properties, deal records, and lifecycle fields are configured to reflect Japan-facing revenue motion. A CRM configured with a generic onboarding template will not capture how Japan-facing deals actually progress, and the data it produces will not support accurate forecasting or useful management reporting.</p>
-      </div>
-
-      <div class="article-subsection">
-        <h3>Handoff and ownership rules</h3>
-        <p>Where responsibility transfers between marketing and sales, what a Japan-ready lead looks like at that moment of transfer, and how to eliminate the gap where leads fall between teams. Unclear handoff rules are one of the most common causes of pipeline leakage in Japan-facing operations. Not because the teams are not working, but because ownership was never explicitly defined.</p>
-      </div>
-
-      <div class="article-subsection">
-        <h3>KPI and reporting logic</h3>
-        <p>What gets measured, how it is reported, and whether leadership can tell from the dashboard whether Japan is progressing or stalling. Reporting designed for Western conversion metrics often cannot distinguish between a Japan pipeline that is genuinely early-stage and one that is actually broken. Both look the same in the wrong report.</p>
-      </div>
-
-      <div class="article-subsection">
-        <h3>Adoption and operating cadence</h3>
-        <p>Whether the designed system is actually used. What weekly and monthly operating rhythms reinforce the design. How teams behave consistently across the system rather than reverting to spreadsheets, individual judgment, and informal workarounds. In Japan-facing operations specifically, adoption often requires explicit design: the operating norms that make the system part of how the team works, not just how it was set up.</p>
-      </div>
-    </section>
-
-    <hr class="article-hr" />
-
-    <!-- Diagram -->
-    <section class="article-section">
-      <h2>Revenue Architecture for Japan GTM</h2>
-      <p>The diagram below shows how these components connect. Revenue architecture is not a tool or a platform. It is the operating design that links Japan-facing GTM strategy with the execution infrastructure required to support it.</p>
-      <div class="article-diagram">
-        <img
-          src="/images/insights/en/revenue-architecture-japan-gtm.svg"
-          alt="Horizontal flow diagram: Market Messaging → Conversion Path → Lead Flow → CRM Structure → Handoff Rules → Revenue Visibility → Adoption. Caption: Revenue architecture connects Japan-facing GTM strategy with the operating system needed to execute it."
-          width="760"
-          height="210"
-          loading="lazy"
-        />
-      </div>
-    </section>
-
-    <hr class="article-hr" />
-
-    <!-- Where execution breaks -->
-    <section class="article-section">
-      <h2>Where Japan-facing execution often breaks</h2>
-      <p>Without intentional architecture, Japan-facing revenue execution tends to fail in consistent, predictable places. The failure pattern is worth mapping in detail, because each breakdown point has a specific fix, and the fix is always a design decision, not a personnel decision.</p>
+      <h2>Three architecture failures that prevent Japan GTM from functioning</h2>
 
       <div class="article-breakdown">
         <div class="article-breakdown__item">
           <div class="article-breakdown__num">01</div>
           <div class="article-breakdown__body">
-            <strong>Global funnel definitions copied into Japan without adaptation.</strong>
-            <p>Lifecycle stages designed for Western deal velocity, such as fast MQL to SQL to close, misalign with Japan's longer evaluation periods. Deals that are in active consideration get marked as stalled. Reporting understates real progress, and management draws incorrect conclusions about whether Japan is working.</p>
+            <strong>Integrated tools without a shared operating model</strong>
+            <p>The consulting firm in this case had invested significantly in their tool stack. HubSpot handled marketing automation and CRM. Salesforce managed enterprise account data. Sansan digitized and tracked Japan business card relationships — a critical touchpoint in Japan's relationship-driven sales environment. GA4 tracked digital engagement. Each tool was doing its job.</p>
+            <p>The gap was that the tools weren't connected to a shared operating model. When a prospect appeared in Sansan as a business card contact, then engaged with content tracked in GA4, then submitted a form that entered HubSpot — there was no shared definition of what stage that contact was at, who owned them next, or what the next action should be. The data existed across four systems. The architecture to interpret and act on it did not.</p>
+            <p><strong>Judgment criterion:</strong> When a Japan contact appears in multiple tools (CRM, marketing automation, analytics, relationship tracking), is there a defined operating model that tells any team member what stage that contact is at and who owns the next action?</p>
           </div>
         </div>
         <div class="article-breakdown__item">
           <div class="article-breakdown__num">02</div>
           <div class="article-breakdown__body">
-            <strong>CRM stages misaligned with Japan's actual buying behavior.</strong>
-            <p>Japan's enterprise buying often includes a consensus-building phase, internal escalation cycles, and extended evaluation periods before any commercial commitment. CRM stages that do not account for these phases produce inaccurate pipeline data and mislead forecasting. Deals are either overcounted or invisible, depending on how the stage logic was set up.</p>
+            <strong>Reporting built for data display, not for Japan GTM decisions</strong>
+            <p>The consulting firm's dashboards were comprehensive in coverage and insufficient as decision tools. Leadership could see total leads, campaign performance, deal stage counts, and revenue by period. What they couldn't see was: which Japan acquisition channels produced the highest-LTV customers, where in the funnel Japan leads were dropping off, and whether the Japan team's pipeline was progressing at a healthy rate for Japan's deal timeline.</p>
+            <p>Building revenue architecture started with listing the five decisions the Japan GTM leadership needed to make each month, then designing reporting that directly answered those decisions. Three of the five decisions required new calculated fields that weren't in any existing dashboard. The data was already in the tools. The architecture to surface it as decision-relevant signals was what was missing.</p>
+            <p><strong>Judgment criterion:</strong> Can Japan GTM leadership answer the five most important Japan revenue questions — acquisition channel effectiveness, funnel conversion by stage, pipeline health by Japan timeline — directly from current reporting, or does answering each question require manual data analysis?</p>
           </div>
         </div>
         <div class="article-breakdown__item">
           <div class="article-breakdown__num">03</div>
           <div class="article-breakdown__body">
-            <strong>Lead ownership undefined at the handoff boundary.</strong>
-            <p>When marketing and sales operate with different definitions of a Japan-ready lead, handoffs break. Leads are passed too early, held too long, or followed up in ways that do not fit Japan's communication norms. The gap between teams is invisible in the system and shows up only as lost pipeline and mutual frustration.</p>
-          </div>
-        </div>
-        <div class="article-breakdown__item">
-          <div class="article-breakdown__num">04</div>
-          <div class="article-breakdown__body">
-            <strong>Reporting that does not show real progress.</strong>
-            <p>If the CRM reflects Western activity patterns rather than Japan-specific deal progression, pipeline reporting will consistently misrepresent what is happening. Leadership sees numbers that suggest stagnation; the team on the ground sees active conversations. Neither side trusts the other's read, and the gap produces decisions based on the wrong picture.</p>
-          </div>
-        </div>
-        <div class="article-breakdown__item">
-          <div class="article-breakdown__num">05</div>
-          <div class="article-breakdown__body">
-            <strong>Local relationship activity that never becomes pipeline.</strong>
-            <p>Introductions, referrals, exploratory meetings, and relationship-building conversations, the typical texture of early-stage Japan business development, rarely show up in a standard marketing funnel. If the system is not designed to capture and track these activities, they disappear from the data entirely. The team's actual work becomes invisible to leadership, and the pipeline report consistently underrepresents what is in motion.</p>
+            <strong>No distributed ownership — the architecture becomes stale without maintenance</strong>
+            <p>Revenue architecture that is designed, documented, and then left to a single RevOps owner becomes stale within 6-12 months. Japan GTM processes change: new channels get added, qualification criteria get updated, the Japan sales team changes. Without distributed ownership — where each team (marketing, sales, operations) knows which parts of the system they are responsible for maintaining — the documented architecture diverges from actual practice.</p>
+            <p>The consulting firm's engagement included 9 months of implementation specifically because building the architecture was not enough. The team needed to develop the habits, review cadences, and ownership clarity that would allow the system to stay current after the engagement ended. Revenue architecture that isn't maintained is worse than no architecture — it produces a documented model that the team no longer trusts, leading them to work around the system entirely.</p>
+            <p><strong>Judgment criterion:</strong> Is it clear which team member is responsible for updating each element of the Japan revenue architecture when processes change — CRM stage definitions, qualification criteria, handoff rules, reporting?</p>
           </div>
         </div>
       </div>
@@ -199,87 +132,78 @@ const breadcrumbSchema = {
 
     <hr class="article-hr" />
 
-    <!-- How revenue architecture supports Japan GTM -->
     <section class="article-section">
-      <h2>How revenue architecture supports Japan GTM</h2>
-      <p>The value of revenue architecture is not conceptual. It is operational: it connects market strategy with the infrastructure that makes Japan-facing execution possible.</p>
-      <p>When messaging, funnel design, CRM configuration, handoff rules, and reporting are designed together, specifically for Japan, the system can do things a disconnected set of tools cannot:</p>
-      <ul>
-        <li>Show which conversion paths are working and which are producing dead-end inquiries</li>
-        <li>Surface where leads are stalling in the Japan pipeline and why</li>
-        <li>Give marketing and sales shared definitions of progress, so handoff conversations are about execution rather than disagreement about criteria</li>
-        <li>Let leadership track Japan-facing revenue without relying on individual interpretation or manual reporting</li>
-        <li>Support continuous improvement rather than periodic crisis management, because the system produces data that actually reflects what is happening</li>
-      </ul>
-      <p>Japan GTM is hard not because Japan is opaque, but because the revenue system required to execute there is rarely designed in advance. Most global teams arrive with a messaging brief and a CRM that was built for a different market. Revenue architecture closes the gap between what those teams want to achieve and what their current system can actually support.</p>
+      <h2>What building revenue architecture produced</h2>
+      <p>After 9 months with the consulting firm, the result was a unified data foundation. Shared definitions connected activity across HubSpot, Salesforce, Sansan, and GA4. Distributed ownership meant each team maintained their part of the system. Reporting was rebuilt around Japan GTM decisions rather than data display. Leadership could assess Japan revenue performance without analyst support and without manual data consolidation.</p>
+
       <div class="article-callout">
-        <p>Revenue architecture is not something you add after Japan GTM has already started. It is the operating design that makes Japan GTM executable from the beginning, or the redesign that fixes it when the current system is producing the wrong results.</p>
+        <p><strong>The tools hadn't changed. The operating model connecting them had — and that was what produced scalable revenue infrastructure rather than data volume.</strong></p>
       </div>
     </section>
 
     <hr class="article-hr" />
 
-    <!-- How Consilegy helps -->
     <section class="article-section">
-      <h2>How Consilegy helps</h2>
-      <p>Consilegy works with global B2B teams across three phases of revenue architecture work for Japan-facing operations.</p>
+      <h2>Three places to start</h2>
 
-      <div class="article-subsection">
-        <h3>Design</h3>
-        <p>Defining the funnel structure, lifecycle stage definitions, lead qualification criteria, handoff rules, and KPI framework that fit Japan-facing operations. This work produces a documented operating design before system configuration begins, so implementation decisions are grounded in an explicit model of how Japan-facing revenue should move, not in whatever the default setup assumes.</p>
-        <p>This is covered under <strong><a href="/en/services/revenue-architecture-design/">Revenue Architecture Design</a></strong>.</p>
+      <div class="article-breakdown">
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">01</div>
+          <div class="article-breakdown__body">
+            <strong>List the five Japan GTM decisions that matter most — then check whether current reporting answers them</strong>
+            <p>Write down the five questions Japan GTM leadership needs to answer each month to make good decisions about the Japan operation. Examples: which acquisition channels produce Japan enterprise pipeline, where in the funnel Japan leads are dropping off, whether Japan pipeline is progressing at a healthy rate for Japan's deal timeline. Check whether your current reporting directly answers each question. The gaps are where revenue architecture work should start.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">02</div>
+          <div class="article-breakdown__body">
+            <strong>Establish shared Japan lead definitions between marketing and sales</strong>
+            <p>Document Japan MQL and SQL definitions that both marketing and sales agree to use. Run the last quarter's Japan lead data through both definitions to calibrate the numbers. The goal is not to produce a larger or smaller lead count — it is to produce a number that both teams interpret the same way, which is the foundation for any meaningful Japan funnel analysis.</p>
+          </div>
+        </div>
+        <div class="article-breakdown__item">
+          <div class="article-breakdown__num">03</div>
+          <div class="article-breakdown__body">
+            <strong>Assign ownership for each element of the Japan revenue system</strong>
+            <p>Create a one-page ownership map: which team owns Japan qualification criteria, which team owns CRM stage definitions, which team owns follow-up sequence logic, which team owns reporting. One owner per element. Schedule a quarterly review where each owner updates their element and confirms it still reflects how the team actually operates. This is the maintenance system that keeps revenue architecture from going stale.</p>
+          </div>
+        </div>
       </div>
-
-      <div class="article-subsection">
-        <h3>Implementation</h3>
-        <p>Building the CRM configuration, automation workflows, pipeline structure, and reporting that reflect the designed architecture. For HubSpot implementations specifically, this means configuration that fits Japan's sales cycle: lifecycle stages aligned to Japan's buying motion, properties that capture Japan-relevant qualification data, and automation logic that fits Japan's communication norms.</p>
-        <p>This is covered under <strong><a href="/en/services/crm-revops-implementation/">CRM / RevOps Implementation</a></strong> and <strong><a href="/en/services/hubspot-implementation-operations-support/">HubSpot Implementation &amp; Operations Support</a></strong>.</p>
-      </div>
-
-      <div class="article-subsection">
-        <h3>Adoption</h3>
-        <p>Supporting the operating habits, review cadences, documentation, and refinement cycles that make the designed system part of how the team actually works, not just how it was configured at launch. In Japan-facing operations, adoption design often means accounting for how Japan-side teams communicate, escalate, and report, and building operating rules that fit those patterns rather than assuming Western defaults will carry over.</p>
-        <p>This is covered under <strong><a href="/en/services/adoption-growth-support/">Adoption &amp; Growth Support</a></strong>.</p>
-      </div>
-
-      <p>These phases can be engaged together or in sequence. For teams earlier in Japan GTM planning, architecture design comes first. For teams with an existing CRM that is not performing, implementation or adoption work may be the right entry point. Most situations benefit from a diagnostic conversation before committing to a specific scope.</p>
     </section>
 
   </article>
 
-  <!-- ===== RELATED ===== -->
   <aside class="article-related container">
     <p class="article-related__label">Related</p>
     <div class="article-related__grid">
+      <a href="/en/insights/why-crm-implementation-fails-without-revenue-architecture/" class="article-related__card">
+        <p class="article-related__card-cat">Revenue Architecture</p>
+        <p class="article-related__card-title">Why CRM Implementation Fails Without Revenue Architecture</p>
+        <span class="article-related__card-arrow">→</span>
+      </a>
+      <a href="/en/insights/revops-for-japan-gtm-what-global-teams-need-to-localize/" class="article-related__card">
+        <p class="article-related__card-cat">Revenue Architecture</p>
+        <p class="article-related__card-title">RevOps for Japan GTM: What Global Teams Need to Localize</p>
+        <span class="article-related__card-arrow">→</span>
+      </a>
+      <a href="/en/insights/how-to-build-revenue-visibility-for-japan-market-expansion/" class="article-related__card">
+        <p class="article-related__card-cat">Japan GTM</p>
+        <p class="article-related__card-title">How to Build Revenue Visibility for Japan Market Expansion</p>
+        <span class="article-related__card-arrow">→</span>
+      </a>
       <a href="/en/services/revenue-architecture-design/" class="article-related__card">
         <p class="article-related__card-cat">Service</p>
         <p class="article-related__card-title">Revenue Architecture Design</p>
         <span class="article-related__card-arrow">→</span>
       </a>
-      <a href="/en/services/japan-market-gtm-messaging/" class="article-related__card">
-        <p class="article-related__card-cat">Service</p>
-        <p class="article-related__card-title">Japan Market GTM &amp; Messaging</p>
-        <span class="article-related__card-arrow">→</span>
-      </a>
-      <a href="/en/insights/why-japan-gtm-is-not-just-localization/" class="article-related__card">
-        <p class="article-related__card-cat">Insights</p>
-        <p class="article-related__card-title">Why Japan GTM Is Not Just Localization</p>
-        <span class="article-related__card-arrow">→</span>
-      </a>
-      <a href="/en/case-studies/japan-market-entry-gtm-architecture/" class="article-related__card">
-        <p class="article-related__card-cat">Case Study</p>
-        <p class="article-related__card-title">Japan Market Entry GTM Architecture</p>
-        <span class="article-related__card-arrow">→</span>
-      </a>
     </div>
   </aside>
 
-  <!-- ===== CTA ===== -->
   <section class="article-cta">
     <div class="container">
       <div class="article-cta__body">
-        <h2>Thinking about Japan GTM and revenue architecture?</h2>
-        <p>Tell us where you are: what is working, where the gaps are, and what you are trying to solve. We will be direct about whether and how we can help.</p>
+        <h2>Japan revenue system not producing the visibility you need?</h2>
+        <p>Tell us what decisions you're trying to make from Japan data today. We'll identify where the architecture gaps are and what to build first.</p>
         <div class="article-cta__actions">
           <a href="/en/contact/" class="article-cta__btn article-cta__btn--primary">Contact Us</a>
           <a href="/en/services/" class="article-cta__btn article-cta__btn--ghost">View All Services →</a>
@@ -291,259 +215,55 @@ const breadcrumbSchema = {
 </div>
 
 <style>
-/* ── Wrap / Container ─────────────────────── */
 .article-wrap { background: #fff; }
 .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
-
-/* ── Header ──────────────────────────────── */
-.article-head {
-  padding-top: 48px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid var(--color-border, #e2e8f0);
-}
-.breadcrumb {
-  font-size: 0.8rem;
-  color: var(--color-text-muted, #64748b);
-  margin-bottom: 20px;
-  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
-}
+.article-head { padding-top: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--color-border, #e2e8f0); }
+.breadcrumb { font-size: 0.8rem; color: var(--color-text-muted, #64748b); margin-bottom: 20px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 .breadcrumb a { color: var(--color-text-muted, #64748b); text-decoration: none; }
 .breadcrumb a:hover { color: var(--color-primary, #1e40af); text-decoration: underline; }
-
-.article-meta {
-  display: flex; align-items: center; gap: 12px;
-  margin-bottom: 20px; flex-wrap: wrap;
-}
-.article-cat {
-  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
-  background: #eff6ff; color: var(--color-primary, #1e40af);
-  padding: 3px 10px; border-radius: 10px;
-}
-.article-date, .article-read {
-  font-size: 0.8rem; color: var(--color-text-muted, #64748b);
-}
-
-.article-head h1 {
-  font-size: clamp(1.6rem, 3.5vw, 2.25rem);
-  font-weight: 600;
-  color: var(--color-navy, #0f172a);
-  line-height: 1.25;
-  letter-spacing: 0.01em;
-  margin: 0 0 16px;
-}
-.article-desc {
-  font-size: 1.0625rem;
-  color: var(--color-text-muted, #64748b);
-  line-height: 1.8;
-  margin: 0;
-}
-
-/* ── Body ────────────────────────────────── */
-.article-body {
-  padding-top: 48px;
-  padding-bottom: 64px;
-}
-.article-section {
-  margin-bottom: 0;
-}
-.article-section h2 {
-  font-size: 1.3125rem;
-  font-weight: 600;
-  color: var(--color-navy, #0f172a);
-  margin: 0 0 16px;
-  line-height: 1.35;
-}
-.article-section h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-navy, #0f172a);
-  margin: 24px 0 10px;
-}
-.article-section p {
-  font-size: 1rem;
-  line-height: 1.85;
-  color: var(--color-text, #1e293b);
-  margin: 0 0 16px;
-}
-.article-section ul {
-  padding-left: 1.5rem;
-  margin: 0 0 16px;
-  display: flex; flex-direction: column; gap: 8px;
-}
-.article-section li {
-  font-size: 1rem;
-  line-height: 1.75;
-  color: var(--color-text, #1e293b);
-}
-.article-section a {
-  color: var(--color-primary, #1e40af);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.article-subsection { margin-bottom: 8px; }
-
-.article-callout {
-  background: #eff6ff;
-  border-left: 4px solid var(--color-primary, #1e40af);
-  border-radius: 0 8px 8px 0;
-  padding: 16px 20px;
-  margin: 24px 0;
-}
-.article-callout p {
-  margin: 0;
-  font-size: 1rem;
-  line-height: 1.75;
-  color: var(--color-navy, #0f172a);
-}
-
-.article-hr {
-  border: none;
-  border-top: 1px solid var(--color-border, #e2e8f0);
-  margin: 48px 0;
-}
-
-/* ── Diagram ─────────────────────────────── */
-.article-diagram {
-  margin: 24px 0;
-  border: 1px solid var(--color-border, #e2e8f0);
-  border-radius: 10px;
-  overflow: hidden;
-  background: #fff;
-}
-.article-diagram img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-/* ── Numbered breakdown ──────────────────── */
-.article-breakdown {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  margin: 24px 0;
-  border-top: 1px solid var(--color-border, #e2e8f0);
-}
-.article-breakdown__item {
-  display: flex;
-  gap: 20px;
-  padding: 20px 0;
-  border-bottom: 1px solid var(--color-border, #e2e8f0);
-  align-items: flex-start;
-}
-.article-breakdown__num {
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: var(--color-primary, #1e40af);
-  opacity: 0.3;
-  flex-shrink: 0;
-  line-height: 1.5;
-  min-width: 2.5rem;
-}
-.article-breakdown__body strong {
-  display: block;
-  font-size: 0.9375rem;
-  font-weight: 700;
-  color: var(--color-navy, #0f172a);
-  margin-bottom: 6px;
-}
-.article-breakdown__body p {
-  font-size: 0.9375rem;
-  line-height: 1.75;
-  color: var(--color-text-muted, #64748b);
-  margin: 0;
-}
-
-/* ── Related ─────────────────────────────── */
-.article-related {
-  padding: 48px 0;
-  border-top: 1px solid var(--color-border, #e2e8f0);
-}
-.article-related__label {
-  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--color-primary, #1e40af);
-  margin: 0 0 20px;
-}
-.article-related__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
-.article-related__card {
-  background: #f8fafc;
-  border: 1px solid var(--color-border, #e2e8f0);
-  border-radius: 8px;
-  padding: 16px 18px;
-  text-decoration: none;
-  display: flex; flex-direction: column; gap: 6px;
-  transition: border-color 0.15s, box-shadow 0.15s;
-}
-.article-related__card:hover {
-  border-color: var(--color-primary, #1e40af);
-  box-shadow: 0 2px 12px rgba(30,64,175,0.07);
-}
-.article-related__card-cat {
-  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em;
-  text-transform: uppercase; color: var(--color-primary, #1e40af); margin: 0;
-}
-.article-related__card-title {
-  font-size: 0.875rem; font-weight: 600;
-  color: var(--color-navy, #0f172a); line-height: 1.45; margin: 0; flex: 1;
-}
-.article-related__card-arrow {
-  font-size: 0.875rem; color: var(--color-primary, #1e40af); font-weight: 600;
-}
-
-/* ── CTA ─────────────────────────────────── */
-.article-cta {
-  background: #f8fafc;
-  border-top: 1px solid var(--color-border, #e2e8f0);
-  padding: 64px 0;
-}
-.article-cta__body {
-  text-align: center;
-  max-width: 560px;
-  margin: 0 auto;
-}
-.article-cta__body h2 {
-  font-size: clamp(1.25rem, 3vw, 1.625rem);
-  font-weight: 600;
-  color: var(--color-navy, #0f172a);
-  margin: 0 0 12px;
-}
-.article-cta__body p {
-  font-size: 0.9375rem;
-  line-height: 1.8;
-  color: var(--color-text-muted, #64748b);
-  margin: 0 0 28px;
-}
-.article-cta__actions {
-  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
-}
-.article-cta__btn {
-  display: inline-flex; align-items: center;
-  padding: 0.75em 1.75em;
-  border-radius: 8px; font-size: 0.9375rem; font-weight: 700;
-  text-decoration: none; transition: background 0.15s, color 0.15s;
-}
-.article-cta__btn--primary {
-  background: var(--color-primary, #1e40af); color: #fff;
-  border: 2px solid var(--color-primary, #1e40af);
-}
+.article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+.article-cat { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: #eff6ff; color: var(--color-primary, #1e40af); padding: 3px 10px; border-radius: 10px; }
+.article-date, .article-read { font-size: 0.8rem; color: var(--color-text-muted, #64748b); }
+.article-head h1 { font-size: clamp(1.6rem, 3.5vw, 2.25rem); font-weight: 600; color: var(--color-navy, #0f172a); line-height: 1.25; letter-spacing: 0.01em; margin: 0 0 16px; }
+.article-desc { font-size: 1.0625rem; color: var(--color-text-muted, #64748b); line-height: 1.8; margin: 0; }
+.article-body { padding-top: 48px; padding-bottom: 64px; }
+.article-section { margin-bottom: 0; }
+.article-section h2 { font-size: 1.3125rem; font-weight: 600; color: var(--color-navy, #0f172a); margin: 0 0 16px; line-height: 1.35; }
+.article-section p { font-size: 1rem; line-height: 1.85; color: var(--color-text, #1e293b); margin: 0 0 16px; }
+.article-section a { color: var(--color-primary, #1e40af); text-decoration: underline; text-underline-offset: 2px; }
+.article-callout { background: #eff6ff; border-left: 4px solid var(--color-primary, #1e40af); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 24px 0; }
+.article-callout p { margin: 0; font-size: 1rem; line-height: 1.75; color: var(--color-navy, #0f172a); }
+.article-hr { border: none; border-top: 1px solid var(--color-border, #e2e8f0); margin: 48px 0; }
+.article-checklist { display: flex; flex-direction: column; gap: 0; margin: 24px 0; border-top: 1px solid var(--color-border, #e2e8f0); }
+.article-checklist__item { padding: 20px 0; border-bottom: 1px solid var(--color-border, #e2e8f0); }
+.article-checklist__q { font-size: 0.9375rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 8px; padding-left: 1.5rem; position: relative; }
+.article-checklist__q::before { content: '?'; position: absolute; left: 0; font-size: 0.875rem; font-weight: 800; color: var(--color-primary, #1e40af); opacity: 0.4; }
+.article-checklist__detail { font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted, #64748b); margin: 0; padding-left: 1.5rem; }
+.article-breakdown { display: flex; flex-direction: column; gap: 0; margin: 24px 0; border-top: 1px solid var(--color-border, #e2e8f0); }
+.article-breakdown__item { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--color-border, #e2e8f0); align-items: flex-start; }
+.article-breakdown__num { font-size: 1.25rem; font-weight: 800; color: var(--color-primary, #1e40af); opacity: 0.3; flex-shrink: 0; line-height: 1.5; min-width: 2.5rem; }
+.article-breakdown__body strong { display: block; font-size: 0.9375rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 6px; }
+.article-breakdown__body p { font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted, #64748b); margin: 0 0 10px; }
+.article-breakdown__body p:last-child { margin-bottom: 0; }
+.article-related { padding: 48px 0; border-top: 1px solid var(--color-border, #e2e8f0); }
+.article-related__label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-primary, #1e40af); margin: 0 0 20px; }
+.article-related__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.article-related__card { background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 16px 18px; text-decoration: none; display: flex; flex-direction: column; gap: 6px; transition: border-color 0.15s, box-shadow 0.15s; }
+.article-related__card:hover { border-color: var(--color-primary, #1e40af); box-shadow: 0 2px 12px rgba(30,64,175,0.07); }
+.article-related__card-cat { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-primary, #1e40af); margin: 0; }
+.article-related__card-title { font-size: 0.875rem; font-weight: 600; color: var(--color-navy, #0f172a); line-height: 1.45; margin: 0; flex: 1; }
+.article-related__card-arrow { font-size: 0.875rem; color: var(--color-primary, #1e40af); font-weight: 600; }
+.article-cta { background: #f8fafc; border-top: 1px solid var(--color-border, #e2e8f0); padding: 64px 0; }
+.article-cta__body { text-align: center; max-width: 560px; margin: 0 auto; }
+.article-cta__body h2 { font-size: clamp(1.25rem, 3vw, 1.625rem); font-weight: 600; color: var(--color-navy, #0f172a); margin: 0 0 12px; }
+.article-cta__body p { font-size: 0.9375rem; line-height: 1.8; color: var(--color-text-muted, #64748b); margin: 0 0 28px; }
+.article-cta__actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.article-cta__btn { display: inline-flex; align-items: center; padding: 0.75em 1.75em; border-radius: 8px; font-size: 0.9375rem; font-weight: 700; text-decoration: none; transition: background 0.15s, color 0.15s; }
+.article-cta__btn--primary { background: var(--color-primary, #1e40af); color: #fff; border: 2px solid var(--color-primary, #1e40af); }
 .article-cta__btn--primary:hover { background: #1e3a8a; border-color: #1e3a8a; }
-.article-cta__btn--ghost {
-  background: transparent; color: var(--color-primary, #1e40af);
-  border: 2px solid var(--color-primary, #1e40af);
-}
+.article-cta__btn--ghost { background: transparent; color: var(--color-primary, #1e40af); border: 2px solid var(--color-primary, #1e40af); }
 .article-cta__btn--ghost:hover { background: rgba(30,64,175,0.06); }
-
-/* ── Responsive ──────────────────────────── */
-@media (max-width: 600px) {
-  .article-head { padding-top: 32px; }
-  .article-related__grid { grid-template-columns: 1fr; }
-  .article-breakdown__num { font-size: 1rem; min-width: 2rem; }
-}
+@media (max-width: 600px) { .article-head { padding-top: 32px; } .article-related__grid { grid-template-columns: 1fr; } .article-checklist__q, .article-checklist__detail { padding-left: 1.25rem; } }
 </style>
 
 </BaseLayout>

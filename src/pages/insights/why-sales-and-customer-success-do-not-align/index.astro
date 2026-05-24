@@ -161,7 +161,7 @@ const breadcrumbSchema = {
 				<div class="article-numbered__item">
 					<p class="article-numbered__num">02</p>
 					<h3>受注後のKPIが存在しない</h3>
-					<p>営業はARRを見ますが、NRR・Expansion・Health Scoreを営業が見ていない。するとコールドな「売って終わり」の構造になります。受注後のRevenue成長に対して、誰も責任を持たない状態です。</p>
+					<p>営業はARRを見ますが、NRR・Expansion・Health Scoreを営業が見ていない。するとコールドな「売って終わり」の構造になります。受注後の収益成長に対して、誰も責任を持たない状態です。</p>
 				</div>
 				<div class="article-numbered__item">
 					<p class="article-numbered__num">03</p>
@@ -175,7 +175,7 @@ const breadcrumbSchema = {
 				</div>
 				<div class="article-numbered__item">
 					<p class="article-numbered__num">05</p>
-					<h3>Revenue KPIが部門ごとに分断されている</h3>
+					<h3>収益KPIが部門ごとに分断されている</h3>
 					<p>営業は受注、CSは継続、という分断が続く限り、「収益全体」を最大化する視点が生まれません。NRRやExpansionを組織全体のKPIとして持つ設計が必要です。</p>
 				</div>
 			</div>
@@ -188,13 +188,13 @@ const breadcrumbSchema = {
 			<h2>本当に必要なのは「Customer Lifecycle Design」</h2>
 			<p>引き継ぎの問題を解決するために、多くの会社はSlackのチャンネルやNotion上のドキュメントを整備しようとします。しかしそれは対症療法にすぎません。本当に必要なのは、Customer Lifecycle Design——獲得・商談・契約・オンボーディング・活用・更新・アップセルを一つの流れとして設計する考え方です。営業だけでも、CSだけでもなく、「顧客ライフサイクル全体」を見ることが重要です。</p>
 
-			<p>特にSaaS・サブスクリプションモデルでは、受注よりも継続・Expansion・NRRの方が収益上の重要度が高くなります。つまり「受注後」がRevenueの中心です。しかし営業組織だけが強い会社では、ここが切れます。高チャーン・アップセル不足・導入失敗が続くのは、その構造的な結果です。</p>
+			<p>特にSaaS・サブスクリプションモデルでは、受注よりも継続・Expansion・NRRの方が収益上の重要度が高くなります。つまり「受注後」が収益の中心です。しかし営業組織だけが強い会社では、ここが切れます。高チャーン・アップセル不足・導入失敗が続くのは、その構造的な結果です。</p>
 
 			<!-- DIAGRAM 2 -->
-			<figure class="diag diag--lifecycle" aria-label="Customer Lifecycle Design構造図。Lead・Opportunity・Contract・Onboarding・Adoption・Renewal・Expansionの各フェーズが一貫して設計されており、営業からCSへRevenue Flowが継続する構造を示す。">
+			<figure class="diag diag--lifecycle" aria-label="Customer Lifecycle Design構造図。Lead・Opportunity・Contract・Onboarding・Adoption・Renewal・Expansionの各フェーズが一貫して設計されており、営業からCSへ収益フローが継続する構造を示す。">
 				<div class="diag-lc-header">
 					<span class="diag-lc-header__label">Customer Lifecycle Design</span>
-					<span class="diag-lc-header__sub">受注後もRevenue Flowが続く設計</span>
+					<span class="diag-lc-header__sub">受注後も収益フローが続く設計</span>
 				</div>
 				<div class="diag-lc-stages">
 					<div class="diag-lc-stage">
@@ -236,7 +236,7 @@ const breadcrumbSchema = {
 					<span class="diag-lc-handoff__label">引き継ぎポイント</span>
 					<span class="diag-lc-handoff__desc">契約内容・導入背景・期待値・利用状況をCRMで引き継ぐ</span>
 				</div>
-				<figcaption class="diag-caption">受注をゴールとせず、Expansionまでを一貫した設計として持つことでRevenue Flowが途切れない</figcaption>
+				<figcaption class="diag-caption">受注をゴールとせず、Expansionまでを一貫した設計として持つことで収益フローが途切れない</figcaption>
 			</figure>
 		</section>
 
@@ -245,19 +245,19 @@ const breadcrumbSchema = {
 		<!-- Revenue Architecture -->
 		<section class="article-section">
 			<h2>Revenue Architectureという考え方</h2>
-			<p>営業とCSの問題は、部門間のコミュニケーション不足で起きているのではありません。Revenue KPI・Customer Lifecycle・CRM設計・Revenue Data Flow・RevOpsという構造の問題です。ここで重要になるのがRevenue Architecture（レベニューアーキテクチャ）——営業・マーケティング・CS・CRM・KPI・データ・会議体を「収益につながる一つの構造」として設計する考え方です。</p>
+			<p>営業とCSの問題は、部門間のコミュニケーション不足で起きているのではありません。収益KPI・Customer Lifecycle・CRM設計・Revenue Data Flow・RevOpsという構造の問題です。ここで重要になるのがRevenue Architecture（レベニューアーキテクチャ）——営業・マーケティング・CS・CRM・KPI・データ・会議体を「収益につながる一つの構造」として設計する考え方です。</p>
 
 			<p>Revenue Architectureを整えることで、営業とCSが同じKPI（ARR・NRR・Expansion・Activation）を見るようになります。顧客情報が統合され、「誰が何を約束したか」が見えるようになります。オンボーディングが構造化され、CSデータが営業にフィードバックされることでアップセルが自然に生まれます。チャーンが減り、期待値ギャップが解消されます。</p>
 
 			<!-- DIAGRAM 3 -->
-			<figure class="diag diag--ra-cs" aria-label="Revenue Architectureが営業・カスタマーサクセスを接続する構造図。Marketing・Sales・Customer Success・CRM・KPI・Revenue DataをRevenue Architectureが統合し、継続収益・NRR向上・アップセルにつながる設計を示す。">
+			<figure class="diag diag--ra-cs" aria-label="Revenue Architectureが営業・カスタマーサクセスを接続する構造図。Marketing・Sales・Customer Success・CRM・KPI・収益データをRevenue Architectureが統合し、継続収益・NRR向上・アップセルにつながる設計を示す。">
 				<div class="diag-rc-depts">
 					<span class="diag-rc-dept diag-rc-dept--mkt">マーケティング</span>
 					<span class="diag-rc-dept diag-rc-dept--sales">営業</span>
 					<span class="diag-rc-dept diag-rc-dept--cs">カスタマーサクセス</span>
 					<span class="diag-rc-dept diag-rc-dept--crm">CRM</span>
 					<span class="diag-rc-dept diag-rc-dept--kpi">KPI</span>
-					<span class="diag-rc-dept diag-rc-dept--data">Revenue Data</span>
+					<span class="diag-rc-dept diag-rc-dept--data">収益データ</span>
 				</div>
 				<div class="diag-rc-lines" aria-hidden="true">
 					<svg viewBox="0 0 600 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -273,7 +273,7 @@ const breadcrumbSchema = {
 					<div class="diag-rc-core__label">Revenue Architecture</div>
 					<div class="diag-rc-core__tags">
 						<span>Customer Lifecycle</span>
-						<span>Revenue KPI</span>
+						<span>収益KPI</span>
 						<span>CRM設計</span>
 						<span>Data Flow</span>
 						<span>RevOps</span>
@@ -311,7 +311,7 @@ const breadcrumbSchema = {
 		<!-- Consilegyの考え方 -->
 		<section class="article-section">
 			<h2>Consilegyの考え方</h2>
-			<p>Consilegyでは、CS改善を単なるサポート改善として捉えていません。本質はRevenue Architecture・Customer Lifecycle・RevOps・Revenue Data Flow・KPI設計にあります。Salesforce・HubSpot・CSツール・BI・Slackなどを横断しながら、「受注後もRevenueが成長する構造」を設計します。目的は契約を取ることではなく、継続収益が積み上がる構造を作ることです。</p>
+			<p>Consilegyでは、CS改善を単なるサポート改善として捉えていません。本質はRevenue Architecture・Customer Lifecycle・RevOps・Revenue Data Flow・KPI設計にあります。Salesforce・HubSpot・CSツール・BI・Slackなどを横断しながら、「受注後も収益が成長する構造」を設計します。目的は契約を取ることではなく、継続収益が積み上がる構造を作ることです。</p>
 
 			<div class="article-table-wrap">
 				<table class="article-table">
@@ -324,7 +324,7 @@ const breadcrumbSchema = {
 					<tbody>
 						<tr><td>Customer Lifecycle設計</td><td>Lead→Expansionまでの一貫したフロー設計</td></tr>
 						<tr><td>引き継ぎ条件の定義</td><td>営業→CSの情報引き継ぎ構造とCRM設計</td></tr>
-						<tr><td>Revenue KPI統合</td><td>ARR・NRR・Expansionを部門横断で接続</td></tr>
+						<tr><td>収益KPI統合</td><td>ARR・NRR・Expansionを部門横断で接続</td></tr>
 						<tr><td>オンボーディング設計</td><td>定着・成功判断・早期チャーン防止の設計</td></tr>
 						<tr><td>RevOps構築</td><td>会議体・プロセス・KPI・ツール連携の整備</td></tr>
 					</tbody>
@@ -336,8 +336,8 @@ const breadcrumbSchema = {
 
 		<!-- まとめ -->
 		<section class="article-section">
-			<h2>まとめ：営業とCSの分断は、Revenue構造の問題</h2>
-			<p>営業とCSが噛み合わない原因は、コミュニケーション不足ではありません。Revenue KPI分断・Customer Lifecycle未設計・Revenue Architecture不足・RevOps未整備が根本原因です。だからこそ必要なのは部門改善ではなく、受注から継続までの構造を設計することです。Revenueは営業だけでなく、Customer Lifecycle全体で生まれます。</p>
+			<h2>まとめ：営業とCSの分断は、収益構造の問題</h2>
+			<p>営業とCSが噛み合わない原因は、コミュニケーション不足ではありません。収益KPI分断・Customer Lifecycle未設計・Revenue Architecture不足・RevOps未整備が根本原因です。だからこそ必要なのは部門改善ではなく、受注から継続までの構造を設計することです。収益は営業だけでなく、Customer Lifecycle全体で生まれます。</p>
 		</section>
 
 		<!-- RELATED -->
@@ -355,7 +355,7 @@ const breadcrumbSchema = {
 		<div class="article-cta">
 			<p class="article-cta__eyebrow">Revenue Architecture</p>
 			<h2 class="article-cta__title">受注後も収益が成長する<br />構造を設計します</h2>
-			<p class="article-cta__body">Customer Lifecycle・Revenue KPI・CRM・RevOpsを横断した設計で、継続収益とNRR向上を実現します。</p>
+			<p class="article-cta__body">Customer Lifecycle・収益KPI・CRM・RevOpsを横断した設計で、継続収益とNRR向上を実現します。</p>
 			<a href="/contact/" class="article-cta__btn">まずは相談する</a>
 		</div>
 

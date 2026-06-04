@@ -79,7 +79,7 @@ const xDefaultHref = new URL('/en/', site).href;
 					"addressCountry": "JP"
 				},
 				"email": "info@consilegy.com",
-				"areaServed": ["JP"],
+				"areaServed": htmlLang === 'en' ? ["JP", "SG", "AU", "HK", "US", "GB"] : ["JP"],
 				"knowsLanguage": ["ja", "en"],
 				"serviceType": ["Revenue Architecture Design", "CRM Implementation", "RevOps Consulting", "HubSpot Implementation", "B2B GTM Strategy"],
 				"sameAs": [

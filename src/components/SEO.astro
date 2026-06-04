@@ -18,7 +18,7 @@ const og =
 		? ogImage.startsWith('http')
 			? ogImage
 			: new URL(ogImage, site).href
-		: new URL('/images/og-default.svg', site).href;
+		: new URL('/images/og-default.png', site).href;
 const fullTitle = title.includes('Consilegy') ? title : `${title} | Consilegy`;
 const ogLocale = lang === 'en' ? 'en_US' : 'ja_JP';
 ---

@@ -71,6 +71,15 @@ const deliverables = [
 >
 	<Fragment slot="head">
 		<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'BreadcrumbList',
+			itemListElement: [
+				{ '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://consilegy.com/' },
+				{ '@type': 'ListItem', position: 2, name: 'サービス', item: 'https://consilegy.com/services/' },
+				{ '@type': 'ListItem', position: 3, name: '運用定着・改善支援', item: 'https://consilegy.com/services/adoption-growth-support/' },
+			],
+		})} />
 	</Fragment>
 
 <!-- ===================== HERO ===================== -->

@@ -1,0 +1,42 @@
+# Consilegy — Revenue Architecture & RevOps Consulting
+
+> We help B2B companies and English-speaking leaders in Japan build revenue operations that work across CRM, SFA, and MA tools. Vendor-neutral. Tokyo-based.
+
+## What We Do
+
+Consilegy redesigns how marketing, sales, and customer success connect—so revenue becomes visible and repeatable. We work with companies that have CRM, SFA, and MA tools in place but still can't see or control their revenue flow.
+
+## Services
+
+- **Revenue Architecture Design**: Structural redesign of how leads flow to revenue across marketing, sales, and CS
+- **CRM / RevOps Implementation**: Multi-CRM redesign (HubSpot, Salesforce, Kintone, Marketo) from a vendor-neutral position
+- **HubSpot Implementation & Operations Support**: Setup, workflow design, and ongoing operations
+- **B2B Marketing GTM Strategy Design**: Go-to-market design for Japan market entry and expansion
+- **Adoption & Growth Support**: Post-implementation support to drive actual adoption
+
+## Key Pages
+
+- Homepage (JA): https://consilegy.com/
+- Homepage (EN): https://consilegy.com/en/
+- Services overview (EN): https://consilegy.com/en/services/
+- Revenue Architecture Design: https://consilegy.com/en/services/revenue-architecture-design/
+- CRM & RevOps Implementation: https://consilegy.com/en/services/crm-revops-implementation/
+- HubSpot Support: https://consilegy.com/en/services/hubspot-implementation-operations-support/
+- Japan GTM Messaging: https://consilegy.com/en/services/japan-market-gtm-messaging/
+- Insights (EN): https://consilegy.com/en/insights/
+- Case Studies (EN): https://consilegy.com/en/case-studies/
+- Contact: https://consilegy.com/en/contact/
+
+## Insights Topics
+
+Revenue Architecture, RevOps, Japan GTM, CRM adoption, HubSpot implementation, B2B marketing, lifecycle design, lead handoff, sales forecasting, KPI design, data visibility.
+
+## About
+
+**Consilegy LLC** (Consilegy合同会社)
+Founded: 2025
+Founder: Seiko Yamaguchi — Revenue Architect
+Location: Minato-ku, Tokyo, Japan
+Languages: Japanese, English
+Email: info@consilegy.com
+LinkedIn: https://www.linkedin.com/company/consilegy

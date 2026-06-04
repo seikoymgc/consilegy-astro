@@ -60,6 +60,9 @@ const category = Astro.params.category;
 const categoryLabel = category
   .replace(/-/g, ' ')
   .replace(/\b\w/g, (c) => c.toUpperCase());
+
+const LEGACY_CATEGORIES = ['marketing', 'marketing-strategy', 'project-management', 'my-opinion', 'others'];
+const isLegacy = LEGACY_CATEGORIES.includes(category ?? '');
 ---
 
 <ArticleLayout
@@ -69,6 +72,7 @@ const categoryLabel = category
   imageAlt={entry.data.featuredImageAlt ?? ''}
   eyebrow={categoryLabel}
   ogType="article"
+  noindex={isLegacy}
   backHref="/insights/"
   backLabel="コラム一覧"
 >

@@ -7,5 +7,10 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
 	site: 'https://consilegy.com',
 	trailingSlash: 'always',
-	integrations: [mdx(), sitemap()],
+	integrations: [
+		mdx(),
+		sitemap({
+			lastmod: new Date(),
+		}),
+	],
 });

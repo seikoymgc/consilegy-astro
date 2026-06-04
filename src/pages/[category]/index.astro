@@ -70,6 +70,10 @@ export async function getStaticPaths() {
 const { category } = Astro.params;
 const { label, description, posts } = Astro.props;
 const canonical = `https://consilegy.com/${category}/`;
+
+// Legacy categories: noindex to consolidate topical authority into /insights/
+const LEGACY_CATEGORIES = ['marketing', 'marketing-strategy', 'project-management', 'my-opinion', 'others'];
+const isLegacy = LEGACY_CATEGORIES.includes(category ?? '');
 ---
 
 <BaseLayout
@@ -77,6 +81,7 @@ const canonical = `https://consilegy.com/${category}/`;
   description={description}
   canonical={canonical}
   ogType="website"
+  noindex={isLegacy}
 >
   <PageHero
     eyebrow={label}

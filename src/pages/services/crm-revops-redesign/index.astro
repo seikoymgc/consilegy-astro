@@ -79,6 +79,15 @@ const scopeItems = [
 >
 	<Fragment slot="head">
 		<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'BreadcrumbList',
+			itemListElement: [
+				{ '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://consilegy.com/' },
+				{ '@type': 'ListItem', position: 2, name: 'サービス', item: 'https://consilegy.com/services/' },
+				{ '@type': 'ListItem', position: 3, name: 'CRM / RevOps再設計支援', item: 'https://consilegy.com/services/crm-revops-redesign/' },
+			],
+		})} />
 	</Fragment>
 
 <!-- ===================== HERO ===================== -->

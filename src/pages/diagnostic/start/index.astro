@@ -1,0 +1,510 @@
+---
+// 収益診断 — interactive flow: 12 questions → lead gate (HubSpot form) → result map.
+// All quiz logic is client-side (static site). Lead capture reuses the existing
+// HubSpot contact form (captcha-enabled, so embed rather than Forms API); the
+// diagnostic summary is prefilled into the message field so every lead arrives
+// in HubSpot with full context. Swap HS_FORM_ID to a dedicated form in Phase 2.
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+	title="収益漏れ診断 | 全12問・約1分 | Consilegy"
+	description="マーケ・営業・CSの「境目」を6つの観点で診断します。全12問・選択式・約1分。"
+	lang="ja"
+	noindex={true}
+>
+
+<section class="rd-stage">
+	<div class="rd-container" id="rd-app">
+		<noscript>
+			<p style="padding: 2rem; text-align: center;">
+				この診断はJavaScriptが必要です。ブラウザの設定をご確認ください。
+			</p>
+		</noscript>
+	</div>
+</section>
+
+</BaseLayout>
+
+<script>
+	import { CATEGORIES, SIGNAL_META, signalOf, bandOf } from '../../../lib/diagnostic-data';
+
+	// ── Config ──────────────────────────────────────────────
+	const HS_PORTAL_ID = '46498743';
+	const HS_FORM_ID = 'cc38289e-4949-4119-908b-eb1c81b4631e'; // contact form (Phase 2: dedicated form)
+	const HS_REGION = 'na2';
+	const CONTACT_TYPE_VALUE = 'CRM / RevOps診断について';
+	const BOOK_URL = '/revops-assessment/';
+	const CONTACT_URL = '/contact/';
+	const STORAGE_KEY = 'rd-state-v1';
+
+	// Flatten questions: [{catIndex, qIndex, text, options}]
+	const FLAT = CATEGORIES.flatMap((c, ci) =>
+		c.questions.map((q, qi) => ({ ci, qi, text: q.text, options: q.options, catName: c.name }))
+	);
+	const TOTAL_Q = FLAT.length;
+
+	// ── State ───────────────────────────────────────────────
+	interface State {
+		step: 'quiz' | 'lead' | 'result';
+		current: number;
+		answers: (number | null)[]; // selected option index per flat question
+		leadDone: boolean;
+	}
+
+	function loadState(): State {
+		try {
+			const raw = sessionStorage.getItem(STORAGE_KEY);
+			if (raw) {
+				const s = JSON.parse(raw);
+				if (Array.isArray(s.answers) && s.answers.length === TOTAL_Q) return s;
+			}
+		} catch { /* fresh start */ }
+		return { step: 'quiz', current: 0, answers: Array(TOTAL_Q).fill(null), leadDone: false };
+	}
+
+	function saveState() {
+		try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch { /* ignore */ }
+	}
+
+	let state = loadState();
+
+	// ── GA4 (via GTM dataLayer) ─────────────────────────────
+	function track(event: string, params: Record<string, unknown> = {}) {
+		(window as any).dataLayer = (window as any).dataLayer || [];
+		(window as any).dataLayer.push({ event, ...params });
+	}
+
+	function trackOnce(event: string, params: Record<string, unknown> = {}) {
+		const key = `rd-evt-${event}`;
+		try {
+			if (sessionStorage.getItem(key)) return;
+			sessionStorage.setItem(key, '1');
+		} catch { /* still fire */ }
+		track(event, params);
+	}
+
+	// ── Scoring ─────────────────────────────────────────────
+	function categoryScores(): number[] {
+		return CATEGORIES.map((c, ci) =>
+			c.questions.reduce((sum, q, qi) => {
+				const flatIdx = FLAT.findIndex((f) => f.ci === ci && f.qi === qi);
+				const sel = state.answers[flatIdx];
+				return sum + (sel !== null && sel !== undefined ? q.options[sel].score : 0);
+			}, 0)
+		);
+	}
+
+	function totalScore(): number {
+		return categoryScores().reduce((a, b) => a + b, 0);
+	}
+
+	function summaryText(): string {
+		const scores = categoryScores();
+		const total = totalScore();
+		const band = bandOf(total);
+		const lines = CATEGORIES.map((c, i) => {
+			const sig = SIGNAL_META[signalOf(scores[i])];
+			return `${sig.emoji} ${c.name}: ${scores[i]}/4`;
+		});
+		return [
+			'【収益漏れ診断 結果】',
+			`総合スコア: ${total}/24（${band.label}）`,
+			...lines,
+			'',
+			'※このメッセージは診断結果から自動入力されています。',
+		].join('\n');
+	}
+
+	// ── Rendering ───────────────────────────────────────────
+	const app = document.getElementById('rd-app')!;
+
+	function esc(s: string) {
+		return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+	}
+
+	function render() {
+		saveState();
+		if (state.step === 'quiz') renderQuiz();
+		else if (state.step === 'lead') renderLead();
+		else renderResult();
+		window.scrollTo({ top: 0 });
+	}
+
+	function renderQuiz() {
+		const q = FLAT[state.current];
+		const n = state.current + 1;
+		const progress = Math.round((state.current / TOTAL_Q) * 100);
+		const selected = state.answers[state.current];
+
+		app.innerHTML = `
+			<div class="rd-progress">
+				<div class="rd-progress-meta">
+					<span class="rd-progress-label">${esc(q.catName)}</span>
+					<span class="rd-progress-count">Q${n} / ${TOTAL_Q}</span>
+				</div>
+				<div class="rd-progress-bar"><div class="rd-progress-fill" style="width:${progress}%"></div></div>
+			</div>
+			<h1 class="rd-question">${esc(q.text)}</h1>
+			<div class="rd-options">
+				${q.options
+					.map(
+						(o, i) => `
+					<button type="button" class="rd-option${selected === i ? ' is-selected' : ''}" data-opt="${i}">
+						${esc(o.label)}
+					</button>`
+					)
+					.join('')}
+			</div>
+			<div class="rd-nav">
+				${state.current > 0 ? '<button type="button" class="rd-back" data-back>← 前の質問へ</button>' : '<span></span>'}
+			</div>
+		`;
+
+		app.querySelectorAll<HTMLButtonElement>('.rd-option').forEach((btn) => {
+			btn.addEventListener('click', () => {
+				state.answers[state.current] = Number(btn.dataset.opt);
+				if (state.current < TOTAL_Q - 1) {
+					state.current += 1;
+				} else {
+					track('diagnostic_complete', { score_total: totalScore() });
+					state.step = state.leadDone ? 'result' : 'lead';
+				}
+				render();
+			});
+		});
+
+		app.querySelector('[data-back]')?.addEventListener('click', () => {
+			state.current = Math.max(0, state.current - 1);
+			render();
+		});
+	}
+
+	function renderLead() {
+		app.innerHTML = `
+			<div class="rd-lead-head">
+				<p class="rd-lead-eyebrow">診断完了</p>
+				<h1 class="rd-lead-title">結果の表示まで、あと1ステップ</h1>
+				<p class="rd-lead-desc">
+					以下をご入力ください。送信後すぐに「収益漏れマップ」が表示されます。<br />
+					診断結果の概要はメッセージ欄に自動入力済みです（編集できます）。
+				</p>
+			</div>
+			<div class="rd-hs-wrap" id="rd-hs-form"><p class="rd-hs-loading">フォームを読み込んでいます…</p></div>
+			<p class="rd-privacy">
+				ご入力いただいた情報は、診断結果のご案内およびサービスのご案内に利用します。
+				詳細は<a href="/privacy-policy/" target="_blank" rel="noopener">プライバシーポリシー</a>をご確認ください。
+			</p>
+		`;
+		// HubSpot embeds prefill fields from the host page's query string (works for
+		// both inline and iframe renders). Set params before mounting, clean up after.
+		const params = new URLSearchParams();
+		params.set('contact_type', CONTACT_TYPE_VALUE);
+		params.set('message', summaryText());
+		history.replaceState(null, '', `${location.pathname}?${params.toString()}`);
+		mountHubSpotForm();
+	}
+
+	function mountHubSpotForm() {
+		const create = () => {
+			(window as any).hbspt.forms.create({
+				region: HS_REGION,
+				portalId: HS_PORTAL_ID,
+				formId: HS_FORM_ID,
+				target: '#rd-hs-form',
+				onFormReady: () => {
+					const wrap = document.getElementById('rd-hs-form');
+					if (!wrap) return;
+					wrap.querySelector('.rd-hs-loading')?.remove();
+					// Prefill: contact type + diagnostic summary into message.
+					const select = wrap.querySelector<HTMLSelectElement>('select[name="contact_type"]');
+					if (select) {
+						select.value = CONTACT_TYPE_VALUE;
+						select.dispatchEvent(new Event('change', { bubbles: true }));
+					}
+					const msg = wrap.querySelector<HTMLTextAreaElement>('textarea[name="message"]');
+					if (msg && !msg.value) {
+						msg.value = summaryText();
+						msg.dispatchEvent(new Event('input', { bubbles: true }));
+						msg.dispatchEvent(new Event('change', { bubbles: true }));
+					}
+				},
+			});
+		};
+		if ((window as any).hbspt?.forms) {
+			create();
+		} else {
+			const s = document.createElement('script');
+			s.src = `https://js-${HS_REGION}.hsforms.net/forms/embed/v2.js`;
+			s.defer = true;
+			s.onload = create;
+			document.head.appendChild(s);
+		}
+	}
+
+	// Robust submit detection (works for inline and iframe variants).
+	window.addEventListener('message', (e) => {
+		if (e.data?.type === 'hsFormCallback' && e.data?.eventName === 'onFormSubmitted') {
+			if (state.step !== 'lead') return;
+			track('lead_submit');
+			state.leadDone = true;
+			state.step = 'result';
+			// Drop the prefill params from the URL, then show the result.
+			history.replaceState(null, '', location.pathname);
+			// Short pause so the user sees HubSpot's success state before the swap.
+			setTimeout(render, 800);
+		}
+	});
+
+	function renderResult() {
+		const scores = categoryScores();
+		const total = totalScore();
+		const band = bandOf(total);
+
+		// Leaking categories (yellow/red), worst first.
+		const leaks = CATEGORIES.map((c, i) => ({ c, score: scores[i], signal: signalOf(scores[i]) }))
+			.filter((x) => x.signal !== 'green')
+			.sort((a, b) => b.score - a.score);
+		const worst = leaks[0];
+
+		app.innerHTML = `
+			<div class="rd-result-head">
+				<p class="rd-result-eyebrow">収益漏れ診断 結果</p>
+				<div class="rd-result-score">
+					<span class="rd-score-num">${total}</span><span class="rd-score-den">/ 24</span>
+					<span class="rd-score-band rd-band-${band.label === '健全' ? 'green' : band.label === '注意' ? 'yellow' : 'red'}">${esc(band.label)}</span>
+				</div>
+				<h1 class="rd-result-headline">${esc(band.headline)}</h1>
+				<p class="rd-score-note">スコアは低いほど健全です（漏れリスクの合計）。</p>
+			</div>
+
+			<div class="rd-map">
+				${CATEGORIES.map((c, i) => {
+					const sig = SIGNAL_META[signalOf(scores[i])];
+					return `
+					<div class="rd-map-card rd-sig-${signalOf(scores[i])}">
+						<span class="rd-map-emoji">${sig.emoji}</span>
+						<div>
+							<span class="rd-map-name">${esc(c.name)}</span>
+							<span class="rd-map-state">${sig.label} — ${scores[i]}/4</span>
+						</div>
+					</div>`;
+				}).join('')}
+			</div>
+
+			${leaks.length > 0 ? `
+			<div class="rd-insights">
+				<h2 class="rd-insights-title">漏れている境目</h2>
+				${leaks.map((x) => `
+					<div class="rd-insight">
+						<span class="rd-insight-emoji">${SIGNAL_META[x.signal].emoji}</span>
+						<div>
+							<span class="rd-insight-cat">${esc(x.c.name)}</span>
+							<p class="rd-insight-text">${esc(x.c.insight)}</p>
+						</div>
+					</div>`).join('')}
+			</div>
+
+			<div class="rd-firststep">
+				<p class="rd-firststep-label">最初の一手</p>
+				<p class="rd-firststep-text">${esc(worst.c.firstStep)}</p>
+			</div>
+			` : `
+			<div class="rd-firststep">
+				<p class="rd-firststep-label">次の一手</p>
+				<p class="rd-firststep-text">漏れは小さい状態です。次は「拡大」設計 — 受注後のLTV最大化と再現性の強化に投資する段階です。</p>
+			</div>
+			`}
+
+			<div class="rd-cta">
+				<a href="${BOOK_URL}" class="rd-cta-primary" data-cta="book">この漏れを「直す」なら｜収益診断（90分）を予約する →</a>
+				<p class="rd-cta-note">正式な収益診断レポート付き。プロジェクトに進む場合は診断料を全額充当します。</p>
+				<a href="${CONTACT_URL}" class="rd-cta-secondary" data-cta="contact">まずは相談する</a>
+			</div>
+
+			<p class="rd-retry"><button type="button" data-retry>もう一度診断する</button></p>
+		`;
+
+		track('result_view', { score_total: total, band: band.label });
+
+		app.querySelector('[data-cta="book"]')?.addEventListener('click', () => track('cta_book_click'));
+		app.querySelector('[data-cta="contact"]')?.addEventListener('click', () => track('cta_contact_click'));
+		app.querySelector('[data-retry]')?.addEventListener('click', () => {
+			state = { step: 'quiz', current: 0, answers: Array(TOTAL_Q).fill(null), leadDone: state.leadDone };
+			render();
+		});
+	}
+
+	// ── Boot ────────────────────────────────────────────────
+	trackOnce('diagnostic_start');
+	render();
+</script>
+
+<style>
+.rd-stage {
+	min-height: calc(100vh - 58px);
+	background:
+		radial-gradient(720px 420px at 90% 0%, rgba(59,130,246,0.08), transparent 60%),
+		linear-gradient(180deg, #F7F8FC 0%, #EFF2F9 100%);
+	padding-block: 2.5rem 4rem;
+}
+.rd-container { max-width: 640px; margin-inline: auto; padding-inline: 1.25rem; }
+
+/* Progress */
+:global(.rd-progress) { margin-bottom: 2rem; }
+:global(.rd-progress-meta) { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.625rem; }
+:global(.rd-progress-label) {
+	font-size: 0.625rem; font-weight: 500; color: var(--color-primary);
+	letter-spacing: 0.1em; text-transform: uppercase;
+}
+:global(.rd-progress-count) { font-size: 0.75rem; color: var(--color-text-muted); font-variant-numeric: tabular-nums; }
+:global(.rd-progress-bar) { height: 4px; background: rgba(30,64,175,0.1); border-radius: 2px; overflow: hidden; }
+:global(.rd-progress-fill) { height: 100%; background: var(--color-primary); border-radius: 2px; transition: width 0.25s ease; }
+
+/* Question */
+:global(.rd-question) {
+	font-size: clamp(1.125rem, 4vw, 1.5rem); font-weight: 600;
+	line-height: 1.55; letter-spacing: 0; color: var(--color-text);
+	margin: 0 0 1.75rem;
+}
+:global(.rd-options) { display: flex; flex-direction: column; gap: 0.75rem; }
+:global(.rd-option) {
+	display: block; width: 100%; text-align: left;
+	background: var(--glass-bg);
+	backdrop-filter: var(--glass-blur);
+	-webkit-backdrop-filter: var(--glass-blur);
+	border: 1px solid var(--glass-border);
+	border-radius: var(--radius);
+	box-shadow: var(--glass-shadow);
+	padding: 1.125rem 1.25rem; min-height: 56px;
+	font-size: 0.9375rem; font-weight: 500; color: var(--color-text);
+	font-family: inherit; line-height: 1.6; cursor: pointer;
+	transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+:global(.rd-option:hover) { border-color: rgba(30,64,175,0.45); background: var(--glass-bg-strong); }
+:global(.rd-option:active) { transform: scale(0.99); }
+:global(.rd-option.is-selected) { border-color: var(--color-primary); background: rgba(30,64,175,0.06); }
+:global(.rd-option:focus-visible) { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+
+:global(.rd-nav) { margin-top: 1.5rem; display: flex; justify-content: space-between; }
+:global(.rd-back) {
+	background: none; border: none; cursor: pointer; font-family: inherit;
+	font-size: 0.8125rem; color: var(--color-text-muted); padding: 0.625rem 0; min-height: 44px;
+}
+:global(.rd-back:hover) { color: var(--color-primary); }
+
+/* Lead gate */
+:global(.rd-lead-head) { margin-bottom: 1.5rem; }
+:global(.rd-lead-eyebrow) {
+	font-size: 0.625rem; font-weight: 500; color: var(--color-primary);
+	letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 0.75rem;
+}
+:global(.rd-lead-title) {
+	font-size: clamp(1.25rem, 4vw, 1.625rem); font-weight: 600;
+	color: var(--color-text); margin: 0 0 0.875rem; line-height: 1.4;
+}
+:global(.rd-lead-desc) { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.8; margin: 0; }
+:global(.rd-hs-wrap) {
+	background: var(--glass-bg-strong);
+	border: 1px solid var(--glass-border);
+	border-radius: var(--radius-card);
+	box-shadow: var(--glass-shadow);
+	padding: 1.5rem;
+	min-height: 320px;
+}
+:global(.rd-hs-loading) { color: var(--color-text-muted); font-size: 0.875rem; text-align: center; padding-top: 2rem; }
+:global(.rd-privacy) { font-size: 0.75rem; color: var(--color-text-muted); line-height: 1.7; margin-top: 1rem; }
+:global(.rd-privacy a) { color: var(--color-primary); }
+
+/* Result */
+:global(.rd-result-head) { margin-bottom: 2rem; }
+:global(.rd-result-eyebrow) {
+	font-size: 0.625rem; font-weight: 500; color: var(--color-text-muted);
+	letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 1rem;
+	padding-top: 0.875rem; border-top: 1.5px solid var(--color-border);
+}
+:global(.rd-result-score) { display: flex; align-items: baseline; gap: 0.5rem; margin-bottom: 0.875rem; }
+:global(.rd-score-num) { font-size: 3rem; font-weight: 500; color: var(--color-text); letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+:global(.rd-score-den) { font-size: 1.125rem; color: var(--color-text-muted); }
+:global(.rd-score-band) {
+	font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.75rem; border-radius: 100px; margin-left: 0.5rem;
+}
+:global(.rd-band-green) { background: rgba(22,163,74,0.1); color: #15803D; }
+:global(.rd-band-yellow) { background: rgba(202,138,4,0.12); color: #A16207; }
+:global(.rd-band-red) { background: rgba(220,38,38,0.1); color: #B91C1C; }
+:global(.rd-result-headline) {
+	font-size: clamp(1.25rem, 4vw, 1.625rem); font-weight: 600;
+	color: var(--color-text); line-height: 1.5; margin: 0 0 0.625rem;
+}
+:global(.rd-score-note) { font-size: 0.75rem; color: var(--color-text-muted); margin: 0; }
+
+:global(.rd-map) { display: grid; grid-template-columns: 1fr 1fr; gap: 0.625rem; margin-bottom: 2.25rem; }
+:global(.rd-map-card) {
+	display: flex; align-items: center; gap: 0.875rem;
+	background: var(--glass-bg);
+	backdrop-filter: var(--glass-blur);
+	-webkit-backdrop-filter: var(--glass-blur);
+	border: 1px solid var(--glass-border);
+	border-radius: var(--radius);
+	padding: 0.875rem 1rem;
+}
+:global(.rd-sig-red) { border-color: rgba(220,38,38,0.3); }
+:global(.rd-sig-yellow) { border-color: rgba(202,138,4,0.3); }
+:global(.rd-map-emoji) { font-size: 1.25rem; }
+:global(.rd-map-name) { display: block; font-size: 0.8125rem; font-weight: 600; color: var(--color-text); line-height: 1.4; }
+:global(.rd-map-state) { display: block; font-size: 0.6875rem; color: var(--color-text-muted); margin-top: 0.125rem; }
+
+:global(.rd-insights) { margin-bottom: 1.5rem; }
+:global(.rd-insights-title) { font-size: 1rem; font-weight: 600; color: var(--color-text); margin: 0 0 1rem; }
+:global(.rd-insight) { display: flex; gap: 0.875rem; align-items: flex-start; padding: 0.875rem 0; border-bottom: 1px solid var(--color-border); }
+:global(.rd-insight:last-child) { border-bottom: none; }
+:global(.rd-insight-emoji) { font-size: 1.0625rem; margin-top: 1px; }
+:global(.rd-insight-cat) { display: block; font-size: 0.8125rem; font-weight: 600; color: var(--color-text); margin-bottom: 0.25rem; }
+:global(.rd-insight-text) { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.7; margin: 0; }
+
+:global(.rd-firststep) {
+	background: rgba(30,64,175,0.05);
+	border: 1px solid rgba(30,64,175,0.18);
+	border-radius: var(--radius-card);
+	padding: 1.5rem; margin-bottom: 2.25rem;
+}
+:global(.rd-firststep-label) {
+	font-size: 0.625rem; font-weight: 600; color: var(--color-primary);
+	letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 0.625rem;
+}
+:global(.rd-firststep-text) { font-size: 1rem; font-weight: 600; color: var(--color-text); line-height: 1.65; margin: 0; }
+
+:global(.rd-cta) { text-align: center; padding: 1.75rem 0 0.5rem; border-top: 1.5px solid var(--color-border); }
+:global(.rd-cta-primary) {
+	display: flex; align-items: center; justify-content: center;
+	background: var(--color-primary); color: #fff;
+	padding: 1.125rem 1.5rem; min-height: 44px;
+	font-weight: 600; font-size: 0.9375rem; text-decoration: none;
+	border-radius: var(--radius); line-height: 1.5;
+	transition: background 0.15s ease;
+}
+:global(.rd-cta-primary:hover) { background: var(--color-primary-dark); color: #fff; }
+:global(.rd-cta-note) { font-size: 0.75rem; color: var(--color-text-muted); margin: 0.875rem 0 1.25rem; line-height: 1.7; }
+:global(.rd-cta-secondary) {
+	display: inline-flex; align-items: center; justify-content: center;
+	color: var(--color-primary); border: 1px solid var(--color-primary);
+	background: transparent; padding: 0.875rem 1.75rem; min-height: 44px;
+	font-weight: 500; font-size: 0.875rem; text-decoration: none;
+	border-radius: var(--radius);
+	transition: background 0.15s ease;
+}
+:global(.rd-cta-secondary:hover) { background: rgba(30,64,175,0.05); }
+
+:global(.rd-retry) { text-align: center; margin-top: 2rem; }
+:global(.rd-retry button) {
+	background: none; border: none; cursor: pointer; font-family: inherit;
+	font-size: 0.8125rem; color: var(--color-text-muted); text-decoration: underline;
+	text-underline-offset: 3px; padding: 0.625rem; min-height: 44px;
+}
+:global(.rd-retry button:hover) { color: var(--color-primary); }
+
+@media (max-width: 560px) {
+	:global(.rd-map) { grid-template-columns: 1fr; }
+	.rd-stage { padding-block: 1.5rem 3rem; }
+}
+</style>

@@ -4,17 +4,43 @@
       <stop offset="0%" stop-color="#F5F7FA"/>
       <stop offset="100%" stop-color="#E8ECF2"/>
     </linearGradient>
+    <linearGradient id="bi" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#4F46E5"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4F46E5" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#4F46E5" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="26"/></filter>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <circle cx="970" cy="310" r="240" fill="url(#glow)" filter="url(#soft)"/>
+  <line x1="716" y1="319" x2="850" y2="229" stroke="#1E3A8A" stroke-opacity="0.30" stroke-width="1.5"/>
+  <line x1="716" y1="319" x2="849" y2="399" stroke="#1E3A8A" stroke-opacity="0.19" stroke-width="1.5"/>
+  <line x1="850" y1="229" x2="983" y2="217" stroke="#1E3A8A" stroke-opacity="0.29" stroke-width="1.5"/>
+  <line x1="850" y1="229" x2="986" y2="381" stroke="#1E3A8A" stroke-opacity="0.38" stroke-width="1.5"/>
+  <line x1="849" y1="399" x2="983" y2="217" stroke="#1E3A8A" stroke-opacity="0.40" stroke-width="1.5"/>
+  <line x1="849" y1="399" x2="986" y2="381" stroke="#1E3A8A" stroke-opacity="0.32" stroke-width="1.5"/>
+  <line x1="983" y1="217" x2="1140" y2="302" stroke="#1E3A8A" stroke-opacity="0.33" stroke-width="1.5"/>
+  <line x1="986" y1="381" x2="1140" y2="302" stroke="#1E3A8A" stroke-opacity="0.37" stroke-width="1.5"/>
+  <circle cx="716" cy="319" r="6.5" fill="#F5F7FA" stroke="#1E3A8A" stroke-width="2"/>
+  <circle cx="850" cy="229" r="6.5" fill="#F5F7FA" stroke="#1E3A8A" stroke-width="2"/>
+  <circle cx="849" cy="399" r="6.5" fill="#F5F7FA" stroke="#1E3A8A" stroke-width="2"/>
+  <circle cx="983" cy="217" r="6.5" fill="#F5F7FA" stroke="#1E3A8A" stroke-width="2"/>
+  <circle cx="986" cy="381" r="9" fill="url(#bi)"/>
+  <circle cx="1140" cy="302" r="9" fill="url(#bi)"/>
+  
 
   <rect x="96" y="60" width="4" height="30" fill="#1E3A8A"/>
   <text x="116" y="82" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="20" font-weight="600" fill="#1E3A8A" letter-spacing="0.28em">INSIGHTS</text>
   <line x1="96" y1="116" x2="1104" y2="116" stroke="#1E3A8A" stroke-opacity="0.12" stroke-width="1"/>
 
-  <text x="96" y="230" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="64" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">なぜHubSpot運用は属人化するの</text>
-  <text x="96" y="321" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="64" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">か</text>
-  <rect x="96" y="345" width="64" height="3" fill="#1E3A8A"/>
-  <text x="96" y="384" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="26" font-weight="400" fill="#64748B" letter-spacing="0.02em">RevOpsとRevenue Architecture</text>
+  <text x="96" y="239" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="54" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">なぜHubSpot運用は</text>
+  <text x="96" y="316" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="54" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">属人化するのか</text>
+  <rect x="96" y="340" width="64" height="3" fill="#1E3A8A"/>
+  <text x="96" y="377" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="22" font-weight="400" fill="#64748B" letter-spacing="0.02em">RevOpsとRevenue Architectu…</text>
 
   <rect x="0" y="546" width="1200" height="84" fill="#1E3A8A" fill-opacity="0.035"/>
   <line x1="0" y1="546" x2="1200" y2="546" stroke="#1E3A8A" stroke-opacity="0.12" stroke-width="1"/>

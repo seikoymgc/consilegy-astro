@@ -4,16 +4,39 @@
       <stop offset="0%" stop-color="#F5F7FA"/>
       <stop offset="100%" stop-color="#E8ECF2"/>
     </linearGradient>
+    <linearGradient id="bi" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#4F46E5"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4F46E5" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#4F46E5" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="26"/></filter>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <circle cx="920" cy="330" r="230" fill="url(#glow)" filter="url(#soft)"/>
+  <rect x="768" y="168" width="304" height="50" rx="6" fill="url(#bi)" fill-opacity="0.34"/>
+  <rect x="793" y="238" width="253" height="50" rx="6" fill="url(#bi)" fill-opacity="0.52"/>
+  <line x1="768" y1="218" x2="793" y2="238" stroke="#1E3A8A" stroke-opacity="0.18" stroke-width="1.5"/>
+  <line x1="1072" y1="218" x2="1047" y2="238" stroke="#1E3A8A" stroke-opacity="0.18" stroke-width="1.5"/>
+  <rect x="835" y="308" width="171" height="50" rx="6" fill="url(#bi)" fill-opacity="0.70"/>
+  <line x1="793" y1="288" x2="835" y2="308" stroke="#1E3A8A" stroke-opacity="0.18" stroke-width="1.5"/>
+  <line x1="1047" y1="288" x2="1005" y2="308" stroke="#1E3A8A" stroke-opacity="0.18" stroke-width="1.5"/>
+  <rect x="862" y="378" width="116" height="50" rx="6" fill="url(#bi)" fill-opacity="0.88"/>
+  <line x1="835" y1="358" x2="862" y2="378" stroke="#1E3A8A" stroke-opacity="0.18" stroke-width="1.5"/>
+  <line x1="1005" y1="358" x2="978" y2="378" stroke="#1E3A8A" stroke-opacity="0.18" stroke-width="1.5"/>
+  
 
   <rect x="96" y="60" width="4" height="30" fill="#1E3A8A"/>
   <text x="116" y="82" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="20" font-weight="600" fill="#1E3A8A" letter-spacing="0.28em">INSIGHTS</text>
   <line x1="96" y1="116" x2="1104" y2="116" stroke="#1E3A8A" stroke-opacity="0.12" stroke-width="1"/>
 
-  <text x="96" y="252" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="64" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">SFAを導入しても売上予測が当た</text>
-  <text x="96" y="343" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="64" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">らない理由</text>
-  <rect x="96" y="367" width="64" height="3" fill="#1E3A8A"/>
+  <text x="96" y="222" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="54" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">SFAを導入しても売</text>
+  <text x="96" y="299" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="54" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">上予測が当たらない</text>
+  <text x="96" y="376" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="54" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">理由</text>
+  <rect x="96" y="400" width="64" height="3" fill="#1E3A8A"/>
   
 
   <rect x="0" y="546" width="1200" height="84" fill="#1E3A8A" fill-opacity="0.035"/>

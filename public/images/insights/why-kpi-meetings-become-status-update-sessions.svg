@@ -4,16 +4,43 @@
       <stop offset="0%" stop-color="#F5F7FA"/>
       <stop offset="100%" stop-color="#E8ECF2"/>
     </linearGradient>
+    <linearGradient id="bi" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#4F46E5"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4F46E5" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#4F46E5" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="26"/></filter>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <circle cx="970" cy="310" r="240" fill="url(#glow)" filter="url(#soft)"/>
+  <line x1="707" y1="296" x2="859" y2="229" stroke="#1E3A8A" stroke-opacity="0.30" stroke-width="1.5"/>
+  <line x1="707" y1="296" x2="846" y2="379" stroke="#1E3A8A" stroke-opacity="0.34" stroke-width="1.5"/>
+  <line x1="859" y1="229" x2="1001" y2="238" stroke="#1E3A8A" stroke-opacity="0.30" stroke-width="1.5"/>
+  <line x1="859" y1="229" x2="986" y2="402" stroke="#1E3A8A" stroke-opacity="0.37" stroke-width="1.5"/>
+  <line x1="846" y1="379" x2="1001" y2="238" stroke="#1E3A8A" stroke-opacity="0.32" stroke-width="1.5"/>
+  <line x1="846" y1="379" x2="986" y2="402" stroke="#1E3A8A" stroke-opacity="0.21" stroke-width="1.5"/>
+  <line x1="1001" y1="238" x2="1139" y2="314" stroke="#1E3A8A" stroke-opacity="0.22" stroke-width="1.5"/>
+  <line x1="986" y1="402" x2="1139" y2="314" stroke="#1E3A8A" stroke-opacity="0.27" stroke-width="1.5"/>
+  <circle cx="707" cy="296" r="9" fill="url(#bi)"/>
+  <circle cx="859" cy="229" r="9" fill="url(#bi)"/>
+  <circle cx="846" cy="379" r="6.5" fill="#F5F7FA" stroke="#1E3A8A" stroke-width="2"/>
+  <circle cx="1001" cy="238" r="6.5" fill="#F5F7FA" stroke="#1E3A8A" stroke-width="2"/>
+  <circle cx="986" cy="402" r="9" fill="url(#bi)"/>
+  <circle cx="1139" cy="314" r="6.5" fill="#F5F7FA" stroke="#1E3A8A" stroke-width="2"/>
+  
 
   <rect x="96" y="60" width="4" height="30" fill="#1E3A8A"/>
   <text x="116" y="82" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="20" font-weight="600" fill="#1E3A8A" letter-spacing="0.28em">INSIGHTS</text>
   <line x1="96" y1="116" x2="1104" y2="116" stroke="#1E3A8A" stroke-opacity="0.12" stroke-width="1"/>
 
-  <text x="96" y="252" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="64" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">なぜKPI会議は「数字確認会」で</text>
-  <text x="96" y="343" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="64" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">終わってしまうのか</text>
-  <rect x="96" y="367" width="64" height="3" fill="#1E3A8A"/>
+  <text x="96" y="222" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="54" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">なぜKPI会議は「数</text>
+  <text x="96" y="299" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="54" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">字確認会」で終わっ</text>
+  <text x="96" y="376" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="54" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">てしまうのか</text>
+  <rect x="96" y="400" width="64" height="3" fill="#1E3A8A"/>
   
 
   <rect x="0" y="546" width="1200" height="84" fill="#1E3A8A" fill-opacity="0.035"/>

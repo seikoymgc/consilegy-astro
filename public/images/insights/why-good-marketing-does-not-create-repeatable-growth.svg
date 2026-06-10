@@ -4,17 +4,43 @@
       <stop offset="0%" stop-color="#F5F7FA"/>
       <stop offset="100%" stop-color="#E8ECF2"/>
     </linearGradient>
+    <linearGradient id="bi" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#4F46E5"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4F46E5" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#4F46E5" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="26"/></filter>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <circle cx="970" cy="310" r="240" fill="url(#glow)" filter="url(#soft)"/>
+  <line x1="717" y1="314" x2="842" y2="213" stroke="#1E3A8A" stroke-opacity="0.29" stroke-width="1.5"/>
+  <line x1="717" y1="314" x2="854" y2="393" stroke="#1E3A8A" stroke-opacity="0.38" stroke-width="1.5"/>
+  <line x1="842" y1="213" x2="985" y2="245" stroke="#1E3A8A" stroke-opacity="0.33" stroke-width="1.5"/>
+  <line x1="842" y1="213" x2="982" y2="404" stroke="#1E3A8A" stroke-opacity="0.33" stroke-width="1.5"/>
+  <line x1="854" y1="393" x2="985" y2="245" stroke="#1E3A8A" stroke-opacity="0.28" stroke-width="1.5"/>
+  <line x1="854" y1="393" x2="982" y2="404" stroke="#1E3A8A" stroke-opacity="0.22" stroke-width="1.5"/>
+  <line x1="985" y1="245" x2="1119" y2="308" stroke="#1E3A8A" stroke-opacity="0.22" stroke-width="1.5"/>
+  <line x1="982" y1="404" x2="1119" y2="308" stroke="#1E3A8A" stroke-opacity="0.35" stroke-width="1.5"/>
+  <circle cx="717" cy="314" r="9" fill="url(#bi)"/>
+  <circle cx="842" cy="213" r="6.5" fill="#F5F7FA" stroke="#1E3A8A" stroke-width="2"/>
+  <circle cx="854" cy="393" r="6.5" fill="#F5F7FA" stroke="#1E3A8A" stroke-width="2"/>
+  <circle cx="985" cy="245" r="9" fill="url(#bi)"/>
+  <circle cx="982" cy="404" r="6.5" fill="#F5F7FA" stroke="#1E3A8A" stroke-width="2"/>
+  <circle cx="1119" cy="308" r="9" fill="url(#bi)"/>
+  
 
   <rect x="96" y="60" width="4" height="30" fill="#1E3A8A"/>
   <text x="116" y="82" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="20" font-weight="600" fill="#1E3A8A" letter-spacing="0.28em">INSIGHTS</text>
   <line x1="96" y1="116" x2="1104" y2="116" stroke="#1E3A8A" stroke-opacity="0.12" stroke-width="1"/>
 
-  <text x="96" y="206" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="64" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">なぜ良いマーケティングをしてい</text>
-  <text x="96" y="297" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="64" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">ても再現性ある成長につながらな</text>
-  <text x="96" y="388" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="64" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">いのか</text>
-  <rect x="96" y="412" width="64" height="3" fill="#1E3A8A"/>
+  <text x="96" y="241" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="42" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">なぜ良いマーケティングを</text>
+  <text x="96" y="301" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="42" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">していても再現性ある成長</text>
+  <text x="96" y="361" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="42" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">につながらないのか</text>
+  <rect x="96" y="385" width="64" height="3" fill="#1E3A8A"/>
   
 
   <rect x="0" y="546" width="1200" height="84" fill="#1E3A8A" fill-opacity="0.035"/>

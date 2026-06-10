@@ -1,6 +1,11 @@
 // Generate insight eyecatch SVGs (1200x630) in a trustworthy Japanese-B2B style:
-// light-gray base, navy typography, 70:25:5 color discipline, generous whitespace,
-// no decorative orbs — clean editorial structure with the article title.
+// light-gray base, navy typography, 70:25:5 color discipline, generous whitespace.
+// Title sits in the left column; the right column carries a brand visual that
+// encodes Consilegy's core idea — connecting the revenue process. Two motifs,
+// routed by article theme:
+//   - funnel : pipeline / conversion / forecast themes (analytical)
+//   - network: everything else — a node/edge graph seeded per slug, so every
+//              article gets a distinct figure.
 // Titles are pulled from each page's articleSchema headline.
 // Usage: node scripts/generate-eyecatches.mjs [slug] (no arg = all ja + en)
 //
@@ -68,18 +73,19 @@ function wrapEn(text, perLine) {
 }
 
 function layoutTitle(title, lang) {
-	// Pick a font size so the title fits in <=3 lines within the content column
+	// Pick a font size so the title fits in <=3 lines within the LEFT column only
+	// (the right ~40% is reserved for the brand motif), so type and figure never collide.
 	const steps =
 		lang === 'ja'
 			? [
-					{ size: 64, perLine: 15 },
-					{ size: 56, perLine: 17 },
-					{ size: 48, perLine: 20 },
+					{ size: 54, perLine: 9 },
+					{ size: 48, perLine: 10 },
+					{ size: 42, perLine: 12 },
 				]
 			: [
-					{ size: 64, perLine: 30 },
-					{ size: 56, perLine: 35 },
-					{ size: 48, perLine: 41 },
+					{ size: 54, perLine: 17 },
+					{ size: 46, perLine: 20 },
+					{ size: 40, perLine: 24 },
 				];
 	const wrap = lang === 'ja' ? wrapJa : wrapEn;
 	for (const step of steps) {
@@ -103,14 +109,85 @@ const PALETTE = {
 const MARGIN = 96;          // left/right safe margin (info kept off the edges)
 const RIGHT = W - MARGIN;   // right anchor for end-aligned text
 
-function renderSvg({ title, sub, lang }) {
+// Deterministic RNG seeded from the slug, so each article's figure is stable
+// across rebuilds yet distinct from its neighbours.
+function makeRng(str) {
+	let h = 2166136261;
+	for (const c of str) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619); }
+	return () => {
+		h += 0x6d2b79f5; let t = h;
+		t = Math.imul(t ^ (t >>> 15), t | 1);
+		t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+		return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+	};
+}
+
+// Route a slug/title to a motif. Funnel for pipeline/conversion/forecast themes;
+// network (the generative default) for everything else.
+const FUNNEL_RE = /(funnel|pipeline|forecast|win[-\s]?rate|conversion|hand[-\s]?off|lead[-\s]?to[-\s]?revenue|mql|sql|商談|受注|売上予測|予測|パイプライン|商談化|フォーキャスト|ファネル)/i;
+function pickMotif(slug, title) {
+	return FUNNEL_RE.test(slug) || FUNNEL_RE.test(title) ? 'funnel' : 'network';
+}
+
+// Right-column region shared by both motifs.
+const MOTIF = { x0: 712, x1: 1128, y0: 150, y1: 470, cx: 920, cy: 310 };
+
+// Motif 1 — revenue flow network: columns of nodes (pinched at the ends) wired
+// left→right, so it reads as a connected pipeline. Seeded per slug.
+function motifNetwork(rng) {
+	const { x0, x1, y0, y1 } = MOTIF;
+	const cols = 4;
+	const nodes = [];
+	for (let c = 0; c < cols; c++) {
+		const n = c === 0 || c === cols - 1 ? 1 : 2; // pinch the ends → flow shape
+		const col = [];
+		for (let i = 0; i < n; i++) {
+			const gx = x0 + (x1 - x0) * (c / (cols - 1));
+			const gy = y0 + (y1 - y0) * ((i + 0.5) / n) + (rng() - 0.5) * 40;
+			col.push({ x: gx + (rng() - 0.5) * 26, y: gy, accent: rng() > 0.6 });
+		}
+		nodes.push(col);
+	}
+	let edges = '';
+	for (let c = 0; c < cols - 1; c++)
+		for (const a of nodes[c]) for (const b of nodes[c + 1])
+			edges += `<line x1="${a.x.toFixed(0)}" y1="${a.y.toFixed(0)}" x2="${b.x.toFixed(0)}" y2="${b.y.toFixed(0)}" stroke="${PALETTE.navy}" stroke-opacity="${(0.18 + rng() * 0.22).toFixed(2)}" stroke-width="1.5"/>\n  `;
+	let dots = '';
+	for (const col of nodes) for (const nd of col)
+		dots += nd.accent
+			? `<circle cx="${nd.x.toFixed(0)}" cy="${nd.y.toFixed(0)}" r="9" fill="url(#bi)"/>\n  `
+			: `<circle cx="${nd.x.toFixed(0)}" cy="${nd.y.toFixed(0)}" r="6.5" fill="${PALETTE.bgFrom}" stroke="${PALETTE.navy}" stroke-width="2"/>\n  `;
+	return `<circle cx="${MOTIF.cx + 50}" cy="${MOTIF.cy}" r="240" fill="url(#glow)" filter="url(#soft)"/>\n  ${edges}${dots}`;
+}
+
+// Motif 2 — conversion funnel: descending bars with tapered side guides.
+// Bar widths/opacities jitter per slug so funnel articles aren't identical.
+function motifFunnel(rng) {
+	const cx = MOTIF.cx, top = 168, bh = 50, gap = 20;
+	const base = [320, 250, 184, 120];
+	let bars = '', prev = null;
+	base.forEach((bw0, i) => {
+		const bw = bw0 + (rng() - 0.5) * 36;
+		const y = top + i * (bh + gap);
+		const op = (0.34 + i * 0.18).toFixed(2);
+		bars += `<rect x="${(cx - bw / 2).toFixed(0)}" y="${y}" width="${bw.toFixed(0)}" height="${bh}" rx="6" fill="url(#bi)" fill-opacity="${op}"/>\n  `;
+		if (prev) {
+			bars += `<line x1="${(cx - prev.bw / 2).toFixed(0)}" y1="${prev.y + bh}" x2="${(cx - bw / 2).toFixed(0)}" y2="${y}" stroke="${PALETTE.navy}" stroke-opacity="0.18" stroke-width="1.5"/>\n  `;
+			bars += `<line x1="${(cx + prev.bw / 2).toFixed(0)}" y1="${prev.y + bh}" x2="${(cx + bw / 2).toFixed(0)}" y2="${y}" stroke="${PALETTE.navy}" stroke-opacity="0.18" stroke-width="1.5"/>\n  `;
+		}
+		prev = { bw, y };
+	});
+	return `<circle cx="${cx}" cy="330" r="230" fill="url(#glow)" filter="url(#soft)"/>\n  ${bars}`;
+}
+
+function renderSvg({ title, sub, lang, slug }) {
 	const P = PALETTE;
 	const { size, lines } = layoutTitle(title, lang);
 	const lineHeight = Math.round(size * 1.42);
 
 	// Vertically center the title + rule (+ optional subtitle) block.
 	const ruleBlock = 24 + 3;             // gap above rule + rule thickness
-	const subBlock = sub ? 44 : 0;        // gap + subtitle line
+	const subBlock = sub ? 42 : 0;        // gap + subtitle line
 	const blockHeight = lines.length * lineHeight + ruleBlock + subBlock;
 	const titleTop = Math.round((H - blockHeight) / 2 + size * 0.55) + 6;
 
@@ -122,9 +199,13 @@ function renderSvg({ title, sub, lang }) {
 	const ruleY = lastBaseline + 24;
 	const rule = `<rect x="${MARGIN}" y="${ruleY}" width="64" height="3" fill="${P.navy}"/>`;
 
+	// Subtitle is kept short and clamped to the left column width.
 	const subText = sub
-		? `<text x="${MARGIN}" y="${ruleY + 3 + 36}" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="26" font-weight="400" fill="${P.sub}" letter-spacing="0.02em">${esc(sub.length > (lang === 'ja' ? 38 : 72) ? sub.slice(0, lang === 'ja' ? 37 : 71) + '…' : sub)}</text>`
+		? `<text x="${MARGIN}" y="${ruleY + 3 + 34}" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="22" font-weight="400" fill="${P.sub}" letter-spacing="0.02em">${esc(sub.length > (lang === 'ja' ? 26 : 50) ? sub.slice(0, lang === 'ja' ? 25 : 49) + '…' : sub)}</text>`
 		: '';
+
+	const rng = makeRng(slug || title);
+	const motif = pickMotif(slug || '', title) === 'funnel' ? motifFunnel(rng) : motifNetwork(rng);
 
 	return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">
   <defs>
@@ -132,8 +213,19 @@ function renderSvg({ title, sub, lang }) {
       <stop offset="0%" stop-color="${P.bgFrom}"/>
       <stop offset="100%" stop-color="${P.bgTo}"/>
     </linearGradient>
+    <linearGradient id="bi" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#4F46E5"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4F46E5" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#4F46E5" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="26"/></filter>
   </defs>
   <rect width="${W}" height="${H}" fill="url(#bg)"/>
+
+  ${motif}
 
   <rect x="${MARGIN}" y="60" width="4" height="30" fill="${P.navy}"/>
   <text x="${MARGIN + 20}" y="82" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="20" font-weight="600" fill="${P.navy}" letter-spacing="0.28em">INSIGHTS</text>
@@ -165,7 +257,7 @@ function generate(dirRel, outRel, lang, onlySlug) {
 			continue;
 		}
 		const { title, sub } = splitHeadline(headline);
-		const svg = renderSvg({ title, sub, lang });
+		const svg = renderSvg({ title, sub, lang, slug });
 		writeFileSync(join(ROOT, outRel, `${slug}.svg`), svg);
 		console.log(`ok: ${outRel}/${slug}.svg`);
 		count++;

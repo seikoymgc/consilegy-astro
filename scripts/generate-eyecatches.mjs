@@ -1,7 +1,10 @@
-// Generate insight eyecatch SVGs (1200x630) in the site's Swiss x Glass style:
-// dark stone base, soft blue/violet orbs, structured typography with the article title.
+// Generate insight eyecatch SVGs (1200x630) in a trustworthy Japanese-B2B style:
+// light-gray base, navy typography, 70:25:5 color discipline, generous whitespace,
+// no decorative orbs — clean editorial structure with the article title.
 // Titles are pulled from each page's articleSchema headline.
 // Usage: node scripts/generate-eyecatches.mjs [slug] (no arg = all ja + en)
+//
+// Palette is centralized in PALETTE below so the whole set can be recolored in one place.
 
 import { readFileSync, readdirSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
@@ -87,53 +90,63 @@ function layoutTitle(title, lang) {
 	return { ...last, lines: wrap(title, last.perLine).slice(0, 3) };
 }
 
+// Centralized palette — light-gray base × navy, max 4 colors (70:25:5 discipline).
+const PALETTE = {
+	bgFrom: '#F5F7FA', // base (70%): near-white cool gray, top-left
+	bgTo: '#E8ECF2',   // base: slightly deeper gray, bottom-right (subtle depth)
+	navy: '#1E3A8A',   // main (25%): title, eyebrow bar, rule, brand
+	sub: '#64748B',    // subtitle: slate, readable but recessive
+	url: '#94A3B8',    // footer url: quiet
+	hairline: '#1E3A8A', // structural lines, used at low opacity
+};
+
+const MARGIN = 96;          // left/right safe margin (info kept off the edges)
+const RIGHT = W - MARGIN;   // right anchor for end-aligned text
+
 function renderSvg({ title, sub, lang }) {
+	const P = PALETTE;
 	const { size, lines } = layoutTitle(title, lang);
-	const lineHeight = Math.round(size * 1.45);
-	const blockHeight = lines.length * lineHeight + (sub ? 56 : 0);
-	const titleTop = Math.round((H - blockHeight) / 2 + size * 0.55) + 14;
+	const lineHeight = Math.round(size * 1.42);
+
+	// Vertically center the title + rule (+ optional subtitle) block.
+	const ruleBlock = 24 + 3;             // gap above rule + rule thickness
+	const subBlock = sub ? 44 : 0;        // gap + subtitle line
+	const blockHeight = lines.length * lineHeight + ruleBlock + subBlock;
+	const titleTop = Math.round((H - blockHeight) / 2 + size * 0.55) + 6;
 
 	const titleSpans = lines
-		.map((line, i) => `<text x="84" y="${titleTop + i * lineHeight}" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="${size}" font-weight="600" fill="#FAFAF9" letter-spacing="0.01em">${esc(line)}</text>`)
+		.map((line, i) => `<text x="${MARGIN}" y="${titleTop + i * lineHeight}" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="${size}" font-weight="600" fill="${P.navy}" letter-spacing="0.01em">${esc(line)}</text>`)
 		.join('\n  ');
 
+	const lastBaseline = titleTop + (lines.length - 1) * lineHeight;
+	const ruleY = lastBaseline + 24;
+	const rule = `<rect x="${MARGIN}" y="${ruleY}" width="64" height="3" fill="${P.navy}"/>`;
+
 	const subText = sub
-		? `<text x="84" y="${titleTop + lines.length * lineHeight + 18}" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="26" font-weight="400" fill="#FAFAF9" fill-opacity="0.55" letter-spacing="0.02em">${esc(sub.length > (lang === 'ja' ? 38 : 72) ? sub.slice(0, lang === 'ja' ? 37 : 71) + '…' : sub)}</text>`
+		? `<text x="${MARGIN}" y="${ruleY + 3 + 36}" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="26" font-weight="400" fill="${P.sub}" letter-spacing="0.02em">${esc(sub.length > (lang === 'ja' ? 38 : 72) ? sub.slice(0, lang === 'ja' ? 37 : 71) + '…' : sub)}</text>`
 		: '';
 
 	return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1C1917"/>
-      <stop offset="100%" stop-color="#26222A"/>
+      <stop offset="0%" stop-color="${P.bgFrom}"/>
+      <stop offset="100%" stop-color="${P.bgTo}"/>
     </linearGradient>
-    <radialGradient id="orbBlue" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.68"/>
-      <stop offset="100%" stop-color="#60A5FA" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="orbViolet" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#A78BFA" stop-opacity="0.58"/>
-      <stop offset="100%" stop-color="#A78BFA" stop-opacity="0"/>
-    </radialGradient>
-    <filter id="soften" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="40"/>
-    </filter>
   </defs>
   <rect width="${W}" height="${H}" fill="url(#bg)"/>
-  <circle cx="1090" cy="-20" r="340" fill="url(#orbBlue)" filter="url(#soften)"/>
-  <circle cx="40" cy="660" r="300" fill="url(#orbViolet)" filter="url(#soften)"/>
-  <circle cx="1150" cy="560" r="200" fill="url(#orbViolet)" filter="url(#soften)" opacity="0.5"/>
 
-  <line x1="84" y1="96" x2="1116" y2="96" stroke="#FAFAF9" stroke-opacity="0.14" stroke-width="1"/>
-  <text x="84" y="74" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="20" font-weight="500" fill="#93C5FD" letter-spacing="0.28em">INSIGHTS</text>
+  <rect x="${MARGIN}" y="60" width="4" height="30" fill="${P.navy}"/>
+  <text x="${MARGIN + 20}" y="82" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="20" font-weight="600" fill="${P.navy}" letter-spacing="0.28em">INSIGHTS</text>
+  <line x1="${MARGIN}" y1="116" x2="${RIGHT}" y2="116" stroke="${P.hairline}" stroke-opacity="0.12" stroke-width="1"/>
 
   ${titleSpans}
+  ${rule}
   ${subText}
 
-  <rect x="0" y="${H - 86}" width="${W}" height="86" fill="#FAFAF9" fill-opacity="0.045"/>
-  <line x1="0" y1="${H - 86}" x2="${W}" y2="${H - 86}" stroke="#FAFAF9" stroke-opacity="0.14" stroke-width="1"/>
-  <text x="84" y="${H - 33}" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="22" font-weight="600" fill="#FAFAF9" fill-opacity="0.85" letter-spacing="0.18em">CONSILEGY</text>
-  <text x="1116" y="${H - 33}" text-anchor="end" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="18" font-weight="400" fill="#FAFAF9" fill-opacity="0.4" letter-spacing="0.06em">consilegy.com</text>
+  <rect x="0" y="${H - 84}" width="${W}" height="84" fill="${P.navy}" fill-opacity="0.035"/>
+  <line x1="0" y1="${H - 84}" x2="${W}" y2="${H - 84}" stroke="${P.hairline}" stroke-opacity="0.12" stroke-width="1"/>
+  <text x="${MARGIN}" y="${H - 32}" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="22" font-weight="600" fill="${P.navy}" letter-spacing="0.18em">CONSILEGY</text>
+  <text x="${RIGHT}" y="${H - 32}" text-anchor="end" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="18" font-weight="400" fill="${P.url}" letter-spacing="0.06em">consilegy.com</text>
 </svg>
 `;
 }

@@ -13,10 +13,12 @@
 
 import { readFileSync, readdirSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
+import { loadDefaultJapaneseParser } from 'budoux';
 
 const ROOT = new URL('..', import.meta.url).pathname;
 const W = 1200;
 const H = 630;
+const jaParser = loadDefaultJapaneseParser();
 
 function esc(s) {
 	return s.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
@@ -34,23 +36,37 @@ function splitHeadline(headline) {
 	return m ? { title: m[1].trim(), sub: m[2].trim() } : { title: headline.trim(), sub: '' };
 }
 
-// Wrap by display width (CJK = 1, ASCII ~ 0.55) without breaking latin words,
-// and avoid placing closing punctuation at the start of a line.
+// Display width of one token (latin run ~0.55/char, CJK = 1).
+const tokenWidth = (t) => (/^[A-Za-z0-9]+$/.test(t) ? t.length * 0.55 : 1);
+const phraseWidth = (p) => (p.match(/[A-Za-z0-9]+|./g) ?? []).reduce((w, t) => w + tokenWidth(t), 0);
+
+// Wrap Japanese at natural phrase boundaries (BudouX) so words like 売上 / 本当 /
+// 理由 are never split across lines. Phrases are greedy-packed by display width;
+// a phrase wider than a whole line falls back to a character break (rare).
 function wrapJa(text, perLine) {
-	const tokens = text.match(/[A-Za-z0-9]+|./g) ?? [];
-	const width = (t) => (/^[A-Za-z0-9]+$/.test(t) ? t.length * 0.55 : /^[ ]$/.test(t) ? 0.3 : 1);
-	const noLineStart = /^[、。」』）｝】？！…ー]$/;
+	const phrases = jaParser.parse(text);
 	const lines = [];
 	let buf = '';
 	let w = 0;
-	for (const t of tokens) {
-		if (w + width(t) > perLine && buf && !noLineStart.test(t)) {
+	for (const ph of phrases) {
+		const pw = phraseWidth(ph);
+		if (w > 0 && w + pw > perLine) {
 			lines.push(buf);
 			buf = '';
 			w = 0;
 		}
-		buf += t;
-		w += width(t);
+		if (pw > perLine && w === 0) {
+			// Single phrase longer than a line: hard-break by character.
+			for (const t of ph.match(/[A-Za-z0-9]+|./g) ?? []) {
+				const tw = tokenWidth(t);
+				if (w > 0 && w + tw > perLine) { lines.push(buf); buf = ''; w = 0; }
+				buf += t;
+				w += tw;
+			}
+		} else {
+			buf += ph;
+			w += pw;
+		}
 	}
 	if (buf) lines.push(buf);
 	return lines;

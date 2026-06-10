@@ -37,9 +37,9 @@
   <text x="116" y="82" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="20" font-weight="600" fill="#1E3A8A" letter-spacing="0.28em">INSIGHTS</text>
   <line x1="96" y1="116" x2="1104" y2="116" stroke="#1E3A8A" stroke-opacity="0.12" stroke-width="1"/>
 
-  <text x="96" y="201" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="54" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">営業とカスタマーサ</text>
-  <text x="96" y="278" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="54" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">クセスが連携できな</text>
-  <text x="96" y="355" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="54" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">い理由</text>
+  <text x="96" y="201" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="54" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">営業と</text>
+  <text x="96" y="278" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="54" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">カスタマーサクセス</text>
+  <text x="96" y="355" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="54" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">が連携できない理由</text>
   <rect x="96" y="379" width="64" height="3" fill="#1E3A8A"/>
   <text x="96" y="416" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="22" font-weight="400" fill="#64748B" letter-spacing="0.02em">RevOpsとRevenue Architectu…</text>
 

@@ -38,8 +38,8 @@
   <line x1="96" y1="116" x2="1104" y2="116" stroke="#1E3A8A" stroke-opacity="0.12" stroke-width="1"/>
 
   <text x="96" y="241" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="42" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">なぜ良いマーケティングを</text>
-  <text x="96" y="301" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="42" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">していても再現性ある成長</text>
-  <text x="96" y="361" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="42" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">につながらないのか</text>
+  <text x="96" y="301" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="42" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">していても再現性ある</text>
+  <text x="96" y="361" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="42" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">成長につながらないのか</text>
   <rect x="96" y="385" width="64" height="3" fill="#1E3A8A"/>
   
 

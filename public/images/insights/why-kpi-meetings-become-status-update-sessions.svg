@@ -37,9 +37,9 @@
   <text x="116" y="82" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="20" font-weight="600" fill="#1E3A8A" letter-spacing="0.28em">INSIGHTS</text>
   <line x1="96" y1="116" x2="1104" y2="116" stroke="#1E3A8A" stroke-opacity="0.12" stroke-width="1"/>
 
-  <text x="96" y="222" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="54" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">なぜKPI会議は「数</text>
-  <text x="96" y="299" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="54" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">字確認会」で終わっ</text>
-  <text x="96" y="376" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="54" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">てしまうのか</text>
+  <text x="96" y="222" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="54" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">なぜKPI会議は</text>
+  <text x="96" y="299" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="54" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">「数字確認会」で</text>
+  <text x="96" y="376" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="54" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">終わってしまうのか</text>
   <rect x="96" y="400" width="64" height="3" fill="#1E3A8A"/>
   
 

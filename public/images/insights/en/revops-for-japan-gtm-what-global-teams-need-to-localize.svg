@@ -24,8 +24,9 @@
   <line x1="84" y1="96" x2="1116" y2="96" stroke="#FAFAF9" stroke-opacity="0.14" stroke-width="1"/>
   <text x="84" y="74" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="20" font-weight="500" fill="#93C5FD" letter-spacing="0.28em">INSIGHTS</text>
 
-  <text x="84" y="290" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="64" font-weight="600" fill="#FAFAF9" letter-spacing="0.01em">なぜSQL定義がズレるのか</text>
-  <text x="84" y="401" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="26" font-weight="400" fill="#FAFAF9" fill-opacity="0.55" letter-spacing="0.02em">RevOpsとRevenue Architecture</text>
+  <text x="84" y="271" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="64" font-weight="600" fill="#FAFAF9" letter-spacing="0.01em">RevOps for Japan GTM: What</text>
+  <text x="84" y="364" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="64" font-weight="600" fill="#FAFAF9" letter-spacing="0.01em">Global Teams Need to Localize</text>
+  
 
   <rect x="0" y="544" width="1200" height="86" fill="#FAFAF9" fill-opacity="0.045"/>
   <line x1="0" y1="544" x2="1200" y2="544" stroke="#FAFAF9" stroke-opacity="0.14" stroke-width="1"/>

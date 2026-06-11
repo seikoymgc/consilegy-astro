@@ -12,6 +12,9 @@ ErrorDocument 404 /404.html
 
 	# EN Privacy Policy: old slug → normalized URL
 	RewriteRule ^en/27775-2/?$ /en/privacy-policy/ [R=301,L]
+
+	# Legacy WP MA/CRM簡易診断 → 収益漏れ診断 (superseded 2026-06)
+	RewriteRule ^simple_diagnos/?$ /diagnostic/ [R=301,L]
 </IfModule>
 
 # ── Cache: immutable hashed assets (Astro fingerprints _astro/* files)

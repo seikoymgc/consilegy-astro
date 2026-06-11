@@ -31,3 +31,7 @@ build.log
 
 # backup files
 *.bak
+
+# Local agent/skill tooling
+.agents/
+skills-lock.json

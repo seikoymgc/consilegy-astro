@@ -30,6 +30,22 @@ const faqSchema = {
 	})),
 };
 
+const definedTermSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'DefinedTerm',
+	'@id': 'https://consilegy.com/revenue-architecture/#revenue-architecture',
+	name: 'Revenue Architecture',
+	alternateName: ['レベニューアーキテクチャ', '収益構造設計'],
+	description:
+		'Revenue Architecture（レベニューアーキテクチャ）とは、マーケティング、営業、カスタマーサクセス、CRM、KPI、データ、システムを、売上が生まれる一つの流れとして設計する考え方。売上を属人的な活動ではなく、再現可能な構造として設計する。RevOpsが「どう運用するか」であるのに対し、Revenue Architectureはその運用を成立させる「何を設計するか」を担う土台にあたる。',
+	url: 'https://consilegy.com/revenue-architecture/',
+	inDefinedTermSet: {
+		'@type': 'DefinedTermSet',
+		name: 'Consilegy Revenue Architecture用語集',
+		url: 'https://consilegy.com/revenue-architecture/',
+	},
+};
+
 const breadcrumbSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'BreadcrumbList',
@@ -113,6 +129,7 @@ const relatedServices = [
 	<Fragment slot="head">
 		<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(definedTermSchema)} />
 	</Fragment>
 
 <!-- ===== HERO ===== -->

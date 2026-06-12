@@ -2,6 +2,8 @@
 
 > We help B2B companies and English-speaking leaders in Japan build revenue operations that work across CRM, SFA, and MA tools. Vendor-neutral. Tokyo-based.
 
+> Consilegy（コンシレジー）は東京のRevenue Architecture / RevOpsコンサルティング会社です。Revenue Architecture（レベニューアーキテクチャ）とは、マーケティング・営業・カスタマーサクセス・CRM・KPI・データ・システムを、売上が生まれる一つの流れとして構造設計する考え方です。詳細: https://consilegy.com/revenue-architecture/
+
 ## What We Do
 
 Consilegy redesigns how marketing, sales, and customer success connect—so revenue becomes visible and repeatable. We work with companies that have CRM, SFA, and MA tools in place but still can't see or control their revenue flow.
@@ -14,7 +16,31 @@ Consilegy redesigns how marketing, sales, and customer success connect—so reve
 - **B2B Marketing GTM Strategy Design**: Go-to-market design for Japan market entry and expansion
 - **Adoption & Growth Support**: Post-implementation support to drive actual adoption
 
-## Key Pages
+## Key Pages (日本語 / Japanese)
+
+- ホーム: https://consilegy.com/
+- Revenue Architectureとは（レベニューアーキテクチャの定義・RevOpsとの違い）: https://consilegy.com/revenue-architecture/
+- RevOpsとは: https://consilegy.com/about-revops/
+- サービス一覧: https://consilegy.com/services/
+- レベニューアーキテクチャ設計: https://consilegy.com/services/revenue-architecture-design/
+- CRM / RevOps再設計支援（Salesforce・HubSpot・Kintone横断）: https://consilegy.com/services/crm-revops-redesign/
+- HubSpot導入・運用支援: https://consilegy.com/services/hubspot-implementation-operations/
+- GTM / Marketing Strategy設計: https://consilegy.com/services/b2b-marketing-gtm-design/
+- 運用定着・改善伴走支援: https://consilegy.com/services/adoption-growth-support/
+- インサイト（記事一覧）: https://consilegy.com/insights/
+- CRM / RevOps収益診断（無料）: https://consilegy.com/diagnostic/
+- 30分無料相談: https://consilegy.com/free-consultation/
+- お問い合わせ: https://consilegy.com/contact/
+
+## Featured Articles (日本語)
+
+- 日本企業でRevOpsが定着しない理由: https://consilegy.com/insights/why-revops-is-hard-in-japanese-companies/
+- Revenue Visibilityとは何か——「売上が見える状態」の正体: https://consilegy.com/insights/what-is-revenue-visibility/
+- Revenue Data Flowとは何か｜なぜ数字がつながらないのか: https://consilegy.com/insights/what-is-revenue-data-flow/
+- CRMが定着しない本当の理由: https://consilegy.com/insights/why-crm-adoption-fails/
+- SalesforceとHubSpotで数字が合わない理由: https://consilegy.com/insights/why-salesforce-and-hubspot-data-do-not-match/
+
+## Key Pages (English)
 
 - Homepage (JA): https://consilegy.com/
 - Homepage (EN): https://consilegy.com/en/

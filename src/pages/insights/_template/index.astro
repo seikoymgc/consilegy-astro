@@ -1,22 +1,61 @@
 ---
+// ============================================================
+// Insights記事テンプレート（LLMO対応版・2026-06-12作成）
+//
+// 使い方:
+//   1. このフォルダごと src/pages/insights/<slug>/ にコピー
+//      （_template はルーティング除外のため公開されない）
+//   2. 「TODO」を全部埋める（grep TODO で漏れ確認）
+//   3. アイキャッチ: scripts/generate-eyecatches.mjs で生成
+//
+// LLMO必須要素（削らないこと）:
+//   - 定義ブロック: 冒頭H2直下に160〜200字の自己完結した定義段落。
+//     AIが引用する最小単位。主語を省略しない・指示語を使わない
+//   - 記事末FAQ: 3〜5問。faqItems に書けば本文とスキーマ両方に反映される
+//   - author は Person（山口聖子）固定。Organizationに戻さない
+// ============================================================
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
-const pubDate = '2026-05-06';
-const pubDateDisplay = '2026年5月6日';
-const readTime = '約10分';
+const slug = 'TODO-slug'; // 例: why-crm-adoption-fails（フォルダ名と一致させる）
+const pubDate = 'TODO-2026-MM-DD';
+const pubDateDisplay = 'TODO 2026年M月D日';
+
+const title = 'TODO 記事タイトル（32字前後・「なぜ」「〜とは」型）';
+const metaTitle = 'TODO 記事タイトル｜サブコピー | Consilegy';
+const metaDescription = 'TODO メタディスクリプション（100〜120字。検索結果とAI要約の両方で使われる）';
+const category = 'TODO カテゴリ'; // 例: CRM / RevOps / Revenue Architecture
+
+// ── 記事末FAQ（3〜5問・LLMO必須）
+// 質問は「〜とは？」「〜の違いは？」「いつ〜すべき？」など検索される形式で。
+// 回答は2〜4文で自己完結させる（この回答だけ読んでも意味が通ること）。
+const faqItems = [
+	{ q: 'TODO 質問1', a: 'TODO 回答1' },
+	{ q: 'TODO 質問2', a: 'TODO 回答2' },
+	{ q: 'TODO 質問3', a: 'TODO 回答3' },
+];
 
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
-	headline: 'CRMが定着しない本当の理由｜営業が入力しないのは現場のせいではない',
-	description: 'CRMが定着しない原因を、営業現場の意識ではなく、KPI設計・商談ステージ定義・データ構造・Revenue Architectureの観点から解説します。',
+	headline: title,
+	description: metaDescription,
 	datePublished: pubDate,
 	dateModified: pubDate,
 	author: { '@type': 'Person', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
 	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
-	url: 'https://consilegy.com/insights/why-crm-adoption-fails/',
+	url: `https://consilegy.com/insights/${slug}/`,
 	inLanguage: 'ja',
+};
+
+const faqSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faqItems.map(({ q, a }) => ({
+		'@type': 'Question',
+		name: q,
+		acceptedAnswer: { '@type': 'Answer', text: a },
+	})),
 };
 
 const breadcrumbSchema = {
@@ -25,18 +64,19 @@ const breadcrumbSchema = {
 	itemListElement: [
 		{ '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://consilegy.com/' },
 		{ '@type': 'ListItem', position: 2, name: 'コラム', item: 'https://consilegy.com/insights/' },
-		{ '@type': 'ListItem', position: 3, name: 'CRMが定着しない本当の理由', item: 'https://consilegy.com/insights/why-crm-adoption-fails/' },
+		{ '@type': 'ListItem', position: 3, name: title, item: `https://consilegy.com/insights/${slug}/` },
 	],
 };
 ---
 
 <BaseLayout
-	title="CRMが定着しない本当の理由｜営業が入力しない原因と改善策 | Consilegy"
-	description="CRMが定着しない原因を、営業現場の意識ではなく、KPI設計・商談ステージ定義・データ構造・Revenue Architectureの観点から解説します。"
+	title={metaTitle}
+	description={metaDescription}
 	lang="ja"
 >
 	<Fragment slot="head">
 		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 	</Fragment>
 
@@ -49,20 +89,20 @@ const breadcrumbSchema = {
 			<span aria-hidden="true">›</span>
 			<a href="/insights/">コラム</a>
 			<span aria-hidden="true">›</span>
-			<span aria-current="page">CRMが定着しない本当の理由</span>
+			<span aria-current="page">{title}</span>
 		</nav>
 		<div class="article-meta">
-			<span class="article-cat">CRM</span>
+			<span class="article-cat">{category}</span>
 		</div>
-		<h1>CRMが定着しない本当の理由<br class="br-pc" />——営業が入力しないのは現場のせいではない</h1>
-		<p class="article-desc">ある会社のCRMには商談ステージが79段階あり、実際に使われていたのは5段階でした。入力項目30個のうち営業が埋めていたのは10個。CRM定着を阻む具体的なパターンと、最初に何から直すべきかを解説します。</p>
+		<h1>{title}</h1>
+		<p class="article-desc">TODO リード文（具体的な数字・場面で始める。メタディスクリプションのコピペにしない）</p>
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
 	<article class="article-body container" id="article">
 		<div class="article-eyecatch">
 			<img
-				src="/images/insights/why-crm-adoption-fails.svg"
+				src={`/images/insights/${slug}.svg`}
 				alt=""
 				width="1200"
 				height="630"
@@ -72,98 +112,41 @@ const breadcrumbSchema = {
 			/>
 		</div>
 
-		<!-- はじめに -->
+		<!-- ★ 定義ブロック（LLMO必須・削除禁止）────────────────
+		     160〜200字・1段落で自己完結。この段落だけ切り取られても
+		     意味が通ること。「TODOとは、〜です。」で始める。 -->
+		<section class="article-section article-def" id="definition">
+			<h2>TODO（記事の中心概念）とは</h2>
+			<p class="article-def__text"><strong>TODO（中心概念）とは</strong>、TODO 160〜200字の定義文。主語を省略しない。指示語（これ・それ）を使わない。1段落で完結させる。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- はじめに: 具体的なエピソード・数字で始める -->
 		<section class="article-section">
-			<h2>ある営業チームのCRMに、商談ステージが79段階ありました</h2>
-			<p>導入から1年。チームの誰もそのすべてを使っていませんでした。実際に更新されていたのは5段階。残りの74段階は、導入プロジェクト中に「将来使うかもしれない」と設定され、そのまま残っていました。</p>
-			<p>入力項目は30個。営業が実際に埋めていたのは10個でした。残りの20個は「あとで分析する用」に作られましたが、誰もそのデータを見ていませんでした。</p>
-			<p>マネージャーは毎週「ちゃんと入力してください」と言い続けていました。入力率は上がりませんでした。</p>
+			<h2>TODO 導入見出し（具体的な場面・数字）</h2>
+			<p>TODO 本文</p>
 			<div class="article-callout">
-				<p>CRMが定着しないとき、原因はほぼ決まって「設計」にあります。営業は意味のないシステムには入力しません。これは意識の問題ではなく、合理的な判断です。</p>
+				<p>TODO この記事の核心を1〜2文で（コールアウトはAIに拾われやすい）</p>
 			</div>
 		</section>
 
 		<hr class="article-hr" />
 
-		<!-- 自己診断 -->
+		<!-- 本文: 必要なだけ article-section を繰り返す -->
 		<section class="article-section">
-			<h2>まず確認してください：あなたのCRMは「営業ツール」ですか、「報告ツール」ですか</h2>
-			<p>以下のうち、いくつ当てはまるか確認してみてください。</p>
-			<ul>
-				<li>営業会議でCRMを開かずに話が進む</li>
-				<li>ダッシュボードを見ているのはマネージャーだけ</li>
-				<li>商談ステージを更新しなくても、誰も困らない</li>
-				<li>CRMのデータをExcelに出力して集計している</li>
-				<li>入力しても、現場に何も返ってこない</li>
-			</ul>
-			<div class="article-callout">
-				<p><strong>3つ以上当てはまる場合、CRMはすでに現場にとって「報告義務」になっています。</strong>その状態でいくら「もっと入力してください」と伝えても、構造は変わりません。</p>
-			</div>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- 3つのパターン -->
-		<section class="article-section">
-			<h2>定着しない3つの具体的なパターン</h2>
+			<h2>TODO 見出し（「〜とは」「なぜ〜か」「〜との違い」型を優先）</h2>
+			<p>TODO 本文</p>
 			<div class="article-numbered">
 				<div class="article-numbered__item">
 					<p class="article-numbered__num">01</p>
-					<h3>商談ステージに「移行条件」がない</h3>
-					<p>79段階のケースでは、ステージの「名前」はありました。しかし「どうなったら次のステージに進むのか」が決まっていませんでした。</p>
-					<p>結果、営業Aは「提案書を送ったら提案中」、営業Bは「顧客が前向きなら提案中」と判断していました。同じダッシュボードを見ても、数字の意味が人によって違います。パイプラインは飾りになります。</p>
-					<p><strong>判断基準：</strong>チームの誰かに「このステージに進む条件は何ですか」と聞いて、全員が同じ答えを言えるかどうかを確認してください。言えなければ、定義されていないのと同じです。</p>
+					<h3>TODO 小見出し</h3>
+					<p>TODO 本文</p>
 				</div>
 				<div class="article-numbered__item">
 					<p class="article-numbered__num">02</p>
-					<h3>入力項目が「将来の分析用」に増殖している</h3>
-					<p>30項目のうち10項目しか使われていなかったケースでは、残りの20項目はすべて「いつか分析したい」という理由で追加されたものでした。</p>
-					<p>導入プロジェクト中に「受注確度も入れよう」「競合情報も記録しよう」「顧客の予算規模も」と積み上がった結果、営業は毎回30項目の入力を求められ、データは溜まるが誰も見ない状態になっていました。</p>
-					<p><strong>判断基準：</strong>各入力項目について「このデータを、いつ、誰が、何の判断に使いましたか」を答えられるかどうか確認してください。答えられない項目は削除候補です。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">03</p>
-					<h3>入力したデータが会議で使われていない</h3>
-					<p>営業会議でExcelを使う、CRMのダッシュボードは「一応表示する」が数字の確認だけで終わる——この状態では、営業がCRMを更新する理由がなくなります。</p>
-					<p>「入力しても何も変わらない」という認識が現場に定着すると、設計をどれだけ改善しても使われなくなります。会議での使われ方が、定着の最終的な決め手になります。</p>
-					<p><strong>判断基準：</strong>「先週CRMに入力したデータが、今週の会議でどう使われましたか」という問いに、具体的に答えられるかどうかを確認してください。</p>
-				</div>
-			</div>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- CRMが機能したとき -->
-		<section class="article-section">
-			<h2>CRMが機能したとき、何が変わるか</h2>
-			<p>正しく設計されたCRMが機能すると、まず「集計作業」がなくなります。会議前のExcel集計、進捗確認のための個別ヒアリング、マネージャーが毎回行っていた「状況把握のための1on1」——CRMに情報が正しく入っていれば、これらは不要になります。</p>
-			<p>5人で対応していた週次の数字管理が、1人で回るようになります。空いた4人分のリソースは、顧客対応・提案・改善に使えます。</p>
-			<div class="article-callout">
-				<p>CRMは「入力管理のツール」ではありません。正しく機能すれば、<strong>マネジメントコストそのものを下げるインフラ</strong>になります。</p>
-			</div>
-		</section>
-
-		<hr class="article-hr" />
-
-		<!-- 最初の一手 -->
-		<section class="article-section">
-			<h2>最初の一手：何から直せばいいか</h2>
-			<p>CRM定着のために最初に取り組むべきことは、次の3つです。順番が重要です。</p>
-			<div class="article-numbered">
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">01</p>
-					<h3>使われていない入力項目を削除する</h3>
-					<p>30個あるなら、まず「実際に使われている10個」だけを残してください。「将来使うかもしれない」は削除の理由になります。項目を減らすことへの抵抗は出ますが、使われないデータに価値はありません。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">02</p>
-					<h3>商談ステージの移行条件をチームで言語化する</h3>
-					<p>ステージの名前を変えるのではなく、「このステージに進む条件」をチームで揃えてください。全員が同じ答えを言えるまで詰めることが重要です。これだけで、パイプラインの信頼性が変わります。</p>
-				</div>
-				<div class="article-numbered__item">
-					<p class="article-numbered__num">03</p>
-					<h3>次の営業会議でCRMのパイプラインを使う</h3>
-					<p>資料を作らず、CRMを画面に出して会議を進めてみてください。最初の1回が、習慣を変えます。「CRMを見れば状況がわかる」という体験を現場が得ると、更新する動機が生まれます。</p>
+					<h3>TODO 小見出し</h3>
+					<p>TODO 本文</p>
 				</div>
 			</div>
 		</section>
@@ -172,29 +155,40 @@ const breadcrumbSchema = {
 
 		<!-- まとめ -->
 		<section class="article-section">
-			<h2>まとめ：「ちゃんと入力して」が必要な状況は、設計で解決できます</h2>
-			<p>CRMが定着しない原因は、現場の意識や習慣ではありません。使われない項目、定義されていないステージ、会議で使われないダッシュボード——これらは設計の問題であり、設計で解決できます。</p>
-			<p>最初にすべきことは現場への説得ではなく、使われていない項目の削除とステージ定義の言語化です。その2つを終えてから、会議の運営を変えてください。</p>
-			<div class="article-callout">
-				<p>「ちゃんと入力してください」と言い続ける必要がなくなったとき、CRMは初めて機能しています。</p>
+			<h2>まとめ：TODO（結論を見出しに書く）</h2>
+			<p>TODO まとめ本文</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<!-- ★ 記事末FAQ（LLMO必須・faqItems と自動同期） -->
+		<section class="article-section article-faq" id="faq">
+			<h2>よくある質問</h2>
+			<div class="faq-list">
+				{faqItems.map(({ q, a }) => (
+					<details class="faq-item">
+						<summary class="faq-q">{q}</summary>
+						<p class="faq-a">{a}</p>
+					</details>
+				))}
 			</div>
 		</section>
 
-		<p class="article-pubdate">公開日：2026年5月6日</p>
+		<p class="article-pubdate">公開日：{pubDateDisplay}</p>
 	</article>
 
 	<!-- ===== RELATED SERVICES ===== -->
 	<nav class="article-services" aria-label="関連サービス">
 		<h2 class="article-services__heading">関連サービス</h2>
 		<div class="article-services__grid">
-		<a href="/services/crm-revops-redesign/" class="article-services__card">
+		<a href="TODO-/services/xxx/" class="article-services__card">
 				<span class="article-services__cat">サービス</span>
-				<span class="article-services__title">CRM / RevOps再設計支援</span>
+				<span class="article-services__title">TODO サービス名</span>
 				<span class="article-services__arrow">→</span>
 			</a>
-		<a href="/services/adoption-growth-support/" class="article-services__card">
+		<a href="TODO-/services/yyy/" class="article-services__card">
 				<span class="article-services__cat">サービス</span>
-				<span class="article-services__title">運用定着・改善支援</span>
+				<span class="article-services__title">TODO サービス名</span>
 				<span class="article-services__arrow">→</span>
 			</a>
 		</div>
@@ -215,14 +209,9 @@ const breadcrumbSchema = {
 				<p class="article-related__card-title">RevOps（レベニューオペレーション）とは</p>
 				<span class="article-related__card-arrow">→</span>
 			</a>
-			<a href="/services/crm-revops-redesign/" class="article-related__card">
-				<p class="article-related__card-cat">サービス</p>
-				<p class="article-related__card-title">CRM / RevOps再設計支援</p>
-				<span class="article-related__card-arrow">→</span>
-			</a>
-			<a href="/insights/why-crm-does-not-align-sales-and-marketing/" class="article-related__card">
+			<a href="TODO-/insights/xxx/" class="article-related__card">
 				<p class="article-related__card-cat">関連記事</p>
-				<p class="article-related__card-title">CRMを導入しても営業とマーケが連携できない本当の理由</p>
+				<p class="article-related__card-title">TODO 関連記事タイトル</p>
 				<span class="article-related__card-arrow">→</span>
 			</a>
 		</div>
@@ -232,17 +221,16 @@ const breadcrumbSchema = {
 	<section class="article-cta">
 		<div class="container">
 			<div class="article-cta__body">
-				<h2>Consilegyでは現在、Revenue Architectureの観点から、<br class="br-pc" />自社のCRM・RevOps課題を整理する30分無料相談を実施しています。</h2>
+				<h2>Consilegyでは現在、Revenue Architectureの観点から、<br class="br-pc" />TODO（記事テーマ）の課題を整理する30分無料相談を実施しています。</h2>
 				<ul class="article-cta__list">
-					<li>CRMを入れたが、結局Excelから離れられない</li>
-					<li>営業がCRMに入力してくれない</li>
-					<li>ダッシュボードの数字を誰も信用していない</li>
-					<li>KPIと業務プロセスがつながっていない</li>
+					<li>TODO 読者の悩み1</li>
+					<li>TODO 読者の悩み2</li>
+					<li>TODO 読者の悩み3</li>
 				</ul>
 				<p class="article-cta__note">ツールの前に、「設計図」から整理することが、最短の改善ルートです。</p>
 				<div class="article-cta__actions">
 					<a href="/free-consultation/" class="btn btn--cta-primary">30分無料相談を予約する →</a>
-					<a href="/services/crm-revops-redesign/" class="btn btn--cta-ghost">CRM / RevOps再設計支援を見る</a>
+					<a href="TODO-/services/xxx/" class="btn btn--cta-ghost">TODO サービス名を見る</a>
 				</div>
 			</div>
 		</div>
@@ -252,6 +240,66 @@ const breadcrumbSchema = {
 </BaseLayout>
 
 <style>
+	/* ── 定義ブロック（LLMO） ─── */
+	.article-def__text {
+		background: var(--color-bg-soft, #f8fafc);
+		border-left: 4px solid var(--color-primary, #1e40af);
+		border-radius: 0 8px 8px 0;
+		padding: 1.25rem 1.5rem;
+		font-size: 1rem;
+		line-height: 1.85;
+		color: var(--color-navy, #0f172a);
+	}
+
+	/* ── 記事末FAQ（LLMO） ─── */
+	.faq-list {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.faq-item {
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		background: #fff;
+		overflow: hidden;
+	}
+
+	.faq-q {
+		font-size: 0.95rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		padding: 1.1rem 1.25rem;
+		cursor: pointer;
+		list-style: none;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+		line-height: 1.5;
+	}
+
+	.faq-q::-webkit-details-marker { display: none; }
+
+	.faq-q::after {
+		content: '+';
+		font-size: 1.25rem;
+		font-weight: 300;
+		color: var(--color-primary, #1e40af);
+		flex-shrink: 0;
+		transition: transform 0.2s;
+	}
+
+	details[open] .faq-q::after { transform: rotate(45deg); }
+
+	.faq-a {
+		font-size: 0.9rem;
+		line-height: 1.8;
+		color: var(--color-charcoal, #334155);
+		padding: 0 1.25rem 1.25rem;
+		margin: 0;
+	}
+
 	/* ── Eyecatch ─── */
 	.article-eyecatch {
 		margin-bottom: 2rem;

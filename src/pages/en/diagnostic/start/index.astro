@@ -28,7 +28,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 </BaseLayout>
 
 <script>
-	import { CATEGORIES, SIGNAL_META, signalOf, bandOf } from '../../../../lib/diagnostic-data.en';
+	import { CATEGORIES, SIGNAL_META, signalOf, bandOf, patternOf } from '../../../../lib/diagnostic-data.en';
 
 	// ── Config ──────────────────────────────────────────────
 	const HS_PORTAL_ID = '46498743';
@@ -285,6 +285,10 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 			.sort((a, b) => b.score - a.score);
 		const worst = leaks[0];
 
+		// Leak pattern: which red categories overlap (red = score 4).
+		const redIds = CATEGORIES.filter((c, i) => scores[i] >= 4).map((c) => c.id);
+		const pattern = worst ? patternOf(redIds, worst.c.id) : null;
+
 		app.innerHTML = `
 			<div class="rd-result-head">
 				<p class="rd-result-eyebrow">Revenue Leak Diagnostic — Result</p>
@@ -295,6 +299,14 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 				<h1 class="rd-result-headline">${esc(band.headline)}</h1>
 				<p class="rd-score-note">Lower is healthier (total leak-risk score).</p>
 			</div>
+
+			${pattern ? `
+			<div class="rd-pattern">
+				<p class="rd-pattern-label">Your leak pattern</p>
+				<h2 class="rd-pattern-headline">${esc(pattern.headline)}</h2>
+				<p class="rd-pattern-body">${esc(pattern.body)}</p>
+			</div>
+			` : ''}
 
 			<div class="rd-map">
 				${CATEGORIES.map((c, i) => {
@@ -319,6 +331,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 						<div>
 							<span class="rd-insight-cat">${esc(x.c.name)}</span>
 							<p class="rd-insight-text">${esc(x.c.insight)}</p>
+							<p class="rd-insight-quant">${esc(x.c.quant)}</p>
 						</div>
 					</div>`).join('')}
 			</div>
@@ -343,7 +356,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 			<p class="rd-retry"><button type="button" data-retry>Take the diagnostic again</button></p>
 		`;
 
-		track('result_view', { score_total: total, band: band.label });
+		track('result_view', { score_total: total, band: band.label, pattern_id: pattern?.id ?? 'none' });
 
 		app.querySelector('[data-cta="book"]')?.addEventListener('click', () => track('cta_book_click'));
 		app.querySelector('[data-cta="contact"]')?.addEventListener('click', () => track('cta_contact_click'));
@@ -506,6 +519,23 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 :global(.rd-insight-emoji) { font-size: 1.0625rem; margin-top: 1px; }
 :global(.rd-insight-cat) { display: block; font-size: 0.8125rem; font-weight: 600; color: var(--color-text); margin-bottom: 0.25rem; }
 :global(.rd-insight-text) { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.7; margin: 0; }
+:global(.rd-insight-quant) {
+	font-size: 0.8125rem; color: var(--color-text); line-height: 1.7; margin: 0.5rem 0 0;
+	padding-left: 0.75rem; border-left: 2px solid rgba(30,64,175,0.3);
+}
+
+:global(.rd-pattern) {
+	background: linear-gradient(180deg, rgba(30,64,175,0.07), rgba(30,64,175,0.03));
+	border: 1px solid rgba(30,64,175,0.22);
+	border-radius: var(--radius-card);
+	padding: 1.5rem; margin-bottom: 1.75rem;
+}
+:global(.rd-pattern-label) {
+	font-size: 0.625rem; font-weight: 600; color: var(--color-primary);
+	letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 0.625rem;
+}
+:global(.rd-pattern-headline) { font-size: 1.0625rem; font-weight: 700; color: var(--color-text); line-height: 1.5; margin: 0 0 0.625rem; }
+:global(.rd-pattern-body) { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.75; margin: 0; }
 
 :global(.rd-firststep) {
 	background: rgba(30,64,175,0.05);

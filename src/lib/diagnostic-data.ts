@@ -20,6 +20,7 @@ export interface DiagnosticCategory {
 	shortName: string;
 	questions: DiagnosticQuestion[];
 	insight: string;    // shown when category is yellow/red
+	quant: string;      // 相対定量フレーム (shown under insight when yellow/red)
 	firstStep: string;  // 最初の一手 (shown for the worst category)
 }
 
@@ -47,6 +48,7 @@ export const CATEGORIES: DiagnosticCategory[] = [
 			},
 		],
 		insight: 'リードはあっても、定義のズレで商談前に消えています',
+		quant: 'マーケが渡したリードの3〜5割が、商談化の手前で「対応に値しない」と判断されて消えるのが典型です。広告費が商談の一歩手前で蒸発している状態です。',
 		firstStep: '営業とマーケで「商談化リードの条件」を1枚に言語化する',
 	},
 	{
@@ -72,6 +74,7 @@ export const CATEGORIES: DiagnosticCategory[] = [
 			},
 		],
 		insight: '売上が人に依存し、予測が立ちません',
+		quant: '売上が上位2〜3名に集中している組織では、その1人の離職が翌期forecastを最も大きく揺らす要因になります。営業リスクが実質的に財務リスクです。',
 		firstStep: 'トップ営業の「判断基準」を3つ言語化して共有する',
 	},
 	{
@@ -97,6 +100,7 @@ export const CATEGORIES: DiagnosticCategory[] = [
 			},
 		],
 		insight: 'CRMが活動の記録止まりで、購買進捗を測れていません',
+		quant: 'ステージが「自社の活動」を表している会社のforecastは、月次で±20〜30%ぶれるのが目安です。打ち手が常に後手に回ります。',
 		firstStep: 'ステージ定義を「顧客の状態」で再定義する',
 	},
 	{
@@ -122,6 +126,7 @@ export const CATEGORIES: DiagnosticCategory[] = [
 			},
 		],
 		insight: '数字がバラバラで、経営判断が遅れています',
+		quant: '数字を手集計している組織は、経営会議の準備だけで毎月数十時間を溶かしています。しかも「どれが正か」の議論で意思決定が遅れます。',
 		firstStep: '経営会議で見る指標を1つの正データに統一する',
 	},
 	{
@@ -147,6 +152,7 @@ export const CATEGORIES: DiagnosticCategory[] = [
 			},
 		],
 		insight: 'ツールが現場の日常になっていません',
+		quant: '使われないCRMはデータの鮮度・網羅性が落ち、「使えないから使わない」の悪循環に入ります。投資したツール費がそのまま埋没コストになります。',
 		firstStep: '現場が毎日開く理由（1機能）に絞って運用を立て直す',
 	},
 	{
@@ -172,6 +178,7 @@ export const CATEGORIES: DiagnosticCategory[] = [
 			},
 		],
 		insight: '受注後の拡大が設計されず、LTVが伸びていません',
+		quant: '新規獲得は既存拡大の約5倍のコストがかかります。出口（継続・拡大）の設計不在は、最も高くつく漏れです。',
 		firstStep: '受注→CSの引き継ぎチェックリストを作る',
 	},
 ];
@@ -213,4 +220,88 @@ export const SIGNAL_META = {
 
 export function bandOf(total: number) {
 	return BANDS.find((b) => total >= b.min && total <= b.max) ?? BANDS[BANDS.length - 1];
+}
+
+// ── 掛け合わせパターン ───────────────────────────────────────
+// 「どのカテゴリが赤か」ではなく「赤がどこに重なるか」で漏れの型を1本出す。
+// red = 赤(score===4)カテゴリの id 配列 / worstId = 最高スコアのカテゴリ id。
+export interface LeakPattern {
+	id: string;
+	headline: string;
+	body: string;
+}
+
+function nameOf(id: string): string {
+	return CATEGORIES.find((c) => c.id === id)?.name ?? id;
+}
+
+export function patternOf(red: string[], worstId: string): LeakPattern | null {
+	const has = (id: string) => red.includes(id);
+
+	if (red.length >= 4) {
+		return {
+			id: 'P1',
+			headline: 'これはツールの問題ではなく、収益の設計そのものの問題です',
+			body: '複数の境目で同時に漏れているとき、原因は個別の機能やツールではありません。収益の流れ（リード→商談→受注→拡大）が一度も設計されていない状態です。手当てを足すほど複雑になります。一度、流れ全体を引き直す段階にあります。',
+		};
+	}
+	if (has('handoff') && has('expansion')) {
+		return {
+			id: 'P2',
+			headline: '中間（営業）は動いているのに、入口と出口で失っています',
+			body: '現場の営業力で受注は取れています。一方で、リードの入口と受注後の拡大が設計されていないため、努力が「一度きりの受注」で終わっています。獲得コストが高止まりし、LTVも伸びない——最も入れ替わりの激しい二重の漏れです。',
+		};
+	}
+	if (has('dependence') && has('stages')) {
+		return {
+			id: 'P3',
+			headline: '売上が「読めない」のは、この2つが重なっているからです',
+			body: '売上が個人の勘に依存し、CRMのステージも購買進捗を表していません。この2つが重なると、forecastは構造的に当たりません。気合や精度向上では直らない領域で、経営の意思決定が常に後手に回ります。',
+		};
+	}
+	if (has('silos') && has('adoption')) {
+		return {
+			id: 'P4',
+			headline: '数字が「作るもの」になっていて、土台が無い状態です',
+			body: 'ツールが現場に根付かず、経営の数字は毎回手集計。これではKPI管理も投資判断も、土台のないまま回しています。新しい施策の良し悪しを測れないため、改善のループが回りません。',
+		};
+	}
+	if (has('handoff') && has('dependence')) {
+		return {
+			id: 'P5',
+			headline: '入口で二重に失っています',
+			body: 'マーケが渡したリードが定義のズレで消え、拾えるかどうかも営業個人の勘次第。せっかくの母数を、商談に入る前に二段階で削っています。マーケ投資のROIが見えなくなる典型です。',
+		};
+	}
+	if (has('dependence') || has('stages')) {
+		return {
+			id: 'P6',
+			headline: '受注はできても、再現できる形になっていません',
+			body: '数字は取れていますが、「誰がやっても同じ結果」にはなっていません。スケールの天井はここです。人を増やしても売上が比例しないなら、原因はこの境目です。',
+		};
+	}
+	if (worstId === 'handoff' && has('handoff')) {
+		return {
+			id: 'P7',
+			headline: '一番もったいない漏れが、入口に出ています',
+			body: '集めたリードを、商談に入る前の「定義のズレ」で捨てています。新規獲得を増やす前に、ここを直すのが最も費用対効果が高い一手です。',
+		};
+	}
+	if (worstId === 'expansion' && has('expansion')) {
+		return {
+			id: 'P8',
+			headline: '獲得は機能しています。伸びしろは「既存の拡大」側です',
+			body: '入口は回っているぶん、いま取りこぼしているのは既存顧客のLTVです。新規より安く、確度の高い売上が、出口の設計不在で抜けています。',
+		};
+	}
+	if (red.length >= 2) {
+		const others = red.filter((id) => id !== worstId);
+		const second = others[0] ?? red.find((id) => id !== worstId) ?? red[1];
+		return {
+			id: 'P9',
+			headline: `2つの境目が同時に漏れています：${nameOf(worstId)}と${nameOf(second)}`,
+			body: `それぞれ単独でも売上を削りますが、重なると影響が掛け算になります。まずは上位の${nameOf(worstId)}から手をつけるのが順番です。`,
+		};
+	}
+	return null; // 赤0〜1 → パターン非表示
 }

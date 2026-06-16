@@ -31,6 +31,7 @@ export const CATEGORIES: DiagnosticCategory[] = [
 			},
 		],
 		insight: 'You have leads, but a definition gap kills them before they become opportunities.',
+		quant: 'Typically 30–50% of the leads marketing passes over are written off as "not worth pursuing" just before they could become opportunities. Your acquisition spend evaporates one step short of a real conversation.',
 		firstStep: 'Write the "sales-ready lead" criteria on a single page, agreed by sales and marketing.',
 	},
 	{
@@ -56,6 +57,7 @@ export const CATEGORIES: DiagnosticCategory[] = [
 			},
 		],
 		insight: "Revenue depends on people, so it can't be forecast.",
+		quant: "When revenue concentrates in your top 2–3 reps, a single departure becomes the biggest swing factor in next period's forecast. Sales risk is effectively financial risk.",
 		firstStep: "Put your top rep's three key judgment criteria into words and share them.",
 	},
 	{
@@ -81,6 +83,7 @@ export const CATEGORIES: DiagnosticCategory[] = [
 			},
 		],
 		insight: "Your CRM only logs activity and can't measure buying progress.",
+		quant: 'When stages represent "your own activity" rather than the buyer\'s, forecasts typically swing ±20–30% month to month. You are always reacting one step too late.',
 		firstStep: 'Redefine your stages around "the customer\'s state".',
 	},
 	{
@@ -106,6 +109,7 @@ export const CATEGORIES: DiagnosticCategory[] = [
 			},
 		],
 		insight: 'Numbers are scattered, so leadership decisions lag.',
+		quant: 'Organizations that hand-compile their numbers burn dozens of hours every month just preparing for the leadership meeting — and then lose more time arguing over which figure is correct.',
 		firstStep: 'Unify the metrics your leadership reviews into one source of truth.',
 	},
 	{
@@ -131,6 +135,7 @@ export const CATEGORIES: DiagnosticCategory[] = [
 			},
 		],
 		insight: "The tools haven't become part of the team's daily work.",
+		quant: 'A CRM that goes unused decays in data freshness and coverage, locking in a "useless, so unused" spiral. The tool spend you committed to becomes a sunk cost.',
 		firstStep: 'Rebuild operations around the one feature that makes the team open it daily.',
 	},
 	{
@@ -156,6 +161,7 @@ export const CATEGORIES: DiagnosticCategory[] = [
 			},
 		],
 		insight: "Post-sale expansion isn't designed, so LTV isn't growing.",
+		quant: 'Acquiring a new customer costs roughly 5× expanding an existing one. A missing exit (retention/expansion) design is the most expensive leak of all.',
 		firstStep: 'Create a sales → CS handoff checklist.',
 	},
 ];
@@ -190,4 +196,87 @@ export const SIGNAL_META = {
 
 export function bandOf(total: number) {
 	return BANDS.find((b) => total >= b.min && total <= b.max) ?? BANDS[BANDS.length - 1];
+}
+
+// ── Leak pattern ────────────────────────────────────────────
+// Not "which category is red" but "where the red categories overlap" — one leak shape.
+// red = ids of red (score===4) categories / worstId = id of the highest-scoring category.
+export interface LeakPattern {
+	id: string;
+	headline: string;
+	body: string;
+}
+
+function nameOf(id: string): string {
+	return CATEGORIES.find((c) => c.id === id)?.name ?? id;
+}
+
+export function patternOf(red: string[], worstId: string): LeakPattern | null {
+	const has = (id: string) => red.includes(id);
+
+	if (red.length >= 4) {
+		return {
+			id: 'P1',
+			headline: "This isn't a tool problem — it's a problem with how revenue itself is designed",
+			body: 'When you leak at several seams at once, the cause is never an individual feature or tool. Your revenue flow (lead → opportunity → close → expand) has never been designed. Every patch you add makes it more complex. You are at the point of redrawing the whole flow.',
+		};
+	}
+	if (has('handoff') && has('expansion')) {
+		return {
+			id: 'P2',
+			headline: 'The middle (sales) works — but you lose at the entrance and the exit',
+			body: 'Your reps close deals on raw selling ability. But because the lead entrance and post-sale expansion are undesigned, that effort ends in one-off wins. Acquisition cost stays high and LTV never grows — the most churn-heavy double leak there is.',
+		};
+	}
+	if (has('dependence') && has('stages')) {
+		return {
+			id: 'P3',
+			headline: 'Revenue is "unpredictable" because these two overlap',
+			body: "Revenue depends on individual instinct, and your CRM stages don't represent buying progress either. When those two combine, the forecast is structurally wrong. It won't be fixed by effort or accuracy drives, and leadership decisions are always one step behind.",
+		};
+	}
+	if (has('silos') && has('adoption')) {
+		return {
+			id: 'P4',
+			headline: 'Numbers are something you "produce," and there is no foundation',
+			body: 'Tools never took root on the floor, and the leadership numbers are hand-compiled each time. KPI management and investment decisions run with no foundation underneath. You can\'t measure whether a new initiative worked, so the improvement loop never turns.',
+		};
+	}
+	if (has('handoff') && has('dependence')) {
+		return {
+			id: 'P5',
+			headline: 'You lose twice at the entrance',
+			body: 'Marketing-passed leads die to a definition gap, and whether anyone picks them up is left to each rep\'s instinct. You shave the funnel twice before a conversation even starts — the classic way marketing ROI becomes invisible.',
+		};
+	}
+	if (has('dependence') || has('stages')) {
+		return {
+			id: 'P6',
+			headline: 'You can close deals, but not in a repeatable form',
+			body: "The numbers come in, but not in an \"anyone gets the same result\" way. This is your ceiling on scale. If adding people doesn't grow revenue proportionally, this seam is why.",
+		};
+	}
+	if (worstId === 'handoff' && has('handoff')) {
+		return {
+			id: 'P7',
+			headline: 'Your most wasteful leak is at the entrance',
+			body: "You're discarding the leads you collected on a definition gap, before they even reach a conversation. Before you increase acquisition, fixing this is the highest-ROI move you can make.",
+		};
+	}
+	if (worstId === 'expansion' && has('expansion')) {
+		return {
+			id: 'P8',
+			headline: 'Acquisition works. Your upside is on the "expand existing" side',
+			body: 'Because the entrance is turning, what you\'re leaving on the table is existing-customer LTV — cheaper and higher-probability revenue than new logos, slipping out through a missing exit design.',
+		};
+	}
+	if (red.length >= 2) {
+		const second = red.find((id) => id !== worstId) ?? red[1];
+		return {
+			id: 'P9',
+			headline: `Two seams are leaking at once: ${nameOf(worstId)} and ${nameOf(second)}`,
+			body: `Each one drains revenue on its own, but together the impact multiplies. Start with the bigger one — ${nameOf(worstId)} — first.`,
+		};
+	}
+	return null; // 0–1 red → no pattern shown
 }

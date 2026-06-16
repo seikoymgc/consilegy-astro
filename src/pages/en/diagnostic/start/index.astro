@@ -49,6 +49,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 		current: number;
 		answers: (number | null)[]; // selected option index per flat question
 		leadDone: boolean;
+		email?: string;
 	}
 
 	function loadState(): State {
@@ -194,6 +195,42 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 					<input type="email" name="email" inputmode="email" autocomplete="email"
 						required placeholder="you@company.com" class="rd-input" />
 				</label>
+				<label class="rd-field">
+					<span class="rd-field-label">Company size</span>
+					<select name="employee_size" required class="rd-input rd-select">
+						<option value="">Select…</option>
+						<option value="1-50">1–50</option>
+						<option value="51-100">51–100</option>
+						<option value="101-300">101–300</option>
+						<option value="301-1000">301–1,000</option>
+						<option value="1001+">1,001+</option>
+					</select>
+				</label>
+				<label class="rd-field">
+					<span class="rd-field-label">Industry<span class="rd-field-opt"> (optional)</span></span>
+					<select name="industry" class="rd-input rd-select">
+						<option value="">Select…</option>
+						<option value="saas">SaaS / IT</option>
+						<option value="manufacturing">Manufacturing</option>
+						<option value="wholesale">Wholesale / Trading</option>
+						<option value="prof_services">Professional services</option>
+						<option value="retail_ec">Retail / E-commerce</option>
+						<option value="other">Other</option>
+					</select>
+				</label>
+				<fieldset class="rd-field rd-fieldset">
+					<span class="rd-field-label">Tools you use<span class="rd-field-opt"> (optional, multiple)</span></span>
+					<div class="rd-check-grid">
+						<label class="rd-check"><input type="checkbox" name="current_tools" value="hubspot" /> HubSpot</label>
+						<label class="rd-check"><input type="checkbox" name="current_tools" value="salesforce" /> Salesforce</label>
+						<label class="rd-check"><input type="checkbox" name="current_tools" value="kintone" /> kintone</label>
+						<label class="rd-check"><input type="checkbox" name="current_tools" value="zoho" /> Zoho</label>
+						<label class="rd-check"><input type="checkbox" name="current_tools" value="ma_other" /> Other MA</label>
+						<label class="rd-check"><input type="checkbox" name="current_tools" value="bi" /> BI tool</label>
+						<label class="rd-check"><input type="checkbox" name="current_tools" value="excel_only" /> Excel / Sheets only</label>
+						<label class="rd-check"><input type="checkbox" name="current_tools" value="none" /> None</label>
+					</div>
+				</fieldset>
 				<p class="rd-lead-error" id="rd-lead-error" role="alert" hidden></p>
 				<button type="submit" class="rd-lead-submit">See my results →</button>
 			</form>
@@ -210,6 +247,9 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 
 		const showError = (msg: string) => { errEl.textContent = msg; errEl.hidden = false; };
 
+		const sizeSel = form.querySelector<HTMLSelectElement>('select[name="employee_size"]')!;
+		const indSel = form.querySelector<HTMLSelectElement>('select[name="industry"]')!;
+
 		form.addEventListener('submit', async (e) => {
 			e.preventDefault();
 			const email = input.value.trim();
@@ -218,13 +258,24 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 				input.focus();
 				return;
 			}
+			if (!sizeSel.value) {
+				showError('Please select your company size.');
+				sizeSel.focus();
+				return;
+			}
+			const tools = Array.from(form.querySelectorAll<HTMLInputElement>('input[name="current_tools"]:checked')).map((el) => el.value);
+			const extra: Record<string, string> = {};
+			if (sizeSel.value) extra.employee_size = sizeSel.value;
+			if (indSel.value) extra.consilegy_industry = indSel.value;
+			if (tools.length) extra.current_tools = tools.join(';');
 			errEl.hidden = true;
 			btn.disabled = true;
 			btn.textContent = 'Sending…';
 			try {
-				await submitLead(email);
-				track('lead_submit');
+				await submitLead(email, extra);
+				track('lead_submit', { employee_size: extra.employee_size ?? '', industry: extra.consilegy_industry ?? '', tools_count: tools.length });
 				state.leadDone = true;
+				state.email = email;
 				state.step = 'result';
 				render();
 			} catch (err) {
@@ -243,17 +294,21 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 	// Post the lead straight to a dedicated, captcha-free HubSpot form via the
 	// Submissions API — no iframe, no reCAPTCHA. The diagnostic summary goes into
 	// the hidden "message" field; it is never shown on screen.
-	async function submitLead(email: string): Promise<void> {
+	async function submitLead(email: string, extra: Record<string, string> = {}): Promise<void> {
 		if (!HS_DIAGNOSTIC_FORM_ID) {
 			console.warn('HS_DIAGNOSTIC_FORM_ID is not set; skipping lead capture.');
 			return;
 		}
 		const hutk = getCookie('hubspotutk');
+		const fields = [
+			{ name: 'email', value: email },
+			{ name: 'message', value: summaryText() },
+		];
+		for (const [name, value] of Object.entries(extra)) {
+			if (value) fields.push({ name, value });
+		}
 		const payload = {
-			fields: [
-				{ name: 'email', value: email },
-				{ name: 'message', value: summaryText() },
-			],
+			fields,
 			context: {
 				pageUri: location.href,
 				pageName: 'Revenue Leak Diagnostic',
@@ -353,6 +408,18 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 				<a href="${CONTACT_URL}" class="rd-cta-secondary" data-cta="contact">See our services</a>
 			</div>
 
+			<div class="rd-probe" id="rd-probe">
+				<p class="rd-probe-q">One quick question (optional): if a dashboard could <strong>automatically surface these leaks every month</strong>, would you use it?</p>
+				<div class="rd-probe-opts">
+					<label class="rd-check"><input type="radio" name="dashboard_demand" value="want" /> Yes</label>
+					<label class="rd-check"><input type="radio" name="dashboard_demand" value="conditional" /> Depends</label>
+					<label class="rd-check"><input type="radio" name="dashboard_demand" value="not_now" /> Not now</label>
+				</div>
+				<input type="text" id="rd-pain" class="rd-input" maxlength="120" placeholder="Your single biggest pain right now (optional)" />
+				<button type="button" id="rd-probe-send" class="rd-probe-send">Send</button>
+				<p class="rd-probe-thanks" id="rd-probe-thanks" hidden>Thank you — this helps us make the consult more specific.</p>
+			</div>
+
 			<p class="rd-retry"><button type="button" data-retry>Take the diagnostic again</button></p>
 		`;
 
@@ -360,6 +427,29 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 
 		app.querySelector('[data-cta="book"]')?.addEventListener('click', () => track('cta_book_click'));
 		app.querySelector('[data-cta="contact"]')?.addEventListener('click', () => track('cta_contact_click'));
+
+		app.querySelector('#rd-probe-send')?.addEventListener('click', async () => {
+			const probe = app.querySelector<HTMLElement>('#rd-probe')!;
+			const demand = probe.querySelector<HTMLInputElement>('input[name="dashboard_demand"]:checked')?.value ?? '';
+			const pain = probe.querySelector<HTMLInputElement>('#rd-pain')!.value.trim();
+			if (!demand && !pain) return;
+			const extra: Record<string, string> = {};
+			if (demand) extra.dashboard_demand = demand;
+			if (pain) extra.pain_point = pain;
+			const sendBtn = probe.querySelector<HTMLButtonElement>('#rd-probe-send')!;
+			sendBtn.disabled = true;
+			sendBtn.textContent = 'Sending…';
+			try {
+				if (state.email) await submitLead(state.email, extra);
+				track('probe_submit', { dashboard_demand: demand });
+				probe.querySelector<HTMLElement>('#rd-probe-thanks')!.hidden = false;
+				sendBtn.hidden = true;
+			} catch (err) {
+				console.error(err);
+				sendBtn.disabled = false;
+				sendBtn.textContent = 'Send';
+			}
+		});
 		app.querySelector('[data-retry]')?.addEventListener('click', () => {
 			state = { step: 'quiz', current: 0, answers: Array(TOTAL_Q).fill(null), leadDone: state.leadDone };
 			render();
@@ -443,10 +533,17 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 	padding: 1.5rem;
 }
 :global(.rd-field) { display: block; }
+:global(.rd-field + .rd-field) { margin-top: 1rem; }
+:global(.rd-fieldset) { border: none; padding: 0; margin: 1rem 0 0; }
 :global(.rd-field-label) {
 	display: block; font-size: 0.8125rem; font-weight: 600;
 	color: var(--color-text); margin-bottom: 0.5rem;
 }
+:global(.rd-field-opt) { font-weight: 400; color: var(--color-text-muted); font-size: 0.75rem; }
+:global(.rd-select) { cursor: pointer; }
+:global(.rd-check-grid) { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1rem; }
+:global(.rd-check) { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8125rem; color: var(--color-text); line-height: 1.4; cursor: pointer; }
+:global(.rd-check input) { width: 16px; height: 16px; flex-shrink: 0; accent-color: var(--color-primary); margin: 0; }
 :global(.rd-input) {
 	display: block; width: 100%; box-sizing: border-box;
 	background: #fff; border: 1px solid var(--glass-border);
@@ -472,6 +569,22 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 :global(.rd-lead-submit:hover) { background: var(--color-primary-dark); }
 :global(.rd-lead-submit:disabled) { opacity: 0.6; cursor: default; }
 :global(.rd-privacy) { font-size: 0.75rem; color: var(--color-text-muted); line-height: 1.7; margin-top: 1rem; }
+
+:global(.rd-probe) {
+	background: rgba(30,64,175,0.04); border: 1px solid var(--color-border);
+	border-radius: var(--radius-card); padding: 1.25rem; margin-top: 1.5rem;
+}
+:global(.rd-probe-q) { font-size: 0.875rem; font-weight: 600; color: var(--color-text); line-height: 1.6; margin: 0 0 0.875rem; }
+:global(.rd-probe-opts) { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin-bottom: 0.875rem; }
+:global(.rd-probe .rd-input) { margin-bottom: 0.875rem; }
+:global(.rd-probe-send) {
+	background: var(--color-primary); color: #fff; border: none;
+	border-radius: var(--radius); padding: 0.75rem 1.5rem; min-height: 44px;
+	font-family: inherit; font-weight: 600; font-size: 0.875rem; cursor: pointer;
+}
+:global(.rd-probe-send:hover) { background: var(--color-primary-dark); }
+:global(.rd-probe-send:disabled) { opacity: 0.6; cursor: default; }
+:global(.rd-probe-thanks) { font-size: 0.8125rem; color: var(--color-primary); font-weight: 600; margin: 0.5rem 0 0; }
 :global(.rd-privacy a) { color: var(--color-primary); }
 
 /* Result */

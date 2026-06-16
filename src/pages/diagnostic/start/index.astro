@@ -1,5 +1,5 @@
 ---
-// 収益漏れ診断 — interactive flow: 12 questions → lead gate → result map.
+// 売上の取りこぼし診断 — interactive flow: 12 questions → lead gate → result map.
 // All quiz logic is client-side (static site). Lead capture posts the email
 // directly to a dedicated, captcha-free HubSpot form via the Submissions API
 // (no iframe, no reCAPTCHA), so submission is reliable and the result shows
@@ -9,7 +9,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-	title="収益漏れ診断 | 全12問・約1分 | Consilegy"
+	title="売上の取りこぼし診断 | 全12問・約1分 | Consilegy"
 	description="マーケ・営業・CSの「境目」を6つの観点で診断します。全12問・選択式・約1分。"
 	lang="ja"
 	noindex={true}
@@ -110,7 +110,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 			return `${sig.emoji} ${c.name}: ${scores[i]}/4`;
 		});
 		return [
-			'【収益漏れ診断 結果】',
+			'【売上の取りこぼし診断 結果】',
 			`総合スコア: ${total}/24（${band.label}）`,
 			...lines,
 			'',
@@ -188,7 +188,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 				<p class="rd-lead-eyebrow">診断完了</p>
 				<h1 class="rd-lead-title">結果の表示まで、あと1ステップ</h1>
 				<p class="rd-lead-desc">
-					メールアドレスをご入力ください。送信後すぐに「収益漏れマップ」が表示されます。
+					メールアドレスをご入力ください。送信後すぐに「取りこぼしマップ」が表示されます。
 				</p>
 			</div>
 			<form class="rd-lead-form" id="rd-lead-form" novalidate>
@@ -260,7 +260,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 			],
 			context: {
 				pageUri: location.href,
-				pageName: '収益漏れ診断',
+				pageName: '売上の取りこぼし診断',
 				...(hutk ? { hutk } : {}),
 			},
 		};
@@ -291,13 +291,13 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 		app.innerHTML = `
 			<div class="rd-result-head">
-				<p class="rd-result-eyebrow">収益漏れ診断 結果</p>
+				<p class="rd-result-eyebrow">売上の取りこぼし診断 結果</p>
 				<div class="rd-result-score">
 					<span class="rd-score-num">${total}</span><span class="rd-score-den">/ 24</span>
 					<span class="rd-score-band rd-band-${band.label === '健全' ? 'green' : band.label === '注意' ? 'yellow' : 'red'}">${esc(band.label)}</span>
 				</div>
 				<h1 class="rd-result-headline">${esc(band.headline)}</h1>
-				<p class="rd-score-note">スコアは低いほど健全です（漏れリスクの合計）。</p>
+				<p class="rd-score-note">スコアは低いほど健全です（取りこぼしリスクの合計）。</p>
 			</div>
 
 			<div class="rd-map">
@@ -316,7 +316,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 			${leaks.length > 0 ? `
 			<div class="rd-insights">
-				<h2 class="rd-insights-title">漏れている境目</h2>
+				<h2 class="rd-insights-title">取りこぼしている境目</h2>
 				${leaks.map((x) => `
 					<div class="rd-insight">
 						<span class="rd-insight-emoji">${SIGNAL_META[x.signal].emoji}</span>
@@ -334,12 +334,12 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 			` : `
 			<div class="rd-firststep">
 				<p class="rd-firststep-label">次の一手</p>
-				<p class="rd-firststep-text">漏れは小さい状態です。次は「拡大」設計 — 受注後のLTV最大化と再現性の強化に投資する段階です。</p>
+				<p class="rd-firststep-text">取りこぼしは小さい状態です。次は「拡大」設計 — 受注後のLTV最大化と再現性の強化に投資する段階です。</p>
 			</div>
 			`}
 
 			<div class="rd-cta">
-				<a href="${BOOK_URL}" class="rd-cta-primary" data-cta="book">この漏れを「直す」なら｜30分無料相談を予約する →</a>
+				<a href="${BOOK_URL}" class="rd-cta-primary" data-cta="book">この取りこぼしを「直す」なら｜30分無料相談を予約する →</a>
 				<p class="rd-cta-note">診断結果をもとに、課題の輪郭と次の一手を30分で整理します。オンライン・完全無料。</p>
 				<a href="${CONTACT_URL}" class="rd-cta-secondary" data-cta="contact">収益構造の現状分析（有償）の内容を見る</a>
 			</div>

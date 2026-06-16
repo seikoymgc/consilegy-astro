@@ -1,0 +1,244 @@
+---
+// Revenue Leak Diagnostic LP (EN) — front door to the free self-check.
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { CATEGORIES } from '../../../lib/diagnostic-data.en';
+
+const pains = [
+	{
+		title: "You have leads, but they don't convert",
+		desc: 'Marketing "passes them over," sales "can\'t use them." Leads quietly vanish at the seam.',
+	},
+	{
+		title: 'Sales depends on individuals, so revenue is unpredictable',
+		desc: "The criteria live only in your top rep's head. Lose them and the structure breaks.",
+	},
+	{
+		title: "You invest in marketing, but can't see the return",
+		desc: "You're running campaigns. But no one can explain how they led to revenue.",
+	},
+];
+---
+
+<BaseLayout
+	title="Revenue Leak Diagnostic (free · 1 min) | Where is your revenue leaking? | Consilegy"
+	description="Diagnose the six seams between marketing, sales and CS in about a minute. A revenue leak map shows where revenue is slipping away. Free."
+	lang="en"
+>
+
+<!-- ===== HERO ===== -->
+<section class="dx-hero">
+	<div class="container">
+		<p class="dx-eyebrow">Revenue Diagnostic — Free self-check</p>
+		<h1>Where is your<br />revenue leaking?</h1>
+		<p class="dx-sub">Diagnose the six seams between marketing, sales and CS in about a minute. Free.</p>
+		<div class="dx-hero-actions">
+			<a href="/en/diagnostic/start/" class="btn dx-btn-primary">Take the free diagnostic (~1 min) →</a>
+		</div>
+		<p class="dx-hero-note">Email comes just before your results. Every question is multiple choice.</p>
+	</div>
+</section>
+
+<!-- ===== PAINS ===== -->
+<section class="dx-pains">
+	<div class="container">
+		<p class="section-eyebrow">Does any of this sound familiar?</p>
+		<div class="dx-pain-grid">
+			{pains.map((p) => (
+				<div class="dx-pain-card">
+					<h3>{p.title}</h3>
+					<p>{p.desc}</p>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<!-- ===== WHAT YOU GET ===== -->
+<section class="dx-what">
+	<div class="container">
+		<p class="section-eyebrow">What you get</p>
+		<h2>A revenue leak map, with a signal<br class="sp-only" /> on each of the six seams</h2>
+		<p class="dx-what-lead">
+			Revenue leaks not "inside" departments but "at the seams between" them.
+			This diagnostic visualizes the six leak-prone seams with signals (🔴🟡🟢).
+		</p>
+		<div class="dx-cat-grid">
+			{CATEGORIES.map((c, i) => (
+				<div class="dx-cat-card">
+					<span class="dx-cat-num">{String(i + 1).padStart(2, '0')}</span>
+					<span class="dx-cat-name">{c.name}</span>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<!-- ===== TRUST ===== -->
+<section class="dx-trust">
+	<div class="container dx-trust-inner">
+		<div>
+			<p class="section-eyebrow">Behind the diagnostic</p>
+			<h2>Built on a real<br />Revenue Architecture framework</h2>
+			<p>
+				This diagnostic is built on the "revenue leak" patterns we've seen again and again
+				across 40+ B2B engagements. It starts from the structure of the whole revenue
+				process, not from tools.
+			</p>
+			<a href="/en/services/revenue-architecture-design/" class="dx-trust-link">What is Revenue Architecture →</a>
+		</div>
+		<div class="dx-trust-stats">
+			<div class="dx-stat">
+				<span class="dx-stat-num">40<span class="dx-stat-unit">+</span></span>
+				<span class="dx-stat-label">B2B engagements</span>
+			</div>
+			<div class="dx-stat">
+				<span class="dx-stat-num">6<span class="dx-stat-unit">seams</span></span>
+				<span class="dx-stat-label">of the revenue process diagnosed</span>
+			</div>
+			<div class="dx-stat">
+				<span class="dx-stat-num">1<span class="dx-stat-unit">min</span></span>
+				<span class="dx-stat-label">12 questions, multiple choice</span>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="dx-cta">
+	<div class="container">
+		<h2>First, see where you're leaking</h2>
+		<p>Free, about a minute. Results show on the spot.</p>
+		<a href="/en/diagnostic/start/" class="btn dx-btn-primary dx-btn-lg">Take the free diagnostic (~1 min) →</a>
+	</div>
+</section>
+
+</BaseLayout>
+
+<style>
+.container { max-width: 1120px; margin-inline: auto; padding-inline: 1.25rem; }
+section { padding-block: var(--space-2xl); }
+.section-eyebrow {
+	display: block; font-size: 0.5625rem; font-weight: 500; color: var(--color-text-muted);
+	letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 1.25rem;
+	padding-top: 0.875rem; border-top: 1.5px solid var(--color-border);
+}
+.sp-only { display: none; }
+@media (max-width: 640px) { .sp-only { display: inline; } }
+
+/* Hero */
+.dx-hero {
+	background:
+		radial-gradient(800px 460px at 90% 0%, rgba(59,130,246,0.10), transparent 60%),
+		radial-gradient(640px 420px at 0% 100%, rgba(124,92,191,0.07), transparent 60%),
+		linear-gradient(180deg, #F7F8FC 0%, #EFF2F9 100%);
+	border-bottom: 1px solid var(--color-border);
+	padding-block: 5rem 4rem;
+}
+.dx-eyebrow {
+	font-size: 0.625rem; font-weight: 500; color: var(--color-primary);
+	letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 1.25rem;
+}
+.dx-hero h1 {
+	font-size: clamp(1.875rem, 5vw, 3.5rem); font-weight: 500;
+	line-height: 1.2; letter-spacing: -0.02em; color: var(--color-text);
+	margin: 0 0 1.25rem;
+}
+.dx-sub { font-size: clamp(1rem, 2.5vw, 1.1875rem); color: var(--color-text-muted); margin: 0 0 2rem; line-height: 1.7; }
+.dx-hero-actions { margin-bottom: 1rem; }
+.dx-hero-note { font-size: 0.8125rem; color: var(--color-text-muted); margin: 0; }
+
+.dx-btn-primary {
+	display: inline-flex; align-items: center; justify-content: center;
+	background: var(--color-primary); color: #fff;
+	padding: 1rem 1.75rem; min-height: 44px;
+	font-weight: 600; font-size: 1rem; text-decoration: none;
+	border: none; border-radius: var(--radius);
+	transition: background 0.15s ease;
+}
+.dx-btn-primary:hover { background: var(--color-primary-dark); color: #fff; }
+.dx-btn-lg { padding: 1.125rem 2.25rem; font-size: 1.0625rem; }
+
+/* Pains */
+.dx-pains { background: var(--color-bg); }
+.dx-pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.dx-pain-card {
+	background: var(--glass-bg);
+	backdrop-filter: var(--glass-blur);
+	-webkit-backdrop-filter: var(--glass-blur);
+	border: 1px solid var(--glass-border);
+	border-radius: var(--radius-card);
+	box-shadow: var(--glass-shadow);
+	padding: 1.75rem;
+}
+.dx-pain-card h3 { font-size: 1rem; font-weight: 600; color: var(--color-text); margin: 0 0 0.625rem; line-height: 1.55; }
+.dx-pain-card p { font-size: 0.875rem; color: var(--color-text-muted); margin: 0; line-height: 1.75; }
+
+/* What */
+.dx-what {
+	background:
+		radial-gradient(720px 420px at 100% 100%, rgba(59,130,246,0.07), transparent 60%),
+		linear-gradient(180deg, #F3F5FB 0%, #EEF2F9 100%);
+	border-top: 1px solid var(--color-border);
+	border-bottom: 1px solid var(--color-border);
+}
+.dx-what h2 {
+	font-size: clamp(1.5rem, 3.5vw, 2.5rem); font-weight: 500;
+	line-height: 1.25; letter-spacing: -0.02em; margin: 0 0 1rem; color: var(--color-text);
+}
+.dx-what-lead { font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.85; max-width: 560px; margin: 0 0 2.5rem; }
+.dx-cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+.dx-cat-card {
+	display: flex; align-items: center; gap: 1rem;
+	background: var(--glass-bg);
+	backdrop-filter: var(--glass-blur);
+	-webkit-backdrop-filter: var(--glass-blur);
+	border: 1px solid var(--glass-border);
+	border-radius: var(--radius);
+	padding: 1.125rem 1.25rem;
+}
+.dx-cat-num { font-size: 1.375rem; font-weight: 500; color: var(--color-primary); opacity: 0.35; letter-spacing: -0.03em; }
+.dx-cat-name { font-size: 0.875rem; font-weight: 600; color: var(--color-text); line-height: 1.5; }
+
+/* Trust */
+.dx-trust { background: var(--color-bg); }
+.dx-trust-inner { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: center; }
+.dx-trust h2 {
+	font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 500;
+	line-height: 1.3; letter-spacing: -0.02em; margin: 0 0 1.25rem; color: var(--color-text);
+}
+.dx-trust p { font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.85; margin: 0 0 1.5rem; }
+.dx-trust-link { font-size: 0.875rem; font-weight: 600; color: var(--color-primary); text-decoration: none; }
+.dx-trust-link:hover { text-decoration: underline; }
+.dx-trust-stats { display: flex; flex-direction: column; gap: 0.75rem; }
+.dx-stat {
+	background: var(--glass-bg);
+	border: 1px solid var(--glass-border);
+	border-radius: var(--radius);
+	padding: 1.25rem 1.5rem;
+	display: flex; align-items: baseline; gap: 1rem;
+}
+.dx-stat-num { font-size: 1.875rem; font-weight: 500; color: var(--color-primary); letter-spacing: -0.02em; }
+.dx-stat-unit { font-size: 0.9375rem; margin-left: 0.125rem; }
+.dx-stat-label { font-size: 0.8125rem; color: var(--color-text-muted); }
+
+/* CTA */
+.dx-cta {
+	background:
+		radial-gradient(700px 380px at 85% 0%, rgba(167,139,250,0.28), transparent 60%),
+		linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+	text-align: center;
+}
+.dx-cta h2 {
+	color: #fff; font-size: clamp(1.5rem, 3.5vw, 2.5rem); font-weight: 500;
+	letter-spacing: -0.02em; margin: 0 0 0.875rem;
+}
+.dx-cta p { color: rgba(255,255,255,0.7); font-size: 0.9375rem; margin: 0 0 2rem; }
+.dx-cta .dx-btn-primary { background: #fff; color: var(--color-primary); }
+.dx-cta .dx-btn-primary:hover { background: #F5F5F4; }
+
+/* Responsive */
+@media (max-width: 900px) {
+	.dx-pain-grid, .dx-cat-grid { grid-template-columns: 1fr; }
+	.dx-trust-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+</style>

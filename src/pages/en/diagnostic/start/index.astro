@@ -1,17 +1,17 @@
 ---
-// 収益漏れ診断 — interactive flow: 12 questions → lead gate → result map.
+// Revenue Leak Diagnostic — interactive flow: 12 questions → lead gate → result map.
 // All quiz logic is client-side (static site). Lead capture posts the email
 // directly to a dedicated, captcha-free HubSpot form via the Submissions API
 // (no iframe, no reCAPTCHA), so submission is reliable and the result shows
 // instantly. The diagnostic summary rides along in a hidden "message" field —
-// it is never rendered to the user. Set HS_DIAGNOSTIC_FORM_ID below.
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+// it is never rendered to the user.
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-	title="収益漏れ診断 | 全12問・約1分 | Consilegy"
-	description="マーケ・営業・CSの「境目」を6つの観点で診断します。全12問・選択式・約1分。"
-	lang="ja"
+	title="Revenue Leak Diagnostic | 12 questions · ~1 min | Consilegy"
+	description="Diagnose the six seams between marketing, sales and CS. 12 questions, multiple choice, about a minute."
+	lang="en"
 	noindex={true}
 >
 
@@ -19,7 +19,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 	<div class="rd-container" id="rd-app">
 		<noscript>
 			<p style="padding: 2rem; text-align: center;">
-				この診断はJavaScriptが必要です。ブラウザの設定をご確認ください。
+				This diagnostic needs JavaScript. Please check your browser settings.
 			</p>
 		</noscript>
 	</div>
@@ -28,17 +28,14 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 </BaseLayout>
 
 <script>
-	import { CATEGORIES, SIGNAL_META, signalOf, bandOf } from '../../../lib/diagnostic-data';
+	import { CATEGORIES, SIGNAL_META, signalOf, bandOf } from '../../../../lib/diagnostic-data.en';
 
 	// ── Config ──────────────────────────────────────────────
 	const HS_PORTAL_ID = '46498743';
-	// Dedicated, captcha-free diagnostic form (Email + hidden "message"), submitted
-	// via the Submissions API below. While empty, the diagnostic still works (the
-	// result shows) but no lead is captured — fill in the GUID to turn capture on.
-	const HS_DIAGNOSTIC_FORM_ID = 'df40a4b0-05e6-4fef-af58-633c398a619e';
-	const BOOK_URL = '/free-consultation/';
-	const CONTACT_URL = '/revops-assessment/';
-	const STORAGE_KEY = 'rd-state-v1';
+	const HS_DIAGNOSTIC_FORM_ID = '4276bb20-a017-42b2-bc83-404b579ff9fa'; // EN diagnostic form (Email + hidden "message")
+	const BOOK_URL = '/en/contact/';
+	const CONTACT_URL = '/en/services/';
+	const STORAGE_KEY = 'rd-state-en-v1';
 
 	// Flatten questions: [{catIndex, qIndex, text, options}]
 	const FLAT = CATEGORIES.flatMap((c, ci) =>
@@ -78,7 +75,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 	}
 
 	function trackOnce(event: string, params: Record<string, unknown> = {}) {
-		const key = `rd-evt-${event}`;
+		const key = `rd-evt-en-${event}`;
 		try {
 			if (sessionStorage.getItem(key)) return;
 			sessionStorage.setItem(key, '1');
@@ -110,11 +107,11 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 			return `${sig.emoji} ${c.name}: ${scores[i]}/4`;
 		});
 		return [
-			'【収益漏れ診断 結果】',
-			`総合スコア: ${total}/24（${band.label}）`,
+			'[Revenue Leak Diagnostic — Result]',
+			`Total score: ${total}/24 (${band.label})`,
 			...lines,
 			'',
-			'※このメッセージは診断結果から自動入力されています。',
+			'* This message was auto-filled from the diagnostic result.',
 		].join('\n');
 	}
 
@@ -159,7 +156,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 					.join('')}
 			</div>
 			<div class="rd-nav">
-				${state.current > 0 ? '<button type="button" class="rd-back" data-back>← 前の質問へ</button>' : '<span></span>'}
+				${state.current > 0 ? '<button type="button" class="rd-back" data-back>← Previous</button>' : '<span></span>'}
 			</div>
 		`;
 
@@ -185,24 +182,24 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 	function renderLead() {
 		app.innerHTML = `
 			<div class="rd-lead-head">
-				<p class="rd-lead-eyebrow">診断完了</p>
-				<h1 class="rd-lead-title">結果の表示まで、あと1ステップ</h1>
+				<p class="rd-lead-eyebrow">Diagnostic complete</p>
+				<h1 class="rd-lead-title">One step to your results</h1>
 				<p class="rd-lead-desc">
-					メールアドレスをご入力ください。送信後すぐに「収益漏れマップ」が表示されます。
+					Enter your email and your “revenue leak map” appears right away.
 				</p>
 			</div>
 			<form class="rd-lead-form" id="rd-lead-form" novalidate>
 				<label class="rd-field">
-					<span class="rd-field-label">メールアドレス</span>
+					<span class="rd-field-label">Work email</span>
 					<input type="email" name="email" inputmode="email" autocomplete="email"
 						required placeholder="you@company.com" class="rd-input" />
 				</label>
 				<p class="rd-lead-error" id="rd-lead-error" role="alert" hidden></p>
-				<button type="submit" class="rd-lead-submit">結果を見る →</button>
+				<button type="submit" class="rd-lead-submit">See my results →</button>
 			</form>
 			<p class="rd-privacy">
-				ご入力いただいた情報は、診断結果のご案内およびサービスのご案内に利用します。
-				詳細は<a href="/privacy-policy/" target="_blank" rel="noopener">プライバシーポリシー</a>をご確認ください。
+				The information you provide is used to share your results and relevant services.
+				See our <a href="/privacy-policy/" target="_blank" rel="noopener">privacy policy</a>.
 			</p>
 		`;
 
@@ -217,13 +214,13 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 			e.preventDefault();
 			const email = input.value.trim();
 			if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-				showError('メールアドレスの形式をご確認ください。');
+				showError('Please check your email address.');
 				input.focus();
 				return;
 			}
 			errEl.hidden = true;
 			btn.disabled = true;
-			btn.textContent = '送信中…';
+			btn.textContent = 'Sending…';
 			try {
 				await submitLead(email);
 				track('lead_submit');
@@ -233,8 +230,8 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 			} catch (err) {
 				console.error(err);
 				btn.disabled = false;
-				btn.textContent = '結果を見る →';
-				showError('送信に失敗しました。通信環境をご確認のうえ、もう一度お試しください。');
+				btn.textContent = 'See my results →';
+				showError('Submission failed. Please check your connection and try again.');
 			}
 		});
 	}
@@ -248,7 +245,6 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 	// the hidden "message" field; it is never shown on screen.
 	async function submitLead(email: string): Promise<void> {
 		if (!HS_DIAGNOSTIC_FORM_ID) {
-			// Form not configured yet — don't block the user from seeing their result.
 			console.warn('HS_DIAGNOSTIC_FORM_ID is not set; skipping lead capture.');
 			return;
 		}
@@ -260,7 +256,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 			],
 			context: {
 				pageUri: location.href,
-				pageName: '収益漏れ診断',
+				pageName: 'Revenue Leak Diagnostic',
 				...(hutk ? { hutk } : {}),
 			},
 		};
@@ -291,13 +287,13 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 		app.innerHTML = `
 			<div class="rd-result-head">
-				<p class="rd-result-eyebrow">収益漏れ診断 結果</p>
+				<p class="rd-result-eyebrow">Revenue Leak Diagnostic — Result</p>
 				<div class="rd-result-score">
 					<span class="rd-score-num">${total}</span><span class="rd-score-den">/ 24</span>
-					<span class="rd-score-band rd-band-${band.label === '健全' ? 'green' : band.label === '注意' ? 'yellow' : 'red'}">${esc(band.label)}</span>
+					<span class="rd-score-band rd-band-${band.label === 'Healthy' ? 'green' : band.label === 'Caution' ? 'yellow' : 'red'}">${esc(band.label)}</span>
 				</div>
 				<h1 class="rd-result-headline">${esc(band.headline)}</h1>
-				<p class="rd-score-note">スコアは低いほど健全です（漏れリスクの合計）。</p>
+				<p class="rd-score-note">Lower is healthier (total leak-risk score).</p>
 			</div>
 
 			<div class="rd-map">
@@ -316,7 +312,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 			${leaks.length > 0 ? `
 			<div class="rd-insights">
-				<h2 class="rd-insights-title">漏れている境目</h2>
+				<h2 class="rd-insights-title">Where you're leaking</h2>
 				${leaks.map((x) => `
 					<div class="rd-insight">
 						<span class="rd-insight-emoji">${SIGNAL_META[x.signal].emoji}</span>
@@ -328,23 +324,23 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 			</div>
 
 			<div class="rd-firststep">
-				<p class="rd-firststep-label">最初の一手</p>
+				<p class="rd-firststep-label">First move</p>
 				<p class="rd-firststep-text">${esc(worst.c.firstStep)}</p>
 			</div>
 			` : `
 			<div class="rd-firststep">
-				<p class="rd-firststep-label">次の一手</p>
-				<p class="rd-firststep-text">漏れは小さい状態です。次は「拡大」設計 — 受注後のLTV最大化と再現性の強化に投資する段階です。</p>
+				<p class="rd-firststep-label">Next move</p>
+				<p class="rd-firststep-text">Leakage is minimal. The next move is "expansion" design — invest in maximizing post-sale LTV and repeatability.</p>
 			</div>
 			`}
 
 			<div class="rd-cta">
-				<a href="${BOOK_URL}" class="rd-cta-primary" data-cta="book">この漏れを「直す」なら｜30分無料相談を予約する →</a>
-				<p class="rd-cta-note">診断結果をもとに、課題の輪郭と次の一手を30分で整理します。オンライン・完全無料。</p>
-				<a href="${CONTACT_URL}" class="rd-cta-secondary" data-cta="contact">収益構造の現状分析（有償）の内容を見る</a>
+				<a href="${BOOK_URL}" class="rd-cta-primary" data-cta="book">Want to fix these leaks? Book a 30-min consult (free) →</a>
+				<p class="rd-cta-note">We'll review your result and map the next move in 30 minutes. Online, free.</p>
+				<a href="${CONTACT_URL}" class="rd-cta-secondary" data-cta="contact">See our services</a>
 			</div>
 
-			<p class="rd-retry"><button type="button" data-retry>もう一度診断する</button></p>
+			<p class="rd-retry"><button type="button" data-retry>Take the diagnostic again</button></p>
 		`;
 
 		track('result_view', { score_total: total, band: band.label });

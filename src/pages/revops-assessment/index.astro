@@ -3,24 +3,24 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const faqItems = [
 	{
-		q: '診断は無料ですか？',
-		a: 'CRM / RevOps診断は有償アセスメントです。RevOpsクイックアセスメント（10万〜15万円）と、CRM / RevOps詳細診断（30万〜50万円）の2プランをご用意しています。診断内容や費用についての事前相談は無料で承っています。',
+		q: '現状分析は無料ですか？',
+		a: '収益構造の現状分析は有償サービスです。簡易分析（10万〜15万円）と、詳細分析（30万〜50万円）の2プランをご用意しています。内容や費用についての事前相談は無料で承っています。',
 	},
 	{
-		q: 'クイックアセスメントと詳細診断の違いは何ですか？',
-		a: 'クイックアセスメントは、ヒアリングとツール・プロセス確認を中心に、主要ボトルネックを短期間で特定します。詳細診断は、関係者インタビュー・CRM / KPI / データ構造の深いレビューを含む、包括的なアセスメントです。課題の輪郭が不明確な場合はクイックから始め、詳細な改善設計が必要な場合は詳細診断をご利用いただくケースが多いです。',
+		q: '簡易分析と詳細分析の違いは何ですか？',
+		a: '簡易分析は、ヒアリングとツール・プロセス確認を中心に、主要ボトルネックを短期間で特定します。詳細分析は、関係者インタビュー・CRM / KPI / データ構造の深いレビューを含む、包括的な分析です。課題の輪郭が不明確な場合は簡易分析から始め、詳細な改善設計が必要な場合は詳細分析をご利用いただくケースが多いです。',
 	},
 	{
-		q: '診断後に必ず契約する必要はありますか？',
-		a: 'ありません。診断はそれ自体が完結したサービスです。レポートと報告会をもって終了します。その後、Revenue Architecture設計やCRM / RevOps再設計への移行を希望される場合は、診断内容をもとにご提案しますが、強制ではありません。',
+		q: '分析後に必ず契約する必要はありますか？',
+		a: 'ありません。現状分析はそれ自体が完結したサービスです。レポートと報告会をもって終了します。その後、収益設計やCRM / RevOps再設計への移行を希望される場合は、分析内容をもとにご提案しますが、強制ではありません。',
 	},
 	{
 		q: 'Salesforce以外にも対応していますか？',
-		a: 'はい。Salesforce・HubSpot・Kintone・Marketo・Account Engagement・Zoho CRMなど、主要CRM / SFA / MAを横断して対応しています。複数ツールを併用している環境、ツール間の連携に課題がある環境も診断対象です。',
+		a: 'はい。Salesforce・HubSpot・Kintone・Marketo・Account Engagement・Zoho CRMなど、主要CRM / SFA / MAを横断して対応しています。複数ツールを併用している環境、ツール間の連携に課題がある環境も分析対象です。',
 	},
 	{
-		q: 'HubSpotだけでも診断できますか？',
-		a: 'はい、HubSpot単体での診断も可能です。ただし、ConsilegyはHubSpot専業ではなく、営業・マーケ・CSの業務プロセスとRevOps全体を対象としているため、ツール設定だけでなく運用・KPI・データ構造まで含めた診断を提供します。',
+		q: 'HubSpotだけでも分析できますか？',
+		a: 'はい、HubSpot単体での分析も可能です。ただし、ConsilegyはHubSpot専業ではなく、営業・マーケ・CSの業務プロセスとRevOps全体を対象としているため、ツール設定だけでなく運用・KPI・データ構造まで含めた分析を提供します。',
 	},
 	{
 		q: 'オンライン対応できますか？',
@@ -72,13 +72,13 @@ const processSteps = [
 	{ n: '04', label: '関係者インタビュー', desc: '営業・マーケ・CS・情報システムなど関係部門にヒアリングします。' },
 	{ n: '05', label: 'ボトルネック分析', desc: '収集した情報をもとに、収益プロセス上のボトルネックを特定します。' },
 	{ n: '06', label: '改善優先順位の整理', desc: '効果・難易度・緊急度を考慮し、改善施策の優先順位を整理します。' },
-	{ n: '07', label: '診断レポート作成', desc: '現状課題・ボトルネック・改善ロードマップをまとめたレポートを作成します。' },
+	{ n: '07', label: '分析レポート作成', desc: '現状課題・ボトルネック・改善ロードマップをまとめたレポートを作成します。' },
 	{ n: '08', label: '報告会・次ステップ提案', desc: 'レポートをもとに報告会を実施し、次ステップの支援プランをご提案します。' },
 ];
 
 const deliverables = [
 	'現状課題レポート',
-	'CRM / RevOps診断レポート',
+	'現状分析レポート',
 	'ボトルネック一覧',
 	'KPI・データ構造の課題整理',
 	'営業マーケ連携の改善ポイント',
@@ -92,24 +92,24 @@ const reasons = [
 	{
 		en: 'Vendor-Free',
 		ja: 'ベンダーフリー',
-		desc: '特定のCRMベンダーや代理店と利益相反がありません。Salesforce・HubSpot・Kintone等を横断した中立の視点で診断します。',
+		desc: '特定のCRMベンダーや代理店と利益相反がありません。Salesforce・HubSpot・Kintone等を横断した中立の視点で分析します。',
 	},
 	{
 		en: 'RevOps / Revenue Architecture Perspective',
 		ja: 'RevOps / Revenue Architecture視点',
-		desc: '営業やCRM単体ではなく、マーケ・CS・KPI・データ構造・会議体を含めた収益プロセス全体を診断対象とします。',
+		desc: '営業やCRM単体ではなく、マーケ・CS・KPI・データ構造・会議体を含めた収益プロセス全体を分析対象とします。',
 	},
 	{
 		en: 'Implementation-Aware Assessment',
-		ja: '実装・定着まで見据えた診断',
-		desc: '診断で終わらず、Revenue Architecture設計・CRM再設計・定着支援まで一貫して対応できる体制で診断します。',
+		ja: '実装・定着まで見据えた分析',
+		desc: '分析で終わらず、Revenue Architecture設計・CRM再設計・定着支援まで一貫して対応できる体制で分析します。',
 	},
 ];
 ---
 
 <BaseLayout
-	title="CRM / RevOps診断 | Consilegy"
-	description="CRM / SFA / MA、営業・マーケ・CS連携、KPI、データ構造、会議体を横断して確認し、Revenue Operations上のボトルネックを可視化する有償アセスメント。"
+	title="収益構造の現状分析 | Consilegy"
+	description="CRM / SFA / MA、営業・マーケ・CS連携、KPI、データ構造、会議体を横断して確認し、Revenue Operations上のボトルネックを可視化する有償サービス。"
 	lang="ja"
 >
 	<Fragment slot="head">
@@ -123,13 +123,13 @@ const reasons = [
 			<a href="/services/" class="back-link">← サービス一覧</a>
 			<span class="hero-tag">CRM / RevOps Assessment</span>
 		</div>
-		<h1>CRMが機能しない原因を、<br /><span class="accent">中立の視点で診断します。</span></h1>
+		<h1>CRMが機能しない原因を、<br /><span class="accent">中立の視点で分析します。</span></h1>
 		<p class="hero-sub">
 			CRM / SFA / MA、営業・マーケ・CS連携、KPI、データ構造、会議体を横断して確認し、<br class="br-md" />Revenue Operations上のボトルネックを可視化します。
 		</p>
 		<div class="hero-cta">
 			<a href="/free-consultation/" class="btn btn--primary btn--lg">30分無料相談を申し込む →</a>
-			<a href="#plans" class="btn btn--ghost btn--lg">診断プランを見る</a>
+			<a href="#plans" class="btn btn--ghost btn--lg">分析プランを見る</a>
 		</div>
 	</div>
 </section>
@@ -139,7 +139,7 @@ const reasons = [
 	<div class="container">
 		<div class="section-header">
 			<p class="eyebrow">Symptoms</p>
-			<h2>このような状態なら、診断が必要です</h2>
+			<h2>このような状態なら、分析が必要です</h2>
 		</div>
 		<ul class="symptom-list">
 			{symptoms.map((s) => (
@@ -159,7 +159,7 @@ const reasons = [
 	<div class="container">
 		<div class="section-header">
 			<p class="eyebrow">What We Reveal</p>
-			<h2>診断で明らかにすること</h2>
+			<h2>分析で明らかにすること</h2>
 		</div>
 		<div class="findings-grid">
 			{findings.map(({ label, desc }) => (
@@ -177,9 +177,9 @@ const reasons = [
 	<div class="container">
 		<div class="definition-inner">
 			<p class="eyebrow eyebrow--light">Definition</p>
-			<h2>CRM / RevOps診断とは</h2>
+			<h2>収益構造の現状分析とは</h2>
 			<p class="definition-text">
-				CRM / RevOps診断は、CRM / SFA / MA、営業・マーケ・CS連携、KPI、データ構造、会議体を横断して確認し、Revenue Operations上のボトルネックを可視化する有償アセスメントです。
+				収益構造の現状分析は、CRM / SFA / MA、営業・マーケ・CS連携、KPI、データ構造、会議体を横断して確認し、Revenue Operations上のボトルネックを可視化する有償サービスです。
 			</p>
 			<div class="definition-oneline">
 				<p>「何が問題か分からない」状態から、「何を・どの順序で直すべきか」を明確にするサービスです。</p>
@@ -193,7 +193,7 @@ const reasons = [
 	<div class="container">
 		<div class="section-header">
 			<p class="eyebrow">Scope</p>
-			<h2>診断範囲</h2>
+			<h2>分析範囲</h2>
 		</div>
 		<ul class="scope-grid">
 			{scopeItems.map((item) => (
@@ -211,7 +211,7 @@ const reasons = [
 	<div class="container">
 		<div class="section-header">
 			<p class="eyebrow">Process</p>
-			<h2>診断プロセス</h2>
+			<h2>分析プロセス</h2>
 		</div>
 		<div class="process-list">
 			{processSteps.map(({ n, label, desc }, i) => (
@@ -235,7 +235,7 @@ const reasons = [
 	<div class="container">
 		<div class="section-header">
 			<p class="eyebrow">Deliverables</p>
-			<h2>診断後に得られる成果物</h2>
+			<h2>分析後に得られる成果物</h2>
 		</div>
 		<ul class="deliverables-grid">
 			{deliverables.map((d, i) => (
@@ -253,12 +253,12 @@ const reasons = [
 	<div class="container">
 		<div class="section-header">
 			<p class="eyebrow">Plans</p>
-			<h2>診断プラン</h2>
+			<h2>分析プラン</h2>
 		</div>
 		<div class="plans-grid">
 			<div class="plan-card">
 				<p class="plan-eyebrow">Plan 01</p>
-				<h3 class="plan-name">RevOpsクイックアセスメント</h3>
+				<h3 class="plan-name">簡易分析</h3>
 				<div class="plan-price">
 					<span class="plan-price__amount">¥100,000</span>
 					<span class="plan-price__range">〜 ¥150,000</span>
@@ -276,7 +276,7 @@ const reasons = [
 			</div>
 			<div class="plan-card plan-card--featured">
 				<p class="plan-eyebrow">Plan 02</p>
-				<h3 class="plan-name">CRM / RevOps詳細診断</h3>
+				<h3 class="plan-name">詳細分析</h3>
 				<div class="plan-price">
 					<span class="plan-price__amount">¥300,000</span>
 					<span class="plan-price__range">〜 ¥500,000</span>
@@ -286,7 +286,7 @@ const reasons = [
 					<li>CRM / SFA / MA設定の詳細レビュー</li>
 					<li>KPI・データ構造の包括的な確認</li>
 					<li>会議・運用ルールの評価</li>
-					<li>CRM / RevOps診断レポート（全項目）</li>
+					<li>現状分析レポート（全項目）</li>
 					<li>実装・改善ロードマップ</li>
 					<li>推奨支援プラン提案</li>
 					<li>報告会（複数回）</li>
@@ -304,14 +304,14 @@ const reasons = [
 	<div class="container">
 		<div class="section-header">
 			<p class="eyebrow">After Assessment</p>
-			<h2>診断後の進め方</h2>
-			<p class="section-sub">診断結果をもとに、必要な支援へスムーズに移行できます。</p>
+			<h2>分析後の進め方</h2>
+			<p class="section-sub">分析結果をもとに、必要な支援へスムーズに移行できます。</p>
 		</div>
 		<div class="flow">
 			<div class="flow-item flow-item--active">
 				<div class="flow-badge">Assessment</div>
 				<div class="flow-card flow-card--active">
-					<p class="flow-label">CRM / RevOps診断</p>
+					<p class="flow-label">収益構造の現状分析</p>
 					<p class="flow-desc">ボトルネックの可視化と改善優先順位の整理</p>
 				</div>
 			</div>
@@ -384,7 +384,7 @@ const reasons = [
 <section class="final-cta">
 	<div class="container">
 		<div class="final-cta__inner">
-			<h2>CRMが機能しない原因を、<br />まず診断しませんか。</h2>
+			<h2>CRMが機能しない原因を、<br />まず分析しませんか。</h2>
 			<p>ツールの問題か、プロセスの問題か、KPIの問題か。中立の視点で整理します。</p>
 			<a href="/free-consultation/" class="btn btn--cta">30分無料相談を申し込む →</a>
 		</div>

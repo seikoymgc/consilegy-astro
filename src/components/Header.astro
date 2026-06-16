@@ -39,7 +39,7 @@ const navJA_bottom: { label: string; href: string | null; children?: { label: st
 			{ label: 'ニュースレター',                      href: '/newsletter/' },
 		],
 	},
-	{ label: '無料診断', href: '/diagnostic/' },
+	{ label: '収益漏れ診断', href: '/diagnostic/' },
 	{ label: '料金', href: '/pricing/' },
 ];
 
@@ -58,6 +58,7 @@ const navEN = [
 	},
 	{ label: 'Case Studies', href: '/en/case-studies/' },
 	{ label: 'Insights',     href: '/en/insights/' },
+	{ label: 'Diagnostic',   href: '/en/diagnostic/' },
 	{ label: 'About',        href: '/en/company/' },
 	{ label: 'Contact',      href: '/en/contact/' },
 ];
@@ -165,7 +166,7 @@ const isActive = (href: string | null) =>
 
 		<!-- PC: CTA buttons -->
 		<div class="sh-ctas">
-			<a href="/free-consultation/" class="site-header__cta site-header__cta--outlined">無料相談を予約</a>
+			<a href="/diagnostic/" class="site-header__cta site-header__cta--outlined">無料で診断する</a>
 			<a href="/download/"          class="site-header__cta site-header__cta--dl">資料ダウンロード</a>
 			<a href="/contact/"           class="site-header__cta site-header__cta--filled">お問い合わせ</a>
 		</div>
@@ -216,7 +217,7 @@ const isActive = (href: string | null) =>
 		<ul class="site-header__sp-extras">
 			<li><a href="/contact/">お問い合わせ</a></li>
 			<li><a href="/download/">資料ダウンロード</a></li>
-			<li><a href="/free-consultation/" class="sp-cta-primary">無料相談を予約</a></li>
+			<li><a href="/diagnostic/" class="sp-cta-primary">無料で診断する</a></li>
 			<li>
 				<span class="site-header__lang-pair">
 					<a href="/en/" class="site-header__lang-item" data-lang-switch data-target-lang="en">EN</a>

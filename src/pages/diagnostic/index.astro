@@ -42,7 +42,8 @@ const pains = [
 <!-- ===== PAINS ===== -->
 <section class="dx-pains">
 	<div class="container">
-		<p class="section-eyebrow">こんな状態に心当たりはありませんか</p>
+		<p class="section-eyebrow">Symptoms</p>
+		<h2 class="dx-section-title">こんな状態に、心当たりはありませんか？</h2>
 		<div class="dx-pain-grid">
 			{pains.map((p) => (
 				<div class="dx-pain-card">
@@ -57,7 +58,7 @@ const pains = [
 <!-- ===== WHAT YOU GET ===== -->
 <section class="dx-what">
 	<div class="container">
-		<p class="section-eyebrow">診断でわかること</p>
+		<p class="section-eyebrow">What You Get</p>
 		<h2>6つの「境目」の信号が出る、<br class="sp-only" />収益漏れマップ</h2>
 		<p class="dx-what-lead">
 			売上は「部門の中」ではなく「部門の境目」で漏れます。
@@ -78,7 +79,7 @@ const pains = [
 <section class="dx-trust">
 	<div class="container dx-trust-inner">
 		<div>
-			<p class="section-eyebrow">診断の背景</p>
+			<p class="section-eyebrow">Behind It</p>
 			<h2>Revenue Architectureの<br />実務フレームで設計</h2>
 			<p>
 				この診断は、B2B企業40社以上の支援で繰り返し見てきた
@@ -125,6 +126,11 @@ section { padding-block: var(--space-2xl); }
 }
 .sp-only { display: none; }
 @media (max-width: 640px) { .sp-only { display: inline; } }
+.dx-section-title {
+	font-size: clamp(1.375rem, 3.5vw, 2.25rem); font-weight: 500;
+	line-height: 1.3; letter-spacing: -0.02em; color: var(--color-text);
+	margin: 0 0 2rem;
+}
 
 /* Hero */
 .dx-hero {

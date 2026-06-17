@@ -337,6 +337,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 
 		// Leak pattern: which leaking (non-green) seams overlap, worst-first.
 		const leakIds = leaks.map((x) => x.c.id);
+		const greens = CATEGORIES.filter((c, i) => signalOf(scores[i]) === 'green');
 		const pattern = worst ? patternOf(leakIds, worst.c.id) : null;
 
 		app.innerHTML = `
@@ -372,6 +373,12 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 				}).join('')}
 			</div>
 
+			${greens.length > 0 && leaks.length > 0 ? `
+			<div class="rd-strength">
+				<p class="rd-strength-text"><span class="rd-strength-emoji">🟢</span> Some seams are working: ${greens.map((c) => esc(c.name)).join(', ')}. That is your foundation. Keep it, and fix the leaking seams first.</p>
+			</div>
+			` : ''}
+
 			${leaks.length > 0 ? `
 			<div class="rd-insights">
 				<h2 class="rd-insights-title">Where you're leaking, and what to do<span class="rd-insights-sub">（by priority）</span></h2>
@@ -395,7 +402,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 			<div class="rd-firststep">
 				<p class="rd-firststep-label">First move</p>
 				<p class="rd-firststep-text">${esc(worst.c.firstStep)}</p>
-				<p class="rd-firststep-note">But one move alone won't stop the leak. It holds only once the design and ground-level adoption are in place.</p>
+				<p class="rd-firststep-note">Start with this one move. Carry it through design and field adoption, and the leak stays closed for good.</p>
 			</div>
 			` : `
 			<div class="rd-firststep">
@@ -694,6 +701,9 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 :global(.rd-cta-primary:hover) { background: var(--color-primary-dark); color: #fff; }
 :global(.rd-cta-note) { font-size: 0.75rem; color: var(--color-text-muted); margin: 0.875rem 0 1.25rem; line-height: 1.7; }
 :global(.rd-firststep-note) { font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.7; margin: 0.625rem 0 0; }
+:global(.rd-strength) { background: rgba(16,185,129,0.06); border: 1px solid rgba(16,185,129,0.22); border-radius: var(--radius-card); padding: 0.875rem 1rem; margin: 0 0 1.5rem; }
+:global(.rd-strength-text) { font-size: 0.8125rem; color: var(--color-text); line-height: 1.75; margin: 0; }
+:global(.rd-strength-emoji) { margin-right: 0.25rem; }
 :global(.rd-promise) { border-left: 3px solid var(--color-primary); padding: 0.25rem 0 0.25rem 1rem; margin: 0 0 1.5rem; }
 :global(.rd-promise-text) { font-size: 0.9375rem; color: var(--color-text); line-height: 1.75; margin: 0; }
 :global(.rd-cta-secondary) {

@@ -208,13 +208,13 @@ export const BANDS = [
 		min: 7,
 		max: 14,
 		label: 'Caution',
-		headline: 'Revenue is quietly leaking at a few seams. Now is the time to fix it.',
+		headline: 'Revenue is quietly leaking at a few seams. The sooner you close them, the more you recover.',
 	},
 	{
 		min: 15,
 		max: 24,
 		label: 'Needs work',
-		headline: "You're leaking heavily at multiple seams. This is structural, not a tool problem.",
+		headline: "Revenue is leaking at multiple seams. The flip side: the more you redesign how they connect, the more upside there is.",
 	},
 ] as const;
 

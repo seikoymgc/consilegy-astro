@@ -248,8 +248,8 @@ export function patternOf(leak: string[], worstId: string): LeakPattern | null {
 	if (leak.length >= 5) {
 		return {
 			id: 'P1',
-			headline: "This isn't a tool problem — it's a problem with how revenue itself is designed",
-			body: 'When you leak at several seams at once, the cause is never an individual feature or tool. Your revenue flow (lead → opportunity → close → expand) has never been designed. Every patch you add makes it more complex. You are at the point of redrawing the whole flow.',
+			headline: "Adding tools won't fix this — it's time to rethink how revenue itself is designed",
+			body: 'When several seams leak at once, the cause is usually not an individual feature or tool. Your revenue flow (lead → opportunity → close → expand) is most likely optimized in parts but never designed as a whole. Every patch you add makes it more complex. Redrawing the whole flow is where the leverage is.',
 		};
 	}
 	if (has('handoff') && has('expansion')) {

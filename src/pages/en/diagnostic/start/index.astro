@@ -380,6 +380,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 			${leaks.length > 0 ? `
 			<div class="rd-insights">
 				<h2 class="rd-insights-title">Where you're leaking — and what to do<span class="rd-insights-sub">（by priority）</span></h2>
+				<p class="rd-insights-note">* Figures are typical ranges Consilegy has seen across 40+ engagements — not your company's actual numbers.</p>
 				${leaks.map((x, i) => `
 					<div class="rd-insight">
 						<span class="rd-insight-rank">${i + 1}</span>
@@ -641,6 +642,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 :global(.rd-insight:last-child) { border-bottom: none; }
 :global(.rd-insight-emoji) { font-size: 1.0625rem; margin-top: 1px; }
 :global(.rd-insights-sub) { font-weight: 400; color: var(--color-text-muted); font-size: 0.8125rem; }
+:global(.rd-insights-note) { font-size: 0.75rem; color: var(--color-text-muted); line-height: 1.7; margin: -0.25rem 0 1.25rem; }
 :global(.rd-insight-rank) {
 	flex-shrink: 0; width: 1.5rem; height: 1.5rem; margin-top: 1px;
 	display: flex; align-items: center; justify-content: center;

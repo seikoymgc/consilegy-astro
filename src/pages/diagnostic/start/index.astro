@@ -1,5 +1,5 @@
 ---
-// 売上の取りこぼし診断 — interactive flow: 12 questions → lead gate → result map.
+// 収益構造 成熟度診断 — interactive flow: 12 questions → lead gate → result map.
 // All quiz logic is client-side (static site). Lead capture posts the email
 // directly to a dedicated, captcha-free HubSpot form via the Submissions API
 // (no iframe, no reCAPTCHA), so submission is reliable and the result shows
@@ -9,7 +9,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-	title="売上の取りこぼし診断 | 全12問・約1分 | Consilegy"
+	title="収益構造 成熟度診断 | 全12問・約1分 | Consilegy"
 	description="マーケ・営業・CSの「境目」を6つの観点で診断します。全12問・選択式・約1分。"
 	lang="ja"
 	noindex={true}
@@ -111,7 +111,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 			return `${sig.emoji} ${c.name}: ${scores[i]}/4`;
 		});
 		return [
-			'【売上の取りこぼし診断 結果】',
+			'【収益構造 成熟度診断 結果】',
 			`総合スコア: ${total}/24（${band.label}）`,
 			...lines,
 			'',
@@ -315,7 +315,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 			fields,
 			context: {
 				pageUri: location.href,
-				pageName: '売上の取りこぼし診断',
+				pageName: '収益構造 成熟度診断',
 				...(hutk ? { hutk } : {}),
 			},
 		};
@@ -350,7 +350,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 		app.innerHTML = `
 			<div class="rd-result-head">
-				<p class="rd-result-eyebrow">売上の取りこぼし診断 結果</p>
+				<p class="rd-result-eyebrow">収益構造 成熟度診断 結果</p>
 				<div class="rd-result-score">
 					<span class="rd-score-num">${total}</span><span class="rd-score-den">/ 24</span>
 					<span class="rd-score-band rd-band-${band.label === '健全' ? 'green' : band.label === '注意' ? 'yellow' : 'red'}">${esc(band.label)}</span>

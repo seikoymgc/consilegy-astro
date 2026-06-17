@@ -1,5 +1,5 @@
 ---
-// Revenue Leak Diagnostic — interactive flow: 12 questions → lead gate → result map.
+// Revenue Maturity Assessment — interactive flow: 12 questions → lead gate → result map.
 // All quiz logic is client-side (static site). Lead capture posts the email
 // directly to a dedicated, captcha-free HubSpot form via the Submissions API
 // (no iframe, no reCAPTCHA), so submission is reliable and the result shows
@@ -9,7 +9,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-	title="Revenue Leak Diagnostic | 12 questions · ~1 min | Consilegy"
+	title="Revenue Maturity Assessment | 12 questions · ~1 min | Consilegy"
 	description="Diagnose the six seams between marketing, sales and CS. 12 questions, multiple choice, about a minute."
 	lang="en"
 	noindex={true}
@@ -108,7 +108,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 			return `${sig.emoji} ${c.name}: ${scores[i]}/4`;
 		});
 		return [
-			'[Revenue Leak Diagnostic — Result]',
+			'[Revenue Maturity Assessment — Result]',
 			`Total score: ${total}/24 (${band.label})`,
 			...lines,
 			'',
@@ -311,7 +311,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 			fields,
 			context: {
 				pageUri: location.href,
-				pageName: 'Revenue Leak Diagnostic',
+				pageName: 'Revenue Maturity Assessment',
 				...(hutk ? { hutk } : {}),
 			},
 		};
@@ -346,7 +346,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 
 		app.innerHTML = `
 			<div class="rd-result-head">
-				<p class="rd-result-eyebrow">Revenue Leak Diagnostic — Result</p>
+				<p class="rd-result-eyebrow">Revenue Maturity Assessment — Result</p>
 				<div class="rd-result-score">
 					<span class="rd-score-num">${total}</span><span class="rd-score-den">/ 24</span>
 					<span class="rd-score-band rd-band-${band.label === 'Healthy' ? 'green' : band.label === 'Caution' ? 'yellow' : 'red'}">${esc(band.label)}</span>

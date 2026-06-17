@@ -100,6 +100,88 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 	</div>
 </section>
 
+<!-- ===================== ALL FEATURES ===================== -->
+<section class="all-features">
+	<div class="container">
+		<div class="feat-head">
+			<p class="section-eyebrow">All features</p>
+			<h2>営業・マーケ・CS・運用を、一つに。</h2>
+		</div>
+		<div class="cat-grid">
+			<div class="cat-card">
+				<h3>AI / インテリジェンス</h3>
+				<ul>
+					<li>AIコパイロット（自然言語でCRMを検索・操作）</li>
+					<li>AI通話解析（MEDDPICC / BANT / CHAMP / SPIN）</li>
+					<li>AIリサーチ（Web調査・引用付き）</li>
+					<li>AI要約・AI分類</li>
+					<li>AI属性フィールド（レコードにAI項目）</li>
+					<li>音声文字起こし（Whisper）</li>
+					<li>リードスコアリング（グレードA〜F）</li>
+					<li>ワークスペースクレジット管理</li>
+				</ul>
+			</div>
+			<div class="cat-card">
+				<h3>CRMコア</h3>
+				<ul>
+					<li>コンタクト / 会社 / ディール</li>
+					<li>チケット / タスク / アクティビティ / コール</li>
+					<li>ディールかんばん（ドラッグ&ドロップ）</li>
+					<li>リード変換（ステージ遷移＋ディール作成）</li>
+					<li>パイプライン・ステージ管理</li>
+					<li>メモ・添付ファイル・お気に入り</li>
+					<li>レコード間リレーション</li>
+				</ul>
+			</div>
+			<div class="cat-card">
+				<h3>マーケティング</h3>
+				<ul>
+					<li>フォームビルダー（公開ページ・自動コンタクト化）</li>
+					<li>メール配信（テンプレート・キャンペーン）</li>
+					<li>開封・クリック計測 / 配信停止管理</li>
+					<li>リスト（静的 / 動的）</li>
+					<li>ワークフロー（ビジュアル自動化）</li>
+					<li>トリガー・条件分岐・遅延ステップ</li>
+				</ul>
+			</div>
+			<div class="cat-card">
+				<h3>セールス</h3>
+				<ul>
+					<li>フォーキャスト（カテゴリ別集計）</li>
+					<li>シーケンス（段階的フォローアップ自動化）</li>
+					<li>見積（明細・税率・ステータス）</li>
+					<li>製品マスタ</li>
+					<li>コンタクトロール（意思決定者・推進者ほか）</li>
+				</ul>
+			</div>
+			<div class="cat-card">
+				<h3>カスタマーサクセス</h3>
+				<ul>
+					<li>オムニチャネルインボックス（チャット / メール / API）</li>
+					<li>チャットウィジェット埋め込み（リアルタイム受信）</li>
+					<li>インバウンドメールの会話化</li>
+					<li>ナレッジベース</li>
+					<li>サーベイ（NPS / CSAT / CES）</li>
+				</ul>
+			</div>
+			<div class="cat-card">
+				<h3>プラットフォーム / 拡張</h3>
+				<ul>
+					<li>カスタムオブジェクト・カスタムフィールド</li>
+					<li>レコードタイプ・リレーション定義</li>
+					<li>REST API（v1）/ GraphQL / MCPサーバー</li>
+					<li>送信Webhook（署名・配信ログ）</li>
+					<li>権限管理（ロール×CRUD）・監査ログ</li>
+					<li>複数組織切替・メンバー招待・ロール管理</li>
+					<li>ゴミ箱（復元）・グローバル検索</li>
+					<li>連携：Notion / Google / LinkedIn</li>
+					<li>多言語対応（日 / 英 / 繁中）</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
 <!-- ===================== BETA NOTE ===================== -->
 <section class="beta-band">
 	<div class="container beta-inner">
@@ -233,6 +315,26 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 .feat-card h3 { font-size: 1.0625rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.625rem; }
 .feat-card p { font-size: 0.9375rem; line-height: 1.7; color: var(--color-text-muted); margin: 0; }
 
+/* ── All features ──────────────────────────────────── */
+.all-features { padding-block: var(--space-2xl); background: var(--color-bg); }
+.cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.cat-card {
+	border: 1px solid var(--color-border); border-radius: var(--radius-card);
+	padding: 1.75rem; background: var(--color-bg-subtle);
+}
+.cat-card h3 {
+	font-size: 0.8125rem; font-weight: 700; color: var(--color-primary);
+	letter-spacing: 0.04em; margin: 0 0 1rem; padding-bottom: 0.75rem;
+	border-bottom: 1px solid var(--color-border);
+}
+.cat-card ul { list-style: none; padding: 0; margin: 0; }
+.cat-card li {
+	display: flex; gap: 0.5rem; align-items: flex-start;
+	font-size: 0.875rem; line-height: 1.55; color: var(--color-text);
+	padding: 0.3rem 0;
+}
+.cat-card li::before { content: "✓"; flex-shrink: 0; color: var(--color-primary); font-weight: 700; }
+
 /* ── Beta band ─────────────────────────────────────── */
 .beta-band { padding-block: var(--space-2xl); background: var(--color-bg); }
 .beta-inner { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3.5rem; align-items: center; }
@@ -293,7 +395,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 /* ── Responsive ─────────────────────────────────────── */
 @media (max-width: 960px) {
-	.prob-grid, .feat-grid { grid-template-columns: 1fr; }
+	.prob-grid, .feat-grid, .cat-grid { grid-template-columns: 1fr; }
 	.beta-inner, .cta-inner { grid-template-columns: 1fr; gap: 2rem; }
 }
 @media (max-width: 560px) {

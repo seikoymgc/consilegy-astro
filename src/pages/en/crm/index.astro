@@ -100,6 +100,88 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 	</div>
 </section>
 
+<!-- ===================== ALL FEATURES ===================== -->
+<section class="all-features">
+	<div class="container">
+		<div class="feat-head">
+			<p class="section-eyebrow">All features</p>
+			<h2>Sales, marketing, CS, and ops — in one place.</h2>
+		</div>
+		<div class="cat-grid">
+			<div class="cat-card">
+				<h3>AI &amp; Intelligence</h3>
+				<ul>
+					<li>AI Copilot (search &amp; operate the CRM in plain language)</li>
+					<li>AI call analysis (MEDDPICC / BANT / CHAMP / SPIN)</li>
+					<li>AI research (web, with citations)</li>
+					<li>AI summarization &amp; classification</li>
+					<li>AI attribute fields (AI columns on records)</li>
+					<li>Voice transcription (Whisper)</li>
+					<li>Lead scoring (grades A–F)</li>
+					<li>Workspace credit management</li>
+				</ul>
+			</div>
+			<div class="cat-card">
+				<h3>CRM core</h3>
+				<ul>
+					<li>Contacts / Companies / Deals</li>
+					<li>Tickets / Tasks / Activities / Calls</li>
+					<li>Deal kanban (drag &amp; drop)</li>
+					<li>Lead conversion (stage change + deal)</li>
+					<li>Pipeline &amp; stage management</li>
+					<li>Notes, attachments &amp; favorites</li>
+					<li>Record-to-record relations</li>
+				</ul>
+			</div>
+			<div class="cat-card">
+				<h3>Marketing</h3>
+				<ul>
+					<li>Form builder (public pages, auto-create contacts)</li>
+					<li>Email campaigns &amp; templates</li>
+					<li>Open / click tracking &amp; unsubscribe</li>
+					<li>Lists (static / dynamic)</li>
+					<li>Workflows (visual automation)</li>
+					<li>Triggers, conditions &amp; delays</li>
+				</ul>
+			</div>
+			<div class="cat-card">
+				<h3>Sales</h3>
+				<ul>
+					<li>Forecasting (by category)</li>
+					<li>Sequences (automated follow-up)</li>
+					<li>Quotes (line items, tax, status)</li>
+					<li>Product catalog</li>
+					<li>Contact roles (decision maker, champion, …)</li>
+				</ul>
+			</div>
+			<div class="cat-card">
+				<h3>Customer Success</h3>
+				<ul>
+					<li>Omnichannel inbox (chat / email / API)</li>
+					<li>Embeddable chat widget (real-time)</li>
+					<li>Inbound email to conversations</li>
+					<li>Knowledge base</li>
+					<li>Surveys (NPS / CSAT / CES)</li>
+				</ul>
+			</div>
+			<div class="cat-card">
+				<h3>Platform &amp; extensibility</h3>
+				<ul>
+					<li>Custom objects &amp; custom fields</li>
+					<li>Record types &amp; relationship definitions</li>
+					<li>REST API (v1) / GraphQL / MCP server</li>
+					<li>Outbound webhooks (signed, with delivery logs)</li>
+					<li>Permissions (role × CRUD) &amp; audit log</li>
+					<li>Multi-workspace, member invites &amp; roles</li>
+					<li>Trash (restore) &amp; global search</li>
+					<li>Notion / Google / LinkedIn integrations</li>
+					<li>Multilingual (JA / EN / ZH-TW)</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
 <!-- ===================== BETA NOTE ===================== -->
 <section class="beta-band">
 	<div class="container beta-inner">
@@ -232,6 +314,26 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 .feat-card h3 { font-size: 1.0625rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.625rem; }
 .feat-card p { font-size: 0.9375rem; line-height: 1.7; color: var(--color-text-muted); margin: 0; }
 
+/* ── All features ──────────────────────────────────── */
+.all-features { padding-block: var(--space-2xl); background: var(--color-bg); }
+.cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.cat-card {
+	border: 1px solid var(--color-border); border-radius: var(--radius-card);
+	padding: 1.75rem; background: var(--color-bg-subtle);
+}
+.cat-card h3 {
+	font-size: 0.8125rem; font-weight: 700; color: var(--color-primary);
+	letter-spacing: 0.04em; margin: 0 0 1rem; padding-bottom: 0.75rem;
+	border-bottom: 1px solid var(--color-border);
+}
+.cat-card ul { list-style: none; padding: 0; margin: 0; }
+.cat-card li {
+	display: flex; gap: 0.5rem; align-items: flex-start;
+	font-size: 0.875rem; line-height: 1.55; color: var(--color-text);
+	padding: 0.3rem 0;
+}
+.cat-card li::before { content: "✓"; flex-shrink: 0; color: var(--color-primary); font-weight: 700; }
+
 /* ── Beta band ─────────────────────────────────────── */
 .beta-band { padding-block: var(--space-2xl); background: var(--color-bg); }
 .beta-inner { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3.5rem; align-items: center; }
@@ -292,7 +394,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 /* ── Responsive ─────────────────────────────────────── */
 @media (max-width: 960px) {
-	.prob-grid, .feat-grid { grid-template-columns: 1fr; }
+	.prob-grid, .feat-grid, .cat-grid { grid-template-columns: 1fr; }
 	.beta-inner, .cta-inner { grid-template-columns: 1fr; gap: 2rem; }
 }
 @media (max-width: 560px) {

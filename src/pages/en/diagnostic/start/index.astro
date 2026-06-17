@@ -1,5 +1,5 @@
 ---
-// Revenue Maturity Assessment — interactive flow: 12 questions → lead gate → result map.
+// Revenue Leak Diagnostic — interactive flow: 12 questions → lead gate → result map.
 // All quiz logic is client-side (static site). Lead capture posts the email
 // directly to a dedicated, captcha-free HubSpot form via the Submissions API
 // (no iframe, no reCAPTCHA), so submission is reliable and the result shows
@@ -9,7 +9,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-	title="Revenue Maturity Assessment | 12 questions · ~1 min | Consilegy"
+	title="Revenue Leak Diagnostic | 12 questions · ~1 min | Consilegy"
 	description="Diagnose the six seams between marketing, sales and CS. 12 questions, multiple choice, about a minute."
 	lang="en"
 	noindex={true}
@@ -108,7 +108,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 			return `${sig.emoji} ${c.name}: ${scores[i]}/4`;
 		});
 		return [
-			'[Revenue Maturity Assessment — Result]',
+			'[Revenue Leak Diagnostic — Result]',
 			`Total score: ${total}/24 (${band.label})`,
 			...lines,
 			'',
@@ -311,7 +311,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 			fields,
 			context: {
 				pageUri: location.href,
-				pageName: 'Revenue Maturity Assessment',
+				pageName: 'Revenue Leak Diagnostic',
 				...(hutk ? { hutk } : {}),
 			},
 		};
@@ -346,7 +346,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 
 		app.innerHTML = `
 			<div class="rd-result-head">
-				<p class="rd-result-eyebrow">Revenue Maturity Assessment — Result</p>
+				<p class="rd-result-eyebrow">Revenue Leak Diagnostic — Result</p>
 				<div class="rd-result-score">
 					<span class="rd-score-num">${total}</span><span class="rd-score-den">/ 24</span>
 					<span class="rd-score-band rd-band-${band.label === 'Healthy' ? 'green' : band.label === 'Caution' ? 'yellow' : 'red'}">${esc(band.label)}</span>
@@ -394,6 +394,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 			<div class="rd-firststep">
 				<p class="rd-firststep-label">First move</p>
 				<p class="rd-firststep-text">${esc(worst.c.firstStep)}</p>
+				<p class="rd-firststep-note">But one move alone won't stop the leak. It holds only once the design and ground-level adoption are in place.</p>
 			</div>
 			` : `
 			<div class="rd-firststep">
@@ -402,14 +403,18 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 			</div>
 			`}
 
+			<div class="rd-promise">
+				<p class="rd-promise-text">Consilegy designs these seams into <strong>one revenue process</strong> and stays until it <strong>runs on the ground</strong>, with your CRM reflecting reality. We don't hand off. We stay until it works.</p>
+			</div>
+
 			<div class="rd-cta">
 				<a href="${BOOK_URL}" class="rd-cta-primary" data-cta="book">Want to fix these leaks? Book a 30-min consult (free) →</a>
-				<p class="rd-cta-note">We'll review your result and map the next move in 30 minutes. Online, free.</p>
+				<p class="rd-cta-note">We'll map where to start fixing, in 30 minutes. Online, free.</p>
 				<a href="${CONTACT_URL}" class="rd-cta-secondary" data-cta="contact">See our services</a>
 			</div>
 
 			<div class="rd-probe" id="rd-probe">
-				<p class="rd-probe-q">One quick question (optional): if a dashboard could <strong>automatically surface these leaks every month</strong>, would you use it?</p>
+				<p class="rd-probe-q">One quick question (optional): would you be interested in a way to <strong>surface these leaks every month and keep fixing them</strong>?</p>
 				<div class="rd-probe-opts">
 					<label class="rd-check"><input type="radio" name="dashboard_demand" value="want" /> Yes</label>
 					<label class="rd-check"><input type="radio" name="dashboard_demand" value="conditional" /> Depends</label>
@@ -673,6 +678,9 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 }
 :global(.rd-cta-primary:hover) { background: var(--color-primary-dark); color: #fff; }
 :global(.rd-cta-note) { font-size: 0.75rem; color: var(--color-text-muted); margin: 0.875rem 0 1.25rem; line-height: 1.7; }
+:global(.rd-firststep-note) { font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.7; margin: 0.625rem 0 0; }
+:global(.rd-promise) { border-left: 3px solid var(--color-primary); padding: 0.25rem 0 0.25rem 1rem; margin: 0 0 1.5rem; }
+:global(.rd-promise-text) { font-size: 0.9375rem; color: var(--color-text); line-height: 1.75; margin: 0; }
 :global(.rd-cta-secondary) {
 	display: inline-flex; align-items: center; justify-content: center;
 	color: var(--color-primary); border: 1px solid var(--color-primary);

@@ -1,0 +1,301 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+	title="Revenue CRM (Beta) | The AI-native CRM that follows your revenue model"
+	description="Unify sales, marketing, and CS revenue data in one place. Revenue CRM scores leads and suggests the next action with AI. Now in closed beta. Request a demo."
+	lang="en"
+	alternateUrl="/crm/"
+	noindex={true}
+>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+	<div class="container">
+		<span class="eyebrow"><span class="eyebrow__dot"></span>Product · Closed Beta</span>
+		<h1>The AI-native CRM that<br />follows your revenue model.</h1>
+		<p class="hero-lead">
+			Capture leads, run deals, and forecast — all in one place. AI scores prospects
+			and recommends the next action, keeping your sales, marketing, and CS revenue
+			operations moving forward. Now available to a small number of companies in closed beta.
+		</p>
+		<div class="hero-actions">
+			<a href="/en/contact/" class="btn btn--hero-primary btn--lg">Request a demo →</a>
+			<a href="#features" class="btn btn--hero-outline btn--lg">See features</a>
+		</div>
+		<p class="hero-note">* Currently in beta — invite-only and limited to a few companies. Features may change without notice.</p>
+	</div>
+</section>
+
+<!-- ===================== DEMO VIDEO ===================== -->
+<section class="demo-video">
+	<div class="container">
+		<div class="video-frame">
+			<video
+				src="/videos/revenue-crm.mp4"
+				controls
+				preload="metadata"
+				playsinline
+				width="1280"
+				height="720"
+			></video>
+		</div>
+		<p class="video-caption">Product demo (about 2 min 40 sec)</p>
+	</div>
+</section>
+
+<!-- ===================== PROBLEM ===================== -->
+<section class="problem">
+	<div class="container">
+		<p class="section-eyebrow">Why CRM fails</p>
+		<h2 class="prob-title">Sound familiar?</h2>
+		<div class="prob-grid">
+			<div class="prob-item">
+				<p>Data entry is a chore, so the team never adopts it — and you quietly drift back to managing everything in Excel.</p>
+			</div>
+			<div class="prob-item">
+				<p>SFA, MA, and CS tools are siloed, so the numbers from lead to revenue never connect into one view.</p>
+			</div>
+			<div class="prob-item">
+				<p>Which lead to act on now, and what to do next, lives in people's heads — so follow-up is always reactive.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== FEATURES ===================== -->
+<section class="features" id="features">
+	<div class="container">
+		<div class="feat-head">
+			<p class="section-eyebrow">Features</p>
+			<h2>Built to move revenue forward.</h2>
+		</div>
+		<div class="feat-grid">
+			<article class="feat-card">
+				<h3>AI agent</h3>
+				<p>Ask your data in plain language. AI drafts emails and recommends next steps, taking work off the team's plate.</p>
+			</article>
+			<article class="feat-card">
+				<h3>Lead scoring</h3>
+				<p>Surface hot leads automatically from behavior and firmographics. See who to act on at a glance.</p>
+			</article>
+			<article class="feat-card">
+				<h3>Workflow automation</h3>
+				<p>Trigger notifications, tasks, and emails on your rules — cut manual work and prevent things from slipping.</p>
+			</article>
+			<article class="feat-card">
+				<h3>Email sequences</h3>
+				<p>Automated, multi-step follow-ups that branch based on each reply and action.</p>
+			</article>
+			<article class="feat-card">
+				<h3>Forecasting</h3>
+				<p>See where the quarter lands straight from your pipeline — turn meetings into decisions, not status reports.</p>
+			</article>
+			<article class="feat-card">
+				<h3>Custom objects</h3>
+				<p>Extend the data model to fit your business. Design it around how revenue actually flows.</p>
+			</article>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== BETA NOTE ===================== -->
+<section class="beta-band">
+	<div class="container beta-inner">
+		<div>
+			<p class="section-eyebrow">Closed Beta</p>
+			<h2>We're onboarding our first customers now.</h2>
+			<p class="beta-lead">
+				Revenue CRM is being built in closed beta. Beta customers get onboarding
+				informed by Consilegy's revenue-design expertise, plus priority support
+				where your feature requests go straight into the product.
+			</p>
+		</div>
+		<ul class="beta-list">
+			<li>Hands-on setup and data migration support</li>
+			<li>Advice on revenue operations design</li>
+			<li>Priority on your feature requests</li>
+			<li>Preferential terms during the beta</li>
+		</ul>
+	</div>
+</section>
+
+<!-- ===================== FINAL CTA ===================== -->
+<section class="final-cta">
+	<div class="container cta-inner">
+		<div>
+			<p class="cta-eyebrow">Get Started</p>
+			<h2>See it in action<br />with a live demo.</h2>
+			<p class="cta-lead">
+				We'll walk through your revenue operations challenges and show how
+				Revenue CRM works in a hands-on demo. Beta inquiries are welcome here too.
+			</p>
+			<div class="cta-actions">
+				<a href="/en/contact/" class="btn btn--cta-primary btn--lg">Request a demo →</a>
+				<a href="/en/services/" class="btn btn--cta-outline btn--lg">View services</a>
+			</div>
+		</div>
+		<div class="cta-card">
+			<h4>What we'll show you</h4>
+			<ul class="cta-list">
+				<li>AI agent operating on and suggesting actions from your data</li>
+				<li>Lead scoring and prioritization</li>
+				<li>Workflow and email-sequence automation</li>
+				<li>Pipeline and forecast visibility</li>
+				<li>Customization examples for your operations</li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+</BaseLayout>
+
+<style>
+/* ── Shared ──────────────────────────────────────────── */
+.section-eyebrow {
+	font-size: 0.8125rem; font-weight: 600; color: var(--color-primary);
+	letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.75rem;
+}
+.btn--lg { padding: 1.0625rem 1.875rem; font-size: 1rem; }
+
+/* ── Hero ──────────────────────────────────────────── */
+.hero {
+	background: linear-gradient(180deg, var(--color-bg-subtle) 0%, var(--color-bg) 100%);
+	border-bottom: 1px solid var(--color-border);
+	padding-block: var(--space-2xl) var(--space-xl);
+}
+.eyebrow {
+	display: inline-flex; align-items: center; gap: 0.5rem;
+	font-size: 0.8125rem; font-weight: 600; color: var(--color-primary);
+	background: rgba(30,64,175,0.08); padding: 0.375rem 0.875rem; border-radius: 4px;
+	letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1.25rem;
+}
+.eyebrow__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--color-primary); display: inline-block; }
+.hero h1 {
+	font-size: clamp(2.25rem, 4vw, 3.25rem); font-weight: 600;
+	letter-spacing: 0.01em; margin: 0 0 1rem; color: var(--color-text); line-height: 1.2;
+}
+.hero-lead { font-size: 1.125rem; line-height: 1.75; color: var(--color-text-muted); max-width: 720px; margin: 0 0 2rem; }
+.hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.hero-note { font-size: 0.8125rem; color: var(--color-text-muted); margin: 1.5rem 0 0; }
+
+.btn--hero-primary {
+	display: inline-flex; align-items: center;
+	background: var(--color-primary); color: #fff;
+	padding: 1.0625rem 1.875rem; border-radius: var(--radius);
+	font-weight: 700; font-size: 1rem; text-decoration: none; border: none;
+	transition: background 0.15s ease;
+}
+.btn--hero-primary:hover { background: var(--color-primary-dark); color: #fff; }
+.btn--hero-outline {
+	display: inline-flex; align-items: center;
+	background: transparent; color: var(--color-primary);
+	padding: 1.0625rem 1.875rem; border-radius: var(--radius);
+	font-weight: 600; font-size: 1rem; text-decoration: none;
+	border: 1.5px solid var(--color-primary);
+	transition: all 0.15s ease;
+}
+.btn--hero-outline:hover { background: rgba(30,64,175,0.06); }
+
+/* ── Demo video ────────────────────────────────────── */
+.demo-video { padding-block: var(--space-xl); background: var(--color-bg); }
+.video-frame {
+	max-width: 880px; margin: 0 auto;
+	border: 1px solid var(--color-border); border-radius: var(--radius-card);
+	overflow: hidden; box-shadow: var(--shadow-lg); background: #000;
+	line-height: 0;
+}
+.video-frame video { width: 100%; height: auto; display: block; }
+.video-caption { text-align: center; font-size: 0.8125rem; color: var(--color-text-muted); margin: 1rem 0 0; }
+
+/* ── Problem ───────────────────────────────────────── */
+.problem { padding-block: var(--space-2xl); background: var(--color-bg); }
+.prob-title { font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; color: var(--color-text); margin: 0 0 2rem; }
+.prob-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.prob-item {
+	border: 1px solid var(--color-border); border-radius: var(--radius-card);
+	padding: 1.75rem; background: var(--color-bg-subtle);
+	border-left: 3px solid var(--color-primary);
+}
+.prob-item p { margin: 0; font-size: 0.9375rem; line-height: 1.75; color: var(--color-text); }
+
+/* ── Features ──────────────────────────────────────── */
+.features { padding-block: var(--space-2xl); background: var(--color-bg-subtle); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
+.feat-head { margin-bottom: 2.5rem; }
+.feat-head h2 { font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; color: var(--color-text); margin: 0; }
+.feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.feat-card {
+	border: 1px solid var(--color-border); border-radius: var(--radius-card);
+	padding: 1.75rem; background: var(--color-bg); box-shadow: var(--shadow-sm);
+}
+.feat-card h3 { font-size: 1.0625rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.625rem; }
+.feat-card p { font-size: 0.9375rem; line-height: 1.7; color: var(--color-text-muted); margin: 0; }
+
+/* ── Beta band ─────────────────────────────────────── */
+.beta-band { padding-block: var(--space-2xl); background: var(--color-bg); }
+.beta-inner { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3.5rem; align-items: center; }
+.beta-inner h2 { font-size: clamp(1.5rem, 2.5vw, 1.9rem); font-weight: 700; color: var(--color-text); margin: 0 0 1rem; line-height: 1.4; }
+.beta-lead { font-size: 1.0625rem; line-height: 1.8; color: var(--color-text-muted); margin: 0; }
+.beta-list { list-style: none; padding: 0; margin: 0; }
+.beta-list li {
+	display: flex; gap: 0.625rem; align-items: flex-start;
+	padding: 0.625rem 0; font-size: 0.9375rem; color: var(--color-text);
+	border-bottom: 1px solid var(--color-border); line-height: 1.6;
+}
+.beta-list li:last-child { border-bottom: none; }
+.beta-list li::before { content: "✓"; flex-shrink: 0; color: var(--color-primary); font-weight: 700; }
+
+/* ── Final CTA ─────────────────────────────────────── */
+.final-cta {
+	background:
+		radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%),
+		linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+	color: #fff; padding-block: var(--space-2xl);
+}
+.cta-inner { display: grid; grid-template-columns: 1.3fr 1fr; gap: 4rem; align-items: center; }
+.cta-eyebrow { font-size: 0.8125rem; font-weight: 600; color: #93c5fd; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 1rem; }
+.cta-inner h2 { color: #fff; font-size: clamp(1.75rem, 2.5vw, 2.25rem); line-height: 1.3; font-weight: 700; margin: 0 0 1.25rem; }
+.cta-lead { color: #bfdbfe; font-size: 1.0625rem; line-height: 1.8; margin: 0 0 2rem; }
+.cta-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+.btn--cta-primary {
+	display: inline-flex; align-items: center; justify-content: center;
+	padding: 1.0625rem 1.875rem; border-radius: var(--radius);
+	font-weight: 700; font-size: 1rem; text-decoration: none;
+	background: #fff; color: var(--color-primary); border: none;
+	transition: background 0.15s ease;
+}
+.btn--cta-primary:hover { background: #e0eaff; color: var(--color-primary); }
+.btn--cta-outline {
+	display: inline-flex; align-items: center; justify-content: center;
+	padding: 1.0625rem 1.875rem; border-radius: var(--radius);
+	font-weight: 600; font-size: 1rem; text-decoration: none;
+	background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.45);
+	transition: all 0.15s ease;
+}
+.btn--cta-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+
+.cta-card {
+	background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+	border-radius: var(--radius-card); padding: 2rem; backdrop-filter: blur(10px);
+}
+.cta-card h4 { margin: 0 0 1rem; font-size: 0.8125rem; color: #93c5fd; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+.cta-list { list-style: none; padding: 0; margin: 0; }
+.cta-list li {
+	display: flex; gap: 0.75rem; align-items: flex-start;
+	padding: 0.5rem 0; font-size: 0.9375rem; color: #e0eaff;
+	border-bottom: 1px solid rgba(255,255,255,0.1); line-height: 1.6;
+}
+.cta-list li:last-child { border-bottom: none; }
+.cta-list li::before { content: ""; flex-shrink: 0; margin-top: 9px; width: 5px; height: 5px; border-radius: 50%; background: #93c5fd; }
+
+/* ── Responsive ─────────────────────────────────────── */
+@media (max-width: 960px) {
+	.prob-grid, .feat-grid { grid-template-columns: 1fr; }
+	.beta-inner, .cta-inner { grid-template-columns: 1fr; gap: 2rem; }
+}
+@media (max-width: 560px) {
+	.hero-actions, .cta-actions { flex-direction: column; }
+}
+</style>

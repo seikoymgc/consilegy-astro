@@ -22,6 +22,7 @@ export interface DiagnosticCategory {
 	insight: string;    // shown when category is yellow/red
 	quant: string;      // 相対定量フレーム (shown under insight when yellow/red)
 	firstStep: string;  // 最初の一手 (shown for the worst category)
+	actions?: string[]; // 推奨施策 (shown under each leaking seam — Consilegyの実務の打ち手)
 }
 
 export const CATEGORIES: DiagnosticCategory[] = [
@@ -50,6 +51,11 @@ export const CATEGORIES: DiagnosticCategory[] = [
 		insight: 'リードはあっても、定義のズレで商談前に消えています',
 		quant: 'マーケが渡したリードの3〜5割が、商談化の手前で「対応に値しない」と判断されて消えるのが典型です。広告費が商談の一歩手前で蒸発している状態です。',
 		firstStep: '営業とマーケで「商談化リードの条件」を1枚に言語化する',
+		actions: [
+			'MQL（商談化リード）の定義を営業・マーケ合同で1枚に言語化する',
+			'リードのライフサイクルステージをCRM上で再設計する（Lead→MQL→SQL→商談）',
+			'受け渡し後の「対応／却下」を必ずCRMに記録し、歩留まりを可視化する',
+		],
 	},
 	{
 		id: 'dependence',
@@ -76,6 +82,11 @@ export const CATEGORIES: DiagnosticCategory[] = [
 		insight: '売上が人に依存し、予測が立ちません',
 		quant: '売上が上位2〜3名に集中している組織では、その1人の離職が翌期forecastを最も大きく揺らす要因になります。営業リスクが実質的に財務リスクです。',
 		firstStep: 'トップ営業の「判断基準」を3つ言語化して共有する',
+		actions: [
+			'トップ営業の受注プロセスをセールスプレイブックとして言語化する',
+			'商談化・受注の判断基準を、CRMのステージ移行条件として実装する',
+			'forecastを個人の感覚から、ステージ×確度の積み上げに切り替える',
+		],
 	},
 	{
 		id: 'stages',
@@ -102,6 +113,11 @@ export const CATEGORIES: DiagnosticCategory[] = [
 		insight: 'CRMが活動の記録止まりで、購買進捗を測れていません',
 		quant: 'ステージが「自社の活動」を表している会社のforecastは、月次で±20〜30%ぶれるのが目安です。打ち手が常に後手に回ります。',
 		firstStep: 'ステージ定義を「顧客の状態」で再定義する',
+		actions: [
+			'ステージを「顧客の購買状態」基準で再定義する（活動ではなく状態）',
+			'各ステージに移行条件（exit criteria）を設定し、入力を統一する',
+			'forecastカテゴリ（commit／best case／pipeline）を運用に導入する',
+		],
 	},
 	{
 		id: 'silos',
@@ -128,6 +144,11 @@ export const CATEGORIES: DiagnosticCategory[] = [
 		insight: '数字がバラバラで、経営判断が遅れています',
 		quant: '数字を手集計している組織は、経営会議の準備だけで毎月数十時間を溶かしています。しかも「どれが正か」の議論で意思決定が遅れます。',
 		firstStep: '経営会議で見る指標を1つの正データに統一する',
+		actions: [
+			'経営会議のKPIを1つの正データ（single source of truth）に統一する',
+			'CRMを起点に、手集計レポートをダッシュボードへ移行する',
+			'部門横断のKPI定義を統一し、指標の二重定義を解消する',
+		],
 	},
 	{
 		id: 'adoption',
@@ -154,6 +175,11 @@ export const CATEGORIES: DiagnosticCategory[] = [
 		insight: 'ツールが現場の日常になっていません',
 		quant: '使われないCRMはデータの鮮度・網羅性が落ち、「使えないから使わない」の悪循環に入ります。投資したツール費がそのまま埋没コストになります。',
 		firstStep: '現場が毎日開く理由（1機能）に絞って運用を立て直す',
+		actions: [
+			'現場が毎日開く理由となる1機能に絞って運用を再設計する',
+			'入力負荷を下げる自動化を入れる（自動ログ・必須項目の最小化）',
+			'利用状況をモニタリングし、定着率をKPIとして追う',
+		],
 	},
 	{
 		id: 'expansion',
@@ -180,6 +206,11 @@ export const CATEGORIES: DiagnosticCategory[] = [
 		insight: '受注後の拡大が設計されず、LTVが伸びていません',
 		quant: '新規獲得は既存拡大の約5倍のコストがかかります。出口（継続・拡大）の設計不在は、最も高くつく漏れです。',
 		firstStep: '受注→CSの引き継ぎチェックリストを作る',
+		actions: [
+			'営業→CSの引き継ぎチェックリストと、引き継ぎ時点を設計する',
+			'アップセル／更新のトリガーとオーナーをCRM上で定義する',
+			'ヘルススコアや更新予測を可視化し、解約の予兆を早期に検知する',
+		],
 	},
 ];
 

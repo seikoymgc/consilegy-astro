@@ -33,6 +33,11 @@ export const CATEGORIES: DiagnosticCategory[] = [
 		insight: 'You have leads, but a definition gap kills them before they become opportunities.',
 		quant: 'Typically 30–50% of the leads marketing passes over are written off as "not worth pursuing" just before they could become opportunities. Your acquisition spend evaporates one step short of a real conversation.',
 		firstStep: 'Write the "sales-ready lead" criteria on a single page, agreed by sales and marketing.',
+		actions: [
+			'Define MQL (sales-ready lead) on one page, agreed jointly by sales and marketing',
+			'Redesign the lead lifecycle stages in your CRM (Lead → MQL → SQL → Opportunity)',
+			'Log every "accepted / rejected" decision after handoff to make the conversion rate visible',
+		],
 	},
 	{
 		id: 'dependence',
@@ -59,6 +64,11 @@ export const CATEGORIES: DiagnosticCategory[] = [
 		insight: "Revenue depends on people, so it can't be forecast.",
 		quant: "When revenue concentrates in your top 2–3 reps, a single departure becomes the biggest swing factor in next period's forecast. Sales risk is effectively financial risk.",
 		firstStep: "Put your top rep's three key judgment criteria into words and share them.",
+		actions: [
+			'Document your top rep\'s winning process as a sales playbook',
+			'Implement the qualify / close criteria as CRM stage-exit conditions',
+			'Shift forecasting from individual gut feel to stage × probability roll-up',
+		],
 	},
 	{
 		id: 'stages',
@@ -85,6 +95,11 @@ export const CATEGORIES: DiagnosticCategory[] = [
 		insight: "Your CRM only logs activity and can't measure buying progress.",
 		quant: 'When stages represent "your own activity" rather than the buyer\'s, forecasts typically swing ±20–30% month to month. You are always reacting one step too late.',
 		firstStep: 'Redefine your stages around "the customer\'s state".',
+		actions: [
+			'Redefine stages around "the customer\'s buying state" (state, not activity)',
+			'Set exit criteria for each stage and standardize data entry',
+			'Introduce forecast categories (commit / best case / pipeline) into operations',
+		],
 	},
 	{
 		id: 'silos',
@@ -111,6 +126,11 @@ export const CATEGORIES: DiagnosticCategory[] = [
 		insight: 'Numbers are scattered, so leadership decisions lag.',
 		quant: 'Organizations that hand-compile their numbers burn dozens of hours every month just preparing for the leadership meeting — and then lose more time arguing over which figure is correct.',
 		firstStep: 'Unify the metrics your leadership reviews into one source of truth.',
+		actions: [
+			'Unify leadership KPIs into a single source of truth',
+			'Move manual reports to CRM-sourced dashboards',
+			'Standardize cross-team KPI definitions to remove duplicate metrics',
+		],
 	},
 	{
 		id: 'adoption',
@@ -137,6 +157,11 @@ export const CATEGORIES: DiagnosticCategory[] = [
 		insight: "The tools haven't become part of the team's daily work.",
 		quant: 'A CRM that goes unused decays in data freshness and coverage, locking in a "useless, so unused" spiral. The tool spend you committed to becomes a sunk cost.',
 		firstStep: 'Rebuild operations around the one feature that makes the team open it daily.',
+		actions: [
+			'Rebuild operations around the one feature that makes the team open it daily',
+			'Reduce entry burden with automation (auto-logging, minimal required fields)',
+			'Monitor usage and track adoption rate as a KPI',
+		],
 	},
 	{
 		id: 'expansion',
@@ -163,6 +188,11 @@ export const CATEGORIES: DiagnosticCategory[] = [
 		insight: "Post-sale expansion isn't designed, so LTV isn't growing.",
 		quant: 'Acquiring a new customer costs roughly 5× expanding an existing one. A missing exit (retention/expansion) design is the most expensive leak of all.',
 		firstStep: 'Create a sales → CS handoff checklist.',
+		actions: [
+			'Design a sales → CS handoff checklist and a defined handoff point',
+			'Define upsell / renewal triggers and owners in the CRM',
+			'Surface health scores and renewal forecasts to catch churn signals early',
+		],
 	},
 ];
 

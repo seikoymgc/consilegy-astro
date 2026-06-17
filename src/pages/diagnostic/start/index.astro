@@ -383,14 +383,19 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 			${leaks.length > 0 ? `
 			<div class="rd-insights">
-				<h2 class="rd-insights-title">取りこぼしている境目</h2>
-				${leaks.map((x) => `
+				<h2 class="rd-insights-title">取りこぼしている境目と、推奨施策<span class="rd-insights-sub">（優先順）</span></h2>
+				${leaks.map((x, i) => `
 					<div class="rd-insight">
-						<span class="rd-insight-emoji">${SIGNAL_META[x.signal].emoji}</span>
+						<span class="rd-insight-rank">${i + 1}</span>
 						<div>
-							<span class="rd-insight-cat">${esc(x.c.name)}</span>
+							<span class="rd-insight-cat">${SIGNAL_META[x.signal].emoji} ${esc(x.c.name)}</span>
 							<p class="rd-insight-text">${esc(x.c.insight)}</p>
 							<p class="rd-insight-quant">${esc(x.c.quant)}</p>
+							${x.c.actions?.length ? `
+							<p class="rd-insight-actions-label">推奨施策</p>
+							<ul class="rd-insight-actions">
+								${x.c.actions.map((a) => `<li>${esc(a)}</li>`).join('')}
+							</ul>` : ''}
 						</div>
 					</div>`).join('')}
 			</div>
@@ -639,12 +644,25 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 :global(.rd-insight) { display: flex; gap: 0.875rem; align-items: flex-start; padding: 0.875rem 0; border-bottom: 1px solid var(--color-border); }
 :global(.rd-insight:last-child) { border-bottom: none; }
 :global(.rd-insight-emoji) { font-size: 1.0625rem; margin-top: 1px; }
-:global(.rd-insight-cat) { display: block; font-size: 0.8125rem; font-weight: 600; color: var(--color-text); margin-bottom: 0.25rem; }
+:global(.rd-insights-sub) { font-weight: 400; color: var(--color-text-muted); font-size: 0.8125rem; }
+:global(.rd-insight-rank) {
+	flex-shrink: 0; width: 1.5rem; height: 1.5rem; margin-top: 1px;
+	display: flex; align-items: center; justify-content: center;
+	background: var(--color-primary); color: #fff; border-radius: 50%;
+	font-size: 0.75rem; font-weight: 700; font-variant-numeric: tabular-nums;
+}
+:global(.rd-insight-cat) { display: block; font-size: 0.875rem; font-weight: 600; color: var(--color-text); margin-bottom: 0.25rem; }
 :global(.rd-insight-text) { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.7; margin: 0; }
 :global(.rd-insight-quant) {
 	font-size: 0.8125rem; color: var(--color-text); line-height: 1.7; margin: 0.5rem 0 0;
 	padding-left: 0.75rem; border-left: 2px solid rgba(30,64,175,0.3);
 }
+:global(.rd-insight-actions-label) {
+	font-size: 0.625rem; font-weight: 700; color: var(--color-primary);
+	letter-spacing: 0.1em; text-transform: uppercase; margin: 0.875rem 0 0.5rem;
+}
+:global(.rd-insight-actions) { margin: 0; padding-left: 1.125rem; display: flex; flex-direction: column; gap: 0.375rem; }
+:global(.rd-insight-actions li) { font-size: 0.8125rem; color: var(--color-text); line-height: 1.65; }
 
 :global(.rd-pattern) {
 	background: linear-gradient(180deg, rgba(30,64,175,0.07), rgba(30,64,175,0.03));

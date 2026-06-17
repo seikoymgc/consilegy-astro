@@ -235,6 +235,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 					<span class="cert-badge cert-badge--shopify">Shopify Theme Development</span>
 				</div>
 			</div>
+			<div class="founder-talks">
+				<h5 class="founder-section-heading">登壇・講演</h5>
+				<ul class="founder-talks__list">
+					<li>
+						<span class="talk-title">The Complete Masterclass for Japanese Startups（SusHi Tech Tokyo 2026 / Google for Startups Tokyo）</span>
+						<span class="talk-meta">主催 IdeaBoxes ・ 2026年4月</span>
+					</li>
+					<li>
+						<span class="talk-title">見込み客の反応を取りこぼさない — AI×人で設計する「次の手」ワークフロー</span>
+						<span class="talk-meta">主催 Bizibl Technologies ・ 2026年4月</span>
+					</li>
+					<li>
+						<span class="talk-title">How to Sell Automation — Demo Day（Fukuoka Startup Collective）</span>
+						<span class="talk-meta">主催 Manabu Hubs ・ 2025年10月</span>
+					</li>
+					<li>
+						<span class="talk-title">SEO to GEO: AI検索時代に見つけられるために — Marketing Tuesday</span>
+						<span class="talk-meta">主催 AltSpace Bansko ・ 2025年6月</span>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </section>
@@ -731,4 +752,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	.hero-meta { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
 	.cta-actions { flex-direction: column; align-items: center; }
 }
+
+.founder-talks { margin-top: 1.75rem; }
+.founder-talks__list { list-style: none; padding: 0; margin: .6rem 0 0; display: grid; gap: .8rem; }
+.founder-talks__list li { display: flex; flex-direction: column; gap: .15rem; }
+.founder-talks .talk-title { font-weight: 600; font-size: .95rem; line-height: 1.4; }
+.founder-talks .talk-meta { font-size: .8rem; opacity: .7; }
 </style>

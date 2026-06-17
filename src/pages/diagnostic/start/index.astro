@@ -9,8 +9,8 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-	title="売上の取りこぼし診断 | 全12問・約1分 | Consilegy"
-	description="マーケ・営業・CSの「境目」を6つの観点で診断します。全12問・選択式・約1分。"
+	title="売上の取りこぼし診断 | 全12問・約3分 | Consilegy"
+	description="マーケ・営業・CSの「境目」を6つの観点で診断します。全12問・選択式・約3分。"
 	lang="ja"
 	noindex={true}
 >
@@ -370,7 +370,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 						<span class="rd-map-emoji">${sig.emoji}</span>
 						<div>
 							<span class="rd-map-name">${esc(c.name)}</span>
-							<span class="rd-map-state">${sig.label} — ${scores[i]}/4</span>
+							<span class="rd-map-state">${sig.label} ${scores[i]}/4</span>
 						</div>
 					</div>`;
 				}).join('')}
@@ -404,7 +404,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 			` : `
 			<div class="rd-firststep">
 				<p class="rd-firststep-label">次の一手</p>
-				<p class="rd-firststep-text">取りこぼしは小さい状態です。次は「拡大」設計 — 受注後のLTV最大化と再現性の強化に投資する段階です。</p>
+				<p class="rd-firststep-text">取りこぼしは小さい状態です。次は「拡大」設計です。受注後のLTV最大化と再現性の強化に投資する段階です。</p>
 			</div>
 			`}
 

@@ -273,7 +273,7 @@ export function patternOf(leak: string[], worstId: string): LeakPattern | null {
 	if (leak.length >= 5) {
 		return {
 			id: 'P1',
-			headline: 'ツールの追加では戻りにくい——収益の設計そのものを問い直す段階です',
+			headline: 'ツールの追加では戻りにくく、収益の設計そのものを問い直す段階です',
 			body: '複数の境目で同時に漏れているとき、原因は個別の機能やツールではないことが多いです。収益の流れ（リード→商談→受注→拡大）が部分最適のまま、全体として設計しきれていない可能性が高い状態です。手当てを足すほど複雑になります。一度、流れ全体を引き直すと効きやすい段階です。',
 		};
 	}
@@ -281,7 +281,7 @@ export function patternOf(leak: string[], worstId: string): LeakPattern | null {
 		return {
 			id: 'P2',
 			headline: '中間（営業）は動いているのに、入口と出口で失っています',
-			body: '現場の営業力で受注は取れています。一方で、リードの入口と受注後の拡大が設計されていないため、努力が「一度きりの受注」で終わっています。獲得コストが高止まりし、LTVも伸びない——最も入れ替わりの激しい二重の漏れです。',
+			body: '現場の営業力で受注は取れています。一方で、リードの入口と受注後の拡大が設計されていないため、努力が「一度きりの受注」で終わっています。獲得コストが高止まりし、LTVも伸びない。最も入れ替わりの激しい二重の漏れです。',
 		};
 	}
 	if (has('dependence') && has('stages')) {
@@ -337,8 +337,8 @@ export function patternOf(leak: string[], worstId: string): LeakPattern | null {
 	if (leak.length >= 1) {
 		return {
 			id: 'P10',
-			headline: `漏れは1か所——${nameOf(worstId)}に出ています`,
-			body: `いまはこの境目が主因です。単独でも放置すれば広がります。まずはここから直すのが順番——ただし一手で終わらせず、設計と現場定着まで通します。`,
+			headline: `漏れは1か所、${nameOf(worstId)}に出ています`,
+			body: `いまはこの境目が主因です。単独でも放置すれば広がります。まずはここから直すのが順番です。ただし一手で終わらせず、設計と現場定着まで通します。`,
 		};
 	}
 	return null; // 漏れなし → パターン非表示

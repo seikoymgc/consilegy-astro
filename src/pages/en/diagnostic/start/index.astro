@@ -9,8 +9,8 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-	title="Revenue Leak Diagnostic | 12 questions · ~1 min | Consilegy"
-	description="Diagnose the six seams between marketing, sales and CS. 12 questions, multiple choice, about a minute."
+	title="Revenue Leak Diagnostic | 12 questions · ~3 min | Consilegy"
+	description="Diagnose the six seams between marketing, sales and CS. 12 questions, multiple choice, about 3 minutes."
 	lang="en"
 	noindex={true}
 >
@@ -108,7 +108,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 			return `${sig.emoji} ${c.name}: ${scores[i]}/4`;
 		});
 		return [
-			'[Revenue Leak Diagnostic — Result]',
+			'[Revenue Leak Diagnostic · Result]',
 			`Total score: ${total}/24 (${band.label})`,
 			...lines,
 			'',
@@ -341,7 +341,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 
 		app.innerHTML = `
 			<div class="rd-result-head">
-				<p class="rd-result-eyebrow">Revenue Leak Diagnostic — Result</p>
+				<p class="rd-result-eyebrow">Revenue Leak Diagnostic · Result</p>
 				<div class="rd-result-score">
 					<span class="rd-score-num">${total}</span><span class="rd-score-den">/ 24</span>
 					<span class="rd-score-band rd-band-${band.label === 'Healthy' ? 'green' : band.label === 'Caution' ? 'yellow' : 'red'}">${esc(band.label)}</span>
@@ -366,7 +366,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 						<span class="rd-map-emoji">${sig.emoji}</span>
 						<div>
 							<span class="rd-map-name">${esc(c.name)}</span>
-							<span class="rd-map-state">${sig.label} — ${scores[i]}/4</span>
+							<span class="rd-map-state">${sig.label} ${scores[i]}/4</span>
 						</div>
 					</div>`;
 				}).join('')}
@@ -374,8 +374,8 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 
 			${leaks.length > 0 ? `
 			<div class="rd-insights">
-				<h2 class="rd-insights-title">Where you're leaking — and what to do<span class="rd-insights-sub">（by priority）</span></h2>
-				<p class="rd-insights-note">* Figures are typical ranges Consilegy has seen across 40+ engagements — not your company's actual numbers.</p>
+				<h2 class="rd-insights-title">Where you're leaking, and what to do<span class="rd-insights-sub">（by priority）</span></h2>
+				<p class="rd-insights-note">* Figures are typical ranges Consilegy has seen across 40+ engagements, not your company's actual numbers.</p>
 				${leaks.map((x, i) => `
 					<div class="rd-insight">
 						<span class="rd-insight-rank">${i + 1}</span>
@@ -400,7 +400,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 			` : `
 			<div class="rd-firststep">
 				<p class="rd-firststep-label">Next move</p>
-				<p class="rd-firststep-text">Leakage is minimal. The next move is "expansion" design — invest in maximizing post-sale LTV and repeatability.</p>
+				<p class="rd-firststep-text">Leakage is minimal. The next move is "expansion" design: invest in maximizing post-sale LTV and repeatability.</p>
 			</div>
 			`}
 
@@ -423,7 +423,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 				</div>
 				<input type="text" id="rd-pain" class="rd-input" maxlength="120" placeholder="Your single biggest pain right now (optional)" />
 				<button type="button" id="rd-probe-send" class="rd-probe-send">Send</button>
-				<p class="rd-probe-thanks" id="rd-probe-thanks" hidden>Thank you — this helps us make the consult more specific.</p>
+				<p class="rd-probe-thanks" id="rd-probe-thanks" hidden>Thank you. This helps us make the consult more specific.</p>
 			</div>
 
 			<p class="rd-retry"><button type="button" data-retry>Take the diagnostic again</button></p>

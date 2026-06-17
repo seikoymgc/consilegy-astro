@@ -47,7 +47,7 @@ export const CATEGORIES: DiagnosticCategory[] = [
 			{
 				text: "If your top rep left, how much would next year's revenue drop?",
 				options: [
-					{ label: "Barely — it's systematized", score: 0 },
+					{ label: "Barely, it's systematized", score: 0 },
 					{ label: 'Somewhat', score: 1 },
 					{ label: 'It would drop sharply', score: 2 },
 				],
@@ -124,7 +124,7 @@ export const CATEGORIES: DiagnosticCategory[] = [
 			},
 		],
 		insight: 'Numbers are scattered, so leadership decisions lag.',
-		quant: 'Organizations that hand-compile their numbers burn dozens of hours every month just preparing for the leadership meeting — and then lose more time arguing over which figure is correct.',
+		quant: 'Organizations that hand-compile their numbers burn dozens of hours every month just preparing for the leadership meeting, and then lose more time arguing over which figure is correct.',
 		firstStep: 'Unify the metrics your leadership reviews into one source of truth.',
 		actions: [
 			'Unify leadership KPIs into a single source of truth',
@@ -248,15 +248,15 @@ export function patternOf(leak: string[], worstId: string): LeakPattern | null {
 	if (leak.length >= 5) {
 		return {
 			id: 'P1',
-			headline: "Adding tools won't fix this — it's time to rethink how revenue itself is designed",
+			headline: "Adding tools won't fix this. It's time to rethink how revenue itself is designed",
 			body: 'When several seams leak at once, the cause is usually not an individual feature or tool. Your revenue flow (lead → opportunity → close → expand) is most likely optimized in parts but never designed as a whole. Every patch you add makes it more complex. Redrawing the whole flow is where the leverage is.',
 		};
 	}
 	if (has('handoff') && has('expansion')) {
 		return {
 			id: 'P2',
-			headline: 'The middle (sales) works — but you lose at the entrance and the exit',
-			body: 'Your reps close deals on raw selling ability. But because the lead entrance and post-sale expansion are undesigned, that effort ends in one-off wins. Acquisition cost stays high and LTV never grows — the most churn-heavy double leak there is.',
+			headline: 'The middle (sales) works, but you lose at the entrance and the exit',
+			body: 'Your reps close deals on raw selling ability. But because the lead entrance and post-sale expansion are undesigned, that effort ends in one-off wins. Acquisition cost stays high and LTV never grows: the most churn-heavy double leak there is.',
 		};
 	}
 	if (has('dependence') && has('stages')) {
@@ -277,7 +277,7 @@ export function patternOf(leak: string[], worstId: string): LeakPattern | null {
 		return {
 			id: 'P5',
 			headline: 'You lose twice at the entrance',
-			body: 'Marketing-passed leads die to a definition gap, and whether anyone picks them up is left to each rep\'s instinct. You shave the funnel twice before a conversation even starts — the classic way marketing ROI becomes invisible.',
+			body: 'Marketing-passed leads die to a definition gap, and whether anyone picks them up is left to each rep\'s instinct. You shave the funnel twice before a conversation even starts: the classic way marketing ROI becomes invisible.',
 		};
 	}
 	if (has('dependence') || has('stages')) {
@@ -298,7 +298,7 @@ export function patternOf(leak: string[], worstId: string): LeakPattern | null {
 		return {
 			id: 'P8',
 			headline: 'Acquisition works. Your upside is on the "expand existing" side',
-			body: 'Because the entrance is turning, what you\'re leaving on the table is existing-customer LTV — cheaper and higher-probability revenue than new logos, slipping out through a missing exit design.',
+			body: 'Because the entrance is turning, what you\'re leaving on the table is existing-customer LTV, cheaper and higher-probability revenue than new logos, slipping out through a missing exit design.',
 		};
 	}
 	if (leak.length >= 2) {
@@ -306,14 +306,14 @@ export function patternOf(leak: string[], worstId: string): LeakPattern | null {
 		return {
 			id: 'P9',
 			headline: `Two seams are leaking at once: ${nameOf(worstId)} and ${nameOf(second)}`,
-			body: `Each one drains revenue on its own, but together the impact multiplies. Start with the bigger one — ${nameOf(worstId)} — first.`,
+			body: `Each one drains revenue on its own, but together the impact multiplies. Start with the bigger one, ${nameOf(worstId)}, first.`,
 		};
 	}
 	if (leak.length >= 1) {
 		return {
 			id: 'P10',
 			headline: `One seam is leaking: ${nameOf(worstId)}`,
-			body: `This is the main source right now. Left alone, it spreads. Start here — but don't stop at one move; we carry it through design and field adoption.`,
+			body: `This is the main source right now. Left alone, it spreads. Start here, but don't stop at one move; we carry it through design and field adoption.`,
 		};
 	}
 	return null; // no leak → no pattern shown

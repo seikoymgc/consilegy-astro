@@ -199,8 +199,9 @@ export function bandOf(total: number) {
 }
 
 // ── Leak pattern ────────────────────────────────────────────
-// Not "which category is red" but "where the red categories overlap" — one leak shape.
-// red = ids of red (score===4) categories / worstId = id of the highest-scoring category.
+// Not "which category is red" but "where the leaks overlap" — one leak shape.
+// leak = ids of leaking (non-green, score>=2) categories, worst-first / worstId = id of the highest-scoring category.
+// Note: with 2 questions per category, a "red" (4) is rare, so matching keys off "leaking" (>=2).
 export interface LeakPattern {
 	id: string;
 	headline: string;
@@ -211,10 +212,10 @@ function nameOf(id: string): string {
 	return CATEGORIES.find((c) => c.id === id)?.name ?? id;
 }
 
-export function patternOf(red: string[], worstId: string): LeakPattern | null {
-	const has = (id: string) => red.includes(id);
+export function patternOf(leak: string[], worstId: string): LeakPattern | null {
+	const has = (id: string) => leak.includes(id);
 
-	if (red.length >= 4) {
+	if (leak.length >= 5) {
 		return {
 			id: 'P1',
 			headline: "This isn't a tool problem — it's a problem with how revenue itself is designed",
@@ -256,27 +257,34 @@ export function patternOf(red: string[], worstId: string): LeakPattern | null {
 			body: "The numbers come in, but not in an \"anyone gets the same result\" way. This is your ceiling on scale. If adding people doesn't grow revenue proportionally, this seam is why.",
 		};
 	}
-	if (worstId === 'handoff' && has('handoff')) {
+	if (worstId === 'handoff') {
 		return {
 			id: 'P7',
 			headline: 'Your most wasteful leak is at the entrance',
 			body: "You're discarding the leads you collected on a definition gap, before they even reach a conversation. Before you increase acquisition, fixing this is the highest-ROI move you can make.",
 		};
 	}
-	if (worstId === 'expansion' && has('expansion')) {
+	if (worstId === 'expansion') {
 		return {
 			id: 'P8',
 			headline: 'Acquisition works. Your upside is on the "expand existing" side',
 			body: 'Because the entrance is turning, what you\'re leaving on the table is existing-customer LTV — cheaper and higher-probability revenue than new logos, slipping out through a missing exit design.',
 		};
 	}
-	if (red.length >= 2) {
-		const second = red.find((id) => id !== worstId) ?? red[1];
+	if (leak.length >= 2) {
+		const second = leak.find((id) => id !== worstId) ?? leak[1];
 		return {
 			id: 'P9',
 			headline: `Two seams are leaking at once: ${nameOf(worstId)} and ${nameOf(second)}`,
 			body: `Each one drains revenue on its own, but together the impact multiplies. Start with the bigger one — ${nameOf(worstId)} — first.`,
 		};
 	}
-	return null; // 0–1 red → no pattern shown
+	if (leak.length >= 1) {
+		return {
+			id: 'P10',
+			headline: `One seam is leaking: ${nameOf(worstId)}`,
+			body: `This is the main source right now. Left alone, it spreads. Start here — but don't stop at one move; we carry it through design and field adoption.`,
+		};
+	}
+	return null; // no leak → no pattern shown
 }

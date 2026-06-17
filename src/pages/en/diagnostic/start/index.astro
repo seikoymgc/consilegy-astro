@@ -340,9 +340,9 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 			.sort((a, b) => b.score - a.score);
 		const worst = leaks[0];
 
-		// Leak pattern: which red categories overlap (red = score 4).
-		const redIds = CATEGORIES.filter((c, i) => scores[i] >= 4).map((c) => c.id);
-		const pattern = worst ? patternOf(redIds, worst.c.id) : null;
+		// Leak pattern: which leaking (non-green) seams overlap, worst-first.
+		const leakIds = leaks.map((x) => x.c.id);
+		const pattern = worst ? patternOf(leakIds, worst.c.id) : null;
 
 		app.innerHTML = `
 			<div class="rd-result-head">

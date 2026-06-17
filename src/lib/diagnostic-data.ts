@@ -223,8 +223,9 @@ export function bandOf(total: number) {
 }
 
 // ── 掛け合わせパターン ───────────────────────────────────────
-// 「どのカテゴリが赤か」ではなく「赤がどこに重なるか」で漏れの型を1本出す。
-// red = 赤(score===4)カテゴリの id 配列 / worstId = 最高スコアのカテゴリ id。
+// 「どのカテゴリが赤か」ではなく「漏れがどこに重なるか」で型を1本出す。
+// leak = 漏れている（非グリーン＝score>=2）カテゴリの id 配列（worst順） / worstId = 最高スコアのカテゴリ id。
+// 注: 1カテゴリ2問だと「赤(4点)」は稀なため、判定は「漏れている(2点以上)」を基準にする。
 export interface LeakPattern {
 	id: string;
 	headline: string;
@@ -235,10 +236,10 @@ function nameOf(id: string): string {
 	return CATEGORIES.find((c) => c.id === id)?.name ?? id;
 }
 
-export function patternOf(red: string[], worstId: string): LeakPattern | null {
-	const has = (id: string) => red.includes(id);
+export function patternOf(leak: string[], worstId: string): LeakPattern | null {
+	const has = (id: string) => leak.includes(id);
 
-	if (red.length >= 4) {
+	if (leak.length >= 5) {
 		return {
 			id: 'P1',
 			headline: 'これはツールの問題ではなく、収益の設計そのものの問題です',
@@ -280,28 +281,34 @@ export function patternOf(red: string[], worstId: string): LeakPattern | null {
 			body: '数字は取れていますが、「誰がやっても同じ結果」にはなっていません。スケールの天井はここです。人を増やしても売上が比例しないなら、原因はこの境目です。',
 		};
 	}
-	if (worstId === 'handoff' && has('handoff')) {
+	if (worstId === 'handoff') {
 		return {
 			id: 'P7',
 			headline: '一番もったいない漏れが、入口に出ています',
 			body: '集めたリードを、商談に入る前の「定義のズレ」で捨てています。新規獲得を増やす前に、ここを直すのが最も費用対効果が高い一手です。',
 		};
 	}
-	if (worstId === 'expansion' && has('expansion')) {
+	if (worstId === 'expansion') {
 		return {
 			id: 'P8',
 			headline: '獲得は機能しています。伸びしろは「既存の拡大」側です',
 			body: '入口は回っているぶん、いま取りこぼしているのは既存顧客のLTVです。新規より安く、確度の高い売上が、出口の設計不在で抜けています。',
 		};
 	}
-	if (red.length >= 2) {
-		const others = red.filter((id) => id !== worstId);
-		const second = others[0] ?? red.find((id) => id !== worstId) ?? red[1];
+	if (leak.length >= 2) {
+		const second = leak.find((id) => id !== worstId) ?? leak[1];
 		return {
 			id: 'P9',
 			headline: `2つの境目が同時に漏れています：${nameOf(worstId)}と${nameOf(second)}`,
 			body: `それぞれ単独でも売上を削りますが、重なると影響が掛け算になります。まずは上位の${nameOf(worstId)}から手をつけるのが順番です。`,
 		};
 	}
-	return null; // 赤0〜1 → パターン非表示
+	if (leak.length >= 1) {
+		return {
+			id: 'P10',
+			headline: `漏れは1か所——${nameOf(worstId)}に出ています`,
+			body: `いまはこの境目が主因です。単独でも放置すれば広がります。まずはここから直すのが順番——ただし一手で終わらせず、設計と現場定着まで通します。`,
+		};
+	}
+	return null; // 漏れなし → パターン非表示
 }

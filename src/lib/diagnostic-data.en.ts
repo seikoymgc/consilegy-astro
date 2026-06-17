@@ -45,11 +45,11 @@ export const CATEGORIES: DiagnosticCategory[] = [
 		shortName: 'Key-person risk',
 		questions: [
 			{
-				text: "If your top rep left, how much would next year's forecast swing?",
+				text: "If your top rep left, how much would next year's revenue drop?",
 				options: [
 					{ label: "Barely — it's systematized", score: 0 },
 					{ label: 'Somewhat', score: 1 },
-					{ label: 'It would drop sharply / become unreadable', score: 2 },
+					{ label: 'It would drop sharply', score: 2 },
 				],
 			},
 			{
@@ -177,7 +177,7 @@ export const CATEGORIES: DiagnosticCategory[] = [
 				],
 			},
 			{
-				text: 'Is there a designed handoff from sales to CS (customer success)?',
+				text: 'Is there a designed handoff to whoever owns the account after the sale (renewals / success / account management)?',
 				options: [
 					{ label: 'Yes', score: 0 },
 					{ label: 'Verbal / person-dependent', score: 1 },

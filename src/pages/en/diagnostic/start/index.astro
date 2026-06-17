@@ -196,8 +196,8 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 						required placeholder="you@company.com" class="rd-input" />
 				</label>
 				<label class="rd-field">
-					<span class="rd-field-label">Company size</span>
-					<select name="employee_size" required class="rd-input rd-select">
+					<span class="rd-field-label">Company size<span class="rd-field-opt"> (optional)</span></span>
+					<select name="employee_size" class="rd-input rd-select">
 						<option value="">Select…</option>
 						<option value="1-50">1–50</option>
 						<option value="51-100">51–100</option>
@@ -256,11 +256,6 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 			if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
 				showError('Please check your email address.');
 				input.focus();
-				return;
-			}
-			if (!sizeSel.value) {
-				showError('Please select your company size.');
-				sizeSel.focus();
 				return;
 			}
 			const tools = Array.from(form.querySelectorAll<HTMLInputElement>('input[name="current_tools"]:checked')).map((el) => el.value);

@@ -63,11 +63,11 @@ export const CATEGORIES: DiagnosticCategory[] = [
 		shortName: '属人化',
 		questions: [
 			{
-				text: 'トップ営業が抜けたら、来期の売上予測はどれくらいブレますか？',
+				text: 'トップ営業が抜けたら、来期の売上はどれくらい落ちますか？',
 				options: [
-					{ label: 'ほぼ影響しない（仕組み化されている）', score: 0 },
-					{ label: 'そこそこ影響する', score: 1 },
-					{ label: '大きく落ちる／読めなくなる', score: 2 },
+					{ label: 'ほぼ落ちない（仕組み化されている）', score: 0 },
+					{ label: 'そこそこ落ちる', score: 1 },
+					{ label: '大きく落ちる', score: 2 },
 				],
 			},
 			{
@@ -195,7 +195,7 @@ export const CATEGORIES: DiagnosticCategory[] = [
 				],
 			},
 			{
-				text: '営業→CS（カスタマーサクセス）の引き継ぎ設計はありますか？',
+				text: '受注後の担当者（更新・継続・カスタマーサクセス等）への引き継ぎ設計はありますか？',
 				options: [
 					{ label: 'ある', score: 0 },
 					{ label: '口頭・属人的', score: 1 },

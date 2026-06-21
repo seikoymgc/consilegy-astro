@@ -27,6 +27,29 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 	</div>
 </section>
 
+<!-- ===================== PILLARS ===================== -->
+<section class="pillars">
+	<div class="container">
+		<div class="pillar-grid">
+			<div class="pillar">
+				<span class="pillar-kicker">AI-native</span>
+				<h3>AIがCRMを操作する</h3>
+				<p>AIコパイロットが自然言語で検索・操作。通話解析・スコアリングまで、現場の作業をAIが肩代わりします。</p>
+			</div>
+			<div class="pillar pillar--accent">
+				<span class="pillar-num">175<span class="pillar-unit">本</span></span>
+				<h3>RevOpsオートメーション内蔵</h3>
+				<p>マーケ〜セールス〜CSをカバーするプレイビルト。トグルで有効化すれば、すぐに動きます。</p>
+			</div>
+			<div class="pillar">
+				<span class="pillar-kicker">Clean UI</span>
+				<h3>迷わず使える操作性</h3>
+				<p>洗練されたインターフェースで現場に定着。入力の手間を減らし、データが自然と揃います。</p>
+			</div>
+		</div>
+	</div>
+</section>
+
 <!-- ===================== DEMO VIDEO ===================== -->
 <section class="demo-video">
 	<div class="container">
@@ -301,6 +324,29 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 }
 .btn--hero-outline:hover { background: rgba(30,64,175,0.06); }
 
+/* ── Pillars ───────────────────────────────────────── */
+.pillars { padding-block: var(--space-xl); background: var(--color-bg); }
+.pillar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.pillar {
+	border: 1px solid var(--color-border); border-radius: var(--radius-card);
+	padding: 2rem; background: var(--color-bg-subtle);
+}
+.pillar--accent {
+	background: linear-gradient(180deg, #f7faff 0%, var(--color-bg) 70%);
+	border-color: color-mix(in oklch, var(--color-primary), transparent 70%);
+}
+.pillar-kicker {
+	display: inline-block; font-size: 0.75rem; font-weight: 700; color: var(--color-primary);
+	letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem;
+}
+.pillar-num {
+	display: block; font-size: 3rem; font-weight: 700; line-height: 1;
+	color: var(--color-primary); letter-spacing: -0.02em; margin-bottom: 0.5rem;
+}
+.pillar-unit { font-size: 1.125rem; font-weight: 600; margin-left: 0.15rem; }
+.pillar h3 { font-size: 1.0625rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.625rem; }
+.pillar p { font-size: 0.9375rem; line-height: 1.7; color: var(--color-text-muted); margin: 0; }
+
 /* ── Demo video ────────────────────────────────────── */
 .demo-video { padding-block: var(--space-xl); background: var(--color-bg); }
 .video-frame {
@@ -415,7 +461,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 /* ── Responsive ─────────────────────────────────────── */
 @media (max-width: 960px) {
-	.prob-grid, .feat-grid, .cat-grid { grid-template-columns: 1fr; }
+	.prob-grid, .feat-grid, .cat-grid, .pillar-grid { grid-template-columns: 1fr; }
 	.beta-inner, .cta-inner { grid-template-columns: 1fr; gap: 2rem; }
 }
 @media (max-width: 560px) {

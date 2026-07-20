@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" font-family="Noto Sans CJK JP">
+	<rect width="1200" height="630" fill="#FAFAF9"/>
+	<rect x="0" y="0" width="1200" height="6" fill="#1e40af"/>
+
+	<text x="70" y="150" font-size="30" font-weight="500" fill="#78716C">Consilegy Media</text>
+	<text x="70" y="260" font-size="52" font-weight="600" fill="#1C1917">設計した収益構造が、</text>
+	<text x="70" y="336" font-size="52" font-weight="600" fill="#1C1917">現場でどう壊れたかを記録する。</text>
+
+	<text x="70" y="430" font-size="24" fill="#44403C">RevOps・CRM実装・商談プロセス設計・Japan GTM の実務ノート</text>
+
+	<rect x="70" y="490" width="56" height="8" fill="#C2410C"/>
+	<text x="70" y="560" font-size="24" font-weight="500" fill="#1e40af">media.consilegy.com</text>
+</svg>

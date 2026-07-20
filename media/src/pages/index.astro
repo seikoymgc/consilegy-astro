@@ -1,0 +1,288 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { categories } from '../content.config';
+
+const notes = (await getCollection('notes', ({ data }) => !data.draft)).sort(
+	(a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf(),
+);
+
+const latest = notes.slice(0, 10);
+
+// 正典は本体サイト（consilegy.com）に置く。ここは参照のみ。
+// 役割分担: 本体 = 体系と定義、media = 現場の記録。
+const canon = [
+	{
+		title: 'レベニューアーキテクチャとは',
+		desc: '定義、4つの構造、転換率CR1〜CR8と待ち時間Δtの指標体系、日本市場で必要になる稟議工程の追加まで。',
+		href: 'https://consilegy.com/revenue-architecture/',
+		status: '公開中',
+	},
+	{
+		title: 'RevOps再設計とは',
+		desc: '収益に関わる業務を運用・改善する機能としてのRevOpsと、その土台となる構造設計の関係。',
+		href: 'https://consilegy.com/about-revops/',
+		status: '公開中',
+	},
+];
+
+const formatDate = (d: Date) =>
+	`${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+---
+
+<BaseLayout
+	title="Consilegy Media | 収益構造の設計と実装の現場記録"
+	description="B2Bの収益構造をどう設計し、どこで壊れ、何を直したか。HubSpot・CRM実装、商談プロセス設計、Japan GTMの現場で判断したことを記録しています。"
+>
+	<section class="hero">
+		<div class="container">
+			<p class="eyebrow">Consilegy Media</p>
+			<h1>設計した収益構造が、<br />現場でどう壊れたかを記録する。</h1>
+			<p class="hero-lead">
+				B2Bの収益構造をどう設計し、どこで詰まり、何を直したか。HubSpotやCRMの実装、商談プロセスの設計、海外SaaSの日本参入支援の現場で、実際に判断したことだけを書いています。
+			</p>
+			<p class="hero-lead">
+				一般論は書きません。教科書に載っていることも書きません。ここにあるのは、案件の中で起きたことの記録です。
+			</p>
+			<div class="hero-actions">
+				<a href="/notes/" class="btn btn--primary">実務ノートを読む →</a>
+				<a href="https://consilegy.com/revenue-architecture/" class="btn btn--ghost">レベニューアーキテクチャとは ↗</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container">
+			<div class="section-head">
+				<h2>体系</h2>
+				<p>収益構造の定義と枠組みは、本体サイトに置いています。</p>
+			</div>
+			<div class="canon-grid">
+				{
+					canon.map(c => (
+						<a href={c.href} class="canon-card">
+							<span class="canon-status">{c.status}</span>
+							<h3>{c.title}</h3>
+							<p>{c.desc}</p>
+							<span class="canon-link">consilegy.com で読む ↗</span>
+						</a>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="section section--soft">
+		<div class="container">
+			<div class="section-head">
+				<h2>最新の実務ノート</h2>
+				<p>平日に1本。現場で判断したことを、800〜1,200字で。</p>
+			</div>
+			{
+				latest.length === 0 ? (
+					<p class="empty">最初のノートを準備中です。</p>
+				) : (
+					<ul class="note-list">
+						{latest.map(note => (
+							<li>
+								<a href={`/notes/${note.id}/`} class="note-row">
+									<time datetime={note.data.publishedAt.toISOString()}>
+										{formatDate(note.data.publishedAt)}
+									</time>
+									<span class="note-cat">{categories[note.data.category]}</span>
+									<span class="note-title">{note.data.title}</span>
+								</a>
+							</li>
+						))}
+					</ul>
+				)
+			}
+			<a href="/notes/" class="more-link">実務ノートをすべて見る →</a>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container container--narrow">
+			<div class="research-card">
+				<p class="eyebrow">Research</p>
+				<h2>日本のB2B購買実態調査（第1回）</h2>
+				<p>
+					調べた範囲では、日本の稟議で案件が止まる理由の構成比も、リードから商談・受注への転換率のベンチマークも、公開された一次データが存在しません。ないなら自分で測ります。2026年秋に第1回を公開予定です。
+				</p>
+				<a href="https://consilegy.com/newsletter/" class="btn btn--ghost">公開時に知らせを受け取る ↗</a>
+			</div>
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+	.hero {
+		padding-block: 4.5rem 3.5rem;
+		border-bottom: 1px solid var(--color-border);
+		background: var(--color-surface);
+	}
+
+	.hero h1 {
+		font-size: clamp(1.6rem, 4vw, 2.4rem);
+		margin-top: 0.75rem;
+		letter-spacing: -0.01em;
+	}
+
+	.hero-lead {
+		margin-top: 1.25rem;
+		max-width: 680px;
+		color: var(--color-text-muted);
+		font-size: 0.95rem;
+	}
+
+	.hero-actions {
+		margin-top: 2rem;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+	}
+
+	.section {
+		padding-block: 3.5rem;
+	}
+
+	.section--soft {
+		background: var(--color-bg-subtle);
+	}
+
+	.section-head {
+		margin-bottom: 2rem;
+	}
+
+	.section-head h2 {
+		font-size: 1.25rem;
+	}
+
+	.section-head p {
+		margin-top: 0.4rem;
+		font-size: 0.88rem;
+		color: var(--color-text-muted);
+	}
+
+	.canon-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 1rem;
+	}
+
+	.canon-card {
+		display: block;
+		padding: 1.5rem;
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: 12px;
+		color: var(--color-text);
+	}
+
+	.canon-card:hover {
+		border-color: var(--color-border-strong);
+		text-decoration: none;
+	}
+
+	.canon-status {
+		font-size: 0.7rem;
+		font-weight: 500;
+		color: var(--color-primary);
+	}
+
+	.canon-card h3 {
+		font-size: 1rem;
+		margin-top: 0.5rem;
+	}
+
+	.canon-card p {
+		margin-top: 0.6rem;
+		font-size: 0.85rem;
+		line-height: 1.8;
+		color: var(--color-text-muted);
+	}
+
+	.canon-link {
+		display: inline-block;
+		margin-top: 1rem;
+		font-size: 0.8rem;
+		color: var(--color-primary);
+	}
+
+	.note-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.note-list li {
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.note-row {
+		display: grid;
+		grid-template-columns: 90px 180px 1fr;
+		gap: 1rem;
+		align-items: baseline;
+		padding-block: 0.9rem;
+		color: var(--color-text);
+		font-size: 0.9rem;
+	}
+
+	.note-row:hover {
+		text-decoration: none;
+	}
+
+	.note-row:hover .note-title {
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	.note-row time {
+		font-size: 0.78rem;
+		color: var(--color-text-muted);
+		font-variant-numeric: tabular-nums;
+	}
+
+	.note-cat {
+		font-size: 0.75rem;
+		color: var(--color-text-muted);
+	}
+
+	.more-link {
+		display: inline-block;
+		margin-top: 1.5rem;
+		font-size: 0.85rem;
+	}
+
+	.empty {
+		font-size: 0.88rem;
+		color: var(--color-text-muted);
+	}
+
+	.research-card {
+		padding: 2rem;
+		border: 1px dashed var(--color-border-strong);
+		border-radius: 12px;
+		background: var(--color-surface);
+	}
+
+	.research-card h2 {
+		font-size: 1.1rem;
+		margin-top: 0.5rem;
+	}
+
+	.research-card p {
+		margin-block: 0.9rem 1.5rem;
+		font-size: 0.88rem;
+		color: var(--color-text-muted);
+	}
+
+	@media (max-width: 720px) {
+		.note-row {
+			grid-template-columns: 1fr;
+			gap: 0.25rem;
+		}
+	}
+</style>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" font-family="Noto Sans CJK JP, Noto Sans JP, Hiragino Sans, Yu Gothic, sans-serif">
+	<rect width="1200" height="630" fill="#FAFAF9"/>
+	<rect x="0" y="0" width="1200" height="6" fill="#1e40af"/>
+
+	<text x="70" y="112" font-size="46" font-weight="600" fill="#1C1917">レベニューアーキテクチャとは</text>
+	<text x="70" y="162" font-size="22" fill="#78716C">日本のB2Bで、収益を構造として設計する</text>
+
+	<text x="141" y="272" font-size="21" font-weight="500" fill="#1e3a8a" text-anchor="middle">認知</text>
+	<text x="284" y="272" font-size="21" font-weight="500" fill="#1e3a8a" text-anchor="middle">教育</text>
+	<text x="426" y="272" font-size="21" font-weight="500" fill="#1e3a8a" text-anchor="middle">選定</text>
+	<text x="560" y="272" font-size="21" font-weight="600" fill="#9A3412" text-anchor="middle">社内合意形成</text>
+	<text x="665" y="462" font-size="19" font-weight="500" fill="#1e40af" text-anchor="middle">契約</text>
+	<text x="770" y="272" font-size="21" font-weight="500" fill="#14563F" text-anchor="middle">立ち上げ</text>
+	<text x="910" y="272" font-size="21" font-weight="500" fill="#14563F" text-anchor="middle">成果</text>
+	<text x="1057" y="272" font-size="21" font-weight="500" fill="#14563F" text-anchor="middle">拡大</text>
+
+	<polygon points="70,305 212,323 212,477 70,495" fill="#E4EAF5" stroke="#B9C6E0" stroke-width="1.5"/>
+	<polygon points="212,323 355,342 355,458 212,477" fill="#E4EAF5" stroke="#B9C6E0" stroke-width="1.5"/>
+	<polygon points="355,342 497,360 497,440 355,458" fill="#E4EAF5" stroke="#B9C6E0" stroke-width="1.5"/>
+	<polygon points="497,360 640,378 640,422 497,440" fill="#FBE8DC" stroke="#C2410C" stroke-width="2.5"/>
+
+	<rect x="640" y="378" width="50" height="44" fill="#1e40af"/>
+
+	<polygon points="690,378 836,354 836,446 690,422" fill="#E2EFEA" stroke="#A8CBBD" stroke-width="1.5"/>
+	<polygon points="836,354 983,329 983,471 836,446" fill="#E2EFEA" stroke="#A8CBBD" stroke-width="1.5"/>
+	<polygon points="983,329 1130,305 1130,495 983,471" fill="#E2EFEA" stroke="#A8CBBD" stroke-width="1.5"/>
+
+	<text x="284" y="410" font-size="19" fill="#1e3a8a" text-anchor="middle">獲得</text>
+	<text x="910" y="410" font-size="19" fill="#14563F" text-anchor="middle">維持・拡大</text>
+
+	<text x="70" y="552" font-size="20" fill="#44403C">選定と契約の間に、社内合意形成が独立した工程として入る</text>
+	<text x="70" y="586" font-size="17" fill="#78716C">承認2段階以上が8割超／検討期間3〜8か月が63.6%（IDEATECH × 北川裕康氏 2026年4月公表、n=307）</text>
+
+	<text x="1130" y="586" font-size="18" font-weight="500" fill="#1e40af" text-anchor="end">consilegy.com</text>
+</svg>

@@ -256,6 +256,7 @@ const relatedServices = [
 	title="Revenue Architectureとは | レベニューアーキテクチャの定義・RevOpsとの違い・CRM再設計との関係 | Consilegy"
 	description="Revenue Architecture（レベニューアーキテクチャ）とは、マーケティング・営業・カスタマーサクセス・CRM・KPI・データを、売上が生まれる一つの流れとして構造設計する考え方です。定義、転換率CR1〜CR8と待ち時間Δtの指標体系、RevOps・The Modelとの違い、日本市場で必要になる稟議工程の追加までを、出典付きデータとともに解説します。"
 	lang="ja"
+	ogImage="https://consilegy.com/images/og-revenue-architecture.png"
 >
 	<Fragment slot="head">
 		<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
@@ -327,39 +328,19 @@ const relatedServices = [
 				</ul>
 				<p class="problem-conclusion">Revenue Architecture（レベニューアーキテクチャ）は、この分断をなくし、マーケティングから受注・継続収益までを、一つの流れとして設計します。</p>
 			</div>
-			<div class="bowtie">
-				<div class="bowtie-left">
-					<p class="bowtie-label">認知・流入・リード育成・商談</p>
-					<ul class="bowtie-items">
-						<li>認知・流入</li>
-						<li>リード育成</li>
-						<li>MQL / SQL</li>
-						<li>商談</li>
-						<li class="bowtie-item--jp">社内合意形成（稟議）</li>
-					</ul>
-					<p class="bowtie-jp-note">日本市場では、商談と受注の間に社内合意形成が独立した工程として入ります。</p>
-				</div>
-				<div class="bowtie-center">
-					<p class="bowtie-center-title">Revenue Architecture</p>
-					<p class="bowtie-center-sub">収益構造設計</p>
-					<ul class="bowtie-center-items">
-						<li>CRM</li>
-						<li>KPI</li>
-						<li>データ</li>
-						<li>Process</li>
-						<li>Revenue Operations</li>
-					</ul>
-				</div>
-				<div class="bowtie-right">
-					<p class="bowtie-label">導入・運用定着・継続・アップセル</p>
-					<ul class="bowtie-items">
-						<li>受注・導入</li>
-						<li>運用定着</li>
-						<li>継続</li>
-						<li>アップセル</li>
-					</ul>
-				</div>
-			</div>
+			<figure class="bowtie-figure">
+				<img
+					src="/images/diagrams/bowtie-japan.svg"
+					alt="日本版ボウタイモデル。認知・教育・選定・社内合意形成（稟議）を経て契約に至り、立ち上げ・成果・拡大へ続く工程図。選定と契約の間に入る社内合意形成が、待ち時間が最も長くなる工程として示されている。"
+					width="900"
+					height="500"
+					loading="lazy"
+					decoding="async"
+				/>
+				<figcaption>
+					日本版ボウタイモデル。獲得側が原典より1工程長くなるのが日本市場の特徴です。原典は Winning by Design「The Bowtie」、日本市場向けの工程追加は Consilegy によります。
+				</figcaption>
+			</figure>
 		</div>
 	</div>
 </section>
@@ -703,17 +684,24 @@ const relatedServices = [
 </BaseLayout>
 
 <style>
-	/* ── Bowtie: Japan-specific stage ──────────────────────── */
-	.bowtie-item--jp {
-		position: relative;
-		font-weight: 600;
-		color: var(--color-accent, #c2410c);
+	/* ── Bowtie figure (SVG) ───────────────────────────────── */
+	.bowtie-figure {
+		margin: 0;
 	}
 
-	.bowtie-jp-note {
+	.bowtie-figure img {
+		display: block;
+		width: 100%;
+		height: auto;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: var(--radius, 8px);
+		background: #fff;
+	}
+
+	.bowtie-figure figcaption {
 		margin-top: 0.75rem;
 		font-size: 0.78rem;
-		line-height: 1.6;
+		line-height: 1.8;
 		color: var(--color-text-muted, #64748b);
 	}
 
@@ -1115,9 +1103,13 @@ const relatedServices = [
 	/* ── PROBLEM ───────────────────────────────────────────── */
 	.problem-body {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 3rem;
+		grid-template-columns: 1fr;
+		gap: 2.5rem;
 		align-items: start;
+	}
+
+	.problem-text {
+		max-width: 760px;
 	}
 
 	.problem-text p {
@@ -1157,100 +1149,16 @@ const relatedServices = [
 		padding-left: 1rem;
 	}
 
-	/* ── Bowtie funnel ─────────────────────────────────────── */
-	.bowtie {
-		display: grid;
-		grid-template-columns: 1fr auto 1fr;
-		gap: 0;
-		border: 1px solid var(--color-border, #e2e8f0);
-		border-radius: 8px;
-		overflow: hidden;
-		font-size: 0.82rem;
-	}
 
-	.bowtie-left,
-	.bowtie-right {
-		padding: 1.25rem;
-	}
 
-	.bowtie-left { background: #fff; }
-	.bowtie-right { background: #fff; }
 
-	.bowtie-label {
-		font-size: 0.7rem;
-		font-weight: 700;
-		letter-spacing: 0.08em;
-		color: var(--color-muted, #64748b);
-		text-transform: uppercase;
-		margin: 0 0 0.75rem;
-	}
 
-	.bowtie-items {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		display: flex;
-		flex-direction: column;
-		gap: 0.35rem;
-	}
 
-	.bowtie-items li {
-		padding: 0.3rem 0.6rem;
-		background: var(--color-bg-soft, #f8fafc);
-		border-radius: 4px;
-		color: var(--color-charcoal, #334155);
-		font-size: 0.8rem;
-	}
 
-	.bowtie-center {
-		background: var(--color-navy, #0f172a);
-		padding: 1.25rem 1rem;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		gap: 0.5rem;
-		min-width: 160px;
-	}
 
-	.bowtie-center-title {
-		font-size: 0.72rem;
-		font-weight: 700;
-		letter-spacing: 0.08em;
-		color: rgba(255,255,255,0.5);
-		text-transform: uppercase;
-		margin: 0 0 0.15rem;
-		text-align: center;
-	}
 
-	.bowtie-center-sub {
-		font-size: 0.7rem;
-		font-weight: 600;
-		color: rgba(255,255,255,0.35);
-		text-align: center;
-		margin: 0 0 0.6rem;
-		letter-spacing: 0.04em;
-	}
 
-	.bowtie-center-items {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		display: flex;
-		flex-direction: column;
-		gap: 0.3rem;
-		width: 100%;
-	}
 
-	.bowtie-center-items li {
-		font-size: 0.78rem;
-		font-weight: 600;
-		color: rgba(255,255,255,0.85);
-		text-align: center;
-		padding: 0.25rem 0.5rem;
-		border: 1px solid rgba(255,255,255,0.12);
-		border-radius: 4px;
-	}
 
 	/* ── HERO H1 line break ────────────────────────────────── */
 	.br-sp { display: none; }
@@ -1924,7 +1832,5 @@ const relatedServices = [
 	@media (max-width: 600px) {
 		.structures-grid { grid-template-columns: 1fr; }
 		.outcomes-grid   { grid-template-columns: 1fr; }
-		.bowtie { grid-template-columns: 1fr; }
-		.bowtie-center { min-width: unset; }
 	}
 </style>

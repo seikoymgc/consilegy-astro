@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500" role="img" aria-labelledby="bt-title bt-desc" font-family="'Noto Sans JP','IBM Plex Sans',-apple-system,'Hiragino Sans','Yu Gothic',sans-serif">
+	<title id="bt-title">日本版ボウタイモデル</title>
+	<desc id="bt-desc">獲得から維持・拡大までを一続きに表したボウタイモデルに、日本市場固有の工程として「社内合意形成（稟議）」を選定と契約の間に追加した図。</desc>
+
+	<rect width="900" height="500" fill="#FAFAF9"/>
+
+	<text x="40" y="36" font-size="19" font-weight="600" fill="#1C1917">日本版ボウタイモデル</text>
+	<text x="40" y="60" font-size="13" fill="#78716C">選定と契約の間に、社内合意形成が独立した工程として入る</text>
+
+	<text x="93" y="100" font-size="15" font-weight="500" fill="#1e3a8a" text-anchor="middle">認知</text>
+	<text x="201" y="100" font-size="15" font-weight="500" fill="#1e3a8a" text-anchor="middle">教育</text>
+	<text x="309" y="100" font-size="15" font-weight="500" fill="#1e3a8a" text-anchor="middle">選定</text>
+	<text x="416" y="100" font-size="15" font-weight="600" fill="#9A3412" text-anchor="middle">社内合意形成</text>
+	<text x="416" y="118" font-size="12" fill="#9A3412" text-anchor="middle">稟議・根回し</text>
+	<text x="490" y="100" font-size="15" font-weight="500" fill="#1C1917" text-anchor="middle">契約</text>
+	<text x="568" y="100" font-size="15" font-weight="500" fill="#14563F" text-anchor="middle">立ち上げ</text>
+	<text x="685" y="100" font-size="15" font-weight="500" fill="#14563F" text-anchor="middle">成果</text>
+	<text x="802" y="100" font-size="15" font-weight="500" fill="#14563F" text-anchor="middle">拡大</text>
+
+	<polygon points="40,140 147,157 147,293 40,310" fill="#E4EAF5" stroke="#B9C6E0" stroke-width="1"/>
+	<polygon points="147,157 255,174 255,276 147,293" fill="#E4EAF5" stroke="#B9C6E0" stroke-width="1"/>
+	<polygon points="255,174 362,191 362,259 255,276" fill="#E4EAF5" stroke="#B9C6E0" stroke-width="1"/>
+	<polygon points="362,191 470,208 470,242 362,259" fill="#FBE8DC" stroke="#E5A883" stroke-width="1.5"/>
+
+	<rect x="470" y="208" width="40" height="34" fill="#1e40af"/>
+
+	<polygon points="510,208 627,185 627,265 510,242" fill="#E2EFEA" stroke="#A8CBBD" stroke-width="1"/>
+	<polygon points="627,185 743,163 743,287 627,265" fill="#E2EFEA" stroke="#A8CBBD" stroke-width="1"/>
+	<polygon points="743,163 860,140 860,310 743,287" fill="#E2EFEA" stroke="#A8CBBD" stroke-width="1"/>
+
+	<text x="255" y="230" font-size="13" fill="#1e3a8a" text-anchor="middle">獲得</text>
+	<text x="685" y="230" font-size="13" fill="#14563F" text-anchor="middle">維持・拡大</text>
+
+	<line x1="416" y1="259" x2="416" y2="288" stroke="#C2410C" stroke-width="1"/>
+	<text x="416" y="304" font-size="12.5" font-weight="600" fill="#9A3412" text-anchor="middle">待ち時間が最も長くなる工程</text>
+	<text x="416" y="322" font-size="11.5" fill="#9A3412" text-anchor="middle">営業からは見えないまま案件が滞留する</text>
+
+	<rect x="40" y="348" width="820" height="52" fill="#FFFFFF" stroke="#E7E5E4" stroke-width="1"/>
+	<text x="60" y="370" font-size="12.5" font-weight="600" fill="#1C1917">各工程で測るのは2つだけ</text>
+	<text x="60" y="390" font-size="12.5" fill="#44403C">転換率（次の工程へ進んだ割合）と、待ち時間（次の行動が起きるまでの間隔）。転換率だけを見ていると、滞留は数字に表れません。</text>
+
+	<rect x="40" y="412" width="820" height="48" fill="#FFFFFF" stroke="#E7E5E4" stroke-width="1"/>
+	<rect x="40" y="412" width="3" height="48" fill="#C2410C"/>
+	<text x="60" y="432" font-size="12.5" fill="#44403C">発注までの承認が2段階以上の企業は8割超。検討開始から発注先決定までが3〜8か月の企業が63.6%。</text>
+	<text x="60" y="450" font-size="11" fill="#78716C">出典: IDEATECH × 北川裕康氏 共同調査（2026年4月公表、n=307）</text>
+
+	<text x="40" y="480" font-size="11" fill="#78716C">原典は Winning by Design「The Bowtie」。日本市場向けの工程追加は Consilegy による。 consilegy.com/revenue-architecture/</text>
+</svg>

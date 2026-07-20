@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const personSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Person',
+	'@id': 'https://consilegy.com/company/#founder',
+	name: '山口 聖子',
+	alternateName: 'Seiko Yamaguchi',
+	jobTitle: 'Founder / Revenue Architect',
+	worksFor: { '@id': 'https://consilegy.com/#organization' },
+	url: 'https://media.consilegy.com/about/',
+	sameAs: ['https://www.linkedin.com/company/consilegy', 'https://note.com/consilegy'],
+	knowsAbout: [
+		'Revenue Architecture',
+		'Revenue Operations',
+		'HubSpot',
+		'Salesforce',
+		'B2B Go-to-Market',
+		'Japan Market Entry',
+	],
+};
+---
+
+<BaseLayout
+	title="著者について | Consilegy Media"
+	description="山口聖子（Consilegy合同会社 代表）。B2BのRevOps、Revenue Architecture設計、HubSpot・CRM実装と定着支援。日本企業と海外SaaSの日本参入の双方を担当。"
+>
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+	</Fragment>
+
+	<section class="page-head">
+		<div class="container container--narrow">
+			<p class="eyebrow">About</p>
+			<h1>山口 聖子</h1>
+			<p class="role">Consilegy合同会社 代表 / Revenue Architect</p>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container container--narrow">
+			<div class="prose">
+				<p>
+					B2Bの収益構造を設計し、実装し、現場に定着するまでを担当しています。マーケティング、営業、カスタマーサクセスが分断されたまま動いている状態を、ひとつの収益プロセスとして組み直す仕事です。
+				</p>
+				<p>
+					特定ツールの代理店ではないため、SalesforceでもHubSpotでもkintoneでも、事業構造に合う設計を選びます。上流の設計だけで終わらせず、実装と運用定着まで見届けることを前提にしています。
+				</p>
+
+				<h2>扱っている領域</h2>
+				<ul>
+					<li>Revenue Architecture（収益構造）の設計</li>
+					<li>RevOps・営業プロセス・KPI設計</li>
+					<li>HubSpot / Salesforce / kintone の実装と移行</li>
+					<li>MA・SFA・CRMのデータ設計とデータ品質</li>
+					<li>海外SaaSの日本市場参入支援（Japan GTM）</li>
+					<li>導入後の定着支援と内製化</li>
+				</ul>
+
+				<h2>このメディアについて</h2>
+				<p>
+					ここに書いているのは、案件の中で実際に起きたことです。何を選び、何が効いて、何が効かなかったか。守秘に触れない粒度に丸めたうえで、判断の過程ごと記録しています。
+				</p>
+				<p>
+					一般論を書かない、と決めています。「営業とマーケの連携が重要です」のような、誰でも書ける文章は載せません。他の場所で読める内容をここに置く意味がないためです。
+				</p>
+				<p>
+					収益構造の定義や枠組みそのものは、本体サイトの<a href="https://consilegy.com/revenue-architecture/">レベニューアーキテクチャとは</a>にまとめています。このメディアは、その体系が現場でどう機能したか（あるいはしなかったか）の記録にあたります。
+				</p>
+
+				<h2>数字の扱い方</h2>
+				<p>
+					記事に数字を出すときは、調査主体・調査年・母数の3点を必ず明記しています。出典を辿れない数字、原典と異なる形で流通している数字は使いません。
+				</p>
+				<p>
+					この分野には、出所が曖昧なまま引用され続けている数字が少なくありません。たとえば「B2B購買の意思決定関与者は平均5.4人」は、米CEB社が米国企業を対象に実施した調査の値で、日本のデータではありません。こうした点は、記事の中で都度ことわるようにしています。
+				</p>
+
+				<h2>連絡先</h2>
+				<ul>
+					<li><a href="https://consilegy.com/contact/">お問い合わせ</a></li>
+					<li><a href="https://consilegy.com/free-consultation/">30分無料相談</a></li>
+					<li><a href="https://www.linkedin.com/company/consilegy">LinkedIn</a></li>
+					<li><a href="https://consilegy.com/newsletter/">ニュースレター（月次配信）</a></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+	.page-head {
+		padding-block: 3.5rem 2.5rem;
+		border-bottom: 1px solid var(--color-border);
+		background: var(--color-surface);
+	}
+
+	.page-head h1 {
+		font-size: clamp(1.4rem, 3vw, 1.9rem);
+		margin-top: 0.5rem;
+	}
+
+	.role {
+		margin-top: 0.5rem;
+		font-size: 0.88rem;
+		color: var(--color-text-muted);
+	}
+
+	.section {
+		padding-block: 3rem 4rem;
+	}
+
+	.prose {
+		font-size: 0.95rem;
+		line-height: 2;
+	}
+
+	.prose p {
+		margin-top: 1.1rem;
+	}
+
+	.prose h2 {
+		font-size: 1.05rem;
+		margin-top: 2.5rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.prose ul {
+		margin-top: 1.1rem;
+		padding-left: 1.4rem;
+	}
+
+	.prose li {
+		margin-top: 0.4rem;
+	}
+</style>

@@ -6,6 +6,7 @@ on:
       - main
 
 jobs:
+  # 本体サイト consilegy.com
   deploy:
     runs-on: ubuntu-latest
 
@@ -34,4 +35,55 @@ jobs:
           REMOTE_PORT: ${{ secrets.SSH_PORT }}
           SOURCE: "dist/"
           TARGET: "public_html/"
+          ARGS: "-avz --delete"
+
+  # メディアサイト media.consilegy.com
+  # media/ 配下に変更があったときだけ動く
+  deploy-media:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 2
+
+      - name: Check for media changes
+        id: changes
+        run: |
+          if git diff --name-only HEAD^ HEAD | grep -q '^media/'; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "media/ に変更がないためスキップします"
+          fi
+
+      - name: Setup Node.js
+        if: steps.changes.outputs.changed == 'true'
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: media/package-lock.json
+
+      - name: Install dependencies
+        if: steps.changes.outputs.changed == 'true'
+        working-directory: media
+        run: npm ci
+
+      - name: Build
+        if: steps.changes.outputs.changed == 'true'
+        working-directory: media
+        run: npm run build
+
+      - name: Deploy via SSH
+        if: steps.changes.outputs.changed == 'true'
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.SSH_HOST }}
+          REMOTE_USER: ${{ secrets.SSH_USER }}
+          REMOTE_PORT: ${{ secrets.SSH_PORT }}
+          SOURCE: "media/dist/"
+          TARGET: ${{ secrets.MEDIA_REMOTE_TARGET }}
           ARGS: "-avz --delete"

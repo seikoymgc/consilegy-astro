@@ -1,0 +1,286 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+import { categories } from '../../content.config';
+
+export async function getStaticPaths() {
+	const notes = await getCollection('notes', ({ data }) => !data.draft);
+	return notes.map(note => ({ params: { slug: note.id }, props: { note } }));
+}
+
+const { note } = Astro.props;
+const { Content } = await render(note);
+const d = note.data;
+
+const all = (await getCollection('notes', ({ data }) => !data.draft)).sort(
+	(a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf(),
+);
+const related = all.filter(n => n.id !== note.id && n.data.category === d.category).slice(0, 3);
+
+const formatDate = (date: Date) =>
+	`${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`;
+---
+
+<BaseLayout
+	title={`${d.title} | Consilegy Media`}
+	description={d.description}
+	ogType="article"
+	publishedAt={d.publishedAt}
+	updatedAt={d.updatedAt}
+>
+	<article class="note">
+		<div class="container container--narrow">
+			<nav class="breadcrumb" aria-label="パンくずリスト">
+				<a href="/">ホーム</a>
+				<span aria-hidden="true">›</span>
+				<a href="/notes/">実務ノート</a>
+			</nav>
+
+			<p class="note-cat">{categories[d.category]}</p>
+			<h1>{d.title}</h1>
+
+			<div class="note-dates">
+				<time datetime={d.publishedAt.toISOString()}>公開 {formatDate(d.publishedAt)}</time>
+				{d.updatedAt && <time datetime={d.updatedAt.toISOString()}>更新 {formatDate(d.updatedAt)}</time>}
+			</div>
+
+			<div class="note-body">
+				<Content />
+			</div>
+
+			<aside class="principle">
+				<p class="principle__label">この件から言えること</p>
+				<p class="principle__text">{d.principle}</p>
+			</aside>
+
+			<aside class="canon-ref">
+				<p class="canon-ref__label">関連する体系</p>
+				<a href={d.canonUrl}>{d.canonLabel} ↗</a>
+			</aside>
+
+			<aside class="author">
+				<p class="author__name">山口 聖子（Seiko Yamaguchi）</p>
+				<p class="author__bio">
+					Consilegy合同会社 代表。B2BのRevOps、Revenue Architecture設計、HubSpot・CRM実装と定着支援。日本企業と海外SaaSの日本参入の双方を担当しています。
+				</p>
+				<a href="/about/">著者について →</a>
+			</aside>
+
+			{
+				related.length > 0 && (
+					<aside class="related">
+						<p class="related__label">同じカテゴリのノート</p>
+						<ul>
+							{related.map(r => (
+								<li>
+									<a href={`/notes/${r.id}/`}>{r.data.title}</a>
+								</li>
+							))}
+						</ul>
+					</aside>
+				)
+			}
+
+			<aside class="cta">
+				<p>収益構造の設計についてのご相談は、本体サイトから受け付けています。</p>
+				<a href="https://consilegy.com/free-consultation/" class="btn btn--primary">30分無料相談 ↗</a>
+			</aside>
+		</div>
+	</article>
+</BaseLayout>
+
+<style>
+	.note {
+		padding-block: 2.5rem 4rem;
+	}
+
+	.breadcrumb {
+		font-size: 0.78rem;
+		color: var(--color-text-muted);
+		display: flex;
+		gap: 0.5rem;
+		margin-bottom: 2rem;
+	}
+
+	.breadcrumb a {
+		color: var(--color-text-muted);
+	}
+
+	.note-cat {
+		font-size: 0.75rem;
+		font-weight: 500;
+		color: var(--color-primary);
+	}
+
+	.note h1 {
+		font-size: clamp(1.35rem, 3.2vw, 1.85rem);
+		margin-top: 0.5rem;
+		letter-spacing: -0.01em;
+	}
+
+	.note-dates {
+		display: flex;
+		gap: 1rem;
+		margin-top: 1rem;
+		padding-bottom: 1.75rem;
+		border-bottom: 1px solid var(--color-border);
+		font-size: 0.76rem;
+		color: var(--color-text-muted);
+		font-variant-numeric: tabular-nums;
+	}
+
+	.note-body {
+		margin-top: 2rem;
+		font-size: 0.95rem;
+		line-height: 2;
+	}
+
+	.note-body :global(h2) {
+		font-size: 1.05rem;
+		margin-top: 2.5rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.note-body :global(h3) {
+		font-size: 0.95rem;
+		margin-top: 1.75rem;
+	}
+
+	.note-body :global(p) {
+		margin-top: 1.1rem;
+	}
+
+	.note-body :global(ul),
+	.note-body :global(ol) {
+		margin-top: 1.1rem;
+		padding-left: 1.4rem;
+	}
+
+	.note-body :global(li) {
+		margin-top: 0.4rem;
+	}
+
+	.note-body :global(strong) {
+		font-weight: 600;
+	}
+
+	.note-body :global(blockquote) {
+		margin: 1.5rem 0;
+		padding: 0.25rem 0 0.25rem 1.25rem;
+		border-left: 3px solid var(--color-border-strong);
+		color: var(--color-text-muted);
+	}
+
+	.note-body :global(table) {
+		width: 100%;
+		border-collapse: collapse;
+		margin-top: 1.25rem;
+		font-size: 0.85rem;
+	}
+
+	.note-body :global(th),
+	.note-body :global(td) {
+		border-bottom: 1px solid var(--color-border);
+		padding: 0.55rem 0.5rem;
+		text-align: left;
+	}
+
+	.principle {
+		margin-top: 3rem;
+		padding: 1.5rem;
+		background: var(--color-surface);
+		border-left: 3px solid var(--color-accent);
+	}
+
+	.principle__label {
+		font-size: 0.72rem;
+		font-weight: 500;
+		letter-spacing: 0.08em;
+		color: var(--color-accent);
+	}
+
+	.principle__text {
+		margin-top: 0.6rem;
+		font-size: 0.95rem;
+		line-height: 1.9;
+		font-weight: 500;
+	}
+
+	.canon-ref {
+		margin-top: 1.5rem;
+		padding: 1.25rem 1.5rem;
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius);
+		background: var(--color-surface);
+	}
+
+	.canon-ref__label {
+		font-size: 0.72rem;
+		color: var(--color-text-muted);
+		margin-bottom: 0.4rem;
+	}
+
+	.author {
+		margin-top: 3rem;
+		padding-top: 1.75rem;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.author__name {
+		font-size: 0.92rem;
+		font-weight: 600;
+	}
+
+	.author__bio {
+		margin-block: 0.5rem 0.75rem;
+		font-size: 0.83rem;
+		line-height: 1.9;
+		color: var(--color-text-muted);
+	}
+
+	.author a {
+		font-size: 0.82rem;
+	}
+
+	.related {
+		margin-top: 2.5rem;
+	}
+
+	.related__label {
+		font-size: 0.78rem;
+		font-weight: 500;
+		color: var(--color-text-muted);
+		margin-bottom: 0.6rem;
+	}
+
+	.related ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.related li {
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.related li a {
+		display: block;
+		padding-block: 0.7rem;
+		font-size: 0.88rem;
+	}
+
+	.cta {
+		margin-top: 3rem;
+		padding: 1.75rem;
+		background: var(--color-bg-subtle);
+		border-radius: 12px;
+		text-align: center;
+	}
+
+	.cta p {
+		font-size: 0.86rem;
+		color: var(--color-text-muted);
+		margin-bottom: 1.1rem;
+	}
+</style>

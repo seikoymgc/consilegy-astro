@@ -18,6 +18,22 @@ const faqItems = [
 		q: 'Revenue Architectureの責任者は誰ですか？',
 		a: '営業企画、RevOps、マーケティングオペレーション、CS Ops、情報システム、経営企画などが横断的に関与します。特定の1部署が単独で担うものではなく、収益構造に関わる全部門が共通の設計を持つことが重要です。',
 	},
+	{
+		q: 'レベニューアーキテクチャと「レベニューマネジメント」は同じものですか？',
+		a: '別の概念です。レベニューマネジメントは航空・ホテル業界に由来する価格と在庫の最適化手法を指します。Revenue Architecture（レベニューアーキテクチャ）は、顧客獲得から受注・継続収益までの収益プロセスと、それを支えるデータ・システムの構造設計を指します。日本語では表記が似ているため混同されやすい点にご注意ください。',
+	},
+	{
+		q: 'Revenue ArchitectureはThe Modelと対立する考え方ですか？',
+		a: '対立しません。The Modelは獲得工程の分業と予測に強く、Revenue Architectureは獲得から維持・拡大までの全体設計を担います。指標としても包含の関係にあり、The ModelのMQL→SQLはCR1×CR2、案件から受注まではCR3×CR4に分解されます。分業を先に決めると受注後の設計が抜け落ちるため、先に全体構造を定義し、その中で分業を設計する順序を推奨します。',
+	},
+	{
+		q: '日本市場ではRevenue Architectureをそのまま適用できますか？',
+		a: '1点、工程の追加が必要です。日本のB2Bでは、選定と契約の間に社内合意形成（稟議）が独立した工程として入ります。発注までの承認が2段階以上の企業は8割を超え、検討期間が3〜8か月の企業が63.6%を占めます（IDEATECH × 北川裕康氏 共同調査、2026年4月公表、n=307）。この工程を商談ステージに含めないまま設計すると、「検討中」という名の滞留が可視化されません。',
+	},
+	{
+		q: '何から着手すべきですか？',
+		a: 'ツール選定ではなく、指標の定義の統一から始めてください。順序は、収益モデルを一枚に書く、顧客の意思決定プロセスを顧客の状態で定義する、指標の定義を関係者で統一する、工程ごとに転換率と待ち時間を測り始める、感度の高い工程を1つ特定して直す、の順です。設計が決まる前に選んだツールは、ほぼ確実に作り直しになります。',
+	},
 ];
 
 const faqSchema = {
@@ -112,6 +128,121 @@ const outcomes = [
 	{ label: '改善サイクルが回る', desc: 'KPIとレビュー設計により、PDCAが継続的に機能します。' },
 ];
 
+// 出典付きデータ。すべて一次資料で検証済み（2026年7月）。
+// 数字を追加する場合は、必ず調査主体・調査年・母数の3点を揃えること。
+const japanData = [
+	{
+		stat: '60.9%',
+		label: '承認が2段階',
+		body: '発注までの承認・稟議が「2段階」の企業が60.9%。2段階以上は8割を超え、3段階以上も約2割あります。',
+		source: 'IDEATECH × 北川裕康氏 共同調査（2026年4月公表、n=307）',
+	},
+	{
+		stat: '63.6%',
+		label: '検討期間3〜8か月',
+		body: '検討開始から発注先決定までが3〜8か月の企業が63.6%。6か月以上も約4割を占めます。',
+		source: 'IDEATECH × 北川裕康氏 共同調査（2026年4月公表、n=307）',
+	},
+	{
+		stat: '約40%',
+		label: '営業接触時点の進捗',
+		body: '営業と本格的にやり取りを始めた時点で、購買プロセスは平均約4割が進行済み。7割は既に課題を明確化しています。',
+		source: 'IDEATECH × 北川裕康氏 共同調査（2026年4月公表、n=307）',
+	},
+	{
+		stat: '44.3%',
+		label: '選定理由の第1位',
+		body: '発注先に選ばれた理由の第1位は「自社と似た規模の企業の事例があった」。機能の明確さ（40.3%）を上回ります。',
+		source: 'IDEATECH × 北川裕康氏 共同調査（2026年4月公表、n=298）',
+	},
+	{
+		stat: '1.5%',
+		label: '国内MA導入率',
+		body: '国内企業626,003社のうちMA導入は9,444社で1.5%。上場企業でも14.6%にとどまります。',
+		source: 'Nexal「MAツール実装調査」（2023年5月、n=626,003。サイトのタグを全件クローリングした実測）',
+	},
+	{
+		stat: '78.6%',
+		label: '経営層のCS未認知',
+		body: '企業トップ層の78.6%が「カスタマーサクセス」を聞いたことがないと回答。意味を理解している経営トップは4.6%です。',
+		source: 'バーチャレクス・コンサルティング「カスタマーサクセス日本市場動向＆実態調査 2025」（2025年2月、n=64,138）',
+	},
+	{
+		stat: '79%',
+		label: 'データ活用の困りごと',
+		body: '営業組織の79%がデータ活用に何らかの困りごとを抱えています。「営業部署内のデータが適切に管理されていない」28.1%、「他部署とのデータ連携が進んでいない」24.4%。',
+		source: 'HubSpot Japan「日本の営業に関する意識・実態調査2024」（n=1,545、調査委託先マクロミル）',
+	},
+	{
+		stat: '61%',
+		label: '失注理由',
+		body: '失注案件の61%は「意思決定できない」ことが理由。案件の44%が先送りされ、先送りされると受注率は67%下落します。※北米中心の調査',
+		source: 'Ebsta × Pavilion「2024 B2B Sales Benchmarks」（n=420万商談 / 530社）',
+	},
+];
+
+// Winning by Design「The Bowtie: A Proposed Standard」v1.0 に基づく指標定義。
+// 日本語でこの体系を提示している資料は、現時点で確認できていない。
+const conversionMetrics = [
+	{ id: 'CR1', stage: '認知', def: '見込み客 → リード' },
+	{ id: 'CR2', stage: '教育', def: 'リード → 案件' },
+	{ id: 'CR3', stage: '優先順位づけ', def: '案件 → 精査済み案件' },
+	{ id: 'CR4', stage: '商談', def: '精査済み案件 → 受注' },
+	{ id: 'CR5', stage: '契約', def: '1 − 値引き率' },
+	{ id: 'CR6', stage: '立ち上げ', def: '1 − 立ち上げ時の解約率' },
+	{ id: 'CR7', stage: '維持', def: 'GRR（総維持率）' },
+	{ id: 'CR8', stage: '拡大', def: '拡大率' },
+];
+
+const timeMetrics = [
+	{ id: 'Δt1', stage: '認知', def: '会話が成立するまでの時間' },
+	{ id: 'Δt2', stage: '教育', def: '購買プロセス開始に興味を持つまでの期間' },
+	{ id: 'Δt3', stage: '優先順位づけ', def: '案件が精査されるまでの時間' },
+	{ id: 'Δt4', stage: '商談', def: '営業サイクルの長さ' },
+	{ id: 'Δt5', stage: '契約', def: '社内システムに立ち上げるまでの時間' },
+	{ id: 'Δt6', stage: '立ち上げ', def: '購入から最初の成果が達成されるまでの時間' },
+	{ id: 'Δt7', stage: '維持', def: '契約期間の長さ' },
+	{ id: 'Δt8', stage: '拡大', def: '顧客のライフタイム' },
+];
+
+const sources = [
+	{
+		name: 'IDEATECH × 北川裕康氏「日本のBtoB大型購買に関する実態調査」',
+		meta: '2026年4月公表 / n=307（年間契約額または一括導入費300万円以上のBtoB商材購買に2名以上で関与した会社員・経営者）',
+		url: 'https://www.atpress.ne.jp/news/8527090',
+	},
+	{
+		name: 'Nexal「MAツール実装調査」',
+		meta: '2023年5月 / n=626,003社（アンケートではなくサイトのソースコードを全件クローリングした実測）',
+		url: 'https://www.nexal.co.jp/blogs/20230930.html',
+	},
+	{
+		name: 'バーチャレクス・コンサルティング「カスタマーサクセス日本市場動向＆実態調査 2025」',
+		meta: '2025年2月 / n=64,138（全国20〜65歳の有職者。2019年からの定点調査）',
+		url: 'https://www.virtualex.co.jp/news/2025/03/2025CS-research-1.html',
+	},
+	{
+		name: 'HubSpot Japan「日本の営業に関する意識・実態調査2024」',
+		meta: '売り手 n=1,545 / 調査委託先マクロミル',
+		url: 'https://www.hubspot.jp/company-news/stateofsales-20240219',
+	},
+	{
+		name: 'Ebsta × Pavilion「2024 B2B Sales Benchmarks」',
+		meta: 'n=420万商談 / 530社。北米中心のため日本の値ではない',
+		url: 'https://www.ebsta.com/wp-content/uploads/2024/02/B2B-Sales-Benchmarks-2024_.pdf',
+	},
+	{
+		name: 'Winning by Design「The Bowtie: A Customer-Centric Framework for a Recurring Revenue Business」Proposed Standard v1.0',
+		meta: '転換率CR1〜CR8・時間Δt1〜Δt9の定義元。ベンチマークは2016〜2022年、n=868',
+		url: 'https://winningbydesign.com/bowtie/',
+	},
+	{
+		name: 'Jacco van der Kooij『Revenue Architecture』',
+		meta: 'Winning by Design / 2023年10月刊 / 556ページ。2026年7月時点で日本語版なし',
+		url: 'https://winningbydesign.com/resources/books/revenue-architecture/',
+	},
+];
+
 const relatedServices = [
 	{ label: 'レベニューアーキテクチャ設計', href: '/services/revenue-architecture-design/', desc: '収益プロセス・KPI・データ構造の上流設計' },
 	{ label: 'CRM / RevOps再設計支援', href: '/services/crm-revops-redesign/', desc: 'Salesforce・HubSpot・Kintoneなど主要CRM横断の設計・実装支援' },
@@ -123,7 +254,7 @@ const relatedServices = [
 
 <BaseLayout
 	title="Revenue Architectureとは | レベニューアーキテクチャの定義・RevOpsとの違い・CRM再設計との関係 | Consilegy"
-	description="Revenue Architecture（レベニューアーキテクチャ）とは、マーケティング・営業・カスタマーサクセス・CRM・KPI・データを、売上が生まれる一つの流れとして構造設計する考え方です。RevOps・CRM導入との違い、導入が必要な理由を解説します。"
+	description="Revenue Architecture（レベニューアーキテクチャ）とは、マーケティング・営業・カスタマーサクセス・CRM・KPI・データを、売上が生まれる一つの流れとして構造設計する考え方です。定義、転換率CR1〜CR8と待ち時間Δtの指標体系、RevOps・The Modelとの違い、日本市場で必要になる稟議工程の追加までを、出典付きデータとともに解説します。"
 	lang="ja"
 >
 	<Fragment slot="head">
@@ -204,7 +335,9 @@ const relatedServices = [
 						<li>リード育成</li>
 						<li>MQL / SQL</li>
 						<li>商談</li>
+						<li class="bowtie-item--jp">社内合意形成（稟議）</li>
 					</ul>
+					<p class="bowtie-jp-note">日本市場では、商談と受注の間に社内合意形成が独立した工程として入ります。</p>
 				</div>
 				<div class="bowtie-center">
 					<p class="bowtie-center-title">Revenue Architecture</p>
@@ -265,6 +398,79 @@ const relatedServices = [
 					<p class="structure-desc">{s.desc}</p>
 				</div>
 			))}
+		</div>
+	</div>
+</section>
+
+<!-- ===== METRICS (CR / Δt) ===== -->
+<section class="section" id="metrics">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">Metrics</p>
+			<h2>収益構造を測る2つの指標｜転換率と待ち時間</h2>
+		</div>
+		<div class="metrics-intro">
+			<p>Revenue Architectureは概念図ではなく、測定の枠組みです。各工程に「転換率（CR）」と「時間（Δt）」の2つの指標を持ちます。</p>
+			<p>従来使われてきた指標は、この体系に分解できます。<strong>MQL→SQLはCR1×CR2、案件から受注まではCR3×CR4</strong>にあたります。既存の指標を捨てる必要はありません。より細かく割るだけです。</p>
+		</div>
+		<div class="metrics-grid">
+			<div class="metrics-block">
+				<h3 class="metrics-title">転換率 CR1〜CR8</h3>
+				<table class="metrics-table">
+					<thead>
+						<tr><th>指標</th><th>工程</th><th>定義</th></tr>
+					</thead>
+					<tbody>
+						{conversionMetrics.map(m => (
+							<tr><td class="metrics-id">{m.id}</td><td>{m.stage}</td><td>{m.def}</td></tr>
+						))}
+					</tbody>
+				</table>
+			</div>
+			<div class="metrics-block">
+				<h3 class="metrics-title">時間 Δt1〜Δt8</h3>
+				<table class="metrics-table">
+					<thead>
+						<tr><th>指標</th><th>工程</th><th>定義</th></tr>
+					</thead>
+					<tbody>
+						{timeMetrics.map(m => (
+							<tr><td class="metrics-id">{m.id}</td><td>{m.stage}</td><td>{m.def}</td></tr>
+						))}
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="metrics-callout">
+			<p class="metrics-callout__label">見落とされやすい定義</p>
+			<p>Δtは、活動そのものにかかった時間ではなく、<strong>アクションとアクションの間の待ち時間</strong>を測る指標です。</p>
+			<p>この定義が、日本市場では決定的な意味を持ちます。日本の稟議は、まさに待ち時間の塊だからです。承認が2段階以上の企業が8割を超え、検討期間が3〜8か月の企業が63.6%を占めます（IDEATECH × 北川裕康氏 共同調査、2026年4月公表、n=307）。転換率だけを見ていると、この滞留は数字に表れません。</p>
+		</div>
+		<p class="metrics-note">出典: Winning by Design「The Bowtie: A Customer-Centric Framework for a Recurring Revenue Business」Proposed Standard v1.0。Δt9（Closed Loop）は将来用の指標として定義が留保されているため、上表では省略しています。</p>
+	</div>
+</section>
+
+<!-- ===== JAPAN DATA ===== -->
+<section class="section section--soft" id="japan-data">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">Japan Market Data</p>
+			<h2>数字で見る、日本のB2B収益構造</h2>
+		</div>
+		<p class="japan-data-lead">Revenue Architectureを日本市場に当てはめるとき、前提となる実態を公開調査から整理しました。すべて調査主体・調査年・母数を明記しています。</p>
+		<div class="japan-data-grid">
+			{japanData.map(d => (
+				<div class="japan-data-card">
+					<p class="japan-data-stat">{d.stat}</p>
+					<p class="japan-data-label">{d.label}</p>
+					<p class="japan-data-body">{d.body}</p>
+					<p class="japan-data-source">{d.source}</p>
+				</div>
+			))}
+		</div>
+		<div class="japan-data-caution">
+			<p class="japan-data-caution__label">数字を扱うときの注意</p>
+			<p>日本のB2B記事で頻繁に引用される「意思決定関与者は平均5.4人」は、米CEB社が<strong>米国企業</strong>を対象に実施した調査（『The Challenger Customer』2015年）の値です。日本の関与人数を測定した公開調査は、確認できた範囲では存在しません。日本について言えるのは「購買に関与する部門が2〜4部門の企業が約8割」までです。</p>
 		</div>
 	</div>
 </section>
@@ -461,6 +667,25 @@ const relatedServices = [
 	</div>
 </section>
 
+<!-- ===== SOURCES ===== -->
+<section class="section" id="sources">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">Sources</p>
+			<h2>参照した調査・資料</h2>
+		</div>
+		<p class="sources-lead">本ページに掲載した数値は、すべて一次資料で調査主体・調査年・母数を確認しています。出典が特定できない数値、および原典と異なる形で流通している数値は掲載していません。</p>
+		<ol class="sources-list">
+			{sources.map(s => (
+				<li class="sources-item">
+					<a href={s.url} target="_blank" rel="noopener noreferrer">{s.name}</a>
+					<span class="sources-meta">{s.meta}</span>
+				</li>
+			))}
+		</ol>
+	</div>
+</section>
+
 <!-- ===== FINAL CTA ===== -->
 <section class="section-cta">
 	<div class="container">
@@ -478,6 +703,236 @@ const relatedServices = [
 </BaseLayout>
 
 <style>
+	/* ── Bowtie: Japan-specific stage ──────────────────────── */
+	.bowtie-item--jp {
+		position: relative;
+		font-weight: 600;
+		color: var(--color-accent, #c2410c);
+	}
+
+	.bowtie-jp-note {
+		margin-top: 0.75rem;
+		font-size: 0.78rem;
+		line-height: 1.6;
+		color: var(--color-text-muted, #64748b);
+	}
+
+	/* ── Metrics (CR / Δt) ─────────────────────────────────── */
+	.metrics-intro {
+		max-width: 760px;
+		margin: 0 auto 2.5rem;
+		font-size: 0.95rem;
+		line-height: 1.9;
+		color: var(--color-text, #334155);
+	}
+
+	.metrics-intro p + p {
+		margin-top: 1rem;
+	}
+
+	.metrics-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		gap: 2rem;
+	}
+
+	.metrics-title {
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		margin-bottom: 1rem;
+	}
+
+	.metrics-table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 0.85rem;
+	}
+
+	.metrics-table th,
+	.metrics-table td {
+		padding: 0.6rem 0.7rem;
+		text-align: left;
+		border-bottom: 1px solid var(--color-border, #e2e8f0);
+		line-height: 1.6;
+	}
+
+	.metrics-table th {
+		font-weight: 600;
+		color: var(--color-text-muted, #64748b);
+		font-size: 0.78rem;
+		border-bottom-width: 2px;
+	}
+
+	.metrics-id {
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		white-space: nowrap;
+	}
+
+	.metrics-callout {
+		margin-top: 2.5rem;
+		padding: 1.75rem;
+		border-left: 3px solid var(--color-accent, #c2410c);
+		background: var(--color-bg-soft, #f8fafc);
+		border-radius: 0 6px 6px 0;
+	}
+
+	.metrics-callout__label {
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		color: var(--color-accent, #c2410c);
+		margin-bottom: 0.75rem;
+	}
+
+	.metrics-callout p:not(.metrics-callout__label) {
+		font-size: 0.92rem;
+		line-height: 1.9;
+		color: var(--color-text, #334155);
+	}
+
+	.metrics-callout p + p {
+		margin-top: 0.85rem;
+	}
+
+	.metrics-note {
+		margin-top: 1.5rem;
+		font-size: 0.76rem;
+		line-height: 1.7;
+		color: var(--color-text-muted, #64748b);
+	}
+
+	/* ── Japan market data ─────────────────────────────────── */
+	.japan-data-lead {
+		max-width: 720px;
+		margin: 0 auto 2.5rem;
+		text-align: center;
+		font-size: 0.92rem;
+		line-height: 1.9;
+		color: var(--color-text, #334155);
+	}
+
+	.japan-data-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		gap: 1.25rem;
+	}
+
+	.japan-data-card {
+		padding: 1.5rem;
+		background: #fff;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.japan-data-stat {
+		font-size: 1.9rem;
+		font-weight: 700;
+		line-height: 1.1;
+		color: var(--color-navy, #0f172a);
+		font-feature-settings: 'tnum';
+	}
+
+	.japan-data-label {
+		margin-top: 0.35rem;
+		font-size: 0.8rem;
+		font-weight: 600;
+		color: var(--color-accent, #c2410c);
+	}
+
+	.japan-data-body {
+		margin-top: 0.85rem;
+		font-size: 0.85rem;
+		line-height: 1.8;
+		color: var(--color-text, #334155);
+		flex: 1;
+	}
+
+	.japan-data-source {
+		margin-top: 1rem;
+		padding-top: 0.75rem;
+		border-top: 1px solid var(--color-border, #e2e8f0);
+		font-size: 0.7rem;
+		line-height: 1.6;
+		color: var(--color-text-muted, #64748b);
+	}
+
+	.japan-data-caution {
+		margin-top: 2rem;
+		padding: 1.5rem;
+		background: #fff;
+		border: 1px dashed var(--color-border, #cbd5e1);
+		border-radius: 8px;
+	}
+
+	.japan-data-caution__label {
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		color: var(--color-text-muted, #64748b);
+		margin-bottom: 0.6rem;
+	}
+
+	.japan-data-caution p:not(.japan-data-caution__label) {
+		font-size: 0.85rem;
+		line-height: 1.9;
+		color: var(--color-text, #334155);
+	}
+
+	/* ── Sources ───────────────────────────────────────────── */
+	.sources-lead {
+		max-width: 720px;
+		margin: 0 auto 2rem;
+		text-align: center;
+		font-size: 0.88rem;
+		line-height: 1.9;
+		color: var(--color-text-muted, #64748b);
+	}
+
+	.sources-list {
+		max-width: 820px;
+		margin-inline: auto;
+		padding-left: 1.5rem;
+		display: grid;
+		gap: 1rem;
+	}
+
+	.sources-item {
+		font-size: 0.85rem;
+		line-height: 1.7;
+	}
+
+	.sources-item a {
+		color: var(--color-navy, #0f172a);
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+
+	.sources-meta {
+		display: block;
+		margin-top: 0.25rem;
+		font-size: 0.75rem;
+		color: var(--color-text-muted, #64748b);
+	}
+
+	@media (max-width: 640px) {
+		.metrics-table {
+			font-size: 0.78rem;
+		}
+
+		.metrics-table th,
+		.metrics-table td {
+			padding: 0.5rem 0.4rem;
+		}
+
+		.japan-data-stat {
+			font-size: 1.6rem;
+		}
+	}
+
 	/* ── Shared utilities ──────────────────────────────────── */
 	.container {
 		max-width: 1100px;

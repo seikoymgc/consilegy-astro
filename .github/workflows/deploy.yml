@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+  # Actions画面から手動でも実行できるようにする
+  workflow_dispatch:
 
 jobs:
   # 本体サイト consilegy.com
@@ -51,7 +53,10 @@ jobs:
       - name: Check for media changes
         id: changes
         run: |
-          if git diff --name-only HEAD^ HEAD | grep -q '^media/'; then
+          # 手動実行のときは常にデプロイする
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          elif git diff --name-only HEAD^ HEAD | grep -q '^media/'; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
           else
             echo "changed=false" >> "$GITHUB_OUTPUT"
@@ -63,13 +68,13 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version: '22'
-          cache: 'npm'
-          cache-dependency-path: media/package-lock.json
 
       - name: Install dependencies
         if: steps.changes.outputs.changed == 'true'
         working-directory: media
-        run: npm ci
+        # lockfileがあれば npm ci、なければ npm install で通す
+        run: |
+          if [ -f package-lock.json ]; then npm ci; else npm install; fi
 
       - name: Build
         if: steps.changes.outputs.changed == 'true'

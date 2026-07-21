@@ -1,9 +1,9 @@
 ---
-title: （読者の悩みを言い切るタイトル。例: 〜が動かないときの直し方）
-description: 悩み→原因→解決が分かる要約。検索結果に出る文。
+title: "読者の悩みを言い切るタイトル（〜が動かないときの直し方、など）"
+description: "悩みから原因、解決までが分かる要約。検索結果に出る文。"
 publishedAt: 2026-07-28
 category: sales
-principle: この記事の結論。読者が覚えて帰る一文を1つだけ。
+principle: "この記事の結論。読者が覚えて帰る一文を1つだけ。"
 canonUrl: https://consilegy.com/revenue-architecture/
 canonLabel: レベニューアーキテクチャとは
 draft: true

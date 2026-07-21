@@ -163,6 +163,20 @@ img {
 	font-weight: 500;
 }
 
+.site-nav .site-nav__btn {
+	background: var(--color-primary);
+	color: #fff;
+	padding: 0.5rem 1rem;
+	border-radius: var(--radius);
+	font-weight: 500;
+}
+
+.site-nav .site-nav__btn:hover {
+	background: var(--color-primary-dark);
+	color: #fff;
+	text-decoration: none;
+}
+
 /* ── Site footer ─────────────────────────────────────────── */
 .site-footer {
 	margin-top: var(--space-xl);

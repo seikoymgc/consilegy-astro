@@ -9,8 +9,9 @@ export async function getStaticPaths() {
 }
 
 const { note } = Astro.props;
-const { Content } = await render(note);
+const { Content, headings } = await render(note);
 const d = note.data;
+const toc = headings.filter(h => h.depth === 2);
 const cat = d.category as CategoryKey;
 
 const all = (await getCollection('notesEn', ({ data }) => !data.draft)).sort(
@@ -29,6 +30,7 @@ const fmt = (date: Date) =>
 	ogType="article"
 	publishedAt={d.publishedAt}
 	updatedAt={d.updatedAt}
+	ogImage={`/images/eyecatch/${note.id}.png`}
 >
 	<article class="note">
 		<div class="container container--narrow">
@@ -45,6 +47,21 @@ const fmt = (date: Date) =>
 				<time datetime={d.publishedAt.toISOString()}>Published {fmt(d.publishedAt)}</time>
 				{d.updatedAt && <time datetime={d.updatedAt.toISOString()}>Updated {fmt(d.updatedAt)}</time>}
 			</div>
+
+			{
+				toc.length >= 2 && (
+					<nav class="toc" aria-label="Table of contents">
+						<p class="toc__label">In this article</p>
+						<ol>
+							{toc.map(h => (
+								<li>
+									<a href={`#${h.slug}`}>{h.text}</a>
+								</li>
+							))}
+						</ol>
+					</nav>
+				)
+			}
 
 			<div class="note-body">
 				<Content />
@@ -127,6 +144,32 @@ const fmt = (date: Date) =>
 		border-bottom: 1px solid var(--color-border);
 		font-size: 0.76rem;
 		color: var(--color-text-muted);
+	}
+
+	.toc {
+		margin-top: 2rem;
+		padding: 1.25rem 1.5rem;
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius);
+	}
+
+	.toc__label {
+		font-size: 0.72rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		color: var(--color-text-muted);
+		margin-bottom: 0.5rem;
+	}
+
+	.toc ol {
+		margin: 0;
+		padding-left: 1.25rem;
+	}
+
+	.toc li {
+		font-size: 0.85rem;
+		line-height: 2;
 	}
 
 	.note-body {

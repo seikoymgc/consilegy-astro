@@ -42,6 +42,7 @@ const notes = (await getCollection('notesEn', ({ data }) => !data.draft)).sort(
 								categoryLabel={categoriesEn[n.data.category as CategoryKey]}
 								color={categoryColors[n.data.category as CategoryKey]}
 								date={n.data.publishedAt}
+								image={`/images/eyecatch/${n.id}.png`}
 							/>
 						))}
 					</div>

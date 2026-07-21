@@ -60,6 +60,7 @@ const byCategory = (Object.keys(categories) as CategoryKey[]).map(key => ({
 										categoryLabel={categories[featured.data.category]}
 										color={categoryColors[featured.data.category]}
 										date={featured.data.publishedAt}
+										image={`/images/eyecatch/${featured.id}.png`}
 										large
 									/>
 								</div>
@@ -74,6 +75,7 @@ const byCategory = (Object.keys(categories) as CategoryKey[]).map(key => ({
 											categoryLabel={categories[n.data.category]}
 											color={categoryColors[n.data.category]}
 											date={n.data.publishedAt}
+											image={`/images/eyecatch/${n.id}.png`}
 										/>
 									))}
 								</div>
@@ -100,6 +102,7 @@ const byCategory = (Object.keys(categories) as CategoryKey[]).map(key => ({
 											categoryLabel={c.label}
 											color={c.color}
 											date={n.data.publishedAt}
+											image={`/images/eyecatch/${n.id}.png`}
 										/>
 									))}
 								</div>

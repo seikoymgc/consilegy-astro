@@ -8,19 +8,28 @@ interface Props {
 	color: string;
 	date: Date;
 	large?: boolean;
+	image?: string;
 }
 
-const { href, title, description, categoryLabel, color, date, large = false } = Astro.props;
+const { href, title, description, categoryLabel, color, date, large = false, image } = Astro.props;
 
 const fmt = (d: Date) =>
 	`${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
 ---
 
 <a href={href} class={`card ${large ? 'card--large' : ''}`}>
-	<div class="card__thumb" style={`--cat-color: ${color};`}>
-		<span class="card__thumb-cat">{categoryLabel}</span>
-		<span class="card__thumb-title">{title}</span>
-	</div>
+	{
+		image ? (
+			<div class="card__img" style={`--cat-color: ${color};`}>
+				<img src={image} alt="" width="1200" height="630" loading="lazy" decoding="async" />
+			</div>
+		) : (
+			<div class="card__thumb" style={`--cat-color: ${color};`}>
+				<span class="card__thumb-cat">{categoryLabel}</span>
+				<span class="card__thumb-title">{title}</span>
+			</div>
+		)
+	}
 	<div class="card__body">
 		<p class="card__title">{title}</p>
 		{description && <p class="card__desc">{description}</p>}
@@ -47,6 +56,19 @@ const fmt = (d: Date) =>
 		text-decoration: none;
 		border-color: var(--color-border-strong);
 		transform: translateY(-2px);
+	}
+
+	.card__img {
+		aspect-ratio: 1.91 / 1;
+		border-bottom: 3px solid var(--cat-color);
+		overflow: hidden;
+	}
+
+	.card__img img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
 	}
 
 	.card__thumb {

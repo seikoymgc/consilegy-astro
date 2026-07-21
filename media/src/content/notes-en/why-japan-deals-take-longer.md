@@ -6,7 +6,6 @@ category: japan-gtm
 principle: "Don't say Japan is slow. Say the process has one more stage. Structure can be measured and managed; culture cannot."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
-draft: true
 ---
 
 Your quarterly review shows Japan's pipeline full of stalled deals. HQ asks why the team cannot close. The local team says "decision-making in Japan is slow," and trust erodes on both sides. This scene repeats itself in almost every global SaaS company operating in Japan.
@@ -40,9 +39,6 @@ Two practical notes:
 - **Do not use the "Japanese deals take 2 to 3 times longer than Western deals" comparison.** It circulates widely, but no published study using the same methodology across regions exists, as far as we can verify. One unsourced number can undermine an otherwise solid deck. Use the Japan-side numbers above, with their source, and let HQ compare against its own benchmarks.
 - **Pair the expectation reset with a playbook.** Supporting the champion's internal process (drafting the ringi document with them, preparing a one-page summary for their executives, joining the internal briefing) shortens the invisible stage. Presenting this alongside the data turns the message from "Japan is slow" into "here is how we win in Japan."
 
-## A field example
-
-【Seiko記入: 実際に海外本社へ説明した案件の英語版。どんな資料で、本社の何が変わったか】
 
 ## Common mistakes
 

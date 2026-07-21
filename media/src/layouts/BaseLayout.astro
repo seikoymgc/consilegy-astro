@@ -9,14 +9,15 @@ interface Props {
 	publishedAt?: Date;
 	updatedAt?: Date;
 	lang?: 'ja' | 'en';
+	ogImage?: string;
 }
 
-const { title, description, ogType = 'website', noindex = false, publishedAt, updatedAt, lang = 'ja' } = Astro.props;
+const { title, description, ogType = 'website', noindex = false, publishedAt, updatedAt, lang = 'ja', ogImage: ogImageProp } = Astro.props;
 const isEn = lang === 'en';
 
 const site = Astro.site ?? new URL('https://media.consilegy.com');
 const canonical = new URL(Astro.url.pathname, site).href;
-const ogImage = new URL('/images/og-default.png', site).href;
+const ogImage = new URL(ogImageProp ?? '/images/og-default.png', site).href;
 
 const organizationSchema = {
 	'@context': 'https://schema.org',
@@ -100,12 +101,14 @@ const articleSchema =
 							<a href="/en/">Articles</a>
 							<a href="/about/">Author</a>
 							<a href="/">日本語</a>
+							<a href="https://consilegy.com/en/contact-en/" class="site-nav__btn">Talk to us</a>
 						</>
 					) : (
 						<>
 							<a href="/notes/">記事一覧</a>
 							<a href="/about/">著者</a>
 							<a href="/en/">EN</a>
+							<a href="https://consilegy.com/free-consultation/" class="site-nav__btn">無料相談</a>
 						</>
 					)}
 				</nav>

@@ -52,6 +52,7 @@ const notes = (await getCollection('notes', ({ data }) => !data.draft && data.ca
 								categoryLabel={label}
 								color={color}
 								date={n.data.publishedAt}
+								image={`/images/eyecatch/${n.id}.png`}
 							/>
 						))}
 					</div>

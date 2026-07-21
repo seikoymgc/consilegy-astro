@@ -1,6 +1,7 @@
 # build output
 dist/
 .astro/
+public/images/eyecatch/
 
 # dependencies
 node_modules/

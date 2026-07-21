@@ -9,7 +9,7 @@ export async function GET(context) {
 	return rss({
 		title: 'Consilegy Media',
 		description:
-			'B2Bの収益構造をどう設計し、どこで壊れ、何を直したか。HubSpot・CRM実装、商談プロセス設計、Japan GTMの現場記録。',
+			'B2Bの収益のつまずきを、構造から解決する。CRM定着、商談プロセス、データ計測、MA活用、日本市場参入の教育メディア。',
 		site: context.site,
 		items: notes.map(note => ({
 			title: note.data.title,

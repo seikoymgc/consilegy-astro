@@ -1,0 +1,128 @@
+---
+// CSS生成アイキャッチ付きの記事カード。画像ファイル不要で日次運用が回る。
+interface Props {
+	href: string;
+	title: string;
+	description?: string;
+	categoryLabel: string;
+	color: string;
+	date: Date;
+	large?: boolean;
+}
+
+const { href, title, description, categoryLabel, color, date, large = false } = Astro.props;
+
+const fmt = (d: Date) =>
+	`${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+---
+
+<a href={href} class={`card ${large ? 'card--large' : ''}`}>
+	<div class="card__thumb" style={`--cat-color: ${color};`}>
+		<span class="card__thumb-cat">{categoryLabel}</span>
+		<span class="card__thumb-title">{title}</span>
+	</div>
+	<div class="card__body">
+		<p class="card__title">{title}</p>
+		{description && <p class="card__desc">{description}</p>}
+		<div class="card__meta">
+			<span class="card__cat" style={`color: ${color};`}>{categoryLabel}</span>
+			<time datetime={date.toISOString()}>{fmt(date)}</time>
+		</div>
+	</div>
+</a>
+
+<style>
+	.card {
+		display: flex;
+		flex-direction: column;
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: 10px;
+		overflow: hidden;
+		color: var(--color-text);
+		transition: border-color 0.15s ease, transform 0.15s ease;
+	}
+
+	.card:hover {
+		text-decoration: none;
+		border-color: var(--color-border-strong);
+		transform: translateY(-2px);
+	}
+
+	.card__thumb {
+		aspect-ratio: 1.91 / 1;
+		background: color-mix(in srgb, var(--cat-color) 7%, #ffffff);
+		border-bottom: 3px solid var(--cat-color);
+		padding: 1rem 1.1rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 0.5rem;
+	}
+
+	.card__thumb-cat {
+		font-size: 0.68rem;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		color: var(--cat-color);
+	}
+
+	.card__thumb-title {
+		font-size: 0.98rem;
+		font-weight: 600;
+		line-height: 1.55;
+		color: var(--color-text);
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+
+	.card--large .card__thumb-title {
+		font-size: 1.25rem;
+	}
+
+	.card__body {
+		padding: 0.9rem 1.1rem 1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		flex: 1;
+	}
+
+	.card__title {
+		display: none;
+	}
+
+	.card__desc {
+		font-size: 0.8rem;
+		line-height: 1.75;
+		color: var(--color-text-muted);
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+
+	.card--large .card__desc {
+		-webkit-line-clamp: 3;
+	}
+
+	.card__meta {
+		margin-top: auto;
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 0.75rem;
+		font-size: 0.7rem;
+		color: var(--color-text-muted);
+	}
+
+	.card__cat {
+		font-weight: 600;
+	}
+
+	.card__meta time {
+		font-variant-numeric: tabular-nums;
+	}
+</style>

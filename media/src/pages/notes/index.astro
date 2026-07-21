@@ -17,15 +17,15 @@ const formatDate = (d: Date) =>
 ---
 
 <BaseLayout
-	title="実務ノート | Consilegy Media"
-	description="HubSpot・CRM実装、商談プロセス設計、データと計測、Japan GTM、定着支援の現場で判断したことの記録。日次で更新しています。"
+	title="記事一覧 | Consilegy Media"
+	description="CRMの定着、商談プロセス、データ計測、MA活用、日本市場参入。B2Bの収益にまつわる悩み別に、原因と解決手順を解説した記事の一覧です。"
 >
 	<section class="page-head">
 		<div class="container">
-			<p class="eyebrow">Notes</p>
-			<h1>実務ノート</h1>
+			<p class="eyebrow">Articles</p>
+			<h1>記事一覧</h1>
 			<p class="page-lead">
-				案件の中で実際に起きたこと、そのとき何を選び、何が効いて何が効かなかったか。1本につき、一般化できる原則を1つだけ書いています。全{notes.length}本。
+				悩みのカテゴリから探せます。どの記事も、原因の構造、解決の手順、実務での実例の順で書いています。全{notes.length}本。
 			</p>
 		</div>
 	</section>
@@ -45,7 +45,7 @@ const formatDate = (d: Date) =>
 
 			{
 				notes.length === 0 ? (
-					<p class="empty">最初のノートを準備中です。</p>
+					<p class="empty">最初の記事を準備中です。</p>
 				) : (
 					<ul class="note-list">
 						{notes.map(note => (

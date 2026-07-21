@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { getCollection } from 'astro:content';
+import { categoriesEn, categoryColors, type CategoryKey } from '../../content.config';
+
+const notes = (await getCollection('notesEn', ({ data }) => !data.draft)).sort(
+	(a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf(),
+);
+---
+
+<BaseLayout
+	lang="en"
+	title="Consilegy Media | Fixing B2B revenue problems, structurally"
+	description="Practical guides on entering the Japanese market, CRM adoption, sales process design, and revenue data. Written from hands-on implementation work with Japanese enterprises and global SaaS companies."
+>
+	<section class="hero">
+		<div class="container">
+			<p class="eyebrow">Consilegy Media — English edition</p>
+			<h1>B2B revenue problems, fixed structurally.</h1>
+			<p class="hero-lead">
+				Deals stall in ringi approval. Your CRM stays empty. HQ keeps asking why Japan is slow. These are structural problems, not effort problems. We explain the structure and the fix, based on implementation work with Japanese enterprises and global SaaS companies, with sourced data throughout.
+			</p>
+			<p class="hero-note">
+				The English edition focuses on entering and operating in the Japanese market. The full library is available in <a href="/">Japanese</a>.
+			</p>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container">
+			{
+				notes.length === 0 ? (
+					<p class="empty">First articles are in preparation. In the meantime, see <a href="https://consilegy.com/en/">consilegy.com/en</a> for our services.</p>
+				) : (
+					<div class="card-grid">
+						{notes.map(n => (
+							<ArticleCard
+								href={`/en/articles/${n.id}/`}
+								title={n.data.title}
+								description={n.data.description}
+								categoryLabel={categoriesEn[n.data.category as CategoryKey]}
+								color={categoryColors[n.data.category as CategoryKey]}
+								date={n.data.publishedAt}
+							/>
+						))}
+					</div>
+				)
+			}
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+	.hero {
+		padding-block: 3.5rem 2.5rem;
+		border-bottom: 1px solid var(--color-border);
+		background: var(--color-surface);
+	}
+
+	.hero h1 {
+		font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+		margin-top: 0.75rem;
+		letter-spacing: -0.01em;
+	}
+
+	.hero-lead {
+		margin-top: 1.25rem;
+		max-width: 680px;
+		color: var(--color-text-muted);
+		font-size: 0.95rem;
+		line-height: 1.9;
+	}
+
+	.hero-note {
+		margin-top: 1rem;
+		font-size: 0.82rem;
+		color: var(--color-text-muted);
+	}
+
+	.section {
+		padding-block: 2.5rem 4rem;
+	}
+
+	.card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+		gap: 1rem;
+	}
+
+	.empty {
+		font-size: 0.9rem;
+		color: var(--color-text-muted);
+	}
+</style>

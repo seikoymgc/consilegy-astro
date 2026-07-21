@@ -8,9 +8,11 @@ interface Props {
 	noindex?: boolean;
 	publishedAt?: Date;
 	updatedAt?: Date;
+	lang?: 'ja' | 'en';
 }
 
-const { title, description, ogType = 'website', noindex = false, publishedAt, updatedAt } = Astro.props;
+const { title, description, ogType = 'website', noindex = false, publishedAt, updatedAt, lang = 'ja' } = Astro.props;
+const isEn = lang === 'en';
 
 const site = Astro.site ?? new URL('https://media.consilegy.com');
 const canonical = new URL(Astro.url.pathname, site).href;
@@ -52,7 +54,7 @@ const articleSchema =
 ---
 
 <!doctype html>
-<html lang="ja">
+<html lang={lang}>
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -66,7 +68,7 @@ const articleSchema =
 		<meta property="og:description" content={description} />
 		<meta property="og:url" content={canonical} />
 		<meta property="og:image" content={ogImage} />
-		<meta property="og:locale" content="ja_JP" />
+		<meta property="og:locale" content={isEn ? 'en_US' : 'ja_JP'} />
 		<meta property="og:site_name" content="Consilegy Media" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
@@ -92,10 +94,20 @@ const articleSchema =
 				<a href="/" class="site-brand">
 					Consilegy <span class="site-brand__tag">MEDIA</span>
 				</a>
-				<nav class="site-nav" aria-label="サイト内ナビゲーション">
-					<a href="/notes/">実務ノート</a>
-					<a href="/about/">著者</a>
-					<a href="https://consilegy.com/revenue-architecture/" class="site-nav__cta">レベニューアーキテクチャとは ↗</a>
+				<nav class="site-nav" aria-label={isEn ? 'Site navigation' : 'サイト内ナビゲーション'}>
+					{isEn ? (
+						<>
+							<a href="/en/">Articles</a>
+							<a href="/about/">Author</a>
+							<a href="/">日本語</a>
+						</>
+					) : (
+						<>
+							<a href="/notes/">記事一覧</a>
+							<a href="/about/">著者</a>
+							<a href="/en/">EN</a>
+						</>
+					)}
 				</nav>
 			</div>
 		</header>
@@ -108,15 +120,24 @@ const articleSchema =
 			<div class="container site-footer__inner">
 				<div>
 					<p>Consilegy Media</p>
-					<p>収益構造の設計と実装について、現場で判断したことを記録しています。</p>
+					<p>{isEn ? 'Practical education on B2B revenue operations, from a consultancy working across Japanese and global companies.' : 'B2Bの収益のつまずきを、構造から解決する教育メディアです。'}</p>
 				</div>
-				<nav class="site-footer__links" aria-label="フッターナビゲーション">
-					<a href="/notes/">実務ノート</a>
-					<a href="/about/">著者</a>
-					<a href="https://consilegy.com/">Consilegy 本体サイト</a>
-					<a href="https://consilegy.com/newsletter/">ニュースレター</a>
-					<a href="https://consilegy.com/contact/">お問い合わせ</a>
-				</nav>
+				{isEn ? (
+					<nav class="site-footer__links" aria-label="Footer navigation">
+						<a href="/en/">Articles</a>
+						<a href="/about/">Author</a>
+						<a href="https://consilegy.com/en/">Consilegy (corporate)</a>
+						<a href="https://consilegy.com/en/contact-en/">Contact</a>
+					</nav>
+				) : (
+					<nav class="site-footer__links" aria-label="フッターナビゲーション">
+						<a href="/notes/">記事一覧</a>
+						<a href="/about/">著者</a>
+						<a href="https://consilegy.com/">Consilegy 本体サイト</a>
+						<a href="https://consilegy.com/newsletter/">ニュースレター</a>
+						<a href="https://consilegy.com/contact/">お問い合わせ</a>
+					</nav>
+				)}
 			</div>
 			<div class="container" style="margin-top: 1.5rem;">
 				<p>&copy; 2025 Consilegy LLC.</p>

@@ -120,29 +120,58 @@ const articleSchema =
 		</main>
 
 		<footer class="site-footer">
-			<div class="container site-footer__inner">
-				<div>
-					<p>Consilegy Media</p>
-					<p>{isEn ? 'Practical education on B2B revenue operations, from a consultancy working across Japanese and global companies.' : 'B2Bの収益のつまずきを、構造から解決する教育メディアです。'}</p>
-				</div>
-				{isEn ? (
-					<nav class="site-footer__links" aria-label="Footer navigation">
-						<a href="/en/">Articles</a>
+			{isEn ? (
+				<div class="container site-footer__cols">
+					<div>
+						<p class="site-footer__brand">Consilegy Media</p>
+						<p class="site-footer__desc">Practical education on B2B revenue operations, from a consultancy working across Japanese and global companies.</p>
+					</div>
+					<nav aria-label="Articles">
+						<p class="site-footer__head">Read</p>
+						<a href="/en/">All articles</a>
 						<a href="/about/">Author</a>
-						<a href="https://consilegy.com/en/">Consilegy (corporate)</a>
+						<a href="/">日本語版</a>
+					</nav>
+					<nav aria-label="Company">
+						<p class="site-footer__head">Consilegy</p>
+						<a href="https://consilegy.com/en/">Corporate site</a>
+						<a href="https://consilegy.com/en/services-en/japan-market-gtm-messaging/">Japan Market GTM</a>
 						<a href="https://consilegy.com/en/contact-en/">Contact</a>
 					</nav>
-				) : (
-					<nav class="site-footer__links" aria-label="フッターナビゲーション">
-						<a href="/notes/">記事一覧</a>
-						<a href="/about/">著者</a>
-						<a href="https://consilegy.com/">Consilegy 本体サイト</a>
-						<a href="https://consilegy.com/newsletter/">ニュースレター</a>
-						<a href="https://consilegy.com/contact/">お問い合わせ</a>
+				</div>
+			) : (
+				<div class="container site-footer__cols">
+					<div>
+						<p class="site-footer__brand">Consilegy Media</p>
+						<p class="site-footer__desc">B2Bの収益のつまずきを、構造から解決する教育メディア。運営はConsilegy合同会社。</p>
+					</div>
+					<nav aria-label="カテゴリ">
+						<p class="site-footer__head">カテゴリ</p>
+						<a href="/notes/category/crm/">CRM・SFAが定着しない</a>
+						<a href="/notes/category/sales/">商談が進まない・受注が読めない</a>
+						<a href="/notes/category/data/">数字が部署ごとに合わない</a>
+						<a href="/notes/category/japan-gtm/">日本市場で成果が出ない</a>
+						<a href="/notes/category/adoption/">導入したのに使われない</a>
+						<a href="/notes/category/marketing/">リードが商談につながらない</a>
 					</nav>
-				)}
-			</div>
-			<div class="container" style="margin-top: 1.5rem;">
+					<nav aria-label="サイト">
+						<p class="site-footer__head">サイト</p>
+						<a href="/notes/">記事一覧</a>
+						<a href="/about/">著者について</a>
+						<a href="/en/">English edition</a>
+						<a href="/rss.xml">RSS</a>
+					</nav>
+					<nav aria-label="Consilegy">
+						<p class="site-footer__head">Consilegy</p>
+						<a href="https://consilegy.com/">本体サイト</a>
+						<a href="https://consilegy.com/revenue-architecture/">レベニューアーキテクチャとは</a>
+						<a href="https://consilegy.com/diagnostic/">収益構造の無料診断</a>
+						<a href="https://consilegy.com/newsletter/">ニュースレター</a>
+						<a href="https://consilegy.com/free-consultation/">無料相談</a>
+					</nav>
+				</div>
+			)}
+			<div class="container site-footer__bottom">
 				<p>&copy; 2025 Consilegy LLC.</p>
 			</div>
 		</footer>

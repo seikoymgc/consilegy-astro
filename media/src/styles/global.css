@@ -177,31 +177,66 @@ img {
 	text-decoration: none;
 }
 
-/* ── Site footer ─────────────────────────────────────────── */
+/* ── Site footer（サイトマップ型） ───────────────────────── */
 .site-footer {
 	margin-top: var(--space-xl);
 	border-top: 1px solid var(--color-border);
-	background: var(--color-surface);
-	padding-block: var(--space-lg);
-	font-size: 0.82rem;
-	color: var(--color-text-muted);
+	background: #26241f;
+	padding-block: var(--space-lg) var(--space-md);
+	font-size: 0.8rem;
+	color: #b3aea6;
 }
 
-.site-footer__inner {
-	display: flex;
-	flex-wrap: wrap;
-	gap: var(--space-md);
-	justify-content: space-between;
+.site-footer__cols {
+	display: grid;
+	grid-template-columns: 1.4fr 1fr 0.8fr 1fr;
+	gap: 2rem;
 }
 
-.site-footer__links {
-	display: flex;
-	flex-wrap: wrap;
-	gap: var(--space-md);
+.site-footer__brand {
+	color: #fff;
+	font-weight: 700;
+	font-size: 0.95rem;
 }
 
-.site-footer__links a {
-	color: var(--color-text-muted);
+.site-footer__desc {
+	margin-top: 0.5rem;
+	font-size: 0.74rem;
+	line-height: 1.8;
+}
+
+.site-footer__head {
+	color: #fff;
+	font-weight: 600;
+	font-size: 0.78rem;
+	margin-bottom: 0.4rem;
+	padding-bottom: 0.35rem;
+	border-bottom: 1px solid #4a463f;
+}
+
+.site-footer__cols nav a {
+	display: block;
+	color: #b3aea6;
+	font-size: 0.76rem;
+	padding-block: 0.28rem;
+}
+
+.site-footer__cols nav a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+.site-footer__bottom {
+	margin-top: 1.75rem;
+	padding-top: 0.9rem;
+	border-top: 1px solid #4a463f;
+	font-size: 0.72rem;
+}
+
+@media (max-width: 760px) {
+	.site-footer__cols {
+		grid-template-columns: 1fr 1fr;
+	}
 }
 
 /* ── Buttons ─────────────────────────────────────────────── */

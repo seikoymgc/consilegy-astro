@@ -109,6 +109,8 @@ async function fileExists(p) {
 async function generate(slug, title, category, isEn) {
 	const color = CATEGORY_COLORS[category] ?? '#1e40af';
 	const label = (isEn ? CATEGORY_LABELS_EN : CATEGORY_LABELS_JA)[category] ?? '';
+	// 背景に薄く敷くカテゴリ番号（装飾）
+	const catNum = String(Object.keys(CATEGORY_COLORS).indexOf(category) + 1).padStart(2, '0');
 	const lines = wrapTitle(title, isEn);
 	const fontSize = isEn ? 46 : lines.some(l => l.length > 10) ? 52 : 58;
 	const lineHeight = fontSize * 1.45;
@@ -125,26 +127,43 @@ async function generate(slug, title, category, isEn) {
 		});
 	}
 
-	// 左60%は無地パネル（文字用）、右40%は背景アートをそのまま見せる
+	// 左は無地パネル（文字用）、右は背景アート。装飾を足して「絵」として成立させる
 	const overlay = `<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
 	<defs>
 		<linearGradient id="fade" x1="0" y1="0" x2="1" y2="0">
 			<stop offset="0" stop-color="#FAFAF9" stop-opacity="1"/>
 			<stop offset="1" stop-color="#FAFAF9" stop-opacity="0"/>
 		</linearGradient>
+		<linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0" stop-color="#3B82F6"/>
+			<stop offset="0.7" stop-color="#987AD6"/>
+			<stop offset="1" stop-color="#F472B6"/>
+		</linearGradient>
 	</defs>
 	<rect x="0" y="0" width="690" height="630" fill="#FAFAF9"/>
 	<rect x="690" y="0" width="130" height="630" fill="url(#fade)"/>
-	<rect x="0" y="0" width="1200" height="6" fill="#14110d"/>
-	<text x="72" y="140" font-family=${JSON.stringify(FONT)} font-size="24" font-weight="600" letter-spacing="1.5" fill="#8a8178">${escapeXml(label)}</text>
+
+	<!-- 上部: ブランドのグラデ帯 + カテゴリ番号の大きな装飾 -->
+	<rect x="0" y="0" width="1200" height="8" fill="url(#brand)"/>
+	<text x="668" y="360" font-family="Georgia, serif" font-size="440" font-weight="700" fill="#14110d" fill-opacity="0.04" text-anchor="end">${catNum}</text>
+
+	<!-- カテゴリラベル + 装飾ドット -->
+	<circle cx="80" cy="132" r="6" fill="url(#brand)"/>
+	<text x="100" y="140" font-family=${JSON.stringify(FONT)} font-size="24" font-weight="600" letter-spacing="1.5" fill="#8a8178">${escapeXml(label)}</text>
+
+	<!-- タイトル -->
 	${lines
 		.map(
 			(line, i) =>
 				`<text x="72" y="${titleY + i * lineHeight}" font-family=${JSON.stringify(FONT)} font-size="${fontSize}" font-weight="700" fill="#1C1917">${escapeXml(line)}</text>`,
 		)
 		.join('\n\t')}
-	<rect x="72" y="522" width="46" height="4" fill="#14110d"/>
-	<text x="72" y="572" font-family=${JSON.stringify(FONT)} font-size="23" font-weight="600" fill="#57534E">Consilegy Media</text>
+
+	<!-- 下部: ロゴ風マーク + 媒体名 + 罫線 -->
+	<line x1="72" y1="512" x2="1128" y2="512" stroke="#e2ddd4" stroke-width="1"/>
+	<polygon points="72,548 92,538 112,548 112,570 92,580 72,570" fill="none" stroke="url(#brand)" stroke-width="3"/>
+	<text x="128" y="567" font-family=${JSON.stringify(FONT)} font-size="23" font-weight="600" fill="#14110d">Consilegy Media</text>
+	<text x="1128" y="567" font-family=${JSON.stringify(FONT)} font-size="19" fill="#8a8178" text-anchor="end">media.consilegy.com</text>
 </svg>`;
 
 	await base

@@ -163,6 +163,10 @@ img {
 	font-weight: 500;
 }
 
+.site-nav .site-nav__ext {
+	color: var(--color-text-muted);
+}
+
 .site-nav .site-nav__btn {
 	background: var(--color-primary);
 	color: #fff;

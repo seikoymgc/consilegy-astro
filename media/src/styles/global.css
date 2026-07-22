@@ -1,20 +1,23 @@
 /* Consilegy Media — 本体サイト（consilegy.com）のトークンを継承 */
 
 :root {
-	--color-bg: #FAFAF9;
-	--color-bg-subtle: #F5F5F4;
+	--color-bg: #FFFFFF;
+	--color-bg-subtle: #F7F7F5;
 	--color-surface: #FFFFFF;
-	--color-border: #E7E5E4;
-	--color-border-strong: #D6D3D1;
-	--color-text: #1C1917;
-	--color-text-muted: #78716C;
-	--color-primary: #1e40af;
-	--color-primary-dark: #1d4ed8;
-	--color-secondary: #3b82f6;
-	--color-accent: #c2410c;
-	--color-accent-purple: #7c5cbf;
+	--color-border: #E5E3DF;
+	--color-border-strong: #111111;
+	--color-text: #111111;
+	--color-text-muted: #767370;
+	--color-primary: #111111;
+	--color-primary-dark: #000000;
+	--color-secondary: #767370;
+	--color-accent: #111111;
+	--color-accent-purple: #767370;
 
 	--font-sans: 'IBM Plex Sans', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Yu Gothic', sans-serif;
+	--font-serif: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+	--ink: #14110d;
+	--font-serif: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
 
 	--space-xs: 0.5rem;
 	--space-sm: 0.75rem;
@@ -52,10 +55,11 @@ h1,
 h2,
 h3,
 h4 {
-	line-height: 1.45;
+	line-height: 1.5;
 	font-weight: 600;
 	color: var(--color-text);
 	margin: 0;
+	font-family: var(--font-serif);
 }
 
 p {

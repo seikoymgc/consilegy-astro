@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const personSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Person',
+	'@id': 'https://consilegy.com/company/#founder',
+	name: 'Seiko Yamaguchi',
+	alternateName: '山口 聖子',
+	jobTitle: 'Founder / Revenue Architect',
+	worksFor: { '@id': 'https://consilegy.com/#organization' },
+	url: 'https://media.consilegy.com/en/about/',
+	sameAs: ['https://www.linkedin.com/company/consilegy', 'https://note.com/consilegy'],
+	knowsAbout: [
+		'Revenue Architecture',
+		'Revenue Operations',
+		'HubSpot',
+		'Salesforce',
+		'B2B Go-to-Market',
+		'Japan Market Entry',
+	],
+};
+---
+
+<BaseLayout
+	lang="en"
+	title="About the author | Consilegy Media"
+	description="Seiko Yamaguchi, Founder of Consilegy LLC. Revenue architecture, RevOps, and HubSpot / CRM implementation and adoption, across Japanese enterprises and global SaaS companies entering Japan."
+>
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+	</Fragment>
+
+	<section class="page-head">
+		<div class="container container--narrow">
+			<p class="eyebrow">About</p>
+			<h1>Seiko Yamaguchi</h1>
+			<p class="role">Founder, Consilegy LLC / Revenue Architect</p>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container container--narrow">
+			<div class="prose">
+				<p>
+					I design B2B revenue structures, implement them, and see them through to adoption on the ground. The work is to take marketing, sales, and customer success operating in silos, and rebuild them into a single revenue process.
+				</p>
+				<p>
+					I am not a reseller for any single tool, so I choose the design that fits the business, whether that runs on Salesforce, HubSpot, or kintone. The engagement does not stop at upstream design; it assumes implementation and operational adoption through to the end.
+				</p>
+
+				<h2>What I work on</h2>
+				<ul>
+					<li>Revenue Architecture design</li>
+					<li>RevOps, sales process, and KPI design</li>
+					<li>HubSpot / Salesforce / kintone implementation and migration</li>
+					<li>MA / SFA / CRM data design and data quality</li>
+					<li>Japan market entry for global SaaS (Japan GTM)</li>
+					<li>Post-implementation adoption and enablement</li>
+				</ul>
+
+				<h2>About this edition</h2>
+				<p>
+					What is written here comes from real engagements: what was chosen, what worked, and what did not. Rounded to a level that respects confidentiality, but recorded together with the reasoning behind each decision.
+				</p>
+				<p>
+					I have decided not to write generalities. Sentences anyone could write, like "sales and marketing alignment is important," do not go here. There is no point placing content you can already read elsewhere.
+				</p>
+				<p>
+					The definitions and the framework itself live on the corporate site, in <a href="https://consilegy.com/en/services-en/japan-market-gtm-messaging/">Japan Market GTM and Messaging</a> and the broader revenue architecture work. This edition is the record of how that framework did, or did not, function in the field.
+				</p>
+
+				<h2>How I handle numbers</h2>
+				<p>
+					When an article cites a number, it always states three things: who ran the study, in what year, and the sample size. Numbers whose source cannot be traced, or that circulate in a form different from the original, are not used.
+				</p>
+				<p>
+					This field carries more than a few figures that keep getting quoted with murky provenance. For example, "the average B2B buying group is 5.4 people" is a value from a study CEB ran on US companies, not Japanese data. Points like these are flagged in the article itself.
+				</p>
+
+				<h2>Contact</h2>
+				<ul>
+					<li><a href="https://consilegy.com/en/contact-en/">Contact</a></li>
+					<li><a href="https://www.linkedin.com/company/consilegy">LinkedIn</a></li>
+					<li><a href="/">Japanese edition</a></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+	.page-head {
+		padding-block: 3.5rem 2.5rem;
+		border-bottom: 1px solid var(--color-border);
+		background: var(--color-surface);
+	}
+
+	.page-head h1 {
+		font-size: clamp(1.4rem, 3vw, 1.9rem);
+		margin-top: 0.5rem;
+	}
+
+	.role {
+		margin-top: 0.5rem;
+		font-size: 0.88rem;
+		color: var(--color-text-muted);
+	}
+
+	.section {
+		padding-block: 3rem 4rem;
+	}
+
+	.prose {
+		font-size: 0.95rem;
+		line-height: 2;
+	}
+
+	.prose p {
+		margin-top: 1.1rem;
+	}
+
+	.prose h2 {
+		font-size: 1.05rem;
+		margin-top: 2.5rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.prose ul {
+		margin-top: 1.1rem;
+		padding-left: 1.4rem;
+	}
+
+	.prose li {
+		margin-top: 0.4rem;
+	}
+</style>

@@ -1,96 +1,443 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import ArticleCard from '../../components/ArticleCard.astro';
 import { getCollection } from 'astro:content';
-import { categoriesEn, categoryColors, type CategoryKey } from '../../content.config';
+import { categoriesEn, type CategoryKey } from '../../content.config';
 
 const notes = (await getCollection('notesEn', ({ data }) => !data.draft)).sort(
 	(a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf(),
 );
+
+const lead = notes[0];
+const secondary = notes.slice(1, 3);
+const rest = notes.slice(3);
+const popular = notes.slice(0, 5);
+const hasSide = secondary.length > 0;
+
+const fmt = (d: Date) =>
+	d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
 ---
 
 <BaseLayout
 	lang="en"
-	title="Consilegy Media | Fixing B2B revenue problems, structurally"
-	description="Practical guides on entering the Japanese market, CRM adoption, sales process design, and revenue data. Written from hands-on implementation work with Japanese enterprises and global SaaS companies."
+	title="Consilegy Media | Fixing B2B revenue problems in Japan, structurally"
+	description="Practical guides on entering and operating in the Japanese market: ringi approval, CRM adoption, sales process, and revenue data. Written from hands-on implementation work, with sourced data throughout."
 >
-	<section class="hero">
-		<div class="container">
-			<p class="eyebrow">Consilegy Media — English edition</p>
-			<h1>B2B revenue problems, fixed structurally.</h1>
-			<p class="hero-lead">
-				Deals stall in ringi approval. Your CRM stays empty. HQ keeps asking why Japan is slow. These are structural problems, not effort problems. We explain the structure and the fix, based on implementation work with Japanese enterprises and global SaaS companies, with sourced data throughout.
-			</p>
-			<p class="hero-note">
-				The English edition focuses on entering and operating in the Japanese market. The full library is available in <a href="/">Japanese</a>.
-			</p>
-		</div>
-	</section>
+	<div class="wrap">
+		<p class="edition">English edition — entering and operating in the Japanese market. The full library is in <a href="/">Japanese</a>.</p>
+	</div>
 
-	<section class="section">
-		<div class="container">
-			{
-				notes.length === 0 ? (
-					<p class="empty">First articles are in preparation. In the meantime, see <a href="https://consilegy.com/en/">consilegy.com/en</a> for our services.</p>
-				) : (
-					<div class="card-grid">
-						{notes.map(n => (
-							<ArticleCard
-								href={`/en/articles/${n.id}/`}
-								title={n.data.title}
-								description={n.data.description}
-								categoryLabel={categoriesEn[n.data.category as CategoryKey]}
-								color={categoryColors[n.data.category as CategoryKey]}
-								date={n.data.publishedAt}
-								image={`/images/eyecatch/${n.id}.png`}
-							/>
-						))}
-					</div>
-				)
-			}
-		</div>
-	</section>
+	{
+		notes.length === 0 ? (
+			<div class="wrap"><p class="empty">First articles are in preparation. In the meantime, see <a href="https://consilegy.com/en/">consilegy.com/en</a>.</p></div>
+		) : (
+			<>
+				<section class={`wrap hero ${hasSide ? '' : 'hero--solo'}`}>
+					{lead && (
+						<a href={`/en/articles/${lead.id}/`} class="lead">
+							<img src={`/images/eyecatch/${lead.id}.png`} alt="" width="1200" height="630" decoding="async" />
+							<p class="kicker">{categoriesEn[lead.data.category as CategoryKey]}</p>
+							<h2 class="lead-title">{lead.data.title}</h2>
+							<p class="lead-desc">{lead.data.description}</p>
+							<time class="date" datetime={lead.data.publishedAt.toISOString()}>{fmt(lead.data.publishedAt)}</time>
+						</a>
+					)}
+					{hasSide && (
+						<div class="hero-side">
+							{secondary.map(n => (
+								<a href={`/en/articles/${n.id}/`} class="sec">
+									<img src={`/images/eyecatch/${n.id}.png`} alt="" width="1200" height="630" loading="lazy" decoding="async" />
+									<p class="kicker">{categoriesEn[n.data.category as CategoryKey]}</p>
+									<h3 class="sec-title">{n.data.title}</h3>
+									<time class="date" datetime={n.data.publishedAt.toISOString()}>{fmt(n.data.publishedAt)}</time>
+								</a>
+							))}
+						</div>
+					)}
+				</section>
+
+				<div class="wrap main-grid">
+					<section class="latest">
+						{rest.length > 0 && (
+							<>
+								<h2 class="rail-head">More articles</h2>
+								<ul>
+									{rest.map(n => (
+										<li>
+											<a href={`/en/articles/${n.id}/`}>
+												<img src={`/images/eyecatch/${n.id}.png`} alt="" width="1200" height="630" loading="lazy" decoding="async" />
+												<div>
+													<p class="kicker">{categoriesEn[n.data.category as CategoryKey]}</p>
+													<h3 class="row-title">{n.data.title}</h3>
+													<time class="date" datetime={n.data.publishedAt.toISOString()}>{fmt(n.data.publishedAt)}</time>
+												</div>
+											</a>
+										</li>
+									))}
+								</ul>
+							</>
+						)}
+						{rest.length === 0 && (
+							<p class="soon">More Japan-market guides are on the way. Follow along via <a href="/rss.xml">RSS</a> or the <a href="https://consilegy.com/en/">corporate site</a>.</p>
+						)}
+					</section>
+
+					<aside class="rail">
+						{popular.length >= 3 && (
+							<section class="rail-box">
+								<h2 class="rail-head">Most read</h2>
+								<ol class="rank">
+									{popular.map(n => (
+										<li>
+											<a href={`/en/articles/${n.id}/`}>
+												<span class="num" />
+												<span>{n.data.title}</span>
+											</a>
+										</li>
+									))}
+								</ol>
+							</section>
+						)}
+
+						<section class="rail-box promo">
+							<p class="promo-lead">Entering the Japanese market?</p>
+							<p class="promo-text">We help global SaaS and enterprise teams build revenue operations that work in Japan. Free 30-minute consultation.</p>
+							<a href="https://consilegy.com/en/contact-en/" class="promo-btn">Talk to us</a>
+						</section>
+
+						<section class="rail-box">
+							<h2 class="rail-head">About</h2>
+							<p class="run">
+								This edition is published by
+								<a href="https://consilegy.com/en/">Consilegy LLC</a>, a RevOps and Revenue Architecture consultancy working across Japanese enterprises and global SaaS companies. <a href="/en/about/">About the author →</a>
+							</p>
+						</section>
+					</aside>
+				</div>
+			</>
+		)
+	}
 </BaseLayout>
 
 <style>
+	.wrap {
+		max-width: 1060px;
+		margin-inline: auto;
+		padding-inline: 1.5rem;
+	}
+
+	.edition {
+		padding-block: 1.1rem;
+		border-bottom: 1px solid var(--ink);
+		margin-bottom: 2.5rem;
+		font-size: 0.8rem;
+		color: var(--color-text-muted);
+	}
+
+	.edition a {
+		color: var(--ink);
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+
+	.kicker {
+		font-size: 0.7rem;
+		font-weight: 600;
+		letter-spacing: 0.12em;
+		color: var(--color-text-muted);
+		text-transform: uppercase;
+		margin-top: 0.9rem;
+	}
+
+	.date {
+		display: block;
+		margin-top: 0.6rem;
+		font-size: 0.72rem;
+		color: var(--color-text-muted);
+		font-variant-numeric: tabular-nums;
+		letter-spacing: 0.03em;
+	}
+
 	.hero {
-		padding-block: 3.5rem 2.5rem;
-		border-bottom: 1px solid var(--color-border);
-		background: var(--color-surface);
-	}
-
-	.hero h1 {
-		font-size: clamp(1.5rem, 3.5vw, 2.1rem);
-		margin-top: 0.75rem;
-		letter-spacing: -0.01em;
-	}
-
-	.hero-lead {
-		margin-top: 1.25rem;
-		max-width: 680px;
-		color: var(--color-text-muted);
-		font-size: 0.95rem;
-		line-height: 1.9;
-	}
-
-	.hero-note {
-		margin-top: 1rem;
-		font-size: 0.82rem;
-		color: var(--color-text-muted);
-	}
-
-	.section {
-		padding-block: 2.5rem 4rem;
-	}
-
-	.card-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-		gap: 1rem;
+		grid-template-columns: 1.55fr 1fr;
+		gap: 3rem;
+		margin-bottom: 3.5rem;
+	}
+
+	.hero--solo {
+		grid-template-columns: minmax(0, 780px);
+	}
+
+	.lead,
+	.sec,
+	.latest a {
+		color: var(--ink);
+		display: block;
+	}
+
+	.lead:hover,
+	.sec:hover,
+	.latest a:hover {
+		text-decoration: none;
+	}
+
+	.lead img {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+
+	.lead-title {
+		font-size: clamp(1.5rem, 2.6vw, 2rem);
+		line-height: 1.5;
+		font-weight: 700;
+		margin-top: 0.6rem;
+	}
+
+	.lead:hover .lead-title {
+		opacity: 0.65;
+	}
+
+	.lead-desc {
+		margin-top: 0.7rem;
+		font-size: 0.9rem;
+		line-height: 1.9;
+		color: #46403a;
+	}
+
+	.hero-side {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.sec img {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+
+	.sec-title {
+		font-size: 1.08rem;
+		line-height: 1.6;
+		font-weight: 600;
+		margin-top: 0.5rem;
+	}
+
+	.sec:hover .sec-title {
+		opacity: 0.65;
+	}
+
+	.main-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) 280px;
+		gap: 3.5rem;
+		padding-bottom: 4rem;
+	}
+
+	.rail-head {
+		font-size: 1.05rem;
+		font-weight: 700;
+		padding-bottom: 0.6rem;
+		border-bottom: 2px solid var(--ink);
+		margin-bottom: 1.25rem;
+	}
+
+	.latest ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.latest li {
+		padding-block: 1.5rem;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.latest li:first-child {
+		padding-top: 0;
+	}
+
+	.latest li a {
+		display: grid;
+		grid-template-columns: 220px minmax(0, 1fr);
+		gap: 1.5rem;
+		align-items: start;
+	}
+
+	.latest li img {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+
+	.row-title {
+		font-size: 1.12rem;
+		line-height: 1.6;
+		font-weight: 600;
+		margin-top: 0.35rem;
+	}
+
+	.latest li a:hover .row-title {
+		opacity: 0.6;
+	}
+
+	.latest li .kicker {
+		margin-top: 0;
+	}
+
+	.soon {
+		font-size: 0.9rem;
+		line-height: 1.9;
+		color: var(--color-text-muted);
+	}
+
+	.soon a {
+		color: var(--ink);
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+
+	.rail {
+		display: flex;
+		flex-direction: column;
+		gap: 2.5rem;
+		position: sticky;
+		top: 84px;
+		align-self: start;
+	}
+
+	.rank {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		counter-reset: r;
+	}
+
+	.rank li {
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.rank li:last-child {
+		border-bottom: 0;
+	}
+
+	.rank a {
+		display: flex;
+		gap: 0.8rem;
+		padding-block: 0.8rem;
+		color: var(--ink);
+		align-items: baseline;
+	}
+
+	.rank a:hover {
+		text-decoration: none;
+		opacity: 0.6;
+	}
+
+	.num::before {
+		counter-increment: r;
+		content: counter(r);
+		font-family: var(--font-serif);
+		font-size: 1.15rem;
+		font-weight: 700;
+		color: var(--ink);
+		min-width: 1.1rem;
+		display: inline-block;
+	}
+
+	.rank a span:last-child {
+		font-size: 0.83rem;
+		line-height: 1.65;
+		font-weight: 500;
+	}
+
+	.promo {
+		background: var(--ink);
+		color: #fff;
+		padding: 1.4rem 1.3rem;
+	}
+
+	.promo-lead {
+		font-family: var(--font-serif);
+		font-size: 1.05rem;
+		font-weight: 700;
+	}
+
+	.promo-text {
+		margin-top: 0.6rem;
+		font-size: 0.78rem;
+		line-height: 1.8;
+		color: #cfc8bf;
+	}
+
+	.promo-btn {
+		display: block;
+		margin-top: 1rem;
+		text-align: center;
+		background: #fff;
+		color: var(--ink);
+		font-size: 0.85rem;
+		font-weight: 600;
+		padding: 0.7rem;
+	}
+
+	.promo-btn:hover {
+		text-decoration: none;
+		background: #ede9e2;
+	}
+
+	.run {
+		font-size: 0.82rem;
+		line-height: 1.9;
+		color: #46403a;
+	}
+
+	.run a {
+		color: var(--ink);
+		text-decoration: underline;
+		text-underline-offset: 2px;
 	}
 
 	.empty {
 		font-size: 0.9rem;
 		color: var(--color-text-muted);
+		padding-block: 3rem;
+	}
+
+	@media (max-width: 900px) {
+		.hero {
+			grid-template-columns: 1fr;
+			gap: 2.5rem;
+		}
+
+		.hero-side {
+			flex-direction: row;
+			gap: 1.5rem;
+		}
+
+		.sec {
+			flex: 1;
+		}
+
+		.main-grid {
+			grid-template-columns: 1fr;
+			gap: 3rem;
+		}
+
+		.rail {
+			position: static;
+		}
+	}
+
+	@media (max-width: 600px) {
+		.hero-side {
+			flex-direction: column;
+		}
+
+		.latest li a {
+			grid-template-columns: 120px minmax(0, 1fr);
+			gap: 1rem;
+		}
 	}
 </style>

@@ -4,6 +4,8 @@
 
 | 日付 | スラッグ | カテゴリ | 使用トピック | 主な出典 | Recraftプロンプト |
 |---|---|---|---|---|---|
+| 2026-07-23 | why-ma-leads-dont-become-deals (JA) | marketing | MA導入が失敗する構造／リードが商談につながらない | Nexal2023 n=626,003 / Innovation&Co2022 n=438 / ソフトブレーン×IDEATECH2024 n=298 | two colleagues handing a report across a desk |
+| 2026-07-23 | japan-marketing-leads-no-pipeline (EN) | marketing | 同上（外資SaaSの日本運用向け） | 同上 | 同上 |
 | 2026-07-24 | why-japan-deals-take-longer (EN) | japan-gtm | 日本の意思決定が遅い問題 | IDEATECH×北川2026 | tokyo business district |
 | 2026-07-25 | tool-training-once-is-not-enough | adoption | 研修1回では定着しない | HiCustomer CS白書2023 | team training |
 | 2026-07-xx | japan-decision-speed-explained-to-hq | japan-gtm | 本社への説明 | IDEATECH×北川2026 | — |

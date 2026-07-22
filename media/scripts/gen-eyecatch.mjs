@@ -76,7 +76,7 @@ function wrapTitle(title, isEn) {
 		const lines = [];
 		let cur = '';
 		for (const w of words) {
-			if ((cur + ' ' + w).trim().length > 28 && cur) {
+			if ((cur + ' ' + w).trim().length > 20 && cur) {
 				lines.push(cur.trim());
 				cur = w;
 			} else {
@@ -86,7 +86,7 @@ function wrapTitle(title, isEn) {
 		if (cur) lines.push(cur);
 		return lines.slice(0, maxLines);
 	}
-	const perLine = 15;
+	const perLine = 11;
 	const lines = [];
 	for (let i = 0; i < title.length && lines.length < maxLines; i += perLine) {
 		lines.push(title.slice(i, i + perLine));
@@ -110,7 +110,7 @@ async function generate(slug, title, category, isEn) {
 	const color = CATEGORY_COLORS[category] ?? '#1e40af';
 	const label = (isEn ? CATEGORY_LABELS_EN : CATEGORY_LABELS_JA)[category] ?? '';
 	const lines = wrapTitle(title, isEn);
-	const fontSize = isEn ? 52 : lines.some(l => l.length > 13) ? 54 : 60;
+	const fontSize = isEn ? 46 : lines.some(l => l.length > 10) ? 52 : 58;
 	const lineHeight = fontSize * 1.45;
 	const titleY = 320 - ((lines.length - 1) * lineHeight) / 2;
 
@@ -118,26 +118,33 @@ async function generate(slug, title, category, isEn) {
 	const bgPath = path.join(BG_DIR, `${category}.png`);
 	let base;
 	if (await fileExists(bgPath)) {
-		base = sharp(bgPath).resize(1200, 630, { fit: 'cover' });
+		base = sharp(bgPath).resize(1200, 630, { fit: 'cover', position: 'right' });
 	} else {
 		base = sharp({
 			create: { width: 1200, height: 630, channels: 3, background: '#FAFAF9' },
 		});
 	}
 
+	// 左60%は無地パネル（文字用）、右40%は背景アートをそのまま見せる
 	const overlay = `<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
-	<rect width="1200" height="630" fill="#FAFAF9" opacity="0.86"/>
-	<rect x="0" y="0" width="1200" height="8" fill="${color}"/>
-	<text x="80" y="150" font-family=${JSON.stringify(FONT)} font-size="26" font-weight="600" fill="${color}">${escapeXml(label)}</text>
+	<defs>
+		<linearGradient id="fade" x1="0" y1="0" x2="1" y2="0">
+			<stop offset="0" stop-color="#FAFAF9" stop-opacity="1"/>
+			<stop offset="1" stop-color="#FAFAF9" stop-opacity="0"/>
+		</linearGradient>
+	</defs>
+	<rect x="0" y="0" width="690" height="630" fill="#FAFAF9"/>
+	<rect x="690" y="0" width="130" height="630" fill="url(#fade)"/>
+	<rect x="0" y="0" width="1200" height="10" fill="${color}"/>
+	<text x="72" y="140" font-family=${JSON.stringify(FONT)} font-size="25" font-weight="600" fill="${color}">${escapeXml(label)}</text>
 	${lines
 		.map(
 			(line, i) =>
-				`<text x="80" y="${titleY + i * lineHeight}" font-family=${JSON.stringify(FONT)} font-size="${fontSize}" font-weight="700" fill="#1C1917">${escapeXml(line)}</text>`,
+				`<text x="72" y="${titleY + i * lineHeight}" font-family=${JSON.stringify(FONT)} font-size="${fontSize}" font-weight="700" fill="#1C1917">${escapeXml(line)}</text>`,
 		)
 		.join('\n\t')}
-	<rect x="80" y="520" width="52" height="7" fill="${color}"/>
-	<text x="80" y="575" font-family=${JSON.stringify(FONT)} font-size="24" font-weight="600" fill="#78716C">Consilegy Media</text>
-	<text x="1120" y="575" font-family=${JSON.stringify(FONT)} font-size="22" fill="#78716C" text-anchor="end">media.consilegy.com</text>
+	<rect x="72" y="520" width="50" height="7" fill="${color}"/>
+	<text x="72" y="572" font-family=${JSON.stringify(FONT)} font-size="23" font-weight="600" fill="#57534E">Consilegy Media</text>
 </svg>`;
 
 	await base

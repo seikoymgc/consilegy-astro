@@ -8,31 +8,67 @@ canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 ---
 
-Your Japan team is generating leads. Downloads are up, the marketing automation platform is running, the budget is spent. But pipeline is flat, and HQ is asking why demand generation in Japan does not convert. Before you audit the tool or the team, look at the handoff. In Japan, the reason leads do not become deals is almost never the platform or the effort. It is that the work **after** lead capture, moving a lead into a real opportunity, is never designed.
+Your Japan team is generating leads. Downloads are up, the marketing automation platform is running, the budget is spent.
+
+But pipeline is flat, and HQ is asking why demand generation in Japan does not convert.
+
+Before you audit the tool or the team, look at the handoff.
+
+In Japan, the reason leads do not become deals is almost never the platform or the effort. It is that the work **after** lead capture, moving a lead into a real opportunity, is never designed.
 
 ## First, drop the "90% of MA fails" number
 
-If you have worked in Japan, someone has told you that "90% of marketing automation implementations in Japan fail." Drop it. It is not a statistic. Traced to source, it is a remark made in a 2020 industry roundtable, not a study, a sample, or a measured failure rate. Repeating it just builds a quiet case that Japan MA is unwinnable, which is the wrong frame. The real failure is structural, and structural problems can be fixed.
+If you have worked in Japan, someone has told you that "90% of marketing automation implementations in Japan fail." Drop it.
+
+It is not a statistic. Traced to source, it is a remark made in a 2020 industry roundtable, not a study, a sample, or a measured failure rate.
+
+Repeating it just builds a quiet case that Japan MA is unwinnable, which is the wrong frame.
+
+The real failure is structural, and structural problems can be fixed.
 
 ## Japan MA is not "not adopted." It is "adopted but not moving"
 
 Two Japan-specific facts, both worth putting in front of HQ.
 
-First, adoption is genuinely low. Only 1.5% of Japanese companies run a marketing automation platform (Nexal MA implementation study, conducted May 2023, n=626,003). This is not a survey; Nexal crawled the source code of company websites to measure it directly, and Nexal is a consultancy, not an MA vendor, so there is no vendor bias inflating the number. Among listed companies the rate is 14.6%.
+First, adoption is genuinely low. Only 1.5% of Japanese companies run a marketing automation platform (Nexal MA implementation study, conducted May 2023, n=626,003).
+
+This is not a survey; Nexal crawled the source code of company websites to measure it directly, and Nexal is a consultancy, not an MA vendor, so there is no vendor bias inflating the number.
+
+Among listed companies the rate is 14.6%.
 
 Second, among companies that have adopted, over 51% say they are "not using it," even though more than 80% rated the same features as important before buying (Innovation & Co. survey, October 2022, n=438; note this is a vendor survey and should be read with that caveat). 
 
-Put together, Japan MA is not an adoption problem. It is an activation problem: tools go in, then stall. For a global SaaS entering Japan, this matters because the instinct at HQ is to send a better tool or a better playbook. Neither addresses why the tool already in place is not moving.
+Put together, Japan MA is not an adoption problem. It is an activation problem: tools go in, then stall.
+
+For a global SaaS entering Japan, this matters because the instinct at HQ is to send a better tool or a better playbook.
+
+Neither addresses why the tool already in place is not moving.
 
 ## Why it stalls: the baton is dropped in mid-air
 
 In teams where leads do not convert, each function ends its job at a different line.
 
-Marketing finishes when it "hands over the lead." Inside sales finishes when it "works through the call list." Field sales starts when "an opportunity arrives." Each function works. The baton is dropped in the space between them. As long as that gap exists, more leads simply mean more waste.
+Marketing finishes when it "hands over the lead." Inside sales finishes when it "works through the call list."
 
-This is measurable in how the two sides describe each other. Sales' number-one complaint about marketing is "the lead information is insufficient" (42.1%). Marketing's number-one complaint about sales is "they do not improve their follow-up" (47.5%) (Softbrain "cross-functional collaboration survey," fielded by IDEATECH, October 2024, n=298, split as 159 sales and 139 marketing; a vendor survey with a modest sample).
+Field sales starts when "an opportunity arrives."
 
-The revealing part is that both sides blame the other. The sender believes it is handing over properly; the receiver believes it arrives unusable. Neither is slacking. There is simply no agreement on **what gets handed over, in what state.** When a Japanese sales rep stops returning marketing's leads, it is not attitude. It is a learned response to "these never become deals." That is a design problem, and in Japan it is amplified because the internal buying process already has more steps than most HQ playbooks assume.
+Each function works. The baton is dropped in the space between them.
+
+As long as that gap exists, more leads simply mean more waste.
+
+This is measurable in how the two sides describe each other.
+
+Sales' number-one complaint about marketing is "the lead information is insufficient" (42.1%).
+
+Marketing's number-one complaint about sales is "they do not improve their follow-up" (47.5%) (Softbrain "cross-functional collaboration survey," fielded by IDEATECH, October 2024, n=298, split as 159 sales and 139 marketing; a vendor survey with a modest sample).
+
+The revealing part is that both sides blame the other. The sender believes it is handing over properly; the receiver believes it arrives unusable.
+
+Neither is slacking. There is simply no agreement on **what gets handed over, in what state.**
+
+When a Japanese sales rep stops returning marketing's leads, it is not attitude. It is a learned response to "these never become deals."
+
+That is a design problem, and in Japan it is amplified because the internal buying process already has more steps than most HQ playbooks assume.
 
 ## What to fix is the handoff, not the tool
 

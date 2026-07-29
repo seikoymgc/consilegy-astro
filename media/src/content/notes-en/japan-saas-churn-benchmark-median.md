@@ -8,13 +8,21 @@ canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 ---
 
-If you are setting a churn target for your Japan operation from a benchmark that says "Japanese SaaS churns at about 3% a month," you are likely setting it against the wrong number. That 3% is a mean, and it is pulled up by a small number of high-churn companies. **The median company in the same dataset sits near 1%.** Read the mean as the market, and your Japan team looks like it is failing when it is roughly at par.
+If you are setting a churn target for your Japan operation from a benchmark that says "Japanese SaaS churns at about 3% a month," you are likely setting it against the wrong number.
+
+That 3% is a mean, and it is pulled up by a small number of high-churn companies.
+
+**The median company in the same dataset sits near 1%.** Read the mean as the market, and your Japan team looks like it is failing when it is roughly at par.
 
 ## The number that circulates
 
 The figure comes from CloudCircus's Fullstar "Customer Success Survey 2025" (fielded August 2025, n=200, customer success and support staff at B2B information and communications companies in Japan; note that this is a vendor survey). The headline is a **mean monthly churn of 3.01%**.
 
-But the same survey publishes the distribution, and it is heavily skewed: **45% of companies report 1% or lower**, while about 9% report 10% or higher. Those few high-churn companies drag the average up. The median lands in the 1% range, more than double away from the 3.01% mean.
+But the same survey publishes the distribution, and it is heavily skewed: **45% of companies report 1% or lower**, while about 9% report 10% or higher.
+
+Those few high-churn companies drag the average up.
+
+The median lands in the 1% range, more than double away from the 3.01% mean.
 
 So "Japan churns at 3%" describes almost none of the companies in the data. It describes the gap between the typical company and a handful of struggling ones.
 
@@ -22,9 +30,19 @@ So "Japan churns at 3%" describes almost none of the companies in the data. It d
 
 Two failures follow from using the mean as if it were typical.
 
-First, **you set the wrong target.** If HQ benchmarks your Japan team against a 3% "market rate," a team performing at the 1% median looks mediocre, and a team genuinely at 3% looks acceptable when it is actually in the worst tier. The averaged number hides both the good and the bad.
+First, **you set the wrong target.**
 
-Second, **you lose HQ's trust in the whole report.** The moment a headline number stops matching what people see on the ground, they stop trusting the dashboard it came from. After that, even your accurate numbers get discounted in decisions. A dashboard exists to surface what needs intervention, not to produce a tidy single figure; a distrusted figure cannot do that job.
+If HQ benchmarks your Japan team against a 3% "market rate," a team performing at the 1% median looks mediocre, and a team genuinely at 3% looks acceptable when it is actually in the worst tier.
+
+The averaged number hides both the good and the bad.
+
+Second, **you lose HQ's trust in the whole report.**
+
+The moment a headline number stops matching what people see on the ground, they stop trusting the dashboard it came from.
+
+After that, even your accurate numbers get discounted in decisions.
+
+A dashboard exists to surface what needs intervention, not to produce a tidy single figure; a distrusted figure cannot do that job.
 
 ## What to report instead
 

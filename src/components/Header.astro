@@ -95,15 +95,17 @@ const isActive = (href: string | null) =>
 			</ul>
 			<div class="site-header__end">
 				<span class="site-header__lang-pair">
-					<a href="/" class="site-header__lang-item" data-lang-switch data-target-lang="ja">JP</a>
+					<a href={alternateUrl} class="site-header__lang-item" data-lang-switch data-target-lang="ja">JP</a>
 					<span class="site-header__lang-sep" aria-hidden="true">/</span>
 					<span class="site-header__lang-item site-header__lang-item--active">EN</span>
 				</span>
+				<a href="/en/contact/" class="site-header__cta site-header__cta--filled">Talk to us</a>
 			</div>
 			<ul class="site-header__sp-extras">
+				<li><a href="/en/contact/" class="sp-cta-primary">Talk to us</a></li>
 				<li>
 					<span class="site-header__lang-pair">
-						<a href="/" class="site-header__lang-item" data-lang-switch data-target-lang="ja">JP</a>
+						<a href={alternateUrl} class="site-header__lang-item" data-lang-switch data-target-lang="ja">JP</a>
 						<span class="site-header__lang-sep" aria-hidden="true">/</span>
 						<span class="site-header__lang-item site-header__lang-item--active">EN</span>
 					</span>
@@ -168,7 +170,7 @@ const isActive = (href: string | null) =>
 
 		<!-- PC: language switcher (rightmost) -->
 		<span class="site-header__lang-pair sh-lang">
-			<a href="/en/" class="site-header__lang-item" data-lang-switch data-target-lang="en">EN</a>
+			<a href={alternateUrl} class="site-header__lang-item" data-lang-switch data-target-lang="en">EN</a>
 			<span class="site-header__lang-sep" aria-hidden="true">/</span>
 			<span class="site-header__lang-item site-header__lang-item--active">日本語</span>
 		</span>
@@ -214,7 +216,7 @@ const isActive = (href: string | null) =>
 			<li><a href="/download/">資料ダウンロード</a></li>
 			<li>
 				<span class="site-header__lang-pair">
-					<a href="/en/" class="site-header__lang-item" data-lang-switch data-target-lang="en">EN</a>
+					<a href={alternateUrl} class="site-header__lang-item" data-lang-switch data-target-lang="en">EN</a>
 					<span class="site-header__lang-sep" aria-hidden="true">/</span>
 					<span class="site-header__lang-item site-header__lang-item--active">日本語</span>
 				</span>
@@ -332,12 +334,17 @@ const isActive = (href: string | null) =>
 	flex-shrink: 0;
 }
 .site-header__lang-item {
-	font-size: 0.68rem; font-weight: 500; letter-spacing: 0.04em;
-	color: #94a3b8;
+	font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em;
+	color: #64748b;
 	text-decoration: none;
 	transition: color 0.15s;
 }
-a.site-header__lang-item:hover { color: var(--color-text-muted); }
+a.site-header__lang-item {
+	color: #1f072a;
+	padding: 0.32em 0.5em;
+	border-radius: 5px;
+}
+a.site-header__lang-item:hover { color: var(--color-primary); background: rgba(26,23,47,0.06); }
 .site-header__lang-item--active { color: #64748b; font-weight: 600; }
 .site-header__lang-sep { font-size: 0.6rem; color: #cbd5e1; user-select: none; }
 
@@ -515,7 +522,10 @@ a.site-header__lang-item:hover { color: var(--color-text-muted); }
 	color: var(--color-text-muted);
 }
 
-.sh-lang { margin-left: 0.75rem; flex-shrink: 0; }
+.sh-lang {
+	margin-left: 0.5rem; padding-left: 0.75rem; flex-shrink: 0;
+	border-left: 1px solid var(--color-border);
+}
 
 .sh-ctas {
 	display: flex; align-items: center; gap: 0.4rem;

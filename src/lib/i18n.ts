@@ -9,17 +9,20 @@ export const jaToEn: Record<string, string> = {
   '/services/hubspot-implementation-consulting/': '/en/services/hubspot-implementation-operations-support/',
   '/services/revops-ma-crm-sfa-implementation/': '/en/services/crm-revops-implementation/',
   '/services/operational-adoption-optimization/': '/en/services/adoption-growth-support/',
-  '/services/digital-nomad/': '/en/services/assistance-in-attracting-digital-nomads-and-remote-worker/',
-  '/services/website-for-events/': '/en/services/event-website-development-package/',
+  '/services/digital-nomad/': '/en/services/',
+  '/services/website-for-events/': '/en/services/',
   '/case-studies/': '/en/case-studies/',
   '/company/': '/en/company/',
   '/contact/': '/en/contact/',
   '/privacy-policy/': '/en/privacy-policy/',
+  '/crm/': '/en/crm/',
+  '/diagnostic/': '/en/diagnostic/',
+  '/newsletter/': '/en/newsletter/',
   '/about-revops/': '/en/',
   '/revenue-architecture/': '/en/',
   '/download/': '/en/',
   '/free-consultation/': '/en/',
-  '/insights/': '/en/',
+  '/insights/': '/en/insights/',
 };
 
 /** EN → JA の静的URLマッピング（jaToEnの逆引き） */

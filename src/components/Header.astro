@@ -18,7 +18,7 @@ const navJA_top = [
 // ── JA Row 2: サービス・集客導線 ──────────────────────────
 const navJA_bottom: { label: string; href: string | null; children?: { label: string; href: string }[] }[] = [
 	{
-		label: 'サービス',
+		label: 'サービス・料金',
 		href: '/services/',
 		children: [
 			{ label: 'レベニューアーキテクチャ設計', href: '/services/revenue-architecture-design/' },
@@ -40,7 +40,6 @@ const navJA_bottom: { label: string; href: string | null; children?: { label: st
 			{ label: 'ニュースレター',                      href: '/newsletter/' },
 		],
 	},
-	{ label: '料金', href: '/pricing/' },
 ];
 
 // ── EN: single row (unchanged) ────────────────────────────
@@ -165,11 +164,9 @@ const isActive = (href: string | null) =>
 			</ul>
 		</nav>
 
-		<!-- PC: CTA buttons -->
+		<!-- PC: CTA button (単一) -->
 		<div class="sh-ctas">
-			<a href="/diagnostic/" class="site-header__cta site-header__cta--filled">無料で診断する</a>
-			<a href="/download/"          class="site-header__cta site-header__cta--dl">資料ダウンロード</a>
-			<a href="/contact/"           class="site-header__cta site-header__cta--outlined">お問い合わせ</a>
+			<a href="/diagnostic/" class="site-header__cta site-header__cta--filled">3分の収益診断（無料）</a>
 		</div>
 
 		<!-- PC: language switcher (rightmost) -->
@@ -216,9 +213,8 @@ const isActive = (href: string | null) =>
 			))}
 		</ul>
 		<ul class="site-header__sp-extras">
-			<li><a href="/contact/">お問い合わせ</a></li>
+			<li><a href="/diagnostic/" class="sp-cta-primary">3分の収益診断を受ける（無料）</a></li>
 			<li><a href="/download/">資料ダウンロード</a></li>
-			<li><a href="/diagnostic/" class="sp-cta-primary">無料で診断する</a></li>
 			<li>
 				<span class="site-header__lang-pair">
 					<a href="/en/" class="site-header__lang-item" data-lang-switch data-target-lang="en">EN</a>

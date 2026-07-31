@@ -271,6 +271,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				業種・規模を問わずRevenue Architectureの設計・実装・運用を支援してきました。
 			</p>
 		</div>
+		<div class="track-stats">
+			<div class="tr-stat">
+				<span class="tr-stat__num">40<span class="tr-stat__unit">社+</span></span>
+				<span class="tr-stat__label">代表が直接関与したB2B支援</span>
+			</div>
+			<div class="tr-stat">
+				<span class="tr-stat__num">10<span class="tr-stat__unit">年</span></span>
+				<span class="tr-stat__label">収益プロセス設計の実務経験</span>
+			</div>
+			<div class="tr-stat">
+				<span class="tr-stat__num">6,400<span class="tr-stat__unit">人</span></span>
+				<span class="tr-stat__label">LinkedInフォロワー</span>
+			</div>
+			<div class="tr-stat">
+				<span class="tr-stat__num">2,000<span class="tr-stat__unit">人</span></span>
+				<span class="tr-stat__label">ニュースレター購読者</span>
+			</div>
+		</div>
 		<div class="track-grid">
 			<div class="track-card">
 				<div class="track-cat">Revenue Architecture / CRM・データ設計 / 運用基盤</div>
@@ -383,13 +401,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <section class="final-cta" id="cta">
 	<div class="container cta-inner">
 		<p class="cta-eyebrow">Get Started</p>
-		<h2>戦略から実装、定着まで<br />一貫して相談したい方へ。</h2>
+		<h2>戦略から実装、定着まで<br />一貫して任せたい方へ。</h2>
 		<p class="cta-lead">
-			何から着手すべきか整理したい場合も、具体的な導入や改善を検討している場合も、
-			現在の状況に合わせてご案内します。初回ご相談は無料、オンライン60分で承ります。
+			何から着手すべきかを整理するところから始められます。
+			全12問・選択式で、マーケ・営業・CSの6つの「境目」のどこが詰まっているかを可視化。
+			所要3分・無料、結果はその場で表示されます。
 		</p>
 		<div class="cta-actions">
-			<a href="/contact/" class="btn btn--cta-primary btn--lg">無料相談を予約する →</a>
+			<a href="/diagnostic/" class="btn btn--cta-primary btn--lg">3分の収益診断を受ける（無料）→</a>
 			<a href="/download/" class="btn btn--cta-outline btn--lg">サービス資料をダウンロード</a>
 		</div>
 	</div>
@@ -619,6 +638,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	font-family: var(--font-sans); font-size: 2.25rem; font-weight: 600;
 	line-height: 1.45; margin: 0 0 1rem; color: var(--color-text);
 }
+.track-stats {
+	display: grid; grid-template-columns: repeat(4, 1fr);
+	gap: 1.5rem; margin-bottom: 2.5rem; padding: 1.75rem 0;
+	border-top: 1px solid var(--color-border);
+	border-bottom: 1px solid var(--color-border);
+}
+.tr-stat { display: flex; flex-direction: column; gap: 0.5rem; }
+.tr-stat__num {
+	font-size: clamp(2rem, 3.5vw, 2.875rem); font-weight: 700;
+	color: var(--color-primary); letter-spacing: -0.04em; line-height: 1;
+}
+.tr-stat__unit { font-size: 0.9375rem; font-weight: 500; margin-left: 0.25rem; letter-spacing: 0; }
+.tr-stat__label { font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.6; }
+@media (max-width: 768px) {
+	.track-stats { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1.25rem; }
+	.tr-stat__num { font-size: 1.875rem; }
+}
+
 .track-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
 .track-card {
 	background: var(--color-bg); border: 1px solid var(--color-border);

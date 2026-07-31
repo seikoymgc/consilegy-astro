@@ -10,6 +10,11 @@ description: " 項目内容導入ツールGA4, Looker Studio, BigQuery主な課�
 featuredImage: "/images/media/2026/02/ga4-looker-studio.png"
 featuredImageAlt: ""
 draft: false
+industry: "エンターテインメント（米国拠点・グローバル大手）"
+size: "約3,000名"
+symptom: "データは集まっているのにKPI定義が揃わず、分析が属人化して判断に使えなかった"
+action: "KPI定義を統一し、GA4・BigQuery・Looker Studioで意思決定に接続する基盤を設計"
+result: "集めるだけのデータを、判断材料として使える状態へ6ヶ月で移行"
 ---
 <!-- wp:table {"fontSize":"small"} -->
 <figure class="wp-block-table has-small-font-size"><table class="has-fixed-layout"><thead><tr><td><strong>項目</strong></td><td><strong>内容</strong></td></tr></thead><tbody><tr><td><strong>導入ツール</strong></td><td>GA4, Looker Studio, BigQuery</td></tr><tr><td><strong>主な課題</strong></td><td>KPI定義の不整合、分析の属人化、意思決定への未接続</td></tr><tr><td><strong>業界</strong></td><td>エンターテインメント（米国拠点・グローバル大手）</td></tr><tr><td><strong>導入時期 / 期間</strong></td><td>2024年 / 6ヶ月</td></tr><tr><td><strong>従業員数</strong></td><td>約3,000名</td></tr><tr><td><strong>支援内容</strong></td><td>データ活用戦略策定・KPI再設計・ダッシュボード構築・グローバル調整</td></tr></tbody></table></figure>

@@ -12,6 +12,10 @@ service: "GTM戦略設計・プロダクト連動マーケティング基盤・�
 featuredImage: "/images/media/2026/03/s-o-c-i-a-l-c-u-t-1RT4txDDAbM-unsplash.jpg"
 featuredImageAlt: ""
 draft: false
+size: "3名の兼務チーム"
+symptom: "ターゲット顧客が未定義でCRMも未整備。3名の兼務体制で新規プロダクトを立ち上げる必要があった"
+action: "GTM戦略を明文化し、CRMとプロダクトをつなぐ自動化基盤を構築"
+result: "2ヶ月でGTM方針を組織で合意。3名のままで回り続ける収益エンジンを確立"
 ---
 <!-- wp:table {"fontSize":"small"} -->
 <figure class="wp-block-table has-small-font-size"><table class="has-fixed-layout"><thead><tr><td><strong>項目</strong></td><td><strong>内容</strong></td></tr></thead><tbody><tr><td><strong>ツール</strong></td><td>HubSpot (Marketing Hub / Operations Hub), Looker Studio, 各種広告連携</td></tr><tr><td><strong>主な課題</strong></td><td>ターゲット顧客未定義、CRM未整備、プロダクトとマーケティングの未連携、少人数運用</td></tr><tr><td><strong>業界</strong></td><td>コンサルティング（新規AIプロダクト部門）</td></tr><tr><td><strong>体制</strong></td><td>3名の兼務マーケティングチーム / 開発はベトナムへ外部委託</td></tr><tr><td><strong>導入時期 / 期間</strong></td><td>2024年冬〜 / 9ヶ月</td></tr><tr><td><strong>支援内容</strong></td><td>市場参入戦略（GTM）策定・プロダクト連携基盤の構築・マーケティング自動化設計</td></tr></tbody></table></figure>

@@ -10,6 +10,11 @@ description: " 項目内容導入ツールHubSpot, Salesforce, Sansan, GA4主な
 featuredImage: "/images/media/2026/02/apex-virtual-education-KNQUEQwTCY4-unsplash-scaled.jpg"
 featuredImageAlt: ""
 draft: false
+industry: "コンサルティング（DX推進・デジタルマーケティング支援）"
+size: "約150名"
+symptom: "MA構造が複雑化して属人化し、ツール間で顧客データが分断していた"
+action: "HubSpotへ移行し、MA・Webサイト・データパイプラインを一本化"
+result: "運用の属人化を解消し、9ヶ月で運用負荷の低い基盤へ刷新"
 ---
 <!-- wp:table {"fontSize":"small"} -->
 <figure class="wp-block-table has-small-font-size"><table class="has-fixed-layout"><thead><tr><td><strong>項目</strong></td><td><strong>内容</strong></td></tr></thead><tbody><tr><td><strong>導入ツール</strong></td><td>HubSpot, Salesforce, Sansan, GA4</td></tr><tr><td><strong>主な課題</strong></td><td>属人化による運用リスク、ツール間のデータ分断、複雑化したMA構造による運用負荷</td></tr><tr><td><strong>業界</strong></td><td>コンサルティング（DX推進・デジタルマーケティング支援）</td></tr><tr><td><strong>導入時期 / 期間</strong></td><td>2025年 / 9ヶ月</td></tr><tr><td><strong>従業員数</strong></td><td>約150名</td></tr><tr><td><strong>支援内容</strong></td><td>MA移行設計・Webサイト統合・データパイプライン構築</td></tr></tbody></table></figure>

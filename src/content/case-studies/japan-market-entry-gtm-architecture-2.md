@@ -12,6 +12,10 @@ service: "GTM戦略設計・LPアーキテクチャ設計"
 featuredImage: "/images/media/2026/02/jackie-alexander-tV79ff0YlXM-unsplash-scaled.jpg"
 featuredImageAlt: ""
 draft: false
+size: "約120,000名"
+symptom: "本国のメッセージをそのまま持ち込んでも、日本の検討プロセスと噛み合わなかった"
+action: "認知・評価・営業接点の3段階ジャーニーを定義し、LPアーキテクチャを設計"
+result: "日本の意思決定構造に沿ったGTM導線を6ヶ月で構築"
 ---
 <!-- wp:table {"fontSize":"small"} -->
 <figure class="wp-block-table has-small-font-size"><table class="has-fixed-layout"><thead><tr><td><strong>項目</strong></td><td><strong>内容</strong></td></tr></thead><tbody><tr><td><strong>主な課題</strong></td><td>意思決定との乖離、検討情報の不足、営業接続の断絶</td></tr><tr><td><strong>業界</strong></td><td>IT（グローバルEC・テクノロジー企業）</td></tr><tr><td><strong>企業規模</strong></td><td>従業員約120,000名 / グローバル売上$130B+（約20兆円規模）</td></tr><tr><td><strong>導入時期 / 期間</strong></td><td>2023年4月〜 / 6ヶ月</td></tr><tr><td><strong>支援内容</strong></td><td>日本市場参入戦略（GTM）策定・LPアーキテクチャ設計</td></tr></tbody></table></figure>

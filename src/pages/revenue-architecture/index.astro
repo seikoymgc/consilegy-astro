@@ -542,6 +542,56 @@ const relatedServices = [
 	</div>
 </section>
 
+<!-- ===== VS CONSULTING ===== -->
+<section class="section section--soft" id="vs-consulting">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">Comparison</p>
+			<h2>従来のコンサルティングとも、違います</h2>
+		</div>
+		<div class="vsc-body">
+			<p class="vsc-lead">
+				戦略コンサルティングは、何をすべきかを決めるところまでを範囲とします。
+				Revenue Architectureは、決めたことが現場のデータと業務フローに載り、
+				翌月も同じように回っているところまでを範囲とします。
+			</p>
+			<div class="vsc-table" role="table" aria-label="従来のコンサルティングとRevenue Architectureの比較">
+				<div class="vsc-row vsc-row--head" role="row">
+					<span role="columnheader">論点</span>
+					<span role="columnheader">従来のコンサルティング</span>
+					<span role="columnheader">Revenue Architecture</span>
+				</div>
+				<div class="vsc-row" role="row">
+					<span role="rowheader">成果物</span>
+					<span role="cell">戦略・提言レポート</span>
+					<span role="cell">動いているデータモデルと運用ルール</span>
+				</div>
+				<div class="vsc-row" role="row">
+					<span role="rowheader">終了の定義</span>
+					<span role="cell">報告会の完了</span>
+					<span role="cell">現場が使い続けている状態</span>
+				</div>
+				<div class="vsc-row" role="row">
+					<span role="rowheader">扱う対象</span>
+					<span role="cell">意思決定</span>
+					<span role="cell">意思決定 ＋ それを支えるデータ構造・会議体</span>
+				</div>
+				<div class="vsc-row" role="row">
+					<span role="rowheader">実装</span>
+					<span role="cell">別のベンダーに引き継ぐ</span>
+					<span role="cell">設計した人間が手を動かす</span>
+				</div>
+			</div>
+			<p class="vsc-note">
+				どちらが優れているという話ではありません。
+				論点が「何をすべきか」に集中している段階では戦略コンサルティングが適します。
+				「何をすべきかは分かっているが、決めたことが現場で回らない」段階に入ったときに、
+				Revenue Architectureが必要になります。
+			</p>
+		</div>
+	</div>
+</section>
+
 <!-- ===== FAILURES ===== -->
 <section class="section section--soft" id="failures">
 	<div class="container">
@@ -1833,4 +1883,33 @@ const relatedServices = [
 		.structures-grid { grid-template-columns: 1fr; }
 		.outcomes-grid   { grid-template-columns: 1fr; }
 	}
+
+/* ===== VS CONSULTING ===== */
+.vsc-body { max-width: 900px; }
+.vsc-lead { font-size: 1.0625rem; line-height: 1.9; color: var(--color-text); margin: 0 0 2rem; }
+.vsc-table {
+	border: 1px solid var(--color-border); border-radius: 8px;
+	overflow: hidden; background: var(--color-bg);
+}
+.vsc-row {
+	display: grid; grid-template-columns: 8rem 1fr 1fr; gap: 1.25rem;
+	padding: 1rem 1.25rem; align-items: baseline;
+	font-size: 0.9375rem; line-height: 1.7;
+}
+.vsc-row + .vsc-row { border-top: 1px solid var(--color-border); }
+.vsc-row--head {
+	background: var(--color-bg-subtle);
+	font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em;
+	color: var(--color-text-muted); text-transform: uppercase;
+}
+.vsc-row [role="rowheader"] { font-weight: 700; color: var(--color-text-muted); font-size: 0.8125rem; }
+.vsc-row [role="cell"]:last-child { color: var(--color-primary); font-weight: 600; }
+.vsc-note { margin: 1.5rem 0 0; font-size: 0.9375rem; line-height: 1.9; color: var(--color-text-muted); }
+@media (max-width: 720px) {
+	.vsc-row { grid-template-columns: 1fr; gap: 0.375rem; }
+	.vsc-row--head { display: none; }
+	.vsc-row [role="cell"]:nth-child(2)::before { content: "従来: "; color: var(--color-text-muted); font-weight: 700; }
+	.vsc-row [role="cell"]:last-child::before { content: "RA: "; font-weight: 700; }
+}
+
 </style>

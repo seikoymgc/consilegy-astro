@@ -54,6 +54,28 @@ const alternateUrl = getAlternateUrl(Astro.url.pathname, 'ja', enSlug ?? null);
 	backLabel="導入事例一覧"
 	hideLede={true}
 >
+	{entry.data.symptom && (
+		<dl class="cs-summary">
+			{(entry.data.industry || entry.data.size) && (
+				<div class="cs-summary__meta">
+					{entry.data.industry && <span class="cs-industry">{entry.data.industry}</span>}
+					{entry.data.size && <span class="cs-size">{entry.data.size}</span>}
+				</div>
+			)}
+			<div class="cs-stage cs-stage--symptom">
+				<dt>症状</dt>
+				<dd>{entry.data.symptom}</dd>
+			</div>
+			<div class="cs-stage">
+				<dt>打ち手</dt>
+				<dd>{entry.data.action}</dd>
+			</div>
+			<div class="cs-stage cs-stage--result">
+				<dt>結果</dt>
+				<dd>{entry.data.result}</dd>
+			</div>
+		</dl>
+	)}
 	<div class="wp-content" set:html={entry.body ?? ''} />
 	<div class="case-cta">
 		<CTA
@@ -68,5 +90,43 @@ const alternateUrl = getAlternateUrl(Astro.url.pathname, 'ja', enSlug ?? null);
 <style>
 	.case-cta {
 		margin-top: var(--space-2xl);
+	}
+
+	/* 症状 → 打ち手 → 結果。本文を読む前に自分ごとか判定できるようにする */
+	.cs-summary {
+		margin: 0 0 var(--space-xl);
+		padding: 1.5rem 1.75rem;
+		background: var(--color-bg-subtle);
+		border: 1px solid var(--color-border);
+		border-left: 3px solid var(--color-primary);
+		border-radius: 0 8px 8px 0;
+	}
+	.cs-summary__meta {
+		display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem;
+		margin-bottom: 1rem;
+	}
+	.cs-industry {
+		font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em;
+		color: var(--color-primary); background: rgba(30,64,175,0.08);
+		padding: 0.2rem 0.6rem; border-radius: 4px;
+	}
+	.cs-size { font-size: 0.75rem; color: var(--color-text-muted); }
+
+	.cs-stage {
+		display: grid; grid-template-columns: 4.5rem 1fr; gap: 1.25rem;
+		padding: 0.75rem 0; align-items: baseline;
+		border-top: 1px solid var(--color-border);
+	}
+	.cs-stage dt {
+		font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.1em;
+		color: var(--color-text-muted);
+	}
+	.cs-stage dd { margin: 0; font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted); }
+	.cs-stage--symptom dd { color: var(--color-text); font-weight: 600; }
+	.cs-stage--result dd { color: var(--color-primary); font-weight: 600; }
+
+	@media (max-width: 640px) {
+		.cs-summary { padding: 1.25rem 1.25rem; }
+		.cs-stage { grid-template-columns: 1fr; gap: 0.25rem; }
 	}
 </style>

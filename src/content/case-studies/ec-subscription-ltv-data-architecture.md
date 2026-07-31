@@ -10,6 +10,11 @@ description: " 項目内容導入ツールGA4, Amplitude, Looker Studio主な課
 featuredImage: "/images/media/2026/02/sumup-ShB9pI4mpRg-unsplash-scaled.jpg"
 featuredImageAlt: ""
 draft: false
+industry: "小売（国内大手ライフスタイル企業・新規事業部門）"
+size: "約1,500名"
+symptom: "サブスクEC事業で計測が分断し、LTVが見えないまま投資判断をしていた"
+action: "スクラッチECとGA4・Amplitude・Looker Studioを統合し、サブスク特有の指標を設計"
+result: "LTV起点で収益判断ができる運用基盤を9ヶ月で構築"
 ---
 <!-- wp:table {"fontSize":"small"} -->
 <figure class="wp-block-table has-small-font-size"><table class="has-fixed-layout"><thead><tr><th class="has-text-align-left" data-align="left">項目</th><th class="has-text-align-left" data-align="left">内容</th></tr></thead><tbody><tr><td class="has-text-align-left" data-align="left"><strong>導入ツール</strong></td><td class="has-text-align-left" data-align="left">GA4, Amplitude, Looker Studio</td></tr><tr><td class="has-text-align-left" data-align="left"><strong>主な課題</strong></td><td class="has-text-align-left" data-align="left">計測の分断、サブスク特有の指標設計、プロダクト分析の欠如</td></tr><tr><td class="has-text-align-left" data-align="left"><strong>業界</strong></td><td class="has-text-align-left" data-align="left">小売（国内大手ライフスタイル企業・新規事業部門）</td></tr><tr><td class="has-text-align-left" data-align="left"><strong>従業員数</strong></td><td class="has-text-align-left" data-align="left">1,500名</td></tr><tr><td class="has-text-align-left" data-align="left"><strong>導入時期 / 期間</strong></td><td class="has-text-align-left" data-align="left">2023年7月〜 / 9ヶ月</td></tr><tr><td class="has-text-align-left" data-align="left"><strong>支援内容</strong></td><td class="has-text-align-left" data-align="left">データ連携アーキテクチャ設計・LTV可視化基盤の構築</td></tr></tbody></table></figure>

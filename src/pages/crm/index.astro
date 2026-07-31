@@ -3,8 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-	title="Revenue CRM（β版） | 収益構造に沿って動くAIネイティブCRM"
-	description="営業・マーケ・CSの収益データを一つに。AIがリードスコアリングと次アクションを提案するRevenue CRM。現在クローズドβで限定提供中。デモのご相談はこちら。"
+	title="Revenue CRM（β版） | まだCRMを持っていない会社の、最初の1つ"
+	description="顧客情報がExcelとメールにしかない状態から始めるためのCRM。既存システムからの移行作業はありません。40社の収益設計で使ってきた考え方を、そのまま動く形にしました。現在クローズドβ、βパートナーを募集中。"
 	lang="ja"
 	alternateUrl="/en/crm/"
 >
@@ -13,17 +13,41 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 <section class="hero">
 	<div class="container">
 		<span class="eyebrow"><span class="eyebrow__dot"></span>Product · Closed Beta</span>
-		<h1>収益構造に沿って動く、<br />AIネイティブなCRM。</h1>
+		<h1>まだCRMを持っていない会社の、<br />最初の1つ。</h1>
 		<p class="hero-lead">
-			リード獲得から商談、フォーキャストまでを一つに。AIがスコアリングと
-			次のアクションを提案し、営業・マーケ・CSの収益オペレーションを前に進めます。
-			現在クローズドβとして、数社限定で提供を開始しています。
+			顧客情報がExcelとメールにしかない。案件の状況は担当者の頭の中にある。
+			Revenue CRMは、その状態から始めるためのCRMです。
+			既存システムからの移行作業はありません。今の進め方を捨てる必要もありません。
+			Excelでやっていたことが、そのまま記録として残るところから始めます。
 		</p>
 		<div class="hero-actions">
-			<a href="/contact/" class="btn btn--hero-primary btn--lg">デモを依頼する →</a>
+			<a href="/contact/" class="btn btn--hero-primary btn--lg">βパートナーに応募する →</a>
 			<a href="#features" class="btn btn--hero-outline btn--lg">機能を見る</a>
 		</div>
-		<p class="hero-note">※ 現在β版につき、提供は招待制・数社限定です。仕様は予告なく変更される場合があります。</p>
+		<p class="hero-note">※ 現在クローズドβ。数社限定で、一緒に育てていただけるパートナーを探しています。仕様は予告なく変更される場合があります。</p>
+	</div>
+</section>
+
+<!-- ===================== POSITIONING ===================== -->
+<section class="positioning">
+	<div class="container">
+		<div class="pos-body">
+			<p class="pos-lead">
+				Revenue CRMは、40社の設計で使ってきた収益構造の考え方を、
+				そのまま動く形にしたものです。
+			</p>
+			<p>
+				Consilegyの支援は、<strong>既存ツールを前提とした設計が基本</strong>です。
+				Salesforce、HubSpot、kintone、Marketoが入っている会社には、それを活かす形で設計し直します。
+				Revenue CRMを押し付けることはしません。
+			</p>
+			<p>
+				Revenue CRMが向くのは、そもそも移行元がない会社です。
+				比較検討するツールも、捨てるデータもない。
+				その状態からいちばん短い距離で「顧客の状況が記録に残る」に着地させるための、選択肢のひとつです。
+			</p>
+			<a href="/revenue-architecture/" class="pos-link">この考え方について読む →</a>
+		</div>
 	</div>
 </section>
 
@@ -77,13 +101,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		<h2 class="prob-title">こんな課題、ありませんか。</h2>
 		<div class="prob-grid">
 			<div class="prob-item">
-				<p>入力が手間で現場に定着せず、データが揃わない。気づけば結局Excel管理に戻っている。</p>
+				<p>顧客情報がExcelとメールに散らばっていて、どれが最新か分からない。</p>
 			</div>
 			<div class="prob-item">
-				<p>SFA・MA・CSツールが分断され、リードから売上までの数字がつながって見えない。</p>
+				<p>案件の進み具合が担当者の頭の中にしかなく、その人が休むと止まる。</p>
 			</div>
 			<div class="prob-item">
-				<p>どのリードに今動くべきか、次に何をすべきかが属人化していて、対応が後手に回る。</p>
+				<p>売上は伸びているのに、来月どれくらい入るかは誰も言えない。</p>
 			</div>
 		</div>
 	</div>
@@ -254,15 +278,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 	<div class="container cta-inner">
 		<div>
 			<p class="cta-eyebrow">Get Started</p>
-			<h2>まずは、デモで<br />実際の動きをご覧ください。</h2>
+			<h2>一緒に育てていただける<br />パートナーを探しています。</h2>
 			<p class="cta-lead">
-				貴社の収益オペレーションの課題を伺いながら、
-				Revenue CRMがどう機能するかをデモ形式でご紹介します。
-				β導入のご相談もこちらから承ります。
+				クローズドβは、完成品を売る段階ではありません。
+				実際の業務で使っていただき、足りないものを教えていただきながら仕上げていく段階です。
+				その代わり、御社の業務に合わせて機能の優先順位を決められます。
 			</p>
 			<div class="cta-actions">
-				<a href="/contact/" class="btn btn--cta-primary btn--lg">デモを依頼する →</a>
-				<a href="/services/" class="btn btn--cta-outline btn--lg">コンサルの料金を見る</a>
+				<a href="/contact/" class="btn btn--cta-primary btn--lg">βパートナーに応募する →</a>
+				<a href="/services/" class="btn btn--cta-outline btn--lg">すでにCRMがある方はこちら</a>
 			</div>
 		</div>
 		<div class="cta-card">
@@ -469,5 +493,26 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 }
 @media (max-width: 560px) {
 	.hero-actions, .cta-actions { flex-direction: column; }
+}
+
+/* ── Positioning（はしごの1段目としての位置づけ） ───── */
+.positioning {
+	background: var(--color-bg-subtle);
+	border-top: 1px solid var(--color-border);
+	border-bottom: 1px solid var(--color-border);
+	padding-block: var(--space-xl);
+}
+.pos-body { max-width: 760px; }
+.pos-lead {
+	font-size: 1.125rem; font-weight: 600; line-height: 1.8;
+	color: var(--color-text); margin: 0 0 1.25rem;
+	padding-left: 1rem; border-left: 3px solid var(--color-primary);
+}
+.pos-body p { font-size: 0.9375rem; line-height: 1.9; color: var(--color-text-muted); margin: 0 0 1rem; }
+.pos-body strong { color: var(--color-text); font-weight: 700; }
+.pos-link {
+	display: inline-block; margin-top: 0.5rem;
+	font-size: 0.9375rem; font-weight: 700; color: var(--color-primary);
+	text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px;
 }
 </style>

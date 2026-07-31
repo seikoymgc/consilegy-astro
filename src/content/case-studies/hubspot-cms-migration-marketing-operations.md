@@ -10,6 +10,11 @@ description: "HubSpot CMSへの移行により、企画から公開までのリ�
 featuredImage: "/images/media/2026/02/campaign-creators-OGOWDVLbMSc-unsplash-scaled.jpg"
 featuredImageAlt: ""
 draft: false
+industry: "小売（グローバルDTCブランド）"
+size: "約20,000名"
+symptom: "Web施策のたびに開発待ちが発生し、打ち手のスピードが落ちていた"
+action: "HubSpot CMSへ移行し、マーケター自身が更新できるモジュール構成に再設計"
+result: "企画から公開までのリードタイムを約70〜80%短縮。移行は1ヶ月で完遂"
 ---
 <!-- wp:table {"fontSize":"small"} -->
 <figure class="wp-block-table has-small-font-size"><table class="has-fixed-layout"><thead><tr><td><strong>項目</strong></td><td><strong>内容</strong></td></tr></thead><tbody><tr><td><strong>導入ツール</strong></td><td>HubSpot (Content Hub / Marketing Hub)</td></tr><tr><td><strong>主な課題</strong></td><td>運用の硬直化、施策実行の遅延、開発依存</td></tr><tr><td><strong>業界</strong></td><td>小売（グローバルDTCブランド）</td></tr><tr><td><strong>導入時期 / 期間</strong></td><td>2025年 Q2 / 1ヶ月</td></tr><tr><td><strong>従業員数</strong></td><td>約20,000名</td></tr><tr><td><strong>支援内容</strong></td><td>CMS移行・マーケティング自動化基盤の構築・内製化支援</td></tr></tbody></table></figure>

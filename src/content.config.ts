@@ -81,6 +81,15 @@ export const collections = {
 
       service: z.string().optional().default(''),
 
+      // 症状 → 打ち手 → 結果 の3段フォーマット（トップページと同じ語彙で書く）
+      size: z.string().optional().default(''),
+
+      symptom: z.string().optional().default(''),
+
+      action: z.string().optional().default(''),
+
+      result: z.string().optional().default(''),
+
       featuredImage: z.string().optional().default(''),
 
       featuredImageAlt: z.string().optional().default(''),

@@ -1,19 +1,17 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
-import Card from '../../components/Card.astro';
-import CardGrid from '../../components/CardGrid.astro';
 import CTA from '../../components/CTA.astro';
 import { getCollection } from 'astro:content';
 
 const cases = (await getCollection('caseStudies'))
-	.filter((c) => c.data.lang === 'ja')
+	.filter((c) => c.data.lang === 'ja' && !c.data.draft)
 	.sort((a, b) => (b.data.modified ?? '').localeCompare(a.data.modified ?? ''));
 ---
 
 <BaseLayout
 	title="導入事例 | Consilegy"
-	description="マーケティングオペレーションと収益構造の設計・実装における支援事例。業種・フェーズ問わず、データとプロセスの設計を軸に伴走しています。"
+	description="症状・打ち手・結果の3段で整理した支援事例。医療テック、バックオフィスSaaS、グローバルDTC、新規AIプロダクト部門など、業種と規模を添えて掲載しています。"
 >
 <script type="application/ld+json" slot="head" set:html={JSON.stringify({
 	"@context": "https://schema.org",
@@ -26,23 +24,44 @@ const cases = (await getCollection('caseStudies'))
 	<PageHero
 		eyebrow="Case Studies"
 		title="導入事例"
-		lede="業種やフェーズは異なっても、データとプロセスの設計を軸に伴走しています。詳細は各事例ページをご覧ください。"
+		lede="どの事例も「症状 → 打ち手 → 結果」の順に整理しています。まず症状を読んで、自社と同じかどうかを確かめてください。"
 	/>
 
-	<section class="container case-grid">
-		<CardGrid columns={2}>
-			{cases.map((c) => (
-				<Card
-					href={`/case-studies/${c.data.slug}/`}
-					title={c.data.title}
-					description={c.data.description}
-					meta={[c.data.industry, c.data.service].filter(Boolean).join(' · ')}
-					imageSrc={c.data.featuredImage || undefined}
-					imageAlt={c.data.featuredImageAlt || c.data.alt || ''}
-					moreLabel="事例を読む"
-				/>
-			))}
-		</CardGrid>
+	<section class="container case-list">
+		{cases.map((c) => (
+			<article class="cs-card">
+				<header class="cs-card__head">
+					<p class="cs-meta">
+						{c.data.industry && <span class="cs-industry">{c.data.industry}</span>}
+						{c.data.size && <span class="cs-size">{c.data.size}</span>}
+					</p>
+					<h2 class="cs-title">
+						<a href={`/case-studies/${c.data.slug}/`}>{c.data.title}</a>
+					</h2>
+				</header>
+
+				{c.data.symptom ? (
+					<dl class="cs-stages">
+						<div class="cs-stage cs-stage--symptom">
+							<dt>症状</dt>
+							<dd>{c.data.symptom}</dd>
+						</div>
+						<div class="cs-stage">
+							<dt>打ち手</dt>
+							<dd>{c.data.action}</dd>
+						</div>
+						<div class="cs-stage cs-stage--result">
+							<dt>結果</dt>
+							<dd>{c.data.result}</dd>
+						</div>
+					</dl>
+				) : (
+					<p class="cs-desc">{c.data.description}</p>
+				)}
+
+				<a class="cs-link" href={`/case-studies/${c.data.slug}/`}>事例を読む →</a>
+			</article>
+		))}
 	</section>
 
 	<CTA
@@ -54,7 +73,67 @@ const cases = (await getCollection('caseStudies'))
 </BaseLayout>
 
 <style>
-	.case-grid {
+	.case-list {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-lg);
 		padding-block: var(--space-xl);
+	}
+
+	.cs-card {
+		border: 1px solid var(--color-border);
+		border-radius: 8px;
+		background: var(--color-bg);
+		padding: 2rem 2.25rem;
+		transition: box-shadow 0.15s ease;
+	}
+	.cs-card:hover { box-shadow: var(--shadow-sm); }
+
+	.cs-card__head { margin-bottom: 1.5rem; }
+
+	.cs-meta {
+		display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem;
+		margin: 0 0 0.75rem;
+	}
+	.cs-industry {
+		font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em;
+		color: var(--color-primary); background: rgba(30,64,175,0.08);
+		padding: 0.2rem 0.6rem; border-radius: 4px;
+	}
+	.cs-size { font-size: 0.75rem; color: var(--color-text-muted); }
+
+	.cs-title { margin: 0; font-size: 1.1875rem; font-weight: 700; line-height: 1.55; }
+	.cs-title a { color: var(--color-text); text-decoration: none; }
+	.cs-title a:hover { color: var(--color-primary); }
+
+	.cs-stages {
+		margin: 0; display: flex; flex-direction: column;
+		border-top: 1px solid var(--color-border);
+	}
+	.cs-stage {
+		display: grid; grid-template-columns: 4.5rem 1fr; gap: 1.25rem;
+		padding: 0.875rem 0; align-items: baseline;
+		border-bottom: 1px solid var(--color-border);
+	}
+	.cs-stage dt {
+		font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.1em;
+		color: var(--color-text-muted);
+	}
+	.cs-stage dd { margin: 0; font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted); }
+	.cs-stage--symptom dd { color: var(--color-text); font-weight: 600; }
+	.cs-stage--result dd { color: var(--color-primary); font-weight: 600; }
+
+	.cs-desc { margin: 0; font-size: 0.9375rem; line-height: 1.8; color: var(--color-text-muted); }
+
+	.cs-link {
+		display: inline-block; margin-top: 1.25rem;
+		font-size: 0.9375rem; font-weight: 700; color: var(--color-primary);
+		text-decoration: none;
+	}
+	.cs-link:hover { text-decoration: underline; }
+
+	@media (max-width: 640px) {
+		.cs-card { padding: 1.5rem 1.375rem; }
+		.cs-stage { grid-template-columns: 1fr; gap: 0.25rem; }
 	}
 </style>

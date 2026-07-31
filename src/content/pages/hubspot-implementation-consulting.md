@@ -28,7 +28,7 @@ hasShortcodes: true
     <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/contact/">お問い合わせ</a></div>
     <!-- /wp:button -->
     <!-- wp:button {"className":"is-style-outline"} -->
-    <div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/free-consultation/">無料相談を予約する</a></div>
+    <div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/diagnostic/">3分の収益診断を受ける（無料）</a></div>
     <!-- /wp:button -->
   </div>
   <!-- /wp:buttons -->

@@ -15,6 +15,9 @@ ErrorDocument 404 /404.html
 
 	# Legacy WP MA/CRM簡易診断 → 収益漏れ診断 (superseded 2026-06)
 	RewriteRule ^simple_diagnos/?$ /diagnostic/ [R=301,L]
+
+	# 料金ページはサービスハブへ統合（時間軸に一本化、2026-07）
+	RewriteRule ^pricing/?$ /services/ [R=301,L]
 </IfModule>
 
 # ── Cache: immutable hashed assets (Astro fingerprints _astro/* files)

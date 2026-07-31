@@ -57,9 +57,10 @@ const alternateUrl = getAlternateUrl(Astro.url.pathname, 'ja', enSlug ?? null);
 	<div class="wp-content" set:html={entry.body ?? ''} />
 	<div class="case-cta">
 		<CTA
-			title="同様の課題整理から支援できます。"
-			href="/contact/"
-			label="お問い合わせ"
+			title="同じ症状かどうか、3分で確かめられます。"
+			description="全12問・選択式。6つの「境目」のどこで売上を取りこぼしているかを可視化します。所要3分・無料。"
+			href="/diagnostic/"
+			label="3分の収益診断（無料）→"
 		/>
 	</div>
 </ArticleLayout>

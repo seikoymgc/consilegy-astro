@@ -16,28 +16,25 @@ const navJA_top = [
 ];
 
 // ── JA Row 2: サービス・集客導線 ──────────────────────────
+// 機能別5ページはSEOの受け皿として残すが、ナビからは外す。
+// 到達はサービスハブの「個別テーマ」セクションと記事からの内部リンク経由。
 const navJA_bottom: { label: string; href: string | null; children?: { label: string; href: string }[] }[] = [
+	{ label: 'サービス・料金', href: '/services/' },
 	{
-		label: 'サービス・料金',
-		href: '/services/',
+		label: 'レベニューアーキテクチャ',
+		href: '/revenue-architecture/',
 		children: [
-			{ label: 'レベニューアーキテクチャ設計', href: '/services/revenue-architecture-design/' },
-			{ label: 'マーケティング戦略設計',         href: '/services/b2b-marketing-gtm-design/' },
-			{ label: 'CRM / RevOps実装支援',          href: '/services/crm-revops-redesign/' },
-			{ label: 'HubSpot導入・運用支援',          href: '/services/hubspot-implementation-operations/' },
-			{ label: '運用定着・改善支援',              href: '/services/adoption-growth-support/' },
+			{ label: 'RevOps再設計とは', href: '/about-revops/' },
 		],
 	},
-	{ label: 'Revenue CRM', href: '/crm/' },
 	{ label: '導入事例', href: '/case-studies/' },
+	{ label: 'Revenue CRM', href: '/crm/' },
 	{
 		label: 'コラム',
-		href: null,
+		href: '/insights/',
 		children: [
-			{ label: 'レベニューアーキテクチャ設計とは', href: '/revenue-architecture/' },
-			{ label: 'RevOps再設計とは',                href: '/about-revops/' },
-			{ label: '記事一覧',                        href: '/insights/' },
-			{ label: 'ニュースレター',                      href: '/newsletter/' },
+			{ label: '記事一覧',      href: '/insights/' },
+			{ label: 'ニュースレター', href: '/newsletter/' },
 		],
 	},
 ];

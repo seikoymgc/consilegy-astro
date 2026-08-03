@@ -5,15 +5,15 @@
 :root {
   --c-primary:    #1E40AF;
   --c-secondary:  #3B82F6;
-  --c-purple:     #987AD6;
-  --c-pink:       #F472B6;
+  --c-purple:     #765FC4;
+  --c-pink:       #E62E45;
   --c-text:       #0F172A;
   --c-bg:         #FFFFFF;
   --c-subtle:     #F7F7F7;
   --c-border:     #E2E8F0;
   --c-muted:      #64748B;
 
-  --c-gradient: linear-gradient(135deg, #1E40AF 0%, #987AD6 60%, #F472B6 100%);
+  --c-gradient: linear-gradient(135deg, #1E40AF 0%, #765FC4 60%, #E62E45 100%);
 
   --radius-card: 16px;
   --radius-btn:  8px;

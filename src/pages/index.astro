@@ -605,10 +605,10 @@ const insightsPosts = [
 								height="630"
 								class="blog-img__asset"
 							/>
-							<span class="blog-cat-overlay">{post.category}</span>
 							<span class="blog-new">新着</span>
 						</div>
 						<div class="blog-body">
+							<span class="blog-cat">{post.category}</span>
 							<h3 class="blog-title">{post.title}</h3>
 							<p class="blog-desc">{post.description}</p>
 							<div class="blog-foot">
@@ -1311,7 +1311,9 @@ section { padding-block: var(--space-2xl); }
 @media (min-width: 769px) {
 	.blog-card:first-child { grid-column: span 2; }
 	.blog-card:first-child .blog-card__link { flex-direction: row; }
-	.blog-card:first-child .blog-img { flex: 0 0 54%; aspect-ratio: unset; min-height: 220px; }
+	/* アイキャッチはタイトル文字を含むので、切ると読めなくなる。比率を維持する */
+	.blog-card:first-child .blog-card__link { align-items: stretch; }
+	.blog-card:first-child .blog-img { flex: 0 0 54%; aspect-ratio: 1200 / 630; align-self: center; }
 	.blog-card:first-child .blog-body { padding: 2rem; justify-content: center; }
 	.blog-card:first-child .blog-title { font-size: 1.25rem; line-height: 1.4; }
 	.blog-card:first-child .blog-desc { -webkit-line-clamp: 3; }
@@ -1354,11 +1356,12 @@ section { padding-block: var(--space-2xl); }
 	font-size: .5625rem; font-weight: 500; letter-spacing: .08em;
 	background: var(--color-primary); color: #fff; padding: 3px 8px;
 }
-.blog-cat-overlay {
-	position: absolute; top: 10px; left: 10px;
-	font-size: .6875rem; font-weight: 400; letter-spacing: .04em;
-	background: rgba(28,25,23,0.6); color: #fff;
-	padding: 3px 10px;
+.blog-cat {
+	display: inline-block; align-self: flex-start;
+	margin-bottom: 0.5rem;
+	font-size: .625rem; font-weight: 500; letter-spacing: .1em;
+	color: var(--color-primary); background: rgba(30,64,175,0.08);
+	padding: 0.2rem 0.6rem;
 }
 .blog-body {
 	display: flex; flex-direction: column; gap: 0;

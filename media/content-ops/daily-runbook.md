@@ -40,7 +40,10 @@
    - 記事専用画像を置かない場合は、ビルド時に `gen-eyecatch.mjs` がカテゴリ写真（`eyecatch-bg/{category}.png`）を自動でアイキャッチにする（フォールバック。追加作業不要）。
    - 前提：この工程はMac起動＋アプリ＋Chrome（拡張接続）が開いているときのみ動く。閉じている朝はカテゴリ写真で公開される。
 
-8. **公開**：`git add -A && git commit && git push`。GitHub Actions がビルド（アイキャッチ自動生成含む）してデプロイする。
+8. **公開**：`pgrep -x git >/dev/null || rm -f .git/index.lock .git/HEAD.lock` でロックを掃除してから、
+   `git add media/ && git commit && git push`。GitHub Actions がビルド（アイキャッチ自動生成含む）してデプロイする。
+   **`git add -A` は使わないこと。** このリポジトリは本体サイト（consilegy.com）と共用で、
+   他セッションの未コミット作業を記事コミットに巻き込む事故が起きる。
 
 9. **記録**：`published-log.md` に日付・スラッグ・カテゴリ・使用トピック・使った出典・（あれば）Recraftプロンプトを追記。
 

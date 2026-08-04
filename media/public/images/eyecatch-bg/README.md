@@ -24,13 +24,19 @@
 
 ## プロンプト方針
 
-Recraft / ChatGPT で **文字なし**のドキュメンタリー写真を生成する
+Recraft / ChatGPT で **文字なし**の編集写真を生成する
 （プロンプト末尾に no text, no logo）。共通トーン:
 
 ```
-Editorial documentary photograph, <被写体>, natural light,
-muted calm color palette, shallow depth of field, no text, no logo
+Contemporary editorial photograph, <被写体>, bright modern office,
+white walls and light wood, clean neutral colors, soft daylight,
+crisp sharp focus, minimal and uncluttered, no text, no logo
 ```
+
+`documentary` と `muted calm color palette` は使わない。前者はフィルム調の粒状感、
+後者は彩度落ちとセピア寄りの色被りを招き、レトロな写真になる
+（2026-08-04 にこの2語が原因と判明し差し替え）。
+人物を入れると指の破綻が起きやすいので、被写体が主役の記事では `no people, no hands` を付ける。
 
 - `crm.png` — close-up of hands typing on a laptop showing a CRM dashboard
 - `sales.png` — two Japanese business people discussing across a table in a bright meeting room

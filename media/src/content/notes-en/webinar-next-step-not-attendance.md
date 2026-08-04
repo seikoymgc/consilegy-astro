@@ -60,3 +60,9 @@ For context on the channel, Ebsta and Pavilion's 2025 GTM Benchmarks (655,000 op
 - **Reporting the Japan webinar program on registrations.** It is the one number headquarters can compare globally, and it is the number that pushes the local team toward broad topics. Report the self-initiated next steps instead.
 - **Running more sessions when pipeline is flat.** If the topic rule has not changed, more sessions produce more of the same audience. Narrow before you scale.
 - **Handing the raw attendee list to local sales.** Attendance in Japan is a low-commitment act by someone who may be researching on behalf of others. Pass the buyers who did something afterward, and say what they did.
+
+## Related reading
+
+How to write those behaviors into the criteria your local sales team acts on is covered in [hand leads to sales on behavior, not on score](/en/articles/handoff-on-behavior-not-score/).
+
+The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).

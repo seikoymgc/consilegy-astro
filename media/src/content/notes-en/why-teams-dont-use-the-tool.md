@@ -39,3 +39,9 @@ Second, are the people entering the data and the people using it in the same pla
 Third, did anyone follow a Japanese rep through an actual day before finalizing the schema? A spec written in a headquarters meeting rarely matches how the local day runs.
 
 The rule generalizes to one line. **Design the return before you reduce the friction.** A form the rep gets nothing back from stays empty however light you make it, and the dirty data HQ complains about is a design failure, not a discipline problem in Japan.
+
+## Related reading
+
+Once the CRM returns something, the next lever is the meeting that consumes it. That is covered in [change the weekly meeting, not the guide](/en/articles/change-the-meeting-not-the-manual/).
+
+The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).

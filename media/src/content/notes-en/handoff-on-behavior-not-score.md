@@ -58,3 +58,9 @@ Localize this for the Japanese buying process on top of [Japan GTM and messaging
 - **Reusing the global scoring model unchanged.** A threshold tuned to US signals misreads a Japanese buyer who has already done 40% of the process privately. Redefine the passable lead on local evaluation behavior.
 - **Passing on attributes or a single download.** Right title plus one whitepaper is not a reason to act. Require an evaluation behavior your rep can act on.
 - **Answering the complaint with a new scoring build.** If nobody can say in one line why a lead was passed, the problem is undefined criteria, not an imprecise score. Pull ten recently passed leads and write the reason for each; the ones you cannot explain show you where to start.
+
+## Related reading
+
+Whether "attended" and "downloaded" count as evaluation behavior is a separate question, handled in [your Japan webinars fill up, your pipeline does not move](/en/articles/webinar-next-step-not-attendance/).
+
+The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).

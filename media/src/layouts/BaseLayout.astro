@@ -1,6 +1,11 @@
 ---
 import '../styles/global.css';
 
+interface Crumb {
+	name: string;
+	url?: string;
+}
+
 interface Props {
 	title: string;
 	description: string;
@@ -10,27 +15,59 @@ interface Props {
 	updatedAt?: Date;
 	lang?: 'ja' | 'en';
 	ogImage?: string;
+	/** 対になる日本語ページのパス。無い場合は hreflang を出さない */
+	jaPath?: string;
+	/** 対になる英語ページのパス。無い場合は hreflang を出さない */
+	enPath?: string;
+	/** パンくず。先頭から順に並べる。最後の要素は url 省略可 */
+	breadcrumbs?: Crumb[];
+	/** Article schema の articleSection に入れるカテゴリ名 */
+	section?: string;
+	/** Article schema の headline。省略時は title（サイト名付き）を使う */
+	headline?: string;
 }
 
-const { title, description, ogType = 'website', noindex = false, publishedAt, updatedAt, lang = 'ja', ogImage: ogImageProp } = Astro.props;
+const {
+	title,
+	description,
+	ogType = 'website',
+	noindex = false,
+	publishedAt,
+	updatedAt,
+	lang = 'ja',
+	ogImage: ogImageProp,
+	jaPath,
+	enPath,
+	breadcrumbs,
+	section,
+	headline,
+} = Astro.props;
 const isEn = lang === 'en';
 
 const site = Astro.site ?? new URL('https://media.consilegy.com');
-const canonical = new URL(Astro.url.pathname, site).href;
-const ogImage = new URL(ogImageProp ?? '/images/og-default.png', site).href;
+const abs = (path: string) => new URL(path, site).href;
+const canonical = abs(Astro.url.pathname);
+const ogImage = abs(ogImageProp ?? '/images/og-default.png');
+
+// hreflang: 日英の対になるURLが両方揃っているときだけ出す。
+// 片側しか無い状態で出すと相互参照にならず、Googleに無視される。
+const hasPair = Boolean(jaPath && enPath);
 
 const organizationSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Organization',
 	'@id': 'https://consilegy.com/#organization',
 	name: 'Consilegy合同会社',
+	alternateName: 'Consilegy LLC',
 	url: 'https://consilegy.com',
+	sameAs: ['https://www.linkedin.com/company/consilegy', 'https://note.com/consilegy'],
 	founder: {
 		'@type': 'Person',
 		'@id': 'https://consilegy.com/company/#founder',
 		name: '山口 聖子',
 		alternateName: 'Seiko Yamaguchi',
 		jobTitle: 'Founder / Revenue Architect',
+		sameAs: ['https://www.linkedin.com/company/consilegy', 'https://note.com/consilegy'],
 	},
 };
 
@@ -39,17 +76,42 @@ const articleSchema =
 		? {
 				'@context': 'https://schema.org',
 				'@type': 'Article',
-				headline: title,
+				headline: headline ?? title,
 				description,
 				url: canonical,
+				mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+				image: [ogImage],
+				inLanguage: isEn ? 'en' : 'ja',
+				...(section ? { articleSection: section } : {}),
 				datePublished: publishedAt?.toISOString(),
 				dateModified: (updatedAt ?? publishedAt)?.toISOString(),
 				author: {
 					'@type': 'Person',
 					'@id': 'https://consilegy.com/company/#founder',
 					name: '山口 聖子',
+					alternateName: 'Seiko Yamaguchi',
+					url: isEn ? abs('/en/about/') : abs('/about/'),
 				},
 				publisher: { '@id': 'https://consilegy.com/#organization' },
+				isPartOf: {
+					'@type': 'Blog',
+					'@id': isEn ? abs('/en/') : abs('/'),
+					name: 'Consilegy Media',
+				},
+			}
+		: null;
+
+const breadcrumbSchema =
+	breadcrumbs && breadcrumbs.length > 1
+		? {
+				'@context': 'https://schema.org',
+				'@type': 'BreadcrumbList',
+				itemListElement: breadcrumbs.map((crumb, i) => ({
+					'@type': 'ListItem',
+					position: i + 1,
+					name: crumb.name,
+					...(crumb.url ? { item: abs(crumb.url) } : {}),
+				})),
 			}
 		: null;
 ---
@@ -63,6 +125,15 @@ const articleSchema =
 		<meta name="description" content={description} />
 		<link rel="canonical" href={canonical} />
 		{noindex && <meta name="robots" content="noindex, nofollow" />}
+		{
+			hasPair && (
+				<>
+					<link rel="alternate" hreflang="ja" href={abs(jaPath!)} />
+					<link rel="alternate" hreflang="en" href={abs(enPath!)} />
+					<link rel="alternate" hreflang="x-default" href={abs(jaPath!)} />
+				</>
+			)
+		}
 
 		<meta property="og:type" content={ogType} />
 		<meta property="og:title" content={title} />
@@ -83,10 +154,17 @@ const articleSchema =
 			href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap"
 		/>
 		<link rel="icon" type="image/svg+xml" href="/favicon-2026.svg" />
-		<link rel="alternate" type="application/rss+xml" title="Consilegy Media" href="/rss.xml" />
+		{
+			isEn ? (
+				<link rel="alternate" type="application/rss+xml" title="Consilegy Media (English)" href="/en/rss.xml" />
+			) : (
+				<link rel="alternate" type="application/rss+xml" title="Consilegy Media" href="/rss.xml" />
+			)
+		}
 
 		<script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
 		{articleSchema && <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />}
+		{breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
 		<slot name="head" />
 	</head>
 	<body>
@@ -131,6 +209,7 @@ const articleSchema =
 						<p class="site-footer__head">Read</p>
 						<a href="/en/">All articles</a>
 						<a href="/en/about/">Author</a>
+						<a href="/en/rss.xml">RSS</a>
 						<a href="/">日本語版</a>
 					</nav>
 					<nav aria-label="Company">

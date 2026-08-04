@@ -5,10 +5,14 @@ import { categories } from '../../content.config';
 
 export async function getStaticPaths() {
 	const notes = await getCollection('notes', ({ data }) => !data.draft);
-	return notes.map(note => ({ params: { slug: note.id }, props: { note } }));
+	const enIds = new Set((await getCollection('notesEn', ({ data }) => !data.draft)).map(n => n.id));
+	return notes.map(note => ({
+		params: { slug: note.id },
+		props: { note, hasEn: enIds.has(note.id) },
+	}));
 }
 
-const { note } = Astro.props;
+const { note, hasEn } = Astro.props;
 const { Content, headings } = await render(note);
 const d = note.data;
 const toc = headings.filter(h => h.depth === 2);
@@ -23,12 +27,22 @@ const formatDate = (date: Date) =>
 ---
 
 <BaseLayout
-	title={`${d.title} | Consilegy Media`}
+	title={d.title.length > 44 ? d.title : `${d.title} | Consilegy Media`}
+	headline={d.title}
 	description={d.description}
 	ogType="article"
 	publishedAt={d.publishedAt}
 	updatedAt={d.updatedAt}
 	ogImage={`/images/eyecatch/${note.id}.png`}
+	section={categories[d.category]}
+	jaPath={hasEn ? `/notes/${note.id}/` : undefined}
+	enPath={hasEn ? `/en/articles/${note.id}/` : undefined}
+	breadcrumbs={[
+		{ name: 'ホーム', url: '/' },
+		{ name: '記事一覧', url: '/notes/' },
+		{ name: categories[d.category], url: `/notes/category/${d.category}/` },
+		{ name: d.title },
+	]}
 >
 	<article class="note">
 		<div class="container container--narrow">
@@ -36,6 +50,8 @@ const formatDate = (date: Date) =>
 				<a href="/">ホーム</a>
 				<span aria-hidden="true">›</span>
 				<a href="/notes/">記事一覧</a>
+				<span aria-hidden="true">›</span>
+				<a href={`/notes/category/${d.category}/`}>{categories[d.category]}</a>
 			</nav>
 
 			<p class="note-cat">{categories[d.category]}</p>
@@ -45,6 +61,16 @@ const formatDate = (date: Date) =>
 				<time datetime={d.publishedAt.toISOString()}>公開 {formatDate(d.publishedAt)}</time>
 				{d.updatedAt && <time datetime={d.updatedAt.toISOString()}>更新 {formatDate(d.updatedAt)}</time>}
 			</div>
+
+			<figure class="note-hero">
+				<img
+					src={`/images/eyecatch/${note.id}.png`}
+					alt={d.title}
+					width="1200"
+					height="630"
+					decoding="async"
+				/>
+			</figure>
 
 			{
 				toc.length >= 2 && (
@@ -144,6 +170,17 @@ const formatDate = (date: Date) =>
 		font-size: 0.76rem;
 		color: var(--color-text-muted);
 		font-variant-numeric: tabular-nums;
+	}
+
+	.note-hero {
+		margin: 1.75rem 0 0;
+	}
+
+	.note-hero img {
+		width: 100%;
+		height: auto;
+		display: block;
+		border-radius: var(--radius);
 	}
 
 	.toc {

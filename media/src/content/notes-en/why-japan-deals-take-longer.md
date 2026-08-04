@@ -63,3 +63,9 @@ Two practical notes:
 - **Explaining with averages only.** "It takes six months on average" invites "make it faster." Show the approval-stage structure so the length has a cause.
 - **Sounding like Japanese exceptionalism.** Frame it as "this market has one more measurable stage," not "Japan is special." The first fits a management framework; the second sounds like an excuse.
 - **Resetting expectations without a plan.** Lowering targets without showing the ringi-support playbook reads as defeatism, not insight.
+
+## Related reading
+
+Explaining the length is one thing; forecasting through it is another. [Forecast on approval progress, not rep confidence](/en/articles/forecast-by-approval-not-confidence/) covers the mechanics.
+
+The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).

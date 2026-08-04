@@ -87,3 +87,9 @@ Run MA or SFA without these three, and the information you put in never converts
 - **Trying to fix it by switching tools.** The cause is the missing post-capture design, so a new platform stalls at the same point. Check that handoff criteria are written down before you migrate.
 - **Keeping lead volume as the success metric.** You can grow downloads and lead counts without moving opportunity counts. Shift the reported metric from "leads captured" to "lead-to-opportunity rate" and the gap becomes visible.
 - **Deploying MA with no content inventory.** Automation has nothing to send if the nurture content does not exist. Count how many nurture assets you have before you launch, not after.
+
+## Related reading
+
+The concrete criteria for that handoff are in [hand leads to sales on behavior, not on score](/en/articles/handoff-on-behavior-not-score/).
+
+The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).

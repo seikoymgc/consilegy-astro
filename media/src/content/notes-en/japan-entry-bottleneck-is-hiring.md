@@ -59,3 +59,9 @@ Designing the Japanese market as one continuous [revenue architecture](https://c
 - **Hiring last.** Finishing product localization and pricing before you start recruiting extends the window where no one is operating the market. Hiring is the first stage, not the last.
 - **Reusing the HQ job description.** Recruiting against an English-market sales profile misses the people who can carry consensus building and internal approval. Rewrite the role around the Japanese buying structure.
 - **Settling for "speaks Japanese."** The requirement is not language; it is the ability to move a deal to close inside Japanese B2B norms. Miss that, and the hire will not move deals.
+
+## Related reading
+
+The second thing headquarters tends to misread is deal length. [Why deals in Japan take 3 to 8 months](/en/articles/why-japan-deals-take-longer/) covers how to explain and forecast it.
+
+The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).

@@ -79,3 +79,9 @@ The absence of an external comparison raises the value of internal consistency, 
 - **Building the dashboard before agreeing on the definitions.** Automate on a misaligned denominator and you produce a clean chart of the wrong number every day. Aligning one page comes first.
 - **Treating "lead" as a single word.** "High intent" cannot be operated. Pair an attribute condition with a behavior condition so a different person reaches the same judgment.
 - **Comparing Japan to HQ without a shared cutoff.** If the global model counts by created-date and the Japan team counts by close-date lookback, the regional gap you are escalating may be a difference in arithmetic, not performance.
+
+## Related reading
+
+After the denominator is aligned, the numbers still need a rule attached. [Write the threshold before adding another dashboard](/en/articles/threshold-before-dashboard/) covers that step.
+
+The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).

@@ -50,3 +50,9 @@ Designing the review rather than relying on discipline shows up in the global da
 Ask your Japan lead to build the next weekly agenda entirely from the CRM. Whatever cannot be built from it is not an entry gap; it is a field that no one is using to make a decision, and it can be removed.
 
 A CRM is not held to tidy information. It is held to fix who decides what, and when, inside the local organisation. The wider frame is in [Japan Market GTM and Messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/).
+
+## Related reading
+
+If changing the meeting still does not move the data, the problem is upstream: read [why your Japan team won't log data](/en/articles/why-teams-dont-use-the-tool/), which covers what the CRM has to return to the person entering it.
+
+The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).

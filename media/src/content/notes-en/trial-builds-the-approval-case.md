@@ -68,3 +68,9 @@ Treating the Japanese market as one continuous [revenue architecture](https://co
 - **Reporting Japan on trial-to-paid conversion.** In a market where the trial sits late and sales comes first, that ratio measures the wrong stage. Track how many approval-ready documents a deal has produced.
 - **Reading a happy user as pipeline progress.** "They said it was easy to use" is not progress in a two-stage approval structure. Progress is a document reaching the next approver.
 - **Leaving the business case to the buyer.** Explaining cost-benefit internally is their single biggest difficulty. Hand over the calculation template and the assumptions, not a link to a trial.
+
+## Related reading
+
+What actually carries an approval document internally is precedent, not features. [Why your best feature won't win the deal in Japan](/en/articles/japanese-deals-win-on-precedent/) has the data.
+
+The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).

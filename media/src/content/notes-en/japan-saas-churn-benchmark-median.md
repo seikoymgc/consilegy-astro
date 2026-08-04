@@ -56,3 +56,9 @@ A dashboard exists to surface what needs intervention, not to produce a tidy sin
 - **Treating every metric as skewed.** Symmetric metrics are fine to average. Churn, deal size, and stage duration are the ones that reliably skew; check the distribution per metric.
 - **Reporting the median but hiding the distribution.** The median is a representative value, not a tool for making the high-churn accounts disappear.
 - **Trusting the dashboard's default.** Most tools aggregate with a mean by default. For skewed metrics, do not ship that default to HQ.
+
+## Related reading
+
+Reading the median is the first half; attaching a decision rule to it is the second. See [write the threshold before adding another dashboard](/en/articles/threshold-before-dashboard/).
+
+The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).

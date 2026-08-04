@@ -91,3 +91,9 @@ How to redesign the full process around this sits on top of [Revenue Architectur
 - **Polishing the feature comparison.** In a Japanese approval, precedent beats feature superiority. Building an inventory of similar-size, same-industry case studies moves more deals than sharpening the comparison grid.
 - **Treating your contact as the decision-maker.** With two to four departments involved, an eager champion cannot carry the deal past another department's unresolved "no." Watch the spread of consensus, not the enthusiasm of one person.
 - **Waiting out "let me take this back internally."** Waiting lets the deal slip, and slippage lowers win rates. Decide before you wait what you will hand them: the ringi draft and the matching case study.
+
+## Related reading
+
+The common mistake is to lead with a free trial instead of precedent. [Your free trial won't close the deal in Japan](/en/articles/trial-builds-the-approval-case/) covers what to send instead.
+
+The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).

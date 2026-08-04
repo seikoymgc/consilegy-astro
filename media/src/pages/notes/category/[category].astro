@@ -3,6 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ArticleCard from '../../../components/ArticleCard.astro';
 import { getCollection } from 'astro:content';
 import { categories, categoryColors, type CategoryKey } from '../../../content.config';
+import { categoryHubs } from '../../../data/category-hubs';
 
 export async function getStaticPaths() {
 	return (Object.keys(categories) as CategoryKey[]).map(category => ({
@@ -13,16 +14,61 @@ export async function getStaticPaths() {
 const { category } = Astro.params as { category: CategoryKey };
 const label = categories[category];
 const color = categoryColors[category];
+const hub = categoryHubs[category];
 
 const notes = (await getCollection('notes', ({ data }) => !data.draft && data.category === category)).sort(
 	(a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf(),
 );
+
+const site = Astro.site ?? new URL('https://media.consilegy.com');
+const pageUrl = new URL(Astro.url.pathname, site).href;
+
+const faqSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	'@id': `${pageUrl}#faq`,
+	mainEntity: hub.faq.map(f => ({
+		'@type': 'Question',
+		name: f.q,
+		acceptedAnswer: { '@type': 'Answer', text: f.a },
+	})),
+};
+
+const collectionSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'CollectionPage',
+	'@id': pageUrl,
+	name: label,
+	description: hub.intro[0],
+	inLanguage: 'ja',
+	isPartOf: { '@type': 'Blog', '@id': new URL('/', site).href, name: 'Consilegy Media' },
+	mainEntity: {
+		'@type': 'ItemList',
+		numberOfItems: notes.length,
+		itemListElement: notes.map((n, i) => ({
+			'@type': 'ListItem',
+			position: i + 1,
+			url: new URL(`/notes/${n.id}/`, site).href,
+			name: n.data.title,
+		})),
+	},
+};
 ---
 
 <BaseLayout
-	title={`${label} | Consilegy Media`}
-	description={`「${label}」という悩みに対する解決記事の一覧です。原因の構造、解決の手順、実務での実例の順で解説しています。`}
+	title={`${label}｜原因と直し方 | Consilegy Media`}
+	description={`${hub.intro[0]}全${notes.length}本の記事と、よくある質問への回答をまとめています。`}
+	breadcrumbs={[
+		{ name: 'ホーム', url: '/' },
+		{ name: '記事一覧', url: '/notes/' },
+		{ name: label },
+	]}
 >
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+	</Fragment>
+
 	<section class="page-head">
 		<div class="container">
 			<nav class="breadcrumb" aria-label="パンくずリスト">
@@ -33,6 +79,9 @@ const notes = (await getCollection('notes', ({ data }) => !data.draft && data.ca
 				<span aria-current="page">{label}</span>
 			</nav>
 			<h1 style={`--cat-color: ${color};`}>{label}</h1>
+			<div class="hub-intro">
+				{hub.intro.map(p => <p>{p}</p>)}
+			</div>
 			<p class="page-lead">全{notes.length}本</p>
 		</div>
 	</section>
@@ -58,6 +107,37 @@ const notes = (await getCollection('notes', ({ data }) => !data.draft && data.ca
 					</div>
 				)
 			}
+		</div>
+	</section>
+
+	<section class="section section--faq">
+		<div class="container container--narrow">
+			<h2 class="faq-head">よくある質問</h2>
+			<dl class="faq">
+				{
+					hub.faq.map(f => (
+						<>
+							<dt>{f.q}</dt>
+							<dd>{f.a}</dd>
+						</>
+					))
+				}
+			</dl>
+
+			<nav class="hub-nav" aria-label="他のカテゴリ">
+				<p class="hub-nav__label">他の悩みから探す</p>
+				<ul>
+					{
+						(Object.keys(categories) as CategoryKey[])
+							.filter(key => key !== category)
+							.map(key => (
+								<li>
+									<a href={`/notes/category/${key}/`}>{categories[key]}</a>
+								</li>
+							))
+					}
+				</ul>
+			</nav>
 		</div>
 	</section>
 </BaseLayout>
@@ -87,14 +167,87 @@ const notes = (await getCollection('notes', ({ data }) => !data.draft && data.ca
 		border-left: 5px solid var(--cat-color);
 	}
 
+	.hub-intro {
+		margin-top: 1.25rem;
+		max-width: 44rem;
+		font-size: 0.9rem;
+		line-height: 2;
+		color: var(--color-text);
+	}
+
+	.hub-intro p + p {
+		margin-top: 0.85rem;
+	}
+
 	.page-lead {
-		margin-top: 0.75rem;
+		margin-top: 1.25rem;
 		font-size: 0.82rem;
 		color: var(--color-text-muted);
 	}
 
 	.section {
 		padding-block: 2.5rem 4rem;
+	}
+
+	.section--faq {
+		padding-block: 0 4rem;
+		border-top: 1px solid var(--color-border);
+		padding-top: 3rem;
+	}
+
+	.faq-head {
+		font-size: 1.05rem;
+	}
+
+	.faq {
+		margin-top: 1.5rem;
+	}
+
+	.faq dt {
+		font-size: 0.92rem;
+		font-weight: 600;
+		margin-top: 1.75rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.faq dt:first-of-type {
+		margin-top: 0;
+		padding-top: 0;
+		border-top: none;
+	}
+
+	.faq dd {
+		margin: 0.7rem 0 0;
+		font-size: 0.88rem;
+		line-height: 2;
+		color: var(--color-text-muted);
+	}
+
+	.hub-nav {
+		margin-top: 3rem;
+		padding-top: 1.75rem;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.hub-nav__label {
+		font-size: 0.78rem;
+		font-weight: 500;
+		color: var(--color-text-muted);
+		margin-bottom: 0.75rem;
+	}
+
+	.hub-nav ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem 1.25rem;
+	}
+
+	.hub-nav li a {
+		font-size: 0.85rem;
 	}
 
 	.card-grid {

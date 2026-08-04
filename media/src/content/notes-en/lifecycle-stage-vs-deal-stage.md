@@ -55,3 +55,9 @@ The generalizable rule is single. **Design the state of the customer and the pro
 One merged funnel looks neater on screen, but because one axis can never move backward, your denominators drift and your automation fires on the wrong conditions.
 
 Two correct pipelines beat one tidy one, especially when HQ is reading the result from the other side of the world.
+
+## Related reading
+
+Once stages are separated, the next thing that stops reconciling is the denominator. [Start with the denominator](/en/articles/define-the-denominator-first/) covers how to align it with HQ.
+
+The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).

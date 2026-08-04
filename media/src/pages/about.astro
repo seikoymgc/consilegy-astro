@@ -25,6 +25,9 @@ const personSchema = {
 <BaseLayout
 	title="著者について | Consilegy Media"
 	description="山口聖子（Consilegy合同会社 代表）。B2BのRevOps、Revenue Architecture設計、HubSpot・CRM実装と定着支援。日本企業と海外SaaSの日本参入の双方を担当。"
+	jaPath="/about/"
+	enPath="/en/about/"
+	breadcrumbs={[{ name: 'ホーム', url: '/' }, { name: '著者について' }]}
 >
 	<Fragment slot="head">
 		<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />

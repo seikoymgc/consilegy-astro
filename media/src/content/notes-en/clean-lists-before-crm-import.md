@@ -64,3 +64,9 @@ One generalisation is worth keeping.
 Open one of the files and count what share of rows have no email address. That single number tells you how much time the three decisions deserve.
 
 Customer data is worth what you can explain about it later, not what it weighs. The wider frame is in [Japan Market GTM and Messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/).
+
+## Related reading
+
+The other design decision to settle before the load is how stages are modelled. See [don't merge lifecycle stage and deal stage](/en/articles/lifecycle-stage-vs-deal-stage/) for what breaks when they are combined.
+
+The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).

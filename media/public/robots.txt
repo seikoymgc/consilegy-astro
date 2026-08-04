@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://media.consilegy.com/sitemap-index.xml
+
+# 生成AI・AI検索向けのサイト構造ファイル
+# https://media.consilegy.com/llms.txt

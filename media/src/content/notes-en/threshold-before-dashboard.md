@@ -48,3 +48,9 @@ One generalisation is worth keeping.
 Take one figure from your last Japan review and write that line. If you cannot write it, the metric does not belong in the review.
 
 Numbers are held to decide with, not to display. The wider frame is in [Japan Market GTM and Messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/).
+
+## Related reading
+
+Be careful which statistic the threshold is built on. [Why Japan's "3% SaaS churn" benchmark misleads your HQ](/en/articles/japan-saas-churn-benchmark-median/) shows what happens when an average carries an outlier.
+
+The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).

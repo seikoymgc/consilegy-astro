@@ -26,6 +26,9 @@ const personSchema = {
 	lang="en"
 	title="About the author | Consilegy Media"
 	description="Seiko Yamaguchi, Founder of Consilegy LLC. Revenue architecture, RevOps, and HubSpot / CRM implementation and adoption, across Japanese enterprises and global SaaS companies entering Japan."
+	jaPath="/about/"
+	enPath="/en/about/"
+	breadcrumbs={[{ name: 'Home', url: '/en/' }, { name: 'About the author' }]}
 >
 	<Fragment slot="head">
 		<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />

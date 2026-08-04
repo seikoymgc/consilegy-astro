@@ -56,3 +56,9 @@ A deal held in the forecast while the approval sits still is not deferred revenu
 - **Stop forcing the global stage model to carry both jobs.** Sales stages track what your team did. The approval axis tracks what the buyer decided. One field cannot hold both, and merging them is why the Japan number is never right.
 
 Build the approval axis into the local process alongside [Japan GTM and messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/) work, not as a reporting patch on top of it.
+
+## Related reading
+
+What to put in front of the approver to move that second axis is covered in [why your best feature won't win the deal in Japan](/en/articles/japanese-deals-win-on-precedent/).
+
+The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).

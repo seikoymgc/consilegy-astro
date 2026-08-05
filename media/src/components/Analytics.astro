@@ -1,0 +1,59 @@
+---
+// メディア側の計測。本体サイト src/components/Analytics.astro と同じ設計に合わせる。
+//
+// GTM(GTM-T2FNKSK) は本体と共通コンテナ。ページビューはそれだけで取れるが、
+// このメディアで本当に知りたいのは「どの記事が本体サイトへ人を送ったか」なので、
+// 本体ドメインへのクリックを1イベントだけ dataLayer に流す。
+//
+//   media_outbound_click … consilegy.com へのリンクをクリックしたとき
+//     article_path   … どの記事から出たか
+//     destination    … 遷移先のパス（/free-consultation/ など）
+//     cta_label      … クリックしたリンクの文言（60字まで）
+//     entry_page     … そのセッションでメディアに入った最初のページ
+//     entry_referrer … その入口の参照元
+//
+// 本体側は sessionStorage に cslg_source_page を持っているが、
+// sessionStorage はドメインを越えないため、メディア側は自前で入口を記録する。
+// メディア→本体をひとつのセッションとして繋ぐのは GA4 のクロスドメイン設定側の役割。
+---
+
+<script is:inline>
+	(function () {
+		var dl = (window.dataLayer = window.dataLayer || []);
+		var S = window.sessionStorage;
+		function get(k) { try { return S.getItem(k) || ''; } catch (e) { return ''; } }
+		function set(k, v) { try { S.setItem(k, v); } catch (e) {} }
+
+		// セッションの入口を1度だけ記録する
+		if (!get('cslg_media_entry_page')) {
+			set('cslg_media_entry_page', location.pathname);
+			var ref = document.referrer || '';
+			if (ref && ref.indexOf(location.origin) === 0) ref = ''; // サイト内遷移は入口にしない
+			set('cslg_media_entry_referrer', ref || '(direct)');
+		}
+
+		document.addEventListener(
+			'click',
+			function (e) {
+				var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+				if (!a) return;
+
+				var href = a.getAttribute('href') || '';
+				if (href.indexOf('https://consilegy.com') !== 0) return;
+
+				var dest = href;
+				try { dest = new URL(href).pathname; } catch (err) {}
+
+				dl.push({
+					event: 'media_outbound_click',
+					article_path: location.pathname,
+					destination: dest,
+					cta_label: (a.textContent || '').trim().slice(0, 60),
+					entry_page: get('cslg_media_entry_page'),
+					entry_referrer: get('cslg_media_entry_referrer')
+				});
+			},
+			true
+		);
+	})();
+</script>

@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
-import { GTM_ID } from '../site-config';
+import Analytics from '../components/Analytics.astro';
+import { GTM_ID, PRIVACY_URL_JA, PRIVACY_URL_EN } from '../site-config';
 
 interface Crumb {
 	name: string;
@@ -225,6 +226,7 @@ const breadcrumbSchema =
 				</noscript>
 			)
 		}
+		{GTM_ID && <Analytics />}
 		<header class="site-header">
 			<div class="container site-header__inner">
 				<a href="/" class="site-brand">
@@ -274,6 +276,7 @@ const breadcrumbSchema =
 						<a href="https://consilegy.com/en/">Corporate site</a>
 						<a href="https://consilegy.com/en/services-en/japan-market-gtm-messaging/">Japan Market GTM</a>
 						<a href="https://consilegy.com/en/contact-en/">Contact</a>
+						<a href={PRIVACY_URL_EN}>Privacy policy</a>
 					</nav>
 				</div>
 			) : (
@@ -305,6 +308,7 @@ const breadcrumbSchema =
 						<a href="https://consilegy.com/diagnostic/">収益構造の無料診断</a>
 						<a href="https://consilegy.com/newsletter/">ニュースレター</a>
 						<a href="https://consilegy.com/free-consultation/">無料相談</a>
+						<a href={PRIVACY_URL_JA}>プライバシーポリシー</a>
 					</nav>
 				</div>
 			)}

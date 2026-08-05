@@ -16,4 +16,11 @@
 //     → ドメインの設定）に consilegy.com と media.consilegy.com を両方登録する。
 //     これをやらないと、メディアから本体へ遷移した時点で別セッション扱いになり、
 //     「記事を読んだ人が無料相談に進んだか」が追えない。
-export const GTM_ID: string = import.meta.env.PUBLIC_GTM_ID ?? '';
+// 本体サイト consilegy.com と同一コンテナ（src/layouts/BaseLayout.astro に直書きされているもの）
+export const GTM_ID: string = import.meta.env.PUBLIC_GTM_ID ?? 'GTM-T2FNKSK';
+
+// 本体サイトのプライバシーポリシー。
+// 「6. アクセス解析ツール・Cookieの使用」に Google Tag Manager と Google Analytics の
+// 記載があるため、メディア側はここへリンクすれば外部送信の公表を満たせる。
+export const PRIVACY_URL_JA = 'https://consilegy.com/privacy-policy/';
+export const PRIVACY_URL_EN = 'https://consilegy.com/en/privacy-policy/';

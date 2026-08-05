@@ -57,6 +57,23 @@ const roles = [
 	</div>
 </section>
 
+<!-- ===================== DEMO ===================== -->
+<section class="demo">
+	<div class="container">
+		<div class="demo-frame">
+			<img
+				src="/videos/school-demo.gif"
+				alt="スクール版の操作。ホームで在籍生徒数・要対応・定着率を確認し、生徒一覧を在籍/体験中で絞り込み、生徒詳細で担当コーチとレッスン履歴を見て、メニューから請求・週間スケジュール・AIアシスタントへ移動する。"
+				width="820"
+				height="600"
+				loading="lazy"
+				decoding="async"
+			/>
+		</div>
+		<p class="demo-caption">実際の画面 — ホーム → 生徒一覧 → 生徒詳細 → メニュー</p>
+	</div>
+</section>
+
 <!-- ===================== POSITIONING ===================== -->
 <section class="positioning">
 	<div class="container">
@@ -99,6 +116,21 @@ const roles = [
 				<p>月末に「今、何人在籍しているか」を数え直している。</p>
 			</div>
 		</div>
+
+		<figure class="prob-shot">
+			<img
+				src="/images/common/school-student-detail.jpg"
+				alt="スクール版の生徒詳細画面。開始日・連続コール日数・月謝、担当コーチ4名の役割（メイン/サブ1/サブ2/ディレクター）、レッスン履歴のタイムラインが1画面に並んでいる。"
+				width="1100"
+				height="804"
+				loading="lazy"
+				decoding="async"
+			/>
+			<figcaption>
+				生徒1人ぶんの画面。<strong>誰が担当で、いつ何をやって、どう進んだか</strong>が1枚に載ります。
+				コーチが替わっても、この画面を開けば経緯が分かります。
+			</figcaption>
+		</figure>
 	</div>
 </section>
 
@@ -279,6 +311,29 @@ const roles = [
 	border-radius: 0 8px 8px 0; padding: 1.5rem; background: var(--color-bg-subtle);
 }
 .prob-item p { margin: 0; font-size: 0.9375rem; line-height: 1.8; color: var(--color-text); }
+
+
+/* ── Demo / screenshots ────────────────────────────── */
+.demo { padding-block: var(--space-xl); background: var(--color-bg); border-bottom: 1px solid var(--color-border); }
+.demo-frame {
+	max-width: 900px; margin: 0 auto;
+	border: 1px solid var(--color-border); border-radius: 12px;
+	overflow: hidden; background: var(--color-bg-subtle);
+	box-shadow: var(--shadow-md);
+}
+.demo-frame img { width: 100%; height: auto; display: block; }
+.demo-caption { margin: 0.875rem 0 0; text-align: center; font-size: 0.8125rem; color: var(--color-text-muted); }
+
+.prob-shot { margin: 2.5rem 0 0; max-width: 900px; }
+.prob-shot img {
+	width: 100%; height: auto; display: block;
+	border: 1px solid var(--color-border); border-radius: 10px;
+	box-shadow: var(--shadow-sm);
+}
+.prob-shot figcaption {
+	margin-top: 0.875rem; font-size: 0.9375rem; line-height: 1.8; color: var(--color-text-muted);
+}
+.prob-shot strong { color: var(--color-text); font-weight: 700; }
 
 /* ── Screens ───────────────────────────────────────── */
 .screens {

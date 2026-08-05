@@ -326,6 +326,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 				日本の商習慣だけを前提にしていない設計になっているのは、
 				生まれた場所がそういう場所だったからです。
 			</p>
+			<p class="origin-name">
+				CRMに搭載したAIを<strong>「Jade（ジェイド）」</strong>と名づけたのは、
+				翡翠（ジェイド）が花蓮の名産だからです。
+				生まれた場所の名前を、そのまま持たせています。
+			</p>
 		</div>
 		<figure class="origin-quote">
 			<blockquote>
@@ -342,6 +347,21 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 					class="origin-src"
 				>See News（花蓮視新聞）2026年6月25日「花蓮雲基地第二季名單揭曉 日籍首季進駐者讚爆」 →</a>
 			</figcaption>
+			<a
+				href="https://www.seenews.com.tw/news_data.php?news_id=2325&amp;k_code=A"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="origin-clip"
+			>
+				<img
+					src="/images/common/seenews-hualien-2026.jpg"
+					alt="See News（花蓮視新聞）2026年6月25日の記事。花蓮雲基地の第1期滞在者として、日本のSeikoがCRMとAIを組み合わせた新製品を開発したことが報じられている。"
+					width="1000"
+					height="1026"
+					loading="lazy"
+				/>
+				<span class="origin-clip__cap">See News（花蓮視新聞）2026年6月25日 掲載記事より</span>
+			</a>
 		</figure>
 	</div>
 </section>
@@ -667,5 +687,22 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 .origin-who { font-size: 0.875rem; font-weight: 700; color: var(--color-text-muted); }
 .origin-src { font-size: 0.75rem; color: var(--color-primary); text-decoration: none; line-height: 1.6; }
 .origin-src:hover { text-decoration: underline; }
+.origin-name {
+	margin-top: 1.25rem !important; padding: 0.875rem 1.125rem;
+	background: var(--color-bg); border: 1px solid var(--color-border);
+	border-radius: 6px;
+}
+.origin-clip { display: block; margin-top: 1.5rem; text-decoration: none; }
+.origin-clip img {
+	width: 100%; height: auto; display: block;
+	border: 1px solid var(--color-border); border-radius: 6px;
+	box-shadow: var(--shadow-sm);
+	transition: box-shadow 0.15s ease;
+}
+.origin-clip:hover img { box-shadow: var(--shadow-md); }
+.origin-clip__cap {
+	display: block; margin-top: 0.5rem;
+	font-size: 0.6875rem; color: var(--color-text-muted); opacity: 0.85;
+}
 @media (max-width: 900px) { .origin-inner { grid-template-columns: 1fr; gap: 2rem; } }
 </style>

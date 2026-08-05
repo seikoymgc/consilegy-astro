@@ -121,7 +121,8 @@ const insightsPosts = [
 				</p>
 				<p class="fork-body">
 					「今さらCRMも入れていないのか」と思う必要はありません。
-					日本のB2B企業では、まだ持っていない会社のほうが珍しくありません。
+					日本企業のCRM導入率は<strong>37.2%</strong>。6割以上が、まだ持っていません。
+					<span class="fork-src">HubSpot Japan「日本の営業に関する意識・実態調査2025」2024年11月調査、従業員51〜5,000名、n=1,545</span>
 				</p>
 				<p class="fork-body">
 					そこで私たちは、<strong>企業の最初のCRM</strong>をつくりました。
@@ -539,6 +540,11 @@ const insightsPosts = [
 					営業からカスタマーサクセスへの引き継ぎで、契約日は残っていても
 					「顧客が何を実現したかったのか」が残っていない——これが解約に直結します。
 				</p>
+				<p class="ind-stat">
+					引き継ぎが不十分な企業は、<strong>63.3%</strong>が解約率2%以上。
+					引き継ぎが十分な企業の<strong>1.7倍</strong>です。
+					<span class="ind-src">HiCustomer「カスタマーサクセス白書2023」2023年4月18〜30日、n=203</span>
+				</p>
 				<p>
 					複数プロダクト展開時に、営業が慣れた既存プロダクトに戻ってしまう。
 					エンタープライズを狙った瞬間、これまでのインバウンド型が通用しなくなる。
@@ -553,7 +559,12 @@ const insightsPosts = [
 					「このお客様が、いくら使ってくれたのか」を出すのに毎回手作業が発生する。
 				</p>
 				<p>
-					解約は価格の問題に見えて、多くは体験と頻度の設計の問題です。
+					サブスク利用者の<strong>69.4%</strong>が「解約を検討したことがある」と答えています。
+					検討理由の1位は「節約のため」。
+					<span class="ind-src">ナイル「サブスク利用実態調査」（Appliv調べ）2024年2月2〜7日、n=605</span>
+				</p>
+				<p>
+					価格の問題に見えて、多くは体験と頻度の設計の問題です。
 					どのタイミングで何が起きると離脱するのかを、データで特定するところから始めます。
 				</p>
 			</article>
@@ -1277,6 +1288,17 @@ section { padding-block: var(--space-2xl); }
 }
 .ind-card p { margin: 0 0 0.875rem; font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.85; }
 .ind-card p:last-child { margin-bottom: 0; }
+
+.fork-src, .ind-src {
+	display: block; margin-top: 0.5rem;
+	font-size: 0.6875rem; color: var(--color-text-muted); opacity: 0.8; line-height: 1.6;
+}
+.fork-body strong, .ind-stat strong { color: var(--color-primary); font-weight: 500; }
+.ind-stat {
+	margin: 0 0 0.875rem; padding: 0.875rem 1rem;
+	background: rgba(30,64,175,0.05); border-left: 3px solid var(--color-primary);
+	font-size: 0.875rem !important; color: var(--color-text) !important; line-height: 1.75;
+}
 
 /* ── Flag（旗） ────────────────────────────────────── */
 .flag {

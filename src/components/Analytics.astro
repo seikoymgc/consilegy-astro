@@ -1,0 +1,107 @@
+---
+// サイト共通の計測。GTM(GTM-T2FNKSK) の dataLayer に流す。
+//
+// 設計（サイト設計改訂案 §5）
+//   主CV : diagnostic_lead_submit（収益診断フォーム送信）— 1本だけ
+//   副CV : download_submit（資料DL）、newsletter_submit（ニュースレター登録）
+//   参考 : contact_submit（お問い合わせ。フッター導線のみ）
+//
+// 貢献度を測るために、全CVへ以下を添付する。
+//   entry_page / entry_referrer … セッションの入口（初回接触ページ）
+//   source_page                … 診断CTAを踏んだページ（どのページが診断を連れてくるか）
+//
+// HubSpotフォームは iframe埋め込み（資料DL）と JS埋め込み（ニュースレター/問い合わせ）が
+// 混在するが、どちらも送信時に postMessage で hsFormCallback:onFormSubmitted を飛ばすため、
+// window の message を1か所で受ければ両方拾える。
+---
+
+<script is:inline>
+(function () {
+	var dl = (window.dataLayer = window.dataLayer || []);
+	function push(event, params) { dl.push(Object.assign({ event: event }, params || {})); }
+
+	// ── セッションの入口を1度だけ記録 ──────────────────────
+	var S = window.sessionStorage;
+	function get(k) { try { return S.getItem(k) || ''; } catch (e) { return ''; } }
+	function set(k, v) { try { S.setItem(k, v); } catch (e) {} }
+
+	if (!get('cslg_entry_page')) {
+		set('cslg_entry_page', location.pathname);
+		var ref = document.referrer || '';
+		// 自サイト内遷移は入口扱いしない
+		if (ref && ref.indexOf(location.origin) === 0) ref = '';
+		set('cslg_entry_referrer', ref || '(direct)');
+	}
+
+	function attribution() {
+		return {
+			entry_page: get('cslg_entry_page'),
+			entry_referrer: get('cslg_entry_referrer'),
+			source_page: get('cslg_source_page') || '(none)'
+		};
+	}
+	window.cslgAttribution = attribution;
+
+	// ── 診断CTAを踏んだページを記録 ─────────────────────────
+	document.addEventListener('click', function (e) {
+		var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+		if (!a) return;
+		var href = a.getAttribute('href') || '';
+		if (href.indexOf('/diagnostic/') !== 0) return;
+		set('cslg_source_page', location.pathname);
+		push('diagnostic_cta_click', {
+			source_page: location.pathname,
+			cta_label: (a.textContent || '').trim().slice(0, 60)
+		});
+	}, true);
+
+	// ── HubSpotフォームの送信を拾う（iframe / JS埋め込み 両対応）──
+	// どのフォームかは、送信元 iframe の src に含まれる formId で判別する。
+	var FORMS = {
+		'1TnQ9hL_NRM-zY2A83OVo1gromnr': { event: 'download_submit', kind: 'secondary', name: 'document_download' }
+	};
+
+	function classify(guid, frame) {
+		if (guid && FORMS[guid]) return FORMS[guid];
+		var src = '';
+		try { src = (frame && frame.src) || ''; } catch (e) {}
+		for (var k in FORMS) { if (src.indexOf(k) > -1) return FORMS[k]; }
+		// フォームIDが判別できない場合は、置かれているページで判定する
+		var p = location.pathname;
+		if (p.indexOf('/download/') === 0) return { event: 'download_submit', kind: 'secondary', name: 'document_download' };
+		if (p.indexOf('/newsletter/') === 0) return { event: 'newsletter_submit', kind: 'secondary', name: 'newsletter' };
+		if (p.indexOf('/contact/') === 0) return { event: 'contact_submit', kind: 'reference', name: 'contact' };
+		if (p.indexOf('/free-consultation/') === 0) return { event: 'consultation_submit', kind: 'reference', name: 'consultation' };
+		return null;
+	}
+
+	var seen = {};
+	window.addEventListener('message', function (ev) {
+		var d = ev.data;
+		if (!d || d.type !== 'hsFormCallback' || d.eventName !== 'onFormSubmitted') return;
+
+		var guid = (d.data && (d.data.formGuid || d.data.formId)) || d.id || '';
+		// 同じ送信が二重に飛ぶことがあるので抑止
+		var key = guid + '|' + location.pathname;
+		if (seen[key]) return;
+		seen[key] = true;
+
+		var frame = null;
+		try {
+			var frames = document.querySelectorAll('iframe');
+			for (var i = 0; i < frames.length; i++) {
+				if (frames[i].contentWindow === ev.source) { frame = frames[i]; break; }
+			}
+		} catch (e) {}
+
+		var info = classify(guid, frame);
+		if (!info) return;
+
+		push(info.event, Object.assign({
+			conversion_kind: info.kind,
+			form_name: info.name,
+			page_path: location.pathname
+		}, attribution()));
+	});
+})();
+</script>

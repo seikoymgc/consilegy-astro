@@ -210,8 +210,8 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 					</select>
 				</label>
 				<label class="rd-field">
-					<span class="rd-field-label">業種<span class="rd-field-opt">（任意）</span></span>
-					<select name="industry" class="rd-input rd-select">
+					<span class="rd-field-label">業種<span class="rd-field-req">必須</span></span>
+					<select name="industry" class="rd-input rd-select" required>
 						<option value="">選択してください</option>
 						<option value="saas">SaaS・IT</option>
 						<option value="manufacturing">製造</option>
@@ -261,17 +261,34 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 				input.focus();
 				return;
 			}
+			if (!indSel.value) {
+				showError('業種を選択してください。結果の精度と、お返しする内容が変わります。');
+				indSel.focus();
+				return;
+			}
 			const tools = Array.from(form.querySelectorAll<HTMLInputElement>('input[name="current_tools"]:checked')).map((el) => el.value);
 			const extra: Record<string, string> = {};
 			if (sizeSel.value) extra.employee_size = sizeSel.value;
-			if (indSel.value) extra.consilegy_industry = indSel.value;
+			extra.consilegy_industry = indSel.value;
 			if (tools.length) extra.current_tools = tools.join(';');
 			errEl.hidden = true;
 			btn.disabled = true;
 			btn.textContent = '送信中…';
 			try {
 				await submitLead(email, extra);
-				track('lead_submit', { employee_size: extra.employee_size ?? '', industry: extra.consilegy_industry ?? '', tools_count: tools.length });
+				const TIER1 = ['saas', 'retail_ec'];
+				const attr = (window as any).cslgAttribution ? (window as any).cslgAttribution() : {};
+				const payload = {
+					conversion_kind: 'primary',
+					form_name: 'revenue_diagnostic',
+					employee_size: extra.employee_size ?? '',
+					industry: extra.consilegy_industry,
+					lead_tier: TIER1.includes(extra.consilegy_industry) ? 'tier1' : 'tier2',
+					tools_count: tools.length,
+					...attr,
+				};
+				track('diagnostic_lead_submit', payload);
+				track('lead_submit', payload); // 旧イベント名。GA4の既存設定が切り替わるまで併走
 				state.leadDone = true;
 				state.email = email;
 				state.step = 'result';
@@ -557,6 +574,11 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 	color: var(--color-text); margin-bottom: 0.5rem;
 }
 :global(.rd-field-opt) { font-weight: 400; color: var(--color-text-muted); font-size: 0.75rem; }
+:global(.rd-field-req) {
+	margin-left: 0.5rem; font-size: 0.6875rem; font-weight: 700;
+	color: #b91c1c; background: rgba(185,28,28,0.08);
+	padding: 0.1rem 0.45rem; border-radius: 3px; vertical-align: 0.1em;
+}
 :global(.rd-select) { cursor: pointer; }
 :global(.rd-check-grid) { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1rem; }
 :global(.rd-check) { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8125rem; color: var(--color-text); line-height: 1.4; cursor: pointer; }

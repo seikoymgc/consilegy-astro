@@ -3,6 +3,7 @@ import '../styles/global.css';
 import SEO from '../components/SEO.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Analytics from '../components/Analytics.astro';
 import { getAlternateUrl } from '../lib/i18n';
 
 interface Props {
@@ -109,5 +110,6 @@ const xDefaultHref = new URL('/en/', site).href;
 			<slot />
 		</main>
 		<Footer />
+		<Analytics />
 	</body>
 </html>

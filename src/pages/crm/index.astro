@@ -62,14 +62,19 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 				<p>AIに日本語で聞けば、検索も操作もそのまま通ります。通話解析・スコアリングまで、現場の作業をAIが肩代わりします。</p>
 			</div>
 			<div class="pillar pillar--accent">
-				<span class="pillar-num">175<span class="pillar-unit">本</span></span>
+				<span class="pillar-num">103<span class="pillar-unit">本</span></span>
 				<h3>RevOpsオートメーション内蔵</h3>
-				<p>マーケ〜セールス〜CSをカバーするプレイビルト。トグルで有効化すれば、すぐに動きます。</p>
+				<p>マーケ〜セールス〜CSをカバーするプレイビルト。トグルで有効化すれば、すぐに動きます。ほかに準備中が72本あります。</p>
 			</div>
 			<div class="pillar">
 				<span class="pillar-kicker">Clean UI</span>
 				<h3>迷わず使える操作性</h3>
 				<p>洗練されたインターフェースで現場に定着。入力の手間を減らし、データが自然と揃います。</p>
+			</div>
+			<div class="pillar">
+				<span class="pillar-kicker">日本語 / English / 繁體中文</span>
+				<h3>画面ごと3言語に切り替わる</h3>
+				<p>ボタンひとつでUIが切り替わります。日本人と海外メンバーが同じデータを、それぞれの言語で見られます。台湾・アジア展開を見据えた設計です。</p>
 			</div>
 		</div>
 	</div>
@@ -265,7 +270,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 			<div class="cat-card">
 				<h3>RevOps オートメーション</h3>
 				<ul>
-					<li>175本のプレイビルト・ワークフローカタログ</li>
+					<li>103本のプレイビルト・ワークフローカタログ（ほかに準備中72本）</li>
 					<li>マーケ / セールス / CS をカバー</li>
 					<li>トグルでON/OFF・シーケンス紐付け</li>
 					<li>課題別ナーチャリング・商談停滞アラート</li>
@@ -293,7 +298,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 					<li>複数組織切替・メンバー招待・ロール管理</li>
 					<li>ゴミ箱（復元）・グローバル検索</li>
 					<li>連携：Notion / Google / LinkedIn</li>
-					<li>多言語対応（日 / 英 / 繁中）</li>
+					<li>多言語対応（日本語 / English / 繁體中文）— UIごと切替</li>
 				</ul>
 			</div>
 		</div>
@@ -464,7 +469,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 /* ── Pillars ───────────────────────────────────────── */
 .pillars { padding-block: var(--space-xl); background: var(--color-bg); }
-.pillar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.pillar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+@media (max-width: 1100px) { .pillar-grid { grid-template-columns: repeat(2, 1fr); } }
 .pillar {
 	border: 1px solid var(--color-border); border-radius: var(--radius-card);
 	padding: 2rem; background: var(--color-bg-subtle);

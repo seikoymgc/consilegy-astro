@@ -33,12 +33,20 @@
 
 6. **frontmatter**：`content.config.ts` のスキーマに従う。`title` / `description` / `publishedAt`（当日）/ `category` / `principle` / `canonUrl` / `canonLabel` / `draft: false`。日本語は `src/content/notes/{slug}.md`、英語は `src/content/notes-en/{slug}.md`。スラッグは英語ケバブケース。
 
+6-2. **内部リンク（必須・SEO/GEO）**：本文の末尾に、日本語は `## 関連する記事`、英語は `## Related reading` の節を必ず置く。
+
+   - 日本語：文脈のつながる既存記事へのリンク1本（`/notes/{slug}/`）＋ そのカテゴリのハブへのリンク1本（`/notes/category/{category}/`）。「同じ悩みの記事は「[カテゴリ名](/notes/category/{category}/)」にまとめています。」の形で締める。
+   - 英語：文脈のつながる既存EN記事へのリンク1本（`/en/articles/{slug}/`）＋ `/en/` へのリンク1本。
+   - リンクを置く理由を1文で書く。「関連記事：〜」と羅列しない。既存記事の一覧は `published-log.md` から取る。
+   - カテゴリハブの本文とFAQは `src/data/category-hubs.ts` にある。新しい論点を足したときは、そのカテゴリのFAQを見直す。
+
 7. **アイキャッチ（ブラウザRecraftで生成）**：
    - Claude-in-Chrome で Recraft（プロジェクト https://www.recraft.ai/project/0cef7131-84ca-4262-9bef-01e589c0228d ）を開き、記事内容に合うプロンプトで画像を生成する。トーンは全記事共通で「Contemporary editorial photograph, <被写体>, bright modern office, white walls and light wood, clean neutral colors, soft daylight, crisp sharp focus, minimal and uncluttered, no text, no logo」。アスペクト比は 2:1。
    - トーン注意：`documentary` と `muted calm color palette` は使わない。前者はフィルム調の粒状感、後者は彩度落ちとセピア寄りの色被りを招き、レトロな写真になる（2026-08-04にこの2語が原因と判明し差し替え）。人物を入れると指の破綻が起きやすいので、被写体が主役の記事では `no people, no hands` を付ける。
    - 生成できたら PNG でエクスポート（1536×768, 300DPI）。ファイルは `~/Downloads` に落ちる。
    - `~/Downloads` の最新PNGを `media/public/images/eyecatch-bg/{slug}.png` に移動する（bashで `mv`）。※これには Downloads がサンドボックスから見える必要がある。見えない場合はカテゴリ写真のまま公開し、Recraftプロンプトを `published-log.md` に控えて通知に「画像は手動差し替え待ち」と明記する。
    - 記事専用画像を置かない場合は、ビルド時に `gen-eyecatch.mjs` がカテゴリ写真（`eyecatch-bg/{category}.png`）を自動でアイキャッチにする（フォールバック。追加作業不要）。
+   - **`eyecatch-bg/` に置くのは元のPNGのままでよい。** ビルド時に `gen-eyecatch.mjs` が `eyecatch/{slug}.webp`（ページ表示用・約30KB）と `eyecatch/{slug}.jpg`（OGP用）へ変換する。`eyecatch/` にPNGを手で置かないこと（1枚1.5MBになりLCPが壊れる）。
    - 前提：この工程はMac起動＋アプリ＋Chrome（拡張接続）が開いているときのみ動く。閉じている朝はカテゴリ写真で公開される。
 
 8. **公開**：`pgrep -x git >/dev/null || rm -f .git/index.lock .git/HEAD.lock` でロックを掃除してから、

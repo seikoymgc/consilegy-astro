@@ -303,6 +303,49 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 	</div>
 </section>
 
+<!-- ===================== ORIGIN STORY ===================== -->
+<section class="origin">
+	<div class="container origin-inner">
+		<div class="origin-copy">
+			<p class="section-eyebrow">Origin</p>
+			<h2>このCRMが生まれた場所</h2>
+			<p>
+				Revenue CRM の構想が形になったのは、日本のオフィスではありません。
+				台湾・花蓮県が運営するデジタルノマド拠点
+				<strong>「Nomad Hualien 花蓮雲基地」</strong>です。
+			</p>
+			<p>
+				代表の山口聖子は、この滞在プログラムの第1期メンバーとして採択されました。
+				各国から集まった起業家やリモートワーカーと机を並べ、
+				国境をまたいだミーティングを日常的に回すなかで、
+				彼らとの協働から<strong>「CRM × AI」という形</strong>が固まっていきました。
+			</p>
+			<p>
+				日本のB2B支援40社で見てきた収益構造の考え方に、
+				そこで出会った各国の実務が重なっています。
+				日本の商習慣だけを前提にしていない設計になっているのは、
+				生まれた場所がそういう場所だったからです。
+			</p>
+		</div>
+		<figure class="origin-quote">
+			<blockquote>
+				企業の成長は、冷たい技術だけに頼るものではありません。<br />
+				人とのつながりと、コミュニティへの信頼こそが、<br />
+				持続的なビジネスの鍵です。
+			</blockquote>
+			<figcaption>
+				<span class="origin-who">山口 聖子 — Consilegy 代表</span>
+				<a
+					href="https://www.seenews.com.tw/news_data.php?news_id=2325&amp;k_code=A"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="origin-src"
+				>See News（花蓮視新聞）2026年6月25日「花蓮雲基地第二季名單揭曉 日籍首季進駐者讚爆」 →</a>
+			</figcaption>
+		</figure>
+	</div>
+</section>
+
 <!-- ===================== BETA NOTE ===================== -->
 <section class="beta-band">
 	<div class="container beta-inner">
@@ -600,4 +643,29 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 .ed-foot { margin: 1.75rem 0 0; font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.8; }
 .ed-foot a { color: var(--color-primary); font-weight: 700; }
 @media (max-width: 900px) { .ed-grid { grid-template-columns: 1fr; } }
+
+/* ── Origin story ──────────────────────────────────── */
+.origin {
+	padding-block: var(--space-2xl);
+	background: var(--color-bg-subtle);
+	border-top: 1px solid var(--color-border);
+}
+.origin-inner { display: grid; grid-template-columns: 1.15fr 1fr; gap: 3.5rem; align-items: center; }
+.origin-copy h2 { font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; color: var(--color-text); margin: 0 0 1.25rem; }
+.origin-copy p { font-size: 0.9375rem; line-height: 1.95; color: var(--color-text-muted); margin: 0 0 1rem; }
+.origin-copy strong { color: var(--color-text); font-weight: 700; }
+.origin-quote {
+	margin: 0; padding: 2rem;
+	background: var(--color-bg); border: 1px solid var(--color-border);
+	border-left: 3px solid var(--color-primary); border-radius: 0 8px 8px 0;
+}
+.origin-quote blockquote {
+	margin: 0 0 1.25rem; font-size: 1.0625rem; font-weight: 600;
+	line-height: 1.9; color: var(--color-text);
+}
+.origin-quote figcaption { display: flex; flex-direction: column; gap: 0.5rem; }
+.origin-who { font-size: 0.875rem; font-weight: 700; color: var(--color-text-muted); }
+.origin-src { font-size: 0.75rem; color: var(--color-primary); text-decoration: none; line-height: 1.6; }
+.origin-src:hover { text-decoration: underline; }
+@media (max-width: 900px) { .origin-inner { grid-template-columns: 1fr; gap: 2rem; } }
 </style>

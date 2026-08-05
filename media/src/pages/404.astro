@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { categories, type CategoryKey } from '../content.config';
+
+const latest = (await getCollection('notes', ({ data }) => !data.draft))
+	.sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
+	.slice(0, 5);
+---
+
+<BaseLayout
+	title="ページが見つかりません | Consilegy Media"
+	description="お探しのページは移動または削除された可能性があります。記事一覧またはカテゴリからお探しください。"
+	noindex={true}
+>
+	<section class="nf">
+		<div class="container container--narrow">
+			<p class="nf__code">404</p>
+			<h1>ページが見つかりません</h1>
+			<p class="nf__lead">
+				URLが変更されたか、削除された可能性があります。下のいずれかからお探しください。
+			</p>
+
+			<nav class="nf__cats" aria-label="カテゴリ">
+				<p class="nf__label">悩みから探す</p>
+				<ul>
+					{
+						(Object.keys(categories) as CategoryKey[]).map(key => (
+							<li>
+								<a href={`/notes/category/${key}/`}>{categories[key]}</a>
+							</li>
+						))
+					}
+				</ul>
+			</nav>
+
+			<nav class="nf__latest" aria-label="新着記事">
+				<p class="nf__label">新着記事</p>
+				<ul>
+					{
+						latest.map(n => (
+							<li>
+								<a href={`/notes/${n.id}/`}>{n.data.title}</a>
+							</li>
+						))
+					}
+				</ul>
+			</nav>
+
+			<p class="nf__foot">
+				<a href="/notes/">記事一覧をすべて見る</a> ／ <a href="/en/">English edition</a>
+			</p>
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+	.nf {
+		padding-block: 4rem 5rem;
+	}
+
+	.nf__code {
+		font-size: 0.8rem;
+		font-weight: 600;
+		letter-spacing: 0.12em;
+		color: var(--color-text-muted);
+	}
+
+	.nf h1 {
+		font-size: clamp(1.3rem, 3vw, 1.7rem);
+		margin-top: 0.5rem;
+	}
+
+	.nf__lead {
+		margin-top: 1rem;
+		font-size: 0.9rem;
+		line-height: 2;
+		color: var(--color-text-muted);
+	}
+
+	.nf__label {
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		color: var(--color-text-muted);
+		margin-bottom: 0.75rem;
+	}
+
+	.nf__cats,
+	.nf__latest {
+		margin-top: 2.5rem;
+		padding-top: 1.75rem;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.nf__cats ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem 1.25rem;
+	}
+
+	.nf__latest ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.nf__latest li {
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.nf__latest li a {
+		display: block;
+		padding-block: 0.7rem;
+		font-size: 0.88rem;
+	}
+
+	.nf ul a {
+		font-size: 0.88rem;
+	}
+
+	.nf__foot {
+		margin-top: 2.5rem;
+		font-size: 0.85rem;
+		color: var(--color-text-muted);
+	}
+</style>

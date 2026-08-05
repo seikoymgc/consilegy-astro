@@ -10,7 +10,10 @@
 // カテゴリ写真が無い場合は、そのカテゴリ色の無地で生成する（動作は止まらない）。
 //
 // 実行: npm run build の前に自動実行される（package.json の prebuild）
-// 出力: public/images/eyecatch/{slug}.png
+// 出力:
+//   public/images/eyecatch/{slug}.webp … ページ内表示用（軽い。LCPはこれになる）
+//   public/images/eyecatch/{slug}.jpg  … OGP/Twitter card用（WebP非対応のクローラがあるため）
+// PNGで写真を書き出すと1枚1.5MB前後になり、LCPが致命的に遅くなるので使わない。
 
 import { readdir, readFile, mkdir, access } from 'node:fs/promises';
 import path from 'node:path';
@@ -51,25 +54,30 @@ async function pickSource(slug, category) {
 	return null;
 }
 
+async function write(pipeline, slug) {
+	// ページ内表示はWebP、OGPはJPEG。どちらも写真なので可逆圧縮（PNG）は使わない。
+	await pipeline.clone().webp({ quality: 72 }).toFile(path.join(OUT_DIR, `${slug}.webp`));
+	await pipeline
+		.clone()
+		.jpeg({ quality: 78, mozjpeg: true, chromaSubsampling: '4:2:0' })
+		.toFile(path.join(OUT_DIR, `${slug}.jpg`));
+}
+
 async function generate(slug, category) {
 	const src = await pickSource(slug, category);
 
 	if (src) {
 		// 写真をフルブリードで 1200x630 にカバー配置。文字は載せない。
-		await sharp(src)
-			.resize(W, H, { fit: 'cover', position: 'centre' })
-			.png({ compressionLevel: 9 })
-			.toFile(path.join(OUT_DIR, `${slug}.png`));
+		await write(sharp(src).resize(W, H, { fit: 'cover', position: 'centre' }), slug);
 		return;
 	}
 
 	// 写真が無いカテゴリはカテゴリ色の無地（つなぎ）
 	const color = CATEGORY_COLORS[category] ?? '#1e40af';
-	await sharp({
-		create: { width: W, height: H, channels: 3, background: color },
-	})
-		.png({ compressionLevel: 9 })
-		.toFile(path.join(OUT_DIR, `${slug}.png`));
+	await write(
+		sharp({ create: { width: W, height: H, channels: 3, background: color } }),
+		slug,
+	);
 }
 
 function parseFrontmatter(src) {

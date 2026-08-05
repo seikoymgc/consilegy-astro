@@ -41,7 +41,7 @@ const fmt = (d: Date) =>
 				<section class="wrap hero">
 					{lead && (
 						<a href={`/notes/${lead.id}/`} class="lead">
-							<img src={`/images/eyecatch/${lead.id}.png`} alt="" width="1200" height="630" decoding="async" />
+							<img src={`/images/eyecatch/${lead.id}.webp`} alt="" width="1200" height="630" fetchpriority="high" decoding="async" />
 							<p class="kicker">{categories[lead.data.category]}</p>
 							<h2 class="lead-title">{lead.data.title}</h2>
 							<p class="lead-desc">{lead.data.description}</p>
@@ -51,7 +51,7 @@ const fmt = (d: Date) =>
 					<div class="hero-side">
 						{secondary.map(n => (
 							<a href={`/notes/${n.id}/`} class="sec">
-								<img src={`/images/eyecatch/${n.id}.png`} alt="" width="1200" height="630" loading="lazy" decoding="async" />
+								<img src={`/images/eyecatch/${n.id}.webp`} alt="" width="1200" height="630" loading="lazy" decoding="async" />
 								<p class="kicker">{categories[n.data.category]}</p>
 								<h3 class="sec-title">{n.data.title}</h3>
 								<time class="date" datetime={n.data.publishedAt.toISOString()}>{fmt(n.data.publishedAt)}</time>
@@ -67,7 +67,7 @@ const fmt = (d: Date) =>
 							{rest.map(n => (
 								<li>
 									<a href={`/notes/${n.id}/`}>
-										<img src={`/images/eyecatch/${n.id}.png`} alt="" width="1200" height="630" loading="lazy" decoding="async" />
+										<img src={`/images/eyecatch/${n.id}.webp`} alt="" width="1200" height="630" loading="lazy" decoding="async" />
 										<div>
 											<p class="kicker">{categories[n.data.category]}</p>
 											<h3 class="row-title">{n.data.title}</h3>

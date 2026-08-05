@@ -33,7 +33,7 @@ const formatDate = (date: Date) =>
 	ogType="article"
 	publishedAt={d.publishedAt}
 	updatedAt={d.updatedAt}
-	ogImage={`/images/eyecatch/${note.id}.png`}
+	ogImage={`/images/eyecatch/${note.id}.jpg`}
 	section={categories[d.category]}
 	jaPath={hasEn ? `/notes/${note.id}/` : undefined}
 	enPath={hasEn ? `/en/articles/${note.id}/` : undefined}
@@ -64,10 +64,11 @@ const formatDate = (date: Date) =>
 
 			<figure class="note-hero">
 				<img
-					src={`/images/eyecatch/${note.id}.png`}
+					src={`/images/eyecatch/${note.id}.webp`}
 					alt={d.title}
 					width="1200"
 					height="630"
+					fetchpriority="high"
 					decoding="async"
 				/>
 			</figure>

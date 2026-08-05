@@ -35,7 +35,7 @@ const fmt = (date: Date) =>
 	ogType="article"
 	publishedAt={d.publishedAt}
 	updatedAt={d.updatedAt}
-	ogImage={`/images/eyecatch/${note.id}.png`}
+	ogImage={`/images/eyecatch/${note.id}.jpg`}
 	section={categoriesEn[cat]}
 	jaPath={hasJa ? `/notes/${note.id}/` : undefined}
 	enPath={hasJa ? `/en/articles/${note.id}/` : undefined}
@@ -65,10 +65,11 @@ const fmt = (date: Date) =>
 
 			<figure class="note-hero">
 				<img
-					src={`/images/eyecatch/${note.id}.png`}
+					src={`/images/eyecatch/${note.id}.webp`}
 					alt={d.title}
 					width="1200"
 					height="630"
+					fetchpriority="high"
 					decoding="async"
 				/>
 			</figure>

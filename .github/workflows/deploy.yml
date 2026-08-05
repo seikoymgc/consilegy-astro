@@ -84,6 +84,12 @@ jobs:
       - name: Build
         if: steps.changes.outputs.changed == 'true'
         working-directory: media
+        # GTMコンテナID。リポジトリの Settings → Secrets and variables → Actions →
+        # Variables に PUBLIC_GTM_ID を登録する（Secretsではなく Variables でよい。
+        # コンテナIDは公開情報で、HTMLに出るため）。
+        # 未設定なら計測タグは出力されない。
+        env:
+          PUBLIC_GTM_ID: ${{ vars.PUBLIC_GTM_ID }}
         run: npm run build
 
       - name: Deploy via SSH

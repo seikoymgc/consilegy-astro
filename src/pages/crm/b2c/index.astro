@@ -140,9 +140,10 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 				<h3>サブスク・定期購入</h3>
 				<p>毎月の継続が売上そのものになる事業。誰がいつ止めそうかが最重要の指標になります。</p>
 			</article>
-			<article class="fw-card">
+			<article class="fw-card fw-card--linked">
 				<h3>スクール・教室</h3>
 				<p>生徒ごとの受講状況・連絡履歴・請求をひとつにまとめます。通わなくなる予兆を早く掴めます。</p>
+				<a href="/crm/school/" class="fw-link">専用の画面構成があります →</a>
 			</article>
 			<article class="fw-card">
 				<h3>EC・D2C</h3>
@@ -370,6 +371,8 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 	padding: 1.75rem; background: var(--color-bg-subtle);
 }
 .fw-card h3 { margin: 0 0 0.625rem; font-size: 1.0625rem; font-weight: 700; color: var(--color-text); }
+.fw-card--linked { border-color: var(--color-primary); }
+.fw-link { display: inline-block; margin-top: 0.875rem; font-size: 0.875rem; font-weight: 700; color: var(--color-primary); text-decoration: none; }
 .fw-card p { margin: 0; font-size: 0.9375rem; line-height: 1.8; color: var(--color-text-muted); }
 
 /* ── Features ──────────────────────────────────────── */

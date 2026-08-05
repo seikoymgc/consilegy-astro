@@ -18,6 +18,9 @@ ErrorDocument 404 /404.html
 
 	# 料金ページはサービスハブへ統合（時間軸に一本化、2026-07）
 	RewriteRule ^pricing/?$ /services/ [R=301,L]
+
+	# Revenue CRM の汎用B2C版はスクール版へ統合（2026-08）
+	RewriteRule ^crm/b2c/?$ /crm/school/ [R=301,L]
 </IfModule>
 
 # ── Cache: immutable hashed assets (Astro fingerprints _astro/* files)

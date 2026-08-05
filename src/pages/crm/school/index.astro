@@ -24,7 +24,7 @@ const roles = [
 
 <BaseLayout
 	title="Revenue CRM スクール版（β版） | 生徒の状況が、探さなくても分かる"
-	description="スクール・教室向けの画面構成。生徒の在籍状況、週間スケジュール、レッスン記録、架電確認、AIによる月次レポート下書きまで。スマホ前提のUIで、コーチが移動中でも扱えます。B2C版のスクール向け構成として提供。現在クローズドβ。"
+	description="スクール・教室向けの画面構成。生徒の在籍状況、週間スケジュール、レッスン記録、架電確認、AIによる月次レポート下書きまで。スマホ前提のUIで、コーチが移動中でも扱えます。定期課金の事業にも同じ土台が使えます。現在クローズドβ。"
 	lang="ja"
 >
 <script type="application/ld+json" slot="head" set:html={JSON.stringify({
@@ -33,8 +33,7 @@ const roles = [
 	"itemListElement": [
 		{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://consilegy.com/"},
 		{"@type": "ListItem", "position": 2, "name": "Revenue CRM", "item": "https://consilegy.com/crm/"},
-		{"@type": "ListItem", "position": 3, "name": "B2C版", "item": "https://consilegy.com/crm/b2c/"},
-		{"@type": "ListItem", "position": 4, "name": "スクール版", "item": "https://consilegy.com/crm/school/"}
+		{"@type": "ListItem", "position": 3, "name": "スクール版", "item": "https://consilegy.com/crm/school/"}
 	]
 })} />
 
@@ -53,7 +52,7 @@ const roles = [
 			<a href="/contact/" class="btn btn--hero-primary btn--lg">βパートナーに応募する →</a>
 			<a href="#screens" class="btn btn--hero-outline btn--lg">画面を見る</a>
 		</div>
-		<p class="hero-switch">サブスク・EC など他のB2C事業の方は <a href="/crm/b2c/">B2C版はこちら →</a></p>
+		<p class="hero-switch">法人のお客様を相手にする事業の方は <a href="/crm/">法人向けはこちら →</a></p>
 		<p class="hero-note">※ 現在クローズドβ。数社限定で、一緒に育てていただけるパートナーを探しています。仕様は予告なく変更される場合があります。</p>
 	</div>
 </section>
@@ -63,19 +62,24 @@ const roles = [
 	<div class="container">
 		<div class="pos-body">
 			<p class="pos-lead">
-				スクール版は、B2C版のスクール向け画面構成です。
+				スクール版は、Revenue CRM のスクール向け画面構成です。
 				別プロダクトではなく、同じCRMの上に載っています。
 			</p>
 			<p>
-				B2C版が「サブスクの継続率」を軸にしているのに対し、スクール版はそこに
-				<strong>生徒・レッスン・コーチ</strong>の3つを足しています。
+				法人向けが「受注できるか」を追うのに対し、スクール版が追うのは「今月も通ってもらえるか」です。
+				契約の継続に、<strong>生徒・レッスン・コーチ</strong>の3つを重ねています。
 				在籍しているかどうかだけでなく、誰がいつ何を受けて、どう進んでいるかまで残ります。
 			</p>
 			<p>
 				画面は<strong>スマホを前提</strong>に作ってあります。コーチが教室と移動の合間に開いて、
 				その場で記録し、その場で次の生徒を確認できることを優先しました。
 			</p>
-			<a href="/crm/b2c/" class="pos-link">B2C版の考え方を見る →</a>
+			<p>
+				定期課金で成り立つ事業（サブスク・定期購入など）にも、同じ土台が使えます。
+				生徒・レッスン・コーチの部分を外し、契約と継続率だけを見る構成にできます。
+				ご相談ください。
+			</p>
+			<a href="/revenue-architecture/" class="pos-link">この考え方について読む →</a>
 		</div>
 	</div>
 </section>
@@ -119,7 +123,7 @@ const roles = [
 <section class="ai">
 	<div class="container ai-inner">
 		<div>
-			<p class="section-eyebrow">AI Copilot</p>
+			<p class="section-eyebrow">AI</p>
 			<h2>日本語で聞けば、答えが返ります。</h2>
 			<p class="ai-lead">
 				レポートを作らなくても、知りたいことをそのまま聞けます。
@@ -173,7 +177,7 @@ const roles = [
 			</p>
 			<div class="cta-actions">
 				<a href="/contact/" class="btn btn--cta-primary btn--lg">βパートナーに応募する →</a>
-				<a href="/crm/b2c/" class="btn btn--cta-outline btn--lg">B2C版を見る</a>
+				<a href="/crm/" class="btn btn--cta-outline btn--lg">法人向けを見る</a>
 			</div>
 		</div>
 		<div class="cta-card">

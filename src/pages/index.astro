@@ -135,7 +135,10 @@ const insightsPosts = [
 					商談の記録から次のアクションを提案し、どのリードにいま動くべきかを判定する。
 					<strong>人を増やさなくても運用が回る</strong>ことを前提に設計したCRMです。
 				</p>
-				<a href="/crm/" class="fork-link">Revenue CRM を見る →</a>
+				<div class="fork-links">
+					<a href="/crm/" class="fork-link">法人のお客様が相手なら →</a>
+					<a href="/crm/b2c/" class="fork-link">個人のお客様が相手なら →</a>
+				</div>
 			</article>
 
 			<article class="fork-card fork-card--consulting">
@@ -877,6 +880,7 @@ section { padding-block: var(--space-2xl); }
 .fork-body { margin: 0 0 0.875rem; font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.85; }
 .fork-body strong { color: var(--color-text); font-weight: 500; }
 .fork-card .fork-body:last-of-type { margin-bottom: 1.5rem; flex: 1; }
+.fork-links { display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-start; }
 .fork-link {
 	align-self: flex-start; font-size: 0.9375rem; font-weight: 500;
 	color: var(--color-primary); text-decoration: none;

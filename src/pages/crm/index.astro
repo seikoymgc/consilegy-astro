@@ -3,8 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-	title="Revenue CRM（β版） | まだCRMを持っていない会社の、最初の1つ"
-	description="顧客情報がExcelとメールにしかない状態から始めるためのCRM。既存システムからの移行作業はありません。40社の収益設計で使ってきた考え方を、そのまま動く形にしました。現在クローズドβ、βパートナーを募集中。"
+	title="Revenue CRM 法人向け（β版） | まだCRMを持っていない会社の、最初の1つ"
+	description="法人営業・受託/支援・SaaS代理店の3タイプに合わせて設定済みのCRM。顧客情報がExcelとメールにしかない状態から始められ、既存システムからの移行作業はありません。個人顧客向けはB2C版をご覧ください。現在クローズドβ。"
 	lang="ja"
 	alternateUrl="/en/crm/"
 >
@@ -13,7 +13,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 <section class="hero">
 	<div class="container">
 		<span class="eyebrow"><span class="eyebrow__dot"></span>Product · Closed Beta</span>
-		<h1>まだCRMを持っていない会社の、<br />最初の1つ。</h1>
+		<h1>まだCRMを持っていない会社の、<br />最初の1つ。<span class="hero-edition">法人向け</span></h1>
 		<p class="hero-lead">
 			顧客情報がExcelとメールにしかない。案件の状況は担当者の頭の中にある。
 			Revenue CRMは、その状態から始めるためのCRMです。
@@ -24,6 +24,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 			<a href="/contact/" class="btn btn--hero-primary btn--lg">βパートナーに応募する →</a>
 			<a href="#features" class="btn btn--hero-outline btn--lg">機能を見る</a>
 		</div>
+		<p class="hero-switch">個人のお客様を相手にする事業の方は <a href="/crm/b2c/">B2C版はこちら →</a></p>
 		<p class="hero-note">※ 現在クローズドβ。数社限定で、一緒に育てていただけるパートナーを探しています。仕様は予告なく変更される場合があります。</p>
 	</div>
 </section>
@@ -91,6 +92,56 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 			></video>
 		</div>
 		<p class="video-caption">プロダクトデモ（操作ツアー）</p>
+	</div>
+</section>
+
+<!-- ===================== EDITIONS ===================== -->
+<section class="editions">
+	<div class="container">
+		<p class="section-eyebrow">Editions</p>
+		<h2 class="ed-title">商売の形に合わせて、最初から設定済みです。</h2>
+		<p class="ed-lead">
+			同じCRMでも、扱うものが「商談」なのか「案件」なのか「契約」なのかで、
+			必要な画面も追いかける数字も変わります。
+			Revenue CRMは事業タイプを選ぶだけで、用語・画面・自動化がその形に切り替わります。
+			後から変更もできます。
+		</p>
+		<div class="ed-grid">
+			<article class="ed-card">
+				<span class="ed-tag">B2B</span>
+				<h3>法人営業</h3>
+				<p class="ed-desc">見込み客を商談として管理し、受注までを追う標準構成です。</p>
+				<ul class="ed-items">
+					<li>中心になるもの：<strong>商談</strong></li>
+					<li>パイプライン・フォーキャスト・見積</li>
+					<li>停滞商談のアラート</li>
+				</ul>
+			</article>
+			<article class="ed-card">
+				<span class="ed-tag">Contractor</span>
+				<h3>支援会社・受託開発</h3>
+				<p class="ed-desc">クライアント案件を回す事業向け。商談ではなく「案件」で呼びます。</p>
+				<ul class="ed-items">
+					<li>中心になるもの：<strong>案件</strong></li>
+					<li>見積 → 受注 → 納品 → 請求のループ</li>
+					<li>保守契約の更新期日を自動管理</li>
+				</ul>
+			</article>
+			<article class="ed-card">
+				<span class="ed-tag">Reseller</span>
+				<h3>SaaS代理店・リセラー</h3>
+				<p class="ed-desc">売って終わりではなく、契約の更新が収益になる事業向け。</p>
+				<ul class="ed-items">
+					<li>中心になるもの：<strong>契約</strong></li>
+					<li>更新リスクのスコアリング</li>
+					<li>解約シグナルの検知と更新商談の自動作成</li>
+				</ul>
+			</article>
+		</div>
+		<p class="ed-foot">
+			個人のお客様を相手にする事業（サブスク・スクール・EC など）には、
+			商談の代わりに継続率が主役になる<a href="/crm/b2c/">B2C版</a>があります。
+		</p>
 	</div>
 </section>
 
@@ -228,7 +279,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 			<div class="cat-card">
 				<h3>サブスク / 課金</h3>
 				<ul>
-					<li>エディション切替（B2B / B2C）</li>
+					<li>エディション切替（法人営業 / 支援・受託 / 代理店 / B2C）</li>
 					<li>サブスクリプション管理</li>
 					<li>リカーリング指標（MRR / ARR / チャーン / LTV）</li>
 					<li>Stripe連携（顧客同期・支払いリンク・請求書）</li>
@@ -515,4 +566,38 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 	font-size: 0.9375rem; font-weight: 700; color: var(--color-primary);
 	text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px;
 }
+
+/* ── Editions ─────────────────────────────────────── */
+.hero-edition {
+	display: inline-block; margin-left: 0.75rem; vertical-align: 0.35em;
+	font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.08em;
+	color: var(--color-primary); background: rgba(30,64,175,0.08);
+	padding: 0.25rem 0.7rem; border-radius: 4px;
+}
+.hero-switch { margin: 0 0 0.75rem; font-size: 0.9375rem; color: var(--color-text-muted); }
+.hero-switch a { color: var(--color-primary); font-weight: 700; text-decoration: none; border-bottom: 1px solid currentColor; }
+
+.editions { padding-block: var(--space-2xl); background: var(--color-bg); border-top: 1px solid var(--color-border); }
+.ed-title { font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; color: var(--color-text); margin: 0 0 1rem; }
+.ed-lead { font-size: 1rem; line-height: 1.9; color: var(--color-text-muted); margin: 0 0 2.5rem; max-width: 780px; }
+.ed-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.ed-card {
+	border: 1px solid var(--color-border); border-radius: 8px;
+	padding: 1.75rem; background: var(--color-bg-subtle);
+	display: flex; flex-direction: column;
+}
+.ed-tag {
+	align-self: flex-start; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.1em;
+	color: var(--color-primary); background: rgba(30,64,175,0.08);
+	padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 0.875rem;
+}
+.ed-card h3 { margin: 0 0 0.5rem; font-size: 1.125rem; font-weight: 700; color: var(--color-text); }
+.ed-desc { margin: 0 0 1.25rem; font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.75; }
+.ed-items { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+.ed-items li { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.6; padding-left: 1rem; position: relative; }
+.ed-items li::before { content: "—"; position: absolute; left: 0; color: var(--color-primary); }
+.ed-items strong { color: var(--color-primary); font-weight: 700; }
+.ed-foot { margin: 1.75rem 0 0; font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.8; }
+.ed-foot a { color: var(--color-primary); font-weight: 700; }
+@media (max-width: 900px) { .ed-grid { grid-template-columns: 1fr; } }
 </style>

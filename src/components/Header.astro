@@ -28,7 +28,14 @@ const navJA_bottom: { label: string; href: string | null; children?: { label: st
 		],
 	},
 	{ label: '導入事例', href: '/case-studies/' },
-	{ label: 'Revenue CRM', href: '/crm/' },
+	{
+		label: 'Revenue CRM',
+		href: '/crm/',
+		children: [
+			{ label: '法人向け（B2B・支援会社・代理店）', href: '/crm/' },
+			{ label: 'B2C版（サブスク・スクール・EC）',    href: '/crm/b2c/' },
+		],
+	},
 	{
 		label: 'コラム',
 		href: '/insights/',

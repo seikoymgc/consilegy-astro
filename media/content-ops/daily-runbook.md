@@ -54,6 +54,17 @@
    **`git add -A` は使わないこと。** このリポジトリは本体サイト（consilegy.com）と共用で、
    他セッションの未コミット作業を記事コミットに巻き込む事故が起きる。
 
+   **push の認証について（2026-08-06 設定）**：サンドボックスからGitHubへは直接DNSが通らないが、
+   git は環境変数の HTTPプロキシ（`http://localhost:3128`）経由で到達できる（`git ls-remote origin` で確認可能）。
+   認証は `origin` の remote URL に fine-grained PAT を埋め込む方式で常設した。トークンは `.git/config` に
+   平文で入るが、`.git/` は追跡対象外なのでコミットされることはない。
+   - push が `could not read Username for 'https://github.com'` で失敗した場合＝**PATの期限切れか未設定**。
+     記事ファイルはそのまま残し、通知に「push失敗・PAT要更新」と明記して手動 push を依頼する。
+     サンドボックスからトークンを作り直すことはできない。
+   - `.git/objects/*/tmp_obj_*` や `.git/HEAD.lock` の `Operation not permitted` 警告は、
+     macOS側ユーザーが作ったファイルをサンドボックスユーザーが消せないだけで、commit / push 自体は成功する。無視してよい。
+   - `git status` に `media/` 以外の変更（例: `src/pages/index.astro`）が出ていても触らない。他セッションの作業。
+
 9. **記録**：`published-log.md` に日付・スラッグ・カテゴリ・使用トピック・使った出典・（あれば）Recraftプロンプトを追記。
 
 10. **通知**：Seikoに、公開したJA/ENのタイトルとURL、使った数字と出典、注意点（数字を落とした/差し替えた等）を1メッセージで報告する。

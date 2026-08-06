@@ -435,7 +435,7 @@ const insightsPosts = [
 			</li>
 		</ul>
 
-		<p class="track-foot">SaaS・HR-Tech、EC / D2Cを中心に支援しています。</p>
+		<p class="track-foot">SaaS、EC / D2C、メーカー、専門サービスまで、業種を問わず支援しています。</p>
 		<p class="track-more"><a class="btn btn--secondary" href="/case-studies/">導入事例を見る</a></p>
 	</div>
 </section>
@@ -535,10 +535,11 @@ const insightsPosts = [
 		<header class="section-head industries-head">
 			<p class="section-eyebrow">Industries</p>
 			<h2>業界ごとの、詰まりやすい場所</h2>
+			<p class="section-lead">業種を問わず支援しています。ここでは、ご相談の多い3つを挙げます。</p>
 		</header>
 		<div class="ind-grid">
 			<article class="ind-card">
-				<h3>SaaS・HR-Tech の場合</h3>
+				<h3>SaaS の場合</h3>
 				<p>
 					営業からカスタマーサクセスへの引き継ぎで、契約日は残っていても
 					「顧客が何を実現したかったのか」が残っていない——これが解約に直結します。
@@ -569,6 +570,26 @@ const insightsPosts = [
 				<p>
 					価格の問題に見えて、多くは体験と頻度の設計の問題です。
 					どのタイミングで何が起きると離脱するのかを、データで特定するところから始めます。
+				</p>
+			</article>
+			<article class="ind-card">
+				<h3>メーカー・卸 の場合</h3>
+				<p>
+					販売チャネルが代理店・EC・直販に分かれ、顧客情報が売り先ごとに分断される。
+					「最終顧客が誰なのか」が社内で一致しないまま、施策だけが積み上がります。
+				</p>
+				<p class="ind-stat">
+					データを「全社で利活用している」日本企業は<strong>24.2%</strong>。
+					「事業部門・部署ごとに利活用している」の<strong>36.0%</strong>を下回ります。
+					<span class="ind-src">IPA「DX動向2025」2025年2月10日〜3月28日、n=1,520</span>
+				</p>
+				<p>
+					展示会の名刺、Webの問い合わせ、既存取引先の窓口が別々に管理され、
+					同じ企業に別々のアプローチをしてしまう。
+					統合すべきは組織ではなく、顧客を指すIDです。
+				</p>
+				<p>
+					どのチャネル経由の顧客が長く続くのかを出せる状態にしてから、投資配分を決めます。
 				</p>
 			</article>
 		</div>
@@ -1276,7 +1297,7 @@ section { padding-block: var(--space-2xl); }
 	border-top: 1px solid var(--color-border);
 }
 .industries-head { max-width: 640px; }
-.ind-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.ind-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
 .ind-card {
 	background: var(--glass-bg);
 	backdrop-filter: var(--glass-blur);

@@ -2,6 +2,8 @@
 
 日次タスクが公開した記事の記録。重複回避に使う。新しい順に上へ追記する。
 
+> **⚠️ 2026-08-09 更新：push が認証エラーで失敗し続けています。ローカルに未pushのコミットが3本たまりました**（`3936e35` 2026-08-07の記事 / `ad2f6c3` ログ追記 / `8755ad1` 2026-08-09の記事）。原因は下記のとおり remote URL からPATが消えていることで、2026-08-09の実行でも `could not read Username for 'https://github.com'` で停止しました。**Seikoさん側で PAT を remote URL に埋め直したうえで `git push` してください。** 記事ファイル・アイキャッチはすべてコミット済みなので、push が通れば GitHub Actions がまとめてデプロイします。
+>
 > **⚠️ 2026-08-07 時点の未解決事項：push が認証エラーで失敗しています。** `origin` の remote URL から fine-grained PAT が消えており（現在は `https://github.com/seikoymgc/consilegy-astro.git` の素のURL）、`git push` が `could not read Username for 'https://github.com'` で止まります。`git ls-remote origin` は通るのでネットワーク（プロキシ経由）は問題ありません。サンドボックスからトークンを作り直すことはできないため、**Seikoさん側で PAT を remote URL に埋め直したうえで手動 push が必要です。** 2026-08-07 のコミット `3936e35` はローカルに積んであります（`main` が origin/main より1コミット先行）。
 >
 > あわせて `.git/index.lock` と `.git/HEAD.lock` が古い状態で残っており、サンドボックスユーザーからは `rm` できません（`mv` でのリネームは可能なので、`.git/index.lock.stale*` `.git/HEAD.lock.stale2` というファイルが残っています。macOS側で削除してください）。

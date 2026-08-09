@@ -21,7 +21,7 @@ Any metric built on usage will pass in Japan. Local teams comply with instructio
 
 A survey by Keywalker (fielded 8 to 10 October 2025, published 11 November 2025, online panel survey run by PRIZMA, n=1,034, frontline staff and managers in sales departments at Japanese companies that have already deployed an SFA, CRM or BI tool; Keywalker sells BI implementation services, so read it as a vendor survey) asked what people actually use their dashboards for. Only 2.2% of managers and 1.9% of frontline staff said they hardly use them at all. On a usage metric, 98% of the Japanese market passes.
 
-The breakdown of that 98% is the part HQ does not see.
+What that 98% is doing is the part HQ does not see. The question allowed multiple answers, so the figures below sum to more than 100%.
 
 - Checking numbers for the sales meeting: managers 58.2% / frontline 48.6%
 - Reviewing their own or their team's activity: 46.6% / 43.6%
@@ -35,7 +35,7 @@ The dominant uses are confirmation and reporting. Deciding what to do next is th
 
 The third and fourth lines above are worth separating out, because they are where the Japan entity differs structurally from a US or UK region.
 
-Approval in Japan is layered. In a survey by IDEATECH with Hiroyasu Kitagawa (published 16 April 2026, n=307, employees and executives who were among two or more people involved in evaluating a B2B purchase with an annual contract value or one-off implementation cost of 3 million yen or more; a survey-PR study), 60.9% reported a two-stage approval and more than 80% reported two stages or more.
+Approval in Japan is layered. In a survey by IDEATECH with Hiroyasu Kitagawa (fielded 23 to 26 March 2026, published 16 April 2026, n=307, employees and executives who were among two or more people involved in evaluating a B2B purchase with an annual contract value or one-off implementation cost of 3 million yen or more; a survey-PR study), 60.9% reported a two-stage approval and more than 80% reported two stages or more.
 
 That structure changes what a dashboard is for. The Japanese user of your CRM frequently is not the person who decides. Their job is to move a number upward in a document that another layer will read. So they open the dashboard, extract the figures, and paste them into a deck or a written proposal. From HQ's telemetry, that session is indistinguishable from a manager reprioritising a territory.
 

@@ -1,40 +1,41 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
 
-// プロダクトの school shell（edition=b2c + shell='school'）に実装済みの機能のみ記載。
-// LINE連携は現時点でシミュレーション（実API未接続）のため、意図的に載せていない。
+// Mirrors the JA page at /crm/school/. Only features actually shipped in the product's
+// school shell (edition=b2c + shell='school') are listed here.
+// LINE integration is still simulated (no live API), so it is deliberately left out.
 const screens = [
-	{ title: '生徒', desc: '体験中・支払中・休止中・解約済を一覧で。誰が今どの状態かが、探さなくても分かります。' },
-	{ title: '週間スケジュール', desc: 'レッスンの予定を週単位で。休校日カレンダーと連動します。' },
-	{ title: 'レッスン記録', desc: '実施したレッスンの内容を生徒ごとに蓄積。担当が替わっても経緯が残ります。' },
-	{ title: '架電確認', desc: '連絡すべき生徒と、まだ連絡できていない生徒を分けて管理します。' },
-	{ title: 'ヒアリング', desc: '入会時や面談で聞いた内容を構造化して保存。次の担当が読んで動けます。' },
-	{ title: '月次レポート', desc: 'AIが生徒ごとの進捗レポートを下書き。ゼロから書かずに、直して出せます。' },
-	{ title: 'ナレッジベース', desc: '指導方針や運用ルールを記事として蓄積。属人化を防ぎます。' },
-	{ title: '請求', desc: '支払中・支払失敗を把握。止まっている入金に気づけます。' },
+	{ title: 'Students', desc: 'Trialing, paying, paused, and cancelled in one list. Who is in which state right now, without going to look for it.' },
+	{ title: 'Weekly schedule', desc: 'Lessons laid out by the week, linked to the closure calendar.' },
+	{ title: 'Lesson records', desc: 'What was covered in each lesson, accumulated per student. The history stays even when the coach changes.' },
+	{ title: 'Call tracking', desc: 'Students you need to contact kept separate from students you have not reached yet.' },
+	{ title: 'Intake notes', desc: 'What you heard at sign-up and in meetings, stored in a structured form. The next coach can read it and act.' },
+	{ title: 'Monthly reports', desc: 'AI drafts a progress report for each student. You edit and send instead of writing from scratch.' },
+	{ title: 'Knowledge base', desc: 'Teaching policies and operating rules kept as articles, so nothing depends on one person.' },
+	{ title: 'Billing', desc: 'See who is paying and whose payment failed. Notice the money that has stopped coming in.' },
 ];
 
 const roles = [
-	{ name: 'オーナー', scope: 'すべて' },
-	{ name: '管理者', scope: '運用全般と権限設定' },
-	{ name: 'マネージャー', scope: '担当生徒とチームの生徒データを閲覧・編集' },
-	{ name: 'メンバー（コーチ）', scope: '担当生徒のみ' },
+	{ name: 'Owner', scope: 'Everything' },
+	{ name: 'Admin', scope: 'Day-to-day operations and permission settings' },
+	{ name: 'Manager', scope: 'View and edit their own students and their team’s students' },
+	{ name: 'Member (coach)', scope: 'Their own students only' },
 ];
 ---
 
 <BaseLayout
-	title="Revenue CRM スクール版（β版） | 生徒の状況が、探さなくても分かる"
-	description="スクール・教室向けの画面構成。生徒の在籍状況、週間スケジュール、レッスン記録、架電確認、AIによる月次レポート下書きまで。スマホ前提のUIで、コーチが移動中でも扱えます。定期課金の事業にも同じ土台が使えます。現在クローズドβ。"
-	lang="ja"
-	alternateUrl="/en/crm/school/"
+	title="Revenue CRM School Edition (Beta) | The state of every student, without going to look for it"
+	description="A screen layout built for schools and studios: enrollment status, weekly schedules, lesson records, call tracking, and AI-drafted monthly reports. A mobile-first UI coaches can use between lessons. The same foundation works for any recurring-revenue business. Currently in closed beta."
+	lang="en"
+	alternateUrl="/crm/school/"
 >
 <script type="application/ld+json" slot="head" set:html={JSON.stringify({
 	"@context": "https://schema.org",
 	"@type": "BreadcrumbList",
 	"itemListElement": [
-		{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://consilegy.com/"},
-		{"@type": "ListItem", "position": 2, "name": "Revenue CRM", "item": "https://consilegy.com/crm/"},
-		{"@type": "ListItem", "position": 3, "name": "スクール版", "item": "https://consilegy.com/crm/school/"}
+		{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://consilegy.com/en/"},
+		{"@type": "ListItem", "position": 2, "name": "Revenue CRM", "item": "https://consilegy.com/en/crm/"},
+		{"@type": "ListItem", "position": 3, "name": "School Edition", "item": "https://consilegy.com/en/crm/school/"}
 	]
 })} />
 
@@ -42,19 +43,19 @@ const roles = [
 <section class="hero">
 	<div class="container">
 		<span class="eyebrow"><span class="eyebrow__dot"></span>Product · Closed Beta</span>
-		<h1>生徒の状況が、<br />探さなくても分かる。<span class="hero-edition">スクール版</span></h1>
+		<h1>The state of every student,<br />without going to look for it.<span class="hero-edition">School edition</span></h1>
 		<p class="hero-lead">
-			生徒名簿はスプレッドシート、レッスンの記録はコーチの手元、
-			入金状況は別のツール。誰かに聞かないと今の状態が分からない——
-			スクール運営でいちばん時間を溶かすのは、この「探す時間」です。
-			スクール版は、<strong>生徒を軸に全部を1か所に集めた画面構成</strong>です。
+			The student roster is a spreadsheet, the lesson records are on each coach's own device,
+			and payment status is in yet another tool. You have to ask someone to find out where
+			things stand. In running a school, that searching is what eats the most time.
+			The school edition is <strong>a screen layout that pulls all of it together around the student</strong>.
 		</p>
 		<div class="hero-actions">
-			<a href="/contact/" class="btn btn--hero-primary btn--lg">βパートナーに応募する →</a>
-			<a href="#screens" class="btn btn--hero-outline btn--lg">画面を見る</a>
+			<a href="/en/contact/" class="btn btn--hero-primary btn--lg">Apply as a beta partner →</a>
+			<a href="#screens" class="btn btn--hero-outline btn--lg">See the screens</a>
 		</div>
-		<p class="hero-switch">法人のお客様を相手にする事業の方は <a href="/crm/">法人向けはこちら →</a></p>
-		<p class="hero-note">※ 現在クローズドβ。数社限定で、一緒に育てていただけるパートナーを探しています。仕様は予告なく変更される場合があります。</p>
+		<p class="hero-switch">Selling to companies instead? <a href="/en/crm/">See the B2B edition →</a></p>
+		<p class="hero-note">* Currently in closed beta. We are looking for a small number of partners to build this with. Features may change without notice.</p>
 	</div>
 </section>
 
@@ -64,14 +65,14 @@ const roles = [
 		<div class="demo-frame">
 			<img
 				src="/videos/school-demo.gif"
-				alt="スクール版の操作。ホームで在籍生徒数・要対応・定着率を確認し、生徒一覧を在籍/体験中で絞り込み、生徒詳細で担当コーチとレッスン履歴を見て、メニューから請求・週間スケジュール・AIアシスタントへ移動する。"
+				alt="The school edition in use. The home screen shows enrolled student count, students needing attention, and retention rate; the student list is filtered by enrolled and trialing; a student detail page shows the assigned coach and lesson history; and the menu leads to billing, the weekly schedule, and the AI assistant."
 				width="820"
 				height="600"
 				loading="lazy"
 				decoding="async"
 			/>
 		</div>
-		<p class="demo-caption">実際の画面 — ホーム → 生徒一覧 → 生徒詳細 → メニュー</p>
+		<p class="demo-caption">The actual screens — home → student list → student detail → menu. The school edition interface is Japanese only at present; the multilingual UI ships with the B2B edition.</p>
 	</div>
 </section>
 
@@ -80,23 +81,24 @@ const roles = [
 	<div class="container">
 		<div class="pos-body">
 			<p class="pos-lead">
-				追いかけるのは「受注できるか」ではなく、<br />
-				「今月も通ってもらえるか」です。
+				What you are following is not "can we close this,"<br />
+				but "will they still be coming next month."
 			</p>
 			<p>
-				だから中心に置いたのは<strong>生徒・レッスン・コーチ</strong>の3つです。
-				在籍しているかどうかだけでなく、誰がいつ何を受けて、どう進んでいるかまで残ります。
+				So the three things at the center are <strong>students, lessons, and coaches</strong>.
+				Not just whether someone is enrolled, but who took what and when, and how far along they are.
 			</p>
 			<p>
-				画面は<strong>スマホを前提</strong>に作ってあります。コーチが教室と移動の合間に開いて、
-				その場で記録し、その場で次の生徒を確認できることを優先しました。
+				The screens are built <strong>mobile first</strong>. The priority was a coach being able
+				to open it between the classroom and the train, record what just happened, and check
+				who is next, right there.
 			</p>
 			<p>
-				定期課金で成り立つ事業（サブスク・定期購入など）にも、同じ土台が使えます。
-				生徒・レッスン・コーチの部分を外し、契約と継続率だけを見る構成にできます。
-				ご相談ください。
+				The same foundation works for any business built on recurring payments, such as
+				subscriptions and repeat orders. The student, lesson, and coach parts come out, and
+				it becomes a setup that watches contracts and retention only. Get in touch.
 			</p>
-			<a href="/revenue-architecture/" class="pos-link">この考え方について読む →</a>
+			<a href="/en/services/revenue-architecture-design/" class="pos-link">Read about this approach →</a>
 		</div>
 	</div>
 </section>
@@ -105,31 +107,31 @@ const roles = [
 <section class="problem">
 	<div class="container">
 		<p class="section-eyebrow">Why it breaks</p>
-		<h2 class="prob-title">こんな課題、ありませんか。</h2>
+		<h2 class="prob-title">Sound familiar?</h2>
 		<div class="prob-grid">
 			<div class="prob-item">
-				<p>やめそうな生徒に気づくのが、いつも辞めた後になっている。</p>
+				<p>You always notice the student who was about to quit after they have already quit.</p>
 			</div>
 			<div class="prob-item">
-				<p>コーチが替わると、その生徒の経緯が引き継がれない。前回何を話したか誰も知らない。</p>
+				<p>When the coach changes, that student's history does not get handed over. Nobody knows what was discussed last time.</p>
 			</div>
 			<div class="prob-item">
-				<p>月末に「今、何人在籍しているか」を数え直している。</p>
+				<p>At the end of every month, you are counting how many students are currently enrolled all over again.</p>
 			</div>
 		</div>
 
 		<figure class="prob-shot">
 			<img
 				src="/images/common/school-student-detail.jpg"
-				alt="スクール版の生徒詳細画面。開始日・連続コール日数・月謝、担当コーチ4名の役割（メイン/サブ1/サブ2/ディレクター）、レッスン履歴のタイムラインが1画面に並んでいる。"
+				alt="The student detail screen in the school edition. Start date, consecutive call days, and monthly fee, the four assigned coaches and their roles (main, sub 1, sub 2, director), and a timeline of lesson history all sit on one screen."
 				width="1100"
 				height="804"
 				loading="lazy"
 				decoding="async"
 			/>
 			<figcaption>
-				生徒1人ぶんの画面。<strong>誰が担当で、いつ何をやって、どう進んだか</strong>が1枚に載ります。
-				コーチが替わっても、この画面を開けば経緯が分かります。
+				One screen for one student. <strong>Who is responsible, what was done and when, and how it progressed</strong> all on a single page.
+				When the coach changes, opening this screen tells the whole story.
 			</figcaption>
 		</figure>
 	</div>
@@ -139,7 +141,7 @@ const roles = [
 <section class="screens" id="screens">
 	<div class="container">
 		<p class="section-eyebrow">Screens</p>
-		<h2 class="sc-title">生徒を軸に、必要なものが揃っています。</h2>
+		<h2 class="sc-title">Everything you need, organized around the student.</h2>
 		<div class="sc-grid">
 			{screens.map((s) => (
 				<article class="sc-card">
@@ -156,21 +158,21 @@ const roles = [
 	<div class="container ai-inner">
 		<div>
 			<p class="section-eyebrow">AI</p>
-			<h2>日本語で聞けば、答えが返ります。</h2>
+			<h2>Ask in plain language, get an answer.</h2>
 			<p class="ai-lead">
-				レポートを作らなくても、知りたいことをそのまま聞けます。
-				生徒データを検索して、その場で答えます。
+				You do not have to build a report to find something out. Ask the question as you
+				would say it, and it searches the student data and answers on the spot.
 			</p>
 			<p class="ai-lead">
-				月次の進捗レポートも、AIが生徒ごとに下書きします。
-				ゼロから書く作業がなくなり、確認して直すだけになります。
+				Monthly progress reports are drafted per student by AI as well. The writing-from-scratch
+				part disappears, and you are left with checking and editing.
 			</p>
 		</div>
 		<ul class="ai-examples">
-			<li>今日、要対応の生徒は？</li>
-			<li>今月の在籍率は？</li>
-			<li>今週のレッスン予定は？</li>
-			<li>未架電の生徒をリストして</li>
+			<li>Which students need attention today?</li>
+			<li>What is this month's retention rate?</li>
+			<li>What lessons are scheduled this week?</li>
+			<li>List the students we haven't called</li>
 		</ul>
 	</div>
 </section>
@@ -179,10 +181,10 @@ const roles = [
 <section class="roles">
 	<div class="container">
 		<p class="section-eyebrow">Permissions</p>
-		<h2 class="ro-title">コーチには、担当の生徒だけ。</h2>
+		<h2 class="ro-title">Coaches see their own students, and no one else's.</h2>
 		<p class="ro-lead">
-			業務委託のコーチが多いスクールでは、誰がどこまで見られるかが実務上の問題になります。
-			役割ごとに範囲を分けられます。
+			In schools that work with a lot of contract coaches, how far each person can see is a
+			practical problem, not a theoretical one. Scope is set per role.
 		</p>
 		<dl class="ro-list">
 			{roles.map((r) => (
@@ -192,7 +194,7 @@ const roles = [
 				</div>
 			))}
 		</dl>
-		<p class="ro-note">操作ログが残るので、誰がいつ何を変更したかを後から追えます。</p>
+		<p class="ro-note">Actions are logged, so you can trace who changed what and when after the fact.</p>
 	</div>
 </section>
 
@@ -201,25 +203,25 @@ const roles = [
 	<div class="container cta-inner">
 		<div>
 			<p class="cta-eyebrow">Get Started</p>
-			<h2>一緒に育てていただける<br />スクールを探しています。</h2>
+			<h2>We're looking for schools<br />to build this with.</h2>
 			<p class="cta-lead">
-				クローズドβは、完成品を売る段階ではありません。
-				実際の運営で使っていただき、足りないものを教えていただきながら仕上げていく段階です。
-				その代わり、御校の運営に合わせて機能の優先順位を決められます。
+				A closed beta is not the stage where a finished product gets sold. It is the stage
+				where you use it in real operations, tell us what is missing, and we finish it together.
+				In exchange, you get to set the priority of what we build next around how your school runs.
 			</p>
 			<div class="cta-actions">
-				<a href="/contact/" class="btn btn--cta-primary btn--lg">βパートナーに応募する →</a>
-				<a href="/crm/" class="btn btn--cta-outline btn--lg">法人向けを見る</a>
+				<a href="/en/contact/" class="btn btn--cta-primary btn--lg">Apply as a beta partner →</a>
+				<a href="/en/crm/" class="btn btn--cta-outline btn--lg">See the B2B edition</a>
 			</div>
 		</div>
 		<div class="cta-card">
-			<h4>デモでお見せする内容</h4>
+			<h4>What we'll show you</h4>
 			<ul class="cta-list">
-				<li>生徒一覧と在籍状況の見え方</li>
-				<li>週間スケジュールと休校日の管理</li>
-				<li>レッスン記録・ヒアリングの残り方</li>
-				<li>AIによる月次レポートの下書き</li>
-				<li>コーチ向けの権限設定と操作ログ</li>
+				<li>The student list and how enrollment status reads</li>
+				<li>Weekly scheduling and closure-day management</li>
+				<li>How lesson records and intake notes accumulate</li>
+				<li>AI-drafted monthly reports</li>
+				<li>Permission settings and audit logs for coaches</li>
 			</ul>
 		</div>
 	</div>
@@ -228,6 +230,12 @@ const roles = [
 </BaseLayout>
 
 <style>
+/* ── Container ───────────────────────────────────────────
+   EN サイトは global.css で --container: 72ch（読み物用の狭い段）になっている。
+   このLPはカードを4列に並べるので、JA版と同じ 1120px に戻す。
+   ページスコープなので他のENページには影響しない。 */
+.container { max-width: 1120px; }
+
 /* ── Shared ──────────────────────────────────────────── */
 .section-eyebrow {
 	font-size: 0.8125rem; font-weight: 600; color: var(--color-primary);
@@ -323,7 +331,7 @@ const roles = [
 	box-shadow: var(--shadow-md);
 }
 .demo-frame img { width: 100%; height: auto; display: block; }
-.demo-caption { margin: 0.875rem 0 0; text-align: center; font-size: 0.8125rem; color: var(--color-text-muted); }
+.demo-caption { margin: 0.875rem auto 0; max-width: 640px; text-align: center; font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.7; }
 
 .prob-shot { margin: 2.5rem 0 0; max-width: 900px; }
 .prob-shot img {
@@ -361,8 +369,8 @@ const roles = [
 	border-radius: 100px; padding: 0.75rem 1.25rem;
 	font-size: 0.9375rem; color: var(--color-text);
 }
-.ai-examples li::before { content: "「"; color: var(--color-primary); }
-.ai-examples li::after { content: "」"; color: var(--color-primary); }
+.ai-examples li::before { content: "“"; color: var(--color-primary); }
+.ai-examples li::after { content: "”"; color: var(--color-primary); }
 
 /* ── Roles ─────────────────────────────────────────── */
 .roles { padding-block: var(--space-2xl); background: var(--color-bg-subtle); border-top: 1px solid var(--color-border); }

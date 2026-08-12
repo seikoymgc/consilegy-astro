@@ -3,8 +3,8 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-	title="Revenue CRM (Beta) | The AI-native CRM that follows your revenue model"
-	description="Unify sales, marketing, and CS revenue data in one place. Revenue CRM scores leads and suggests the next action with AI. Now in closed beta. Request a demo."
+	title="Revenue CRM for B2B (Beta) | The first CRM for companies that don't have one yet"
+	description="A CRM that arrives pre-configured for three business types: B2B sales, agencies and contract work, and SaaS resellers. Built for teams whose customer data still lives in spreadsheets and inboxes, with nothing to migrate. Serving individual customers instead? See the school edition. Currently in closed beta."
 	lang="en"
 	alternateUrl="/crm/"
 >
@@ -13,17 +13,43 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 <section class="hero">
 	<div class="container">
 		<span class="eyebrow"><span class="eyebrow__dot"></span>Product · Closed Beta</span>
-		<h1>The AI-native CRM that<br />follows your revenue model.</h1>
+		<h1>The first CRM for companies<br />that don't have one yet.<span class="hero-edition">For B2B</span></h1>
 		<p class="hero-lead">
-			Capture leads, run deals, and forecast — all in one place. AI scores prospects
-			and recommends the next action, keeping your sales, marketing, and CS revenue
-			operations moving forward. Now available to a small number of companies in closed beta.
+			Your customer data lives in spreadsheets and inboxes. The status of a deal lives
+			in one person's head. Revenue CRM is built to start from exactly there.
+			There is nothing to migrate, and nothing about the way you work today that you
+			have to give up. It begins by turning what you already do in a spreadsheet into a record that stays.
 		</p>
 		<div class="hero-actions">
-			<a href="/en/contact/" class="btn btn--hero-primary btn--lg">Request a demo →</a>
+			<a href="/en/contact/" class="btn btn--hero-primary btn--lg">Apply as a beta partner →</a>
 			<a href="#features" class="btn btn--hero-outline btn--lg">See features</a>
 		</div>
-		<p class="hero-note">* Currently in beta — invite-only and limited to a few companies. Features may change without notice.</p>
+		<p class="hero-switch">Running a school or a studio? <a href="/en/crm/school/">See the school edition →</a></p>
+		<p class="hero-note">* Currently in closed beta. We are looking for a small number of partners to build this with. Features may change without notice.</p>
+	</div>
+</section>
+
+<!-- ===================== POSITIONING ===================== -->
+<section class="positioning">
+	<div class="container">
+		<div class="pos-body">
+			<p class="pos-lead">
+				Revenue CRM is the way of thinking about revenue structure we have used across
+				40 engagements, turned into something that runs.
+			</p>
+			<p>
+				Consilegy's consulting work <strong>starts from the tools you already have</strong>.
+				If Salesforce, HubSpot, kintone, or Marketo is in place, we redesign around them
+				so that investment keeps working. We do not push Revenue CRM on anyone.
+			</p>
+			<p>
+				Revenue CRM fits companies with nothing to migrate from. No tools to evaluate
+				against each other, no data to throw away. It is one option for getting from
+				that starting point to "the state of every customer is on the record" by the
+				shortest route available.
+			</p>
+			<a href="/en/services/revenue-architecture-design/" class="pos-link">Read about this approach →</a>
+		</div>
 	</div>
 </section>
 
@@ -33,18 +59,23 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 		<div class="pillar-grid">
 			<div class="pillar">
 				<span class="pillar-kicker">AI-native</span>
-				<h3>AI operates your CRM</h3>
-				<p>An AI copilot searches and acts in plain language — from call analysis to scoring, it takes work off your team.</p>
+				<h3>AI operates the CRM</h3>
+				<p>Ask in plain language and both search and actions go through. From call analysis to scoring, AI takes the busywork off the team.</p>
 			</div>
 			<div class="pillar pillar--accent">
-				<span class="pillar-num">175</span>
-				<h3>RevOps automations built in</h3>
-				<p>Pre-built playbooks spanning marketing, sales, and CS. Toggle one on and it runs.</p>
+				<span class="pillar-num">103<span class="pillar-unit">flows</span></span>
+				<h3>RevOps automation built in</h3>
+				<p>Pre-built playbooks spanning marketing, sales, and CS. Flip a toggle and they run. Another 72 are in preparation.</p>
 			</div>
 			<div class="pillar">
 				<span class="pillar-kicker">Clean UI</span>
-				<h3>Effortless to use</h3>
-				<p>A refined interface your team actually adopts — less data entry, cleaner data.</p>
+				<h3>Easy enough to actually adopt</h3>
+				<p>A refined interface that sticks with the people doing the work. Less data entry, and the data comes together on its own.</p>
+			</div>
+			<div class="pillar">
+				<span class="pillar-kicker">日本語 / English / 繁體中文</span>
+				<h3>The whole UI switches across three languages</h3>
+				<p>One button changes the interface. Japanese and international members can look at the same data, each in their own language. Designed with Taiwan and the wider Asia region in mind.</p>
 			</div>
 		</div>
 	</div>
@@ -54,16 +85,67 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 <section class="demo-video">
 	<div class="container">
 		<div class="video-frame">
-			<video
-				src="/videos/revenue-crm.mp4"
-				controls
-				preload="metadata"
-				playsinline
-				width="1280"
-				height="720"
-			></video>
+			<img
+				src="/videos/revenue-crm-demo-en.gif"
+				alt="A tour of Revenue CRM in the English UI. The dashboard shows open pipeline and weighted forecast, deals are viewed on a kanban board, the automation library lists 103 workflows, Jade (the AI) is asked for the funnel status and returns a lifecycle-stage breakdown, and finally the UI switches to Traditional Chinese and Japanese and back to English."
+				width="880"
+				height="510"
+				loading="lazy"
+				decoding="async"
+			/>
 		</div>
-		<p class="video-caption">Product demo (about 2 min 40 sec)</p>
+		<p class="video-caption">Product demo — dashboard → deal kanban → automation library → Jade (AI) → language switch.</p>
+	</div>
+</section>
+
+<!-- ===================== EDITIONS ===================== -->
+<section class="editions">
+	<div class="container">
+		<p class="section-eyebrow">Editions</p>
+		<h2 class="ed-title">Pre-configured for the shape of your business.</h2>
+		<p class="ed-lead">
+			Even within one CRM, whether the thing you handle is a <em>deal</em>, a <em>project</em>,
+			or a <em>contract</em> changes which screens you need and which numbers you chase.
+			In Revenue CRM you pick your business type, and the terminology, screens, and
+			automations switch to match. You can change it later.
+		</p>
+		<div class="ed-grid">
+			<article class="ed-card">
+				<span class="ed-tag">B2B</span>
+				<h3>B2B sales</h3>
+				<p class="ed-desc">The standard setup: manage prospects as deals and follow them through to closed-won.</p>
+				<ul class="ed-items">
+					<li>Centered on: <strong>deals</strong></li>
+					<li>Pipeline, forecast, and quotes</li>
+					<li>Alerts on stalled deals</li>
+				</ul>
+			</article>
+			<article class="ed-card">
+				<span class="ed-tag">Contractor</span>
+				<h3>Agencies &amp; contract work</h3>
+				<p class="ed-desc">For businesses running client engagements. We call them projects, not deals.</p>
+				<ul class="ed-items">
+					<li>Centered on: <strong>projects</strong></li>
+					<li>The quote → won → delivery → invoice loop</li>
+					<li>Maintenance-contract renewal dates managed automatically</li>
+				</ul>
+			</article>
+			<article class="ed-card">
+				<span class="ed-tag">Reseller</span>
+				<h3>SaaS resellers</h3>
+				<p class="ed-desc">For businesses where the sale is not the end and renewals are the revenue.</p>
+				<ul class="ed-items">
+					<li>Centered on: <strong>contracts</strong></li>
+					<li>Renewal-risk scoring</li>
+					<li>Churn-signal detection and automatic renewal-deal creation</li>
+				</ul>
+			</article>
+		</div>
+		<p class="ed-foot">
+			For businesses built on keeping students coming back, such as schools and studios,
+			there is a <a href="/en/crm/school/">school edition</a> where enrollment and retention
+			take the place of deals.
+		</p>
 	</div>
 </section>
 
@@ -74,13 +156,13 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 		<h2 class="prob-title">Sound familiar?</h2>
 		<div class="prob-grid">
 			<div class="prob-item">
-				<p>Data entry is a chore, so the team never adopts it — and you quietly drift back to managing everything in Excel.</p>
+				<p>Customer information is scattered across spreadsheets and inboxes, and nobody can tell which copy is current.</p>
 			</div>
 			<div class="prob-item">
-				<p>SFA, MA, and CS tools are siloed, so the numbers from lead to revenue never connect into one view.</p>
+				<p>How far along a deal is lives only in one person's head, and everything stops when they take a day off.</p>
 			</div>
 			<div class="prob-item">
-				<p>Which lead to act on now, and what to do next, lives in people's heads — so follow-up is always reactive.</p>
+				<p>Revenue is growing, but nobody can say how much will land next month.</p>
 			</div>
 		</div>
 	</div>
@@ -91,32 +173,32 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 	<div class="container">
 		<div class="feat-head">
 			<p class="section-eyebrow">Features</p>
-			<h2>Built to move revenue forward.</h2>
+			<h2>The core of what moves revenue forward.</h2>
 		</div>
 		<div class="feat-grid">
 			<article class="feat-card">
 				<h3>AI agent</h3>
-				<p>Ask your data in plain language. AI drafts emails and recommends next steps, taking work off the team's plate.</p>
+				<p>Ask your data in plain language. From drafting emails to suggesting the next action, AI takes work off the team's plate.</p>
 			</article>
 			<article class="feat-card">
 				<h3>Lead scoring</h3>
-				<p>Surface hot leads automatically from behavior and firmographics. See who to act on at a glance.</p>
+				<p>Promising leads are identified automatically from behavior and firmographics. See who to work right now at a glance.</p>
 			</article>
 			<article class="feat-card">
 				<h3>Workflow automation</h3>
-				<p>Trigger notifications, tasks, and emails on your rules — cut manual work and prevent things from slipping.</p>
+				<p>Fire notifications, tasks, and emails on your conditions. Less manual work, and nothing slips through.</p>
 			</article>
 			<article class="feat-card">
 				<h3>Email sequences</h3>
-				<p>Automated, multi-step follow-ups that branch based on each reply and action.</p>
+				<p>Multi-step follow-up sent automatically, branching on replies and behavior.</p>
 			</article>
 			<article class="feat-card">
 				<h3>Forecasting</h3>
-				<p>See where the quarter lands straight from your pipeline — turn meetings into decisions, not status reports.</p>
+				<p>See where you will land straight from the pipeline, so meetings become decisions instead of status reports.</p>
 			</article>
 			<article class="feat-card">
 				<h3>Custom objects</h3>
-				<p>Extend the data model to fit your business. Design it around how revenue actually flows.</p>
+				<p>Extend the data model freely to fit your operations. Design it around how revenue actually flows in your business.</p>
 			</article>
 		</div>
 	</div>
@@ -133,7 +215,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 			<div class="cat-card">
 				<h3>AI &amp; Intelligence</h3>
 				<ul>
-					<li>AI Copilot (search &amp; operate the CRM in plain language)</li>
+					<li>AI assistant (search &amp; operate the CRM in plain language)</li>
 					<li>AI call analysis (MEDDPICC / BANT / CHAMP / SPIN)</li>
 					<li>AI research (web, with citations)</li>
 					<li>AI summarization &amp; classification</li>
@@ -150,7 +232,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 					<li>Contacts / Companies / Deals</li>
 					<li>Tickets / Tasks / Activities / Calls</li>
 					<li>Deal kanban (drag &amp; drop)</li>
-					<li>Lead conversion (stage change + deal)</li>
+					<li>Lead conversion (stage change + deal creation)</li>
 					<li>Pipeline &amp; stage management</li>
 					<li>Notes, attachments &amp; favorites</li>
 					<li>Record-to-record relations</li>
@@ -160,21 +242,21 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 				<h3>Marketing</h3>
 				<ul>
 					<li>Form builder (public pages, auto-create contacts)</li>
-					<li>Email campaigns &amp; templates</li>
-					<li>Open / click tracking &amp; unsubscribe</li>
+					<li>Email delivery (templates &amp; campaigns)</li>
+					<li>Open / click tracking &amp; unsubscribe management</li>
 					<li>Lists (static / dynamic)</li>
 					<li>Workflows (visual automation)</li>
-					<li>Triggers, conditions &amp; delays</li>
+					<li>Triggers, conditional branches &amp; delay steps</li>
 				</ul>
 			</div>
 			<div class="cat-card">
 				<h3>Sales</h3>
 				<ul>
-					<li>Forecasting (by category)</li>
-					<li>Sequences (automated follow-up)</li>
-					<li>Quotes (line items, tax, status)</li>
+					<li>Forecasting (rolled up by category)</li>
+					<li>Sequences (automated multi-step follow-up)</li>
+					<li>Quotes (line items, tax rates, status)</li>
 					<li>Product catalog</li>
-					<li>Contact roles (decision maker, champion, …)</li>
+					<li>Contact roles (decision maker, champion, and more)</li>
 				</ul>
 			</div>
 			<div class="cat-card">
@@ -182,7 +264,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 				<ul>
 					<li>Omnichannel inbox (chat / email / API)</li>
 					<li>Embeddable chat widget (real-time)</li>
-					<li>Inbound email to conversations</li>
+					<li>Inbound email turned into conversations</li>
 					<li>Knowledge base</li>
 					<li>Surveys (NPS / CSAT / CES)</li>
 				</ul>
@@ -190,18 +272,18 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 			<div class="cat-card">
 				<h3>RevOps automation</h3>
 				<ul>
-					<li>175 pre-built workflow playbooks</li>
+					<li>A catalog of 103 pre-built workflows (72 more in preparation)</li>
 					<li>Covers marketing / sales / CS</li>
 					<li>Toggle on/off, attach sequences</li>
-					<li>Issue-based nurtures &amp; deal-stall alerts</li>
-					<li>SLA escalation &amp; renewal-deal creation</li>
+					<li>Issue-based nurtures &amp; stalled-deal alerts</li>
+					<li>SLA escalation &amp; automatic renewal-deal creation</li>
 					<li>Cross-sell candidates, business reviews &amp; more</li>
 				</ul>
 			</div>
 			<div class="cat-card">
 				<h3>Subscriptions &amp; billing</h3>
 				<ul>
-					<li>Edition switch (B2B / B2C)</li>
+					<li>Edition switch (B2B sales / contractor / reseller / B2C)</li>
 					<li>Subscription management</li>
 					<li>Recurring metrics (MRR / ARR / churn / LTV)</li>
 					<li>Stripe (customer sync, payment links, invoices)</li>
@@ -215,13 +297,75 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 					<li>REST API (v1) / GraphQL / MCP server</li>
 					<li>Outbound webhooks (signed, with delivery logs)</li>
 					<li>Permissions (role × CRUD) &amp; audit log</li>
-					<li>Multi-workspace, member invites &amp; roles</li>
+					<li>Multi-workspace, member invites &amp; role management</li>
 					<li>Trash (restore) &amp; global search</li>
-					<li>Notion / Google / LinkedIn integrations</li>
-					<li>Multilingual (JA / EN / ZH-TW)</li>
+					<li>Integrations: Notion / Google / LinkedIn</li>
+					<li>Multilingual (日本語 / English / 繁體中文) — the whole UI switches</li>
 				</ul>
 			</div>
 		</div>
+	</div>
+</section>
+
+<!-- ===================== ORIGIN STORY ===================== -->
+<section class="origin">
+	<div class="container origin-inner">
+		<div class="origin-copy">
+			<p class="section-eyebrow">Origin</p>
+			<h2>Where this CRM was born</h2>
+			<p>
+				Revenue CRM did not take shape in an office in Japan. It took shape at
+				<strong>Nomad Hualien (花蓮雲基地)</strong>, the digital nomad hub run by
+				Hualien County, Taiwan.
+			</p>
+			<p>
+				Seiko Yamaguchi, Consilegy's founder, was selected for the first cohort of the
+				residency program. Sharing desks with founders and remote workers from across
+				the region, and running cross-border meetings as a matter of routine,
+				<strong>the "CRM × AI" shape</strong> emerged out of working alongside them.
+			</p>
+			<p>
+				The thinking about revenue structure built across 40 B2B engagements in Japan
+				is layered with the working practices of several countries encountered there.
+				The design does not assume Japanese business customs alone, because the place
+				it was born was not that kind of place.
+			</p>
+			<p class="origin-name">
+				The AI built into the CRM is named <strong>Jade</strong> because jade is what
+				Hualien is known for. It carries the name of the place it came from.
+			</p>
+		</div>
+		<figure class="origin-quote">
+			<blockquote>
+				The growth of a company does not rest on cold technology alone.<br />
+				Human connection, and trust in a community,<br />
+				are what make a business last.
+			</blockquote>
+			<figcaption>
+				<span class="origin-who">Seiko Yamaguchi — Founder, Consilegy</span>
+				<a
+					href="https://www.seenews.com.tw/news_data.php?news_id=2325&amp;k_code=A"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="origin-src"
+				>See News (花蓮視新聞), 25 June 2026: "花蓮雲基地第二季名單揭曉 日籍首季進駐者讚爆" →</a>
+			</figcaption>
+			<a
+				href="https://www.seenews.com.tw/news_data.php?news_id=2325&amp;k_code=A"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="origin-clip"
+			>
+				<img
+					src="/images/common/seenews-hualien-2026.jpg"
+					alt="A See News (花蓮視新聞) article from 25 June 2026 reporting that Seiko, from Japan, developed a new product combining CRM and AI as a first-cohort resident of Nomad Hualien."
+					width="1000"
+					height="1026"
+					loading="lazy"
+				/>
+				<span class="origin-clip__cap">From the See News (花蓮視新聞) article of 25 June 2026</span>
+			</a>
+		</figure>
 	</div>
 </section>
 
@@ -230,11 +374,11 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 	<div class="container beta-inner">
 		<div>
 			<p class="section-eyebrow">Closed Beta</p>
-			<h2>We're onboarding our first customers now.</h2>
+			<h2>We're taking on our first customers now.</h2>
 			<p class="beta-lead">
-				Revenue CRM is being built in closed beta. Beta customers get onboarding
-				informed by Consilegy's revenue-design expertise, plus priority support
-				where your feature requests go straight into the product.
+				Revenue CRM is being built as a closed beta. Companies who come on board get
+				onboarding informed by Consilegy's revenue-design work, plus priority support
+				where feature requests go straight into the product.
 			</p>
 		</div>
 		<ul class="beta-list">
@@ -251,20 +395,21 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 	<div class="container cta-inner">
 		<div>
 			<p class="cta-eyebrow">Get Started</p>
-			<h2>See it in action<br />with a live demo.</h2>
+			<h2>We're looking for partners<br />to build this with.</h2>
 			<p class="cta-lead">
-				We'll walk through your revenue operations challenges and show how
-				Revenue CRM works in a hands-on demo. Beta inquiries are welcome here too.
+				A closed beta is not the stage where a finished product gets sold. It is the
+				stage where you use it in real operations, tell us what is missing, and we
+				finish it together. In exchange, you get to set the priority of what we build next.
 			</p>
 			<div class="cta-actions">
-				<a href="/en/contact/" class="btn btn--cta-primary btn--lg">Request a demo →</a>
-				<a href="/en/services/" class="btn btn--cta-outline btn--lg">View services</a>
+				<a href="/en/contact/" class="btn btn--cta-primary btn--lg">Apply as a beta partner →</a>
+				<a href="/en/services/" class="btn btn--cta-outline btn--lg">Already have a CRM?</a>
 			</div>
 		</div>
 		<div class="cta-card">
 			<h4>What we'll show you</h4>
 			<ul class="cta-list">
-				<li>AI agent operating on and suggesting actions from your data</li>
+				<li>The AI agent working on and suggesting actions from your data</li>
 				<li>Lead scoring and prioritization</li>
 				<li>Workflow and email-sequence automation</li>
 				<li>Pipeline and forecast visibility</li>
@@ -277,6 +422,12 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 </BaseLayout>
 
 <style>
+/* ── Container ───────────────────────────────────────────
+   EN サイトは global.css で --container: 72ch（読み物用の狭い段）になっている。
+   このLPはカードを3列に並べるので、JA版と同じ 1120px に戻す。
+   ページスコープなので他のENページには影響しない。 */
+.container { max-width: 1120px; }
+
 /* ── Shared ──────────────────────────────────────────── */
 .section-eyebrow {
 	font-size: 0.8125rem; font-weight: 600; color: var(--color-primary);
@@ -299,9 +450,9 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 .eyebrow__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--color-primary); display: inline-block; }
 .hero h1 {
 	font-size: clamp(2.25rem, 4vw, 3.25rem); font-weight: 600;
-	letter-spacing: 0.01em; margin: 0 0 1rem; color: var(--color-text); line-height: 1.2;
+	letter-spacing: 0.01em; margin: 0 0 1rem; color: var(--color-text); line-height: 1.25;
 }
-.hero-lead { font-size: 1.125rem; line-height: 1.75; color: var(--color-text-muted); max-width: 720px; margin: 0 0 2rem; }
+.hero-lead { font-size: 1.125rem; line-height: 1.8; color: var(--color-text-muted); max-width: 720px; margin: 0 0 2rem; }
 .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
 .hero-note { font-size: 0.8125rem; color: var(--color-text-muted); margin: 1.5rem 0 0; }
 
@@ -325,7 +476,8 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 /* ── Pillars ───────────────────────────────────────── */
 .pillars { padding-block: var(--space-xl); background: var(--color-bg); }
-.pillar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+/* 英文は日本語のように任意の位置で折り返せないため、JA版の4カラムではなく2×2にする */
+.pillar-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
 .pillar {
 	border: 1px solid var(--color-border); border-radius: var(--radius-card);
 	padding: 2rem; background: var(--color-bg-subtle);
@@ -342,6 +494,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 	display: block; font-size: 3rem; font-weight: 700; line-height: 1;
 	color: var(--color-primary); letter-spacing: -0.02em; margin-bottom: 0.5rem;
 }
+.pillar-unit { font-size: 1.125rem; font-weight: 600; margin-left: 0.35rem; }
 .pillar h3 { font-size: 1.0625rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.625rem; }
 .pillar p { font-size: 0.9375rem; line-height: 1.7; color: var(--color-text-muted); margin: 0; }
 
@@ -353,8 +506,8 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 	overflow: hidden; box-shadow: var(--shadow-lg); background: #000;
 	line-height: 0;
 }
-.video-frame video { width: 100%; height: auto; display: block; }
-.video-caption { text-align: center; font-size: 0.8125rem; color: var(--color-text-muted); margin: 1rem 0 0; }
+.video-frame img { width: 100%; height: auto; display: block; }
+.video-caption { text-align: center; font-size: 0.8125rem; color: var(--color-text-muted); margin: 1rem auto 0; max-width: 640px; line-height: 1.7; }
 
 /* ── Problem ───────────────────────────────────────── */
 .problem { padding-block: var(--space-2xl); background: var(--color-bg); }
@@ -465,4 +618,101 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 @media (max-width: 560px) {
 	.hero-actions, .cta-actions { flex-direction: column; }
 }
+
+/* ── Positioning ───────────────────────────────────── */
+.positioning {
+	background: var(--color-bg-subtle);
+	border-top: 1px solid var(--color-border);
+	border-bottom: 1px solid var(--color-border);
+	padding-block: var(--space-xl);
+}
+.pos-body { max-width: 760px; }
+.pos-lead {
+	font-size: 1.125rem; font-weight: 600; line-height: 1.8;
+	color: var(--color-text); margin: 0 0 1.25rem;
+	padding-left: 1rem; border-left: 3px solid var(--color-primary);
+}
+.pos-body p { font-size: 0.9375rem; line-height: 1.9; color: var(--color-text-muted); margin: 0 0 1rem; }
+.pos-body strong { color: var(--color-text); font-weight: 700; }
+.pos-link {
+	display: inline-block; margin-top: 0.5rem;
+	font-size: 0.9375rem; font-weight: 700; color: var(--color-primary);
+	text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px;
+}
+
+/* ── Editions ─────────────────────────────────────── */
+.hero-edition {
+	display: inline-block; margin-left: 0.75rem; vertical-align: 0.35em;
+	font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.08em;
+	color: var(--color-primary); background: rgba(30,64,175,0.08);
+	padding: 0.25rem 0.7rem; border-radius: 4px;
+}
+.hero-switch { margin: 0 0 0.75rem; font-size: 0.9375rem; color: var(--color-text-muted); }
+.hero-switch a { color: var(--color-primary); font-weight: 700; text-decoration: none; border-bottom: 1px solid currentColor; }
+
+.editions { padding-block: var(--space-2xl); background: var(--color-bg); border-top: 1px solid var(--color-border); }
+.ed-title { font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; color: var(--color-text); margin: 0 0 1rem; }
+.ed-lead { font-size: 1rem; line-height: 1.9; color: var(--color-text-muted); margin: 0 0 2.5rem; max-width: 780px; }
+.ed-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.ed-card {
+	border: 1px solid var(--color-border); border-radius: 8px;
+	padding: 1.75rem; background: var(--color-bg-subtle);
+	display: flex; flex-direction: column;
+}
+.ed-tag {
+	align-self: flex-start; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.1em;
+	color: var(--color-primary); background: rgba(30,64,175,0.08);
+	padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 0.875rem;
+}
+.ed-card h3 { margin: 0 0 0.5rem; font-size: 1.125rem; font-weight: 700; color: var(--color-text); }
+.ed-desc { margin: 0 0 1.25rem; font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.75; }
+.ed-items { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+.ed-items li { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.6; padding-left: 1rem; position: relative; }
+.ed-items li::before { content: "—"; position: absolute; left: 0; color: var(--color-primary); }
+.ed-items strong { color: var(--color-primary); font-weight: 700; }
+.ed-foot { margin: 1.75rem 0 0; font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.8; }
+.ed-foot a { color: var(--color-primary); font-weight: 700; }
+@media (max-width: 900px) { .ed-grid { grid-template-columns: 1fr; } }
+
+/* ── Origin story ──────────────────────────────────── */
+.origin {
+	padding-block: var(--space-2xl);
+	background: var(--color-bg-subtle);
+	border-top: 1px solid var(--color-border);
+}
+.origin-inner { display: grid; grid-template-columns: 1.15fr 1fr; gap: 3.5rem; align-items: center; }
+.origin-copy h2 { font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; color: var(--color-text); margin: 0 0 1.25rem; }
+.origin-copy p { font-size: 0.9375rem; line-height: 1.95; color: var(--color-text-muted); margin: 0 0 1rem; }
+.origin-copy strong { color: var(--color-text); font-weight: 700; }
+.origin-quote {
+	margin: 0; padding: 2rem;
+	background: var(--color-bg); border: 1px solid var(--color-border);
+	border-left: 3px solid var(--color-primary); border-radius: 0 8px 8px 0;
+}
+.origin-quote blockquote {
+	margin: 0 0 1.25rem; font-size: 1.0625rem; font-weight: 600;
+	line-height: 1.9; color: var(--color-text);
+}
+.origin-quote figcaption { display: flex; flex-direction: column; gap: 0.5rem; }
+.origin-who { font-size: 0.875rem; font-weight: 700; color: var(--color-text-muted); }
+.origin-src { font-size: 0.75rem; color: var(--color-primary); text-decoration: none; line-height: 1.6; }
+.origin-src:hover { text-decoration: underline; }
+.origin-name {
+	margin-top: 1.25rem !important; padding: 0.875rem 1.125rem;
+	background: var(--color-bg); border: 1px solid var(--color-border);
+	border-radius: 6px;
+}
+.origin-clip { display: block; margin-top: 1.5rem; text-decoration: none; }
+.origin-clip img {
+	width: 100%; height: auto; display: block;
+	border: 1px solid var(--color-border); border-radius: 6px;
+	box-shadow: var(--shadow-sm);
+	transition: box-shadow 0.15s ease;
+}
+.origin-clip:hover img { box-shadow: var(--shadow-md); }
+.origin-clip__cap {
+	display: block; margin-top: 0.5rem;
+	font-size: 0.6875rem; color: var(--color-text-muted); opacity: 0.85;
+}
+@media (max-width: 900px) { .origin-inner { grid-template-columns: 1fr; gap: 2rem; } }
 </style>

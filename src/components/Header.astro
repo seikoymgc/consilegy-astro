@@ -59,7 +59,14 @@ const navEN = [
 			{ label: 'Adoption & Growth Support',       href: '/en/services/adoption-growth-support/' },
 		],
 	},
-	{ label: 'Revenue CRM',  href: '/en/crm/' },
+	{
+		label: 'Revenue CRM',
+		href: '/en/crm/',
+		children: [
+			{ label: 'For B2B (sales, agencies, resellers)', href: '/en/crm/' },
+			{ label: 'School edition (schools & studios)',   href: '/en/crm/school/' },
+		],
+	},
 	{ label: 'Case Studies', href: '/en/case-studies/' },
 	{ label: 'Insights',     href: '/en/insights/' },
 	{ label: 'Diagnostic',   href: '/en/diagnostic/' },

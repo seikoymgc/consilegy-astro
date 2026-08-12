@@ -48,6 +48,17 @@ import HubSpotForm from './HubSpotForm.astro';
 	max-width: none;
 	padding-inline: 0;
 }
+/* 関連サービスと記事末尾のCTAは配置指定が抜けており、自動配置で
+   サイドバー側の列に落ちて、追従するカードの裏に潜り込んでいた。
+   関連コンテンツの下に、全幅で順に並べる。 */
+.article-wrap .article-services {
+	grid-column: 1 / -1;
+	grid-row: 4;
+}
+.article-wrap .article-cta {
+	grid-column: 1 / -1;
+	grid-row: 5;
+}
 
 @media (max-width: 960px) {
 	.article-wrap {
@@ -55,22 +66,27 @@ import HubSpotForm from './HubSpotForm.astro';
 		max-width: 800px;
 	}
 	.article-wrap .article-body.container,
-	.article-wrap .article-related.container {
+	.article-wrap .article-related.container,
+	.article-wrap .article-cta {
 		grid-column: 1;
 	}
 }
 </style>
 
 <style>
+/* sticky を aside 自体に付けると、追従の基準が本文行ではなく .article-wrap
+   全体になり、記事末尾のセクションまで滑り落ちて上に被る。
+   aside は本文行いっぱいに伸ばし、追従は中のカードに持たせる。 */
 .nl-sidebar {
 	grid-column: 2;
 	grid-row: 2;
-	position: sticky;
-	top: 80px;
+	align-self: stretch;
 	padding-bottom: 48px;
 }
 
 .nl-box {
+	position: sticky;
+	top: 80px;
 	background: #fff;
 	border: 1px solid #e2e8f0;
 	border-radius: 8px;
@@ -108,9 +124,14 @@ import HubSpotForm from './HubSpotForm.astro';
 	.nl-sidebar {
 		grid-column: 1;
 		position: static;
+		align-self: auto;
 		padding-bottom: 0;
 		margin-bottom: 48px;
 		order: -1; /* show sidebar above article on mobile */
+	}
+	/* 追従は中のカードに移したので、モバイルではそちらを止める */
+	.nl-box {
+		position: static;
 	}
 	.nl-box {
 		max-width: 560px;

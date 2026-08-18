@@ -3,201 +3,124 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-	title="Revenue CRM 法人向け（β版） | まだCRMを持っていない会社の、最初の1つ"
-	description="法人営業・受託/支援・SaaS代理店の3タイプに合わせて設定済みのCRM。顧客情報がExcelとメールにしかない状態から始められ、既存システムからの移行作業はありません。個人顧客向けはB2C版をご覧ください。現在クローズドβ。"
+	title="Revenue CRM 法人向け（β版） | まだCRMがない会社のための、最初のCRM"
+	description="顧客の一覧はExcel、やりとりはメール、案件の温度感は担当者の頭の中。そういう会社のために、Consilegyが自社で作った法人向けCRMです。台湾・花蓮のノマド拠点で構想が固まり、AIは花蓮の翡翠にちなんでJadeと名づけました。現在クローズドβ。ログイン不要のデモを公開しています。"
 	lang="ja"
 	alternateUrl="/en/crm/"
 >
 
 <!-- ===================== HERO ===================== -->
-<section class="hero">
+<section class="crm-hero">
 	<div class="container">
-		<span class="eyebrow"><span class="eyebrow__dot"></span>Product · Closed Beta</span>
-		<h1>まだCRMを持っていない会社の、<br />最初の1つ。<span class="hero-edition">法人向け</span></h1>
-		<p class="hero-lead">
-			顧客情報がExcelとメールにしかない。案件の状況は担当者の頭の中にある。
-			Revenue CRMは、その状態から始めるためのCRMです。
-			既存システムからの移行作業はありません。今の進め方を捨てる必要もありません。
-			Excelでやっていたことが、そのまま記録として残るところから始めます。
-		</p>
+		<p class="crm-eyebrow">Revenue CRM<span aria-hidden="true">·</span>法人向け<span aria-hidden="true">·</span>クローズドβ</p>
+		<h1>まだCRMがない会社のための、<br class="br-wide" />最初のCRMを作りました。</h1>
+		<p class="hero-lead">顧客の一覧はExcel。やりとりはメール。案件の温度感は担当者の頭の中。そういう会社に40社入ってきて、「ここに入れるCRMがない」と何度も思いました。それで、自分で作りました。</p>
 		<div class="hero-actions">
-			<a href="/contact/" class="btn btn--hero-primary btn--lg">βパートナーに応募する →</a>
-			<a href="#features" class="btn btn--hero-outline btn--lg">機能を見る</a>
+			<a href="https://crm.consilegy.com/demos" class="btn btn--primary" target="_blank" rel="noopener noreferrer">デモを触ってみる（ログイン不要）</a>
+			<a href="/contact/" class="btn btn--secondary">βに参加したい・相談したい</a>
 		</div>
-		<p class="hero-switch">教室・スクールを運営されている方は <a href="/crm/school/">スクール版はこちら →</a></p>
-		<p class="hero-note">※ 現在クローズドβ。数社限定で、一緒に育てていただけるパートナーを探しています。仕様は予告なく変更される場合があります。</p>
+		<p class="hero-switch">教室・スクールを運営している方は、<a href="/crm/school/">スクール版</a>のほうが近いです。</p>
 	</div>
 </section>
 
-<!-- ===================== POSITIONING ===================== -->
-<section class="positioning">
-	<div class="container">
-		<div class="pos-body">
-			<p class="pos-lead">
-				Revenue CRMは、40社の設計で使ってきた収益構造の考え方を、
-				そのまま動く形にしたものです。
-			</p>
-			<p>
-				Consilegyの支援は、<strong>既存ツールを前提とした設計が基本</strong>です。
-				Salesforce、HubSpot、kintone、Marketoが入っている会社には、それを活かす形で設計し直します。
-				Revenue CRMを押し付けることはしません。
-			</p>
-			<p>
-				Revenue CRMが向くのは、そもそも移行元がない会社です。
-				比較検討するツールも、捨てるデータもない。
-				その状態からいちばん短い距離で「顧客の状況が記録に残る」に着地させるための、選択肢のひとつです。
-			</p>
-			<a href="/revenue-architecture/" class="pos-link">この考え方について読む →</a>
+<!-- ===================== STORY ===================== -->
+<section class="story" aria-labelledby="story-title">
+	<div class="container story-grid">
+		<div class="story-copy">
+			<p class="kicker">このCRMができるまで</p>
+			<h2 id="story-title">台湾・花蓮の、ノマド拠点で生まれました。</h2>
+			<p>2026年、私は台湾・花蓮県が運営するデジタルノマド拠点「Nomad Hualien 花蓮雲基地」に、第1期メンバーとして滞在していました。同じ部屋に、各国から来た起業家やリモートワーカーがいて、時差のある相手とのミーティングを日常的に回しながら、「顧客をどう覚えておくか」「次に誰がいつ動くか」という話を毎日していました。</p>
+			<p>日本で40社の収益設計をやってきて分かっていたのは、CRMがうまくいかない原因の大半は機能不足ではない、ということです。記録が残らない。残っても会議で使われない。担当者が休むと案件が止まる。花蓮で毎日その話をしているうちに、最初の1社目から回るCRMを、自分の手で作ろうと決めました。</p>
+			<p>搭載したAIを「Jade（ジェイド）」と名づけたのは、翡翠が花蓮の名産だからです。生まれた場所の名前を、そのまま持たせています。</p>
+			<blockquote class="story-quote">
+				<p>企業の成長は、冷たい技術だけに頼るものではありません。人とのつながりと、コミュニティへの信頼こそが、持続的なビジネスの鍵です。</p>
+				<footer>山口 聖子（Consilegy 代表）See News 2026年6月25日の取材より</footer>
+			</blockquote>
 		</div>
+		<figure class="story-figure">
+			<a href="https://www.seenews.com.tw/news_data.php?news_id=2325&amp;k_code=A" target="_blank" rel="noopener noreferrer">
+				<img
+					src="/images/common/seenews-hualien-2026.jpg"
+					alt="See News（花蓮視新聞）2026年6月25日の掲載記事。花蓮雲基地でCRMとAIを組み合わせた新製品を開発したことが紹介されている。"
+					width="1000"
+					height="1026"
+					decoding="async"
+				/>
+			</a>
+			<figcaption>
+				See News（花蓮視新聞）2026年6月25日<br />
+				「花蓮雲基地第二季名單揭曉 日籍首季進駐者讚爆」<br />
+				<a href="https://www.seenews.com.tw/news_data.php?news_id=2325&amp;k_code=A" target="_blank" rel="noopener noreferrer">記事を読む →</a>
+			</figcaption>
+		</figure>
 	</div>
 </section>
 
-<!-- ===================== PILLARS ===================== -->
-<section class="pillars">
+<!-- ===================== INSIDE ===================== -->
+<section class="inside" id="inside">
 	<div class="container">
-		<div class="pillar-grid">
-			<div class="pillar">
-				<span class="pillar-kicker">AI-native</span>
-				<h3>AIがCRMを操作する</h3>
-				<p>AIに日本語で聞けば、検索も操作もそのまま通ります。通話解析・スコアリングまで、現場の作業をAIが肩代わりします。</p>
-			</div>
-			<div class="pillar pillar--accent">
-				<span class="pillar-num">103<span class="pillar-unit">本</span></span>
-				<h3>RevOpsオートメーション内蔵</h3>
-				<p>マーケ〜セールス〜CSをカバーするプレイビルト。トグルで有効化すれば、すぐに動きます。ほかに準備中が72本あります。</p>
-			</div>
-			<div class="pillar">
-				<span class="pillar-kicker">Clean UI</span>
-				<h3>迷わず使える操作性</h3>
-				<p>洗練されたインターフェースで現場に定着。入力の手間を減らし、データが自然と揃います。</p>
-			</div>
-			<div class="pillar">
-				<span class="pillar-kicker">日本語 / English / 繁體中文</span>
-				<h3>画面ごと3言語に切り替わる</h3>
-				<p>ボタンひとつでUIが切り替わります。日本人と海外メンバーが同じデータを、それぞれの言語で見られます。台湾・アジア展開を見据えた設計です。</p>
-			</div>
+		<div class="inside-head">
+			<p class="kicker">中に入っているもの</p>
+			<h2>最初に見る数字と、次に動く相手が、同じ画面にあります。</h2>
+			<p>ダッシュボードを開くと、パイプラインの総額と加重フォーキャストが最初に出ます。商談はカンバンで動かせます。営業・マーケ・CSをまたぐ自動化は175本を最初から入れてあり、必要なものをトグルで有効にするだけです。Jadeには日本語で「今月クローズ見込みの商談を集計して」と聞けます。画面は日本語・English・繁體中文をボタンで切り替えられるので、海外メンバーと同じデータを見られます。</p>
 		</div>
-	</div>
-</section>
-
-<!-- ===================== DEMO VIDEO ===================== -->
-<section class="demo-video">
-	<div class="container">
-		<div class="video-frame">
+		<figure class="demo-frame">
 			<img
 				src="/videos/revenue-crm-demo.gif"
-				alt="Revenue CRM の操作ツアー。ダッシュボードでパイプライン総額と加重フォーキャストを確認し、商談をカンバンで見て、自動化ライブラリで103本のワークフローを確認し、AIのJadeにファネルの状況を聞いて集計させ、最後に日本語・英語・繁體中文を切り替える。"
+				alt="Revenue CRM の操作ツアー。ダッシュボードでパイプライン総額と加重フォーキャストを確認し、商談をカンバンで見て、自動化ライブラリでワークフローを確認し、AIのJadeにファネルの状況を聞いて集計させ、最後に日本語・英語・繁體中文を切り替える。"
 				width="800"
 				height="585"
 				loading="lazy"
 				decoding="async"
 			/>
-		</div>
-		<p class="video-caption">プロダクトデモ — ダッシュボード → 商談カンバン → 自動化ライブラリ → AI「Jade」→ 3言語切替</p>
+			<figcaption>ダッシュボード → 商談カンバン → 自動化ライブラリ → Jade → 3言語切替</figcaption>
+		</figure>
 	</div>
 </section>
 
 <!-- ===================== EDITIONS ===================== -->
 <section class="editions">
 	<div class="container">
-		<p class="section-eyebrow">Editions</p>
-		<h2 class="ed-title">商売の形に合わせて、最初から設定済みです。</h2>
-		<p class="ed-lead">
-			同じCRMでも、扱うものが「商談」なのか「案件」なのか「契約」なのかで、
-			必要な画面も追いかける数字も変わります。
-			Revenue CRMは事業タイプを選ぶだけで、用語・画面・自動化がその形に切り替わります。
-			後から変更もできます。
-		</p>
-		<div class="ed-grid">
-			<article class="ed-card">
-				<span class="ed-tag">B2B</span>
-				<h3>法人営業</h3>
-				<p class="ed-desc">見込み客を商談として管理し、受注までを追う標準構成です。</p>
-				<ul class="ed-items">
-					<li>中心になるもの：<strong>商談</strong></li>
-					<li>パイプライン・フォーキャスト・見積</li>
-					<li>停滞商談のアラート</li>
-				</ul>
-			</article>
-			<article class="ed-card">
-				<span class="ed-tag">Contractor</span>
-				<h3>支援会社・受託開発</h3>
-				<p class="ed-desc">クライアント案件を回す事業向け。商談ではなく「案件」で呼びます。</p>
-				<ul class="ed-items">
-					<li>中心になるもの：<strong>案件</strong></li>
-					<li>見積 → 受注 → 納品 → 請求のループ</li>
-					<li>保守契約の更新期日を自動管理</li>
-				</ul>
-			</article>
-			<article class="ed-card">
-				<span class="ed-tag">Reseller</span>
-				<h3>SaaS代理店・リセラー</h3>
-				<p class="ed-desc">売って終わりではなく、契約の更新が収益になる事業向け。</p>
-				<ul class="ed-items">
-					<li>中心になるもの：<strong>契約</strong></li>
-					<li>更新リスクのスコアリング</li>
-					<li>解約シグナルの検知と更新商談の自動作成</li>
-				</ul>
-			</article>
-		</div>
-		<p class="ed-foot">
-			教室・スクールなど、生徒に通い続けてもらう事業には、
-			商談の代わりに在籍と継続が主役になる<a href="/crm/school/">スクール版</a>があります。
-		</p>
+		<p class="kicker">商売の形</p>
+		<h2>追いかけるものが「商談」か「案件」か「契約」かで、画面が変わります。</h2>
+		<p class="editions-lead">同じCRMでも、必要な画面と数字は商売の形で違います。事業タイプを選ぶと、用語・画面・自動化がその形になります。後から変えられます。</p>
+		<dl class="edition-list">
+			<div class="edition">
+				<dt><span class="edition-noun">商談</span>法人営業</dt>
+				<dd>見込み客を商談として管理し、受注までを追います。パイプライン、フォーキャスト、見積、停滞商談のアラート。</dd>
+			</div>
+			<div class="edition">
+				<dt><span class="edition-noun">案件</span>支援会社・受託開発</dt>
+				<dd>クライアント案件を回す事業向け。見積→受注→納品→請求のループと、保守契約の更新期日を管理します。</dd>
+			</div>
+			<div class="edition">
+				<dt><span class="edition-noun">契約</span>SaaS代理店・リセラー</dt>
+				<dd>売って終わりではなく、更新が収益になる事業向け。更新リスクのスコア、解約シグナルの検知、更新商談の自動作成。</dd>
+			</div>
+			<div class="edition edition--muted">
+				<dt><span class="edition-noun">在籍</span>教室・スクール</dt>
+				<dd>商談の代わりに在籍と継続が主役になります。<a href="/crm/school/">スクール版</a>として別ページにまとめています。</dd>
+			</div>
+		</dl>
 	</div>
 </section>
 
-<!-- ===================== PROBLEM ===================== -->
-<section class="problem">
-	<div class="container">
-		<p class="section-eyebrow">Why CRM fails</p>
-		<h2 class="prob-title">こんな課題、ありませんか。</h2>
-		<div class="prob-grid">
-			<div class="prob-item">
-				<p>顧客情報がExcelとメールに散らばっていて、どれが最新か分からない。</p>
-			</div>
-			<div class="prob-item">
-				<p>案件の進み具合が担当者の頭の中にしかなく、その人が休むと止まる。</p>
-			</div>
-			<div class="prob-item">
-				<p>売上は伸びているのに、来月どれくらい入るかは誰も言えない。</p>
-			</div>
+<!-- ===================== FIT ===================== -->
+<section class="fit">
+	<div class="container fit-grid">
+		<div class="fit-col">
+			<p class="kicker">向いている会社</p>
+			<ul>
+				<li>顧客情報がExcelとメール、個人のメモに分かれていて、どれが最新か分からない</li>
+				<li>案件の進み具合が担当者の記憶にあり、その人が休むと止まる</li>
+				<li>売上は伸びているのに、来月いくら入るかを毎回手で集計している</li>
+				<li>海外のメンバーと同じデータを、それぞれの言語で見たい</li>
+			</ul>
 		</div>
-	</div>
-</section>
-
-<!-- ===================== FEATURES ===================== -->
-<section class="features" id="features">
-	<div class="container">
-		<div class="feat-head">
-			<p class="section-eyebrow">Features</p>
-			<h2>収益を前に進めるための、主な機能。</h2>
-		</div>
-		<div class="feat-grid">
-			<article class="feat-card">
-				<h3>AIエージェント</h3>
-				<p>自然言語でデータを質問。メールの下書きや次アクションの提案まで、AIが現場の作業を肩代わりします。</p>
-			</article>
-			<article class="feat-card">
-				<h3>リードスコアリング</h3>
-				<p>行動と属性から有望リードを自動判定。いま対応すべき相手がひと目で分かります。</p>
-			</article>
-			<article class="feat-card">
-				<h3>ワークフロー自動化</h3>
-				<p>条件に応じて通知・タスク・メールを自動実行。手作業を減らし、抜け漏れを防ぎます。</p>
-			</article>
-			<article class="feat-card">
-				<h3>メールシーケンス</h3>
-				<p>段階的なフォローアップを自動配信。返信や行動に応じてシナリオを分岐できます。</p>
-			</article>
-			<article class="feat-card">
-				<h3>フォーキャスト</h3>
-				<p>パイプラインから着地見込みを可視化。会議が数字報告ではなく意思決定の場になります。</p>
-			</article>
-			<article class="feat-card">
-				<h3>カスタムオブジェクト</h3>
-				<p>自社の業務に合わせてデータ構造を自由に拡張。実際の収益プロセスに合わせて設計できます。</p>
-			</article>
+		<div class="fit-col fit-col--not">
+			<p class="kicker">向いていない会社</p>
+			<p>すでにSalesforce、HubSpot、kintone、Marketoが動いている会社です。その場合、Consilegyは今あるツールを活かす形で収益プロセスを設計し直します。Revenue CRMへの乗り換えは勧めません。</p>
+			<a href="/services/" class="text-link">既存ツール前提の支援について →</a>
 		</div>
 	</div>
 </section>
@@ -205,507 +128,407 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 <!-- ===================== ALL FEATURES ===================== -->
 <section class="all-features">
 	<div class="container">
-		<div class="feat-head">
-			<p class="section-eyebrow">All features</p>
-			<h2>営業・マーケ・CS・運用を、一つに。</h2>
-		</div>
-		<div class="cat-grid">
-			<div class="cat-card">
-				<h3>AI / インテリジェンス</h3>
-				<ul>
-					<li>AIアシスタント（日本語でCRMを検索・操作）</li>
-					<li>AI通話解析（MEDDPICC / BANT / CHAMP / SPIN）</li>
-					<li>AIリサーチ（Web調査・引用付き）</li>
-					<li>AI要約・AI分類</li>
-					<li>AI属性フィールド（レコードにAI項目）</li>
-					<li>音声文字起こし（Whisper）</li>
-					<li>リードスコアリング（グレードA〜F）</li>
-					<li>ICP定義 → フィットスコアリング</li>
-					<li>ワークスペースクレジット管理</li>
-				</ul>
+		<details>
+			<summary>
+				<span>機能の一覧を開く</span>
+				<span class="summary-note">CRMコア／AI／マーケ／セールス／CS／課金／API まで全部</span>
+			</summary>
+			<div class="feature-columns">
+				<div>
+					<h3>CRMコア</h3>
+					<ul>
+						<li>コンタクト / 会社 / ディール</li>
+						<li>チケット / タスク / アクティビティ / コール</li>
+						<li>ディールかんばん（ドラッグ&amp;ドロップ）</li>
+						<li>リード変換、パイプライン・ステージ管理</li>
+						<li>メモ・添付・お気に入り・レコード間リレーション</li>
+						<li>ゴミ箱（復元）・グローバル検索</li>
+					</ul>
+				</div>
+				<div>
+					<h3>AI（Jade）</h3>
+					<ul>
+						<li>日本語でCRMを検索・操作</li>
+						<li>通話解析（MEDDPICC / BANT / CHAMP / SPIN）</li>
+						<li>Webリサーチ（引用付き）、要約、分類</li>
+						<li>AI属性フィールド、音声文字起こし</li>
+						<li>リードスコアリング（A〜F）、ICP定義とフィットスコア</li>
+					</ul>
+				</div>
+				<div>
+					<h3>マーケティング</h3>
+					<ul>
+						<li>フォームビルダー（公開ページ、自動コンタクト化）</li>
+						<li>メール配信、テンプレート、キャンペーン</li>
+						<li>開封・クリック計測、配信停止管理</li>
+						<li>静的 / 動的リスト</li>
+						<li>ビジュアルワークフロー（トリガー・条件分岐・遅延）</li>
+					</ul>
+				</div>
+				<div>
+					<h3>セールス</h3>
+					<ul>
+						<li>フォーキャスト（カテゴリ別集計）</li>
+						<li>シーケンス（段階的フォローアップ）</li>
+						<li>見積（明細・税率・ステータス）、製品マスタ</li>
+						<li>コンタクトロール（意思決定者・推進者ほか）</li>
+					</ul>
+				</div>
+				<div>
+					<h3>カスタマーサクセス</h3>
+					<ul>
+						<li>オムニチャネルインボックス（チャット / メール / API）</li>
+						<li>チャットウィジェット埋め込み</li>
+						<li>インバウンドメールの会話化</li>
+						<li>ナレッジベース</li>
+						<li>サーベイ（NPS / CSAT / CES）</li>
+					</ul>
+				</div>
+				<div>
+					<h3>RevOps自動化</h3>
+					<ul>
+						<li>175本のワークフローカタログ（マーケ / セールス / CS）</li>
+						<li>トグルでON/OFF、シーケンス紐付け</li>
+						<li>商談停滞アラート、SLAエスカレーション</li>
+						<li>更新商談の自動作成、クロスセル候補、定例会レビュー</li>
+					</ul>
+				</div>
+				<div>
+					<h3>サブスク / 課金</h3>
+					<ul>
+						<li>エディション切替（法人営業 / 支援・受託 / 代理店 / スクール）</li>
+						<li>サブスクリプション管理</li>
+						<li>MRR / ARR / チャーン / LTV</li>
+						<li>Stripe連携（顧客同期・支払いリンク・請求書）</li>
+					</ul>
+				</div>
+				<div>
+					<h3>プラットフォーム</h3>
+					<ul>
+						<li>カスタムオブジェクト・カスタムフィールド・レコードタイプ</li>
+						<li>REST API（v1）/ GraphQL / MCPサーバー</li>
+						<li>送信Webhook（署名・配信ログ）</li>
+						<li>権限管理（ロール×CRUD）、監査ログ</li>
+						<li>複数組織切替、メンバー招待</li>
+						<li>連携：Notion / Google / LinkedIn</li>
+						<li>UIごと3言語切替（日本語 / English / 繁體中文）</li>
+					</ul>
+				</div>
 			</div>
-			<div class="cat-card">
-				<h3>CRMコア</h3>
-				<ul>
-					<li>コンタクト / 会社 / ディール</li>
-					<li>チケット / タスク / アクティビティ / コール</li>
-					<li>ディールかんばん（ドラッグ&ドロップ）</li>
-					<li>リード変換（ステージ遷移＋ディール作成）</li>
-					<li>パイプライン・ステージ管理</li>
-					<li>メモ・添付ファイル・お気に入り</li>
-					<li>レコード間リレーション</li>
-				</ul>
-			</div>
-			<div class="cat-card">
-				<h3>マーケティング</h3>
-				<ul>
-					<li>フォームビルダー（公開ページ・自動コンタクト化）</li>
-					<li>メール配信（テンプレート・キャンペーン）</li>
-					<li>開封・クリック計測 / 配信停止管理</li>
-					<li>リスト（静的 / 動的）</li>
-					<li>ワークフロー（ビジュアル自動化）</li>
-					<li>トリガー・条件分岐・遅延ステップ</li>
-				</ul>
-			</div>
-			<div class="cat-card">
-				<h3>セールス</h3>
-				<ul>
-					<li>フォーキャスト（カテゴリ別集計）</li>
-					<li>シーケンス（段階的フォローアップ自動化）</li>
-					<li>見積（明細・税率・ステータス）</li>
-					<li>製品マスタ</li>
-					<li>コンタクトロール（意思決定者・推進者ほか）</li>
-				</ul>
-			</div>
-			<div class="cat-card">
-				<h3>カスタマーサクセス</h3>
-				<ul>
-					<li>オムニチャネルインボックス（チャット / メール / API）</li>
-					<li>チャットウィジェット埋め込み（リアルタイム受信）</li>
-					<li>インバウンドメールの会話化</li>
-					<li>ナレッジベース</li>
-					<li>サーベイ（NPS / CSAT / CES）</li>
-				</ul>
-			</div>
-			<div class="cat-card">
-				<h3>RevOps オートメーション</h3>
-				<ul>
-					<li>103本のプレイビルト・ワークフローカタログ（ほかに準備中72本）</li>
-					<li>マーケ / セールス / CS をカバー</li>
-					<li>トグルでON/OFF・シーケンス紐付け</li>
-					<li>課題別ナーチャリング・商談停滞アラート</li>
-					<li>SLAエスカレーション・更新商談の自動作成</li>
-					<li>クロスセル候補・定例会レビュー ほか</li>
-				</ul>
-			</div>
-			<div class="cat-card">
-				<h3>サブスク / 課金</h3>
-				<ul>
-					<li>エディション切替（法人営業 / 支援・受託 / 代理店 / B2C）</li>
-					<li>サブスクリプション管理</li>
-					<li>リカーリング指標（MRR / ARR / チャーン / LTV）</li>
-					<li>Stripe連携（顧客同期・支払いリンク・請求書）</li>
-				</ul>
-			</div>
-			<div class="cat-card">
-				<h3>プラットフォーム / 拡張</h3>
-				<ul>
-					<li>カスタムオブジェクト・カスタムフィールド</li>
-					<li>レコードタイプ・リレーション定義</li>
-					<li>REST API（v1）/ GraphQL / MCPサーバー</li>
-					<li>送信Webhook（署名・配信ログ）</li>
-					<li>権限管理（ロール×CRUD）・監査ログ</li>
-					<li>複数組織切替・メンバー招待・ロール管理</li>
-					<li>ゴミ箱（復元）・グローバル検索</li>
-					<li>連携：Notion / Google / LinkedIn</li>
-					<li>多言語対応（日本語 / English / 繁體中文）— UIごと切替</li>
-				</ul>
-			</div>
-		</div>
+		</details>
 	</div>
 </section>
 
-<!-- ===================== ORIGIN STORY ===================== -->
-<section class="origin">
-	<div class="container origin-inner">
-		<div class="origin-copy">
-			<p class="section-eyebrow">Origin</p>
-			<h2>このCRMが生まれた場所</h2>
-			<p>
-				Revenue CRM の構想が形になったのは、日本のオフィスではありません。
-				台湾・花蓮県が運営するデジタルノマド拠点
-				<strong>「Nomad Hualien 花蓮雲基地」</strong>です。
-			</p>
-			<p>
-				代表の山口聖子は、この滞在プログラムの第1期メンバーとして採択されました。
-				各国から集まった起業家やリモートワーカーと机を並べ、
-				国境をまたいだミーティングを日常的に回すなかで、
-				彼らとの協働から<strong>「CRM × AI」という形</strong>が固まっていきました。
-			</p>
-			<p>
-				日本のB2B支援40社で見てきた収益構造の考え方に、
-				そこで出会った各国の実務が重なっています。
-				日本の商習慣だけを前提にしていない設計になっているのは、
-				生まれた場所がそういう場所だったからです。
-			</p>
-			<p class="origin-name">
-				CRMに搭載したAIを<strong>「Jade（ジェイド）」</strong>と名づけたのは、
-				翡翠（ジェイド）が花蓮の名産だからです。
-				生まれた場所の名前を、そのまま持たせています。
-			</p>
-		</div>
-		<figure class="origin-quote">
-			<blockquote>
-				企業の成長は、冷たい技術だけに頼るものではありません。<br />
-				人とのつながりと、コミュニティへの信頼こそが、<br />
-				持続的なビジネスの鍵です。
-			</blockquote>
-			<figcaption>
-				<span class="origin-who">山口 聖子 — Consilegy 代表</span>
-				<a
-					href="https://www.seenews.com.tw/news_data.php?news_id=2325&amp;k_code=A"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="origin-src"
-				>See News（花蓮視新聞）2026年6月25日「花蓮雲基地第二季名單揭曉 日籍首季進駐者讚爆」 →</a>
-			</figcaption>
-			<a
-				href="https://www.seenews.com.tw/news_data.php?news_id=2325&amp;k_code=A"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="origin-clip"
-			>
-				<img
-					src="/images/common/seenews-hualien-2026.jpg"
-					alt="See News（花蓮視新聞）2026年6月25日の記事。花蓮雲基地の第1期滞在者として、日本のSeikoがCRMとAIを組み合わせた新製品を開発したことが報じられている。"
-					width="1000"
-					height="1026"
-					loading="lazy"
-				/>
-				<span class="origin-clip__cap">See News（花蓮視新聞）2026年6月25日 掲載記事より</span>
-			</a>
-		</figure>
-	</div>
-</section>
-
-<!-- ===================== BETA NOTE ===================== -->
-<section class="beta-band">
-	<div class="container beta-inner">
-		<div>
-			<p class="section-eyebrow">Closed Beta</p>
-			<h2>いま、最初の導入企業を募集しています。</h2>
-			<p class="beta-lead">
-				Revenue CRMはクローズドβとして開発を進めています。
-				導入企業には、Consilegyの収益設計の知見を踏まえたオンボーディングと、
-				機能要望を直接プロダクトに反映する優先サポートをご提供します。
-			</p>
-		</div>
-		<ul class="beta-list">
-			<li>専任によるセットアップ・データ移行支援</li>
-			<li>収益オペレーション設計のアドバイス</li>
-			<li>機能要望の優先的な反映</li>
-			<li>β期間中の優遇条件</li>
-		</ul>
-	</div>
-</section>
-
-<!-- ===================== FINAL CTA ===================== -->
-<section class="final-cta">
-	<div class="container cta-inner">
-		<div>
-			<p class="cta-eyebrow">Get Started</p>
-			<h2>一緒に育てていただける<br />パートナーを探しています。</h2>
-			<p class="cta-lead">
-				クローズドβは、完成品を売る段階ではありません。
-				実際の業務で使っていただき、足りないものを教えていただきながら仕上げていく段階です。
-				その代わり、御社の業務に合わせて機能の優先順位を決められます。
-			</p>
-			<div class="cta-actions">
-				<a href="/contact/" class="btn btn--cta-primary btn--lg">βパートナーに応募する →</a>
-				<a href="/services/" class="btn btn--cta-outline btn--lg">すでにCRMがある方はこちら</a>
+<!-- ===================== BETA ===================== -->
+<section class="beta">
+	<div class="container beta-grid">
+		<div class="beta-copy">
+			<p class="kicker">クローズドβについて</p>
+			<h2>いま、数社と一緒に仕上げています。</h2>
+			<p>完成品を売る段階ではありません。実際の業務で使ってもらい、足りないものを教えてもらいながら直している段階です。その代わり、参加いただいた会社の業務に合わせて、機能の優先順位を決めます。セットアップと初期データの投入は、こちらでやります。</p>
+			<p>まずは<a href="https://crm.consilegy.com/demos" target="_blank" rel="noopener noreferrer">デモ</a>を触ってみてください。ログインもパスワードも要りません。合いそうだと思ったら、<a href="/contact/">お問い合わせ</a>から「Revenue CRMのβ」と書いて送ってください。私が返信します。</p>
+			<div class="hero-actions">
+				<a href="https://crm.consilegy.com/demos" class="btn btn--primary" target="_blank" rel="noopener noreferrer">デモを触ってみる</a>
+				<a href="/contact/" class="btn btn--secondary">βについて相談する</a>
 			</div>
+			<p class="signoff">山口 聖子<span>Consilegy 代表</span></p>
 		</div>
-		<div class="cta-card">
-			<h4>デモでお見せする内容</h4>
-			<ul class="cta-list">
-				<li>AIエージェントによるデータ操作・提案</li>
-				<li>リードスコアリングと優先順位づけ</li>
-				<li>ワークフロー・メールシーケンスの自動化</li>
-				<li>パイプライン／フォーキャストの可視化</li>
-				<li>貴社業務に合わせたカスタマイズ例</li>
+		<aside class="beta-aside">
+			<h3>β参加企業に付くもの</h3>
+			<ul>
+				<li>セットアップと初期データ投入（こちらで実施）</li>
+				<li>収益オペレーション設計の助言</li>
+				<li>機能要望の優先反映</li>
+				<li>β期間中の優遇条件</li>
 			</ul>
-		</div>
+			<p class="beta-fine">数社限定。仕様は予告なく変わることがあります。</p>
+		</aside>
 	</div>
 </section>
 
 </BaseLayout>
 
 <style>
-/* ── Shared ──────────────────────────────────────────── */
-.section-eyebrow {
-	font-size: 0.8125rem; font-weight: 600; color: var(--color-primary);
-	letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.75rem;
-}
-.btn--lg { padding: 1.0625rem 1.875rem; font-size: 1rem; }
+	/* ── shared ─────────────────────────────────────────────── */
+	.kicker {
+		margin: 0 0 var(--space-xs);
+		font-size: 0.85rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		color: var(--color-primary);
+	}
+	.text-link {
+		display: inline-block;
+		margin-top: var(--space-sm);
+		font-weight: 600;
+		color: var(--color-primary);
+		text-decoration: none;
+		border-bottom: 1px solid currentColor;
+	}
+	.text-link:hover { opacity: 0.8; }
+	h2 {
+		margin: 0 0 var(--space-md);
+		font-size: clamp(1.5rem, 2.6vw, 2rem);
+		line-height: 1.4;
+		letter-spacing: -0.01em;
+		text-wrap: balance;
+	}
+	.hero-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: var(--space-md);
+	}
+	.br-wide { display: none; }
+	@media (min-width: 720px) { .br-wide { display: inline; } }
 
-/* ── Hero ──────────────────────────────────────────── */
-.hero {
-	background: linear-gradient(180deg, var(--color-bg-subtle) 0%, var(--color-bg) 100%);
-	border-bottom: 1px solid var(--color-border);
-	padding-block: var(--space-2xl) var(--space-xl);
-}
-.eyebrow {
-	display: inline-flex; align-items: center; gap: 0.5rem;
-	font-size: 0.8125rem; font-weight: 600; color: var(--color-primary);
-	background: rgba(30,64,175,0.08); padding: 0.375rem 0.875rem; border-radius: 4px;
-	letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1.25rem;
-}
-.eyebrow__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--color-primary); display: inline-block; }
-.hero h1 {
-	font-size: clamp(2.25rem, 4vw, 3.25rem); font-weight: 600;
-	letter-spacing: 0.01em; margin: 0 0 1rem; color: var(--color-text); line-height: 1.25;
-}
-.hero-lead { font-size: 1.125rem; line-height: 1.8; color: var(--color-text-muted); max-width: 720px; margin: 0 0 2rem; }
-.hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-.hero-note { font-size: 0.8125rem; color: var(--color-text-muted); margin: 0.75rem 0 0; }
+	/* ── hero ────────────────────────────────────────────────── */
+	.crm-hero {
+		padding: calc(var(--space-2xl) + 1rem) 0 var(--space-xl);
+		background:
+			radial-gradient(60% 50% at 85% 0%, rgba(30, 64, 175, 0.07), transparent 70%),
+			var(--color-bg);
+	}
+	.crm-eyebrow {
+		margin: 0 0 var(--space-sm);
+		font-size: 0.85rem;
+		font-weight: 600;
+		letter-spacing: 0.04em;
+		color: var(--color-text-muted);
+	}
+	.crm-eyebrow span { margin: 0 0.6em; }
+	.crm-hero h1 {
+		margin: 0 0 var(--space-md);
+		max-width: 22em;
+		font-size: clamp(1.9rem, 4.2vw, 3rem);
+		line-height: 1.3;
+		letter-spacing: -0.015em;
+		text-wrap: balance;
+	}
+	.hero-lead {
+		max-width: 38em;
+		font-size: var(--text-lead);
+		line-height: 1.9;
+		color: var(--color-text);
+	}
+	.hero-switch {
+		margin-top: var(--space-md);
+		font-size: 0.9rem;
+		color: var(--color-text-muted);
+	}
+	.hero-switch a { color: var(--color-primary); }
 
-.btn--hero-primary {
-	display: inline-flex; align-items: center;
-	background: var(--color-primary); color: #fff;
-	padding: 1.0625rem 1.875rem; border-radius: var(--radius);
-	font-weight: 700; font-size: 1rem; text-decoration: none; border: none;
-	transition: background 0.15s ease;
-}
-.btn--hero-primary:hover { background: var(--color-primary-dark); color: #fff; }
-.btn--hero-outline {
-	display: inline-flex; align-items: center;
-	background: transparent; color: var(--color-primary);
-	padding: 1.0625rem 1.875rem; border-radius: var(--radius);
-	font-weight: 600; font-size: 1rem; text-decoration: none;
-	border: 1.5px solid var(--color-primary);
-	transition: all 0.15s ease;
-}
-.btn--hero-outline:hover { background: rgba(30,64,175,0.06); }
+	/* ── story ───────────────────────────────────────────────── */
+	.story {
+		padding: var(--space-xl) 0 var(--space-2xl);
+		background: #fff;
+		border-top: 1px solid var(--color-border);
+		border-bottom: 1px solid var(--color-border);
+	}
+	.story-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) 320px;
+		gap: var(--space-xl);
+		align-items: start;
+	}
+	.story-copy { max-width: 40em; }
+	.story-copy p { line-height: 1.95; margin: 0 0 1.25em; }
+	.story-quote {
+		margin: var(--space-lg) 0 0;
+		padding: 0 0 0 1.25rem;
+		border-left: 3px solid var(--color-primary);
+	}
+	.story-quote p {
+		margin: 0 0 0.5em;
+		font-size: 1.05rem;
+		line-height: 1.9;
+	}
+	.story-quote footer {
+		font-size: 0.85rem;
+		color: var(--color-text-muted);
+	}
+	.story-figure {
+		margin: 0;
+		position: sticky;
+		top: 6rem;
+	}
+	.story-figure img {
+		display: block;
+		width: 100%;
+		height: auto;
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius);
+		box-shadow: var(--shadow-md);
+		transform: rotate(-1deg);
+	}
+	.story-figure a:hover img { transform: rotate(0); transition: transform 0.2s ease; }
+	.story-figure figcaption {
+		margin-top: var(--space-sm);
+		font-size: 0.8rem;
+		line-height: 1.7;
+		color: var(--color-text-muted);
+	}
+	.story-figure figcaption a { color: var(--color-primary); text-decoration: none; }
+	@media (max-width: 900px) {
+		.story-grid { grid-template-columns: 1fr; }
+		.story-figure { position: static; max-width: 360px; }
+	}
 
-/* ── Pillars ───────────────────────────────────────── */
-.pillars { padding-block: var(--space-xl); background: var(--color-bg); }
-.pillar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
-@media (max-width: 1100px) { .pillar-grid { grid-template-columns: repeat(2, 1fr); } }
-.pillar {
-	border: 1px solid var(--color-border); border-radius: var(--radius-card);
-	padding: 2rem; background: var(--color-bg-subtle);
-}
-.pillar--accent {
-	background: linear-gradient(180deg, #f7faff 0%, var(--color-bg) 70%);
-	border-color: color-mix(in oklch, var(--color-primary), transparent 70%);
-}
-.pillar-kicker {
-	display: inline-block; font-size: 0.75rem; font-weight: 700; color: var(--color-primary);
-	letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem;
-}
-.pillar-num {
-	display: block; font-size: 3rem; font-weight: 700; line-height: 1;
-	color: var(--color-primary); letter-spacing: -0.02em; margin-bottom: 0.5rem;
-}
-.pillar-unit { font-size: 1.125rem; font-weight: 600; margin-left: 0.15rem; }
-.pillar h3 { font-size: 1.0625rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.625rem; }
-.pillar p { font-size: 0.9375rem; line-height: 1.7; color: var(--color-text-muted); margin: 0; }
+	/* ── inside ──────────────────────────────────────────────── */
+	.inside { padding: var(--space-2xl) 0; }
+	.inside-head { max-width: 40em; }
+	.inside-head p:last-child { line-height: 1.95; }
+	.demo-frame {
+		margin: var(--space-lg) 0 0;
+	}
+	.demo-frame img {
+		display: block;
+		width: 100%;
+		max-width: 960px;
+		height: auto;
+		border-radius: var(--radius);
+		border: 1px solid var(--color-border);
+		box-shadow: var(--shadow-lg);
+	}
+	.demo-frame figcaption {
+		margin-top: var(--space-sm);
+		font-size: 0.85rem;
+		color: var(--color-text-muted);
+	}
 
-/* ── Demo video ────────────────────────────────────── */
-.demo-video { padding-block: var(--space-xl); background: var(--color-bg); }
-.video-frame {
-	max-width: 880px; margin: 0 auto;
-	border: 1px solid var(--color-border); border-radius: var(--radius-card);
-	overflow: hidden; box-shadow: var(--shadow-lg); background: #000;
-	line-height: 0;
-}
-.video-frame img { width: 100%; height: auto; display: block; }
-.video-caption { text-align: center; font-size: 0.8125rem; color: var(--color-text-muted); margin: 1rem 0 0; }
+	/* ── editions ────────────────────────────────────────────── */
+	.editions {
+		padding: var(--space-2xl) 0;
+		background: #fff;
+		border-top: 1px solid var(--color-border);
+	}
+	.editions-lead { max-width: 40em; line-height: 1.9; margin: 0 0 var(--space-lg); }
+	.edition-list { margin: 0; }
+	.edition {
+		display: grid;
+		grid-template-columns: 16rem minmax(0, 1fr);
+		gap: var(--space-md);
+		padding: var(--space-md) 0;
+		border-top: 1px solid var(--color-border);
+	}
+	.edition:last-child { border-bottom: 1px solid var(--color-border); }
+	.edition dt {
+		font-weight: 700;
+		font-size: 1.05rem;
+		display: flex;
+		align-items: baseline;
+		gap: 0.75rem;
+	}
+	.edition-noun {
+		flex: none;
+		display: inline-block;
+		min-width: 2.6em;
+		text-align: center;
+		padding: 0.15em 0.55em;
+		font-size: 0.8rem;
+		font-weight: 700;
+		color: var(--color-primary);
+		background: rgba(30, 64, 175, 0.08);
+		border-radius: 6px;
+	}
+	.edition dd { margin: 0; line-height: 1.85; color: var(--color-text); }
+	.edition--muted dt, .edition--muted dd { color: var(--color-text-muted); }
+	.edition--muted .edition-noun { color: var(--color-text-muted); background: var(--color-bg-subtle); }
+	.edition--muted a { color: var(--color-primary); }
+	@media (max-width: 720px) {
+		.edition { grid-template-columns: 1fr; gap: 0.5rem; }
+	}
 
-/* ── Problem ───────────────────────────────────────── */
-.problem { padding-block: var(--space-2xl); background: var(--color-bg); }
-.prob-title { font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; color: var(--color-text); margin: 0 0 2rem; }
-.prob-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-.prob-item {
-	border: 1px solid var(--color-border); border-radius: var(--radius-card);
-	padding: 1.75rem; background: var(--color-bg-subtle);
-	border-left: 3px solid var(--color-primary);
-}
-.prob-item p { margin: 0; font-size: 0.9375rem; line-height: 1.75; color: var(--color-text); }
+	/* ── fit ─────────────────────────────────────────────────── */
+	.fit { padding: var(--space-2xl) 0; }
+	.fit-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: var(--space-xl);
+	}
+	.fit-col ul { margin: 0; padding-left: 1.2em; }
+	.fit-col li { margin: 0 0 0.6em; line-height: 1.8; }
+	.fit-col p { line-height: 1.9; margin: 0; }
+	.fit-col--not {
+		padding-left: var(--space-xl);
+		border-left: 1px solid var(--color-border);
+	}
+	@media (max-width: 800px) {
+		.fit-grid { grid-template-columns: 1fr; gap: var(--space-lg); }
+		.fit-col--not { padding-left: 0; border-left: 0; padding-top: var(--space-lg); border-top: 1px solid var(--color-border); }
+	}
 
-/* ── Features ──────────────────────────────────────── */
-.features { padding-block: var(--space-2xl); background: var(--color-bg-subtle); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
-.feat-head { margin-bottom: 2.5rem; }
-.feat-head h2 { font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; color: var(--color-text); margin: 0; }
-.feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-.feat-card {
-	border: 1px solid var(--color-border); border-radius: var(--radius-card);
-	padding: 1.75rem; background: var(--color-bg); box-shadow: var(--shadow-sm);
-}
-.feat-card h3 { font-size: 1.0625rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.625rem; }
-.feat-card p { font-size: 0.9375rem; line-height: 1.7; color: var(--color-text-muted); margin: 0; }
+	/* ── all features (details) ──────────────────────────────── */
+	.all-features { padding: 0 0 var(--space-2xl); }
+	.all-features details {
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-card);
+		background: #fff;
+	}
+	.all-features summary {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: 0.25rem 1rem;
+		padding: 1.1rem 1.5rem;
+		cursor: pointer;
+		font-weight: 700;
+		list-style: none;
+	}
+	.all-features summary::-webkit-details-marker { display: none; }
+	.all-features summary::before {
+		content: '+';
+		display: inline-block;
+		width: 1.2em;
+		color: var(--color-primary);
+	}
+	.all-features details[open] summary::before { content: '–'; }
+	.summary-note { font-weight: 400; font-size: 0.85rem; color: var(--color-text-muted); }
+	.feature-columns {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+		gap: var(--space-lg) var(--space-lg);
+		padding: 0 1.5rem 1.5rem;
+	}
+	.feature-columns h3 { margin: 0 0 0.5rem; font-size: 0.95rem; }
+	.feature-columns ul { margin: 0; padding-left: 1.1em; }
+	.feature-columns li { font-size: 0.9rem; line-height: 1.7; margin-bottom: 0.25em; color: var(--color-text); }
 
-/* ── All features ──────────────────────────────────── */
-.all-features { padding-block: var(--space-2xl); background: var(--color-bg); }
-.cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-.cat-card {
-	border: 1px solid var(--color-border); border-radius: var(--radius-card);
-	padding: 1.75rem; background: var(--color-bg-subtle);
-}
-.cat-card h3 {
-	font-size: 0.8125rem; font-weight: 700; color: var(--color-primary);
-	letter-spacing: 0.04em; margin: 0 0 1rem; padding-bottom: 0.75rem;
-	border-bottom: 1px solid var(--color-border);
-}
-.cat-card ul { list-style: none; padding: 0; margin: 0; }
-.cat-card li {
-	display: flex; gap: 0.5rem; align-items: flex-start;
-	font-size: 0.875rem; line-height: 1.55; color: var(--color-text);
-	padding: 0.3rem 0;
-}
-.cat-card li::before { content: "✓"; flex-shrink: 0; color: var(--color-primary); font-weight: 700; }
-
-/* ── Beta band ─────────────────────────────────────── */
-.beta-band { padding-block: var(--space-2xl); background: var(--color-bg); }
-.beta-inner { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3.5rem; align-items: center; }
-.beta-inner h2 { font-size: clamp(1.5rem, 2.5vw, 1.9rem); font-weight: 700; color: var(--color-text); margin: 0 0 1rem; line-height: 1.4; }
-.beta-lead { font-size: 1.0625rem; line-height: 1.8; color: var(--color-text-muted); margin: 0; }
-.beta-list { list-style: none; padding: 0; margin: 0; }
-.beta-list li {
-	display: flex; gap: 0.625rem; align-items: flex-start;
-	padding: 0.625rem 0; font-size: 0.9375rem; color: var(--color-text);
-	border-bottom: 1px solid var(--color-border); line-height: 1.6;
-}
-.beta-list li:last-child { border-bottom: none; }
-.beta-list li::before { content: "✓"; flex-shrink: 0; color: var(--color-primary); font-weight: 700; }
-
-/* ── Final CTA ─────────────────────────────────────── */
-.final-cta {
-	background:
-		radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%),
-		linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
-	color: #fff; padding-block: var(--space-2xl);
-}
-.cta-inner { display: grid; grid-template-columns: 1.3fr 1fr; gap: 4rem; align-items: center; }
-.cta-eyebrow { font-size: 0.8125rem; font-weight: 600; color: #93c5fd; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 1rem; }
-.cta-inner h2 { color: #fff; font-size: clamp(1.75rem, 2.5vw, 2.25rem); line-height: 1.3; font-weight: 700; margin: 0 0 1.25rem; }
-.cta-lead { color: #bfdbfe; font-size: 1.0625rem; line-height: 1.8; margin: 0 0 2rem; }
-.cta-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-
-.btn--cta-primary {
-	display: inline-flex; align-items: center; justify-content: center;
-	padding: 1.0625rem 1.875rem; border-radius: var(--radius);
-	font-weight: 700; font-size: 1rem; text-decoration: none;
-	background: #fff; color: var(--color-primary); border: none;
-	transition: background 0.15s ease;
-}
-.btn--cta-primary:hover { background: #e0eaff; color: var(--color-primary); }
-.btn--cta-outline {
-	display: inline-flex; align-items: center; justify-content: center;
-	padding: 1.0625rem 1.875rem; border-radius: var(--radius);
-	font-weight: 600; font-size: 1rem; text-decoration: none;
-	background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.45);
-	transition: all 0.15s ease;
-}
-.btn--cta-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
-
-.cta-card {
-	background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
-	border-radius: var(--radius-card); padding: 2rem; backdrop-filter: blur(10px);
-}
-.cta-card h4 { margin: 0 0 1rem; font-size: 0.8125rem; color: #93c5fd; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
-.cta-list { list-style: none; padding: 0; margin: 0; }
-.cta-list li {
-	display: flex; gap: 0.75rem; align-items: flex-start;
-	padding: 0.5rem 0; font-size: 0.9375rem; color: #e0eaff;
-	border-bottom: 1px solid rgba(255,255,255,0.1); line-height: 1.6;
-}
-.cta-list li:last-child { border-bottom: none; }
-.cta-list li::before { content: ""; flex-shrink: 0; margin-top: 9px; width: 5px; height: 5px; border-radius: 50%; background: #93c5fd; }
-
-/* ── Responsive ─────────────────────────────────────── */
-@media (max-width: 960px) {
-	.prob-grid, .feat-grid, .cat-grid, .pillar-grid { grid-template-columns: 1fr; }
-	.beta-inner, .cta-inner { grid-template-columns: 1fr; gap: 2rem; }
-}
-@media (max-width: 560px) {
-	.hero-actions, .cta-actions { flex-direction: column; }
-}
-
-/* ── Positioning（はしごの1段目としての位置づけ） ───── */
-.positioning {
-	background: var(--color-bg-subtle);
-	border-top: 1px solid var(--color-border);
-	border-bottom: 1px solid var(--color-border);
-	padding-block: var(--space-xl);
-}
-.pos-body { max-width: 760px; }
-.pos-lead {
-	font-size: 1.125rem; font-weight: 600; line-height: 1.8;
-	color: var(--color-text); margin: 0 0 1.25rem;
-	padding-left: 1rem; border-left: 3px solid var(--color-primary);
-}
-.pos-body p { font-size: 0.9375rem; line-height: 1.9; color: var(--color-text-muted); margin: 0 0 1rem; }
-.pos-body strong { color: var(--color-text); font-weight: 700; }
-.pos-link {
-	display: inline-block; margin-top: 0.5rem;
-	font-size: 0.9375rem; font-weight: 700; color: var(--color-primary);
-	text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px;
-}
-
-/* ── Editions ─────────────────────────────────────── */
-.hero-edition {
-	display: inline-block; margin-left: 0.75rem; vertical-align: 0.35em;
-	font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.08em;
-	color: var(--color-primary); background: rgba(30,64,175,0.08);
-	padding: 0.25rem 0.7rem; border-radius: 4px;
-}
-.hero-switch { margin: 1.5rem 0 0; font-size: 0.9375rem; color: var(--color-text-muted); }
-.hero-switch a { color: var(--color-primary); font-weight: 700; text-decoration: none; border-bottom: 1px solid currentColor; }
-
-.editions { padding-block: var(--space-2xl); background: var(--color-bg); border-top: 1px solid var(--color-border); }
-.ed-title { font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; color: var(--color-text); margin: 0 0 1rem; }
-.ed-lead { font-size: 1rem; line-height: 1.9; color: var(--color-text-muted); margin: 0 0 2.5rem; max-width: 780px; }
-.ed-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-.ed-card {
-	border: 1px solid var(--color-border); border-radius: 8px;
-	padding: 1.75rem; background: var(--color-bg-subtle);
-	display: flex; flex-direction: column;
-}
-.ed-tag {
-	align-self: flex-start; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.1em;
-	color: var(--color-primary); background: rgba(30,64,175,0.08);
-	padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 0.875rem;
-}
-.ed-card h3 { margin: 0 0 0.5rem; font-size: 1.125rem; font-weight: 700; color: var(--color-text); }
-.ed-desc { margin: 0 0 1.25rem; font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.75; }
-.ed-items { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
-.ed-items li { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.6; padding-left: 1rem; position: relative; }
-.ed-items li::before { content: "—"; position: absolute; left: 0; color: var(--color-primary); }
-.ed-items strong { color: var(--color-primary); font-weight: 700; }
-.ed-foot { margin: 1.75rem 0 0; font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.8; }
-.ed-foot a { color: var(--color-primary); font-weight: 700; }
-@media (max-width: 900px) { .ed-grid { grid-template-columns: 1fr; } }
-
-/* ── Origin story ──────────────────────────────────── */
-.origin {
-	padding-block: var(--space-2xl);
-	background: var(--color-bg-subtle);
-	border-top: 1px solid var(--color-border);
-}
-.origin-inner { display: grid; grid-template-columns: 1.15fr 1fr; gap: 3.5rem; align-items: center; }
-.origin-copy h2 { font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; color: var(--color-text); margin: 0 0 1.25rem; }
-.origin-copy p { font-size: 0.9375rem; line-height: 1.95; color: var(--color-text-muted); margin: 0 0 1rem; }
-.origin-copy strong { color: var(--color-text); font-weight: 700; }
-.origin-quote {
-	margin: 0; padding: 2rem;
-	background: var(--color-bg); border: 1px solid var(--color-border);
-	border-left: 3px solid var(--color-primary); border-radius: 0 8px 8px 0;
-}
-.origin-quote blockquote {
-	margin: 0 0 1.25rem; font-size: 1.0625rem; font-weight: 600;
-	line-height: 1.9; color: var(--color-text);
-}
-.origin-quote figcaption { display: flex; flex-direction: column; gap: 0.5rem; }
-.origin-who { font-size: 0.875rem; font-weight: 700; color: var(--color-text-muted); }
-.origin-src { font-size: 0.75rem; color: var(--color-primary); text-decoration: none; line-height: 1.6; }
-.origin-src:hover { text-decoration: underline; }
-.origin-name {
-	margin-top: 1.25rem !important; padding: 0.875rem 1.125rem;
-	background: var(--color-bg); border: 1px solid var(--color-border);
-	border-radius: 6px;
-}
-.origin-clip { display: block; margin-top: 1.5rem; text-decoration: none; }
-.origin-clip img {
-	width: 100%; height: auto; display: block;
-	border: 1px solid var(--color-border); border-radius: 6px;
-	box-shadow: var(--shadow-sm);
-	transition: box-shadow 0.15s ease;
-}
-.origin-clip:hover img { box-shadow: var(--shadow-md); }
-.origin-clip__cap {
-	display: block; margin-top: 0.5rem;
-	font-size: 0.6875rem; color: var(--color-text-muted); opacity: 0.85;
-}
-@media (max-width: 900px) { .origin-inner { grid-template-columns: 1fr; gap: 2rem; } }
+	/* ── beta ────────────────────────────────────────────────── */
+	.beta {
+		padding: var(--space-2xl) 0;
+		background: #fff;
+		border-top: 1px solid var(--color-border);
+	}
+	.beta-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) 300px;
+		gap: var(--space-xl);
+		align-items: start;
+	}
+	.beta-copy { max-width: 40em; }
+	.beta-copy p { line-height: 1.95; margin: 0 0 1.25em; }
+	.beta-copy a:not(.btn) { color: var(--color-primary); }
+	.signoff {
+		margin-top: var(--space-lg) !important;
+		font-weight: 700;
+	}
+	.signoff span {
+		display: block;
+		font-weight: 400;
+		font-size: 0.85rem;
+		color: var(--color-text-muted);
+	}
+	.beta-aside {
+		padding: var(--space-md);
+		background: var(--color-bg-subtle);
+		border-radius: var(--radius-card);
+	}
+	.beta-aside h3 { margin: 0 0 0.75rem; font-size: 0.95rem; }
+	.beta-aside ul { margin: 0; padding-left: 1.1em; }
+	.beta-aside li { font-size: 0.92rem; line-height: 1.75; margin-bottom: 0.3em; }
+	.beta-fine { margin: 0.9rem 0 0; font-size: 0.8rem; color: var(--color-text-muted); }
+	@media (max-width: 860px) {
+		.beta-grid { grid-template-columns: 1fr; }
+	}
 </style>

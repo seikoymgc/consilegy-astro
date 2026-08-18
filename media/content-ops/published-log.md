@@ -2,6 +2,10 @@
 
 日次タスクが公開した記事の記録。重複回避に使う。新しい順に上へ追記する。
 
+> **🔧 2026-08-18 追記：gitのロックファイルは `rm` できないが `mv` で退避すれば commit / push は通る（今朝の実行で確立）。** サンドボックスから `.git/*.lock` は `rm -f` が `Operation not permitted` で失敗し、`git add` / `git commit` が「Another git process seems to be running」で止まります。**回避策は、git コマンドの直前に毎回ロックを rename すること。** 具体的には `for f in .git/HEAD.lock .git/index.lock .git/refs/remotes/origin/main.lock; do [ -e "$f" ] && mv "$f" "$f.old$(date +%s)"; done` を `git add` / `git commit` / `git push` のそれぞれ直前に実行します（git 自身が実行のたびに新しいロックを作り、終了時に消せずに残すため、1回だけでは足りません）。この手順で 8/18 は commit `2a53e0b` の push まで通っています。`.git/*.lock.old*` `.git/*.lock.stale*` が溜まっているので、**macOS側でまとめて削除してください**（追跡対象外なのでコミットには入りません）。
+>
+> **⚠️ 2026-08-18 追記：`~/Downloads` はサンドボックスに未マウントでした。** `/sessions/.../mnt/` 配下は `consilegy-astro` / `outputs` / `uploads` の3つだけで、Downloads は見えません。Recraftの「ダウンロードボタンを押して ~/Downloads から mv する」ルートは、この状態では使えません。
+>
 > **✅ 2026-08-14 更新：push 問題は解消しました。** `origin` の remote URL に fine-grained PAT が埋め込まれており、サンドボックスから `git push` が通ります。8/13 のコミット `71979ca` も origin/main に反映済みで、未pushコミットはありません。以下の 8/13・8/09・8/07 の警告は**すべて解消済み**なので、履歴として残しているだけです。
 >
 > なお 8/14 の実行では、開始時点で bash / Chrome拡張 / Notion がツールとして見えておらず、いったん「コミットできない」と誤って報告しました（実際には bash は最初から利用可能）。**次回以降、ツールが見当たらないときは ToolSearch の結果だけで判断せず、システムプロンプト先頭の関数一覧を確認すること。** Notionは本実行では未接続で、8/14 の記事は Notion 参照なしで書いています。

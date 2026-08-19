@@ -1,17 +1,34 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
+const DEMO_URL = 'https://crm.consilegy.com/crm#demo';
+
 // プロダクトの school shell（edition=b2c + shell='school'）に実装済みの機能のみ記載。
 // LINE連携は現時点でシミュレーション（実API未接続）のため、意図的に載せていない。
 const screens = [
-	{ title: '生徒', desc: '体験中・支払中・休止中・解約済を一覧で。誰が今どの状態かが、探さなくても分かります。' },
-	{ title: '週間スケジュール', desc: 'レッスンの予定を週単位で。休校日カレンダーと連動します。' },
-	{ title: 'レッスン記録', desc: '実施したレッスンの内容を生徒ごとに蓄積。担当が替わっても経緯が残ります。' },
-	{ title: '架電確認', desc: '連絡すべき生徒と、まだ連絡できていない生徒を分けて管理します。' },
-	{ title: 'ヒアリング', desc: '入会時や面談で聞いた内容を構造化して保存。次の担当が読んで動けます。' },
-	{ title: '月次レポート', desc: 'AIが生徒ごとの進捗レポートを下書き。ゼロから書かずに、直して出せます。' },
-	{ title: 'ナレッジベース', desc: '指導方針や運用ルールを記事として蓄積。属人化を防ぎます。' },
-	{ title: '請求', desc: '支払中・支払失敗を把握。止まっている入金に気づけます。' },
+	{ src: 'students', title: '生徒管理', desc: '体験中・支払中・休止中・解約済を一覧で確認。現在の状態がすぐ分かります。', alt: '生徒一覧の画面。在籍・体験中・卒業間近・休会・卒業のフィルタと、生徒ごとの状態バッジが並ぶ。' },
+	{ src: 'schedule', title: '週間スケジュール', desc: 'レッスン予定を週単位で管理。休校日カレンダーとも連動します。', alt: '週間スケジュールの画面。今週のレッスン数と稼働コーチ数、日付ごとの時刻・生徒・担当コーチの一覧。' },
+	{ src: 'lessons', title: 'レッスン記録', desc: '実施内容を生徒ごとに蓄積。担当が替わっても経緯が残ります。', alt: 'レッスン履歴の画面。生徒名、担当コーチ、コース、実施日が時系列で並ぶ。' },
+	{ src: 'calls', title: '架電確認', desc: '連絡すべき生徒、未対応の生徒、対応済みの生徒を分けて管理します。', alt: 'ホーム画面。在籍生徒数、要対応件数、本日の架電、定着率のカードと、課題未提出やLINE返信など「今すぐ対応」の一覧。' },
+	{ src: 'hearing', title: 'ヒアリング', desc: '入会時や面談で聞いた内容を構造化して保存。次の担当が読んで動けます。', alt: '入会時ヒアリングの入力画面。学習目的、現在のレベル、希望ペース、担当への申し送りをメモとして保存する。' },
+	{ src: 'report', title: '月次レポート', desc: '生徒ごとの進捗レポートを下書き。確認して直すだけで提出できます。', alt: '月次レポートの画面。AIが下書きした生徒の進捗コメントに、再生成と確定のボタンが付いている。' },
+	{ src: 'knowledge', title: 'ナレッジベース', desc: '指導方針や運用ルールを記事化。教室運営の属人化を防ぎます。', alt: 'ナレッジベースの画面。よくある質問、運営ルール、運用マニュアルの記事一覧。' },
+	{ src: 'billing', title: '請求管理', desc: '支払中・支払失敗を確認。止まっている入金に早く気づけます。', alt: '請求の画面。MRR、支払中、支払失敗の件数と、生徒ごとの契約一覧に支払中・解約済・支払失敗のバッジ。' },
+];
+
+const problems = [
+	{
+		title: '退会の兆候が遅れる',
+		text: '欠席、未連絡、支払失敗、反応の変化に気づくのが、辞めた後になっている。',
+	},
+	{
+		title: '引き継ぎが属人化する',
+		text: 'コーチが替わると、前回の内容、保護者との話、次に見るべき点が分からない。',
+	},
+	{
+		title: '在籍と請求が月末作業になる',
+		text: '今月の在籍数、休止、解約、入金状況を毎回スプレッドシートで数え直している。',
+	},
 ];
 
 const roles = [
@@ -24,7 +41,7 @@ const roles = [
 
 <BaseLayout
 	title="Revenue CRM スクール版（β版） | 生徒の状況が、探さなくても分かる"
-	description="スクール・教室向けの画面構成。生徒の在籍状況、週間スケジュール、レッスン記録、架電確認、AIによる月次レポート下書きまで。スマホ前提のUIで、コーチが移動中でも扱えます。定期課金の事業にも同じ土台が使えます。現在クローズドβ。"
+	description="スクール・教室向けの画面構成。生徒の在籍状況、週間スケジュール、レッスン記録、架電確認、月次レポート下書きまで。スマホ前提のUIで、コーチが移動中でも扱えます。定期課金の事業にも同じ土台が使えます。現在クローズドβ。"
 	lang="ja"
 	alternateUrl="/en/crm/school/"
 >
@@ -40,38 +57,34 @@ const roles = [
 
 <!-- ===================== HERO ===================== -->
 <section class="hero">
-	<div class="container">
-		<span class="eyebrow"><span class="eyebrow__dot"></span>Product · Closed Beta</span>
-		<h1>生徒の状況が、<br />探さなくても分かる。<span class="hero-edition">スクール版</span></h1>
-		<p class="hero-lead">
-			生徒名簿はスプレッドシート、レッスンの記録はコーチの手元、
-			入金状況は別のツール。誰かに聞かないと今の状態が分からない——
-			スクール運営でいちばん時間を溶かすのは、この「探す時間」です。
-			スクール版は、<strong>生徒を軸に全部を1か所に集めた画面構成</strong>です。
-		</p>
-		<div class="hero-actions">
-			<a href="/contact/" class="btn btn--hero-primary btn--lg">βパートナーに応募する →</a>
-			<a href="#screens" class="btn btn--hero-outline btn--lg">画面を見る</a>
+	<div class="container hero-grid">
+		<div class="hero-copy">
+			<p class="eyebrow">Revenue CRM スクール版 β版</p>
+			<h1>生徒の状況が、<br />探さなくても分かる。</h1>
+			<p class="hero-lead">
+				生徒名簿はスプレッドシート、レッスン記録はコーチの手元、入金状況は別ツール。
+				スクール版は、<strong>生徒を軸に状態・記録・請求を1か所で見られる画面構成</strong>です。
+			</p>
+			<div class="hero-actions">
+				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">デモを依頼する</a>
+				<a href="#screens" class="btn btn--secondary">画面を見る</a>
+			</div>
+			<ul class="hero-points" aria-label="スクール版の特徴">
+				<li>生徒・レッスン・請求を一元管理</li>
+				<li>スマホ前提のコーチ向けUI</li>
+				<li>クローズドβで提供中</li>
+			</ul>
 		</div>
-		<p class="hero-switch">法人のお客様を相手にする事業の方は <a href="/crm/">法人向けはこちら →</a></p>
-		<p class="hero-note">※ 現在クローズドβ。数社限定で、一緒に育てていただけるパートナーを探しています。仕様は予告なく変更される場合があります。</p>
-	</div>
-</section>
-
-<!-- ===================== DEMO ===================== -->
-<section class="demo">
-	<div class="container">
-		<div class="demo-frame">
+		<figure class="hero-media">
 			<img
 				src="/videos/school-demo.gif"
-				alt="スクール版の操作。ホームで在籍生徒数・要対応・定着率を確認し、生徒一覧を在籍/体験中で絞り込み、生徒詳細で担当コーチとレッスン履歴を見て、メニューから請求・週間スケジュール・AIアシスタントへ移動する。"
+				alt="Revenue CRM スクール版の操作デモ。ホーム、生徒一覧、生徒詳細、請求、週間スケジュール、月次レポートの画面を確認できる。"
 				width="820"
 				height="600"
-				loading="lazy"
 				decoding="async"
 			/>
-		</div>
-		<p class="demo-caption">実際の画面 — ホーム → 生徒一覧 → 生徒詳細 → メニュー</p>
+			<figcaption>操作画面：ホーム、生徒一覧、生徒詳細、請求、週間スケジュール</figcaption>
+		</figure>
 	</div>
 </section>
 
@@ -83,20 +96,22 @@ const roles = [
 				追いかけるのは「受注できるか」ではなく、<br />
 				「今月も通ってもらえるか」です。
 			</p>
-			<p>
-				だから中心に置いたのは<strong>生徒・レッスン・コーチ</strong>の3つです。
-				在籍しているかどうかだけでなく、誰がいつ何を受けて、どう進んでいるかまで残ります。
-			</p>
-			<p>
-				画面は<strong>スマホを前提</strong>に作ってあります。コーチが教室と移動の合間に開いて、
-				その場で記録し、その場で次の生徒を確認できることを優先しました。
-			</p>
-			<p>
-				定期課金で成り立つ事業（サブスク・定期購入など）にも、同じ土台が使えます。
-				生徒・レッスン・コーチの部分を外し、契約と継続率だけを見る構成にできます。
-				ご相談ください。
-			</p>
-			<a href="/revenue-architecture/" class="pos-link">この考え方について読む →</a>
+			<div class="pos-copy">
+				<p>
+					だから中心に置いたのは<strong>生徒・レッスン・コーチ</strong>の3つです。
+					在籍しているかどうかだけでなく、誰がいつ何を受けて、どう進んでいるかまで残ります。
+				</p>
+				<p>
+					画面は<strong>スマホを前提</strong>に作ってあります。コーチが教室と移動の合間に開いて、
+					その場で記録し、その場で次の生徒を確認できることを優先しました。
+				</p>
+				<p>
+					定期課金で成り立つ事業（サブスク・定期購入など）にも、同じ土台が使えます。
+					生徒・レッスン・コーチの部分を外し、契約と継続率だけを見る構成にできます。
+					ご相談ください。
+				</p>
+				<a href="/revenue-architecture/" class="pos-link">この考え方について読む →</a>
+			</div>
 		</div>
 	</div>
 </section>
@@ -104,18 +119,20 @@ const roles = [
 <!-- ===================== PROBLEM ===================== -->
 <section class="problem">
 	<div class="container">
-		<p class="section-eyebrow">Why it breaks</p>
-		<h2 class="prob-title">こんな課題、ありませんか。</h2>
+		<div class="section-head">
+			<p class="section-eyebrow">こんな課題に</p>
+			<h2 class="prob-title">継続率に関わる情報が、教室のあちこちに散らばっていませんか。</h2>
+		</div>
 		<div class="prob-grid">
-			<div class="prob-item">
-				<p>やめそうな生徒に気づくのが、いつも辞めた後になっている。</p>
-			</div>
-			<div class="prob-item">
-				<p>コーチが替わると、その生徒の経緯が引き継がれない。前回何を話したか誰も知らない。</p>
-			</div>
-			<div class="prob-item">
-				<p>月末に「今、何人在籍しているか」を数え直している。</p>
-			</div>
+			{problems.map((item, index) => (
+				<article class="prob-item">
+					<span class="issue-label" aria-label={`項目 ${index + 1}`}>
+						<span class="issue-label__number">{String(index + 1).padStart(2, '0')}</span>
+					</span>
+					<h3>{item.title}</h3>
+					<p>{item.text}</p>
+				</article>
+			))}
 		</div>
 
 		<figure class="prob-shot">
@@ -138,48 +155,66 @@ const roles = [
 <!-- ===================== SCREENS ===================== -->
 <section class="screens" id="screens">
 	<div class="container">
-		<p class="section-eyebrow">Screens</p>
-		<h2 class="sc-title">生徒を軸に、必要なものが揃っています。</h2>
+		<div class="section-head">
+			<p class="section-eyebrow">画面構成</p>
+			<h2 class="sc-title">生徒を軸に、日々見る画面を揃えています。</h2>
+		</div>
 		<div class="sc-grid">
 			{screens.map((s) => (
 				<article class="sc-card">
-					<h3>{s.title}</h3>
-					<p>{s.desc}</p>
+					<figure class="sc-shot">
+						<img
+							src={`/images/crm/school/screen-${s.src}.webp`}
+							alt={s.alt}
+							width="1600"
+							height="1000"
+							loading="lazy"
+							decoding="async"
+						/>
+					</figure>
+					<div>
+						<h3>{s.title}</h3>
+						<p>{s.desc}</p>
+					</div>
 				</article>
 			))}
 		</div>
 	</div>
 </section>
 
-<!-- ===================== AI ===================== -->
-<section class="ai">
-	<div class="container ai-inner">
+<!-- ===================== SUPPORT ===================== -->
+<section class="support">
+	<div class="container support-inner">
 		<div>
-			<p class="section-eyebrow">AI</p>
-			<h2>日本語で聞けば、答えが返ります。</h2>
-			<p class="ai-lead">
-				レポートを作らなくても、知りたいことをそのまま聞けます。
-				生徒データを検索して、その場で答えます。
+			<p class="section-eyebrow">運営サポート</p>
+			<h2>月次報告と確認作業を、画面の中で進められます。</h2>
+			<p class="support-lead">
+				月末の報告、未対応者の確認、今週の予定確認を、生徒データからそのまま進められます。
+				文章作成だけを目的にせず、次の対応に使える状態で残すことを優先しています。
 			</p>
-			<p class="ai-lead">
-				月次の進捗レポートも、AIが生徒ごとに下書きします。
-				ゼロから書く作業がなくなり、確認して直すだけになります。
+			<p class="support-lead">
+				月次の進捗レポートは下書きまで作成。コーチは内容を確認し、必要な修正を入れて提出できます。
 			</p>
 		</div>
-		<ul class="ai-examples">
-			<li>今日、要対応の生徒は？</li>
-			<li>今月の在籍率は？</li>
-			<li>今週のレッスン予定は？</li>
-			<li>未架電の生徒をリストして</li>
-		</ul>
+		<div class="support-list">
+			<h3>よく見る確認項目</h3>
+			<ul>
+				<li><span>要対応</span><strong>今日連絡すべき生徒</strong></li>
+				<li><span>在籍</span><strong>今月の在籍・休止・解約</strong></li>
+				<li><span>予定</span><strong>今週のレッスンスケジュール</strong></li>
+				<li><span>報告</span><strong>月次レポートの下書き</strong></li>
+			</ul>
+		</div>
 	</div>
 </section>
 
 <!-- ===================== ROLES ===================== -->
 <section class="roles">
 	<div class="container">
-		<p class="section-eyebrow">Permissions</p>
-		<h2 class="ro-title">コーチには、担当の生徒だけ。</h2>
+		<div class="section-head">
+			<p class="section-eyebrow">権限管理</p>
+			<h2 class="ro-title">コーチには、担当の生徒だけ。</h2>
+		</div>
 		<p class="ro-lead">
 			業務委託のコーチが多いスクールでは、誰がどこまで見られるかが実務上の問題になります。
 			役割ごとに範囲を分けられます。
@@ -200,16 +235,16 @@ const roles = [
 <section class="final-cta">
 	<div class="container cta-inner">
 		<div>
-			<p class="cta-eyebrow">Get Started</p>
+			<p class="cta-eyebrow">クローズドβ</p>
 			<h2>一緒に育てていただける<br />スクールを探しています。</h2>
 			<p class="cta-lead">
 				クローズドβは、完成品を売る段階ではありません。
 				実際の運営で使っていただき、足りないものを教えていただきながら仕上げていく段階です。
-				その代わり、御校の運営に合わせて機能の優先順位を決められます。
+				デモをご希望の方は、専用フォームからお申し込みください。
 			</p>
 			<div class="cta-actions">
-				<a href="/contact/" class="btn btn--cta-primary btn--lg">βパートナーに応募する →</a>
-				<a href="/crm/" class="btn btn--cta-outline btn--lg">法人向けを見る</a>
+				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">デモを依頼する</a>
+				<a href="/crm/" class="btn btn--secondary">法人向けを見る</a>
 			</div>
 		</div>
 		<div class="cta-card">
@@ -218,7 +253,7 @@ const roles = [
 				<li>生徒一覧と在籍状況の見え方</li>
 				<li>週間スケジュールと休校日の管理</li>
 				<li>レッスン記録・ヒアリングの残り方</li>
-				<li>AIによる月次レポートの下書き</li>
+				<li>月次レポートの下書き</li>
 				<li>コーチ向けの権限設定と操作ログ</li>
 			</ul>
 		</div>
@@ -228,210 +263,607 @@ const roles = [
 </BaseLayout>
 
 <style>
-/* ── Shared ──────────────────────────────────────────── */
-.section-eyebrow {
-	font-size: 0.8125rem; font-weight: 600; color: var(--color-primary);
-	letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.75rem;
-}
-.btn--lg { padding: 1.0625rem 1.875rem; font-size: 1rem; }
+	.section-eyebrow,
+	.eyebrow,
+	.cta-eyebrow {
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.12em;
+		line-height: 1.4;
+		text-transform: uppercase;
+	}
 
-/* ── Hero ──────────────────────────────────────────── */
-.hero {
-	background: linear-gradient(180deg, var(--color-bg-subtle) 0%, var(--color-bg) 100%);
-	border-bottom: 1px solid var(--color-border);
-	padding-block: var(--space-2xl) var(--space-xl);
-}
-.eyebrow {
-	display: inline-flex; align-items: center; gap: 0.5rem;
-	font-size: 0.8125rem; font-weight: 600; color: var(--color-primary);
-	background: rgba(30,64,175,0.08); padding: 0.375rem 0.875rem; border-radius: 4px;
-	letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1.25rem;
-}
-.eyebrow__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--color-primary); display: inline-block; }
-.hero h1 {
-	font-size: clamp(2.25rem, 4vw, 3.25rem); font-weight: 600;
-	letter-spacing: 0.01em; margin: 0 0 1rem; color: var(--color-text); line-height: 1.25;
-}
-.hero-edition {
-	display: inline-block; margin-left: 0.75rem; vertical-align: 0.35em;
-	font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.08em;
-	color: var(--color-primary); background: rgba(30,64,175,0.08);
-	padding: 0.25rem 0.7rem; border-radius: 4px;
-}
-.hero-lead { font-size: 1.125rem; line-height: 1.8; color: var(--color-text-muted); max-width: 740px; margin: 0 0 2rem; }
-.hero-lead strong { color: var(--color-text); font-weight: 700; }
-.hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-.hero-switch { margin: 1.5rem 0 0; font-size: 0.9375rem; color: var(--color-text-muted); }
-.hero-switch a { color: var(--color-primary); font-weight: 700; text-decoration: none; border-bottom: 1px solid currentColor; }
-.hero-note { font-size: 0.8125rem; color: var(--color-text-muted); margin: 0.75rem 0 0; }
+	h2,
+	h3 {
+		letter-spacing: 0;
+	}
 
-.btn--hero-primary {
-	display: inline-flex; align-items: center;
-	background: var(--color-primary); color: #fff;
-	padding: 1.0625rem 1.875rem; border-radius: var(--radius);
-	font-weight: 700; font-size: 1rem; text-decoration: none; border: none;
-	transition: background 0.15s ease;
-}
-.btn--hero-primary:hover { background: var(--color-primary-dark); color: #fff; }
-.btn--hero-outline {
-	display: inline-flex; align-items: center;
-	background: transparent; color: var(--color-primary);
-	padding: 1.0625rem 1.875rem; border-radius: var(--radius);
-	font-weight: 600; font-size: 1rem; text-decoration: none;
-	border: 1.5px solid var(--color-primary);
-	transition: all 0.15s ease;
-}
-.btn--hero-outline:hover { background: rgba(30,64,175,0.06); }
+	h2 {
+		margin: 0;
+		color: var(--color-text);
+		font-size: 2rem;
+		font-weight: 500;
+		line-height: 1.4;
+		text-wrap: balance;
+	}
 
-/* ── Positioning ───────────────────────────────────── */
-.positioning {
-	background: var(--color-bg-subtle);
-	border-bottom: 1px solid var(--color-border);
-	padding-block: var(--space-xl);
-}
-.pos-body { max-width: 760px; }
-.pos-lead {
-	font-size: 1.125rem; font-weight: 600; line-height: 1.8;
-	color: var(--color-text); margin: 0 0 1.25rem;
-	padding-left: 1rem; border-left: 3px solid var(--color-primary);
-}
-.pos-body p { font-size: 0.9375rem; line-height: 1.9; color: var(--color-text-muted); margin: 0 0 1rem; }
-.pos-body strong { color: var(--color-text); font-weight: 700; }
-.pos-link {
-	display: inline-block; margin-top: 0.5rem;
-	font-size: 0.9375rem; font-weight: 700; color: var(--color-primary);
-	text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px;
-}
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 46px;
+		padding: 0.8rem 1.35rem;
+		border: 1px solid var(--color-border);
+		border-radius: 4px;
+		font-size: 0.9375rem;
+		font-weight: 600;
+		line-height: 1.25;
+		text-decoration: none;
+		transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+	}
 
-/* ── Problem ───────────────────────────────────────── */
-.problem { padding-block: var(--space-2xl); background: var(--color-bg); }
-.prob-title { font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; color: var(--color-text); margin: 0 0 2rem; }
-.prob-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-.prob-item {
-	border: 1px solid var(--color-border); border-left: 3px solid var(--color-primary);
-	border-radius: 0 8px 8px 0; padding: 1.5rem; background: var(--color-bg-subtle);
-}
-.prob-item p { margin: 0; font-size: 0.9375rem; line-height: 1.8; color: var(--color-text); }
+	.btn--primary {
+		background: var(--color-primary);
+		border-color: var(--color-primary);
+		color: #fff;
+	}
 
+	.btn--primary:hover {
+		background: var(--color-primary-dark);
+		border-color: var(--color-primary-dark);
+		color: #fff;
+	}
 
-/* ── Demo / screenshots ────────────────────────────── */
-.demo { padding-block: var(--space-xl); background: var(--color-bg); border-bottom: 1px solid var(--color-border); }
-.demo-frame {
-	max-width: 900px; margin: 0 auto;
-	border: 1px solid var(--color-border); border-radius: 12px;
-	overflow: hidden; background: var(--color-bg-subtle);
-	box-shadow: var(--shadow-md);
-}
-.demo-frame img { width: 100%; height: auto; display: block; }
-.demo-caption { margin: 0.875rem 0 0; text-align: center; font-size: 0.8125rem; color: var(--color-text-muted); }
+	.btn--secondary {
+		background: transparent;
+		color: var(--color-text);
+	}
 
-.prob-shot { margin: 2.5rem 0 0; max-width: 900px; }
-.prob-shot img {
-	width: 100%; height: auto; display: block;
-	border: 1px solid var(--color-border); border-radius: 10px;
-	box-shadow: var(--shadow-sm);
-}
-.prob-shot figcaption {
-	margin-top: 0.875rem; font-size: 0.9375rem; line-height: 1.8; color: var(--color-text-muted);
-}
-.prob-shot strong { color: var(--color-text); font-weight: 700; }
+	.btn--secondary:hover {
+		border-color: var(--color-primary);
+		color: var(--color-primary);
+	}
 
-/* ── Screens ───────────────────────────────────────── */
-.screens {
-	padding-block: var(--space-2xl); background: var(--color-bg-subtle);
-	border-top: 1px solid var(--color-border); scroll-margin-top: 80px;
-}
-.sc-title { font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; color: var(--color-text); margin: 0 0 2rem; }
-.sc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
-.sc-card {
-	border: 1px solid var(--color-border); border-radius: 8px;
-	padding: 1.5rem; background: var(--color-bg);
-}
-.sc-card h3 { margin: 0 0 0.5rem; font-size: 1rem; font-weight: 700; color: var(--color-primary); }
-.sc-card p { margin: 0; font-size: 0.875rem; line-height: 1.75; color: var(--color-text-muted); }
+	.hero-actions,
+	.cta-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: var(--space-md);
+	}
 
-/* ── AI ────────────────────────────────────────────── */
-.ai { padding-block: var(--space-2xl); background: var(--color-bg); border-top: 1px solid var(--color-border); }
-.ai-inner { display: grid; grid-template-columns: 1.2fr 1fr; gap: 3.5rem; align-items: center; }
-.ai-inner h2 { font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; color: var(--color-text); margin: 0 0 1rem; }
-.ai-lead { font-size: 0.9375rem; line-height: 1.9; color: var(--color-text-muted); margin: 0 0 1rem; }
-.ai-examples { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; }
-.ai-examples li {
-	background: var(--color-bg-subtle); border: 1px solid var(--color-border);
-	border-radius: 100px; padding: 0.75rem 1.25rem;
-	font-size: 0.9375rem; color: var(--color-text);
-}
-.ai-examples li::before { content: "「"; color: var(--color-primary); }
-.ai-examples li::after { content: "」"; color: var(--color-primary); }
+	.hero {
+		padding: var(--space-lg) 0 var(--space-md);
+		background: var(--color-bg);
+		border-bottom: 1px solid var(--color-border);
+	}
 
-/* ── Roles ─────────────────────────────────────────── */
-.roles { padding-block: var(--space-2xl); background: var(--color-bg-subtle); border-top: 1px solid var(--color-border); }
-.ro-title { font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; color: var(--color-text); margin: 0 0 0.75rem; }
-.ro-lead { font-size: 1rem; line-height: 1.85; color: var(--color-text-muted); margin: 0 0 2rem; max-width: 720px; }
-.ro-list {
-	margin: 0; max-width: 720px; border: 1px solid var(--color-border);
-	border-radius: 8px; overflow: hidden; background: var(--color-bg);
-}
-.ro-row {
-	display: grid; grid-template-columns: 14rem 1fr; gap: 1.25rem;
-	padding: 1rem 1.25rem; align-items: baseline;
-}
-.ro-row + .ro-row { border-top: 1px solid var(--color-border); }
-.ro-row dt { font-size: 0.9375rem; font-weight: 700; color: var(--color-primary); }
-.ro-row dd { margin: 0; font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.7; }
-.ro-note { margin: 1.5rem 0 0; font-size: 0.9375rem; color: var(--color-text-muted); }
+	.hero-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.78fr);
+		gap: var(--space-xl);
+		align-items: start;
+	}
 
-/* ── Final CTA ─────────────────────────────────────── */
-.final-cta {
-	background:
-		radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%),
-		linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
-	color: #fff; padding-block: var(--space-2xl);
-}
-.cta-inner { display: grid; grid-template-columns: 1.3fr 1fr; gap: 4rem; align-items: center; }
-.cta-eyebrow { font-size: 0.8125rem; font-weight: 600; color: #93c5fd; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 1rem; }
-.cta-inner h2 { color: #fff; font-size: clamp(1.75rem, 2.5vw, 2.25rem); line-height: 1.3; font-weight: 700; margin: 0 0 1.25rem; }
-.cta-lead { color: #bfdbfe; font-size: 1.0625rem; line-height: 1.75; margin: 0 0 2rem; }
-.cta-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-.btn--cta-primary {
-	display: inline-flex; align-items: center; justify-content: center;
-	padding: 1.0625rem 1.875rem; border-radius: var(--radius);
-	font-weight: 700; font-size: 1rem; text-decoration: none;
-	background: #fff; color: var(--color-primary); border: none;
-	transition: background 0.15s ease;
-}
-.btn--cta-primary:hover { background: #e0eaff; color: var(--color-primary); }
-.btn--cta-outline {
-	display: inline-flex; align-items: center; justify-content: center;
-	padding: 1.0625rem 1.875rem; border-radius: var(--radius);
-	font-weight: 600; font-size: 1rem; text-decoration: none;
-	background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.45);
-	transition: all 0.15s ease;
-}
-.btn--cta-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
-.cta-card {
-	background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
-	border-radius: 8px; padding: 2rem; backdrop-filter: blur(10px);
-}
-.cta-card h4 { margin: 0 0 1rem; font-size: 0.8125rem; color: #93c5fd; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
-.cta-list { list-style: none; padding: 0; margin: 0; }
-.cta-list li {
-	display: flex; gap: 0.75rem; align-items: flex-start;
-	padding: 0.5rem 0; font-size: 0.9375rem; color: #e0eaff;
-	border-bottom: 1px solid rgba(255,255,255,0.1); line-height: 1.6;
-}
-.cta-list li:last-child { border-bottom: none; }
-.cta-list li::before { content: ""; flex-shrink: 0; margin-top: 9px; width: 5px; height: 5px; border-radius: 50%; background: #93c5fd; }
+	.hero-copy {
+		max-width: 720px;
+	}
 
-/* ── Responsive ─────────────────────────────────────── */
-@media (max-width: 1024px) { .sc-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 900px) {
-	.prob-grid { grid-template-columns: 1fr; }
-	.ai-inner, .cta-inner { grid-template-columns: 1fr; gap: 2rem; }
-	.ro-row { grid-template-columns: 1fr; gap: 0.25rem; }
-}
-@media (max-width: 560px) {
-	.sc-grid { grid-template-columns: 1fr; }
-	.hero-actions, .cta-actions { flex-direction: column; align-items: stretch; }
-}
+	.eyebrow {
+		display: block;
+		margin-bottom: var(--space-md);
+		padding-top: 0.875rem;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.hero h1 {
+		max-width: 13em;
+		margin: 0;
+		color: var(--color-text);
+		font-size: 3.125rem;
+		font-weight: 500;
+		line-height: 1.2;
+		letter-spacing: 0;
+		text-wrap: balance;
+	}
+
+	.hero-lead {
+		max-width: 43em;
+		margin: var(--space-md) 0 0;
+		color: var(--color-text);
+		font-size: 1.0625rem;
+		line-height: 2;
+	}
+
+	.hero-lead strong {
+		font-weight: 700;
+	}
+
+	.hero-points {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 0;
+		margin: var(--space-md) 0 0;
+		padding: 0;
+		list-style: none;
+		border-top: 1px solid var(--color-border);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.hero-points li {
+		min-width: 0;
+		padding: 0.85rem 1rem;
+		color: var(--color-text-muted);
+		font-size: 0.8125rem;
+		line-height: 1.6;
+	}
+
+	.hero-points li + li {
+		border-left: 1px solid var(--color-border);
+	}
+
+	.pos-link {
+		color: var(--color-primary);
+		font-weight: 600;
+		text-decoration: none;
+		border-bottom: 1px solid currentColor;
+	}
+
+	.hero-media {
+		margin: 0;
+		min-width: 0;
+	}
+
+	.hero-media img,
+	.prob-shot img {
+		width: 100%;
+		height: auto;
+		display: block;
+		border: 1px solid var(--color-border);
+		border-radius: 0;
+		background: #fff;
+		box-shadow: none;
+	}
+
+	.hero-media figcaption,
+	.prob-shot figcaption {
+		margin-top: 0.65rem;
+		color: var(--color-text-muted);
+		font-size: 0.75rem;
+		line-height: 1.6;
+	}
+
+	.positioning,
+	.problem,
+	.screens,
+	.support,
+	.roles,
+	.final-cta {
+		padding: var(--space-2xl) 0;
+		background: var(--color-bg);
+	}
+
+	.screens,
+	.roles {
+		background: var(--color-bg-subtle);
+		border-top: 1px solid var(--color-border);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.prob-shot {
+		max-width: 900px;
+		margin: 0;
+		background: transparent;
+		border: 0;
+		border-radius: 0;
+		box-shadow: none;
+	}
+
+	.positioning {
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.pos-body {
+		display: grid;
+		grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+		gap: var(--space-xl);
+		align-items: start;
+		padding-top: var(--space-sm);
+		border-top: 1px solid var(--color-border);
+	}
+
+	.pos-lead {
+		margin: 0;
+		color: var(--color-text);
+		font-size: 1.375rem;
+		font-weight: 500;
+		line-height: 1.7;
+		text-wrap: balance;
+	}
+
+	.pos-copy p {
+		margin: 0 0 1rem;
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+		line-height: 1.9;
+	}
+
+	.pos-body strong {
+		color: var(--color-text);
+		font-weight: 700;
+	}
+
+	.pos-link {
+		display: inline-flex;
+		margin-top: 0.25rem;
+		font-size: 0.9375rem;
+	}
+
+	.section-head {
+		display: grid;
+		grid-template-columns: 10rem minmax(0, 1fr);
+		gap: var(--space-lg);
+		align-items: start;
+		margin-bottom: var(--space-lg);
+		padding-top: var(--space-sm);
+		border-top: 1px solid var(--color-border);
+	}
+
+	.prob-grid,
+	.sc-grid {
+		display: grid;
+		gap: 0;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.prob-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	.prob-item,
+	.sc-card {
+		min-width: 0;
+		padding: 1.35rem 1.5rem 1.35rem 0;
+		background: transparent;
+		border: 0;
+		border-bottom: 1px solid var(--color-border);
+		border-radius: 0;
+	}
+
+	.prob-item:nth-child(2),
+	.prob-item:nth-child(3) {
+		padding-left: var(--space-md);
+		border-left: 1px solid var(--color-border);
+	}
+
+	.issue-label {
+		display: flex;
+		align-items: flex-end;
+		gap: 0.85rem;
+		margin-bottom: 0.9rem;
+		color: var(--color-primary);
+	}
+
+	.issue-label::after {
+		content: "";
+		flex: 1;
+		height: 1px;
+		margin-bottom: 0.34rem;
+		background: var(--color-border);
+	}
+
+	.issue-label__number {
+		color: rgba(30, 64, 175, 0.24);
+		font-size: 2.45rem;
+		font-weight: 500;
+		font-variant-numeric: tabular-nums;
+		line-height: 0.82;
+		letter-spacing: 0;
+	}
+
+	.prob-item h3,
+	.sc-card h3 {
+		margin: 0;
+		color: var(--color-text);
+		font-size: 1rem;
+		font-weight: 600;
+		line-height: 1.55;
+	}
+
+	.prob-item p,
+	.sc-card p {
+		margin: 0.6rem 0 0;
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+		line-height: 1.85;
+	}
+
+	.prob-shot {
+		margin-top: var(--space-xl);
+	}
+
+	.prob-shot strong {
+		color: var(--color-text);
+		font-weight: 700;
+	}
+
+	.screens {
+		scroll-margin-top: 80px;
+	}
+
+	.sc-grid {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+
+	.sc-card {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: 0.9rem;
+		align-content: start;
+		padding-right: var(--space-md);
+	}
+
+	.sc-shot {
+		margin: 0;
+		overflow: hidden;
+		border: 1px solid var(--color-border);
+		border-radius: 8px;
+		background: #fff;
+		box-shadow: 0 8px 22px rgba(15, 23, 42, 0.07);
+	}
+
+	.sc-shot img {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+
+	.sc-card:nth-child(4n + 2),
+	.sc-card:nth-child(4n + 3),
+	.sc-card:nth-child(4n + 4) {
+		padding-left: var(--space-md);
+		border-left: 1px solid var(--color-border);
+	}
+
+	.support {
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.support-inner,
+	.cta-inner {
+		display: grid;
+		grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+		gap: var(--space-xl);
+		align-items: start;
+	}
+
+	.support-inner > div:first-child,
+	.cta-inner > div:first-child {
+		padding-top: var(--space-sm);
+		border-top: 1px solid var(--color-border);
+	}
+
+	.support .section-eyebrow,
+	.cta-eyebrow {
+		margin-bottom: var(--space-sm);
+	}
+
+	.support-lead,
+	.ro-lead,
+	.cta-lead {
+		margin: 1rem 0 0;
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+		line-height: 1.85;
+	}
+
+	.support-list {
+		border-top: 1px solid var(--color-border);
+	}
+
+	.support-list h3,
+	.cta-card h4 {
+		margin: 0;
+		padding: 0.95rem 0;
+		border-bottom: 1px solid var(--color-border);
+		color: var(--color-primary);
+		font-size: 0.8125rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		line-height: 1.5;
+	}
+
+	.support-list ul,
+	.cta-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.support-list li {
+		display: grid;
+		grid-template-columns: 6rem minmax(0, 1fr);
+		gap: var(--space-md);
+		padding: 0.9rem 0;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.support-list span {
+		color: var(--color-text-muted);
+		font-size: 0.8125rem;
+		font-weight: 600;
+		line-height: 1.7;
+	}
+
+	.support-list strong {
+		color: var(--color-text);
+		font-size: 0.9375rem;
+		font-weight: 600;
+		line-height: 1.7;
+	}
+
+	.ro-lead {
+		max-width: 720px;
+		margin-top: 0;
+		margin-bottom: var(--space-lg);
+	}
+
+	.ro-list {
+		max-width: 720px;
+		margin: 0;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.ro-row {
+		display: grid;
+		grid-template-columns: 14rem minmax(0, 1fr);
+		gap: var(--space-md);
+		padding: 1rem 0;
+		align-items: baseline;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.ro-row dt {
+		color: var(--color-text);
+		font-size: 0.9375rem;
+		font-weight: 600;
+		line-height: 1.7;
+	}
+
+	.ro-row dd {
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+		line-height: 1.7;
+	}
+
+	.ro-note {
+		margin: 1.25rem 0 0;
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+		line-height: 1.7;
+	}
+
+	.final-cta {
+		color: var(--color-text);
+	}
+
+	.cta-card {
+		background: transparent;
+		border: 0;
+		border-top: 1px solid var(--color-border);
+		border-radius: 0;
+		padding: 0;
+	}
+
+	.cta-list li {
+		padding: 0.75rem 0;
+		border-bottom: 1px solid var(--color-border);
+		color: var(--color-text);
+		font-size: 0.9375rem;
+		line-height: 1.75;
+	}
+
+	@media (max-width: 1020px) {
+		.hero-grid,
+		.pos-body,
+		.support-inner,
+		.cta-inner {
+			grid-template-columns: 1fr;
+		}
+
+		.hero h1 {
+			font-size: 2.75rem;
+		}
+
+		.hero-media,
+		.prob-shot {
+			max-width: 680px;
+		}
+
+		.sc-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.sc-card:nth-child(odd) {
+			padding-left: 0;
+			border-left: 0;
+		}
+
+		.sc-card:nth-child(even) {
+			padding-left: var(--space-md);
+			border-left: 1px solid var(--color-border);
+		}
+	}
+
+	@media (max-width: 760px) {
+		.hero,
+		.positioning,
+		.problem,
+		.screens,
+		.support,
+		.roles,
+		.final-cta {
+			padding-block: var(--space-xl);
+		}
+
+		.hero {
+			padding-block: var(--space-lg) var(--space-md);
+		}
+
+		.section-head,
+		.prob-grid,
+		.sc-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.section-head {
+			gap: 0.75rem;
+		}
+
+		.hero-grid {
+			gap: var(--space-md);
+		}
+
+		h2 {
+			font-size: 1.625rem;
+		}
+
+		.hero h1 {
+			font-size: 2.25rem;
+		}
+
+		.hero-lead {
+			font-size: 1rem;
+			line-height: 1.85;
+		}
+
+		.hero-points {
+			display: none;
+		}
+
+		.prob-item,
+		.prob-item:nth-child(2),
+		.prob-item:nth-child(3),
+		.sc-card,
+		.sc-card:nth-child(even) {
+			padding-left: 0;
+			padding-right: 0;
+			border-left: 0;
+		}
+
+		.support-list li,
+		.ro-row {
+			grid-template-columns: 1fr;
+			gap: 0.25rem;
+		}
+
+		.hero-actions,
+		.cta-actions {
+			flex-direction: column;
+			align-items: stretch;
+		}
+	}
 </style>

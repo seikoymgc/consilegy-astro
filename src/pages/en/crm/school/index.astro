@@ -5,14 +5,14 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 // school shell (edition=b2c + shell='school') are listed here.
 // LINE integration is still simulated (no live API), so it is deliberately left out.
 const screens = [
-	{ title: 'Students', desc: 'Trialing, paying, paused, and cancelled in one list. Who is in which state right now, without going to look for it.' },
-	{ title: 'Weekly schedule', desc: 'Lessons laid out by the week, linked to the closure calendar.' },
-	{ title: 'Lesson records', desc: 'What was covered in each lesson, accumulated per student. The history stays even when the coach changes.' },
-	{ title: 'Call tracking', desc: 'Students you need to contact kept separate from students you have not reached yet.' },
-	{ title: 'Intake notes', desc: 'What you heard at sign-up and in meetings, stored in a structured form. The next coach can read it and act.' },
-	{ title: 'Monthly reports', desc: 'AI drafts a progress report for each student. You edit and send instead of writing from scratch.' },
-	{ title: 'Knowledge base', desc: 'Teaching policies and operating rules kept as articles, so nothing depends on one person.' },
-	{ title: 'Billing', desc: 'See who is paying and whose payment failed. Notice the money that has stopped coming in.' },
+	{ src: 'students', title: 'Students', desc: 'Trialing, paying, paused, and cancelled in one list. Who is in which state right now, without going to look for it.', alt: 'Students list with Enrolled, Trialing, Graduating, Paused, and Alumni filters and a status badge on each student.' },
+	{ src: 'schedule', title: 'Weekly schedule', desc: 'Lessons laid out by the week, linked to the closure calendar.', alt: 'Weekly schedule showing lessons this week, active coaches, and each day\'s lessons with time, student, and coach.' },
+	{ src: 'lessons', title: 'Lesson records', desc: 'What was covered in each lesson, accumulated per student. The history stays even when the coach changes.', alt: 'Lesson history listing student, coach, course, and date in order.' },
+	{ src: 'calls', title: 'Call tracking', desc: 'Students you need to contact kept separate from students you have not reached yet.', alt: 'Home screen with enrolled count, needs-action count, calls today, retention rate, and a "Needs action now" list of overdue homework and LINE replies.' },
+	{ src: 'hearing', title: 'Intake notes', desc: 'What you heard at sign-up and in meetings, stored in a structured form. The next coach can read it and act.', alt: 'Intake notes form for one student with goal, current level, preferred pace, and a note for the coach.' },
+	{ src: 'report', title: 'Monthly reports', desc: 'AI drafts a progress report for each student. You edit and send instead of writing from scratch.', alt: 'Monthly report screen with an AI draft of the student\'s progress and Regenerate and Finalize buttons.' },
+	{ src: 'knowledge', title: 'Knowledge base', desc: 'Teaching policies and operating rules kept as articles, so nothing depends on one person.', alt: 'Knowledge base with FAQ, operating rules, and manuals grouped as article lists.' },
+	{ src: 'billing', title: 'Billing', desc: 'See who is paying and whose payment failed. Notice the money that has stopped coming in.', alt: 'Billing screen with MRR, paying and payment-failed counts, and each student\'s subscription with a Paying, Canceled, or Payment failed badge.' },
 ];
 
 const roles = [
@@ -145,6 +145,16 @@ const roles = [
 		<div class="sc-grid">
 			{screens.map((s) => (
 				<article class="sc-card">
+					<figure class="sc-shot">
+						<img
+							src={`/images/crm/school/en/screen-${s.src}.webp`}
+							alt={s.alt}
+							width="1600"
+							height="1000"
+							loading="lazy"
+							decoding="async"
+						/>
+					</figure>
 					<h3>{s.title}</h3>
 					<p>{s.desc}</p>
 				</article>
@@ -353,8 +363,10 @@ const roles = [
 .sc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
 .sc-card {
 	border: 1px solid var(--color-border); border-radius: 8px;
-	padding: 1.5rem; background: var(--color-bg);
+	padding: 1rem 1rem 1.25rem; background: var(--color-bg);
 }
+.sc-shot { margin: 0 0 0.9rem; overflow: hidden; border: 1px solid var(--color-border); border-radius: 8px; background: #fff; box-shadow: 0 8px 22px rgba(15, 23, 42, 0.07); }
+.sc-shot img { display: block; width: 100%; height: auto; }
 .sc-card h3 { margin: 0 0 0.5rem; font-size: 1rem; font-weight: 700; color: var(--color-primary); }
 .sc-card p { margin: 0; font-size: 0.875rem; line-height: 1.75; color: var(--color-text-muted); }
 

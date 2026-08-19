@@ -58,7 +58,8 @@ const insightsPosts = [
 	<div class="container hero-inner">
 		<div class="hero-copy">
 			<h1>
-				使われていない顧客データを、<br />
+				使われていない<br />
+				顧客データを、<br />
 				<span class="hero-accent">売上が動く仕組みへ。</span>
 			</h1>
 			<p class="hero-lead">
@@ -78,6 +79,20 @@ const insightsPosts = [
 				<span>自社プロダクト <a href="/crm/" class="hero-inline-link">Revenue CRM</a></span>
 			</p>
 		</div>
+
+		<a href="/crm/" class="hero-product" aria-label="Revenue CRM の詳細を見る">
+			<figure>
+				<img
+					src="/images/crm/screen-dashboard.webp"
+					alt="Revenue CRMのダッシュボード。パイプライン総額、加重フォーキャスト、勝率、期限切れタスク、ステージ別パイプライン、注目の商談を一画面に表示。"
+					width="1600"
+					height="1000"
+					decoding="async"
+					fetchpriority="high"
+				/>
+				<figcaption>自社プロダクト Revenue CRM</figcaption>
+			</figure>
+		</a>
 
 	</div>
 	<div class="hero-tools">
@@ -766,8 +781,27 @@ section { padding-block: var(--space-2xl); }
 .hero-inner {
 	position: relative; z-index: 1;
 	padding-block: 6rem 4rem;
+	display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+	gap: 3rem; align-items: center;
 }
 .hero-copy { max-width: 660px; }
+
+/* 右：自社プロダクトの画面。青いビジュアルの上にカードとして置く */
+.hero-product { display: block; justify-self: end; width: 100%; max-width: 560px; text-decoration: none; }
+.hero-product figure { margin: 0; }
+.hero-product img {
+	display: block; width: 100%; height: auto;
+	border-radius: 10px; background: #fff;
+	border: 1px solid rgba(255,255,255,0.55);
+	box-shadow: 0 30px 60px rgba(2, 12, 40, 0.45), 0 0 0 6px rgba(255,255,255,0.08);
+	transform: perspective(1400px) rotateY(-7deg) rotateX(2deg);
+	transition: transform 0.35s ease;
+}
+.hero-product:hover img { transform: perspective(1400px) rotateY(-3deg) rotateX(1deg); }
+.hero-product figcaption {
+	margin-top: 0.85rem; font-size: 0.75rem; letter-spacing: 0.08em;
+	color: rgba(255,255,255,0.62); text-align: right;
+}
 
 .hero-eyebrow {
 	display: inline-flex; align-items: center; gap: 0.5rem;
@@ -778,8 +812,8 @@ section { padding-block: var(--space-2xl); }
 .eyebrow-dot { width: 4px; height: 4px; background: #fff; display: inline-block; }
 
 .hero-copy h1 {
-	font-size: clamp(2.5rem, 5vw, 4.75rem); font-weight: 500;
-	line-height: 1.05; letter-spacing: -0.03em; color: #fff;
+	font-size: clamp(1.9rem, 4.2vw, 3.5rem); font-weight: 500;
+	line-height: 1.1; letter-spacing: -0.03em; color: #fff;
 	margin: 0 0 1.75rem;
 }
 .hero-accent { color: #fff; display: block; }
@@ -1570,6 +1604,10 @@ section { padding-block: var(--space-2xl); }
 
 /* ── Responsive ─────────────────────────────────────── */
 @media (max-width: 1024px) {
+	.hero-inner { grid-template-columns: 1fr; gap: 2.5rem; align-items: start; }
+	.hero-product { justify-self: start; max-width: 520px; }
+	.hero-product img { transform: none; }
+	.hero-product figcaption { text-align: left; }
 	.why-grid { grid-template-columns: 1fr; gap: 2.5rem; }
 	.how-grid { grid-template-columns: 1fr; gap: 2.5rem; }
 	.fork-grid { grid-template-columns: 1fr; }
@@ -1597,6 +1635,7 @@ section { padding-block: var(--space-2xl); }
 }
 
 @media (prefers-reduced-motion: reduce) {
+	.hero-product img, .hero-product:hover img { transform: none; transition: none; }
 	.layer-card, .as-card, .blog-card,
 	.blog-img__asset, .blog-arrow { transition: none; }
 	.layer-card:hover, .as-card:hover, .blog-card:hover { transform: none; }

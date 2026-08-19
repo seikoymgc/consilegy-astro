@@ -97,32 +97,6 @@ const insightsPosts = [
 	</div>
 </section>
 
-<!-- ===================== PRODUCT（FV直下） ===================== -->
-<section class="product-peek">
-	<div class="container product-peek__inner">
-		<div class="product-peek__copy">
-			<p class="section-eyebrow">Our Product</p>
-			<h2>設計する側が、道具も作る。</h2>
-			<p class="product-peek__lead">
-				40社の再設計で分かった「動くCRMの型」を、そのまま製品にしたのが自社プロダクト「Revenue CRM」です。
-				まだCRMを持っていない会社の、最初の1つ。
-			</p>
-			<a href="/crm/" class="product-peek__cta">Revenue CRMを見る →</a>
-		</div>
-		<a href="/crm/" class="product-peek__shot" aria-label="Revenue CRMのダッシュボード画面。詳細ページへ">
-			<span class="product-peek__bar" aria-hidden="true"><i></i><i></i><i></i></span>
-			<img
-				src="/images/crm/screen-dashboard.webp"
-				alt="Revenue CRMのダッシュボード。パイプライン総額、加重フォーキャスト、勝率、期限切れタスク、ステージ別パイプライン、注目の商談を一画面に表示。"
-				width="1600"
-				height="1000"
-				loading="lazy"
-				decoding="async"
-			/>
-		</a>
-	</div>
-</section>
-
 <!-- ===================== FORK（はしご） ===================== -->
 <section class="fork">
 	<div class="container">
@@ -144,8 +118,20 @@ const insightsPosts = [
 					日本企業のCRM導入率は<strong>37.2%</strong>。6割以上が、まだ持っていません。
 					<span class="fork-src">HubSpot Japan「日本の営業に関する意識・実態調査2025」2024年11月調査、従業員51〜5,000名、n=1,545</span>
 				</p>
+				<p class="fork-answer"><span>私たちの答え</span>自社プロダクト「Revenue CRM」</p>
+				<a href="/crm/" class="fork-shot" aria-label="Revenue CRMのダッシュボード画面。詳細ページへ">
+					<span class="fork-shot__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+					<img
+						src="/images/crm/screen-dashboard.webp"
+						alt="Revenue CRMのダッシュボード。パイプライン総額、加重フォーキャスト、勝率、期限切れタスク、ステージ別パイプライン、注目の商談を一画面に表示。"
+						width="1600"
+						height="1000"
+						loading="lazy"
+						decoding="async"
+					/>
+				</a>
 				<p class="fork-body">
-					そこで私たちは、<strong>企業の最初のCRM</strong>をつくりました。
+					40社の再設計で分かった「動くCRMの型」を、そのまま製品にしました。
 					移行作業はなく、Excelでやっていたことがそのまま記録として残るところから始めます。
 					記録が残り始めたらAIが次のアクションを提案し、<strong>人を増やさなくても運用が回る</strong>ことを前提に設計しています。
 				</p>
@@ -164,9 +150,18 @@ const insightsPosts = [
 				<p class="fork-body">
 					これはツールの問題ではなく、設計の問題です。
 				</p>
+				<p class="fork-answer"><span>私たちの答え</span>今のツールのまま、収益プロセスを再設計</p>
+				<ul class="fork-tools" aria-label="対応ツール">
+					<li>Salesforce</li><li>HubSpot</li><li>kintone</li><li>Marketo</li><li>ServiceNow</li><li>Zoho CRM</li><li>Tableau / Looker</li>
+				</ul>
+				<ul class="fork-steps">
+					<li><strong>つなぐ</strong><span>散らばった顧客データを、CRMを軸にひとつに</span></li>
+					<li><strong>見えるようにする</strong><span>数字の定義を揃え、経営判断に使える形に</span></li>
+					<li><strong>回るようにする</strong><span>営業会議と1on1に組み込み、現場が使い続ける状態へ</span></li>
+				</ul>
 				<p class="fork-body">
-					Consilegyは、既存のツール構成を前提に収益プロセスを設計し直し、
-					現場が使い続けるところまで伴走します。乗り換えありきではありません。
+					既存のツール構成を前提に設計し直し、現場が使い続けるところまで伴走します。
+					乗り換えありきではありません。<strong>支援実績 40社</strong>。
 				</p>
 				<a href="/services/" class="fork-link">支援サービスと料金を見る →</a>
 			</article>
@@ -898,55 +893,6 @@ section { padding-block: var(--space-2xl); }
 	font-size: clamp(1.75rem, 3vw, 2.75rem); font-weight: 500;
 	line-height: 1.15; letter-spacing: -0.02em; color: var(--color-text); margin: 0;
 }
-/* ── Product peek（FV直下）：左コピー／右画面 ── */
-.product-peek {
-	padding-block: var(--space-2xl);
-	background: var(--color-bg);
-	border-bottom: 1px solid var(--color-border);
-}
-.product-peek__inner {
-	display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-	gap: var(--space-xl); align-items: center;
-}
-.product-peek__copy h2 {
-	font-size: clamp(1.5rem, 2.6vw, 2.25rem); font-weight: 500;
-	line-height: 1.2; letter-spacing: -0.02em; color: var(--color-text); margin: 0 0 1rem;
-}
-.product-peek__lead {
-	margin: 0 0 1.25rem; font-size: 0.9375rem; line-height: 1.85; color: var(--color-text-muted);
-	max-width: 34em;
-}
-.product-peek__cta {
-	display: inline-block; color: var(--color-primary); font-weight: 600; text-decoration: none;
-	border-bottom: 1px solid currentColor; padding-bottom: 1px;
-}
-.product-peek__cta:hover { color: var(--color-primary-dark, var(--color-primary)); }
-
-/* 画面：ブラウザ風の枠。上部だけ見せる */
-.product-peek__shot {
-	display: block; position: relative; overflow: hidden; justify-self: end;
-	width: 100%; max-width: 600px;
-	border: 1px solid var(--color-border); border-radius: 12px; background: #fff;
-	box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
-	transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.product-peek__shot:hover { transform: translateY(-3px); box-shadow: 0 26px 60px rgba(15, 23, 42, 0.16); }
-.product-peek__bar {
-	display: flex; gap: 6px; align-items: center;
-	height: 30px; padding: 0 12px;
-	background: #f3f4f6; border-bottom: 1px solid var(--color-border);
-}
-.product-peek__bar i { width: 8px; height: 8px; border-radius: 50%; background: #d6d9de; }
-.product-peek__shot img { display: block; width: 100%; height: auto; }
-@media (max-width: 900px) {
-	.product-peek__inner { grid-template-columns: 1fr; gap: var(--space-lg); }
-	.product-peek__shot { justify-self: start; max-width: 560px; }
-}
-@media (max-width: 768px) {
-	.product-peek { padding-block: var(--space-xl); }
-	.product-peek__shot { border-radius: 10px; }
-}
-
 .fork-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
 .fork-card {
 	display: flex; flex-direction: column;
@@ -972,6 +918,44 @@ section { padding-block: var(--space-2xl); }
 .fork-body { margin: 0 0 0.875rem; font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.85; }
 .fork-body strong { color: var(--color-text); font-weight: 500; }
 .fork-card .fork-body:last-of-type { margin-bottom: 1.5rem; flex: 1; }
+.fork-answer {
+	display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.35rem 0.75rem;
+	margin: 0.25rem 0 0.9rem; font-size: 0.9375rem; font-weight: 600; color: var(--color-text);
+}
+.fork-answer span {
+	font-size: 0.625rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+	color: var(--color-primary);
+}
+.fork-shot {
+	display: block; position: relative; overflow: hidden; margin: 0 0 1rem;
+	height: 220px; border: 1px solid var(--color-border); border-radius: 8px; background: #fff;
+	box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
+}
+.fork-shot__bar {
+	display: flex; gap: 5px; align-items: center; height: 24px; padding: 0 10px;
+	background: #f3f4f6; border-bottom: 1px solid var(--color-border);
+}
+.fork-shot__bar i { width: 7px; height: 7px; border-radius: 50%; background: #d6d9de; }
+.fork-shot img { display: block; width: 100%; height: auto; }
+.fork-tools {
+	display: flex; flex-wrap: wrap; gap: 0.4rem; list-style: none; margin: 0 0 1rem; padding: 0;
+}
+.fork-tools li {
+	font-size: 0.75rem; font-weight: 500; color: var(--color-text);
+	padding: 0.3rem 0.65rem; border: 1px solid var(--color-border); border-radius: 999px; background: #fff;
+}
+.fork-steps {
+	list-style: none; margin: 0 0 1rem; padding: 0;
+	display: grid; gap: 0.55rem;
+}
+.fork-steps li {
+	display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 0.75rem; align-items: baseline;
+	padding: 0.65rem 0; border-top: 1px solid var(--color-border);
+	font-size: 0.875rem; line-height: 1.7;
+}
+.fork-steps li:last-child { border-bottom: 1px solid var(--color-border); }
+.fork-steps strong { color: var(--color-text); font-weight: 600; }
+.fork-steps span { color: var(--color-text-muted); }
 .fork-links { display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-start; }
 .fork-link {
 	align-self: flex-start; font-size: 0.9375rem; font-weight: 500;

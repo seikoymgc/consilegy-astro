@@ -42,6 +42,7 @@ const fmt = (date: Date) =>
 	breadcrumbs={[
 		{ name: 'Home', url: '/en/' },
 		{ name: 'Articles', url: '/en/' },
+		{ name: categoriesEn[cat], url: `/en/category/${cat}/` },
 		{ name: d.title },
 	]}
 >
@@ -52,10 +53,12 @@ const fmt = (date: Date) =>
 				<span aria-hidden="true">›</span>
 				<a href="/en/">Articles</a>
 				<span aria-hidden="true">›</span>
-				<span aria-current="page">{categoriesEn[cat]}</span>
+				<a href={`/en/category/${cat}/`}>{categoriesEn[cat]}</a>
 			</nav>
 
-			<p class="note-cat" style={`color: ${categoryColors[cat]};`}>{categoriesEn[cat]}</p>
+			<p class="note-cat">
+				<a href={`/en/category/${cat}/`} style={`color: ${categoryColors[cat]};`}>{categoriesEn[cat]}</a>
+			</p>
 			<h1>{d.title}</h1>
 
 			<div class="note-dates">
@@ -154,6 +157,10 @@ const fmt = (date: Date) =>
 	.note-cat {
 		font-size: 0.75rem;
 		font-weight: 600;
+	}
+
+	.note-cat a:hover {
+		opacity: 0.65;
 	}
 
 	.note h1 {

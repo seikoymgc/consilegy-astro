@@ -36,9 +36,9 @@
 6-2. **内部リンク（必須・SEO/GEO）**：本文の末尾に、日本語は `## 関連する記事`、英語は `## Related reading` の節を必ず置く。
 
    - 日本語：文脈のつながる既存記事へのリンク1本（`/notes/{slug}/`）＋ そのカテゴリのハブへのリンク1本（`/notes/category/{category}/`）。「同じ悩みの記事は「[カテゴリ名](/notes/category/{category}/)」にまとめています。」の形で締める。
-   - 英語：文脈のつながる既存EN記事へのリンク1本（`/en/articles/{slug}/`）＋ `/en/` へのリンク1本。
+   - 英語：文脈のつながる既存EN記事へのリンク1本（`/en/articles/{slug}/`）＋ そのカテゴリのENハブへのリンク1本（`/en/category/{category}/`）。「Other notes on the same problem are collected under [ラベル](/en/category/{category}/).」の形で締める。**2026-08-19 にENカテゴリハブを新設したので、それ以前の「`/en/` へのリンク1本」という規定は置き換え。**
    - リンクを置く理由を1文で書く。「関連記事：〜」と羅列しない。既存記事の一覧は `published-log.md` から取る。
-   - カテゴリハブの本文とFAQは `src/data/category-hubs.ts` にある。新しい論点を足したときは、そのカテゴリのFAQを見直す。
+   - カテゴリハブの本文とFAQは、日本語が `src/data/category-hubs.ts`、英語が `src/data/category-hubs-en.ts` にある。**英語版は日本語版の翻訳ではなく、読者を「日本市場に入る海外SaaS・本社」に固定して書き下ろしたもの。** 新しい論点を足したときは、そのカテゴリのFAQを両方見直す。
 
 7. **アイキャッチ（ブラウザRecraftで生成）**：
    - Claude-in-Chrome で Recraft（プロジェクト https://www.recraft.ai/project/0cef7131-84ca-4262-9bef-01e589c0228d ）を開き、記事内容に合うプロンプトで画像を生成する。トーンは全記事共通で「Contemporary editorial photograph, <被写体>, bright modern office, white walls and light wood, clean neutral colors, soft daylight, crisp sharp focus, minimal and uncluttered, no text, no logo」。アスペクト比は 2:1。

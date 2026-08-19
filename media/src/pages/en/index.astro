@@ -26,6 +26,13 @@ const fmt = (d: Date) =>
 >
 	<div class="wrap">
 		<p class="edition">English edition — entering and operating in the Japanese market. The full library is in <a href="/">Japanese</a>.</p>
+		<nav class="cats" aria-label="Topics">
+			{
+				(Object.keys(categoriesEn) as CategoryKey[]).map(key => (
+					<a href={`/en/category/${key}/`}>{categoriesEn[key]}</a>
+				))
+			}
+		</nav>
 	</div>
 
 	{
@@ -128,9 +135,7 @@ const fmt = (d: Date) =>
 	}
 
 	.edition {
-		padding-block: 1.1rem;
-		border-bottom: 1px solid var(--ink);
-		margin-bottom: 2.5rem;
+		padding-block: 1.1rem 0.9rem;
 		font-size: 0.8rem;
 		color: var(--color-text-muted);
 	}
@@ -139,6 +144,27 @@ const fmt = (d: Date) =>
 		color: var(--ink);
 		text-decoration: underline;
 		text-underline-offset: 2px;
+	}
+
+	.cats {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.5rem;
+		padding-bottom: 1.1rem;
+		border-bottom: 1px solid var(--ink);
+		margin-bottom: 2.5rem;
+	}
+
+	.cats a {
+		font-size: 0.8rem;
+		font-weight: 500;
+		color: var(--ink);
+		letter-spacing: 0.02em;
+	}
+
+	.cats a:hover {
+		text-decoration: none;
+		opacity: 0.5;
 	}
 
 	.kicker {

@@ -2,21 +2,21 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ArticleCard from '../../../components/ArticleCard.astro';
 import { getCollection } from 'astro:content';
-import { categories, categoryColors, type CategoryKey } from '../../../content.config';
-import { categoryHubs } from '../../../data/category-hubs';
+import { categoriesEn, categoryColors, type CategoryKey } from '../../../content.config';
+import { categoryHubsEn } from '../../../data/category-hubs-en';
 
 export async function getStaticPaths() {
-	return (Object.keys(categories) as CategoryKey[]).map(category => ({
+	return (Object.keys(categoriesEn) as CategoryKey[]).map(category => ({
 		params: { category },
 	}));
 }
 
 const { category } = Astro.params as { category: CategoryKey };
-const label = categories[category];
+const label = categoriesEn[category];
 const color = categoryColors[category];
-const hub = categoryHubs[category];
+const hub = categoryHubsEn[category];
 
-const notes = (await getCollection('notes', ({ data }) => !data.draft && data.category === category)).sort(
+const notes = (await getCollection('notesEn', ({ data }) => !data.draft && data.category === category)).sort(
 	(a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf(),
 );
 
@@ -40,15 +40,15 @@ const collectionSchema = {
 	'@id': pageUrl,
 	name: label,
 	description: hub.intro[0],
-	inLanguage: 'ja',
-	isPartOf: { '@type': 'Blog', '@id': new URL('/', site).href, name: 'Consilegy Media' },
+	inLanguage: 'en',
+	isPartOf: { '@type': 'Blog', '@id': new URL('/en/', site).href, name: 'Consilegy Media (English)' },
 	mainEntity: {
 		'@type': 'ItemList',
 		numberOfItems: notes.length,
 		itemListElement: notes.map((n, i) => ({
 			'@type': 'ListItem',
 			position: i + 1,
-			url: new URL(`/notes/${n.id}/`, site).href,
+			url: new URL(`/en/articles/${n.id}/`, site).href,
 			name: n.data.title,
 		})),
 	},
@@ -56,13 +56,14 @@ const collectionSchema = {
 ---
 
 <BaseLayout
-	title={`${label}｜原因と直し方 | Consilegy Media`}
-	description={`${hub.intro[0]}全${notes.length}本の記事と、よくある質問への回答をまとめています。`}
+	lang="en"
+	title={`${label} in Japan | Consilegy Media`}
+	description={`${hub.intro[0]} ${notes.length} articles, plus answers to the questions headquarters asks most.`}
 	jaPath={`/notes/category/${category}/`}
 	enPath={`/en/category/${category}/`}
 	breadcrumbs={[
-		{ name: 'ホーム', url: '/' },
-		{ name: '記事一覧', url: '/notes/' },
+		{ name: 'Home', url: '/en/' },
+		{ name: 'Articles', url: '/en/' },
 		{ name: label },
 	]}
 >
@@ -73,10 +74,10 @@ const collectionSchema = {
 
 	<section class="page-head">
 		<div class="container">
-			<nav class="breadcrumb" aria-label="パンくずリスト">
-				<a href="/">ホーム</a>
+			<nav class="breadcrumb" aria-label="Breadcrumb">
+				<a href="/en/">Home</a>
 				<span aria-hidden="true">›</span>
-				<a href="/notes/">記事一覧</a>
+				<a href="/en/">Articles</a>
 				<span aria-hidden="true">›</span>
 				<span aria-current="page">{label}</span>
 			</nav>
@@ -84,7 +85,7 @@ const collectionSchema = {
 			<div class="hub-intro">
 				{hub.intro.map(p => <p>{p}</p>)}
 			</div>
-			<p class="page-lead">全{notes.length}本</p>
+			<p class="page-lead">{notes.length} {notes.length === 1 ? 'article' : 'articles'}</p>
 		</div>
 	</section>
 
@@ -92,12 +93,12 @@ const collectionSchema = {
 		<div class="container">
 			{
 				notes.length === 0 ? (
-					<p class="empty">このカテゴリの記事を準備中です。</p>
+					<p class="empty">Articles in this category are in preparation.</p>
 				) : (
 					<div class="card-grid">
 						{notes.map(n => (
 							<ArticleCard
-								href={`/notes/${n.id}/`}
+								href={`/en/articles/${n.id}/`}
 								title={n.data.title}
 								description={n.data.description}
 								categoryLabel={label}
@@ -114,7 +115,7 @@ const collectionSchema = {
 
 	<section class="section section--faq">
 		<div class="container container--narrow">
-			<h2 class="faq-head">よくある質問</h2>
+			<h2 class="faq-head">Frequently asked</h2>
 			<dl class="faq">
 				{
 					hub.faq.map(f => (
@@ -126,15 +127,15 @@ const collectionSchema = {
 				}
 			</dl>
 
-			<nav class="hub-nav" aria-label="他のカテゴリ">
-				<p class="hub-nav__label">他の悩みから探す</p>
+			<nav class="hub-nav" aria-label="Other categories">
+				<p class="hub-nav__label">Other topics</p>
 				<ul>
 					{
-						(Object.keys(categories) as CategoryKey[])
+						(Object.keys(categoriesEn) as CategoryKey[])
 							.filter(key => key !== category)
 							.map(key => (
 								<li>
-									<a href={`/notes/category/${key}/`}>{categories[key]}</a>
+									<a href={`/en/category/${key}/`}>{categoriesEn[key]}</a>
 								</li>
 							))
 					}
@@ -173,7 +174,7 @@ const collectionSchema = {
 		margin-top: 1.25rem;
 		max-width: 44rem;
 		font-size: 0.9rem;
-		line-height: 2;
+		line-height: 1.95;
 		color: var(--color-text);
 	}
 
@@ -222,7 +223,7 @@ const collectionSchema = {
 	.faq dd {
 		margin: 0.7rem 0 0;
 		font-size: 0.88rem;
-		line-height: 2;
+		line-height: 1.95;
 		color: var(--color-text-muted);
 	}
 

@@ -100,22 +100,27 @@ const insightsPosts = [
 <!-- ===================== PRODUCT（FV直下） ===================== -->
 <section class="product-peek">
 	<div class="container">
-		<a href="/crm/" class="product-peek__link">
-			<figure class="product-peek__figure">
-				<img
-					src="/images/crm/screen-dashboard.webp"
-					alt="Revenue CRMのダッシュボード。パイプライン総額、加重フォーキャスト、勝率、期限切れタスク、ステージ別パイプライン、注目の商談を一画面に表示。"
-					width="1600"
-					height="1000"
-					decoding="async"
-					fetchpriority="high"
-				/>
-				<figcaption>
-					<span class="product-peek__label">自社プロダクト</span>
-					<span class="product-peek__name">Revenue CRM</span>
-					<span class="product-peek__desc">40社の再設計で分かった「動くCRMの型」を、そのまま製品にしました。詳しく見る →</span>
-				</figcaption>
-			</figure>
+		<header class="product-peek__head">
+			<p class="section-eyebrow">Our Product</p>
+			<div class="product-peek__headrow">
+				<h2>設計する側が、道具も作る。</h2>
+				<p class="product-peek__lead">
+					40社の再設計で分かった「動くCRMの型」を、そのまま製品にしたのが自社プロダクト「Revenue CRM」です。
+					まだCRMを持っていない会社の、最初の1つ。
+					<a href="/crm/" class="product-peek__cta">Revenue CRMを見る →</a>
+				</p>
+			</div>
+		</header>
+		<a href="/crm/" class="product-peek__shot" aria-label="Revenue CRMのダッシュボード画面。詳細ページへ">
+			<span class="product-peek__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+			<img
+				src="/images/crm/screen-dashboard.webp"
+				alt="Revenue CRMのダッシュボード。パイプライン総額、加重フォーキャスト、勝率、期限切れタスク、ステージ別パイプライン、注目の商談を一画面に表示。"
+				width="1600"
+				height="1000"
+				decoding="async"
+				fetchpriority="high"
+			/>
 		</a>
 	</div>
 </section>
@@ -154,14 +159,14 @@ const insightsPosts = [
 				</p>
 				<figure class="fork-shot">
 					<img
-						src="/images/crm/screen-dashboard.webp"
-						alt="Revenue CRMのダッシュボード。パイプライン総額、加重フォーキャスト、勝率、期限切れタスク、ステージ別パイプライン、注目の商談を一画面に表示。"
+						src="/images/crm/screen-deals.webp"
+						alt="Revenue CRMの商談カンバン。アプローチ、ヒアリング、提案、見積のステージごとに商談カードと金額、確度、クローズ予定日を表示。"
 						width="1600"
 						height="1000"
 						loading="lazy"
 						decoding="async"
 					/>
-					<figcaption>Revenue CRM ダッシュボード</figcaption>
+					<figcaption>Revenue CRM 商談カンバン</figcaption>
 				</figure>
 				<div class="fork-links">
 					<a href="/crm/" class="fork-link">法人のお客様が相手なら →</a>
@@ -914,36 +919,56 @@ section { padding-block: var(--space-2xl); }
 }
 /* ── Product peek（FV直下） ── */
 .product-peek {
-	padding-block: var(--space-xl) var(--space-2xl);
-	background: linear-gradient(180deg, var(--color-bg-subtle, #f6f7f9) 0%, var(--color-bg, #fff) 100%);
+	padding-block: var(--space-2xl) 0;
+	background: var(--color-bg);
 	border-bottom: 1px solid var(--color-border);
+	overflow: hidden;
 }
-.product-peek__link { display: block; text-decoration: none; color: inherit; }
-.product-peek__figure {
-	margin: 0; max-width: 960px; margin-inline: auto;
+.product-peek__head { margin-bottom: var(--space-xl); }
+.product-peek__headrow {
+	display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	gap: 2rem 4rem; align-items: end;
 }
-.product-peek__figure img {
-	display: block; width: 100%; height: auto;
-	border-radius: 12px; background: #fff;
-	border: 1px solid var(--color-border);
-	box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
-	transition: transform 0.3s ease, box-shadow 0.3s ease;
+.product-peek__headrow h2 {
+	font-size: clamp(1.625rem, 2.6vw, 2.25rem); font-weight: 500;
+	line-height: 1.15; letter-spacing: -0.02em; color: var(--color-text); margin: 0;
 }
-.product-peek__link:hover img { transform: translateY(-3px); box-shadow: 0 30px 70px rgba(15, 23, 42, 0.22); }
-.product-peek__figure figcaption {
-	display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem 0.9rem;
-	margin-top: 1.1rem; padding-inline: 0.25rem;
+.product-peek__lead {
+	margin: 0; font-size: 0.9375rem; line-height: 1.85; color: var(--color-text-muted);
 }
-.product-peek__label {
-	font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
-	color: var(--color-primary);
+.product-peek__cta {
+	display: inline-block; margin-top: 0.5rem;
+	color: var(--color-primary); font-weight: 600; text-decoration: none;
+	border-bottom: 1px solid currentColor; padding-bottom: 1px;
 }
-.product-peek__name { font-size: 1rem; font-weight: 700; color: var(--color-text); }
-.product-peek__desc { font-size: 0.875rem; line-height: 1.7; color: var(--color-text-muted); }
-.product-peek__link:hover .product-peek__desc { color: var(--color-text); }
+.product-peek__cta:hover { color: var(--color-primary-dark, var(--color-primary)); }
+
+/* 画面：ブラウザ風の枠。下は切って次のセクションへ沈める */
+.product-peek__shot {
+	display: block; position: relative; margin: 0 auto; max-width: 1040px;
+	height: clamp(280px, 38vw, 540px); overflow: hidden;
+	border: 1px solid var(--color-border); border-bottom: 0;
+	border-radius: 14px 14px 0 0; background: #fff;
+	box-shadow: 0 -1px 0 rgba(255,255,255,0.6) inset, 0 24px 60px rgba(15, 23, 42, 0.14);
+}
+.product-peek__bar {
+	display: flex; gap: 6px; align-items: center;
+	height: 34px; padding: 0 14px;
+	background: #f3f4f6; border-bottom: 1px solid var(--color-border);
+}
+.product-peek__bar i { width: 9px; height: 9px; border-radius: 50%; background: #d6d9de; }
+.product-peek__shot img { display: block; width: 100%; height: auto; }
+.product-peek__shot::after {
+	content: ""; position: absolute; inset: auto 0 0 0; height: 28%;
+	background: linear-gradient(180deg, rgba(250,250,249,0) 0%, var(--color-bg) 100%);
+	pointer-events: none;
+}
+@media (max-width: 900px) {
+	.product-peek__headrow { grid-template-columns: 1fr; gap: 1rem; }
+}
 @media (max-width: 768px) {
-	.product-peek { padding-block: var(--space-lg) var(--space-xl); }
-	.product-peek__figure img { border-radius: 8px; }
+	.product-peek { padding-block: var(--space-xl) 0; }
+	.product-peek__shot { border-radius: 10px 10px 0 0; height: clamp(200px, 60vw, 320px); }
 }
 
 .fork-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }

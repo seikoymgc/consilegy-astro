@@ -74,6 +74,10 @@ const insightsPosts = [
 				Consilegyは、CRM・SFA・MAとAIを組み合わせてB2B企業の収益の仕組みを設計し、
 				止まっていたものが動き出すところまで伴走します。
 			</p>
+			<p class="hero-lead">
+				設計してきた側が、道具も作る。40社の再設計で分かった「動くCRMの型」を詰め込んだ
+				自社プロダクト「<a href="/crm/" class="hero-inline-link">Revenue CRM</a>」も開発しています。
+			</p>
 			<p class="hero-tagline">事業を、前に進める。</p>
 			<div class="hero-actions">
 				<a href="/diagnostic/" class="btn btn--hero-primary btn--lg">
@@ -135,6 +139,17 @@ const insightsPosts = [
 					商談の記録から次のアクションを提案し、どのリードにいま動くべきかを判定する。
 					<strong>人を増やさなくても運用が回る</strong>ことを前提に設計したCRMです。
 				</p>
+				<figure class="fork-shot">
+					<img
+						src="/images/crm/screen-dashboard.webp"
+						alt="Revenue CRMのダッシュボード。パイプライン総額、加重フォーキャスト、勝率、期限切れタスク、ステージ別パイプライン、注目の商談を一画面に表示。"
+						width="1600"
+						height="1000"
+						loading="lazy"
+						decoding="async"
+					/>
+					<figcaption>Revenue CRM ダッシュボード</figcaption>
+				</figure>
 				<div class="fork-links">
 					<a href="/crm/" class="fork-link">法人のお客様が相手なら →</a>
 					<a href="/crm/school/" class="fork-link">教室・スクールなら →</a>
@@ -801,6 +816,12 @@ section { padding-block: var(--space-2xl); }
 	max-width: 600px; margin: 0 0 1rem;
 }
 
+.hero-inline-link {
+	color: #fff; font-weight: 600; text-decoration: underline; text-underline-offset: 3px;
+	text-decoration-color: rgba(255,255,255,0.45);
+}
+.hero-inline-link:hover { text-decoration-color: #fff; }
+
 .hero-tagline {
 	font-size: 1.125rem; font-weight: 500; letter-spacing: 0.02em;
 	color: #fff; margin: 1.5rem 0 2rem;
@@ -901,6 +922,17 @@ section { padding-block: var(--space-2xl); }
 .fork-body { margin: 0 0 0.875rem; font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.85; }
 .fork-body strong { color: var(--color-text); font-weight: 500; }
 .fork-card .fork-body:last-of-type { margin-bottom: 1.5rem; flex: 1; }
+.fork-shot {
+	margin: 0 0 1.5rem;
+}
+.fork-shot img {
+	display: block; width: 100%; height: auto;
+	border: 1px solid var(--color-border); border-radius: 8px; background: #fff;
+	box-shadow: 0 8px 22px rgba(15, 23, 42, 0.07);
+}
+.fork-shot figcaption {
+	margin-top: 0.45rem; font-size: 0.75rem; line-height: 1.6; color: var(--color-text-muted);
+}
 .fork-links { display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-start; }
 .fork-link {
 	align-self: flex-start; font-size: 0.9375rem; font-weight: 500;

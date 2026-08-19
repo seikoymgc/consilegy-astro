@@ -80,20 +80,6 @@ const insightsPosts = [
 			</p>
 		</div>
 
-		<a href="/crm/" class="hero-product" aria-label="Revenue CRM の詳細を見る">
-			<figure>
-				<img
-					src="/images/crm/screen-dashboard.webp"
-					alt="Revenue CRMのダッシュボード。パイプライン総額、加重フォーキャスト、勝率、期限切れタスク、ステージ別パイプライン、注目の商談を一画面に表示。"
-					width="1600"
-					height="1000"
-					decoding="async"
-					fetchpriority="high"
-				/>
-				<figcaption>自社プロダクト Revenue CRM</figcaption>
-			</figure>
-		</a>
-
 	</div>
 	<div class="hero-tools">
 		<div class="container">
@@ -108,6 +94,29 @@ const insightsPosts = [
 				<span>Tableau / Looker</span>
 			</div>
 		</div>
+	</div>
+</section>
+
+<!-- ===================== PRODUCT（FV直下） ===================== -->
+<section class="product-peek">
+	<div class="container">
+		<a href="/crm/" class="product-peek__link">
+			<figure class="product-peek__figure">
+				<img
+					src="/images/crm/screen-dashboard.webp"
+					alt="Revenue CRMのダッシュボード。パイプライン総額、加重フォーキャスト、勝率、期限切れタスク、ステージ別パイプライン、注目の商談を一画面に表示。"
+					width="1600"
+					height="1000"
+					decoding="async"
+					fetchpriority="high"
+				/>
+				<figcaption>
+					<span class="product-peek__label">自社プロダクト</span>
+					<span class="product-peek__name">Revenue CRM</span>
+					<span class="product-peek__desc">40社の再設計で分かった「動くCRMの型」を、そのまま製品にしました。詳しく見る →</span>
+				</figcaption>
+			</figure>
+		</a>
 	</div>
 </section>
 
@@ -781,27 +790,8 @@ section { padding-block: var(--space-2xl); }
 .hero-inner {
 	position: relative; z-index: 1;
 	padding-block: 6rem 4rem;
-	display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-	gap: 3rem; align-items: center;
 }
 .hero-copy { max-width: 660px; }
-
-/* 右：自社プロダクトの画面。青いビジュアルの上にカードとして置く */
-.hero-product { display: block; justify-self: end; width: 100%; max-width: 560px; text-decoration: none; }
-.hero-product figure { margin: 0; }
-.hero-product img {
-	display: block; width: 100%; height: auto;
-	border-radius: 10px; background: #fff;
-	border: 1px solid rgba(255,255,255,0.55);
-	box-shadow: 0 30px 60px rgba(2, 12, 40, 0.45), 0 0 0 6px rgba(255,255,255,0.08);
-	transform: perspective(1400px) rotateY(-7deg) rotateX(2deg);
-	transition: transform 0.35s ease;
-}
-.hero-product:hover img { transform: perspective(1400px) rotateY(-3deg) rotateX(1deg); }
-.hero-product figcaption {
-	margin-top: 0.85rem; font-size: 0.75rem; letter-spacing: 0.08em;
-	color: rgba(255,255,255,0.62); text-align: right;
-}
 
 .hero-eyebrow {
 	display: inline-flex; align-items: center; gap: 0.5rem;
@@ -812,7 +802,7 @@ section { padding-block: var(--space-2xl); }
 .eyebrow-dot { width: 4px; height: 4px; background: #fff; display: inline-block; }
 
 .hero-copy h1 {
-	font-size: clamp(1.9rem, 4.2vw, 3.5rem); font-weight: 500;
+	font-size: clamp(2rem, 4.5vw, 4rem); font-weight: 500;
 	line-height: 1.1; letter-spacing: -0.03em; color: #fff;
 	margin: 0 0 1.75rem;
 }
@@ -922,6 +912,40 @@ section { padding-block: var(--space-2xl); }
 	font-size: clamp(1.75rem, 3vw, 2.75rem); font-weight: 500;
 	line-height: 1.15; letter-spacing: -0.02em; color: var(--color-text); margin: 0;
 }
+/* ── Product peek（FV直下） ── */
+.product-peek {
+	padding-block: var(--space-xl) var(--space-2xl);
+	background: linear-gradient(180deg, var(--color-bg-subtle, #f6f7f9) 0%, var(--color-bg, #fff) 100%);
+	border-bottom: 1px solid var(--color-border);
+}
+.product-peek__link { display: block; text-decoration: none; color: inherit; }
+.product-peek__figure {
+	margin: 0; max-width: 960px; margin-inline: auto;
+}
+.product-peek__figure img {
+	display: block; width: 100%; height: auto;
+	border-radius: 12px; background: #fff;
+	border: 1px solid var(--color-border);
+	box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.product-peek__link:hover img { transform: translateY(-3px); box-shadow: 0 30px 70px rgba(15, 23, 42, 0.22); }
+.product-peek__figure figcaption {
+	display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem 0.9rem;
+	margin-top: 1.1rem; padding-inline: 0.25rem;
+}
+.product-peek__label {
+	font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+	color: var(--color-primary);
+}
+.product-peek__name { font-size: 1rem; font-weight: 700; color: var(--color-text); }
+.product-peek__desc { font-size: 0.875rem; line-height: 1.7; color: var(--color-text-muted); }
+.product-peek__link:hover .product-peek__desc { color: var(--color-text); }
+@media (max-width: 768px) {
+	.product-peek { padding-block: var(--space-lg) var(--space-xl); }
+	.product-peek__figure img { border-radius: 8px; }
+}
+
 .fork-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
 .fork-card {
 	display: flex; flex-direction: column;
@@ -1604,10 +1628,6 @@ section { padding-block: var(--space-2xl); }
 
 /* ── Responsive ─────────────────────────────────────── */
 @media (max-width: 1024px) {
-	.hero-inner { grid-template-columns: 1fr; gap: 2.5rem; align-items: start; }
-	.hero-product { justify-self: start; max-width: 520px; }
-	.hero-product img { transform: none; }
-	.hero-product figcaption { text-align: left; }
 	.why-grid { grid-template-columns: 1fr; gap: 2.5rem; }
 	.how-grid { grid-template-columns: 1fr; gap: 2.5rem; }
 	.fork-grid { grid-template-columns: 1fr; }
@@ -1635,7 +1655,6 @@ section { padding-block: var(--space-2xl); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.hero-product img, .hero-product:hover img { transform: none; transition: none; }
 	.layer-card, .as-card, .blog-card,
 	.blog-img__asset, .blog-arrow { transition: none; }
 	.layer-card:hover, .as-card:hover, .blog-card:hover { transform: none; }

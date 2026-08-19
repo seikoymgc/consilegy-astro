@@ -74,10 +74,6 @@ const insightsPosts = [
 				Consilegyは、CRM・SFA・MAとAIを組み合わせてB2B企業の収益の仕組みを設計し、
 				止まっていたものが動き出すところまで伴走します。
 			</p>
-			<p class="hero-lead">
-				設計してきた側が、道具も作る。40社の再設計で分かった「動くCRMの型」を詰め込んだ
-				自社プロダクト「<a href="/crm/" class="hero-inline-link">Revenue CRM</a>」も開発しています。
-			</p>
 			<p class="hero-tagline">事業を、前に進める。</p>
 			<div class="hero-actions">
 				<a href="/diagnostic/" class="btn btn--hero-primary btn--lg">
@@ -87,7 +83,11 @@ const insightsPosts = [
 					料金とサービスを見る
 				</a>
 			</div>
-			<p class="hero-proof">支援実績 40社</p>
+			<p class="hero-proof">
+				<span>支援実績 40社</span>
+				<span class="hero-proof__sep" aria-hidden="true">|</span>
+				<span>自社プロダクト <a href="/crm/" class="hero-inline-link">Revenue CRM</a></span>
+			</p>
 		</div>
 
 	</div>
@@ -817,10 +817,10 @@ section { padding-block: var(--space-2xl); }
 }
 
 .hero-inline-link {
-	color: #fff; font-weight: 600; text-decoration: underline; text-underline-offset: 3px;
-	text-decoration-color: rgba(255,255,255,0.45);
+	color: rgba(255,255,255,0.85); text-decoration: underline; text-underline-offset: 3px;
+	text-decoration-color: rgba(255,255,255,0.35);
 }
-.hero-inline-link:hover { text-decoration-color: #fff; }
+.hero-inline-link:hover { color: #fff; text-decoration-color: #fff; }
 
 .hero-tagline {
 	font-size: 1.125rem; font-weight: 500; letter-spacing: 0.02em;
@@ -828,9 +828,11 @@ section { padding-block: var(--space-2xl); }
 }
 
 .hero-proof {
+	display: flex; flex-wrap: wrap; gap: 0.6rem;
 	margin: 1.25rem 0 0; font-size: 0.75rem; letter-spacing: 0.08em;
 	color: rgba(255,255,255,0.55);
 }
+.hero-proof__sep { color: rgba(255,255,255,0.3); }
 
 .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
 

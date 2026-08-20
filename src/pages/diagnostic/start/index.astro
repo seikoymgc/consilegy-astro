@@ -38,6 +38,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 	const HS_DIAGNOSTIC_FORM_ID = 'df40a4b0-05e6-4fef-af58-633c398a619e';
 	const BOOK_URL = '/free-consultation/';
 	const CONTACT_URL = '/revops-assessment/';
+	const PRODUCT_URL = '/crm/';
 	const STORAGE_KEY = 'rd-state-v1';
 
 	// Flatten questions: [{catIndex, qIndex, text, options}]
@@ -440,6 +441,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 				<a href="${BOOK_URL}" class="rd-cta-primary" data-cta="book">この取りこぼしを「直す」なら｜30分無料相談を予約する →</a>
 				<p class="rd-cta-note">診断結果をもとに、どこから直すかを30分で一緒に整理します。オンライン・完全無料。</p>
 				<a href="${CONTACT_URL}" class="rd-cta-secondary" data-cta="contact">収益構造の現状分析（有償）の内容を見る</a>
+				<p class="rd-cta-fork">CRMがまだない、またはExcelに戻っている場合は、自社プロダクトから始める選択肢もあります。<a href="${PRODUCT_URL}" data-cta="product">Revenue CRM を見る →</a></p>
 			</div>
 
 			<div class="rd-probe" id="rd-probe">
@@ -725,6 +727,11 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 	transition: background 0.15s ease;
 }
 :global(.rd-cta-primary:hover) { background: var(--color-primary-dark); color: #fff; }
+:global(.rd-cta-fork) {
+	margin: 1rem 0 0; font-size: 0.8125rem; line-height: 1.8; color: var(--color-text-muted);
+	padding-top: 1rem; border-top: 1px solid var(--color-border);
+}
+:global(.rd-cta-fork a) { color: var(--color-primary); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 :global(.rd-cta-note) { font-size: 0.75rem; color: var(--color-text-muted); margin: 0.875rem 0 1.25rem; line-height: 1.7; }
 :global(.rd-firststep-note) { font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.7; margin: 0.625rem 0 0; }
 :global(.rd-strength) { background: rgba(16,185,129,0.06); border: 1px solid rgba(16,185,129,0.22); border-radius: var(--radius-card); padding: 0.875rem 1rem; margin: 0 0 1.5rem; }

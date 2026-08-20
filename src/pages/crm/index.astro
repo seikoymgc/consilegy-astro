@@ -244,13 +244,14 @@ const featureGroups = [
 		</div>
 		<figure class="hero-media">
 			<img
-				src="/videos/revenue-crm-demo.gif"
-				alt="Revenue CRMの操作デモ。ダッシュボード、商談カンバン、自動化ライブラリ、AIエージェントJade、3言語切替を確認できる。"
-				width="800"
-				height="585"
+				src="/images/crm/screen-dashboard.webp"
+				alt="Revenue CRMのダッシュボード。パイプライン総額、加重フォーキャスト、勝率、期限切れタスク、ステージ別パイプライン、注目の商談を一画面に表示。"
+				width="1600"
+				height="1000"
 				decoding="async"
+				fetchpriority="high"
 			/>
-			<figcaption>操作画面：ダッシュボード、商談、ワークフロー、Jade、多言語切替</figcaption>
+			<figcaption>ダッシュボード：最初に見る数字と、次に動く相手を同じ画面で</figcaption>
 		</figure>
 	</div>
 </section>
@@ -318,6 +319,18 @@ const featureGroups = [
 				</li>
 			))}
 		</ul>
+
+		<figure class="view-demo">
+			<img
+				src="/videos/revenue-crm-demo.gif"
+				alt="Revenue CRMの操作デモ。ダッシュボード、商談カンバン、自動化ライブラリ、AIエージェントJade、3言語切替を順に操作している。"
+				width="800"
+				height="585"
+				loading="lazy"
+				decoding="async"
+			/>
+			<figcaption>操作デモ：ダッシュボード → 商談カンバン → 自動化ライブラリ → Jade → 言語切替</figcaption>
+		</figure>
 	</div>
 </section>
 
@@ -883,6 +896,28 @@ const featureGroups = [
 	.media-copy .kicker,
 	.beta .kicker {
 		margin-bottom: var(--space-sm);
+	}
+
+	.view-demo {
+		margin: var(--space-xl) auto 0;
+		max-width: 800px;
+	}
+
+	.view-demo img {
+		display: block;
+		width: 100%;
+		height: auto;
+		border: 1px solid var(--color-border);
+		border-radius: 10px;
+		background: #fff;
+	}
+
+	.view-demo figcaption {
+		margin-top: 0.6rem;
+		color: var(--color-text-muted);
+		font-size: 0.8125rem;
+		line-height: 1.7;
+		text-align: center;
 	}
 
 	.view-grid {

@@ -21,6 +21,12 @@ ErrorDocument 404 /404.html
 
 	# Revenue CRM の汎用B2C版はスクール版へ統合（2026-08）
 	RewriteRule ^crm/b2c/?$ /crm/school/ [R=301,L]
+
+	# 旧・機能別サービスページ（薄い重複）は現行ページへ統合（2026-08-20）
+	RewriteRule ^services/marketing-strategy-design/?$ /services/b2b-marketing-gtm-design/ [R=301,L]
+	RewriteRule ^services/revops-ma-crm-sfa-implementation/?$ /services/crm-revops-redesign/ [R=301,L]
+	RewriteRule ^services/operational-adoption-optimization/?$ /services/adoption-growth-support/ [R=301,L]
+	RewriteRule ^services/hubspot-implementation-consulting/?$ /services/hubspot-implementation-operations/ [R=301,L]
 </IfModule>
 
 # ── Cache: immutable hashed assets (Astro fingerprints _astro/* files)

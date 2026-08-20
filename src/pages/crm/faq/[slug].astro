@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { CRM_FAQ } from '../../../data/crm-faq';
+
+// 1問1ページ。「Revenue CRM 料金」のように質問そのもので検索する人は、
+// FAQ一覧のトップには辿り着かないため。
+export function getStaticPaths() {
+  return CRM_FAQ.map(item => ({ params: { slug: item.slug }, props: { item } }));
+}
+
+const { item } = Astro.props;
+const related = CRM_FAQ.filter(x => x.cat === item.cat && x.slug !== item.slug).slice(0, 4);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [{
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a.join('\n') },
+  }],
+};
+---
+
+<BaseLayout
+  title={`${item.q} | Revenue CRM | Consilegy`}
+  description={item.desc}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <article class="faq-detail">
+    <nav class="crumbs" aria-label="パンくず">
+      <a href="/crm/">Revenue CRM</a>
+      <span aria-hidden="true">›</span>
+      <a href="/crm/faq/">よくあるご質問</a>
+      <span aria-hidden="true">›</span>
+      <span>{item.cat}</span>
+    </nav>
+
+    <h1>{item.q}</h1>
+    <div class="body">
+      {item.a.map(paragraph => <p>{paragraph}</p>)}
+    </div>
+
+    {related.length > 0 && (
+      <section class="related">
+        <h2>{item.cat}のほかのご質問</h2>
+        <ul>
+          {related.map(x => <li><a href={`/crm/faq/${x.slug}/`}>{x.q}</a></li>)}
+        </ul>
+      </section>
+    )}
+
+    <section class="cta">
+      <p>ほかにお聞きになりたいことがあれば、直接お答えします。</p>
+      <div class="cta-links">
+        <a class="btn" href="/crm/#demo">デモを見る</a>
+        <a class="btn ghost" href="/free-consultation/">30分無料相談</a>
+      </div>
+    </section>
+
+    <p class="back"><a href="/crm/faq/">よくあるご質問の一覧へ</a></p>
+  </article>
+</BaseLayout>
+
+<style>
+  .faq-detail { max-width: 46rem; margin: 0 auto; padding: 3.5rem 1.25rem 5rem; }
+  .crumbs { display: flex; flex-wrap: wrap; gap: 0.4rem; font-size: 0.8rem; color: #5b6673; margin-bottom: 1.5rem; }
+  .crumbs a { color: #3a4551; text-decoration: none; }
+  .crumbs a:hover { text-decoration: underline; }
+  h1 { font-size: clamp(1.5rem, 3.5vw, 2rem); line-height: 1.5; margin: 0 0 1.5rem; }
+  .body p { line-height: 2; color: #37404b; margin: 0 0 1.1rem; }
+
+  .related { margin-top: 2.75rem; padding-top: 1.5rem; border-top: 1px solid #e6eaef; }
+  .related h2 { font-size: 1rem; margin: 0 0 0.75rem; }
+  .related ul { list-style: none; margin: 0; padding: 0; }
+  .related li + li { margin-top: 0.4rem; }
+  .related a { color: #1f6f4a; text-decoration: none; font-size: 0.925rem; }
+  .related a:hover { text-decoration: underline; }
+
+  .cta { margin-top: 2.5rem; padding: 1.5rem; border-radius: 0.75rem; background: #f4f7f9; text-align: center; }
+  .cta p { margin: 0 0 1rem; color: #3a4551; }
+  .cta-links { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+  .btn {
+    display: inline-block; padding: 0.6rem 1.3rem; border-radius: 0.5rem;
+    background: #1f6f4a; color: #fff; text-decoration: none; font-weight: 600; font-size: 0.925rem;
+  }
+  .btn.ghost { background: #fff; color: #1f6f4a; border: 1px solid #1f6f4a; }
+  .back { margin-top: 2rem; font-size: 0.875rem; }
+  .back a { color: #5b6673; }
+</style>

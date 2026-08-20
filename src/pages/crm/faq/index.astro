@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { CRM_FAQ, faqByCategory } from '../../../data/crm-faq';
+
+const groups = faqByCategory();
+
+// 検索結果にFAQとして出るための構造化データ。
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: CRM_FAQ.map(item => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a.join('\n') },
+  })),
+};
+---
+
+<BaseLayout
+  title="よくあるご質問 | Revenue CRM | Consilegy"
+  description="Revenue CRMの料金、導入、機能、データとセキュリティについて、導入前によくいただくご質問と回答をまとめました。"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+  <div class="faq-page">
+    <header class="faq-head">
+      <p class="kicker">Revenue CRM</p>
+      <h1>よくあるご質問</h1>
+      <p class="lead">
+        導入をご検討の方からよくいただくご質問です。ご利用中の操作方法は、製品内の「ヘルプ」にまとめています。
+      </p>
+    </header>
+
+    <nav class="faq-jump" aria-label="カテゴリ">
+      {groups.map(group => <a href={`#${encodeURIComponent(group.cat)}`}>{group.cat}</a>)}
+    </nav>
+
+    {groups.map(group => (
+      <section class="faq-group" id={group.cat}>
+        <h2>{group.cat}</h2>
+        <ul>
+          {group.items.map(item => (
+            <li>
+              <a href={`/crm/faq/${item.slug}/`}>
+                <span class="q">{item.q}</span>
+                <span class="d">{item.desc}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+
+    <section class="faq-cta">
+      <p>ここに答えがないご質問は、直接お聞かせください。</p>
+      <div class="faq-cta-links">
+        <a class="btn" href="/crm/#demo">デモを見る</a>
+        <a class="btn ghost" href="/free-consultation/">30分無料相談</a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .faq-page { max-width: 62rem; margin: 0 auto; padding: 4rem 1.25rem 5rem; }
+  .faq-head { margin-bottom: 2.5rem; }
+  .kicker { font-size: 0.8rem; letter-spacing: 0.12em; color: var(--color-accent, #1f6f4a); margin: 0 0 0.5rem; }
+  .faq-head h1 { font-size: clamp(1.75rem, 4vw, 2.5rem); margin: 0 0 0.75rem; }
+  .lead { color: #4a5568; line-height: 1.9; margin: 0; }
+
+  .faq-jump { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; }
+  .faq-jump a {
+    border: 1px solid #d9dee5; border-radius: 999px; padding: 0.35rem 0.9rem;
+    font-size: 0.85rem; color: #3a4551; text-decoration: none;
+  }
+  .faq-jump a:hover { background: #f2f5f8; }
+
+  .faq-group { margin-bottom: 2.75rem; scroll-margin-top: 5rem; }
+  .faq-group h2 { font-size: 1.15rem; margin: 0 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #e6eaef; }
+  .faq-group ul { list-style: none; margin: 0; padding: 0; }
+  .faq-group li + li { margin-top: 0.5rem; }
+  .faq-group a {
+    display: block; padding: 0.9rem 1rem; border: 1px solid #e6eaef; border-radius: 0.6rem;
+    text-decoration: none; color: inherit; background: #fff;
+  }
+  .faq-group a:hover { border-color: #c3ccd6; background: #fbfcfd; }
+  .q { display: block; font-weight: 600; margin-bottom: 0.25rem; }
+  .d { display: block; font-size: 0.875rem; color: #5b6673; line-height: 1.7; }
+
+  .faq-cta { margin-top: 3rem; padding: 1.75rem; border-radius: 0.75rem; background: #f4f7f9; text-align: center; }
+  .faq-cta p { margin: 0 0 1rem; color: #3a4551; }
+  .faq-cta-links { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+  .btn {
+    display: inline-block; padding: 0.65rem 1.4rem; border-radius: 0.5rem;
+    background: #1f6f4a; color: #fff; text-decoration: none; font-weight: 600; font-size: 0.95rem;
+  }
+  .btn.ghost { background: #fff; color: #1f6f4a; border: 1px solid #1f6f4a; }
+</style>

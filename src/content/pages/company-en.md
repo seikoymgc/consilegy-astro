@@ -192,7 +192,7 @@ hasShortcodes: true
 <!-- wp:columns -->
 <div class="wp-block-columns"><!-- wp:column {"width":"30%"} -->
 <div class="wp-block-column" style="flex-basis:30%"><!-- wp:image {"id":28013,"width":"200px","height":"auto","sizeSlug":"full","linkDestination":"none","style":{"spacing":{"margin":{"right":"var:preset|spacing|40"}},"layout":{"selfStretch":"fit","flexSize":null},"border":{"radius":"18px"}}} -->
-<figure class="wp-block-image size-full is-resized has-custom-border" style="margin-right:var(--wp--preset--spacing--40)"><img src="/images/common/seiko-yamaguchi-2026.jpg" alt="" class="wp-image-28013" style="border-radius:18px;width:200px;height:auto"/></figure>
+<figure class="wp-block-image size-full is-resized has-custom-border" style="margin-right:var(--wp--preset--spacing--40)"><img src="/images/common/seiko-yamaguchi-2026b.jpg" alt="" class="wp-image-28013" style="border-radius:18px;width:200px;height:auto"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column -->
 

@@ -36,6 +36,7 @@ const pains = [
 			<a href="/diagnostic/start/" class="btn dx-btn-primary">収益を自己診断</a>
 		</div>
 		<p class="dx-hero-note">メール登録は結果表示の直前。設問はすべて選択式です。</p>
+		<p class="dx-hero-note">結果を見たうえで人と話したい場合は、<a href="/free-consultation/">30分無料相談</a>もあります（どちらも無料。順番はどちらからでも構いません）。</p>
 	</div>
 </section>
 
@@ -162,7 +163,9 @@ section { padding-block: var(--space-2xl); }
 }
 .dx-sub { font-size: clamp(1rem, 2.5vw, 1.1875rem); color: var(--color-text-muted); margin: 0 0 2rem; line-height: 1.7; }
 .dx-hero-actions { margin-bottom: 1rem; }
-.dx-hero-note { font-size: 0.8125rem; color: var(--color-text-muted); margin: 0; }
+.dx-hero-note { font-size: 0.8125rem; color: var(--color-text-muted); margin: 0 0 0.4rem; line-height: 1.8; }
+.dx-hero-note:last-of-type { margin-bottom: 0; }
+.dx-hero-note a { color: var(--color-primary); text-decoration: underline; text-underline-offset: 3px; }
 
 .dx-btn-primary {
 	display: inline-flex; align-items: center; justify-content: center;

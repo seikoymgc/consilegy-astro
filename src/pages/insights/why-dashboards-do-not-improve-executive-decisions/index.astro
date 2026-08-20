@@ -10,7 +10,7 @@ const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
 	headline: 'ダッシュボードを作っても意思決定が速くならない理由',
-	description: 'GA4・Looker Studio・BigQueryを整備済みのグローバル企業が「報告業務」から脱却し、経営層が短時間で現状把握できる環境を構築した事例から——問題は可視化不足ではなくKPI設計の問題です。',
+	description: 'GA4・Looker Studio・BigQueryを整備済みのグローバル企業が「報告業務」から脱却し、経営層が短時間で現状把握できる環境を構築した事例から。問題は可視化不足ではなくKPI設計の問題です。',
 	datePublished: pubDate,
 	dateModified: pubDate,
 	author: { '@type': 'Person', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
@@ -32,7 +32,7 @@ const breadcrumbSchema = {
 
 <BaseLayout
 	title="ダッシュボードを作っても意思決定が速くならない理由 | Consilegy"
-	description="GA4・Looker Studio・BigQueryを整備済みのグローバル企業が「報告業務」から脱却し、経営層が短時間で現状把握できる環境を構築した事例から——問題は可視化不足ではなくKPI設計の問題です。"
+	description="GA4・Looker Studio・BigQueryを整備済みのグローバル企業が「報告業務」から脱却し、経営層が短時間で現状把握できる環境を構築した事例から。問題は可視化不足ではなくKPI設計の問題です。"
 	lang="ja"
 >
 	<Fragment slot="head">
@@ -55,7 +55,7 @@ const breadcrumbSchema = {
 			<span class="article-cat">KPI・BI</span>
 		</div>
 		<h1>なぜダッシュボードを整備しても、<br class="br-pc" />経営判断が速くならないのか</h1>
-		<p class="article-desc">GA4・Looker Studio・BigQueryを整備済みのグローバル企業が「報告業務」を脱却し、経営層が短時間で現状把握できる環境を構築した事例から——問題は可視化不足ではなく、KPI設計の問題です。</p>
+		<p class="article-desc">GA4・Looker Studio・BigQueryを整備済みのグローバル企業が「報告業務」を脱却し、経営層が短時間で現状把握できる環境を構築した事例から。問題は可視化不足ではなく、KPI設計の問題です。</p>
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
@@ -78,11 +78,11 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>あなたの組織は大丈夫か——5つの確認項目</h2>
+			<h2>あなたの組織は大丈夫か。5つの確認項目</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>会議がダッシュボードの数字読み上げで終わる</strong>
-					<p>「先月のセッション数は〇万でした」「転換率は〇%でした」——この確認が会議の大半を占めていませんか。</p>
+					<p>「先月のセッション数は〇万でした」「転換率は〇%でした」。この確認が会議の大半を占めていませんか。</p>
 				</li>
 				<li>
 					<strong>「この数字は正しいのか」という確認から始まる</strong>
@@ -90,7 +90,7 @@ const breadcrumbSchema = {
 				</li>
 				<li>
 					<strong>部門ごとに違うダッシュボードを見ている</strong>
-					<p>マーケティングはGA4、営業はSalesforce、経営はExcel集計——それぞれが別の数字を見ている場合、「今月全体でどうか」を把握できる場所が存在しません。</p>
+					<p>マーケティングはGA4、営業はSalesforce、経営はExcel集計。それぞれが別の数字を見ている場合、「今月全体でどうか」を把握できる場所が存在しません。</p>
 				</li>
 				<li>
 					<strong>数字を見てもアクションが決まらない</strong>
@@ -109,12 +109,12 @@ const breadcrumbSchema = {
 			<ol class="article-numbered">
 				<li>
 					<strong>KPIがビジネスゴールに逆算されていない</strong>
-					<p>セッション数・直帰率・クリック率などの「計測しやすい指標」が並んでいるダッシュボードは、数字として正確でも意思決定には使えません。「受注を増やすために何を変えるか」に答えられる指標——例えば「MQL獲得単価」「商談化率」「チャネル別貢献商談数」——が含まれていなければ、数字を見ても次のアクションが決まりません。</p>
+					<p>セッション数・直帰率・クリック率などの「計測しやすい指標」が並んでいるダッシュボードは、数字として正確でも意思決定には使えません。「受注を増やすために何を変えるか」に答えられる指標。例えば「MQL獲得単価」「商談化率」「チャネル別貢献商談数」が含まれていなければ、数字を見ても次のアクションが決まりません。</p>
 					<p><strong>判断基準：</strong>ダッシュボードの数字を1つ指さして「この数字が下がったら何を変えますか」と聞いたとき、即答できなければビジネスゴールに逆算されていません。</p>
 				</li>
 				<li>
 					<strong>分析が特定担当者に属人化している</strong>
-					<p>前述のグローバル企業でも「分析の属人化により知見が共有されない」という課題がありました。担当者がいれば数字を解釈できるが、いなければ誰も分からない——この状態ではダッシュボードは「担当者のメモ」になります。経営層・マーケ・営業が同じ画面を見て同じ解釈ができる設計が必要です。</p>
+					<p>前述のグローバル企業でも「分析の属人化により知見が共有されない」という課題がありました。担当者がいれば数字を解釈できるが、いなければ誰も分からない。この状態ではダッシュボードは「担当者のメモ」になります。経営層・マーケ・営業が同じ画面を見て同じ解釈ができる設計が必要です。</p>
 					<p><strong>判断基準：</strong>ダッシュボードの担当者が1週間不在になったとき、他の誰かが数字を説明して意思決定に使えるかどうかで確認できます。</p>
 				</li>
 				<li>

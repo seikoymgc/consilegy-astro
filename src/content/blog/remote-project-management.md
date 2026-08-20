@@ -97,7 +97,7 @@ categories:
 <p class="has-text-color" style="color: rgb(0, 0, 0)">チームメンバーには海外在住者も含まれていたため、そもそもの連絡が「即レスではない」ことが普通でした。</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"style":{"color":{"text":"rgb(0, 0, 0)"}}} -->
-<p class="has-text-color" style="color: rgb(0, 0, 0)">そこで、<strong>連絡を受けてから返答するまでのリードタイムをあらかじめ設定</strong>。</p>
+<p class="has-text-color" style="color: rgb(0, 0, 0)">そこで、<strong>連絡を受けてから返答するまでのリードタイムをあらかじめ設定</strong></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"style":{"color":{"text":"rgb(0, 0, 0)"}}} -->
 <p class="has-text-color" style="color: rgb(0, 0, 0)">たとえば「24時間以内には必ず返信する」という最低ラインを全員で共有することで、返事を待つ間に無駄なストレスを抱えなくて済むようにしました。</p>
@@ -124,7 +124,7 @@ categories:
 <figure class="wp-block-image size-large"><img src="/images/media/2025/03/image-57-1024x682.jpg" alt=""/></figure>
 <!-- /wp:image -->
 <!-- wp:paragraph {"style":{"color":{"text":"rgb(0, 0, 0)"}}} -->
-<p class="has-text-color" style="color: rgb(0, 0, 0)"><strong>成果としては、当初の開発要件についてはなんとか計画通りにリリースを完了できました</strong>。追加要望が発生した場合はスコープを別フェーズに切り出す方針を徹底し、結果的にリニューアル直後のKPI達成率が目標の約120%にまで達したんです。</p>
+<p class="has-text-color" style="color: rgb(0, 0, 0)"><strong>成果としては、当初の開発要件についてはなんとか計画通りにリリースを完了できました</strong>追加要望が発生した場合はスコープを別フェーズに切り出す方針を徹底し、結果的にリニューアル直後のKPI達成率が目標の約120%にまで達したんです。</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"style":{"color":{"text":"rgb(0, 0, 0)"}}} -->
 <p class="has-text-color" style="color: rgb(0, 0, 0)">特にMA導入のフェーズで、新規顧客の獲得プロセスが効率化され、数値面のインパクトが早期に表れたこともクライアントからよい評価を得られた要因の一つです。</p>

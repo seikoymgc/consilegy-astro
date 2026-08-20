@@ -23,7 +23,7 @@ categories:
 <h2>マーケティングオートメーション（MA）ツールを選ぶ基準って？</h2>
 <!-- /wp:heading -->
 <!-- wp:paragraph {"style":{"color":{"text":"rgb(0, 0, 0)"}}} -->
-<p class="has-text-color" style="color: rgb(0, 0, 0)">中小企業から大企業まで、MAツールの選定は事業成長に直結する重要な投資判断です。しかし、<strong>機能や価格が異なる数多くのMAツールから、自社に最適なものを選ぶのは容易ではありません</strong>。</p>
+<p class="has-text-color" style="color: rgb(0, 0, 0)">中小企業から大企業まで、MAツールの選定は事業成長に直結する重要な投資判断です。しかし、<strong>機能や価格が異なる数多くのMAツールから、自社に最適なものを選ぶのは容易ではありません</strong></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"style":{"color":{"text":"rgb(0, 0, 0)"}}} -->
 <p class="has-text-color" style="color: rgb(0, 0, 0)">最新の市場調査によると、企業のマーケティング担当者の53%が価格を最重視し、47%が使いやすさを<strong>重視している</strong>というデータがあります[*]。</p>

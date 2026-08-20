@@ -7,7 +7,7 @@
 
 	/* Stone palette — warm neutrals */
 	--color-text: #1C1917;        /* stone-900 */
-	--color-text-muted: #57534E;  /* stone-600 — AA on stone-50/100 backgrounds */
+	--color-text-muted: #44403C;  /* stone-700 — 2段階だけの本文/副次テキスト */
 	--color-bg: #FAFAF9;          /* stone-50  */
 	--color-bg-subtle: #F5F5F4;   /* stone-100 */
 	--color-border: #E7E5E4;      /* stone-200 */

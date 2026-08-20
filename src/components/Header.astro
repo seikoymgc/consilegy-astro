@@ -358,7 +358,7 @@ const isActive = (href: string | null) =>
 }
 .site-header__lang-item {
 	font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em;
-	color: #64748b;
+	color: var(--color-text-muted);
 	text-decoration: none;
 	transition: color 0.15s;
 }
@@ -368,7 +368,7 @@ a.site-header__lang-item {
 	border-radius: 5px;
 }
 a.site-header__lang-item:hover { color: var(--color-primary); background: rgba(26,23,47,0.06); }
-.site-header__lang-item--active { color: #64748b; font-weight: 600; }
+.site-header__lang-item--active { color: var(--color-text-muted); font-weight: 600; }
 .site-header__lang-sep { font-size: 0.6rem; color: #cbd5e1; user-select: none; }
 
 /* ── CTA buttons (shared) ── */

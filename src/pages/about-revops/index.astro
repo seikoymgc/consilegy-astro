@@ -24,7 +24,7 @@ const faqItems = [
 	},
 	{
 		q: 'RevOpsを始めるには何から行うべきですか？',
-		a: 'まずCRM、KPI、営業・マーケ連携、会議体の現状を整理し、どこで収益プロセスが分断しているかを確認することから始めます。現状診断によってボトルネックを特定してから、KPI・プロセス・システムの順番で整備するのが効果的です。',
+		a: 'まずCRM・KPI、営業・マーケ連携、会議体の現状を整理し、どこで収益プロセスが分断しているかを確認することから始めます。現状診断によってボトルネックを特定してから、KPI・プロセス・システムの順番で整備するのが効果的です。',
 	},
 ];
 
@@ -50,8 +50,8 @@ const breadcrumbSchema = {
 const domains = [
 	{ en: 'Process', ja: 'プロセス', desc: 'リード獲得、商談化、受注、継続までの業務プロセス。各フェーズの定義とハンドオフを整備します。' },
 	{ en: 'Data', ja: 'データ', desc: '顧客、担当者、商談、契約、活動履歴などのデータ構造。判断に使えるデータ品質を保ちます。' },
-	{ en: 'KPI', ja: 'KPI', desc: 'MQL、SQL、商談化率、受注率、LTV、CACなどの指標定義。部門横断で統一した基準を持ちます。' },
-	{ en: 'System', ja: 'システム', desc: 'CRM、SFA、MA、BI、会計、請求ツールなどのシステム連携。ツールを収益プロセスに接続します。' },
+	{ en: 'KPI', ja: 'KPI', desc: 'MQL・SQL、商談化率、受注率、LTV・CACなどの指標定義。部門横断で統一した基準を持ちます。' },
+	{ en: 'System', ja: 'システム', desc: 'CRM・SFA・MA・BI、会計、請求ツールなどのシステム連携。ツールを収益プロセスに接続します。' },
 	{ en: 'Operating Rhythm', ja: '会議・運用', desc: '営業会議、マーケ会議、CSレビュー、経営報告などの会議体。意思決定サイクルを設計します。' },
 ];
 
@@ -81,7 +81,7 @@ const after = [
 ];
 
 const steps = [
-	{ n: '01', label: '現状診断', desc: 'CRM、KPI、営業・マーケ連携、会議体の現状を確認。' },
+	{ n: '01', label: '現状診断', desc: 'CRM・KPI、営業・マーケ連携、会議体の現状を確認。' },
 	{ n: '02', label: 'ボトルネック特定', desc: '商談化、受注、継続のどこで収益が止まっているかを整理。' },
 	{ n: '03', label: 'KPI・プロセス再設計', desc: '部門横断で使えるKPIと業務フローを整備。' },
 	{ n: '04', label: 'CRM / MA / SFA再設計', desc: '既存ツールを前提に、データ構造と運用ルールを整理。' },
@@ -128,10 +128,10 @@ const relatedServices = [
 				<p class="eyebrow">レベニューオペレーション（Revenue Operations）</p>
 				<h1>RevOpsとは</h1>
 				<p class="hero-lead">
-					RevOps（レベニューオペレーション）は、営業・マーケティング・カスタマーサクセスを分断せず、収益に関わるプロセス、KPI、データ、システムを横断して整える考え方です。
+					RevOps（レベニューオペレーション）は、営業・マーケティング・カスタマーサクセスを分断せず、収益に関わるプロセス・KPI・データ・システムを横断して整える考え方です。
 				</p>
 				<p class="hero-lead">
-					目的は、リード獲得から商談化、受注、継続収益までを一つの流れとして可視化し、売上改善の再現性を高めることです。
+					目的は、リード獲得から商談化・受注・継続収益までを一つの流れとして可視化し、売上改善の再現性を高めることです。
 				</p>
 				<div class="hero-actions">
 					<a href="/services/crm-revops-redesign/" class="btn btn--primary">CRM / RevOps再設計支援を見る →</a>
@@ -140,7 +140,7 @@ const relatedServices = [
 			</div>
 			<div class="hero-def-card">
 				<p class="def-card__label">RevOps（レベニューオペレーション）</p>
-				<p class="def-card__text">営業・マーケティング・カスタマーサクセス・財務など、収益に関わる部門のプロセス、KPI、データ、ツールを統合的に運用・改善する考え方。</p>
+				<p class="def-card__text">営業・マーケティング・カスタマーサクセス・財務など、収益に関わる部門のプロセス・KPI・データ・ツールを統合的に運用・改善する考え方。</p>
 				<div class="def-card__divider"></div>
 				<ul class="def-card__attrs">
 					<li><span>対象</span>営業 / マーケ / CS / 財務 / システム</li>
@@ -161,10 +161,10 @@ const relatedServices = [
 		</div>
 		<div class="def-body">
 			<p class="def-long">
-				RevOpsとは、レベニューオペレーション（Revenue Operations）の略で、営業、マーケティング、カスタマーサクセス、財務、システムなど、収益に関わる部門のプロセス、KPI、データ、ツールを統合的に運用・改善する考え方です。
+				RevOpsとは、レベニューオペレーション（Revenue Operations）の略で、営業・マーケティング・カスタマーサクセス・財務・システムなど、収益に関わる部門のプロセス、KPI、データ、ツールを統合的に運用・改善する考え方です。
 			</p>
 			<div class="def-oneline">
-				<p><strong>RevOpsは、部門ごとに分断された収益活動をつなぎ、売上を再現性高く生み出すための運用機能です。</strong></p>
+				<p><strong>RevOpsは部門ごとに分断された収益活動をつなぎ、売上を再現性高く生み出す運用機能です。</strong></p>
 			</div>
 			<div class="def-note">
 				<p>RevOps＝レベニューオペレーション（Revenue Operations）。SaaS企業を中心に広まった概念ですが、現在はBtoB企業全般で必要とされる運用設計の考え方として普及しています。</p>
@@ -173,7 +173,7 @@ const relatedServices = [
 				<div class="distinction-col">
 					<p class="distinction-tag">RevOps（レベニューオペレーション）</p>
 					<p class="distinction-role">「運用改善」の機能</p>
-					<p class="distinction-text">営業・マーケ・CSの業務、KPI、データを継続的に運用・改善するための仕組みです。</p>
+					<p class="distinction-text">営業・マーケ・CSの業務・KPI・データを継続的に運用・改善する仕組みです。</p>
 				</div>
 				<div class="distinction-sep" aria-hidden="true">一方</div>
 				<div class="distinction-col">
@@ -420,7 +420,7 @@ const relatedServices = [
 			<p class="eyebrow">Our Approach</p>
 			<h2>ConsilegyのRevOps支援の考え方</h2>
 		</div>
-		<p class="approach-lead">Consilegyは、RevOpsを単なるツール運用やレポート整備とは捉えていません。営業、マーケティング、カスタマーサクセス、CRM、KPI、データ構造、会議体を一体で見直し、レベニューアーキテクチャ（Revenue Architecture）に基づいて売上改善の仕組みを設計します。</p>
+		<p class="approach-lead">Consilegyは、RevOpsを単なるツール運用やレポート整備とは捉えていません。営業、マーケティング、カスタマーサクセス、CRM・KPI、データ構造、会議体を一体で見直し、レベニューアーキテクチャ（Revenue Architecture）に基づいて売上改善の仕組みを設計します。</p>
 		<div class="approach-grid">
 			<div class="approach-card">
 				<p class="approach-en">Vendor-Free</p>

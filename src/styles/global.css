@@ -7,7 +7,7 @@
 
 	/* Stone palette — warm neutrals */
 	--color-text: #1C1917;        /* stone-900 */
-	--color-text-muted: #78716C;  /* stone-500 — proper hierarchy via single hue */
+	--color-text-muted: #57534E;  /* stone-600 — AA on stone-50/100 backgrounds */
 	--color-bg: #FAFAF9;          /* stone-50  */
 	--color-bg-subtle: #F5F5F4;   /* stone-100 */
 	--color-border: #E7E5E4;      /* stone-200 */

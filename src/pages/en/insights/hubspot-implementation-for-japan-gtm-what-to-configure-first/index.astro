@@ -55,14 +55,14 @@ const breadcrumbSchema = {
       <span class="article-read">{readTime}</span>
     </div>
     <h1>HubSpot Implementation for Japan GTM: What to Configure First</h1>
-    <p class="article-desc">An IT back-office SaaS company (approx. 200 employees) deployed HubSpot for Japan GTM using global-default configurations — no Japan-specific lifecycle stage criteria, no market property on contact records, no Japan-adapted qualification thresholds. Lead volume grew but conversion didn't. After rebuilding the CRM architecture in the correct order over a 4-month engagement, MQL-to-SQL conversion increased by up to 20%. Configuration order matters more than configuration completeness.</p>
+    <p class="article-desc">An IT back-office SaaS company (approx. 200 employees) deployed HubSpot for Japan GTM using global-default configurations, no Japan-specific lifecycle stage criteria, no market property on contact records, no Japan-adapted qualification thresholds. Lead volume grew but conversion didn't. After rebuilding the CRM architecture in the correct order over a 4-month engagement, MQL-to-SQL conversion increased by up to 20%. Configuration order matters more than configuration completeness.</p>
   </header>
 
   <article class="article-body container" id="article">
 
     <section class="article-section">
       <p>HubSpot is one of the most widely used CRM and marketing automation platforms for global B2B teams entering Japan. But deploying it without Japan-specific configuration produces the same outcome as any other misconfigured CRM: inaccurate data, unclear ownership, unreliable reporting, and handoffs that break down in practice.</p>
-      <p>The failure mode is almost always the same: teams configure HubSpot in whatever order felt logical at the time — usually starting with importing contacts, then setting up email templates, then trying to build reports, then wondering why the reports don't work. The architecture was never designed for Japan's specific pipeline requirements, so every layer built on top of it produces unreliable data.</p>
+      <p>The failure mode is almost always the same: teams configure HubSpot in whatever order felt logical at the time, usually starting with importing contacts, then setting up email templates, then trying to build reports, then wondering why the reports don't work. The architecture was never designed for Japan's specific pipeline requirements, so every layer built on top of it produces unreliable data.</p>
     </section>
 
     <hr class="article-hr" />
@@ -72,7 +72,7 @@ const breadcrumbSchema = {
 
       <div class="article-checklist">
         <div class="article-checklist__item">
-          <p class="article-checklist__q">Can you filter all Japan contacts, companies, and deals with a single property — not a country field or manual tag?</p>
+          <p class="article-checklist__q">Can you filter all Japan contacts, companies, and deals with a single property, not a country field or manual tag?</p>
           <p class="article-checklist__detail">If Japan contacts are identified by country = Japan, job title keywords, or inconsistent tagging, every Japan report will require manual cleanup. A dedicated Japan market property, configured at setup, is the foundation everything else depends on.</p>
         </div>
         <div class="article-checklist__item">
@@ -88,7 +88,7 @@ const breadcrumbSchema = {
           <p class="article-checklist__detail">Workflow triggers that depend on unstable properties or undefined stage criteria will fire inconsistently or not at all. Handoff automation built on an unstable foundation creates more problems than it solves.</p>
         </div>
         <div class="article-checklist__item">
-          <p class="article-checklist__q">Was your Japan pipeline dashboard the first thing configured — before the properties it depends on were set up?</p>
+          <p class="article-checklist__q">Was your Japan pipeline dashboard the first thing configured, before the properties it depends on were set up?</p>
           <p class="article-checklist__detail">Dashboards are the last layer. Building them first is a sign the architecture was configured in the wrong order. Reports built on undefined or globally-inherited stage definitions will show numbers that don't reflect Japan's actual pipeline.</p>
         </div>
       </div>
@@ -104,9 +104,9 @@ const breadcrumbSchema = {
           <div class="article-breakdown__num">01</div>
           <div class="article-breakdown__body">
             <strong>Building workflows before lifecycle stages and properties are defined</strong>
-            <p>HubSpot workflows depend on properties and stage values to trigger correctly. A workflow that fires when "Lifecycle Stage = MQL" will not work reliably if MQL has no documented entry criteria — because different people will advance contacts to MQL at different points, and the workflow will fire on contacts that aren't actually ready for handoff.</p>
+            <p>HubSpot workflows depend on properties and stage values to trigger correctly. A workflow that fires when "Lifecycle Stage = MQL" will not work reliably if MQL has no documented entry criteria, because different people will advance contacts to MQL at different points, and the workflow will fire on contacts that aren't actually ready for handoff.</p>
             <p>For Japan specifically, workflows built on undefined stages create a compounding problem: Japan buyers engage more slowly, so incorrectly-triggered handoffs reach contacts who are not yet ready for commercial engagement. The first sales interaction damages a relationship that was progressing at Japan's pace, and there's no systematic way to diagnose why conversion is low.</p>
-            <p><strong>Judgment criterion:</strong> Were your Japan MQL criteria fully documented and agreed between marketing and sales before the handoff workflow was built — or was the workflow built first with criteria to be "filled in later"?</p>
+            <p><strong>Judgment criterion:</strong> Were your Japan MQL criteria fully documented and agreed between marketing and sales before the handoff workflow was built, or was the workflow built first with criteria to be "filled in later"?</p>
           </div>
         </div>
         <div class="article-breakdown__item">
@@ -114,17 +114,17 @@ const breadcrumbSchema = {
           <div class="article-breakdown__body">
             <strong>Using country-of-company as a Japan filter instead of a dedicated market property</strong>
             <p>Country = Japan seems like an obvious way to filter Japan contacts. The problem is that company address data in HubSpot is often incomplete, inconsistently populated, or reflects a global company's headquarters rather than the Japan entity the team is engaging with. A global enterprise with Japan offices might have country = United States on the parent company record, making their Japan contacts invisible to a Japan filter.</p>
-            <p>A dedicated "Target Market" or "GTM Region" property — set explicitly when contacts enter the Japan pipeline — is the reliable foundation for Japan reporting. It doesn't depend on data quality in other fields, it's intentionally set, and it applies consistently regardless of company structure.</p>
-            <p><strong>Judgment criterion:</strong> Do your Japan pipeline reports depend on country = Japan filters — or on a dedicated market property that was explicitly set for each Japan contact?</p>
+            <p>A dedicated "Target Market" or "GTM Region" property, set explicitly when contacts enter the Japan pipeline, is the reliable foundation for Japan reporting. It doesn't depend on data quality in other fields, it's intentionally set, and it applies consistently regardless of company structure.</p>
+            <p><strong>Judgment criterion:</strong> Do your Japan pipeline reports depend on country = Japan filters, or on a dedicated market property that was explicitly set for each Japan contact?</p>
           </div>
         </div>
         <div class="article-breakdown__item">
           <div class="article-breakdown__num">03</div>
           <div class="article-breakdown__body">
             <strong>Using global deal stages that hide Japan's specific pipeline bottlenecks</strong>
-            <p>Standard deal stages — Discovery, Proposal Sent, Negotiation, Closed Won/Lost — were not designed to show where Japan enterprise deals actually stall. Japan deals typically stall at Internal Review (the buyer is building internal consensus), Legal Review (contract terms are being evaluated), or Approval Process (formal sign-off is being routed). None of these appear in global stage templates.</p>
-            <p>Without Japan-specific deal stages, pipeline reports will consistently show deals stuck in "Proposal Sent" for months — with no visibility into whether the buyer is actively progressing internally or whether the deal has genuinely stalled. Management cannot distinguish between a deal in active internal review and one that has gone cold, and cannot calibrate follow-up timing appropriately.</p>
-            <p><strong>Judgment criterion:</strong> Do your HubSpot deal stages include Japan-specific milestones that reflect where Japan enterprise deals actually move and stall — or do they use global template stages that produce a generic pipeline view?</p>
+            <p>Standard deal stages: Discovery, Proposal Sent, Negotiation, Closed Won/Lost, were not designed to show where Japan enterprise deals actually stall. Japan deals typically stall at Internal Review (the buyer is building internal consensus), Legal Review (contract terms are being evaluated), or Approval Process (formal sign-off is being routed). None of these appear in global stage templates.</p>
+            <p>Without Japan-specific deal stages, pipeline reports will consistently show deals stuck in "Proposal Sent" for months, with no visibility into whether the buyer is actively progressing internally or whether the deal has genuinely stalled. Management cannot distinguish between a deal in active internal review and one that has gone cold, and cannot calibrate follow-up timing appropriately.</p>
+            <p><strong>Judgment criterion:</strong> Do your HubSpot deal stages include Japan-specific milestones that reflect where Japan enterprise deals actually move and stall, or do they use global template stages that produce a generic pipeline view?</p>
           </div>
         </div>
       </div>
@@ -138,7 +138,7 @@ const breadcrumbSchema = {
       <p>Over a 4-month engagement, the foundation was rebuilt in the correct order: Japan market property configured first, lifecycle stage definitions documented and agreed, Japan-specific deal stages added, then handoff workflow rebuilt on the stable foundation, then reporting dashboards constructed on top. Each layer depended on the one before it being stable.</p>
 
       <div class="article-callout">
-        <p><strong>MQL-to-SQL conversion increased by up to 20%. Pipeline reports became reliable because stages reflected actual buyer position. Forecasting improved because deal stages showed where Japan deals were actually moving and stalling — not just where they happened to sit in a global template.</strong></p>
+        <p><strong>MQL-to-SQL conversion increased by up to 20%. Pipeline reports became reliable because stages reflected actual buyer position. Forecasting improved because deal stages showed where Japan deals were actually moving and stalling, not just where they happened to sit in a global template.</strong></p>
       </div>
     </section>
 
@@ -152,7 +152,7 @@ const breadcrumbSchema = {
           <div class="article-breakdown__num">01</div>
           <div class="article-breakdown__body">
             <strong>First: Japan market property + lifecycle stage definitions</strong>
-            <p>Create a "Target Market" property. Apply it to all Japan contacts. Write down Japan-specific entry and exit criteria for MQL and SQL — agreed between marketing and sales — before touching anything else. These two items are the foundation every other configuration depends on.</p>
+            <p>Create a "Target Market" property. Apply it to all Japan contacts. Write down Japan-specific entry and exit criteria for MQL and SQL, agreed between marketing and sales, before touching anything else. These two items are the foundation every other configuration depends on.</p>
           </div>
         </div>
         <div class="article-breakdown__item">
@@ -166,7 +166,7 @@ const breadcrumbSchema = {
           <div class="article-breakdown__num">03</div>
           <div class="article-breakdown__body">
             <strong>Third: handoff automation, then reporting dashboards</strong>
-            <p>Build the MQL handoff workflow after stages and properties are stable — not before. Then build Japan pipeline dashboards as the final layer, filtering on the market property and stage values that are now consistently defined. Reporting built last on a stable architecture is reporting that can be trusted.</p>
+            <p>Build the MQL handoff workflow after stages and properties are stable, not before. Then build Japan pipeline dashboards as the final layer, filtering on the market property and stage values that are now consistently defined. Reporting built last on a stable architecture is reporting that can be trusted.</p>
           </div>
         </div>
       </div>
@@ -219,14 +219,14 @@ const breadcrumbSchema = {
 .article-wrap { background: #fff; }
 .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
 .article-head { padding-top: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--color-border, #e2e8f0); }
-.breadcrumb { font-size: 0.8rem; color: var(--color-text-muted, #64748b); margin-bottom: 20px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-.breadcrumb a { color: var(--color-text-muted, #64748b); text-decoration: none; }
+.breadcrumb { font-size: 0.8rem; color: var(--color-text-muted); margin-bottom: 20px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.breadcrumb a { color: var(--color-text-muted); text-decoration: none; }
 .breadcrumb a:hover { color: var(--color-primary, #1e40af); text-decoration: underline; }
 .article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
 .article-cat { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: #eff6ff; color: var(--color-primary, #1e40af); padding: 3px 10px; border-radius: 10px; }
-.article-date, .article-read { font-size: 0.8rem; color: var(--color-text-muted, #64748b); }
+.article-date, .article-read { font-size: 0.8rem; color: var(--color-text-muted); }
 .article-head h1 { font-size: clamp(1.6rem, 3.5vw, 2.25rem); font-weight: 600; color: var(--color-navy, #0f172a); line-height: 1.25; letter-spacing: 0.01em; margin: 0 0 16px; }
-.article-desc { font-size: 1.0625rem; color: var(--color-text-muted, #64748b); line-height: 1.8; margin: 0; }
+.article-desc { font-size: 1.0625rem; color: var(--color-text-muted); line-height: 1.8; margin: 0; }
 .article-body { padding-top: 48px; padding-bottom: 64px; }
 .article-section { margin-bottom: 0; }
 .article-section h2 { font-size: 1.3125rem; font-weight: 600; color: var(--color-navy, #0f172a); margin: 0 0 16px; line-height: 1.35; }
@@ -239,12 +239,12 @@ const breadcrumbSchema = {
 .article-checklist__item { padding: 20px 0; border-bottom: 1px solid var(--color-border, #e2e8f0); }
 .article-checklist__q { font-size: 0.9375rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 8px; padding-left: 1.5rem; position: relative; }
 .article-checklist__q::before { content: '?'; position: absolute; left: 0; font-size: 0.875rem; font-weight: 800; color: var(--color-primary, #1e40af); opacity: 0.4; }
-.article-checklist__detail { font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted, #64748b); margin: 0; padding-left: 1.5rem; }
+.article-checklist__detail { font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted); margin: 0; padding-left: 1.5rem; }
 .article-breakdown { display: flex; flex-direction: column; gap: 0; margin: 24px 0; border-top: 1px solid var(--color-border, #e2e8f0); }
 .article-breakdown__item { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--color-border, #e2e8f0); align-items: flex-start; }
 .article-breakdown__num { font-size: 1.25rem; font-weight: 800; color: var(--color-primary, #1e40af); opacity: 0.3; flex-shrink: 0; line-height: 1.5; min-width: 2.5rem; }
 .article-breakdown__body strong { display: block; font-size: 0.9375rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 6px; }
-.article-breakdown__body p { font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted, #64748b); margin: 0 0 10px; }
+.article-breakdown__body p { font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted); margin: 0 0 10px; }
 .article-breakdown__body p:last-child { margin-bottom: 0; }
 .article-related { padding: 48px 0; border-top: 1px solid var(--color-border, #e2e8f0); }
 .article-related__label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-primary, #1e40af); margin: 0 0 20px; }
@@ -257,7 +257,7 @@ const breadcrumbSchema = {
 .article-cta { background: #f8fafc; border-top: 1px solid var(--color-border, #e2e8f0); padding: 64px 0; }
 .article-cta__body { text-align: center; max-width: 560px; margin: 0 auto; }
 .article-cta__body h2 { font-size: clamp(1.25rem, 3vw, 1.625rem); font-weight: 600; color: var(--color-navy, #0f172a); margin: 0 0 12px; }
-.article-cta__body p { font-size: 0.9375rem; line-height: 1.8; color: var(--color-text-muted, #64748b); margin: 0 0 28px; }
+.article-cta__body p { font-size: 0.9375rem; line-height: 1.8; color: var(--color-text-muted); margin: 0 0 28px; }
 .article-cta__actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 .article-cta__btn { display: inline-flex; align-items: center; padding: 0.75em 1.75em; border-radius: 8px; font-size: 0.9375rem; font-weight: 700; text-decoration: none; transition: background 0.15s, color 0.15s; }
 .article-cta__btn--primary { background: var(--color-primary, #1e40af); color: #fff; border: 2px solid var(--color-primary, #1e40af); }

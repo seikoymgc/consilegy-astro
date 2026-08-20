@@ -8,7 +8,7 @@ const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: 'HubSpot Dashboards for Japan Revenue Visibility',
-  description: 'A US-based global entertainment company (approx. 3,000 employees) had GA4 deployed and KPIs defined — but data differed by region and reporting was produced manually without influencing decisions. After restructuring dashboards for decision-making, executives could assess performance without analyst support. Japan-facing HubSpot dashboards require the same design shift.',
+  description: 'A US-based global entertainment company (approx. 3,000 employees) had GA4 deployed and KPIs defined, but data differed by region and reporting was produced manually without influencing decisions. After restructuring dashboards for decision-making, executives could assess performance without analyst support. Japan-facing HubSpot dashboards require the same design shift.',
   datePublished: pubDate,
   dateModified: pubDate,
   author: { '@type': 'Person', name: 'Seiko Yamaguchi', alternateName: '山口聖子', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
@@ -30,7 +30,7 @@ const breadcrumbSchema = {
 
 <BaseLayout
   title="HubSpot Dashboards for Japan Revenue Visibility | Consilegy"
-  description="A US-based global entertainment company (approx. 3,000 employees) had GA4 deployed and KPIs defined — but data differed by region and reporting was produced manually without influencing decisions. After restructuring dashboards for decision-making, executives could assess performance without analyst support."
+  description="A US-based global entertainment company (approx. 3,000 employees) had GA4 deployed and KPIs defined, but data differed by region and reporting was produced manually without influencing decisions. After restructuring dashboards for decision-making, executives could assess performance without analyst support."
   lang="en"
   alternateUrl="/insights/"
 >
@@ -55,7 +55,7 @@ const breadcrumbSchema = {
       <span class="article-read">{readTime}</span>
     </div>
     <h1>HubSpot Dashboards for Japan Revenue Visibility</h1>
-    <p class="article-desc">A US-based global entertainment company (approx. 3,000 employees) had GA4, Looker Studio, and BigQuery deployed — but KPI definitions differed by region, reporting was manual, and data wasn't connected to decisions. After redesigning the dashboard structure around decision-making rather than data collection, executives could assess performance without analyst support and optimization cycles became faster. Japan-facing HubSpot dashboards require the same shift: not more reports, but reports that answer Japan-specific questions.</p>
+    <p class="article-desc">A US-based global entertainment company (approx. 3,000 employees) had GA4, Looker Studio, and BigQuery deployed, but KPI definitions differed by region, reporting was manual, and data wasn't connected to decisions. After redesigning the dashboard structure around decision-making rather than data collection, executives could assess performance without analyst support and optimization cycles became faster. Japan-facing HubSpot dashboards require the same shift: not more reports, but reports that answer Japan-specific questions.</p>
   </header>
 
   <article class="article-body container" id="article">
@@ -76,7 +76,7 @@ const breadcrumbSchema = {
           <p class="article-checklist__detail">Mixed pipeline dashboards make Japan performance invisible. You cannot tell whether Japan is underperforming or simply small relative to other markets without a Japan-only view.</p>
         </div>
         <div class="article-checklist__item">
-          <p class="article-checklist__q">Do you know your Japan MQL volume as a standalone number — not as a percentage of global?</p>
+          <p class="article-checklist__q">Do you know your Japan MQL volume as a standalone number, not as a percentage of global?</p>
           <p class="article-checklist__detail">Japan MQL as a percentage of global changes when other markets grow, independent of what Japan is doing. You need Japan MQL as an absolute number tracked over time to see Japan-specific trend.</p>
         </div>
         <div class="article-checklist__item">
@@ -104,8 +104,8 @@ const breadcrumbSchema = {
           <div class="article-breakdown__num">01</div>
           <div class="article-breakdown__body">
             <strong>Dashboards are built before Japan properties are configured</strong>
-            <p>HubSpot dashboards can only filter on properties that exist and are consistently populated. If the Japan GTM started without a "Market" or "Target Region" property on contact and deal records, every Japan dashboard will require workarounds — filtering by company country, contact owner, or campaign name — that produce inconsistent and unreliable data.</p>
-            <p>This is the most common reason Japan reporting breaks down in HubSpot. The dashboard was built before the architecture was in place to support it. The fix is not a better report formula — it's configuring the property, backfilling existing Japan records, and then rebuilding the reports on a stable foundation.</p>
+            <p>HubSpot dashboards can only filter on properties that exist and are consistently populated. If the Japan GTM started without a "Market" or "Target Region" property on contact and deal records, every Japan dashboard will require workarounds, filtering by company country, contact owner, or campaign name, that produce inconsistent and unreliable data.</p>
+            <p>This is the most common reason Japan reporting breaks down in HubSpot. The dashboard was built before the architecture was in place to support it. The fix is not a better report formula, it's configuring the property, backfilling existing Japan records, and then rebuilding the reports on a stable foundation.</p>
             <p><strong>Judgment criterion:</strong> Can you filter all Japan contacts, companies, and deals with a single property filter in HubSpot? If not, the foundation needs to be fixed before reports are meaningful.</p>
           </div>
         </div>
@@ -113,7 +113,7 @@ const breadcrumbSchema = {
           <div class="article-breakdown__num">02</div>
           <div class="article-breakdown__body">
             <strong>Reports show data but don't answer decisions</strong>
-            <p>More data doesn't produce better decisions. This was the core finding when a global entertainment company rebuilt its reporting infrastructure: KPI definitions differed by region, reports were produced manually on a recurring schedule, and analysis depended on specific individuals. The data existed — it just wasn't connected to the questions that needed to be answered.</p>
+            <p>More data doesn't produce better decisions. This was the core finding when a global entertainment company rebuilt its reporting infrastructure: KPI definitions differed by region, reports were produced manually on a recurring schedule, and analysis depended on specific individuals. The data existed, it just wasn't connected to the questions that needed to be answered.</p>
             <p>Japan HubSpot dashboards fall into the same pattern when they're designed around available data rather than around the decisions the team actually makes. A dashboard that shows total contacts, recent activities, and email open rates doesn't help you decide whether to increase Japan MQL targets, adjust the sales team's focus, or change the qualification criteria. Reports should be designed backwards from decisions, not forwards from available data.</p>
             <p><strong>Judgment criterion:</strong> For each HubSpot report visible in your Japan dashboard, what specific decision does it inform? If the answer is unclear, the report is generating data activity, not decision support.</p>
           </div>
@@ -124,7 +124,7 @@ const breadcrumbSchema = {
             <strong>Japan metrics use global definitions that don't fit Japan's buying pattern</strong>
             <p>HubSpot's default lifecycle stage thresholds and deal stage definitions were not designed for Japan's market dynamics. An MQL definition that requires two content downloads and a pricing page visit reflects a market where buyers self-educate quickly and signal intent digitally. Japan's enterprise buyers engage differently: more deliberate, more relationship-driven, with longer gaps between touches that do not indicate disengagement.</p>
             <p>Using global MQL definitions for Japan consistently results in either over-qualification (too few Japan MQLs because the threshold assumes faster-paced digital behavior) or under-qualification (too many Japan MQLs because the bar was lowered to compensate, without addressing the underlying definition problem).</p>
-            <p><strong>Judgment criterion:</strong> Are your Japan MQL and SQL definitions explicitly documented for Japan's context — specifying what engagement signals and confirmation criteria apply to Japan specifically? Or are they inherited from global defaults?</p>
+            <p><strong>Judgment criterion:</strong> Are your Japan MQL and SQL definitions explicitly documented for Japan's context, specifying what engagement signals and confirmation criteria apply to Japan specifically? Or are they inherited from global defaults?</p>
           </div>
         </div>
       </div>
@@ -134,7 +134,7 @@ const breadcrumbSchema = {
 
     <section class="article-section">
       <h2>What changed when dashboards were redesigned for decisions</h2>
-      <p>A US-based global entertainment company had already deployed GA4 as a unified tracking platform. KPIs were defined. Reporting was happening. But KPI definitions varied by region, reports were produced manually, and analysis depended on specific individuals. The data existed — it just wasn't being used to make decisions.</p>
+      <p>A US-based global entertainment company had already deployed GA4 as a unified tracking platform. KPIs were defined. Reporting was happening. But KPI definitions varied by region, reports were produced manually, and analysis depended on specific individuals. The data existed, it just wasn't being used to make decisions.</p>
       <p>Over a 6-month engagement, the KPI framework was rebuilt from the ground up based on business outcomes rather than analytics defaults. KPI definitions were standardized across regions. Dashboard architecture in Looker Studio and BigQuery was restructured for fast, clear decision-making by executives and channel managers rather than for comprehensive data display.</p>
 
       <div class="article-callout">
@@ -168,7 +168,7 @@ const breadcrumbSchema = {
           <div class="article-breakdown__num">03</div>
           <div class="article-breakdown__body">
             <strong>Document Japan-specific MQL and SQL criteria before configuring lifecycle stage reports</strong>
-            <p>Before building lifecycle stage funnel reports for Japan, write down what MQL and SQL mean in Japan's context — what engagement signals, what confirmation criteria, what Japan-specific buying behavior the definitions should account for. Reports built on undefined or globally-inherited stage definitions will produce numbers that don't reflect Japan's actual pipeline reality.</p>
+            <p>Before building lifecycle stage funnel reports for Japan, write down what MQL and SQL mean in Japan's context, what engagement signals, what confirmation criteria, what Japan-specific buying behavior the definitions should account for. Reports built on undefined or globally-inherited stage definitions will produce numbers that don't reflect Japan's actual pipeline reality.</p>
           </div>
         </div>
       </div>
@@ -228,11 +228,11 @@ const breadcrumbSchema = {
 }
 .breadcrumb {
   font-size: 0.8rem;
-  color: var(--color-text-muted, #64748b);
+  color: var(--color-text-muted);
   margin-bottom: 20px;
   display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
 }
-.breadcrumb a { color: var(--color-text-muted, #64748b); text-decoration: none; }
+.breadcrumb a { color: var(--color-text-muted); text-decoration: none; }
 .breadcrumb a:hover { color: var(--color-primary, #1e40af); text-decoration: underline; }
 
 .article-meta {
@@ -245,7 +245,7 @@ const breadcrumbSchema = {
   padding: 3px 10px; border-radius: 10px;
 }
 .article-date, .article-read {
-  font-size: 0.8rem; color: var(--color-text-muted, #64748b);
+  font-size: 0.8rem; color: var(--color-text-muted);
 }
 
 .article-head h1 {
@@ -258,7 +258,7 @@ const breadcrumbSchema = {
 }
 .article-desc {
   font-size: 1.0625rem;
-  color: var(--color-text-muted, #64748b);
+  color: var(--color-text-muted);
   line-height: 1.8;
   margin: 0;
 }
@@ -323,7 +323,7 @@ const breadcrumbSchema = {
 }
 .article-checklist__detail {
   font-size: 0.9375rem; line-height: 1.75;
-  color: var(--color-text-muted, #64748b);
+  color: var(--color-text-muted);
   margin: 0; padding-left: 1.5rem;
 }
 
@@ -349,7 +349,7 @@ const breadcrumbSchema = {
 }
 .article-breakdown__body p {
   font-size: 0.9375rem; line-height: 1.75;
-  color: var(--color-text-muted, #64748b); margin: 0 0 10px;
+  color: var(--color-text-muted); margin: 0 0 10px;
 }
 .article-breakdown__body p:last-child { margin-bottom: 0; }
 
@@ -401,7 +401,7 @@ const breadcrumbSchema = {
 }
 .article-cta__body p {
   font-size: 0.9375rem; line-height: 1.8;
-  color: var(--color-text-muted, #64748b); margin: 0 0 28px;
+  color: var(--color-text-muted); margin: 0 0 28px;
 }
 .article-cta__actions {
   display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;

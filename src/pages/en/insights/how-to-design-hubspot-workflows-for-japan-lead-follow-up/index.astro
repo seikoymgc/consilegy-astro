@@ -8,7 +8,7 @@ const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: 'How to Design HubSpot Workflows for Japan Lead Follow-Up',
-  description: 'An IT back-office SaaS company (approx. 200 employees) was running global-default HubSpot workflows for Japan leads — fast sequences, aggressive follow-up, generic nurture. After redesigning workflows for Japan\'s evaluation pace, MQL-to-SQL conversion increased by up to 20% and sales stopped losing leads to silent disengagement.',
+  description: 'An IT back-office SaaS company (approx. 200 employees) was running global-default HubSpot workflows for Japan leads, fast sequences, aggressive follow-up, generic nurture. After redesigning workflows for Japan\'s evaluation pace, MQL-to-SQL conversion increased by up to 20% and sales stopped losing leads to silent disengagement.',
   datePublished: pubDate,
   dateModified: pubDate,
   author: { '@type': 'Person', name: 'Seiko Yamaguchi', alternateName: '山口聖子', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
@@ -55,14 +55,14 @@ const breadcrumbSchema = {
       <span class="article-read">{readTime}</span>
     </div>
     <h1>How to Design HubSpot Workflows for Japan Lead Follow-Up</h1>
-    <p class="article-desc">An IT back-office SaaS company (approx. 200 employees) was using HubSpot's standard workflow templates for Japan follow-up — fast initial sequences, frequent touchpoints, generic nurture content. Japan leads were engaging but not converting. After rebuilding workflows for Japan's evaluation pace and intent signals, MQL-to-SQL conversion increased by up to 20%. The tool wasn't the problem. The workflow design was.</p>
+    <p class="article-desc">An IT back-office SaaS company (approx. 200 employees) was using HubSpot's standard workflow templates for Japan follow-up, fast initial sequences, frequent touchpoints, generic nurture content. Japan leads were engaging but not converting. After rebuilding workflows for Japan's evaluation pace and intent signals, MQL-to-SQL conversion increased by up to 20%. The tool wasn't the problem. The workflow design was.</p>
   </header>
 
   <article class="article-body container" id="article">
 
     <section class="article-section">
       <p>HubSpot's default workflow templates are optimized for markets where rapid follow-up and high-frequency email sequences are standard practice. In those markets, speed signals responsiveness and persistence signals confidence. In Japan's B2B context, those same behaviors signal something different: urgency that feels premature, pressure that arrives before trust is established, contact frequency that disrupts rather than nurtures.</p>
-      <p>Japan lead follow-up workflows need to be designed for how Japan buyers engage — not adapted from templates built for a different market's norms. The architecture is different. The timing is different. The triggers are different.</p>
+      <p>Japan lead follow-up workflows need to be designed for how Japan buyers engage, not adapted from templates built for a different market's norms. The architecture is different. The timing is different. The triggers are different.</p>
     </section>
 
     <hr class="article-hr" />
@@ -73,22 +73,22 @@ const breadcrumbSchema = {
       <div class="article-checklist">
         <div class="article-checklist__item">
           <p class="article-checklist__q">Do your workflows send 3–5 follow-up touches within the first week of a new Japan lead?</p>
-          <p class="article-checklist__detail">High-frequency early sequences feel intrusive in Japan's B2B context. Japan buyers who don't respond to the first touch within a week are not cold — they're processing. Multi-touch sequences in week one are more likely to trigger silent disengagement than pipeline progression.</p>
+          <p class="article-checklist__detail">High-frequency early sequences feel intrusive in Japan's B2B context. Japan buyers who don't respond to the first touch within a week are not cold, they're processing. Multi-touch sequences in week one are more likely to trigger silent disengagement than pipeline progression.</p>
         </div>
         <div class="article-checklist__item">
           <p class="article-checklist__q">Are your nurture emails designed to push the lead toward a demo or sales call as the primary CTA?</p>
           <p class="article-checklist__detail">Japan nurture should be informational and low-pressure. Nurture CTAs that repeatedly push toward commercial engagement before trust is established create the opposite effect: leads opt out or stop engaging rather than progressing.</p>
         </div>
         <div class="article-checklist__item">
-          <p class="article-checklist__q">Do sales tasks fire based on time elapsed since contact — regardless of whether the lead has shown any engagement signals?</p>
+          <p class="article-checklist__q">Do sales tasks fire based on time elapsed since contact, regardless of whether the lead has shown any engagement signals?</p>
           <p class="article-checklist__detail">Time-elapsed triggers create sales activity on leads that haven't shown intent. In Japan, where sales outreach before intent is established can damage early relationships, task triggers should be based on engagement signals, not calendar intervals.</p>
         </div>
         <div class="article-checklist__item">
-          <p class="article-checklist__q">Is the handoff workflow to sales triggered by MQL criteria — or by a sales rep manually moving a contact?</p>
+          <p class="article-checklist__q">Is the handoff workflow to sales triggered by MQL criteria, or by a sales rep manually moving a contact?</p>
           <p class="article-checklist__detail">Manual handoff processes are inconsistent and slow. Automated handoff triggered by documented MQL criteria ensures high-intent Japan leads reach sales with context, immediately, without depending on someone checking a queue.</p>
         </div>
         <div class="article-checklist__item">
-          <p class="article-checklist__q">Does the handoff notification include Japan-specific context — engagement history, company size, and why the lead qualified — or just a contact name?</p>
+          <p class="article-checklist__q">Does the handoff notification include Japan-specific context, engagement history, company size, and why the lead qualified, or just a contact name?</p>
           <p class="article-checklist__detail">In Japan, the quality of the first sales interaction matters significantly. Sales reaching out without context on what the lead engaged with and why they were qualified will often approach the contact incorrectly, damaging the early relationship.</p>
         </div>
       </div>
@@ -104,18 +104,18 @@ const breadcrumbSchema = {
           <div class="article-breakdown__num">01</div>
           <div class="article-breakdown__body">
             <strong>Initial response workflows fire too fast and too frequently</strong>
-            <p>A form submission from a Japan enterprise buyer is not a signal that they are ready for immediate commercial follow-up. It is a signal that they are in early exploration — evaluating whether the vendor is worth further attention. The first automated response should confirm receipt and provide information that supports the evaluation. It should not be followed by a four-email sequence over the next five days.</p>
-            <p>A Japan-appropriate initial workflow: send a personalized confirmation email within one business day. Wait three days. If no meeting is booked, create a single sales task with the lead context included — not a follow-up email sequence. The goal of the first touch is to stay visible and provide value, not to convert immediately.</p>
-            <p><strong>Judgment criterion:</strong> Does your initial Japan response workflow have a gap of at least 3 days between the confirmation email and any follow-up touch — with no more than two automated emails in the first two weeks?</p>
+            <p>A form submission from a Japan enterprise buyer is not a signal that they are ready for immediate commercial follow-up. It is a signal that they are in early exploration, evaluating whether the vendor is worth further attention. The first automated response should confirm receipt and provide information that supports the evaluation. It should not be followed by a four-email sequence over the next five days.</p>
+            <p>A Japan-appropriate initial workflow: send a personalized confirmation email within one business day. Wait three days. If no meeting is booked, create a single sales task with the lead context included, not a follow-up email sequence. The goal of the first touch is to stay visible and provide value, not to convert immediately.</p>
+            <p><strong>Judgment criterion:</strong> Does your initial Japan response workflow have a gap of at least 3 days between the confirmation email and any follow-up touch, with no more than two automated emails in the first two weeks?</p>
           </div>
         </div>
         <div class="article-breakdown__item">
           <div class="article-breakdown__num">02</div>
           <div class="article-breakdown__body">
             <strong>Nurture workflows push toward conversion rather than supporting evaluation</strong>
-            <p>Japan B2B buyers move through evaluation at their own pace. Nurture workflows designed to accelerate that pace — through urgency language, repeated demo CTAs, or countdown sequences — create pressure that Japan buyers respond to by disengaging quietly. They don't push back or unsubscribe visibly. They simply stop opening emails and reduce engagement.</p>
-            <p>Japan nurture workflows should be designed to maintain presence and provide relevant information at intervals that match Japan's evaluation pace — typically monthly for contacts in early lifecycle stages. Content should be informational: implementation details, comparable case studies, operational specifics. CTAs should be low-commitment: read more, download this, learn how. The goal is to remain useful and visible while the buyer self-evaluates at their own timeline.</p>
-            <p><strong>Judgment criterion:</strong> Does your Japan nurture workflow send monthly or less frequently for early-stage contacts — with informational CTAs rather than commercial engagement requests?</p>
+            <p>Japan B2B buyers move through evaluation at their own pace. Nurture workflows designed to accelerate that pace, through urgency language, repeated demo CTAs, or countdown sequences, create pressure that Japan buyers respond to by disengaging quietly. They don't push back or unsubscribe visibly. They simply stop opening emails and reduce engagement.</p>
+            <p>Japan nurture workflows should be designed to maintain presence and provide relevant information at intervals that match Japan's evaluation pace, typically monthly for contacts in early lifecycle stages. Content should be informational: implementation details, comparable case studies, operational specifics. CTAs should be low-commitment: read more, download this, learn how. The goal is to remain useful and visible while the buyer self-evaluates at their own timeline.</p>
+            <p><strong>Judgment criterion:</strong> Does your Japan nurture workflow send monthly or less frequently for early-stage contacts, with informational CTAs rather than commercial engagement requests?</p>
           </div>
         </div>
         <div class="article-breakdown__item">
@@ -123,8 +123,8 @@ const breadcrumbSchema = {
           <div class="article-breakdown__body">
             <strong>MQL handoff workflows pass a contact name without Japan-specific context</strong>
             <p>When a Japan lead reaches MQL and gets handed to sales, the quality of that handoff determines the quality of the first sales interaction. A notification that says "New MQL: [Contact Name], [Company]" leaves sales without the context needed to approach the contact appropriately. Sales either doesn't act quickly (the notification looks like many others and lacks urgency) or acts without context (reaching out generically to someone who engaged with specific technical content).</p>
-            <p>Japan handoff notifications should include: what the contact engaged with and when, what MQL criteria they met and why, company size and industry context, and a suggested first-touch angle based on what they've shown interest in. This gives sales what they need to make the first Japan interaction relevant — which is more important in Japan's relationship-sensitive environment than in faster-moving markets.</p>
-            <p><strong>Judgment criterion:</strong> Does your MQL handoff workflow notification include engagement history, the specific criteria that triggered MQL status, and company context — or just a contact name and company?</p>
+            <p>Japan handoff notifications should include: what the contact engaged with and when, what MQL criteria they met and why, company size and industry context, and a suggested first-touch angle based on what they've shown interest in. This gives sales what they need to make the first Japan interaction relevant, which is more important in Japan's relationship-sensitive environment than in faster-moving markets.</p>
+            <p><strong>Judgment criterion:</strong> Does your MQL handoff workflow notification include engagement history, the specific criteria that triggered MQL status, and company context, or just a contact name and company?</p>
           </div>
         </div>
       </div>
@@ -134,8 +134,8 @@ const breadcrumbSchema = {
 
     <section class="article-section">
       <h2>What workflow redesign changed</h2>
-      <p>An IT back-office SaaS company had nurturing workflows running on global templates — fast initial sequences, high-frequency touchpoints, demo-focused CTAs. Lead volume was growing but SQL conversion was low and sales reported leads as low quality. The same leads were being engaged by marketing and deprioritized by sales because both teams were working against the wrong workflow logic.</p>
-      <p>After rebuilding workflows around Japan's evaluation pace — stage-specific nurture aligned to buyer journey, intent-triggered sales tasks rather than time-elapsed tasks, and MQL handoff notifications with context — the picture changed. Sales received leads with engagement history and context. Marketing had visibility into downstream conversion. The follow-up process matched what Japan buyers needed to progress.</p>
+      <p>An IT back-office SaaS company had nurturing workflows running on global templates, fast initial sequences, high-frequency touchpoints, demo-focused CTAs. Lead volume was growing but SQL conversion was low and sales reported leads as low quality. The same leads were being engaged by marketing and deprioritized by sales because both teams were working against the wrong workflow logic.</p>
+      <p>After rebuilding workflows around Japan's evaluation pace, stage-specific nurture aligned to buyer journey, intent-triggered sales tasks rather than time-elapsed tasks, and MQL handoff notifications with context, the picture changed. Sales received leads with engagement history and context. Marketing had visibility into downstream conversion. The follow-up process matched what Japan buyers needed to progress.</p>
 
       <div class="article-callout">
         <p><strong>MQL-to-SQL conversion increased by up to 20%. CAC decreased through more effective nurturing rather than increased paid acquisition. Sales focused time on high-intent prospects rather than working through low-quality lists.</strong></p>
@@ -159,7 +159,7 @@ const breadcrumbSchema = {
           <div class="article-breakdown__num">02</div>
           <div class="article-breakdown__body">
             <strong>Switch sales task triggers from time-elapsed to engagement-signal-based</strong>
-            <p>Replace "create sales task after 7 days if no response" with "create sales task when contact visits pricing page" or "when contact downloads the implementation guide." Intent-based triggers send sales to contacts who have shown readiness signals — not contacts who happened to receive an email a week ago.</p>
+            <p>Replace "create sales task after 7 days if no response" with "create sales task when contact visits pricing page" or "when contact downloads the implementation guide." Intent-based triggers send sales to contacts who have shown readiness signals, not contacts who happened to receive an email a week ago.</p>
           </div>
         </div>
         <div class="article-breakdown__item">
@@ -219,14 +219,14 @@ const breadcrumbSchema = {
 .article-wrap { background: #fff; }
 .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
 .article-head { padding-top: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--color-border, #e2e8f0); }
-.breadcrumb { font-size: 0.8rem; color: var(--color-text-muted, #64748b); margin-bottom: 20px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-.breadcrumb a { color: var(--color-text-muted, #64748b); text-decoration: none; }
+.breadcrumb { font-size: 0.8rem; color: var(--color-text-muted); margin-bottom: 20px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.breadcrumb a { color: var(--color-text-muted); text-decoration: none; }
 .breadcrumb a:hover { color: var(--color-primary, #1e40af); text-decoration: underline; }
 .article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
 .article-cat { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: #eff6ff; color: var(--color-primary, #1e40af); padding: 3px 10px; border-radius: 10px; }
-.article-date, .article-read { font-size: 0.8rem; color: var(--color-text-muted, #64748b); }
+.article-date, .article-read { font-size: 0.8rem; color: var(--color-text-muted); }
 .article-head h1 { font-size: clamp(1.6rem, 3.5vw, 2.25rem); font-weight: 600; color: var(--color-navy, #0f172a); line-height: 1.25; letter-spacing: 0.01em; margin: 0 0 16px; }
-.article-desc { font-size: 1.0625rem; color: var(--color-text-muted, #64748b); line-height: 1.8; margin: 0; }
+.article-desc { font-size: 1.0625rem; color: var(--color-text-muted); line-height: 1.8; margin: 0; }
 .article-body { padding-top: 48px; padding-bottom: 64px; }
 .article-section { margin-bottom: 0; }
 .article-section h2 { font-size: 1.3125rem; font-weight: 600; color: var(--color-navy, #0f172a); margin: 0 0 16px; line-height: 1.35; }
@@ -239,12 +239,12 @@ const breadcrumbSchema = {
 .article-checklist__item { padding: 20px 0; border-bottom: 1px solid var(--color-border, #e2e8f0); }
 .article-checklist__q { font-size: 0.9375rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 8px; padding-left: 1.5rem; position: relative; }
 .article-checklist__q::before { content: '?'; position: absolute; left: 0; font-size: 0.875rem; font-weight: 800; color: var(--color-primary, #1e40af); opacity: 0.4; }
-.article-checklist__detail { font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted, #64748b); margin: 0; padding-left: 1.5rem; }
+.article-checklist__detail { font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted); margin: 0; padding-left: 1.5rem; }
 .article-breakdown { display: flex; flex-direction: column; gap: 0; margin: 24px 0; border-top: 1px solid var(--color-border, #e2e8f0); }
 .article-breakdown__item { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--color-border, #e2e8f0); align-items: flex-start; }
 .article-breakdown__num { font-size: 1.25rem; font-weight: 800; color: var(--color-primary, #1e40af); opacity: 0.3; flex-shrink: 0; line-height: 1.5; min-width: 2.5rem; }
 .article-breakdown__body strong { display: block; font-size: 0.9375rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 6px; }
-.article-breakdown__body p { font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted, #64748b); margin: 0 0 10px; }
+.article-breakdown__body p { font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted); margin: 0 0 10px; }
 .article-breakdown__body p:last-child { margin-bottom: 0; }
 .article-related { padding: 48px 0; border-top: 1px solid var(--color-border, #e2e8f0); }
 .article-related__label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-primary, #1e40af); margin: 0 0 20px; }
@@ -257,7 +257,7 @@ const breadcrumbSchema = {
 .article-cta { background: #f8fafc; border-top: 1px solid var(--color-border, #e2e8f0); padding: 64px 0; }
 .article-cta__body { text-align: center; max-width: 560px; margin: 0 auto; }
 .article-cta__body h2 { font-size: clamp(1.25rem, 3vw, 1.625rem); font-weight: 600; color: var(--color-navy, #0f172a); margin: 0 0 12px; }
-.article-cta__body p { font-size: 0.9375rem; line-height: 1.8; color: var(--color-text-muted, #64748b); margin: 0 0 28px; }
+.article-cta__body p { font-size: 0.9375rem; line-height: 1.8; color: var(--color-text-muted); margin: 0 0 28px; }
 .article-cta__actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 .article-cta__btn { display: inline-flex; align-items: center; padding: 0.75em 1.75em; border-radius: 8px; font-size: 0.9375rem; font-weight: 700; text-decoration: none; transition: background 0.15s, color 0.15s; }
 .article-cta__btn--primary { background: var(--color-primary, #1e40af); color: #fff; border: 2px solid var(--color-primary, #1e40af); }

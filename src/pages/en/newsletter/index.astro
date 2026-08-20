@@ -465,7 +465,7 @@ const recentPosts = [
 	line-height: 1.5;
 }
 .nl-post-arrow {
-	color: var(--color-muted, #64748b);
+	color: var(--color-text-muted);
 	flex-shrink: 0;
 	transition: color 0.15s, transform 0.15s;
 }
@@ -523,13 +523,13 @@ const recentPosts = [
 @media (max-width: 660px) { .nl-signup-aside { width: 100%; } }
 .nl-signup-or {
 	display: flex; align-items: center; gap: 10px;
-	font-size: 0.75rem; color: var(--color-muted, #64748b); font-weight: 600;
+	font-size: 0.75rem; color: var(--color-text-muted); font-weight: 600;
 }
 .nl-signup-or::before, .nl-signup-or::after {
 	content: ''; flex: 1; height: 1px; background: var(--color-border, #e2e8f0);
 }
 .nl-signup-li-head { font-size: 0.8rem; font-weight: 700; color: var(--color-navy, #0f172a); margin: 0 0 6px; }
-.nl-signup-li-note { font-size: 0.72rem; color: var(--color-muted, #64748b); line-height: 1.7; margin: 0 0 12px; }
+.nl-signup-li-note { font-size: 0.72rem; color: var(--color-text-muted); line-height: 1.7; margin: 0 0 12px; }
 .nl-btn--li {
 	background: #0a66c2; color: #fff; border: none;
 	font-size: 0.8rem; padding: 9px 16px;
@@ -551,10 +551,10 @@ const recentPosts = [
 	border-radius: 4px;
 }
 .nl-bn-item:hover { background: #fff; }
-.nl-bn-date { font-size: 0.8rem; color: var(--color-muted, #64748b); white-space: nowrap; flex-shrink: 0; }
+.nl-bn-date { font-size: 0.8rem; color: var(--color-text-muted); white-space: nowrap; flex-shrink: 0; }
 .nl-bn-title { font-size: 0.9rem; font-weight: 600; color: var(--color-navy, #0f172a); line-height: 1.5; transition: color 0.15s; }
 .nl-bn-item:hover .nl-bn-title { color: var(--color-primary, #1e40af); }
-.nl-bn-arrow { color: var(--color-muted, #64748b); flex-shrink: 0; transition: color 0.15s, transform 0.15s; }
+.nl-bn-arrow { color: var(--color-text-muted); flex-shrink: 0; transition: color 0.15s, transform 0.15s; }
 .nl-bn-item:hover .nl-bn-arrow { color: var(--color-primary, #1e40af); transform: translateX(3px); }
 @media (max-width: 500px) {
 	.nl-bn-item { grid-template-columns: 1fr auto; }

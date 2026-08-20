@@ -55,7 +55,7 @@ const breadcrumbSchema = {
       <span class="article-read">{readTime}</span>
     </div>
     <h1>How to Build Revenue Visibility for Japan Market Expansion</h1>
-    <p class="article-desc">A major enterprise launching a subscription e-commerce business (using GA4, Amplitude, and Looker Studio) had no visibility into which acquisition channels drove revenue or which users would retain — close to launch. After building LTV-connected measurement infrastructure from day one over a 9-month engagement, marketing investment shifted from acquisition-cost metrics to channels that actually drove long-term revenue. Japan market expansion requires the same foundation: Japan-specific data before you can make decisions about Japan.</p>
+    <p class="article-desc">A major enterprise launching a subscription e-commerce business (using GA4, Amplitude, and Looker Studio) had no visibility into which acquisition channels drove revenue or which users would retain, close to launch. After building LTV-connected measurement infrastructure from day one over a 9-month engagement, marketing investment shifted from acquisition-cost metrics to channels that actually drove long-term revenue. Japan market expansion requires the same foundation: Japan-specific data before you can make decisions about Japan.</p>
   </header>
 
   <article class="article-body container" id="article">
@@ -76,7 +76,7 @@ const breadcrumbSchema = {
           <p class="article-checklist__detail">When Japan data is aggregated with other markets, performance can look fine globally even if Japan MQL volume is zero. You cannot manage what you cannot see separately.</p>
         </div>
         <div class="article-checklist__item">
-          <p class="article-checklist__q">Can you tell which Japan acquisition channels are generating revenue — not just leads?</p>
+          <p class="article-checklist__q">Can you tell which Japan acquisition channels are generating revenue, not just leads?</p>
           <p class="article-checklist__detail">Channel performance measured by acquisition volume alone will consistently misdirect investment. In Japan, the channels that generate the most contacts are often not the channels that close.</p>
         </div>
         <div class="article-checklist__item">
@@ -89,7 +89,7 @@ const breadcrumbSchema = {
         </div>
         <div class="article-checklist__item">
           <p class="article-checklist__q">When Japan underperforms, can you identify where in the funnel the constraint is?</p>
-          <p class="article-checklist__detail">Without Japan-specific stage-level data, underperformance looks like a single problem. It could be MQL volume, conversion rate, sales cycle length, or win rate — and each requires a different response.</p>
+          <p class="article-checklist__detail">Without Japan-specific stage-level data, underperformance looks like a single problem. It could be MQL volume, conversion rate, sales cycle length, or win rate, and each requires a different response.</p>
         </div>
       </div>
     </section>
@@ -104,7 +104,7 @@ const breadcrumbSchema = {
           <div class="article-breakdown__num">01</div>
           <div class="article-breakdown__body">
             <strong>Japan data is not separated in the CRM from the start</strong>
-            <p>If Japan contacts are not tagged at the point of entry — with a market, region, or target-country property — every downstream report requires manual filtering that is inconsistent, error-prone, and often skipped. The result is that Japan reporting depends on someone remembering to exclude non-Japan data, which eventually stops happening.</p>
+            <p>If Japan contacts are not tagged at the point of entry, with a market, region, or target-country property, every downstream report requires manual filtering that is inconsistent, error-prone, and often skipped. The result is that Japan reporting depends on someone remembering to exclude non-Japan data, which eventually stops happening.</p>
             <p>This is an architecture decision, not a reporting decision. It has to be made when the CRM is first configured for Japan. Retrofitting it after the data is mixed is one of the most time-consuming cleanup projects in revenue operations.</p>
             <p><strong>Judgment criterion:</strong> Can you filter every contact, deal, and campaign in your CRM to Japan only, with a single property filter? If not, the data architecture needs to be fixed before reporting can be meaningful.</p>
           </div>
@@ -122,8 +122,8 @@ const breadcrumbSchema = {
           <div class="article-breakdown__num">03</div>
           <div class="article-breakdown__body">
             <strong>Reporting is produced manually, not from a connected data foundation</strong>
-            <p>Japan revenue reporting that requires manual data aggregation — exporting from CRM, combining with ad platform data, preparing in a spreadsheet — is reporting that happens inconsistently, with a lag, and with accumulating data quality issues. Teams spend time producing the report instead of using it. The report reflects data from two weeks ago by the time it's reviewed.</p>
-            <p>A connected data foundation — CRM with Japan properties properly configured, website tracking linked to contact records, pipeline reporting built on real-time data — eliminates the aggregation work and makes Japan visibility something the team actually uses rather than something that gets produced monthly.</p>
+            <p>Japan revenue reporting that requires manual data aggregation, exporting from CRM, combining with ad platform data, preparing in a spreadsheet, is reporting that happens inconsistently, with a lag, and with accumulating data quality issues. Teams spend time producing the report instead of using it. The report reflects data from two weeks ago by the time it's reviewed.</p>
+            <p>A connected data foundation: CRM with Japan properties properly configured, website tracking linked to contact records, pipeline reporting built on real-time data, eliminates the aggregation work and makes Japan visibility something the team actually uses rather than something that gets produced monthly.</p>
             <p><strong>Judgment criterion:</strong> How long does it take to answer the question "what is Japan's MQL-to-SQL conversion rate this quarter?" If the answer is "I need to pull a report," the foundation isn't connected yet.</p>
           </div>
         </div>
@@ -135,10 +135,10 @@ const breadcrumbSchema = {
     <section class="article-section">
       <h2>What Japan-specific visibility changed</h2>
       <p>A major enterprise launched a new subscription e-commerce business with a custom system architecture. Close to launch, the team had no visibility into which acquisition activities were driving revenue, which users were likely to retain, or how to evaluate channel performance in terms of long-term value. Metrics weren't designed around recurring revenue dynamics. Data aggregation was manual and slow.</p>
-      <p>Over a 9-month engagement, a data architecture was built that connected user behavior to revenue outcomes — specifically for subscription dynamics. GA4, Amplitude, and Looker Studio were unified into a structure that gave the team real-time visibility into business performance without manual aggregation. Shared subscription metrics (LTV, retention rate, churn) were established across marketing, product, and management.</p>
+      <p>Over a 9-month engagement, a data architecture was built that connected user behavior to revenue outcomes, specifically for subscription dynamics. GA4, Amplitude, and Looker Studio were unified into a structure that gave the team real-time visibility into business performance without manual aggregation. Shared subscription metrics (LTV, retention rate, churn) were established across marketing, product, and management.</p>
 
       <div class="article-callout">
-        <p><strong>Marketing investment shifted to LTV-based channel allocation. High-retention acquisition channels were identified by downstream revenue contribution, not volume. Product iteration accelerated because behavioral insights were connected to retention data — not just pageviews.</strong></p>
+        <p><strong>Marketing investment shifted to LTV-based channel allocation. High-retention acquisition channels were identified by downstream revenue contribution, not volume. Product iteration accelerated because behavioral insights were connected to retention data, not just pageviews.</strong></p>
       </div>
 
       <p>The same structural requirement applies to Japan revenue visibility: the measurement foundation has to be built for how Japan revenue actually works, not adapted from global defaults after the fact.</p>
@@ -168,7 +168,7 @@ const breadcrumbSchema = {
           <div class="article-breakdown__num">03</div>
           <div class="article-breakdown__body">
             <strong>Build one Japan-only dashboard before adding complexity</strong>
-            <p>A single dashboard filtered to Japan contacts — showing MQL volume, pipeline value, conversion rate, and sales cycle length — is more actionable than ten global dashboards that include Japan as a footnote. Build the Japan view first, then layer complexity once the foundation is working.</p>
+            <p>A single dashboard filtered to Japan contacts, showing MQL volume, pipeline value, conversion rate, and sales cycle length, is more actionable than ten global dashboards that include Japan as a footnote. Build the Japan view first, then layer complexity once the foundation is working.</p>
           </div>
         </div>
       </div>
@@ -228,11 +228,11 @@ const breadcrumbSchema = {
 }
 .breadcrumb {
   font-size: 0.8rem;
-  color: var(--color-text-muted, #64748b);
+  color: var(--color-text-muted);
   margin-bottom: 20px;
   display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
 }
-.breadcrumb a { color: var(--color-text-muted, #64748b); text-decoration: none; }
+.breadcrumb a { color: var(--color-text-muted); text-decoration: none; }
 .breadcrumb a:hover { color: var(--color-primary, #1e40af); text-decoration: underline; }
 
 .article-meta {
@@ -245,7 +245,7 @@ const breadcrumbSchema = {
   padding: 3px 10px; border-radius: 10px;
 }
 .article-date, .article-read {
-  font-size: 0.8rem; color: var(--color-text-muted, #64748b);
+  font-size: 0.8rem; color: var(--color-text-muted);
 }
 
 .article-head h1 {
@@ -258,7 +258,7 @@ const breadcrumbSchema = {
 }
 .article-desc {
   font-size: 1.0625rem;
-  color: var(--color-text-muted, #64748b);
+  color: var(--color-text-muted);
   line-height: 1.8;
   margin: 0;
 }
@@ -323,7 +323,7 @@ const breadcrumbSchema = {
 }
 .article-checklist__detail {
   font-size: 0.9375rem; line-height: 1.75;
-  color: var(--color-text-muted, #64748b);
+  color: var(--color-text-muted);
   margin: 0; padding-left: 1.5rem;
 }
 
@@ -349,7 +349,7 @@ const breadcrumbSchema = {
 }
 .article-breakdown__body p {
   font-size: 0.9375rem; line-height: 1.75;
-  color: var(--color-text-muted, #64748b); margin: 0 0 10px;
+  color: var(--color-text-muted); margin: 0 0 10px;
 }
 .article-breakdown__body p:last-child { margin-bottom: 0; }
 
@@ -401,7 +401,7 @@ const breadcrumbSchema = {
 }
 .article-cta__body p {
   font-size: 0.9375rem; line-height: 1.8;
-  color: var(--color-text-muted, #64748b); margin: 0 0 28px;
+  color: var(--color-text-muted); margin: 0 0 28px;
 }
 .article-cta__actions {
   display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;

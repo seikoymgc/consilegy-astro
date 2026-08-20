@@ -55,14 +55,14 @@ const breadcrumbSchema = {
       <span class="article-read">{readTime}</span>
     </div>
     <h1>When Global Teams Should Use HubSpot for Japan Market Entry</h1>
-    <p class="article-desc">An IT back-office SaaS company (~200 employees) used HubSpot for global operations and inherited the same configuration for Japan. The pipeline stages were built for Western deal velocity. The lifecycle definitions didn't reflect Japan's evaluation sequence. The workflows pushed Japan leads through a conversion cadence calibrated for US prospects. After a 4-month configuration rebuild specifically for Japan's buying process, MQL-to-SQL conversion increased by up to 20% and pipeline visibility became reliable. The question was never whether to use HubSpot — it was whether HubSpot was configured for Japan.</p>
+    <p class="article-desc">An IT back-office SaaS company (~200 employees) used HubSpot for global operations and inherited the same configuration for Japan. The pipeline stages were built for Western deal velocity. The lifecycle definitions didn't reflect Japan's evaluation sequence. The workflows pushed Japan leads through a conversion cadence calibrated for US prospects. After a 4-month configuration rebuild specifically for Japan's buying process, MQL-to-SQL conversion increased by up to 20% and pipeline visibility became reliable. The question was never whether to use HubSpot, it was whether HubSpot was configured for Japan.</p>
   </header>
 
   <article class="article-body container" id="article">
 
     <section class="article-section">
-      <p>Global teams entering Japan with HubSpot already in production face a specific question: should they extend the existing HubSpot instance to Japan, or set up something separate? The answer is almost always to extend the existing instance — the integration advantages and team familiarity outweigh the costs of maintaining parallel systems. But extending a global HubSpot instance to Japan without Japan-specific configuration produces the same problems as any global RevOps default applied to Japan: misleading pipeline data, wrong conversion benchmarks, and management decisions based on signals that don't reflect Japan's actual revenue motion.</p>
-      <p>HubSpot's fit for Japan market entry is strong specifically when the configuration is done before Japan operations rely on it. What breaks is not HubSpot — it is the assumption that a global configuration will generate valid Japan data without modification.</p>
+      <p>Global teams entering Japan with HubSpot already in production face a specific question: should they extend the existing HubSpot instance to Japan, or set up something separate? The answer is almost always to extend the existing instance, the integration advantages and team familiarity outweigh the costs of maintaining parallel systems. But extending a global HubSpot instance to Japan without Japan-specific configuration produces the same problems as any global RevOps default applied to Japan: misleading pipeline data, wrong conversion benchmarks, and management decisions based on signals that don't reflect Japan's actual revenue motion.</p>
+      <p>HubSpot's fit for Japan market entry is strong specifically when the configuration is done before Japan operations rely on it. What breaks is not HubSpot, it is the assumption that a global configuration will generate valid Japan data without modification.</p>
     </section>
 
     <hr class="article-hr" />
@@ -72,23 +72,23 @@ const breadcrumbSchema = {
 
       <div class="article-checklist">
         <div class="article-checklist__item">
-          <p class="article-checklist__q">Are Japan contacts tracked in the same lifecycle stages as global contacts — with no Japan-specific stage definitions?</p>
+          <p class="article-checklist__q">Are Japan contacts tracked in the same lifecycle stages as global contacts, with no Japan-specific stage definitions?</p>
           <p class="article-checklist__detail">HubSpot's default lifecycle stages (Subscriber → Lead → MQL → SQL → Opportunity → Customer) don't reflect Japan's enterprise evaluation sequence. Japan-facing contacts need stage definitions that account for Japan's trust-building phases before feature evaluation becomes relevant.</p>
         </div>
         <div class="article-checklist__item">
-          <p class="article-checklist__q">Is Japan identified only as a country field — with no dedicated Japan market property that allows Japan-specific segmentation and reporting?</p>
-          <p class="article-checklist__detail">Country filtering produces basic segmentation but not Japan GTM visibility. A dedicated Japan market property enables Japan-specific views, workflows, and reporting that country field alone cannot provide — particularly when a single contact record may be relevant to multiple regional teams.</p>
+          <p class="article-checklist__q">Is Japan identified only as a country field, with no dedicated Japan market property that allows Japan-specific segmentation and reporting?</p>
+          <p class="article-checklist__detail">Country filtering produces basic segmentation but not Japan GTM visibility. A dedicated Japan market property enables Japan-specific views, workflows, and reporting that country field alone cannot provide, particularly when a single contact record may be relevant to multiple regional teams.</p>
         </div>
         <div class="article-checklist__item">
-          <p class="article-checklist__q">Are Japan leads enrolled in the same workflow sequences as global leads — with the same timing, same email templates, and same follow-up logic?</p>
-          <p class="article-checklist__detail">Global workflows designed for Western conversion timelines apply follow-up pressure at the wrong points in Japan's evaluation cycle. Japan-facing workflow sequences need to be designed around Japan's communication norms and evaluation pace — not inherited from US or European defaults.</p>
+          <p class="article-checklist__q">Are Japan leads enrolled in the same workflow sequences as global leads, with the same timing, same email templates, and same follow-up logic?</p>
+          <p class="article-checklist__detail">Global workflows designed for Western conversion timelines apply follow-up pressure at the wrong points in Japan's evaluation cycle. Japan-facing workflow sequences need to be designed around Japan's communication norms and evaluation pace, not inherited from US or European defaults.</p>
         </div>
         <div class="article-checklist__item">
-          <p class="article-checklist__q">Does Japan pipeline appear in the same deal stage views as global — with the same expected close dates and conversion rate benchmarks?</p>
+          <p class="article-checklist__q">Does Japan pipeline appear in the same deal stage views as global, with the same expected close dates and conversion rate benchmarks?</p>
           <p class="article-checklist__detail">Japan deal stages configured against Western close date assumptions produce consistently optimistic Japan pipeline forecasts. Japan enterprise deals take longer at each stage. Without Japan-calibrated deal stages, forecasting is systematically wrong in a direction that creates management pressure based on false signals.</p>
         </div>
         <div class="article-checklist__item">
-          <p class="article-checklist__q">Is Japan-facing HubSpot reporting built from global dashboards — with Japan visible only as a country filter rather than as a dedicated Japan revenue view?</p>
+          <p class="article-checklist__q">Is Japan-facing HubSpot reporting built from global dashboards, with Japan visible only as a country filter rather than as a dedicated Japan revenue view?</p>
           <p class="article-checklist__detail">A country filter on global dashboards shows Japan activity but not Japan pipeline health. Japan-specific reporting needs to show the metrics that matter for Japan's revenue motion: time-in-stage against Japan benchmarks, handoff quality, follow-up SLA adherence, and pipeline progression rate adjusted for Japan's deal pace.</p>
         </div>
       </div>
@@ -103,28 +103,28 @@ const breadcrumbSchema = {
         <div class="article-breakdown__item">
           <div class="article-breakdown__num">01</div>
           <div class="article-breakdown__body">
-            <strong>Lifecycle stage definitions inherited from global — not designed for Japan's evaluation sequence</strong>
-            <p>The IT back-office SaaS company's inherited HubSpot configuration defined SQL as "a contact who has had a discovery call scheduled." In the US operation, this worked: discovery calls were booked within a few days of form submission, and contacts who scheduled them were genuinely in active evaluation. In Japan, the same definition produced a different reality — discovery calls were being scheduled with contacts who were researching informally, not in an active procurement process. Sales was spending time on contacts that met the SQL definition on paper but weren't actually in the buying process.</p>
-            <p>Rebuilding the Japan SQL definition to require confirmed Japan purchase intent, ICP fit, and at least one Japan-relevant intent signal — rather than just call scheduling — changed the SQL count but improved conversion from SQL to opportunity significantly. Fewer MQLs reached SQL, but the SQLs that did were actually in evaluation.</p>
-            <p><strong>Judgment criterion:</strong> Do your Japan lifecycle stage definitions require Japan-specific criteria — not just activity completion — to advance a contact to the next stage?</p>
+            <strong>Lifecycle stage definitions inherited from global, not designed for Japan's evaluation sequence</strong>
+            <p>The IT back-office SaaS company's inherited HubSpot configuration defined SQL as "a contact who has had a discovery call scheduled." In the US operation, this worked: discovery calls were booked within a few days of form submission, and contacts who scheduled them were genuinely in active evaluation. In Japan, the same definition produced a different reality, discovery calls were being scheduled with contacts who were researching informally, not in an active procurement process. Sales was spending time on contacts that met the SQL definition on paper but weren't actually in the buying process.</p>
+            <p>Rebuilding the Japan SQL definition to require confirmed Japan purchase intent, ICP fit, and at least one Japan-relevant intent signal, rather than just call scheduling, changed the SQL count but improved conversion from SQL to opportunity significantly. Fewer MQLs reached SQL, but the SQLs that did were actually in evaluation.</p>
+            <p><strong>Judgment criterion:</strong> Do your Japan lifecycle stage definitions require Japan-specific criteria, not just activity completion, to advance a contact to the next stage?</p>
           </div>
         </div>
         <div class="article-breakdown__item">
           <div class="article-breakdown__num">02</div>
           <div class="article-breakdown__body">
-            <strong>Japan contacts in global workflows — follow-up calibrated for Western markets</strong>
-            <p>The global follow-up workflow enrolled Japan contacts with the same cadence as US contacts: an immediate automated response, a follow-up call attempt at 48 hours, a second email at day 3, a third at day 7. Each touchpoint had a conversion-focused CTA. The sequence was designed to move contacts toward a demo booking as quickly as possible. In Japan, this cadence consistently produced non-response — not because the contacts weren't interested, but because the approach signaled low understanding of Japan's relationship-oriented evaluation process.</p>
+            <strong>Japan contacts in global workflows, follow-up calibrated for Western markets</strong>
+            <p>The global follow-up workflow enrolled Japan contacts with the same cadence as US contacts: an immediate automated response, a follow-up call attempt at 48 hours, a second email at day 3, a third at day 7. Each touchpoint had a conversion-focused CTA. The sequence was designed to move contacts toward a demo booking as quickly as possible. In Japan, this cadence consistently produced non-response, not because the contacts weren't interested, but because the approach signaled low understanding of Japan's relationship-oriented evaluation process.</p>
             <p>The rebuilt Japan workflow started with an acknowledgment email that offered relevant context (not a demo booking link), enrolled contacts in a Japan-specific nurture track with case study and problem-focused content, and made the first call attempt at day 5 rather than day 2. The framing of the call was "understand your situation" rather than "book a demo." Follow-up response rates improved measurably within the first cycle.</p>
-            <p><strong>Judgment criterion:</strong> Are Japan contacts enrolled in Japan-specific HubSpot workflows — or are they in global sequences with the same timing and CTA logic used for Western markets?</p>
+            <p><strong>Judgment criterion:</strong> Are Japan contacts enrolled in Japan-specific HubSpot workflows, or are they in global sequences with the same timing and CTA logic used for Western markets?</p>
           </div>
         </div>
         <div class="article-breakdown__item">
           <div class="article-breakdown__num">03</div>
           <div class="article-breakdown__body">
-            <strong>Japan pipeline in global deal stages — close date assumptions producing false forecast signals</strong>
+            <strong>Japan pipeline in global deal stages, close date assumptions producing false forecast signals</strong>
             <p>The inherited deal stage configuration included expected close date ranges for each stage, calibrated to US deal velocity. A deal at "Proposal Sent" stage was expected to close within 30 days. Japan deals at the same stage were averaging 60-75 days to close. The HubSpot forecast view showed Japan deals as overdue from the moment they entered the pipeline at normal Japan pace. Sales managers read the overdue signals as performance problems. They were actually normal Japan deal timelines being measured against the wrong benchmark.</p>
-            <p>Adding Japan-specific deal stages — and Japan-calibrated expected close date ranges — changed the management signal immediately. Deals that had appeared overdue became deals that were progressing normally for Japan's enterprise evaluation cycle. Attention shifted from performance management to the correct question: pipeline volume and qualification quality.</p>
-            <p><strong>Judgment criterion:</strong> Are your HubSpot deal stages and expected close date benchmarks calibrated to Japan's deal pace — or do they produce "overdue" signals for Japan deals that are actually progressing normally?</p>
+            <p>Adding Japan-specific deal stages, and Japan-calibrated expected close date ranges, changed the management signal immediately. Deals that had appeared overdue became deals that were progressing normally for Japan's enterprise evaluation cycle. Attention shifted from performance management to the correct question: pipeline volume and qualification quality.</p>
+            <p><strong>Judgment criterion:</strong> Are your HubSpot deal stages and expected close date benchmarks calibrated to Japan's deal pace, or do they produce "overdue" signals for Japan deals that are actually progressing normally?</p>
           </div>
         </div>
       </div>
@@ -137,7 +137,7 @@ const breadcrumbSchema = {
       <p>After 4 months of HubSpot configuration work specifically for Japan's buying process at the IT back-office SaaS company, the outcomes were concrete: MQL-to-SQL conversion increased by up to 20%, CAC decreased as sales time concentrated on genuinely qualified contacts, and pipeline reporting gave leadership accurate Japan visibility for the first time. HubSpot hadn't changed. The Japan-specific configuration had.</p>
 
       <div class="article-callout">
-        <p><strong>HubSpot is a strong fit for Japan market entry — when the lifecycle stages, workflows, deal stages, and reporting are configured specifically for Japan's buying environment before the Japan operation relies on them.</strong></p>
+        <p><strong>HubSpot is a strong fit for Japan market entry, when the lifecycle stages, workflows, deal stages, and reporting are configured specifically for Japan's buying environment before the Japan operation relies on them.</strong></p>
       </div>
     </section>
 
@@ -151,7 +151,7 @@ const breadcrumbSchema = {
           <div class="article-breakdown__num">01</div>
           <div class="article-breakdown__body">
             <strong>Add a Japan market property and use it as the primary Japan segmentation field</strong>
-            <p>Create a dedicated "Japan Market" contact property (boolean or picklist) that identifies Japan-facing contacts independently from country. Configure it as the filter for Japan-specific views, workflows, and reporting. This single property becomes the foundation for all Japan-specific HubSpot functionality — and prevents Japan from being managed as a country-filtered subset of a global view.</p>
+            <p>Create a dedicated "Japan Market" contact property (boolean or picklist) that identifies Japan-facing contacts independently from country. Configure it as the filter for Japan-specific views, workflows, and reporting. This single property becomes the foundation for all Japan-specific HubSpot functionality, and prevents Japan from being managed as a country-filtered subset of a global view.</p>
           </div>
         </div>
         <div class="article-breakdown__item">
@@ -165,7 +165,7 @@ const breadcrumbSchema = {
           <div class="article-breakdown__num">03</div>
           <div class="article-breakdown__body">
             <strong>Create Japan-specific deal stages with Japan-calibrated close date expectations</strong>
-            <p>Build a Japan pipeline view with deal stages that reflect Japan enterprise evaluation: trust establishment, evaluation, internal advocacy, approval, and close. Set expected close date ranges at each stage based on Japan's actual deal pace — longer than global averages at most stages. Configure a Japan-specific forecast view using these stages. The management signal will change immediately, from a view showing Japan as chronically overdue to a view showing Japan at its appropriate pace.</p>
+            <p>Build a Japan pipeline view with deal stages that reflect Japan enterprise evaluation: trust establishment, evaluation, internal advocacy, approval, and close. Set expected close date ranges at each stage based on Japan's actual deal pace, longer than global averages at most stages. Configure a Japan-specific forecast view using these stages. The management signal will change immediately, from a view showing Japan as chronically overdue to a view showing Japan at its appropriate pace.</p>
           </div>
         </div>
       </div>
@@ -218,14 +218,14 @@ const breadcrumbSchema = {
 .article-wrap { background: #fff; }
 .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
 .article-head { padding-top: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--color-border, #e2e8f0); }
-.breadcrumb { font-size: 0.8rem; color: var(--color-text-muted, #64748b); margin-bottom: 20px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-.breadcrumb a { color: var(--color-text-muted, #64748b); text-decoration: none; }
+.breadcrumb { font-size: 0.8rem; color: var(--color-text-muted); margin-bottom: 20px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.breadcrumb a { color: var(--color-text-muted); text-decoration: none; }
 .breadcrumb a:hover { color: var(--color-primary, #1e40af); text-decoration: underline; }
 .article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
 .article-cat { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: #eff6ff; color: var(--color-primary, #1e40af); padding: 3px 10px; border-radius: 10px; }
-.article-date, .article-read { font-size: 0.8rem; color: var(--color-text-muted, #64748b); }
+.article-date, .article-read { font-size: 0.8rem; color: var(--color-text-muted); }
 .article-head h1 { font-size: clamp(1.6rem, 3.5vw, 2.25rem); font-weight: 600; color: var(--color-navy, #0f172a); line-height: 1.25; letter-spacing: 0.01em; margin: 0 0 16px; }
-.article-desc { font-size: 1.0625rem; color: var(--color-text-muted, #64748b); line-height: 1.8; margin: 0; }
+.article-desc { font-size: 1.0625rem; color: var(--color-text-muted); line-height: 1.8; margin: 0; }
 .article-body { padding-top: 48px; padding-bottom: 64px; }
 .article-section { margin-bottom: 0; }
 .article-section h2 { font-size: 1.3125rem; font-weight: 600; color: var(--color-navy, #0f172a); margin: 0 0 16px; line-height: 1.35; }
@@ -238,12 +238,12 @@ const breadcrumbSchema = {
 .article-checklist__item { padding: 20px 0; border-bottom: 1px solid var(--color-border, #e2e8f0); }
 .article-checklist__q { font-size: 0.9375rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 8px; padding-left: 1.5rem; position: relative; }
 .article-checklist__q::before { content: '?'; position: absolute; left: 0; font-size: 0.875rem; font-weight: 800; color: var(--color-primary, #1e40af); opacity: 0.4; }
-.article-checklist__detail { font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted, #64748b); margin: 0; padding-left: 1.5rem; }
+.article-checklist__detail { font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted); margin: 0; padding-left: 1.5rem; }
 .article-breakdown { display: flex; flex-direction: column; gap: 0; margin: 24px 0; border-top: 1px solid var(--color-border, #e2e8f0); }
 .article-breakdown__item { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--color-border, #e2e8f0); align-items: flex-start; }
 .article-breakdown__num { font-size: 1.25rem; font-weight: 800; color: var(--color-primary, #1e40af); opacity: 0.3; flex-shrink: 0; line-height: 1.5; min-width: 2.5rem; }
 .article-breakdown__body strong { display: block; font-size: 0.9375rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 6px; }
-.article-breakdown__body p { font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted, #64748b); margin: 0 0 10px; }
+.article-breakdown__body p { font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted); margin: 0 0 10px; }
 .article-breakdown__body p:last-child { margin-bottom: 0; }
 .article-related { padding: 48px 0; border-top: 1px solid var(--color-border, #e2e8f0); }
 .article-related__label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-primary, #1e40af); margin: 0 0 20px; }
@@ -256,7 +256,7 @@ const breadcrumbSchema = {
 .article-cta { background: #f8fafc; border-top: 1px solid var(--color-border, #e2e8f0); padding: 64px 0; }
 .article-cta__body { text-align: center; max-width: 560px; margin: 0 auto; }
 .article-cta__body h2 { font-size: clamp(1.25rem, 3vw, 1.625rem); font-weight: 600; color: var(--color-navy, #0f172a); margin: 0 0 12px; }
-.article-cta__body p { font-size: 0.9375rem; line-height: 1.8; color: var(--color-text-muted, #64748b); margin: 0 0 28px; }
+.article-cta__body p { font-size: 0.9375rem; line-height: 1.8; color: var(--color-text-muted); margin: 0 0 28px; }
 .article-cta__actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 .article-cta__btn { display: inline-flex; align-items: center; padding: 0.75em 1.75em; border-radius: 8px; font-size: 0.9375rem; font-weight: 700; text-decoration: none; transition: background 0.15s, color 0.15s; }
 .article-cta__btn--primary { background: var(--color-primary, #1e40af); color: #fff; border: 2px solid var(--color-primary, #1e40af); }

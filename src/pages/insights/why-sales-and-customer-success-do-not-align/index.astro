@@ -383,12 +383,12 @@ const breadcrumbSchema = {
 
 /* ===== HEADER ===== */
 .article-head { padding: 48px 24px 40px; }
-.breadcrumb { font-size: .78rem; color: var(--color-muted, #64748b); display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 20px; }
-.breadcrumb a { color: var(--color-muted, #64748b); text-decoration: none; }
+.breadcrumb { font-size: .78rem; color: var(--color-text-muted); display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 20px; }
+.breadcrumb a { color: var(--color-text-muted); text-decoration: none; }
 .breadcrumb a:hover { text-decoration: underline; }
 .article-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
 .article-cat  { font-size: .75rem; font-weight: 600; color: var(--color-primary, #1e40af); background: #eff6ff; border-radius: 4px; padding: 3px 10px; }
-.article-date, .article-read { font-size: .78rem; color: var(--color-muted, #64748b); }
+.article-date, .article-read { font-size: .78rem; color: var(--color-text-muted); }
 .article-head h1 { font-size: clamp(1.5rem, 3.5vw, 2rem); font-weight: 600; line-height: 1.45; color: var(--color-navy, #0f172a); margin: 0 0 16px; }
 .article-desc { font-size: 1rem; color: var(--color-charcoal, #334155); line-height: 1.75; margin: 0; }
 .br-pc { display: block; }
@@ -422,7 +422,7 @@ const breadcrumbSchema = {
 
 /* related */
 .article-related { background: #f8fafc; border-radius: 8px; padding: 28px 28px 24px; margin: 48px 0 0; }
-.article-related__title { font-size: .85rem; font-weight: 700; color: var(--color-muted, #64748b); text-transform: uppercase; letter-spacing: .06em; margin: 0 0 14px; }
+.article-related__title { font-size: .85rem; font-weight: 700; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: .06em; margin: 0 0 14px; }
 .article-related__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
 .article-related__list a { font-size: .93rem; color: var(--color-primary, #1e40af); text-decoration: none; }
 .article-related__list a:hover { text-decoration: underline; }
@@ -445,7 +445,7 @@ const breadcrumbSchema = {
    DIAGRAM BASE
    ============================================= */
 .diag { border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; background: #fff; padding: 28px; margin: 32px 0; overflow: hidden; }
-.diag-caption { display: block; text-align: center; font-size: .78rem; color: var(--color-muted, #64748b); margin-top: 16px; line-height: 1.6; }
+.diag-caption { display: block; text-align: center; font-size: .78rem; color: var(--color-text-muted); margin-top: 16px; line-height: 1.6; }
 
 /* =============================================
    DIAGRAM 1 — .diag--cs-gap
@@ -461,8 +461,8 @@ const breadcrumbSchema = {
 .diag-cg-dept__badge--cs    { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
 .diag-cg-dept__kpi  { font-size: .75rem; font-weight: 600; color: var(--color-navy, #0f172a); margin-bottom: 8px; }
 .diag-cg-dept__tools { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; margin-bottom: 8px; }
-.diag-cg-dept__tools span { font-size: .65rem; color: var(--color-muted, #64748b); background: #f1f5f9; border-radius: 3px; padding: 2px 6px; }
-.diag-cg-dept__goal { font-size: .68rem; font-weight: 700; color: var(--color-muted, #64748b); }
+.diag-cg-dept__tools span { font-size: .65rem; color: var(--color-text-muted); background: #f1f5f9; border-radius: 3px; padding: 2px 6px; }
+.diag-cg-dept__goal { font-size: .68rem; font-weight: 700; color: var(--color-text-muted); }
 
 .diag-cg-center { display: flex; flex-direction: column; align-items: center; gap: 8px; }
 .diag-cg-issues { display: flex; flex-direction: column; gap: 6px; }
@@ -471,7 +471,7 @@ const breadcrumbSchema = {
 .diag-cg-cut { font-size: 1.4rem; color: #b91c1c; margin-top: 4px; }
 
 .diag-cg-customer { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--color-border, #e2e8f0); }
-.diag-cg-customer__label { font-size: .68rem; font-weight: 700; color: var(--color-muted, #64748b); white-space: nowrap; }
+.diag-cg-customer__label { font-size: .68rem; font-weight: 700; color: var(--color-text-muted); white-space: nowrap; }
 .diag-cg-customer__text  { font-size: .8rem; font-weight: 700; color: #b91c1c; background: #fef2f2; border-radius: 6px; padding: 6px 14px; }
 
 /* =============================================
@@ -479,7 +479,7 @@ const breadcrumbSchema = {
    ============================================= */
 .diag-lc-header { text-align: center; margin-bottom: 20px; }
 .diag-lc-header__label { display: block; font-size: .85rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 4px; }
-.diag-lc-header__sub   { font-size: .72rem; color: var(--color-muted, #64748b); }
+.diag-lc-header__sub   { font-size: .72rem; color: var(--color-text-muted); }
 
 .diag-lc-stages { display: flex; align-items: stretch; gap: 3px; overflow-x: auto; padding-bottom: 4px; }
 
@@ -495,7 +495,7 @@ const breadcrumbSchema = {
 .diag-lc-stage__sys--cs    { background: #f0fdf4; color: #15803d; }
 .diag-lc-stage__sys--exp   { background: #faf5ff; color: #6d28d9; }
 
-.diag-lc-arrow { font-size: .85rem; color: var(--color-muted, #64748b); flex-shrink: 0; display: flex; align-items: center; }
+.diag-lc-arrow { font-size: .85rem; color: var(--color-text-muted); flex-shrink: 0; display: flex; align-items: center; }
 .diag-lc-arrow--key { color: var(--color-primary, #1e40af); font-weight: 700; }
 
 .diag-lc-handoff { display: flex; align-items: center; gap: 12px; margin-top: 16px; background: #eff6ff; border-radius: 6px; padding: 10px 16px; }
@@ -528,7 +528,7 @@ const breadcrumbSchema = {
 .diag-rc-outcome { background: #f8fafc; border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 14px 12px; text-align: center; }
 .diag-rc-outcome--mid { background: #eff6ff; border-color: #bfdbfe; }
 .diag-rc-outcome__label { font-size: .8rem; font-weight: 700; color: var(--color-navy, #0f172a); margin-bottom: 6px; }
-.diag-rc-outcome__desc  { font-size: .65rem; color: var(--color-muted, #64748b); line-height: 1.6; }
+.diag-rc-outcome__desc  { font-size: .65rem; color: var(--color-text-muted); line-height: 1.6; }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 700px) {

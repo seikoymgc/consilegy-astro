@@ -148,9 +148,37 @@ const topics = [
 			サービスを選ぶ前に、自分がどの段階にいるかだけ確認してください。
 		</p>
 		<div class="hero-actions">
-			<a href="/diagnostic/" class="btn btn--primary btn--lg">3分の収益診断を受ける（無料）→</a>
+			<a href="/diagnostic/" class="btn btn--primary btn--lg">収益を自己診断</a>
 			<a href="#guide" class="btn btn--ghost btn--lg">どこから始めるべきか</a>
 		</div>
+	</div>
+</section>
+
+<!-- ===================== PRODUCT（まだ仕組みがない会社へ） ===================== -->
+<section class="svc-product">
+	<div class="container svc-product__inner">
+		<div class="svc-product__copy">
+			<p class="section-eyebrow">まだ仕組みがない会社へ</p>
+			<h2>CRMがまだない場合は、自社プロダクトから始められます。</h2>
+			<p class="section-lead">
+				40社の再設計で分かった「動くCRMの型」を、そのまま製品にしたのが「Revenue CRM」です。
+				移行作業はなく、Excelでやっていたことがそのまま記録として残るところから始めます。
+				現在クローズドβで、数社限定で開発パートナーを募集しています。
+			</p>
+			<p class="svc-product__note">以下のStep 01〜03は、すでにCRMが入っている会社向けの支援です。</p>
+			<a href="/crm/" class="btn btn--outline-primary">Revenue CRM を見る →</a>
+		</div>
+		<a href="/crm/" class="svc-product__shot" aria-label="Revenue CRMのダッシュボード画面。詳細ページへ">
+			<span class="svc-product__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+			<img
+				src="/images/crm/screen-dashboard.webp"
+				alt="Revenue CRMのダッシュボード。パイプライン総額、加重フォーキャスト、勝率、期限切れタスク、ステージ別パイプライン、注目の商談を一画面に表示。"
+				width="1600"
+				height="1000"
+				loading="lazy"
+				decoding="async"
+			/>
+		</a>
 	</div>
 </section>
 
@@ -246,7 +274,7 @@ const topics = [
 					<li><span class="check" aria-hidden="true">✓</span>課題仮説と優先度の整理</li>
 					<li><span class="check" aria-hidden="true">✓</span>改善の方向性レポート（10〜15ページ）</li>
 				</ul>
-				<a href="/diagnostic/" class="btn btn--primary plan-cta">3分の収益診断（無料）→</a>
+				<a href="/diagnostic/" class="btn btn--primary plan-cta">収益を自己診断</a>
 			</article>
 
 			<article class="plan-card">
@@ -262,7 +290,7 @@ const topics = [
 					<li><span class="check" aria-hidden="true">✓</span>ボトルネック分析と改善ロードマップ</li>
 					<li><span class="check" aria-hidden="true">✓</span>経営報告会（1回）</li>
 				</ul>
-				<a href="/diagnostic/" class="btn btn--primary plan-cta">3分の収益診断（無料）→</a>
+				<a href="/diagnostic/" class="btn btn--primary plan-cta">収益を自己診断</a>
 			</article>
 
 		</div>
@@ -303,7 +331,7 @@ const topics = [
 				<li><span class="check" aria-hidden="true">✓</span>実装ベンダー選定支援（中立）</li>
 				<li><span class="check" aria-hidden="true">✓</span>PMO / ステアリング運営</li>
 			</ul>
-			<a href="/diagnostic/" class="btn btn--primary plan-cta">3分の収益診断（無料）→</a>
+			<a href="/diagnostic/" class="btn btn--primary plan-cta">収益を自己診断</a>
 		</article>
 	</div>
 </section>
@@ -334,7 +362,7 @@ const topics = [
 					<li><span class="check" aria-hidden="true">✓</span>KPIダッシュボードレビュー</li>
 					<li><span class="check" aria-hidden="true">✓</span>課題整理・優先順位づけ</li>
 				</ul>
-				<a href="/diagnostic/" class="btn btn--primary plan-cta">3分の収益診断（無料）→</a>
+				<a href="/diagnostic/" class="btn btn--primary plan-cta">収益を自己診断</a>
 			</article>
 
 			<article class="plan-card">
@@ -350,7 +378,7 @@ const topics = [
 					<li><span class="check" aria-hidden="true">✓</span>施策の優先順位付け</li>
 					<li><span class="check" aria-hidden="true">✓</span>Slack等での非同期相談対応</li>
 				</ul>
-				<a href="/diagnostic/" class="btn btn--primary plan-cta">3分の収益診断（無料）→</a>
+				<a href="/diagnostic/" class="btn btn--primary plan-cta">収益を自己診断</a>
 			</article>
 
 			<article class="plan-card">
@@ -366,7 +394,7 @@ const topics = [
 					<li><span class="check" aria-hidden="true">✓</span>改善プロジェクトのリード</li>
 					<li><span class="check" aria-hidden="true">✓</span>RevOpsチーム内製化支援</li>
 				</ul>
-				<a href="/diagnostic/" class="btn btn--primary plan-cta">3分の収益診断（無料）→</a>
+				<a href="/diagnostic/" class="btn btn--primary plan-cta">収益を自己診断</a>
 			</article>
 
 		</div>
@@ -563,7 +591,7 @@ const topics = [
 				所要3分・無料、結果はその場で表示されます。
 			</p>
 			<div class="cta-actions">
-				<a href="/diagnostic/" class="btn btn--cta-primary btn--lg">3分の収益診断を受ける（無料）→</a>
+				<a href="/diagnostic/" class="btn btn--cta-primary btn--lg">収益を自己診断</a>
 				<a href="/download/" class="btn btn--cta-outline btn--lg">サービス資料をダウンロード</a>
 			</div>
 		</div>
@@ -632,6 +660,41 @@ const topics = [
 .btn--ghost:hover { border-color: var(--color-primary); color: var(--color-primary); }
 
 /* ── Step overview ─────────────────────────────────── */
+/* ── Product（まだ仕組みがない会社へ） ── */
+.svc-product {
+	padding-block: var(--space-2xl);
+	background: var(--color-bg);
+	border-bottom: 1px solid var(--color-border);
+}
+.svc-product__inner {
+	display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+	gap: var(--space-xl); align-items: center;
+}
+.svc-product__copy h2 {
+	font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 700;
+	line-height: 1.35; color: var(--color-text); margin: 0 0 1rem;
+}
+.svc-product__note {
+	margin: 1rem 0 1.25rem; font-size: 0.8125rem; line-height: 1.7; color: var(--color-text-muted);
+	padding-left: 0.85rem; border-left: 2px solid var(--color-border);
+}
+.svc-product__shot {
+	display: block; position: relative; overflow: hidden; justify-self: end;
+	width: 100%; max-width: 600px;
+	border: 1px solid var(--color-border); border-radius: 12px; background: #fff;
+	box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+}
+.svc-product__bar {
+	display: flex; gap: 6px; align-items: center; height: 30px; padding: 0 12px;
+	background: #f3f4f6; border-bottom: 1px solid var(--color-border);
+}
+.svc-product__bar i { width: 8px; height: 8px; border-radius: 50%; background: #d6d9de; }
+.svc-product__shot img { display: block; width: 100%; height: auto; }
+@media (max-width: 900px) {
+	.svc-product__inner { grid-template-columns: 1fr; gap: var(--space-lg); }
+	.svc-product__shot { justify-self: start; max-width: 560px; }
+}
+
 .overview {
 	padding-block: var(--space-2xl);
 	background: var(--color-bg-subtle);

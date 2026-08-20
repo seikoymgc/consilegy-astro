@@ -84,6 +84,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				<h3>定着まで見据えている</h3>
 				<p>導入で終わらせず、現場で使われる状態、改善が回る状態まで伴走します。</p>
 			</div>
+			<div class="cap-card">
+				<div class="cap-num">05</div>
+				<h3>自社プロダクトを持っている</h3>
+				<p>40社の再設計で分かった「動くCRMの型」を、自社プロダクト「<a href="/crm/">Revenue CRM</a>」として開発しています（クローズドβ）。設計する側が、道具も作る立場です。</p>
+			</div>
 		</div>
 	</div>
 </section>
@@ -412,7 +417,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			所要3分・無料、結果はその場で表示されます。
 		</p>
 		<div class="cta-actions">
-			<a href="/diagnostic/" class="btn btn--cta-primary btn--lg">3分の収益診断を受ける（無料）→</a>
+			<a href="/diagnostic/" class="btn btn--cta-primary btn--lg">収益を自己診断</a>
 			<a href="/download/" class="btn btn--cta-outline btn--lg">サービス資料をダウンロード</a>
 		</div>
 	</div>
@@ -467,7 +472,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 }
 .cap-head { max-width: 720px; margin-bottom: 3rem; }
 .cap-head h2 { font-size: 1.875rem; font-weight: 700; line-height: 1.4; margin: 0 0 1rem; color: var(--color-text); }
-.cap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+.cap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.cap-card a { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; }
 .cap-card {
 	background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 8px;
 	padding: 2rem 1.75rem; display: flex; flex-direction: column; gap: 0.75rem;

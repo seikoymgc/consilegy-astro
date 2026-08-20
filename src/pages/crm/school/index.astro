@@ -32,10 +32,10 @@ const problems = [
 ];
 
 const roles = [
-	{ name: 'オーナー', scope: 'すべて' },
-	{ name: '管理者', scope: '運用全般と権限設定' },
-	{ name: 'マネージャー', scope: '担当生徒とチームの生徒データを閲覧・編集' },
-	{ name: 'メンバー（コーチ）', scope: '担当生徒のみ' },
+	{ name: 'オーナー', scope: '全教室・全生徒・請求・権限設定' },
+	{ name: '教室管理者', scope: '教室運用全般と権限設定' },
+	{ name: 'マネージャー', scope: '担当教室・担当チームの生徒データを閲覧・編集' },
+	{ name: 'コーチ', scope: '担当生徒の情報とレッスン記録のみ' },
 ];
 ---
 
@@ -72,7 +72,7 @@ const roles = [
 			<ul class="hero-points" aria-label="スクール版の特徴">
 				<li>生徒・レッスン・請求を一元管理</li>
 				<li>スマホ前提のコーチ向けUI</li>
-				<li>クローズドβで提供中</li>
+				<li>クローズドβで開発中</li>
 			</ul>
 		</div>
 		<figure class="hero-media">

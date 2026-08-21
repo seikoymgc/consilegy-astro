@@ -104,7 +104,7 @@ const breadcrumbSchema = {
           <div class="article-breakdown__num">01</div>
           <div class="article-breakdown__body">
             <strong>Japan data is not separated in the CRM from the start</strong>
-            <p>If Japan contacts are not tagged at the point of entry, with a market, region, or target-country property, every downstream report requires manual filtering that is inconsistent, error-prone, and often skipped. The result is that Japan reporting depends on someone remembering to exclude non-Japan data, which eventually stops happening.</p>
+            <p>If Japan contacts are not tagged at the point of entry with a market, region, or target-country property, every downstream report requires manual filtering that is inconsistent, error-prone, and often skipped. The result is that Japan reporting depends on someone remembering to exclude non-Japan data, which eventually stops happening.</p>
             <p>This is an architecture decision, not a reporting decision. It has to be made when the CRM is first configured for Japan. Retrofitting it after the data is mixed is one of the most time-consuming cleanup projects in revenue operations.</p>
             <p><strong>Judgment criterion:</strong> Can you filter every contact, deal, and campaign in your CRM to Japan only, with a single property filter? If not, the data architecture needs to be fixed before reporting can be meaningful.</p>
           </div>
@@ -122,8 +122,8 @@ const breadcrumbSchema = {
           <div class="article-breakdown__num">03</div>
           <div class="article-breakdown__body">
             <strong>Reporting is produced manually, not from a connected data foundation</strong>
-            <p>Japan revenue reporting that requires manual data aggregation, exporting from CRM, combining with ad platform data, preparing in a spreadsheet, is reporting that happens inconsistently, with a lag, and with accumulating data quality issues. Teams spend time producing the report instead of using it. The report reflects data from two weeks ago by the time it's reviewed.</p>
-            <p>A connected data foundation: CRM with Japan properties properly configured, website tracking linked to contact records, pipeline reporting built on real-time data, eliminates the aggregation work and makes Japan visibility something the team actually uses rather than something that gets produced monthly.</p>
+            <p>Japan revenue reporting that requires manual data aggregation (exporting from CRM, combining with ad platform data, preparing in a spreadsheet) is reporting that happens inconsistently, with a lag, and with accumulating data quality issues. Teams spend time producing the report instead of using it. The report reflects data from two weeks ago by the time it's reviewed.</p>
+            <p>A connected data foundation (CRM with Japan properties properly configured, website tracking linked to contact records, pipeline reporting built on real-time data) eliminates the aggregation work and makes Japan visibility something the team actually uses rather than something that gets produced monthly.</p>
             <p><strong>Judgment criterion:</strong> How long does it take to answer the question "what is Japan's MQL-to-SQL conversion rate this quarter?" If the answer is "I need to pull a report," the foundation isn't connected yet.</p>
           </div>
         </div>
@@ -168,7 +168,7 @@ const breadcrumbSchema = {
           <div class="article-breakdown__num">03</div>
           <div class="article-breakdown__body">
             <strong>Build one Japan-only dashboard before adding complexity</strong>
-            <p>A single dashboard filtered to Japan contacts, showing MQL volume, pipeline value, conversion rate, and sales cycle length, is more actionable than ten global dashboards that include Japan as a footnote. Build the Japan view first, then layer complexity once the foundation is working.</p>
+            <p>A single dashboard filtered to Japan contacts (showing MQL volume, pipeline value, conversion rate, and sales cycle length) is more actionable than ten global dashboards that include Japan as a footnote. Build the Japan view first, then layer complexity once the foundation is working.</p>
           </div>
         </div>
       </div>

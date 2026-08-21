@@ -105,14 +105,14 @@ const breadcrumbSchema = {
           <div class="article-breakdown__body">
             <strong>CRM configured before lifecycle stages and qualification criteria were defined</strong>
             <p>The healthtech company had implemented HubSpot with six pipeline stages: New Lead, Contacted, Qualified, Demo Completed, Proposal Sent, Closed. These stages were adopted directly from HubSpot's default sales pipeline template. Nobody had defined what "Qualified" meant in the company's specific context, which customers qualified, what signals indicated qualification, or who made the qualification decision. Each team member interpreted it differently.</p>
-            <p>When the architecture layer was added, defining qualification criteria specifically for the company's customer base, documenting who owns each stage transition, and reconfiguring the pipeline to reflect actual deal progression, the pipeline stage distribution changed significantly. Several contacts that had been marked "Qualified" for months were reclassified as early-stage. The pipeline looked smaller, but it was accurate. Management could make decisions from it for the first time.</p>
+            <p>When the architecture layer was added (defining qualification criteria specifically for the company's customer base, documenting who owns each stage transition, and reconfiguring the pipeline to reflect actual deal progression), the pipeline stage distribution changed significantly. Several contacts that had been marked "Qualified" for months were reclassified as early-stage. The pipeline looked smaller, but it was accurate. Management could make decisions from it for the first time.</p>
             <p><strong>Judgment criterion:</strong> Were lifecycle stage definitions, qualification criteria, and handoff rules documented and agreed on before the CRM was configured, or was the CRM configured first and the definitions interpreted afterward?</p>
           </div>
         </div>
         <div class="article-breakdown__item">
           <div class="article-breakdown__num">02</div>
           <div class="article-breakdown__body">
-            <strong>No ownership rules, contacts logged but not worked</strong>
+            <strong>No ownership rules: contacts logged but not worked</strong>
             <p>The healthtech company's HubSpot had a contact ownership field, but ownership assignment was informal. When a new contact entered, whoever noticed it first either took ownership or left it for someone else. No rule defined what happened at which trigger. No task was created at ownership assignment. No SLA specified when the first action needed to happen.</p>
             <p>The result: contacts that had been assigned for weeks with no activity. The CRM showed ownership, it didn't show inaction. A simple configuration change, creating a task automatically at ownership assignment, with a 48-hour completion window, made the gap visible immediately. The number of contacts with overdue tasks was the first honest picture management had seen of how the team was actually handling inbound leads.</p>
             <p><strong>Judgment criterion:</strong> When a lead enters the CRM and is assigned, does a task automatically appear for the owner, with a defined deadline that makes inaction visible to management?</p>
@@ -123,7 +123,7 @@ const breadcrumbSchema = {
           <div class="article-breakdown__body">
             <strong>Data management treated as a CRM maintenance task, not as a structural design problem</strong>
             <p>The healthtech company had a team member spending approximately 100 hours per month on HubSpot data management: merging duplicate contacts, correcting stage assignments, updating ownership records, and cleaning contact properties that had been filled in inconsistently. This was treated as a maintenance necessity, the cost of keeping the CRM usable.</p>
-            <p>The root cause was structural: the CRM was configured with optional fields that became inconsistently filled, default settings that allowed duplicate creation, and no validation rules that prevented common data quality errors at the point of entry. Adding required fields for key properties, configuring duplicate detection, and building validation into the CRM's intake flows reduced data management time by approximately 65% within 3 months. The maintenance task had been treated as inevitable, it was actually a solvable design problem.</p>
+            <p>The root cause was structural: the CRM was configured with optional fields that became inconsistently filled, default settings that allowed duplicate creation, and no validation rules that prevented common data quality errors at the point of entry. Adding required fields for key properties, configuring duplicate detection, and building validation into the CRM's intake flows reduced data management time by approximately 65% within 3 months. The maintenance task had been treated as inevitable. It was actually a solvable design problem.</p>
             <p><strong>Judgment criterion:</strong> Are your CRM's most common data quality problems caused by inconsistent data entry, which configuration changes could prevent, or by deliberate decisions to ignore data standards?</p>
           </div>
         </div>
@@ -134,7 +134,7 @@ const breadcrumbSchema = {
 
     <section class="article-section">
       <h2>What building architecture before (and after) CRM implementation changed</h2>
-      <p>After 3 months of architecture work at the healthtech company, defining qualification criteria, documenting ownership rules, rebuilding pipeline stages, and configuring HubSpot to enforce the new structure, the concrete results were: approximately 65% reduction in data management time, approximately 100 hours per month freed from operational tasks, and a team that had shifted from managing the CRM to operating from it.</p>
+      <p>After 3 months of architecture work at the healthtech company (defining qualification criteria, documenting ownership rules, rebuilding pipeline stages, and configuring HubSpot to enforce the new structure), the concrete results were: approximately 65% reduction in data management time, approximately 100 hours per month freed from operational tasks, and a team that had shifted from managing the CRM to operating from it.</p>
 
       <div class="article-callout">
         <p><strong>The CRM tool hadn't changed. What changed was that the revenue architecture it was supposed to implement had been designed, and the CRM had been configured to enforce rather than ignore that architecture.</strong></p>

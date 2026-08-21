@@ -123,7 +123,7 @@ const breadcrumbSchema = {
           <div class="article-breakdown__body">
             <strong>Handoff triggers conflate lifecycle stage change with lead status change</strong>
             <p>The handoff from marketing to sales should trigger when a contact reaches MQL, a lifecycle stage change that should fire automatically when the defined qualification criteria are met. Sales follow-up reminders and escalations should trigger based on lead status changes: no response after X days in "New," task created when status moves to "Attempting."</p>
-            <p>When these two trigger types are mixed, when a lifecycle stage change creates a follow-up task, or when a lead status change advances the lifecycle stage, the result is either duplicate notifications that sales learns to ignore, or missed handoffs because the trigger was configured on the wrong property. For Japan, where the timing of sales outreach affects relationship quality, getting this wiring right matters.</p>
+            <p>When these two trigger types are mixed (when a lifecycle stage change creates a follow-up task, or when a lead status change advances the lifecycle stage), the result is either duplicate notifications that sales learns to ignore, or missed handoffs because the trigger was configured on the wrong property. For Japan, where the timing of sales outreach affects relationship quality, getting this wiring right matters.</p>
             <p><strong>Judgment criterion:</strong> Are your HubSpot enrollment triggers for handoff workflows set on lifecycle stage change, and your follow-up task reminders set on lead status change, as separate, distinct automations?</p>
           </div>
         </div>
@@ -135,7 +135,7 @@ const breadcrumbSchema = {
     <section class="article-section">
       <h2>What separating the two systems changed</h2>
       <p>An IT back-office SaaS company had MQL volume growing but sales couldn't see which leads were worth pursuing. There was no quantitative model for prioritizing leads by conversion likelihood. SQL conversion rates fluctuated, making forecasting unreliable. Marketing had no visibility into what happened to leads after handoff.</p>
-      <p>After separating lifecycle stages and lead status into distinct systems, each with clear definitions, documented ownership rules, and proper automation triggers, the team could see where each contact was in the buyer journey independently of where sales was in the follow-up process. Behavior-based lead scoring was added to prioritize within the MQL pool. Stage-specific nurturing was aligned to lifecycle stage, not lead status.</p>
+      <p>After separating lifecycle stages and lead status into distinct systems (each with clear definitions, documented ownership rules, and proper automation triggers), the team could see where each contact was in the buyer journey independently of where sales was in the follow-up process. Behavior-based lead scoring was added to prioritize within the MQL pool. Stage-specific nurturing was aligned to lifecycle stage, not lead status.</p>
 
       <div class="article-callout">
         <p><strong>MQL-to-SQL conversion increased by up to 20%. Sales reduced time on low-quality leads and focused on high-intent prospects. Forecasting became reliable because pipeline stages reflected actual buyer position rather than sales activity.</strong></p>
@@ -152,7 +152,7 @@ const breadcrumbSchema = {
           <div class="article-breakdown__num">01</div>
           <div class="article-breakdown__body">
             <strong>Audit your current lifecycle stage and lead status values and document what each one means</strong>
-            <p>Write down what criteria must be true for a contact to be in each lifecycle stage. Then write down what each lead status value means in terms of sales activity. If the two systems overlap, if stage definitions include sales actions, or if status values describe buyer position, that is the configuration problem to fix first.</p>
+            <p>Write down what criteria must be true for a contact to be in each lifecycle stage. Then write down what each lead status value means in terms of sales activity. If the two systems overlap (if stage definitions include sales actions, or if status values describe buyer position), that is the configuration problem to fix first.</p>
           </div>
         </div>
         <div class="article-breakdown__item">

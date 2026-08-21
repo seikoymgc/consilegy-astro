@@ -1,0 +1,1009 @@
+---
+import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const slug = 'why-crm-investment-does-not-pass-the-board';
+const pubDate = '2026-08-21';
+const pubDateDisplay = '2026年8月21日';
+
+const title = '経営会議でCRM投資が通らない理由｜「選べる状態」をつくる3つの数字';
+const metaTitle = '経営会議でCRM投資が通らない理由｜「選べる状態」をつくる3つの数字 | Consilegy';
+const metaDescription = '効果試算も他社比較もそろえたのに「もう少し様子を見よう」で終わる。経営がCRM投資を判断できないのは情報が足りないからではなく、選択肢がやるかやらないかの二択しかないからです。可逆性を示す3つの数字を解説します。';
+const category = '経営';
+
+const faqItems = [
+	{
+		q: '撤退基準とは何ですか？',
+		a: '撤退基準とは、投資した施策やシステムについて、どの数字がどの水準を下回ったら縮小または中止するかを、着手前に決めておく取り決めです。始める前に決めるという点が重要で、実績が出てから判断すると、それまでに使った費用が判断を歪めます。撤退基準があると、経営は「やるかやらないか」ではなく「どこまで試すか」を選べるようになります。',
+	},
+	{
+		q: 'なぜ効果試算を出しても投資判断が進まないのですか？',
+		a: '効果試算はうまくいった場合の話であり、経営が気にしているのは外れた場合だからです。想定通りに進まなかったとき、いつ気づけて、何を止められて、いくら残るのか。この3点が示されていないと、決裁者は判断を先送りするほうが安全になります。',
+	},
+	{
+		q: '小さく始める提案は、本気度が低いと見られませんか？',
+		a: '逆になることが多いです。全額を一度に投じる案は、外れたときの損失が全額になります。段階に分けた案は、途中で止められるぶん最大損失が小さく、判断する側の負担が軽くなります。ただし各段階に、進む条件と止める条件を明示しておく必要があります。',
+	},
+	{
+		q: '経営に報告すべき数字は何ですか？',
+		a: '回収期間・最大損失額・撤退の判断時期の3つです。いずれも「うまくいったらいくら儲かるか」ではなく、「外れたときにどうなるか」を示す数字です。この3つがそろうと、経営は判断を先送りせずにその場で選べます。',
+	},
+];
+
+const articleSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: title,
+	description: metaDescription,
+	datePublished: pubDate,
+	dateModified: pubDate,
+	author: { '@type': 'Person', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
+	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+	url: `https://consilegy.com/insights/${slug}/`,
+	inLanguage: 'ja',
+};
+
+const faqSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faqItems.map(({ q, a }) => ({
+		'@type': 'Question',
+		name: q,
+		acceptedAnswer: { '@type': 'Answer', text: a },
+	})),
+};
+
+const breadcrumbSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://consilegy.com/' },
+		{ '@type': 'ListItem', position: 2, name: 'コラム', item: 'https://consilegy.com/insights/' },
+		{ '@type': 'ListItem', position: 3, name: title, item: `https://consilegy.com/insights/${slug}/` },
+	],
+};
+---
+
+<BaseLayout
+	title={metaTitle}
+	description={metaDescription}
+	lang="ja"
+>
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	</Fragment>
+
+<div class="article-wrap">
+
+	<header class="article-head container">
+		<nav class="breadcrumb" aria-label="パンくずリスト">
+			<a href="/">ホーム</a>
+			<span aria-hidden="true">›</span>
+			<a href="/insights/">コラム</a>
+			<span aria-hidden="true">›</span>
+			<span aria-current="page">{title}</span>
+		</nav>
+		<div class="article-meta">
+			<span class="article-cat">{category}</span>
+		</div>
+		<h1>経営会議でCRM投資が<br class="br-pc" />通らない理由</h1>
+		<p class="article-desc">効果試算も他社比較も用意しました。質問にも答えました。それでも結論は「もう少し様子を見よう」。情報が足りないのではありません。経営に渡っている選択肢が、やるかやらないかの2つしかないからです。</p>
+	</header>
+
+	<article class="article-body container" id="article">
+		<div class="article-eyecatch">
+			<img
+				src={`/images/insights/${slug}.svg`}
+				alt=""
+				width="1200"
+				height="630"
+				class="article-eyecatch__img"
+				loading="eager"
+				aria-hidden="true"
+			/>
+		</div>
+
+		<section class="article-section article-def" id="definition">
+			<h2>撤退基準とは</h2>
+			<p class="article-def__text"><strong>撤退基準とは</strong>、投資した施策やシステムについて、どの数字がどの水準を下回ったら縮小または中止するかを、着手する前に決めておく取り決めです。着手前に決める点が重要で、実績が出てから判断しようとすると、それまでに使った費用が判断を歪めます。撤退基準があると、経営は「やるかやらないか」ではなく「どこまで試すか」を選べるようになります。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section">
+			<h2>資料は完璧だった。それでも結論は出なかった</h2>
+			<p>年間1,200万円のCRM刷新。資料には現状の課題、他社の導入事例、想定される効果、3年間の投資対効果が並んでいます。質疑にも答えました。反対意見も出ませんでした。</p>
+			<p>そして会議の最後に、こう言われます。「方向性は分かった。もう少し様子を見よう」。</p>
+			<p>これを「経営が理解してくれない」と受け取ると、次回は資料が厚くなります。効果試算の根拠を足し、事例を増やし、他社との比較表を作る。そして同じ結論が返ってきます。</p>
+			<div class="article-callout">
+				<p><strong>経営が判断を先送りするのは、情報が不足しているからではありません。</strong>渡された選択肢が「全部やる」か「やらない」の2つしかなく、どちらを選んでも取り返しがつかないように見えるからです。</p>
+			</div>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section">
+			<h2>経営が見ているのは、上振れではなく引き返せるか</h2>
+			<p>提案する側は、うまくいった場合の話を厚くします。当然です。良い案だと思っているから提案しています。</p>
+			<p>ただ、決裁する側の関心はそこにありません。経営が意思決定するとき、頭の中で確認しているのは次の3つです。</p>
+			<div class="article-numbered">
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">01</p>
+					<h3>いつ、うまくいっていないと分かるのか</h3>
+					<p>1年後に「実は最初からずれていました」と報告されるのが、いちばん困ります。3か月後にどの数字を見れば判断できるのかが示されていれば、経営は安心して始められます。早く分かる設計は、それ自体が価値です。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">02</p>
+					<h3>外れたとき、最大でいくら失うのか</h3>
+					<p>1,200万円の案件でも、途中で止められるなら最大損失は1,200万円ではありません。第1段階が300万円で、そこで判断できるなら、経営が背負うリスクは300万円です。この違いは、決裁のしやすさを大きく変えます。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">03</p>
+					<h3>止めたとき、何が残るのか</h3>
+					<p>途中で止めても、整理したデータや揃えた定義は残ります。ツールの契約は解約できても、業務の整理は資産として残る。これが説明されていると、投資の下限が見えます。全部が消えるわけではないと分かるだけで、判断は軽くなります。</p>
+				</div>
+			</div>
+			<p>3つとも、うまくいく話ではありません。外れたときの話です。提案書の中でいちばん薄い部分が、決裁者にとっていちばん厚く読まれています。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section">
+			<h2>「やる・やらない」を、「どこまで試すか」に変える</h2>
+			<p>二択で持っていくと、経営は選べません。正確に言えば、選ぶ理由がありません。判断を先送りしても、その期に損失は出ないからです。</p>
+			<p>選べる状態にするには、選択肢を3つ以上にします。たとえば1,200万円の刷新であれば、次のように分けられます。</p>
+			<p>第1段階は、現状のデータ整理と定義の言語化で300万円。ここで得られるのは、どこで取りこぼしているかの特定です。第2段階は、対象を1部門に絞った再設計で400万円。ここで見るのは、その部門の商談化率が動くかどうか。第3段階で全社に広げます。</p>
+			<p>各段階に、進む条件と止める条件を書いておきます。<strong>止める条件を先に書いておくと、止める判断が失敗ではなく計画の一部になります。</strong>これがないと、途中で気づいても止められません。すでに使った費用が惜しくなるからです。</p>
+			<p>提案する側にとっては、金額が小さくなるので不利に見えるかもしれません。実際には、通る確率が上がるぶん有利です。300万円が通れば、そこで出た結果が次の400万円の材料になります。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section">
+			<h2>最初の一手：3つの数字を、1枚に書く</h2>
+			<p>次の提案の前に、次の3行を書いてみてください。効果試算より先に、この3行です。</p>
+			<div class="article-numbered">
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">01</p>
+					<h3>この投資は、何か月で回収できる見込みか</h3>
+					<p>粗い数字で構いません。回収期間という形にすると、費用ではなく投資として議論できます。前提が甘い箇所は「ここは仮置きです」と明記してください。隠すより、示したほうが信用されます。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">02</p>
+					<h3>途中で止めた場合、最大いくらの損失か</h3>
+					<p>段階を分けて、第1段階だけの金額を書きます。経営が背負うのはこの額です。全体金額と最大損失額は別物だと示すだけで、判断の重さが変わります。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">03</p>
+					<h3>いつ、どの数字を見て、続けるか止めるかを決めるか</h3>
+					<p>「3か月後、対象部門の商談化率が現状から改善していなければ第2段階には進まない」。この1行があると、経営は判断を先送りする理由を失います。決める場所と時期が、先に決まっているからです。</p>
+				</div>
+			</div>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section">
+			<h2>まとめ：判断してもらうとは、選べる状態にすること</h2>
+			<p>経営会議で投資が通らない原因は、提案の質でも経営の理解不足でもありません。選択肢が二択のままで、どちらにも決め手がない状態のまま持ち込まれていることです。</p>
+			<p>人が決められないのは、情報が足りないときではなく、選べる形になっていないときです。段階に分け、止める条件を先に書き、最大損失を明示する。これだけで、同じ提案が判断可能なものに変わります。</p>
+			<p>最初の一歩は、直近で保留になった提案を開いて、そこに撤退の条件が書かれているか確認することです。書かれていなければ、経営は判断できなかったのではなく、判断する材料を渡されていませんでした。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section article-faq" id="faq">
+			<h2>よくある質問</h2>
+			<div class="faq-list">
+				{faqItems.map(({ q, a }) => (
+					<details class="faq-item">
+						<summary class="faq-q">{q}</summary>
+						<p class="faq-a">{a}</p>
+					</details>
+				))}
+			</div>
+		</section>
+
+		<p class="article-pubdate">公開日：{pubDateDisplay}</p>
+	</article>
+
+	<nav class="article-services" aria-label="関連サービス">
+		<h2 class="article-services__heading">関連サービス</h2>
+		<div class="article-services__grid">
+		<a href="/services/revenue-architecture-design/" class="article-services__card">
+				<span class="article-services__cat">サービス</span>
+				<span class="article-services__title">レベニューアーキテクチャ設計</span>
+				<span class="article-services__arrow">→</span>
+			</a>
+		<a href="/services/crm-revops-redesign/" class="article-services__card">
+				<span class="article-services__cat">サービス</span>
+				<span class="article-services__title">CRM / RevOps再設計支援</span>
+				<span class="article-services__arrow">→</span>
+			</a>
+		</div>
+	</nav>
+	<NewsletterSidebar />
+
+	<aside class="article-related container">
+		<p class="article-related__label">関連コンテンツ</p>
+		<div class="article-related__grid">
+			<a href="/revenue-architecture/" class="article-related__card">
+				<p class="article-related__card-cat">概念解説</p>
+				<p class="article-related__card-title">Revenue Architecture（レベニューアーキテクチャ）とは</p>
+				<span class="article-related__card-arrow">→</span>
+			</a>
+			<a href="/about-revops/" class="article-related__card">
+				<p class="article-related__card-cat">概念解説</p>
+				<p class="article-related__card-title">RevOps（レベニューオペレーション）とは</p>
+				<span class="article-related__card-arrow">→</span>
+			</a>
+			<a href="/insights/why-dashboards-do-not-improve-executive-decisions/" class="article-related__card">
+				<p class="article-related__card-cat">関連記事</p>
+				<p class="article-related__card-title">ダッシュボードを作っても意思決定が速くならない理由</p>
+				<span class="article-related__card-arrow">→</span>
+			</a>
+		</div>
+	</aside>
+
+	<section class="article-cta">
+		<div class="container">
+			<div class="article-cta__body">
+				<h2>Consilegyでは、Revenue Architectureの観点から<br class="br-pc" />売上の取りこぼしを可視化する無料の収益診断を公開しています。</h2>
+				<ul class="article-cta__list">
+					<li>提案が「様子を見よう」で止まることが続いている</li>
+					<li>効果試算は作れるが、撤退の条件を書いたことがない</li>
+					<li>投資の判断に必要な数字が、部門をまたいで散らばっている</li>
+				</ul>
+				<p class="article-cta__note">ツールの前に、「設計図」から整理することが、最短の改善ルートです。</p>
+				<div class="article-cta__actions">
+					<a href="/diagnostic/" class="btn btn--cta-primary">収益を自己診断</a>
+					<a href="/services/revenue-architecture-design/" class="btn btn--cta-ghost">レベニューアーキテクチャ設計を見る</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</div>
+</BaseLayout>
+<style>
+	/* ── 定義ブロック（LLMO） ─── */
+	.article-def__text {
+		background: var(--color-bg-soft, #f8fafc);
+		border-left: 4px solid var(--color-primary, #1e40af);
+		border-radius: 0 8px 8px 0;
+		padding: 1.25rem 1.5rem;
+		font-size: 1rem;
+		line-height: 1.85;
+		color: var(--color-navy, #0f172a);
+	}
+
+	/* ── 記事末FAQ（LLMO） ─── */
+	.faq-list {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.faq-item {
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		background: #fff;
+		overflow: hidden;
+	}
+
+	.faq-q {
+		font-size: 0.95rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		padding: 1.1rem 1.25rem;
+		cursor: pointer;
+		list-style: none;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+		line-height: 1.5;
+	}
+
+	.faq-q::-webkit-details-marker { display: none; }
+
+	.faq-q::after {
+		content: '+';
+		font-size: 1.25rem;
+		font-weight: 300;
+		color: var(--color-primary, #1e40af);
+		flex-shrink: 0;
+		transition: transform 0.2s;
+	}
+
+	details[open] .faq-q::after { transform: rotate(45deg); }
+
+	.faq-a {
+		font-size: 0.9rem;
+		line-height: 1.8;
+		color: var(--color-charcoal, #334155);
+		padding: 0 1.25rem 1.25rem;
+		margin: 0;
+	}
+
+	/* ── Eyecatch ─── */
+	.article-eyecatch {
+		margin-bottom: 2rem;
+		border-radius: 8px;
+		overflow: hidden;
+		max-height: 360px;
+	}
+	.article-eyecatch__img {
+		width: 100%; height: auto; display: block;
+		max-height: 360px; object-fit: cover;
+	}
+	/* ── Layout ────────────────────────────────────────────── */
+	.article-wrap { background: #fff; }
+
+	.container {
+		max-width: 800px;
+		margin-inline: auto;
+		padding-inline: var(--space-md, 1.5rem);
+	}
+
+	.br-pc { display: inline; }
+
+	/* ── Breadcrumb ────────────────────────────────────────── */
+	.breadcrumb {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.4em;
+		font-size: 0.8rem;
+		color: var(--color-text-muted);
+		margin-bottom: 2rem;
+	}
+
+	.breadcrumb a { color: inherit; text-decoration: none; }
+	.breadcrumb a:hover { color: var(--color-primary, #1e40af); }
+
+	/* ── Article header ────────────────────────────────────── */
+	.article-head {
+		padding-top: 3rem;
+		padding-bottom: 2.5rem;
+		border-bottom: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.article-meta {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		margin-bottom: 1.25rem;
+		flex-wrap: wrap;
+	}
+
+	.article-cat {
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--color-primary, #1e40af);
+		background: rgba(30, 64, 175, 0.07);
+		padding: 0.2em 0.7em;
+		border-radius: 4px;
+	}
+
+	.article-date,
+	.article-read {
+		font-size: 0.8rem;
+		color: var(--color-text-muted);
+	}
+
+	.article-date::before {
+		content: '';
+		display: inline-block;
+		width: 1px;
+		height: 0.9em;
+		background: var(--color-border, #e2e8f0);
+		margin-right: 0.75rem;
+		vertical-align: middle;
+	}
+
+	.article-head h1 {
+		font-size: clamp(1.5rem, 3vw, 2.1rem);
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		line-height: 1.35;
+		margin: 0 0 1rem;
+	}
+
+	.article-desc {
+		font-size: 1rem;
+		line-height: 1.75;
+		color: var(--color-charcoal, #334155);
+		margin: 0;
+	}
+
+	/* ── Article body ──────────────────────────────────────── */
+	.article-body { padding-block: 3rem; }
+
+	.article-section { margin-bottom: 0; }
+
+	.article-section h2 {
+		font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		margin: 0 0 1.25rem;
+		line-height: 1.45;
+		padding-bottom: 0.6rem;
+		border-bottom: 2px solid var(--color-border, #e2e8f0);
+	}
+
+	.article-section h3 {
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		margin: 2rem 0 0.75rem;
+	}
+
+	.article-section p {
+		font-size: 0.975rem;
+		line-height: 1.9;
+		color: var(--color-charcoal, #334155);
+		margin: 0 0 1rem;
+	}
+
+	.article-section ul {
+		margin: 0 0 1.25rem;
+		padding: 0;
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.article-section ul li {
+		padding-left: 1.25rem;
+		position: relative;
+		font-size: 0.95rem;
+		line-height: 1.7;
+		color: var(--color-charcoal, #334155);
+	}
+
+	.article-section ul li::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0.65em;
+		width: 5px;
+		height: 5px;
+		border-radius: 50%;
+		background: var(--color-primary, #1e40af);
+		opacity: 0.5;
+	}
+
+	.article-hr {
+		border: none;
+		border-top: 1px solid var(--color-border, #e2e8f0);
+		margin: 3rem 0;
+	}
+
+	/* ── Callout ───────────────────────────────────────────── */
+	.article-callout {
+		background: var(--color-bg-soft, #f8fafc);
+		border-left: 4px solid var(--color-primary, #1e40af);
+		border-radius: 0 8px 8px 0;
+		padding: 1.1rem 1.5rem;
+		margin: 1.5rem 0;
+	}
+
+	.article-callout p {
+		margin: 0;
+		font-size: 0.95rem;
+		line-height: 1.8;
+		color: var(--color-navy, #0f172a);
+	}
+
+	/* ── Numbered blocks ───────────────────────────────────── */
+	.article-numbered {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		margin-top: 1.5rem;
+	}
+
+	.article-numbered__item {
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		padding: 1.5rem;
+		background: #fff;
+	}
+
+	.article-numbered__num {
+		font-size: 0.7rem;
+		font-weight: 800;
+		letter-spacing: 0.12em;
+		color: var(--color-primary, #1e40af);
+		margin: 0 0 0.5rem;
+	}
+
+	.article-numbered__item h3 {
+		margin: 0 0 0.75rem;
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+	}
+
+	.article-numbered__item p {
+		margin: 0;
+		font-size: 0.9rem;
+		line-height: 1.8;
+		color: var(--color-charcoal, #334155);
+	}
+
+	/* ── Table ─────────────────────────────────────────────── */
+	.article-table-wrap {
+		overflow-x: auto;
+		margin: 1.5rem 0;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+	}
+
+	.article-table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 0.9rem;
+	}
+
+	.article-table thead th {
+		padding: 0.75rem 1.25rem;
+		background: var(--color-navy, #0f172a);
+		color: #fff;
+		font-weight: 700;
+		text-align: left;
+		white-space: nowrap;
+	}
+
+	.article-table tbody td {
+		padding: 0.75rem 1.25rem;
+		border-bottom: 1px solid var(--color-border, #e2e8f0);
+		color: var(--color-charcoal, #334155);
+		line-height: 1.6;
+	}
+
+	.article-table tbody tr:last-child td { border-bottom: none; }
+
+	.article-table tbody td:first-child {
+		font-weight: 700;
+		color: var(--color-navy, #0f172a);
+		white-space: nowrap;
+		border-right: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	/* ── Related ───────────────────────────────────────────── */
+	.article-related {
+		padding-block: 2.5rem 3rem;
+		border-top: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.article-related__label {
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--color-text-muted);
+		margin: 0 0 1rem;
+	}
+
+	.article-related__grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+		gap: 0.75rem;
+	}
+
+	.article-related__card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.3rem;
+		padding: 1rem 1.25rem;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		text-decoration: none;
+		transition: border-color 0.15s, box-shadow 0.15s;
+	}
+
+	.article-related__card:hover {
+		border-color: var(--color-primary, #1e40af);
+		box-shadow: 0 2px 10px rgba(30, 64, 175, 0.07);
+	}
+
+	.article-related__card-cat {
+		font-size: 0.68rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--color-primary, #1e40af);
+		margin: 0;
+	}
+
+	.article-related__card-title {
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		margin: 0;
+		line-height: 1.45;
+	}
+
+	.article-related__card-arrow {
+		font-size: 0.85rem;
+		color: var(--color-primary, #1e40af);
+		margin-top: 0.25rem;
+	}
+
+	/* ── CTA ───────────────────────────────────────────────── */
+	.article-cta {
+		padding-block: 4rem;
+		background:
+			radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%),
+			linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+	}
+
+	.article-cta__body {
+		max-width: 700px;
+		margin-inline: auto;
+		text-align: center;
+	}
+
+	.article-cta__body h2 {
+		font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+		font-weight: 600;
+		color: #fff;
+		line-height: 1.5;
+		margin: 0 0 1.5rem;
+	}
+
+	.article-cta__list {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+		margin: 0 auto 1.5rem;
+		padding: 0;
+		list-style: none;
+		text-align: left;
+		max-width: 420px;
+	}
+
+	.article-cta__list li {
+		font-size: 0.875rem;
+		color: rgba(255,255,255,0.85);
+		padding-left: 1.1rem;
+		position: relative;
+		line-height: 1.6;
+	}
+
+	.article-cta__list li::before {
+		content: '·';
+		position: absolute;
+		left: 0;
+		color: rgba(255,255,255,0.5);
+		font-size: 1.2em;
+	}
+
+	.article-cta__note {
+		font-size: 0.9rem;
+		color: rgba(255,255,255,0.7);
+		margin: 0 0 2rem;
+	}
+
+	.article-cta__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		justify-content: center;
+	}
+
+	.btn--cta-primary {
+		display: inline-flex;
+		align-items: center;
+		background: #fff;
+		color: var(--color-primary, #1e40af);
+		border: 2px solid transparent;
+		padding: 0.85em 1.75em;
+		font-size: 0.95rem;
+		border-radius: 6px;
+		font-weight: 700;
+		text-decoration: none;
+		transition: background 0.15s;
+	}
+
+	.btn--cta-primary:hover { background: rgba(255,255,255,0.9); }
+
+	.btn--cta-ghost {
+		display: inline-flex;
+		align-items: center;
+		background: transparent;
+		color: rgba(255,255,255,0.9);
+		border: 2px solid rgba(255,255,255,0.4);
+		padding: 0.85em 1.75em;
+		font-size: 0.95rem;
+		border-radius: 6px;
+		font-weight: 600;
+		text-decoration: none;
+		transition: border-color 0.15s;
+	}
+
+	.btn--cta-ghost:hover { border-color: rgba(255,255,255,0.8); }
+
+	/* ══════════════════════════════════════════════════════════
+	   DIAGRAMS
+	══════════════════════════════════════════════════════════ */
+	.diag {
+		margin: 2rem 0;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		overflow: hidden;
+		background: #fff;
+	}
+
+	.diag-caption {
+		display: block;
+		font-size: 0.78rem;
+		color: var(--color-text-muted);
+		text-align: center;
+		padding: 0.75rem 1rem;
+		background: var(--color-bg-soft, #f8fafc);
+		border-top: 1px solid var(--color-border, #e2e8f0);
+		line-height: 1.5;
+		margin: 0;
+	}
+
+	/* ── Diagram 1: Flow (日報化) ─────────────────────────── */
+	.diag--flow { padding: 1.5rem 1.5rem 0; }
+
+	.diag-flow-track {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-bottom: 1rem;
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		padding-bottom: 0.25rem;
+	}
+
+	.diag-flow-node {
+		flex: 1;
+		min-width: 100px;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		padding: 1rem 0.75rem;
+		text-align: center;
+		background: var(--color-bg-soft, #f8fafc);
+		flex-shrink: 0;
+	}
+
+	.diag-flow-node--center {
+		border-color: var(--color-primary, #1e40af);
+		background: rgba(30, 64, 175, 0.04);
+	}
+
+	.diag-flow-node__icon {
+		font-size: 1.25rem;
+		margin-bottom: 0.4rem;
+		line-height: 1;
+	}
+
+	.diag-flow-node__label {
+		font-size: 0.82rem;
+		font-weight: 700;
+		color: var(--color-navy, #0f172a);
+		margin-bottom: 0.25rem;
+	}
+
+	.diag-flow-node__sub {
+		font-size: 0.7rem;
+		color: var(--color-text-muted);
+		line-height: 1.4;
+	}
+
+	.diag-flow-arrow {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.2rem;
+		color: var(--color-text-muted);
+		flex-shrink: 0;
+	}
+
+	.diag-flow-arrow__label {
+		font-size: 0.65rem;
+		color: var(--color-text-muted);
+	}
+
+	.diag-flow-nofeedback {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		padding: 0.65rem 1rem;
+		margin-bottom: 1.25rem;
+		background: #fef2f2;
+		border: 1px solid #fecaca;
+		border-radius: 6px;
+		font-size: 0.82rem;
+		font-weight: 600;
+		color: #dc2626;
+	}
+
+	.diag-flow-nofeedback__icon {
+		font-size: 1rem;
+		opacity: 0.7;
+	}
+
+	/* ── Diagram 2: Hex Grid (6 elements) ────────────────── */
+	.diag--hex { padding: 1.5rem 1.5rem 0; }
+
+	.diag-hex-center {
+		text-align: center;
+		margin-bottom: 1rem;
+	}
+
+	.diag-hex-center__label {
+		font-size: 1.1rem;
+		font-weight: 800;
+		color: var(--color-navy, #0f172a);
+		line-height: 1.2;
+	}
+
+	.diag-hex-center__sub {
+		font-size: 0.78rem;
+		color: var(--color-primary, #1e40af);
+		font-weight: 700;
+		letter-spacing: 0.06em;
+	}
+
+	.diag-hex-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 0.75rem;
+		margin-bottom: 1.25rem;
+	}
+
+	.diag-hex-card {
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		padding: 1rem;
+		background: #fff;
+		position: relative;
+	}
+
+	.diag-hex-card__num {
+		font-size: 0.65rem;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		color: var(--color-primary, #1e40af);
+		margin: 0 0 0.35rem;
+	}
+
+	.diag-hex-card__title {
+		font-size: 0.82rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		margin: 0 0 0.4rem;
+		line-height: 1.35;
+	}
+
+	.diag-hex-card__body {
+		font-size: 0.75rem;
+		line-height: 1.55;
+		color: var(--color-charcoal, #334155);
+		margin: 0;
+	}
+
+	/* ── Diagram 3: Pyramid (RA → RevOps → CRM) ──────────── */
+	.diag--pyramid { padding: 1.5rem 1.5rem 0; }
+
+	.diag-pyramid-tier {
+		border-radius: 8px;
+		padding: 1rem 1.25rem;
+		margin-bottom: 0;
+	}
+
+	.diag-pyramid-tier--ra {
+		background: var(--color-navy, #0f172a);
+		color: #fff;
+	}
+
+	.diag-pyramid-tier--mid {
+		background: var(--color-bg-soft, #f8fafc);
+		border: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.diag-pyramid-tier--revops {
+		background: #fff;
+		border: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.diag-pyramid-tier--outcome {
+		background: rgba(30, 64, 175, 0.04);
+		border: 1px solid rgba(30, 64, 175, 0.2);
+		margin-bottom: 1.25rem;
+	}
+
+	.diag-pyramid-tier__tag {
+		font-size: 0.68rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		margin-bottom: 0.3rem;
+	}
+
+	.diag-pyramid-tier--ra .diag-pyramid-tier__tag    { color: rgba(255,255,255,0.45); }
+	.diag-pyramid-tier--mid .diag-pyramid-tier__tag    { color: var(--color-text-muted); }
+	.diag-pyramid-tier--revops .diag-pyramid-tier__tag { color: var(--color-text-muted); }
+	.diag-pyramid-tier--outcome .diag-pyramid-tier__tag { color: var(--color-primary, #1e40af); }
+
+	.diag-pyramid-tier__role {
+		font-size: 0.9rem;
+		font-weight: 700;
+		margin-bottom: 0.65rem;
+	}
+
+	.diag-pyramid-tier--ra .diag-pyramid-tier__role    { color: #fff; }
+	.diag-pyramid-tier--revops .diag-pyramid-tier__role { color: var(--color-navy, #0f172a); }
+
+	.diag-pyramid-tier__items {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35rem;
+	}
+
+	.diag-pyramid-tier__items span {
+		font-size: 0.75rem;
+		font-weight: 500;
+		padding: 0.2em 0.7em;
+		border-radius: 4px;
+	}
+
+	.diag-pyramid-tier--ra .diag-pyramid-tier__items span {
+		background: rgba(255,255,255,0.1);
+		color: rgba(255,255,255,0.8);
+		border: 1px solid rgba(255,255,255,0.12);
+	}
+
+	.diag-pyramid-tier--mid .diag-pyramid-tier__items span {
+		background: #fff;
+		color: var(--color-charcoal, #334155);
+		border: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.diag-pyramid-tier--revops .diag-pyramid-tier__items span {
+		background: var(--color-bg-soft, #f8fafc);
+		color: var(--color-charcoal, #334155);
+		border: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.diag-pyramid-tier--outcome .diag-pyramid-tier__items span {
+		background: rgba(30, 64, 175, 0.07);
+		color: var(--color-primary, #1e40af);
+		border: 1px solid rgba(30, 64, 175, 0.15);
+		font-weight: 600;
+	}
+
+	.diag-pyramid-arrow {
+		text-align: center;
+		font-size: 1.1rem;
+		color: var(--color-primary, #1e40af);
+		padding: 0.35rem 0;
+	}
+
+	/* ── Responsive ────────────────────────────────────────── */
+	@media (max-width: 700px) {
+		.br-pc { display: none; }
+		.article-related__grid { grid-template-columns: 1fr; }
+		.article-head { padding-top: 2rem; }
+		.diag-hex-grid { grid-template-columns: repeat(2, 1fr); }
+		.diag-flow-track { gap: 0.35rem; }
+		.diag-flow-node { min-width: 88px; padding: 0.75rem 0.5rem; }
+	}
+
+	@media (max-width: 480px) {
+		.diag-hex-grid { grid-template-columns: 1fr 1fr; }
+	}
+</style>

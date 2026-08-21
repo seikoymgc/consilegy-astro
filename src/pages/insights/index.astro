@@ -3,6 +3,41 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const articles = [
   {
+    slug: 'why-crm-investment-does-not-pass-the-board',
+    title: '経営会議でCRM投資が通らない理由｜「選べる状態」をつくる3つの数字',
+    desc: '効果試算をそろえても「様子を見よう」で終わるのは、選択肢がやるかやらないかの二択しかないからです。可逆性を示す3つの数字を解説します。',
+    cat: '経営',
+    date: '2026-08-21',
+  },
+  {
+    slug: 'why-marketing-budget-is-treated-as-cost',
+    title: 'マーケ予算が「費用」のまま議論される理由｜回収期間で話すと通る',
+    desc: 'マーケ予算が毎年削減対象になるのは説明力の問題ではありません。費用として計上される構造と、回収期間で語る言語の不在が原因です。',
+    cat: '財務',
+    date: '2026-08-21',
+  },
+  {
+    slug: 'why-talent-development-depends-on-individuals',
+    title: '育成が属人化する組織で起きていること｜「教える」を基準に変える',
+    desc: 'レビューが特定の人に集中し赤入れが減らない原因は、良し悪しの判断基準が個人の頭の中にしかないことです。基準を外に出す手順を解説します。',
+    cat: '組織',
+    date: '2026-08-21',
+  },
+  {
+    slug: 'what-changes-in-crm-design-when-ai-writes-records',
+    title: 'AIが入力を代行する時代に、CRM設計は何が変わるか',
+    desc: 'AIが商談記録を自動生成すると入力率は上がります。ただしボトルネックは入力から定義へ移ります。何を先に決めるべきかを解説します。',
+    cat: 'AI',
+    date: '2026-08-21',
+  },
+  {
+    slug: 'why-removing-anxiety-sells-in-japan-b2b',
+    title: '日本のB2Bで「不安を消す」ことが最大の販促になる理由',
+    desc: '日本のB2B購買で決め手になるのは製品の良さではなく、稟議を通す人の不安が消えるかどうかです。稟議の構造と商流から、何を用意すれば決裁が進むのかを解説します。',
+    cat: '業界構造',
+    date: '2026-08-21',
+  },
+  {
     slug: 'why-good-marketing-does-not-create-repeatable-growth',
     title: 'なぜ「良い施策」を打っているのに、組織が再現性を持てないのか',
     desc: '優秀な施策や営業人材がいるのに成長が再現しない原因を、Revenue ArchitectureとRevOpsの観点から解説します。',
@@ -194,6 +229,11 @@ function fmtDate(iso: string) {
 
 const categoryOrder = [
   'レベニューアーキテクチャ',
+  '業界構造',
+  '経営',
+  '財務',
+  '組織',
+  'AI',
   'RevOps',
   'KPI・BI',
   'CRM',

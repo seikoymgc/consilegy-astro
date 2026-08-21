@@ -1,0 +1,1006 @@
+---
+import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const slug = 'why-marketing-budget-is-treated-as-cost';
+const pubDate = '2026-08-21';
+const pubDateDisplay = '2026年8月21日';
+
+const title = 'マーケ予算が「費用」のまま議論される理由｜回収期間で話すと通る';
+const metaTitle = 'マーケ予算が「費用」のまま議論される理由｜回収期間で話すと通る | Consilegy';
+const metaDescription = 'マーケティング予算が毎年「いくら削るか」の議論になるのは、担当者の説明力不足ではありません。費用として計上される構造と、回収期間で語る言語が用意されていないことが原因です。CAC回収期間の考え方から解説します。';
+const category = '財務';
+
+const faqItems = [
+	{
+		q: 'CAC回収期間とは何ですか？',
+		a: 'CAC回収期間とは、1件の顧客を獲得するために使った費用を、その顧客からの粗利で何か月かけて回収できるかを示す指標です。獲得コストを月あたりの粗利で割って計算します。B2B SaaSでは12か月以内が健全な目安とされ、この数字が分かると、マーケティング支出を費用ではなく回収計画のある投資として説明できます。',
+	},
+	{
+		q: 'なぜマーケティング予算は削られやすいのですか？',
+		a: '会計上、広告宣伝費は発生した期の費用として計上されるためです。設備投資のように資産計上されて数年かけて償却される支出と違い、使った瞬間に利益を押し下げます。利益が必要な局面で、成果が同じ期に現れない支出から削られるのは、経理として自然な判断です。',
+	},
+	{
+		q: '回収期間で説明するには何のデータが必要ですか？',
+		a: '獲得件数・獲得にかかった総額・受注単価・粗利率・継続期間の5つです。すべて完璧である必要はありません。おおよその数字でも、回収期間という形にすると議論の軸が「いくら使うか」から「いつ返ってくるか」に移ります。',
+	},
+	{
+		q: 'LTVはどこまで正確に出すべきですか？',
+		a: '初年度の粗利までで十分です。3年後・5年後まで含めたLTVは前提が多くなり、経営側から見ると根拠が弱く映ります。短く見積もっても回収できると示せるほうが、長期の試算より通りやすくなります。',
+	},
+];
+
+const articleSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: title,
+	description: metaDescription,
+	datePublished: pubDate,
+	dateModified: pubDate,
+	author: { '@type': 'Person', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
+	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+	url: `https://consilegy.com/insights/${slug}/`,
+	inLanguage: 'ja',
+};
+
+const faqSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faqItems.map(({ q, a }) => ({
+		'@type': 'Question',
+		name: q,
+		acceptedAnswer: { '@type': 'Answer', text: a },
+	})),
+};
+
+const breadcrumbSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://consilegy.com/' },
+		{ '@type': 'ListItem', position: 2, name: 'コラム', item: 'https://consilegy.com/insights/' },
+		{ '@type': 'ListItem', position: 3, name: title, item: `https://consilegy.com/insights/${slug}/` },
+	],
+};
+---
+
+<BaseLayout
+	title={metaTitle}
+	description={metaDescription}
+	lang="ja"
+>
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	</Fragment>
+
+<div class="article-wrap">
+
+	<header class="article-head container">
+		<nav class="breadcrumb" aria-label="パンくずリスト">
+			<a href="/">ホーム</a>
+			<span aria-hidden="true">›</span>
+			<a href="/insights/">コラム</a>
+			<span aria-hidden="true">›</span>
+			<span aria-current="page">{title}</span>
+		</nav>
+		<div class="article-meta">
+			<span class="article-cat">{category}</span>
+		</div>
+		<h1>マーケ予算が「費用」のまま<br class="br-pc" />議論される理由</h1>
+		<p class="article-desc">予算会議でマーケティングの話になると、決まって「今年はいくら削れるか」から始まります。担当者の説明が下手だからではありません。その支出が、会計上どうしても費用に見える形で置かれているからです。</p>
+	</header>
+
+	<article class="article-body container" id="article">
+		<div class="article-eyecatch">
+			<img
+				src={`/images/insights/${slug}.svg`}
+				alt=""
+				width="1200"
+				height="630"
+				class="article-eyecatch__img"
+				loading="eager"
+				aria-hidden="true"
+			/>
+		</div>
+
+		<section class="article-section article-def" id="definition">
+			<h2>CAC回収期間とは</h2>
+			<p class="article-def__text"><strong>CAC回収期間とは</strong>、1件の顧客を獲得するために使った費用を、その顧客から得られる粗利で何か月かけて回収できるかを示す指標です。顧客獲得単価を月あたりの粗利で割って計算します。B2B SaaSでは12か月以内が健全な水準の目安とされています。この数字を出せると、マーケティング支出を「使ったお金」ではなく「返ってくる予定のあるお金」として説明できるようになります。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section">
+			<h2>「今年、マーケはいくら削れる？」から始まる会議</h2>
+			<p>期初の予算会議。売上目標の話が終わり、費用の項目に入ります。人件費は削れません。システムの保守費も止められません。そこで残るのが広告宣伝費と外注費です。</p>
+			<p>マーケティング責任者は資料を用意しています。リード数、商談化率、獲得単価。数字はきちんと並んでいます。それでも会議で聞かれるのは「その予算を半分にしたら、どのくらい減る?」です。</p>
+			<div class="article-callout">
+				<p><strong>マーケティング予算が毎年削減の対象になるのは、担当者の説明力の問題ではありません。</strong>広告宣伝費が発生した期の費用として計上され、成果が同じ期に現れないという、会計上の構造が原因です。</p>
+			</div>
+			<p>設備投資であれば、資産に計上されて数年かけて償却されます。支出した期の利益は、その分だけしか下がりません。一方、マーケティング支出は使った瞬間に全額が利益を押し下げます。返ってくるのは翌期以降です。この非対称がある以上、利益が必要な局面でここから削られるのは、経理として自然な判断です。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section">
+			<h2>お金の話を、後ろにずらしてしまう</h2>
+			<p>もうひとつ、日本の現場でよく見る事情があります。お金の話を切り出すこと自体に、心理的なコストがあることです。</p>
+			<p>見積もりを出すときに一言添えたくなる。値上げの連絡を書くのに時間がかかる。支払う側も「ごめんね」と言ってしまう。金額の話は、なんとなく申し訳ないものとして扱われがちです。</p>
+			<p>この感覚が予算の議論にも入り込みます。マーケティングの資料は、成果の話は詳しいのに、いくら投じていくら返ってきたかの部分だけ薄くなる。触れにくい話題だから、後回しになります。</p>
+			<p>ただし、経営が判断に使うのはその薄い部分です。<strong>お金の話を避けると、判断してもらえないという形で不利益が返ってきます。</strong>丁寧さの問題ではなく、必要な情報が渡っていないという問題です。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section">
+			<h2>費用のまま議論されている3つのサイン</h2>
+			<div class="article-numbered">
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">01</p>
+					<h3>予算の議論が、前年比の増減で進む</h3>
+					<p>「昨年は3,000万だったから今年は2,700万で」という決め方をしている場合、その支出は投資として見られていません。投資であれば、議論の軸は前年比ではなく回収の見込みになります。前年比で決まるのは、削っても何が起きるか説明できる人がいないからです。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">02</p>
+					<h3>報告する指標が、リード数と獲得単価で止まっている</h3>
+					<p>リード数も獲得単価も必要な指標です。ただ、どちらも受注の手前で終わっています。経営が知りたいのはその先で、獲得した顧客からいくらの粗利が出て、いつ元が取れるかです。手前の指標だけを厚く報告すると、成果が出ているかどうかを判断できません。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">03</p>
+					<h3>受注データと支出データが、別の場所にある</h3>
+					<p>広告費は会計システムに、受注はCRMに、その2つを結ぶ表は誰かのスプレッドシートにある。この状態だと、回収期間を出すのに毎回手作業が発生します。手間がかかる数字は、会議の前日には間に合いません。</p>
+				</div>
+			</div>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section">
+			<h2>最初の一手：完璧な数字を待たずに、回収期間を1回出す</h2>
+			<p>正確なLTVを算出しようとすると、継続率・アップセル・解約の予測が必要になり、たいてい途中で止まります。まずは粗い数字で構いません。7割の精度で1回出すほうが、議論の軸を動かせます。</p>
+			<div class="article-numbered">
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">01</p>
+					<h3>直近1年の獲得コストを、受注件数で割る</h3>
+					<p>広告費・イベント費・外注費・マーケ人件費を足して、その期間の新規受注件数で割ります。細かい按分は後で構いません。1件あたりいくらかけているかを、まず1つの数字にします。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">02</p>
+					<h3>1件あたりの月次粗利を出す</h3>
+					<p>受注単価に粗利率をかけ、月あたりに直します。粗利率が部門で共有されていない場合は、経理に聞いてください。ここは推測せず、正しい数字を使う価値があります。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">03</p>
+					<h3>割って、月数にする</h3>
+					<p>01を02で割ると回収期間が出ます。この1つの数字があるだけで、会議の問いが「いくら削るか」から「何か月で返ってくるか」に変わります。数字が悪ければ、削る判断が正しかったと分かります。それも成果です。</p>
+				</div>
+			</div>
+			<p>出した数字は、外れる前提で置いてください。半年後に実績と突き合わせて、ずれた理由を1つ潰す。それを2回繰り返せば、経営が信用できる精度になります。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section">
+			<h2>まとめ：予算を守る言語は、成果ではなく回収</h2>
+			<p>マーケティング予算が費用として扱われるのは、会計上そう計上されるからです。仕組みの問題なので、資料を厚くしても解決しません。変えられるのは、報告に使う言語のほうです。</p>
+			<p>リード数と獲得単価は活動の報告です。回収期間は投資の報告です。同じ活動を説明していても、後者は経営の判断材料になります。</p>
+			<p>最初の一歩は、直近1年の獲得コストを受注件数で割ってみることです。おそらく初回の数字は粗く、いくつか前提を置くことになります。それで構いません。粗い回収期間が1つあるほうが、精密なリード数のレポートより予算を守ります。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section article-faq" id="faq">
+			<h2>よくある質問</h2>
+			<div class="faq-list">
+				{faqItems.map(({ q, a }) => (
+					<details class="faq-item">
+						<summary class="faq-q">{q}</summary>
+						<p class="faq-a">{a}</p>
+					</details>
+				))}
+			</div>
+		</section>
+
+		<p class="article-pubdate">公開日：{pubDateDisplay}</p>
+	</article>
+
+	<nav class="article-services" aria-label="関連サービス">
+		<h2 class="article-services__heading">関連サービス</h2>
+		<div class="article-services__grid">
+		<a href="/services/revenue-architecture-design/" class="article-services__card">
+				<span class="article-services__cat">サービス</span>
+				<span class="article-services__title">レベニューアーキテクチャ設計</span>
+				<span class="article-services__arrow">→</span>
+			</a>
+		<a href="/services/crm-revops-redesign/" class="article-services__card">
+				<span class="article-services__cat">サービス</span>
+				<span class="article-services__title">CRM / RevOps再設計支援</span>
+				<span class="article-services__arrow">→</span>
+			</a>
+		</div>
+	</nav>
+	<NewsletterSidebar />
+
+	<aside class="article-related container">
+		<p class="article-related__label">関連コンテンツ</p>
+		<div class="article-related__grid">
+			<a href="/revenue-architecture/" class="article-related__card">
+				<p class="article-related__card-cat">概念解説</p>
+				<p class="article-related__card-title">Revenue Architecture（レベニューアーキテクチャ）とは</p>
+				<span class="article-related__card-arrow">→</span>
+			</a>
+			<a href="/about-revops/" class="article-related__card">
+				<p class="article-related__card-cat">概念解説</p>
+				<p class="article-related__card-title">RevOps（レベニューオペレーション）とは</p>
+				<span class="article-related__card-arrow">→</span>
+			</a>
+			<a href="/insights/why-more-kpis-create-less-revenue-visibility/" class="article-related__card">
+				<p class="article-related__card-cat">関連記事</p>
+				<p class="article-related__card-title">KPIが増えるほど売上が見えなくなる理由</p>
+				<span class="article-related__card-arrow">→</span>
+			</a>
+		</div>
+	</aside>
+
+	<section class="article-cta">
+		<div class="container">
+			<div class="article-cta__body">
+				<h2>Consilegyでは、Revenue Architectureの観点から<br class="br-pc" />売上の取りこぼしを可視化する無料の収益診断を公開しています。</h2>
+				<ul class="article-cta__list">
+					<li>マーケ予算が毎年、前年比で削られている</li>
+					<li>獲得単価は出せるが、回収期間は出せていない</li>
+					<li>広告費と受注データが別々にあり、突き合わせに毎回手間がかかる</li>
+				</ul>
+				<p class="article-cta__note">ツールの前に、「設計図」から整理することが、最短の改善ルートです。</p>
+				<div class="article-cta__actions">
+					<a href="/diagnostic/" class="btn btn--cta-primary">収益を自己診断</a>
+					<a href="/services/revenue-architecture-design/" class="btn btn--cta-ghost">レベニューアーキテクチャ設計を見る</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</div>
+</BaseLayout>
+<style>
+	/* ── 定義ブロック（LLMO） ─── */
+	.article-def__text {
+		background: var(--color-bg-soft, #f8fafc);
+		border-left: 4px solid var(--color-primary, #1e40af);
+		border-radius: 0 8px 8px 0;
+		padding: 1.25rem 1.5rem;
+		font-size: 1rem;
+		line-height: 1.85;
+		color: var(--color-navy, #0f172a);
+	}
+
+	/* ── 記事末FAQ（LLMO） ─── */
+	.faq-list {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.faq-item {
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		background: #fff;
+		overflow: hidden;
+	}
+
+	.faq-q {
+		font-size: 0.95rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		padding: 1.1rem 1.25rem;
+		cursor: pointer;
+		list-style: none;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+		line-height: 1.5;
+	}
+
+	.faq-q::-webkit-details-marker { display: none; }
+
+	.faq-q::after {
+		content: '+';
+		font-size: 1.25rem;
+		font-weight: 300;
+		color: var(--color-primary, #1e40af);
+		flex-shrink: 0;
+		transition: transform 0.2s;
+	}
+
+	details[open] .faq-q::after { transform: rotate(45deg); }
+
+	.faq-a {
+		font-size: 0.9rem;
+		line-height: 1.8;
+		color: var(--color-charcoal, #334155);
+		padding: 0 1.25rem 1.25rem;
+		margin: 0;
+	}
+
+	/* ── Eyecatch ─── */
+	.article-eyecatch {
+		margin-bottom: 2rem;
+		border-radius: 8px;
+		overflow: hidden;
+		max-height: 360px;
+	}
+	.article-eyecatch__img {
+		width: 100%; height: auto; display: block;
+		max-height: 360px; object-fit: cover;
+	}
+	/* ── Layout ────────────────────────────────────────────── */
+	.article-wrap { background: #fff; }
+
+	.container {
+		max-width: 800px;
+		margin-inline: auto;
+		padding-inline: var(--space-md, 1.5rem);
+	}
+
+	.br-pc { display: inline; }
+
+	/* ── Breadcrumb ────────────────────────────────────────── */
+	.breadcrumb {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.4em;
+		font-size: 0.8rem;
+		color: var(--color-text-muted);
+		margin-bottom: 2rem;
+	}
+
+	.breadcrumb a { color: inherit; text-decoration: none; }
+	.breadcrumb a:hover { color: var(--color-primary, #1e40af); }
+
+	/* ── Article header ────────────────────────────────────── */
+	.article-head {
+		padding-top: 3rem;
+		padding-bottom: 2.5rem;
+		border-bottom: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.article-meta {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		margin-bottom: 1.25rem;
+		flex-wrap: wrap;
+	}
+
+	.article-cat {
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--color-primary, #1e40af);
+		background: rgba(30, 64, 175, 0.07);
+		padding: 0.2em 0.7em;
+		border-radius: 4px;
+	}
+
+	.article-date,
+	.article-read {
+		font-size: 0.8rem;
+		color: var(--color-text-muted);
+	}
+
+	.article-date::before {
+		content: '';
+		display: inline-block;
+		width: 1px;
+		height: 0.9em;
+		background: var(--color-border, #e2e8f0);
+		margin-right: 0.75rem;
+		vertical-align: middle;
+	}
+
+	.article-head h1 {
+		font-size: clamp(1.5rem, 3vw, 2.1rem);
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		line-height: 1.35;
+		margin: 0 0 1rem;
+	}
+
+	.article-desc {
+		font-size: 1rem;
+		line-height: 1.75;
+		color: var(--color-charcoal, #334155);
+		margin: 0;
+	}
+
+	/* ── Article body ──────────────────────────────────────── */
+	.article-body { padding-block: 3rem; }
+
+	.article-section { margin-bottom: 0; }
+
+	.article-section h2 {
+		font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		margin: 0 0 1.25rem;
+		line-height: 1.45;
+		padding-bottom: 0.6rem;
+		border-bottom: 2px solid var(--color-border, #e2e8f0);
+	}
+
+	.article-section h3 {
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		margin: 2rem 0 0.75rem;
+	}
+
+	.article-section p {
+		font-size: 0.975rem;
+		line-height: 1.9;
+		color: var(--color-charcoal, #334155);
+		margin: 0 0 1rem;
+	}
+
+	.article-section ul {
+		margin: 0 0 1.25rem;
+		padding: 0;
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.article-section ul li {
+		padding-left: 1.25rem;
+		position: relative;
+		font-size: 0.95rem;
+		line-height: 1.7;
+		color: var(--color-charcoal, #334155);
+	}
+
+	.article-section ul li::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0.65em;
+		width: 5px;
+		height: 5px;
+		border-radius: 50%;
+		background: var(--color-primary, #1e40af);
+		opacity: 0.5;
+	}
+
+	.article-hr {
+		border: none;
+		border-top: 1px solid var(--color-border, #e2e8f0);
+		margin: 3rem 0;
+	}
+
+	/* ── Callout ───────────────────────────────────────────── */
+	.article-callout {
+		background: var(--color-bg-soft, #f8fafc);
+		border-left: 4px solid var(--color-primary, #1e40af);
+		border-radius: 0 8px 8px 0;
+		padding: 1.1rem 1.5rem;
+		margin: 1.5rem 0;
+	}
+
+	.article-callout p {
+		margin: 0;
+		font-size: 0.95rem;
+		line-height: 1.8;
+		color: var(--color-navy, #0f172a);
+	}
+
+	/* ── Numbered blocks ───────────────────────────────────── */
+	.article-numbered {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		margin-top: 1.5rem;
+	}
+
+	.article-numbered__item {
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		padding: 1.5rem;
+		background: #fff;
+	}
+
+	.article-numbered__num {
+		font-size: 0.7rem;
+		font-weight: 800;
+		letter-spacing: 0.12em;
+		color: var(--color-primary, #1e40af);
+		margin: 0 0 0.5rem;
+	}
+
+	.article-numbered__item h3 {
+		margin: 0 0 0.75rem;
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+	}
+
+	.article-numbered__item p {
+		margin: 0;
+		font-size: 0.9rem;
+		line-height: 1.8;
+		color: var(--color-charcoal, #334155);
+	}
+
+	/* ── Table ─────────────────────────────────────────────── */
+	.article-table-wrap {
+		overflow-x: auto;
+		margin: 1.5rem 0;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+	}
+
+	.article-table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 0.9rem;
+	}
+
+	.article-table thead th {
+		padding: 0.75rem 1.25rem;
+		background: var(--color-navy, #0f172a);
+		color: #fff;
+		font-weight: 700;
+		text-align: left;
+		white-space: nowrap;
+	}
+
+	.article-table tbody td {
+		padding: 0.75rem 1.25rem;
+		border-bottom: 1px solid var(--color-border, #e2e8f0);
+		color: var(--color-charcoal, #334155);
+		line-height: 1.6;
+	}
+
+	.article-table tbody tr:last-child td { border-bottom: none; }
+
+	.article-table tbody td:first-child {
+		font-weight: 700;
+		color: var(--color-navy, #0f172a);
+		white-space: nowrap;
+		border-right: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	/* ── Related ───────────────────────────────────────────── */
+	.article-related {
+		padding-block: 2.5rem 3rem;
+		border-top: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.article-related__label {
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--color-text-muted);
+		margin: 0 0 1rem;
+	}
+
+	.article-related__grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+		gap: 0.75rem;
+	}
+
+	.article-related__card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.3rem;
+		padding: 1rem 1.25rem;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		text-decoration: none;
+		transition: border-color 0.15s, box-shadow 0.15s;
+	}
+
+	.article-related__card:hover {
+		border-color: var(--color-primary, #1e40af);
+		box-shadow: 0 2px 10px rgba(30, 64, 175, 0.07);
+	}
+
+	.article-related__card-cat {
+		font-size: 0.68rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--color-primary, #1e40af);
+		margin: 0;
+	}
+
+	.article-related__card-title {
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		margin: 0;
+		line-height: 1.45;
+	}
+
+	.article-related__card-arrow {
+		font-size: 0.85rem;
+		color: var(--color-primary, #1e40af);
+		margin-top: 0.25rem;
+	}
+
+	/* ── CTA ───────────────────────────────────────────────── */
+	.article-cta {
+		padding-block: 4rem;
+		background:
+			radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%),
+			linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+	}
+
+	.article-cta__body {
+		max-width: 700px;
+		margin-inline: auto;
+		text-align: center;
+	}
+
+	.article-cta__body h2 {
+		font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+		font-weight: 600;
+		color: #fff;
+		line-height: 1.5;
+		margin: 0 0 1.5rem;
+	}
+
+	.article-cta__list {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+		margin: 0 auto 1.5rem;
+		padding: 0;
+		list-style: none;
+		text-align: left;
+		max-width: 420px;
+	}
+
+	.article-cta__list li {
+		font-size: 0.875rem;
+		color: rgba(255,255,255,0.85);
+		padding-left: 1.1rem;
+		position: relative;
+		line-height: 1.6;
+	}
+
+	.article-cta__list li::before {
+		content: '·';
+		position: absolute;
+		left: 0;
+		color: rgba(255,255,255,0.5);
+		font-size: 1.2em;
+	}
+
+	.article-cta__note {
+		font-size: 0.9rem;
+		color: rgba(255,255,255,0.7);
+		margin: 0 0 2rem;
+	}
+
+	.article-cta__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		justify-content: center;
+	}
+
+	.btn--cta-primary {
+		display: inline-flex;
+		align-items: center;
+		background: #fff;
+		color: var(--color-primary, #1e40af);
+		border: 2px solid transparent;
+		padding: 0.85em 1.75em;
+		font-size: 0.95rem;
+		border-radius: 6px;
+		font-weight: 700;
+		text-decoration: none;
+		transition: background 0.15s;
+	}
+
+	.btn--cta-primary:hover { background: rgba(255,255,255,0.9); }
+
+	.btn--cta-ghost {
+		display: inline-flex;
+		align-items: center;
+		background: transparent;
+		color: rgba(255,255,255,0.9);
+		border: 2px solid rgba(255,255,255,0.4);
+		padding: 0.85em 1.75em;
+		font-size: 0.95rem;
+		border-radius: 6px;
+		font-weight: 600;
+		text-decoration: none;
+		transition: border-color 0.15s;
+	}
+
+	.btn--cta-ghost:hover { border-color: rgba(255,255,255,0.8); }
+
+	/* ══════════════════════════════════════════════════════════
+	   DIAGRAMS
+	══════════════════════════════════════════════════════════ */
+	.diag {
+		margin: 2rem 0;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		overflow: hidden;
+		background: #fff;
+	}
+
+	.diag-caption {
+		display: block;
+		font-size: 0.78rem;
+		color: var(--color-text-muted);
+		text-align: center;
+		padding: 0.75rem 1rem;
+		background: var(--color-bg-soft, #f8fafc);
+		border-top: 1px solid var(--color-border, #e2e8f0);
+		line-height: 1.5;
+		margin: 0;
+	}
+
+	/* ── Diagram 1: Flow (日報化) ─────────────────────────── */
+	.diag--flow { padding: 1.5rem 1.5rem 0; }
+
+	.diag-flow-track {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-bottom: 1rem;
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		padding-bottom: 0.25rem;
+	}
+
+	.diag-flow-node {
+		flex: 1;
+		min-width: 100px;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		padding: 1rem 0.75rem;
+		text-align: center;
+		background: var(--color-bg-soft, #f8fafc);
+		flex-shrink: 0;
+	}
+
+	.diag-flow-node--center {
+		border-color: var(--color-primary, #1e40af);
+		background: rgba(30, 64, 175, 0.04);
+	}
+
+	.diag-flow-node__icon {
+		font-size: 1.25rem;
+		margin-bottom: 0.4rem;
+		line-height: 1;
+	}
+
+	.diag-flow-node__label {
+		font-size: 0.82rem;
+		font-weight: 700;
+		color: var(--color-navy, #0f172a);
+		margin-bottom: 0.25rem;
+	}
+
+	.diag-flow-node__sub {
+		font-size: 0.7rem;
+		color: var(--color-text-muted);
+		line-height: 1.4;
+	}
+
+	.diag-flow-arrow {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.2rem;
+		color: var(--color-text-muted);
+		flex-shrink: 0;
+	}
+
+	.diag-flow-arrow__label {
+		font-size: 0.65rem;
+		color: var(--color-text-muted);
+	}
+
+	.diag-flow-nofeedback {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		padding: 0.65rem 1rem;
+		margin-bottom: 1.25rem;
+		background: #fef2f2;
+		border: 1px solid #fecaca;
+		border-radius: 6px;
+		font-size: 0.82rem;
+		font-weight: 600;
+		color: #dc2626;
+	}
+
+	.diag-flow-nofeedback__icon {
+		font-size: 1rem;
+		opacity: 0.7;
+	}
+
+	/* ── Diagram 2: Hex Grid (6 elements) ────────────────── */
+	.diag--hex { padding: 1.5rem 1.5rem 0; }
+
+	.diag-hex-center {
+		text-align: center;
+		margin-bottom: 1rem;
+	}
+
+	.diag-hex-center__label {
+		font-size: 1.1rem;
+		font-weight: 800;
+		color: var(--color-navy, #0f172a);
+		line-height: 1.2;
+	}
+
+	.diag-hex-center__sub {
+		font-size: 0.78rem;
+		color: var(--color-primary, #1e40af);
+		font-weight: 700;
+		letter-spacing: 0.06em;
+	}
+
+	.diag-hex-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 0.75rem;
+		margin-bottom: 1.25rem;
+	}
+
+	.diag-hex-card {
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		padding: 1rem;
+		background: #fff;
+		position: relative;
+	}
+
+	.diag-hex-card__num {
+		font-size: 0.65rem;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		color: var(--color-primary, #1e40af);
+		margin: 0 0 0.35rem;
+	}
+
+	.diag-hex-card__title {
+		font-size: 0.82rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		margin: 0 0 0.4rem;
+		line-height: 1.35;
+	}
+
+	.diag-hex-card__body {
+		font-size: 0.75rem;
+		line-height: 1.55;
+		color: var(--color-charcoal, #334155);
+		margin: 0;
+	}
+
+	/* ── Diagram 3: Pyramid (RA → RevOps → CRM) ──────────── */
+	.diag--pyramid { padding: 1.5rem 1.5rem 0; }
+
+	.diag-pyramid-tier {
+		border-radius: 8px;
+		padding: 1rem 1.25rem;
+		margin-bottom: 0;
+	}
+
+	.diag-pyramid-tier--ra {
+		background: var(--color-navy, #0f172a);
+		color: #fff;
+	}
+
+	.diag-pyramid-tier--mid {
+		background: var(--color-bg-soft, #f8fafc);
+		border: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.diag-pyramid-tier--revops {
+		background: #fff;
+		border: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.diag-pyramid-tier--outcome {
+		background: rgba(30, 64, 175, 0.04);
+		border: 1px solid rgba(30, 64, 175, 0.2);
+		margin-bottom: 1.25rem;
+	}
+
+	.diag-pyramid-tier__tag {
+		font-size: 0.68rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		margin-bottom: 0.3rem;
+	}
+
+	.diag-pyramid-tier--ra .diag-pyramid-tier__tag    { color: rgba(255,255,255,0.45); }
+	.diag-pyramid-tier--mid .diag-pyramid-tier__tag    { color: var(--color-text-muted); }
+	.diag-pyramid-tier--revops .diag-pyramid-tier__tag { color: var(--color-text-muted); }
+	.diag-pyramid-tier--outcome .diag-pyramid-tier__tag { color: var(--color-primary, #1e40af); }
+
+	.diag-pyramid-tier__role {
+		font-size: 0.9rem;
+		font-weight: 700;
+		margin-bottom: 0.65rem;
+	}
+
+	.diag-pyramid-tier--ra .diag-pyramid-tier__role    { color: #fff; }
+	.diag-pyramid-tier--revops .diag-pyramid-tier__role { color: var(--color-navy, #0f172a); }
+
+	.diag-pyramid-tier__items {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35rem;
+	}
+
+	.diag-pyramid-tier__items span {
+		font-size: 0.75rem;
+		font-weight: 500;
+		padding: 0.2em 0.7em;
+		border-radius: 4px;
+	}
+
+	.diag-pyramid-tier--ra .diag-pyramid-tier__items span {
+		background: rgba(255,255,255,0.1);
+		color: rgba(255,255,255,0.8);
+		border: 1px solid rgba(255,255,255,0.12);
+	}
+
+	.diag-pyramid-tier--mid .diag-pyramid-tier__items span {
+		background: #fff;
+		color: var(--color-charcoal, #334155);
+		border: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.diag-pyramid-tier--revops .diag-pyramid-tier__items span {
+		background: var(--color-bg-soft, #f8fafc);
+		color: var(--color-charcoal, #334155);
+		border: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.diag-pyramid-tier--outcome .diag-pyramid-tier__items span {
+		background: rgba(30, 64, 175, 0.07);
+		color: var(--color-primary, #1e40af);
+		border: 1px solid rgba(30, 64, 175, 0.15);
+		font-weight: 600;
+	}
+
+	.diag-pyramid-arrow {
+		text-align: center;
+		font-size: 1.1rem;
+		color: var(--color-primary, #1e40af);
+		padding: 0.35rem 0;
+	}
+
+	/* ── Responsive ────────────────────────────────────────── */
+	@media (max-width: 700px) {
+		.br-pc { display: none; }
+		.article-related__grid { grid-template-columns: 1fr; }
+		.article-head { padding-top: 2rem; }
+		.diag-hex-grid { grid-template-columns: repeat(2, 1fr); }
+		.diag-flow-track { gap: 0.35rem; }
+		.diag-flow-node { min-width: 88px; padding: 0.75rem 0.5rem; }
+	}
+
+	@media (max-width: 480px) {
+		.diag-hex-grid { grid-template-columns: 1fr 1fr; }
+	}
+</style>

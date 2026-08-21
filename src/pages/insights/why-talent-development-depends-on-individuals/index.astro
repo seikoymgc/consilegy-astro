@@ -1,0 +1,1006 @@
+---
+import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const slug = 'why-talent-development-depends-on-individuals';
+const pubDate = '2026-08-21';
+const pubDateDisplay = '2026年8月21日';
+
+const title = '育成が属人化する組織で起きていること｜「教える」を基準に変える';
+const metaTitle = '育成が属人化する組織で起きていること｜「教える」を基準に変える | Consilegy';
+const metaDescription = 'レビューが特定の人に集中し、赤入れがいつまでも減らない。育成が属人化する原因は指導力ではなく、良し悪しの判断基準が個人の頭の中にしかないことです。基準を外に出す手順を解説します。';
+const category = '組織';
+
+const faqItems = [
+	{
+		q: '育成の属人化とは何ですか？',
+		a: '育成の属人化とは、成果物の良し悪しを判断できる人が組織内で限られており、その人が確認しないと品質が保てない状態を指します。指導する時間が特定の個人に集中し、その人が不在になると品質が下がります。原因は指導力の差ではなく、判断基準が言語化されずに個人の経験の中にとどまっていることです。',
+	},
+	{
+		q: '教える時間を増やせば解決しますか？',
+		a: '解決しません。教える時間はメンバー数に比例して増えるため、人が増えるほど指導する側が先に限界を迎えます。必要なのは教える量を増やすことではなく、教えている内容のうち繰り返し出てくる判断基準を外に出し、本人が自分で確認できる形にすることです。',
+	},
+	{
+		q: '判断基準はどう言語化すればよいですか？',
+		a: '抽象的な心構えではなく、合格例と不合格例を並べる形が実用的です。「読み手を意識する」ではなく、実際の成果物を2つ並べて何が違うかを書きます。3〜5項目の問いの形にしておくと、提出前に本人が自己チェックできます。',
+	},
+	{
+		q: '基準を決めると、メンバーの自由度が下がりませんか？',
+		a: '下がるのは判断の迷いであって、工夫の余地ではありません。基準があると、どこまでが守るべき線でどこからが自分で決めてよい範囲かが明確になります。基準がない状態のほうが、レビューで何を言われるか分からないぶん、挑戦しにくくなります。',
+	},
+];
+
+const articleSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: title,
+	description: metaDescription,
+	datePublished: pubDate,
+	dateModified: pubDate,
+	author: { '@type': 'Person', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
+	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+	url: `https://consilegy.com/insights/${slug}/`,
+	inLanguage: 'ja',
+};
+
+const faqSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faqItems.map(({ q, a }) => ({
+		'@type': 'Question',
+		name: q,
+		acceptedAnswer: { '@type': 'Answer', text: a },
+	})),
+};
+
+const breadcrumbSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://consilegy.com/' },
+		{ '@type': 'ListItem', position: 2, name: 'コラム', item: 'https://consilegy.com/insights/' },
+		{ '@type': 'ListItem', position: 3, name: title, item: `https://consilegy.com/insights/${slug}/` },
+	],
+};
+---
+
+<BaseLayout
+	title={metaTitle}
+	description={metaDescription}
+	lang="ja"
+>
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	</Fragment>
+
+<div class="article-wrap">
+
+	<header class="article-head container">
+		<nav class="breadcrumb" aria-label="パンくずリスト">
+			<a href="/">ホーム</a>
+			<span aria-hidden="true">›</span>
+			<a href="/insights/">コラム</a>
+			<span aria-hidden="true">›</span>
+			<span aria-current="page">{title}</span>
+		</nav>
+		<div class="article-meta">
+			<span class="article-cat">{category}</span>
+		</div>
+		<h1>育成が属人化する組織で<br class="br-pc" />起きていること</h1>
+		<p class="article-desc">メンバーが増えたのに、レビューの時間だけが増えていく。同じ指摘を毎回書いている。育成が属人化する原因は指導力ではなく、良し悪しを決める基準が誰かの頭の中にしかないことです。</p>
+	</header>
+
+	<article class="article-body container" id="article">
+		<div class="article-eyecatch">
+			<img
+				src={`/images/insights/${slug}.svg`}
+				alt=""
+				width="1200"
+				height="630"
+				class="article-eyecatch__img"
+				loading="eager"
+				aria-hidden="true"
+			/>
+		</div>
+
+		<section class="article-section article-def" id="definition">
+			<h2>育成の属人化とは</h2>
+			<p class="article-def__text"><strong>育成の属人化とは</strong>、成果物の良し悪しを判断できる人が組織内で限られており、その人が確認しないと品質が保てない状態を指します。指導にかかる時間が特定の個人に集中し、その人が休むと品質が下がります。原因は指導力の差ではなく、良し悪しを分ける判断基準が言語化されないまま、個人の経験の中にとどまっていることにあります。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section">
+			<h2>人を増やしたのに、自分の時間だけ減っていく</h2>
+			<p>チームが3人から6人になりました。仕事は回るはずでした。ところが半年たつと、レビューに使う時間が倍以上になっています。</p>
+			<p>提出物を開き、直し、意図を説明する。その説明は、先月も似た内容を誰かに書いています。「ここは読み手が誰か分かるように」「この数字の出どころを入れて」。同じことを、毎回ちがう人に、毎回ゼロから書いている。</p>
+			<div class="article-callout">
+				<p><strong>育成が属人化するのは、教え方が下手だからではありません。</strong>良し悪しを分ける基準が言語化されていないため、判断のたびに基準を持っている人を呼ばなければならない状態になっているだけです。</p>
+			</div>
+			<p>正直に言えば、私はこの状態がしんどかった時期があります。教えることが育成だと思っていたので、丁寧に説明するほど良いと考えていました。実際には、丁寧に説明するほど自分が必要になる構造を、自分で強くしていました。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section">
+			<h2>「教える」を増やしても、限界が先に来る</h2>
+			<p>教える時間は、メンバーの人数に比例して増えます。一方で、指導する側の時間は増えません。この2つを並べると、どこかで必ず交差します。</p>
+			<p>交差したあとに起きることは、だいたい決まっています。レビューが浅くなる。返すのが遅くなる。待たされる側は、確認を待つあいだ手が止まります。品質を守るための工程が、進行を止める工程に変わります。</p>
+			<p>ここで「もっと早くレビューしよう」と考えると、事態は悪化します。必要なのは速度ではなく、<strong>レビューを通らなくても本人が判断できる範囲を広げること</strong>です。</p>
+			<p>営業の現場でも同じことが起きます。受注を取れる人が1人いる状態と、受注の型がある状態は違います。前者は本人が動ける件数が上限になり、後者は人数が増えれば伸びます。育成の話は、組織の伸びしろの話でもあります。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section">
+			<h2>属人化しているときの3つのサイン</h2>
+			<div class="article-numbered">
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">01</p>
+					<h3>同じ指摘を、3回以上書いている</h3>
+					<p>同じ内容を3回書いたなら、それは個人へのフィードバックではなく基準です。3回目を書いた時点で、指摘の文面をそのまま残しておくと、4回目からは指さすだけで済みます。記録する場所は、まずは共有ドキュメント1枚で構いません。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">02</p>
+					<h3>「なんとなく違う」と感じるが、理由をその場で言えない</h3>
+					<p>違和感には理由があります。ただ、それを言語化する作業はレビューの最中には重いので、つい直して返してしまいます。直して返すと、相手には結果だけが渡り、基準は渡りません。次も同じ状態で提出されます。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">03</p>
+					<h3>その人が休むと、成果物が止まる</h3>
+					<p>誰かの不在で品質が落ちるなら、品質はその人に依存しています。この状態は本人の評価を高く見せますが、組織にとってはリスクで、本人にとっては休めない理由になります。属人化を解くことは、本人を守ることでもあります。</p>
+				</div>
+			</div>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section">
+			<h2>最初の一手：基準を、頭の外に出す</h2>
+			<p>やることは、教える量を増やすことではありません。すでに教えている内容のうち、繰り返し出てくるものを外に出すだけです。1時間で始められます。</p>
+			<div class="article-numbered">
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">01</p>
+					<h3>合格した成果物と、直した成果物を1つずつ並べる</h3>
+					<p>抽象的な心構えを書くより、実物を2つ並べるほうが早く伝わります。「読み手を意識する」では動けませんが、2つを見比べれば何が違うかは分かります。過去の提出物から選んでください。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">02</p>
+					<h3>違いを、3〜5個の問いに変える</h3>
+					<p>「この数字の出どころは書かれているか」「誰に向けた文章か、1行目で分かるか」。答えが「はい・いいえ」で出る形にします。多くても5個までにしてください。10個あると、誰も見なくなります。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">03</p>
+					<h3>提出の前に、本人が自分で通す</h3>
+					<p>提出時に「この5問は通しました」と添えてもらいます。これだけでレビューの前半が消えます。残るのは、基準では拾えない部分の議論です。そここそが、本来教える価値のある場所です。</p>
+				</div>
+			</div>
+			<p>最初に作った基準は、たいてい何か外れています。使いながら足したり削ったりする前提で置いてください。完成させてから配ろうとすると、いつまでも配れません。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section">
+			<h2>まとめ：教えることをやめるのではなく、教える対象を変える</h2>
+			<p>育成が属人化するのは、判断基準が個人の経験の中にあるからです。基準を持っている人が確認しないと品質が保てない状態では、人を増やしても、増えるのはレビュー待ちの列だけになります。</p>
+			<p>基準を外に出すと、教える対象が変わります。毎回の直しを教えるのではなく、判断の仕方を教えることになります。前者は相手が増えるほど自分の時間が減り、後者は相手が増えるほど組織が伸びます。</p>
+			<p>最初の一歩は、直近3回のレビューを開いて、同じことを書いていないか確認することです。書いていたなら、それはもう基準です。あとは、頭の外に置くだけです。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section article-faq" id="faq">
+			<h2>よくある質問</h2>
+			<div class="faq-list">
+				{faqItems.map(({ q, a }) => (
+					<details class="faq-item">
+						<summary class="faq-q">{q}</summary>
+						<p class="faq-a">{a}</p>
+					</details>
+				))}
+			</div>
+		</section>
+
+		<p class="article-pubdate">公開日：{pubDateDisplay}</p>
+	</article>
+
+	<nav class="article-services" aria-label="関連サービス">
+		<h2 class="article-services__heading">関連サービス</h2>
+		<div class="article-services__grid">
+		<a href="/services/adoption-growth-support/" class="article-services__card">
+				<span class="article-services__cat">サービス</span>
+				<span class="article-services__title">運用定着・改善支援</span>
+				<span class="article-services__arrow">→</span>
+			</a>
+		<a href="/services/revenue-architecture-design/" class="article-services__card">
+				<span class="article-services__cat">サービス</span>
+				<span class="article-services__title">レベニューアーキテクチャ設計</span>
+				<span class="article-services__arrow">→</span>
+			</a>
+		</div>
+	</nav>
+	<NewsletterSidebar />
+
+	<aside class="article-related container">
+		<p class="article-related__label">関連コンテンツ</p>
+		<div class="article-related__grid">
+			<a href="/revenue-architecture/" class="article-related__card">
+				<p class="article-related__card-cat">概念解説</p>
+				<p class="article-related__card-title">Revenue Architecture（レベニューアーキテクチャ）とは</p>
+				<span class="article-related__card-arrow">→</span>
+			</a>
+			<a href="/about-revops/" class="article-related__card">
+				<p class="article-related__card-cat">概念解説</p>
+				<p class="article-related__card-title">RevOps（レベニューオペレーション）とは</p>
+				<span class="article-related__card-arrow">→</span>
+			</a>
+			<a href="/insights/why-hubspot-operations-become-dependent-on-individuals/" class="article-related__card">
+				<p class="article-related__card-cat">関連記事</p>
+				<p class="article-related__card-title">なぜHubSpot運用は属人化するのか</p>
+				<span class="article-related__card-arrow">→</span>
+			</a>
+		</div>
+	</aside>
+
+	<section class="article-cta">
+		<div class="container">
+			<div class="article-cta__body">
+				<h2>Consilegyでは、Revenue Architectureの観点から<br class="br-pc" />売上の取りこぼしを可視化する無料の収益診断を公開しています。</h2>
+				<ul class="article-cta__list">
+					<li>レビューが特定の人に集中し、その人の時間が足りていない</li>
+					<li>同じ指摘を何度も書いているが、記録に残していない</li>
+					<li>受注を取れる人はいるが、受注の型が共有されていない</li>
+				</ul>
+				<p class="article-cta__note">ツールの前に、「設計図」から整理することが、最短の改善ルートです。</p>
+				<div class="article-cta__actions">
+					<a href="/diagnostic/" class="btn btn--cta-primary">収益を自己診断</a>
+					<a href="/services/adoption-growth-support/" class="btn btn--cta-ghost">運用定着・改善支援を見る</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</div>
+</BaseLayout>
+<style>
+	/* ── 定義ブロック（LLMO） ─── */
+	.article-def__text {
+		background: var(--color-bg-soft, #f8fafc);
+		border-left: 4px solid var(--color-primary, #1e40af);
+		border-radius: 0 8px 8px 0;
+		padding: 1.25rem 1.5rem;
+		font-size: 1rem;
+		line-height: 1.85;
+		color: var(--color-navy, #0f172a);
+	}
+
+	/* ── 記事末FAQ（LLMO） ─── */
+	.faq-list {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.faq-item {
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		background: #fff;
+		overflow: hidden;
+	}
+
+	.faq-q {
+		font-size: 0.95rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		padding: 1.1rem 1.25rem;
+		cursor: pointer;
+		list-style: none;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+		line-height: 1.5;
+	}
+
+	.faq-q::-webkit-details-marker { display: none; }
+
+	.faq-q::after {
+		content: '+';
+		font-size: 1.25rem;
+		font-weight: 300;
+		color: var(--color-primary, #1e40af);
+		flex-shrink: 0;
+		transition: transform 0.2s;
+	}
+
+	details[open] .faq-q::after { transform: rotate(45deg); }
+
+	.faq-a {
+		font-size: 0.9rem;
+		line-height: 1.8;
+		color: var(--color-charcoal, #334155);
+		padding: 0 1.25rem 1.25rem;
+		margin: 0;
+	}
+
+	/* ── Eyecatch ─── */
+	.article-eyecatch {
+		margin-bottom: 2rem;
+		border-radius: 8px;
+		overflow: hidden;
+		max-height: 360px;
+	}
+	.article-eyecatch__img {
+		width: 100%; height: auto; display: block;
+		max-height: 360px; object-fit: cover;
+	}
+	/* ── Layout ────────────────────────────────────────────── */
+	.article-wrap { background: #fff; }
+
+	.container {
+		max-width: 800px;
+		margin-inline: auto;
+		padding-inline: var(--space-md, 1.5rem);
+	}
+
+	.br-pc { display: inline; }
+
+	/* ── Breadcrumb ────────────────────────────────────────── */
+	.breadcrumb {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.4em;
+		font-size: 0.8rem;
+		color: var(--color-text-muted);
+		margin-bottom: 2rem;
+	}
+
+	.breadcrumb a { color: inherit; text-decoration: none; }
+	.breadcrumb a:hover { color: var(--color-primary, #1e40af); }
+
+	/* ── Article header ────────────────────────────────────── */
+	.article-head {
+		padding-top: 3rem;
+		padding-bottom: 2.5rem;
+		border-bottom: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.article-meta {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		margin-bottom: 1.25rem;
+		flex-wrap: wrap;
+	}
+
+	.article-cat {
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--color-primary, #1e40af);
+		background: rgba(30, 64, 175, 0.07);
+		padding: 0.2em 0.7em;
+		border-radius: 4px;
+	}
+
+	.article-date,
+	.article-read {
+		font-size: 0.8rem;
+		color: var(--color-text-muted);
+	}
+
+	.article-date::before {
+		content: '';
+		display: inline-block;
+		width: 1px;
+		height: 0.9em;
+		background: var(--color-border, #e2e8f0);
+		margin-right: 0.75rem;
+		vertical-align: middle;
+	}
+
+	.article-head h1 {
+		font-size: clamp(1.5rem, 3vw, 2.1rem);
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		line-height: 1.35;
+		margin: 0 0 1rem;
+	}
+
+	.article-desc {
+		font-size: 1rem;
+		line-height: 1.75;
+		color: var(--color-charcoal, #334155);
+		margin: 0;
+	}
+
+	/* ── Article body ──────────────────────────────────────── */
+	.article-body { padding-block: 3rem; }
+
+	.article-section { margin-bottom: 0; }
+
+	.article-section h2 {
+		font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		margin: 0 0 1.25rem;
+		line-height: 1.45;
+		padding-bottom: 0.6rem;
+		border-bottom: 2px solid var(--color-border, #e2e8f0);
+	}
+
+	.article-section h3 {
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		margin: 2rem 0 0.75rem;
+	}
+
+	.article-section p {
+		font-size: 0.975rem;
+		line-height: 1.9;
+		color: var(--color-charcoal, #334155);
+		margin: 0 0 1rem;
+	}
+
+	.article-section ul {
+		margin: 0 0 1.25rem;
+		padding: 0;
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.article-section ul li {
+		padding-left: 1.25rem;
+		position: relative;
+		font-size: 0.95rem;
+		line-height: 1.7;
+		color: var(--color-charcoal, #334155);
+	}
+
+	.article-section ul li::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0.65em;
+		width: 5px;
+		height: 5px;
+		border-radius: 50%;
+		background: var(--color-primary, #1e40af);
+		opacity: 0.5;
+	}
+
+	.article-hr {
+		border: none;
+		border-top: 1px solid var(--color-border, #e2e8f0);
+		margin: 3rem 0;
+	}
+
+	/* ── Callout ───────────────────────────────────────────── */
+	.article-callout {
+		background: var(--color-bg-soft, #f8fafc);
+		border-left: 4px solid var(--color-primary, #1e40af);
+		border-radius: 0 8px 8px 0;
+		padding: 1.1rem 1.5rem;
+		margin: 1.5rem 0;
+	}
+
+	.article-callout p {
+		margin: 0;
+		font-size: 0.95rem;
+		line-height: 1.8;
+		color: var(--color-navy, #0f172a);
+	}
+
+	/* ── Numbered blocks ───────────────────────────────────── */
+	.article-numbered {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		margin-top: 1.5rem;
+	}
+
+	.article-numbered__item {
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		padding: 1.5rem;
+		background: #fff;
+	}
+
+	.article-numbered__num {
+		font-size: 0.7rem;
+		font-weight: 800;
+		letter-spacing: 0.12em;
+		color: var(--color-primary, #1e40af);
+		margin: 0 0 0.5rem;
+	}
+
+	.article-numbered__item h3 {
+		margin: 0 0 0.75rem;
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+	}
+
+	.article-numbered__item p {
+		margin: 0;
+		font-size: 0.9rem;
+		line-height: 1.8;
+		color: var(--color-charcoal, #334155);
+	}
+
+	/* ── Table ─────────────────────────────────────────────── */
+	.article-table-wrap {
+		overflow-x: auto;
+		margin: 1.5rem 0;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+	}
+
+	.article-table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 0.9rem;
+	}
+
+	.article-table thead th {
+		padding: 0.75rem 1.25rem;
+		background: var(--color-navy, #0f172a);
+		color: #fff;
+		font-weight: 700;
+		text-align: left;
+		white-space: nowrap;
+	}
+
+	.article-table tbody td {
+		padding: 0.75rem 1.25rem;
+		border-bottom: 1px solid var(--color-border, #e2e8f0);
+		color: var(--color-charcoal, #334155);
+		line-height: 1.6;
+	}
+
+	.article-table tbody tr:last-child td { border-bottom: none; }
+
+	.article-table tbody td:first-child {
+		font-weight: 700;
+		color: var(--color-navy, #0f172a);
+		white-space: nowrap;
+		border-right: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	/* ── Related ───────────────────────────────────────────── */
+	.article-related {
+		padding-block: 2.5rem 3rem;
+		border-top: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.article-related__label {
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--color-text-muted);
+		margin: 0 0 1rem;
+	}
+
+	.article-related__grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+		gap: 0.75rem;
+	}
+
+	.article-related__card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.3rem;
+		padding: 1rem 1.25rem;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		text-decoration: none;
+		transition: border-color 0.15s, box-shadow 0.15s;
+	}
+
+	.article-related__card:hover {
+		border-color: var(--color-primary, #1e40af);
+		box-shadow: 0 2px 10px rgba(30, 64, 175, 0.07);
+	}
+
+	.article-related__card-cat {
+		font-size: 0.68rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--color-primary, #1e40af);
+		margin: 0;
+	}
+
+	.article-related__card-title {
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		margin: 0;
+		line-height: 1.45;
+	}
+
+	.article-related__card-arrow {
+		font-size: 0.85rem;
+		color: var(--color-primary, #1e40af);
+		margin-top: 0.25rem;
+	}
+
+	/* ── CTA ───────────────────────────────────────────────── */
+	.article-cta {
+		padding-block: 4rem;
+		background:
+			radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%),
+			linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+	}
+
+	.article-cta__body {
+		max-width: 700px;
+		margin-inline: auto;
+		text-align: center;
+	}
+
+	.article-cta__body h2 {
+		font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+		font-weight: 600;
+		color: #fff;
+		line-height: 1.5;
+		margin: 0 0 1.5rem;
+	}
+
+	.article-cta__list {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+		margin: 0 auto 1.5rem;
+		padding: 0;
+		list-style: none;
+		text-align: left;
+		max-width: 420px;
+	}
+
+	.article-cta__list li {
+		font-size: 0.875rem;
+		color: rgba(255,255,255,0.85);
+		padding-left: 1.1rem;
+		position: relative;
+		line-height: 1.6;
+	}
+
+	.article-cta__list li::before {
+		content: '·';
+		position: absolute;
+		left: 0;
+		color: rgba(255,255,255,0.5);
+		font-size: 1.2em;
+	}
+
+	.article-cta__note {
+		font-size: 0.9rem;
+		color: rgba(255,255,255,0.7);
+		margin: 0 0 2rem;
+	}
+
+	.article-cta__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		justify-content: center;
+	}
+
+	.btn--cta-primary {
+		display: inline-flex;
+		align-items: center;
+		background: #fff;
+		color: var(--color-primary, #1e40af);
+		border: 2px solid transparent;
+		padding: 0.85em 1.75em;
+		font-size: 0.95rem;
+		border-radius: 6px;
+		font-weight: 700;
+		text-decoration: none;
+		transition: background 0.15s;
+	}
+
+	.btn--cta-primary:hover { background: rgba(255,255,255,0.9); }
+
+	.btn--cta-ghost {
+		display: inline-flex;
+		align-items: center;
+		background: transparent;
+		color: rgba(255,255,255,0.9);
+		border: 2px solid rgba(255,255,255,0.4);
+		padding: 0.85em 1.75em;
+		font-size: 0.95rem;
+		border-radius: 6px;
+		font-weight: 600;
+		text-decoration: none;
+		transition: border-color 0.15s;
+	}
+
+	.btn--cta-ghost:hover { border-color: rgba(255,255,255,0.8); }
+
+	/* ══════════════════════════════════════════════════════════
+	   DIAGRAMS
+	══════════════════════════════════════════════════════════ */
+	.diag {
+		margin: 2rem 0;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		overflow: hidden;
+		background: #fff;
+	}
+
+	.diag-caption {
+		display: block;
+		font-size: 0.78rem;
+		color: var(--color-text-muted);
+		text-align: center;
+		padding: 0.75rem 1rem;
+		background: var(--color-bg-soft, #f8fafc);
+		border-top: 1px solid var(--color-border, #e2e8f0);
+		line-height: 1.5;
+		margin: 0;
+	}
+
+	/* ── Diagram 1: Flow (日報化) ─────────────────────────── */
+	.diag--flow { padding: 1.5rem 1.5rem 0; }
+
+	.diag-flow-track {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-bottom: 1rem;
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		padding-bottom: 0.25rem;
+	}
+
+	.diag-flow-node {
+		flex: 1;
+		min-width: 100px;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		padding: 1rem 0.75rem;
+		text-align: center;
+		background: var(--color-bg-soft, #f8fafc);
+		flex-shrink: 0;
+	}
+
+	.diag-flow-node--center {
+		border-color: var(--color-primary, #1e40af);
+		background: rgba(30, 64, 175, 0.04);
+	}
+
+	.diag-flow-node__icon {
+		font-size: 1.25rem;
+		margin-bottom: 0.4rem;
+		line-height: 1;
+	}
+
+	.diag-flow-node__label {
+		font-size: 0.82rem;
+		font-weight: 700;
+		color: var(--color-navy, #0f172a);
+		margin-bottom: 0.25rem;
+	}
+
+	.diag-flow-node__sub {
+		font-size: 0.7rem;
+		color: var(--color-text-muted);
+		line-height: 1.4;
+	}
+
+	.diag-flow-arrow {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.2rem;
+		color: var(--color-text-muted);
+		flex-shrink: 0;
+	}
+
+	.diag-flow-arrow__label {
+		font-size: 0.65rem;
+		color: var(--color-text-muted);
+	}
+
+	.diag-flow-nofeedback {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		padding: 0.65rem 1rem;
+		margin-bottom: 1.25rem;
+		background: #fef2f2;
+		border: 1px solid #fecaca;
+		border-radius: 6px;
+		font-size: 0.82rem;
+		font-weight: 600;
+		color: #dc2626;
+	}
+
+	.diag-flow-nofeedback__icon {
+		font-size: 1rem;
+		opacity: 0.7;
+	}
+
+	/* ── Diagram 2: Hex Grid (6 elements) ────────────────── */
+	.diag--hex { padding: 1.5rem 1.5rem 0; }
+
+	.diag-hex-center {
+		text-align: center;
+		margin-bottom: 1rem;
+	}
+
+	.diag-hex-center__label {
+		font-size: 1.1rem;
+		font-weight: 800;
+		color: var(--color-navy, #0f172a);
+		line-height: 1.2;
+	}
+
+	.diag-hex-center__sub {
+		font-size: 0.78rem;
+		color: var(--color-primary, #1e40af);
+		font-weight: 700;
+		letter-spacing: 0.06em;
+	}
+
+	.diag-hex-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 0.75rem;
+		margin-bottom: 1.25rem;
+	}
+
+	.diag-hex-card {
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		padding: 1rem;
+		background: #fff;
+		position: relative;
+	}
+
+	.diag-hex-card__num {
+		font-size: 0.65rem;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		color: var(--color-primary, #1e40af);
+		margin: 0 0 0.35rem;
+	}
+
+	.diag-hex-card__title {
+		font-size: 0.82rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		margin: 0 0 0.4rem;
+		line-height: 1.35;
+	}
+
+	.diag-hex-card__body {
+		font-size: 0.75rem;
+		line-height: 1.55;
+		color: var(--color-charcoal, #334155);
+		margin: 0;
+	}
+
+	/* ── Diagram 3: Pyramid (RA → RevOps → CRM) ──────────── */
+	.diag--pyramid { padding: 1.5rem 1.5rem 0; }
+
+	.diag-pyramid-tier {
+		border-radius: 8px;
+		padding: 1rem 1.25rem;
+		margin-bottom: 0;
+	}
+
+	.diag-pyramid-tier--ra {
+		background: var(--color-navy, #0f172a);
+		color: #fff;
+	}
+
+	.diag-pyramid-tier--mid {
+		background: var(--color-bg-soft, #f8fafc);
+		border: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.diag-pyramid-tier--revops {
+		background: #fff;
+		border: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.diag-pyramid-tier--outcome {
+		background: rgba(30, 64, 175, 0.04);
+		border: 1px solid rgba(30, 64, 175, 0.2);
+		margin-bottom: 1.25rem;
+	}
+
+	.diag-pyramid-tier__tag {
+		font-size: 0.68rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		margin-bottom: 0.3rem;
+	}
+
+	.diag-pyramid-tier--ra .diag-pyramid-tier__tag    { color: rgba(255,255,255,0.45); }
+	.diag-pyramid-tier--mid .diag-pyramid-tier__tag    { color: var(--color-text-muted); }
+	.diag-pyramid-tier--revops .diag-pyramid-tier__tag { color: var(--color-text-muted); }
+	.diag-pyramid-tier--outcome .diag-pyramid-tier__tag { color: var(--color-primary, #1e40af); }
+
+	.diag-pyramid-tier__role {
+		font-size: 0.9rem;
+		font-weight: 700;
+		margin-bottom: 0.65rem;
+	}
+
+	.diag-pyramid-tier--ra .diag-pyramid-tier__role    { color: #fff; }
+	.diag-pyramid-tier--revops .diag-pyramid-tier__role { color: var(--color-navy, #0f172a); }
+
+	.diag-pyramid-tier__items {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35rem;
+	}
+
+	.diag-pyramid-tier__items span {
+		font-size: 0.75rem;
+		font-weight: 500;
+		padding: 0.2em 0.7em;
+		border-radius: 4px;
+	}
+
+	.diag-pyramid-tier--ra .diag-pyramid-tier__items span {
+		background: rgba(255,255,255,0.1);
+		color: rgba(255,255,255,0.8);
+		border: 1px solid rgba(255,255,255,0.12);
+	}
+
+	.diag-pyramid-tier--mid .diag-pyramid-tier__items span {
+		background: #fff;
+		color: var(--color-charcoal, #334155);
+		border: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.diag-pyramid-tier--revops .diag-pyramid-tier__items span {
+		background: var(--color-bg-soft, #f8fafc);
+		color: var(--color-charcoal, #334155);
+		border: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.diag-pyramid-tier--outcome .diag-pyramid-tier__items span {
+		background: rgba(30, 64, 175, 0.07);
+		color: var(--color-primary, #1e40af);
+		border: 1px solid rgba(30, 64, 175, 0.15);
+		font-weight: 600;
+	}
+
+	.diag-pyramid-arrow {
+		text-align: center;
+		font-size: 1.1rem;
+		color: var(--color-primary, #1e40af);
+		padding: 0.35rem 0;
+	}
+
+	/* ── Responsive ────────────────────────────────────────── */
+	@media (max-width: 700px) {
+		.br-pc { display: none; }
+		.article-related__grid { grid-template-columns: 1fr; }
+		.article-head { padding-top: 2rem; }
+		.diag-hex-grid { grid-template-columns: repeat(2, 1fr); }
+		.diag-flow-track { gap: 0.35rem; }
+		.diag-flow-node { min-width: 88px; padding: 0.75rem 0.5rem; }
+	}
+
+	@media (max-width: 480px) {
+		.diag-hex-grid { grid-template-columns: 1fr 1fr; }
+	}
+</style>

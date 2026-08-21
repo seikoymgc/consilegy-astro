@@ -1,0 +1,1000 @@
+---
+import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const slug = 'what-changes-in-crm-design-when-ai-writes-records';
+const pubDate = '2026-08-21';
+const pubDateDisplay = '2026年8月21日';
+
+const title = 'AIが入力を代行する時代に、CRM設計は何が変わるか';
+const metaTitle = 'AIが入力を代行する時代に、CRM設計は何が変わるか｜ボトルネックは入力から定義へ | Consilegy';
+const metaDescription = 'AIが商談記録を自動生成すると、CRMの入力率は上がります。ただしパイプラインが読めるようになるとは限りません。入力コストが消えたときにボトルネックがどこへ移るのか、設計の何を先に決めるべきかを解説します。';
+const category = 'AI';
+
+const faqItems = [
+	{
+		q: 'CRMの入力自動化とは何ですか？',
+		a: 'CRMの入力自動化とは、商談の音声や会議の文字起こし、メールのやり取りをAIが解析し、商談記録・次回アクション・商談ステージなどを自動でCRMに書き込む仕組みです。営業担当者が手で入力する時間を大きく減らせます。一方で、何をどのステージとみなすかの判断基準は自動化されないため、定義が曖昧なまま導入すると、埋まっているのに読めないデータが増えます。',
+	},
+	{
+		q: 'AIが入力すれば、CRMの定着問題は解決しますか？',
+		a: '入力されない問題は解決しますが、使われない問題は残ります。営業がCRMを見ない理由は入力の手間だけでなく、見ても次の判断が決まらないことにあります。入力率が100%になっても、ステージの意味が部門で揃っていなければ、パイプラインの数字は判断に使えません。',
+	},
+	{
+		q: 'AIに任せてよい項目と、任せない方がよい項目の違いは何ですか？',
+		a: '起きた事実はAIに任せられます。誰と話したか、何を聞かれたか、いつ返答するかは記録から復元できるためです。一方、この案件を追うべきか、このステージに進んだとみなすかは判断であり、組織が決めた基準がなければAIも決められません。事実は任せ、判断は基準を先に決める、という分け方が実務的です。',
+	},
+	{
+		q: '導入の順番はどうすべきですか？',
+		a: 'ステージの定義と、ステージが進む条件を先に決めてから自動化を入れてください。順番を逆にすると、曖昧な基準で大量のデータが生成され、あとから直す対象が増えます。定義は完璧である必要はなく、まず全員が同じ答えを言える状態まで揃えれば十分です。',
+	},
+];
+
+const articleSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: title,
+	description: metaDescription,
+	datePublished: pubDate,
+	dateModified: pubDate,
+	author: { '@type': 'Person', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
+	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+	url: `https://consilegy.com/insights/${slug}/`,
+	inLanguage: 'ja',
+};
+
+const faqSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faqItems.map(({ q, a }) => ({
+		'@type': 'Question',
+		name: q,
+		acceptedAnswer: { '@type': 'Answer', text: a },
+	})),
+};
+
+const breadcrumbSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://consilegy.com/' },
+		{ '@type': 'ListItem', position: 2, name: 'コラム', item: 'https://consilegy.com/insights/' },
+		{ '@type': 'ListItem', position: 3, name: title, item: `https://consilegy.com/insights/${slug}/` },
+	],
+};
+---
+
+<BaseLayout
+	title={metaTitle}
+	description={metaDescription}
+	lang="ja"
+>
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	</Fragment>
+
+<div class="article-wrap">
+
+	<header class="article-head container">
+		<nav class="breadcrumb" aria-label="パンくずリスト">
+			<a href="/">ホーム</a>
+			<span aria-hidden="true">›</span>
+			<a href="/insights/">コラム</a>
+			<span aria-hidden="true">›</span>
+			<span aria-current="page">{title}</span>
+		</nav>
+		<div class="article-meta">
+			<span class="article-cat">{category}</span>
+		</div>
+		<h1>AIが入力を代行する時代に、<br class="br-pc" />CRM設計は何が変わるか</h1>
+		<p class="article-desc">商談の記録が自動で入るようになり、入力率は9割を超えました。それでも週次のパイプライン会議では、相変わらず同じ質問が出ます。「この案件、本当に今月ですか」。埋まったことと、読めることは別です。</p>
+	</header>
+
+	<article class="article-body container" id="article">
+		<div class="article-eyecatch">
+			<img
+				src={`/images/insights/${slug}.svg`}
+				alt=""
+				width="1200"
+				height="630"
+				class="article-eyecatch__img"
+				loading="eager"
+				aria-hidden="true"
+			/>
+		</div>
+
+		<section class="article-section article-def" id="definition">
+			<h2>CRMの入力自動化とは</h2>
+			<p class="article-def__text"><strong>CRMの入力自動化とは</strong>、商談の音声や会議の文字起こし、メールのやり取りをAIが解析し、商談記録・次回アクション・商談ステージなどをCRMへ自動で書き込む仕組みです。営業担当者が手で入力する時間を大幅に減らせます。ただし、何をどのステージとみなすかという判断基準そのものは自動化されません。定義が曖昧なまま導入すると、項目は埋まっているのに判断には使えないデータが増えます。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section">
+			<h2>入力率は上がった。会議の質問は変わらなかった</h2>
+			<p>商談後の記録が自動で入るようになりました。文字起こしから要約が生成され、次回アクションも提案されます。以前は3割だった入力率が9割を超えました。営業からの評判も良好です。</p>
+			<p>ところが月曜の会議は、以前と同じ場面が続いています。パイプラインを画面に出し、マネージャーが1件ずつ確認していく。「この案件、本当に今月ですか」「先方の決裁者は出てきましたか」。数字を見て判断するのではなく、聞いて確かめる時間です。</p>
+			<div class="article-callout">
+				<p><strong>AIが入力を肩代わりすると、ボトルネックは「入力」から「定義」に移ります。</strong>入力の手間という言い訳が消えたことで、これまで隠れていた設計の欠陥が、そのまま見えるようになるためです。</p>
+			</div>
+			<p>これは悪い知らせではありません。手間が原因だったのか、設計が原因だったのかを切り分けられるようになった、ということです。ずっと分からなかったことが、1つはっきりします。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section">
+			<h2>AIが埋められるのは事実で、埋められないのは判断</h2>
+			<p>この2つを分けておくと、設計の議論が早く進みます。</p>
+			<p>AIが得意なのは、起きたことの復元です。誰と話したか、何を聞かれたか、いつまでに返すと約束したか。これらは記録の中に答えがあるので、人が手で書き写す必要はありません。この領域は、任せてしまって構いません。</p>
+			<p>一方で、AIが決められないものがあります。この案件は「提案中」なのか「検討中」なのか。この温度感は追うに値するのか。これらは記録の中に答えがなく、<strong>組織が決めた基準の中にしか答えがありません</strong>。基準がなければ、AIはもっともらしい値を選びます。人が適当に埋めるのと違うのは、AIは迷わず、しかも大量に埋めるという点です。</p>
+			<p>手入力の時代、曖昧なステージ定義は「入力されない」という形で表面化していました。営業が判断に迷って空欄にするからです。空欄は困りますが、間違っていることは分かります。自動化されると、空欄は埋まります。埋まったうえで、意味がずれます。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section">
+			<h2>自動化を入れる前に決めておく3つのこと</h2>
+			<div class="article-numbered">
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">01</p>
+					<h3>ステージが進む条件を、行動で定義する</h3>
+					<p>「提案中」を気持ちで定義すると、AIも人も揃いません。「提案書を送付済み、かつ先方から日程の返信がある」のように、記録から判定できる条件にしてください。行動で定義されていれば、AIが判定しても人が判定しても同じ結果になります。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">02</p>
+					<h3>AIが書いた値を、誰がいつ確認するかを決める</h3>
+					<p>全件を人が見直すなら自動化の意味が薄れますし、まったく見ないと誤りが蓄積します。金額の大きい案件だけ、あるいはステージが後半に進んだ瞬間だけ、といった線を引いてください。この線引きは最初から正解を当てなくて構いません。3か月運用して、実際にずれた場所を見てから調整します。</p>
+				</div>
+				<div class="article-numbered__item">
+					<p class="article-numbered__num">03</p>
+					<h3>AIが判断できなかったことを、残す場所を作る</h3>
+					<p>判定できなかった案件を空欄で流すと、そこだけ情報が消えます。「判定保留」の値を用意して、なぜ保留になったかを残してください。この保留の山が、次に定義を直すべき場所を教えてくれます。うまくいかなかった記録が、いちばん役に立ちます。</p>
+				</div>
+			</div>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section">
+			<h2>入力の負担が消えると、CRMの役割も変わる</h2>
+			<p>入力が重かった時代、CRMは「記録する場所」でした。負担が大きいぶん、入力してもらうこと自体が目的になり、現場は報告のために書いていました。</p>
+			<p>入力コストが下がると、その前提が崩れます。書く手間で人を動かす必要がなくなるので、CRMは<strong>次に何をするかを決める場所</strong>に寄せられます。どの案件から触るか、どこで止まっているか、誰に渡すか。これらが画面上で決まるなら、営業は報告のためではなく自分のために開きます。</p>
+			<p>ここまで来ると、「ちゃんと入力して」という言葉は要らなくなります。入力の督促が不要になったとき、CRMは初めて機能します。</p>
+			<p>逆に言えば、定義を揃えないまま自動化だけ入れると、綺麗に埋まった読めないデータが増えます。以前より手間はかからないぶん、問題に気づくのが遅くなります。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section">
+			<h2>最初の一手：ステージの意味を、3人に聞いてみる</h2>
+			<p>営業・マーケ・マネージャーの3人に、同じ質問をしてください。「提案中とは、何が起きた状態ですか」。</p>
+			<p>3人の答えが揃っていれば、自動化を進めて問題ありません。揃っていなければ、そこが先です。ツールの検討より前に、30分の会話で決められます。</p>
+			<p>揃っていなかったとしても、誰かが間違っているわけではありません。それぞれの立場から見て合理的な定義を持っているだけです。決めるべきなのは、どれが正しいかではなく、どれを共通の言葉にするかです。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section">
+			<h2>まとめ：AIは入力を消すが、定義は消してくれない</h2>
+			<p>AIは仕事を奪うものではなく、仕事の進め方を変えるものです。CRMにおいては、入力という工程を消し、そのぶん定義という工程を前に押し出します。</p>
+			<p>入力率が上がっても会議の質問が変わらないなら、原因は最初から入力ではありませんでした。ステージの意味が揃っていないことが原因で、手間の問題がそれを隠していただけです。</p>
+			<p>最初の一歩は、自動化の検討を止めることではありません。導入の順番を入れ替えて、ステージの定義を先に30分で決めることです。定義が揃っていれば、AIは強力に働きます。揃っていなければ、間違いを速く増やします。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section article-faq" id="faq">
+			<h2>よくある質問</h2>
+			<div class="faq-list">
+				{faqItems.map(({ q, a }) => (
+					<details class="faq-item">
+						<summary class="faq-q">{q}</summary>
+						<p class="faq-a">{a}</p>
+					</details>
+				))}
+			</div>
+		</section>
+
+		<p class="article-pubdate">公開日：{pubDateDisplay}</p>
+	</article>
+
+	<nav class="article-services" aria-label="関連サービス">
+		<h2 class="article-services__heading">関連サービス</h2>
+		<div class="article-services__grid">
+		<a href="/services/crm-revops-redesign/" class="article-services__card">
+				<span class="article-services__cat">サービス</span>
+				<span class="article-services__title">CRM / RevOps再設計支援</span>
+				<span class="article-services__arrow">→</span>
+			</a>
+		<a href="/services/hubspot-implementation-operations/" class="article-services__card">
+				<span class="article-services__cat">サービス</span>
+				<span class="article-services__title">HubSpot導入・運用支援</span>
+				<span class="article-services__arrow">→</span>
+			</a>
+		</div>
+	</nav>
+	<NewsletterSidebar />
+
+	<aside class="article-related container">
+		<p class="article-related__label">関連コンテンツ</p>
+		<div class="article-related__grid">
+			<a href="/revenue-architecture/" class="article-related__card">
+				<p class="article-related__card-cat">概念解説</p>
+				<p class="article-related__card-title">Revenue Architecture（レベニューアーキテクチャ）とは</p>
+				<span class="article-related__card-arrow">→</span>
+			</a>
+			<a href="/about-revops/" class="article-related__card">
+				<p class="article-related__card-cat">概念解説</p>
+				<p class="article-related__card-title">RevOps（レベニューオペレーション）とは</p>
+				<span class="article-related__card-arrow">→</span>
+			</a>
+			<a href="/insights/why-crm-adoption-fails/" class="article-related__card">
+				<p class="article-related__card-cat">関連記事</p>
+				<p class="article-related__card-title">CRMが定着しない本当の理由</p>
+				<span class="article-related__card-arrow">→</span>
+			</a>
+		</div>
+	</aside>
+
+	<section class="article-cta">
+		<div class="container">
+			<div class="article-cta__body">
+				<h2>Consilegyでは、Revenue Architectureの観点から<br class="br-pc" />売上の取りこぼしを可視化する無料の収益診断を公開しています。</h2>
+				<ul class="article-cta__list">
+					<li>入力率は上がったが、パイプラインの数字を信用できていない</li>
+					<li>ステージの意味が、部門ごとに違う気がしている</li>
+					<li>AIの導入を検討しているが、何から決めるべきか分からない</li>
+				</ul>
+				<p class="article-cta__note">ツールの前に、「設計図」から整理することが、最短の改善ルートです。</p>
+				<div class="article-cta__actions">
+					<a href="/diagnostic/" class="btn btn--cta-primary">収益を自己診断</a>
+					<a href="/services/crm-revops-redesign/" class="btn btn--cta-ghost">CRM / RevOps再設計支援を見る</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</div>
+</BaseLayout>
+<style>
+	/* ── 定義ブロック（LLMO） ─── */
+	.article-def__text {
+		background: var(--color-bg-soft, #f8fafc);
+		border-left: 4px solid var(--color-primary, #1e40af);
+		border-radius: 0 8px 8px 0;
+		padding: 1.25rem 1.5rem;
+		font-size: 1rem;
+		line-height: 1.85;
+		color: var(--color-navy, #0f172a);
+	}
+
+	/* ── 記事末FAQ（LLMO） ─── */
+	.faq-list {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.faq-item {
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		background: #fff;
+		overflow: hidden;
+	}
+
+	.faq-q {
+		font-size: 0.95rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		padding: 1.1rem 1.25rem;
+		cursor: pointer;
+		list-style: none;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+		line-height: 1.5;
+	}
+
+	.faq-q::-webkit-details-marker { display: none; }
+
+	.faq-q::after {
+		content: '+';
+		font-size: 1.25rem;
+		font-weight: 300;
+		color: var(--color-primary, #1e40af);
+		flex-shrink: 0;
+		transition: transform 0.2s;
+	}
+
+	details[open] .faq-q::after { transform: rotate(45deg); }
+
+	.faq-a {
+		font-size: 0.9rem;
+		line-height: 1.8;
+		color: var(--color-charcoal, #334155);
+		padding: 0 1.25rem 1.25rem;
+		margin: 0;
+	}
+
+	/* ── Eyecatch ─── */
+	.article-eyecatch {
+		margin-bottom: 2rem;
+		border-radius: 8px;
+		overflow: hidden;
+		max-height: 360px;
+	}
+	.article-eyecatch__img {
+		width: 100%; height: auto; display: block;
+		max-height: 360px; object-fit: cover;
+	}
+	/* ── Layout ────────────────────────────────────────────── */
+	.article-wrap { background: #fff; }
+
+	.container {
+		max-width: 800px;
+		margin-inline: auto;
+		padding-inline: var(--space-md, 1.5rem);
+	}
+
+	.br-pc { display: inline; }
+
+	/* ── Breadcrumb ────────────────────────────────────────── */
+	.breadcrumb {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.4em;
+		font-size: 0.8rem;
+		color: var(--color-text-muted);
+		margin-bottom: 2rem;
+	}
+
+	.breadcrumb a { color: inherit; text-decoration: none; }
+	.breadcrumb a:hover { color: var(--color-primary, #1e40af); }
+
+	/* ── Article header ────────────────────────────────────── */
+	.article-head {
+		padding-top: 3rem;
+		padding-bottom: 2.5rem;
+		border-bottom: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.article-meta {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		margin-bottom: 1.25rem;
+		flex-wrap: wrap;
+	}
+
+	.article-cat {
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--color-primary, #1e40af);
+		background: rgba(30, 64, 175, 0.07);
+		padding: 0.2em 0.7em;
+		border-radius: 4px;
+	}
+
+	.article-date,
+	.article-read {
+		font-size: 0.8rem;
+		color: var(--color-text-muted);
+	}
+
+	.article-date::before {
+		content: '';
+		display: inline-block;
+		width: 1px;
+		height: 0.9em;
+		background: var(--color-border, #e2e8f0);
+		margin-right: 0.75rem;
+		vertical-align: middle;
+	}
+
+	.article-head h1 {
+		font-size: clamp(1.5rem, 3vw, 2.1rem);
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		line-height: 1.35;
+		margin: 0 0 1rem;
+	}
+
+	.article-desc {
+		font-size: 1rem;
+		line-height: 1.75;
+		color: var(--color-charcoal, #334155);
+		margin: 0;
+	}
+
+	/* ── Article body ──────────────────────────────────────── */
+	.article-body { padding-block: 3rem; }
+
+	.article-section { margin-bottom: 0; }
+
+	.article-section h2 {
+		font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		margin: 0 0 1.25rem;
+		line-height: 1.45;
+		padding-bottom: 0.6rem;
+		border-bottom: 2px solid var(--color-border, #e2e8f0);
+	}
+
+	.article-section h3 {
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		margin: 2rem 0 0.75rem;
+	}
+
+	.article-section p {
+		font-size: 0.975rem;
+		line-height: 1.9;
+		color: var(--color-charcoal, #334155);
+		margin: 0 0 1rem;
+	}
+
+	.article-section ul {
+		margin: 0 0 1.25rem;
+		padding: 0;
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.article-section ul li {
+		padding-left: 1.25rem;
+		position: relative;
+		font-size: 0.95rem;
+		line-height: 1.7;
+		color: var(--color-charcoal, #334155);
+	}
+
+	.article-section ul li::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0.65em;
+		width: 5px;
+		height: 5px;
+		border-radius: 50%;
+		background: var(--color-primary, #1e40af);
+		opacity: 0.5;
+	}
+
+	.article-hr {
+		border: none;
+		border-top: 1px solid var(--color-border, #e2e8f0);
+		margin: 3rem 0;
+	}
+
+	/* ── Callout ───────────────────────────────────────────── */
+	.article-callout {
+		background: var(--color-bg-soft, #f8fafc);
+		border-left: 4px solid var(--color-primary, #1e40af);
+		border-radius: 0 8px 8px 0;
+		padding: 1.1rem 1.5rem;
+		margin: 1.5rem 0;
+	}
+
+	.article-callout p {
+		margin: 0;
+		font-size: 0.95rem;
+		line-height: 1.8;
+		color: var(--color-navy, #0f172a);
+	}
+
+	/* ── Numbered blocks ───────────────────────────────────── */
+	.article-numbered {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		margin-top: 1.5rem;
+	}
+
+	.article-numbered__item {
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		padding: 1.5rem;
+		background: #fff;
+	}
+
+	.article-numbered__num {
+		font-size: 0.7rem;
+		font-weight: 800;
+		letter-spacing: 0.12em;
+		color: var(--color-primary, #1e40af);
+		margin: 0 0 0.5rem;
+	}
+
+	.article-numbered__item h3 {
+		margin: 0 0 0.75rem;
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+	}
+
+	.article-numbered__item p {
+		margin: 0;
+		font-size: 0.9rem;
+		line-height: 1.8;
+		color: var(--color-charcoal, #334155);
+	}
+
+	/* ── Table ─────────────────────────────────────────────── */
+	.article-table-wrap {
+		overflow-x: auto;
+		margin: 1.5rem 0;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+	}
+
+	.article-table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 0.9rem;
+	}
+
+	.article-table thead th {
+		padding: 0.75rem 1.25rem;
+		background: var(--color-navy, #0f172a);
+		color: #fff;
+		font-weight: 700;
+		text-align: left;
+		white-space: nowrap;
+	}
+
+	.article-table tbody td {
+		padding: 0.75rem 1.25rem;
+		border-bottom: 1px solid var(--color-border, #e2e8f0);
+		color: var(--color-charcoal, #334155);
+		line-height: 1.6;
+	}
+
+	.article-table tbody tr:last-child td { border-bottom: none; }
+
+	.article-table tbody td:first-child {
+		font-weight: 700;
+		color: var(--color-navy, #0f172a);
+		white-space: nowrap;
+		border-right: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	/* ── Related ───────────────────────────────────────────── */
+	.article-related {
+		padding-block: 2.5rem 3rem;
+		border-top: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.article-related__label {
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--color-text-muted);
+		margin: 0 0 1rem;
+	}
+
+	.article-related__grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+		gap: 0.75rem;
+	}
+
+	.article-related__card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.3rem;
+		padding: 1rem 1.25rem;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		text-decoration: none;
+		transition: border-color 0.15s, box-shadow 0.15s;
+	}
+
+	.article-related__card:hover {
+		border-color: var(--color-primary, #1e40af);
+		box-shadow: 0 2px 10px rgba(30, 64, 175, 0.07);
+	}
+
+	.article-related__card-cat {
+		font-size: 0.68rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--color-primary, #1e40af);
+		margin: 0;
+	}
+
+	.article-related__card-title {
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		margin: 0;
+		line-height: 1.45;
+	}
+
+	.article-related__card-arrow {
+		font-size: 0.85rem;
+		color: var(--color-primary, #1e40af);
+		margin-top: 0.25rem;
+	}
+
+	/* ── CTA ───────────────────────────────────────────────── */
+	.article-cta {
+		padding-block: 4rem;
+		background:
+			radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%),
+			linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+	}
+
+	.article-cta__body {
+		max-width: 700px;
+		margin-inline: auto;
+		text-align: center;
+	}
+
+	.article-cta__body h2 {
+		font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+		font-weight: 600;
+		color: #fff;
+		line-height: 1.5;
+		margin: 0 0 1.5rem;
+	}
+
+	.article-cta__list {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+		margin: 0 auto 1.5rem;
+		padding: 0;
+		list-style: none;
+		text-align: left;
+		max-width: 420px;
+	}
+
+	.article-cta__list li {
+		font-size: 0.875rem;
+		color: rgba(255,255,255,0.85);
+		padding-left: 1.1rem;
+		position: relative;
+		line-height: 1.6;
+	}
+
+	.article-cta__list li::before {
+		content: '·';
+		position: absolute;
+		left: 0;
+		color: rgba(255,255,255,0.5);
+		font-size: 1.2em;
+	}
+
+	.article-cta__note {
+		font-size: 0.9rem;
+		color: rgba(255,255,255,0.7);
+		margin: 0 0 2rem;
+	}
+
+	.article-cta__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		justify-content: center;
+	}
+
+	.btn--cta-primary {
+		display: inline-flex;
+		align-items: center;
+		background: #fff;
+		color: var(--color-primary, #1e40af);
+		border: 2px solid transparent;
+		padding: 0.85em 1.75em;
+		font-size: 0.95rem;
+		border-radius: 6px;
+		font-weight: 700;
+		text-decoration: none;
+		transition: background 0.15s;
+	}
+
+	.btn--cta-primary:hover { background: rgba(255,255,255,0.9); }
+
+	.btn--cta-ghost {
+		display: inline-flex;
+		align-items: center;
+		background: transparent;
+		color: rgba(255,255,255,0.9);
+		border: 2px solid rgba(255,255,255,0.4);
+		padding: 0.85em 1.75em;
+		font-size: 0.95rem;
+		border-radius: 6px;
+		font-weight: 600;
+		text-decoration: none;
+		transition: border-color 0.15s;
+	}
+
+	.btn--cta-ghost:hover { border-color: rgba(255,255,255,0.8); }
+
+	/* ══════════════════════════════════════════════════════════
+	   DIAGRAMS
+	══════════════════════════════════════════════════════════ */
+	.diag {
+		margin: 2rem 0;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		overflow: hidden;
+		background: #fff;
+	}
+
+	.diag-caption {
+		display: block;
+		font-size: 0.78rem;
+		color: var(--color-text-muted);
+		text-align: center;
+		padding: 0.75rem 1rem;
+		background: var(--color-bg-soft, #f8fafc);
+		border-top: 1px solid var(--color-border, #e2e8f0);
+		line-height: 1.5;
+		margin: 0;
+	}
+
+	/* ── Diagram 1: Flow (日報化) ─────────────────────────── */
+	.diag--flow { padding: 1.5rem 1.5rem 0; }
+
+	.diag-flow-track {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-bottom: 1rem;
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		padding-bottom: 0.25rem;
+	}
+
+	.diag-flow-node {
+		flex: 1;
+		min-width: 100px;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		padding: 1rem 0.75rem;
+		text-align: center;
+		background: var(--color-bg-soft, #f8fafc);
+		flex-shrink: 0;
+	}
+
+	.diag-flow-node--center {
+		border-color: var(--color-primary, #1e40af);
+		background: rgba(30, 64, 175, 0.04);
+	}
+
+	.diag-flow-node__icon {
+		font-size: 1.25rem;
+		margin-bottom: 0.4rem;
+		line-height: 1;
+	}
+
+	.diag-flow-node__label {
+		font-size: 0.82rem;
+		font-weight: 700;
+		color: var(--color-navy, #0f172a);
+		margin-bottom: 0.25rem;
+	}
+
+	.diag-flow-node__sub {
+		font-size: 0.7rem;
+		color: var(--color-text-muted);
+		line-height: 1.4;
+	}
+
+	.diag-flow-arrow {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.2rem;
+		color: var(--color-text-muted);
+		flex-shrink: 0;
+	}
+
+	.diag-flow-arrow__label {
+		font-size: 0.65rem;
+		color: var(--color-text-muted);
+	}
+
+	.diag-flow-nofeedback {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		padding: 0.65rem 1rem;
+		margin-bottom: 1.25rem;
+		background: #fef2f2;
+		border: 1px solid #fecaca;
+		border-radius: 6px;
+		font-size: 0.82rem;
+		font-weight: 600;
+		color: #dc2626;
+	}
+
+	.diag-flow-nofeedback__icon {
+		font-size: 1rem;
+		opacity: 0.7;
+	}
+
+	/* ── Diagram 2: Hex Grid (6 elements) ────────────────── */
+	.diag--hex { padding: 1.5rem 1.5rem 0; }
+
+	.diag-hex-center {
+		text-align: center;
+		margin-bottom: 1rem;
+	}
+
+	.diag-hex-center__label {
+		font-size: 1.1rem;
+		font-weight: 800;
+		color: var(--color-navy, #0f172a);
+		line-height: 1.2;
+	}
+
+	.diag-hex-center__sub {
+		font-size: 0.78rem;
+		color: var(--color-primary, #1e40af);
+		font-weight: 700;
+		letter-spacing: 0.06em;
+	}
+
+	.diag-hex-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 0.75rem;
+		margin-bottom: 1.25rem;
+	}
+
+	.diag-hex-card {
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		padding: 1rem;
+		background: #fff;
+		position: relative;
+	}
+
+	.diag-hex-card__num {
+		font-size: 0.65rem;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		color: var(--color-primary, #1e40af);
+		margin: 0 0 0.35rem;
+	}
+
+	.diag-hex-card__title {
+		font-size: 0.82rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		margin: 0 0 0.4rem;
+		line-height: 1.35;
+	}
+
+	.diag-hex-card__body {
+		font-size: 0.75rem;
+		line-height: 1.55;
+		color: var(--color-charcoal, #334155);
+		margin: 0;
+	}
+
+	/* ── Diagram 3: Pyramid (RA → RevOps → CRM) ──────────── */
+	.diag--pyramid { padding: 1.5rem 1.5rem 0; }
+
+	.diag-pyramid-tier {
+		border-radius: 8px;
+		padding: 1rem 1.25rem;
+		margin-bottom: 0;
+	}
+
+	.diag-pyramid-tier--ra {
+		background: var(--color-navy, #0f172a);
+		color: #fff;
+	}
+
+	.diag-pyramid-tier--mid {
+		background: var(--color-bg-soft, #f8fafc);
+		border: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.diag-pyramid-tier--revops {
+		background: #fff;
+		border: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.diag-pyramid-tier--outcome {
+		background: rgba(30, 64, 175, 0.04);
+		border: 1px solid rgba(30, 64, 175, 0.2);
+		margin-bottom: 1.25rem;
+	}
+
+	.diag-pyramid-tier__tag {
+		font-size: 0.68rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		margin-bottom: 0.3rem;
+	}
+
+	.diag-pyramid-tier--ra .diag-pyramid-tier__tag    { color: rgba(255,255,255,0.45); }
+	.diag-pyramid-tier--mid .diag-pyramid-tier__tag    { color: var(--color-text-muted); }
+	.diag-pyramid-tier--revops .diag-pyramid-tier__tag { color: var(--color-text-muted); }
+	.diag-pyramid-tier--outcome .diag-pyramid-tier__tag { color: var(--color-primary, #1e40af); }
+
+	.diag-pyramid-tier__role {
+		font-size: 0.9rem;
+		font-weight: 700;
+		margin-bottom: 0.65rem;
+	}
+
+	.diag-pyramid-tier--ra .diag-pyramid-tier__role    { color: #fff; }
+	.diag-pyramid-tier--revops .diag-pyramid-tier__role { color: var(--color-navy, #0f172a); }
+
+	.diag-pyramid-tier__items {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35rem;
+	}
+
+	.diag-pyramid-tier__items span {
+		font-size: 0.75rem;
+		font-weight: 500;
+		padding: 0.2em 0.7em;
+		border-radius: 4px;
+	}
+
+	.diag-pyramid-tier--ra .diag-pyramid-tier__items span {
+		background: rgba(255,255,255,0.1);
+		color: rgba(255,255,255,0.8);
+		border: 1px solid rgba(255,255,255,0.12);
+	}
+
+	.diag-pyramid-tier--mid .diag-pyramid-tier__items span {
+		background: #fff;
+		color: var(--color-charcoal, #334155);
+		border: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.diag-pyramid-tier--revops .diag-pyramid-tier__items span {
+		background: var(--color-bg-soft, #f8fafc);
+		color: var(--color-charcoal, #334155);
+		border: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.diag-pyramid-tier--outcome .diag-pyramid-tier__items span {
+		background: rgba(30, 64, 175, 0.07);
+		color: var(--color-primary, #1e40af);
+		border: 1px solid rgba(30, 64, 175, 0.15);
+		font-weight: 600;
+	}
+
+	.diag-pyramid-arrow {
+		text-align: center;
+		font-size: 1.1rem;
+		color: var(--color-primary, #1e40af);
+		padding: 0.35rem 0;
+	}
+
+	/* ── Responsive ────────────────────────────────────────── */
+	@media (max-width: 700px) {
+		.br-pc { display: none; }
+		.article-related__grid { grid-template-columns: 1fr; }
+		.article-head { padding-top: 2rem; }
+		.diag-hex-grid { grid-template-columns: repeat(2, 1fr); }
+		.diag-flow-track { gap: 0.35rem; }
+		.diag-flow-node { min-width: 88px; padding: 0.75rem 0.5rem; }
+	}
+
+	@media (max-width: 480px) {
+		.diag-hex-grid { grid-template-columns: 1fr 1fr; }
+	}
+</style>

@@ -26,8 +26,15 @@ function esc(s) {
 
 function extractHeadline(pagePath) {
 	const src = readFileSync(pagePath, 'utf8');
-	const m = src.match(/headline:\s*'((?:[^'\\]|\\.)*)'/);
-	return m ? m[1].replaceAll("\\'", "'") : null;
+	const unquote = (s) => s.replaceAll("\\'", "'");
+	// 1) headline に文字列リテラルが直接書かれている場合
+	const literal = src.match(/headline:\s*'((?:[^'\\]|\\.)*)'/);
+	if (literal) return unquote(literal[1]);
+	// 2) テンプレート由来の `headline: title` 形式。参照先の const を引く
+	const ref = src.match(/headline:\s*([A-Za-z_$][\w$]*)/);
+	if (!ref) return null;
+	const decl = src.match(new RegExp(`const\\s+${ref[1]}\\s*=\\s*'((?:[^'\\\\]|\\\\.)*)'`));
+	return decl ? unquote(decl[1]) : null;
 }
 
 // Split "main｜sub" style headlines into title + subtitle
@@ -120,6 +127,8 @@ const PALETTE = {
 	sub: '#64748B',    // subtitle: slate, readable but recessive
 	url: '#94A3B8',    // footer url: quiet
 	hairline: '#1E3A8A', // structural lines, used at low opacity
+	accent: '#E62E45',  // accent (5%): ロゴの赤。アイブロウバーと罫のみに使う
+	brandViolet: '#765FC4', // ロゴの紫。ブランドビジュアルのグラデーション
 };
 
 const MARGIN = 96;          // left/right safe margin (info kept off the edges)
@@ -213,7 +222,7 @@ function renderSvg({ title, sub, lang, slug }) {
 
 	const lastBaseline = titleTop + (lines.length - 1) * lineHeight;
 	const ruleY = lastBaseline + 24;
-	const rule = `<rect x="${MARGIN}" y="${ruleY}" width="64" height="3" fill="${P.navy}"/>`;
+	const rule = `<rect x="${MARGIN}" y="${ruleY}" width="64" height="3" fill="${P.accent}"/>`;
 
 	// Subtitle is kept short and clamped to the left column width.
 	const subText = sub
@@ -231,11 +240,11 @@ function renderSvg({ title, sub, lang, slug }) {
     </linearGradient>
     <linearGradient id="bi" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#3B82F6"/>
-      <stop offset="100%" stop-color="#4F46E5"/>
+      <stop offset="100%" stop-color="${P.brandViolet}"/>
     </linearGradient>
     <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#4F46E5" stop-opacity="0.20"/>
-      <stop offset="100%" stop-color="#4F46E5" stop-opacity="0"/>
+      <stop offset="0%" stop-color="${P.brandViolet}" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="${P.brandViolet}" stop-opacity="0"/>
     </radialGradient>
     <filter id="soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="26"/></filter>
   </defs>
@@ -243,7 +252,7 @@ function renderSvg({ title, sub, lang, slug }) {
 
   ${motif}
 
-  <rect x="${MARGIN}" y="60" width="4" height="30" fill="${P.navy}"/>
+  <rect x="${MARGIN}" y="60" width="4" height="30" fill="${P.accent}"/>
   <text x="${MARGIN + 20}" y="82" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="20" font-weight="600" fill="${P.navy}" letter-spacing="0.28em">INSIGHTS</text>
   <line x1="${MARGIN}" y1="116" x2="${RIGHT}" y2="116" stroke="${P.hairline}" stroke-opacity="0.12" stroke-width="1"/>
 

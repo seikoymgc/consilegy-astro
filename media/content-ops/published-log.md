@@ -2,6 +2,10 @@
 
 日次タスクが公開した記事の記録。重複回避に使う。新しい順に上へ追記する。
 
+> **⛔ 2026-08-25 追記：push が再び認証エラーで失敗しました。PATの埋め直しが必要です。** `origin` の remote URL が素の `https://github.com/seikoymgc/consilegy-astro.git` に戻っており（fine-grained PAT が消えている）、`git push` が `could not read Username for 'https://github.com'` で停止します。**未pushのコミットは3本です**：`515fbed`（2026-08-25の記事）／`130fc84`（人格ファイルの配線とプロジェクト情報の整備）／`4be58ff`（consilegy-strategy からの資料整理に伴う移動）。後ろ2本は他セッションの作業で、記事コミットより前に積まれていました。**Seikoさん側で remote URL に PAT を埋め直して `git push` してください。** 通れば GitHub Actions が3本まとめてデプロイします。記事ファイルはコミット済みなので消えません。
+>
+> **📌 2026-08-25 追記：`~/Downloads` は「見えない」のではなく「bashから見えない」だけでした。** `Glob` / `Read` などのファイルツールからは `/Users/seikoyamaguchi/Downloads` として普通に読めます（8/25の実行で156件のPNGを列挙して確認）。見えないのは bash サンドボックスのマウント（`/sessions/.../mnt/` 配下は consilegy-astro / outputs / uploads のみ）だけです。ただし**ファイルツールはバイナリのコピーができない**ため、`mv` の代わりにはなりません。Recraftが復活した朝は、computer-use の Finder（フルティア）で `cmd+shift+G` → `~/Downloads` → 最新PNGを `cmd+C` → 保存先で `cmd+opt+V`（移動）という経路を試してください。
+>
 > **🔧 2026-08-18 追記：gitのロックファイルは `rm` できないが `mv` で退避すれば commit / push は通る（今朝の実行で確立）。** サンドボックスから `.git/*.lock` は `rm -f` が `Operation not permitted` で失敗し、`git add` / `git commit` が「Another git process seems to be running」で止まります。**回避策は、git コマンドの直前に毎回ロックを rename すること。** 具体的には `for f in .git/HEAD.lock .git/index.lock .git/refs/remotes/origin/main.lock; do [ -e "$f" ] && mv "$f" "$f.old$(date +%s)"; done` を `git add` / `git commit` / `git push` のそれぞれ直前に実行します（git 自身が実行のたびに新しいロックを作り、終了時に消せずに残すため、1回だけでは足りません）。この手順で 8/18 は commit `2a53e0b` の push まで通っています。`.git/*.lock.old*` `.git/*.lock.stale*` が溜まっているので、**macOS側でまとめて削除してください**（追跡対象外なのでコミットには入りません）。
 >
 > **⚠️ 2026-08-18 追記：`~/Downloads` はサンドボックスに未マウントでした。** `/sessions/.../mnt/` 配下は `consilegy-astro` / `outputs` / `uploads` の3つだけで、Downloads は見えません。Recraftの「ダウンロードボタンを押して ~/Downloads から mv する」ルートは、この状態では使えません。

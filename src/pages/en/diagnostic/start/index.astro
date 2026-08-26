@@ -47,6 +47,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 		painCat?: string; // tiebreak: self-reported most painful seam ('' = none)
 		industry?: string; // from the lead form; switches one-shot-sale result copy
 		leadDone: boolean;
+		shared?: boolean; // opened from a shared result link, not taken here
 		email?: string;
 	}
 
@@ -103,6 +104,53 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 	}
 
 	// ── Scoring ─────────────────────────────────────────────
+	// ── Shareable result link ───────────────────────────────
+	// The link carries only the chosen option indices, never the email address.
+	// Someone a result is shared with sees it without going through the lead gate;
+	// taking their own diagnostic still does.
+	const CH_TO_CODE: Record<string, string> = { marketing: 'm', referral: 'r', mixed: 'x' };
+	const CODE_TO_CH: Record<string, string> = { m: 'marketing', r: 'referral', x: 'mixed' };
+	const IND_TO_CODE: Record<string, string> = { saas: 'a', manufacturing: 'b', wholesale: 'c', prof_services: 'd', retail_ec: 'e', education: 'f', other: 'g' };
+	const CODE_TO_IND: Record<string, string> = { a: 'saas', b: 'manufacturing', c: 'wholesale', d: 'prof_services', e: 'retail_ec', f: 'education', g: 'other', z: '' };
+
+	function catsFor(channel?: string) {
+		return CATEGORIES.filter((c) => !isExcluded(c.id, channel));
+	}
+
+	function resultCode(): string {
+		const ch = CH_TO_CODE[state.channel ?? ''] ?? 'm';
+		const ind = IND_TO_CODE[state.industry ?? ''] ?? 'z';
+		const ans = state.answers.map((a) => (a === null ? 0 : a)).join('');
+		const painIdx = state.painCat ? ACTIVE_CATS.findIndex((c) => c.id === state.painCat) : -1;
+		return `${ch}${ind}${ans}${painIdx >= 0 ? painIdx : 'z'}`;
+	}
+
+	function shareUrl(): string {
+		return `${location.origin}${location.pathname}?r=${resultCode()}`;
+	}
+
+	function applyCode(code: string): boolean {
+		const ch = CODE_TO_CH[code[0]];
+		const ind = CODE_TO_IND[code[1]];
+		if (!ch || ind === undefined) return false;
+		const cats = catsFor(ch);
+		const questions = cats.flatMap((c) => c.questions);
+		const body = code.slice(2);
+		if (body.length !== questions.length + 1) return false;
+		const answers: number[] = [];
+		for (let i = 0; i < questions.length; i++) {
+			const n = Number(body[i]);
+			if (!Number.isInteger(n) || n < 0 || n >= questions[i].options.length) return false;
+			answers.push(n);
+		}
+		const painChar = body[body.length - 1];
+		const painIdx = Number(painChar);
+		const painCat = painChar !== 'z' && Number.isInteger(painIdx) && cats[painIdx] ? cats[painIdx].id : '';
+		state = { step: 'result', current: 0, channel: ch, answers, painCat, industry: ind, leadDone: true, shared: true };
+		rebuildFlat();
+		return true;
+	}
+
 	// null = this seam is out of scope for the chosen channel.
 	function categoryScores(): (number | null)[] {
 		return CATEGORIES.map((c) => {
@@ -166,6 +214,13 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 		else if (state.step === 'lead') renderLead();
 		else renderResult();
 		window.scrollTo({ top: 0 });
+		// Each step replaces the whole view, so move focus to the new heading —
+		// otherwise keyboard and screen-reader users are left where the old page was.
+		const heading = app.querySelector<HTMLElement>('h1');
+		if (heading) {
+			heading.setAttribute('tabindex', '-1');
+			heading.focus({ preventScroll: true });
+		}
 	}
 
 	// Q1 — not scored. Decides which seams are in scope, so it runs before the quiz.
@@ -317,8 +372,8 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 					</select>
 				</label>
 				<label class="rd-field">
-					<span class="rd-field-label">Industry<span class="rd-field-opt"> (optional)</span></span>
-					<select name="industry" class="rd-input rd-select">
+					<span class="rd-field-label">Industry<span class="rd-field-req">Required</span></span>
+					<select name="industry" class="rd-input rd-select" required>
 						<option value="">Select…</option>
 						<option value="saas">SaaS / IT</option>
 						<option value="manufacturing">Manufacturing</option>
@@ -369,10 +424,15 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 				input.focus();
 				return;
 			}
+			if (!indSel.value) {
+				showError('Please select your industry. It changes your result and what we send back.');
+				indSel.focus();
+				return;
+			}
 			const tools = Array.from(form.querySelectorAll<HTMLInputElement>('input[name="current_tools"]:checked')).map((el) => el.value);
 			const extra: Record<string, string> = {};
 			if (sizeSel.value) extra.employee_size = sizeSel.value;
-			if (indSel.value) extra.consilegy_industry = indSel.value;
+			extra.consilegy_industry = indSel.value;
 			if (state.channel) extra.consilegy_lead_channel = state.channel;
 			if (tools.length) extra.current_tools = tools.join(';');
 			errEl.hidden = true;
@@ -540,7 +600,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 			${leaks.length > 0 ? `
 			<div class="rd-insights">
 				<h2 class="rd-insights-title">Where you're leaking, and what to do<span class="rd-insights-sub">（by priority）</span></h2>
-				<p class="rd-insights-note">* Figures are typical ranges Consilegy has seen across 40+ engagements, not your company's actual numbers.</p>
+				<p class="rd-insights-note">* Figures are typical ranges Consilegy has seen across 40 engagements, plus widely cited benchmarks. Neither is your company's actual numbers.</p>
 				${tiebroken ? '<p class="rd-insights-note">* Seams with tied scores are ordered by the one you said hurts most.</p>' : ''}
 				${leaks.map((x, i) => `
 					<div class="rd-insight">
@@ -608,7 +668,16 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 				<p class="rd-probe-thanks" id="rd-probe-thanks" hidden>Thank you. This helps us make the consult more specific.</p>
 			</div>
 
-			<p class="rd-retry"><button type="button" data-retry>Take the diagnostic again</button></p>
+			<div class="rd-share">
+				<p class="rd-share-label">Share this result</p>
+				<p class="rd-share-desc">A link you can send to colleagues. It carries your answers only, never your email address.</p>
+				<div class="rd-share-row">
+					<input type="text" id="rd-share-url" class="rd-input" readonly value="${esc(shareUrl())}" />
+					<button type="button" id="rd-share-copy" class="rd-probe-send">Copy</button>
+				</div>
+			</div>
+
+			<p class="rd-retry"><button type="button" data-retry>${state.shared ? 'Take it for your own company' : 'Take the diagnostic again'}</button></p>
 		`;
 
 		track('result_view', { score_total: total, band: band.label, pattern_id: pattern?.id ?? 'none', worst_cat: worst?.c.id ?? 'none', pain_cat: state.painCat || 'none', industry: state.industry || 'none', channel: state.channel || 'none', max_score: maxScore() });
@@ -657,15 +726,36 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 				sendBtn.textContent = 'Send';
 			}
 		});
+		app.querySelector('#rd-share-copy')?.addEventListener('click', async () => {
+			const input = app.querySelector<HTMLInputElement>('#rd-share-url')!;
+			const btn = app.querySelector<HTMLButtonElement>('#rd-share-copy')!;
+			try {
+				await navigator.clipboard.writeText(input.value);
+			} catch {
+				input.select();
+			}
+			btn.textContent = 'Copied';
+			track('share_copy', { channel: state.channel ?? '' });
+			setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+		});
+
 		app.querySelector('[data-retry]')?.addEventListener('click', () => {
-			state = { step: 'channel', current: 0, answers: [], leadDone: state.leadDone, industry: state.industry, channel: state.channel };
+			// A shared viewer has not given an email, so their own run is gated again.
+			const keepLead = state.shared ? false : state.leadDone;
+			history.replaceState({}, '', location.pathname);
+			state = { step: 'channel', current: 0, answers: [], leadDone: keepLead, industry: state.shared ? undefined : state.industry, channel: state.channel };
 			rebuildFlat();
 			render();
 		});
 	}
 
 	// ── Boot ────────────────────────────────────────────────
-	trackOnce('diagnostic_start');
+	const sharedCode = new URLSearchParams(location.search).get('r');
+	if (sharedCode && applyCode(sharedCode)) {
+		track('result_shared_view', { channel: state.channel ?? '' });
+	} else {
+		trackOnce('diagnostic_start');
+	}
 	render();
 </script>
 
@@ -923,6 +1013,26 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 	text-underline-offset: 3px; padding: 0.625rem; min-height: 44px;
 }
 :global(.rd-retry button:hover) { color: var(--color-primary); }
+
+/* Share link */
+:global(.rd-share) {
+	background: var(--glass-bg);
+	border: 1px solid var(--glass-border);
+	border-radius: var(--radius-card);
+	padding: 1.25rem; margin-top: 1.5rem;
+}
+:global(.rd-share-label) {
+	font-size: 0.625rem; font-weight: 600; color: var(--color-primary);
+	letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 0.5rem;
+}
+:global(.rd-share-desc) { font-size: 0.75rem; color: var(--color-text-muted); line-height: 1.7; margin: 0 0 0.75rem; }
+:global(.rd-share-row) { display: flex; gap: 0.5rem; align-items: stretch; }
+:global(.rd-share-row .rd-input) { font-size: 0.8125rem; min-height: 44px; }
+:global(.rd-share-row .rd-probe-send) { flex-shrink: 0; white-space: nowrap; }
+
+/* Headings receive focus on step change; don't draw a ring for mouse users */
+:global(h1[tabindex="-1"]:focus) { outline: none; }
+:global(h1[tabindex="-1"]:focus-visible) { outline: 2px solid var(--color-primary); outline-offset: 4px; }
 
 /* Out-of-scope seam + scope note */
 :global(.rd-sig-off) { opacity: 0.55; border-style: dashed; }

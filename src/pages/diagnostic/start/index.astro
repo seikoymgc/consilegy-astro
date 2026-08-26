@@ -50,6 +50,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 		painCat?: string; // tiebreak: self-reported most painful seam ('' = none)
 		industry?: string; // from the lead form; switches one-shot-sale result copy
 		leadDone: boolean;
+		shared?: boolean; // opened from a shared result link, not taken here
 		email?: string;
 	}
 
@@ -106,6 +107,53 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 	}
 
 	// ── Scoring ─────────────────────────────────────────────
+	// ── Shareable result link ───────────────────────────────
+	// The link carries only the chosen option indices, never the email address.
+	// Someone a result is shared with sees it without going through the lead gate;
+	// taking their own diagnostic still does.
+	const CH_TO_CODE: Record<string, string> = { marketing: 'm', referral: 'r', mixed: 'x' };
+	const CODE_TO_CH: Record<string, string> = { m: 'marketing', r: 'referral', x: 'mixed' };
+	const IND_TO_CODE: Record<string, string> = { saas: 'a', manufacturing: 'b', wholesale: 'c', prof_services: 'd', retail_ec: 'e', education: 'f', other: 'g' };
+	const CODE_TO_IND: Record<string, string> = { a: 'saas', b: 'manufacturing', c: 'wholesale', d: 'prof_services', e: 'retail_ec', f: 'education', g: 'other', z: '' };
+
+	function catsFor(channel?: string) {
+		return CATEGORIES.filter((c) => !isExcluded(c.id, channel));
+	}
+
+	function resultCode(): string {
+		const ch = CH_TO_CODE[state.channel ?? ''] ?? 'm';
+		const ind = IND_TO_CODE[state.industry ?? ''] ?? 'z';
+		const ans = state.answers.map((a) => (a === null ? 0 : a)).join('');
+		const painIdx = state.painCat ? ACTIVE_CATS.findIndex((c) => c.id === state.painCat) : -1;
+		return `${ch}${ind}${ans}${painIdx >= 0 ? painIdx : 'z'}`;
+	}
+
+	function shareUrl(): string {
+		return `${location.origin}${location.pathname}?r=${resultCode()}`;
+	}
+
+	function applyCode(code: string): boolean {
+		const ch = CODE_TO_CH[code[0]];
+		const ind = CODE_TO_IND[code[1]];
+		if (!ch || ind === undefined) return false;
+		const cats = catsFor(ch);
+		const questions = cats.flatMap((c) => c.questions);
+		const body = code.slice(2);
+		if (body.length !== questions.length + 1) return false;
+		const answers: number[] = [];
+		for (let i = 0; i < questions.length; i++) {
+			const n = Number(body[i]);
+			if (!Number.isInteger(n) || n < 0 || n >= questions[i].options.length) return false;
+			answers.push(n);
+		}
+		const painChar = body[body.length - 1];
+		const painIdx = Number(painChar);
+		const painCat = painChar !== 'z' && Number.isInteger(painIdx) && cats[painIdx] ? cats[painIdx].id : '';
+		state = { step: 'result', current: 0, channel: ch, answers, painCat, industry: ind, leadDone: true, shared: true };
+		rebuildFlat();
+		return true;
+	}
+
 	// null = this seam is out of scope for the chosen channel.
 	function categoryScores(): (number | null)[] {
 		return CATEGORIES.map((c) => {
@@ -169,6 +217,13 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 		else if (state.step === 'lead') renderLead();
 		else renderResult();
 		window.scrollTo({ top: 0 });
+		// Each step replaces the whole view, so move focus to the new heading —
+		// otherwise keyboard and screen-reader users are left where the old page was.
+		const heading = app.querySelector<HTMLElement>('h1');
+		if (heading) {
+			heading.setAttribute('tabindex', '-1');
+			heading.focus({ preventScroll: true });
+		}
 	}
 
 	// Q1 — not scored. Decides which seams are in scope, so it runs before the quiz.
@@ -562,7 +617,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 			${leaks.length > 0 ? `
 			<div class="rd-insights">
 				<h2 class="rd-insights-title">取りこぼしている境目と、推奨施策<span class="rd-insights-sub">（優先順）</span></h2>
-				<p class="rd-insights-note">※ 数値は、Consilegyが40社以上の支援で繰り返し見てきた目安です（御社固有の実数ではありません）。</p>
+				<p class="rd-insights-note">※ 数値は、Consilegyが40社の支援で繰り返し見てきた目安と、一般に知られる相場です。いずれも御社固有の実数ではありません。</p>
 				${tiebroken ? '<p class="rd-insights-note">※ スコアが同点の境目は、「一番痛い」とお答えいただいた所を優先しています。</p>' : ''}
 				${leaks.map((x, i) => `
 					<div class="rd-insight">
@@ -630,7 +685,16 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 				<p class="rd-probe-thanks" id="rd-probe-thanks" hidden>ありがとうございます。診断当日により具体的にお話しできます。</p>
 			</div>
 
-			<p class="rd-retry"><button type="button" data-retry>もう一度診断する</button></p>
+			<div class="rd-share">
+				<p class="rd-share-label">結果を共有する</p>
+				<p class="rd-share-desc">社内で共有できるリンクです。回答した内容だけを含み、メールアドレスは含みません。</p>
+				<div class="rd-share-row">
+					<input type="text" id="rd-share-url" class="rd-input" readonly value="${esc(shareUrl())}" />
+					<button type="button" id="rd-share-copy" class="rd-probe-send">コピー</button>
+				</div>
+			</div>
+
+			<p class="rd-retry"><button type="button" data-retry>${state.shared ? '自分の会社で診断する' : 'もう一度診断する'}</button></p>
 		`;
 
 		track('result_view', { score_total: total, band: band.label, pattern_id: pattern?.id ?? 'none', worst_cat: worst?.c.id ?? 'none', pain_cat: state.painCat || 'none', industry: state.industry || 'none', channel: state.channel || 'none', max_score: maxScore() });
@@ -682,15 +746,36 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 				sendBtn.textContent = '送信する';
 			}
 		});
+		app.querySelector('#rd-share-copy')?.addEventListener('click', async () => {
+			const input = app.querySelector<HTMLInputElement>('#rd-share-url')!;
+			const btn = app.querySelector<HTMLButtonElement>('#rd-share-copy')!;
+			try {
+				await navigator.clipboard.writeText(input.value);
+			} catch {
+				input.select();
+			}
+			btn.textContent = 'コピーしました';
+			track('share_copy', { channel: state.channel ?? '' });
+			setTimeout(() => { btn.textContent = 'コピー'; }, 2000);
+		});
+
 		app.querySelector('[data-retry]')?.addEventListener('click', () => {
-			state = { step: 'channel', current: 0, answers: [], leadDone: state.leadDone, industry: state.industry, channel: state.channel };
+			// A shared viewer has not given an email, so their own run is gated again.
+			const keepLead = state.shared ? false : state.leadDone;
+			history.replaceState({}, '', location.pathname);
+			state = { step: 'channel', current: 0, answers: [], leadDone: keepLead, industry: state.shared ? undefined : state.industry, channel: state.channel };
 			rebuildFlat();
 			render();
 		});
 	}
 
 	// ── Boot ────────────────────────────────────────────────
-	trackOnce('diagnostic_start');
+	const sharedCode = new URLSearchParams(location.search).get('r');
+	if (sharedCode && applyCode(sharedCode)) {
+		track('result_shared_view', { channel: state.channel ?? '' });
+	} else {
+		trackOnce('diagnostic_start');
+	}
 	render();
 </script>
 
@@ -953,6 +1038,26 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 	text-underline-offset: 3px; padding: 0.625rem; min-height: 44px;
 }
 :global(.rd-retry button:hover) { color: var(--color-primary); }
+
+/* Share link */
+:global(.rd-share) {
+	background: var(--glass-bg);
+	border: 1px solid var(--glass-border);
+	border-radius: var(--radius-card);
+	padding: 1.25rem; margin-top: 1.5rem;
+}
+:global(.rd-share-label) {
+	font-size: 0.625rem; font-weight: 600; color: var(--color-primary);
+	letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 0.5rem;
+}
+:global(.rd-share-desc) { font-size: 0.75rem; color: var(--color-text-muted); line-height: 1.7; margin: 0 0 0.75rem; }
+:global(.rd-share-row) { display: flex; gap: 0.5rem; align-items: stretch; }
+:global(.rd-share-row .rd-input) { font-size: 0.8125rem; min-height: 44px; }
+:global(.rd-share-row .rd-probe-send) { flex-shrink: 0; white-space: nowrap; }
+
+/* Headings receive focus on step change; don't draw a ring for mouse users */
+:global(h1[tabindex="-1"]:focus) { outline: none; }
+:global(h1[tabindex="-1"]:focus-visible) { outline: 2px solid var(--color-primary); outline-offset: 4px; }
 
 /* Out-of-scope seam + scope note */
 :global(.rd-sig-off) { opacity: 0.55; border-style: dashed; }

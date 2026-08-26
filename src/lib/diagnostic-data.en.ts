@@ -187,7 +187,7 @@ export const CATEGORIES: DiagnosticCategory[] = [
 			},
 		],
 		insight: "Post-sale expansion isn't designed, so LTV isn't growing.",
-		quant: 'Acquiring a new customer costs roughly 5× expanding an existing one. A missing exit (retention/expansion) design is the most expensive leak of all.',
+		quant: 'Acquiring a new customer is widely cited as costing several times more than expanding an existing one. In practice, a missing exit (retention/expansion) design is the most expensive leak we see.',
 		firstStep: 'Create a sales → CS handoff checklist.',
 		actions: [
 			'Design a sales → CS handoff checklist and a defined handoff point',

@@ -9,8 +9,8 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-	title="売上の取りこぼし診断 | 全13問・約3分 | Consilegy"
-	description="マーケ・営業・CSの「境目」を6つの観点で診断します。全13問・選択式・約3分。"
+	title="売上の取りこぼし診断 | 12〜14問・約3分 | Consilegy"
+	description="マーケ・営業・CSの「境目」を6つの観点で診断します。12〜14問・選択式・約3分。"
 	lang="ja"
 	noindex={true}
 >
@@ -28,7 +28,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 </BaseLayout>
 
 <script>
-	import { CATEGORIES, EXPANSION_ONE_SHOT, SIGNAL_META, signalOf, bandOf, patternOf } from '../../../lib/diagnostic-data';
+	import { CATEGORIES, CHANNELS, CHANNEL_QUESTION, EXCLUDED_LABEL, EXPANSION_ONE_SHOT, REFERRAL_SCOPE_NOTE, SIGNAL_META, isExcluded, signalOf, bandOf, patternOf } from '../../../lib/diagnostic-data';
 
 	// ── Config ──────────────────────────────────────────────
 	const HS_PORTAL_ID = '46498743';
@@ -39,20 +39,15 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 	const BOOK_URL = '/free-consultation/';
 	const CONTACT_URL = '/revops-assessment/';
 	const PRODUCT_URL = '/crm/';
-	const STORAGE_KEY = 'rd-state-v2';
-
-	// Flatten questions: [{catIndex, qIndex, text, options}]
-	const FLAT = CATEGORIES.flatMap((c, ci) =>
-		c.questions.map((q, qi) => ({ ci, qi, text: q.text, options: q.options, catName: c.name }))
-	);
-	const TOTAL_Q = FLAT.length;
+	const STORAGE_KEY = 'rd-state-v3';
 
 	// ── State ───────────────────────────────────────────────
 	interface State {
-		step: 'quiz' | 'pain' | 'lead' | 'result';
+		step: 'channel' | 'quiz' | 'pain' | 'lead' | 'result';
 		current: number;
+		channel?: string; // Q1: where deals come from; decides which seams apply
 		answers: (number | null)[]; // selected option index per flat question
-		painCat?: string; // Q13: self-reported most painful seam ('' = none)
+		painCat?: string; // tiebreak: self-reported most painful seam ('' = none)
 		industry?: string; // from the lead form; switches one-shot-sale result copy
 		leadDone: boolean;
 		email?: string;
@@ -63,10 +58,10 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 			const raw = sessionStorage.getItem(STORAGE_KEY);
 			if (raw) {
 				const s = JSON.parse(raw);
-				if (Array.isArray(s.answers) && s.answers.length === TOTAL_Q) return s;
+				if (Array.isArray(s.answers)) return s;
 			}
 		} catch { /* fresh start */ }
-		return { step: 'quiz', current: 0, answers: Array(TOTAL_Q).fill(null), leadDone: false };
+		return { step: 'channel', current: 0, answers: [], leadDone: false };
 	}
 
 	function saveState() {
@@ -74,6 +69,26 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 	}
 
 	let state = loadState();
+
+	// Questions in play depend on the channel: seams that don't apply are dropped
+	// entirely rather than asked and scored as leaking.
+	let ACTIVE_CATS = CATEGORIES;
+	let FLAT: { cat: (typeof CATEGORIES)[number]; qi: number; text: string; options: (typeof CATEGORIES)[number]['questions'][number]['options']; catName: string }[] = [];
+	let TOTAL_Q = 0;
+
+	function rebuildFlat() {
+		ACTIVE_CATS = CATEGORIES.filter((c) => !isExcluded(c.id, state.channel));
+		FLAT = ACTIVE_CATS.flatMap((c) =>
+			c.questions.map((q, qi) => ({ cat: c, qi, text: q.text, options: q.options, catName: c.name }))
+		);
+		TOTAL_Q = FLAT.length;
+		if (state.answers.length !== TOTAL_Q) {
+			state.answers = Array(TOTAL_Q).fill(null);
+			state.current = 0;
+		}
+	}
+
+	rebuildFlat();
 
 	// ── GA4 (via GTM dataLayer) ─────────────────────────────
 	function track(event: string, params: Record<string, unknown> = {}) {
@@ -91,34 +106,47 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 	}
 
 	// ── Scoring ─────────────────────────────────────────────
-	function categoryScores(): number[] {
-		return CATEGORIES.map((c, ci) =>
-			c.questions.reduce((sum, q, qi) => {
-				const flatIdx = FLAT.findIndex((f) => f.ci === ci && f.qi === qi);
+	// null = this seam is out of scope for the chosen channel.
+	function categoryScores(): (number | null)[] {
+		return CATEGORIES.map((c) => {
+			if (isExcluded(c.id, state.channel)) return null;
+			return c.questions.reduce((sum, q, qi) => {
+				const flatIdx = FLAT.findIndex((f) => f.cat.id === c.id && f.qi === qi);
 				const sel = state.answers[flatIdx];
 				return sum + (sel !== null && sel !== undefined ? q.options[sel].score : 0);
-			}, 0)
-		);
+			}, 0);
+		});
+	}
+
+	function activeScores(): number[] {
+		return categoryScores().filter((s): s is number => s !== null);
 	}
 
 	function totalScore(): number {
-		return categoryScores().reduce((a, b) => a + b, 0);
+		return activeScores().reduce((a, b) => a + b, 0);
+	}
+
+	function maxScore(): number {
+		return ACTIVE_CATS.length * 4;
 	}
 
 	function summaryText(): string {
 		const scores = categoryScores();
 		const total = totalScore();
-		const band = bandOf(scores);
+		const band = bandOf(activeScores());
 		const lines = CATEGORIES.map((c, i) => {
-			const sig = SIGNAL_META[signalOf(scores[i])];
-			return `${sig.emoji} ${c.name}: ${scores[i]}/4`;
+			const s = scores[i];
+			if (s === null) return `— ${c.name}: ${EXCLUDED_LABEL}`;
+			return `${SIGNAL_META[signalOf(s)].emoji} ${c.name}: ${s}/4`;
 		});
 		const painName = state.painCat
 			? CATEGORIES.find((c) => c.id === state.painCat)?.name ?? state.painCat
 			: '特にない／わからない';
+		const channelName = CHANNELS.find((c) => c.id === state.channel)?.label ?? '未回答';
 		return [
 			'【売上の取りこぼし診断 結果】',
-			`総合スコア: ${total}/24（${band.label}）`,
+			`案件の主な経路: ${channelName}`,
+			`総合スコア: ${total}/${maxScore()}（${band.label}）`,
 			...lines,
 			`一番痛い（自己申告）: ${painName}`,
 			'',
@@ -135,24 +163,60 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 	function render() {
 		saveState();
-		if (state.step === 'quiz') renderQuiz();
+		if (state.step === 'channel') renderChannel();
+		else if (state.step === 'quiz') renderQuiz();
 		else if (state.step === 'pain') renderPain();
 		else if (state.step === 'lead') renderLead();
 		else renderResult();
 		window.scrollTo({ top: 0 });
 	}
 
+	// Q1 — not scored. Decides which seams are in scope, so it runs before the quiz.
+	function renderChannel() {
+		app.innerHTML = `
+			<div class="rd-progress">
+				<div class="rd-progress-meta">
+					<span class="rd-progress-label">最初に1問</span>
+					<span class="rd-progress-count">Q1</span>
+				</div>
+				<div class="rd-progress-bar"><div class="rd-progress-fill" style="width:0%"></div></div>
+			</div>
+			<h1 class="rd-question">${esc(CHANNEL_QUESTION)}</h1>
+			<p class="rd-pain-note">この回答で、診断する境目を決めます。当てはまらない設問は表示しません。</p>
+			<div class="rd-options">
+				${CHANNELS.map((c) => `
+					<button type="button" class="rd-option${state.channel === c.id ? ' is-selected' : ''}" data-channel="${c.id}">${esc(c.label)}</button>`).join('')}
+			</div>
+		`;
+
+		app.querySelectorAll<HTMLButtonElement>('[data-channel]').forEach((btn) => {
+			btn.addEventListener('click', () => {
+				const next = btn.dataset.channel!;
+				if (next !== state.channel) {
+					state.channel = next;
+					state.answers = [];
+					state.painCat = undefined;
+				}
+				rebuildFlat();
+				state.step = 'quiz';
+				state.current = 0;
+				track('diagnostic_channel', { channel: state.channel });
+				render();
+			});
+		});
+	}
+
 	function renderQuiz() {
 		const q = FLAT[state.current];
-		const n = state.current + 1;
-		const progress = Math.round((state.current / TOTAL_Q) * 100);
+		const n = state.current + 2; // Q1 is the channel question
+		const progress = Math.round(((state.current + 1) / (TOTAL_Q + 2)) * 100);
 		const selected = state.answers[state.current];
 
 		app.innerHTML = `
 			<div class="rd-progress">
 				<div class="rd-progress-meta">
 					<span class="rd-progress-label">${esc(q.catName)}</span>
-					<span class="rd-progress-count">Q${n} / ${TOTAL_Q}</span>
+					<span class="rd-progress-count">Q${n} / ${TOTAL_Q + 2}</span>
 				</div>
 				<div class="rd-progress-bar"><div class="rd-progress-fill" style="width:${progress}%"></div></div>
 			</div>
@@ -168,7 +232,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 					.join('')}
 			</div>
 			<div class="rd-nav">
-				${state.current > 0 ? '<button type="button" class="rd-back" data-back>← 前の質問へ</button>' : '<span></span>'}
+				<button type="button" class="rd-back" data-back>← 前の質問へ</button>
 			</div>
 		`;
 
@@ -186,7 +250,8 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 		});
 
 		app.querySelector('[data-back]')?.addEventListener('click', () => {
-			state.current = Math.max(0, state.current - 1);
+			if (state.current === 0) state.step = 'channel';
+			else state.current -= 1;
 			render();
 		});
 	}
@@ -198,14 +263,14 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 			<div class="rd-progress">
 				<div class="rd-progress-meta">
 					<span class="rd-progress-label">最後に1問</span>
-					<span class="rd-progress-count">Q${TOTAL_Q + 1} / ${TOTAL_Q + 1}</span>
+					<span class="rd-progress-count">Q${TOTAL_Q + 2} / ${TOTAL_Q + 2}</span>
 				</div>
-				<div class="rd-progress-bar"><div class="rd-progress-fill" style="width:${Math.round((TOTAL_Q / (TOTAL_Q + 1)) * 100)}%"></div></div>
+				<div class="rd-progress-bar"><div class="rd-progress-fill" style="width:${Math.round(((TOTAL_Q + 1) / (TOTAL_Q + 2)) * 100)}%"></div></div>
 			</div>
-			<h1 class="rd-question">この6つのうち、いま一番「痛い」のはどれですか？</h1>
+			<h1 class="rd-question">この${ACTIVE_CATS.length}つのうち、いま一番「痛い」のはどれですか？</h1>
 			<p class="rd-pain-note">スコアが同点の境目があったとき、この回答で優先順位を決めます。</p>
 			<div class="rd-options">
-				${CATEGORIES.map((c) => `
+				${ACTIVE_CATS.map((c) => `
 					<button type="button" class="rd-option${state.painCat === c.id ? ' is-selected' : ''}" data-pain="${c.id}">${esc(c.name)}</button>`).join('')}
 				<button type="button" class="rd-option${state.painCat === '' ? ' is-selected' : ''}" data-pain="">特にない／わからない</button>
 			</div>
@@ -316,6 +381,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 			const extra: Record<string, string> = {};
 			if (sizeSel.value) extra.employee_size = sizeSel.value;
 			extra.consilegy_industry = indSel.value;
+			if (state.channel) extra.consilegy_lead_channel = state.channel;
 			if (tools.length) extra.current_tools = tools.join(';');
 			errEl.hidden = true;
 			btn.disabled = true;
@@ -329,6 +395,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 					form_name: 'revenue_diagnostic',
 					employee_size: extra.employee_size ?? '',
 					industry: extra.consilegy_industry,
+					lead_channel: state.channel ?? '',
 					lead_tier: TIER1.includes(extra.consilegy_industry) ? 'tier1' : 'tier2',
 					tools_count: tools.length,
 					...attr,
@@ -395,11 +462,13 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 	function renderResult() {
 		const scores = categoryScores();
 		const total = totalScore();
-		const band = bandOf(scores);
-		const redCount = scores.filter((s) => s >= 4).length;
+		const band = bandOf(activeScores());
+		const redCount = activeScores().filter((s) => s >= 4).length;
 
-		// Leaking categories (yellow/red), worst first.
-		const leaks = CATEGORIES.map((c, i) => ({ c, score: scores[i], signal: signalOf(scores[i]) }))
+		// Leaking categories (yellow/red), worst first. Out-of-scope seams are skipped.
+		const leaks = CATEGORIES.map((c, i) => ({ c, score: scores[i] }))
+			.filter((x): x is { c: (typeof CATEGORIES)[number]; score: number } => x.score !== null)
+			.map((x) => ({ c: x.c, score: x.score, signal: signalOf(x.score) }))
 			.filter((x) => x.signal !== 'green')
 			.sort((a, b) => b.score - a.score);
 
@@ -422,21 +491,23 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 		const productUrl = isSchool ? '/crm/school/' : PRODUCT_URL;
 		const forkCopy = isSchool
 			? 'CSVや紙で生徒の在籍を管理している場合は、スクール版から始める選択肢もあります。'
-			: 'CRMがまだない、またはExcelに戻っている場合は、自社プロダクトから始める選択肢もあります。';
+			: state.channel === 'referral'
+				? 'CRMがまだない、または案件・契約の記録が個人任せになっている場合は、自社プロダクトから始める選択肢もあります。支援会社向けの案件管理、代理店向けの契約更新管理のエディションがあります。'
+				: 'CRMがまだない、またはExcelに戻っている場合は、自社プロダクトから始める選択肢もあります。';
 		const forkLink = isSchool ? 'Revenue CRM スクール版を見る →' : 'Revenue CRM を見る →';
 		const copyOf = (c: (typeof CATEGORIES)[number]) =>
 			c.id === 'expansion' && oneShot ? EXPANSION_ONE_SHOT : c;
 
 		// Leak pattern: which leaking (non-green) seams overlap, worst-first.
 		const leakIds = leaks.map((x) => x.c.id);
-		const greens = CATEGORIES.filter((c, i) => signalOf(scores[i]) === 'green');
+		const greens = CATEGORIES.filter((c, i) => scores[i] !== null && signalOf(scores[i] as number) === 'green');
 		const pattern = worst ? patternOf(leakIds, worst.c.id, redCount) : null;
 
 		app.innerHTML = `
 			<div class="rd-result-head">
 				<p class="rd-result-eyebrow">売上の取りこぼし診断 結果</p>
 				<div class="rd-result-score">
-					<span class="rd-score-num">${total}</span><span class="rd-score-den">/ 24</span>
+					<span class="rd-score-num">${total}</span><span class="rd-score-den">/ ${maxScore()}</span>
 					<span class="rd-score-band rd-band-${band.key}">${esc(band.label)}</span>
 				</div>
 				<h1 class="rd-result-headline">${esc(band.headline)}</h1>
@@ -453,17 +524,34 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 			<div class="rd-map">
 				${CATEGORIES.map((c, i) => {
-					const sig = SIGNAL_META[signalOf(scores[i])];
+					const s = scores[i];
+					if (s === null) {
+						return `
+					<div class="rd-map-card rd-sig-off">
+						<span class="rd-map-emoji">—</span>
+						<div>
+							<span class="rd-map-name">${esc(c.name)}</span>
+							<span class="rd-map-state">${esc(EXCLUDED_LABEL)}</span>
+						</div>
+					</div>`;
+					}
+					const sig = SIGNAL_META[signalOf(s)];
 					return `
-					<div class="rd-map-card rd-sig-${signalOf(scores[i])}">
+					<div class="rd-map-card rd-sig-${signalOf(s)}">
 						<span class="rd-map-emoji">${sig.emoji}</span>
 						<div>
 							<span class="rd-map-name">${esc(c.name)}</span>
-							<span class="rd-map-state">${sig.label} ${scores[i]}/4</span>
+							<span class="rd-map-state">${sig.label} ${s}/4</span>
 						</div>
 					</div>`;
 				}).join('')}
 			</div>
+
+			${state.channel === 'referral' ? `
+			<div class="rd-scopenote">
+				<p class="rd-scopenote-text">${esc(REFERRAL_SCOPE_NOTE)}</p>
+			</div>
+			` : ''}
 
 			${greens.length > 0 && leaks.length > 0 ? `
 			<div class="rd-strength">
@@ -545,7 +633,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 			<p class="rd-retry"><button type="button" data-retry>もう一度診断する</button></p>
 		`;
 
-		track('result_view', { score_total: total, band: band.label, pattern_id: pattern?.id ?? 'none', worst_cat: worst?.c.id ?? 'none', pain_cat: state.painCat || 'none', industry: state.industry || 'none' });
+		track('result_view', { score_total: total, band: band.label, pattern_id: pattern?.id ?? 'none', worst_cat: worst?.c.id ?? 'none', pain_cat: state.painCat || 'none', industry: state.industry || 'none', channel: state.channel || 'none', max_score: maxScore() });
 
 		app.querySelector('[data-cta="book"]')?.addEventListener('click', () => track('cta_book_click'));
 		app.querySelector('[data-cta="contact"]')?.addEventListener('click', () => track('cta_contact_click'));
@@ -595,7 +683,8 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 			}
 		});
 		app.querySelector('[data-retry]')?.addEventListener('click', () => {
-			state = { step: 'quiz', current: 0, answers: Array(TOTAL_Q).fill(null), leadDone: state.leadDone, industry: state.industry };
+			state = { step: 'channel', current: 0, answers: [], leadDone: state.leadDone, industry: state.industry, channel: state.channel };
+			rebuildFlat();
 			render();
 		});
 	}
@@ -864,6 +953,16 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 	text-underline-offset: 3px; padding: 0.625rem; min-height: 44px;
 }
 :global(.rd-retry button:hover) { color: var(--color-primary); }
+
+/* Out-of-scope seam + scope note */
+:global(.rd-sig-off) { opacity: 0.55; border-style: dashed; }
+:global(.rd-scopenote) {
+	background: rgba(30,64,175,0.04);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-card);
+	padding: 1rem 1.125rem; margin: 0 0 1.75rem;
+}
+:global(.rd-scopenote-text) { font-size: 0.8125rem; color: var(--color-text); line-height: 1.8; margin: 0; }
 
 /* Pain tiebreak + calculator */
 :global(.rd-pain-note) { font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.7; margin: -1rem 0 1.5rem; }

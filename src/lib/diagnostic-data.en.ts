@@ -197,6 +197,28 @@ export const CATEGORIES: DiagnosticCategory[] = [
 	},
 ];
 
+// Q1 (unscored) — where deals come from. This diagnostic assumes a pipeline that
+// starts with marketing, so for referral/partner-led companies the handoff seam is
+// excluded. Naming it out of scope is more accurate than forcing answers to
+// questions that don't apply and printing a false red.
+export const CHANNEL_QUESTION = 'Where do new deals mainly come from?';
+
+export const CHANNELS = [
+	{ id: 'marketing', label: 'Marketing (ads, web, trade shows, etc.)' },
+	{ id: 'referral', label: 'Mostly referrals, resellers or partners' },
+	{ id: 'mixed', label: 'A mix of both' },
+] as const;
+
+// Categories excluded from the diagnostic, by channel.
+export function isExcluded(catId: string, channel?: string): boolean {
+	return channel === 'referral' && catId === 'handoff';
+}
+
+export const EXCLUDED_LABEL = 'Out of scope';
+
+export const REFERRAL_SCOPE_NOTE =
+	'This diagnostic is built for companies whose pipeline starts with marketing. When referrals and partners drive most of your deals, the marketing → sales handoff does not apply, so we leave it out of the score. What pays off first is reducing key-person dependence and moving project and contract records out of individual heads.';
+
 // One-shot-sale variant of the "expansion" result copy (manufacturing / wholesale).
 // Industry comes from the lead form, so only the result copy branches — not the questions.
 export const EXPANSION_ONE_SHOT = {

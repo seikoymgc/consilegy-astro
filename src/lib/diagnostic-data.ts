@@ -215,6 +215,27 @@ export const CATEGORIES: DiagnosticCategory[] = [
 	},
 ];
 
+// Q1（採点外）— 案件の主な経路。この診断は「マーケ施策から案件が生まれる会社」を
+// 前提に設計しているため、紹介・代理店中心の会社では「受け渡し」を対象から外す。
+// 前提が合わない設問に答えさせて偽の赤を出すより、範囲外と明示するほうが正確。
+export const CHANNEL_QUESTION = '新規案件は、主にどこから来ますか？';
+
+export const CHANNELS = [
+	{ id: 'marketing', label: 'マーケ施策から（広告・Web・展示会など）' },
+	{ id: 'referral', label: '紹介・代理店・パートナーが中心' },
+	{ id: 'mixed', label: '半々／どちらもある' },
+] as const;
+
+// 経路によって診断対象から外すカテゴリ。
+export function isExcluded(catId: string, channel?: string): boolean {
+	return channel === 'referral' && catId === 'handoff';
+}
+
+export const EXCLUDED_LABEL = '対象外';
+
+export const REFERRAL_SCOPE_NOTE =
+	'この診断は、マーケ施策から案件が生まれる会社を主対象にしています。紹介・代理店が中心の場合、入口（マーケ→営業の受け渡し）は前提が合わないため、診断の対象から外しています。先に効くのは、属人化の解消と、案件・契約を個人の頭から記録へ移すことです。';
+
 // 売り切り型（製造・商社/卸）向けの「継続・拡大」差し替えコピー。
 // 業種はリードフォームで取得するため、設問は共通・結果コピーだけ分岐する。
 export const EXPANSION_ONE_SHOT = {

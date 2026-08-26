@@ -1,5 +1,5 @@
 ---
-// Revenue Leak Diagnostic — interactive flow: 12 questions → lead gate → result map.
+// Revenue Leak Diagnostic — interactive flow: 12 scored questions → tiebreak pick → lead gate → result map.
 // All quiz logic is client-side (static site). Lead capture posts the email
 // directly to a dedicated, captcha-free HubSpot form via the Submissions API
 // (no iframe, no reCAPTCHA), so submission is reliable and the result shows
@@ -9,8 +9,8 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-	title="Revenue Leak Diagnostic | 12 questions · ~3 min | Consilegy"
-	description="Diagnose the six seams between marketing, sales and CS. 12 questions, multiple choice, about 3 minutes."
+	title="Revenue Leak Diagnostic | 13 questions · ~3 min | Consilegy"
+	description="Diagnose the six seams between marketing, sales and CS. 13 questions, multiple choice, about 3 minutes."
 	lang="en"
 	noindex={true}
 >
@@ -28,7 +28,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 </BaseLayout>
 
 <script>
-	import { CATEGORIES, SIGNAL_META, signalOf, bandOf, patternOf } from '../../../../lib/diagnostic-data.en';
+	import { CATEGORIES, EXPANSION_ONE_SHOT, SIGNAL_META, signalOf, bandOf, patternOf } from '../../../../lib/diagnostic-data.en';
 
 	// ── Config ──────────────────────────────────────────────
 	const HS_PORTAL_ID = '46498743';
@@ -36,7 +36,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 	const BOOK_URL = '/en/contact/';
 	const CONTACT_URL = '/en/services/';
 	const PRODUCT_URL = '/en/crm/';
-	const STORAGE_KEY = 'rd-state-en-v1';
+	const STORAGE_KEY = 'rd-state-en-v2';
 
 	// Flatten questions: [{catIndex, qIndex, text, options}]
 	const FLAT = CATEGORIES.flatMap((c, ci) =>
@@ -46,9 +46,11 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 
 	// ── State ───────────────────────────────────────────────
 	interface State {
-		step: 'quiz' | 'lead' | 'result';
+		step: 'quiz' | 'pain' | 'lead' | 'result';
 		current: number;
 		answers: (number | null)[]; // selected option index per flat question
+		painCat?: string; // Q13: self-reported most painful seam ('' = none)
+		industry?: string; // from the lead form; switches one-shot-sale result copy
 		leadDone: boolean;
 		email?: string;
 	}
@@ -103,15 +105,19 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 	function summaryText(): string {
 		const scores = categoryScores();
 		const total = totalScore();
-		const band = bandOf(total);
+		const band = bandOf(scores);
 		const lines = CATEGORIES.map((c, i) => {
 			const sig = SIGNAL_META[signalOf(scores[i])];
 			return `${sig.emoji} ${c.name}: ${scores[i]}/4`;
 		});
+		const painName = state.painCat
+			? CATEGORIES.find((c) => c.id === state.painCat)?.name ?? state.painCat
+			: 'None / not sure';
 		return [
 			'[Revenue Leak Diagnostic · Result]',
 			`Total score: ${total}/24 (${band.label})`,
 			...lines,
+			`Most painful (self-reported): ${painName}`,
 			'',
 			'* This message was auto-filled from the diagnostic result.',
 		].join('\n');
@@ -127,6 +133,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 	function render() {
 		saveState();
 		if (state.step === 'quiz') renderQuiz();
+		else if (state.step === 'pain') renderPain();
 		else if (state.step === 'lead') renderLead();
 		else renderResult();
 		window.scrollTo({ top: 0 });
@@ -169,7 +176,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 					state.current += 1;
 				} else {
 					track('diagnostic_complete', { score_total: totalScore() });
-					state.step = state.leadDone ? 'result' : 'lead';
+					state.step = 'pain';
 				}
 				render();
 			});
@@ -177,6 +184,43 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 
 		app.querySelector('[data-back]')?.addEventListener('click', () => {
 			state.current = Math.max(0, state.current - 1);
+			render();
+		});
+	}
+
+	// Q13 — not scored. Breaks ties between same-score seams, and rides along
+	// to HubSpot in the summary as self-reported pain.
+	function renderPain() {
+		app.innerHTML = `
+			<div class="rd-progress">
+				<div class="rd-progress-meta">
+					<span class="rd-progress-label">Last question</span>
+					<span class="rd-progress-count">Q${TOTAL_Q + 1} / ${TOTAL_Q + 1}</span>
+				</div>
+				<div class="rd-progress-bar"><div class="rd-progress-fill" style="width:${Math.round((TOTAL_Q / (TOTAL_Q + 1)) * 100)}%"></div></div>
+			</div>
+			<h1 class="rd-question">Of these six, which hurts the most right now?</h1>
+			<p class="rd-pain-note">If seams tie on score, this answer decides the priority order.</p>
+			<div class="rd-options">
+				${CATEGORIES.map((c) => `
+					<button type="button" class="rd-option${state.painCat === c.id ? ' is-selected' : ''}" data-pain="${c.id}">${esc(c.name)}</button>`).join('')}
+				<button type="button" class="rd-option${state.painCat === '' ? ' is-selected' : ''}" data-pain="">None / not sure</button>
+			</div>
+			<div class="rd-nav">
+				<button type="button" class="rd-back" data-back>← Previous</button>
+			</div>
+		`;
+
+		app.querySelectorAll<HTMLButtonElement>('[data-pain]').forEach((btn) => {
+			btn.addEventListener('click', () => {
+				state.painCat = btn.dataset.pain ?? '';
+				state.step = state.leadDone ? 'result' : 'lead';
+				render();
+			});
+		});
+		app.querySelector('[data-back]')?.addEventListener('click', () => {
+			state.step = 'quiz';
+			state.current = TOTAL_Q - 1;
 			render();
 		});
 	}
@@ -272,6 +316,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 				track('lead_submit', { employee_size: extra.employee_size ?? '', industry: extra.consilegy_industry ?? '', tools_count: tools.length });
 				state.leadDone = true;
 				state.email = email;
+				state.industry = indSel.value;
 				state.step = 'result';
 				render();
 			} catch (err) {
@@ -328,25 +373,42 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 	function renderResult() {
 		const scores = categoryScores();
 		const total = totalScore();
-		const band = bandOf(total);
+		const band = bandOf(scores);
+		const redCount = scores.filter((s) => s >= 4).length;
 
 		// Leaking categories (yellow/red), worst first.
 		const leaks = CATEGORIES.map((c, i) => ({ c, score: scores[i], signal: signalOf(scores[i]) }))
 			.filter((x) => x.signal !== 'green')
 			.sort((a, b) => b.score - a.score);
+
+		// Tiebreak: when the top score is shared, the seam the user named as most
+		// painful (Q13) goes first — the order is a judgment, not a sort artifact.
+		let tiebroken = false;
+		if (state.painCat && leaks.length > 1) {
+			const i = leaks.findIndex((x) => x.c.id === state.painCat);
+			if (i > 0 && leaks[i].score === leaks[0].score) {
+				leaks.unshift(leaks.splice(i, 1)[0]);
+				tiebroken = true;
+			}
+		}
 		const worst = leaks[0];
+
+		// One-shot-sale industries get expansion copy without the LTV/CS frame.
+		const oneShot = state.industry === 'manufacturing' || state.industry === 'wholesale';
+		const copyOf = (c: (typeof CATEGORIES)[number]) =>
+			c.id === 'expansion' && oneShot ? EXPANSION_ONE_SHOT : c;
 
 		// Leak pattern: which leaking (non-green) seams overlap, worst-first.
 		const leakIds = leaks.map((x) => x.c.id);
 		const greens = CATEGORIES.filter((c, i) => signalOf(scores[i]) === 'green');
-		const pattern = worst ? patternOf(leakIds, worst.c.id) : null;
+		const pattern = worst ? patternOf(leakIds, worst.c.id, redCount) : null;
 
 		app.innerHTML = `
 			<div class="rd-result-head">
 				<p class="rd-result-eyebrow">Revenue Leak Diagnostic · Result</p>
 				<div class="rd-result-score">
 					<span class="rd-score-num">${total}</span><span class="rd-score-den">/ 24</span>
-					<span class="rd-score-band rd-band-${band.label === 'Healthy' ? 'green' : band.label === 'Caution' ? 'yellow' : 'red'}">${esc(band.label)}</span>
+					<span class="rd-score-band rd-band-${band.key}">${esc(band.label)}</span>
 				</div>
 				<h1 class="rd-result-headline">${esc(band.headline)}</h1>
 				<p class="rd-score-note">Lower is healthier (total leak-risk score).</p>
@@ -384,25 +446,41 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 			<div class="rd-insights">
 				<h2 class="rd-insights-title">Where you're leaking, and what to do<span class="rd-insights-sub">（by priority）</span></h2>
 				<p class="rd-insights-note">* Figures are typical ranges Consilegy has seen across 40+ engagements, not your company's actual numbers.</p>
+				${tiebroken ? '<p class="rd-insights-note">* Seams with tied scores are ordered by the one you said hurts most.</p>' : ''}
 				${leaks.map((x, i) => `
 					<div class="rd-insight">
 						<span class="rd-insight-rank">${i + 1}</span>
 						<div>
 							<span class="rd-insight-cat">${SIGNAL_META[x.signal].emoji} ${esc(x.c.name)}</span>
-							<p class="rd-insight-text">${esc(x.c.insight)}</p>
-							<p class="rd-insight-quant">${esc(x.c.quant)}</p>
-							${x.c.actions?.length ? `
+							<p class="rd-insight-text">${esc(copyOf(x.c).insight)}</p>
+							<p class="rd-insight-quant">${esc(copyOf(x.c).quant)}</p>
+							${copyOf(x.c).actions?.length ? `
 							<p class="rd-insight-actions-label">Recommended moves</p>
 							<ul class="rd-insight-actions">
-								${x.c.actions.map((a) => `<li>${esc(a)}</li>`).join('')}
+								${copyOf(x.c).actions.map((a) => `<li>${esc(a)}</li>`).join('')}
 							</ul>` : ''}
 						</div>
 					</div>`).join('')}
 			</div>
 
+			${leakIds.includes('handoff') ? `
+			<div class="rd-calc">
+				<p class="rd-calc-label">Put a number on the entrance leak (optional)</p>
+				<p class="rd-calc-desc">Enter three numbers and we estimate the value of opportunities dying at the marketing → sales handoff. The numbers are used only for this on-screen calculation and are never sent.</p>
+				<div class="rd-calc-grid">
+					<label class="rd-calc-field"><span>New leads per month</span><input id="rd-calc-leads" type="number" min="0" inputmode="numeric" class="rd-input" placeholder="e.g. 100" /></label>
+					<label class="rd-calc-field"><span>Opportunity win rate (%)</span><input id="rd-calc-win" type="number" min="0" max="100" inputmode="numeric" class="rd-input" placeholder="e.g. 25" /></label>
+					<label class="rd-calc-field"><span>Average deal size (your currency)</span><input id="rd-calc-price" type="number" min="0" inputmode="numeric" class="rd-input" placeholder="e.g. 10000" /></label>
+				</div>
+				<button type="button" id="rd-calc-run" class="rd-probe-send">Estimate</button>
+				<p class="rd-calc-out" id="rd-calc-out" hidden></p>
+				<p class="rd-calc-note">* An upper-bound estimate: the typical "30–50% of handed-over leads die before becoming opportunities" range × your win rate and deal size. It assumes every lost lead would have become an opportunity, so the truly recoverable amount is smaller.</p>
+			</div>
+			` : ''}
+
 			<div class="rd-firststep">
 				<p class="rd-firststep-label">First move</p>
-				<p class="rd-firststep-text">${esc(worst.c.firstStep)}</p>
+				<p class="rd-firststep-text">${esc(copyOf(worst.c).firstStep)}</p>
 				<p class="rd-firststep-note">Start with this one move. Carry it through design and field adoption, and the leak stays closed for good.</p>
 			</div>
 			` : `
@@ -438,10 +516,29 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 			<p class="rd-retry"><button type="button" data-retry>Take the diagnostic again</button></p>
 		`;
 
-		track('result_view', { score_total: total, band: band.label, pattern_id: pattern?.id ?? 'none' });
+		track('result_view', { score_total: total, band: band.label, pattern_id: pattern?.id ?? 'none', worst_cat: worst?.c.id ?? 'none', pain_cat: state.painCat || 'none' });
 
 		app.querySelector('[data-cta="book"]')?.addEventListener('click', () => track('cta_book_click'));
 		app.querySelector('[data-cta="contact"]')?.addEventListener('click', () => track('cta_contact_click'));
+
+		app.querySelector('#rd-calc-run')?.addEventListener('click', () => {
+			const num = (sel: string) => Number((app.querySelector<HTMLInputElement>(sel)?.value ?? '').trim());
+			const leadsN = num('#rd-calc-leads');
+			const win = num('#rd-calc-win');
+			const price = num('#rd-calc-price');
+			const out = app.querySelector<HTMLElement>('#rd-calc-out')!;
+			if (!(leadsN > 0) || !(win > 0) || !(price > 0)) {
+				out.textContent = 'Please fill in all three numbers (rough figures are fine).';
+				out.hidden = false;
+				return;
+			}
+			const lo = Math.round(leadsN * 0.3 * (win / 100) * price);
+			const hi = Math.round(leadsN * 0.5 * (win / 100) * price);
+			const fmt = (n: number) => n.toLocaleString('en-US');
+			out.textContent = `Roughly ${fmt(lo)}–${fmt(hi)} per month (≈ ${fmt(lo * 12)}–${fmt(hi * 12)} per year) in opportunity value is dying at the entrance (upper-bound estimate).`;
+			out.hidden = false;
+			track('calc_run', { calc_monthly_min: lo, calc_monthly_max: hi });
+		});
 
 		app.querySelector('#rd-probe-send')?.addEventListener('click', async () => {
 			const probe = app.querySelector<HTMLElement>('#rd-probe')!;
@@ -466,7 +563,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 			}
 		});
 		app.querySelector('[data-retry]')?.addEventListener('click', () => {
-			state = { step: 'quiz', current: 0, answers: Array(TOTAL_Q).fill(null), leadDone: state.leadDone };
+			state = { step: 'quiz', current: 0, answers: Array(TOTAL_Q).fill(null), leadDone: state.leadDone, industry: state.industry };
 			render();
 		});
 	}
@@ -730,6 +827,24 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 	text-underline-offset: 3px; padding: 0.625rem; min-height: 44px;
 }
 :global(.rd-retry button:hover) { color: var(--color-primary); }
+
+/* Pain tiebreak + calculator */
+:global(.rd-pain-note) { font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.7; margin: -1rem 0 1.5rem; }
+:global(.rd-calc) {
+	background: var(--glass-bg-strong);
+	border: 1px solid var(--glass-border);
+	border-radius: var(--radius-card);
+	padding: 1.5rem; margin-bottom: 2.25rem;
+}
+:global(.rd-calc-label) {
+	font-size: 0.625rem; font-weight: 600; color: var(--color-primary);
+	letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 0.625rem;
+}
+:global(.rd-calc-desc) { font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.7; margin: 0 0 1rem; }
+:global(.rd-calc-grid) { display: grid; grid-template-columns: 1fr; gap: 0.75rem; margin-bottom: 1rem; }
+:global(.rd-calc-field span) { display: block; font-size: 0.75rem; font-weight: 600; color: var(--color-text); margin-bottom: 0.375rem; }
+:global(.rd-calc-out) { font-size: 0.9375rem; font-weight: 600; color: var(--color-text); line-height: 1.75; margin: 1rem 0 0; padding-left: 0.75rem; border-left: 3px solid var(--color-primary); }
+:global(.rd-calc-note) { font-size: 0.75rem; color: var(--color-text-muted); line-height: 1.7; margin: 0.875rem 0 0; }
 
 @media (max-width: 560px) {
 	:global(.rd-map) { grid-template-columns: 1fr; }

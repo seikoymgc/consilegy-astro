@@ -1,5 +1,5 @@
 ---
-// 売上の取りこぼし診断 — interactive flow: 12 questions → lead gate → result map.
+// 売上の取りこぼし診断 — interactive flow: 12 scored questions → tiebreak pick → lead gate → result map.
 // All quiz logic is client-side (static site). Lead capture posts the email
 // directly to a dedicated, captcha-free HubSpot form via the Submissions API
 // (no iframe, no reCAPTCHA), so submission is reliable and the result shows
@@ -9,8 +9,8 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-	title="売上の取りこぼし診断 | 全12問・約3分 | Consilegy"
-	description="マーケ・営業・CSの「境目」を6つの観点で診断します。全12問・選択式・約3分。"
+	title="売上の取りこぼし診断 | 全13問・約3分 | Consilegy"
+	description="マーケ・営業・CSの「境目」を6つの観点で診断します。全13問・選択式・約3分。"
 	lang="ja"
 	noindex={true}
 >
@@ -28,7 +28,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 </BaseLayout>
 
 <script>
-	import { CATEGORIES, SIGNAL_META, signalOf, bandOf, patternOf } from '../../../lib/diagnostic-data';
+	import { CATEGORIES, EXPANSION_ONE_SHOT, SIGNAL_META, signalOf, bandOf, patternOf } from '../../../lib/diagnostic-data';
 
 	// ── Config ──────────────────────────────────────────────
 	const HS_PORTAL_ID = '46498743';
@@ -39,7 +39,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 	const BOOK_URL = '/free-consultation/';
 	const CONTACT_URL = '/revops-assessment/';
 	const PRODUCT_URL = '/crm/';
-	const STORAGE_KEY = 'rd-state-v1';
+	const STORAGE_KEY = 'rd-state-v2';
 
 	// Flatten questions: [{catIndex, qIndex, text, options}]
 	const FLAT = CATEGORIES.flatMap((c, ci) =>
@@ -49,9 +49,11 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 	// ── State ───────────────────────────────────────────────
 	interface State {
-		step: 'quiz' | 'lead' | 'result';
+		step: 'quiz' | 'pain' | 'lead' | 'result';
 		current: number;
 		answers: (number | null)[]; // selected option index per flat question
+		painCat?: string; // Q13: self-reported most painful seam ('' = none)
+		industry?: string; // from the lead form; switches one-shot-sale result copy
 		leadDone: boolean;
 		email?: string;
 	}
@@ -106,15 +108,19 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 	function summaryText(): string {
 		const scores = categoryScores();
 		const total = totalScore();
-		const band = bandOf(total);
+		const band = bandOf(scores);
 		const lines = CATEGORIES.map((c, i) => {
 			const sig = SIGNAL_META[signalOf(scores[i])];
 			return `${sig.emoji} ${c.name}: ${scores[i]}/4`;
 		});
+		const painName = state.painCat
+			? CATEGORIES.find((c) => c.id === state.painCat)?.name ?? state.painCat
+			: '特にない／わからない';
 		return [
 			'【売上の取りこぼし診断 結果】',
 			`総合スコア: ${total}/24（${band.label}）`,
 			...lines,
+			`一番痛い（自己申告）: ${painName}`,
 			'',
 			'※このメッセージは診断結果から自動入力されています。',
 		].join('\n');
@@ -130,6 +136,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 	function render() {
 		saveState();
 		if (state.step === 'quiz') renderQuiz();
+		else if (state.step === 'pain') renderPain();
 		else if (state.step === 'lead') renderLead();
 		else renderResult();
 		window.scrollTo({ top: 0 });
@@ -172,7 +179,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 					state.current += 1;
 				} else {
 					track('diagnostic_complete', { score_total: totalScore() });
-					state.step = state.leadDone ? 'result' : 'lead';
+					state.step = 'pain';
 				}
 				render();
 			});
@@ -180,6 +187,43 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 		app.querySelector('[data-back]')?.addEventListener('click', () => {
 			state.current = Math.max(0, state.current - 1);
+			render();
+		});
+	}
+
+	// Q13 — not scored. Breaks ties between same-score seams, and rides along
+	// to HubSpot in the summary as self-reported pain.
+	function renderPain() {
+		app.innerHTML = `
+			<div class="rd-progress">
+				<div class="rd-progress-meta">
+					<span class="rd-progress-label">最後に1問</span>
+					<span class="rd-progress-count">Q${TOTAL_Q + 1} / ${TOTAL_Q + 1}</span>
+				</div>
+				<div class="rd-progress-bar"><div class="rd-progress-fill" style="width:${Math.round((TOTAL_Q / (TOTAL_Q + 1)) * 100)}%"></div></div>
+			</div>
+			<h1 class="rd-question">この6つのうち、いま一番「痛い」のはどれですか？</h1>
+			<p class="rd-pain-note">スコアが同点の境目があったとき、この回答で優先順位を決めます。</p>
+			<div class="rd-options">
+				${CATEGORIES.map((c) => `
+					<button type="button" class="rd-option${state.painCat === c.id ? ' is-selected' : ''}" data-pain="${c.id}">${esc(c.name)}</button>`).join('')}
+				<button type="button" class="rd-option${state.painCat === '' ? ' is-selected' : ''}" data-pain="">特にない／わからない</button>
+			</div>
+			<div class="rd-nav">
+				<button type="button" class="rd-back" data-back>← 前の質問へ</button>
+			</div>
+		`;
+
+		app.querySelectorAll<HTMLButtonElement>('[data-pain]').forEach((btn) => {
+			btn.addEventListener('click', () => {
+				state.painCat = btn.dataset.pain ?? '';
+				state.step = state.leadDone ? 'result' : 'lead';
+				render();
+			});
+		});
+		app.querySelector('[data-back]')?.addEventListener('click', () => {
+			state.step = 'quiz';
+			state.current = TOTAL_Q - 1;
 			render();
 		});
 	}
@@ -292,6 +336,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 				track('lead_submit', payload); // 旧イベント名。GA4の既存設定が切り替わるまで併走
 				state.leadDone = true;
 				state.email = email;
+				state.industry = indSel.value;
 				state.step = 'result';
 				render();
 			} catch (err) {
@@ -349,25 +394,42 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 	function renderResult() {
 		const scores = categoryScores();
 		const total = totalScore();
-		const band = bandOf(total);
+		const band = bandOf(scores);
+		const redCount = scores.filter((s) => s >= 4).length;
 
 		// Leaking categories (yellow/red), worst first.
 		const leaks = CATEGORIES.map((c, i) => ({ c, score: scores[i], signal: signalOf(scores[i]) }))
 			.filter((x) => x.signal !== 'green')
 			.sort((a, b) => b.score - a.score);
+
+		// Tiebreak: when the top score is shared, the seam the user named as most
+		// painful (Q13) goes first — the order is a judgment, not a sort artifact.
+		let tiebroken = false;
+		if (state.painCat && leaks.length > 1) {
+			const i = leaks.findIndex((x) => x.c.id === state.painCat);
+			if (i > 0 && leaks[i].score === leaks[0].score) {
+				leaks.unshift(leaks.splice(i, 1)[0]);
+				tiebroken = true;
+			}
+		}
 		const worst = leaks[0];
+
+		// One-shot-sale industries get expansion copy without the LTV/CS frame.
+		const oneShot = state.industry === 'manufacturing' || state.industry === 'wholesale';
+		const copyOf = (c: (typeof CATEGORIES)[number]) =>
+			c.id === 'expansion' && oneShot ? EXPANSION_ONE_SHOT : c;
 
 		// Leak pattern: which leaking (non-green) seams overlap, worst-first.
 		const leakIds = leaks.map((x) => x.c.id);
 		const greens = CATEGORIES.filter((c, i) => signalOf(scores[i]) === 'green');
-		const pattern = worst ? patternOf(leakIds, worst.c.id) : null;
+		const pattern = worst ? patternOf(leakIds, worst.c.id, redCount) : null;
 
 		app.innerHTML = `
 			<div class="rd-result-head">
 				<p class="rd-result-eyebrow">売上の取りこぼし診断 結果</p>
 				<div class="rd-result-score">
 					<span class="rd-score-num">${total}</span><span class="rd-score-den">/ 24</span>
-					<span class="rd-score-band rd-band-${band.label === '健全' ? 'green' : band.label === '注意' ? 'yellow' : 'red'}">${esc(band.label)}</span>
+					<span class="rd-score-band rd-band-${band.key}">${esc(band.label)}</span>
 				</div>
 				<h1 class="rd-result-headline">${esc(band.headline)}</h1>
 				<p class="rd-score-note">スコアは低いほど健全です（取りこぼしリスクの合計）。</p>
@@ -405,25 +467,41 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 			<div class="rd-insights">
 				<h2 class="rd-insights-title">取りこぼしている境目と、推奨施策<span class="rd-insights-sub">（優先順）</span></h2>
 				<p class="rd-insights-note">※ 数値は、Consilegyが40社以上の支援で繰り返し見てきた目安です（御社固有の実数ではありません）。</p>
+				${tiebroken ? '<p class="rd-insights-note">※ スコアが同点の境目は、「一番痛い」とお答えいただいた所を優先しています。</p>' : ''}
 				${leaks.map((x, i) => `
 					<div class="rd-insight">
 						<span class="rd-insight-rank">${i + 1}</span>
 						<div>
 							<span class="rd-insight-cat">${SIGNAL_META[x.signal].emoji} ${esc(x.c.name)}</span>
-							<p class="rd-insight-text">${esc(x.c.insight)}</p>
-							<p class="rd-insight-quant">${esc(x.c.quant)}</p>
-							${x.c.actions?.length ? `
+							<p class="rd-insight-text">${esc(copyOf(x.c).insight)}</p>
+							<p class="rd-insight-quant">${esc(copyOf(x.c).quant)}</p>
+							${copyOf(x.c).actions?.length ? `
 							<p class="rd-insight-actions-label">推奨施策</p>
 							<ul class="rd-insight-actions">
-								${x.c.actions.map((a) => `<li>${esc(a)}</li>`).join('')}
+								${copyOf(x.c).actions.map((a) => `<li>${esc(a)}</li>`).join('')}
 							</ul>` : ''}
 						</div>
 					</div>`).join('')}
 			</div>
 
+			${leakIds.includes('handoff') ? `
+			<div class="rd-calc">
+				<p class="rd-calc-label">入口の漏れを、金額で見る（任意）</p>
+				<p class="rd-calc-desc">御社の数字を3つ入れると、入口（マーケ→営業の受け渡し）で消えている商談機会を金額の幅で試算します。数字はこの画面の計算にだけ使い、送信されません。</p>
+				<div class="rd-calc-grid">
+					<label class="rd-calc-field"><span>月間の新規リード数（件）</span><input id="rd-calc-leads" type="number" min="0" inputmode="numeric" class="rd-input" placeholder="例: 100" /></label>
+					<label class="rd-calc-field"><span>商談からの受注率（%）</span><input id="rd-calc-win" type="number" min="0" max="100" inputmode="numeric" class="rd-input" placeholder="例: 25" /></label>
+					<label class="rd-calc-field"><span>平均受注単価（万円）</span><input id="rd-calc-price" type="number" min="0" inputmode="numeric" class="rd-input" placeholder="例: 150" /></label>
+				</div>
+				<button type="button" id="rd-calc-run" class="rd-probe-send">試算する</button>
+				<p class="rd-calc-out" id="rd-calc-out" hidden></p>
+				<p class="rd-calc-note">※「渡したリードの3〜5割が商談の手前で消える」という典型値に、御社の受注率・単価を掛けた上限の目安です。消えたリードがすべて商談化した場合の金額であり、実際に取り戻せる幅はこれより小さくなります。</p>
+			</div>
+			` : ''}
+
 			<div class="rd-firststep">
 				<p class="rd-firststep-label">最初の一手</p>
-				<p class="rd-firststep-text">${esc(worst.c.firstStep)}</p>
+				<p class="rd-firststep-text">${esc(copyOf(worst.c).firstStep)}</p>
 				<p class="rd-firststep-note">まずはこの一手から動けます。設計と現場定着まで通すと、漏れは元に戻りにくくなります。</p>
 			</div>
 			` : `
@@ -459,10 +537,32 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 			<p class="rd-retry"><button type="button" data-retry>もう一度診断する</button></p>
 		`;
 
-		track('result_view', { score_total: total, band: band.label, pattern_id: pattern?.id ?? 'none' });
+		track('result_view', { score_total: total, band: band.label, pattern_id: pattern?.id ?? 'none', worst_cat: worst?.c.id ?? 'none', pain_cat: state.painCat || 'none' });
 
 		app.querySelector('[data-cta="book"]')?.addEventListener('click', () => track('cta_book_click'));
 		app.querySelector('[data-cta="contact"]')?.addEventListener('click', () => track('cta_contact_click'));
+
+		app.querySelector('#rd-calc-run')?.addEventListener('click', () => {
+			const num = (sel: string) => Number((app.querySelector<HTMLInputElement>(sel)?.value ?? '').trim());
+			const leadsN = num('#rd-calc-leads');
+			const win = num('#rd-calc-win');
+			const price = num('#rd-calc-price');
+			const out = app.querySelector<HTMLElement>('#rd-calc-out')!;
+			if (!(leadsN > 0) || !(win > 0) || !(price > 0)) {
+				out.textContent = '3つの数字をすべて入れてください（概算で構いません）。';
+				out.hidden = false;
+				return;
+			}
+			const lo = Math.round(leadsN * 0.3 * (win / 100) * price);
+			const hi = Math.round(leadsN * 0.5 * (win / 100) * price);
+			const yen = (man: number) =>
+				man >= 10000
+					? `${(man / 10000).toLocaleString('ja-JP', { maximumFractionDigits: 1 })}億円`
+					: `${man.toLocaleString('ja-JP')}万円`;
+			out.textContent = `月あたり 約${yen(lo)}〜${yen(hi)}（年間 約${yen(lo * 12)}〜${yen(hi * 12)}）の商談機会が、入口で消えている計算になります（上限の目安）。`;
+			out.hidden = false;
+			track('calc_run', { calc_monthly_min: lo, calc_monthly_max: hi });
+		});
 
 		app.querySelector('#rd-probe-send')?.addEventListener('click', async () => {
 			const probe = app.querySelector<HTMLElement>('#rd-probe')!;
@@ -487,7 +587,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 			}
 		});
 		app.querySelector('[data-retry]')?.addEventListener('click', () => {
-			state = { step: 'quiz', current: 0, answers: Array(TOTAL_Q).fill(null), leadDone: state.leadDone };
+			state = { step: 'quiz', current: 0, answers: Array(TOTAL_Q).fill(null), leadDone: state.leadDone, industry: state.industry };
 			render();
 		});
 	}
@@ -756,6 +856,24 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 	text-underline-offset: 3px; padding: 0.625rem; min-height: 44px;
 }
 :global(.rd-retry button:hover) { color: var(--color-primary); }
+
+/* Pain tiebreak + calculator */
+:global(.rd-pain-note) { font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.7; margin: -1rem 0 1.5rem; }
+:global(.rd-calc) {
+	background: var(--glass-bg-strong);
+	border: 1px solid var(--glass-border);
+	border-radius: var(--radius-card);
+	padding: 1.5rem; margin-bottom: 2.25rem;
+}
+:global(.rd-calc-label) {
+	font-size: 0.625rem; font-weight: 600; color: var(--color-primary);
+	letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 0.625rem;
+}
+:global(.rd-calc-desc) { font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.7; margin: 0 0 1rem; }
+:global(.rd-calc-grid) { display: grid; grid-template-columns: 1fr; gap: 0.75rem; margin-bottom: 1rem; }
+:global(.rd-calc-field span) { display: block; font-size: 0.75rem; font-weight: 600; color: var(--color-text); margin-bottom: 0.375rem; }
+:global(.rd-calc-out) { font-size: 0.9375rem; font-weight: 600; color: var(--color-text); line-height: 1.75; margin: 1rem 0 0; padding-left: 0.75rem; border-left: 3px solid var(--color-primary); }
+:global(.rd-calc-note) { font-size: 0.75rem; color: var(--color-text-muted); line-height: 1.7; margin: 0.875rem 0 0; }
 
 @media (max-width: 560px) {
 	:global(.rd-map) { grid-template-columns: 1fr; }

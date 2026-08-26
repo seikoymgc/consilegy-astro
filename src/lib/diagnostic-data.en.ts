@@ -25,6 +25,7 @@ export const CATEGORIES: DiagnosticCategory[] = [
 				text: 'Of the leads marketing passes over, what share does sales judge "worth pursuing"?',
 				options: [
 					{ label: "We track it, and it's generally high", score: 0 },
+					{ label: "We track it, and it's low", score: 2 },
 					{ label: 'We only know by gut feel', score: 1 },
 					{ label: 'We hand them off and lose track', score: 2 },
 				],
@@ -196,27 +197,40 @@ export const CATEGORIES: DiagnosticCategory[] = [
 	},
 ];
 
-// Total-score bands (0–24, lower = healthier).
-export const BANDS = [
-	{
-		min: 0,
-		max: 6,
+// One-shot-sale variant of the "expansion" result copy (manufacturing / wholesale).
+// Industry comes from the lead form, so only the result copy branches — not the questions.
+export const EXPANSION_ONE_SHOT = {
+	insight: "Repeat orders and referrals aren't designed, so every period's revenue starts from zero.",
+	quant: 'Even in one-shot sales, reorders, repeat business, and referrals from existing customers are cheaper and higher-probability revenue than new logos. Without a design here, sales rebuilds the number from scratch every period.',
+	firstStep: 'Set a post-delivery follow-up point (e.g. one month after delivery) and an owner.',
+	actions: [
+		'Decide the post-delivery follow-up timing and owner, and make it a CRM task',
+		'Record reorder / repeat triggers (consumables, renewals, add-ons) per customer',
+		'Build the "ask for a referral" moment into the sales process',
+	],
+} as const;
+
+// Overall band — derived from the leak structure (not the raw total), so the
+// headline can never contradict the per-category map shown below it.
+export const BANDS = {
+	green: {
+		key: 'green',
 		label: 'Healthy',
 		headline: 'Your revenue flow is largely designed. The upside is on the "expansion" side.',
 	},
-	{
-		min: 7,
-		max: 14,
+	yellow: {
+		key: 'yellow',
 		label: 'Caution',
 		headline: 'Revenue is quietly leaking at a few seams. The sooner you close them, the more you recover.',
 	},
-	{
-		min: 15,
-		max: 24,
+	red: {
+		key: 'red',
 		label: 'Needs work',
 		headline: "Revenue is leaking at multiple seams. The flip side: the more you redesign how they connect, the more upside there is.",
 	},
-] as const;
+} as const;
+
+export type Band = (typeof BANDS)[keyof typeof BANDS];
 
 export const SIGNAL_META = {
 	green: { emoji: '🟢', label: 'Healthy' },
@@ -224,8 +238,14 @@ export const SIGNAL_META = {
 	red: { emoji: '🔴', label: 'Leaking' },
 } as const;
 
-export function bandOf(total: number) {
-	return BANDS.find((b) => total >= b.min && total <= b.max) ?? BANDS[BANDS.length - 1];
+// Band from category scores: no leaking category = green;
+// 4+ leaking or 2+ red categories = red; otherwise yellow.
+export function bandOf(categoryScores: number[]): Band {
+	const leaks = categoryScores.filter((s) => s >= 2).length;
+	const reds = categoryScores.filter((s) => s >= 4).length;
+	if (leaks === 0) return BANDS.green;
+	if (leaks >= 4 || reds >= 2) return BANDS.red;
+	return BANDS.yellow;
 }
 
 // ── Leak pattern ────────────────────────────────────────────
@@ -242,14 +262,21 @@ function nameOf(id: string): string {
 	return CATEGORIES.find((c) => c.id === id)?.name ?? id;
 }
 
-export function patternOf(leak: string[], worstId: string): LeakPattern | null {
+export function patternOf(leak: string[], worstId: string, redCount = 0): LeakPattern | null {
 	const has = (id: string) => leak.includes(id);
 
-	if (leak.length >= 5) {
+	if (leak.length >= 5 && redCount >= 1) {
 		return {
 			id: 'P1',
 			headline: "Adding tools won't fix this. It's time to rethink how revenue itself is designed",
 			body: 'When several seams leak at once, the cause is usually not an individual feature or tool. Your revenue flow (lead → opportunity → close → expand) is most likely optimized in parts but never designed as a whole. Every patch you add makes it more complex. Redrawing the whole flow is where the leverage is.',
+		};
+	}
+	if (leak.length >= 5) {
+		return {
+			id: 'P1b',
+			headline: 'Nothing is broken. But nothing is designed, either',
+			body: 'No seam is decisively broken, yet definitions, criteria, and handoffs all run on "roughly". The weakness of this state is that you can\'t measure what works: wins aren\'t repeatable and dips can\'t be traced. Rather than fixing one seam deeply, start by putting the whole flow into words — one page of definitions per seam.',
 		};
 	}
 	if (has('handoff') && has('expansion')) {
@@ -280,7 +307,7 @@ export function patternOf(leak: string[], worstId: string): LeakPattern | null {
 			body: 'Marketing-passed leads die to a definition gap, and whether anyone picks them up is left to each rep\'s instinct. You shave the funnel twice before a conversation even starts: the classic way marketing ROI becomes invisible.',
 		};
 	}
-	if (has('dependence') || has('stages')) {
+	if (worstId === 'dependence' || worstId === 'stages') {
 		return {
 			id: 'P6',
 			headline: 'You can close deals, but not in a repeatable form',

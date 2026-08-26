@@ -43,6 +43,7 @@ export const CATEGORIES: DiagnosticCategory[] = [
 				text: 'マーケが渡したリードのうち、営業が「対応に値する」と判断する割合は？',
 				options: [
 					{ label: '把握しており、おおむね高い', score: 0 },
+					{ label: '把握しているが、低い', score: 2 },
 					{ label: '感覚的にしか分からない', score: 1 },
 					{ label: '渡したきり追えていない', score: 2 },
 				],
@@ -214,27 +215,40 @@ export const CATEGORIES: DiagnosticCategory[] = [
 	},
 ];
 
-// Total-score bands (0–24, lower = healthier).
-export const BANDS = [
-	{
-		min: 0,
-		max: 6,
+// 売り切り型（製造・商社/卸）向けの「継続・拡大」差し替えコピー。
+// 業種はリードフォームで取得するため、設問は共通・結果コピーだけ分岐する。
+export const EXPANSION_ONE_SHOT = {
+	insight: '受注後のリピート・紹介が設計されず、次の売上が毎回ゼロから始まっています',
+	quant: '売り切り型でも、既存顧客からの追加発注・リピート・紹介は、新規開拓より低コストで確度の高い売上です。ここが設計されていないと、営業は毎期ゼロから数字を積み直すことになります。',
+	firstStep: '納品後フォローの時点（例：納品1ヶ月後）と担当者を決める',
+	actions: [
+		'納品後フォローのタイミングとオーナーを決めて、CRMのタスクに落とす',
+		'追加発注・リピートのトリガー（消耗・更新・増設）を顧客ごとに記録する',
+		'紹介を依頼する時点を、営業プロセスに組み込む',
+	],
+} as const;
+
+// Overall band — derived from the leak structure (not the raw total), so the
+// headline can never contradict the per-category map shown below it.
+export const BANDS = {
+	green: {
+		key: 'green',
 		label: '健全',
 		headline: '収益の流れは概ね設計されています。伸ばす余地は「拡大」側にあります',
 	},
-	{
-		min: 7,
-		max: 14,
+	yellow: {
+		key: 'yellow',
 		label: '注意',
 		headline: 'いくつかの境目で、売上が静かに漏れています。裏を返せば、早く整えるほど取り戻せる幅は大きい',
 	},
-	{
-		min: 15,
-		max: 24,
+	red: {
+		key: 'red',
 		label: '要改善',
 		headline: '複数の境目で売上が漏れています。裏を返せば、つなぎ方を設計し直すほど伸びしろが大きい',
 	},
-] as const;
+} as const;
+
+export type Band = (typeof BANDS)[keyof typeof BANDS];
 
 // Category signal from its 0–4 score.
 export function signalOf(score: number): 'green' | 'yellow' | 'red' {
@@ -249,8 +263,14 @@ export const SIGNAL_META = {
 	red: { emoji: '🔴', label: '漏れ' },
 } as const;
 
-export function bandOf(total: number) {
-	return BANDS.find((b) => total >= b.min && total <= b.max) ?? BANDS[BANDS.length - 1];
+// Band from category scores: no leaking category = green;
+// 4+ leaking or 2+ red categories = red; otherwise yellow.
+export function bandOf(categoryScores: number[]): Band {
+	const leaks = categoryScores.filter((s) => s >= 2).length;
+	const reds = categoryScores.filter((s) => s >= 4).length;
+	if (leaks === 0) return BANDS.green;
+	if (leaks >= 4 || reds >= 2) return BANDS.red;
+	return BANDS.yellow;
 }
 
 // ── 掛け合わせパターン ───────────────────────────────────────
@@ -267,14 +287,21 @@ function nameOf(id: string): string {
 	return CATEGORIES.find((c) => c.id === id)?.name ?? id;
 }
 
-export function patternOf(leak: string[], worstId: string): LeakPattern | null {
+export function patternOf(leak: string[], worstId: string, redCount = 0): LeakPattern | null {
 	const has = (id: string) => leak.includes(id);
 
-	if (leak.length >= 5) {
+	if (leak.length >= 5 && redCount >= 1) {
 		return {
 			id: 'P1',
 			headline: 'ツールの追加では戻りにくく、収益の設計そのものを問い直す段階です',
 			body: '複数の境目で同時に漏れているとき、原因は個別の機能やツールではないことが多いです。収益の流れ（リード→商談→受注→拡大）が部分最適のまま、全体として設計しきれていない可能性が高い状態です。手当てを足すほど複雑になります。一度、流れ全体を引き直すと効きやすい段階です。',
+		};
+	}
+	if (leak.length >= 5) {
+		return {
+			id: 'P1b',
+			headline: '壊れている境目はありません。ただ、設計されている境目もありません',
+			body: 'どの境目にも決定的な断絶はない一方、定義・基準・引き継ぎがどこも「なんとなく」で回っています。この状態の弱点は、良し悪しを測れないこと。うまくいっても再現できず、崩れても原因を特定できません。1か所を深く直すより、収益の流れ全体の言語化（各境目の定義を1枚に書く）から始めるのが効率的です。',
 		};
 	}
 	if (has('handoff') && has('expansion')) {
@@ -305,7 +332,7 @@ export function patternOf(leak: string[], worstId: string): LeakPattern | null {
 			body: 'マーケが渡したリードが定義のズレで消え、拾えるかどうかも営業個人の勘次第。せっかくの母数を、商談に入る前に二段階で削っています。マーケ投資のROIが見えなくなる典型です。',
 		};
 	}
-	if (has('dependence') || has('stages')) {
+	if (worstId === 'dependence' || worstId === 'stages') {
 		return {
 			id: 'P6',
 			headline: '受注はできても、再現できる形になっていません',

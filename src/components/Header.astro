@@ -21,11 +21,12 @@ const navJA_top = [
 const navJA_bottom: { label: string; href: string | null; children?: { label: string; href: string }[] }[] = [
 	{ label: 'サービス・料金', href: '/services/' },
 	{
-		label: '無料相談・診断',
+		label: '相談・診断',
 		href: '/diagnostic/',
 		children: [
-			{ label: '収益を自己診断（3分・その場で結果）', href: '/diagnostic/' },
-			{ label: '30分無料相談（結果をもとに相談）',     href: '/free-consultation/' },
+			{ label: '収益を自己診断（3分・無料・その場で結果）', href: '/diagnostic/' },
+			{ label: '30分無料相談（結果をもとに相談）',           href: '/free-consultation/' },
+			{ label: '収益構造の現状分析（有償）',                 href: '/revops-assessment/' },
 		],
 	},
 	{

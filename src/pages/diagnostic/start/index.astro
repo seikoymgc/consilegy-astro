@@ -263,6 +263,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 						<option value="wholesale">商社・卸</option>
 						<option value="prof_services">専門サービス</option>
 						<option value="retail_ec">小売・EC</option>
+						<option value="education">スクール・教室（生徒向け）</option>
 						<option value="other">その他</option>
 					</select>
 				</label>
@@ -416,6 +417,13 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 		// One-shot-sale industries get expansion copy without the LTV/CS frame.
 		const oneShot = state.industry === 'manufacturing' || state.industry === 'wholesale';
+		// Student-facing schools belong on the school edition, not the B2B product page.
+		const isSchool = state.industry === 'education';
+		const productUrl = isSchool ? '/crm/school/' : PRODUCT_URL;
+		const forkCopy = isSchool
+			? 'CSVや紙で生徒の在籍を管理している場合は、スクール版から始める選択肢もあります。'
+			: 'CRMがまだない、またはExcelに戻っている場合は、自社プロダクトから始める選択肢もあります。';
+		const forkLink = isSchool ? 'Revenue CRM スクール版を見る →' : 'Revenue CRM を見る →';
 		const copyOf = (c: (typeof CATEGORIES)[number]) =>
 			c.id === 'expansion' && oneShot ? EXPANSION_ONE_SHOT : c;
 
@@ -519,7 +527,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 				<a href="${BOOK_URL}" class="rd-cta-primary" data-cta="book">この取りこぼしを「直す」なら｜30分無料相談を予約する →</a>
 				<p class="rd-cta-note">診断結果をもとに、どこから直すかを30分で一緒に整理します。オンライン・完全無料。</p>
 				<a href="${CONTACT_URL}" class="rd-cta-secondary" data-cta="contact">収益構造の現状分析（有償）の内容を見る</a>
-				<p class="rd-cta-fork">CRMがまだない、またはExcelに戻っている場合は、自社プロダクトから始める選択肢もあります。<a href="${PRODUCT_URL}" data-cta="product">Revenue CRM を見る →</a></p>
+				<p class="rd-cta-fork">${esc(forkCopy)}<a href="${productUrl}" data-cta="product">${esc(forkLink)}</a></p>
 			</div>
 
 			<div class="rd-probe" id="rd-probe">
@@ -537,7 +545,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 			<p class="rd-retry"><button type="button" data-retry>もう一度診断する</button></p>
 		`;
 
-		track('result_view', { score_total: total, band: band.label, pattern_id: pattern?.id ?? 'none', worst_cat: worst?.c.id ?? 'none', pain_cat: state.painCat || 'none' });
+		track('result_view', { score_total: total, band: band.label, pattern_id: pattern?.id ?? 'none', worst_cat: worst?.c.id ?? 'none', pain_cat: state.painCat || 'none', industry: state.industry || 'none' });
 
 		app.querySelector('[data-cta="book"]')?.addEventListener('click', () => track('cta_book_click'));
 		app.querySelector('[data-cta="contact"]')?.addEventListener('click', () => track('cta_contact_click'));

@@ -260,6 +260,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 						<option value="wholesale">Wholesale / Trading</option>
 						<option value="prof_services">Professional services</option>
 						<option value="retail_ec">Retail / E-commerce</option>
+						<option value="education">School / classroom (student-facing)</option>
 						<option value="other">Other</option>
 					</select>
 				</label>
@@ -395,6 +396,13 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 
 		// One-shot-sale industries get expansion copy without the LTV/CS frame.
 		const oneShot = state.industry === 'manufacturing' || state.industry === 'wholesale';
+		// Student-facing schools belong on the school edition, not the B2B product page.
+		const isSchool = state.industry === 'education';
+		const productUrl = isSchool ? '/en/crm/school/' : PRODUCT_URL;
+		const forkCopy = isSchool
+			? 'If student enrolment still lives in spreadsheets or on paper, you can start from the school edition. '
+			: 'If you have no CRM yet, or the team keeps falling back to spreadsheets, you can start from our own product. ';
+		const forkLink = isSchool ? 'See Revenue CRM for schools →' : 'See Revenue CRM →';
 		const copyOf = (c: (typeof CATEGORIES)[number]) =>
 			c.id === 'expansion' && oneShot ? EXPANSION_ONE_SHOT : c;
 
@@ -498,7 +506,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 				<a href="${BOOK_URL}" class="rd-cta-primary" data-cta="book">Want to fix these leaks? Book a 30-min consult (free) →</a>
 				<p class="rd-cta-note">We'll map where to start fixing, in 30 minutes. Online, free.</p>
 				<a href="${CONTACT_URL}" class="rd-cta-secondary" data-cta="contact">See our services</a>
-				<p class="rd-cta-fork">If you have no CRM yet, or the team keeps falling back to spreadsheets, you can start from our own product. <a href="${PRODUCT_URL}" data-cta="product">See Revenue CRM →</a></p>
+				<p class="rd-cta-fork">${esc(forkCopy)}<a href="${productUrl}" data-cta="product">${esc(forkLink)}</a></p>
 			</div>
 
 			<div class="rd-probe" id="rd-probe">
@@ -516,7 +524,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 			<p class="rd-retry"><button type="button" data-retry>Take the diagnostic again</button></p>
 		`;
 
-		track('result_view', { score_total: total, band: band.label, pattern_id: pattern?.id ?? 'none', worst_cat: worst?.c.id ?? 'none', pain_cat: state.painCat || 'none' });
+		track('result_view', { score_total: total, band: band.label, pattern_id: pattern?.id ?? 'none', worst_cat: worst?.c.id ?? 'none', pain_cat: state.painCat || 'none', industry: state.industry || 'none' });
 
 		app.querySelector('[data-cta="book"]')?.addEventListener('click', () => track('cta_book_click'));
 		app.querySelector('[data-cta="contact"]')?.addEventListener('click', () => track('cta_contact_click'));

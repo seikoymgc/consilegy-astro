@@ -434,6 +434,9 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 			if (sizeSel.value) extra.employee_size = sizeSel.value;
 			extra.consilegy_industry = indSel.value;
 			if (state.channel) extra.consilegy_lead_channel = state.channel;
+			// A link back to this exact result. Answer indices only — no personal data.
+			state.industry = indSel.value;
+			extra.consilegy_result_url = shareUrl();
 			if (tools.length) extra.current_tools = tools.join(';');
 			errEl.hidden = true;
 			btn.disabled = true;

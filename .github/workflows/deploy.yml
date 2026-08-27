@@ -7,9 +7,84 @@ on:
   # Actions画面から手動でも実行できるようにする
   workflow_dispatch:
 
+# 連続pushで rsync が同時に走ると、転送途中のファイルを --delete が消しにいく。
+# 直列化する。走行中のものは止めない（止めると中途半端な状態で残るため）。
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
+  # どこが変わったかを1回だけ判定し、下の2ジョブで共有する。
+  #
+  # 以前は deploy-media 側で `git diff HEAD^ HEAD` を見ていたが、これは
+  # **pushの最後の1コミットしか見ない**。記事コミットの後に別セッションの
+  # コミットが積まれた状態でまとめてpushすると、media/ の変更が判定から
+  # 漏れてデプロイが黙ってスキップされる。
+  # push全体（before..sha）を見るように変えた。
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      site: ${{ steps.filter.outputs.site }}
+      media: ${{ steps.filter.outputs.media }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          # before..sha を辿るため全履歴が要る
+          fetch-depth: 0
+
+      - name: Detect changed paths
+        id: filter
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+
+          # 手動実行のときは両方デプロイする
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            echo "site=true"  >> "$GITHUB_OUTPUT"
+            echo "media=true" >> "$GITHUB_OUTPUT"
+            echo "手動実行のため両方デプロイします"
+            exit 0
+          fi
+
+          BASE="$BEFORE_SHA"
+          # ブランチ新規作成時は before が全ゼロ。force push 後は before が
+          # 消えていることがある。どちらも直前1コミットに退避する。
+          if [ -z "$BASE" ] \
+            || [ "$BASE" = "0000000000000000000000000000000000000000" ] \
+            || ! git cat-file -e "${BASE}^{commit}" 2>/dev/null; then
+            BASE="${CURRENT_SHA}^"
+            echo "before が辿れないため ${BASE} と比較します"
+          fi
+
+          FILES="$(git diff --name-only "$BASE" "$CURRENT_SHA")"
+          echo "変更ファイル:"
+          echo "$FILES"
+
+          if echo "$FILES" | grep -q '^media/'; then
+            echo "media=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "media=false" >> "$GITHUB_OUTPUT"
+            echo "media/ に変更がないためメディアサイトはスキップします"
+          fi
+
+          # media/ 以外に1つでも変更があれば本体サイトを出す。
+          # 以前は本体サイトが毎回動いていたため、記事だけのpushでも
+          # public_html/ に --delete 付きの rsync が走っていた。
+          if echo "$FILES" | grep -qv '^media/'; then
+            echo "site=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "site=false" >> "$GITHUB_OUTPUT"
+            echo "media/ 以外に変更がないため本体サイトはスキップします"
+          fi
+
   # 本体サイト consilegy.com
   deploy:
+    needs: changes
+    if: needs.changes.outputs.site == 'true'
     runs-on: ubuntu-latest
 
     steps:
@@ -42,47 +117,32 @@ jobs:
   # メディアサイト media.consilegy.com
   # media/ 配下に変更があったときだけ動く
   deploy-media:
+    needs: changes
+    if: needs.changes.outputs.media == 'true'
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v5
-        with:
-          fetch-depth: 2
-
-      - name: Check for media changes
-        id: changes
-        run: |
-          # 手動実行のときは常にデプロイする
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-          elif git diff --name-only HEAD^ HEAD | grep -q '^media/'; then
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-            echo "media/ に変更がないためスキップします"
-          fi
 
       - name: Setup Node.js
-        if: steps.changes.outputs.changed == 'true'
         uses: actions/setup-node@v5
         with:
           node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: media/package-lock.json
 
       # アイキャッチ自動生成（sharp）が日本語を描画するために必要
       - name: Install Japanese fonts
-        if: steps.changes.outputs.changed == 'true'
         run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-cjk
 
       - name: Install dependencies
-        if: steps.changes.outputs.changed == 'true'
         working-directory: media
         # lockfileがあれば npm ci、なければ npm install で通す
         run: |
           if [ -f package-lock.json ]; then npm ci; else npm install; fi
 
       - name: Build
-        if: steps.changes.outputs.changed == 'true'
         working-directory: media
         # GTMコンテナID。リポジトリの Settings → Secrets and variables → Actions →
         # Variables に PUBLIC_GTM_ID を登録する（Secretsではなく Variables でよい。
@@ -92,8 +152,18 @@ jobs:
           PUBLIC_GTM_ID: ${{ vars.PUBLIC_GTM_ID }}
         run: npm run build
 
+      # 空の dist/ を --delete 付きで送ると公開中のサイトが消える。
+      # ビルドが実質失敗していた場合の保険として、送る前に中身を確認する。
+      - name: Verify build output
+        working-directory: media
+        run: |
+          set -euo pipefail
+          test -f dist/index.html || { echo "dist/index.html がありません。デプロイを中止します"; exit 1; }
+          COUNT=$(find dist -name '*.html' | wc -l)
+          echo "生成されたHTML: ${COUNT}件"
+          [ "$COUNT" -ge 10 ] || { echo "HTMLが少なすぎます。デプロイを中止します"; exit 1; }
+
       - name: Deploy via SSH
-        if: steps.changes.outputs.changed == 'true'
         uses: easingthemes/ssh-deploy@main
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}

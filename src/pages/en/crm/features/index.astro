@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import { CRM_FEATURES, featureCount } from '../../../../data/crm-features';
+
+const total = featureCount();
+---
+
+<BaseLayout
+  title="All features | Revenue CRM | Consilegy"
+  description={`Every feature in Revenue CRM: CRM core, AI (Jade), 175 RevOps workflows, marketing, sales, delivery, customer success, subscriptions, extensibility, and admin. ${total} in total.`}
+>
+  <div class="feat-page">
+    <header class="feat-head">
+      <p class="kicker">Revenue CRM</p>
+      <h1>All features</h1>
+      <p class="lead">
+        Everything that ships today, grouped by area. {total} in total.
+        Pricing is per seat only, so no feature sits behind a higher plan.
+      </p>
+    </header>
+
+    <nav class="feat-jump" aria-label="Areas">
+      {CRM_FEATURES.map(group => <a href={`#${group.id}`}>{group.title.en}</a>)}
+    </nav>
+
+    {CRM_FEATURES.map(group => (
+      <section class="feat-group" id={group.id}>
+        <h2>{group.title.en}</h2>
+        <p class="group-lead">{group.lead.en}</p>
+        <ul>
+          {group.items.map(item => (
+            <li>
+              <span class="n">{item.name.en}</span>
+              <span class="d">{item.desc.en}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+
+    <section class="feat-cta">
+      <p>See the real screens with nothing but an email address.</p>
+      <div class="feat-cta-links">
+        <a class="btn" href="https://crm.consilegy.com/demos" target="_blank" rel="noopener noreferrer">See the demo</a>
+        <a class="btn ghost" href="/en/crm/">Back to Revenue CRM</a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .feat-page { max-width: 62rem; margin: 0 auto; padding: 4rem 1.25rem 5rem; }
+  .feat-head { margin-bottom: 2.5rem; }
+  .kicker { font-size: 0.8rem; letter-spacing: 0.12em; color: var(--color-accent, #1f6f4a); margin: 0 0 0.5rem; }
+  .feat-head h1 { font-size: clamp(1.75rem, 4vw, 2.5rem); margin: 0 0 0.75rem; }
+  .lead { color: #4a5568; line-height: 1.9; margin: 0; }
+
+  .feat-jump { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; }
+  .feat-jump a {
+    border: 1px solid #d9dee5; border-radius: 999px; padding: 0.35rem 0.9rem;
+    font-size: 0.85rem; color: #3a4551; text-decoration: none;
+  }
+  .feat-jump a:hover { background: #f2f5f8; }
+
+  .feat-group { margin-bottom: 2.75rem; scroll-margin-top: 5rem; }
+  .feat-group h2 { font-size: 1.15rem; margin: 0 0 0.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid #e6eaef; }
+  .group-lead { color: #5b6673; font-size: 0.9rem; line-height: 1.8; margin: 0 0 1rem; }
+  .feat-group ul { list-style: none; margin: 0; padding: 0; }
+  .feat-group li {
+    padding: 0.9rem 1rem; border: 1px solid #e6eaef; border-radius: 0.6rem; background: #fff;
+  }
+  .feat-group li + li { margin-top: 0.5rem; }
+  .n { display: block; font-weight: 600; margin-bottom: 0.25rem; }
+  .d { display: block; font-size: 0.875rem; color: #5b6673; line-height: 1.7; }
+
+  .feat-cta { margin-top: 3rem; padding: 1.75rem; border-radius: 0.75rem; background: #f4f7f9; text-align: center; }
+  .feat-cta p { margin: 0 0 1rem; color: #3a4551; }
+  .feat-cta-links { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+  .btn {
+    display: inline-block; padding: 0.65rem 1.4rem; border-radius: 0.5rem;
+    background: #1f6f4a; color: #fff; text-decoration: none; font-weight: 600; font-size: 0.95rem;
+  }
+  .btn.ghost { background: #fff; color: #1f6f4a; border: 1px solid #1f6f4a; }
+</style>

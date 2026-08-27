@@ -116,6 +116,33 @@ const aiMoves = [
 	},
 ];
 
+const safeguards = [
+	{
+		label: '学習に使われない',
+		text: '名刺や手書きの読み取り、文字起こしに使う外部AIは、送信した内容を学習に使わない条件で利用しています。自社のAPIキーを持ち込んで、送信先を自社契約にすることもできます。',
+	},
+	{
+		label: '他社に見えない',
+		text: '会社ごとの隔離は、データベースの行単位のアクセス制御で行っています。アプリ側の絞り込みには頼りません。新しいテーブルへの入れ忘れは、リリース前の自動チェックで止めます。',
+	},
+	{
+		label: '見せる範囲を決められる',
+		text: '役割ごとに、誰がどのデータを見て操作できるかを設定できます。誰がいつ何を変更したかは監査ログに残ります。',
+	},
+	{
+		label: '消しても戻せる',
+		text: '削除したレコードはゴミ箱に入り、そこから戻せます。データベースは日次でバックアップを取得しています。',
+	},
+	{
+		label: '東京に置いてある',
+		text: 'データは東京リージョンに保存しています。海外に出ることはありません。',
+	},
+	{
+		label: '持ち出しは自由',
+		text: 'コンタクト、会社、商談をCSVで書き出せます。解約後に取り出せなくなることはありません。自社のデータは自社のものです。',
+	},
+];
+
 const capabilities = [
 	{
 		icon: 'contacts',
@@ -319,6 +346,28 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.ja }));
 			AIが作った文面やデータは、保存と送信の前に必ず人が確認します。勝手に送ることはありません。
 			AIのAPIキーは自社のもの（Anthropic / OpenAI / Gemini / Azure OpenAI）を持ち込めます。
 			外部のAIからCRMを操作するためのMCPサーバーも標準で用意しています。
+		</p>
+	</div>
+</section>
+
+<!-- ===================== 3c. SECURITY ===================== -->
+<section class="safeguards">
+	<div class="container">
+		<div class="section-head">
+			<p class="kicker">データの扱い</p>
+			<h2>AIに読ませても、データは自社のものから出ません。</h2>
+		</div>
+		<dl class="safe-list">
+			{safeguards.map((item) => (
+				<div class="safe-row">
+					<dt>{item.label}</dt>
+					<dd>{item.text}</dd>
+				</div>
+			))}
+		</dl>
+		<p class="safe-note">
+			詳しくは<a href="/crm/faq/">よくあるご質問</a>のデータとセキュリティをご覧ください。
+			2要素認証とシングルサインオンは、現時点では提供していません。
 		</p>
 	</div>
 </section>
@@ -720,6 +769,7 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.ja }));
 
 	.pain,
 	.ai,
+	.safeguards,
 	.features,
 	.product-view,
 	.editions,
@@ -1370,6 +1420,47 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.ja }));
 			padding-right: 0;
 			border-left: 0;
 		}
+	}
+
+	/* ── 3c. SECURITY ────────────────────────────────────── */
+	.safe-list {
+		margin: 0;
+		border-top: 1px solid var(--color-border);
+	}
+	.safe-row {
+		display: grid;
+		grid-template-columns: 14rem minmax(0, 1fr);
+		gap: var(--space-md);
+		padding: 1.15rem 0;
+		border-bottom: 1px solid var(--color-border);
+		align-items: baseline;
+	}
+	.safe-row dt {
+		margin: 0;
+		font-size: 0.975rem;
+		font-weight: 700;
+		color: var(--color-text);
+	}
+	.safe-row dd {
+		margin: 0;
+		font-size: 0.925rem;
+		line-height: 1.85;
+		color: var(--color-text-muted);
+	}
+	.safe-note {
+		margin: var(--space-lg) 0 0;
+		font-size: 0.82rem;
+		line-height: 1.9;
+		color: var(--color-text-muted);
+	}
+	.safe-note a {
+		color: var(--color-primary);
+		text-decoration: none;
+		font-weight: 600;
+	}
+	.safe-note a:hover { text-decoration: underline; }
+	@media (max-width: 720px) {
+		.safe-row { grid-template-columns: 1fr; gap: 0.4rem; }
 	}
 
 	/* ── 7. PRICING ──────────────────────────────────────── */

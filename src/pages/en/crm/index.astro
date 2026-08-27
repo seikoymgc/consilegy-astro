@@ -272,6 +272,45 @@ const screens = [
 	</div>
 </section>
 
+<!-- ===================== SECURITY ===================== -->
+<section class="safeguards">
+	<div class="container">
+		<div class="feat-head">
+			<p class="section-eyebrow">Your data</p>
+			<h2>Read by AI, still yours alone.</h2>
+		</div>
+		<dl class="safe-list">
+			<div class="safe-row">
+				<dt>Never trained on</dt>
+				<dd>The outside AI services behind card scanning, handwriting, and transcription are used under terms that exclude what you send from training. You can also bring your own API key and send it to your own account instead.</dd>
+			</div>
+			<div class="safe-row">
+				<dt>Invisible to other tenants</dt>
+				<dd>Companies are separated by row-level access control in the database, not by filtering in the application. A new table that forgets it is caught by an automated check before release.</dd>
+			</div>
+			<div class="safe-row">
+				<dt>Scoped per role</dt>
+				<dd>Set who can see and act on which data, by role. Who changed what, and when, stays in the audit log.</dd>
+			</div>
+			<div class="safe-row">
+				<dt>Deletion is reversible</dt>
+				<dd>Deleted records go to a trash you can restore from. The database is backed up daily.</dd>
+			</div>
+			<div class="safe-row">
+				<dt>Held in Tokyo</dt>
+				<dd>Data is stored in the Tokyo region. It does not leave the country.</dd>
+			</div>
+			<div class="safe-row">
+				<dt>Yours to take</dt>
+				<dd>Export contacts, companies, and deals to CSV at any time. Cancelling does not lock your data in. It is your data.</dd>
+			</div>
+		</dl>
+		<p class="safe-note">
+			Two-factor authentication and single sign-on are not offered at this stage.
+		</p>
+	</div>
+</section>
+
 <!-- ===================== FEATURES ===================== -->
 <section class="features" id="features">
 	<div class="container">
@@ -565,6 +604,18 @@ const screens = [
 }
 .ai-card p { font-size: 0.9375rem; line-height: 1.7; color: var(--color-text-muted); margin: 0; }
 .ai-note { font-size: 0.8125rem; line-height: 1.85; color: var(--color-text-muted); margin: 2rem 0 0; }
+
+/* ── Security ──────────────────────────────────────── */
+.safeguards { padding-block: var(--space-2xl); background: var(--color-bg-subtle); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
+.safe-list { margin: 0; border-top: 1px solid var(--color-border); }
+.safe-row {
+	display: grid; grid-template-columns: 15rem minmax(0, 1fr); gap: 1.5rem;
+	padding: 1.15rem 0; border-bottom: 1px solid var(--color-border); align-items: baseline;
+}
+.safe-row dt { margin: 0; font-size: 1rem; font-weight: 700; color: var(--color-text); }
+.safe-row dd { margin: 0; font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted); }
+.safe-note { margin: 2rem 0 0; font-size: 0.8125rem; line-height: 1.85; color: var(--color-text-muted); }
+@media (max-width: 720px) { .safe-row { grid-template-columns: 1fr; gap: 0.4rem; } }
 
 /* ── All features ──────────────────────────────────── */
 .all-features { padding-block: var(--space-2xl); background: var(--color-bg); }

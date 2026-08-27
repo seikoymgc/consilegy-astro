@@ -112,7 +112,7 @@ const aiMoves = [
 	},
 	{
 		act: '直すほど合ってくる',
-		text: '人が直した判断を、次に同じことを聞かれたときの材料として持ち越します。ICPの判定から始めています。',
+		text: '一度直せば、その判断が残ります。次に同じことを聞かれたときは、そちらを材料にします。ICPの判定から始めています。',
 	},
 ];
 
@@ -264,7 +264,8 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.ja }));
 			<h1>まだCRMがない会社のための、<br class="br-wide" />最初のCRMを作りました。</h1>
 			<p class="hero-lead">
 				顧客の一覧はExcel。やりとりはメール。案件の温度感は担当者の頭の中。
-				そういう会社に40社以上入り、「ここに入れるCRMがない」と何度も思いました。
+				そういう会社に40社以上入りました。そのたびに、ここに入れられるCRMがない。
+				だから、自分たちで作りました。
 			</p>
 			<div class="hero-actions">
 				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">デモを見る</a>
@@ -503,9 +504,9 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.ja }));
 			<p class="kicker">別の支援が向いている会社</p>
 			<h2>すでにCRMが動いている会社</h2>
 			<p>
-				Salesforce・HubSpot・kintone・Marketoなどを導入済みの場合は、
-				Revenue CRMへの乗り換えはおすすめしません。
-				既存ツールを活かした収益プロセスの再設計をご提案します。
+				Salesforce・HubSpot・kintone・Marketoが既に動いているなら、乗り換えないほうがいいです。
+				払った分は、活かせます。
+				入れ替えを売るより、いまの仕組みの上で収益プロセスを組み直すご提案をします。
 			</p>
 			<a href="/services/" class="text-link">既存CRMの再設計を見る</a>
 		</div>
@@ -575,7 +576,8 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.ja }));
 			<h2>まだCRMがない会社の、最初の1つに。</h2>
 			<p>
 				現在は数社限定で、実際の業務に合わせながら開発を進めています。
-				セットアップと初期データの投入はこちらで行い、機能の優先順位はご参加いただく会社の業務に合わせて決めます。
+				セットアップと初期データの投入はこちらで行います。
+				次に何を作るかは、参加していただく会社の業務が決めます。こちらのロードマップでは決めません。
 			</p>
 		</div>
 		<ul class="cta-grid">

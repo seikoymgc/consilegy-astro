@@ -106,17 +106,20 @@ const roles = [
 <!-- ===================== PROBLEM ===================== -->
 <section class="problem">
 	<div class="container">
-		<p class="section-eyebrow">Why it breaks</p>
-		<h2 class="prob-title">Sound familiar?</h2>
+		<p class="section-eyebrow">The problem</p>
+		<h2 class="prob-title">What drives retention is scattered around the school.</h2>
 		<div class="prob-grid">
 			<div class="prob-item">
-				<p>You always notice the student who was about to quit after they have already quit.</p>
+				<h3>You find out after they leave</h3>
+				<p>Absences, unanswered messages, a failed payment, a change in how they reply. You notice once they have already quit.</p>
 			</div>
 			<div class="prob-item">
-				<p>When the coach changes, that student's history does not get handed over. Nobody knows what was discussed last time.</p>
+				<h3>Handover lives in one person</h3>
+				<p>When the coach changes, what happened last time, what the guardian said, and what to watch next all go with them.</p>
 			</div>
 			<div class="prob-item">
-				<p>At the end of every month, you are counting how many students are currently enrolled all over again.</p>
+				<h3>Enrollment and billing become month-end work</h3>
+				<p>Enrolled, on hold, withdrawn, paid. Counted again in a spreadsheet at the end of every month.</p>
 			</div>
 		</div>
 
@@ -338,6 +341,10 @@ const roles = [
 .prob-item {
 	border: 1px solid var(--color-border); border-left: 3px solid var(--color-primary);
 	border-radius: 0 8px 8px 0; padding: 1.5rem; background: var(--color-bg-subtle);
+}
+.prob-item h3 {
+	margin: 0 0 0.5rem; font-size: 1rem; font-weight: 600;
+	line-height: 1.55; color: var(--color-text);
 }
 .prob-item p { margin: 0; font-size: 0.9375rem; line-height: 1.8; color: var(--color-text); }
 

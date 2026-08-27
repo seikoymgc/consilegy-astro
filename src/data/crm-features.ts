@@ -105,8 +105,8 @@ export const CRM_FEATURES: FeatureGroup[] = [
     id: 'ai',
     title: { ja: 'AI（Jade）', en: 'AI (Jade)' },
     lead: {
-      ja: '入力を減らし、記録から判断材料を取り出す。CRMの外にある情報をCRMへ運ぶ役割も持つ。',
-      en: 'Less typing in, more judgment out. Jade also carries information that lives outside the CRM into it.',
+      ja: '入力を減らし、記録から判断材料を取り出す。CRMの外にある情報も、Jadeが中へ運ぶ。',
+      en: 'Less typing in, more judgment out. Jade also carries what lives outside the CRM into it.',
     },
     items: [
       {
@@ -359,8 +359,8 @@ export const CRM_FEATURES: FeatureGroup[] = [
     id: 'sales',
     title: { ja: 'セールス', en: 'Sales' },
     lead: {
-      ja: '数字の精度と、止まっている場所を見つけること。',
-      en: 'Getting the number right, and finding where it stopped.',
+      ja: '数字を正確にする。そして、どこで止まっているかを見つける。',
+      en: 'Get the number right. Then find where it stopped.',
     },
     items: [
       {

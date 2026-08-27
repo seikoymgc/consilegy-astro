@@ -10,8 +10,8 @@ const screens = [
 	{ src: 'schedule', title: '週間スケジュール', desc: 'レッスン予定を週単位で管理。休校日カレンダーとも連動します。', alt: '週間スケジュールの画面。今週のレッスン数と稼働コーチ数、日付ごとの時刻・生徒・担当コーチの一覧。' },
 	{ src: 'lessons', title: 'レッスン記録', desc: '実施内容を生徒ごとに蓄積。担当が替わっても経緯が残ります。', alt: 'レッスン履歴の画面。生徒名、担当コーチ、コース、実施日が時系列で並ぶ。' },
 	{ src: 'calls', title: '架電確認', desc: '連絡すべき生徒、未対応の生徒、対応済みの生徒を分けて管理します。', alt: 'ホーム画面。在籍生徒数、要対応件数、本日の架電、定着率のカードと、課題未提出やLINE返信など「今すぐ対応」の一覧。' },
-	{ src: 'hearing', title: 'ヒアリング', desc: '入会時や面談で聞いた内容を構造化して保存。次の担当が読んで動けます。', alt: '入会時ヒアリングの入力画面。学習目的、現在のレベル、希望ペース、担当への申し送りをメモとして保存する。' },
-	{ src: 'report', title: '月次レポート', desc: '生徒ごとの進捗レポートを下書き。確認して直すだけで提出できます。', alt: '月次レポートの画面。AIが下書きした生徒の進捗コメントに、再生成と確定のボタンが付いている。' },
+	{ src: 'hearing', title: 'ヒアリング', desc: '入会時や面談で聞いた内容を、そのまま書いて残す。次の担当が読んで動けます。', alt: '入会時ヒアリングの入力画面。学習目的、現在のレベル、希望ペース、担当への申し送りをメモとして保存する。' },
+	{ src: 'report', title: '月次レポート', desc: 'その月のレッスン記録と架電実績から、AIが下書きを書きます。確認して直すだけで提出できます。', alt: '月次レポートの画面。AIが下書きした生徒の進捗コメントに、再生成と確定のボタンが付いている。' },
 	{ src: 'knowledge', title: 'ナレッジベース', desc: '指導方針や運用ルールを記事化。教室運営の属人化を防ぎます。', alt: 'ナレッジベースの画面。よくある質問、運営ルール、運用マニュアルの記事一覧。' },
 	{ src: 'billing', title: '請求管理', desc: '支払中・支払失敗を確認。止まっている入金に早く気づけます。', alt: '請求の画面。MRR、支払中、支払失敗の件数と、生徒ごとの契約一覧に支払中・解約済・支払失敗のバッジ。' },
 ];
@@ -193,7 +193,9 @@ const roles = [
 				文章作成だけを目的にせず、次の対応に使える状態で残すことを優先しています。
 			</p>
 			<p class="support-lead">
-				月次の進捗レポートは下書きまで作成。コーチは内容を確認し、必要な修正を入れて提出できます。
+				月次の進捗レポートは、その月のレッスン記録と架電実績からAIが下書きします。
+				回数はデータから数えた値をそのまま使い、記録が足りない月は無理に書かず、記録だけを並べます。
+				コーチが確認して直したうえで提出します。
 			</p>
 		</div>
 		<div class="support-list">
@@ -205,6 +207,30 @@ const roles = [
 				<li><span>報告</span><strong>月次レポートの下書き</strong></li>
 			</ul>
 		</div>
+	</div>
+</section>
+
+<!-- ===================== AI ===================== -->
+<section class="ai">
+	<div class="container ai-inner">
+		<div>
+			<p class="section-eyebrow">AI</p>
+			<h2>日本語で聞けば、<br />その場で返ってきます。</h2>
+			<p class="ai-lead">
+				知りたいことのために、レポートを組み立てる必要はありません。
+				話すとおりに聞けば、生徒のデータを探して答えます。
+			</p>
+			<p class="ai-lead">
+				AIが書いたものは、すべて下書きのまま止まります。
+				コーチが確認して確定するまで、保護者にも生徒にも出ません。
+			</p>
+		</div>
+		<ul class="ai-examples">
+			<li>今日、要対応の生徒は？</li>
+			<li>今月の在籍率は？</li>
+			<li>今週のレッスン予定は？</li>
+			<li>未架電の生徒をリストして</li>
+		</ul>
 	</div>
 </section>
 
@@ -439,6 +465,7 @@ const roles = [
 	.problem,
 	.screens,
 	.support,
+	.ai,
 	.roles,
 	.final-cta {
 		padding: var(--space-2xl) 0;
@@ -632,6 +659,7 @@ const roles = [
 	}
 
 	.support-inner,
+	.ai-inner,
 	.cta-inner {
 		display: grid;
 		grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
@@ -640,17 +668,20 @@ const roles = [
 	}
 
 	.support-inner > div:first-child,
+	.ai-inner > div:first-child,
 	.cta-inner > div:first-child {
 		padding-top: var(--space-sm);
 		border-top: 1px solid var(--color-border);
 	}
 
 	.support .section-eyebrow,
+	.ai .section-eyebrow,
 	.cta-eyebrow {
 		margin-bottom: var(--space-sm);
 	}
 
 	.support-lead,
+	.ai-lead,
 	.ro-lead,
 	.cta-lead {
 		margin: 1rem 0 0;
@@ -702,6 +733,31 @@ const roles = [
 		font-size: 0.9375rem;
 		font-weight: 600;
 		line-height: 1.7;
+	}
+
+	.ai-examples {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.ai-examples li {
+		padding: 0.9rem 0;
+		border-bottom: 1px solid var(--color-border);
+		color: var(--color-text);
+		font-size: 0.9375rem;
+		line-height: 1.7;
+	}
+
+	.ai-examples li::before {
+		content: '\201C';
+		color: var(--color-primary);
+	}
+
+	.ai-examples li::after {
+		content: '\201D';
+		color: var(--color-primary);
 	}
 
 	.ro-lead {
@@ -770,6 +826,7 @@ const roles = [
 		.hero-grid,
 		.pos-body,
 		.support-inner,
+		.ai-inner,
 		.cta-inner {
 			grid-template-columns: 1fr;
 		}

@@ -9,8 +9,8 @@ const screens = [
 	{ src: 'schedule', title: 'Weekly schedule', desc: 'Lessons laid out by the week, linked to the closure calendar.', alt: 'Weekly schedule showing lessons this week, active coaches, and each day\'s lessons with time, student, and coach.' },
 	{ src: 'lessons', title: 'Lesson records', desc: 'What was covered in each lesson, accumulated per student. The history stays even when the coach changes.', alt: 'Lesson history listing student, coach, course, and date in order.' },
 	{ src: 'calls', title: 'Call tracking', desc: 'Students you need to contact kept separate from students you have not reached yet.', alt: 'Home screen with enrolled count, needs-action count, calls today, retention rate, and a "Needs action now" list of overdue homework and LINE replies.' },
-	{ src: 'hearing', title: 'Intake notes', desc: 'What you heard at sign-up and in meetings, stored in a structured form. The next coach can read it and act.', alt: 'Intake notes form for one student with goal, current level, preferred pace, and a note for the coach.' },
-	{ src: 'report', title: 'Monthly reports', desc: 'AI drafts a progress report for each student. You edit and send instead of writing from scratch.', alt: 'Monthly report screen with an AI draft of the student\'s progress and Regenerate and Finalize buttons.' },
+	{ src: 'hearing', title: 'Intake notes', desc: 'What you heard at sign-up and in meetings, written down as it was said. The next coach can read it and act.', alt: 'Intake notes form for one student with goal, current level, preferred pace, and a note for the coach.' },
+	{ src: 'report', title: 'Monthly reports', desc: 'AI drafts a progress report from that month\'s lesson records and call history. You edit and send instead of writing from scratch.', alt: 'Monthly report screen with an AI draft of the student\'s progress and Regenerate and Finalize buttons.' },
 	{ src: 'knowledge', title: 'Knowledge base', desc: 'Teaching policies and operating rules kept as articles, so nothing depends on one person.', alt: 'Knowledge base with FAQ, operating rules, and manuals grouped as article lists.' },
 	{ src: 'billing', title: 'Billing', desc: 'See who is paying and whose payment failed. Notice the money that has stopped coming in.', alt: 'Billing screen with MRR, paying and payment-failed counts, and each student\'s subscription with a Paying, Canceled, or Payment failed badge.' },
 ];
@@ -174,8 +174,13 @@ const roles = [
 				would say it, and it searches the student data and answers on the spot.
 			</p>
 			<p class="ai-lead">
-				Monthly progress reports are drafted per student by AI as well. The writing-from-scratch
-				part disappears, and you are left with checking and editing.
+				Monthly progress reports are drafted per student too, from that month's lesson records
+				and call history. Counts come from the data as they are, and a month with too little
+				recorded is left as a list of records rather than written up.
+			</p>
+			<p class="ai-lead">
+				Anything AI writes stops at a draft. Nothing reaches a student or a guardian until a
+				coach has checked it and finalized it.
 			</p>
 		</div>
 		<ul class="ai-examples">

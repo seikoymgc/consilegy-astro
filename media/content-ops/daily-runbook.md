@@ -49,20 +49,23 @@
    - **`eyecatch-bg/` に置くのは元のPNGのままでよい。** ビルド時に `gen-eyecatch.mjs` が `eyecatch/{slug}.webp`（ページ表示用・約30KB）と `eyecatch/{slug}.jpg`（OGP用）へ変換する。`eyecatch/` にPNGを手で置かないこと（1枚1.5MBになりLCPが壊れる）。
    - 前提：この工程はMac起動＋アプリ＋Chrome（拡張接続）が開いているときのみ動く。閉じている朝はカテゴリ写真で公開される。
 
-8. **公開**：`pgrep -x git >/dev/null || rm -f .git/index.lock .git/HEAD.lock` でロックを掃除してから、
-   `git add media/ && git commit && git push`。GitHub Actions がビルド（アイキャッチ自動生成含む）してデプロイする。
+8. **公開（commit まで。push はしない）**：ロックを退避してから `git add media/ && git commit`。
    **`git add -A` は使わないこと。** このリポジトリは本体サイト（consilegy.com）と共用で、
    他セッションの未コミット作業を記事コミットに巻き込む事故が起きる。
+   ロックは `rm` できないので、`git` の各コマンドの直前に毎回リネームする:
+   `for f in .git/HEAD.lock .git/index.lock .git/refs/remotes/origin/main.lock; do [ -e "$f" ] && mv "$f" "$f.old$(date +%s)"; done`
 
-   **push の認証について（2026-08-06 設定）**：サンドボックスからGitHubへは直接DNSが通らないが、
-   git は環境変数の HTTPプロキシ（`http://localhost:3128`）経由で到達できる（`git ls-remote origin` で確認可能）。
-   認証は `origin` の remote URL に fine-grained PAT を埋め込む方式で常設した。トークンは `.git/config` に
-   平文で入るが、`.git/` は追跡対象外なのでコミットされることはない。
-   - push が `could not read Username for 'https://github.com'` で失敗した場合＝**PATの期限切れか未設定**。
-     記事ファイルはそのまま残し、通知に「push失敗・PAT要更新」と明記して手動 push を依頼する。
-     サンドボックスからトークンを作り直すことはできない。
+   **push はこのタスクの仕事ではない（2026-08-27 変更）**：サンドボックスには credential helper もSSH鍵もなく、
+   `ssh git@github.com` は DNS 解決の時点で失敗する（HTTPプロキシ経由でしか外に出られないため）。
+   `git ls-remote origin` が通るのは公開リポジトリの読み取りに認証が要らないからで、認証が通っている証拠ではない。
+   push は **Mac側（Keychain が効く環境）の Stop フックに `git -C ~/Claude/consilegy-astro push` を置いて自動化**する。
+   - **「PATを埋め直してください」と通知に書かないこと。** 2026-08-27 に `.git/config` の最終更新が 8/22 であることを
+     確認済みで、PATは「消えた」のではなく最初から入っていない。過去のログのこの記述は誤りで、
+     Seikoに不要な作業を繰り返し求めていた。同じ文言を引き継がない。
+   - push が未実行のまま残っても、通知では**事実だけ**書く（「commit まで完了、push はMac側のフック待ち」）。
+     依頼や催促にしない。
    - `.git/objects/*/tmp_obj_*` や `.git/HEAD.lock` の `Operation not permitted` 警告は、
-     macOS側ユーザーが作ったファイルをサンドボックスユーザーが消せないだけで、commit / push 自体は成功する。無視してよい。
+     macOS側ユーザーが作ったファイルをサンドボックスユーザーが消せないだけで、commit 自体は成功する。無視してよい。
    - `git status` に `media/` 以外の変更（例: `src/pages/index.astro`）が出ていても触らない。他セッションの作業。
 
 9. **記録**：`published-log.md` に日付・スラッグ・カテゴリ・使用トピック・使った出典・（あれば）Recraftプロンプトを追記。

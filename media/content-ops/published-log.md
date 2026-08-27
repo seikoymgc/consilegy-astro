@@ -4,7 +4,13 @@
 
 > **🔧 2026-08-27 追記：`deploy.yml` の変更検知を直しました（HEADのコミット）。** 旧実装は `deploy-media` の中で `git diff HEAD^ HEAD` を見ており、**pushの最後の1コミットしか判定していませんでした。** 記事コミットの上に別セッションのコミットが積まれた状態でまとめてpushすると、`media/` の変更が判定から漏れ、メディアサイトのデプロイが黙ってスキップされます（今朝のように未pushが複数溜まる運用では現実的に起きます）。`changes` ジョブを新設し、`github.event.before`..`github.sha` の**push全体**を見るように変更しました。あわせて3点：①本体サイトも変更があるときだけ動かす（従来は記事だけのpushでも `public_html/` に `--delete` 付き rsync が毎回走っていた）②`concurrency` で直列化し、連続pushでrsyncが重ならないようにした ③メディアのデプロイ直前に `dist/index.html` の存在とHTML件数を確認し、**空ビルドを `--delete` で送って公開中のサイトを消す事故**を止めた。
 >
-> **⛔ 2026-08-27 追記：push は今朝も認証エラーで失敗しました。PATの埋め直しが必要です。** `origin` の remote URL が素の `https://github.com/seikoymgc/consilegy-astro.git` のままで、`git push` が `could not read Username for 'https://github.com'` で停止します。**未pushのコミットは4本です**：HEAD（GitHub Actions の修正）／`a042dcb`（2026-08-27の記事）／`7170a1f`（NL連載の原稿と目次を seiko-contents へ移動）／`0b486f8`（CRM LP: AIを柱として立て、機能一覧の事実誤りを直す）。後ろ2本は他セッションの作業で、記事コミットより前に積まれていました。**Seikoさん側で remote URL に PAT を埋め直して `git push` してください。** 通れば GitHub Actions が3本まとめてデプロイします。記事ファイルはコミット済みなので消えません。なお 8/25 に報告した3本（`515fbed` ほか）は origin/main に反映済みで、解消しています。
+> **⛔ 2026-08-27 訂正：これまでの「PATが消えた／埋め直してください」という記述は誤りでした。** `.git/config` の最終更新は **2026-08-22 18:31** で、それ以降どのプロセスも触っていません。**PATは消えたのではなく、最初から入っていません。** 8/25・8/27 の記述は、更新時刻を確認せずに過去のログの文言を引き継いだもので、Seikoさんに不要な作業を繰り返し求めていました。
+>
+> **現状の正しい理解**：Seikoさんのターミナル（VS Code / Keychain）からの push は動いています。壊れているのは**サンドボックスから push できないこと**だけで、これはSeikoさん側の操作では直りません。サンドボックスには credential helper もSSH鍵もなく、`ssh git@github.com` は DNS 解決の時点で失敗します（HTTPプロキシ経由でしか外に出られないため）。`git ls-remote origin` が通るのは公開リポジトリの読み取りに認証が要らないからで、認証が通っている証拠ではありません。
+>
+> **恒久策（推奨）**：サンドボックスは commit までとし、push は **Mac側の Stop フックに `git -C ~/Claude/consilegy-astro push` を足して自動化**する。Keychain が効くのでPATは不要。`~/.claude/sync-roles.sh` を入れたのと同じ仕組み。これを入れたら、この定期タスクの通知から「push失敗」の項目を消すこと。
+>
+> **未pushのコミット（2026-08-27時点で4本）**：HEAD（GitHub Actions の修正）／`a042dcb`（2026-08-27の記事）／`7170a1f`（NL連載の原稿と目次を seiko-contents へ移動）／`0b486f8`（CRM LP の修正）。後ろ2本は他セッションの作業。
 >
 > **📌 2026-08-27 追記：`~/Downloads` は今朝も bash サンドボックスに未マウントでした**（`/sessions/.../mnt/` 配下は consilegy-astro / outputs / uploads の3つのみ）。**一方でRecraftのキャンバス操作は正常に動きました**（プロンプト入力→Generate→クレジット984→980）。つまり8/14・8/26に出た「キャンバスがクリックを受け付けない」症状は今朝は出ていません。**詰まっているのは生成ではなく、生成後のPNGをリポジトリへ運ぶ経路だけです。** ファイルツールからは `/Users/seikoyamaguchi/Downloads` を読めますが、バイナリのコピーはできないため `mv` の代わりになりません。恒久策としては、`~/Downloads` をこのセッションのフォルダとして接続しても bash からは見えないので、**`media/public/images/eyecatch-bg/` を Recraft のエクスポート先に指定できるか（ブラウザの保存先変更）を一度試す価値があります。**
 >

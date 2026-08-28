@@ -1,34 +1,37 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import { categories } from '../../content.config';
+import { categoriesEn, type CategoryKey } from '../../../content.config';
 
-const notes = (await getCollection('notes', ({ data }) => !data.draft)).sort(
+const notes = (await getCollection('notesEn', ({ data }) => !data.draft)).sort(
 	(a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf(),
 );
 
-const counts = Object.keys(categories).reduce<Record<string, number>>((acc, key) => {
+const counts = Object.keys(categoriesEn).reduce<Record<string, number>>((acc, key) => {
 	acc[key] = notes.filter(n => n.data.category === key).length;
 	return acc;
 }, {});
 
 const formatDate = (d: Date) =>
-	`${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+	d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
 ---
 
 <BaseLayout
-	title="記事一覧 | Consilegy Media"
-	description="CRMの定着、商談プロセス、データ計測、MA活用、日本市場参入。B2Bの収益にまつわる悩み別に、原因と解決手順を解説した記事の一覧です。"
+	lang="en"
+	title="All articles | Consilegy Media"
+	description="Every article in the English edition, scoped to entering and operating in the Japanese market: ringi approval, CRM adoption, sales process, revenue data, and change management. Written from implementation work, with sourced Japanese data throughout."
 	jaPath="/notes/"
 	enPath="/en/articles/"
-	breadcrumbs={[{ name: 'ホーム', url: '/' }, { name: '記事一覧' }]}
+	breadcrumbs={[{ name: 'Home', url: '/en/' }, { name: 'All articles' }]}
 >
 	<section class="page-head">
 		<div class="container">
 			<p class="eyebrow">Articles</p>
-			<h1>記事一覧</h1>
+			<h1>All articles</h1>
 			<p class="page-lead">
-				悩みのカテゴリから探せます。どの記事も、原因の構造から解決の手順まで、出典付きのデータとともに解説しています。全{notes.length}本。
+				Written for global SaaS companies and their headquarters, on what changes when
+				revenue work has to run in Japan. Not a translation of the Japanese library.
+				{notes.length} articles.
 			</p>
 		</div>
 	</section>
@@ -37,10 +40,12 @@ const formatDate = (d: Date) =>
 		<div class="container">
 			<ul class="cat-legend">
 				{
-					Object.entries(categories).map(([key, label]) => (
+					(Object.keys(categoriesEn) as CategoryKey[]).map(key => (
 						<li>
-							<span class="cat-label">{label}</span>
-							<span class="cat-count">{counts[key] ?? 0}</span>
+							<a href={`/en/category/${key}/`}>
+								<span class="cat-label">{categoriesEn[key]}</span>
+								<span class="cat-count">{counts[key] ?? 0}</span>
+							</a>
 						</li>
 					))
 				}
@@ -48,17 +53,17 @@ const formatDate = (d: Date) =>
 
 			{
 				notes.length === 0 ? (
-					<p class="empty">最初の記事を準備中です。</p>
+					<p class="empty">First articles are in preparation.</p>
 				) : (
 					<ul class="note-list">
 						{notes.map(note => (
 							<li>
-								<a href={`/notes/${note.id}/`} class="note-row">
+								<a href={`/en/articles/${note.id}/`} class="note-row">
 									<div class="note-meta">
 										<time datetime={note.data.publishedAt.toISOString()}>
 											{formatDate(note.data.publishedAt)}
 										</time>
-										<span class="note-cat">{categories[note.data.category]}</span>
+										<span class="note-cat">{categoriesEn[note.data.category as CategoryKey]}</span>
 									</div>
 									<div>
 										<p class="note-title">{note.data.title}</p>
@@ -106,7 +111,7 @@ const formatDate = (d: Date) =>
 		gap: 0.5rem;
 	}
 
-	.cat-legend li {
+	.cat-legend a {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.5rem;
@@ -115,6 +120,12 @@ const formatDate = (d: Date) =>
 		border-radius: 999px;
 		background: var(--color-surface);
 		font-size: 0.75rem;
+		color: var(--color-text);
+	}
+
+	.cat-legend a:hover {
+		text-decoration: none;
+		border-color: var(--color-text-muted);
 	}
 
 	.cat-count {

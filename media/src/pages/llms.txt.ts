@@ -74,6 +74,7 @@ export const GET: APIRoute = async ({ site }) => {
 	lines.push(`- [著者について](${abs('/about/')}): 山口聖子（Consilegy合同会社 代表 / Revenue Architect）`);
 	lines.push(`- [About the author](${abs('/en/about/')})`);
 	lines.push(`- [記事一覧](${abs('/notes/')})`);
+	lines.push(`- [All articles (English edition)](${abs('/en/articles/')})`);
 	lines.push(`- [RSS (日本語)](${abs('/rss.xml')})`);
 	lines.push(`- [RSS (English)](${abs('/en/rss.xml')})`);
 	lines.push(`- [運営会社 Consilegy合同会社](https://consilegy.com/)`);

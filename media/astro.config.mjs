@@ -54,8 +54,16 @@ export default defineConfig({
 				const pathname = new URL(item.url).pathname;
 				const own = articleDates.get(pathname);
 				if (own) return { ...item, lastmod: own.toISOString() };
-				// 記事一覧・カテゴリ・トップは中身が入れ替わるので最新記事の日付を使う
-				if (pathname === '/' || pathname === '/en/' || pathname.startsWith('/notes/')) {
+				// 記事一覧・カテゴリ・トップは中身が入れ替わるので最新記事の日付を使う。
+				// 記事本体は上の articleDates で既に返しているので、ここに来る
+				// /en/articles/ は一覧ページだけ。英語のカテゴリハブも同じ扱いにする。
+				if (
+					pathname === '/' ||
+					pathname === '/en/' ||
+					pathname.startsWith('/notes/') ||
+					pathname.startsWith('/en/articles/') ||
+					pathname.startsWith('/en/category/')
+				) {
 					return { ...item, lastmod: newest.toISOString() };
 				}
 				// about など、更新日が分からないページには lastmod を付けない

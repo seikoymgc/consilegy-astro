@@ -119,8 +119,8 @@ export const CRM_FEATURES: FeatureGroup[] = [
       {
         name: { ja: '次の一手と初回メッセージ案', en: 'Next best action & first-message draft' },
         desc: {
-          ja: 'MQLになった時点で、AIが取るべき行動、チャネル、初回メッセージ案、渡す資料を作り、初回接触タスクに添える。',
-          en: 'The moment a lead becomes an MQL, AI drafts the action, the channel, the first message, and the asset to send, and attaches them to the first-touch task.',
+          ja: 'MQLになった時点で、AIが次の一手を作る。取るべき行動、チャネル、初回メッセージ案、渡す資料。そのまま初回接触タスクに入る。',
+          en: 'The moment a lead becomes an MQL, AI drafts the next move. The action, the channel, the first message, the asset to send. It lands on the first-touch task.',
         },
       },
       {

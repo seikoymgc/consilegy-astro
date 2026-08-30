@@ -58,6 +58,7 @@ const deliverables = [
 	{ num: '09', title: 'データ連携設計書', desc: 'CRM / MA / BI間のデータフローと連携方針' },
 	{ num: '10', title: '実装ロードマップ', desc: 'フェーズ別優先順位・担当・マイルストーン設計' },
 	{ num: '11', title: '定着化運用計画書', desc: '現場定着のための段階的トレーニングと改善計画' },
+	{ num: '12', title: '権限・ロール設計書', desc: '部門・役職別の閲覧編集範囲、承認フロー、データアクセス権の設計' },
 ];
 
 const scopeItems = [
@@ -69,6 +70,7 @@ const scopeItems = [
 	{ en: 'RevOps Operations Design', ja: 'RevOps運用設計', desc: '入力ルール・データガバナンス・会議体設計' },
 	{ en: 'Data Architecture', ja: 'データ構造設計', desc: '顧客データの統一・重複排除・連携方針の設計' },
 	{ en: 'Adoption Support', ja: '定着支援', desc: 'CRM定着化に向けた現場支援・トレーニング・改善対応' },
+	{ en: 'Roles & Permissions', ja: '権限・ロール設計', desc: '部門別のアクセス範囲・承認フロー・データ保護方針の設計' },
 ];
 ---
 
@@ -322,6 +324,43 @@ const scopeItems = [
 					<strong>改善運用開始</strong>
 					<p>月次KPIレビューと継続改善により、RevOps運用を定着させます。</p>
 				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== チェンジマネジメント ===================== -->
+<section class="change">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Change Management</p>
+			<h2>「現場が使わない」を、設計で解く。</h2>
+		</div>
+		<div class="change-lead">
+			<p>CRMが使われない理由は、機能ではないことがほとんどです。入力が増えるのに自分の成果は増えない。数字が見えると詰められる。今のやり方で特に困っていない。現場が動かないときは、だいたいこの3つのどれかです。</p>
+			<p>Consilegyは設計に入る前に、抵抗がどこにあるかを担当者から直接聞きます。理屈として正しい仕組みではなく、人が実際に動く仕組みを作るためです。</p>
+			<p>聞き取りから設計、実装、定着まで、同じ担当者が最後まで見ます。フェーズごとに担当が入れ替わらないので、現場が「誰に何を話したか」を説明し直す必要がありません。</p>
+		</div>
+		<div class="scope-grid">
+			<div class="scope-card">
+				<div class="scope-card__label">Resistance Mapping</div>
+				<div class="scope-card__ja">抵抗の所在を先に特定</div>
+				<p>設計に入る前に、営業・マーケ・CSの担当者から直接聞き取ります。「入力が増える」「評価に響く」「今で困っていない」のどれが本当の理由かで、打ち手が変わります。</p>
+			</div>
+			<div class="scope-card">
+				<div class="scope-card__label">Input Reduction</div>
+				<div class="scope-card__ja">増やす前に減らす</div>
+				<p>新しい項目を足す前に、使われていない項目を削ります。現場の入力工数が増えない状態を先に作ってから、必要な項目だけを足します。</p>
+			</div>
+			<div class="scope-card">
+				<div class="scope-card__label">Incentive Alignment</div>
+				<div class="scope-card__ja">入力が本人に返る設計</div>
+				<p>入力したデータが、本人の商談進行や報告を楽にする形で返ってくるようにダッシュボードと会議体を設計します。監視のための入力にはしません。</p>
+			</div>
+			<div class="scope-card">
+				<div class="scope-card__label">Phased Rollout</div>
+				<div class="scope-card__ja">段階的に広げる</div>
+				<p>全社一斉には展開しません。動くチームから始めて、成果が出てから広げます。説得より、動いた事実を見せるほうが早く進みます。</p>
 			</div>
 		</div>
 	</div>
@@ -705,7 +744,7 @@ const scopeItems = [
 					</div>
 					<div class="pricing-type">
 						<div class="pricing-type__label">月額型伴走支援</div>
-						<p>実装後の現場定着フェーズも含め、月次KPIレビューと継続改善で伴走。</p>
+						<p>実装後の現場定着フェーズも含め、月次KPIレビューと継続改善で伴走。設計を担当したメンバーがそのまま担当します。</p>
 					</div>
 				</div>
 			</div>
@@ -965,6 +1004,10 @@ p { font-family: var(--font-sans); line-height: 1.8; color: var(--color-text-mut
 .pstep-arrow { display: flex; align-items: center; padding: 0 0.25rem; color: var(--color-text-subtle); font-size: 1.125rem; flex-shrink: 0; margin-top: 1.25rem; }
 
 /* ── Before / After ──────────────────────────────────────────── */
+.change { background: #fff; padding: 5rem 0; border-top: 1px solid var(--color-border); }
+.change-lead { max-width: 46rem; margin: 0 auto 2.5rem; }
+.change-lead p { font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.9; margin: 0 0 1rem; }
+.change-lead p:last-child { margin-bottom: 0; }
 .ba-section { background: var(--color-bg-subtle); padding: 5rem 0; }
 .ba-diagram {
 	display: grid; grid-template-columns: 1fr auto 1fr;

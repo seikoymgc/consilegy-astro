@@ -252,6 +252,7 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 <BaseLayout
 	title="Revenue CRM for B2B (beta) | The first CRM for companies that don't have one yet"
 	description="The customer list is a spreadsheet, the correspondence is in an inbox, and where a deal stands lives in one person's head. Revenue CRM is the CRM Consilegy built for those companies. Jade, the AI agent, and 175 RevOps workflows ship with it. An email address is enough to open the demo. Currently in closed beta."
+	ogImage="/images/crm/og-crm-en.png"
 	lang="en"
 	alternateUrl="/crm/"
 >
@@ -260,7 +261,10 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 <section class="crm-hero">
 	<div class="container hero-grid">
 		<div class="hero-copy">
-			<p class="eyebrow">Revenue CRM for B2B, in beta</p>
+			<p class="eyebrow">
+				<img class="eyebrow-mark" src="/images/crm/logo/revenue-crm-logo.svg" alt="" width="26" height="26" decoding="async" />
+				Revenue CRM for B2B, in beta
+			</p>
 			<h1>The first CRM for companies<br class="br-wide" />that don't have one yet.</h1>
 			<p class="hero-lead">
 				The customer list is a spreadsheet. The correspondence is in an inbox. Where a deal stands
@@ -699,10 +703,19 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 	}
 
 	.eyebrow {
-		display: block;
+		display: flex;
+		align-items: center;
+		gap: 0.55rem;
 		margin-bottom: var(--space-md);
 		padding-top: 0.875rem;
 		border-top: 1px solid var(--color-border);
+	}
+
+	.eyebrow-mark {
+		width: 26px;
+		height: 26px;
+		border-radius: 6px;
+		flex-shrink: 0;
 	}
 
 	.crm-hero h1 {

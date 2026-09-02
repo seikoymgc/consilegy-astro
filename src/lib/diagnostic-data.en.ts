@@ -14,15 +14,15 @@ export const CATEGORIES: DiagnosticCategory[] = [
 		shortName: 'Handoff',
 		questions: [
 			{
-				text: 'Can sales and marketing describe a "sales-ready lead" in the same words?',
+				text: 'Is your Japan pipeline scored on the same "sales-ready lead" definition as your other regions?',
 				options: [
-					{ label: 'Clearly defined and agreed across both teams', score: 0 },
-					{ label: 'Loosely shared, but vague', score: 1 },
-					{ label: 'Different per team / undefined', score: 2 },
+					{ label: 'Japan has its own definition, agreed with the global team', score: 0 },
+					{ label: "One global definition, and the Japan team says the leads don't convert", score: 2 },
+					{ label: 'One global definition, and nobody has checked whether it fits', score: 1 },
 				],
 			},
 			{
-				text: 'Of the leads marketing passes over, what share does sales judge "worth pursuing"?',
+				text: 'Of the leads marketing passes to the Japan team, what share do they judge worth pursuing?',
 				options: [
 					{ label: "We track it, and it's generally high", score: 0 },
 					{ label: "We track it, and it's low", score: 2 },
@@ -31,13 +31,13 @@ export const CATEGORIES: DiagnosticCategory[] = [
 				],
 			},
 		],
-		insight: 'You have leads, but a definition gap kills them before they become opportunities.',
-		quant: 'Typically 30–50% of the leads marketing passes over are written off as "not worth pursuing" just before they could become opportunities. Your acquisition spend evaporates one step short of a real conversation.',
-		firstStep: 'Write the "sales-ready lead" criteria on a single page, agreed by sales and marketing.',
+		insight: 'The stage where a Japanese buyer educates themselves is invisible to you, so leads arrive late and get written off.',
+		quant: 'Only about 1.5% of Japanese companies run marketing automation (Nexal crawled 626,003 corporate websites in May 2023 and found MA tags on 9,444; among listed companies it is 14.6%). The instrumentation your global funnel assumes mostly does not exist here, so you first see a Japanese buyer at the point they ask for a quote, often with the shortlist already made.',
+		firstStep: 'Write a Japan-specific definition of a sales-ready lead on one page, agreed between the Japan team and the global marketing owner.',
 		actions: [
-			'Define MQL (sales-ready lead) on one page, agreed jointly by sales and marketing',
-			'Redesign the lead lifecycle stages in your CRM (Lead → MQL → SQL → Opportunity)',
-			'Log every "accepted / rejected" decision after handoff to make the conversion rate visible',
+			'Define a Japan MQL on one page, agreed jointly by the Japan team and global marketing',
+			'Redesign the lead lifecycle stages for Japan in your CRM (Lead → MQL → SQL → Opportunity)',
+			'Log every "accepted / rejected" decision after handoff so the Japan conversion rate is visible to HQ',
 		],
 	},
 	{
@@ -46,29 +46,29 @@ export const CATEGORIES: DiagnosticCategory[] = [
 		shortName: 'Key-person risk',
 		questions: [
 			{
-				text: "If your top rep left, how much would next year's revenue drop?",
+				text: "If the person who runs Japan left next month, how much of next year's Japan number goes with them?",
 				options: [
-					{ label: "Barely, it's systematized", score: 0 },
-					{ label: 'Somewhat', score: 1 },
-					{ label: 'It would drop sharply', score: 2 },
+					{ label: 'Barely any: the process and the accounts are documented', score: 0 },
+					{ label: 'Some of it', score: 1 },
+					{ label: 'Most of it: the relationships and the judgment are theirs', score: 2 },
 				],
 			},
 			{
-				text: 'Are deal and close decisions based on individual instinct or a shared standard?',
+				text: 'Can HQ read what is actually happening in Japan without going through that one person?',
 				options: [
-					{ label: 'A standardized, organization-wide standard', score: 0 },
-					{ label: 'Partly turned into rules', score: 1 },
-					{ label: 'Mostly individual instinct', score: 2 },
+					{ label: 'Yes, straight from the system', score: 0 },
+					{ label: 'Partly, with translation and follow-up questions', score: 1 },
+					{ label: 'No, we take their word for it', score: 2 },
 				],
 			},
 		],
-		insight: "Revenue depends on people, so it can't be forecast.",
-		quant: "When revenue concentrates in your top 2–3 reps, a single departure becomes the biggest swing factor in next period's forecast. Sales risk is effectively financial risk.",
-		firstStep: "Put your top rep's three key judgment criteria into words and share them.",
+		insight: "Japan lives in one person's head, so HQ can neither verify it nor replace it.",
+		quant: 'A single country lead is the most common shape for a Japan operation, and also the largest single swing factor in the forecast. When that person leaves, you lose the number and the ability to read the market at the same time. Sales risk becomes financial risk with no warning period.',
+		firstStep: "Put the Japan lead's three key judgment criteria into words, in a language HQ can read.",
 		actions: [
-			'Document your top rep\'s winning process as a sales playbook',
-			'Implement the qualify / close criteria as CRM stage-exit conditions',
-			'Shift forecasting from individual gut feel to stage × probability roll-up',
+			"Document the Japan lead's winning process as a sales playbook, in English as well as Japanese",
+			'Implement the qualify / close criteria as CRM stage-exit conditions so they survive a handover',
+			'Shift Japan forecasting from one person\'s gut feel to stage × probability roll-up',
 		],
 	},
 	{
@@ -77,29 +77,29 @@ export const CATEGORIES: DiagnosticCategory[] = [
 		shortName: 'Stages',
 		questions: [
 			{
-				text: 'What do your CRM stages represent?',
+				text: 'Can you split your Japan sales cycle into time spent on your side and time spent inside the buyer organisation?',
 				options: [
-					{ label: "The customer's buying progress", score: 0 },
-					{ label: 'Our own internal activity', score: 1 },
-					{ label: 'Entry rules are vague / not working', score: 2 },
+					{ label: 'Yes, we hold the two separately', score: 0 },
+					{ label: 'We can guess deal by deal, but we cannot total it', score: 1 },
+					{ label: 'No. It is one number', score: 2 },
 				],
 			},
 			{
-				text: 'How accurate is your sales forecast?',
+				text: 'When a Japan deal sits in stage, do you know whose hands it is in right now?',
 				options: [
-					{ label: 'Generally accurate', score: 0 },
-					{ label: 'Varies month to month', score: 1 },
-					{ label: 'Off every time', score: 2 },
+					{ label: 'The CRM records who holds it, and since when', score: 0 },
+					{ label: 'The rep knows. The CRM does not', score: 1 },
+					{ label: 'Nobody can say without asking the customer', score: 2 },
 				],
 			},
 		],
-		insight: "Your CRM only logs activity and can't measure buying progress.",
-		quant: 'When stages represent "your own activity" rather than the buyer\'s, forecasts typically swing ±20–30% month to month. You are always reacting one step too late.',
-		firstStep: 'Redefine your stages around "the customer\'s state".',
+		insight: 'Your Japan cycle is one number, so you cannot tell a slow seller from a slow approval.',
+		quant: 'In a 2026 survey of 307 people involved in Japanese B2B purchases over ¥3M with two or more people in the decision, more than 80% of deals required at least two approval steps and 63.6% took three to eight months from first looking to selecting a vendor. Most of that time sits inside the buyer, and most CRMs record none of it. Same 90 days, opposite budget: 70 days on your side means hire, 70 days on theirs means another rep changes almost nothing.',
+		firstStep: 'Hold progress and possession as two separate fields, then measure days on the buyer\'s side.',
 		actions: [
-			'Redefine stages around "the customer\'s buying state" (state, not activity)',
-			'Set exit criteria for each stage and standardize data entry',
-			'Introduce forecast categories (commit / best case / pipeline) into operations',
+			'Add a "who holds this deal" field (seller / buyer) with a changed-on date, kept separate from stage',
+			'Report buyer-side days as a share of cycle time, per deal and in aggregate',
+			'Flag deals that have sat on the buyer side for more than 30 days',
 		],
 	},
 	{
@@ -108,29 +108,29 @@ export const CATEGORIES: DiagnosticCategory[] = [
 		shortName: 'Data silos',
 		questions: [
 			{
-				text: 'How are the numbers for your leadership meetings produced?',
+				text: 'How do the Japan numbers reach the global roll-up?',
 				options: [
-					{ label: 'Centralized, almost fully automated', score: 0 },
-					{ label: 'Part manual, from multiple tools', score: 1 },
-					{ label: 'Hand-tallied every time', score: 2 },
+					{ label: 'Straight from the same system, with no rekeying', score: 0 },
+					{ label: 'Re-entered or reformatted by hand each cycle', score: 1 },
+					{ label: 'Japan keeps its own sheet and reports a summary', score: 2 },
 				],
 			},
 			{
-				text: 'Do the same metrics disagree across teams?',
+				text: 'When HQ and the Japan team quote the same metric, do the figures match?',
 				options: [
-					{ label: 'Rarely', score: 0 },
+					{ label: 'They rarely disagree', score: 0 },
 					{ label: 'Occasionally', score: 1 },
-					{ label: 'Often / no single source of truth', score: 2 },
+					{ label: 'Often, and there is no single source of truth', score: 2 },
 				],
 			},
 		],
-		insight: 'Numbers are scattered, so leadership decisions lag.',
-		quant: 'Organizations that hand-compile their numbers burn dozens of hours every month just preparing for the leadership meeting, and then lose more time arguing over which figure is correct.',
-		firstStep: 'Unify the metrics your leadership reviews into one source of truth.',
+		insight: 'Japan reports a summary, so HQ can review the number but never the reasoning behind it.',
+		quant: 'When a region hand-compiles its own numbers, every review starts with reconciling figures instead of deciding anything. The cost is not the hours. It is that HQ can only ever challenge the total, never the deal-level reasoning that produced it, so Japan decisions get made on trust rather than evidence.',
+		firstStep: 'Put the Japan metrics HQ reviews into the same source of truth as every other region.',
 		actions: [
-			'Unify leadership KPIs into a single source of truth',
-			'Move manual reports to CRM-sourced dashboards',
-			'Standardize cross-team KPI definitions to remove duplicate metrics',
+			'Unify the Japan KPIs HQ reviews into a single source of truth',
+			'Move hand-built Japan reports to CRM-sourced dashboards',
+			'Standardize KPI definitions across HQ and Japan so the same word means the same thing',
 		],
 	},
 	{
@@ -139,29 +139,29 @@ export const CATEGORIES: DiagnosticCategory[] = [
 		shortName: 'Adoption',
 		questions: [
 			{
-				text: 'Does the team open and use the CRM/SFA every day?',
+				text: 'Does your Japan team keep a second sheet alongside the global CRM?',
 				options: [
-					{ label: 'Used daily', score: 0 },
-					{ label: 'Only some members', score: 1 },
-					{ label: 'They fall back to Excel / spreadsheets', score: 2 },
+					{ label: 'No. The CRM carries everything they need', score: 0 },
+					{ label: 'Yes, for a few fields', score: 1 },
+					{ label: 'Yes, and that is where the real deal status lives', score: 2 },
 				],
 			},
 			{
-				text: 'Are your tools (CRM/MA, etc.) playing the role you expected?',
+				text: 'Was the global CRM configured with Japanese practice in mind (language, approval steps, account and company hierarchy)?',
 				options: [
-					{ label: 'Yes', score: 0 },
-					{ label: 'Only partly', score: 1 },
-					{ label: 'Barely used / hollowed out', score: 2 },
+					{ label: 'Yes, it was localized deliberately', score: 0 },
+					{ label: 'Partly', score: 1 },
+					{ label: 'It was rolled out as-is', score: 2 },
 				],
 			},
 		],
-		insight: "The tools haven't become part of the team's daily work.",
-		quant: 'A CRM that goes unused decays in data freshness and coverage, locking in a "useless, so unused" spiral. The tool spend you committed to becomes a sunk cost.',
-		firstStep: 'Rebuild operations around the one feature that makes the team open it daily.',
+		insight: "That second sheet is not indiscipline. It is the specification for what your CRM was never asked to hold.",
+		quant: 'Across 40+ CRM and MA implementations in Japan, the sheet next to the CRM almost always carries the same columns: temperature, where it stands internally, who we are waiting on, next action. Those are the fields the forecast actually turns on, and they sit outside the system your forecast is built from.',
+		firstStep: 'Take the columns in that sheet and decide which of them belong in the CRM.',
 		actions: [
-			'Rebuild operations around the one feature that makes the team open it daily',
-			'Reduce entry burden with automation (auto-logging, minimal required fields)',
-			'Monitor usage and track adoption rate as a KPI',
+			'List the columns in the shadow spreadsheet and move the forecast-critical ones into the CRM',
+			'Reduce entry burden with automation (auto-logging, minimal required fields, Japanese labels)',
+			'Track Japan adoption rate as a KPI rather than assuming the global rollout landed',
 		],
 	},
 	{
@@ -170,29 +170,29 @@ export const CATEGORIES: DiagnosticCategory[] = [
 		shortName: 'Expansion',
 		questions: [
 			{
-				text: 'After a deal closes, who decides on upsell / renewal, and when?',
+				text: 'In Japan, who owns the account after the close, and from when?',
 				options: [
-					{ label: 'Roles and timing are designed', score: 0 },
-					{ label: "Left to the rep's discretion", score: 1 },
-					{ label: 'Nothing defined', score: 2 },
+					{ label: 'Roles and the handoff point are defined', score: 0 },
+					{ label: 'Left to whoever closed it', score: 1 },
+					{ label: 'Nothing is defined. The closer keeps it indefinitely', score: 2 },
 				],
 			},
 			{
-				text: 'Is there a designed handoff to whoever owns the account after the sale (renewals / success / account management)?',
+				text: 'Japanese customers rarely rip a vendor out. Is that low churn turning into expansion?',
 				options: [
-					{ label: 'Yes', score: 0 },
-					{ label: 'Verbal / person-dependent', score: 1 },
-					{ label: 'None / closed and done', score: 2 },
+					{ label: 'Yes, upsell and renewal triggers are designed', score: 0 },
+					{ label: 'We renew, but expansion is opportunistic', score: 1 },
+					{ label: 'We only hear from them when something breaks', score: 2 },
 				],
 			},
 		],
-		insight: "Post-sale expansion isn't designed, so LTV isn't growing.",
-		quant: 'Acquiring a new customer is widely cited as costing several times more than expanding an existing one. In practice, a missing exit (retention/expansion) design is the most expensive leak we see.',
-		firstStep: 'Create a sales → CS handoff checklist.',
+		insight: 'Low churn is hiding a missing expansion design, so Japan renews without growing.',
+		quant: 'Japan is slow to let you in and slow to remove you. That stability is the market\'s biggest advantage, and it is also why nobody feels urgency about the account after the close. Renewal happens on its own, expansion does not, and the retention number looks healthy while the growth it should have produced never arrives.',
+		firstStep: 'Create a sales → account-owner handoff checklist for Japan, with a named owner and a date.',
 		actions: [
-			'Design a sales → CS handoff checklist and a defined handoff point',
-			'Define upsell / renewal triggers and owners in the CRM',
-			'Surface health scores and renewal forecasts to catch churn signals early',
+			'Design a sales → CS handoff checklist and a defined handoff point for Japan accounts',
+			'Define upsell / renewal triggers and owners in the CRM rather than leaving them to the relationship',
+			'Surface health scores and renewal forecasts so a quiet account is not read as a healthy one',
 		],
 	},
 ];
@@ -201,11 +201,11 @@ export const CATEGORIES: DiagnosticCategory[] = [
 // starts with marketing, so for referral/partner-led companies the handoff seam is
 // excluded. Naming it out of scope is more accurate than forcing answers to
 // questions that don't apply and printing a false red.
-export const CHANNEL_QUESTION = 'Where do new deals mainly come from?';
+export const CHANNEL_QUESTION = 'Where do new deals in Japan mainly come from?';
 
 export const CHANNELS = [
 	{ id: 'marketing', label: 'Marketing (ads, web, trade shows, etc.)' },
-	{ id: 'referral', label: 'Mostly referrals, resellers or partners' },
+	{ id: 'referral', label: 'Mostly referrals, resellers, trading companies or partners' },
 	{ id: 'mixed', label: 'A mix of both' },
 ] as const;
 
@@ -217,7 +217,7 @@ export function isExcluded(catId: string, channel?: string): boolean {
 export const EXCLUDED_LABEL = 'Out of scope';
 
 export const REFERRAL_SCOPE_NOTE =
-	'This diagnostic is built for companies whose pipeline starts with marketing. When referrals and partners drive most of your deals, the marketing → sales handoff does not apply, so we leave it out of the score. What pays off first is reducing key-person dependence and moving project and contract records out of individual heads.';
+	'This diagnostic is built for companies whose Japan pipeline starts with marketing. When referrals, resellers or trading companies drive most of your deals, the marketing → sales handoff does not apply, so we leave it out of the score. What pays off first is reducing key-person dependence and moving account and contract records out of individual heads, in a form HQ can read.';
 
 // One-shot-sale variant of the "expansion" result copy (manufacturing / wholesale).
 // Industry comes from the lead form, so only the result copy branches — not the questions.

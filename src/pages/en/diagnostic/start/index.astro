@@ -9,8 +9,8 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-	title="Revenue Leak Diagnostic | 12–14 questions · ~3 min | Consilegy"
-	description="Diagnose the six seams between marketing, sales and CS. 12–14 questions, multiple choice, about 3 minutes."
+	title="Japan GTM Revenue Diagnostic | 12–14 questions · ~3 min | Consilegy"
+	description="Diagnose the six seams between marketing, sales and CS on the Japan axis. 12–14 questions, multiple choice, about 3 minutes."
 	lang="en"
 	noindex={true}
 >
@@ -189,7 +189,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 			: 'None / not sure';
 		const channelName = CHANNELS.find((c) => c.id === state.channel)?.label ?? 'Not answered';
 		return [
-			'[Revenue Leak Diagnostic · Result]',
+			'[Japan GTM Revenue Diagnostic · Result]',
 			`Deal source: ${channelName}`,
 			`Total score: ${total}/${maxScore()} (${band.label})`,
 			...lines,
@@ -482,7 +482,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 			fields,
 			context: {
 				pageUri: location.href,
-				pageName: 'Revenue Leak Diagnostic',
+				pageName: 'Japan GTM Revenue Diagnostic',
 				...(hutk ? { hutk } : {}),
 			},
 		};
@@ -546,7 +546,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 
 		app.innerHTML = `
 			<div class="rd-result-head">
-				<p class="rd-result-eyebrow">Revenue Leak Diagnostic · Result</p>
+				<p class="rd-result-eyebrow">Japan GTM Revenue Diagnostic · Result</p>
 				<div class="rd-result-score">
 					<span class="rd-score-num">${total}</span><span class="rd-score-den">/ ${maxScore()}</span>
 					<span class="rd-score-band rd-band-${band.key}">${esc(band.label)}</span>

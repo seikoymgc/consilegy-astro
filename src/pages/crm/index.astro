@@ -70,6 +70,34 @@ const proofStats = [
 	{ figure: '掲載', label: 'See News（花蓮視新聞）2026年6月25日' },
 ];
 
+const featureLabels = {
+	contacts: '顧客',
+	kanban: '商談',
+	jade: '入力',
+	workflow: '運用',
+	mail: '追客',
+	language: '言語',
+};
+
+const overviewPillars = [
+	{
+		title: '顧客管理',
+		text: '会社、担当者、履歴、メモをまとめて残す。',
+	},
+	{
+		title: '商談管理',
+		text: 'ステージ、金額、確度、次アクションを見る。',
+	},
+	{
+		title: '活動履歴',
+		text: 'メール、通話、名刺、会話メモを紐づける。',
+	},
+	{
+		title: '追客・更新',
+		text: 'フォロー、更新、停滞通知を回す。',
+	},
+];
+
 const outcomes = [
 	{
 		problem: '顧客リストがExcelとメールに散らばっている',
@@ -86,6 +114,14 @@ const outcomes = [
 	{
 		problem: '受注した後のフォローと契約更新が後手に回る',
 		answer: '更新期日と停滞をワークフローが検知して、担当者に通知します。',
+	},
+	{
+		problem: '問い合わせ後の追客がメールと個人メモに埋もれる',
+		answer: 'フォーム、リスト、メール配信、追客タスクを同じ場所でつなげます。',
+	},
+	{
+		problem: '海外メンバーと同じ情報を見ているのに、言語が揃わない',
+		answer: '同じデータを日本語、English、繁體中文で扱えます。',
 	},
 ];
 
@@ -111,15 +147,15 @@ const aiMoves = [
 		text: 'ホワイトボードや紙のメモを文字に起こし、タスクの候補まで出します。採用するかは人が選びます。',
 	},
 	{
-		act: '直すほど合ってくる',
-		text: '一度直せば、その判断が残ります。次に同じことを聞かれたときは、そちらを材料にします。ICPの判定から始めています。',
+		act: '判断を残す',
+		text: '一度直した内容は判断材料として残ります。次に同じ確認をするときは、その判断を参照します。ICPの判定から始めています。',
 	},
 ];
 
 const safeguards = [
 	{
 		label: '学習に使われない',
-		text: '名刺や手書きの読み取り、文字起こしに使う外部AIは、送信した内容を学習に使わない条件で利用しています。自社のAPIキーを持ち込んで、送信先を自社契約にすることもできます。',
+		text: '名刺や手書きの読み取り、文字起こしでは、送信した内容を学習に使わない条件のサービスを利用しています。自社のAPIキーを持ち込んで、送信先を自社契約にすることもできます。',
 	},
 	{
 		label: '他社に見えない',
@@ -156,8 +192,8 @@ const capabilities = [
 	},
 	{
 		icon: 'jade',
-		title: '入力ではなく、質問で使う',
-		text: 'AIエージェントJadeに日本語で聞くと、検索、集計、要約、分類、次アクションの提案まで返します。',
+		title: '入力の下書きを、Jadeに任せる',
+		text: '日本語で聞くと、検索、集計、要約、分類、次アクションの候補まで返します。',
 	},
 	{
 		icon: 'workflow',
@@ -191,9 +227,9 @@ const screens = [
 	},
 	{
 		src: '/images/crm/screen-jade.webp',
-		alt: 'AIエージェントJadeの画面。「今日やるべきことは？」と日本語で質問し、ファネルの集計と進行中の商談10件を表で返している。',
-		title: 'AIエージェントJade',
-		text: '日本語で質問し、集計・要約・提案まで実行',
+		alt: 'Jadeの画面。「今日やるべきことは？」と日本語で質問し、ファネルの集計と進行中の商談10件を表で返している。',
+		title: 'Jade',
+		text: '日本語で質問し、集計・要約・候補出しまで実行',
 	},
 	{
 		src: '/images/crm/screen-dashboard-en.webp',
@@ -212,18 +248,44 @@ const editions = [
 	{
 		noun: '案件',
 		title: '支援会社・受託開発',
-		text: '見積、受注、納品、請求、保守更新までを案件単位で管理。',
+		text: '見積、受注、納品、請求、保守更新までを案件単位で管理。受託開発版として別ページで提供。',
+		href: '/crm/contractor/',
+		linkLabel: '受託開発版を見る',
 	},
 	{
 		noun: '契約',
 		title: 'SaaS代理店・リセラー',
-		text: '契約更新、解約リスク、更新商談、クロスセル候補を追跡。',
+		text: '契約更新、解約リスク、更新商談、クロスセル候補を追跡。代理店版として別ページで提供。',
+		href: '/crm/reseller/',
+		linkLabel: '代理店版を見る',
 	},
 	{
 		noun: '在籍',
 		title: '教室・スクール',
 		text: '生徒の在籍、継続、休会、退会を管理。スクール版として別ページで提供。',
 		href: '/crm/school/',
+		linkLabel: 'スクール版を見る',
+	},
+];
+
+const reasons = [
+	{
+		title: '最初の設定が軽い',
+		text: 'まだCRMがない会社を前提に、顧客・商談・活動履歴の最初の型を用意しています。',
+		href: '#features',
+		label: '主な機能を見る',
+	},
+	{
+		title: '記録の入口を増やす',
+		text: '名刺は撮る、会話は貼る、通話は話す。Jadeが記録の下書きと検索を支えます。',
+		href: '#ai',
+		label: '入力補助を見る',
+	},
+	{
+		title: '運用の型が入っている',
+		text: '175本のRevOpsワークフローで、追客、フォロー、更新、通知の抜け漏れを減らします。',
+		href: '/crm/features/',
+		label: '全機能を見る',
 	},
 ];
 
@@ -251,7 +313,7 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.ja }));
 
 <BaseLayout
 	title="国産CRM「Revenue CRM」法人向けβ版 | まだCRMがない会社の最初の1つに"
-	description="顧客の一覧はExcel、やりとりはメール、案件の温度感は担当者の頭の中。そういう会社のために、Consilegyが自社で開発した法人向けの国産CRMです。AIエージェントJadeと175本のRevOpsワークフローを標準搭載。メールアドレスだけでデモをご覧いただけます。現在クローズドβ。"
+	description="顧客の一覧はExcel、やりとりはメール、案件の温度感は担当者の頭の中。そういう会社のために、Consilegyが自社で開発した法人向けの国産CRMです。Jadeと175本のRevOpsワークフローを標準搭載。メールアドレスだけでデモをご覧いただけます。現在クローズドβ。"
 	ogImage="/images/crm/og-crm.png"
 	lang="ja"
 	alternateUrl="/en/crm/"
@@ -291,99 +353,21 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.ja }));
 	</div>
 </section>
 
-<!-- ===================== 2. PROOF ===================== -->
-<section class="proof">
-	<div class="container">
-		<ul class="proof-grid">
-			{proofStats.map((item) => (
-				<li>
-					<strong>{item.figure}</strong>
-					<span>{item.label}</span>
-				</li>
-			))}
-		</ul>
-		<p class="proof-note">
-			※「40社以上」は、Consilegy合同会社がマーケティング・営業・カスタマーサクセス領域で設計支援を行った累計社数です。
-			Revenue CRMはクローズドβのため、導入社数は公開していません。
-		</p>
-	</div>
-</section>
-
-<!-- ===================== 3. PROBLEM → OUTCOME ===================== -->
-<section class="outcomes">
-	<div class="container">
-		<div class="section-head">
-			<p class="kicker">導入して変わること</p>
-			<h2>いまExcelでやっていることが、そのままチームの記録になる。</h2>
-		</div>
-		<ul class="outcome-grid">
-			{outcomes.map((item) => (
-				<li class="outcome-card">
-					<p class="outcome-problem">{item.problem}</p>
-					<p class="outcome-answer">{item.answer}</p>
-				</li>
-			))}
-		</ul>
-	</div>
-</section>
-
-<!-- ===================== 3b. AI ===================== -->
-<section class="ai" id="ai">
-	<div class="container">
-		<div class="section-head">
-			<p class="kicker">AI / Jade</p>
-			<h2>入力するCRMではなく、聞いて、撮って、貼るCRM。</h2>
-		</div>
-		<p class="ai-lead">
-			CRMが続かない一番の理由は、入力が仕事の後回しになることです。
-			だから入力を減らしました。JadeというAIが中に入っていて、日本語で聞けば探して数えて返します。
-			名刺は撮る、会話は貼る、通話は話すだけで記録になります。
-		</p>
-		<ul class="ai-grid">
-			{aiMoves.map((item) => (
-				<li class="ai-card">
-					<span class="ai-act">{item.act}</span>
-					<p>{item.text}</p>
-				</li>
-			))}
-		</ul>
-		<p class="ai-note">
-			AIが作った文面やデータは、保存と送信の前に必ず人が確認します。勝手に送ることはありません。
-			AIのAPIキーは自社のもの（Anthropic / OpenAI / Gemini / Azure OpenAI）を持ち込めます。
-			外部のAIからCRMを操作するためのMCPサーバーも標準で用意しています。
-		</p>
-	</div>
-</section>
-
-<!-- ===================== 3c. SECURITY ===================== -->
-<section class="safeguards">
-	<div class="container">
-		<div class="section-head">
-			<p class="kicker">データの扱い</p>
-			<h2>AIに読ませても、データは自社のものから出ません。</h2>
-		</div>
-		<dl class="safe-list">
-			{safeguards.map((item) => (
-				<div class="safe-row">
-					<dt>{item.label}</dt>
-					<dd>{item.text}</dd>
-				</div>
-			))}
-		</dl>
-		<p class="safe-note">
-			詳しくは<a href="/crm/faq/">よくあるご質問</a>のデータとセキュリティをご覧ください。
-			2要素認証とシングルサインオンは、現時点では提供していません。
-		</p>
-	</div>
-</section>
-
-<!-- ===================== 4. PRODUCT VIEW ===================== -->
+<!-- ===================== 2. PRODUCT VIEW ===================== -->
 <section class="product-view">
 	<div class="container">
 		<div class="section-head">
-			<p class="kicker">画面イメージ</p>
+			<p class="kicker">Revenue CRMひとつで</p>
 			<h2>最初に見る数字と、次に動く相手を同じ画面で確認。</h2>
 		</div>
+		<ol class="overview-flow">
+			{overviewPillars.map((item) => (
+				<li>
+					<span>{item.title}</span>
+					<p>{item.text}</p>
+				</li>
+			))}
+		</ol>
 		<ul class="view-grid">
 			{screens.map((item) => (
 				<li class="view-card">
@@ -408,7 +392,7 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.ja }));
 		<figure class="view-demo">
 			<img
 				src="/videos/revenue-crm-demo.gif"
-				alt="Revenue CRMの操作デモ。ダッシュボード、商談カンバン、自動化ライブラリ、AIエージェントJade・3言語切替を順に操作している。"
+				alt="Revenue CRMの操作デモ。ダッシュボード、商談カンバン、自動化ライブラリ、Jade、3言語切替を順に操作している。"
 				width="800"
 				height="585"
 				loading="lazy"
@@ -419,19 +403,35 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.ja }));
 	</div>
 </section>
 
-<!-- ===================== 5. CAPABILITIES ===================== -->
+<!-- ===================== 3. PROOF ===================== -->
+<section class="proof">
+	<div class="container">
+		<ul class="proof-grid">
+			{proofStats.map((item) => (
+				<li>
+					<strong>{item.figure}</strong>
+					<span>{item.label}</span>
+				</li>
+			))}
+		</ul>
+		<p class="proof-note">
+			※「40社以上」は、Consilegy合同会社がマーケティング・営業・カスタマーサクセス領域で設計支援を行った累計社数です。
+			Revenue CRMはクローズドβのため、導入社数は公開していません。
+		</p>
+	</div>
+</section>
+
+<!-- ===================== 4. SERVICES / FEATURES ===================== -->
 <section class="features" id="features">
 	<div class="container">
 		<div class="section-head">
-			<p class="kicker">できること</p>
+			<p class="kicker">Revenue CRMの主な機能</p>
 			<h2>営業・マーケ・CSの情報を、1つの収益基盤に。</h2>
 		</div>
 		<div class="feature-grid">
 			{capabilities.map((item) => (
 				<article class="feature-card">
-					<span class="feature-glyph" aria-hidden="true">
-						<Fragment set:html={featureGlyphs[item.icon]} />
-					</span>
+					<span class="feature-label" aria-hidden="true">{featureLabels[item.icon]}</span>
 					<div>
 						<h3>{item.title}</h3>
 						<p>{item.text}</p>
@@ -443,6 +443,24 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.ja }));
 			<p class="feature-more-note">{featureGroups.map((group) => group.title).join(' / ')}</p>
 			<a class="feature-more-link" href="/crm/features/">機能一覧をすべて見る（全{featureCount()}項目）</a>
 		</div>
+	</div>
+</section>
+
+<!-- ===================== 5. SOLUTIONS ===================== -->
+<section class="outcomes">
+	<div class="container">
+		<div class="section-head">
+			<p class="kicker">解決できる課題</p>
+			<h2>いまExcelでやっていることが、そのままチームの記録になる。</h2>
+		</div>
+		<ul class="outcome-grid">
+			{outcomes.map((item) => (
+				<li class="outcome-card">
+					<p class="outcome-problem">{item.problem}</p>
+					<p class="outcome-answer">{item.answer}</p>
+				</li>
+			))}
+		</ul>
 	</div>
 </section>
 
@@ -459,14 +477,115 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.ja }));
 					<span class="edition-noun">{item.noun}</span>
 					<h3>{item.title}</h3>
 					<p>{item.text}</p>
-					{item.href && <a href={item.href}>スクール版を見る</a>}
+					{item.href && <a href={item.href}>{item.linkLabel}</a>}
 				</article>
 			))}
 		</div>
 	</div>
 </section>
 
-<!-- ===================== 7. PRICING ===================== -->
+<!-- ===================== 7. REASONS ===================== -->
+<section class="ai" id="ai">
+	<div class="container">
+		<div class="section-head">
+			<p class="kicker">現場に残る理由</p>
+			<h2>入力を増やさず、記録を残す。</h2>
+		</div>
+		<ol class="reason-grid">
+			{reasons.map((item) => (
+				<li class="reason-card">
+					<h3>{item.title}</h3>
+					<p>{item.text}</p>
+					<a href={item.href}>{item.label}</a>
+				</li>
+			))}
+		</ol>
+		<div class="jade-box">
+			<div class="jade-box__head">
+				<p class="kicker">入力補助</p>
+				<h3>聞く、撮る、貼る。記録の入口を増やします。</h3>
+			</div>
+			<p class="ai-lead">
+				CRMが続かない一番の理由は、入力が仕事の後回しになることです。
+				だから入力を減らしました。Jadeに日本語で聞けば、必要な顧客や商談を探して数えて返します。
+				名刺は撮る、会話は貼る、通話は話すだけで記録になります。
+			</p>
+		</div>
+		<ul class="ai-grid">
+			{aiMoves.map((item) => (
+				<li class="ai-card">
+					<span class="ai-act">{item.act}</span>
+					<p>{item.text}</p>
+				</li>
+			))}
+		</ul>
+		<p class="ai-note">
+			Jadeが作った文面やデータは、保存と送信の前に必ず人が確認します。勝手に送ることはありません。
+			APIキーは自社のもの（Anthropic / OpenAI / Gemini / Azure OpenAI）を持ち込めます。
+			外部ツールからCRMを操作するためのMCPサーバーも標準で用意しています。
+		</p>
+	</div>
+</section>
+
+<!-- ===================== 8. SECURITY ===================== -->
+<section class="safeguards">
+	<div class="container">
+		<div class="section-head">
+			<p class="kicker">安心して導入・運用いただくために</p>
+			<h2>データは会社ごとに分けて管理します。</h2>
+		</div>
+		<dl class="safe-list">
+			{safeguards.map((item) => (
+				<div class="safe-row">
+					<dt>{item.label}</dt>
+					<dd>{item.text}</dd>
+				</div>
+			))}
+		</dl>
+		<p class="safe-note">
+			詳しくは<a href="/crm/faq/">よくあるご質問</a>のデータとセキュリティをご覧ください。
+			2要素認証とシングルサインオンは、現時点では提供していません。
+		</p>
+	</div>
+</section>
+
+<!-- ===================== 9. ORIGIN ===================== -->
+<section class="media-proof">
+	<div class="container media-grid">
+		<div class="media-copy">
+			<p class="kicker">開発背景</p>
+			<h2>台湾・花蓮のノマド拠点から生まれました。</h2>
+			<p>
+				構想が形になったのは、台湾・花蓮県が運営するデジタルノマド拠点「Nomad Hualien 花蓮雲基地」です。
+				代表の山口聖子が第1期メンバーとして滞在し、各国の起業家やリモートワーカーとの協働から
+				CRMに入力補助を組み合わせたこのプロダクトの形が固まりました。
+			</p>
+			<p>
+				入力補助の名前を「Jade」としたのは、翡翠が花蓮の名産だからです。
+				この経緯は、See News（花蓮視新聞）2026年6月25日の記事で紹介されています。
+			</p>
+			<a
+				href="https://www.seenews.com.tw/news_data.php?news_id=2325&amp;k_code=A"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="text-link"
+			>掲載記事を読む</a>
+		</div>
+		<figure class="press-image">
+			<img
+				src="/images/common/seenews-hualien-2026.jpg"
+				alt="See News（花蓮視新聞）2026年6月25日の掲載記事。花蓮雲基地での活動が紹介されている。"
+				width="1000"
+				height="1026"
+				loading="lazy"
+				decoding="async"
+			/>
+			<figcaption>See News（花蓮視新聞）2026年6月25日掲載</figcaption>
+		</figure>
+	</div>
+</section>
+
+<!-- ===================== 10. PRICING ===================== -->
 <section class="pricing">
 	<div class="container">
 		<div class="section-head">
@@ -492,7 +611,7 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.ja }));
 	</div>
 </section>
 
-<!-- ===================== 8. FIT ===================== -->
+<!-- ===================== 11. FIT ===================== -->
 <section class="fit">
 	<div class="container fit-grid">
 		<div class="fit-box">
@@ -518,43 +637,38 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.ja }));
 	</div>
 </section>
 
-<!-- ===================== 9. ORIGIN ===================== -->
-<section class="media-proof">
-	<div class="container media-grid">
-		<div class="media-copy">
-			<p class="kicker">開発背景</p>
-			<h2>台湾・花蓮のノマド拠点から生まれました。</h2>
-			<p>
-				構想が形になったのは、台湾・花蓮県が運営するデジタルノマド拠点「Nomad Hualien 花蓮雲基地」です。
-				代表の山口聖子が第1期メンバーとして滞在し、各国の起業家やリモートワーカーとの協働から
-				CRMとAIを組み合わせたこのプロダクトの形が固まりました。
-			</p>
-			<p>
-				AIエージェントを「Jade」と名づけたのは、翡翠が花蓮の名産だからです。
-				この経緯は、See News（花蓮視新聞）2026年6月25日の記事で紹介されています。
-			</p>
-			<a
-				href="https://www.seenews.com.tw/news_data.php?news_id=2325&amp;k_code=A"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="text-link"
-			>掲載記事を読む</a>
+<!-- ===================== 12. RESOURCES ===================== -->
+<section class="resources">
+	<div class="container resources-grid">
+		<div class="resources-copy">
+			<p class="kicker">資料・確認</p>
+			<h2>詳しく見たい方へ。</h2>
+			<p>実際の画面、全機能、CRM / RevOpsの考え方を目的に合わせて確認できます。</p>
 		</div>
-		<figure class="press-image">
-			<img
-				src="/images/common/seenews-hualien-2026.jpg"
-				alt="See News（花蓮視新聞）2026年6月25日の掲載記事。花蓮雲基地でCRMとAIを組み合わせた新製品を開発したことが紹介されている。"
-				width="1000"
-				height="1026"
-				loading="lazy"
-				decoding="async"
-			/>
-			<figcaption>See News（花蓮視新聞）2026年6月25日掲載</figcaption>
-		</figure>
+		<ul class="resource-list">
+			<li>
+				<a href={DEMO_URL} target="_blank" rel="noopener noreferrer">
+					<strong>オンラインデモ</strong>
+					<span>メールアドレスだけで実際の画面を確認</span>
+				</a>
+			</li>
+			<li>
+				<a href="/crm/features/">
+					<strong>機能一覧</strong>
+					<span>全{featureCount()}項目を一覧で確認</span>
+				</a>
+			</li>
+			<li>
+				<a href="/download/">
+					<strong>CRM / RevOps再設計ガイド</strong>
+					<span>CRMをどう設計するかを資料で確認</span>
+				</a>
+			</li>
+		</ul>
 	</div>
 </section>
 
-<!-- ===================== 10. FAQ ===================== -->
+<!-- ===================== 13. FAQ ===================== -->
 <section class="faq">
 	<div class="container">
 		<div class="section-head">
@@ -573,7 +687,7 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.ja }));
 	</div>
 </section>
 
-<!-- ===================== 11. FINAL CTA ===================== -->
+<!-- ===================== 14. FINAL CTA ===================== -->
 <section class="beta">
 	<div class="container">
 		<div class="cta-head">
@@ -1607,6 +1721,918 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.ja }));
 		font-size: 0.85rem;
 		line-height: 1.7;
 		color: var(--color-text-muted);
+	}
+
+	/* ── SmartHR型の情報設計に合わせた表示調整 ─────────────── */
+	h1,
+	h2,
+	h3 {
+		letter-spacing: 0;
+	}
+
+	h2 {
+		font-size: 2rem;
+		font-weight: 600;
+		line-height: 1.42;
+	}
+
+	.crm-hero,
+	.product-view,
+	.proof,
+	.features,
+	.outcomes,
+	.editions,
+	.ai,
+	.safeguards,
+	.media-proof,
+	.pricing,
+	.fit,
+	.resources,
+	.faq,
+	.beta {
+		padding: 5.25rem 0;
+	}
+
+	.crm-hero {
+		padding-top: 6rem;
+		background: linear-gradient(180deg, #f7f8fb 0%, #fff 78%);
+	}
+
+	.hero-grid {
+		grid-template-columns: minmax(0, 1.2fr) minmax(340px, 0.8fr);
+		gap: var(--space-lg);
+		align-items: center;
+	}
+
+	.crm-hero h1 {
+		font-size: 2.45rem;
+		font-weight: 600;
+		line-height: 1.28;
+		letter-spacing: 0;
+	}
+
+	.hero-lead {
+		color: var(--color-text-muted);
+		line-height: 1.95;
+	}
+
+	.hero-media {
+		padding: 0.8rem;
+		background: #fff;
+		border: 1px solid var(--color-border);
+		border-radius: 8px;
+		box-shadow: 0 16px 42px rgba(28, 25, 23, 0.08);
+	}
+
+	.hero-media img {
+		border-color: #d8d4cf;
+		border-radius: 6px;
+	}
+
+	.hero-link-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1px;
+		margin: 1.35rem 0 0;
+		padding: 0;
+		list-style: none;
+		background: var(--color-border);
+		border: 1px solid var(--color-border);
+	}
+
+	.hero-link-grid li {
+		min-width: 0;
+		background: #fff;
+	}
+
+	.hero-link-grid a {
+		display: grid;
+		gap: 0.25rem;
+		min-height: 5.25rem;
+		padding: 1rem;
+		color: var(--color-text);
+		text-decoration: none;
+	}
+
+	.hero-link-grid a:hover {
+		color: var(--color-primary);
+		background: #f8fafc;
+	}
+
+	.hero-link-grid strong {
+		font-size: 0.95rem;
+		line-height: 1.45;
+	}
+
+	.hero-link-grid span {
+		color: var(--color-text-muted);
+		font-size: 0.78rem;
+		line-height: 1.55;
+	}
+
+	.product-view,
+	.features,
+	.editions,
+	.media-proof,
+	.faq {
+		background: #fff;
+	}
+
+	.outcomes,
+	.ai,
+	.safeguards,
+	.pricing,
+	.fit,
+	.resources,
+	.beta {
+		background: #f7f7f5;
+		border-top: 1px solid var(--color-border);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.section-head {
+		grid-template-columns: minmax(8rem, 12rem) minmax(0, 1fr);
+		gap: var(--space-lg);
+		padding-top: 1rem;
+		border-top: 2px solid var(--color-text);
+	}
+
+	.kicker,
+	.eyebrow {
+		color: var(--color-primary);
+		font-weight: 700;
+		letter-spacing: 0.08em;
+	}
+
+	.view-grid {
+		gap: 1.25rem;
+	}
+
+	.overview-flow {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 1px;
+		margin: 0 0 var(--space-lg);
+		padding: 0;
+		list-style: none;
+		background: var(--color-border);
+		border: 1px solid var(--color-border);
+		counter-reset: flow;
+	}
+
+	.overview-flow li {
+		position: relative;
+		min-width: 0;
+		padding: 1.15rem 1.2rem 1.2rem;
+		background: #fff;
+		counter-increment: flow;
+	}
+
+	.overview-flow li::before {
+		content: counter(flow, decimal-leading-zero);
+		display: block;
+		margin-bottom: 1.15rem;
+		color: rgba(30, 64, 175, 0.38);
+		font-size: 1.65rem;
+		font-weight: 700;
+		font-variant-numeric: tabular-nums;
+		line-height: 1;
+	}
+
+	.overview-flow span {
+		display: block;
+		color: var(--color-text);
+		font-size: 1.05rem;
+		font-weight: 700;
+		line-height: 1.45;
+	}
+
+	.overview-flow p {
+		margin: 0.55rem 0 0;
+		color: var(--color-text-muted);
+		font-size: 0.875rem;
+		line-height: 1.75;
+	}
+
+	.view-card figure,
+	.view-demo img {
+		border-radius: 8px;
+		box-shadow: none;
+	}
+
+	.view-card figure {
+		background: #f3f4f6;
+	}
+
+	.proof {
+		padding: 2rem 0;
+		background: #fff;
+	}
+
+	.proof-grid {
+		gap: 0;
+		border-top: 1px solid var(--color-border);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.proof-grid li {
+		padding: 1rem 1.25rem;
+		border-left: 1px solid var(--color-border);
+	}
+
+	.proof-grid li:first-child {
+		border-left: 0;
+	}
+
+	.proof-grid strong {
+		font-size: 1.75rem;
+		font-weight: 700;
+		letter-spacing: 0;
+	}
+
+	.feature-grid,
+	.edition-grid,
+	.outcome-grid,
+	.ai-grid,
+	.cta-grid,
+	.resource-list {
+		gap: 1px;
+		background: var(--color-border);
+		border: 1px solid var(--color-border);
+	}
+
+	.feature-card,
+	.edition-card,
+	.outcome-card,
+	.ai-card,
+	.cta-card,
+	.resource-list li {
+		background: #fff;
+		border: 0;
+		border-radius: 0;
+	}
+
+	.feature-card {
+		grid-template-columns: 3.5rem minmax(0, 1fr);
+		gap: 1rem;
+		padding: 1.35rem;
+	}
+
+	.feature-card:nth-child(3n + 2),
+	.feature-card:nth-child(3n + 3) {
+		padding-left: 1.35rem;
+		border-left: 0;
+	}
+
+	.feature-glyph {
+		width: 3.25rem;
+		height: 3.25rem;
+		background: #f5f7fb;
+		border: 1px solid #dfe5f2;
+		border-radius: 8px;
+	}
+
+	.feature-glyph :global(svg) {
+		width: 2.55rem;
+		height: 2.55rem;
+	}
+
+	.feature-glyph :global(.glyph-panel) {
+		fill: #fff;
+		stroke: #cbd5e1;
+	}
+
+	.feature-glyph :global(.glyph-line) {
+		stroke: #64748b;
+	}
+
+	.feature-glyph :global(.glyph-accent),
+	.feature-glyph :global(.glyph-strong-fill) {
+		fill: #e9f0ff;
+		stroke: var(--color-primary);
+	}
+
+	.outcome-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		counter-reset: outcome;
+	}
+
+	.outcome-card {
+		position: relative;
+		min-height: 100%;
+		padding: 1.25rem;
+		counter-increment: outcome;
+	}
+
+	.outcome-card::before {
+		content: counter(outcome, decimal-leading-zero);
+		display: block;
+		margin-bottom: 0.95rem;
+		color: rgba(30, 64, 175, 0.55);
+		font-size: 2rem;
+		font-weight: 700;
+		font-variant-numeric: tabular-nums;
+		line-height: 1;
+	}
+
+	.outcome-problem,
+	.outcome-answer {
+		padding-left: 0;
+	}
+
+	.outcome-problem::before,
+	.outcome-answer::before {
+		content: none;
+	}
+
+	.outcome-answer {
+		margin-top: 0.65rem;
+		border-top: 1px solid var(--color-border);
+		padding-top: 0.7rem;
+	}
+
+	.edition-card {
+		padding: 1.35rem;
+	}
+
+	.edition-card:nth-child(even) {
+		padding-left: 1.35rem;
+		border-left: 0;
+	}
+
+	.ai-grid {
+		border-top: 1px solid var(--color-border);
+	}
+
+	.reason-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1px;
+		margin: 0 0 var(--space-lg);
+		padding: 0;
+		list-style: none;
+		background: var(--color-border);
+		border: 1px solid var(--color-border);
+		counter-reset: reason;
+	}
+
+	.reason-card {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		min-height: 100%;
+		padding: 1.4rem;
+		background: #fff;
+		counter-increment: reason;
+	}
+
+	.reason-card::before {
+		content: counter(reason);
+		display: grid;
+		place-items: center;
+		width: 2.4rem;
+		height: 2.4rem;
+		margin-bottom: 1.1rem;
+		border: 1px solid #c7d2fe;
+		border-radius: 999px;
+		color: var(--color-primary);
+		font-size: 1.05rem;
+		font-weight: 700;
+	}
+
+	.reason-card h3 {
+		margin: 0;
+		color: var(--color-text);
+		font-size: 1.12rem;
+		font-weight: 700;
+		line-height: 1.55;
+	}
+
+	.reason-card p {
+		margin: 0.65rem 0 1.25rem;
+		color: var(--color-text-muted);
+		font-size: 0.925rem;
+		line-height: 1.85;
+	}
+
+	.reason-card a {
+		margin-top: auto;
+		color: var(--color-primary);
+		font-size: 0.9rem;
+		font-weight: 700;
+		text-decoration: none;
+	}
+
+	.reason-card a:hover {
+		text-decoration: underline;
+	}
+
+	.jade-box {
+		display: grid;
+		grid-template-columns: minmax(12rem, 0.72fr) minmax(0, 1fr);
+		gap: var(--space-lg);
+		margin-bottom: var(--space-md);
+		padding-top: var(--space-md);
+		border-top: 1px solid var(--color-border);
+	}
+
+	.jade-box__head .kicker {
+		margin-bottom: 0.65rem;
+	}
+
+	.jade-box h3 {
+		margin: 0;
+		color: var(--color-text);
+		font-size: 1.35rem;
+		font-weight: 700;
+		line-height: 1.55;
+	}
+
+	.jade-box .ai-lead {
+		margin: 0;
+	}
+
+	.ai-card,
+	.ai-card:nth-child(3n + 2),
+	.ai-card:nth-child(3n + 3) {
+		padding: 1.25rem;
+		border-left: 0;
+		border-bottom: 0;
+	}
+
+	.ai-act::before {
+		width: 2rem;
+		background: var(--color-primary);
+	}
+
+	.safe-list {
+		background: #fff;
+		border: 1px solid var(--color-border);
+	}
+
+	.safe-row {
+		padding: 1.2rem 1.35rem;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.safe-row:last-child {
+		border-bottom: 0;
+	}
+
+	.price-card {
+		border-radius: 8px;
+		background: #fff;
+	}
+
+	.price-figure {
+		font-size: 2.35rem;
+		letter-spacing: 0;
+	}
+
+	.fit-box {
+		padding: 1.25rem;
+		background: #fff;
+		border: 1px solid var(--color-border);
+		border-radius: 8px;
+	}
+
+	.fit-box--subtle {
+		padding-left: 1.25rem;
+		border-left: 1px solid var(--color-border);
+	}
+
+	.media-grid,
+	.resources-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 0.95fr) minmax(300px, 0.65fr);
+		gap: var(--space-xl);
+		align-items: start;
+	}
+
+	.media-copy,
+	.resources-copy {
+		padding-top: var(--space-sm);
+		border-top: 2px solid var(--color-text);
+	}
+
+	.media-copy p,
+	.resources-copy p {
+		color: var(--color-text-muted);
+		line-height: 1.9;
+	}
+
+	.press-image img {
+		border-radius: 8px;
+	}
+
+	.resource-list {
+		display: grid;
+		grid-template-columns: 1fr;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.resource-list a {
+		display: grid;
+		gap: 0.25rem;
+		padding: 1.2rem 1.3rem;
+		color: var(--color-text);
+		text-decoration: none;
+	}
+
+	.resource-list a:hover {
+		color: var(--color-primary);
+	}
+
+	.resource-list strong {
+		font-size: 1rem;
+		line-height: 1.5;
+	}
+
+	.resource-list span {
+		color: var(--color-text-muted);
+		font-size: 0.875rem;
+		line-height: 1.7;
+	}
+
+	.cta-card {
+		padding: 1.25rem;
+	}
+
+	@media (max-width: 1080px) {
+		.hero-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.hero-media {
+			max-width: 780px;
+		}
+
+		.outcome-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (max-width: 760px) {
+		.crm-hero,
+		.product-view,
+		.proof,
+		.features,
+		.outcomes,
+		.editions,
+		.ai,
+		.safeguards,
+		.media-proof,
+		.pricing,
+		.fit,
+		.resources,
+		.faq,
+		.beta {
+			padding-block: var(--space-xl);
+		}
+
+		.crm-hero h1 {
+			font-size: 2.15rem;
+			line-height: 1.32;
+		}
+
+		h2 {
+			font-size: 1.55rem;
+		}
+
+		.section-head,
+		.hero-link-grid,
+		.overview-flow,
+		.feature-grid,
+		.edition-grid,
+		.outcome-grid,
+		.reason-grid,
+		.jade-box,
+		.ai-grid,
+		.view-grid,
+		.media-grid,
+		.resources-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.proof-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.proof-grid li:nth-child(odd) {
+			border-left: 0;
+		}
+
+		.feature-card,
+		.feature-card:nth-child(3n + 2),
+		.feature-card:nth-child(3n + 3),
+		.edition-card,
+		.edition-card:nth-child(even) {
+			padding: 1.2rem;
+		}
+	}
+
+	@media (max-width: 520px) {
+		.proof-grid,
+		.outcome-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.proof-grid li {
+			border-left: 0;
+			border-top: 1px solid var(--color-border);
+		}
+
+		.proof-grid li:first-child {
+			border-top: 0;
+		}
+
+		.hero-media {
+			padding: 0.45rem;
+		}
+	}
+
+	/* ── AIっぽさを落とす最終調整 ────────────────────────── */
+	.crm-hero {
+		background: #fff;
+	}
+
+	.hero-grid {
+		grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
+		align-items: start;
+	}
+
+	.hero-copy {
+		padding-top: 1.15rem;
+	}
+
+	.hero-media {
+		padding: 0;
+		background: transparent;
+		border: 0;
+		border-radius: 0;
+		box-shadow: none;
+	}
+
+	.hero-media img {
+		border-radius: 0;
+		box-shadow: 0 20px 48px rgba(15, 23, 42, 0.08);
+	}
+
+	.overview-flow {
+		gap: 0;
+		background: #fff;
+		border: 0;
+		border-top: 1px solid var(--color-border);
+		border-bottom: 1px solid var(--color-border);
+		counter-reset: none;
+	}
+
+	.overview-flow li {
+		padding: 1.05rem 1.25rem 1.1rem;
+		background: #fff;
+		border-right: 1px solid var(--color-border);
+		counter-increment: none;
+	}
+
+	.overview-flow li:last-child {
+		border-right: 0;
+	}
+
+	.overview-flow li::before {
+		content: "";
+		display: block;
+		width: 2rem;
+		height: 2px;
+		margin-bottom: 0.8rem;
+		background: var(--color-primary);
+	}
+
+	.overview-flow span {
+		font-size: 1rem;
+	}
+
+	.overview-flow p {
+		font-size: 0.85rem;
+		line-height: 1.65;
+	}
+
+	.feature-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 0;
+		background: #fff;
+		border: 0;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.feature-card,
+	.feature-card:nth-child(3n + 2),
+	.feature-card:nth-child(3n + 3) {
+		grid-template-columns: 3.5rem minmax(0, 1fr);
+		gap: 1rem;
+		padding: 1.3rem 1.4rem 1.3rem 0;
+		background: transparent;
+		border-left: 0;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.feature-card:nth-child(even) {
+		padding-right: 0;
+		padding-left: 1.4rem;
+		border-left: 1px solid var(--color-border);
+	}
+
+	.feature-label {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 3.25rem;
+		height: 3.25rem;
+		color: var(--color-primary);
+		background: #fff;
+		border: 1px solid #cfd8e6;
+		border-top: 3px solid var(--color-primary);
+		border-radius: 2px;
+		font-size: 0.82rem;
+		font-weight: 700;
+		line-height: 1;
+		letter-spacing: 0;
+	}
+
+	.outcome-grid {
+		grid-template-columns: 1fr;
+		gap: 0;
+		background: #fff;
+		border: 1px solid var(--color-border);
+	}
+
+	.outcome-card {
+		display: grid;
+		grid-template-columns: 3.75rem minmax(0, 0.92fr) minmax(0, 1fr);
+		gap: 1rem;
+		align-items: start;
+		padding: 1rem 1.25rem;
+		background: transparent;
+		border: 0;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.outcome-card:last-child {
+		border-bottom: 0;
+	}
+
+	.outcome-card::before {
+		margin: 0.12rem 0 0;
+		color: var(--color-primary);
+		font-size: 0.92rem;
+		font-weight: 700;
+		line-height: 1.7;
+	}
+
+	.outcome-problem {
+		margin: 0;
+		color: var(--color-text);
+		font-size: 0.94rem;
+		font-weight: 700;
+		line-height: 1.75;
+	}
+
+	.outcome-answer {
+		margin: 0;
+		padding: 0;
+		border-top: 0;
+		color: var(--color-text-muted);
+		font-size: 0.92rem;
+		font-weight: 500;
+		line-height: 1.75;
+	}
+
+	.reason-card::before {
+		content: "POINT " counter(reason, decimal-leading-zero);
+		display: block;
+		width: auto;
+		height: auto;
+		margin-bottom: 0.55rem;
+		border: 0;
+		border-radius: 0;
+		color: var(--color-primary);
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		line-height: 1.4;
+	}
+
+	.jade-box {
+		padding: 1.35rem;
+		background: #fff;
+		border: 1px solid var(--color-border);
+	}
+
+	.ai-grid {
+		grid-template-columns: 1fr;
+		gap: 0;
+		background: transparent;
+		border: 0;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.ai-card,
+	.ai-card:nth-child(even),
+	.ai-card:nth-child(3n + 2),
+	.ai-card:nth-child(3n + 3) {
+		display: grid;
+		grid-template-columns: 9rem minmax(0, 1fr);
+		gap: 1rem;
+		padding: 1rem 0;
+		background: transparent;
+		border: 0;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.ai-act {
+		margin: 0;
+		font-size: 0.95rem;
+		line-height: 1.75;
+	}
+
+	.ai-act::before {
+		content: none;
+	}
+
+	.ai-card p {
+		font-size: 0.9rem;
+		line-height: 1.75;
+	}
+
+	.safe-list {
+		background: transparent;
+		border: 0;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.safe-row {
+		padding-inline: 0;
+		background: transparent;
+	}
+
+	.resources-copy p,
+	.media-copy p,
+	.faq-item dd,
+	.safe-row dd,
+	.price-note p,
+	.cta-card p {
+		line-height: 1.8;
+	}
+
+	@media (max-width: 1080px) {
+		.hero-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.hero-copy {
+			padding-top: 0;
+		}
+	}
+
+	@media (max-width: 760px) {
+		.overview-flow li,
+		.overview-flow li:last-child {
+			border-right: 0;
+			border-bottom: 1px solid var(--color-border);
+		}
+
+		.overview-flow li:last-child {
+			border-bottom: 0;
+		}
+
+		.feature-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.feature-card,
+		.feature-card:nth-child(even),
+		.feature-card:nth-child(3n + 2),
+		.feature-card:nth-child(3n + 3) {
+			padding: 1.2rem 0;
+			border-left: 0;
+		}
+
+		.outcome-card {
+			grid-template-columns: 3rem minmax(0, 1fr);
+		}
+
+		.outcome-answer {
+			grid-column: 2;
+		}
+
+		.jade-box,
+		.ai-card,
+		.ai-card:nth-child(even),
+		.ai-card:nth-child(3n + 2),
+		.ai-card:nth-child(3n + 3) {
+			grid-template-columns: 1fr;
+		}
 	}
 
 	/* ── Japanese line breaking ──────────────────────────── */

@@ -1,58 +1,85 @@
 ---
-import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const DEMO_URL = 'https://crm.consilegy.com/demos';
 
-// Mirrors the Japanese page. Only what is actually built into the product's
-// school shell (edition=b2c + shell='school') is listed here. The LINE
-// integration is still simulated, so it is deliberately left out.
+// プロダクトの contractor エディション（src/lib/editions/index.ts）に実装済みの
+// ものだけ記載。用語は商談→案件に差し替わる。coreNav は /deals・/companies・
+// /quotes・/delivery・/resources、既定の自動化は sal-31/37/39/41 と cs-30。
 const screens = [
-	{ src: 'students', title: 'Students', desc: 'Trialing, paying, on hold, withdrawn. Where each student stands, at a glance.', alt: 'The student list, filtered by enrolled, trialing, near graduation, on hold, and graduated, with a status badge on each student.' },
-	{ src: 'schedule', title: 'Weekly schedule', desc: 'Lessons managed by the week, tied to the closure-day calendar.', alt: 'The weekly schedule: lessons this week, coaches working, and a day-by-day list of times, students, and assigned coaches.' },
-	{ src: 'lessons', title: 'Lesson records', desc: 'What was taught, kept per student. The history survives a change of coach.', alt: 'Lesson history listing student name, assigned coach, course, and date in chronological order.' },
-	{ src: 'calls', title: 'Call tracking', desc: 'Who to contact, who is still waiting, and who has been handled, kept apart.', alt: 'The home screen: enrolled students, items needing attention, calls today, and retention rate, with a list of what needs handling now.' },
-	{ src: 'hearing-ai', title: 'Intake notes', desc: 'Paste the trial transcript and AI sorts it into fields. A coach corrects it before it is saved.', alt: 'The intake form, with a transcript paste box and a fill-with-AI button above fields for how they found us, basic details, current level, and goals, each already filled in.' },
-	{ src: 'report', title: 'Monthly report', desc: 'Drafted from that month’s lesson records and calls. Check it, fix it, send it.', alt: 'The monthly report screen, showing an AI-drafted progress comment with regenerate and confirm buttons.' },
-	{ src: 'knowledge', title: 'Knowledge base', desc: 'Teaching policy and operating rules written down, so running the school stops depending on one person.', alt: 'The knowledge base, listing articles for common questions, operating rules, and manuals.' },
-	{ src: 'billing', title: 'Billing', desc: 'Paying and failed payments in one place, so a stalled payment gets noticed early.', alt: 'The billing screen showing MRR, paying, and failed counts, with paying, cancelled, and failed badges on each contract.' },
+	{
+		src: 'resources',
+		title: '空き枠カレンダー',
+		desc: 'メンバー×週で、割り当て人日とキャパを並べます。いつ誰が空くかを、感覚ではなく数字で見られます。',
+		alt: '空き枠カレンダーの画面。今週の稼働率54%、今週の空き人日7.8、逼迫週0、余剰週7のカード。その下にメンバー4名×13週の表があり、各セルに割当人日／キャパが入っている。',
+	},
+	{
+		src: 'delivery',
+		title: 'デリバリー',
+		desc: 'キックオフ・制作・レビュー・納品の工程を案件ごとに持ちます。滞留日数と期限、想定と実績の人日が同じ行に出ます。',
+		alt: 'デリバリーの画面。案件・会社・金額・デリバリー工程・滞留・期限・想定/実績（人日）の列が並び、6件の受注案件が工程ごとに表示されている。',
+	},
+	{
+		src: 'quotes',
+		title: '見積書',
+		desc: '下書き、送付済み、承認のステータスで管理します。明細は人日×単価で積み上げます。',
+		alt: '見積書の一覧画面。4件の見積が、承認・下書き・送付済みのステータスバッジ、コンタクト、会社、合計金額、有効期限つきで並んでいる。',
+	},
+	{
+		src: 'deals',
+		title: '案件',
+		desc: '商談ではなく「案件」で呼びます。アプローチから見積までのステージごとに、金額と件数が出ます。',
+		alt: '案件のカンバン画面。アプローチ・ヒアリング・提案・見積のステージに案件カードが並び、各ステージの合計金額と確度、案件ごとの金額とクローズ予定日が出ている。',
+	},
 ];
 
 const problems = [
 	{
-		title: 'You find out after they leave',
-		text: 'Absences, unanswered messages, a failed payment, a change in how they reply. You notice once they have already quit.',
+		title: '受注してから、回せないと気づく',
+		text: '見積を出すときに手が空いているかを確かめていない。取れてから、誰も入れられないことが分かる。',
 	},
 	{
-		title: 'Handover lives in one person',
-		text: 'When the coach changes, what happened last time, what the guardian said, and what to watch next all go with them.',
+		title: '誰がいつ空くか分からない',
+		text: '稼働の見通しがPMの頭の中にしかない。前倒しできる案件も、断るべき案件も判断できない。',
 	},
 	{
-		title: 'Enrollment and billing become month-end work',
-		text: 'Enrolled, on hold, withdrawn, paid. Counted again in a spreadsheet at the end of every month.',
+		title: '納品後がそのまま流れる',
+		text: '検収、請求、保守契約の更新。受注の熱が引いた後の工程が、誰の担当でもなくなっている。',
 	},
 ];
 
+// 既定で入る5本（contractor の defaultAutomations = sal-31/37/39/41 と cs-30）。
+// text は src/lib/revops/outcomes.ts の日本語。ただしこのエディションでは
+// 商談を「案件」と呼ぶので、そこだけ用語を合わせている。
+const projectEngine = [
+	{ label: '見積', text: '見積の依頼が来たら、作成タスクを自動で作成' },
+	{ label: '停滞', text: '止まっている案件を自動で見つけて知らせる' },
+	{ label: '予測', text: '案件の変更を、売上予測に自動で反映' },
+	{ label: '受注後', text: '受注したら、後続の処理を自動で開始' },
+	{ label: '保守更新', text: '契約更新日を自動で管理してリマインド' },
+];
+
 const roles = [
-	{ name: 'Owner', scope: 'Every school, every student, billing, and permissions' },
-	{ name: 'School admin', scope: 'Day-to-day operations and permissions' },
-	{ name: 'Manager', scope: 'View and edit student data for their school or team' },
-	{ name: 'Coach', scope: 'Only their own students and lesson records' },
+	{ name: 'オーナー', scope: '全案件・稼働・請求・権限設定' },
+	{ name: '管理者', scope: '運用全般と権限設定' },
+	{ name: 'PM', scope: '担当チームの案件・見積・稼働を閲覧・編集' },
+	{ name: 'メンバー', scope: '自分が入っている案件のみ' },
 ];
 ---
 
 <BaseLayout
-	title="Revenue CRM School Edition (beta) | The state of every student, without going to look for it"
-	description="A screen layout for schools and studios. Enrollment status, the weekly schedule, lesson records, call tracking, and AI-drafted monthly reports. Built mobile first, so a coach can use it between the classroom and the train. The same foundation works for any recurring-payment business. Currently in closed beta."
-	lang="en"
-	alternateUrl="/crm/school/"
+	title="Revenue CRM 受託開発版（β版） | 見積を出す前に、空きが見えている"
+	description="受託開発・制作会社向けの画面構成。案件・見積・稼働・納品を1か所で管理。メンバー×週の空き枠カレンダー、工程ごとの滞留と期限、保守契約の更新リマインドまで。現在クローズドβ。"
+	lang="ja"
+	alternateUrl="/en/crm/"
 >
 <script type="application/ld+json" slot="head" set:html={JSON.stringify({
 	"@context": "https://schema.org",
 	"@type": "BreadcrumbList",
 	"itemListElement": [
-		{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://consilegy.com/en/"},
-		{"@type": "ListItem", "position": 2, "name": "Revenue CRM", "item": "https://consilegy.com/en/crm/"},
-		{"@type": "ListItem", "position": 3, "name": "School Edition", "item": "https://consilegy.com/en/crm/school/"}
+		{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://consilegy.com/"},
+		{"@type": "ListItem", "position": 2, "name": "Revenue CRM", "item": "https://consilegy.com/crm/"},
+		{"@type": "ListItem", "position": 3, "name": "受託開発版", "item": "https://consilegy.com/crm/contractor/"}
 	]
 })} />
 
@@ -60,32 +87,31 @@ const roles = [
 <section class="hero">
 	<div class="container hero-grid">
 		<div class="hero-copy">
-			<p class="eyebrow">Revenue CRM School Edition, in beta</p>
-			<h1>The state of every student,<br />without going to look.</h1>
+			<p class="eyebrow">Revenue CRM 受託開発版 <span class="no-upper">β版</span></p>
+			<h1>見積を出す前に、<br />空きが見えている。</h1>
 			<p class="hero-lead">
-				The roster is a spreadsheet. The lesson records are on each coach's own device.
-				Payments are in a third tool. The school edition is <strong>one screen layout that
-				puts status, records, and billing around the student</strong>.
+				案件はスプレッドシート。稼働はPMの感覚。見積はその都度Excel。
+				受託開発版は、<strong>案件・見積・稼働・納品を1か所で見て、着手できる時期から逆算して見積を出せる</strong>構成です。
 			</p>
 			<div class="hero-actions">
-				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">See the demo</a>
-				<a href="#screens" class="btn btn--secondary">See the screens</a>
+				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">デモを見る</a>
+				<a href="#screens" class="btn btn--secondary">画面を見る</a>
 			</div>
-			<ul class="hero-points" aria-label="What the school edition does">
-				<li>Students, lessons, and billing in one place</li>
-				<li>Mobile-first UI for coaches</li>
-				<li>In closed beta</li>
+			<ul class="hero-points" aria-label="受託開発版の特徴">
+				<li>商談ではなく「案件」で管理</li>
+				<li>メンバー×週で空きを可視化</li>
+				<li>クローズドβで開発中</li>
 			</ul>
 		</div>
 		<figure class="hero-media">
 			<img
-				src="/videos/school-demo-en.gif"
-				alt="A walkthrough of the Revenue CRM school edition, moving through the home screen, student list, student detail, billing, the weekly schedule, and the monthly report."
-				width="820"
-				height="462"
+				src="/images/crm/contractor/screen-resources.webp"
+				alt="空き枠カレンダーの画面。今週の稼働率54%、空き人日7.8、逼迫週0、余剰週7のカードと、メンバー4名×13週の割当表。"
+				width="1432"
+				height="840"
 				decoding="async"
 			/>
-			<figcaption>The screens: home, student list, student detail, billing, weekly schedule</figcaption>
+			<figcaption>空き枠カレンダー：メンバー×週で、割り当てと空きを同じ画面で</figcaption>
 		</figure>
 	</div>
 </section>
@@ -95,25 +121,23 @@ const roles = [
 	<div class="container">
 		<div class="pos-body">
 			<p class="pos-lead">
-				What you follow is not "can we close this."<br />
-				It is "will they still be coming next month."
+				追いかけるのは「受注できるか」ではなく、<br />
+				「受けて回せるか」です。
 			</p>
 			<div class="pos-copy">
 				<p>
-					So the three things at the center are <strong>students, lessons, and coaches</strong>.
-					Not just whether someone is enrolled, but who took what and when, and how far they got.
+					だから中心に置いたのは<strong>案件</strong>です。このエディションでは商談を案件と呼びます。
+					画面の言葉が変わるだけでなく、見積、受注、納品、請求、保守更新までを1本の案件で追えます。
 				</p>
 				<p>
-					The screens are built <strong>for the phone first</strong>. What mattered was a coach
-					opening it between the classroom and the train, recording what just happened, and
-					checking who is next, right there.
+					受託の粗利は、取れたかどうかより<strong>誰をいつ入れたか</strong>で決まります。
+					稼働をメンバー×週の表で持っているので、見積を出す前に着手できる時期を確かめられます。
+					前倒しできる案件と、断るべき案件が分かります。
 				</p>
 				<p>
-					The same foundation works for any business built on recurring payments, subscriptions
-					and repeat orders included. Take the student, lesson, and coach parts out and it
-					watches contracts and retention instead. Ask us.
+					保守契約は受注のあとに続く売上です。更新日を持たせて、期日が来る前にリマインドします。
 				</p>
-				<a href="/en/services/revenue-architecture-design/" class="pos-link">Read about this approach →</a>
+				<a href="/revenue-architecture/" class="pos-link">この考え方について読む →</a>
 			</div>
 		</div>
 	</div>
@@ -123,13 +147,13 @@ const roles = [
 <section class="problem">
 	<div class="container">
 		<div class="section-head">
-			<p class="section-eyebrow">The problem</p>
-			<h2 class="prob-title">What drives retention is scattered around the school.</h2>
+			<p class="section-eyebrow">こんな課題に</p>
+			<h2 class="prob-title">案件は取れているのに、利益が残っていませんか。</h2>
 		</div>
 		<div class="prob-grid">
 			{problems.map((item, index) => (
 				<article class="prob-item">
-					<span class="issue-label" aria-label={`Item ${index + 1}`}>
+					<span class="issue-label" aria-label={`項目 ${index + 1}`}>
 						<span class="issue-label__number">{String(index + 1).padStart(2, '0')}</span>
 					</span>
 					<h3>{item.title}</h3>
@@ -137,21 +161,6 @@ const roles = [
 				</article>
 			))}
 		</div>
-
-		<figure class="prob-shot">
-			<img
-				src="/images/common/school-student-detail-en.jpg"
-				alt="A student detail page, showing the assigned coach, lesson history, intake notes, and billing status on one screen."
-				width="1600"
-				height="1000"
-				loading="lazy"
-				decoding="async"
-			/>
-			<figcaption>
-				One screen per student. <strong>Who is responsible, what was done and when, and how it
-				went</strong> on a single page. When the coach changes, this screen tells the story.
-			</figcaption>
-		</figure>
 	</div>
 </section>
 
@@ -159,18 +168,18 @@ const roles = [
 <section class="screens" id="screens">
 	<div class="container">
 		<div class="section-head">
-			<p class="section-eyebrow">The screens</p>
-			<h2 class="sc-title">Everything you open daily, organized around the student.</h2>
+			<p class="section-eyebrow">画面構成</p>
+			<h2 class="sc-title">案件を軸に、日々見る画面を揃えています。</h2>
 		</div>
 		<div class="sc-grid">
 			{screens.map((s) => (
 				<article class="sc-card">
 					<figure class="sc-shot">
 						<img
-							src={`/images/crm/school/en/screen-${s.src}.webp`}
+							src={`/images/crm/contractor/screen-${s.src}.webp`}
 							alt={s.alt}
-							width="1600"
-							height="1000"
+							width="1432"
+							height="840"
 							loading="lazy"
 							decoding="async"
 						/>
@@ -185,30 +194,28 @@ const roles = [
 	</div>
 </section>
 
-<!-- ===================== SUPPORT ===================== -->
+<!-- ===================== 案件エンジン ===================== -->
 <section class="support">
 	<div class="container support-inner">
 		<div>
-			<p class="section-eyebrow">Running the school</p>
-			<h2>Month-end reporting and the daily checks, done on the screen.</h2>
+			<p class="section-eyebrow">案件エンジン</p>
+			<h2>取りこぼしを、人の記憶から外します。</h2>
 			<p class="support-lead">
-				The month-end report, who has not been contacted, and this week's schedule all run
-				straight off the student data. The point is not to produce a document. It is to leave
-				something the next person can act on.
+				受託開発版を作ると、案件まわりの自動化が最初からONになっています。
+				見積依頼からタスクを作り、止まった案件を拾い、受注後の処理を起こし、
+				保守契約の更新日を管理するところまで、毎晩の処理として走ります。
 			</p>
 			<p class="support-lead">
-				The monthly progress report is drafted by AI from that month's lesson records and call
-				history. Counts come from the data as they stand. In a month with too little recorded,
-				it does not invent anything; it lists the records. A coach checks it, corrects it, and submits it.
+				自動化が作るのはタスクと通知と下書きです。顧客に何かが自動で送られることはありません。
+				担当者が中身を見て、直してから動かします。
 			</p>
 		</div>
 		<div class="support-list">
-			<h3>What you check most</h3>
+			<h3>既定でONになるもの</h3>
 			<ul>
-				<li><span>Attention</span><strong>Students to contact today</strong></li>
-				<li><span>Enrollment</span><strong>Enrolled, on hold, and withdrawn this month</strong></li>
-				<li><span>Schedule</span><strong>This week's lessons</strong></li>
-				<li><span>Reporting</span><strong>The monthly report draft</strong></li>
+				{projectEngine.map((r) => (
+					<li><span>{r.label}</span><strong>{r.text}</strong></li>
+				))}
 			</ul>
 		</div>
 	</div>
@@ -219,25 +226,25 @@ const roles = [
 	<div class="container ai-inner">
 		<div>
 			<p class="section-eyebrow">AI</p>
-			<h2>Ask in plain language,<br />get the answer back.</h2>
+			<h2>日本語で聞けば、<br />その場で返ってきます。</h2>
 			<p class="ai-lead">
-				You do not have to build a report to find something out.
-				Ask it the way you would say it, and it searches the student data and answers.
+				知りたいことのために、集計を組み立てる必要はありません。
+				話すとおりに聞けば、案件と稼働のデータを探して答えます。
 			</p>
 			<p class="ai-lead">
-				Paste a trial-lesson transcript and it sorts what was said into fields: how they found
-				you, their level, what they are after, and what the trial exposed. The writing-up afterwards goes away.
+				来月の空き、期限が近い案件、止まっている案件、更新が近い保守契約。
+				どれも表を作らずに、その場で確認できます。
 			</p>
 			<p class="ai-lead">
-				Anything AI writes stops at a draft. Nothing reaches a student or a guardian until a
-				coach has checked it and confirmed it.
+				AIが書いたものは、すべて下書きのまま止まります。
+				担当者が確認して確定するまで、顧客には出ません。
 			</p>
 		</div>
 		<ul class="ai-examples">
-			<li>Which students need attention today?</li>
-			<li>What is this month's retention rate?</li>
-			<li>What lessons are scheduled this week?</li>
-			<li>List the students we haven't called</li>
+			<li>今週の空き人日は？</li>
+			<li>期限が近い案件は？</li>
+			<li>止まっている案件は？</li>
+			<li>保守契約の更新はいつ？</li>
 		</ul>
 	</div>
 </section>
@@ -246,12 +253,13 @@ const roles = [
 <section class="roles">
 	<div class="container">
 		<div class="section-head">
-			<p class="section-eyebrow">Permissions</p>
-			<h2 class="ro-title">Coaches see their own students. No one else's.</h2>
+			<p class="section-eyebrow">権限管理</p>
+			<h2 class="ro-title">担当案件の外は、見えないようにできます。</h2>
 		</div>
 		<p class="ro-lead">
-			In schools that work with a lot of contract coaches, how far each person can see is a
-			practical problem. Scope is set per role.
+			顧客・会社・案件のそれぞれについて、見える範囲を「全体・チーム・自分」から選べます。
+			協力会社のメンバーを入れる場合も、担当案件だけに絞れます。エクスポートの可否は別に設定できます。
+			下は設定例です。
 		</p>
 		<dl class="ro-list">
 			{roles.map((r) => (
@@ -261,7 +269,7 @@ const roles = [
 				</div>
 			))}
 		</dl>
-		<p class="ro-note">Actions are logged, so you can trace who changed what, and when.</p>
+		<p class="ro-note">操作ログが残るので、誰がいつ何を変更したかを後から追えます。</p>
 	</div>
 </section>
 
@@ -269,26 +277,26 @@ const roles = [
 <section class="final-cta">
 	<div class="container cta-inner">
 		<div>
-			<p class="cta-eyebrow">Closed beta</p>
-			<h2>We are looking for schools<br />to build this with.</h2>
+			<p class="cta-eyebrow"><span class="no-upper">クローズドβ</span></p>
+			<h2>一緒に育てていただける<br />制作会社を探しています。</h2>
 			<p class="cta-lead">
-				A closed beta is not where a finished product gets sold. It is where you run it in real
-				operations, tell us what is missing, and we finish it together.
-				The demo opens with just an email address.
+				クローズドβは、完成品を売る段階ではありません。
+				実際の案件で使っていただき、足りないものを教えていただきながら仕上げていく段階です。
+				デモはメールアドレスだけで、その場でご覧いただけます。
 			</p>
 			<div class="cta-actions">
-				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">See the demo</a>
-				<a href="/en/crm/" class="btn btn--secondary">See the B2B edition</a>
+				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">デモを見る</a>
+				<a href="/crm/" class="btn btn--secondary">法人向けを見る</a>
 			</div>
 		</div>
 		<div class="cta-card">
-			<h4>What we show you</h4>
+			<h4>デモでお見せする内容</h4>
 			<ul class="cta-list">
-				<li>The student list and how enrollment status reads</li>
-				<li>The weekly schedule and closure-day management</li>
-				<li>How lesson records and intake notes accumulate</li>
-				<li>The AI-drafted monthly report</li>
-				<li>Coach permissions and the audit log</li>
+				<li>空き枠カレンダーと稼働率の見え方</li>
+				<li>案件ごとのデリバリー工程と滞留</li>
+				<li>見積の作成と人日×単価の積み上げ</li>
+				<li>受注後に自動で起きる処理</li>
+				<li>メンバー向けの権限設定と操作ログ</li>
 			</ul>
 		</div>
 	</div>
@@ -307,6 +315,14 @@ const roles = [
 		letter-spacing: 0.12em;
 		line-height: 1.4;
 		text-transform: uppercase;
+	}
+
+	/* uppercase はギリシャ文字も変えるので β が B になる。
+	   ラテン文字だけ大文字にしたいので、日本語まじりの語は除外する。 */
+	.section-eyebrow .no-upper,
+	.eyebrow .no-upper,
+	.cta-eyebrow .no-upper {
+		text-transform: none;
 	}
 
 	h2,

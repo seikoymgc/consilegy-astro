@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
-const DEMO_URL = 'https://crm.consilegy.com/crm#demo';
+const DEMO_URL = 'https://crm.consilegy.com/demos';
 
 // プロダクトの school shell（edition=b2c + shell='school'）に実装済みの機能のみ記載。
 // LINE連携は現時点でシミュレーション（実API未接続）のため、意図的に載せていない。
@@ -29,6 +29,52 @@ const problems = [
 		title: '在籍と請求が月末作業になる',
 		text: '今月の在籍数、休止、解約、入金状況を毎回スプレッドシートで数え直している。',
 	},
+];
+
+const proofStats = [
+	{ figure: '40社以上', label: 'Consilegyが設計してきた収益プロセス' },
+	{ figure: '175本', label: '標準搭載のRevOpsワークフロー' },
+	{ figure: '3言語', label: '日本語 / English / 繁體中文をUIごと切替' },
+	{ figure: '掲載', label: 'See News（花蓮視新聞）2026年6月25日' },
+];
+
+// 文面は /crm/ の safeguards と同一。製品共通の話なのでエディションで変えない。
+const safeguards = [
+	{
+		label: '学習に使われない',
+		text: '名刺や手書きの読み取り、文字起こしに使う外部AIは、送信した内容を学習に使わない条件で利用しています。自社のAPIキーを持ち込んで、送信先を自社契約にすることもできます。',
+	},
+	{
+		label: '他社に見えない',
+		text: '会社ごとの隔離は、データベースの行単位のアクセス制御で行っています。アプリ側の絞り込みには頼りません。新しいテーブルへの入れ忘れは、リリース前の自動チェックで止めます。',
+	},
+	{
+		label: '見せる範囲を決められる',
+		text: '役割ごとに、誰がどのデータを見て操作できるかを設定できます。誰がいつ何を変更したかは監査ログに残ります。',
+	},
+	{
+		label: '消しても戻せる',
+		text: '削除したレコードはゴミ箱に入り、そこから戻せます。データベースは日次でバックアップを取得しています。',
+	},
+	{
+		label: '東京に置いてある',
+		text: 'データは東京リージョンに保存しています。海外に出ることはありません。作っているのは日本の会社です。',
+	},
+	{
+		label: '持ち出しは自由',
+		text: '生徒、レッスン記録、請求をCSVで書き出せます。解約後に取り出せなくなることはありません。自社のデータは自社のものです。',
+	},
+];
+
+// 答えは src/data/crm-faq.ts の desc をそのまま使う（二重管理を避けるため、
+// 変えたいときは向こうを直す）。全文は /crm/faq/<slug>/ にある。
+const faqs = [
+	{ q: '料金はいくらですか', a: '1席あたり月額3,000円です。10席目からは1席あたり2,500円になります。' },
+	{ q: '席数はどう数えますか', a: 'ワークスペースに参加しているメンバーの数です。使っていない月も課金対象になります。' },
+	{ q: 'スマートフォンで使えますか', a: 'ブラウザで使えます。名刺や手書きメモの撮影は、スマートフォンを想定して作っています。' },
+	{ q: 'AIに読ませたデータは学習に使われますか', a: '使われません。名刺や手書きの読み取りに使う外部のAIサービスは、いずれも学習に利用しない条件で使っています。' },
+	{ q: 'デモを見るのに登録は必要ですか', a: 'メールアドレスだけです。パスワードの登録も審査もありません。' },
+	{ q: '導入にどれくらいかかりますか', a: '申し込みから使い始めるまでは即日です。データを入れて運用に乗せるまでが本番です。' },
 ];
 
 const roles = [
@@ -59,14 +105,14 @@ const roles = [
 <section class="hero">
 	<div class="container hero-grid">
 		<div class="hero-copy">
-			<p class="eyebrow">Revenue CRM スクール版 β版</p>
+			<p class="eyebrow">Revenue CRM スクール版 <span class="no-upper">β版</span></p>
 			<h1>生徒の状況が、<br />探さなくても分かる。</h1>
 			<p class="hero-lead">
 				生徒名簿はスプレッドシート。レッスン記録はコーチの手元。入金状況は別ツール。
 				スクール版は、<strong>生徒を軸に状態・記録・請求を1か所で見られる画面構成</strong>です。
 			</p>
 			<div class="hero-actions">
-				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">デモを依頼する</a>
+				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">デモを見る</a>
 				<a href="#screens" class="btn btn--secondary">画面を見る</a>
 			</div>
 			<ul class="hero-points" aria-label="スクール版の特徴">
@@ -85,6 +131,24 @@ const roles = [
 			/>
 			<figcaption>操作画面：ホーム・生徒一覧・生徒詳細・請求・週間スケジュール</figcaption>
 		</figure>
+	</div>
+</section>
+
+<!-- ===================== PROOF ===================== -->
+<section class="proof">
+	<div class="container">
+		<ul class="proof-grid">
+			{proofStats.map((item) => (
+				<li>
+					<strong>{item.figure}</strong>
+					<span>{item.label}</span>
+				</li>
+			))}
+		</ul>
+		<p class="proof-note">
+			※「40社以上」は、Consilegy合同会社がマーケティング・営業・カスタマーサクセス領域で設計支援を行った累計社数です。
+			Revenue CRM スクール版はクローズドβのため、導入教室数は公開していません。
+		</p>
 	</div>
 </section>
 
@@ -261,19 +325,177 @@ const roles = [
 	</div>
 </section>
 
+<!-- ===================== SAFEGUARDS ===================== -->
+<section class="safeguards">
+	<div class="container">
+		<div class="section-head">
+			<p class="section-eyebrow">預ける前に</p>
+			<h2 class="sg-title">生徒の情報を、外に出さないための作りです。</h2>
+		</div>
+		<dl class="safe-list">
+			{safeguards.map((item) => (
+				<div class="safe-row">
+					<dt>{item.label}</dt>
+					<dd>{item.text}</dd>
+				</div>
+			))}
+		</dl>
+		<p class="safe-note">
+			詳しくは<a href="/crm/faq/">よくあるご質問</a>のデータとセキュリティをご覧ください。
+			2要素認証とシングルサインオンは、現時点では提供していません。
+		</p>
+	</div>
+</section>
+
+<!-- ===================== PRICING ===================== -->
+<section class="pricing">
+	<div class="container">
+		<div class="section-head">
+			<p class="section-eyebrow">料金</p>
+			<h2 class="pr-title">使う人の数だけ、席を増やす。</h2>
+		</div>
+		<div class="price-grid">
+			<div class="price-card">
+				<p class="price-tier">1〜9席</p>
+				<p class="price-figure"><span class="price-yen">¥</span>3,000<span class="price-unit">/ 席 / 月</span></p>
+			</div>
+			<div class="price-card">
+				<p class="price-tier">10席目から</p>
+				<p class="price-figure"><span class="price-yen">¥</span>2,500<span class="price-unit">/ 席 / 月</span></p>
+			</div>
+			<div class="price-note">
+				<p>席はワークスペースに参加する人の数です。オーナー、教室管理者、マネージャー、コーチが対象で、<strong>生徒の人数では課金されません</strong>。</p>
+				<p>10席目以降だけが2,500円になる累進方式です。9席までの分は3,000円のまま変わりません。</p>
+				<p>初期費用はありません。初回30日間は無料でお使いいただけます。クローズドβ期間中の条件は個別にご相談させてください。</p>
+			</div>
+		</div>
+		<p class="proof-note">※価格はすべて税抜表示です。</p>
+	</div>
+</section>
+
+<!-- ===================== FIT ===================== -->
+<section class="fit">
+	<div class="container fit-grid">
+		<div class="fit-box">
+			<p class="section-eyebrow">向いている教室</p>
+			<h2>まだ仕組みを入れていない教室</h2>
+			<ul>
+				<li>生徒名簿がスプレッドシート、レッスン記録はコーチの手元にある</li>
+				<li>在籍・休会・退会の集計を、毎月あらためて数え直している</li>
+				<li>コーチが替わると、前回までの経緯が引き継がれない</li>
+				<li>退会の兆候に気づくのが、辞めた後になっている</li>
+			</ul>
+		</div>
+		<div class="fit-box fit-box--subtle">
+			<p class="section-eyebrow">別の進め方が向いている教室</p>
+			<h2>すでに教室管理システムが動いている教室</h2>
+			<p>
+				いま使っているシステムで在籍と請求が回っているなら、入れ替えないほうがいいです。
+				払った分は活かせます。乗り換えを売るより、いまの仕組みの上で継続率の見方を組み直すご提案をします。
+			</p>
+			<a href="/services/" class="text-link">既存システムの再設計を見る</a>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== ORIGIN ===================== -->
+<section class="media-proof">
+	<div class="container media-inner">
+		<div>
+			<p class="section-eyebrow">開発背景</p>
+			<h2 class="md-title">台湾・花蓮のノマド拠点から生まれました。</h2>
+			<p class="md-lead">
+				構想が形になったのは、台湾・花蓮県が運営するデジタルノマド拠点「Nomad Hualien 花蓮雲基地」です。
+				代表の山口聖子が第1期メンバーとして滞在し、各国の起業家やリモートワーカーとの協働から
+				CRMとAIを組み合わせたこのプロダクトの形が固まりました。
+			</p>
+			<p class="md-lead">
+				この経緯は、See News（花蓮視新聞）2026年6月25日の記事で紹介されています。
+			</p>
+			<a
+				href="https://www.seenews.com.tw/news_data.php?news_id=2325&amp;k_code=A"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="text-link"
+			>掲載記事を読む</a>
+		</div>
+		<figure class="press-image">
+			<img
+				src="/images/common/seenews-hualien-2026.jpg"
+				alt="See News（花蓮視新聞）2026年6月25日の掲載記事。花蓮雲基地でCRMとAIを組み合わせた新製品を開発したことが紹介されている。"
+				width="1000"
+				height="1026"
+				loading="lazy"
+				decoding="async"
+			/>
+			<figcaption>See News（花蓮視新聞）2026年6月25日掲載</figcaption>
+		</figure>
+	</div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="faq">
+	<div class="container">
+		<div class="section-head">
+			<p class="section-eyebrow">よくあるご質問</p>
+			<h2 class="fq-title">導入前に、よくいただく質問です。</h2>
+		</div>
+		<dl class="safe-list">
+			{faqs.map((item) => (
+				<div class="safe-row">
+					<dt>{item.q}</dt>
+					<dd>{item.a}</dd>
+				</div>
+			))}
+		</dl>
+		<p class="safe-note"><a href="/crm/faq/">よくあるご質問をすべて見る</a></p>
+	</div>
+</section>
+
+<!-- ===================== RESOURCES ===================== -->
+<section class="resources">
+	<div class="container media-inner">
+		<div>
+			<p class="section-eyebrow">資料・確認</p>
+			<h2 class="rs-title">詳しく見たい方へ。</h2>
+			<p class="md-lead">実際の画面と全機能を、目的に合わせて確認できます。</p>
+		</div>
+		<ul class="resource-list">
+			<li>
+				<a href={DEMO_URL} target="_blank" rel="noopener noreferrer">
+					<strong>オンラインデモ</strong>
+					<span>メールアドレスだけで実際の画面を確認</span>
+				</a>
+			</li>
+			<li>
+				<a href="/crm/features/">
+					<strong>機能一覧</strong>
+					<span>CRMコアから権限・運用まで一覧で確認</span>
+				</a>
+			</li>
+			<li>
+				<a href="/crm/">
+					<strong>法人向け Revenue CRM</strong>
+					<span>商談を軸にした標準構成を確認</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</section>
+
 <!-- ===================== FINAL CTA ===================== -->
 <section class="final-cta">
 	<div class="container cta-inner">
 		<div>
-			<p class="cta-eyebrow">クローズドβ</p>
+			<p class="cta-eyebrow"><span class="no-upper">クローズドβ</span></p>
 			<h2>一緒に育てていただける<br />スクールを探しています。</h2>
 			<p class="cta-lead">
 				クローズドβは、完成品を売る段階ではありません。
 				実際の運営で使っていただき、足りないものを教えていただきながら仕上げていく段階です。
-				デモをご希望の方は、専用フォームからお申し込みください。
+				デモはメールアドレスだけで、その場でご覧いただけます。
 			</p>
 			<div class="cta-actions">
-				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">デモを依頼する</a>
+				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">デモを見る</a>
 				<a href="/crm/" class="btn btn--secondary">法人向けを見る</a>
 			</div>
 		</div>
@@ -303,6 +525,14 @@ const roles = [
 		letter-spacing: 0.12em;
 		line-height: 1.4;
 		text-transform: uppercase;
+	}
+
+	/* uppercase はギリシャ文字も変えるので β が B になる。
+	   ラテン文字だけ大文字にしたいので、日本語まじりの語は除外する。 */
+	.section-eyebrow .no-upper,
+	.eyebrow .no-upper,
+	.cta-eyebrow .no-upper {
+		text-transform: none;
 	}
 
 	h2,
@@ -925,6 +1155,371 @@ const roles = [
 		.cta-actions {
 			flex-direction: column;
 			align-items: stretch;
+		}
+	}
+	/* ===================================================================
+	   /crm/ と厚みを揃えるために足したセクション（2026-09-03）。
+	   既存ルールは触らず、ここに閉じて書く。トークンと余白は上の作法に合わせる。
+	   =================================================================== */
+
+	.proof,
+	.safeguards,
+	.pricing,
+	.fit,
+	.media-proof,
+	.faq,
+	.resources {
+		padding: var(--space-2xl) 0;
+		background: var(--color-bg);
+	}
+
+	.proof {
+		padding: var(--space-lg) 0;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	/* ── PROOF ─────────────────────────────────────────── */
+	.proof-grid {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 0;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		border-top: 1px solid var(--color-border);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.proof-grid li {
+		min-width: 0;
+		padding: 1rem 1.2rem;
+		border-left: 1px solid var(--color-border);
+	}
+
+	.proof-grid li:first-child {
+		padding-left: 0;
+		border-left: 0;
+	}
+
+	.proof-grid strong {
+		display: block;
+		color: var(--color-text);
+		font-size: 1.5rem;
+		font-weight: 500;
+		line-height: 1.3;
+	}
+
+	.proof-grid span {
+		display: block;
+		margin-top: 0.35rem;
+		color: var(--color-text-muted);
+		font-size: 0.8125rem;
+		line-height: 1.6;
+	}
+
+	.proof-note {
+		margin: var(--space-md) 0 0;
+		color: var(--color-text-muted);
+		font-size: 0.75rem;
+		line-height: 1.7;
+	}
+
+	/* ── SAFEGUARDS / FAQ（同じ定義リストの型）──────────── */
+	.safe-list {
+		max-width: 860px;
+		margin: 0;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.safe-row {
+		display: grid;
+		grid-template-columns: 14rem minmax(0, 1fr);
+		gap: var(--space-md);
+		padding: 1rem 0;
+		align-items: baseline;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.safe-row dt {
+		margin: 0;
+		color: var(--color-text);
+		font-size: 0.9375rem;
+		font-weight: 700;
+		line-height: 1.6;
+	}
+
+	.safe-row dd {
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+		line-height: 1.85;
+	}
+
+	.safe-note {
+		max-width: 860px;
+		margin: var(--space-md) 0 0;
+		color: var(--color-text-muted);
+		font-size: 0.875rem;
+		line-height: 1.8;
+	}
+
+	.safe-note a {
+		color: var(--color-primary);
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	/* ── PRICING ───────────────────────────────────────── */
+	.price-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr)) minmax(0, 1.6fr);
+		gap: 0;
+		border-top: 1px solid var(--color-border);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.price-card {
+		min-width: 0;
+		padding: var(--space-md) var(--space-md) var(--space-md) 0;
+		border-right: 1px solid var(--color-border);
+	}
+
+	.price-tier {
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 0.8125rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+	}
+
+	.price-figure {
+		margin: 0.5rem 0 0;
+		color: var(--color-text);
+		font-size: 2rem;
+		font-weight: 500;
+		line-height: 1.2;
+	}
+
+	.price-yen {
+		margin-right: 0.1em;
+		font-size: 1.25rem;
+	}
+
+	.price-unit {
+		margin-left: 0.4em;
+		color: var(--color-text-muted);
+		font-size: 0.8125rem;
+		font-weight: 400;
+	}
+
+	.price-note {
+		min-width: 0;
+		padding: var(--space-md) 0 var(--space-md) var(--space-md);
+	}
+
+	.price-note p {
+		margin: 0 0 0.7rem;
+		color: var(--color-text-muted);
+		font-size: 0.875rem;
+		line-height: 1.85;
+	}
+
+	.price-note p:last-child {
+		margin-bottom: 0;
+	}
+
+	.price-note strong {
+		color: var(--color-text);
+		font-weight: 700;
+	}
+
+	/* ── FIT ───────────────────────────────────────────── */
+	.fit-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: var(--space-xl);
+		align-items: start;
+	}
+
+	.fit-box {
+		min-width: 0;
+		padding-top: var(--space-sm);
+		border-top: 1px solid var(--color-border);
+	}
+
+	.fit-box--subtle {
+		color: var(--color-text-muted);
+	}
+
+	.fit-box h2 {
+		margin-top: 0.6rem;
+		font-size: 1.5rem;
+	}
+
+	.fit-box ul {
+		margin: var(--space-md) 0 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.fit-box li {
+		padding: 0.75rem 0;
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+		line-height: 1.8;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.fit-box p {
+		margin: var(--space-md) 0 0;
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+		line-height: 1.85;
+	}
+
+	/* ── ORIGIN / RESOURCES（2カラム）───────────────────── */
+	.media-inner {
+		display: grid;
+		grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+		gap: var(--space-xl);
+		align-items: start;
+	}
+
+	.media-inner > div:first-child {
+		padding-top: var(--space-sm);
+		border-top: 1px solid var(--color-border);
+	}
+
+	.md-lead {
+		margin: 1rem 0 0;
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+		line-height: 1.85;
+	}
+
+	.text-link {
+		display: inline-block;
+		margin-top: var(--space-md);
+		color: var(--color-primary);
+		font-size: 0.875rem;
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	.press-image {
+		margin: 0;
+	}
+
+	.press-image img {
+		display: block;
+		width: 100%;
+		height: auto;
+		border: 1px solid var(--color-border);
+		background: #fff;
+	}
+
+	.press-image figcaption {
+		margin-top: 0.65rem;
+		color: var(--color-text-muted);
+		font-size: 0.75rem;
+		line-height: 1.6;
+	}
+
+	/* ── RESOURCES のリンク一覧 ─────────────────────────── */
+	.resource-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.resource-list li {
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.resource-list a {
+		display: block;
+		padding: 1rem 0;
+		color: inherit;
+		text-decoration: none;
+	}
+
+	.resource-list a:hover strong {
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	.resource-list strong {
+		display: block;
+		color: var(--color-primary);
+		font-size: 0.9375rem;
+		font-weight: 700;
+		line-height: 1.5;
+	}
+
+	.resource-list span {
+		display: block;
+		margin-top: 0.3rem;
+		color: var(--color-text-muted);
+		font-size: 0.875rem;
+		line-height: 1.7;
+	}
+
+	@media (max-width: 980px) {
+		.price-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.price-note {
+			grid-column: 1 / -1;
+			padding: var(--space-md) 0 0;
+			border-top: 1px solid var(--color-border);
+		}
+
+		.media-inner,
+		.fit-grid {
+			grid-template-columns: minmax(0, 1fr);
+			gap: var(--space-lg);
+		}
+
+		.proof-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.proof-grid li:nth-child(odd) {
+			padding-left: 0;
+			border-left: 0;
+		}
+	}
+
+	@media (max-width: 760px) {
+		.proof,
+		.safeguards,
+		.pricing,
+		.fit,
+		.media-proof,
+		.faq,
+		.resources {
+			padding-block: var(--space-xl);
+		}
+
+		.proof {
+			padding-block: var(--space-md);
+		}
+
+		.safe-row {
+			grid-template-columns: minmax(0, 1fr);
+			gap: 0.35rem;
+		}
+
+		.price-grid {
+			grid-template-columns: minmax(0, 1fr);
+		}
+
+		.price-card {
+			padding-right: 0;
+			border-right: 0;
+			border-bottom: 1px solid var(--color-border);
 		}
 	}
 </style>

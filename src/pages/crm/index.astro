@@ -1,67 +1,8 @@
 ---
-import { CRM_FEATURES, featureCount } from '../../data/crm-features';
+import { featureCount } from '../../data/crm-features';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const DEMO_URL = 'https://crm.consilegy.com/demos';
-
-const featureGlyphs = {
-	contacts: `
-		<svg viewBox="0 0 64 64" focusable="false">
-			<rect class="glyph-panel" x="9" y="10" width="34" height="44" rx="3"></rect>
-			<circle class="glyph-strong" cx="23" cy="25" r="6"></circle>
-			<path class="glyph-line" d="M15 42c2.2-5.2 13.8-5.2 16 0"></path>
-			<path class="glyph-line" d="M32 21h6M32 28h6M15 48h18"></path>
-			<rect class="glyph-accent" x="38" y="18" width="17" height="23" rx="3"></rect>
-			<path class="glyph-line" d="M42 27h9M42 33h6"></path>
-		</svg>
-	`,
-	kanban: `
-		<svg viewBox="0 0 64 64" focusable="false">
-			<rect class="glyph-panel" x="8" y="12" width="48" height="36" rx="3"></rect>
-			<path class="glyph-line" d="M24 12v36M40 12v36"></path>
-			<rect class="glyph-accent" x="13" y="19" width="8" height="8" rx="1.5"></rect>
-			<rect class="glyph-strong-fill" x="29" y="25" width="7" height="11" rx="1.5"></rect>
-			<rect class="glyph-accent" x="45" y="18" width="6" height="16" rx="1.5"></rect>
-			<path class="glyph-strong" d="M13 55l10-8 8 4 10-11 10 5"></path>
-		</svg>
-	`,
-	jade: `
-		<svg viewBox="0 0 64 64" focusable="false">
-			<path class="glyph-accent" d="M32 8l17 18-17 30-17-30L32 8Z"></path>
-			<path class="glyph-line" d="M15 26h34M24 26l8 30 8-30M24 17h16"></path>
-			<rect class="glyph-panel" x="10" y="40" width="27" height="14" rx="3"></rect>
-			<path class="glyph-strong" d="M16 47h7M27 47h4"></path>
-		</svg>
-	`,
-	workflow: `
-		<svg viewBox="0 0 64 64" focusable="false">
-			<rect class="glyph-panel" x="8" y="12" width="18" height="14" rx="3"></rect>
-			<rect class="glyph-panel" x="38" y="12" width="18" height="14" rx="3"></rect>
-			<rect class="glyph-accent" x="23" y="39" width="18" height="14" rx="3"></rect>
-			<path class="glyph-line" d="M26 19h12M17 26v8c0 3 2 5 5 5h10M47 26v8c0 3-2 5-5 5H32"></path>
-			<path class="glyph-strong" d="M13 19h8M43 19h8M28 46h8"></path>
-		</svg>
-	`,
-	mail: `
-		<svg viewBox="0 0 64 64" focusable="false">
-			<rect class="glyph-panel" x="8" y="12" width="31" height="39" rx="3"></rect>
-			<path class="glyph-line" d="M15 22h17M15 30h17M15 38h11"></path>
-			<rect class="glyph-accent" x="32" y="24" width="24" height="17" rx="3"></rect>
-			<path class="glyph-strong" d="M32 28l12 8 12-8"></path>
-			<path class="glyph-line" d="M42 48h10"></path>
-		</svg>
-	`,
-	language: `
-		<svg viewBox="0 0 64 64" focusable="false">
-			<rect class="glyph-panel" x="7" y="13" width="15" height="30" rx="3"></rect>
-			<rect class="glyph-accent" x="24.5" y="18" width="15" height="30" rx="3"></rect>
-			<rect class="glyph-panel" x="42" y="13" width="15" height="30" rx="3"></rect>
-			<path class="glyph-line" d="M12 22h5M12 28h4M12 34h6M29.5 27h5M29.5 33h4M47 22h5M47 28h4M47 34h6"></path>
-			<path class="glyph-strong" d="M19 51h26"></path>
-			<path class="glyph-strong" d="M38 46l7 5-7 5"></path>
-		</svg>
-	`,
-};
 
 const proofStats = [
 	{ figure: '40社以上', label: 'Consilegyが設計してきたB2Bの収益プロセス' },
@@ -70,31 +11,64 @@ const proofStats = [
 	{ figure: '掲載', label: 'See News（花蓮視新聞）2026年6月25日' },
 ];
 
-const featureLabels = {
-	contacts: '顧客',
-	kanban: '商談',
-	jade: '入力',
-	workflow: '運用',
-	mail: '追客',
-	language: '言語',
-};
+const journeySteps = [
+	{
+		label: '顧客情報',
+		title: 'Excel・メールから移す',
+		text: '会社、担当者、名刺、会話メモを顧客履歴として残します。',
+	},
+	{
+		label: '商談管理',
+		title: '進捗と売上見込みを見る',
+		text: 'ステージ、金額、確度、次アクションを同じ画面で確認します。',
+	},
+	{
+		label: '追客・更新',
+		title: 'フォローを止めない',
+		text: '問い合わせ、メール配信、更新期日、停滞通知をワークフローで回します。',
+	},
+];
 
-const overviewPillars = [
+const serviceAreas = [
 	{
-		title: '顧客管理',
-		text: '会社、担当者、履歴、メモをまとめて残す。',
+		label: '営業管理',
+		title: '顧客・商談・活動履歴',
+		text: '顧客、会社、商談、メール、メモをひとつの履歴にまとめます。担当が変わっても、過去の経緯を追える状態を作ります。',
+		image: '/images/crm/screen-dashboard.webp',
+		alt: 'Revenue CRMのダッシュボード。パイプライン総額、加重フォーキャスト、期限切れタスク、注目の商談を表示している。',
+		features: ['顧客・会社管理', '商談カンバン', '活動履歴', '売上見込み'],
 	},
 	{
-		title: '商談管理',
-		text: 'ステージ、金額、確度、次アクションを見る。',
+		label: '追客',
+		title: 'フォーム・メール配信',
+		text: '問い合わせ、リスト、メール配信、追客タスクを分けずに扱えます。別のMAツールを足す前に、最初の追客を回せます。',
+		image: '/images/crm/screen-deals.webp',
+		alt: 'Revenue CRMの商談カンバン。ステージごとに商談カードと金額、確度、クローズ予定日を表示している。',
+		features: ['フォーム', 'リスト', 'メール配信', '追客タスク'],
 	},
 	{
-		title: '活動履歴',
-		text: 'メール、通話、名刺、会話メモを紐づける。',
+		label: '運用',
+		title: 'RevOpsワークフロー',
+		text: 'フォロー、更新、停滞、通知の型を標準で用意しています。必要なワークフローをONにして、抜け漏れを人の記憶に寄せません。',
+		image: '/videos/revenue-crm-demo.gif',
+		alt: 'Revenue CRMの操作デモ。ダッシュボード、商談カンバン、自動化ライブラリ、Jade（AIエージェント）、3言語切替を順に操作している。',
+		features: ['175本の標準フロー', '停滞通知', '更新商談', 'タスク作成'],
 	},
 	{
-		title: '追客・更新',
-		text: 'フォロー、更新、停滞通知を回す。',
+		label: 'AIエージェント',
+		title: 'Jade（AIエージェント）・名刺・通話メモ',
+		text: '日本語で検索し、名刺や会話の記録を下書きします。保存と送信の前には、必ず人が確認します。',
+		image: '/images/crm/screen-jade.webp',
+		alt: 'Jade（AIエージェント）の画面。日本語の質問に対して商談の集計と一覧を返している。',
+		features: ['日本語検索', '名刺読み取り', '通話メモ構造化', '下書き確認'],
+	},
+	{
+		label: '多言語',
+		title: '日本語・English・繁體中文',
+		text: '同じ顧客データを、使う人ごとの言語で表示します。海外メンバーと同じレコードを見ながら会話できます。',
+		image: '/images/crm/screen-dashboard-en.webp',
+		alt: 'Revenue CRMの英語UI。同じダッシュボードをEnglishに切り替えた画面。',
+		features: ['日本語', 'English', '繁體中文', '同一データ'],
 	},
 ];
 
@@ -125,33 +99,6 @@ const outcomes = [
 	},
 ];
 
-const aiMoves = [
-	{
-		act: '日本語で聞く',
-		text: '顧客、商談、ファネルを検索して集計して返します。コンタクトとタスクの作成もその場で。⌘Jでどの画面からでも呼べます。',
-	},
-	{
-		act: '名刺を撮る',
-		text: '写真1枚から17項目を読み取ります。登録の前に必ず確認画面が入ります。',
-	},
-	{
-		act: '会話を貼る',
-		text: 'LINE、Slack、Chatworkのやりとりから、要約、次アクション、金額やステージの兆しを抜き出します。',
-	},
-	{
-		act: '通話を残す',
-		text: '文字起こしをMEDDPICC / BANT / CHAMP / SPINの型で構造化して、商談に書き戻します。',
-	},
-	{
-		act: '手書きを写す',
-		text: 'ホワイトボードや紙のメモを文字に起こし、タスクの候補まで出します。採用するかは人が選びます。',
-	},
-	{
-		act: '判断を残す',
-		text: '一度直した内容は判断材料として残ります。次に同じ確認をするときは、その判断を参照します。ICPの判定から始めています。',
-	},
-];
-
 const safeguards = [
 	{
 		label: '学習に使われない',
@@ -176,66 +123,6 @@ const safeguards = [
 	{
 		label: '持ち出しは自由',
 		text: 'コンタクト、会社、商談をCSVで書き出せます。解約後に取り出せなくなることはありません。自社のデータは自社のものです。',
-	},
-];
-
-const capabilities = [
-	{
-		icon: 'contacts',
-		title: '顧客の履歴が、担当者から独立する',
-		text: 'コンタクト、会社、商談、活動履歴、メモをひとつの画面に集約。担当が変わっても文脈が残ります。',
-	},
-	{
-		icon: 'kanban',
-		title: '売上見込みを、集計しないで確認する',
-		text: '商談カンバンで進捗と確度を更新すると、パイプライン総額と加重フォーキャストがそのまま更新されます。',
-	},
-	{
-		icon: 'jade',
-		title: '入力の下書きを、Jadeに任せる',
-		text: '日本語で聞くと、検索、集計、要約、分類、次アクションの候補まで返します。',
-	},
-	{
-		icon: 'workflow',
-		title: '抜け漏れを、人の記憶で防がない',
-		text: '通知、タスク、フォロー、更新商談の作成を自動化。175本のワークフローから必要なものをONにするだけです。',
-	},
-	{
-		icon: 'mail',
-		title: 'リード獲得から追客までを、同じ場所で',
-		text: 'フォーム、メール配信、リスト、シーケンスを標準搭載。別のMAツールを足す必要がありません。',
-	},
-	{
-		icon: 'language',
-		title: '海外メンバーと、同じデータを別の言語で',
-		text: '日本語、English、繁體中文をボタンひとつで切替。同じレコードを、それぞれの言語で扱えます。',
-	},
-];
-
-const screens = [
-	{
-		src: '/images/crm/screen-dashboard.webp',
-		alt: 'Revenue CRMのダッシュボード。パイプライン総額、加重フォーキャスト、勝率、期限切れタスク、ステージ別パイプライン、注目の商談を一画面に表示。',
-		title: 'ダッシュボード',
-		text: 'パイプライン総額、加重フォーキャスト、対応優先度を確認',
-	},
-	{
-		src: '/images/crm/screen-deals.webp',
-		alt: 'Revenue CRMの商談カンバン。アプローチ、ヒアリング、提案、見積のステージごとに商談カードと金額、確度、クローズ予定日を表示。',
-		title: '商談カンバン',
-		text: 'ステージ、確度、次アクションをドラッグ操作で更新',
-	},
-	{
-		src: '/images/crm/screen-jade.webp',
-		alt: 'Jadeの画面。「今日やるべきことは？」と日本語で質問し、ファネルの集計と進行中の商談10件を表で返している。',
-		title: 'Jade',
-		text: '日本語で質問し、集計・要約・候補出しまで実行',
-	},
-	{
-		src: '/images/crm/screen-dashboard-en.webp',
-		alt: 'Revenue CRMの英語UI。同じダッシュボードをEnglishに切り替えた画面。サイドバーにJA / EN / 繁中の切替ボタンがある。',
-		title: '多言語UI',
-		text: '日本語、English、繁體中文を画面ごと切り替え',
 	},
 ];
 
@@ -277,9 +164,9 @@ const reasons = [
 	},
 	{
 		title: '記録の入口を増やす',
-		text: '名刺は撮る、会話は貼る、通話は話す。Jadeが記録の下書きと検索を支えます。',
-		href: '#ai',
-		label: '入力補助を見る',
+		text: '名刺は撮る、会話は貼る、通話は話す。Jade（AIエージェント）が記録の下書きと検索を支えます。',
+		href: '#input-assist',
+		label: 'AIエージェントを見る',
 	},
 	{
 		title: '運用の型が入っている',
@@ -308,12 +195,11 @@ const faqs = [
 	},
 ];
 
-const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.ja }));
 ---
 
 <BaseLayout
 	title="国産CRM「Revenue CRM」法人向けβ版 | まだCRMがない会社の最初の1つに"
-	description="顧客の一覧はExcel、やりとりはメール、案件の温度感は担当者の頭の中。そういう会社のために、Consilegyが自社で開発した法人向けの国産CRMです。Jadeと175本のRevOpsワークフローを標準搭載。メールアドレスだけでデモをご覧いただけます。現在クローズドβ。"
+	description="顧客の一覧はExcel、やりとりはメール、案件の温度感は担当者の頭の中。そういう会社のために、Consilegyが自社で開発した法人向けの国産CRMです。Jade（AIエージェント）と175本のRevOpsワークフローを標準搭載。メールアドレスだけでデモをご覧いただけます。現在クローズドβ。"
 	ogImage="/images/crm/og-crm.png"
 	lang="ja"
 	alternateUrl="/en/crm/"
@@ -353,60 +239,123 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.ja }));
 	</div>
 </section>
 
-<!-- ===================== 2. PRODUCT VIEW ===================== -->
-<section class="product-view">
+<!-- ===================== 2. PRODUCT STORY ===================== -->
+<section class="crm-story">
 	<div class="container">
-		<div class="section-head">
+		<div class="crm-section-head">
 			<p class="kicker">Revenue CRMひとつで</p>
-			<h2>最初に見る数字と、次に動く相手を同じ画面で確認。</h2>
+			<h2>営業活動の入口から、受注後の更新まで。</h2>
 		</div>
-		<ol class="overview-flow">
-			{overviewPillars.map((item) => (
-				<li>
-					<span>{item.title}</span>
-					<p>{item.text}</p>
-				</li>
-			))}
-		</ol>
-		<ul class="view-grid">
-			{screens.map((item) => (
-				<li class="view-card">
-					<figure>
-						<img
-							src={item.src}
-							alt={item.alt}
-							width="1600"
-							height="1000"
-							loading="lazy"
-							decoding="async"
-						/>
-					</figure>
-					<div class="view-caption">
-						<strong>{item.title}</strong>
-						<span>{item.text}</span>
-					</div>
-				</li>
-			))}
-		</ul>
-
-		<figure class="view-demo">
-			<img
-				src="/videos/revenue-crm-demo.gif"
-				alt="Revenue CRMの操作デモ。ダッシュボード、商談カンバン、自動化ライブラリ、Jade、3言語切替を順に操作している。"
-				width="800"
-				height="585"
-				loading="lazy"
-				decoding="async"
-			/>
-			<figcaption>操作デモ：ダッシュボード → 商談カンバン → 自動化ライブラリ → Jade → 言語切替</figcaption>
-		</figure>
+		<div class="story-board">
+			<div class="story-board__copy">
+				<p>
+					顧客、商談、追客、更新を別々の表で管理しない。
+					最初のCRMに必要な基本機能を、業務の流れに沿ってまとめています。
+				</p>
+				<ol class="journey-list">
+					{journeySteps.map((item) => (
+						<li>
+							<span>{item.label}</span>
+							<strong>{item.title}</strong>
+							<p>{item.text}</p>
+						</li>
+					))}
+				</ol>
+			</div>
+			<figure class="story-board__media">
+				<img
+					src="/videos/revenue-crm-demo.gif"
+					alt="Revenue CRMの操作デモ。ダッシュボード、商談カンバン、自動化ライブラリ、Jade（AIエージェント）、3言語切替を順に操作している。"
+					width="800"
+					height="585"
+					loading="lazy"
+					decoding="async"
+				/>
+			</figure>
+		</div>
 	</div>
 </section>
 
-<!-- ===================== 3. PROOF ===================== -->
-<section class="proof">
+<!-- ===================== 3. SERVICES ===================== -->
+<section class="crm-services" id="features">
 	<div class="container">
-		<ul class="proof-grid">
+		<div class="crm-section-head crm-section-head--center">
+			<p class="kicker">Revenue CRMのサービス</p>
+			<h2>必要な機能を、最初からひとつに。</h2>
+		</div>
+		<div class="service-area-list">
+			{serviceAreas.map((item) => (
+				<article class="service-area">
+					<div class="service-area__copy">
+						<p class="service-area__label">{item.label}</p>
+						<h3>{item.title}</h3>
+						<p>{item.text}</p>
+						<ul class="service-feature-list">
+							{item.features.map((feature) => <li>{feature}</li>)}
+						</ul>
+					</div>
+					<figure class="service-area__media">
+						<img
+							src={item.image}
+							alt={item.alt}
+							width="1600"
+							height="1000"
+							loading="eager"
+							decoding="async"
+						/>
+					</figure>
+				</article>
+			))}
+		</div>
+		<div class="service-more">
+			<p>CRMコアから権限・運用まで、全{featureCount()}項目を整理しています。</p>
+			<a href="/crm/features/">機能一覧をすべて見る（全{featureCount()}項目）</a>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 4. PROBLEMS ===================== -->
+<section class="crm-problems">
+	<div class="container">
+		<div class="crm-section-head">
+			<p class="kicker">課題を解決するならRevenue CRM</p>
+			<h2>最初のCRMで、まず解く課題。</h2>
+		</div>
+		<ol class="problem-table">
+			{outcomes.map((item) => (
+				<li>
+					<strong>{item.problem}</strong>
+					<span>{item.answer}</span>
+				</li>
+			))}
+		</ol>
+	</div>
+</section>
+
+<!-- ===================== 5. EDITIONS ===================== -->
+<section class="crm-editions">
+	<div class="container">
+		<div class="crm-section-head">
+			<p class="kicker">事業タイプ別</p>
+			<h2>商売の形に合わせて、最初から設定済み。</h2>
+		</div>
+		<div class="edition-list">
+			{editions.map((item) => (
+				<article class="edition-item">
+					<span>{item.noun}</span>
+					<h3>{item.title}</h3>
+					<p>{item.text}</p>
+					{item.href && <a href={item.href}>{item.linkLabel}</a>}
+				</article>
+			))}
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 6. PROOF ===================== -->
+<section class="crm-proof">
+	<div class="container">
+		<ul class="proof-strip">
 			{proofStats.map((item) => (
 				<li>
 					<strong>{item.figure}</strong>
@@ -421,122 +370,46 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.ja }));
 	</div>
 </section>
 
-<!-- ===================== 4. SERVICES / FEATURES ===================== -->
-<section class="features" id="features">
+<!-- ===================== 7. ADOPTION ===================== -->
+<section class="crm-adoption" id="input-assist">
 	<div class="container">
-		<div class="section-head">
-			<p class="kicker">Revenue CRMの主な機能</p>
-			<h2>営業・マーケ・CSの情報を、1つの収益基盤に。</h2>
-		</div>
-		<div class="feature-grid">
-			{capabilities.map((item) => (
-				<article class="feature-card">
-					<span class="feature-label" aria-hidden="true">{featureLabels[item.icon]}</span>
-					<div>
-						<h3>{item.title}</h3>
-						<p>{item.text}</p>
-					</div>
-				</article>
-			))}
-		</div>
-		<div class="feature-more">
-			<p class="feature-more-note">{featureGroups.map((group) => group.title).join(' / ')}</p>
-			<a class="feature-more-link" href="/crm/features/">機能一覧をすべて見る（全{featureCount()}項目）</a>
-		</div>
-	</div>
-</section>
-
-<!-- ===================== 5. SOLUTIONS ===================== -->
-<section class="outcomes">
-	<div class="container">
-		<div class="section-head">
-			<p class="kicker">解決できる課題</p>
-			<h2>いまExcelでやっていることが、そのままチームの記録になる。</h2>
-		</div>
-		<ul class="outcome-grid">
-			{outcomes.map((item) => (
-				<li class="outcome-card">
-					<p class="outcome-problem">{item.problem}</p>
-					<p class="outcome-answer">{item.answer}</p>
-				</li>
-			))}
-		</ul>
-	</div>
-</section>
-
-<!-- ===================== 6. EDITIONS ===================== -->
-<section class="editions">
-	<div class="container">
-		<div class="section-head">
-			<p class="kicker">事業タイプ別</p>
-			<h2>商売の形に合わせて、最初から設定済み。</h2>
-		</div>
-		<div class="edition-grid">
-			{editions.map((item) => (
-				<article class:list={['edition-card', item.href && 'edition-card--muted']}>
-					<span class="edition-noun">{item.noun}</span>
-					<h3>{item.title}</h3>
-					<p>{item.text}</p>
-					{item.href && <a href={item.href}>{item.linkLabel}</a>}
-				</article>
-			))}
-		</div>
-	</div>
-</section>
-
-<!-- ===================== 7. REASONS ===================== -->
-<section class="ai" id="ai">
-	<div class="container">
-		<div class="section-head">
+		<div class="crm-section-head">
 			<p class="kicker">現場に残る理由</p>
 			<h2>入力を増やさず、記録を残す。</h2>
 		</div>
-		<ol class="reason-grid">
+		<ol class="adoption-list">
 			{reasons.map((item) => (
-				<li class="reason-card">
+				<li>
 					<h3>{item.title}</h3>
 					<p>{item.text}</p>
 					<a href={item.href}>{item.label}</a>
 				</li>
 			))}
 		</ol>
-		<div class="jade-box">
-			<div class="jade-box__head">
-				<p class="kicker">入力補助</p>
-				<h3>聞く、撮る、貼る。記録の入口を増やします。</h3>
+		<div class="assist-panel">
+			<div>
+				<p class="kicker">AIエージェント</p>
+				<h3>Jadeは、記録の入口です。</h3>
 			</div>
-			<p class="ai-lead">
-				CRMが続かない一番の理由は、入力が仕事の後回しになることです。
-				だから入力を減らしました。Jadeに日本語で聞けば、必要な顧客や商談を探して数えて返します。
-				名刺は撮る、会話は貼る、通話は話すだけで記録になります。
+			<p>
+				日本語で聞く。名刺を撮る。会話を貼る。通話を残す。
+				作成された文面やデータは、保存と送信の前に必ず人が確認します。
+				APIキーは自社のもの（Anthropic / OpenAI / Gemini / Azure OpenAI）を持ち込めます。
 			</p>
 		</div>
-		<ul class="ai-grid">
-			{aiMoves.map((item) => (
-				<li class="ai-card">
-					<span class="ai-act">{item.act}</span>
-					<p>{item.text}</p>
-				</li>
-			))}
-		</ul>
-		<p class="ai-note">
-			Jadeが作った文面やデータは、保存と送信の前に必ず人が確認します。勝手に送ることはありません。
-			APIキーは自社のもの（Anthropic / OpenAI / Gemini / Azure OpenAI）を持ち込めます。
-			外部ツールからCRMを操作するためのMCPサーバーも標準で用意しています。
-		</p>
 	</div>
 </section>
 
 <!-- ===================== 8. SECURITY ===================== -->
-<section class="safeguards">
+<section class="crm-security">
 	<div class="container">
-		<div class="section-head">
+		<div class="crm-section-head">
 			<p class="kicker">安心して導入・運用いただくために</p>
 			<h2>データは会社ごとに分けて管理します。</h2>
 		</div>
-		<dl class="safe-list">
+		<dl class="security-table">
 			{safeguards.map((item) => (
-				<div class="safe-row">
+				<div>
 					<dt>{item.label}</dt>
 					<dd>{item.text}</dd>
 				</div>
@@ -550,18 +423,18 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.ja }));
 </section>
 
 <!-- ===================== 9. ORIGIN ===================== -->
-<section class="media-proof">
-	<div class="container media-grid">
-		<div class="media-copy">
+<section class="crm-origin">
+	<div class="container origin-grid">
+		<div class="origin-copy">
 			<p class="kicker">開発背景</p>
 			<h2>台湾・花蓮のノマド拠点から生まれました。</h2>
 			<p>
 				構想が形になったのは、台湾・花蓮県が運営するデジタルノマド拠点「Nomad Hualien 花蓮雲基地」です。
 				代表の山口聖子が第1期メンバーとして滞在し、各国の起業家やリモートワーカーとの協働から
-				CRMに入力補助を組み合わせたこのプロダクトの形が固まりました。
+				CRMにAIエージェントを組み合わせたこのプロダクトの形が固まりました。
 			</p>
 			<p>
-				入力補助の名前を「Jade」としたのは、翡翠が花蓮の名産だからです。
+				AIエージェントの名前を「Jade」としたのは、翡翠が花蓮の名産だからです。
 				この経緯は、See News（花蓮視新聞）2026年6月25日の記事で紹介されています。
 			</p>
 			<a
@@ -571,7 +444,7 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.ja }));
 				class="text-link"
 			>掲載記事を読む</a>
 		</div>
-		<figure class="press-image">
+		<figure class="origin-image">
 			<img
 				src="/images/common/seenews-hualien-2026.jpg"
 				alt="See News（花蓮視新聞）2026年6月25日の掲載記事。花蓮雲基地での活動が紹介されている。"
@@ -2644,5 +2517,869 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.ja }));
 	.br-wide { display: none; }
 	@media (min-width: 900px) {
 		.br-wide { display: inline; }
+	}
+
+	/* ── CRM page rebuild: SmartHR寄せの情報設計 ───────────── */
+	.crm-hero {
+		padding: clamp(3.2rem, 6vw, 5.5rem) 0 clamp(3.6rem, 6vw, 5rem);
+		background: #fff;
+	}
+
+	.hero-grid {
+		grid-template-columns: minmax(0, 1fr) minmax(420px, 0.92fr);
+		gap: clamp(2rem, 4vw, 3.25rem);
+		align-items: center;
+	}
+
+	.hero-copy {
+		max-width: 680px;
+		padding-top: 0;
+	}
+
+	.eyebrow {
+		margin-bottom: 1.1rem;
+		padding-top: 1rem;
+		border-top: 2px solid #111827;
+		color: var(--color-primary);
+	}
+
+	.crm-hero h1 {
+		font-size: clamp(2.25rem, 3.1vw, 2.85rem);
+		font-weight: 700;
+		line-height: 1.32;
+		letter-spacing: 0;
+	}
+
+	.hero-lead {
+		max-width: 38rem;
+		margin-top: 1.35rem;
+		color: var(--color-text);
+		font-size: 1rem;
+		line-height: 2;
+	}
+
+	.hero-media {
+		position: relative;
+		padding: 1rem;
+		background: #f5f7fb;
+		border: 1px solid #dbe1ea;
+		border-radius: 10px;
+		box-shadow: none;
+	}
+
+	.hero-media img {
+		display: block;
+		width: 100%;
+		border: 1px solid #d7dde7;
+		border-radius: 6px;
+		box-shadow: 0 18px 40px rgba(15, 23, 42, 0.07);
+	}
+
+	.hero-media figcaption {
+		margin: 0.75rem 0 0;
+		color: #4b5563;
+		font-size: 0.78rem;
+		line-height: 1.65;
+	}
+
+	.crm-story,
+	.crm-services,
+	.crm-problems,
+	.crm-editions,
+	.crm-proof,
+	.crm-adoption,
+	.crm-security,
+	.crm-origin {
+		padding: clamp(4rem, 7vw, 6rem) 0;
+	}
+
+	.crm-story,
+	.crm-problems,
+	.crm-proof,
+	.crm-security {
+		background: #f7f7f5;
+		border-top: 1px solid var(--color-border);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.crm-services,
+	.crm-editions,
+	.crm-adoption,
+	.crm-origin {
+		background: #fff;
+	}
+
+	.crm-section-head {
+		display: grid;
+		grid-template-columns: minmax(8rem, 13rem) minmax(0, 1fr);
+		gap: clamp(1.5rem, 4vw, 4rem);
+		align-items: start;
+		margin-bottom: clamp(1.8rem, 4vw, 3rem);
+		padding-top: 1rem;
+		border-top: 2px solid #111827;
+	}
+
+	.crm-section-head--center {
+		display: block;
+		max-width: 760px;
+		margin-right: auto;
+		margin-left: auto;
+		text-align: center;
+	}
+
+	.crm-section-head--center .kicker {
+		margin-bottom: 0.7rem;
+	}
+
+	.crm-section-head h2 {
+		font-size: clamp(1.9rem, 3vw, 2.55rem);
+		font-weight: 700;
+		line-height: 1.42;
+	}
+
+	.story-board {
+		display: grid;
+		grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+		background: #fff;
+		border: 1px solid var(--color-border);
+		border-radius: 10px;
+		overflow: hidden;
+	}
+
+	.story-board__copy {
+		padding: clamp(1.5rem, 3vw, 2.25rem);
+		border-right: 1px solid var(--color-border);
+	}
+
+	.story-board__copy > p {
+		margin: 0;
+		color: var(--color-text);
+		font-size: 1rem;
+		line-height: 1.95;
+	}
+
+	.journey-list {
+		margin: 1.4rem 0 0;
+		padding: 0;
+		list-style: none;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.journey-list li {
+		display: grid;
+		grid-template-columns: 6.25rem minmax(0, 1fr);
+		gap: 0.85rem 1rem;
+		padding: 1rem 0;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.journey-list span {
+		color: var(--color-primary);
+		font-size: 0.78rem;
+		font-weight: 700;
+		line-height: 1.7;
+	}
+
+	.journey-list strong {
+		color: var(--color-text);
+		font-size: 1rem;
+		font-weight: 700;
+		line-height: 1.7;
+	}
+
+	.journey-list p {
+		grid-column: 2;
+		margin: -0.35rem 0 0;
+		color: var(--color-text-muted);
+		font-size: 0.9rem;
+		line-height: 1.75;
+	}
+
+	.story-board__media {
+		display: grid;
+		align-content: center;
+		margin: 0;
+		padding: clamp(1rem, 2.4vw, 1.75rem);
+		background: #eef3f8;
+	}
+
+	.story-board__media img,
+	.service-area__media img {
+		display: block;
+		width: 100%;
+		height: auto;
+		background: #fff;
+		border: 1px solid #d8dee8;
+		border-radius: 6px;
+	}
+
+	.service-area-list {
+		display: grid;
+		gap: 1.25rem;
+	}
+
+	.service-area {
+		display: grid;
+		grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+		background: #fff;
+		border: 1px solid var(--color-border);
+		border-radius: 10px;
+		overflow: hidden;
+	}
+
+	.service-area:nth-child(even) {
+		grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
+	}
+
+	.service-area:nth-child(even) .service-area__media {
+		order: -1;
+		border-right: 1px solid var(--color-border);
+		border-left: 0;
+	}
+
+	.service-area__copy {
+		padding: clamp(1.45rem, 3vw, 2rem);
+	}
+
+	.service-area__label {
+		display: inline-flex;
+		margin: 0 0 0.8rem;
+		padding: 0.18rem 0.55rem;
+		color: var(--color-primary);
+		background: #eef3ff;
+		border-radius: 999px;
+		font-size: 0.76rem;
+		font-weight: 700;
+		line-height: 1.6;
+	}
+
+	.service-area h3,
+	.assist-panel h3,
+	.edition-item h3 {
+		margin: 0;
+		color: var(--color-text);
+		font-size: clamp(1.25rem, 2vw, 1.6rem);
+		font-weight: 700;
+		line-height: 1.5;
+	}
+
+	.service-area__copy > p {
+		margin: 0.85rem 0 0;
+		color: var(--color-text-muted);
+		font-size: 0.95rem;
+		line-height: 1.85;
+	}
+
+	.service-area__media {
+		display: grid;
+		align-content: center;
+		margin: 0;
+		padding: clamp(1rem, 2.4vw, 1.65rem);
+		background: #f5f7fb;
+		border-left: 1px solid var(--color-border);
+	}
+
+	.service-feature-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin: 1.25rem 0 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.service-feature-list li {
+		padding: 0.38rem 0.65rem;
+		color: #334155;
+		background: #fff;
+		border: 1px solid #d7dde7;
+		border-radius: 4px;
+		font-size: 0.82rem;
+		font-weight: 600;
+		line-height: 1.35;
+	}
+
+	.service-more {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.85rem 1.5rem;
+		margin-top: 1.5rem;
+		padding-top: 1.25rem;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.service-more p {
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 0.88rem;
+		line-height: 1.7;
+	}
+
+	.service-more a,
+	.edition-item a,
+	.adoption-list a {
+		color: var(--color-primary);
+		font-size: 0.9rem;
+		font-weight: 700;
+		text-decoration: none;
+	}
+
+	.service-more a:hover,
+	.edition-item a:hover,
+	.adoption-list a:hover {
+		text-decoration: underline;
+	}
+
+	.problem-table {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		background: #fff;
+		border: 1px solid var(--color-border);
+		counter-reset: problem;
+	}
+
+	.problem-table li {
+		display: grid;
+		grid-template-columns: 4rem minmax(0, 0.9fr) minmax(0, 1fr);
+		gap: 1rem;
+		align-items: start;
+		padding: 1.05rem 1.3rem;
+		border-bottom: 1px solid var(--color-border);
+		counter-increment: problem;
+	}
+
+	.problem-table li:last-child {
+		border-bottom: 0;
+	}
+
+	.problem-table li::before {
+		content: counter(problem, decimal-leading-zero);
+		color: var(--color-primary);
+		font-size: 0.9rem;
+		font-weight: 700;
+		line-height: 1.75;
+	}
+
+	.problem-table strong {
+		color: var(--color-text);
+		font-size: 0.96rem;
+		font-weight: 700;
+		line-height: 1.75;
+	}
+
+	.problem-table span {
+		color: var(--color-text-muted);
+		font-size: 0.92rem;
+		line-height: 1.75;
+	}
+
+	.edition-list,
+	.adoption-list {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		border: 1px solid var(--color-border);
+	}
+
+	.edition-item,
+	.adoption-list li {
+		padding: 1.35rem;
+		background: #fff;
+		border-right: 1px solid var(--color-border);
+	}
+
+	.edition-item:last-child,
+	.adoption-list li:last-child {
+		border-right: 0;
+	}
+
+	.edition-item span {
+		display: block;
+		margin-bottom: 0.75rem;
+		color: var(--color-primary);
+		font-size: 0.78rem;
+		font-weight: 700;
+		line-height: 1.5;
+	}
+
+	.edition-item p,
+	.adoption-list p {
+		margin: 0.75rem 0 0;
+		color: var(--color-text-muted);
+		font-size: 0.9rem;
+		line-height: 1.8;
+	}
+
+	.edition-item a,
+	.adoption-list a {
+		display: inline-flex;
+		margin-top: 1rem;
+	}
+
+	.proof-strip {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		background: #fff;
+		border: 1px solid var(--color-border);
+	}
+
+	.proof-strip li {
+		padding: 1.2rem 1.35rem;
+		border-right: 1px solid var(--color-border);
+	}
+
+	.proof-strip li:last-child {
+		border-right: 0;
+	}
+
+	.proof-strip strong {
+		display: block;
+		color: var(--color-text);
+		font-size: clamp(1.45rem, 2.4vw, 2rem);
+		font-weight: 700;
+		line-height: 1.25;
+	}
+
+	.proof-strip span {
+		display: block;
+		margin-top: 0.4rem;
+		color: var(--color-text-muted);
+		font-size: 0.84rem;
+		line-height: 1.65;
+	}
+
+	.adoption-list {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		margin-bottom: 1.25rem;
+		counter-reset: adoption;
+	}
+
+	.adoption-list li {
+		counter-increment: adoption;
+	}
+
+	.adoption-list li::before {
+		content: "POINT " counter(adoption, decimal-leading-zero);
+		display: block;
+		margin-bottom: 0.65rem;
+		color: var(--color-primary);
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		line-height: 1.5;
+	}
+
+	.assist-panel {
+		display: grid;
+		grid-template-columns: minmax(13rem, 0.75fr) minmax(0, 1fr);
+		gap: clamp(1.4rem, 4vw, 3rem);
+		padding: clamp(1.4rem, 3vw, 2rem);
+		background: #f7f7f5;
+		border: 1px solid var(--color-border);
+		border-radius: 10px;
+	}
+
+	.assist-panel .kicker {
+		margin-bottom: 0.55rem;
+	}
+
+	.assist-panel > p {
+		margin: 0;
+		color: var(--color-text);
+		font-size: 0.96rem;
+		line-height: 1.9;
+	}
+
+	.security-table {
+		margin: 0;
+		background: #fff;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.security-table div {
+		display: grid;
+		grid-template-columns: minmax(8rem, 13rem) minmax(0, 1fr);
+		gap: 1.5rem;
+		padding: 1.1rem 0;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.security-table dt {
+		margin: 0;
+		color: var(--color-text);
+		font-size: 0.96rem;
+		font-weight: 700;
+		line-height: 1.7;
+	}
+
+	.security-table dd {
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 0.92rem;
+		line-height: 1.85;
+	}
+
+	.origin-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 0.92fr) minmax(280px, 0.58fr);
+		gap: clamp(2rem, 6vw, 5rem);
+		align-items: start;
+	}
+
+	.origin-copy {
+		padding-top: 1rem;
+		border-top: 2px solid #111827;
+	}
+
+	.origin-copy .kicker {
+		margin-bottom: 0.9rem;
+	}
+
+	.origin-copy p {
+		margin: 1rem 0 0;
+		color: var(--color-text-muted);
+		font-size: 0.95rem;
+		line-height: 1.9;
+	}
+
+	.origin-image {
+		margin: 0;
+	}
+
+	.origin-image img {
+		display: block;
+		width: 100%;
+		height: auto;
+		border: 1px solid var(--color-border);
+		border-radius: 8px;
+	}
+
+	.origin-image figcaption {
+		margin-top: 0.65rem;
+		color: var(--color-text-muted);
+		font-size: 0.78rem;
+		line-height: 1.6;
+	}
+
+	@media (max-width: 1080px) {
+		.hero-grid,
+		.story-board,
+		.service-area,
+		.service-area:nth-child(even),
+		.origin-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.service-area:nth-child(even) .service-area__media {
+			order: 0;
+			border-right: 0;
+			border-left: 0;
+		}
+
+		.service-area__media,
+		.story-board__media {
+			border-left: 0;
+			border-top: 1px solid var(--color-border);
+		}
+
+		.edition-list,
+		.proof-strip {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.edition-item:nth-child(2n),
+		.proof-strip li:nth-child(2n) {
+			border-right: 0;
+		}
+
+		.edition-item:nth-child(n + 3),
+		.proof-strip li:nth-child(n + 3) {
+			border-top: 1px solid var(--color-border);
+		}
+	}
+
+	@media (max-width: 760px) {
+		.crm-hero,
+		.crm-story,
+		.crm-services,
+		.crm-problems,
+		.crm-editions,
+		.crm-proof,
+		.crm-adoption,
+		.crm-security,
+		.crm-origin {
+			padding-block: var(--space-xl);
+		}
+
+		.crm-section-head,
+		.assist-panel,
+		.security-table div {
+			grid-template-columns: 1fr;
+			gap: 0.75rem;
+		}
+
+		.crm-hero h1 {
+			font-size: 2.25rem;
+			line-height: 1.36;
+		}
+
+		.crm-section-head--center {
+			text-align: left;
+		}
+
+		.story-board__copy,
+		.service-area__copy,
+		.service-area__media,
+		.story-board__media {
+			padding: 1.1rem;
+		}
+
+		.journey-list li,
+		.problem-table li {
+			grid-template-columns: 1fr;
+			gap: 0.35rem;
+		}
+
+		.journey-list p {
+			grid-column: auto;
+			margin-top: 0;
+		}
+
+		.problem-table li::before {
+			line-height: 1.2;
+		}
+
+		.edition-list,
+		.adoption-list,
+		.proof-strip {
+			grid-template-columns: 1fr;
+		}
+
+		.edition-item,
+		.adoption-list li,
+		.proof-strip li {
+			border-right: 0;
+			border-top: 1px solid var(--color-border);
+		}
+
+		.edition-item:first-child,
+		.adoption-list li:first-child,
+		.proof-strip li:first-child {
+			border-top: 0;
+		}
+	}
+
+	/* ── Remove decorative rules ─────────────────────────── */
+	.eyebrow,
+	.crm-section-head,
+	.origin-copy,
+	.section-head {
+		padding-top: 0;
+		border-top: 0;
+	}
+
+	.crm-story,
+	.crm-problems,
+	.crm-proof,
+	.crm-security,
+	.features,
+	.fit,
+	.ai,
+	.beta,
+	.outcomes,
+	.pricing {
+		border-top: 0;
+		border-bottom: 0;
+	}
+
+	.crm-section-head {
+		margin-bottom: clamp(1.6rem, 3vw, 2.4rem);
+	}
+
+	.crm-section-head .kicker,
+	.section-head .kicker,
+	.origin-copy .kicker {
+		margin-bottom: 0.75rem;
+	}
+
+	.crm-section-head--center {
+		max-width: 720px;
+	}
+
+	/* Final pass: remove hard horizontal dividers from the CRM page. */
+	.crm-hero,
+	.crm-story,
+	.crm-services,
+	.crm-problems,
+	.crm-editions,
+	.crm-proof,
+	.crm-adoption,
+	.crm-security,
+	.crm-origin,
+	.resources,
+	.faq,
+	.pricing,
+	.fit,
+	.beta {
+		border-top: 0;
+		border-bottom: 0;
+	}
+
+	.story-board,
+	.service-area,
+	.problem-table,
+	.edition-list,
+	.proof-strip,
+	.adoption-list,
+	.assist-panel,
+	.security-table,
+	.price-grid,
+	.cta-grid,
+	.faq-list,
+	.cta-card,
+	.price-card,
+	.fit-box {
+		border: 0;
+		box-shadow: none;
+	}
+
+	.story-board,
+	.service-area,
+	.assist-panel {
+		background: #fff;
+		border-radius: 10px;
+		box-shadow: none;
+	}
+
+	.hero-media,
+	.hero-media img,
+	.story-board__media img,
+	.service-area__media img,
+	.origin-image img,
+	.service-feature-list li {
+		border: 0;
+		box-shadow: none;
+	}
+
+	.story-board__copy,
+	.story-board__media,
+	.service-area__copy,
+	.service-area__media,
+	.service-area:nth-child(even) .service-area__media,
+	.service-area:nth-child(even) .service-area__copy {
+		border: 0;
+	}
+
+	.journey-list,
+	.security-table,
+	.service-more,
+	.problem-table,
+	.edition-list,
+	.proof-strip,
+	.adoption-list {
+		border-top: 0;
+		border-right: 0;
+		border-bottom: 0;
+		border-left: 0;
+	}
+
+	.journey-list {
+		display: grid;
+		gap: 0.75rem;
+		margin-top: 1.35rem;
+	}
+
+	.journey-list li {
+		border: 0;
+		border-radius: 8px;
+		background: #f7f7f5;
+		padding: 0.9rem 1rem;
+	}
+
+	.problem-table,
+	.security-table {
+		display: grid;
+		gap: 0.8rem;
+		background: transparent;
+	}
+
+	.problem-table li,
+	.security-table div {
+		border: 0;
+		border-radius: 8px;
+		background: #fff;
+	}
+
+	.problem-table li {
+		padding: 1.15rem 1.2rem;
+	}
+
+	.security-table div {
+		padding: 1.1rem 1.2rem;
+	}
+
+	.service-more {
+		margin-top: 1.4rem;
+		padding: 1rem 1.1rem;
+		border-radius: 8px;
+		background: #f7f7f5;
+	}
+
+	.edition-list,
+	.proof-strip,
+	.adoption-list {
+		gap: 0.8rem;
+		background: transparent;
+	}
+
+	.edition-item,
+	.proof-strip li,
+	.adoption-list li,
+	.faq-item,
+	.faq-item:last-child,
+	.resource-list,
+	.resource-list li,
+	.resources-copy,
+	.media-copy,
+	.proof-note,
+	.safe-note,
+	.price-note,
+	.fit-box li {
+		border-top: 0;
+		border-right: 0;
+		border-bottom: 0;
+		border-left: 0;
+	}
+
+	.edition-item,
+	.proof-strip li,
+	.adoption-list li {
+		border-radius: 8px;
+		background: #fff;
+	}
+
+	@media (max-width: 1080px) {
+		.service-area__media,
+		.story-board__media,
+		.edition-item:nth-child(n + 3),
+		.proof-strip li:nth-child(n + 3) {
+			border-top: 0;
+		}
+	}
+
+	@media (max-width: 760px) {
+		.edition-item,
+		.adoption-list li,
+		.proof-strip li {
+			border-top: 0;
+		}
 	}
 </style>

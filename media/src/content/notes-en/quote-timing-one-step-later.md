@@ -1,6 +1,6 @@
 ---
 title: "In Japan, your 30-day quote expires halfway through the approval"
-description: "HQ tells the Japan team to get the quote out fast. But in Japan the quote is the number a stranger has to defend in writing, and 73.5% of large purchases run longer than planned (IDEATECH, n=325). A quote issued before requirements settle becomes a price increase later. What to send instead, and how to set the validity date."
+description: "HQ tells the Japan team to get the quote out fast. But in Japan the quote is the number a stranger has to defend in writing, and 73.5% of large purchases run longer than planned (IDEATECH, 2026). A quote issued before requirements settle becomes a price increase later. What to send instead, and how to set the validity date."
 publishedAt: 2026-09-06
 category: sales
 principle: "A quote in Japan is not a price communication. It is the number that enters a written approval and gets defended by people your reps never meet. Issue it once the configuration and the approval path are known, and set its validity against the buyer's approval calendar, not your standard 30 days."
@@ -25,7 +25,7 @@ So price decides the outcome, and the buyer cannot yet build the number that pri
 
 ## The quote does not stay with the person who asked for it
 
-In the same study, 58.5% of these purchases involved seven or more people. Finance and accounting were involved in 38.2% of them, procurement in 32.0%, legal in 33.2%.
+In the same study, 58.5% of these purchases involved seven or more people. Finance and accounting were involved in 38.2% of them, legal in 33.2%, procurement in 32.0%.
 
 Your rep meets perhaps two of those people. The quote reaches all of them, in writing, attached to an internal request that someone on the buyer's side has to author and defend.
 
@@ -47,7 +47,7 @@ The answer is not to withhold pricing. Buyers who cannot estimate operational lo
 
 Send what makes the number calculable: seat count, contract term, migration volume, integrations, and how each moves the total. Give them a version they can run themselves.
 
-The study supports this directly. The single most useful piece of content for these buyers was an ROI calculator or investment-return estimation tool, 55.4%. Meanwhile, the persuasiveness of a vendor's ROI argument ranked near the bottom of decision factors, at 11.1%.
+The study supports this directly. The single most useful piece of content for these buyers was an ROI calculator or investment-return estimation tool, 55.4%. Meanwhile, the persuasiveness of a vendor's ROI argument was cited by only 11.1% as a factor in the final decision.
 
 Buyers are not looking to be convinced. They are looking to produce their own figure, because that is the figure that goes into the written request.
 
@@ -74,8 +74,8 @@ The wider view of designing revenue around the buyer's internal process sits in 
 ## Common mistakes
 
 - **Treating quote issuance as a velocity metric.** A quoted opportunity in Japan is not further along than an unquoted one if the requirements are still being coordinated across departments. It is just harder to correct.
-- **Reissuing a higher quote without addressing the first one.** The people who saw the original figure are not in your meetings. If the revision is not explained in writing, in Japanese, in a form your champion can forward, it reads as a price increase.
-- **Localising the feature comparison table first.** It ranked second among content that had no influence on the decision, at 46.2%. The ROI calculator, which almost nobody localises, ranked first among content that helped, at 55.4%.
+- **Reissuing a higher quote without a written explanation.** The people who saw the original figure are not in your meetings. If the reason for the change is not on paper, in Japanese, in a form your champion can forward without adding anything, the revision travels as a bare new number.
+- **Building the localisation queue around what marketing already owns.** The ROI calculator is usually an English web page owned by a global team, so it rarely reaches the Japan backlog, and it is the asset these buyers named first.
 
 ## Related reading
 

@@ -131,7 +131,7 @@ tags:
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>詳細は<a href="https://consilegy.com/taiwan/microsoft-clarity-masking/">こちらの記事「Microsoft Clarityの個人情報マスキング機能」</a>をご覧ください。</p>
+<p>詳細は<a href="https://consilegy.com/analytics/microsoft-clarity-masking/">こちらの記事「Microsoft Clarityの個人情報マスキング機能」</a>をご覧ください。</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":3} -->

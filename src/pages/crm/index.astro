@@ -204,6 +204,25 @@ const faqs = [
 	lang="ja"
 	alternateUrl="/en/crm/"
 >
+<script type="application/ld+json" slot="head" set:html={JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "SoftwareApplication",
+	"name": "Revenue CRM",
+	"alternateName": ["Revenue CRM 法人向け", "レベニューCRM"],
+	"applicationCategory": "BusinessApplication",
+	"applicationSubCategory": "CRM / SFA（顧客管理・営業支援）",
+	"operatingSystem": "Web",
+	"url": "https://consilegy.com/crm/",
+	"description": "まだCRMがない会社のための国産CRM / SFA。顧客・案件・パイプライン・売上予測・受注後の更新まで1か所で管理。Jade（AIエージェント）と175本のRevOpsワークフローを標準搭載。Excelの営業管理からの最初の1つとして、法人営業・受託開発・SaaS代理店の3エディション。現在クローズドβ。",
+	"inLanguage": ["ja", "en", "zh-Hant"],
+	"offers": {
+		"@type": "Offer",
+		"price": "3000",
+		"priceCurrency": "JPY",
+		"description": "1席あたり月額3,000円（10席目から2,500円）。初期費用なし、初回30日間無料、1席から。"
+	},
+	"author": { "@type": "Organization", "name": "Consilegy合同会社", "url": "https://consilegy.com/" }
+})} />
 
 <!-- ===================== 1. HERO ===================== -->
 <section class="crm-hero">
@@ -490,6 +509,7 @@ const faqs = [
 		<div class="fit-box">
 			<p class="kicker">向いている会社</p>
 			<h2>これからCRMを入れる会社</h2>
+			<p>Excelの営業管理から、初めてSFA / CRMへ移る会社のために作りました。</p>
 			<ul>
 				<li>顧客情報がExcel・メール・個人メモに分かれている</li>
 				<li>案件状況をチームで共有できていない</li>
@@ -506,6 +526,7 @@ const faqs = [
 				入れ替えを売るより、いまの仕組みの上で収益プロセスを組み直すご提案をします。
 			</p>
 			<a href="/services/" class="text-link">既存CRMの再設計を見る</a>
+			<a href="/services/sfa-adoption-support/" class="text-link">入れたSFAが定着していないなら、SFA定着支援へ</a>
 		</div>
 	</div>
 </section>

@@ -15,6 +15,11 @@ Consilegy redesigns how marketing, sales, and customer success connect—so reve
 - **HubSpot Implementation & Operations Support**: Setup, workflow design, and ongoing operations
 - **B2B Marketing GTM Strategy Design**: Go-to-market design for Japan market entry and expansion
 - **Adoption & Growth Support**: Post-implementation support to drive actual adoption
+- **SFA Adoption Support（SFA定着支援）**: Getting an installed (or first) SFA/CRM actually used by sales reps and in sales meetings. Tool-neutral (Salesforce, HubSpot, kintone, Marketo). For B2B companies with 5–50 sales reps, including migration from Excel-based sales management. https://consilegy.com/services/sfa-adoption-support/
+
+## Product
+
+- **Revenue CRM（レベニューCRM）**: A Japanese-made CRM / SFA built by Consilegy for companies that do not yet have a CRM (customer lists in Excel, deal status in people's heads). Includes Jade (AI agent) and 175 RevOps workflows. Editions: B2B sales, contract development (受託開発), SaaS reseller (代理店), and a separate School edition (Revenue CRMスクール) for 塾・習い事・スクール. Pricing: ¥3,000/seat/month (¥2,500 from the 10th seat), no setup fee, 30-day free trial, from 1 seat. Currently closed beta. https://consilegy.com/crm/
 
 ## Key Pages (日本語 / Japanese)
 
@@ -27,6 +32,11 @@ Consilegy redesigns how marketing, sales, and customer success connect—so reve
 - HubSpot導入・運用支援: https://consilegy.com/services/hubspot-implementation-operations/
 - GTM / Marketing Strategy設計: https://consilegy.com/services/b2b-marketing-gtm-design/
 - 運用定着・改善伴走支援: https://consilegy.com/services/adoption-growth-support/
+- SFA定着支援（入れたSFAが現場で動く状態にする。Excelからの移行にも対応）: https://consilegy.com/services/sfa-adoption-support/
+- Revenue CRM（まだCRMがない会社のための国産CRM / SFA）: https://consilegy.com/crm/
+- Revenue CRM スクール版: https://consilegy.com/crm/school/
+- Revenue CRM 機能一覧: https://consilegy.com/crm/features/
+- Revenue CRM よくある質問: https://consilegy.com/crm/faq/
 - インサイト（記事一覧）: https://consilegy.com/insights/
 - CRM / RevOps収益診断（無料）: https://consilegy.com/diagnostic/
 - 30分無料相談: https://consilegy.com/free-consultation/
@@ -39,6 +49,8 @@ Consilegy redesigns how marketing, sales, and customer success connect—so reve
 - Revenue Data Flowとは何か｜なぜ数字がつながらないのか: https://consilegy.com/insights/what-is-revenue-data-flow/
 - CRMが定着しない本当の理由: https://consilegy.com/insights/why-crm-adoption-fails/
 - SalesforceとHubSpotで数字が合わない理由: https://consilegy.com/insights/why-salesforce-and-hubspot-data-do-not-match/
+- SFAがパイプライン管理表になってしまう理由: https://consilegy.com/insights/why-sfa-becomes-just-a-pipeline-sheet/
+- SFAを導入しても売上予測が当たらない理由: https://consilegy.com/insights/why-sales-forecasting-fails-even-with-sfa/
 
 ## Key Pages (English)
 
@@ -55,7 +67,7 @@ Consilegy redesigns how marketing, sales, and customer success connect—so reve
 
 ## Insights Topics
 
-Revenue Architecture, RevOps, Japan GTM, CRM adoption, HubSpot implementation, B2B marketing, lifecycle design, lead handoff, sales forecasting, KPI design, data visibility.
+Revenue Architecture, RevOps, Japan GTM, CRM adoption, SFA adoption (SFA定着), HubSpot implementation, B2B marketing, lifecycle design, lead handoff, sales forecasting, KPI design, data visibility.
 
 ## About
 

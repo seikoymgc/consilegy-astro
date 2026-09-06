@@ -1,0 +1,933 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const faqItems = [
+	{
+		q: 'SFA定着支援では、具体的に何をしてもらえますか？',
+		a: '入力率と項目数と営業会議での使われ方を実測して「なぜ入らないか」を構造で特定し、入力項目の削減、KPIと画面の再設計、営業会議の進め方の変更、現場トレーニング、月次の定着レビューまでを行います。設定作業の代行ではなく、営業担当が入力し、営業会議でSFAが開かれる状態を作るのが仕事です。Salesforce・HubSpot・kintone・Marketoなど、今お使いのツールを前提にします。',
+	},
+	{
+		q: '中小企業でも依頼できますか？',
+		a: 'はい。主な対象は営業5〜50名のB2B企業です。営業10名以下の会社では、必須項目を最小にして「Excelより楽」から始める設計にします。まず小さく始めたい場合は、収益構造の現状分析（10万円〜）を入口にすることもできます。',
+	},
+	{
+		q: 'Excelの営業管理からSFAへの移行もお願いできますか？',
+		a: 'はい。顧客一覧はExcel、案件の温度感は担当者の頭の中という状態からの移行は、支援の入口のひとつです。ツール選定、項目設計、Excelからのデータ移行、最初の3ヶ月の運用まで一緒に進めます。まだSFAが無い会社には、Consilegyが自社開発したRevenue CRMという選択肢もあります。',
+	},
+	{
+		q: 'SFAの選定や、営業プロセスの設計から相談できますか？',
+		a: 'はい。営業プロセスやKPIそのものが決まっていない段階なら、Revenue Architecture設計と組み合わせて、何を管理するかから決めます。ツールを先に決めて後から業務を合わせるより、会議で見たい数字を先に決めてから項目とツールを選ぶ方が、定着までが短くなります。',
+	},
+	{
+		q: '現場の営業を巻き込むには、どうすればいいですか？',
+		a: '「入力しろ」と言うのをやめることから始めます。入力しても営業本人に返ってくるものが無ければ、指示を重ねるほど反発が増えます。入力した情報が次の商談の準備や上司との会話に使われる設計にし、営業会議をSFAの画面で回します。会議がSFAで動けば、入力する理由が現場に生まれます。',
+	},
+	{
+		q: '今使っているSFAを替える必要はありますか？',
+		a: '原則として替えません。定着しない原因の大半はツールではなく、項目とKPIと会議の設計にあります。Salesforce・HubSpot・kintoneのどれでも、今の環境のまま項目を減らし、会議の回し方を変えることで定着します。ツールが合っていない場合はそう言いますが、入れ替えを前提にした提案はしません。',
+	},
+	{
+		q: 'Salesforce・HubSpot以外にも対応していますか？',
+		a: 'はい。Salesforce・HubSpot・kintone・Marketo・Account Engagementなど主要なSFA / CRM / MAに対応します。Consilegyは特定ベンダーの認定パートナーとして製品を売る立場ではないので、ツールを問わず同じ設計で支援できます。',
+	},
+	{
+		q: '定着するまで、どのくらいかかりますか？',
+		a: '目安は、診断に2〜4週間、項目とKPIと会議の再設計に1〜2ヶ月、その後の月次伴走で3ヶ月目に入力率が安定し、6ヶ月で自社で回せる状態です。Excelからの移行を含む場合は、データ移行の分だけ前半が長くなります。',
+	},
+	{
+		q: 'SFAとCRMの違いは何ですか？',
+		a: 'SFA（Sales Force Automation）は営業活動の管理に特化したツールで、商談・パイプライン・活動記録・売上予測を扱います。CRM（Customer Relationship Management）は顧客との関係全体を扱う概念で、営業に加えてマーケティングやカスタマーサクセスまで含みます。実務では、Salesforce・HubSpot・kintoneのように一つの製品が両方を兼ねることが多く、定着の課題はどちらも同じです。',
+	},
+	{
+		q: '導入ベンダーの支援と、何が違いますか？',
+		a: 'ベンダーの導入支援は、設定が終わって使える状態になった時点で完了します。Consilegyの定着支援は、そこから先が仕事です。入力率・更新率・会議での利用を月次で見て、止まりかけたところを直します。ベンダーの支援が終わって止まってしまった状態からの相談が、いちばん多いです。',
+	},
+];
+
+const faqSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faqItems.map(({ q, a }) => ({
+		'@type': 'Question',
+		name: q,
+		acceptedAnswer: { '@type': 'Answer', text: a },
+	})),
+};
+
+const serviceSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Service',
+	name: 'SFA定着支援',
+	alternateName: 'SFA Adoption Support',
+	serviceType: 'SFA / CRM定着支援',
+	description: '導入済みまたは導入予定のSFA / CRMを、営業担当が日常的に入力し、営業会議とKPI管理に使われる状態にする支援。Salesforce・HubSpot・kintoneなど既存ツールを前提に、入力項目の削減、KPIと画面の再設計、営業会議の運営方法までを設計し、定着するまで月額で伴走する。対象は営業5〜50名のB2B企業。Excelの営業管理から初めてSFAへ移行する場合も対応。',
+	url: 'https://consilegy.com/services/sfa-adoption-support/',
+	provider: {
+		'@type': 'Organization',
+		name: 'Consilegy合同会社',
+		url: 'https://consilegy.com/',
+	},
+	areaServed: { '@type': 'Country', name: 'JP' },
+	audience: { '@type': 'BusinessAudience', name: '営業5〜50名のB2B企業' },
+	offers: {
+		'@type': 'AggregateOffer',
+		priceCurrency: 'JPY',
+		lowPrice: '300000',
+		offerCount: '2',
+		description: 'SFA定着診断30万円〜、定着伴走支援は月額30万〜100万円',
+	},
+};
+---
+
+<BaseLayout
+	title="SFA定着支援 | 現場が入力し、営業会議で使われる状態まで伴走 | Consilegy"
+	description="SFAを入れたのに営業が入力しない、パイプラインがExcelに戻る、会議で誰もSFAを開かない。原因は現場ではなく、入力の見返りと会議の設計にあります。Salesforce・HubSpot・kintoneを替えずに定着させる、営業5〜50名のB2B企業向けの伴走支援。Excelからの移行にも対応。"
+	lang="ja"
+>
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'BreadcrumbList',
+			itemListElement: [
+				{ '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://consilegy.com/' },
+				{ '@type': 'ListItem', position: 2, name: 'サービス', item: 'https://consilegy.com/services/' },
+				{ '@type': 'ListItem', position: 3, name: 'SFA定着支援', item: 'https://consilegy.com/services/sfa-adoption-support/' },
+			],
+		})} />
+	</Fragment>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+	<div class="container">
+		<div class="hero-nav">
+			<a href="/services/" class="back-link">← サービス一覧</a>
+			<span class="hero-tag">SFA Adoption Support</span>
+		</div>
+		<div class="hero-service-name">
+			<span class="hero-service-ja">SFA定着支援</span>
+			<span class="hero-service-en">SFA Adoption Support</span>
+		</div>
+		<h1>
+			入れたSFAが、<br />
+			<span class="accent">現場で動く状態にする。</span>
+		</h1>
+		<div class="hero-body">
+			<p class="hero-poem">
+				SFAを入れた。<br />
+				営業は入力しない。<br />
+				パイプラインはExcelに戻った。<br />
+				会議で、誰もSFAを開かない。
+			</p>
+			<p class="hero-lead">
+				定着しないのは、営業が怠けているからではありません。<br />
+				入力しても、営業本人に返ってくるものが無い設計になっているからです。
+			</p>
+			<p class="hero-value">
+				Consilegyは、入力の見返り、KPIと画面のずれ、営業会議での使われ方を設計し直し、<br />
+				現場が入力し、営業会議でSFAが開かれる状態まで伴走します。
+			</p>
+		</div>
+		<div class="hero-cta">
+			<a href="/free-consultation/" class="btn btn--primary btn--lg">30分無料相談</a>
+			<a href="/diagnostic/" class="btn btn--outline btn--lg">収益を自己診断</a>
+		</div>
+		<div class="hero-keywords">
+			<span class="kw-pill">SFA定着</span>
+			<span class="kw-pill">現場が動く設計</span>
+			<span class="kw-pill">Excelからの移行</span>
+			<span class="kw-pill">営業5〜50名</span>
+			<span class="kw-pill">Salesforce / HubSpot / kintone</span>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 定義 ===================== -->
+<section class="definition">
+	<div class="container">
+		<div class="def-box">
+			<p class="eyebrow-label">Definition</p>
+			<h2>SFA定着支援とは</h2>
+			<p class="def-lead">
+				SFA定着支援は、導入済み、または導入予定のSFA / CRMを、営業担当が日常的に入力し、営業会議とKPI管理に実際に使われる状態にする支援です。Salesforce・HubSpot・kintoneなど今お使いのツールを前提に、入力項目の削減、KPIと画面の再設計、営業会議の運営方法までを設計し、定着するまで月額で伴走します。対象は営業5〜50名のB2B企業。Excelの営業管理から初めてSFAへ移行する場合も対応します。
+			</p>
+			<p class="def-oneliner">
+				設定して終わりではなく、<br />
+				営業会議でSFAが開かれるところまでが仕事です。
+			</p>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 現場で起きていること ===================== -->
+<section class="collapse">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">What Happens</p>
+			<h2>SFAは、入れた瞬間ではなく、3ヶ月目に止まります。</h2>
+		</div>
+		<div class="collapse-grid">
+			<div class="collapse-card"><span class="collapse-icon">✕</span><span>商談の更新が止まる</span></div>
+			<div class="collapse-card"><span class="collapse-icon">✕</span><span>パイプラインがExcelに戻る</span></div>
+			<div class="collapse-card"><span class="collapse-icon">✕</span><span>SFAの数字と実際の見込みが合わない</span></div>
+			<div class="collapse-card"><span class="collapse-icon">✕</span><span>営業会議で誰もSFAを開かない</span></div>
+			<div class="collapse-card"><span class="collapse-icon">✕</span><span>売上予測が担当者の勘に戻る</span></div>
+			<div class="collapse-card"><span class="collapse-icon">✕</span><span>必須項目だけが増え続ける</span></div>
+			<div class="collapse-card"><span class="collapse-icon">✕</span><span>「入力しろ」と言うたびに反発が増える</span></div>
+			<div class="collapse-card"><span class="collapse-icon">✕</span><span>導入ベンダーの支援が切れて止まる</span></div>
+			<div class="collapse-card"><span class="collapse-icon">✕</span><span>営業企画がレポートを手で作っている</span></div>
+			<div class="collapse-card"><span class="collapse-icon">✕</span><span>半年後、「うちには合わなかった」で終わる</span></div>
+		</div>
+		<div class="collapse-footer">
+			<p>
+				ここから先を設計しないと、ツールを替えても同じことが起きます。<br />
+				SalesforceからHubSpotに移しても、HubSpotからkintoneに移しても、止まる場所は同じです。
+			</p>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== なぜ定着しないのか ===================== -->
+<section class="root-cause">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Root Cause</p>
+			<h2>定着しない原因は、現場ではなく設計にあります。</h2>
+		</div>
+		<div class="cause-grid">
+			<div class="cause-card">
+				<div class="cause-num">01</div>
+				<h3>入力の見返りが、営業本人に無い</h3>
+				<p>入れた情報が上司の管理にしか使われない。営業にとってSFAは「報告書」であって、次の商談の武器になっていない。だから後回しになる。</p>
+			</div>
+			<div class="cause-card">
+				<div class="cause-num">02</div>
+				<h3>KPIと画面がずれている</h3>
+				<p>会議で見たい数字と、入力する項目が一致していない。入力しても数字が出ないので、結局Excelで作り直す。二重管理はここから始まる。</p>
+			</div>
+			<div class="cause-card">
+				<div class="cause-num">03</div>
+				<h3>営業会議でSFAが開かれていない</h3>
+				<p>会議がExcelや口頭で回っていれば、SFAに入れる理由が消える。定着の勝負は入力画面ではなく、会議で決まる。</p>
+			</div>
+		</div>
+		<div class="collapse-footer">
+			<p>
+				「入力しろ」は解決策ではありません。指示を重ねるほど、現場の反発が増えるだけです。<br />
+				詳しくは、<a href="/insights/why-sfa-becomes-just-a-pipeline-sheet/">SFAがパイプライン管理表になってしまう理由</a>と<a href="/insights/why-sales-forecasting-fails-even-with-sfa/">SFAを導入しても売上予測が当たらない理由</a>に書きました。
+			</p>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 支援の入口 ===================== -->
+<section class="problems">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Where You Start</p>
+			<h2>支援の入口は3つ</h2>
+			<p class="section-desc">今どこにいるかで、最初にやることが変わります。</p>
+		</div>
+		<div class="problems-grid">
+			<div class="problem-card">
+				<div class="problem-num">01</div>
+				<h3>Excelの営業管理から、初めてSFAへ</h3>
+				<p>顧客一覧はExcel、案件の温度感は担当者の頭の中。この段階では、必須項目を最小にして「Excelより楽」から始めます。ツール選定とデータ移行も一緒に。まだSFAが無い会社には、自社開発の<a href="/crm/">Revenue CRM</a>という選択肢もあります。</p>
+			</div>
+			<div class="problem-card">
+				<div class="problem-num">02</div>
+				<h3>入れたSFAが、定着していない</h3>
+				<p>Salesforce・HubSpot・kintoneなど、今あるSFAを替えずに、項目・KPI・会議を設計し直します。払った分は活かします。入れ替えは前提にしません。</p>
+			</div>
+			<div class="problem-card">
+				<div class="problem-num">03</div>
+				<h3>営業プロセスの設計から、一緒に</h3>
+				<p>何を管理するかが決まっていない段階。<a href="/services/revenue-architecture-design/">Revenue Architecture設計</a>と組み合わせて、会議で見たい数字を先に決め、そこから項目とツールを選びます。</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 定着までの進め方 ===================== -->
+<section class="process">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Process</p>
+			<h2>定着までの5段階</h2>
+			<p class="section-desc">設定の手順ではなく、現場が動く順番です。</p>
+		</div>
+		<div class="process-flow">
+			<div class="process-step">
+				<div class="step-num">01</div>
+				<div class="step-body">
+					<h3>現状診断（2〜4週間）</h3>
+					<p>入力率、項目数、営業会議での使われ方を実測します。「なぜ入らないか」を、人ではなく構造で特定します。</p>
+				</div>
+			</div>
+			<div class="process-step">
+				<div class="step-num">02</div>
+				<div class="step-body">
+					<h3>項目とKPIの再設計</h3>
+					<p>会議で見る数字から逆算して、必須項目を減らします。それ以外は任意にします。入力が楽になるだけでなく、数字が出るようになります。</p>
+				</div>
+			</div>
+			<div class="process-step">
+				<div class="step-num">03</div>
+				<div class="step-body">
+					<h3>営業会議の再設計</h3>
+					<p>会議をSFAの画面で回します。Excelの会議資料は廃止します。ここで初めて、現場に「入力する理由」が生まれます。</p>
+				</div>
+			</div>
+			<div class="process-step">
+				<div class="step-num">04</div>
+				<div class="step-body">
+					<h3>移行と現場トレーニング</h3>
+					<p>Excelや旧SFAからのデータ移行を行います。トレーニングで教えるのは「入力の仕方」ではなく「会議での使い方」です。</p>
+				</div>
+			</div>
+			<div class="process-step process-step--last">
+				<div class="step-num step-num--cycle">↺</div>
+				<div class="step-body">
+					<h3>月次の定着レビュー</h3>
+					<p>入力率・更新率・会議での利用をKPIにして毎月見ます。目安は、3ヶ月目に入力率が安定し、6ヶ月で自社で回せる状態です。</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== BEFORE / AFTER ===================== -->
+<section class="ba-section">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Before / After</p>
+			<h2>「報告書」だったSFAを、<br />営業の武器に。</h2>
+		</div>
+		<div class="ba-layout">
+			<div class="ba-col ba-col--before">
+				<div class="ba-badge ba-badge--before">Before</div>
+				<div class="ba-title">止まったSFA</div>
+				<ul class="ba-list">
+					<li class="ba-item ba-item--bad"><span class="ba-x">✕</span>入力率が30%台で止まる</li>
+					<li class="ba-item ba-item--bad"><span class="ba-x">✕</span>Excelとの二重管理</li>
+					<li class="ba-item ba-item--bad"><span class="ba-x">✕</span>会議はExcel資料で回る</li>
+					<li class="ba-item ba-item--bad"><span class="ba-x">✕</span>売上予測は担当者の勘</li>
+					<li class="ba-item ba-item--bad"><span class="ba-x">✕</span>必須項目が増え続ける</li>
+					<li class="ba-item ba-item--bad"><span class="ba-x">✕</span>ベンダー任せで止まる</li>
+				</ul>
+			</div>
+			<div class="ba-arrow-col">
+				<div class="ba-arrow-wrap">
+					<div class="ba-arrow-line"></div>
+					<div class="ba-arrow-label">Consilegy<br />定着支援</div>
+					<div class="ba-arrow-head">→</div>
+				</div>
+			</div>
+			<div class="ba-col ba-col--after">
+				<div class="ba-badge ba-badge--after">After</div>
+				<div class="ba-title">現場が動くSFA</div>
+				<ul class="ba-list">
+					<li class="ba-item ba-item--good"><span class="ba-check">✓</span>商談は当日中に更新される</li>
+					<li class="ba-item ba-item--good"><span class="ba-check">✓</span>SFAが唯一の台帳になる</li>
+					<li class="ba-item ba-item--good"><span class="ba-check">✓</span>会議はSFAの画面で回る</li>
+					<li class="ba-item ba-item--good"><span class="ba-check">✓</span>予測はパイプラインから出る</li>
+					<li class="ba-item ba-item--good"><span class="ba-check">✓</span>必須項目は最小のまま</li>
+					<li class="ba-item ba-item--good"><span class="ba-check">✓</span>自社で回せる</li>
+				</ul>
+			</div>
+		</div>
+		<div class="ba-notes">
+			<p class="ba-note">※ ツールは替えません。今あるSFAを機能させます。</p>
+			<p class="ba-note">※ 「入力しろ」と言わずに済む設計を作ります。</p>
+			<p class="ba-note">※ 営業10名以下の会社は、必須項目を最小にして小さく始めます。</p>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== なぜConsilegyなのか ===================== -->
+<section class="why-us">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Why Consilegy</p>
+			<h2>なぜConsilegyなのか</h2>
+		</div>
+		<div class="why-grid">
+			<div class="why-card">
+				<div class="why-card__num">01</div>
+				<h3>ツールを売らない</h3>
+				<p>Salesforce・HubSpot・kintone・Marketoに対応します。特定ベンダーの認定パートナーとして製品を売る立場ではないので、「替えない方がいい」も「替えた方がいい」も言えます。</p>
+			</div>
+			<div class="why-card">
+				<div class="why-card__num">02</div>
+				<h3>定着まで責任を持つ</h3>
+				<p>設定して終わりではなく、入力率・更新率・会議での利用を月次で見ます。止まりかけたところを、その月のうちに直します。</p>
+			</div>
+			<div class="why-card">
+				<div class="why-card__num">03</div>
+				<h3>営業会議から設計する</h3>
+				<p>代表自身がCRM / MA / SFAの導入に40件以上、B2B企業の支援に40社以上関わってきました。設定画面からではなく、営業会議から設計します。</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 支援事例 ===================== -->
+<section class="cases">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Case Studies</p>
+			<h2>SFA定着の支援事例</h2>
+			<p class="section-desc">※代表 山口聖子の個人実績を含みます。</p>
+		</div>
+		<div class="cases-grid">
+			<div class="case-card">
+				<div class="case-card__head">
+					<span class="case-tag">SaaS / IT</span>
+					<span class="case-label">Case 01</span>
+				</div>
+				<h3>入力率30%以下からの定着</h3>
+				<p>導入済みHubSpotの入力率が30%以下。KPIが機能していない状態から伴走開始。プロパティ整理・入力ルール再定義・Slack自動通知設計を実施。</p>
+				<div class="case-metrics">
+					<div class="case-metric">
+						<div class="case-metric__val">+40%</div>
+						<div class="case-metric__label">CRM入力率改善</div>
+					</div>
+					<div class="case-metric">
+						<div class="case-metric__val">−8h</div>
+						<div class="case-metric__label">月間レポート工数削減</div>
+					</div>
+					<div class="case-metric">
+						<div class="case-metric__val">3ヶ月</div>
+						<div class="case-metric__label">定着達成期間</div>
+					</div>
+				</div>
+			</div>
+			<div class="case-card">
+				<div class="case-card__head">
+					<span class="case-tag">BtoB製造</span>
+					<span class="case-label">Case 02</span>
+				</div>
+				<h3>Excel集計20時間からの脱却</h3>
+				<p>毎週Excelで20時間の集計工数が発生。会議は数字確認で終わり、改善アクションが生まれていない状態を改善。ダッシュボード自動化・会議体再設計を実施。</p>
+				<div class="case-metrics">
+					<div class="case-metric">
+						<div class="case-metric__val">−20h</div>
+						<div class="case-metric__label">月間集計工数削減</div>
+					</div>
+					<div class="case-metric">
+						<div class="case-metric__val">100%</div>
+						<div class="case-metric__label">改善アクション化率</div>
+					</div>
+					<div class="case-metric">
+						<div class="case-metric__val">自動化</div>
+						<div class="case-metric__label">週次レポート</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="cases-cta">
+			<a href="/case-studies/" class="btn btn--ghost">導入事例を見る</a>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 適している企業 ===================== -->
+<section class="fit">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Good Fit</p>
+			<h2>このような企業に適しています</h2>
+		</div>
+		<div class="fit-grid">
+			<div class="fit-item"><span class="fit-check">✓</span>営業5〜50名のB2B企業</div>
+			<div class="fit-item"><span class="fit-check">✓</span>SFAを入れて半年以上、入力率が上がらない</div>
+			<div class="fit-item"><span class="fit-check">✓</span>Excelと二重管理になっている</div>
+			<div class="fit-item"><span class="fit-check">✓</span>営業会議でSFAが開かれていない</div>
+			<div class="fit-item"><span class="fit-check">✓</span>これから初めてSFAを入れる</div>
+			<div class="fit-item"><span class="fit-check">✓</span>導入ベンダーの支援が終わって止まっている</div>
+			<div class="fit-item"><span class="fit-check">✓</span>「入力しろ」と言い続けるのをやめたい</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 料金 ===================== -->
+<section class="pricing">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Pricing</p>
+			<h2>料金目安</h2>
+		</div>
+		<div class="pricing-pre">
+			<p>
+				SFAが止まると、営業の入力工数、営業企画の集計工数、会議の時間が、毎月そのまま失われます。<br />
+				ツールの費用より、<strong>使われないまま払い続ける期間</strong>の方が高くつきます。
+			</p>
+		</div>
+		<div class="pricing-phases">
+			<div class="pricing-phase">
+				<div class="pricing-phase__phase">Phase 1</div>
+				<h3>SFA定着診断</h3>
+				<div class="pricing-phase__price">30万円〜</div>
+				<p class="pricing-phase__desc">入力率・項目数・営業会議での使われ方を実測し、定着までのロードマップを提示します。2〜4週間。</p>
+				<ul class="pricing-includes">
+					<li>入力率・更新率の実測</li>
+					<li>項目監査</li>
+					<li>営業会議の観察</li>
+					<li>定着阻害要因の特定</li>
+					<li>定着ロードマップ</li>
+				</ul>
+			</div>
+			<div class="pricing-phase pricing-phase--featured">
+				<div class="pricing-phase__badge">推奨</div>
+				<div class="pricing-phase__phase">Phase 2</div>
+				<h3>定着伴走支援</h3>
+				<div class="pricing-phase__price">月額 30万〜100万円</div>
+				<p class="pricing-phase__desc">項目・KPI・会議の再設計から、移行、トレーニング、月次の定着レビューまで。支援範囲に応じてプランを設定します。</p>
+				<ul class="pricing-includes">
+					<li>項目とKPIの再設計</li>
+					<li>営業会議の再設計</li>
+					<li>Excel・旧SFAからの移行</li>
+					<li>現場トレーニング</li>
+					<li>ワークフロー・通知の整備</li>
+					<li>月次定着レビュー</li>
+				</ul>
+				<p class="pricing-sub">ライト / スタンダード / フルの3段階</p>
+			</div>
+		</div>
+		<div class="pricing-pre">
+			<p>まず小さく始めたい場合は、<a href="/revops-assessment/">収益構造の現状分析（10万円〜）</a>を入口にすることもできます。</p>
+		</div>
+		<div class="pricing-cta">
+			<a href="/free-consultation/" class="btn btn--primary">30分無料相談</a>
+			<a href="/services/" class="btn btn--outline">パッケージ料金を見る</a>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 関連サービス ===================== -->
+<section class="related">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">Related</p>
+			<h2>関連サービス・記事</h2>
+		</div>
+		<div class="related-grid">
+			<a href="/services/adoption-growth-support/" class="related-card">
+				<div class="related-card__tag">運用定着</div>
+				<h3>運用定着・改善支援</h3>
+				<p>SFAに限らず、CRM / KPI / 営業・マーケ・CS運用を継続的に改善する月額伴走。</p>
+			</a>
+			<a href="/services/crm-revops-redesign/" class="related-card">
+				<div class="related-card__tag">CRM再設計</div>
+				<h3>CRM / RevOps再設計支援</h3>
+				<p>複数のCRM / SFA / MAが分断している環境を、Revenue Architectureで再接続するプロジェクト型支援。</p>
+			</a>
+			<a href="/crm/" class="related-card">
+				<div class="related-card__tag">プロダクト</div>
+				<h3>Revenue CRM</h3>
+				<p>まだCRMがない会社のために、Consilegyが自社開発した国産CRM。Excelからの最初の1つに。</p>
+			</a>
+			<a href="/insights/why-sfa-becomes-just-a-pipeline-sheet/" class="related-card">
+				<div class="related-card__tag">記事</div>
+				<h3>SFAがパイプライン管理表になってしまう理由</h3>
+				<p>入力はされているのに、営業会議で使われないSFAはなぜ生まれるのか。</p>
+			</a>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="faq">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow-label">FAQ</p>
+			<h2>よくある質問</h2>
+		</div>
+		<div class="faq-list">
+			{faqItems.map(({ q, a }) => (
+				<details class="faq-item">
+					<summary class="faq-q">{q}</summary>
+					<div class="faq-a"><p>{a}</p></div>
+				</details>
+			))}
+		</div>
+	</div>
+</section>
+
+<!-- ===================== FINAL CTA ===================== -->
+<section class="cta-final">
+	<div class="container">
+		<p class="cta-final__eyebrow">Next Step</p>
+		<h2>
+			「入力しろ」と言うのを、<br />
+			やめませんか。
+		</h2>
+		<p class="cta-final__body">
+			今のSFAの入力率、項目数、営業会議での使われ方を、30分で整理します。<br />
+			替えるべきか、直せるかも、その場でお伝えします。
+		</p>
+		<div class="cta-final__btns">
+			<a href="/free-consultation/" class="btn btn--white btn--lg">30分無料相談</a>
+			<a href="/diagnostic/" class="btn btn--outline-white btn--lg">収益を自己診断</a>
+		</div>
+	</div>
+</section>
+</BaseLayout>
+<style>
+/* ===== BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+	--color-primary: #1e40af;
+	--color-primary-dark: #1d4ed8;
+	--color-accent-purple: #7c5cbf;
+	--color-navy: #0f172a;
+	--color-slate: #1e293b;
+	--color-charcoal: #334155;
+	--color-text: #1e293b;
+	--color-muted: #44403C;
+	--color-border: #e2e8f0;
+	--color-border-mid: #cbd5e1;
+	--color-bg-soft: #f8fafc;
+	--color-bg-mid: #f1f5f9;
+	--font-serif: var(--font-sans);
+	--font-sans: 'Inter', 'Noto Sans JP', system-ui, sans-serif;
+	--container: 1100px;
+	--radius: 8px;
+}
+
+body { font-family: var(--font-sans); color: var(--color-text); line-height: 1.7; }
+.container { max-width: var(--container); margin: 0 auto; padding: 0 2rem; }
+
+/* ===== SECTION HEADERS ===== */
+.section-header { text-align: center; margin-bottom: 3rem; }
+.eyebrow-label { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-primary); margin-bottom: 0.625rem; }
+.section-header h2 { font-family: var(--font-serif); font-size: clamp(1.5rem, 3vw, 2rem); color: var(--color-navy); line-height: 1.4; }
+.section-desc { margin-top: 1rem; color: var(--color-text-muted); font-size: 0.9375rem; }
+
+/* ===== BUTTONS ===== */
+.btn { display: inline-flex; align-items: center; justify-content: center; font-weight: 600; border-radius: 5px; text-decoration: none; transition: all 0.18s; font-size: 0.9375rem; padding: 0.75rem 1.5rem; }
+.btn--lg { padding: 0.9rem 2rem; font-size: 1rem; }
+.btn--primary { background: var(--color-primary); color: #fff; border: 2px solid transparent; }
+.btn--primary:hover { background: var(--color-primary-dark); }
+.btn--outline { background: transparent; color: var(--color-primary); border: 2px solid var(--color-primary); }
+.btn--outline:hover { background: var(--color-primary); color: #fff; }
+.btn--ghost { background: transparent; color: var(--color-charcoal); border: 1px solid var(--color-border-mid); padding: 0.625rem 1.25rem; font-size: 0.875rem; }
+.btn--ghost:hover { border-color: var(--color-primary); color: var(--color-primary); }
+.btn--white { background: #fff; color: var(--color-primary); border: 2px solid transparent; }
+.btn--white:hover { background: #f1f5f9; }
+.btn--outline-white { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.55); }
+.btn--outline-white:hover { background: rgba(255,255,255,0.12); }
+
+/* ===== HERO ===== */
+.hero { padding: 5rem 0 4.5rem; background: #fff; border-bottom: 1px solid var(--color-border); }
+.hero-nav { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.back-link { font-size: 0.875rem; color: var(--color-text-muted); text-decoration: none; }
+.back-link:hover { color: var(--color-primary); }
+.hero-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; color: var(--color-primary); background: #eff6ff; border: 1px solid #bfdbfe; padding: 0.25rem 0.75rem; border-radius: 4px; }
+.hero-service-name { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.75rem; flex-wrap: wrap; }
+.hero-service-ja { font-family: var(--font-serif); font-size: 1rem; color: var(--color-charcoal); font-weight: 700; }
+.hero-service-en { font-size: 0.8125rem; color: var(--color-text-muted); letter-spacing: 0.04em; }
+.hero h1 { font-family: var(--font-serif); font-size: clamp(1.875rem, 4.5vw, 2.875rem); color: var(--color-navy); line-height: 1.3; margin-bottom: 2rem; }
+.hero h1 .accent { color: var(--color-primary); }
+.hero-body { max-width: 680px; margin-bottom: 2.25rem; }
+.hero-poem { font-size: 1.0625rem; color: var(--color-charcoal); line-height: 2; margin-bottom: 1.25rem; border-left: 3px solid var(--color-border-mid); padding-left: 1.25rem; }
+.hero-lead { font-size: 1rem; color: var(--color-charcoal); line-height: 1.9; margin-bottom: 1rem; }
+.hero-value { font-size: 1rem; color: var(--color-slate); font-weight: 600; line-height: 1.85; }
+.hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+.hero-keywords { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.kw-pill { font-size: 0.8125rem; font-weight: 600; background: var(--color-bg-mid); color: var(--color-charcoal); border: 1px solid var(--color-border-mid); border-radius: 4px; padding: 0.25rem 0.75rem; }
+
+/* ===== COLLAPSE ===== */
+.collapse { padding: 5rem 0; background: var(--color-bg-soft); }
+.collapse-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.875rem; margin-bottom: 3rem; }
+.collapse-card { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius); padding: 1rem; display: flex; align-items: flex-start; gap: 0.625rem; font-size: 0.875rem; color: var(--color-slate); line-height: 1.5; }
+.collapse-icon { color: #dc2626; font-weight: 700; flex-shrink: 0; font-size: 0.875rem; }
+.collapse-footer { max-width: 540px; margin: 0 auto; text-align: center; }
+.collapse-footer p { font-family: var(--font-serif); font-size: 1.0625rem; color: var(--color-charcoal); line-height: 2.1; }
+
+/* ===== ROOT CAUSE ===== */
+.root-cause { padding: 5rem 0; background: #fff; }
+.cause-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.cause-card { padding: 2rem; border: 1px solid var(--color-border); border-radius: var(--radius); background: var(--color-bg-soft); }
+.cause-num { font-size: 2.25rem; font-weight: 700; color: var(--color-border-mid); font-variant-numeric: tabular-nums; line-height: 1; margin-bottom: 1rem; font-family: var(--font-sans); }
+.cause-card h3 { font-family: var(--font-serif); font-size: 1rem; color: var(--color-navy); margin-bottom: 0.625rem; line-height: 1.5; }
+.cause-card p { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.85; }
+
+/* ===== DEFINITION ===== */
+.definition { padding: 5rem 0; background: var(--color-navy); }
+.def-box { max-width: 780px; margin: 0 auto; text-align: center; }
+.def-box .eyebrow-label { color: #93c5fd; }
+.def-box h2 { font-family: var(--font-serif); font-size: clamp(1.5rem, 3vw, 2rem); color: #fff; margin-bottom: 1.5rem; }
+.def-lead { font-size: 1.0625rem; color: rgba(255,255,255,0.9); line-height: 1.9; margin-bottom: 1.5rem; }
+.def-oneliner { font-family: var(--font-serif); font-size: 1.125rem; color: #93c5fd; line-height: 2; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 1.5rem; }
+
+/* ===== PROBLEMS ===== */
+.problems { padding: 5rem 0; background: var(--color-bg-soft); }
+.problems-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
+.problem-card { background: #fff; border: 1px solid var(--color-border); border-top: 2px solid var(--color-slate); border-radius: var(--radius); padding: 1.5rem 1.25rem; }
+.problem-num { font-size: 0.72rem; font-weight: 700; color: var(--color-text-muted); letter-spacing: 0.08em; margin-bottom: 0.75rem; font-variant-numeric: tabular-nums; }
+.problem-card h3 { font-family: var(--font-serif); font-size: 0.9375rem; color: var(--color-navy); margin-bottom: 0.625rem; line-height: 1.4; }
+.problem-card p { font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.7; }
+
+/* ===== SCOPE ===== */
+.scope { padding: 5rem 0; background: #fff; }
+.scope-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
+.scope-item { background: var(--color-bg-soft); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 1rem 1.125rem; display: flex; align-items: center; gap: 0.75rem; }
+.scope-num { font-size: 0.6875rem; font-weight: 700; color: var(--color-text-muted); font-variant-numeric: tabular-nums; flex-shrink: 0; width: 1.5rem; }
+.scope-label { font-size: 0.875rem; font-weight: 600; color: var(--color-slate); }
+
+/* ===== PROCESS ===== */
+.process { padding: 5rem 0; background: var(--color-bg-soft); }
+.process-flow { max-width: 740px; margin: 0 auto; display: flex; flex-direction: column; gap: 0; }
+.process-step { display: flex; gap: 1.5rem; align-items: flex-start; position: relative; padding-bottom: 1.75rem; }
+.process-step:not(.process-step--last)::after { content: ''; position: absolute; left: 1.3125rem; top: 2.625rem; width: 1.5px; height: calc(100% - 1.375rem); background: var(--color-border); }
+.step-num { flex-shrink: 0; width: 2.625rem; height: 2.625rem; border-radius: 50%; background: var(--color-navy); color: #fff; font-size: 0.75rem; font-weight: 700; display: flex; align-items: center; justify-content: center; font-variant-numeric: tabular-nums; z-index: 1; }
+.step-num--cycle { background: var(--color-primary); font-size: 1.125rem; }
+.process-step--last { padding-bottom: 0; }
+.step-body h3 { font-family: var(--font-serif); font-size: 1rem; color: var(--color-navy); margin-bottom: 0.25rem; padding-top: 0.375rem; }
+.step-body p { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.75; }
+
+/* ===== BEFORE / AFTER ===== */
+.ba-section { padding: 5rem 0; background: #fff; }
+.ba-layout { display: grid; grid-template-columns: 1fr auto 1fr; gap: 2rem; align-items: start; margin-bottom: 2rem; }
+.ba-col { border-radius: 8px; padding: 1.75rem; }
+.ba-col--before { background: #fafafa; border: 1px solid var(--color-border); }
+.ba-col--after { background: #f0fdf4; border: 1px solid #bbf7d0; }
+.ba-badge { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 3px; margin-bottom: 0.75rem; }
+.ba-badge--before { background: #f1f5f9; color: var(--color-text-muted); }
+.ba-badge--after { background: #dcfce7; color: #166534; }
+.ba-title { font-family: var(--font-serif); font-size: 0.9375rem; font-weight: 700; color: var(--color-navy); margin-bottom: 1.125rem; }
+.ba-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.ba-item { display: flex; align-items: center; gap: 0.625rem; font-size: 0.875rem; padding: 0.4375rem 0.625rem; border-radius: 5px; }
+.ba-item--bad { background: #fef2f2; color: #7f1d1d; }
+.ba-item--good { background: #dcfce7; color: #14532d; }
+.ba-x { font-weight: 700; color: #dc2626; flex-shrink: 0; }
+.ba-check { font-weight: 700; color: #16a34a; flex-shrink: 0; }
+.ba-arrow-col { display: flex; align-items: center; justify-content: center; padding-top: 5rem; }
+.ba-arrow-wrap { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+.ba-arrow-line { width: 1.5px; height: 40px; background: var(--color-border-mid); }
+.ba-arrow-label { font-size: 0.72rem; font-weight: 600; color: var(--color-primary); text-align: center; line-height: 1.5; }
+.ba-arrow-head { font-size: 1.375rem; color: var(--color-primary); }
+.ba-notes { display: flex; flex-direction: column; gap: 0.5rem; }
+.ba-note { font-size: 0.8125rem; color: var(--color-text-muted); padding-left: 1rem; border-left: 2px solid var(--color-border); }
+
+/* ===== CYCLE SECTION ===== */
+.cycle-section { padding: 5rem 0; background: var(--color-bg-soft); }
+.cycle-layout { display: grid; grid-template-columns: auto 1fr; gap: 4rem; align-items: start; }
+.cycle-track { display: flex; flex-direction: column; align-items: center; gap: 0; }
+.cycle-node { width: 200px; background: #fff; border: 1.5px solid var(--color-border); border-radius: 8px; padding: 1.125rem 1.25rem; text-align: center; position: relative; transition: border-color 0.2s; }
+.cycle-node--active { border-color: var(--color-primary); background: #eff6ff; }
+.cycle-node__num { font-size: 0.6875rem; font-weight: 700; color: var(--color-primary); letter-spacing: 0.06em; margin-bottom: 0.25rem; font-variant-numeric: tabular-nums; }
+.cycle-node__name { font-family: var(--font-serif); font-size: 1rem; font-weight: 700; color: var(--color-navy); margin-bottom: 0.375rem; }
+.cycle-node__desc { font-size: 0.75rem; color: var(--color-text-muted); line-height: 1.6; }
+.cycle-arrow { font-size: 1.125rem; color: var(--color-border-mid); padding: 0.125rem 0; }
+.cycle-loop { margin-top: 0.5rem; font-size: 0.8125rem; font-weight: 600; color: var(--color-primary); background: #eff6ff; border: 1px solid #bfdbfe; padding: 0.5rem 1.5rem; border-radius: 4px; }
+.cycle-text { padding-top: 1rem; display: flex; flex-direction: column; gap: 2rem; }
+.cycle-text__block h3 { font-family: var(--font-serif); font-size: 1rem; color: var(--color-navy); margin-bottom: 0.625rem; }
+.cycle-text__block p { font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.85; }
+
+/* ===== DELIVERABLES ===== */
+.deliverables { padding: 5rem 0; background: #fff; }
+.deliv-layout { display: grid; grid-template-columns: 1fr 400px; gap: 3rem; align-items: start; }
+.deliv-table-header { display: grid; grid-template-columns: 2rem 1fr repeat(3, 80px); gap: 0.75rem; align-items: center; padding: 0 0.75rem 0.625rem; border-bottom: 2px solid var(--color-navy); margin-bottom: 0.25rem; }
+.deliv-th { font-size: 0.6875rem; font-weight: 700; color: var(--color-text-muted); letter-spacing: 0.08em; text-transform: uppercase; }
+.deliv-th--meta { text-align: center; }
+.deliv-row { display: grid; grid-template-columns: 2rem 1fr repeat(3, 80px); gap: 0.75rem; align-items: center; padding: 0.75rem; border-bottom: 1px solid var(--color-border); }
+.deliv-row:hover { background: var(--color-bg-soft); }
+.deliv-num { font-size: 0.6875rem; font-weight: 700; color: var(--color-text-muted); font-variant-numeric: tabular-nums; text-align: right; }
+.deliv-name { font-size: 0.875rem; font-weight: 600; color: var(--color-slate); }
+.deliv-meta { font-size: 0.75rem; color: var(--color-text-muted); text-align: center; }
+.deliv-meta--savings { color: var(--color-primary); font-weight: 600; }
+.deliv-mock-col { position: sticky; top: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+.deliv-mock-label { font-size: 0.72rem; font-weight: 700; color: var(--color-text-muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.25rem; }
+
+/* Dashboard Mock */
+.dash-mock { background: #fff; border: 1px solid var(--color-border); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+.dash-mock__bar { display: flex; align-items: center; justify-content: space-between; padding: 0.625rem 1rem; }
+.dash-mock__bar--header { background: var(--color-navy); }
+.dash-mock__title { font-size: 0.75rem; font-weight: 600; color: #fff; }
+.dash-mock__updated { font-size: 0.6875rem; color: rgba(255,255,255,0.55); }
+.dash-mock__kpis { display: flex; border-bottom: 1px solid var(--color-border); }
+.dash-mock__kpi { flex: 1; padding: 0.875rem 0.75rem; text-align: center; border-right: 1px solid var(--color-border); }
+.dash-mock__kpi:last-child { border-right: none; }
+.dash-mock__kpi-l { font-size: 0.6875rem; color: var(--color-text-muted); margin-bottom: 0.25rem; }
+.dash-mock__kpi-v { font-size: 1.125rem; font-weight: 700; color: var(--color-navy); }
+.dash-mock__kpi-d { font-size: 0.6875rem; font-weight: 600; margin-top: 0.125rem; }
+.kpi-up { color: #16a34a; }
+.kpi-dn { color: #dc2626; }
+.dash-mock__chart { padding: 0.75rem 1rem 0.875rem; }
+.dash-mock__bars { display: flex; align-items: flex-end; gap: 0.375rem; height: 54px; margin-bottom: 0.375rem; }
+.dash-bar { flex: 1; background: #e2e8f0; border-radius: 2px 2px 0 0; }
+.dash-bar--hi { background: var(--color-primary); }
+.dash-mock__chart-label { font-size: 0.6875rem; color: var(--color-text-muted); text-align: center; }
+
+/* Slack Mock */
+.slack-mock { background: #fff; border: 1px solid var(--color-border); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+.slack-mock__header { background: #4a154b; padding: 0.5rem 0.875rem; display: flex; align-items: center; gap: 0.375rem; }
+.slack-hash { color: rgba(255,255,255,0.6); font-size: 0.875rem; font-weight: 700; }
+.slack-channel { color: #fff; font-size: 0.75rem; font-weight: 600; }
+.slack-msg { padding: 0.875rem; border-bottom: 1px solid var(--color-border); }
+.slack-msg__meta { display: flex; align-items: baseline; gap: 0.5rem; margin-bottom: 0.5rem; }
+.slack-bot { font-weight: 700; font-size: 0.8125rem; color: var(--color-navy); }
+.slack-time { font-size: 0.6875rem; color: var(--color-text-muted); }
+.slack-msg__body p { font-size: 0.8125rem; color: var(--color-text); line-height: 1.65; }
+.slack-alert { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.875rem; background: #fffbeb; border-bottom: 1px solid var(--color-border); font-size: 0.75rem; color: #92400e; }
+.slack-alert__icon { font-size: 0.875rem; }
+.slack-notif { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.875rem; font-size: 0.75rem; color: var(--color-text-muted); }
+.slack-notif__icon { font-size: 0.875rem; }
+
+/* ===== WHY US ===== */
+.why-us { padding: 5rem 0; background: var(--color-bg-soft); }
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.why-card { background: #fff; border: 1px solid var(--color-border); border-radius: 8px; padding: 2rem; }
+.why-card__num { font-size: 0.72rem; font-weight: 700; color: var(--color-primary); letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+.why-card h3 { font-family: var(--font-serif); font-size: 1.0625rem; color: var(--color-navy); margin-bottom: 0.75rem; line-height: 1.4; }
+.why-card p { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.8; }
+
+/* ===== CASES ===== */
+.cases { padding: 5rem 0; background: #fff; }
+.cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.case-card { background: var(--color-bg-soft); border: 1px solid var(--color-border); border-radius: 8px; padding: 1.75rem; display: flex; flex-direction: column; gap: 0; }
+.case-card__head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.875rem; }
+.case-tag { font-size: 0.72rem; font-weight: 700; background: #fff; color: var(--color-charcoal); border: 1px solid var(--color-border-mid); padding: 0.2rem 0.625rem; border-radius: 3px; }
+.case-label { font-size: 0.72rem; font-weight: 700; color: var(--color-text-muted); letter-spacing: 0.06em; }
+.case-card h3 { font-family: var(--font-serif); font-size: 1rem; color: var(--color-navy); margin-bottom: 0.75rem; }
+.case-card p { font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.8; margin-bottom: 1.5rem; flex: 1; }
+.case-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; border-top: 1px solid var(--color-border); padding-top: 1.25rem; }
+.case-metric { text-align: center; }
+.case-metric__val { font-size: 1.25rem; font-weight: 700; color: var(--color-primary); font-variant-numeric: tabular-nums; line-height: 1.2; }
+.case-metric__label { font-size: 0.6875rem; color: var(--color-text-muted); line-height: 1.5; margin-top: 0.25rem; }
+.cases-cta { text-align: center; margin-top: 2.5rem; }
+
+/* ===== FIT ===== */
+.fit { padding: 5rem 0; background: var(--color-bg-soft); }
+.fit-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.875rem; }
+.fit-item { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius); padding: 1rem 1.25rem; font-size: 0.9375rem; color: var(--color-slate); display: flex; align-items: center; gap: 0.75rem; line-height: 1.5; }
+.fit-check { color: var(--color-primary); font-weight: 700; flex-shrink: 0; }
+
+/* ===== APPROACH ===== */
+.approach { padding: 5rem 0; background: #fff; }
+.approach-inner { display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: start; }
+.approach-text .eyebrow-label { text-align: left; }
+.approach-text h2 { font-family: var(--font-serif); font-size: clamp(1.5rem, 3vw, 2rem); color: var(--color-navy); margin-bottom: 1.25rem; }
+.approach-lead { font-size: 1rem; color: var(--color-text); line-height: 1.9; margin-bottom: 1.75rem; }
+.approach-micro { background: var(--color-bg-soft); border-left: 3px solid var(--color-primary); padding: 1.25rem 1.5rem; border-radius: 0 8px 8px 0; margin-bottom: 1.75rem; }
+.approach-micro p { font-size: 0.9375rem; color: var(--color-text); line-height: 1.9; margin-bottom: 0.625rem; }
+.approach-micro p:last-child { margin-bottom: 0; }
+.approach-micro strong { color: var(--color-navy); }
+.approach-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.approach-list li { font-size: 0.9375rem; color: var(--color-charcoal); display: flex; align-items: center; gap: 0.625rem; }
+.approach-list li::before { content: '→'; color: var(--color-primary); font-weight: 700; }
+.monthly-flow { display: flex; flex-direction: column; align-items: center; gap: 0; min-width: 200px; }
+.monthly-step { background: #fff; border: 1.5px solid var(--color-border); border-radius: 8px; padding: 0.75rem 1.5rem; text-align: center; font-size: 0.875rem; font-weight: 600; color: var(--color-slate); width: 100%; }
+.monthly-step--start, .monthly-step--end { background: var(--color-navy); color: #fff; border-color: var(--color-navy); }
+.monthly-arrow { font-size: 1rem; color: var(--color-border-mid); padding: 0.25rem 0; }
+
+/* ===== PRICING ===== */
+.pricing { padding: 5rem 0; background: var(--color-bg-soft); }
+.pricing-pre { max-width: 640px; margin: 0 auto 3rem; text-align: center; }
+.pricing-pre p { font-size: 0.9375rem; color: var(--color-charcoal); line-height: 1.9; }
+.pricing-pre strong { color: var(--color-navy); }
+.pricing-phases { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
+.pricing-phase { background: #fff; border: 1px solid var(--color-border); border-radius: 8px; padding: 2rem; position: relative; }
+.pricing-phase--featured { border-color: var(--color-primary); border-width: 2px; }
+.pricing-phase__badge { position: absolute; top: -0.875rem; left: 50%; transform: translateX(-50%); background: var(--color-primary); color: #fff; font-size: 0.72rem; font-weight: 700; padding: 0.3rem 1rem; border-radius: 4px; white-space: nowrap; }
+.pricing-phase__phase { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; color: var(--color-primary); margin-bottom: 0.375rem; }
+.pricing-phase h3 { font-family: var(--font-serif); font-size: 1.125rem; color: var(--color-navy); margin-bottom: 0.75rem; }
+.pricing-phase__price { font-size: 1.5rem; font-weight: 700; color: var(--color-navy); margin-bottom: 0.75rem; }
+.pricing-phase__desc { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.75; margin-bottom: 1.25rem; }
+.pricing-includes { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem; }
+.pricing-includes li { font-size: 0.875rem; color: var(--color-text); display: flex; align-items: center; gap: 0.5rem; }
+.pricing-includes li::before { content: '✓'; color: var(--color-primary); font-weight: 700; flex-shrink: 0; }
+.pricing-sub { font-size: 0.8125rem; color: var(--color-text-muted); background: var(--color-bg-soft); border-radius: 6px; padding: 0.75rem; line-height: 1.7; }
+.pricing-cta { display: flex; gap: 1rem; justify-content: center; }
+
+/* ===== RELATED ===== */
+.related { padding: 5rem 0; background: #fff; }
+.related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.related-card { display: block; background: var(--color-bg-soft); border: 1px solid var(--color-border); border-radius: 8px; padding: 1.5rem; text-decoration: none; transition: all 0.18s; }
+.related-card:hover { border-color: var(--color-primary); box-shadow: 0 4px 16px rgba(30,64,175,0.1); }
+.related-card__tag { font-size: 0.6875rem; font-weight: 700; color: var(--color-primary); background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 3px; padding: 0.125rem 0.5rem; display: inline-block; margin-bottom: 0.625rem; }
+.related-card h3 { font-family: var(--font-serif); font-size: 0.9rem; color: var(--color-navy); margin-bottom: 0.5rem; line-height: 1.45; }
+.related-card p { font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.7; }
+
+/* ===== FAQ ===== */
+.faq { padding: 5rem 0; background: var(--color-bg-soft); }
+.faq-list { max-width: 760px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--color-border); }
+.faq-item:first-child { border-top: 1px solid var(--color-border); }
+.faq-q { font-size: 0.9375rem; font-weight: 600; color: var(--color-navy); padding: 1.125rem 2.5rem 1.125rem 0; cursor: pointer; list-style: none; position: relative; line-height: 1.6; }
+.faq-q::after { content: '+'; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: 1.25rem; color: var(--color-primary); font-weight: 300; line-height: 1; }
+details[open] .faq-q::after { content: '−'; }
+.faq-a { padding: 0 0 1.25rem; }
+.faq-a p { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.9; }
+
+/* ===== FINAL CTA ===== */
+.cta-final {
+	padding: 6rem 0;
+	background:
+		radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%),
+		linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+	text-align: center;
+	color: #fff;
+}
+.cta-final__eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 1rem; display: block; }
+.cta-final h2 { font-family: var(--font-serif); font-size: clamp(1.625rem, 4vw, 2.375rem); margin-bottom: 1.5rem; line-height: 1.45; }
+.cta-final__body { font-size: 1rem; color: rgba(255,255,255,0.85); line-height: 1.95; margin-bottom: 2.5rem; max-width: 580px; margin-left: auto; margin-right: auto; }
+.cta-final__btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+	.collapse-grid { grid-template-columns: repeat(2, 1fr); }
+	.problems-grid { grid-template-columns: repeat(3, 1fr); }
+	.scope-grid { grid-template-columns: repeat(3, 1fr); }
+	.cases-grid { grid-template-columns: 1fr 1fr; }
+	.why-grid { grid-template-columns: 1fr 1fr; }
+	.related-grid { grid-template-columns: repeat(2, 1fr); }
+	.deliv-layout { grid-template-columns: 1fr; }
+	.deliv-mock-col { position: static; display: grid; grid-template-columns: 1fr 1fr; }
+	.cycle-layout { grid-template-columns: 1fr; }
+	.cycle-track { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 0.25rem; }
+	.cycle-node { width: 150px; }
+	.cycle-arrow { padding: 0 0.125rem; }
+	.cycle-loop { width: 100%; text-align: center; }
+	.approach-inner { grid-template-columns: 1fr; }
+	.monthly-flow { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+	.monthly-arrow { transform: rotate(-90deg); }
+}
+
+@media (max-width: 860px) {
+	.cause-grid { grid-template-columns: 1fr; }
+	.ba-layout { grid-template-columns: 1fr; }
+	.ba-arrow-col { display: none; }
+	.cases-grid { grid-template-columns: 1fr; }
+	.pricing-phases { grid-template-columns: 1fr; }
+	.deliv-table-header { display: none; }
+	.deliv-row { grid-template-columns: 2rem 1fr; }
+	.deliv-meta { display: none; }
+}
+
+@media (max-width: 560px) {
+	.hero h1 { font-size: 1.625rem; }
+	.hero-cta { flex-direction: column; }
+	.collapse-grid { grid-template-columns: 1fr; }
+	.problems-grid { grid-template-columns: 1fr 1fr; }
+	.scope-grid { grid-template-columns: 1fr 1fr; }
+	.why-grid { grid-template-columns: 1fr; }
+	.related-grid { grid-template-columns: 1fr; }
+	.deliv-mock-col { grid-template-columns: 1fr; }
+	.cta-final__btns { flex-direction: column; align-items: center; }
+	.pricing-cta { flex-direction: column; align-items: center; }
+}
+</style>
+<style>
+.problems-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.problem-card { padding: 2rem 1.75rem; }
+.problem-card h3 { font-size: 1.0625rem; }
+.problem-card p { font-size: 0.9375rem; line-height: 1.8; }
+@media (max-width: 900px) { .problems-grid { grid-template-columns: 1fr; } }
+.collapse-footer a, .problem-card a, .pricing-pre a { color: var(--color-primary); text-decoration: underline; text-underline-offset: 3px; }
+.collapse-footer a:hover, .problem-card a:hover, .pricing-pre a:hover { color: var(--color-primary-dark); }
+</style>

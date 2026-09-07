@@ -75,6 +75,6 @@ Pull the list of Japan initiatives currently on hold and check how many carry a 
 
 ## Related reading
 
-Once something does restart, the next argument is whether the resulting number is good, which is a separate gap: [before you add another Japan dashboard, write the threshold](/en/articles/threshold-before-dashboard/).
+When the stated reason for holding is that the numbers cannot yet be allocated precisely, more precision will not change the call: [Japan can't fill in your attribution model, and that is not a maturity problem](/en/articles/stop-debating-attribution-weights/).
 
 Other notes on the same problem are collected under [Revenue data](/en/category/data/).

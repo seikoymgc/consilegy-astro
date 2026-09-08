@@ -104,15 +104,48 @@ robots.txt（静的ファイル）は日本語が正しく出ているので、�
 
 EN側の2問目は Consilegy の中核ポジションそのもの。ここに入っていないのが現時点の距離。
 
+## 対応済み（2026-09-08 当日中に実施）
+
+Seikoの判断は「AIクローラーを止めない」。これに沿って次を実施した。
+
+1. **Cloudflare の Managed robots.txt を OFF にした。**
+   場所は Cloudflare → consilegy.com → **AI Crawl Control → Signals → 「Managed robots.txt」** のトグル1つ。
+   ゾーン単位なので、consilegy.com / media / www など18ホスト名すべてに一括で効く。
+   あわせて robots.txt と llms.txt をURL指定でキャッシュパージし、反映を確認した。
+   なお **AI Crawl Control → Security の「Block Crawler」トグルは元から全てOFF** で、
+   エッジでの遮断は最初から無かった。効いていたのは robots.txt の宣言だけ。
+
+   参考（過去24時間、パージ前の実測）:
+   ClaudeBot 許可76 / 失敗59、GPTBot 許可42 / 失敗40、Claude-User 許可14 / 失敗33、
+   Claude-SearchBot 許可0 / **失敗10**、ChatGPT-User 許可10 / 失敗4、
+   OAI-SearchBot 許可4、PerplexityBot 許可1、Googlebot 許可46 / 失敗1。
+   **PerplexityBot が1リクエスト、OAI-SearchBot が4リクエスト**しか来ていない。
+   引用されない理由は、いま拒否されていること以上に、そもそも読まれていないこと。
+
+2. **`media/public/robots.txt` に主要AIクローラーの明示 Allow を書いた。** 本体サイトと同じ立場に揃えた。
+3. **`media/public/.htaccess` を新規作成し、`AddCharset UTF-8 .txt` を入れた。** llms.txt の文字化け対策。
+4. **EN 28本に、ENカテゴリハブへの内部リンクを追加した。** 旧仕様の `/en/` への締め行を差し替え。
+5. **結論の太字が無かった34本（EN 22 / JA 12）に、frontmatter の principle を本文へ置いた。**
+   重複していた直前段落は削るか短くした。
+6. **AI定型と項目名見出しを一掃した。**
+   `一般化できる原則は1つです。` 19件、`## そこから言える原則` / `## 一般化できる原則` 13件を削除。
+   「第一に／第二に／第三に」を8本で解消。`## 状況` `## 何を判断したか` `## 結果と、そこから言えること`
+   `## 解決の手順` `## 何を変えるか` `## 分解の順番` を論点の見出しに書き換え（7本）。
+7. **エムダッシュを全記事からゼロにした。** リスト行は全角コロン（EN は `: `）へ、地の文4箇所は文を分けた。
+
+3〜7 はコミット済み（`40f8d2e`）。**本番反映は push とデプロイの後。**
+1 と 2 の効果測定は、次回のクローラー実測（AI Crawl Control → Security）で見る。
+
 ## 次にやること（優先度順）
 
-1. **Cloudflare の managed robots.txt をどうするか決める**（Cloudflare管理画面）。
-   学習利用を許すなら AI Crawl Control を切る。許さないなら llms.txt 側の設計思想と揃え、
-   GEOのKPIを「AI検索経由（OAI-SearchBot / PerplexityBot）」に限定して測る。
-2. **llms.txt の charset を直す**。Astro が付けたヘッダーがどこで剥がれているかを特定する。
-3. **EN 28本にカテゴリハブへのリンクを追加**する。機械的に処理できる。
-4. **結論の太字が無い37本に principle の一文を本文へ置く**。llms.txt の宣言と本文を一致させる。
-5. **項目名見出しの6本を書き直す**。
+1. **push とデプロイ**。robots.txt の明示Allow、.htaccess の charset、記事68本の修正は
+   コミット済みだがまだ本番に出ていない。デプロイ後に `media.consilegy.com/llms.txt` の
+   `Content-Type` に `charset=utf-8` が付いたかを確認する。
+2. **クロール量を増やす手当て**。いまの問題は拒否より流入で、PerplexityBot 1件 / OAI-SearchBot 4件では
+   引用されようがない。sitemap の再送信、本体サイトからメディアへの導線、外部からの被リンクのどれかで
+   発見経路を増やす。ここは次回の判断材料を集めてから決める。
+3. **項目名見出しの残り**。`## よくあるつまずき` は機能セクション名として残している。
+   これを論点見出しにするかは、EN の `## Common mistakes` と揃えて別途決める。
 
 ## 次回の計測
 

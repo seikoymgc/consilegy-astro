@@ -50,9 +50,9 @@ For the gap before hires land, use outside capacity. JETRO's survey found that f
 
 Standing up your local sales and marketing function through outsourcing or partnership until full-time hires are in place is consistent with the data, not a compromise.
 
-Line up the people who will run the market before you polish translation and price. The sequence of a Japan entry can be rebuilt from there.
-
 Designing the Japanese market as one continuous [revenue architecture](https://consilegy.com/en/services-en/japan-market-gtm-messaging/) from acquisition through retention makes it clear which stage needs people first.
+
+**In a Japan launch, translation and price are the entry point, not the constraint. How fast you can hire local sales and marketing talent decides how fast you ramp.**
 
 ## Common mistakes
 
@@ -64,4 +64,4 @@ Designing the Japanese market as one continuous [revenue architecture](https://c
 
 The second thing headquarters tends to misread is deal length. [Why deals in Japan take 3 to 8 months](/en/articles/why-japan-deals-take-longer/) covers how to explain and forecast it.
 
-The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).
+Other notes on the same problem are collected under [Japan market entry](/en/category/japan-gtm/).

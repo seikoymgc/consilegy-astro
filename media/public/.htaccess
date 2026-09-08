@@ -1,0 +1,16 @@
+# media.consilegy.com（CORESERVER / Apache互換）。
+# public/ の中身は dist/ にコピーされて rsync で配信される。`astro dev` では使われない。
+
+# .txt を UTF-8 として配信する。
+#
+# llms.txt は中身の大半が日本語（サイトの方針説明と全記事タイトル）だが、
+# 2026-09-08 時点の本番レスポンスは `Content-Type: text/plain`（charset なし）で、
+# クライアントが Latin-1 として解釈するため文字化けしていた。
+# バイト列自体は正しいUTF-8で、欠けていたのは charset の宣言だけ。
+#
+# src/pages/llms.txt.ts は `text/plain; charset=utf-8` を返す実装だが、
+# 静的ビルドではこのヘッダーは使われず、配信元のMIME設定が使われる。
+# したがって配信側で指定する必要がある。
+<IfModule mod_mime.c>
+	AddCharset UTF-8 .txt
+</IfModule>

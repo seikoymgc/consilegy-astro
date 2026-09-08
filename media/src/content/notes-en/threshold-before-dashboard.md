@@ -53,4 +53,4 @@ Numbers are held to decide with, not to display. The wider frame is in [Japan Ma
 
 Be careful which statistic the threshold is built on. [Why Japan's "3% SaaS churn" benchmark misleads your HQ](/en/articles/japan-saas-churn-benchmark-median/) shows what happens when an average carries an outlier.
 
-The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).
+Other notes on the same problem are collected under [Revenue data](/en/category/data/).

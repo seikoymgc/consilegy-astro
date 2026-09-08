@@ -1,6 +1,70 @@
 User-agent: *
 Allow: /
 
+# AI・生成AI関連のクローラーを明示的に許可する。
+#
+# このメディアはAI検索から引用されることを前提に設計している（llms.txt、記事ごとの
+# principle、出典の3点セット）。したがって学習・検索・ユーザー起点の取得を区別せず、
+# すべて許可する立場を取る。
+#
+# ⚠️ 2026-09-08 時点で、このファイルの内容は本番に完全には反映されていない。
+# Cloudflare の managed robots.txt（AI Crawl Control）が配信時に別のブロックを
+# 先頭へ挿入しており、GPTBot / ClaudeBot / Google-Extended / CCBot / Bytespider /
+# Amazonbot / Applebot-Extended / meta-externalagent を Disallow にしている。
+# 同じエージェントに Allow と Disallow が並ぶ矛盾した状態になるので、
+# **Cloudflare 側の managed robots.txt を無効化する必要がある**（本体サイトも同様）。
+# 詳細は content-ops/ai-visibility-log.md 第1回。
+
+# OpenAI
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Google（Gemini / Vertex のグラウンディングと学習。検索本体は Googlebot が別に扱う）
+User-agent: Google-Extended
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# その他
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
 Sitemap: https://media.consilegy.com/sitemap-index.xml
 
 # 生成AI・AI検索向けのサイト構造ファイル

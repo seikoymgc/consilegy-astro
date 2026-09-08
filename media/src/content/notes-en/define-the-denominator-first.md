@@ -74,6 +74,8 @@ That makes it doubly important to align your own definitions and cutoff dates fi
 
 The absence of an external comparison raises the value of internal consistency, rather than lowering it.
 
+**A conversion rate is decided by its denominator. Before comparing Japan to global, align the definition of what counts, and as of when, on one shared map.**
+
 ## Common mistakes
 
 - **Building the dashboard before agreeing on the definitions.** Automate on a misaligned denominator and you produce a clean chart of the wrong number every day. Aligning one page comes first.
@@ -84,4 +86,4 @@ The absence of an external comparison raises the value of internal consistency, 
 
 After the denominator is aligned, the numbers still need a rule attached. [Write the threshold before adding another dashboard](/en/articles/threshold-before-dashboard/) covers that step.
 
-The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).
+Other notes on the same problem are collected under [Revenue data](/en/category/data/).

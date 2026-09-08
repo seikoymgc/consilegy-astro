@@ -64,8 +64,10 @@ Note what is not claimed here. There is no published primary data on the number 
 
 **Read a thin first-meeting note as a process failure, not a language barrier.** If the record says the buyer is interested and nothing else, the rep ran a script written for a buyer who has not yet started.
 
+**In Japan the first meeting is not discovery, it is the one chance to be added to a shortlist that already exists. Ask about the comparison set and the approval chain before you ask about pain.**
+
 ## Related reading
 
 Once you know the approval chain from question four, the next deliverable is the document that travels it, which is covered in [In Japan, your champion cannot write the business case. Write it for them.](/en/articles/draft-the-internal-approval-document/).
 
-Other notes on running a go-to-market motion in Japan are collected on the [English edition index](/en/).
+Other notes on the same problem are collected under [Sales process](/en/category/sales/).

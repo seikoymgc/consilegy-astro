@@ -53,7 +53,7 @@ Then change three things in how the show is funded.
 - **Staff the stand for two-minute conversations, not for maximum cards.** Card volume will fall. That is the intended effect, not a side effect.
 - **Name partner conversations as an expected outcome in the show's goals.** Otherwise the Japan team will keep producing them and keep leaving them out of the report, because your scorecard has no row for them.
 
-Fund a Japanese trade show on the number of conversations your team can record, not on the number of business cards it can collect.
+**Fund a Japanese trade show on the number of conversations your team can record, not on the number of business cards it can collect. In Japan the show's highest-value output is frequently a partner conversation, which an MQL-only scorecard will never see.**
 
 The wider design question, which touchpoint becomes a record and who acts on it, is covered in [Japan Market GTM and Messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/).
 
@@ -61,4 +61,4 @@ The wider design question, which touchpoint becomes a record and who acts on it,
 
 If the show is in fact producing partner conversations, the next decision is whether Japan should be built partner-first or direct-first, and what your own CRM stops learning once a partner owns the account. That trade-off is set out in [partner-led or direct-first in Japan](/en/articles/partner-or-direct-first-in-japan/).
 
-The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).
+Other notes on the same problem are collected under [Demand generation](/en/category/marketing/).

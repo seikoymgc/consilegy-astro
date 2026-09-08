@@ -52,10 +52,12 @@ There is one case where a second pipeline in Japan is the right call: partner an
 
 Even then, split the pipeline but keep two things common with the global one: the closed-won and closed-lost definitions, and the loss-reason picklist. If those two are shared, five pipelines still roll up into one forecast. If they are not, one pipeline will not save you.
 
-Write the exit condition of each stage as a single sentence, for the global pipeline and for the proposed Japan pipeline. Who does what, and then the deal advances. If the sentences match, you do not have a pipeline problem. You have a field problem, and you can fix it this week.
+Write the exit condition of each stage as a single sentence, for the global pipeline and for the proposed Japan pipeline. Who does what, and then the deal advances.
+
+**Split a pipeline only when the exit criteria differ. In Japan they usually do not. What differs is that the deal advances through approvals your stages do not model, and that belongs in fields, not in a second pipeline.**
 
 ## Related reading
 
 The same question comes up when headquarters decides how to enter Japan at all. [A partner-led launch in Japan gets you revenue, not the reason you lost](/en/articles/partner-or-direct-first-in-japan/) covers what stops reaching headquarters when a partner owns the account.
 
-More on operating a revenue system in Japan is collected in [the English edition](/en/).
+Other notes on the same problem are collected under [CRM adoption](/en/category/crm/).

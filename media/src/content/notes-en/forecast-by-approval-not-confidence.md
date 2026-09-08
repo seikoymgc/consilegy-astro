@@ -57,8 +57,10 @@ A deal held in the forecast while the approval sits still is not deferred revenu
 
 Build the approval axis into the local process alongside [Japan GTM and messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/) work, not as a reporting patch on top of it.
 
+**Forecast on approval progress, not on rep confidence. Run a second axis that tracks whose yes is still missing, and write the exclusion rule before the quarter closes.**
+
 ## Related reading
 
 What to put in front of the approver to move that second axis is covered in [why your best feature won't win the deal in Japan](/en/articles/japanese-deals-win-on-precedent/).
 
-The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).
+Other notes on the same problem are collected under [Sales process](/en/category/sales/).

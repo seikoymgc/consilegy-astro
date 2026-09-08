@@ -86,6 +86,8 @@ In Japan this is not an optional service. It is the stage where the deal is actu
 
 How to redesign the full process around this sits on top of [Revenue Architecture](https://consilegy.com/en/services-en/japan-market-gtm-messaging/) thinking.
 
+**Japanese approval passes on precedent, not on the best feature. Build internal-consensus support into the sales process as its own stage, separate from the product pitch.**
+
 ## Common mistakes
 
 - **Polishing the feature comparison.** In a Japanese approval, precedent beats feature superiority. Building an inventory of similar-size, same-industry case studies moves more deals than sharpening the comparison grid.
@@ -96,4 +98,4 @@ How to redesign the full process around this sits on top of [Revenue Architectur
 
 The common mistake is to lead with a free trial instead of precedent. [Your free trial won't close the deal in Japan](/en/articles/trial-builds-the-approval-case/) covers what to send instead.
 
-The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).
+Other notes on the same problem are collected under [Sales process](/en/category/sales/).

@@ -43,10 +43,10 @@ To be clear about what is not known: there is no published Japanese primary data
 
 Four lines, replacing the single retention number.
 
-1. **Logo churn** — accounts lost over accounts at period start
-2. **Gross revenue churn** — revenue lost, including downgrades on contracts that renewed
-3. **NRR** — the same base after expansion
-4. **Concentration** — the share of Japan ARR held by the top three accounts
+1. **Logo churn**: accounts lost over accounts at period start
+2. **Gross revenue churn**: revenue lost, including downgrades on contracts that renewed
+3. **NRR**: the same base after expansion
+4. **Concentration**: the share of Japan ARR held by the top three accounts
 
 The fourth line is what makes the first three readable. At 60% concentration, a 100% NRR tells you about three customers. At 10%, it tells you about a market. Headquarters has no way to know which one it is looking at unless the line is there.
 
@@ -56,10 +56,12 @@ In the CRM, add the customer's own **renewal decision date**, which is when thei
 
 Then make **churn reason** mandatory, from the same picklist your other regions use. If Japan gets its own free-text field, the pattern will never reach a board deck.
 
-The rule: read the four lines together or read none of them. A country operation of a dozen accounts does not have a retention rate. It has a list of twelve renewal decisions, and each one has a name and a date.
+A country operation of a dozen accounts does not have a retention rate. It has a list of twelve renewal decisions, and each one has a name and a date.
+
+**Never read a single retention number for Japan. Logo churn, gross revenue churn and NRR must appear together with the concentration of the account base, or the number describes one customer rather than a market.**
 
 ## Related reading
 
 The same mistake shows up when headquarters benchmarks Japan against a market average. [Why Japan's "3% SaaS churn" benchmark misleads your HQ](/en/articles/japan-saas-churn-benchmark-median/) covers reading the median rather than the mean when the distribution is skewed.
 
-The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).
+Other notes on the same problem are collected under [Revenue data](/en/category/data/).

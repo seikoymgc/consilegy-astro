@@ -103,14 +103,14 @@ export const CRM_FEATURES: FeatureGroup[] = [
   },
   {
     id: 'ai',
-    title: { ja: 'AI（Jade）', en: 'AI (Jade)' },
+    title: { ja: 'AIエージェント', en: 'AI agent' },
     lead: {
-      ja: '入力を減らし、記録から判断材料を取り出す。CRMの外にある情報も、Jadeが中へ運ぶ。',
-      en: 'Less typing in, more judgment out. Jade also carries what lives outside the CRM into it.',
+      ja: '入力を減らし、記録から判断材料を取り出す。CRMの外にある情報も、AIエージェントが中へ運ぶ。',
+      en: 'Less typing in, more judgment out. The AI agent also carries what lives outside the CRM into it.',
     },
     items: [
       {
-        name: { ja: 'Jade（日本語でCRMを操作）', en: 'Jade (run the CRM in plain language)' },
+        name: { ja: 'AIエージェント（日本語でCRMを操作）', en: 'AI agent (run the CRM in plain language)' },
         desc: {
           ja: '検索、集計、コンタクトやタスクの作成を会話で行う。項目名を覚えなくていい。',
           en: 'Search, aggregate, and create contacts and tasks by asking. No field names to memorize.',
@@ -203,15 +203,15 @@ export const CRM_FEATURES: FeatureGroup[] = [
       {
         name: { ja: '実行前の安全ゲート', en: 'Safety gate before execution' },
         desc: {
-          ja: 'Jadeがデータを書き換える操作は、すべて1か所のゲートを通る。読むだけの操作と、書き込む操作を分けてある。',
-          en: 'Every write Jade attempts passes through a single gate. Reading and writing are not the same permission.',
+          ja: 'AIエージェントがデータを書き換える操作は、すべて1か所のゲートを通る。読むだけの操作と、書き込む操作を分けてある。',
+          en: 'Every write the AI agent attempts passes through a single gate. Reading and writing are not the same permission.',
         },
       },
       {
         name: { ja: 'APIキーの持ち込み（BYOK）', en: 'Bring your own key (BYOK)' },
         desc: {
-          ja: 'Anthropic / OpenAI / Gemini / Azure OpenAIの自社キーでJadeを動かせる。',
-          en: 'Run Jade on your own Anthropic / OpenAI / Gemini / Azure OpenAI key.',
+          ja: 'Anthropic / OpenAI / Gemini / Azure OpenAIの自社キーでAIエージェントを動かせる。',
+          en: 'Run the AI agent on your own Anthropic / OpenAI / Gemini / Azure OpenAI key.',
         },
       },
       {

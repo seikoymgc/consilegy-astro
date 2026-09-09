@@ -19,7 +19,7 @@ Consilegy redesigns how marketing, sales, and customer success connect—so reve
 
 ## Product
 
-- **Revenue CRM（レベニューCRM）**: A Japanese-made CRM / SFA built by Consilegy for companies that do not yet have a CRM (customer lists in Excel, deal status in people's heads). Includes Jade (AI agent) and 175 RevOps workflows. Editions: B2B sales, contract development (受託開発), SaaS reseller (代理店), and a separate School edition (Revenue CRMスクール) for 塾・習い事・スクール. Pricing: ¥3,000/seat/month (¥2,500 from the 10th seat), no setup fee, 30-day free trial, from 1 seat. Currently closed beta. https://consilegy.com/crm/
+- **Revenue CRM（レベニューCRM）**: A Japanese-made CRM / SFA built by Consilegy for companies that do not yet have a CRM (customer lists in Excel, deal status in people's heads). Includes an AI agent and 175 RevOps workflows. Editions: B2B sales, contract development (受託開発), SaaS reseller (代理店), and a separate School edition (Revenue CRMスクール) for 塾・習い事・スクール. Pricing: ¥3,000/seat/month (¥2,500 from the 10th seat), no setup fee, 30-day free trial, from 1 seat. Currently closed beta. https://consilegy.com/crm/
 
 ## Key Pages (日本語 / Japanese)
 

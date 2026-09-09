@@ -25,7 +25,7 @@ const featureGlyphs = {
 			<path class="glyph-strong" d="M13 55l10-8 8 4 10-11 10 5"></path>
 		</svg>
 	`,
-	jade: `
+	aiAgent: `
 		<svg viewBox="0 0 64 64" focusable="false">
 			<path class="glyph-accent" d="M32 8l17 18-17 30-17-30L32 8Z"></path>
 			<path class="glyph-line" d="M15 26h34M24 26l8 30 8-30M24 17h16"></path>
@@ -155,9 +155,9 @@ const capabilities = [
 		text: 'Move a card and update the probability; pipeline total and weighted forecast update with it.',
 	},
 	{
-		icon: 'jade',
+		icon: 'aiAgent',
 		title: 'Used by asking, not by typing',
-		text: 'Ask Jade in plain language and it searches, counts, summarizes, classifies, and proposes the next action.',
+		text: 'Ask in plain language and the AI agent searches, counts, summarizes, classifies, and proposes the next action.',
 	},
 	{
 		icon: 'workflow',
@@ -190,9 +190,9 @@ const screens = [
 		text: 'Update stage, probability, and next action by dragging',
 	},
 	{
-		src: '/images/crm/screen-jade-en.webp',
-		alt: 'Jade, the AI agent, answering the question "What should I do today?" with a funnel breakdown and a table of ten open deals.',
-		title: 'Jade, the AI agent',
+		src: '/images/crm/screen-ai-agent-en.webp',
+		alt: 'The AI agent answering the question "What should I do today?" with a funnel breakdown and a table of ten open deals.',
+		title: 'The AI agent',
 		text: 'Ask in plain language; it aggregates, summarizes, and proposes',
 	},
 	{
@@ -251,7 +251,7 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 
 <BaseLayout
 	title="Revenue CRM for B2B (beta) | The first CRM for companies that don't have one yet"
-	description="The customer list is a spreadsheet, the correspondence is in an inbox, and where a deal stands lives in one person's head. Revenue CRM is the CRM Consilegy built for those companies. Jade, the AI agent, and 175 RevOps workflows ship with it. An email address is enough to open the demo. Currently in closed beta. Launches September 28, 2026."
+	description="The customer list is a spreadsheet, the correspondence is in an inbox, and where a deal stands lives in one person's head. Revenue CRM is the CRM Consilegy built for those companies. An AI agent and 175 RevOps workflows ship with it. An email address is enough to open the demo. Currently in closed beta. Launches September 28, 2026."
 	ogImage="/images/crm/og-crm-en.png"
 	lang="en"
 	alternateUrl="/crm/"
@@ -331,12 +331,12 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 <section class="ai" id="ai">
 	<div class="container">
 		<div class="section-head">
-			<p class="kicker">AI / Jade</p>
+			<p class="kicker">AI agent</p>
 			<h2>Not a CRM you type into. One you ask, photograph, and paste into.</h2>
 		</div>
 		<p class="ai-lead">
 			CRMs stop being used for one reason. Entering data is always the last thing on the list.
-			So we took the typing out. Jade, the AI inside, answers when you ask in plain language.
+			So we took the typing out. The AI agent inside answers when you ask in plain language.
 			Cards get photographed, threads get pasted, calls get spoken.
 		</p>
 		<ul class="ai-grid">
@@ -407,13 +407,13 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 		<figure class="view-demo">
 			<img
 				src="/videos/revenue-crm-demo-en.gif"
-				alt="A walkthrough of Revenue CRM, moving through the dashboard, the deal kanban, the automation library, Jade the AI agent, and the three-language switch."
+				alt="A walkthrough of Revenue CRM, moving through the dashboard, the deal kanban, the automation library, the AI agent, and the three-language switch."
 				width="800"
 				height="585"
 				loading="lazy"
 				decoding="async"
 			/>
-			<figcaption>Walkthrough: dashboard → deal kanban → automation library → Jade → language switch</figcaption>
+			<figcaption>Walkthrough: dashboard → deal kanban → automation library → AI agent → language switch</figcaption>
 		</figure>
 	</div>
 </section>
@@ -530,8 +530,7 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 				remote workers from several countries.
 			</p>
 			<p>
-				The AI agent is called Jade because jade is what Hualien is known for.
-				See News (花蓮視新聞) covered this in its 25 June 2026 edition.
+				See News (花蓮視新聞) covered the stay and the build in its 25 June 2026 edition.
 			</p>
 			<a
 				href="https://www.seenews.com.tw/news_data.php?news_id=2325&amp;k_code=A"

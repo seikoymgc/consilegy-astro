@@ -27,6 +27,75 @@ const journeySteps = [
 		title: 'フォローを止めない',
 		text: '問い合わせ、メール配信、更新期日、停滞通知をワークフローで回します。',
 	},
+	{
+		label: '振り返り',
+		title: '勝ち負けの理由を残す',
+		text: '受注と失注の理由、勝率、止まっていた期間が、あとから集計できる形で残ります。',
+	},
+];
+
+const excelCosts = [
+	{
+		title: '経緯が人に貼りつく',
+		text: '担当者が休むと、その案件だけ誰にも分からなくなります。引き継ぎのたびに、同じことを本人に聞き直しています。',
+	},
+	{
+		title: '数字が過去形になる',
+		text: '来月いくら入るかを、月末に手で集計する。集計が終わったころには、もう状況が変わっています。',
+	},
+	{
+		title: '受注後が落ちる',
+		text: '更新や再提案は、思い出した人がいたときだけ動きます。忘れられた分は、そもそも失注として数えられません。',
+	},
+];
+
+const toolMap = [
+	{
+		term: 'CRM',
+		full: 'Customer Relationship Management（顧客管理）',
+		subject: '顧客',
+		text: '顧客との関係全体を扱います。獲得から受注、その後の継続や更新まで。営業だけでなく、マーケティングやサポートの記録も同じ顧客の下に集まります。',
+	},
+	{
+		term: 'SFA',
+		full: 'Sales Force Automation（営業支援）',
+		subject: '商談',
+		text: '営業活動を扱います。商談の進捗、金額、確度、売上見込み。案件を前に進めることが目的なので、受注した時点で役目が終わります。',
+	},
+	{
+		term: 'MA',
+		full: 'Marketing Automation（マーケティング自動化）',
+		subject: '見込み客',
+		text: '商談になる前の見込み客を扱います。フォームからの獲得、メール配信、興味度合いのスコアリング。育ったリードをCRMやSFAに渡すところまでが担当です。',
+	},
+];
+
+const lifecycleItems = [
+	{
+		title: '更新期日',
+		text: '契約や保守の期限を入れておくと、その手前で担当者のタスクとして立ち上がります。思い出した人が動く運用をやめられます。',
+	},
+	{
+		title: '止まった相手',
+		text: '一定期間やりとりのない顧客と商談を、ワークフローが拾って通知します。静かに離れていく相手に気づけます。',
+	},
+	{
+		title: '放置の可視化',
+		text: '最後に接触したのがいつかを顧客ごとに並べます。連絡が途切れたまま残っている相手が、一覧で分かります。',
+	},
+	{
+		title: '次の提案',
+		text: '過去の購買と対応履歴が同じ顧客の下に残ります。追加提案や再提案の相手を、記憶ではなく記録から選べます。',
+	},
+];
+
+const readings = [
+	{ href: '/insights/why-crm-adoption-fails/', title: 'CRMが定着しない本当の理由' },
+	{ href: '/insights/why-companies-cannot-stop-using-excel-after-crm/', title: 'CRMを導入してもExcelが止まらない理由' },
+	{ href: '/insights/why-sfa-becomes-just-a-pipeline-sheet/', title: 'SFAがパイプライン管理表になってしまう理由' },
+	{ href: '/insights/why-marketing-automation-does-not-improve-pipeline/', title: 'MAを導入しても商談化率が改善しない理由' },
+	{ href: '/insights/why-sales-forecasting-fails/', title: 'なぜ売上予測は外れ続けるのか' },
+	{ href: '/insights/what-changes-in-crm-design-when-ai-writes-records/', title: 'AIが記録を書くようになると、CRM設計は何が変わるか' },
 ];
 
 const serviceAreas = [
@@ -51,15 +120,15 @@ const serviceAreas = [
 		title: 'RevOpsワークフロー',
 		text: 'フォロー、更新、停滞、通知の型を標準で用意しています。必要なワークフローをONにして、抜け漏れを人の記憶に寄せません。',
 		image: '/videos/revenue-crm-demo.gif',
-		alt: 'Revenue CRMの操作デモ。ダッシュボード、商談カンバン、自動化ライブラリ、Jade（AIエージェント）、3言語切替を順に操作している。',
+		alt: 'Revenue CRMの操作デモ。ダッシュボード、商談カンバン、自動化ライブラリ、AIエージェント、3言語切替を順に操作している。',
 		features: ['175本の標準フロー', '停滞通知', '更新商談', 'タスク作成'],
 	},
 	{
 		label: 'AIエージェント',
-		title: 'Jade（AIエージェント）・名刺・通話メモ',
+		title: 'AIエージェント・名刺・通話メモ',
 		text: '日本語で検索し、名刺や会話の記録を下書きします。保存と送信の前には、必ず人が確認します。',
-		image: '/images/crm/screen-jade.webp',
-		alt: 'Jade（AIエージェント）の画面。日本語の質問に対して商談の集計と一覧を返している。',
+		image: '/images/crm/screen-ai-agent.webp',
+		alt: 'AIエージェントの画面。日本語の質問に対して商談の集計と一覧を返している。',
 		features: ['日本語検索', '名刺読み取り', '通話メモ構造化', '下書き確認'],
 	},
 	{
@@ -92,6 +161,10 @@ const outcomes = [
 	{
 		problem: '問い合わせ後の追客がメールと個人メモに埋もれる',
 		answer: 'フォーム、リスト、メール配信、追客タスクを同じ場所でつなげます。',
+	},
+	{
+		problem: '失注の理由が振り返れず、同じ負け方を繰り返す',
+		answer: '失注理由、勝率、止まっていた期間が残り、あとから集計して見直せます。',
 	},
 	{
 		problem: '海外メンバーと同じ情報を見ているのに、言語が揃わない',
@@ -164,7 +237,7 @@ const reasons = [
 	},
 	{
 		title: '記録の入口を増やす',
-		text: '名刺は撮る、会話は貼る、通話は話す。Jade（AIエージェント）が記録の下書きと検索を支えます。',
+		text: '名刺は撮る、会話は貼る、通話は話す。AIエージェントが記録の下書きと検索を支えます。',
 		href: '#input-assist',
 		label: 'AIエージェントを見る',
 	},
@@ -177,6 +250,10 @@ const reasons = [
 ];
 
 const faqs = [
+	{
+		q: 'CRMとSFAは何が違いますか。',
+		a: 'CRMは顧客との関係全体を、SFAは営業活動を扱います。CRMは受注したあとの継続や更新まで含み、SFAは商談を受注まで運ぶところが中心です。境目は製品によって違います。Revenue CRMはCRMを土台に、SFAの商談管理と、最初の追客に必要な範囲のフォーム・メール配信までをひとつにまとめています。',
+	},
 	{
 		q: 'いま使っているCRMからデータを移行できますか。',
 		a: 'Revenue CRMは、まだCRMを持っていない会社のために作っています。Salesforce・HubSpot・kintoneなどがすでに動いている場合は、乗り換えではなく、そのツールを活かした収益プロセスの再設計をご提案します。',
@@ -199,7 +276,7 @@ const faqs = [
 
 <BaseLayout
 	title="国産CRM「Revenue CRM」法人向けβ版 | まだCRMがない会社の最初の1つに"
-	description="顧客の一覧はExcel、やりとりはメール、案件の温度感は担当者の頭の中。そういう会社のために、Consilegyが自社で開発した法人向けの国産CRMです。Jade（AIエージェント）と175本のRevOpsワークフローを標準搭載。メールアドレスだけでデモをご覧いただけます。現在クローズドβ。2026年9月28日に正式リリース。"
+	description="顧客の一覧はExcel、やりとりはメール、案件の温度感は担当者の頭の中。そういう会社のために、Consilegyが自社で開発した法人向けの国産CRMです。AIエージェントと175本のRevOpsワークフローを標準搭載。メールアドレスだけでデモをご覧いただけます。現在クローズドβ。2026年9月28日に正式リリース。"
 	ogImage="/images/crm/og-crm.png"
 	lang="ja"
 	alternateUrl="/en/crm/"
@@ -213,7 +290,7 @@ const faqs = [
 	"applicationSubCategory": "CRM / SFA（顧客管理・営業支援）",
 	"operatingSystem": "Web",
 	"url": "https://consilegy.com/crm/",
-	"description": "まだCRMがない会社のための国産CRM / SFA。顧客・案件・パイプライン・売上予測・受注後の更新まで1か所で管理。Jade（AIエージェント）と175本のRevOpsワークフローを標準搭載。Excelの営業管理からの最初の1つとして、法人営業・受託開発・SaaS代理店の3エディション。現在クローズドβ。2026年9月28日に正式リリース。",
+	"description": "まだCRMがない会社のための国産CRM / SFA。顧客・案件・パイプライン・売上予測・受注後の更新まで1か所で管理。AIエージェントと175本のRevOpsワークフローを標準搭載。Excelの営業管理からの最初の1つとして、法人営業・受託開発・SaaS代理店の3エディション。現在クローズドβ。2026年9月28日に正式リリース。",
 	"inLanguage": ["ja", "en", "zh-Hant"],
 	"offers": {
 		"@type": "Offer",
@@ -258,6 +335,61 @@ const faqs = [
 	</div>
 </section>
 
+<!-- ===================== 1.5 BASICS ===================== -->
+<section class="crm-basics" id="basics">
+	<div class="container">
+		<div class="crm-section-head">
+			<p class="kicker">CRMとは</p>
+			<h2>顧客とのやりとりを、<span class="nowrap">1か所</span>に集める道具です。</h2>
+		</div>
+		<div class="basics-lead">
+			<p>
+				CRM（Customer Relationship Management）は、顧客情報、商談、メール、対応履歴を1か所に集めて、
+				社内の誰が見ても同じ状態が分かるようにする仕組みです。日本語では顧客管理システムと呼ばれます。
+			</p>
+			<p>
+				目的は、記録を増やすことではありません。
+				次に誰へ何をするかを、担当者の記憶ではなく、残っているデータから決められる状態にすることです。
+			</p>
+		</div>
+		<div class="basics-block">
+			<h3>Excelとメールのままだと、こうなります</h3>
+			<ol class="cost-list">
+				{excelCosts.map((item) => (
+					<li>
+						<strong>{item.title}</strong>
+						<p>{item.text}</p>
+					</li>
+				))}
+			</ol>
+			<p class="basics-note">
+				どれも、Excelの使い方を工夫しても解けません。表は、誰が何をいつやるかを覚えていてくれないからです。
+				<a href="/insights/why-companies-cannot-stop-using-excel-after-crm/" class="text-link">CRMを導入してもExcelが止まらない理由</a>
+			</p>
+		</div>
+		<div class="basics-block">
+			<h3>CRM・SFA・MAの違い</h3>
+			<dl class="tool-map">
+				{toolMap.map((item) => (
+					<div>
+						<dt>
+							<strong>{item.term}</strong>
+							<span class="tool-map__full">{item.full}</span>
+							<span class="tool-map__subject">主役は{item.subject}</span>
+						</dt>
+						<dd>{item.text}</dd>
+					</div>
+				))}
+			</dl>
+			<p class="basics-note">
+				境目は製品によって違います。Revenue CRMはCRMを土台に、SFAの商談管理と、
+				最初の追客に必要な範囲のフォーム・リスト・メール配信までをひとつにまとめています。
+				まだ何も入れていない会社が、3つのツールを別々に契約しなくて済むように。
+			</p>
+		</div>
+	</div>
+</section>
+
 <!-- ===================== 2. PRODUCT STORY ===================== -->
 <section class="crm-story">
 	<div class="container">
@@ -284,7 +416,7 @@ const faqs = [
 			<figure class="story-board__media">
 				<img
 					src="/videos/revenue-crm-demo.gif"
-					alt="Revenue CRMの操作デモ。ダッシュボード、商談カンバン、自動化ライブラリ、Jade（AIエージェント）、3言語切替を順に操作している。"
+					alt="Revenue CRMの操作デモ。ダッシュボード、商談カンバン、自動化ライブラリ、AIエージェント、3言語切替を順に操作している。"
 					width="800"
 					height="585"
 					loading="lazy"
@@ -351,6 +483,38 @@ const faqs = [
 	</div>
 </section>
 
+<!-- ===================== 4.5 LIFECYCLE ===================== -->
+<section class="crm-lifecycle">
+	<div class="container">
+		<div class="crm-section-head">
+			<p class="kicker">受注してから</p>
+			<h2>売って終わりにせず、次の更新まで追う。</h2>
+		</div>
+		<div class="lifecycle-body">
+			<div class="lifecycle-copy">
+				<p>
+					新規を追うほうが分かりやすい。ただ、一度買ってくれた相手のほうが、次の話は早く進みます。
+					それなのに受注後だけは、いまだに人の記憶で回っている会社が多いです。
+				</p>
+				<p>
+					Revenue CRMという名前にしたのは、商談を管理する道具ではなく、
+					収益が続く状態を管理する道具にしたかったからです。
+					入口から受注後の更新までを、同じ顧客の下に置いています。
+				</p>
+				<a href="/insights/why-sales-and-customer-success-do-not-align/" class="text-link">営業とカスタマーサクセスが連携できない理由</a>
+			</div>
+			<ol class="lifecycle-list">
+				{lifecycleItems.map((item) => (
+					<li>
+						<strong>{item.title}</strong>
+						<p>{item.text}</p>
+					</li>
+				))}
+			</ol>
+		</div>
+	</div>
+</section>
+
 <!-- ===================== 5. EDITIONS ===================== -->
 <section class="crm-editions">
 	<div class="container">
@@ -408,7 +572,7 @@ const faqs = [
 		<div class="assist-panel">
 			<div>
 				<p class="kicker">AIエージェント</p>
-				<h3>Jadeは、記録の入口です。</h3>
+				<h3>AIエージェントは、記録の入口です。</h3>
 			</div>
 			<p>
 				日本語で聞く。名刺を撮る。会話を貼る。通話を残す。
@@ -453,8 +617,7 @@ const faqs = [
 				CRMにAIエージェントを組み合わせたこのプロダクトの形が固まりました。
 			</p>
 			<p>
-				AIエージェントの名前を「Jade」としたのは、翡翠が花蓮の名産だからです。
-				この経緯は、See News（花蓮視新聞）2026年6月25日の記事で紹介されています。
+				滞在中の活動とこのプロダクトの開発は、See News（花蓮視新聞）2026年6月25日の記事で紹介されています。
 			</p>
 			<a
 				href="https://www.seenews.com.tw/news_data.php?news_id=2325&amp;k_code=A"
@@ -534,7 +697,8 @@ const faqs = [
 
 <!-- ===================== 12. RESOURCES ===================== -->
 <section class="resources">
-	<div class="container resources-grid">
+	<div class="container">
+		<div class="resources-grid">
 		<div class="resources-copy">
 			<p class="kicker">資料・確認</p>
 			<h2>詳しく見たい方へ。</h2>
@@ -560,6 +724,16 @@ const faqs = [
 				</a>
 			</li>
 		</ul>
+		</div>
+		<div class="reading">
+			<p class="reading-head">入れる前に、失敗の型を知っておく</p>
+			<ul class="reading-list">
+				{readings.map((item) => (
+					<li><a href={item.href}>{item.title}</a></li>
+				))}
+			</ul>
+			<a href="/insights/" class="text-link">記事をすべて見る</a>
+		</div>
 	</div>
 </section>
 
@@ -2022,7 +2196,7 @@ const faqs = [
 		text-decoration: underline;
 	}
 
-	.jade-box {
+	.ai-box {
 		display: grid;
 		grid-template-columns: minmax(12rem, 0.72fr) minmax(0, 1fr);
 		gap: var(--space-lg);
@@ -2031,11 +2205,11 @@ const faqs = [
 		border-top: 1px solid var(--color-border);
 	}
 
-	.jade-box__head .kicker {
+	.ai-box__head .kicker {
 		margin-bottom: 0.65rem;
 	}
 
-	.jade-box h3 {
+	.ai-box h3 {
 		margin: 0;
 		color: var(--color-text);
 		font-size: 1.35rem;
@@ -2043,7 +2217,7 @@ const faqs = [
 		line-height: 1.55;
 	}
 
-	.jade-box .ai-lead {
+	.ai-box .ai-lead {
 		margin: 0;
 	}
 
@@ -2203,7 +2377,7 @@ const faqs = [
 		.edition-grid,
 		.outcome-grid,
 		.reason-grid,
-		.jade-box,
+		.ai-box,
 		.ai-grid,
 		.view-grid,
 		.media-grid,
@@ -2418,7 +2592,7 @@ const faqs = [
 		line-height: 1.4;
 	}
 
-	.jade-box {
+	.ai-box {
 		padding: 1.35rem;
 		background: #fff;
 		border: 1px solid var(--color-border);
@@ -2521,7 +2695,7 @@ const faqs = [
 			grid-column: 2;
 		}
 
-		.jade-box,
+		.ai-box,
 		.ai-card,
 		.ai-card:nth-child(even),
 		.ai-card:nth-child(3n + 2),
@@ -3402,6 +3576,268 @@ const faqs = [
 		.adoption-list li,
 		.proof-strip li {
 			border-top: 0;
+		}
+	}
+
+	/* ── CRMとは / 受注してから / 読み物 ─────────────────── */
+	.nowrap {
+		white-space: nowrap;
+	}
+
+	.crm-basics {
+		padding: clamp(4rem, 7vw, 6rem) 0;
+		background: #fff;
+	}
+
+	.crm-lifecycle {
+		padding: clamp(4rem, 7vw, 6rem) 0;
+		background: #f7f7f5;
+	}
+
+	.basics-lead {
+		max-width: 46em;
+	}
+
+	.basics-lead p {
+		margin: 0;
+		color: var(--color-text);
+		font-size: 1rem;
+		line-height: 2;
+	}
+
+	.basics-lead p + p {
+		margin-top: 1rem;
+	}
+
+	.basics-block {
+		margin-top: clamp(2rem, 4vw, 3rem);
+	}
+
+	.basics-block h3,
+	.lifecycle-copy h3 {
+		margin: 0 0 1.1rem;
+		color: var(--color-text);
+		font-size: 1.0625rem;
+		font-weight: 700;
+		line-height: 1.6;
+	}
+
+	.cost-list {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1px;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		counter-reset: cost;
+	}
+
+	.cost-list li {
+		padding: 1.35rem;
+		background: #fff;
+		border: 1px solid var(--color-border);
+		border-radius: 8px;
+		counter-increment: cost;
+	}
+
+	.cost-list li::before {
+		content: counter(cost, decimal-leading-zero);
+		display: block;
+		margin-bottom: 0.5rem;
+		color: var(--color-primary);
+		font-size: 0.85rem;
+		font-weight: 700;
+		line-height: 1;
+	}
+
+	.cost-list strong {
+		display: block;
+		color: var(--color-text);
+		font-size: 0.96rem;
+		font-weight: 700;
+		line-height: 1.7;
+	}
+
+	.cost-list p {
+		margin: 0.35rem 0 0;
+		color: var(--color-text-muted);
+		font-size: 0.9rem;
+		line-height: 1.8;
+	}
+
+	.basics-note {
+		margin: 1.1rem 0 0;
+		max-width: 52em;
+		color: var(--color-text-muted);
+		font-size: 0.9rem;
+		line-height: 1.9;
+	}
+
+	.basics-note .text-link {
+		margin-top: 0;
+	}
+
+	.tool-map {
+		margin: 0;
+		background: #fff;
+		border: 1px solid var(--color-border);
+		border-radius: 8px;
+		overflow: hidden;
+	}
+
+	.tool-map > div {
+		display: grid;
+		grid-template-columns: minmax(11rem, 15rem) minmax(0, 1fr);
+		gap: 1rem;
+		padding: 1.25rem 1.3rem;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.tool-map > div:last-child {
+		border-bottom: 0;
+	}
+
+	.tool-map dt strong {
+		display: block;
+		color: var(--color-text);
+		font-size: 1.0625rem;
+		font-weight: 700;
+		line-height: 1.5;
+	}
+
+	.tool-map__full {
+		display: block;
+		margin-top: 0.25rem;
+		color: var(--color-text-muted);
+		font-size: 0.78rem;
+		line-height: 1.6;
+	}
+
+	.tool-map__subject {
+		display: inline-block;
+		margin-top: 0.55rem;
+		padding: 0.15rem 0.5rem;
+		color: var(--color-primary);
+		font-size: 0.75rem;
+		font-weight: 700;
+		line-height: 1.6;
+		border: 1px solid currentColor;
+		border-radius: 3px;
+	}
+
+	.tool-map dd {
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 0.92rem;
+		line-height: 1.85;
+	}
+
+	.lifecycle-body {
+		display: grid;
+		grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+		gap: clamp(1.5rem, 3vw, 2.75rem);
+		align-items: start;
+	}
+
+	.lifecycle-copy p {
+		margin: 0;
+		color: var(--color-text);
+		font-size: 1rem;
+		line-height: 2;
+	}
+
+	.lifecycle-copy p + p {
+		margin-top: 1rem;
+	}
+
+	.lifecycle-list {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.lifecycle-list li {
+		padding: 1.3rem;
+		background: #fff;
+		border: 1px solid var(--color-border);
+		border-radius: 8px;
+	}
+
+	.lifecycle-list strong {
+		display: block;
+		color: var(--color-text);
+		font-size: 0.96rem;
+		font-weight: 700;
+		line-height: 1.7;
+	}
+
+	.lifecycle-list p {
+		margin: 0.35rem 0 0;
+		color: var(--color-text-muted);
+		font-size: 0.9rem;
+		line-height: 1.8;
+	}
+
+	.reading {
+		margin-top: clamp(2rem, 4vw, 3rem);
+		padding-top: clamp(1.5rem, 3vw, 2.25rem);
+		border-top: 1px solid var(--color-border);
+	}
+
+	.reading-head {
+		margin: 0 0 1rem;
+		color: var(--color-text);
+		font-size: 0.9375rem;
+		font-weight: 700;
+		line-height: 1.7;
+	}
+
+	.reading-list {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 0.55rem 1.75rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.reading-list a {
+		color: var(--color-text);
+		font-size: 0.9rem;
+		line-height: 1.85;
+		text-decoration: none;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.reading-list a:hover {
+		color: var(--color-primary);
+		border-bottom-color: currentColor;
+	}
+
+	@media (max-width: 980px) {
+		.lifecycle-body {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 760px) {
+		.crm-basics,
+		.crm-lifecycle {
+			padding-block: var(--space-xl);
+		}
+
+		.cost-list,
+		.lifecycle-list,
+		.reading-list {
+			grid-template-columns: 1fr;
+		}
+
+		.tool-map > div {
+			grid-template-columns: 1fr;
+			gap: 0.6rem;
 		}
 	}
 </style>

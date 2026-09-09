@@ -27,7 +27,7 @@ Among reasons for dropping a vendor from consideration (multiple answers, n=307)
 
 Among factors that mattered when the eventual winner was first added to the shortlist (n=298 for this question, up to three answers): "they had a case study from a company similar to ours in size" 44.3%, "the functionality addressing our problem was clear" 40.3%, "they had implementations in our industry" 29.5%.
 
-Industry-specific information — vertical case studies, industry-specific feature explanations — influenced shortlisting for 62.5% of respondents (16.9% "it was the deciding factor" plus 45.6% "it pushed the decision forward").
+Industry-specific information, meaning vertical case studies and industry-specific feature explanations, influenced shortlisting for 62.5% of respondents (16.9% "it was the deciding factor" plus 45.6% "it pushed the decision forward").
 
 A Japanese buyer opens your case study page to check whether you serve companies like theirs. If the answer is no, that is a disqualification, not a missed opportunity to inspire.
 
@@ -61,12 +61,14 @@ Agree the publishable level of detail at the start of the interview, not at the 
 
 Stop treating Japan case studies as a localization line item. They are a market-entry deliverable, and they are on the critical path: without one, your Japan team is asking buyers to be the first, in a market that screens on precedent.
 
-Three changes. Budget the first two or three Japanese customer stories as part of the entry plan, with the six questions above as the required fields. Reorganize the Japan case study index by industry and employee-count band rather than by product line. And measure your Japan marketing team on whether local sales can answer "which company like ours uses you" in one sentence — not on how many assets were translated.
+Three changes. Budget the first two or three Japanese customer stories as part of the entry plan, with the six questions above as the required fields. Reorganize the Japan case study index by industry and employee-count band rather than by product line. And measure your Japan marketing team on whether local sales can answer "which company like ours uses you" in one sentence, not on how many assets were translated.
 
 There is no published benchmark for how many Japanese buyers a missing local case study costs you; nobody has measured it. What is measurable is your own funnel: count how many Japan opportunities went quiet after the first request for a local reference.
+
+**A case study in Japan is not a story, it is screening material. Localize the questions you ask customers, not just the language of the stories you already have.**
 
 ## Related reading
 
 Why precedent, rather than feature superiority, is what clears internal approval in Japan is covered in [Why your best feature won't win the deal in Japan, and what does](/en/articles/japanese-deals-win-on-precedent/). Case studies are the artifact that makes that precedent visible from outside.
 
-More on operating a revenue engine in the Japanese market is collected at [Consilegy EN](/en/).
+Other notes on the same problem are collected under [Demand generation](/en/category/marketing/).

@@ -103,6 +103,10 @@ export const categoryHubsEn: Record<CategoryKey, CategoryHub> = {
 				a: 'No. Logins measure compliance with a reminder. Measure the records that a decision was actually made from, which is the only definition that fails loudly when adoption slips.',
 			},
 			{
+				q: 'Should we involve the sceptics on the Japan team early?',
+				a: 'Timing is the wrong variable. Invite them while at least one decision is still theirs to make, such as two of the mandatory fields, when data gets entered, or which meeting the numbers appear in. Asked to comment on a design that is visibly already approved, a Japanese team will usually go quiet rather than object, and HQ will record that silence as alignment until the adoption numbers say otherwise.',
+			},
+			{
 				q: 'Our Japan team says they prefer the old process. Is that cultural resistance?',
 				a: 'Rarely. It is usually a correct observation that the new process costs them time and returns nothing they can use. Treat it as design feedback and find out which meeting still runs on the old artefact, because that meeting is what keeps the old process alive.',
 			},

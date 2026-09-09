@@ -64,8 +64,10 @@ If you keep the column, keep deal count and average deal size beside it, and sto
 
 Reading a region by its structure rather than by one ratio is what [Japan GTM and messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/) work starts with.
 
+**A regional win rate cannot be read on its own. Until deal count and average deal size sit next to it, on the same period and the same cohort, a rising win rate in Japan is not evidence of anything.**
+
 ## Related reading
 
 If Japan's conversion numbers will not reconcile with the global dashboard at all, the denominator is the place to start, and that is covered in [your Japan team's conversion rates don't match HQ's](/en/articles/define-the-denominator-first/).
 
-The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).
+Other notes on the same problem are collected under [Revenue data](/en/category/data/).

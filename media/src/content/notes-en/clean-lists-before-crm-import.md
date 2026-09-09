@@ -69,4 +69,4 @@ Customer data is worth what you can explain about it later, not what it weighs. 
 
 The other design decision to settle before the load is how stages are modelled. See [don't merge lifecycle stage and deal stage](/en/articles/lifecycle-stage-vs-deal-stage/) for what breaks when they are combined.
 
-The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).
+Other notes on the same problem are collected under [CRM adoption](/en/category/crm/).

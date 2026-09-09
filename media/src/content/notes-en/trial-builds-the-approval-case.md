@@ -63,6 +63,8 @@ This is not an argument against product-led growth. It is an argument for wrappi
 
 Treating the Japanese market as one continuous [revenue architecture](https://consilegy.com/en/services-en/japan-market-gtm-messaging/) from acquisition through retention is what tells you where in the process the trial belongs.
 
+**In Japan, a trial is not where the product gets evaluated. It is where the material that clears internal approval gets built.**
+
 ## Common mistakes
 
 - **Reporting Japan on trial-to-paid conversion.** In a market where the trial sits late and sales comes first, that ratio measures the wrong stage. Track how many approval-ready documents a deal has produced.
@@ -73,4 +75,4 @@ Treating the Japanese market as one continuous [revenue architecture](https://co
 
 What actually carries an approval document internally is precedent, not features. [Why your best feature won't win the deal in Japan](/en/articles/japanese-deals-win-on-precedent/) has the data.
 
-The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).
+Other notes on the same problem are collected under [Japan market entry](/en/category/japan-gtm/).

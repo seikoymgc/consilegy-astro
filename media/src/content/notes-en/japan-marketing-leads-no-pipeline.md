@@ -82,6 +82,8 @@ Three things to design, in order.
 
 Run MA or SFA without these three, and the information you put in never converts into the next action. The data is visible but unused.
 
+**Marketing automation stalls when the content inventory and the marketing-to-sales handoff criteria are undefined. Switching tools does not fix it.**
+
 ## Common mistakes
 
 - **Trying to fix it by switching tools.** The cause is the missing post-capture design, so a new platform stalls at the same point. Check that handoff criteria are written down before you migrate.
@@ -92,4 +94,4 @@ Run MA or SFA without these three, and the information you put in never converts
 
 The concrete criteria for that handoff are in [hand leads to sales on behavior, not on score](/en/articles/handoff-on-behavior-not-score/).
 
-The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).
+Other notes on the same problem are collected under [Demand generation](/en/category/marketing/).

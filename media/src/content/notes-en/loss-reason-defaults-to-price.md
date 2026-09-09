@@ -71,8 +71,10 @@ That number cannot be imported. Your own closed-lost field is the only place it 
 
 Designing what the local team hands the approver is part of [Japan GTM and messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/), not a CRM cleanup task.
 
+**Closed-lost reasons are set by the picklist, not by the rep. Rebuild the values around what Japanese buyers actually drop you for, and give "internal approval stalled" its own entry.**
+
 ## Related reading
 
 How to keep stalled approvals out of the forecast in the first place is covered in [forecast your Japan pipeline on approval progress](/en/articles/forecast-by-approval-not-confidence/).
 
-The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).
+Other notes on the same problem are collected under [Sales process](/en/category/sales/).

@@ -57,6 +57,7 @@ Two practical notes:
 - **Do not use the "Japanese deals take 2 to 3 times longer than Western deals" comparison.** It circulates widely, but no published study using the same methodology across regions exists, as far as we can verify. One unsourced number can undermine an otherwise solid deck. Use the Japan-side numbers above, with their source, and let HQ compare against its own benchmarks.
 - **Pair the expectation reset with a playbook.** Supporting the champion's internal process (drafting the ringi document with them, preparing a one-page summary for their executives, joining the internal briefing) shortens the invisible stage. Presenting this alongside the data turns the message from "Japan is slow" into "here is how we win in Japan."
 
+**Don't say Japan is slow. Say the process has one more stage. Structure can be measured and managed; culture cannot.**
 
 ## Common mistakes
 
@@ -68,4 +69,4 @@ Two practical notes:
 
 Explaining the length is one thing; forecasting through it is another. [Forecast on approval progress, not rep confidence](/en/articles/forecast-by-approval-not-confidence/) covers the mechanics.
 
-The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).
+Other notes on the same problem are collected under [Japan market entry](/en/category/japan-gtm/).

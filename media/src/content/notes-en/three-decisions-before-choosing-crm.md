@@ -61,8 +61,10 @@ A senior Japanese sales hire may have spent a full career without a CRM. That is
 
 Designing the operating rules before the tool is part of [Japan GTM and messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/), not an IT project.
 
+**A CRM decision for Japan is settled by three answers, not by a feature comparison: who enters the data, which system is the master record, and who administers it locally.**
+
 ## Related reading
 
 What to settle before loading Japanese data into whichever system you choose is covered in [before importing your Japan contact lists, decide three things](/en/articles/clean-lists-before-crm-import/).
 
-The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).
+Other notes on the same problem are collected under [CRM adoption](/en/category/crm/).

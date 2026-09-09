@@ -82,4 +82,4 @@ Pull three currently open partner-sourced Japanese deals and read the last recor
 
 Once the reasons do reach your CRM, the next failure is the picklist itself. Global closed-lost values were designed for markets where deals are lost to a competitor, and they have no value for the way Japanese deals actually end. That rebuild is covered in [Why every lost deal in Japan shows up as "price" in your CRM](/en/articles/loss-reason-defaults-to-price/).
 
-More on operating a revenue system in the Japanese market is collected at [Consilegy Notes](/en/).
+Other notes on the same problem are collected under [Japan market entry](/en/category/japan-gtm/).

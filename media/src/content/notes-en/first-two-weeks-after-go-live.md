@@ -37,7 +37,7 @@ Do not let the rollout team leave at go-live. Three things, in order:
 
 ## The principle
 
-A go-live date ends the implementation, not the project. For Japan, budget two more weeks of daily data reading and 48-hour fixes, and treat silence as a signal to investigate, not to celebrate.
+**For a Japan go-live, keep the project open two more weeks: read the field-level data daily, fix frictions within 48 hours, and close the loop visibly. Waiting for tickets measures nothing, because a Japanese team that has quietly stopped using the tool files no tickets.**
 
 ## Related reading
 

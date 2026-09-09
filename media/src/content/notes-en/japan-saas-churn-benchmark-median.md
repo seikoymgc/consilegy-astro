@@ -51,6 +51,8 @@ A dashboard exists to surface what needs intervention, not to produce a tidy sin
 - **Name the source, year, and sample every time.** When you cite the Japan benchmark, say "Fullstar 2025, n=200, vendor survey." HQ can weigh a vendor survey of 200 companies appropriately, and a sourced number survives scrutiny that an unsourced one does not.
 - **Do not compare Japan and home-market retention as if the numbers are equivalent.** US benchmarks such as Benchmarkit 2025 report a median net revenue retention around 101%, and Japan's Fullstar reports a mean NRR of 102.1%, but the samples, methods, and mean-versus-median basis all differ. They look close; they are not directly comparable. Present each with its own definition and let HQ draw the line.
 
+**When a distribution is skewed, report the median, not the mean. A single averaged number, misread across a market, sets the wrong target for the whole Japan operation.**
+
 ## Common mistakes
 
 - **Treating every metric as skewed.** Symmetric metrics are fine to average. Churn, deal size, and stage duration are the ones that reliably skew; check the distribution per metric.
@@ -61,4 +63,4 @@ A dashboard exists to surface what needs intervention, not to produce a tidy sin
 
 Reading the median is the first half; attaching a decision rule to it is the second. See [write the threshold before adding another dashboard](/en/articles/threshold-before-dashboard/).
 
-The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).
+Other notes on the same problem are collected under [Revenue data](/en/category/data/).

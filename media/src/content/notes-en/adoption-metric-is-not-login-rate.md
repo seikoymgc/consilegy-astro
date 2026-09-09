@@ -75,4 +75,4 @@ Getting the local operating model right, rather than shipping the global one and
 
 Once you are counting decisions rather than sessions, the next question is what each number has to reach before anyone acts. That is covered in [before you add another Japan dashboard, write the threshold](/en/articles/threshold-before-dashboard/).
 
-The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).
+Other notes on the same problem are collected under [Change management](/en/category/adoption/).

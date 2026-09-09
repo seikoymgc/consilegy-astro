@@ -53,6 +53,8 @@ Then hold a short weekly session that adjusts the definition on one input only, 
 
 Localize this for the Japanese buying process on top of [Japan GTM and messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/) work.
 
+**Define the handoff on the buyer's evaluation behavior, not on attribute score. If your team cannot explain in one line why a lead was passed, the criteria are not yet written down.**
+
 ## Common mistakes
 
 - **Reusing the global scoring model unchanged.** A threshold tuned to US signals misreads a Japanese buyer who has already done 40% of the process privately. Redefine the passable lead on local evaluation behavior.
@@ -63,4 +65,4 @@ Localize this for the Japanese buying process on top of [Japan GTM and messaging
 
 Whether "attended" and "downloaded" count as evaluation behavior is a separate question, handled in [your Japan webinars fill up, your pipeline does not move](/en/articles/webinar-next-step-not-attendance/).
 
-The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).
+Other notes on the same problem are collected under [Demand generation](/en/category/marketing/).

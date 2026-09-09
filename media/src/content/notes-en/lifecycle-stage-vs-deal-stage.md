@@ -60,4 +60,4 @@ Two correct pipelines beat one tidy one, especially when HQ is reading the resul
 
 Once stages are separated, the next thing that stops reconciling is the denominator. [Start with the denominator](/en/articles/define-the-denominator-first/) covers how to align it with HQ.
 
-The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).
+Other notes on the same problem are collected under [CRM adoption](/en/category/crm/).

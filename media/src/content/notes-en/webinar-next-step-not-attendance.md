@@ -55,6 +55,8 @@ Localize this alongside the rest of your [Japan GTM and messaging](https://consi
 
 For context on the channel, Ebsta and Pavilion's 2025 GTM Benchmarks (655,000 opportunities across 387 companies; an international dataset, not Japanese) put event-sourced efficiency at 0.78x against an average of 1.0, below referral at 1.3x and organic at 1.2x. Events are the channel that decays without design.
 
+**Measure a webinar by the number of attendees who took a next step on their own, not by attendance. The moment attendance is the target, topic selection drifts away from the problem you actually solve.**
+
 ## Common mistakes
 
 - **Reporting the Japan webinar program on registrations.** It is the one number headquarters can compare globally, and it is the number that pushes the local team toward broad topics. Report the self-initiated next steps instead.
@@ -65,4 +67,4 @@ For context on the channel, Ebsta and Pavilion's 2025 GTM Benchmarks (655,000 op
 
 How to write those behaviors into the criteria your local sales team acts on is covered in [hand leads to sales on behavior, not on score](/en/articles/handoff-on-behavior-not-score/).
 
-The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).
+Other notes on the same problem are collected under [Demand generation](/en/category/marketing/).

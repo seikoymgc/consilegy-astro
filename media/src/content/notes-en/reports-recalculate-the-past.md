@@ -39,7 +39,7 @@ Move the reporting date to a timestamp users cannot edit, and stop tightening re
 
 One more thing worth saying out loud to a global team: this is not Japan being unreliable with data. Every region's reports recalculate the past. Japan simply has more duplicates, more migrations, and more delayed entry for the report to recalculate over, and the person who knows that is usually not in the meeting where the number is challenged.
 
-A report does not store the past. If a number has to hold, someone has to close the period and save it.
+**A report does not store the past. It recomputes it from today's data every time it runs. If a number has to hold, someone has to close the period and save it.**
 
 ## Related reading
 

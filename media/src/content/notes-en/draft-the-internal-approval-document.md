@@ -48,10 +48,10 @@ Localisation here is not translation. A ROI slide built for a single economic bu
 
 Make the handover visible on the deal record rather than in the rep's head:
 
-- **Internal approval support** — draft delivered, or not
-- **Business case / ROI material sent** — which assets, in Japanese
-- **Decision deadline** — the customer's internal deadline, not your quarter end
-- **Champion support level** — is the evaluator now the person carrying it upward
+- **Internal approval support**: draft delivered, or not
+- **Business case / ROI material sent**: which assets, in Japanese
+- **Decision deadline**: the customer's internal deadline, not your quarter end
+- **Champion support level**: is the evaluator now the person carrying it upward
 
 The third field is the one that changes forecasting. Headquarters asks the Japan team for a close date, and receives a date derived from your fiscal calendar. The date that governs the outcome is the customer's budget cycle and the submission deadline inside their approval process. Nobody has asked for it.
 
@@ -65,8 +65,10 @@ Three actions.
 
 **Change the question in the pipeline review.** Instead of asking how confident the rep is, ask how many of the open Japan deals have had an approval draft delivered. If the answer is none, the deals are not stalled inside the customer. They are stalled at your handover.
 
+**Japanese deals stall because the buyer has nothing to paste into their internal approval document. Ship a Japanese-language draft as a sales deliverable, and track it as a field on the deal.**
+
 ## Related reading
 
 How to keep those approval stages in your revenue forecast rather than in a rep's confidence rating is covered in [Forecast your Japan pipeline on approval progress, not rep confidence](/en/articles/forecast-by-approval-not-confidence/), which is the reporting layer on top of the handover described here.
 
-Other notes on running a go-to-market motion in Japan are collected on the [English edition index](/en/).
+Other notes on the same problem are collected under [Japan market entry](/en/category/japan-gtm/).

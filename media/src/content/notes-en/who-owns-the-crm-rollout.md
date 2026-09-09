@@ -55,4 +55,4 @@ Designing the local operating model, rather than shipping the global one and app
 
 Once the right person owns it, the first thing to change is the meeting rather than the documentation, which is where agenda ownership pays off. That is covered in [your Japan team will not read the guide, change the weekly meeting](/en/articles/change-the-meeting-not-the-manual/).
 
-The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).
+Other notes on the same problem are collected under [Change management](/en/category/adoption/).

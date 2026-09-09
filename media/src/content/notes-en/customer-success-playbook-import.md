@@ -61,4 +61,4 @@ Designing the post-sale motion for the market you are actually operating in, rat
 
 The one-page renewal document is the same artifact as a new-business approval draft, and it fails in the same places, so the drafting order carries over directly. That is covered in [in Japan, your champion cannot write the business case, write it for them](/en/articles/draft-the-internal-approval-document/).
 
-The full English library on entering and operating in Japan is at [Consilegy Media, English edition](/en/).
+Other notes on the same problem are collected under [Japan market entry](/en/category/japan-gtm/).

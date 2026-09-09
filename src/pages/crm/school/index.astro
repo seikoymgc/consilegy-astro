@@ -69,8 +69,8 @@ const safeguards = [
 // 答えは src/data/crm-faq.ts の desc をそのまま使う（二重管理を避けるため、
 // 変えたいときは向こうを直す）。全文は /crm/faq/<slug>/ にある。
 const faqs = [
-	{ q: '料金はいくらですか', a: '1席あたり月額3,000円です。10席目からは1席あたり2,500円になります。' },
-	{ q: '席数はどう数えますか', a: 'ワークスペースに参加しているメンバーの数です。使っていない月も課金対象になります。' },
+	{ q: '料金はいくらですか', a: '在籍中の生徒の人数で決まります。50人までが月額9,800円、100人までが19,800円、300人までが39,800円です。301人以上は個別にお見積りします。講師やスタッフは何人増えても料金は変わりません。' },
+	{ q: '生徒の人数はどう数えますか', a: '在籍中の生徒だけを数えます。体験中、休会中、卒業した生徒、問い合わせ段階の見込み客は数に入りません。何人いても無料で管理していただけます。' },
 	{ q: 'スマートフォンで使えますか', a: 'ブラウザで使えます。名刺や手書きメモの撮影は、スマートフォンを想定して作っています。' },
 	{ q: 'AIに読ませたデータは学習に使われますか', a: '使われません。名刺や手書きの読み取りに使う外部のAIサービスは、いずれも学習に利用しない条件で使っています。' },
 	{ q: 'デモを見るのに登録は必要ですか', a: 'メールアドレスだけです。パスワードの登録も審査もありません。' },
@@ -352,20 +352,29 @@ const roles = [
 	<div class="container">
 		<div class="section-head">
 			<p class="section-eyebrow">料金</p>
-			<h2 class="pr-title">使う人の数だけ、席を増やす。</h2>
+			<h2 class="pr-title">受講している生徒の数だけ。</h2>
 		</div>
 		<div class="price-grid">
 			<div class="price-card">
-				<p class="price-tier">1〜9席</p>
-				<p class="price-figure"><span class="price-yen">¥</span>3,000<span class="price-unit">/ 席 / 月</span></p>
+				<p class="price-tier">〜50人</p>
+				<p class="price-figure"><span class="price-yen">¥</span>9,800<span class="price-unit">/ 月</span></p>
 			</div>
 			<div class="price-card">
-				<p class="price-tier">10席目から</p>
-				<p class="price-figure"><span class="price-yen">¥</span>2,500<span class="price-unit">/ 席 / 月</span></p>
+				<p class="price-tier">〜100人</p>
+				<p class="price-figure"><span class="price-yen">¥</span>19,800<span class="price-unit">/ 月</span></p>
+			</div>
+			<div class="price-card">
+				<p class="price-tier">〜300人</p>
+				<p class="price-figure"><span class="price-yen">¥</span>39,800<span class="price-unit">/ 月</span></p>
+			</div>
+			<div class="price-card">
+				<p class="price-tier">301人〜</p>
+				<p class="price-figure">個別見積</p>
 			</div>
 			<div class="price-note">
-				<p>席はワークスペースに参加する人の数です。オーナー、教室管理者、マネージャー、コーチが対象で、<strong>生徒の人数では課金されません</strong>。</p>
-				<p>10席目以降だけが2,500円になる累進方式です。9席までの分は3,000円のまま変わりません。</p>
+				<p>数えるのは<strong>在籍中の生徒</strong>だけです。体験中、休会中、卒業した生徒、問い合わせ段階の見込み客は、何人いても無料で管理できます。</p>
+				<p><strong>講師とスタッフは何人増えても料金は変わりません。</strong>オーナー、教室管理者、マネージャー、コーチ、いずれも人数制限はありません。</p>
+				<p>体験の生徒を課金対象にしないのは、体験を増やして入会につなげるのがこの製品の役目だからです。登録するほど請求が上がるなら、使い方と料金が矛盾します。</p>
 				<p>初期費用はありません。初回30日間は無料でお使いいただけます。クローズドβ期間中の条件は個別にご相談させてください。</p>
 			</div>
 		</div>
@@ -1272,7 +1281,8 @@ const roles = [
 	/* ── PRICING ───────────────────────────────────────── */
 	.price-grid {
 		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr)) minmax(0, 1.6fr);
+		/* 段が4つ（〜50 / 〜100 / 〜300 / 301人〜）。注記は下に回して全幅で読ませる。 */
+		grid-template-columns: repeat(4, minmax(0, 1fr));
 		gap: 0;
 		border-top: 1px solid var(--color-border);
 		border-bottom: 1px solid var(--color-border);
@@ -1282,6 +1292,10 @@ const roles = [
 		min-width: 0;
 		padding: var(--space-md) var(--space-md) var(--space-md) 0;
 		border-right: 1px solid var(--color-border);
+	}
+
+	.price-card:last-of-type {
+		border-right: 0;
 	}
 
 	.price-tier {
@@ -1314,7 +1328,9 @@ const roles = [
 
 	.price-note {
 		min-width: 0;
-		padding: var(--space-md) 0 var(--space-md) var(--space-md);
+		grid-column: 1 / -1;
+		padding: var(--space-md) 0 0;
+		border-top: 1px solid var(--color-border);
 	}
 
 	.price-note p {

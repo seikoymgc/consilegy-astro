@@ -20,7 +20,7 @@ export const jaToEn: Record<string, string> = {
   '/diagnostic/': '/en/diagnostic/',
   '/newsletter/': '/en/newsletter/',
   '/about-revops/': '/en/',
-  '/revenue-architecture/': '/en/',
+  '/revenue-architecture/': '/en/revenue-architecture/',
   '/download/': '/en/',
   '/free-consultation/': '/en/',
   '/insights/': '/en/insights/',

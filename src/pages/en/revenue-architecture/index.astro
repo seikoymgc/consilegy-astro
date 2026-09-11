@@ -1,0 +1,1566 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const faqItems = [
+	{
+		q: 'Is revenue architecture the same as RevOps?',
+		a: 'No. RevOps runs and improves the revenue-facing operation. Revenue architecture is the layer underneath it: how data, systems, process and KPIs connect so that operation can work at all. RevOps answers "how do we run this". Revenue architecture answers "what are we building".',
+	},
+	{
+		q: 'How is it different from enterprise architecture?',
+		a: 'Enterprise architecture covers the whole business and its IT estate. Revenue architecture covers one flow inside that: acquisition through to closed revenue and retained revenue. Narrower scope, different purpose.',
+	},
+	{
+		q: 'Is this the same as revenue management?',
+		a: 'No. Revenue management comes from airlines and hotels and refers to price and inventory optimisation. Revenue architecture refers to the structural design of the revenue process and the data and systems beneath it.',
+	},
+	{
+		q: 'When should a company revisit its revenue architecture?',
+		a: 'When the CRM will not stick, when sales and marketing numbers do not reconcile, when several tools have made reporting harder rather than easier, or when ARR and LTV have become difficult to manage. Launching a new business line, or moving to usage-based pricing or a multi-product portfolio, are also good moments to fix the structure first.',
+	},
+	{
+		q: 'Who owns revenue architecture?',
+		a: 'Sales operations, RevOps, marketing operations, CS operations, IT and corporate planning all touch it. It is not owned by one function. What matters is that every function with revenue exposure works from the same design.',
+	},
+	{
+		q: 'Does it conflict with a standard funnel model?',
+		a: 'No. Funnel models are strong on dividing acquisition work and forecasting it. Revenue architecture covers acquisition through retention and expansion as one structure, and the metrics nest inside each other. The risk is sequencing: if you divide the work before defining the whole structure, the post-sale half tends to go undesigned.',
+	},
+	{
+		q: 'What changes when you run this in Japan?',
+		a: 'One stage has to be added. In Japan B2B, internal approval sits between selection and contract as a distinct stage of its own. In a survey of 307 people involved in B2B purchases above roughly 3 million yen, over 80 percent reported two or more approval layers, and 63.6 percent reported that 3 to 8 months passed between starting evaluation and choosing a vendor (IDEATECH and Hiroyasu Kitagawa, published April 2026). If that stage is not modelled, the time a buyer spends getting internal agreement disappears into a single opportunity stage called "in discussion".',
+	},
+	{
+		q: 'Another thing global teams get wrong about Japan',
+		a: 'Assuming the measurement layer is there. Nexal crawled the source code of 626,003 Japanese company websites in May 2023 and found marketing automation tags on 9,444 of them, or 1.5 percent. Among listed companies it was 14.6 percent. A design that assumes behavioural tracking exists will not survive contact with most of the market.',
+	},
+	{
+		q: 'Where should we start?',
+		a: 'Not with tool selection. Start by agreeing what the metrics mean. Write the revenue model on one page, define the customer decision process in terms of the customer’s state rather than your own activity, agree metric definitions across the functions that use them, begin measuring conversion and waiting time per stage, then pick the one stage with the most leverage and fix it. Tools chosen before the design is settled almost always get rebuilt.',
+	},
+];
+
+const faqSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faqItems.map(({ q, a }) => ({
+		'@type': 'Question',
+		name: q,
+		acceptedAnswer: { '@type': 'Answer', text: a },
+	})),
+};
+
+const definedTermSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'DefinedTerm',
+	'@id': 'https://consilegy.com/en/revenue-architecture/#revenue-architecture',
+	name: 'Revenue Architecture',
+	description:
+		'Revenue architecture is the structural design of how marketing, sales, customer success, CRM, KPIs, data and systems connect as a single flow that produces revenue. It treats revenue as a designed structure rather than the sum of individual effort. Where RevOps answers how the operation is run, revenue architecture defines what is being built underneath it.',
+	url: 'https://consilegy.com/en/revenue-architecture/',
+	inDefinedTermSet: {
+		'@type': 'DefinedTermSet',
+		name: 'Consilegy Revenue Architecture glossary',
+		url: 'https://consilegy.com/en/revenue-architecture/',
+	},
+};
+
+const breadcrumbSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://consilegy.com/en/' },
+		{ '@type': 'ListItem', position: 2, name: 'What is revenue architecture', item: 'https://consilegy.com/en/revenue-architecture/' },
+	],
+};
+
+const structures = [
+	{ en: 'Process', body: 'How demand enters, how it moves, who owns it at each point, and what has to be true before it moves again.' },
+	{ en: 'Metrics', body: 'What each stage measures, how the definitions nest, and which numbers are allowed to be reported upward.' },
+	{ en: 'Data', body: 'What is recorded, by whom, at what moment, and in a shape that the next person can act on.' },
+	{ en: 'Systems', body: 'CRM, marketing automation, support, billing and the joins between them, configured against the design rather than ahead of it.' },
+];
+
+const sources = [
+	{
+		name: 'IDEATECH and Hiroyasu Kitagawa, survey on large B2B purchases in Japan',
+		meta: 'Published April 2026 / n=307 (employees and executives involved, with at least one colleague, in B2B purchases of 3 million yen or more in annual contract value or one-off implementation cost)',
+		url: 'https://www.atpress.ne.jp/news/8527090',
+	},
+	{
+		name: 'Nexal, marketing automation implementation survey',
+		meta: 'May 2023 / n=626,003 Japanese company websites. Source code crawled in full rather than surveyed',
+		url: 'https://www.nexal.co.jp/blogs/20230930.html',
+	},
+	{
+		name: 'Virtualex Consulting, Customer Success in Japan 2025',
+		meta: 'February 2025 / n=64,138 (employed people aged 20 to 65 nationwide, tracked annually since 2019)',
+		url: 'https://www.virtualex.co.jp/news/2025/03/2025CS-research-1.html',
+	},
+	{
+		name: 'HubSpot Japan, State of Sales in Japan 2024',
+		meta: 'Sellers n=1,545 / fieldwork by Macromill',
+		url: 'https://www.hubspot.jp/company-news/stateofsales-20240219',
+	},
+	{
+		name: 'Ebsta and Pavilion, 2024 B2B Sales Benchmarks',
+		meta: 'n=4.2 million opportunities across 530 companies. Predominantly North American, so not a Japan benchmark',
+		url: 'https://www.ebsta.com/wp-content/uploads/2024/02/B2B-Sales-Benchmarks-2024_.pdf',
+	},
+	{
+		name: 'Winning by Design, The Bowtie: A Customer-Centric Framework for a Recurring Revenue Business, Proposed Standard v1.0',
+		meta: 'Source of the CR1 to CR8 conversion and Δt1 to Δt9 time definitions. Benchmarks drawn from 2016 to 2022, n=868',
+		url: 'https://winningbydesign.com/bowtie/',
+	},
+	{
+		name: 'Jacco van der Kooij, Revenue Architecture',
+		meta: 'Winning by Design / published October 2023 / 556 pages',
+		url: 'https://winningbydesign.com/resources/books/revenue-architecture/',
+	},
+];
+
+const relatedServices = [
+	{ label: 'Revenue Architecture Design', href: '/en/services/revenue-architecture-design/', desc: 'Upstream design of the revenue process, KPIs and data structure' },
+	{ label: 'CRM and RevOps Implementation', href: '/en/services/crm-revops-implementation/', desc: 'Design and build across Salesforce, HubSpot and other major platforms' },
+	{ label: 'Japan Market GTM and Messaging', href: '/en/services/japan-market-gtm-messaging/', desc: 'GTM structure, qualification process and marketing alignment for Japan' },
+	{ label: 'HubSpot Implementation and Operations', href: '/en/services/hubspot-implementation-operations-support/', desc: 'HubSpot design, build and operational improvement' },
+	{ label: 'Adoption and Growth Support', href: '/en/services/adoption-growth-support/', desc: 'Making the design stick, KPI reviews and continuous improvement' },
+];
+
+const relatedReading = [
+	{ label: 'What revenue architecture means for Japan GTM', href: '/en/insights/what-revenue-architecture-means-for-japan-gtm/' },
+	{ label: 'Why CRM implementation fails without revenue architecture', href: '/en/insights/why-crm-implementation-fails-without-revenue-architecture/' },
+	{ label: 'Where Japan GTM breaks after lead generation', href: '/en/insights/where-japan-gtm-breaks-after-lead-generation/' },
+	{ label: 'RevOps for Japan GTM: what global teams need to localise', href: '/en/insights/revops-for-japan-gtm-what-global-teams-need-to-localize/' },
+];
+---
+
+<BaseLayout
+	title="What is Revenue Architecture | Definition, how it differs from RevOps, and what changes in Japan | Consilegy"
+	description="Revenue architecture is the structural design of how marketing, sales, customer success, CRM, KPIs and data connect as one revenue-producing flow. Definition, the conversion and waiting-time metric set, how it differs from RevOps and enterprise architecture, and the approval stage global teams have to add for Japan, with sourced data."
+	lang="en"
+	canonical="https://consilegy.com/en/revenue-architecture/"
+	alternateUrl="/revenue-architecture/"
+	ogImage="https://consilegy.com/images/og-revenue-architecture-en.png"
+>
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(definedTermSchema)} />
+	</Fragment>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+	<div class="container">
+		<nav class="breadcrumb" aria-label="Breadcrumb">
+			<a href="/en/">Home</a>
+			<span aria-hidden="true">&rsaquo;</span>
+			<span aria-current="page">What is revenue architecture</span>
+		</nav>
+		<div class="hero-body">
+			<div class="hero-text">
+				<h1>When marketing, sales and CRM are separated,<br class="br-sp" />revenue stops being readable.</h1>
+				<p class="hero-lead">
+					Which activity produced the deal. Why the forecast keeps missing. Why the CRM will not stick.
+				</p>
+				<p class="hero-lead">
+					Revenue architecture treats those as one problem, not three, and designs marketing through to closed and retained revenue as a single flow.
+				</p>
+				<div class="hero-actions">
+					<a href="/en/diagnostic/" class="btn btn--primary">Run the revenue diagnostic</a>
+					<a href="/en/services/revenue-architecture-design/" class="btn btn--ghost">See Revenue Architecture Design</a>
+				</div>
+			</div>
+			<div class="hero-def-card">
+				<p class="def-card__label">Revenue Architecture</p>
+				<p class="def-card__text">The structural design of how marketing, sales, customer success, CRM, KPIs, data and systems connect as one flow that produces revenue.</p>
+				<div class="def-card__divider"></div>
+				<ul class="def-card__attrs">
+					<li><span>Scope</span>Every function and system with revenue exposure</li>
+					<li><span>Purpose</span>Make revenue a repeatable structure, not an individual result</li>
+					<li><span>Method</span>Designing process, metrics, data and systems together</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===== DEFINITION ===== -->
+<section class="section-def-quick" id="revenue-architecture-definition">
+	<div class="container">
+		<div class="def-quick-inner">
+			<h2>What revenue architecture is</h2>
+			<p class="def-quick-body">Revenue architecture is the structural design of how marketing, sales, customer success, CRM, KPIs, data and systems connect as a single flow that produces revenue. It treats revenue as something you design, not something you add up at the end of the quarter.</p>
+		</div>
+	</div>
+</section>
+
+<!-- ===== PROBLEM ===== -->
+<section class="section section--soft" id="problem">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">The Problem</p>
+			<h2>Everyone is working. Nobody can read the number.</h2>
+		</div>
+		<div class="problem-body">
+			<div class="problem-text">
+				<p>Marketing is running campaigns. Sales is working opportunities. Customer success is handling accounts.</p>
+				<p>In most companies where revenue will not stabilise, those three are all moving, and moving separately.</p>
+				<ul class="problem-list">
+					<li>Nobody can say which marketing activity produced which win</li>
+					<li>Leads handed to sales disappear from view</li>
+					<li>When a customer leaves, the teams explain it in three different vocabularies</li>
+				</ul>
+				<p class="problem-conclusion">Revenue architecture closes those gaps by designing marketing through to closed and retained revenue as one flow rather than three adjacent ones.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===== FOUR STRUCTURES ===== -->
+<section class="section" id="structures">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">Scope</p>
+			<h2>The four structures it covers</h2>
+		</div>
+		<div class="structure-grid">
+			{structures.map(s => (
+				<div class="structure-card">
+					<h3>{s.en}</h3>
+					<p>{s.body}</p>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<!-- ===== METRICS ===== -->
+<section class="section section--soft" id="metrics">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">Measurement</p>
+			<h2>Two things get measured: conversion, and waiting</h2>
+		</div>
+		<p class="metrics-intro">Most revenue reporting measures activity. Calls made, emails sent, opportunities created. Those describe effort. They do not describe whether the customer moved, or how long they sat still before they did.</p>
+		<div class="metrics-grid">
+			<div class="metric-card">
+				<h3>Conversion, CR1 to CR8</h3>
+				<p>The rate at which a customer moves from one state to the next, defined by the customer's state rather than the seller's activity. Definitions from Winning by Design's bowtie standard.</p>
+			</div>
+			<div class="metric-card">
+				<h3>Time, &Delta;t1 to &Delta;t8</h3>
+				<p>The elapsed time between those movements. Not time spent working, time spent waiting. This is the half most companies never instrument, and it is usually where the quarter is lost.</p>
+			</div>
+		</div>
+		<p class="metrics-note">A ninety-day sales cycle is not a number you can act on. Ninety days split into seller time and buyer time is, because the two point at opposite investments.</p>
+	</div>
+</section>
+
+<!-- ===== JAPAN ===== -->
+<section class="section" id="japan">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">Japan</p>
+			<h2>What changes when you run this in Japan</h2>
+		</div>
+		<div class="problem-body">
+			<div class="problem-text">
+				<p>The framework is not Japan-specific. Two things about running it here are.</p>
+				<p><strong>Internal approval is a stage, not an interruption.</strong> In a survey of 307 people involved in B2B purchases above roughly 3 million yen, more than 80 percent reported two or more layers of approval, and 63.6 percent reported 3 to 8 months between starting evaluation and selecting a vendor. If that stage is not in your model, the time a buyer spends assembling internal agreement is invisible, and it gets recorded as an opportunity sitting in "in discussion".</p>
+				<p><strong>The measurement layer is thinner than global playbooks assume.</strong> Nexal crawled the source code of 626,003 Japanese company sites in May 2023 and found marketing automation tags on 1.5 percent of them. Among listed companies, 14.6 percent. A design that assumes behavioural tracking is already in place will not hold for most of the market.</p>
+				<p class="problem-conclusion">Neither of these makes Japan exotic. Both make the standard design incomplete if you import it unchanged.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===== VS REVOPS ===== -->
+<section class="section section--soft" id="vs-revops">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">Boundaries</p>
+			<h2>How it differs from RevOps</h2>
+		</div>
+		<p class="metrics-intro">RevOps runs and improves the revenue operation. Revenue architecture defines what that operation is running on. RevOps answers how we run this. Revenue architecture answers what we are building. A strong RevOps function working on an undesigned structure spends its time reconciling reports.</p>
+	</div>
+</section>
+
+<!-- ===== NOT CRM ===== -->
+<section class="section" id="not-crm">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">Boundaries</p>
+			<h2>It is not a CRM project</h2>
+		</div>
+		<p class="metrics-intro">A CRM records the design you already have. If the stages were never defined by customer state, a new CRM will record the same ambiguity faster and at higher cost. Tooling decisions taken before the structure is settled are the most common source of rebuild work we see.</p>
+	</div>
+</section>
+
+<!-- ===== RELATED READING ===== -->
+<section class="section section--soft" id="reading">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">Read next</p>
+			<h2>Related reading</h2>
+		</div>
+		<div class="related-grid">
+			{relatedReading.map(r => (
+				<a class="related-card" href={r.href}>
+					<span class="related-card__label">{r.label}</span>
+				</a>
+			))}
+		</div>
+	</div>
+</section>
+
+<!-- ===== RELATED SERVICES ===== -->
+<section class="section" id="services">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">Services</p>
+			<h2>Related services</h2>
+		</div>
+		<div class="related-grid">
+			{relatedServices.map(s => (
+				<a class="related-card" href={s.href}>
+					<span class="related-card__label">{s.label}</span>
+					<span class="related-card__desc">{s.desc}</span>
+				</a>
+			))}
+		</div>
+	</div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section section--soft" id="faq">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">FAQ</p>
+			<h2>Frequently asked questions</h2>
+		</div>
+		<div class="faq-list">
+			{faqItems.map(item => (
+				<details class="faq-item">
+					<summary>{item.q}</summary>
+					<p>{item.a}</p>
+				</details>
+			))}
+		</div>
+	</div>
+</section>
+
+<!-- ===== SOURCES ===== -->
+<section class="section" id="sources">
+	<div class="container">
+		<div class="section-header">
+			<p class="eyebrow">Sources</p>
+			<h2>Surveys and references cited</h2>
+		</div>
+		<p class="metrics-intro">Every figure on this page has been checked against the primary source for who ran it, when, and the sample. Figures whose origin we could not establish, and figures circulating in a form that differs from the original, are not published here.</p>
+		<ul class="source-list">
+			{sources.map(s => (
+				<li>
+					<a href={s.url} target="_blank" rel="noopener">{s.name}</a>
+					<span class="source-meta">{s.meta}</span>
+				</li>
+			))}
+		</ul>
+	</div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="section-cta">
+	<div class="container">
+		<div class="cta-body">
+			<h2>Where should your own structure be fixed first?</h2>
+			<p>Three minutes, all multiple choice. It maps where revenue is leaking across marketing, sales, CRM and KPIs.</p>
+			<div class="cta-actions">
+				<a href="/en/diagnostic/" class="btn btn--cta-primary">Run the revenue diagnostic</a>
+				<a href="/en/contact/" class="btn btn--cta-ghost">Talk to us</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+</BaseLayout>
+<style>
+	/* ── Bowtie figure (SVG) ───────────────────────────────── */
+	.bowtie-figure {
+		margin: 0;
+	}
+
+	.bowtie-figure img {
+		display: block;
+		width: 100%;
+		height: auto;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: var(--radius, 8px);
+		background: #fff;
+	}
+
+	.bowtie-figure figcaption {
+		margin-top: 0.75rem;
+		font-size: 0.78rem;
+		line-height: 1.8;
+		color: var(--color-text-muted);
+	}
+
+	/* ── Metrics (CR / Δt) ─────────────────────────────────── */
+	.metrics-intro {
+		max-width: 760px;
+		margin: 0 auto 2.5rem;
+		font-size: 0.95rem;
+		line-height: 1.9;
+		color: var(--color-text, #334155);
+	}
+
+	.metrics-intro p + p {
+		margin-top: 1rem;
+	}
+
+	.metrics-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		gap: 2rem;
+	}
+
+	.metrics-title {
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		margin-bottom: 1rem;
+	}
+
+	.metrics-table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 0.85rem;
+	}
+
+	.metrics-table th,
+	.metrics-table td {
+		padding: 0.6rem 0.7rem;
+		text-align: left;
+		border-bottom: 1px solid var(--color-border, #e2e8f0);
+		line-height: 1.6;
+	}
+
+	.metrics-table th {
+		font-weight: 600;
+		color: var(--color-text-muted);
+		font-size: 0.78rem;
+		border-bottom-width: 2px;
+	}
+
+	.metrics-id {
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		white-space: nowrap;
+	}
+
+	.metrics-callout {
+		margin-top: 2.5rem;
+		padding: 1.75rem;
+		border-left: 3px solid var(--color-accent, #c2410c);
+		background: var(--color-bg-soft, #f8fafc);
+		border-radius: 0 6px 6px 0;
+	}
+
+	.metrics-callout__label {
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		color: var(--color-accent, #c2410c);
+		margin-bottom: 0.75rem;
+	}
+
+	.metrics-callout p:not(.metrics-callout__label) {
+		font-size: 0.92rem;
+		line-height: 1.9;
+		color: var(--color-text, #334155);
+	}
+
+	.metrics-callout p + p {
+		margin-top: 0.85rem;
+	}
+
+	.metrics-note {
+		margin-top: 1.5rem;
+		font-size: 0.76rem;
+		line-height: 1.7;
+		color: var(--color-text-muted);
+	}
+
+	/* ── Japan market data ─────────────────────────────────── */
+	.japan-data-lead {
+		max-width: 720px;
+		margin: 0 auto 2.5rem;
+		text-align: center;
+		font-size: 0.92rem;
+		line-height: 1.9;
+		color: var(--color-text, #334155);
+	}
+
+	.japan-data-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		gap: 1.25rem;
+	}
+
+	.japan-data-card {
+		padding: 1.5rem;
+		background: #fff;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.japan-data-stat {
+		font-size: 1.9rem;
+		font-weight: 700;
+		line-height: 1.1;
+		color: var(--color-navy, #0f172a);
+		font-feature-settings: 'tnum';
+	}
+
+	.japan-data-label {
+		margin-top: 0.35rem;
+		font-size: 0.8rem;
+		font-weight: 600;
+		color: var(--color-accent, #c2410c);
+	}
+
+	.japan-data-body {
+		margin-top: 0.85rem;
+		font-size: 0.85rem;
+		line-height: 1.8;
+		color: var(--color-text, #334155);
+		flex: 1;
+	}
+
+	.japan-data-source {
+		margin-top: 1rem;
+		padding-top: 0.75rem;
+		border-top: 1px solid var(--color-border, #e2e8f0);
+		font-size: 0.7rem;
+		line-height: 1.6;
+		color: var(--color-text-muted);
+	}
+
+	.japan-data-caution {
+		margin-top: 2rem;
+		padding: 1.5rem;
+		background: #fff;
+		border: 1px dashed var(--color-border, #cbd5e1);
+		border-radius: 8px;
+	}
+
+	.japan-data-caution__label {
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		color: var(--color-text-muted);
+		margin-bottom: 0.6rem;
+	}
+
+	.japan-data-caution p:not(.japan-data-caution__label) {
+		font-size: 0.85rem;
+		line-height: 1.9;
+		color: var(--color-text, #334155);
+	}
+
+	/* ── Sources ───────────────────────────────────────────── */
+	.sources-lead {
+		max-width: 720px;
+		margin: 0 auto 2rem;
+		text-align: center;
+		font-size: 0.88rem;
+		line-height: 1.9;
+		color: var(--color-text-muted);
+	}
+
+	.sources-list {
+		max-width: 820px;
+		margin-inline: auto;
+		padding-left: 1.5rem;
+		display: grid;
+		gap: 1rem;
+	}
+
+	.sources-item {
+		font-size: 0.85rem;
+		line-height: 1.7;
+	}
+
+	.sources-item a {
+		color: var(--color-navy, #0f172a);
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+
+	.sources-meta {
+		display: block;
+		margin-top: 0.25rem;
+		font-size: 0.75rem;
+		color: var(--color-text-muted);
+	}
+
+	@media (max-width: 640px) {
+		.metrics-table {
+			font-size: 0.78rem;
+		}
+
+		.metrics-table th,
+		.metrics-table td {
+			padding: 0.5rem 0.4rem;
+		}
+
+		.japan-data-stat {
+			font-size: 1.6rem;
+		}
+	}
+
+	/* ── Shared utilities ──────────────────────────────────── */
+	.container {
+		max-width: 1100px;
+		margin-inline: auto;
+		padding-inline: var(--space-md, 1.5rem);
+	}
+
+	.section {
+		padding-block: 5rem;
+	}
+
+	.section--soft {
+		background: var(--color-bg-soft, #f8fafc);
+	}
+
+	.section-header {
+		text-align: center;
+		margin-bottom: 3rem;
+	}
+
+	.section-header h2 {
+		font-size: clamp(1.4rem, 2.5vw, 2rem);
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		margin-top: 0.5rem;
+		line-height: 1.4;
+	}
+
+	.eyebrow {
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--color-primary, #1e40af);
+		margin: 0;
+	}
+
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4em;
+		padding: 0.75em 1.5em;
+		font-size: 0.9rem;
+		font-weight: 700;
+		border-radius: 6px;
+		text-decoration: none;
+		transition: background 0.15s, color 0.15s, border-color 0.15s;
+	}
+
+	.btn--primary {
+		background: var(--color-primary, #1e40af);
+		color: #fff;
+		border: 2px solid transparent;
+	}
+
+	.btn--primary:hover {
+		background: var(--color-primary-dark, #1d4ed8);
+	}
+
+	.btn--ghost {
+		background: transparent;
+		color: var(--color-primary, #1e40af);
+		border: 2px solid var(--color-primary, #1e40af);
+	}
+
+	.btn--ghost:hover {
+		background: rgba(30, 64, 175, 0.05);
+	}
+
+	/* ── Breadcrumb ────────────────────────────────────────── */
+	.breadcrumb {
+		display: flex;
+		align-items: center;
+		gap: 0.4em;
+		font-size: 0.8rem;
+		color: var(--color-text-muted);
+		margin-bottom: 2rem;
+	}
+
+	.breadcrumb a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	.breadcrumb a:hover { color: var(--color-primary, #1e40af); }
+
+	/* ── HERO ──────────────────────────────────────────────── */
+	.hero {
+		padding-block: 4rem 3.5rem;
+		background: #fff;
+		border-bottom: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.hero-body {
+		display: grid;
+		grid-template-columns: 1fr 380px;
+		gap: 3rem;
+		align-items: start;
+	}
+
+	.hero-text .eyebrow { margin-bottom: 0.75rem; }
+
+	.hero-text h1 {
+		font-size: clamp(2rem, 4vw, 3rem);
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		line-height: 1.2;
+		margin: 0 0 1.5rem;
+	}
+
+	.hero-lead {
+		font-size: 1.05rem;
+		line-height: 1.8;
+		color: var(--color-charcoal, #334155);
+		margin: 0 0 1rem;
+	}
+
+	.hero-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: 2rem;
+	}
+
+	/* ── Hero def card ─────────────────────────────────────── */
+	.hero-def-card {
+		background: var(--color-navy, #0f172a);
+		color: #fff;
+		border-radius: 8px;
+		padding: 1.75rem;
+		position: sticky;
+		top: 80px;
+	}
+
+	.def-card__label {
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: rgba(255,255,255,0.5);
+		margin: 0 0 0.75rem;
+	}
+
+	.def-card__text {
+		font-size: 0.92rem;
+		line-height: 1.75;
+		color: rgba(255,255,255,0.9);
+		margin: 0 0 1.25rem;
+	}
+
+	.def-card__divider {
+		height: 1px;
+		background: rgba(255,255,255,0.12);
+		margin-bottom: 1.25rem;
+	}
+
+	.def-card__attrs {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+	}
+
+	.def-card__attrs li {
+		font-size: 0.82rem;
+		color: rgba(255,255,255,0.75);
+		display: flex;
+		gap: 0.75rem;
+	}
+
+	.def-card__attrs li span {
+		font-weight: 700;
+		color: rgba(255,255,255,0.45);
+		min-width: 3em;
+		flex-shrink: 0;
+	}
+
+	/* ── PROBLEM ───────────────────────────────────────────── */
+	.problem-body {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 2.5rem;
+		align-items: start;
+	}
+
+	.problem-text {
+		max-width: 760px;
+	}
+
+	.problem-text p {
+		line-height: 1.8;
+		color: var(--color-charcoal, #334155);
+		margin: 0 0 1rem;
+	}
+
+	.problem-list {
+		list-style: none;
+		padding: 0;
+		margin: 0 0 1.25rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+	}
+
+	.problem-list li {
+		padding-left: 1.25rem;
+		position: relative;
+		color: var(--color-charcoal, #334155);
+		line-height: 1.6;
+		font-size: 0.95rem;
+	}
+
+	.problem-list li::before {
+		content: '—';
+		position: absolute;
+		left: 0;
+		color: var(--color-text-muted);
+	}
+
+	.problem-conclusion {
+		font-weight: 600;
+		color: var(--color-navy, #0f172a) !important;
+		border-left: 3px solid var(--color-primary, #1e40af);
+		padding-left: 1rem;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	/* ── HERO H1 line break ────────────────────────────────── */
+	.br-sp { display: none; }
+
+	/* ── HERO直下 定義 ──────────────────────────────────────── */
+	.section-def-quick {
+		padding-block: 3rem 3.5rem;
+		background: #fff;
+		border-bottom: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.def-quick-inner {
+		max-width: 780px;
+		margin-inline: auto;
+	}
+
+	.def-quick-inner h2 {
+		font-size: clamp(1.15rem, 2vw, 1.45rem);
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		margin: 0 0 1.25rem;
+		line-height: 1.45;
+	}
+
+	.def-quick-body {
+		font-size: 1rem;
+		line-height: 1.85;
+		color: var(--color-charcoal, #334155);
+		margin: 0 0 1.5rem;
+	}
+
+	.def-quick-oneline {
+		background: var(--color-bg-soft, #f8fafc);
+		border-left: 4px solid var(--color-primary, #1e40af);
+		border-radius: 0 8px 8px 0;
+		padding: 1.1rem 1.5rem;
+		font-size: 0.95rem;
+		line-height: 1.75;
+		color: var(--color-navy, #0f172a);
+	}
+
+	/* ── (legacy, kept for other sections) ─────────────────── */
+	.def-body {
+		max-width: 780px;
+		margin-inline: auto;
+	}
+
+	.def-long {
+		font-size: 1.05rem;
+		line-height: 1.85;
+		color: var(--color-charcoal, #334155);
+		margin: 0 0 2rem;
+	}
+
+	.def-oneline {
+		background: var(--color-bg-soft, #f8fafc);
+		border-left: 4px solid var(--color-primary, #1e40af);
+		border-radius: 0 8px 8px 0;
+		padding: 1.25rem 1.5rem;
+		margin: 0 0 1.5rem;
+	}
+
+	.def-oneline p {
+		margin: 0;
+		font-size: 1rem;
+		line-height: 1.7;
+		color: var(--color-navy, #0f172a);
+	}
+
+	.def-note {
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		padding: 1rem 1.25rem;
+		font-size: 0.875rem;
+		color: var(--color-text-muted);
+		line-height: 1.7;
+	}
+
+	.def-note p { margin: 0; }
+
+	/* ── WHY / ISSUES ──────────────────────────────────────── */
+	.issues-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+		gap: 1rem;
+		margin-bottom: 2rem;
+	}
+
+	.issue-card {
+		background: #fff;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		padding: 1.25rem;
+		display: flex;
+		align-items: flex-start;
+		gap: 0.75rem;
+	}
+
+	.issue-num {
+		font-size: 0.72rem;
+		font-weight: 700;
+		color: var(--color-primary, #1e40af);
+		opacity: 0.6;
+		flex-shrink: 0;
+		padding-top: 0.15rem;
+	}
+
+	.issue-card p {
+		margin: 0;
+		font-size: 0.9rem;
+		line-height: 1.55;
+		color: var(--color-charcoal, #334155);
+		font-weight: 500;
+	}
+
+	.issues-note {
+		text-align: center;
+		font-size: 0.95rem;
+		color: var(--color-charcoal, #334155);
+		font-weight: 500;
+		margin: 0;
+	}
+
+	/* ── 4 STRUCTURES ──────────────────────────────────────── */
+	.structures-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+		gap: 1.5rem;
+	}
+
+	.structure-card {
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		padding: 1.75rem 1.5rem;
+		background: #fff;
+	}
+
+	.structure-num {
+		font-size: 0.72rem;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		color: var(--color-primary, #1e40af);
+		margin: 0 0 0.75rem;
+	}
+
+	.structure-en {
+		font-size: 1.05rem;
+		font-weight: 700;
+		color: var(--color-navy, #0f172a);
+		margin: 0 0 0.75rem;
+		line-height: 1.3;
+	}
+
+	.structure-desc {
+		font-size: 0.875rem;
+		line-height: 1.75;
+		color: var(--color-charcoal, #334155);
+		margin: 0;
+	}
+
+	/* ── VS REVOPS ─────────────────────────────────────────── */
+	.vs-body {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 3rem;
+		align-items: start;
+	}
+
+	.vs-text p {
+		line-height: 1.8;
+		color: var(--color-charcoal, #334155);
+		margin: 0 0 1rem;
+	}
+
+	.vs-relation {
+		margin-top: 1.5rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.25rem;
+	}
+
+	.vs-relation-box {
+		width: 100%;
+		border-radius: 8px;
+		padding: 1rem 1.25rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.3rem;
+	}
+
+	.vs-relation-box--top {
+		background: var(--color-navy, #0f172a);
+		color: #fff;
+	}
+
+	.vs-relation-box--top strong { color: #fff; font-size: 0.9rem; }
+	.vs-relation-box--top span  { font-size: 0.78rem; color: rgba(255,255,255,0.6); }
+
+	.vs-relation-box--bottom {
+		background: var(--color-bg-soft, #f8fafc);
+		border: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.vs-relation-box--bottom strong { font-size: 0.9rem; color: var(--color-navy, #0f172a); }
+	.vs-relation-box--bottom span   { font-size: 0.78rem; color: var(--color-text-muted); }
+
+	.vs-relation-arrow {
+		font-size: 1.25rem;
+		color: var(--color-primary, #1e40af);
+		line-height: 1;
+	}
+
+	.compare-table {
+		background: #fff;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		overflow: hidden;
+	}
+
+	.compare-table table {
+		width: 100%;
+		border-collapse: collapse;
+	}
+
+	.compare-table thead th {
+		padding: 0.875rem 1.25rem;
+		font-size: 0.8rem;
+		font-weight: 700;
+		text-align: left;
+		background: var(--color-navy, #0f172a);
+		color: #fff;
+	}
+
+	.compare-table thead th:first-child {
+		background: var(--color-primary, #1e40af);
+	}
+
+	.compare-table tbody td {
+		padding: 0.7rem 1.25rem;
+		font-size: 0.875rem;
+		color: var(--color-charcoal, #334155);
+		border-bottom: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.compare-table tbody tr:last-child td { border-bottom: none; }
+
+	.compare-table tbody td:first-child {
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		border-right: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.compare-cta {
+		display: block;
+		padding: 0.875rem 1.25rem;
+		font-size: 0.85rem;
+		font-weight: 700;
+		color: var(--color-primary, #1e40af);
+		text-decoration: none;
+		border-top: 2px solid var(--color-border, #e2e8f0);
+		text-align: right;
+	}
+
+	.compare-cta:hover { background: rgba(30, 64, 175, 0.03); }
+
+	/* ── VS CRM ────────────────────────────────────────────── */
+	.crm-body {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 3rem;
+		align-items: start;
+	}
+
+	.crm-text p {
+		line-height: 1.8;
+		color: var(--color-charcoal, #334155);
+		margin: 0 0 1rem;
+	}
+
+	.crm-note {
+		background: var(--color-bg-soft, #f8fafc);
+		border-left: 3px solid var(--color-primary, #1e40af);
+		padding: 1rem 1.25rem;
+		border-radius: 0 6px 6px 0;
+	}
+
+	.crm-note p {
+		margin: 0;
+		font-size: 0.9rem;
+		color: var(--color-charcoal, #334155);
+	}
+
+	.crm-compare {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		background: #fff;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		padding: 1.5rem;
+	}
+
+	.crm-compare-col {
+		flex: 1;
+	}
+
+	.crm-compare-label {
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--color-text-muted);
+		margin: 0 0 0.75rem;
+	}
+
+	.crm-compare-col--ra .crm-compare-label {
+		color: var(--color-primary, #1e40af);
+	}
+
+	.crm-compare-col ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+	}
+
+	.crm-compare-col li {
+		font-size: 0.85rem;
+		color: var(--color-charcoal, #334155);
+		padding: 0.3rem 0.6rem;
+		border-radius: 4px;
+		background: var(--color-bg-soft, #f8fafc);
+	}
+
+	.crm-compare-col--ra li {
+		background: rgba(30, 64, 175, 0.05);
+		color: var(--color-navy, #0f172a);
+		font-weight: 500;
+	}
+
+	.crm-compare-sep {
+		font-size: 1.5rem;
+		color: var(--color-primary, #1e40af);
+		font-weight: 700;
+		flex-shrink: 0;
+		align-self: center;
+	}
+
+	/* ── FAILURES ──────────────────────────────────────────── */
+	.failures-grid {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-bottom: 2rem;
+	}
+
+	.failure-tag {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.5rem 1rem;
+		background: #fff;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 4px;
+		font-size: 0.875rem;
+		color: var(--color-charcoal, #334155);
+	}
+
+	.failure-dot {
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background: var(--color-primary, #1e40af);
+		opacity: 0.5;
+		flex-shrink: 0;
+	}
+
+	.failures-note {
+		text-align: center;
+		font-size: 0.9rem;
+		color: var(--color-text-muted);
+		line-height: 1.7;
+		max-width: 600px;
+		margin-inline: auto;
+	}
+
+	/* ── OUTCOMES ──────────────────────────────────────────── */
+	.outcomes-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+		gap: 1.25rem;
+	}
+
+	.outcome-card {
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		padding: 1.5rem;
+		background: #fff;
+	}
+
+	.outcome-num {
+		font-size: 0.7rem;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		color: var(--color-primary, #1e40af);
+		margin: 0 0 0.5rem;
+		display: block;
+	}
+
+	.outcome-label {
+		font-size: 0.95rem;
+		font-weight: 700;
+		color: var(--color-navy, #0f172a);
+		margin: 0 0 0.5rem;
+		line-height: 1.4;
+	}
+
+	.outcome-desc {
+		font-size: 0.82rem;
+		line-height: 1.65;
+		color: var(--color-text-muted);
+		margin: 0;
+	}
+
+	/* ── CONSILEGY APPROACH ────────────────────────────────── */
+	.approach-body {
+		max-width: 900px;
+		margin-inline: auto;
+	}
+
+	.approach-lead {
+		font-size: 1rem;
+		line-height: 1.85;
+		color: var(--color-charcoal, #334155);
+		margin: 0 0 1rem;
+		text-align: center;
+	}
+
+	.pillars {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.5rem;
+		margin-top: 2.5rem;
+	}
+
+	.pillar {
+		background: #fff;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		padding: 1.75rem 1.5rem;
+	}
+
+	.pillar-num {
+		font-size: 0.72rem;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		color: var(--color-primary, #1e40af);
+		margin: 0 0 0.75rem;
+	}
+
+	.pillar h3 {
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		margin: 0 0 0.75rem;
+	}
+
+	.pillar p {
+		font-size: 0.875rem;
+		line-height: 1.75;
+		color: var(--color-charcoal, #334155);
+		margin: 0;
+	}
+
+	/* ── RELATED SERVICES ──────────────────────────────────── */
+	.services-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+		gap: 1rem;
+	}
+
+	.service-card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+		padding: 1.25rem 1.5rem;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		background: #fff;
+		text-decoration: none;
+		transition: border-color 0.15s, box-shadow 0.15s;
+		position: relative;
+	}
+
+	.service-card:hover {
+		border-color: var(--color-primary, #1e40af);
+		box-shadow: 0 2px 12px rgba(30, 64, 175, 0.08);
+	}
+
+	.service-label {
+		font-size: 0.9rem;
+		font-weight: 700;
+		color: var(--color-navy, #0f172a);
+		margin: 0;
+	}
+
+	.service-desc {
+		font-size: 0.8rem;
+		color: var(--color-text-muted);
+		margin: 0;
+		line-height: 1.55;
+	}
+
+	.service-arrow {
+		font-size: 0.85rem;
+		color: var(--color-primary, #1e40af);
+		margin-top: 0.25rem;
+	}
+
+	/* ── FAQ ───────────────────────────────────────────────── */
+	.faq-list {
+		max-width: 780px;
+		margin-inline: auto;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.faq-item {
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		background: #fff;
+		overflow: hidden;
+	}
+
+	.faq-q {
+		font-size: 0.95rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		padding: 1.1rem 1.25rem;
+		cursor: pointer;
+		list-style: none;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+		line-height: 1.5;
+	}
+
+	.faq-q::-webkit-details-marker { display: none; }
+
+	.faq-q::after {
+		content: '+';
+		font-size: 1.25rem;
+		font-weight: 300;
+		color: var(--color-primary, #1e40af);
+		flex-shrink: 0;
+		transition: transform 0.2s;
+	}
+
+	details[open] .faq-q::after { transform: rotate(45deg); }
+
+	.faq-a {
+		font-size: 0.9rem;
+		line-height: 1.8;
+		color: var(--color-charcoal, #334155);
+		padding: 0 1.25rem 1.25rem;
+		margin: 0;
+	}
+
+	/* ── FINAL CTA ─────────────────────────────────────────── */
+	.section-cta {
+		padding-block: 5rem;
+		background:
+			radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%),
+			linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+	}
+
+	.cta-body {
+		max-width: 680px;
+		margin-inline: auto;
+		text-align: center;
+	}
+
+	.cta-body h2 {
+		font-size: clamp(1.5rem, 3vw, 2.25rem);
+		font-weight: 600;
+		color: #fff;
+		line-height: 1.35;
+		margin: 0 0 1.25rem;
+	}
+
+	.cta-body p {
+		font-size: 1rem;
+		line-height: 1.8;
+		color: rgba(255,255,255,0.8);
+		margin: 0 0 2.5rem;
+	}
+
+	.cta-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		justify-content: center;
+	}
+
+	.btn--cta-primary {
+		background: #fff;
+		color: var(--color-primary, #1e40af);
+		border: 2px solid transparent;
+		padding: 0.9em 1.75em;
+		font-size: 1rem;
+		border-radius: 6px;
+		font-weight: 700;
+		text-decoration: none;
+		transition: background 0.15s;
+	}
+
+	.btn--cta-primary:hover { background: rgba(255,255,255,0.9); }
+
+	.btn--cta-ghost {
+		background: transparent;
+		color: rgba(255,255,255,0.9);
+		border: 2px solid rgba(255,255,255,0.4);
+		padding: 0.9em 1.75em;
+		font-size: 1rem;
+		border-radius: 6px;
+		font-weight: 600;
+		text-decoration: none;
+		transition: border-color 0.15s;
+	}
+
+	.btn--cta-ghost:hover { border-color: rgba(255,255,255,0.8); }
+
+	/* ── Responsive ────────────────────────────────────────── */
+	@media (max-width: 900px) {
+		.br-sp { display: inline; }
+
+		.hero-body {
+			grid-template-columns: 1fr;
+		}
+
+		.hero-def-card { position: static; }
+
+		.problem-body,
+		.vs-body,
+		.crm-body {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+
+		.pillars { grid-template-columns: 1fr; }
+
+		.crm-compare {
+			flex-direction: column;
+			align-items: stretch;
+		}
+
+		.crm-compare-sep {
+			text-align: center;
+			transform: rotate(90deg);
+		}
+
+		.section { padding-block: 3.5rem; }
+		.section-cta { padding-block: 3.5rem; }
+	}
+
+	@media (max-width: 600px) {
+		.structures-grid { grid-template-columns: 1fr; }
+		.outcomes-grid   { grid-template-columns: 1fr; }
+	}
+
+/* ===== VS CONSULTING ===== */
+.vsc-body { max-width: 900px; }
+.vsc-lead { font-size: 1.0625rem; line-height: 1.9; color: var(--color-text); margin: 0 0 2rem; }
+.vsc-table {
+	border: 1px solid var(--color-border); border-radius: 8px;
+	overflow: hidden; background: var(--color-bg);
+}
+.vsc-row {
+	display: grid; grid-template-columns: 8rem 1fr 1fr; gap: 1.25rem;
+	padding: 1rem 1.25rem; align-items: baseline;
+	font-size: 0.9375rem; line-height: 1.7;
+}
+.vsc-row + .vsc-row { border-top: 1px solid var(--color-border); }
+.vsc-row--head {
+	background: var(--color-bg-subtle);
+	font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em;
+	color: var(--color-text-muted); text-transform: uppercase;
+}
+.vsc-row [role="rowheader"] { font-weight: 700; color: var(--color-text-muted); font-size: 0.8125rem; }
+.vsc-row [role="cell"]:last-child { color: var(--color-primary); font-weight: 600; }
+.vsc-note { margin: 1.5rem 0 0; font-size: 0.9375rem; line-height: 1.9; color: var(--color-text-muted); }
+@media (max-width: 720px) {
+	.vsc-row { grid-template-columns: 1fr; gap: 0.375rem; }
+	.vsc-row--head { display: none; }
+	.vsc-row [role="cell"]:nth-child(2)::before { content: "従来: "; color: var(--color-text-muted); font-weight: 700; }
+	.vsc-row [role="cell"]:last-child::before { content: "RA: "; font-weight: 700; }
+}
+
+</style>

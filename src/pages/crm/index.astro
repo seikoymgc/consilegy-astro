@@ -663,6 +663,28 @@ const faqs = [
 				<p>クローズドβ期間中の条件は個別にご相談させてください。</p>
 			</div>
 		</div>
+		<div class="fuel-block">
+			<h3>AIは、使った分だけ数えます。</h3>
+			<p class="fuel-lead">名刺を1枚読むのと、案件をまとめて分析するのとでは、使う計算量が桁で変わります。だから回数ではなく Fuel という単位で数えます。軽い処理が1 Fuel、ふつうの生成が3 Fuel、重い処理が10 Fuel です。</p>
+			<div class="fuel-grid">
+				<div class="price-card">
+					<p class="price-tier">毎月含まれる</p>
+					<p class="price-figure">100<span class="price-unit">Fuel / 月</span></p>
+					<p class="fuel-note">人数では割りません。何人で使っても同じです。</p>
+				</div>
+				<div class="price-card">
+					<p class="price-tier">足りなくなったら</p>
+					<p class="price-figure"><span class="price-yen">¥</span>3,000<span class="price-unit">/ 200 Fuel</span></p>
+					<p class="fuel-note">ご契約中の方の買い足し。90日間有効です。</p>
+				</div>
+				<div class="price-card">
+					<p class="price-tier">AIだけ使う</p>
+					<p class="price-figure"><span class="price-yen">¥</span>5,000<span class="price-unit">/ 100 Fuel</span></p>
+					<p class="fuel-note">CRMのご契約は要りません。人数も無制限です。</p>
+				</div>
+			</div>
+			<p class="fuel-tail">席を全員分そろえなくても、要約と下書きだけチーム全員に使わせる、という入り方ができます。使ってみて必要になったら、席を増やしてください。そのほうがFuelは3分の1の値段になります。</p>
+		</div>
 		<p class="proof-note">※価格はすべて税抜表示です。</p>
 	</div>
 </section>
@@ -1708,6 +1730,33 @@ const faqs = [
 		padding: var(--space-md);
 		border-left: 2px solid var(--color-border);
 	}
+	.fuel-block {
+		margin-top: var(--space-lg);
+		padding-top: var(--space-lg);
+		border-top: 1px solid var(--color-border);
+	}
+	.fuel-block h3 {
+		margin: 0 0 0.75rem;
+		font-size: clamp(1.2rem, 2.4vw, 1.5rem);
+		letter-spacing: -0.01em;
+	}
+	.fuel-lead,
+	.fuel-tail {
+		margin: 0 0 var(--space-md);
+		max-width: 62ch;
+	}
+	.fuel-tail { margin: var(--space-md) 0 0; }
+	.fuel-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: var(--space-md);
+		align-items: stretch;
+	}
+	.fuel-note {
+		margin: 0.75rem 0 0;
+		font-size: 0.9rem;
+		color: var(--color-text-muted);
+	}
 	.price-note p {
 		margin: 0;
 		font-size: 0.9rem;
@@ -1716,10 +1765,12 @@ const faqs = [
 	}
 	@media (max-width: 860px) {
 		.price-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+		.fuel-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 		.price-note { grid-column: 1 / -1; border-left: 0; border-top: 1px solid var(--color-border); padding-left: 0; }
 	}
 	@media (max-width: 480px) {
 		.price-grid { grid-template-columns: 1fr; }
+		.fuel-grid { grid-template-columns: 1fr; }
 	}
 
 	/* ── 10. FAQ ─────────────────────────────────────────── */

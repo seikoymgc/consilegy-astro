@@ -665,7 +665,20 @@ const faqs = [
 		</div>
 		<div class="fuel-block">
 			<h3>AIは、使った分だけ数えます。</h3>
-			<p class="fuel-lead">名刺を1枚読むのと、案件をまとめて分析するのとでは、使う計算量が桁で変わります。だから回数ではなく Fuel という単位で数えます。軽い処理が1 Fuel、ふつうの生成が3 Fuel、重い処理が10 Fuel です。</p>
+			<p class="fuel-lead">名刺を1枚読むのと、案件をまとめて分析するのとでは、使う計算量が桁で変わります。だから回数ではなく Fuel という単位で数えます。</p>
+			<div class="fuel-table-wrap">
+			<table class="fuel-table">
+				<thead>
+					<tr><th>区分</th><th>1回あたり</th><th>主な機能</th></tr>
+				</thead>
+				<tbody>
+					<tr><td>軽い処理</td><td>1 Fuel</td><td>名刺・手書きメモの読み取り、分類、音声の書き起こし</td></tr>
+					<tr><td>ふつうの生成</td><td>3 Fuel</td><td>要約、メールの下書き、商談・通話の分析、面談記録の抽出、AIエージェントとの会話</td></tr>
+					<tr><td>重い処理</td><td>10 Fuel</td><td>ダッシュボードの提案、添付ファイルの解析</td></tr>
+				</tbody>
+			</table>
+			</div>
+			<p class="fuel-fineprint">各機能の区分は変わることがあります。消費するFuelが増える変更は、30日前にお知らせします。</p>
 			<div class="fuel-grid">
 				<div class="price-card">
 					<p class="price-tier">毎月含まれる</p>
@@ -1751,6 +1764,33 @@ const faqs = [
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: var(--space-md);
 		align-items: stretch;
+	}
+	.fuel-table {
+		width: 100%;
+		border-collapse: collapse;
+		margin: 0 0 var(--space-md);
+		font-size: 0.95rem;
+	}
+	.fuel-table th,
+	.fuel-table td {
+		padding: 0.7rem 0.9rem;
+		text-align: left;
+		border-bottom: 1px solid var(--color-border);
+		vertical-align: top;
+	}
+	.fuel-table th {
+		font-size: 0.85rem;
+		font-weight: 700;
+		color: var(--color-primary);
+		white-space: nowrap;
+	}
+	.fuel-table td:nth-child(2) { white-space: nowrap; font-weight: 700; }
+	.fuel-table-wrap { overflow-x: auto; }
+	.fuel-table { min-width: 34rem; }
+	.fuel-fineprint {
+		margin: 0 0 var(--space-md);
+		font-size: 0.85rem;
+		color: var(--color-text-muted);
 	}
 	.fuel-note {
 		margin: 0.75rem 0 0;

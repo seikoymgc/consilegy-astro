@@ -487,6 +487,18 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 				<p>There is no setup fee. Terms during the closed beta are agreed case by case.</p>
 			</div>
 		</div>
+		<div class="option-block">
+			<h3>Chat integration (add-on)</h3>
+			<p class="option-lead">Conversations in Chatwork and Slack are imported automatically, summarized, and recorded on your contacts and deals.</p>
+			<p class="option-fineprint">Only conversations from after you turn it on are imported. Past conversations are not brought in.</p>
+			<div class="option-grid">
+				<div class="price-card">
+					<p class="price-tier">Per workspace</p>
+					<p class="price-figure"><span class="price-yen">&yen;</span>5,000<span class="price-unit">/ month</span></p>
+					<p class="option-note">Same price no matter how many people use it.</p>
+				</div>
+			</div>
+		</div>
 		<p class="proof-note">All prices exclude consumption tax.</p>
 	</div>
 </section>
@@ -1529,12 +1541,44 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 		line-height: 1.8;
 		color: var(--color-text-muted);
 	}
+	.option-block {
+		margin-top: var(--space-lg);
+		padding-top: var(--space-lg);
+		border-top: 1px solid var(--color-border);
+	}
+	.option-block h3 {
+		margin: 0 0 0.75rem;
+		font-size: clamp(1.2rem, 2.4vw, 1.5rem);
+		letter-spacing: -0.01em;
+	}
+	.option-lead {
+		margin: 0 0 var(--space-md);
+		max-width: 62ch;
+	}
+	.option-fineprint {
+		margin: 0 0 var(--space-md);
+		font-size: 0.85rem;
+		color: var(--color-text-muted);
+	}
+	.option-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr)) 1.4fr;
+		gap: var(--space-md);
+		align-items: stretch;
+	}
+	.option-note {
+		margin: 0.75rem 0 0;
+		font-size: 0.9rem;
+		color: var(--color-text-muted);
+	}
 	@media (max-width: 860px) {
 		.price-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+		.option-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 		.price-note { grid-column: 1 / -1; border-left: 0; border-top: 1px solid var(--color-border); padding-left: 0; }
 	}
 	@media (max-width: 480px) {
 		.price-grid { grid-template-columns: 1fr; }
+		.option-grid { grid-template-columns: 1fr; }
 	}
 
 	/* ── 10. FAQ ─────────────────────────────────────────── */

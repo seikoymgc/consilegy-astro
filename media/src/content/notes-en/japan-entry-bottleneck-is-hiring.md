@@ -1,5 +1,5 @@
 ---
-title: "In Japan, your first bottleneck isn't translation or price. It's hiring."
+title: "Your first bottleneck in Japan is hiring, not translation"
 description: "Foreign SaaS companies stall in Japan for a reason few HQs plan for. In JETRO's government survey, the hardest role to fill is sales and marketing talent. Here is why, with the data, and how to sequence your entry around it."
 publishedAt: 2026-07-28
 category: japan-gtm

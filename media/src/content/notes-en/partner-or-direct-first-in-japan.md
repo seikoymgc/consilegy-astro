@@ -1,5 +1,5 @@
 ---
-title: "A partner-led launch in Japan gets you revenue, not the reason you lost"
+title: "Distributor or direct: choosing your Japan entry model"
 description: "HQ frames Japan entry as a channel question: distributor first, or hire a country manager and go direct. Japanese government survey data shows what foreign-affiliated companies actually do, why the global partner list is only the third door in Japan, and why the real decision is whether the record of each deal reaches your CRM."
 publishedAt: 2026-08-10
 category: japan-gtm
@@ -54,7 +54,7 @@ The alternative is not cheap either, and its constraint sits upstream of any pip
 
 In the same survey, 42.4% of respondents said they were finding it hard to secure the people they need (n=1,385). Among those, sales and marketing talent was the hardest category at 57.3%, ahead of IT and technical talent at 39.1% (n=583, multiple response). In the major metropolitan prefectures, Tokyo, Kanagawa, Aichi and Osaka, sales and marketing rises to 61.7% (n=472).
 
-"Go direct" is, in practice, "start after you have hired a Japanese seller." The sequencing consequences are covered in [In Japan, your first bottleneck isn't translation or price. It's hiring.](/en/articles/japan-entry-bottleneck-is-hiring/)
+"Go direct" is, in practice, "start after you have hired a Japanese seller." The sequencing consequences are covered in [why your first bottleneck in Japan is hiring, not translation](/en/articles/japan-entry-bottleneck-is-hiring/)
 
 ## Decide on the record, not the channel
 

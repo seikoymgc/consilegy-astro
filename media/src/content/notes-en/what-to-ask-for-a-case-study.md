@@ -69,6 +69,6 @@ There is no published benchmark for how many Japanese buyers a missing local cas
 
 ## Related reading
 
-Why precedent, rather than feature superiority, is what clears internal approval in Japan is covered in [Why your best feature won't win the deal in Japan, and what does](/en/articles/japanese-deals-win-on-precedent/). Case studies are the artifact that makes that precedent visible from outside.
+Why precedent, rather than feature superiority, is what clears internal approval in Japan is covered in [why deals in Japan are won on precedent rather than features](/en/articles/japanese-deals-win-on-precedent/). Case studies are the artifact that makes that precedent visible from outside.
 
 Other notes on the same problem are collected under [Demand generation](/en/category/marketing/).

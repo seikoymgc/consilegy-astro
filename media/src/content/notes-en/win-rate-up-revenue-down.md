@@ -1,5 +1,5 @@
 ---
-title: "Japan's win rate went up and Japan revenue went down. Read all three numbers"
+title: "Japan win rate up, revenue down: read all three numbers"
 description: "A rising win rate in the Japan region is the easiest number in your global dashboard to misread. Win rate is a ratio and says nothing about money. Deal count and average deal size move with it, and in Japan they move for reasons the global report does not show."
 publishedAt: 2026-08-07
 category: data

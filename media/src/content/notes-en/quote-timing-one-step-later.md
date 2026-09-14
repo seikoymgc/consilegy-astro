@@ -1,5 +1,5 @@
 ---
-title: "In Japan, your 30-day quote expires halfway through the approval"
+title: "Why your 30-day quote expires inside Japan's approval cycle"
 description: "HQ tells the Japan team to get the quote out fast. But in Japan the quote is the number a stranger has to defend in writing, and 73.5% of large purchases run longer than planned (IDEATECH, 2026). A quote issued before requirements settle becomes a price increase later. What to send instead, and how to set the validity date."
 publishedAt: 2026-09-06
 category: sales

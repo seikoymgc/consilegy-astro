@@ -41,4 +41,4 @@ Do not let the rollout team leave at go-live. Three things, in order:
 
 ## Related reading
 
-Who should hold this two-week watch is its own decision, and the obvious candidate is usually wrong, which is covered in [Your Japan CRM owner should not be the person who knows the tool best](/en/articles/who-owns-the-crm-rollout/). Other notes on the same problem are collected under [Change management](/en/category/adoption/).
+Who should hold this two-week watch is its own decision, and the obvious candidate is usually wrong, which is covered in [who should own your Japan CRM rollout](/en/articles/who-owns-the-crm-rollout/). Other notes on the same problem are collected under [Change management](/en/category/adoption/).

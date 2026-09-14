@@ -1,5 +1,5 @@
 ---
-title: "Your Japan CRM owner should not be the person who knows the tool best"
+title: "Who should own your Japan CRM rollout (not the power user)"
 description: "HQ asks the Japan entity to nominate a local CRM owner, and the nomination goes to whoever is most comfortable with the system. Six months later Japan has the worst data of any region. The constraint is not skill. It is that the ops function HQ assumes exists does not exist locally, and admin rights are not the lever in a Japan entity."
 publishedAt: 2026-08-16
 category: adoption

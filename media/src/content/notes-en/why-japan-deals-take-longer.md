@@ -1,5 +1,5 @@
 ---
-title: "Why deals in Japan take 3 to 8 months, and how to forecast them anyway"
+title: "Why deals in Japan take 3 to 8 months, and how to forecast"
 description: "Japanese deals are not slow because of culture. There is an extra, measurable stage in the buying process. Here is the structure, the data, and how to build it into your pipeline."
 publishedAt: 2026-07-24
 category: japan-gtm

@@ -1,5 +1,5 @@
 ---
-title: "Why your best feature won't win the deal in Japan, and what does"
+title: "In Japan, deals are won on precedent rather than features"
 description: "In Japan, approval passes on precedent, not feature superiority. The number that decides your deal is whether a similar-sized company in the same industry already uses you. Here is the data and how to build it into your sales process."
 publishedAt: 2026-07-23
 category: sales

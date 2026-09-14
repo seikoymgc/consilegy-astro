@@ -58,6 +58,6 @@ Write the exit condition of each stage as a single sentence, for the global pipe
 
 ## Related reading
 
-The same question comes up when headquarters decides how to enter Japan at all. [A partner-led launch in Japan gets you revenue, not the reason you lost](/en/articles/partner-or-direct-first-in-japan/) covers what stops reaching headquarters when a partner owns the account.
+The same question comes up when headquarters decides how to enter Japan at all. [distributor or direct: choosing your Japan entry model](/en/articles/partner-or-direct-first-in-japan/) covers what stops reaching headquarters when a partner owns the account.
 
 Other notes on the same problem are collected under [CRM adoption](/en/category/crm/).

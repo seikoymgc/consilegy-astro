@@ -61,6 +61,6 @@ Build the approval axis into the local process alongside [Japan GTM and messagin
 
 ## Related reading
 
-What to put in front of the approver to move that second axis is covered in [why your best feature won't win the deal in Japan](/en/articles/japanese-deals-win-on-precedent/).
+What to put in front of the approver to move that second axis is covered in [why deals in Japan are won on precedent rather than features](/en/articles/japanese-deals-win-on-precedent/).
 
 Other notes on the same problem are collected under [Sales process](/en/category/sales/).

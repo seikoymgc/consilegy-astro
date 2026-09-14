@@ -4,13 +4,35 @@
 # .txt を UTF-8 として配信する。
 #
 # llms.txt は中身の大半が日本語（サイトの方針説明と全記事タイトル）だが、
-# 2026-09-08 時点の本番レスポンスは `Content-Type: text/plain`（charset なし）で、
-# クライアントが Latin-1 として解釈するため文字化けしていた。
-# バイト列自体は正しいUTF-8で、欠けていたのは charset の宣言だけ。
+# 本番レスポンスは `Content-Type: text/plain`（charset なし）で、
+# クライアントが Latin-1 として解釈するため文字化けする。
+# バイト列自体は正しいUTF-8で、欠けているのは charset の宣言だけ。
 #
 # src/pages/llms.txt.ts は `text/plain; charset=utf-8` を返す実装だが、
 # 静的ビルドではこのヘッダーは使われず、配信元のMIME設定が使われる。
 # したがって配信側で指定する必要がある。
-<IfModule mod_mime.c>
-	AddCharset UTF-8 .txt
+#
+# ⚠️ 2026-09-14 更新：2026-09-08 に入れた下記の書き方は本番で効かなかった。
+#
+#     <IfModule mod_mime.c>
+#     	AddCharset UTF-8 .txt
+#     </IfModule>
+#
+# 本番で `/.htaccess` が 403（存在しないパスは 404）なので、ファイル自体は
+# サーバーに届いている。にもかかわらず charset が付かなかった原因は次のどちらか。
+#   (a) mod_mime が別名で、`<IfModule>` の条件が偽になって中身ごと無視された
+#   (b) AllowOverride に FileInfo が無く、AddCharset が許可されていない
+# (a) なら下の書き方で直る。(b) なら .htaccess では直せないので、
+# Cloudflare の Transform Rules（Modify Response Header）で付ける。
+# 経緯は content-ops/ai-visibility-log.md を参照。
+
+# IfModule で囲まない。囲うと、モジュール名が違うときに黙って無視される。
+AddType "text/plain; charset=UTF-8" .txt
+AddCharset UTF-8 .txt
+
+# 上2つが効かない環境向けの保険。mod_headers があれば直接ヘッダーを上書きする。
+<IfModule mod_headers.c>
+	<FilesMatch "\.txt$">
+		Header set Content-Type "text/plain; charset=UTF-8"
+	</FilesMatch>
 </IfModule>

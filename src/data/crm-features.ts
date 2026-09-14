@@ -731,8 +731,8 @@ export const CRM_FEATURES: FeatureGroup[] = [
       {
         name: { ja: '紹介プログラム', en: 'Referral program' },
         desc: {
-          ja: '他社を紹介すると、紹介先の月額の20%が自社の請求から引かれる。',
-          en: 'Refer another company and take 20% of their fee off your own bill.',
+          ja: '紹介先が有料契約を始めてから12ヶ月間、その会社の基本プランの月額利用料金の20%が自社の利用料金から引かれる。',
+          en: 'For 12 months after a referred company starts paying, 20% of its base plan fee comes off your own bill.',
         },
       },
       {

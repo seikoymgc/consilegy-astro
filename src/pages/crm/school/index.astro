@@ -69,7 +69,7 @@ const safeguards = [
 // 答えは src/data/crm-faq.ts の desc をそのまま使う（二重管理を避けるため、
 // 変えたいときは向こうを直す）。全文は /crm/faq/<slug>/ にある。
 const faqs = [
-	{ q: '料金はいくらですか', a: '在籍中の生徒の人数で決まります。50人までが月額9,800円、100人までが19,800円、300人までが39,800円です。301人以上は個別にお見積りします。講師やスタッフは何人増えても料金は変わりません。' },
+	{ q: '料金はいくらですか', a: '在籍中の生徒の人数で決まります。50人までが月額9,800円、100人までが19,800円、300人までが39,800円です。301人以上は個別にお見積りします。講師やスタッフは何人増えても料金は変わりません。どのプランも初回のご利用開始日から30日間は月額無料です。' },
 	{ q: '生徒の人数はどう数えますか', a: '在籍中の生徒だけを数えます。体験中、休会中、卒業した生徒、問い合わせ段階の見込み客は数に入りません。何人いても無料で管理していただけます。' },
 	{ q: 'スマートフォンで使えますか', a: 'ブラウザで使えます。名刺や手書きメモの撮影は、スマートフォンを想定して作っています。' },
 	{ q: 'AIに読ませたデータは学習に使われますか', a: '使われません。名刺や手書きの読み取りに使う外部のAIサービスは、いずれも学習に利用しない条件で使っています。' },
@@ -358,14 +358,17 @@ const roles = [
 			<div class="price-card">
 				<p class="price-tier">〜50人</p>
 				<p class="price-figure"><span class="price-yen">¥</span>9,800<span class="price-unit">/ 月</span></p>
+				<p class="price-fuel">燃料300付き</p>
 			</div>
 			<div class="price-card">
 				<p class="price-tier">〜100人</p>
 				<p class="price-figure"><span class="price-yen">¥</span>19,800<span class="price-unit">/ 月</span></p>
+				<p class="price-fuel">燃料600付き</p>
 			</div>
 			<div class="price-card">
 				<p class="price-tier">〜300人</p>
 				<p class="price-figure"><span class="price-yen">¥</span>39,800<span class="price-unit">/ 月</span></p>
+				<p class="price-fuel">燃料1,200付き</p>
 			</div>
 			<div class="price-card">
 				<p class="price-tier">301人〜</p>
@@ -375,7 +378,10 @@ const roles = [
 				<p>数えるのは<strong>在籍中の生徒</strong>だけです。体験中、休会中、卒業した生徒、問い合わせ段階の見込み客は、何人いても無料で管理できます。</p>
 				<p><strong>講師とスタッフは何人増えても料金は変わりません。</strong>オーナー、教室管理者、マネージャー、コーチ、いずれも人数制限はありません。</p>
 				<p>体験の生徒を課金対象にしないのは、体験を増やして入会につなげるのがこの製品の役目だからです。登録するほど請求が上がるなら、使い方と料金が矛盾します。</p>
-				<p>初期費用はありません。初回30日間は無料でお使いいただけます。クローズドβ期間中の条件は個別にご相談させてください。</p>
+				<p>燃料はAIの処理に使う単位です。契約期間ごとに付与し、繰り越しません。受付・送信・自動処理・外部連携は月額に含みます。燃料の追加は3,000円で400です（提供準備中）。</p>
+				<p>初期費用はありません。どのプランも、初回のご利用開始日から30日間は月額無料です。</p>
+				<p>使う頻度が低い教室や、月によって利用に波がある教室は、<a href="/crm/#pricing">プリペイドプラン</a>も選べます（提供準備中）。</p>
+				<p>ご紹介いただいた会社が有料契約を始めてから12ヶ月間、その会社の基本プランの月額利用料金（税抜）の20%を紹介した側の利用料金からお引きします。</p>
 			</div>
 		</div>
 		<p class="proof-note">※価格はすべて税抜表示です。</p>
@@ -1324,6 +1330,18 @@ const roles = [
 		color: var(--color-text-muted);
 		font-size: 0.8125rem;
 		font-weight: 400;
+	}
+
+	.price-fuel {
+		margin: 0.35rem 0 0;
+		color: var(--color-text-muted);
+		font-size: 0.8125rem;
+	}
+
+	.price-note a {
+		color: var(--color-primary);
+		text-decoration: underline;
+		text-underline-offset: 3px;
 	}
 
 	.price-note {

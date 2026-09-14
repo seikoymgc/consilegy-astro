@@ -268,7 +268,7 @@ const faqs = [
 	},
 	{
 		q: '料金はいくらですか。',
-		a: '1席あたり月額3,000円です。人数が増えても1席あたりの金額は変わりません。初期費用はなく、初回30日間は無料。1席から利用でき、最低利用席数の条件もありません。ご紹介いただいた会社が有料になると、紹介した側の請求から毎月20%をお引きします。クローズドβ期間中の条件は個別にご相談させてください。',
+		a: 'プランは3つです。ユーザープランは1人あたり月額3,000円、スクール向けの生徒数プランは在籍生徒50人まで月額9,800円からです。使う頻度が低い会社には、月額3,000円（燃料100付き）に必要な分だけチャージするプリペイドプランがあります（提供準備中）。初期費用はありません。どのプランも初回のご利用開始日から30日間は月額無料です。価格はすべて税抜です。',
 	},
 ];
 
@@ -296,7 +296,7 @@ const faqs = [
 		"@type": "Offer",
 		"price": "3000",
 		"priceCurrency": "JPY",
-		"description": "1席あたり月額3,000円。席数によらず単価は同じ。初期費用なし、初回30日間無料、1席から。"
+		"description": "ユーザープラン1人あたり月額3,000円（税抜）。生徒数プランは月額9,800円から、プリペイドプランは月額3,000円（燃料100付き・提供準備中）。初期費用なし。どのプランも初回のご利用開始日から30日間は月額無料。"
 	},
 	"author": { "@type": "Organization", "name": "Consilegy合同会社", "url": "https://consilegy.com/" }
 })} />
@@ -641,62 +641,119 @@ const faqs = [
 </section>
 
 <!-- ===================== 10. PRICING ===================== -->
-<section class="pricing">
+<section class="pricing" id="pricing">
 	<div class="container">
 		<div class="section-head">
 			<p class="kicker">料金</p>
-			<h2>使う人の数だけ、席を増やす。</h2>
+			<h2>使い方に合わせて、3つのプランから選ぶ。</h2>
 		</div>
 		<div class="price-grid">
 			<div class="price-card">
-				<p class="price-tier">1席あたり</p>
-				<p class="price-figure"><span class="price-yen">¥</span>3,000<span class="price-unit">/ 席 / 月</span></p>
+				<p class="price-tier">ユーザープラン</p>
+				<p class="plan-for">B2B版／毎日CRMを使う会社に</p>
+				<p class="price-figure"><span class="price-yen">¥</span>3,000<span class="price-unit">/ 人 / 月</span></p>
+				<dl class="plan-list">
+					<div><dt>人数</dt><dd>契約した人数</dd></div>
+					<div><dt>基本的な自動処理</dt><dd>月額に含む</dd></div>
+					<div><dt>AIの処理</dt><dd>燃料を使う</dd></div>
+					<div><dt>契約期間ごとの燃料</dt><dd>1人30（最低100）</dd></div>
+					<div><dt>燃料の追加</dt><dd>3,000円で400<span class="price-status">提供準備中</span></dd></div>
+					<div><dt>お問い合わせ</dt><dd>使い方・不具合</dd></div>
+				</dl>
 			</div>
 			<div class="price-card">
-				<p class="price-tier">紹介プログラム</p>
-				<p class="price-figure">20<span class="price-unit">% を毎月の請求から</span></p>
+				<p class="price-tier">生徒数プラン</p>
+				<p class="plan-for">B2C（スクール）版／毎日運用しているスクール・教室に</p>
+				<p class="price-figure"><span class="price-yen">¥</span>9,800<span class="price-unit">/ 月から</span></p>
+				<p class="fuel-note">在籍生徒50人まで9,800円／100人まで19,800円／300人まで39,800円／301人以上は個別見積</p>
+				<dl class="plan-list">
+					<div><dt>人数</dt><dd>講師・スタッフは無制限</dd></div>
+					<div><dt>基本的な自動処理</dt><dd>月額に含む</dd></div>
+					<div><dt>AIの処理</dt><dd>燃料を使う</dd></div>
+					<div><dt>契約期間ごとの燃料</dt><dd>300／600／1,200</dd></div>
+					<div><dt>燃料の追加</dt><dd>3,000円で400<span class="price-status">提供準備中</span></dd></div>
+					<div><dt>お問い合わせ</dt><dd>使い方・不具合</dd></div>
+				</dl>
+			</div>
+			<div class="price-card">
+				<p class="price-tier">プリペイドプラン<span class="price-status">提供準備中</span></p>
+				<p class="plan-for">B2B版・B2C（スクール）版／使う頻度が低い会社や、月によって利用に波がある会社・スクールに</p>
+				<p class="price-figure"><span class="price-yen">¥</span>3,000<span class="price-unit">/ 月</span></p>
+				<p class="fuel-note">基本料金（燃料100付き）＋必要な分だけチャージ</p>
+				<dl class="plan-list">
+					<div><dt>人数</dt><dd>無制限</dd></div>
+					<div><dt>基本的な自動処理</dt><dd>燃料を使う</dd></div>
+					<div><dt>AIの処理</dt><dd>燃料を使う</dd></div>
+					<div><dt>契約期間ごとの燃料</dt><dd>100</dd></div>
+					<div><dt>燃料の追加</dt><dd>3,000円で100<span class="price-status">提供準備中</span></dd></div>
+					<div><dt>お問い合わせ</dt><dd>不具合のみ</dd></div>
+				</dl>
 			</div>
 			<div class="price-note">
-				<p>人数が増えても1席あたりの金額は変わりません。段階も、まとめ買いの条件もありません。</p>
-				<p>ご紹介いただいた会社が有料になると、紹介した側の請求から20%を毎月お引きします。相手が使い続けるかぎり続きます。</p>
-				<p>初期費用はありません。初回30日間は無料でお使いいただけます。最低利用席数の条件もなく、1席から始められます。</p>
-				<p>クローズドβ期間中の条件は個別にご相談させてください。</p>
+				<p>初期費用はありません。どのプランも、初回のご利用開始日から30日間は月額無料です。</p>
+				<p>契約は1ヶ月ごとの自動更新です。基本的な自動処理は、受付・送信・自動処理・外部連携を指します。</p>
+				<p>プリペイドプランと燃料の追加購入は、提供準備中です。</p>
 			</div>
 		</div>
 		<div class="fuel-block">
-			<h3>AIは、使った分だけ数えます。</h3>
-			<p class="fuel-lead">名刺を1枚読むのと、案件をまとめて分析するのとでは、使う計算量が桁で変わります。だから回数ではなく Fuel という単位で数えます。</p>
+			<h3>AIの処理は、燃料で数えます。</h3>
+			<p class="fuel-lead">人がCRMを操作する分には、燃料は減りません。代表的な例は次のとおりです。</p>
 			<div class="fuel-table-wrap">
 			<table class="fuel-table">
 				<thead>
-					<tr><th>区分</th><th>1回あたり</th><th>主な機能</th></tr>
+					<tr><th>燃料</th><th>代表的な例</th><th>対象プラン</th></tr>
 				</thead>
 				<tbody>
-					<tr><td>軽い処理</td><td>1 Fuel</td><td>名刺・手書きメモの読み取り、分類、音声の書き起こし</td></tr>
-					<tr><td>ふつうの生成</td><td>3 Fuel</td><td>要約、メールの下書き、商談・通話の分析、面談記録の抽出、AIエージェントとの会話</td></tr>
-					<tr><td>重い処理</td><td>10 Fuel</td><td>ダッシュボードの提案、添付ファイルの解析</td></tr>
+					<tr><td>1</td><td>名刺・手書きメモの読み取り、音声の書き起こし</td><td>すべてのプラン</td></tr>
+					<tr><td>3</td><td>要約、メールの下書き、商談の分析、AIへの質問</td><td>すべてのプラン</td></tr>
+					<tr><td>10</td><td>ダッシュボードの提案、添付ファイルの解析</td><td>すべてのプラン</td></tr>
+					<tr><td>1件1</td><td>受付・自動送信</td><td>プリペイドプランのみ</td></tr>
+					<tr><td>1件3</td><td>会議の取り込み</td><td>プリペイドプランのみ</td></tr>
 				</tbody>
 			</table>
 			</div>
-			<p class="fuel-fineprint">各機能の区分は変わることがあります。消費するFuelが増える変更は、30日前にお知らせします。</p>
+			<p class="fuel-fineprint">ユーザープランと生徒数プランでは、受付・自動送信・会議の取り込みは月額に含みます。燃料は利用開始時と各契約更新日に付与し、繰り越しません。追加分は購入から90日間有効です。</p>
+		</div>
+		<div class="fuel-block">
+			<h3>オプション</h3>
 			<div class="fuel-grid">
 				<div class="price-card">
-					<p class="price-tier">毎月含まれる</p>
-					<p class="price-figure">100<span class="price-unit">Fuel / 月</span></p>
-					<p class="fuel-note">人数では割りません。何人で使っても同じです。</p>
+					<p class="price-tier">チャット連携</p>
+					<p class="price-figure"><span class="price-yen">¥</span>5,000<span class="price-unit">/ 月</span></p>
+					<p class="fuel-note">1ワークスペースあたり。人数に関係なく同じです。</p>
 				</div>
-				<div class="price-card">
-					<p class="price-tier">足りなくなったら</p>
-					<p class="price-figure"><span class="price-yen">¥</span>3,000<span class="price-unit">/ 200 Fuel</span></p>
-					<p class="fuel-note">ご契約中の方の買い足し。90日間有効です。</p>
-				</div>
-				<div class="price-card">
-					<p class="price-tier">AIだけ使う</p>
-					<p class="price-figure"><span class="price-yen">¥</span>5,000<span class="price-unit">/ 100 Fuel</span></p>
-					<p class="fuel-note">CRMのご契約は要りません。人数も無制限です。</p>
+				<div class="fuel-option-desc">
+					<p>Chatwork・Slackの会話を自動で取り込み、要約して顧客・商談に記録します。</p>
+					<p>取り込みでは燃料を使いません。AIによる要約には燃料を使います。</p>
 				</div>
 			</div>
-			<p class="fuel-tail">席を全員分そろえなくても、要約と下書きだけチーム全員に使わせる、という入り方ができます。使ってみて必要になったら、席を増やしてください。そのほうがFuelは3分の1の値段になります。</p>
+		</div>
+		<div class="fuel-block">
+			<h3>導入・定着・運用の支援</h3>
+			<p class="fuel-lead">料金の目安です。</p>
+			<div class="fuel-grid fuel-grid--4">
+				<div class="price-card">
+					<p class="price-tier">操作動画・ヘルプ記事</p>
+					<p class="price-figure">無料</p>
+				</div>
+				<div class="price-card">
+					<p class="price-tier">導入支援</p>
+					<p class="price-figure"><span class="price-yen">¥</span>120,000<span class="price-unit">〜</span></p>
+				</div>
+				<div class="price-card">
+					<p class="price-tier">定着支援（3ヶ月）</p>
+					<p class="price-figure"><span class="price-yen">¥</span>300,000<span class="price-unit">〜</span></p>
+				</div>
+				<div class="price-card">
+					<p class="price-tier">運用支援</p>
+					<p class="price-figure"><span class="price-yen">¥</span>30,000<span class="price-unit">/ 月〜</span></p>
+				</div>
+			</div>
+			<p class="fuel-tail">データ移行・外部連携は別途お見積りします。各プランに、個別の設定代行・業務設計・運用コンサルティングは含みません。</p>
+		</div>
+		<div class="fuel-block">
+			<h3>紹介プログラム</h3>
+			<p class="fuel-lead">ご紹介いただいた会社が有料契約を始めてから12ヶ月間、その会社の基本プランの月額利用料金（税抜）の20%を紹介した側の利用料金からお引きします。</p>
 		</div>
 		<p class="proof-note">※価格はすべて税抜表示です。</p>
 	</div>
@@ -1705,11 +1762,12 @@ const faqs = [
 	}
 	.price-grid {
 		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr)) 1.4fr;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: var(--space-md);
 		align-items: stretch;
 	}
 	.price-card {
+		min-width: 0;
 		padding: var(--space-md);
 		border: 1px solid var(--color-border);
 		border-radius: var(--radius-card);
@@ -1740,8 +1798,49 @@ const faqs = [
 		flex-direction: column;
 		justify-content: center;
 		gap: 0.75rem;
-		padding: var(--space-md);
-		border-left: 2px solid var(--color-border);
+		grid-column: 1 / -1;
+		padding: var(--space-md) 0 0;
+		border-top: 1px solid var(--color-border);
+	}
+	.plan-for {
+		margin: 0 0 0.75rem;
+		font-size: 0.85rem;
+		line-height: 1.6;
+		color: var(--color-text-muted);
+	}
+	.price-status {
+		display: inline-block;
+		margin-left: 0.5em;
+		font-size: 0.75rem;
+		font-weight: 500;
+		color: var(--color-text-muted);
+	}
+	.plan-list {
+		margin: var(--space-md) 0 0;
+		border-top: 1px solid var(--color-border);
+	}
+	.plan-list div {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 0.1rem 0.75rem;
+		padding: 0.55rem 0;
+		border-bottom: 1px solid var(--color-border);
+		font-size: 0.85rem;
+		line-height: 1.5;
+	}
+	.plan-list dt { color: var(--color-text-muted); }
+	.plan-list dd { margin: 0; font-weight: 700; text-align: right; }
+	.plan-list .price-status { font-weight: 500; }
+	.fuel-option-desc {
+		grid-column: span 2;
+		align-self: center;
+	}
+	.fuel-option-desc p { margin: 0 0 0.5rem; max-width: 62ch; }
+	.fuel-option-desc p:last-child {
+		margin: 0;
+		font-size: 0.9rem;
+		color: var(--color-text-muted);
 	}
 	.fuel-block {
 		margin-top: var(--space-lg);
@@ -1784,7 +1883,9 @@ const faqs = [
 		color: var(--color-primary);
 		white-space: nowrap;
 	}
-	.fuel-table td:nth-child(2) { white-space: nowrap; font-weight: 700; }
+	.fuel-table td:nth-child(1),
+	.fuel-table td:nth-child(3) { white-space: nowrap; }
+	.fuel-table td:nth-child(1) { font-weight: 700; }
 	.fuel-table-wrap { overflow-x: auto; }
 	.fuel-table { min-width: 34rem; }
 	.fuel-fineprint {
@@ -1803,14 +1904,19 @@ const faqs = [
 		line-height: 1.8;
 		color: var(--color-text-muted);
 	}
-	@media (max-width: 860px) {
-		.price-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-		.fuel-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-		.price-note { grid-column: 1 / -1; border-left: 0; border-top: 1px solid var(--color-border); padding-left: 0; }
+	.fuel-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+	@media (max-width: 960px) {
+		.price-grid { grid-template-columns: 1fr; }
+		.fuel-grid,
+		.fuel-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+		.fuel-option-desc { grid-column: span 1; }
 	}
 	@media (max-width: 480px) {
-		.price-grid { grid-template-columns: 1fr; }
-		.fuel-grid { grid-template-columns: 1fr; }
+		.fuel-grid,
+		.fuel-grid--4 { grid-template-columns: 1fr; }
+		.fuel-table { min-width: 0; font-size: 0.85rem; }
+		.fuel-table th,
+		.fuel-table td { padding: 0.6rem 0.45rem; }
 	}
 
 	/* ── 10. FAQ ─────────────────────────────────────────── */

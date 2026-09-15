@@ -113,7 +113,7 @@ MA・メール配信・BIは**選ばない**。機能はあるが主戦場では
 |---|---|---|
 | 会社ロゴ（カラー） | `public/images/common/consilegy-logo-2026.svg` | あり。SVGのみ |
 | 会社ロゴ（白） | `public/images/common/consilegy-logo-white.svg` | あり。SVGのみ |
-| スクショ：ダッシュボード | `public/images/crm/screen-dashboard.webp` | あり（1600x1000） |
+| スクショ：ダッシュボード | `public/images/crm/screen-dashboard-2026-09.webp` | あり（1600x1000） |
 | スクショ：商談 | `public/images/crm/screen-deals.webp` | あり |
 | スクショ：Jade | `public/images/crm/screen-jade.webp` | あり |
 | OGP | `public/images/og-default.png` | あり |

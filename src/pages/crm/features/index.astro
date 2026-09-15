@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CrmSubnav from '../../../components/CrmSubnav.astro';
 import { CRM_FEATURES, featureCount } from '../../../data/crm-features';
 
 const total = featureCount();
@@ -9,13 +10,15 @@ const total = featureCount();
   title="機能一覧 | Revenue CRM | Consilegy"
   description={`Revenue CRMの機能一覧。CRMコア、AIエージェント、RevOpsワークフロー175本、マーケティング、セールス、デリバリー、カスタマーサクセス、サブスク、拡張、権限と運用まで${total}項目。`}
 >
+  <CrmSubnav lang="ja" />
+
   <div class="feat-page">
     <header class="feat-head">
       <p class="kicker">Revenue CRM</p>
       <h1>機能一覧</h1>
       <p class="lead">
         全{total}項目、分野ごとに並べています。ここにあるものは、すべて動いています。
-        プランによる機能の差はありません。料金は<a href="/crm/#pricing">3つのプラン</a>から選べます。
+        プランによる機能の差はありません。料金は<a href="/crm/pricing/">3つのプラン</a>から選べます。
       </p>
     </header>
 
@@ -62,7 +65,7 @@ const total = featureCount();
   }
   .feat-jump a:hover { background: #f2f5f8; }
 
-  .feat-group { margin-bottom: 2.75rem; scroll-margin-top: 5rem; }
+  .feat-group { margin-bottom: 2.75rem; scroll-margin-top: 7.5rem; }
   .feat-group h2 { font-size: 1.15rem; margin: 0 0 0.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid #e6eaef; }
   .group-lead { color: #5b6673; font-size: 0.9rem; line-height: 1.8; margin: 0 0 1rem; }
   .feat-group ul { list-style: none; margin: 0; padding: 0; }

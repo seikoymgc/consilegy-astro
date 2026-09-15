@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CrmSubnav from '../../../components/CrmSubnav.astro';
 
 const DEMO_URL = 'https://crm.consilegy.com/demos';
 
@@ -76,6 +77,8 @@ const roles = [
 		{"@type": "ListItem", "position": 3, "name": "代理店版", "item": "https://consilegy.com/crm/reseller/"}
 	]
 })} />
+
+<CrmSubnav lang="ja" />
 
 <!-- ===================== HERO ===================== -->
 <section class="hero">
@@ -636,7 +639,7 @@ const roles = [
 	}
 
 	.screens {
-		scroll-margin-top: 80px;
+		scroll-margin-top: 120px;
 	}
 
 	.sc-grid {

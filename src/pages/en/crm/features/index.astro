@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CrmSubnav from '../../../../components/CrmSubnav.astro';
 import { CRM_FEATURES, featureCount } from '../../../../data/crm-features';
 
 const total = featureCount();
@@ -9,13 +10,15 @@ const total = featureCount();
   title="All features | Revenue CRM | Consilegy"
   description={`Every feature in Revenue CRM: CRM core, AI agent, 175 RevOps workflows, marketing, sales, delivery, customer success, subscriptions, extensibility, and admin. ${total} in total.`}
 >
+  <CrmSubnav lang="en" />
+
   <div class="feat-page">
     <header class="feat-head">
       <p class="kicker">Revenue CRM</p>
       <h1>All features</h1>
       <p class="lead">
         All {total} of them, grouped by area. Everything here ships today.
-        Pricing comes in <a href="/en/crm/#pricing">three plans</a>. Nothing sits behind a higher plan.
+        Pricing comes in <a href="/en/crm/pricing/">three plans</a>. Nothing sits behind a higher plan.
       </p>
     </header>
 
@@ -62,7 +65,7 @@ const total = featureCount();
   }
   .feat-jump a:hover { background: #f2f5f8; }
 
-  .feat-group { margin-bottom: 2.75rem; scroll-margin-top: 5rem; }
+  .feat-group { margin-bottom: 2.75rem; scroll-margin-top: 7.5rem; }
   .feat-group h2 { font-size: 1.15rem; margin: 0 0 0.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid #e6eaef; }
   .group-lead { color: #5b6673; font-size: 0.9rem; line-height: 1.8; margin: 0 0 1rem; }
   .feat-group ul { list-style: none; margin: 0; padding: 0; }

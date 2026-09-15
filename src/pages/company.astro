@@ -265,6 +265,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 					</li>
 				</ul>
 			</div>
+			<div class="founder-origin">
+				<h5 class="founder-section-heading">Revenue CRMの開発背景</h5>
+				<p>
+					構想が形になったのは、台湾・花蓮県が運営するデジタルノマド拠点「Nomad Hualien 花蓮雲基地」です。
+					代表の山口聖子が第1期メンバーとして滞在し、各国の起業家やリモートワーカーとの協働から
+					CRMにAIエージェントを組み合わせたこのプロダクトの形が固まりました。
+				</p>
+				<p>
+					滞在中の活動とこのプロダクトの開発は、See News（花蓮視新聞）2026年6月25日の記事で紹介されています。
+					<a href="https://www.seenews.com.tw/news_data.php?news_id=2325&amp;k_code=A" target="_blank" rel="noopener noreferrer">掲載記事を読む</a>
+				</p>
+			</div>
 		</div>
 	</div>
 </section>
@@ -805,4 +817,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 .founder-talks__list li { display: flex; flex-direction: column; gap: .15rem; }
 .founder-talks .talk-title { font-weight: 600; font-size: .95rem; line-height: 1.4; }
 .founder-talks .talk-meta { font-size: .8rem; opacity: .7; }
+
+/* Revenue CRMの開発背景（2026-09 に /crm/ から移設） */
+.founder-origin { margin-top: 1.75rem; }
+.founder-origin p { font-size: 0.9375rem; line-height: 2; color: var(--color-text); margin: 0; }
+.founder-origin p + p { margin-top: 0.75rem; }
+.founder-origin a { color: var(--color-primary); font-weight: 600; }
 </style>

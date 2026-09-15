@@ -1,67 +1,13 @@
 ---
-import { CRM_FEATURES, featureCount } from '../../../data/crm-features';
+import { featureCount } from '../../../data/crm-features';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CrmSubnav from '../../../components/CrmSubnav.astro';
 
 const DEMO_URL = 'https://crm.consilegy.com/demos';
+const SIGNUP_URL = 'https://crm.consilegy.com/signup';
 
-const featureGlyphs = {
-	contacts: `
-		<svg viewBox="0 0 64 64" focusable="false">
-			<rect class="glyph-panel" x="9" y="10" width="34" height="44" rx="3"></rect>
-			<circle class="glyph-strong" cx="23" cy="25" r="6"></circle>
-			<path class="glyph-line" d="M15 42c2.2-5.2 13.8-5.2 16 0"></path>
-			<path class="glyph-line" d="M32 21h6M32 28h6M15 48h18"></path>
-			<rect class="glyph-accent" x="38" y="18" width="17" height="23" rx="3"></rect>
-			<path class="glyph-line" d="M42 27h9M42 33h6"></path>
-		</svg>
-	`,
-	kanban: `
-		<svg viewBox="0 0 64 64" focusable="false">
-			<rect class="glyph-panel" x="8" y="12" width="48" height="36" rx="3"></rect>
-			<path class="glyph-line" d="M24 12v36M40 12v36"></path>
-			<rect class="glyph-accent" x="13" y="19" width="8" height="8" rx="1.5"></rect>
-			<rect class="glyph-strong-fill" x="29" y="25" width="7" height="11" rx="1.5"></rect>
-			<rect class="glyph-accent" x="45" y="18" width="6" height="16" rx="1.5"></rect>
-			<path class="glyph-strong" d="M13 55l10-8 8 4 10-11 10 5"></path>
-		</svg>
-	`,
-	aiAgent: `
-		<svg viewBox="0 0 64 64" focusable="false">
-			<path class="glyph-accent" d="M32 8l17 18-17 30-17-30L32 8Z"></path>
-			<path class="glyph-line" d="M15 26h34M24 26l8 30 8-30M24 17h16"></path>
-			<rect class="glyph-panel" x="10" y="40" width="27" height="14" rx="3"></rect>
-			<path class="glyph-strong" d="M16 47h7M27 47h4"></path>
-		</svg>
-	`,
-	workflow: `
-		<svg viewBox="0 0 64 64" focusable="false">
-			<rect class="glyph-panel" x="8" y="12" width="18" height="14" rx="3"></rect>
-			<rect class="glyph-panel" x="38" y="12" width="18" height="14" rx="3"></rect>
-			<rect class="glyph-accent" x="23" y="39" width="18" height="14" rx="3"></rect>
-			<path class="glyph-line" d="M26 19h12M17 26v8c0 3 2 5 5 5h10M47 26v8c0 3-2 5-5 5H32"></path>
-			<path class="glyph-strong" d="M13 19h8M43 19h8M28 46h8"></path>
-		</svg>
-	`,
-	mail: `
-		<svg viewBox="0 0 64 64" focusable="false">
-			<rect class="glyph-panel" x="8" y="12" width="31" height="39" rx="3"></rect>
-			<path class="glyph-line" d="M15 22h17M15 30h17M15 38h11"></path>
-			<rect class="glyph-accent" x="32" y="24" width="24" height="17" rx="3"></rect>
-			<path class="glyph-strong" d="M32 28l12 8 12-8"></path>
-			<path class="glyph-line" d="M42 48h10"></path>
-		</svg>
-	`,
-	language: `
-		<svg viewBox="0 0 64 64" focusable="false">
-			<rect class="glyph-panel" x="7" y="13" width="15" height="30" rx="3"></rect>
-			<rect class="glyph-accent" x="24.5" y="18" width="15" height="30" rx="3"></rect>
-			<rect class="glyph-panel" x="42" y="13" width="15" height="30" rx="3"></rect>
-			<path class="glyph-line" d="M12 22h5M12 28h4M12 34h6M29.5 27h5M29.5 33h4M47 22h5M47 28h4M47 34h6"></path>
-			<path class="glyph-strong" d="M19 51h26"></path>
-			<path class="glyph-strong" d="M38 46l7 5-7 5"></path>
-		</svg>
-	`,
-};
+// Same eight-section structure as /crm/. Feature detail lives on /en/crm/features/,
+// pricing detail and terms on /en/crm/pricing/, the school edition on /en/crm/school/.
 
 const proofStats = [
 	{ figure: '40+', label: 'B2B revenue processes Consilegy has designed' },
@@ -76,10 +22,6 @@ const outcomes = [
 		answer: 'Contacts, companies, deals, and correspondence collect into one history.',
 	},
 	{
-		problem: 'Where a deal stands lives in one person’s head',
-		answer: 'Stage, probability, and next action sit on a screen the whole team reads.',
-	},
-	{
 		problem: 'Next month’s number gets added up by hand every time',
 		answer: 'A weighted forecast comes straight off the pipeline.',
 	},
@@ -89,125 +31,14 @@ const outcomes = [
 	},
 ];
 
-const aiMoves = [
-	{
-		act: 'Ask it',
-		text: 'Search and aggregate contacts, deals, and your funnel. Create contacts and tasks on the spot. ⌘J opens it from any screen.',
-	},
-	{
-		act: 'Photograph a card',
-		text: 'Seventeen fields read from one photo. A confirmation screen always comes before anything is saved.',
-	},
-	{
-		act: 'Paste a conversation',
-		text: 'From LINE, Slack, or Chatwork threads: a summary, the next actions, and early signals on amount and stage.',
-	},
-	{
-		act: 'Log a call',
-		text: 'The transcript is structured under MEDDPICC / BANT / CHAMP / SPIN and written back onto the deal.',
-	},
-	{
-		act: 'Shoot your handwriting',
-		text: 'Whiteboards and paper notes become text, with candidate tasks. A person picks which ones count.',
-	},
-	{
-		act: 'Correct it once',
-		text: 'Correct it once and the correction sticks. Next time the same question comes up, your judgement is what it works from. ICP tier first.',
-	},
-];
-
-const safeguards = [
-	{
-		label: 'Never trained on',
-		text: 'The outside AI services behind card scanning, handwriting, and transcription are used under terms that exclude what you send from training. You can also bring your own API key and send it to your own account instead.',
-	},
-	{
-		label: 'Invisible to other tenants',
-		text: 'Companies are separated by row-level access control in the database, not by filtering in the application. A new table that forgets it is caught by an automated check before release.',
-	},
-	{
-		label: 'Scoped per role',
-		text: 'Set who can see and act on which data, by role. Who changed what, and when, stays in the audit log.',
-	},
-	{
-		label: 'Deletion is reversible',
-		text: 'Deleted records go to a trash you can restore from. The database is backed up daily.',
-	},
-	{
-		label: 'Held in Tokyo',
-		text: 'Data is stored in the Tokyo region. It does not leave the country. The service is built and operated by a company registered in Japan.',
-	},
-	{
-		label: 'Yours to take',
-		text: 'Export contacts, companies, and deals to CSV at any time. Cancelling does not lock your data in. It is your data.',
-	},
-];
-
-const capabilities = [
-	{
-		icon: 'contacts',
-		title: 'Customer history stops belonging to one person',
-		text: 'Contacts, companies, deals, activity, and notes on one screen. The context survives a change of owner.',
-	},
-	{
-		icon: 'kanban',
-		title: 'Read the number instead of assembling it',
-		text: 'Move a card and update the probability; pipeline total and weighted forecast update with it.',
-	},
-	{
-		icon: 'aiAgent',
-		title: 'Used by asking, not by typing',
-		text: 'Ask in plain language and the AI agent searches, counts, summarizes, classifies, and proposes the next action.',
-	},
-	{
-		icon: 'workflow',
-		title: 'Nothing slips because someone remembered',
-		text: 'Notifications, tasks, follow-up, and renewal deals run on their own. Switch on the ones you need from 175 workflows.',
-	},
-	{
-		icon: 'mail',
-		title: 'Capture and follow-up in the same place',
-		text: 'Forms, email, lists, and sequences ship with the product. There is no separate marketing tool to add.',
-	},
-	{
-		icon: 'language',
-		title: 'The same data, in each member’s own language',
-		text: 'Switch between 日本語, English, and 繁體中文 with one button. Everyone works the same records.',
-	},
-];
-
-const screens = [
-	{
-		src: '/images/crm/screen-dashboard-en.webp',
-		alt: 'The Revenue CRM dashboard: open pipeline, weighted forecast, win rate, overdue tasks, pipeline by stage, and the deals that need attention, on one screen.',
-		title: 'Dashboard',
-		text: 'Open pipeline, weighted forecast, and what to handle first',
-	},
-	{
-		src: '/images/crm/screen-deals-en.webp',
-		alt: 'The Revenue CRM deal kanban, with Prospecting, Discovery, Proposal, and Quote columns; each card carries amount, probability, and close date.',
-		title: 'Deal kanban',
-		text: 'Update stage, probability, and next action by dragging',
-	},
-	{
-		src: '/images/crm/screen-ai-agent-en.webp',
-		alt: 'The AI agent answering the question "What should I do today?" with a funnel breakdown and a table of ten open deals.',
-		title: 'The AI agent',
-		text: 'Ask in plain language; it aggregates, summarizes, and proposes',
-	},
-	{
-		src: '/images/crm/screen-dashboard.webp',
-		alt: 'The Revenue CRM Japanese UI. The same dashboard switched to 日本語, with the JA / EN / 繁中 buttons in the sidebar.',
-		title: 'Multilingual UI',
-		text: 'Switch the whole interface between 日本語, English, and 繁體中文',
-	},
-];
-
+// Only the School edition has an English page, so the agency and reseller cards carry no link.
 const editions = [
 	{
 		noun: 'Deals',
 		title: 'B2B sales',
 		text: 'Manage prospects as deals. Pipeline, quotes, forecast, and stalled-deal alerts.',
+		href: '/en/crm/features/',
+		linkLabel: `See all ${featureCount()} features`,
 	},
 	{
 		noun: 'Projects',
@@ -222,31 +53,61 @@ const editions = [
 	{
 		noun: 'Enrollment',
 		title: 'Schools & studios',
-		text: 'Manage enrollment, retention, holds, and withdrawals. Offered as a separate school edition.',
+		text: 'Manage enrollment, retention, holds, and withdrawals.',
 		href: '/en/crm/school/',
+		linkLabel: 'See the school edition',
+	},
+];
+
+const plans = [
+	{ tier: 'User plan', for: 'B2B edition. For companies that use the CRM every day.', figure: '3,000', unit: '/ user / month' },
+	{ tier: 'Student plan', for: 'School edition (B2C). For schools that run on it every day.', figure: '9,800', unit: '/ month and up' },
+	{
+		tier: 'Prepaid plan',
+		status: 'Coming soon',
+		for: 'B2B and School editions. For companies and schools that use it rarely, or more in some months than others.',
+		figure: '3,000',
+		unit: '/ month',
+	},
+];
+
+const safeguards = [
+	{
+		label: 'Never trained on',
+		text: 'The outside AI services behind card scanning, handwriting, and transcription are used under terms that exclude what you send from training.',
+	},
+	{
+		label: 'Invisible to other tenants',
+		text: 'Companies are separated by row-level access control in the database, not by filtering in the application.',
+	},
+	{
+		label: 'Held in Tokyo',
+		text: 'Data is stored in the Tokyo region. It does not leave the country.',
 	},
 ];
 
 const faqs = [
 	{
-		q: 'Can we migrate from the CRM we use today?',
-		a: 'Revenue CRM is built for companies that do not have a CRM yet. If Salesforce, HubSpot, or kintone is already running, we do not recommend switching. We would redesign the revenue process around the tool you already pay for.',
-	},
-	{
-		q: 'Do we need to register to see the demo?',
-		a: 'An email address, nothing else. No password, no screening. Pick whichever of the three is closest to you: B2B sales, agency and contract work, or SaaS reseller.',
-	},
-	{
-		q: 'Can we use it in languages other than Japanese?',
-		a: 'Japanese, English, and Traditional Chinese, switched with one button. The same data, read by each member in their own language.',
-	},
-	{
 		q: 'What does it cost?',
 		a: 'There are three plans. The User plan is ¥3,000 per user per month. The Student plan for schools starts at ¥9,800 per month for up to 50 enrolled students. The Prepaid plan, coming soon, is ¥3,000 per month with 100 Fuel, topped up as needed. No setup fee, and every plan is free of the monthly fee for the first 30 days. All prices exclude tax.',
 	},
+	{
+		q: 'How are users counted?',
+		a: 'By the members who have joined the workspace, including accounts that were invited but are not in use. Changes apply from the next invoice.',
+	},
+	{
+		q: 'How do we cancel?',
+		a: 'Plans renew monthly. Let us know at least 14 days in advance. Payment is monthly in advance, so cancelling mid-month does not refund the remaining days.',
+	},
+	{
+		q: 'Can we take our data out?',
+		a: 'Export contacts, companies, and deals to CSV at any time, and for 30 days after the contract ends. It is your data.',
+	},
+	{
+		q: 'Can we migrate from the CRM we use today?',
+		a: 'Revenue CRM is built for companies that do not have a CRM yet. If Salesforce, HubSpot, or kintone is already running, we do not recommend switching. We would redesign the revenue process around the tool you already pay for.',
+	},
 ];
-
-const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 ---
 
 <BaseLayout
@@ -256,6 +117,8 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 	lang="en"
 	alternateUrl="/crm/"
 >
+
+<CrmSubnav lang="en" />
 
 <!-- ===================== 1. HERO ===================== -->
 <section class="crm-hero">
@@ -291,26 +154,8 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 	</div>
 </section>
 
-<!-- ===================== 2. PROOF ===================== -->
-<section class="proof">
-	<div class="container">
-		<ul class="proof-grid">
-			{proofStats.map((item) => (
-				<li>
-					<strong>{item.figure}</strong>
-					<span>{item.label}</span>
-				</li>
-			))}
-		</ul>
-		<p class="proof-note">
-			"40+" is the number of companies Consilegy LLC has supported on marketing, sales, and customer
-			success design. Revenue CRM is in closed beta, so we do not publish a customer count for it.
-		</p>
-	</div>
-</section>
-
-<!-- ===================== 3. PROBLEM → OUTCOME ===================== -->
-<section class="outcomes">
+<!-- ===================== 2. WHAT IT SOLVES ===================== -->
+<section class="outcomes" id="problems">
 	<div class="container">
 		<div class="section-head">
 			<p class="kicker">What changes</p>
@@ -327,7 +172,38 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 	</div>
 </section>
 
-<!-- ===================== 3b. AI ===================== -->
+<!-- ===================== 3. USE CASES ===================== -->
+<section class="editions" id="use-cases">
+	<div class="container">
+		<div class="section-head">
+			<p class="kicker">Use cases</p>
+			<h2>Set up for the shape of your business from the start.</h2>
+		</div>
+		<div class="edition-grid">
+			{editions.map((item) => (
+				<article class="edition-card">
+					<span class="edition-noun">{item.noun}</span>
+					<h3>{item.title}</h3>
+					<p>{item.text}</p>
+					{item.href && <a href={item.href}>{item.linkLabel}</a>}
+				</article>
+			))}
+		</div>
+		<figure class="view-demo">
+			<img
+				src="/videos/revenue-crm-demo-en.gif"
+				alt="A walkthrough of Revenue CRM, moving through the dashboard, the deal kanban, the automation library, the AI agent, and the three-language switch."
+				width="800"
+				height="585"
+				loading="lazy"
+				decoding="async"
+			/>
+			<figcaption>Walkthrough: dashboard, deal kanban, automation library, AI agent, language switch</figcaption>
+		</figure>
+	</div>
+</section>
+
+<!-- ===================== 4. LESS TYPING ===================== -->
 <section class="ai" id="ai">
 	<div class="container">
 		<div class="section-head">
@@ -339,24 +215,53 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 			So we took the typing out. The AI agent inside answers when you ask in plain language.
 			Cards get photographed, threads get pasted, calls get spoken.
 		</p>
-		<ul class="ai-grid">
-			{aiMoves.map((item) => (
-				<li class="ai-card">
-					<span class="ai-act">{item.act}</span>
-					<p>{item.text}</p>
+		<p class="ai-note">
+			Anything AI writes waits for a person before it is saved or sent. Nothing goes out on its own.
+			You can bring your own API key (Anthropic / OpenAI / Gemini / Azure OpenAI).
+		</p>
+		<ul class="proof-grid">
+			{proofStats.map((item) => (
+				<li>
+					<strong>{item.figure}</strong>
+					<span>{item.label}</span>
 				</li>
 			))}
 		</ul>
-		<p class="ai-note">
-			Anything AI writes waits for a person before it is saved or sent. Nothing goes out on its own.
-			You can bring your own API key (Anthropic / OpenAI / Gemini / Azure OpenAI),
-			and an MCP server ships with the product so outside AI tools can work against your CRM.
+		<p class="proof-note">
+			"40+" is the number of companies Consilegy LLC has supported on marketing, sales, and customer
+			success design. Revenue CRM is in closed beta, so we do not publish a customer count for it.
 		</p>
 	</div>
 </section>
 
-<!-- ===================== 3c. SECURITY ===================== -->
-<section class="safeguards">
+<!-- ===================== 5. PRICING ===================== -->
+<section class="pricing" id="pricing">
+	<div class="container">
+		<div class="section-head">
+			<p class="kicker">Pricing</p>
+			<h2>Three plans. Pick the one that fits how you work.</h2>
+		</div>
+		<div class="price-grid">
+			{plans.map((plan) => (
+				<div class="price-card">
+					<p class="price-tier">{plan.tier}{plan.status && <span class="price-status">{plan.status}</span>}</p>
+					<p class="plan-for">{plan.for}</p>
+					<p class="price-figure"><span class="price-yen">&yen;</span>{plan.figure}<span class="price-unit">{plan.unit}</span></p>
+				</div>
+			))}
+			<div class="price-note">
+				<p>No setup fee. Every plan is free of the monthly fee for the first 30 days from the day you start.</p>
+			</div>
+		</div>
+		<div class="hero-actions">
+			<a href="/en/crm/pricing/" class="btn btn--secondary">Pricing details</a>
+		</div>
+		<p class="proof-note">All prices exclude consumption tax.</p>
+	</div>
+</section>
+
+<!-- ===================== 6. SECURITY ===================== -->
+<section class="safeguards" id="security">
 	<div class="container">
 		<div class="section-head">
 			<p class="kicker">Your data</p>
@@ -376,277 +281,8 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 	</div>
 </section>
 
-<!-- ===================== 4. PRODUCT VIEW ===================== -->
-<section class="product-view">
-	<div class="container">
-		<div class="section-head">
-			<p class="kicker">Screens</p>
-			<h2>The number you read first and the person you move on next, on one screen.</h2>
-		</div>
-		<ul class="view-grid">
-			{screens.map((item) => (
-				<li class="view-card">
-					<figure>
-						<img
-							src={item.src}
-							alt={item.alt}
-							width="1600"
-							height="1000"
-							loading="lazy"
-							decoding="async"
-						/>
-					</figure>
-					<div class="view-caption">
-						<strong>{item.title}</strong>
-						<span>{item.text}</span>
-					</div>
-				</li>
-			))}
-		</ul>
-
-		<figure class="view-demo">
-			<img
-				src="/videos/revenue-crm-demo-en.gif"
-				alt="A walkthrough of Revenue CRM, moving through the dashboard, the deal kanban, the automation library, the AI agent, and the three-language switch."
-				width="800"
-				height="585"
-				loading="lazy"
-				decoding="async"
-			/>
-			<figcaption>Walkthrough: dashboard → deal kanban → automation library → AI agent → language switch</figcaption>
-		</figure>
-	</div>
-</section>
-
-<!-- ===================== 5. CAPABILITIES ===================== -->
-<section class="features" id="features">
-	<div class="container">
-		<div class="section-head">
-			<p class="kicker">What it does</p>
-			<h2>Sales, marketing, and CS on one revenue base.</h2>
-		</div>
-		<div class="feature-grid">
-			{capabilities.map((item) => (
-				<article class="feature-card">
-					<span class="feature-glyph" aria-hidden="true">
-						<Fragment set:html={featureGlyphs[item.icon]} />
-					</span>
-					<div>
-						<h3>{item.title}</h3>
-						<p>{item.text}</p>
-					</div>
-				</article>
-			))}
-		</div>
-		<div class="feature-more">
-			<p class="feature-more-note">{featureGroups.map((group) => group.title).join(' / ')}</p>
-			<a class="feature-more-link" href="/en/crm/features/">See all {featureCount()} features</a>
-		</div>
-	</div>
-</section>
-
-<!-- ===================== 6. EDITIONS ===================== -->
-<section class="editions">
-	<div class="container">
-		<div class="section-head">
-			<p class="kicker">By business type</p>
-			<h2>Set up for the shape of your business from the start.</h2>
-		</div>
-		<div class="edition-grid">
-			{editions.map((item) => (
-				<article class:list={['edition-card', item.href && 'edition-card--muted']}>
-					<span class="edition-noun">{item.noun}</span>
-					<h3>{item.title}</h3>
-					<p>{item.text}</p>
-					{item.href && <a href={item.href}>See the school edition</a>}
-				</article>
-			))}
-		</div>
-	</div>
-</section>
-
-<!-- ===================== 7. PRICING ===================== -->
-<section class="pricing" id="pricing">
-	<div class="container">
-		<div class="section-head">
-			<p class="kicker">Pricing</p>
-			<h2>Three plans. Pick the one that fits how you work.</h2>
-		</div>
-		<div class="price-grid">
-			<div class="price-card">
-				<p class="price-tier">User plan</p>
-				<p class="plan-for">B2B edition. For companies that use the CRM every day.</p>
-				<p class="price-figure"><span class="price-yen">&yen;</span>3,000<span class="price-unit">/ user / month</span></p>
-				<dl class="plan-list">
-					<div><dt>Users</dt><dd>As contracted</dd></div>
-					<div><dt>Basic automation</dt><dd>Included</dd></div>
-					<div><dt>AI processing</dt><dd>Uses Fuel</dd></div>
-					<div><dt>Fuel per billing period</dt><dd>30 per user (min. 100)</dd></div>
-					<div><dt>Extra Fuel</dt><dd>400 for &yen;3,000<span class="price-status">Coming soon</span></dd></div>
-					<div><dt>Support</dt><dd>How-to and bugs</dd></div>
-				</dl>
-			</div>
-			<div class="price-card">
-				<p class="price-tier">Student plan</p>
-				<p class="plan-for">School edition (B2C). For schools that run on it every day.</p>
-				<p class="price-figure"><span class="price-yen">&yen;</span>9,800<span class="price-unit">/ month and up</span></p>
-				<p class="fuel-note">Up to 50 enrolled students &yen;9,800. Up to 100 &yen;19,800. Up to 300 &yen;39,800. Over 300, quoted individually.</p>
-				<dl class="plan-list">
-					<div><dt>Users</dt><dd>Unlimited coaches and staff</dd></div>
-					<div><dt>Basic automation</dt><dd>Included</dd></div>
-					<div><dt>AI processing</dt><dd>Uses Fuel</dd></div>
-					<div><dt>Fuel per billing period</dt><dd>300 / 600 / 1,200</dd></div>
-					<div><dt>Extra Fuel</dt><dd>400 for &yen;3,000<span class="price-status">Coming soon</span></dd></div>
-					<div><dt>Support</dt><dd>How-to and bugs</dd></div>
-				</dl>
-			</div>
-			<div class="price-card">
-				<p class="price-tier">Prepaid plan<span class="price-status">Coming soon</span></p>
-				<p class="plan-for">B2B and School editions. For companies and schools that use it rarely, or more in some months than others.</p>
-				<p class="price-figure"><span class="price-yen">&yen;</span>3,000<span class="price-unit">/ month</span></p>
-				<p class="fuel-note">Base fee with 100 Fuel. Top up only what you need.</p>
-				<dl class="plan-list">
-					<div><dt>Users</dt><dd>Unlimited</dd></div>
-					<div><dt>Basic automation</dt><dd>Uses Fuel</dd></div>
-					<div><dt>AI processing</dt><dd>Uses Fuel</dd></div>
-					<div><dt>Fuel per billing period</dt><dd>100</dd></div>
-					<div><dt>Extra Fuel</dt><dd>100 for &yen;3,000<span class="price-status">Coming soon</span></dd></div>
-					<div><dt>Support</dt><dd>Bugs only</dd></div>
-				</dl>
-			</div>
-			<div class="price-note">
-				<p>No setup fee. Every plan is free of the monthly fee for the first 30 days from the day you start. Plans renew monthly.</p>
-				<p>Basic automation means intake, sending, automated workflows, and integrations. The Prepaid plan and extra Fuel purchases are coming soon.</p>
-			</div>
-		</div>
-		<div class="fuel-block">
-			<h3>AI work is counted in Fuel.</h3>
-			<p class="fuel-lead">Working in the CRM yourself never uses Fuel. Typical examples:</p>
-			<div class="fuel-table-wrap">
-			<table class="fuel-table">
-				<thead>
-					<tr><th>Fuel</th><th>Typical examples</th><th>Charged on</th></tr>
-				</thead>
-				<tbody>
-					<tr><td>1</td><td>Reading a business card or handwritten note, transcribing audio</td><td>All plans</td></tr>
-					<tr><td>3</td><td>Summaries, email drafts, deal analysis, questions to the AI</td><td>All plans</td></tr>
-					<tr><td>10</td><td>Dashboard suggestions, analyzing attachments</td><td>All plans</td></tr>
-					<tr><td>1 each</td><td>Intake and automated sends</td><td>Prepaid plan only</td></tr>
-					<tr><td>3 each</td><td>Importing a meeting</td><td>Prepaid plan only</td></tr>
-				</tbody>
-			</table>
-			</div>
-			<p class="fuel-fineprint">On the User and Student plans, intake, automated sends, and meeting imports are covered by the monthly fee. Fuel is granted when you start and on each renewal date, and does not roll over. Extra Fuel is valid for 90 days from purchase. We give 30 days’ notice before any task uses more Fuel.</p>
-		</div>
-		<div class="fuel-block">
-			<h3>Add-on</h3>
-			<div class="fuel-grid">
-				<div class="price-card">
-					<p class="price-tier">Chat integration</p>
-					<p class="price-figure"><span class="price-yen">&yen;</span>5,000<span class="price-unit">/ month</span></p>
-					<p class="fuel-note">Per workspace, at any headcount.</p>
-				</div>
-				<div class="fuel-option-desc">
-					<p>Pulls in Chatwork and Slack conversations, summarizes them, and records them on the customer and deal.</p>
-					<p>Importing uses no Fuel. The AI summary does.</p>
-				</div>
-			</div>
-		</div>
-		<div class="fuel-block">
-			<h3>Onboarding, adoption, and operations support</h3>
-			<p class="fuel-lead">Guide prices.</p>
-			<div class="fuel-grid fuel-grid--4">
-				<div class="price-card">
-					<p class="price-tier">Videos and help articles</p>
-					<p class="price-figure">Free</p>
-				</div>
-				<div class="price-card">
-					<p class="price-tier">Onboarding</p>
-					<p class="price-figure"><span class="price-yen">&yen;</span>120,000<span class="price-unit">and up</span></p>
-				</div>
-				<div class="price-card">
-					<p class="price-tier">Adoption (3 months)</p>
-					<p class="price-figure"><span class="price-yen">&yen;</span>300,000<span class="price-unit">and up</span></p>
-				</div>
-				<div class="price-card">
-					<p class="price-tier">Operations</p>
-					<p class="price-figure"><span class="price-yen">&yen;</span>30,000<span class="price-unit">/ month and up</span></p>
-				</div>
-			</div>
-			<p class="fuel-tail">Data migration and integrations are quoted separately. Plans do not include custom setup, process design, or operations consulting.</p>
-		</div>
-		<div class="fuel-block">
-			<h3>Referral program</h3>
-			<p class="fuel-lead">When a company you refer starts a paid contract, 20% of its base plan monthly fee (excluding tax) comes off your bill for 12 months.</p>
-		</div>
-		<p class="proof-note">All prices exclude consumption tax.</p>
-	</div>
-</section>
-
-<!-- ===================== 8. FIT ===================== -->
-<section class="fit">
-	<div class="container fit-grid">
-		<div class="fit-box">
-			<p class="kicker">A good fit</p>
-			<h2>Companies about to adopt a CRM</h2>
-			<ul>
-				<li>Customer information is split across spreadsheets, inboxes, and personal notes</li>
-				<li>Deal status is not shared across the team</li>
-				<li>The revenue outlook is added up by hand every time</li>
-				<li>Follow-up and renewal timing go untracked once a deal is won</li>
-			</ul>
-		</div>
-		<div class="fit-box fit-box--subtle">
-			<p class="kicker">Better served another way</p>
-			<h2>Companies already running a CRM</h2>
-			<p>
-				If Salesforce, HubSpot, kintone, or Marketo is already running, don't switch.
-				You paid for it, and it can be made to work. We would rather redesign the revenue
-				process around what you have than sell you a replacement.
-			</p>
-			<a href="/en/services/" class="text-link">See how we redesign an existing CRM</a>
-		</div>
-	</div>
-</section>
-
-<!-- ===================== 9. ORIGIN ===================== -->
-<section class="media-proof">
-	<div class="container media-grid">
-		<div class="media-copy">
-			<p class="kicker">Where it came from</p>
-			<h2>Built at a nomad hub in Hualien, Taiwan.</h2>
-			<p>
-				The product took shape at Nomad Hualien (花蓮雲基地), the digital nomad hub run by Hualien
-				County. Seiko Yamaguchi, Consilegy's founder, stayed there with the first cohort, and the
-				shape of this product, CRM and AI together, came out of working alongside founders and
-				remote workers from several countries.
-			</p>
-			<p>
-				See News (花蓮視新聞) covered the stay and the build in its 25 June 2026 edition.
-			</p>
-			<a
-				href="https://www.seenews.com.tw/news_data.php?news_id=2325&amp;k_code=A"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="text-link"
-			>Read the article</a>
-		</div>
-		<figure class="press-image">
-			<img
-				src="/images/common/seenews-hualien-2026.jpg"
-				alt="The See News (花蓮視新聞) article of 25 June 2026, covering the development of a CRM and AI product at Nomad Hualien."
-				width="1000"
-				height="1026"
-				loading="lazy"
-				decoding="async"
-			/>
-			<figcaption>See News (花蓮視新聞), 25 June 2026</figcaption>
-		</figure>
-	</div>
-</section>
-
-<!-- ===================== 10. FAQ ===================== -->
-<section class="faq">
+<!-- ===================== 7. FAQ ===================== -->
+<section class="faq" id="faq">
 	<div class="container">
 		<div class="section-head">
 			<p class="kicker">Questions</p>
@@ -663,35 +299,25 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 	</div>
 </section>
 
-<!-- ===================== 11. FINAL CTA ===================== -->
-<section class="beta">
+<!-- ===================== 8. START ===================== -->
+<section class="beta" id="start">
 	<div class="container">
-		<div class="cta-head">
-			<p class="kicker">Closed beta</p>
+		<div class="section-head">
+			<p class="kicker">Start free</p>
 			<h2>The first CRM for a company that has none.</h2>
+		</div>
+		<div class="cta-head">
+			<p>Built for companies moving off spreadsheet-based sales management to their first CRM.</p>
 			<p>
-				We are working with a handful of companies right now, building against how they
-				actually operate. We do the setup and load the first data ourselves. What gets built
-				next is decided by their work, not by our roadmap.
+				If Salesforce, HubSpot, kintone, or Marketo is already running, don't switch.
+				<a href="/en/services/">See how we redesign an existing CRM</a>.
 			</p>
 		</div>
-		<ul class="cta-grid">
-			<li class="cta-card">
-				<h3>Try it first</h3>
-				<p>An email address opens the real product.</p>
-				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">See the demo</a>
-			</li>
-			<li class="cta-card">
-				<h3>Ask about the beta</h3>
-				<p>We start from whether it fits how you work.</p>
-				<a href="/en/contact/" class="btn btn--secondary">Get in touch</a>
-			</li>
-			<li class="cta-card">
-				<h3>Already have a CRM</h3>
-				<p>We propose a redesign around the tool you have.</p>
-				<a href="/en/services/" class="btn btn--secondary">See what we do</a>
-			</li>
-		</ul>
+		<div class="hero-actions">
+			<a href={SIGNUP_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">Start free</a>
+			<a href={DEMO_URL} class="btn btn--secondary" target="_blank" rel="noopener noreferrer">See the demo</a>
+			<a href="/en/contact/" class="btn btn--secondary">Talk to us about the beta</a>
+		</div>
 	</div>
 </section>
 
@@ -721,16 +347,6 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 		font-weight: 500;
 		line-height: 1.4;
 		text-wrap: balance;
-	}
-
-	.text-link {
-		display: inline-flex;
-		margin-top: var(--space-sm);
-		color: var(--color-primary);
-		font-size: 0.9375rem;
-		font-weight: 600;
-		text-decoration: none;
-		border-bottom: 1px solid currentColor;
 	}
 
 	.btn {
@@ -828,29 +444,6 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 		line-height: 2;
 	}
 
-	.hero-points {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 0;
-		margin: var(--space-lg) 0 0;
-		padding: 0;
-		list-style: none;
-		border-top: 1px solid var(--color-border);
-		border-bottom: 1px solid var(--color-border);
-	}
-
-	.hero-points li {
-		min-width: 0;
-		padding: 0.85rem 1rem;
-		color: var(--color-text-muted);
-		font-size: 0.8125rem;
-		line-height: 1.6;
-	}
-
-	.hero-points li + li {
-		border-left: 1px solid var(--color-border);
-	}
-
 	.hero-media {
 		margin: 0;
 		min-width: 0;
@@ -865,29 +458,21 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 		box-shadow: none;
 	}
 
-	.hero-media figcaption,
-	.press-image figcaption {
+	.hero-media figcaption {
 		margin-top: 0.65rem;
 		color: var(--color-text-muted);
 		font-size: 0.75rem;
 		line-height: 1.6;
 	}
 
-	.pain,
 	.ai,
 	.safeguards,
-	.features,
-	.product-view,
 	.editions,
-	.fit,
-	.media-proof,
 	.beta {
 		padding: var(--space-2xl) 0;
 		background: var(--color-bg);
 	}
 
-	.features,
-	.fit,
 	.ai,
 	.beta {
 		background: var(--color-bg-subtle);
@@ -905,25 +490,16 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 		border-top: 1px solid var(--color-border);
 	}
 
-	.pain-grid,
-	.feature-grid,
 	.edition-grid {
 		display: grid;
 		gap: 0;
 		border-top: 1px solid var(--color-border);
 	}
 
-	.pain-grid,
 	.edition-grid {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 
-	.feature-grid {
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-	}
-
-	.pain-card,
-	.feature-card,
 	.edition-card {
 		min-width: 0;
 		padding: 1.35rem 1.5rem 1.35rem 0;
@@ -933,104 +509,16 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 		border-radius: 0;
 	}
 
-	.pain-card,
 	.edition-card {
 		padding-right: var(--space-lg);
 	}
 
-	.pain-card:nth-child(even),
 	.edition-card:nth-child(even) {
 		padding-right: 0;
 		padding-left: var(--space-lg);
 		border-left: 1px solid var(--color-border);
 	}
 
-	.feature-card {
-		display: grid;
-		grid-template-columns: 4.25rem minmax(0, 1fr);
-		gap: 1.05rem;
-		align-items: start;
-		padding-right: var(--space-md);
-	}
-
-	.feature-card:nth-child(3n + 2),
-	.feature-card:nth-child(3n + 3) {
-		padding-left: var(--space-md);
-		border-left: 1px solid var(--color-border);
-	}
-
-	.feature-glyph {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		width: 4rem;
-		height: 4rem;
-		margin-top: 0.05rem;
-		color: var(--color-primary);
-	}
-
-	.feature-glyph :global(svg) {
-		width: 4rem;
-		height: 4rem;
-		overflow: visible;
-	}
-
-	.feature-glyph :global(.glyph-panel) {
-		fill: #fff;
-		stroke: var(--color-border);
-		stroke-width: 1.4;
-	}
-
-	.feature-glyph :global(.glyph-line) {
-		fill: none;
-		stroke: var(--color-text-muted);
-		stroke-linecap: round;
-		stroke-linejoin: round;
-		stroke-width: 1.5;
-	}
-
-	.feature-glyph :global(.glyph-strong) {
-		fill: none;
-		stroke: var(--color-primary);
-		stroke-linecap: round;
-		stroke-linejoin: round;
-		stroke-width: 1.7;
-	}
-
-	.feature-glyph :global(.glyph-accent),
-	.feature-glyph :global(.glyph-strong-fill) {
-		fill: rgba(30, 64, 175, 0.08);
-		stroke: var(--color-primary);
-		stroke-width: 1.5;
-	}
-
-	.issue-label {
-		display: flex;
-		align-items: flex-end;
-		gap: 0.85rem;
-		margin-bottom: 0.9rem;
-		color: var(--color-primary);
-	}
-
-	.issue-label::after {
-		content: "";
-		flex: 1;
-		height: 1px;
-		margin-bottom: 0.34rem;
-		background: var(--color-border);
-	}
-
-	.issue-label__number {
-		color: rgba(30, 64, 175, 0.24);
-		font-size: 2.45rem;
-		font-weight: 500;
-		font-variant-numeric: tabular-nums;
-		line-height: 0.82;
-		letter-spacing: 0;
-	}
-
-	.pain-card h3,
-	.feature-card h3,
 	.edition-card h3 {
 		margin: 0;
 		color: var(--color-text);
@@ -1039,8 +527,6 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 		line-height: 1.55;
 	}
 
-	.pain-card p,
-	.feature-card p,
 	.edition-card p {
 		margin: 0.6rem 0 0;
 		color: var(--color-text-muted);
@@ -1048,29 +534,6 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 		line-height: 1.85;
 	}
 
-	.product-view {
-		background: #fff;
-	}
-
-	.product-grid,
-	.fit-grid,
-	.media-grid,
-	.beta-grid {
-		display: grid;
-		grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-		gap: var(--space-xl);
-		align-items: start;
-	}
-
-	.product-grid > div,
-	.media-copy,
-	.beta-grid > div {
-		padding-top: var(--space-sm);
-		border-top: 1px solid var(--color-border);
-	}
-
-	.product-grid .kicker,
-	.media-copy .kicker,
 	.beta .kicker {
 		margin-bottom: var(--space-sm);
 	}
@@ -1097,49 +560,6 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 		text-align: center;
 	}
 
-	.view-grid {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: var(--space-lg) var(--space-lg);
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
-
-	.view-card figure {
-		margin: 0;
-		overflow: hidden;
-		border: 1px solid var(--color-border);
-		border-radius: 10px;
-		background: var(--color-surface, #f6f7f8);
-		box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-	}
-
-	.view-card img {
-		display: block;
-		width: 100%;
-		height: auto;
-	}
-
-	.view-caption {
-		display: grid;
-		gap: 0.2rem;
-		padding: 0.9rem 0.25rem 0;
-	}
-
-	.view-caption strong {
-		color: var(--color-text);
-		font-size: 0.9375rem;
-		font-weight: 600;
-		line-height: 1.7;
-	}
-
-	.view-caption span {
-		color: var(--color-text-muted);
-		font-size: 0.875rem;
-		line-height: 1.75;
-	}
-
 	.edition-noun {
 		display: block;
 		margin: 0 0 0.7rem;
@@ -1159,44 +579,6 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 		border-bottom: 1px solid currentColor;
 	}
 
-	.fit-grid {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-	}
-
-	.fit-box {
-		padding-top: var(--space-sm);
-		border-top: 1px solid var(--color-border);
-	}
-
-	.fit-box--subtle {
-		padding-left: var(--space-xl);
-		border-left: 1px solid var(--color-border);
-	}
-
-	.fit-box .kicker {
-		margin-bottom: var(--space-sm);
-	}
-
-	.fit-box ul,
-	.media-copy ul,
-	.beta-list {
-		margin: 1rem 0 0;
-		padding: 0;
-		list-style: none;
-		border-top: 1px solid var(--color-border);
-	}
-
-	.fit-box li,
-	.media-copy li,
-	.beta-list li {
-		padding: 0.75rem 0;
-		border-bottom: 1px solid var(--color-border);
-		color: var(--color-text);
-		font-size: 0.9375rem;
-		line-height: 1.75;
-	}
-
-	.fit-box p,
 	.beta p {
 		margin: 1rem 0 0;
 		color: var(--color-text-muted);
@@ -1204,58 +586,8 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 		line-height: 1.85;
 	}
 
-	.press-image {
-		margin: 0;
-		justify-self: end;
-		max-width: 360px;
-		padding: 0;
-		background: transparent;
-		border: 0;
-		border-radius: 0;
-		box-shadow: none;
-	}
-
-	.press-image img {
-		width: 100%;
-		height: auto;
-		border: 1px solid var(--color-border);
-		border-radius: 0;
-	}
-
-	.feature-more {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: baseline;
-		justify-content: space-between;
-		gap: 0.5rem 1.5rem;
-		margin-top: var(--space-lg);
-		padding-top: 1.15rem;
-		border-top: 1px solid var(--color-border);
-	}
-
-	.feature-more-note {
-		margin: 0;
-		color: var(--color-text-muted);
-		font-size: 0.8125rem;
-	}
-
-	.feature-more-link {
-		color: var(--color-primary);
-		font-weight: 600;
-		font-size: 0.9375rem;
-		text-decoration: none;
-	}
-
-	.feature-more-link:hover {
-		text-decoration: underline;
-	}
-
 	@media (max-width: 980px) {
-		.hero-grid,
-		.product-grid,
-		.fit-grid,
-		.media-grid,
-		.beta-grid {
+		.hero-grid {
 			grid-template-columns: 1fr;
 		}
 
@@ -1263,35 +595,21 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 			font-size: 2.75rem;
 		}
 
-		.hero-media,
-		.press-image {
+		.hero-media {
 			justify-self: start;
 			max-width: 680px;
-		}
-
-		.fit-box--subtle {
-			padding-left: 0;
-			border-left: 0;
 		}
 	}
 
 	@media (max-width: 760px) {
 		.crm-hero,
-		.pain,
-		.features,
-		.product-view,
 		.editions,
-		.fit,
-		.media-proof,
 		.beta {
 			padding-block: var(--space-xl);
 		}
 
 		.section-head,
-		.pain-grid,
-		.feature-grid,
-		.edition-grid,
-		.view-grid {
+		.edition-grid {
 			grid-template-columns: 1fr;
 		}
 
@@ -1311,34 +629,11 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 			font-size: 1rem;
 		}
 
-		.hero-points {
-			grid-template-columns: 1fr;
-		}
-
-		.hero-points li {
-			padding-inline: 0;
-		}
-
-		.hero-points li + li {
-			border-left: 0;
-			border-top: 1px solid var(--color-border);
-		}
-
-		.pain-card,
 		.edition-card,
-		.pain-card:nth-child(even),
-		.edition-card:nth-child(even),
-		.feature-card,
-		.feature-card:nth-child(3n + 2),
-		.feature-card:nth-child(3n + 3) {
+		.edition-card:nth-child(even) {
 			padding-left: 0;
 			padding-right: 0;
 			border-left: 0;
-		}
-
-		.view-list li {
-			grid-template-columns: 1fr;
-			gap: 0.25rem;
 		}
 
 		.hero-actions {
@@ -1351,12 +646,6 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 	}
 
 	/* ── 2. PROOF band ───────────────────────────────────── */
-	.proof {
-		padding: var(--space-lg) 0;
-		background: #fff;
-		border-top: 1px solid var(--color-border);
-		border-bottom: 1px solid var(--color-border);
-	}
 	.proof-grid {
 		display: grid;
 		grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1459,73 +748,11 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 		line-height: 1.95;
 		color: var(--color-text);
 	}
-	.ai-grid {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 0;
-		margin: 0;
-		padding: 0;
-		list-style: none;
-		border-top: 1px solid var(--color-border);
-	}
-	.ai-card {
-		min-width: 0;
-		padding: 1.35rem var(--space-md) 1.35rem 0;
-		border-bottom: 1px solid var(--color-border);
-	}
-	.ai-card:nth-child(3n + 2),
-	.ai-card:nth-child(3n + 3) {
-		padding-left: var(--space-md);
-		border-left: 1px solid var(--color-border);
-	}
-	.ai-act {
-		display: block;
-		margin-bottom: 0.6rem;
-		font-size: 1.02rem;
-		font-weight: 700;
-		letter-spacing: -0.01em;
-		color: var(--color-text);
-	}
-	.ai-act::before {
-		content: '';
-		display: block;
-		width: 1.75rem;
-		height: 2px;
-		margin-bottom: 0.7rem;
-		background: var(--color-primary);
-	}
-	.ai-card p {
-		margin: 0;
-		font-size: 0.925rem;
-		line-height: 1.85;
-		color: var(--color-text-muted);
-	}
 	.ai-note {
 		margin: var(--space-lg) 0 0;
 		font-size: 0.82rem;
 		line-height: 1.9;
 		color: var(--color-text-muted);
-	}
-	@media (max-width: 860px) {
-		.ai-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-		.ai-card:nth-child(3n + 2),
-		.ai-card:nth-child(3n + 3) {
-			padding-left: 0;
-			border-left: 0;
-		}
-		.ai-card:nth-child(even) {
-			padding-left: var(--space-md);
-			border-left: 1px solid var(--color-border);
-		}
-	}
-	@media (max-width: 560px) {
-		.ai-grid { grid-template-columns: 1fr; }
-		.ai-card,
-		.ai-card:nth-child(even) {
-			padding-left: 0;
-			padding-right: 0;
-			border-left: 0;
-		}
 	}
 
 	/* ── 3c. SECURITY ────────────────────────────────────── */
@@ -1630,89 +857,6 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 		font-weight: 500;
 		color: var(--color-text-muted);
 	}
-	.plan-list {
-		margin: var(--space-md) 0 0;
-		border-top: 1px solid var(--color-border);
-	}
-	.plan-list div {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
-		gap: 0.1rem 0.75rem;
-		padding: 0.55rem 0;
-		border-bottom: 1px solid var(--color-border);
-		font-size: 0.85rem;
-		line-height: 1.5;
-	}
-	.plan-list dt { color: var(--color-text-muted); }
-	.plan-list dd { margin: 0; font-weight: 700; text-align: right; }
-	.plan-list .price-status { font-weight: 500; }
-	.fuel-option-desc {
-		grid-column: span 2;
-		align-self: center;
-	}
-	.fuel-option-desc p { margin: 0 0 0.5rem; max-width: 62ch; }
-	.fuel-option-desc p:last-child {
-		margin: 0;
-		font-size: 0.9rem;
-		color: var(--color-text-muted);
-	}
-	.fuel-block {
-		margin-top: var(--space-lg);
-		padding-top: var(--space-lg);
-		border-top: 1px solid var(--color-border);
-	}
-	.fuel-block h3 {
-		margin: 0 0 0.75rem;
-		font-size: clamp(1.2rem, 2.4vw, 1.5rem);
-		letter-spacing: -0.01em;
-	}
-	.fuel-lead,
-	.fuel-tail {
-		margin: 0 0 var(--space-md);
-		max-width: 62ch;
-	}
-	.fuel-tail { margin: var(--space-md) 0 0; }
-	.fuel-grid {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: var(--space-md);
-		align-items: stretch;
-	}
-	.fuel-table {
-		width: 100%;
-		border-collapse: collapse;
-		margin: 0 0 var(--space-md);
-		font-size: 0.95rem;
-	}
-	.fuel-table th,
-	.fuel-table td {
-		padding: 0.7rem 0.9rem;
-		text-align: left;
-		border-bottom: 1px solid var(--color-border);
-		vertical-align: top;
-	}
-	.fuel-table th {
-		font-size: 0.85rem;
-		font-weight: 700;
-		color: var(--color-primary);
-		white-space: nowrap;
-	}
-	.fuel-table td:nth-child(1),
-	.fuel-table td:nth-child(3) { white-space: nowrap; }
-	.fuel-table td:nth-child(1) { font-weight: 700; }
-	.fuel-table-wrap { overflow-x: auto; }
-	.fuel-table { min-width: 34rem; }
-	.fuel-fineprint {
-		margin: 0 0 var(--space-md);
-		font-size: 0.85rem;
-		color: var(--color-text-muted);
-	}
-	.fuel-note {
-		margin: 0.75rem 0 0;
-		font-size: 0.9rem;
-		color: var(--color-text-muted);
-	}
 	.price-note p {
 		margin: 0;
 		font-size: 0.9rem;
@@ -1720,28 +864,12 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 		color: var(--color-text-muted);
 	}
 	/* The EN page runs at a 72ch container: 4 cards across and side-by-side labels do not fit. */
-	.fuel-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 	.price-unit { display: block; margin: 0.35em 0 0; }
-	.plan-list div { display: block; }
-	.plan-list dd { text-align: left; }
 	@media (max-width: 960px) {
 		.price-grid { grid-template-columns: 1fr; }
-		.fuel-grid,
-		.fuel-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-		.fuel-option-desc { grid-column: span 1; }
-	}
-	@media (max-width: 480px) {
-		.fuel-grid,
-		.fuel-grid--4 { grid-template-columns: 1fr; }
-		.fuel-table { min-width: 0; font-size: 0.85rem; }
-		.fuel-table th,
-		.fuel-table td { padding: 0.6rem 0.45rem; }
 	}
 
 	/* ── 10. FAQ ─────────────────────────────────────────── */
-	.faq-more { margin-top: 1.5rem; text-align: center; font-size: 0.925rem; }
-	.faq-more a { color: var(--accent, #1f6f4a); text-decoration: none; font-weight: 600; }
-	.faq-more a:hover { text-decoration: underline; }
 	.faq { padding: var(--space-2xl) 0; }
 	.faq-list { margin: 0; }
 	.faq-item {
@@ -1770,35 +898,6 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 		line-height: 1.9;
 		color: var(--color-text-muted);
 	}
-	.cta-grid {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: var(--space-md);
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
-	.cta-card {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-		padding: var(--space-md);
-		background: #fff;
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-card);
-	}
-	.cta-card h3 { margin: 0; font-size: 1rem; }
-	.cta-card p {
-		margin: 0 0 auto;
-		padding-bottom: var(--space-sm);
-		font-size: 0.9rem;
-		line-height: 1.75;
-		color: var(--color-text-muted);
-	}
-	.cta-card .btn { width: 100%; }
-	@media (max-width: 800px) {
-		.cta-grid { grid-template-columns: 1fr; }
-	}
 
 	/* ── hero note ───────────────────────────────────────── */
 	.hero-note {
@@ -1817,5 +916,28 @@ const featureGroups = CRM_FEATURES.map((g) => ({ title: g.title.en }));
 	.br-wide { display: none; }
 	@media (min-width: 900px) {
 		.br-wide { display: inline; }
+	}
+
+	/* ── Eight-section layout (2026-09 restructure) ───────────── */
+	section[id] {
+		/* keep headings clear of the header and the sticky subnav */
+		scroll-margin-top: 7.5rem;
+	}
+
+	/* three outcomes on a two-column grid: let the last one take the full row */
+	.outcome-card:last-child:nth-child(odd) {
+		grid-column: 1 / -1;
+	}
+
+	.ai .proof-grid {
+		margin-top: var(--space-lg);
+	}
+
+	.pricing .hero-actions {
+		margin-top: var(--space-md);
+	}
+
+	.cta-head a {
+		color: var(--color-primary);
 	}
 </style>

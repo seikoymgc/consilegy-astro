@@ -1,0 +1,631 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CrmSubnav from '../../../../components/CrmSubnav.astro';
+
+const DEMO_URL = 'https://crm.consilegy.com/demos';
+const SIGNUP_URL = 'https://crm.consilegy.com/signup';
+
+// Mirrors /crm/pricing/. Prices and terms are the plan structure fixed on 2026-09-14
+// (moved from the old /en/crm/#pricing). Change the Japanese page and this one together.
+const terms = [
+	{ label: 'Setup fee', text: ['None.'] },
+	{
+		label: 'Free period',
+		text: [
+			'Every plan is free of the monthly fee for 30 days from the day you start (the day you first log in).',
+			'The Fuel included in your plan is granted during the free period too.',
+		],
+	},
+	{ label: 'Contract term', text: ['Renews automatically every month.'] },
+	{
+		label: 'Cancellation',
+		text: [
+			'Let us know at least 14 days in advance.',
+			'If we end the service on our side, we give at least 30 days’ notice.',
+		],
+	},
+	{
+		label: 'Payment',
+		text: [
+			'Monthly, in advance, by credit card (ask us about paying by invoice).',
+			'Cancelling mid-month does not refund the remaining days.',
+		],
+	},
+	{
+		label: 'Price changes',
+		text: [
+			'We give at least 3 months’ notice before changing the monthly fee or the Fuel granted each billing period.',
+			'The same applies to the prices of extra Fuel and add-ons.',
+		],
+	},
+	{
+		label: 'How users are counted',
+		text: [
+			'The number of members in the workspace, including accounts that were invited but are not in use.',
+			'Changes apply from the next invoice.',
+		],
+	},
+	{
+		label: 'When the student tier changes',
+		text: [
+			'If enrolled students stay above the tier’s limit for 14 days, the higher tier applies from the first renewal date after that. If the count falls back to the limit or below in the meantime, counting starts over.',
+			'If the count is at or below the lower tier’s limit on a renewal date, the lower tier applies from that renewal date.',
+		],
+	},
+	{
+		label: 'Your data after the contract ends',
+		text: [
+			'You can export it for 30 days from the end date. After that, data in the live environment is deleted.',
+			'Backups are deleted once our retention period has passed.',
+		],
+	},
+	{
+		label: 'Consumption tax',
+		text: ['10%, added to the prices shown.', 'Qualified invoice issuer registration number: T2010403035111.'],
+	},
+];
+---
+
+<BaseLayout
+	title="Pricing | Revenue CRM | Consilegy"
+	description="Revenue CRM pricing. The User plan is ¥3,000 per user per month, the Student plan starts at ¥9,800 per month, and the Prepaid plan is ¥3,000 per month (coming soon). Fuel for AI work, add-ons, support guide prices, and contract and payment terms."
+	lang="en"
+	alternateUrl="/crm/pricing/"
+>
+<script type="application/ld+json" slot="head" set:html={JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://consilegy.com/en/"},
+		{"@type": "ListItem", "position": 2, "name": "Revenue CRM", "item": "https://consilegy.com/en/crm/"},
+		{"@type": "ListItem", "position": 3, "name": "Pricing", "item": "https://consilegy.com/en/crm/pricing/"}
+	]
+})} />
+
+<CrmSubnav lang="en" />
+
+<section class="pricing pricing--page" id="pricing">
+	<div class="container">
+		<div class="section-head pricing-page-head">
+			<p class="kicker">Revenue CRM pricing</p>
+			<h1>Three plans. Pick the one that fits how you work.</h1>
+		</div>
+		<div class="price-grid">
+			<div class="price-card">
+				<p class="price-tier">User plan</p>
+				<p class="plan-for">B2B edition. For companies that use the CRM every day.</p>
+				<p class="price-figure"><span class="price-yen">&yen;</span>3,000<span class="price-unit">/ user / month</span></p>
+				<dl class="plan-list">
+					<div><dt>Users</dt><dd>As contracted</dd></div>
+					<div><dt>Basic automation</dt><dd>Included</dd></div>
+					<div><dt>AI processing</dt><dd>Uses Fuel</dd></div>
+					<div><dt>Fuel per billing period</dt><dd>30 per user (min. 100)</dd></div>
+					<div><dt>Extra Fuel</dt><dd>400 for &yen;3,000<span class="price-status">Coming soon</span></dd></div>
+					<div><dt>Support</dt><dd>How-to and bugs</dd></div>
+				</dl>
+			</div>
+			<div class="price-card">
+				<p class="price-tier">Student plan</p>
+				<p class="plan-for">School edition (B2C). For schools that run on it every day.</p>
+				<p class="price-figure"><span class="price-yen">&yen;</span>9,800<span class="price-unit">/ month and up</span></p>
+				<p class="fuel-note">Up to 50 enrolled students &yen;9,800. Up to 100 &yen;19,800. Up to 300 &yen;39,800. Over 300, quoted individually.</p>
+				<dl class="plan-list">
+					<div><dt>Users</dt><dd>Unlimited coaches and staff</dd></div>
+					<div><dt>Basic automation</dt><dd>Included</dd></div>
+					<div><dt>AI processing</dt><dd>Uses Fuel</dd></div>
+					<div><dt>Fuel per billing period</dt><dd>300 / 600 / 1,200</dd></div>
+					<div><dt>Extra Fuel</dt><dd>400 for &yen;3,000<span class="price-status">Coming soon</span></dd></div>
+					<div><dt>Support</dt><dd>How-to and bugs</dd></div>
+				</dl>
+			</div>
+			<div class="price-card">
+				<p class="price-tier">Prepaid plan<span class="price-status">Coming soon</span></p>
+				<p class="plan-for">B2B and School editions. For companies and schools that use it rarely, or more in some months than others.</p>
+				<p class="price-figure"><span class="price-yen">&yen;</span>3,000<span class="price-unit">/ month</span></p>
+				<p class="fuel-note">Base fee with 100 Fuel. Top up only what you need.</p>
+				<dl class="plan-list">
+					<div><dt>Users</dt><dd>Unlimited</dd></div>
+					<div><dt>Basic automation</dt><dd>Uses Fuel</dd></div>
+					<div><dt>AI processing</dt><dd>Uses Fuel</dd></div>
+					<div><dt>Fuel per billing period</dt><dd>100</dd></div>
+					<div><dt>Extra Fuel</dt><dd>100 for &yen;3,000<span class="price-status">Coming soon</span></dd></div>
+					<div><dt>Support</dt><dd>Bugs only</dd></div>
+				</dl>
+			</div>
+			<div class="price-note">
+				<p>No setup fee. Every plan is free of the monthly fee for the first 30 days from the day you start. Plans renew monthly.</p>
+				<p>Basic automation means intake, sending, automated workflows, and integrations. The Prepaid plan and extra Fuel purchases are coming soon.</p>
+			</div>
+		</div>
+		<div class="fuel-block">
+			<h3>AI work is counted in Fuel.</h3>
+			<p class="fuel-lead">Working in the CRM yourself never uses Fuel. Typical examples:</p>
+			<div class="fuel-table-wrap">
+			<table class="fuel-table">
+				<thead>
+					<tr><th>Fuel</th><th>Typical examples</th><th>Charged on</th></tr>
+				</thead>
+				<tbody>
+					<tr><td>1</td><td>Reading a business card or handwritten note, transcribing audio</td><td>All plans</td></tr>
+					<tr><td>3</td><td>Summaries, email drafts, deal analysis, questions to the AI</td><td>All plans</td></tr>
+					<tr><td>10</td><td>Dashboard suggestions, analyzing attachments</td><td>All plans</td></tr>
+					<tr><td>1 each</td><td>Intake and automated sends</td><td>Prepaid plan only</td></tr>
+					<tr><td>3 each</td><td>Importing a meeting</td><td>Prepaid plan only</td></tr>
+				</tbody>
+			</table>
+			</div>
+			<p class="fuel-fineprint">On the User and Student plans, intake, automated sends, and meeting imports are covered by the monthly fee. Fuel is granted when you start and on each renewal date, and does not roll over. Extra Fuel is valid for 90 days from purchase. We give 30 days’ notice before any task uses more Fuel.</p>
+		</div>
+		<div class="fuel-block">
+			<h3>Add-on</h3>
+			<div class="fuel-grid">
+				<div class="price-card">
+					<p class="price-tier">Chat integration</p>
+					<p class="price-figure"><span class="price-yen">&yen;</span>5,000<span class="price-unit">/ month</span></p>
+					<p class="fuel-note">Per workspace, at any headcount.</p>
+				</div>
+				<div class="fuel-option-desc">
+					<p>Pulls in Chatwork and Slack conversations, summarizes them, and records them on the customer and deal.</p>
+					<p>Importing uses no Fuel. The AI summary does.</p>
+				</div>
+			</div>
+		</div>
+		<div class="fuel-block">
+			<h3>Onboarding, adoption, and operations support</h3>
+			<p class="fuel-lead">Guide prices.</p>
+			<div class="fuel-grid fuel-grid--4">
+				<div class="price-card">
+					<p class="price-tier">Videos and help articles</p>
+					<p class="price-figure">Free</p>
+				</div>
+				<div class="price-card">
+					<p class="price-tier">Onboarding</p>
+					<p class="price-figure"><span class="price-yen">&yen;</span>120,000<span class="price-unit">and up</span></p>
+				</div>
+				<div class="price-card">
+					<p class="price-tier">Adoption (3 months)</p>
+					<p class="price-figure"><span class="price-yen">&yen;</span>300,000<span class="price-unit">and up</span></p>
+				</div>
+				<div class="price-card">
+					<p class="price-tier">Operations</p>
+					<p class="price-figure"><span class="price-yen">&yen;</span>30,000<span class="price-unit">/ month and up</span></p>
+				</div>
+			</div>
+			<p class="fuel-tail">Data migration and integrations are quoted separately. Plans do not include custom setup, process design, or operations consulting.</p>
+		</div>
+		<div class="fuel-block">
+			<h3>Referral program</h3>
+			<p class="fuel-lead">When a company you refer starts a paid contract, 20% of its base plan monthly fee (excluding tax) comes off your bill for 12 months.</p>
+		</div>
+		<p class="proof-note">All prices exclude consumption tax.</p>
+	</div>
+</section>
+
+<section class="terms" id="terms">
+	<div class="container">
+		<div class="section-head">
+			<p class="kicker">Terms</p>
+			<h2>Contract and payment terms</h2>
+		</div>
+		<div class="terms-table-wrap">
+			<table class="terms-table">
+				<tbody>
+					{terms.map((row) => (
+						<tr>
+							<th scope="row">{row.label}</th>
+							<td>{row.text.map((line) => <p>{line}</p>)}</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</section>
+
+<section class="pricing-cta">
+	<div class="container">
+		<h2>The first 30 days are free of the monthly fee.</h2>
+		<div class="hero-actions">
+			<a href={SIGNUP_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">Start free</a>
+			<a href={DEMO_URL} class="btn btn--secondary" target="_blank" rel="noopener noreferrer">See the demo</a>
+			<a href="/en/contact/" class="btn btn--secondary">Get in touch</a>
+		</div>
+	</div>
+</section>
+
+</BaseLayout>
+
+<style>
+	.kicker {
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.12em;
+		line-height: 1.4;
+		text-transform: none;
+	}
+
+	h2,
+	h3 {
+		letter-spacing: 0;
+	}
+
+	h2 {
+		margin: 0;
+		color: var(--color-text);
+		font-size: 2rem;
+		font-weight: 500;
+		line-height: 1.4;
+		text-wrap: balance;
+	}
+
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 46px;
+		padding: 0.8rem 1.35rem;
+		border: 1px solid var(--color-border);
+		border-radius: 4px;
+		font-size: 0.9375rem;
+		font-weight: 600;
+		line-height: 1.25;
+		text-decoration: none;
+		transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+	}
+
+	.btn--primary {
+		background: var(--color-primary);
+		border-color: var(--color-primary);
+		color: #fff;
+	}
+
+	.btn--primary:hover {
+		background: var(--color-primary-dark);
+		border-color: var(--color-primary-dark);
+		color: #fff;
+	}
+
+	.btn--secondary {
+		background: transparent;
+		color: var(--color-text);
+	}
+
+	.btn--secondary:hover {
+		border-color: var(--color-primary);
+		color: var(--color-primary);
+	}
+
+	.hero-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: var(--space-lg);
+	}
+
+	.section-head {
+		display: grid;
+		grid-template-columns: 10rem minmax(0, 1fr);
+		gap: var(--space-lg);
+		align-items: start;
+		margin-bottom: var(--space-lg);
+		padding-top: var(--space-sm);
+		border-top: 1px solid var(--color-border);
+	}
+
+	@media (max-width: 760px) {
+
+		.section-head {
+			grid-template-columns: 1fr;
+		}
+
+		.section-head {
+			gap: 0.75rem;
+		}
+
+		h2 {
+			font-size: 1.625rem;
+		}
+
+		.hero-actions {
+			flex-direction: column;
+		}
+
+		.btn {
+			width: 100%;
+		}
+	}
+
+	/* ── 2. PROOF band ───────────────────────────────────── */
+	.proof-note {
+		margin: var(--space-md) 0 0;
+		font-size: 0.78rem;
+		line-height: 1.7;
+		color: var(--color-text-muted);
+	}
+
+	/* ── 7. PRICING ──────────────────────────────────────── */
+	.pricing {
+		padding: var(--space-2xl) 0;
+		background: #fff;
+		border-top: 1px solid var(--color-border);
+	}
+	.price-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: var(--space-md);
+		align-items: stretch;
+	}
+	.price-card {
+		min-width: 0;
+		padding: var(--space-md);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-card);
+		background: var(--color-bg);
+	}
+	.price-tier {
+		margin: 0 0 0.5rem;
+		font-size: 0.85rem;
+		font-weight: 700;
+		color: var(--color-primary);
+	}
+	.price-figure {
+		margin: 0;
+		font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+		font-weight: 700;
+		line-height: 1.1;
+		letter-spacing: -0.02em;
+	}
+	.price-yen { font-size: 0.6em; margin-right: 0.1em; }
+	.price-unit {
+		margin-left: 0.4em;
+		font-size: 0.42em;
+		font-weight: 500;
+		color: var(--color-text-muted);
+	}
+	.price-note {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 0.75rem;
+		grid-column: 1 / -1;
+		padding: var(--space-md) 0 0;
+		border-top: 1px solid var(--color-border);
+	}
+	.plan-for {
+		margin: 0 0 0.75rem;
+		font-size: 0.85rem;
+		line-height: 1.6;
+		color: var(--color-text-muted);
+	}
+	.price-status {
+		display: inline-block;
+		margin-left: 0.5em;
+		font-size: 0.75rem;
+		font-weight: 500;
+		color: var(--color-text-muted);
+	}
+	.plan-list {
+		margin: var(--space-md) 0 0;
+		border-top: 1px solid var(--color-border);
+	}
+	.plan-list div {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 0.1rem 0.75rem;
+		padding: 0.55rem 0;
+		border-bottom: 1px solid var(--color-border);
+		font-size: 0.85rem;
+		line-height: 1.5;
+	}
+	.plan-list dt { color: var(--color-text-muted); }
+	.plan-list dd { margin: 0; font-weight: 700; text-align: right; }
+	.plan-list .price-status { font-weight: 500; }
+	.fuel-option-desc {
+		grid-column: span 2;
+		align-self: center;
+	}
+	.fuel-option-desc p { margin: 0 0 0.5rem; max-width: 62ch; }
+	.fuel-option-desc p:last-child {
+		margin: 0;
+		font-size: 0.9rem;
+		color: var(--color-text-muted);
+	}
+	.fuel-block {
+		margin-top: var(--space-lg);
+		padding-top: var(--space-lg);
+		border-top: 1px solid var(--color-border);
+	}
+	.fuel-block h3 {
+		margin: 0 0 0.75rem;
+		font-size: clamp(1.2rem, 2.4vw, 1.5rem);
+		letter-spacing: -0.01em;
+	}
+	.fuel-lead,
+	.fuel-tail {
+		margin: 0 0 var(--space-md);
+		max-width: 62ch;
+	}
+	.fuel-tail { margin: var(--space-md) 0 0; }
+	.fuel-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: var(--space-md);
+		align-items: stretch;
+	}
+	.fuel-table {
+		width: 100%;
+		border-collapse: collapse;
+		margin: 0 0 var(--space-md);
+		font-size: 0.95rem;
+	}
+	.fuel-table th,
+	.fuel-table td {
+		padding: 0.7rem 0.9rem;
+		text-align: left;
+		border-bottom: 1px solid var(--color-border);
+		vertical-align: top;
+	}
+	.fuel-table th {
+		font-size: 0.85rem;
+		font-weight: 700;
+		color: var(--color-primary);
+		white-space: nowrap;
+	}
+	.fuel-table td:nth-child(1),
+	.fuel-table td:nth-child(3) { white-space: nowrap; }
+	.fuel-table td:nth-child(1) { font-weight: 700; }
+	.fuel-table-wrap { overflow-x: auto; }
+	.fuel-table { min-width: 34rem; }
+	.fuel-fineprint {
+		margin: 0 0 var(--space-md);
+		font-size: 0.85rem;
+		color: var(--color-text-muted);
+	}
+	.fuel-note {
+		margin: 0.75rem 0 0;
+		font-size: 0.9rem;
+		color: var(--color-text-muted);
+	}
+	.price-note p {
+		margin: 0;
+		font-size: 0.9rem;
+		line-height: 1.8;
+		color: var(--color-text-muted);
+	}
+	/* The EN page runs at a 72ch container: 4 cards across and side-by-side labels do not fit. */
+	.fuel-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	.price-unit { display: block; margin: 0.35em 0 0; }
+	.plan-list div { display: block; }
+	.plan-list dd { text-align: left; }
+	@media (max-width: 960px) {
+		.price-grid { grid-template-columns: 1fr; }
+		.fuel-grid,
+		.fuel-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+		.fuel-option-desc { grid-column: span 1; }
+	}
+	@media (max-width: 480px) {
+		.fuel-grid,
+		.fuel-grid--4 { grid-template-columns: 1fr; }
+		.fuel-table { min-width: 0; font-size: 0.85rem; }
+		.fuel-table th,
+		.fuel-table td { padding: 0.6rem 0.45rem; }
+	}
+
+	/* ── Japanese line breaking ──────────────────────────── */
+	h1,
+	h2,
+	h3 {
+		line-break: strict;
+	}
+
+	/* ── 料金ページ専用 ─────────────────────────────── */
+	.pricing--page {
+		background: #fff;
+	}
+
+	.pricing-page-head h1 {
+		margin: 0;
+		color: var(--color-text);
+		font-size: clamp(1.9rem, 3vw, 2.55rem);
+		font-weight: 700;
+		line-height: 1.42;
+		letter-spacing: 0;
+		line-break: strict;
+	}
+
+	.terms {
+		padding: clamp(4rem, 7vw, 6rem) 0;
+		background: #f7f7f5;
+	}
+
+	.terms-table-wrap {
+		overflow-x: auto;
+	}
+
+	.terms-table {
+		width: 100%;
+		border-collapse: separate;
+		border-spacing: 0 0.8rem;
+		margin-top: -0.8rem;
+	}
+
+	.terms-table th,
+	.terms-table td {
+		padding: 1.1rem 1.2rem;
+		background: #fff;
+		text-align: left;
+		vertical-align: top;
+	}
+
+	.terms-table th {
+		width: 13rem;
+		color: var(--color-text);
+		font-size: 0.96rem;
+		font-weight: 700;
+		line-height: 1.7;
+		border-radius: 8px 0 0 8px;
+	}
+
+	.terms-table td {
+		border-radius: 0 8px 8px 0;
+	}
+
+	.terms-table td p {
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 0.92rem;
+		line-height: 1.85;
+	}
+
+	.pricing-cta {
+		padding: clamp(4rem, 7vw, 6rem) 0;
+		background: #fff;
+	}
+
+	.pricing-cta h2 {
+		font-weight: 700;
+	}
+
+	.pricing-cta .hero-actions {
+		margin-top: var(--space-md);
+	}
+
+	@media (max-width: 760px) {
+		.terms-table,
+		.terms-table tbody,
+		.terms-table tr,
+		.terms-table th,
+		.terms-table td {
+			display: block;
+			width: auto;
+		}
+
+		.terms-table {
+			border-spacing: 0;
+			margin-top: 0;
+		}
+
+		.terms-table tr + tr {
+			margin-top: 0.8rem;
+		}
+
+		.terms-table th {
+			padding-bottom: 0.25rem;
+			border-radius: 8px 8px 0 0;
+		}
+
+		.terms-table td {
+			padding-top: 0;
+			border-radius: 0 0 8px 8px;
+		}
+	}
+
+	/* English headings on this site use the regular weight */
+	.pricing-page-head h1,
+	.pricing-cta h2 {
+		font-weight: 500;
+	}
+</style>

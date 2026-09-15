@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CrmSubnav from '../../../components/CrmSubnav.astro';
 import { CRM_FAQ, faqByCategory } from '../../../data/crm-faq';
 
 const groups = faqByCategory();
@@ -21,6 +22,7 @@ const faqJsonLd = {
   description="Revenue CRMの料金、導入、機能、データとセキュリティについて、導入前によくいただくご質問と回答をまとめました。"
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+  <CrmSubnav lang="ja" />
 
   <div class="faq-page">
     <header class="faq-head">
@@ -75,7 +77,7 @@ const faqJsonLd = {
   }
   .faq-jump a:hover { background: #f2f5f8; }
 
-  .faq-group { margin-bottom: 2.75rem; scroll-margin-top: 5rem; }
+  .faq-group { margin-bottom: 2.75rem; scroll-margin-top: 7.5rem; }
   .faq-group h2 { font-size: 1.15rem; margin: 0 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #e6eaef; }
   .faq-group ul { list-style: none; margin: 0; padding: 0; }
   .faq-group li + li { margin-top: 0.5rem; }

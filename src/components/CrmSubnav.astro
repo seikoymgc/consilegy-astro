@@ -1,0 +1,310 @@
+---
+// Revenue CRM 配下の全ページで、グローバルヘッダーの直下に固定表示するタブメニュー。
+// 概要・使い方・機能・料金・よくある質問を、どのページからでも1クリックで行き来するため。
+// 英語版は、英語ページが存在する項目だけを出す（無いページへのリンクは作らない）。
+interface Props {
+	lang?: 'ja' | 'en';
+}
+
+const lang = Astro.props.lang ?? 'ja';
+const path = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+
+// crm.consilegy.com の公開申込み入口。/login?mode=signup へ転送され、登録後にオンボーディングへ進む。
+const SIGNUP_URL = 'https://crm.consilegy.com/signup';
+
+type Item = { label: string; href: string };
+
+const nav =
+	lang === 'en'
+		? {
+				aria: 'Revenue CRM',
+				overview: { label: 'Overview', href: '/en/crm/' },
+				useCasesLabel: 'Use cases',
+				useCases: [
+					{ label: 'B2B sales', href: '/en/crm/#use-cases' },
+					{ label: 'Schools', href: '/en/crm/school/' },
+				] as Item[],
+				rest: [
+					{ label: 'Features', href: '/en/crm/features/' },
+					{ label: 'Pricing', href: '/en/crm/pricing/' },
+				] as Item[],
+				cta: 'Start free',
+			}
+		: {
+				aria: 'Revenue CRM',
+				overview: { label: '概要', href: '/crm/' },
+				useCasesLabel: '使い方',
+				useCases: [
+					{ label: '法人営業', href: '/crm/#use-cases' },
+					{ label: '受託開発', href: '/crm/contractor/' },
+					{ label: '代理店', href: '/crm/reseller/' },
+					{ label: 'スクール', href: '/crm/school/' },
+				] as Item[],
+				rest: [
+					{ label: '機能', href: '/crm/features/' },
+					{ label: '料金', href: '/crm/pricing/' },
+					{ label: 'よくある質問', href: '/crm/faq/' },
+				] as Item[],
+				cta: '無料で始める',
+			};
+
+// 完全一致は "page"、配下のページ（/crm/faq/<slug>/ など）は "true"。
+const currentOf = (href: string): 'page' | 'true' | undefined => {
+	if (href.includes('#')) return undefined;
+	if (path === href) return 'page';
+	if (href !== nav.overview.href && path.startsWith(href)) return 'true';
+	return undefined;
+};
+
+const useCaseCurrent = nav.useCases.some((item) => currentOf(item.href));
+const panelId = `crm-subnav-usecases-${lang}`;
+---
+
+<nav class="crm-subnav" aria-label={nav.aria}>
+	<div class="container crm-subnav__inner">
+		<ul class="crm-subnav__list">
+			<li>
+				<a href={nav.overview.href} aria-current={currentOf(nav.overview.href)}>{nav.overview.label}</a>
+			</li>
+			<li>
+				<button
+					type="button"
+					class="crm-subnav__trigger"
+					aria-expanded="false"
+					aria-controls={panelId}
+					data-current={useCaseCurrent ? 'true' : undefined}
+				>
+					{nav.useCasesLabel}
+					<svg aria-hidden="true" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9" /></svg>
+				</button>
+			</li>
+			{nav.rest.map((item) => (
+				<li>
+					<a href={item.href} aria-current={currentOf(item.href)}>{item.label}</a>
+				</li>
+			))}
+		</ul>
+		<a class="crm-subnav__cta" href={SIGNUP_URL} target="_blank" rel="noopener noreferrer">{nav.cta}</a>
+		<ul class="crm-subnav__panel" id={panelId} hidden>
+			{nav.useCases.map((item) => (
+				<li>
+					<a href={item.href} aria-current={currentOf(item.href)}>{item.label}</a>
+				</li>
+			))}
+		</ul>
+	</div>
+</nav>
+
+<script>
+	// ドロップダウンの開閉だけ。パネルはタブ列（横スクロール領域）の外に置き、
+	// 位置は開くときにボタンの左端へ合わせる（スクロール領域の中に置くと切り取られるため）。
+	document.querySelectorAll<HTMLElement>('.crm-subnav').forEach((root) => {
+		const trigger = root.querySelector<HTMLButtonElement>('.crm-subnav__trigger');
+		const panel = root.querySelector<HTMLElement>('.crm-subnav__panel');
+		const inner = root.querySelector<HTMLElement>('.crm-subnav__inner');
+		const list = root.querySelector<HTMLElement>('.crm-subnav__list');
+		if (!trigger || !panel || !inner || !list) return;
+
+		const close = (focusTrigger = false) => {
+			if (panel.hidden) return;
+			panel.hidden = true;
+			trigger.setAttribute('aria-expanded', 'false');
+			if (focusTrigger) trigger.focus();
+		};
+
+		const open = () => {
+			panel.hidden = false;
+			trigger.setAttribute('aria-expanded', 'true');
+			const innerBox = inner.getBoundingClientRect();
+			const triggerBox = trigger.getBoundingClientRect();
+			const maxLeft = Math.max(0, innerBox.width - panel.offsetWidth);
+			const left = Math.min(Math.max(0, triggerBox.left - innerBox.left), maxLeft);
+			panel.style.left = `${left}px`;
+		};
+
+		trigger.addEventListener('click', () => {
+			if (panel.hidden) open();
+			else close();
+		});
+
+		document.addEventListener('click', (event) => {
+			const target = event.target as Node;
+			if (!trigger.contains(target) && !panel.contains(target)) close();
+		});
+
+		root.addEventListener('keydown', (event) => {
+			if (event.key === 'Escape') close(true);
+		});
+
+		list.addEventListener('scroll', () => close(), { passive: true });
+		window.addEventListener('resize', () => close());
+	});
+</script>
+
+<style>
+	.crm-subnav {
+		/* 英語ページの 72ch に引きずられず、ヘッダーと同じ幅で並べる */
+		--container: 1120px;
+		position: sticky;
+		/* ヘッダーの高さ（Header.astro: JA 58px / EN 62px）＋下線1px の直下に止める */
+		top: 59px;
+		z-index: 150;
+		background: rgba(255, 255, 255, 0.97);
+		backdrop-filter: blur(10px);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	:global(html[lang='en']) .crm-subnav {
+		top: 63px;
+	}
+
+	.crm-subnav__inner {
+		position: relative;
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		min-height: 48px;
+	}
+
+	.crm-subnav__list {
+		display: flex;
+		align-items: stretch;
+		flex: 1 1 auto;
+		min-width: 0;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		overflow-x: auto;
+		scrollbar-width: none;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.crm-subnav__list::-webkit-scrollbar {
+		display: none;
+	}
+
+	.crm-subnav__list > li {
+		flex: 0 0 auto;
+	}
+
+	.crm-subnav__list a,
+	.crm-subnav__trigger {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.3rem;
+		height: 48px;
+		padding: 0 0.85rem;
+		color: var(--color-text-muted);
+		background: none;
+		border: 0;
+		font: inherit;
+		font-size: 0.875rem;
+		font-weight: 600;
+		line-height: 1;
+		white-space: nowrap;
+		text-decoration: none;
+		cursor: pointer;
+		transition: color 0.15s ease, box-shadow 0.15s ease;
+	}
+
+	.crm-subnav__list > li:first-child a {
+		padding-left: 0;
+	}
+
+	.crm-subnav__list a:hover,
+	.crm-subnav__trigger:hover {
+		color: var(--color-text);
+	}
+
+	.crm-subnav__list a[aria-current],
+	.crm-subnav__trigger[data-current] {
+		color: var(--color-text);
+		box-shadow: inset 0 -2px 0 var(--color-primary);
+	}
+
+	.crm-subnav__trigger svg {
+		transition: transform 0.15s ease;
+	}
+
+	.crm-subnav__trigger[aria-expanded='true'] svg {
+		transform: rotate(180deg);
+	}
+
+	.crm-subnav__list a:focus-visible,
+	.crm-subnav__trigger:focus-visible,
+	.crm-subnav__panel a:focus-visible,
+	.crm-subnav__cta:focus-visible {
+		outline: 2px solid var(--color-primary);
+		outline-offset: -2px;
+	}
+
+	.crm-subnav__cta {
+		display: inline-flex;
+		flex: 0 0 auto;
+		align-items: center;
+		padding: 0.5rem 0.9rem;
+		color: #fff;
+		background: var(--color-primary);
+		border-radius: 4px;
+		font-size: 0.8125rem;
+		font-weight: 700;
+		line-height: 1.2;
+		white-space: nowrap;
+		text-decoration: none;
+	}
+
+	.crm-subnav__cta:hover {
+		background: var(--color-primary-dark);
+		color: #fff;
+	}
+
+	.crm-subnav__panel {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		display: grid;
+		min-width: 11rem;
+		max-width: 100%;
+		margin: 0;
+		padding: 0.35rem 0;
+		list-style: none;
+		background: #fff;
+		border: 1px solid var(--color-border);
+		border-radius: 8px;
+		box-shadow: var(--shadow-md);
+	}
+
+	.crm-subnav__panel[hidden] {
+		display: none;
+	}
+
+	.crm-subnav__panel a {
+		display: block;
+		padding: 0.65rem 1rem;
+		color: var(--color-text);
+		font-size: 0.875rem;
+		font-weight: 600;
+		text-decoration: none;
+	}
+
+	.crm-subnav__panel a:hover {
+		background: var(--color-bg-subtle);
+	}
+
+	.crm-subnav__panel a[aria-current] {
+		box-shadow: inset 2px 0 0 var(--color-primary);
+	}
+
+	@media (max-width: 640px) {
+		.crm-subnav__list a,
+		.crm-subnav__trigger {
+			padding: 0 0.65rem;
+			font-size: 0.8125rem;
+		}
+
+		.crm-subnav__cta {
+			padding: 0.45rem 0.7rem;
+			font-size: 0.75rem;
+		}
+	}
+</style>

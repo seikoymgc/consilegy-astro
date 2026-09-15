@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CrmSubnav from '../../../components/CrmSubnav.astro';
 import { CRM_FAQ } from '../../../data/crm-faq';
 
 // 1問1ページ。「Revenue CRM 料金」のように質問そのもので検索する人は、
@@ -27,6 +28,7 @@ const jsonLd = {
   description={item.desc}
 >
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <CrmSubnav lang="ja" />
 
   <article class="faq-detail">
     <nav class="crumbs" aria-label="パンくず">

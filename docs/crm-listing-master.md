@@ -115,8 +115,8 @@ MA・メール配信・BIは**選ばない**。機能はあるが主戦場では
 | 会社ロゴ（白） | `public/images/common/consilegy-logo-white.svg` | あり。SVGのみ |
 | スクショ：ダッシュボード | `public/images/crm/screen-dashboard-2026-09.webp` | あり（1600x1000） |
 | OGP | `public/images/og-default.png` | あり |
-| 製品ロゴ（SVG） | `public/images/crm/logo/revenue-crm-logo.svg` | あり |
-| 製品ロゴ（PNG） | `public/images/crm/logo/revenue-crm-logo-{1024,512,256,128,64}.png` | あり。正方形。媒体の指定サイズに近いものを選ぶ |
+| 製品ロゴ（SVG） | `public/images/crm/logo/revenue-crm-logo-teal.svg` | あり |
+| 製品ロゴ（PNG） | `public/images/crm/logo/revenue-crm-logo-teal-{1024,512,256,128,64}.png` | あり。正方形。媒体の指定サイズに近いものを選ぶ |
 
 製品ロゴは翡翠（Jade）のマーク。地はJadeグリーン#006D4C、石は白。AIエージェント「Jade」が花蓮の翡翠に由来することから。
 色はCRMアプリの`--primary: oklch(0.47 0.105 165)`と同じ値。

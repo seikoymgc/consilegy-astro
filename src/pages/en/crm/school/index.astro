@@ -300,6 +300,13 @@ const roles = [
 </BaseLayout>
 
 <style>
+	/* html[lang="en"] の --container は 72ch（記事の読み物幅）。このページは
+	   カードを並べるLPなので、そのままだと英文が単語単位で折り返して壊れる。
+	   ページ内だけ 1120px に戻す。global.css には触らない。 */
+	.container {
+		max-width: 1120px;
+	}
+
 	.section-eyebrow,
 	.eyebrow,
 	.cta-eyebrow {

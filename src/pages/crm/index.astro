@@ -283,6 +283,39 @@ const readings = [
 	</div>
 </section>
 
+<!-- ===================== 開発背景 ===================== -->
+<section class="crm-origin" id="origin">
+	<div class="container origin-inner">
+		<div class="origin-copy">
+			<p class="kicker">開発背景</p>
+			<h2>台湾・花蓮のノマド拠点から生まれました。</h2>
+			<p>
+				構想が形になったのは、台湾・花蓮県が運営するデジタルノマド拠点「Nomad Hualien 花蓮雲基地」です。
+				代表の山口聖子が第1期メンバーとして滞在し、各国の起業家やリモートワーカーとの協働から
+				CRMとAIを組み合わせたこのプロダクトの形が固まりました。
+			</p>
+			<p>この経緯は、See News（花蓮視新聞）2026年6月25日の記事で紹介されています。</p>
+			<a
+				href="https://www.seenews.com.tw/news_data.php?news_id=2325&amp;k_code=A"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="origin-link"
+			>掲載記事を読む</a>
+		</div>
+		<figure class="origin-press">
+			<img
+				src="/images/common/seenews-hualien-2026-photo.jpg"
+				alt="See News（花蓮視新聞）2026年6月25日の掲載記事。花蓮雲基地の看板の前に立つ代表 山口聖子の写真と、花蓮雲基地でCRMとAIを組み合わせた新製品を開発したことを紹介する本文。"
+				width="1000"
+				height="1760"
+				loading="lazy"
+				decoding="async"
+			/>
+			<figcaption>See News（花蓮視新聞）2026年6月25日掲載</figcaption>
+		</figure>
+	</div>
+</section>
+
 <!-- ===================== 5. 料金 ===================== -->
 <section class="crm-pricing" id="pricing">
 	<div class="container">
@@ -1417,6 +1450,59 @@ const readings = [
 		}
 
 		.plan-summary {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	/* 開発背景（掲載記事） */
+	.crm-origin {
+		padding: clamp(4rem, 7vw, 6rem) 0;
+	}
+
+	.origin-inner {
+		display: grid;
+		grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+		gap: clamp(2rem, 5vw, 4rem);
+		align-items: start;
+	}
+
+	.origin-copy p:not(.kicker) {
+		margin: 1rem 0 0;
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+		line-height: 1.85;
+	}
+
+	.origin-link {
+		display: inline-block;
+		margin-top: 1.25rem;
+		color: var(--color-primary);
+		font-size: 0.875rem;
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	.origin-press {
+		margin: 0;
+	}
+
+	.origin-press img {
+		display: block;
+		width: 100%;
+		height: auto;
+		border: 1px solid var(--color-border);
+		background: #fff;
+	}
+
+	.origin-press figcaption {
+		margin-top: 0.65rem;
+		color: var(--color-text-muted);
+		font-size: 0.75rem;
+		line-height: 1.6;
+	}
+
+	@media (max-width: 760px) {
+		.origin-inner {
 			grid-template-columns: 1fr;
 		}
 	}

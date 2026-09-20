@@ -81,17 +81,28 @@
    ロックは `rm` できないので、`git` の各コマンドの直前に毎回リネームする:
    `for f in .git/HEAD.lock .git/index.lock .git/refs/remotes/origin/main.lock; do [ -e "$f" ] && mv "$f" "$f.old$(date +%s)"; done`
 
-   **push はこのタスクの仕事ではない（2026-08-27 変更）**：サンドボックスには credential helper もSSH鍵もなく、
+   **push はこのタスクの仕事ではない（2026-08-27 変更 / 2026-09-20 自動化済み）**：サンドボックスには credential helper もSSH鍵もなく、
    `ssh git@github.com` は DNS 解決の時点で失敗する（HTTPプロキシ経由でしか外に出られないため）。
    `git ls-remote origin` が通るのは公開リポジトリの読み取りに認証が要らないからで、認証が通っている証拠ではない。
-   push は **Mac側（Keychain が効く環境）の Stop フックに `git -C ~/Claude/consilegy-astro push` を置いて自動化**する。
+   **2026-09-20 に Mac側の Stop フックへ `~/.claude/push-consilegy.sh` を登録したので、push は自動で走る。**
+   `settings.json` の `hooks.Stop[0].hooks` の3番目（terminal-notifier と `sync-roles.sh` の後）。
+   スクリプトは①5分以上放置された `.git/*.lock` を掃除 ②`main` かつ fast-forward のときだけ push
+   ③分岐していたら push せず `.git/auto-push.log` に `DIVERGED` と記録、の3段。**force も pull もしない。**
+   **通知に「push はフック待ち」と書く必要はもう無い。** 代わりに、ログを見て事実だけ書く:
+   `tail -3 ~/Claude/consilegy-astro/.git/auto-push.log`（サンドボックスからも読める）。
    - **「PATを埋め直してください」と通知に書かないこと。** 2026-08-27 に `.git/config` の最終更新が 8/22 であることを
      確認済みで、PATは「消えた」のではなく最初から入っていない。過去のログのこの記述は誤りで、
      Seikoに不要な作業を繰り返し求めていた。同じ文言を引き継がない。
-   - push が未実行のまま残っても、通知では**事実だけ**書く（「commit まで完了、push はMac側のフック待ち」）。
-     依頼や催促にしない。
    - `.git/objects/*/tmp_obj_*` や `.git/HEAD.lock` の `Operation not permitted` 警告は、
      macOS側ユーザーが作ったファイルをサンドボックスユーザーが消せないだけで、commit 自体は成功する。無視してよい。
+   - **ロックを `mv` で退避する運用はもう要らない（2026-09-20）。** 上記フックが5分経過したロックを消す。
+     ただし**サンドボックスから git を叩いた直後は必ず `.git/index.lock` が残る**ので、
+     セッションの最後に git コマンドを走らせたまま終わらないこと。残したまま終わると、
+     Seikoさんが手で `git stash` や `git rebase` を打ったときに `could not write index` で止まる（9/20 に発生）。
+   - **`git push` が `non-fast-forward` で落ちたら、force を提案しないこと。** 8月から溜まった未pushが
+     別経路で先にpushされ、同じ内容のコミットが両側にある状態になっていた（9/20 に8本中6本が該当）。
+     `git show <sha> | git patch-id --stable` で突き合わせれば重複が判定でき、`git rebase origin/main` が
+     重複を自動でスキップする。作業ツリーが汚れていて rebase が始まらないときは `git stash push` を先に打つ。
    - `git status` に `media/` 以外の変更（例: `src/pages/index.astro`）が出ていても触らない。他セッションの作業。
 
 9. **記録**：`published-log.md` に日付・スラッグ・カテゴリ・使用トピック・使った出典・（あれば）Recraftプロンプトを追記。

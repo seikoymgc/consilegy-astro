@@ -105,3 +105,17 @@
 	});
 })();
 </script>
+
+{/*
+  HubSpot のトラッキング。
+
+  これが無いと、HubSpot 側は hsforms.com のフォームページしか見えない。
+  2026-09-21 にサイト経由で予約と資料請求をした見込み客のレコードには、
+  閲覧ページが1件（フォームのページ）しか残らず、consilegy.com のどこを
+  読んで辿り着いたのかが分からなかった。GA4 では参照元まで追えるが、
+  「この人が何を読んだか」は HubSpot のレコードに乗らないと商談で使えない。
+
+  読み込みは defer。CV計測は上の dataLayer 側で完結しているので、
+  これが遅れても既存の計測には影響しない。
+*/}
+<script is:inline defer id="hs-script-loader" src="https://js-na2.hs-scripts.com/46498743.js"></script>

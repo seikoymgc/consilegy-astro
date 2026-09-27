@@ -1,0 +1,129 @@
+---
+// 記事1本。/crm/faq/[slug] と同じ骨格（パンくず → 本文 → 関連 → CTA）。
+import { render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CrmSubnav from './CrmSubnav.astro';
+import CrmMediaCard from './CrmMediaCard.astro';
+import { CATEGORIES, COPY, crmMediaArticles, fmtDate, mediaPath, type Article } from '../lib/crm-media';
+
+interface Props { a: Article }
+const { a } = Astro.props;
+const lang = a.data.lang;
+const t = COPY[lang];
+const { Content } = await render(a);
+
+const others = (await crmMediaArticles(lang)).filter((x) => x.data.slug !== a.data.slug);
+const sameCat = others.filter((x) => x.data.category === a.data.category);
+const next = (sameCat.length ? sameCat : others).slice(0, 2);
+
+const site = Astro.site ?? new URL('https://consilegy.com');
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: a.data.title,
+  description: a.data.pain,
+  inLanguage: lang,
+  datePublished: a.data.date.toISOString(),
+  dateModified: (a.data.updated ?? a.data.date).toISOString(),
+  author: { '@type': 'Person', '@id': 'https://consilegy.com/company/#founder', name: t.author },
+  publisher: { '@id': 'https://consilegy.com/#organization' },
+  mainEntityOfPage: new URL(mediaPath(lang, a.data.slug), site).href,
+  about: { '@type': 'SoftwareApplication', name: 'Revenue CRM', url: 'https://consilegy.com/crm/' },
+};
+---
+
+<BaseLayout
+  title={`${a.data.title} | Revenue CRM | Consilegy`}
+  description={a.data.pain}
+  lang={lang}
+  ogType="article"
+  alternateUrl={mediaPath(lang === 'ja' ? 'en' : 'ja', a.data.slug)}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <CrmSubnav lang={lang} />
+
+  <article class="media-article">
+    <nav class="crumbs" aria-label={lang === 'ja' ? 'パンくず' : 'Breadcrumb'}>
+      <a href={lang === 'ja' ? '/crm/' : '/en/crm/'}>{t.crumbRoot}</a>
+      <span aria-hidden="true">›</span>
+      <a href={mediaPath(lang)}>{t.listLabel}</a>
+      <span aria-hidden="true">›</span>
+      <span>{CATEGORIES[a.data.category][lang]}</span>
+    </nav>
+
+    <p class="meta">
+      <span>{t.published} {fmtDate(a.data.date, lang)}</span>
+      {a.data.updated && <span>{t.updated} {fmtDate(a.data.updated, lang)}</span>}
+    </p>
+    <h1>{a.data.title}</h1>
+
+    <dl class="summary">
+      <div><dt>{t.problem}</dt><dd>{a.data.pain}</dd></div>
+      <div><dt>{t.feature}</dt><dd>{a.data.feature}</dd></div>
+      {a.data.screens && <div><dt>{t.where}</dt><dd>{a.data.screens}</dd></div>}
+    </dl>
+
+    <div class="prose body">
+      <Content />
+    </div>
+
+    <section class="cta">
+      <p>{t.ctaText}</p>
+      <div class="cta-links">
+        <a class="btn" href="https://crm.consilegy.com/demos" target="_blank" rel="noopener noreferrer">{t.demo}</a>
+        <a class="btn ghost" href={lang === 'ja' ? '/free-consultation/' : '/en/contact/'}>{t.consult}</a>
+      </div>
+    </section>
+
+    <div class="author">
+      <b>{t.author}</b>
+      <p>{t.authorBio}</p>
+    </div>
+
+    {next.length > 0 && (
+      <section class="next">
+        <h2>{t.readNext}</h2>
+        <div class="cards">{next.map((x) => <CrmMediaCard a={x} />)}</div>
+      </section>
+    )}
+
+    <p class="back"><a href={mediaPath(lang)}>{t.backToList}</a></p>
+  </article>
+</BaseLayout>
+
+<style>
+  .media-article { max-width: 46rem; margin: 0 auto; padding: 3.5rem 1.25rem 5rem; }
+  .crumbs { display: flex; flex-wrap: wrap; gap: 0.4rem; font-size: 0.8rem; color: #5b6673; margin-bottom: 1.5rem; }
+  .crumbs a { color: #3a4551; text-decoration: none; }
+  .crumbs a:hover { text-decoration: underline; }
+  .meta { display: flex; gap: 1rem; font-size: 0.85rem; color: var(--color-text-muted); margin: 0 0 0.5rem; }
+  h1 { font-size: clamp(1.5rem, 3.5vw, 2rem); line-height: 1.5; margin: 0 0 1.5rem; letter-spacing: -0.02em; }
+  .summary {
+    margin: 0 0 2rem; padding: 1rem 1.15rem; border: 1px solid var(--color-border); border-radius: var(--radius);
+    background: var(--color-bg-subtle); font-size: 0.925rem; display: grid; gap: 0.6rem;
+  }
+  .summary dt { font-size: 0.75rem; color: var(--color-text-muted); }
+  .summary dd { margin: 0.1rem 0 0; line-height: 1.7; }
+  .body :global(h2) { font-size: 1.2rem; margin: 2.4em 0 0.7em; padding-top: 0.7em; border-top: 1px solid var(--color-border); }
+  .body :global(p), .body :global(li) { line-height: 2; color: #37404b; }
+  .body :global(ol), .body :global(ul) { padding-left: 1.4em; }
+
+  .cta { margin-top: 2.5rem; padding: 1.5rem; border-radius: 0.75rem; background: #f4f7f9; text-align: center; }
+  .cta p { margin: 0 0 1rem; color: #3a4551; font-weight: 600; }
+  .cta-links { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+  .btn {
+    display: inline-block; padding: 0.6rem 1.3rem; border-radius: 0.5rem;
+    background: var(--color-primary); color: #fff; text-decoration: none; font-weight: 600; font-size: 0.925rem;
+  }
+  .btn.ghost { background: #fff; color: var(--color-primary); border: 1px solid var(--color-primary); }
+
+  .author { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--color-border); font-size: 0.9rem; color: var(--color-text-muted); }
+  .author b { color: var(--color-text); }
+  .author p { margin: 0.25rem 0 0; line-height: 1.8; }
+
+  .next { margin-top: 2.75rem; }
+  .next h2 { font-size: 1rem; margin: 0 0 0.75rem; color: var(--color-text-muted); }
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.9rem; }
+  .back { margin-top: 2rem; font-size: 0.875rem; }
+  .back a { color: #5b6673; }
+</style>

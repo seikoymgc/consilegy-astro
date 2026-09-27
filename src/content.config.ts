@@ -112,6 +112,36 @@ export const collections = {
 
   }),
 
+  // Revenue CRM 使い方メディア（/crm/media/ と /en/crm/media/）。
+  // 現場の困りごと1つ → Revenue CRM のどの画面で消えるか、を1本にする。
+  // 日英で同じ slug を使うので、id はディレクトリ込み（ja/<slug>）にする。
+  // 原稿の決め事・型・予定表は crm リポジトリの docs/media/README.md。
+  crmMedia: defineCollection({
+    loader: glob({
+      pattern: '**/*.md',
+      base: './src/content/crm-media',
+      generateId: ({ entry }) => entry.replace(/\.md$/, ''),
+    }),
+    schema: z.object({
+      title: z.string(),
+      slug: z.string(),
+      lang: z.enum(['ja', 'en']),
+      // input=入力する仕事 / setup=設定する仕事 / operate=運用を回す仕事
+      category: z.enum(['input', 'setup', 'operate']),
+      pain: z.string(),
+      feature: z.string(),
+      screens: z.string().optional(),
+      edition: z.enum(['b2b', 'school']).default('b2b'),
+      help_slug: z.union([z.string(), z.number()]).transform(String).optional(),
+      video: z.union([z.string(), z.number()]).transform(String).optional(),
+      sources: z.string().optional(),
+      date: z.coerce.date(),
+      updated: z.coerce.date().optional(),
+      author: z.string(),
+      draft: z.boolean().default(false),
+    }),
+  }),
+
   blog: defineCollection({
 
     loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),

@@ -35,3 +35,4 @@ build.log
 # Local agent/skill tooling
 .agents/
 skills-lock.json
+_scratch/

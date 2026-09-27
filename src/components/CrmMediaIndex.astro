@@ -1,0 +1,63 @@
+---
+// /crm/media/ と /en/crm/media/ の一覧。カテゴリ3つの順に並べる。
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CrmSubnav from './CrmSubnav.astro';
+import CrmMediaCard from './CrmMediaCard.astro';
+import { CATEGORIES, CATEGORY_ORDER, COPY, crmMediaArticles, mediaPath, type Lang } from '../lib/crm-media';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = COPY[lang];
+const all = await crmMediaArticles(lang);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: t.metaTitle,
+  description: t.metaDesc,
+  inLanguage: lang,
+  url: new URL(mediaPath(lang), Astro.site ?? 'https://consilegy.com').href,
+  about: { '@type': 'SoftwareApplication', name: 'Revenue CRM', url: 'https://consilegy.com/crm/' },
+};
+---
+
+<BaseLayout title={t.metaTitle} description={t.metaDesc} lang={lang} alternateUrl={mediaPath(lang === 'ja' ? 'en' : 'ja')}>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <CrmSubnav lang={lang} />
+
+  <div class="media-page">
+    <header class="media-head">
+      <p class="kicker">{t.kicker}</p>
+      <h1>{t.title}</h1>
+      <p class="lead">{t.lead}</p>
+    </header>
+
+    {CATEGORY_ORDER.map((c) => {
+      const list = all.filter((a) => a.data.category === c);
+      if (list.length === 0) return null;
+      return (
+        <section class="media-group" id={c}>
+          <h2>{CATEGORIES[c][lang]}</h2>
+          <p class="group-lead">{lang === 'ja' ? CATEGORIES[c].jaLead : CATEGORIES[c].enLead}</p>
+          <div class="cards">{list.map((a) => <CrmMediaCard a={a} />)}</div>
+        </section>
+      );
+    })}
+
+    <p class="why"><a href="https://media.consilegy.com/">{t.why}</a></p>
+  </div>
+</BaseLayout>
+
+<style>
+  .media-page { max-width: 64rem; margin: 0 auto; padding: 3.5rem 1.25rem 5rem; }
+  .media-head { max-width: 46rem; margin-bottom: 2.5rem; }
+  .kicker { margin: 0 0 0.5rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-primary); }
+  h1 { font-size: clamp(1.5rem, 3.5vw, 2.1rem); line-height: 1.4; margin: 0 0 1rem; letter-spacing: -0.02em; }
+  .lead { margin: 0; color: var(--color-text-muted); line-height: 1.9; }
+  .media-group { margin-top: 2.75rem; }
+  .media-group h2 { font-size: 1.2rem; margin: 0 0 0.35rem; }
+  .group-lead { margin: 0 0 1rem; font-size: 0.925rem; color: var(--color-text-muted); max-width: 46rem; line-height: 1.8; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+  .why { margin-top: 3.5rem; font-size: 0.875rem; }
+  .why a { color: var(--color-text-muted); }
+</style>

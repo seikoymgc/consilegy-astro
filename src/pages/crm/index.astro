@@ -11,52 +11,52 @@ const SIGNUP_URL = 'https://crm.consilegy.com/signup';
 
 const proofStats = [
 	{ figure: '40社以上', label: 'CRM / MA / SFAの導入支援' },
-	{ figure: '175本', label: '標準搭載のRevOpsワークフロー' },
+	{ figure: '175本', label: '収録している自動化（4エディション共通）' },
 	{ figure: '3言語', label: '日本語 / English / 繁體中文をUIごと切替' },
 	{ figure: '掲載', label: 'See News（花蓮視新聞）2026年6月25日' },
 ];
 
 const outcomes = [
 	{
-		problem: '顧客リストがExcelとメールに散らばっている',
-		answer: '顧客、会社、商談、やりとりが1本の履歴に集まります。',
+		problem: '入力：名刺、メモ、録音の中身が、担当者の手元に残る',
+		answer: 'AIが読み取り・文字起こしをして、顧客と商談の記録の下書きにします。',
 	},
 	{
-		problem: '来月いくら入るかを毎回手で集計している',
-		answer: 'パイプラインから加重フォーキャストが自動で出ます。',
+		problem: '設定：CRMを入れても、項目とパイプラインの設計から始まる',
+		answer: '業務に合わせた初期設定を済ませた状態で、使い始められます。',
 	},
 	{
-		problem: '受注した後のフォローと契約更新が後手に回る',
-		answer: '更新期日と停滞をワークフローが検知して、担当者に通知します。',
+		problem: '運用：フォローや更新の抜け漏れを、人が見張っている',
+		answer: '175本の自動化が停滞や期日を検知して、担当者に知らせます。',
 	},
 ];
 
 const editions = [
 	{
 		noun: '商談',
-		title: '法人営業',
-		text: '見込み客を商談として管理。パイプライン、見積、フォーキャスト、停滞アラートに対応。',
+		title: 'B2B',
+		text: '法人営業向け。見込み客を商談として管理し、パイプライン、見積、フォーキャスト、停滞アラートに対応。',
 		href: '/crm/features/',
 		linkLabel: `機能一覧を見る（全${featureCount()}項目）`,
 	},
 	{
 		noun: '案件',
-		title: '支援会社・受託開発',
-		text: '見積、受注、納品、請求、保守更新までを案件単位で管理。',
+		title: '受託開発',
+		text: '支援会社・受託開発向け。見積、受注、納品、請求、保守更新までを案件単位で管理。',
 		href: '/crm/contractor/',
 		linkLabel: '受託開発版を見る',
 	},
 	{
 		noun: '契約',
-		title: 'SaaS代理店・リセラー',
-		text: '契約更新、解約リスク、更新商談、クロスセル候補を追跡。',
+		title: '代理店',
+		text: 'SaaSリセラー向け。契約更新、解約リスク、更新商談、クロスセル候補を追跡。',
 		href: '/crm/reseller/',
 		linkLabel: '代理店版を見る',
 	},
 	{
 		noun: '在籍',
-		title: '教室・スクール',
-		text: '生徒の在籍、継続、休会、退会を管理。',
+		title: 'スクール',
+		text: 'B2Cの教室・スクール向け。生徒の在籍、継続、休会、退会を管理。',
 		href: '/crm/school/',
 		linkLabel: 'スクール版を見る',
 	},
@@ -77,7 +77,6 @@ const plans = [
 	},
 	{
 		tier: 'プリペイドプラン',
-		status: '提供準備中',
 		for: 'B2B版・B2C（スクール）版／使う頻度が低い会社や、月によって利用に波がある会社・スクールに',
 		figure: '3,000',
 		unit: '/ 月',
@@ -104,7 +103,7 @@ const safeguards = [
 const faqs = [
 	{
 		q: '料金はいくらですか。',
-		a: 'プランは3つです。ユーザープランは1人あたり月額3,000円、スクール向けの生徒数プランは在籍生徒50人まで月額9,800円からです。使う頻度が低い会社には、月額3,000円（燃料100付き）に必要な分だけチャージするプリペイドプランがあります（提供準備中）。初期費用はありません。どのプランも初回のご利用開始日から30日間は月額無料です。価格はすべて税抜です。',
+		a: 'プランは3つです。ユーザープランは1人あたり月額3,000円、スクール向けの生徒数プランは在籍生徒50人まで月額9,800円からです。使う頻度が低い会社には、月額3,000円（燃料100付き）に必要な分だけ追加するプリペイドプランがあります。初期費用はありません。どのプランも30日間の無料トライアル付きで、カード登録なしで始められます。価格はすべて税抜です。',
 	},
 	{
 		q: 'ユーザー数はどう数えますか。',
@@ -120,7 +119,7 @@ const faqs = [
 	},
 	{
 		q: 'いま使っているCRMからデータを移行できますか。',
-		a: 'Revenue CRMは、まだCRMを持っていない会社のために作っています。Salesforce・HubSpot・kintoneなどがすでに動いている場合は、乗り換えではなく、そのツールを活かした収益プロセスの再設計をご提案します。',
+		a: 'Revenue CRMは、CRMの運用に専任の担当者を置きにくい組織のために作っています。Salesforce・HubSpotなどを専任の担当者が運用している場合は、乗り換えではなく、そのツールを活かした導入・運用支援をご提案します。HubSpotのデータは、置き換えずに読み取って取り込めます。',
 	},
 ];
 
@@ -136,8 +135,8 @@ const readings = [
 ---
 
 <BaseLayout
-	title="国産CRM「Revenue CRM」法人向けβ版 | まだCRMがない会社の最初の1つに"
-	description="顧客の一覧はExcel、やりとりはメール、次に誰を追うかは担当者の頭の中。そういう会社のために、Consilegyが自社で開発した法人向けの国産CRMです。AIエージェントと175本のRevOpsワークフローを標準搭載。メールアドレスだけでデモをご覧いただけます。現在クローズドβ。2026年9月28日に正式リリース。"
+	title="国産CRM「Revenue CRM」| CRMを入れて、仕事を増やさない。中小企業向けCRM"
+	description="マーケティング・営業・顧客管理を一つの顧客データでつなぐ中小企業向けCRM。入力・設定・運用という「CRMのための仕事」を、AIによる記録、175本の自動化、業務別の初期設定で減らします。B2B・支援会社／受託開発・代理店・スクールの4エディション。1アカウント月額3,000円（税抜）、30日間無料。"
 	ogImage="/images/crm/og-crm.png"
 	lang="ja"
 	alternateUrl="/en/crm/"
@@ -146,18 +145,18 @@ const readings = [
 	"@context": "https://schema.org",
 	"@type": "SoftwareApplication",
 	"name": "Revenue CRM",
-	"alternateName": ["Revenue CRM 法人向け", "レベニューCRM"],
+	"alternateName": ["レベニューCRM"],
 	"applicationCategory": "BusinessApplication",
 	"applicationSubCategory": "CRM / SFA（顧客管理・営業支援）",
 	"operatingSystem": "Web",
 	"url": "https://consilegy.com/crm/",
-	"description": "まだCRMがない会社のための国産CRM / SFA。顧客・案件・パイプライン・売上予測・受注後の更新まで1か所で管理。AIエージェントと175本のRevOpsワークフローを標準搭載。Excelの営業管理からの最初の1つとして、法人営業・受託開発・SaaS代理店の3エディション。現在クローズドβ。2026年9月28日に正式リリース。",
+	"description": "マーケティング（MA）・営業（SFA）・顧客管理（CRM）を一つの顧客データでつなぐ中小企業向けCRM。入力・設定・運用という「CRMのための仕事」を、AIによる記録、175本の自動化、業務別の初期設定で減らす。B2B、支援会社・受託開発、代理店（SaaSリセラー）、スクール（B2C）の4エディション。2026年9月28日正式提供開始。",
 	"inLanguage": ["ja", "en", "zh-Hant"],
 	"offers": {
 		"@type": "Offer",
 		"price": "3000",
 		"priceCurrency": "JPY",
-		"description": "ユーザープラン1人あたり月額3,000円（税抜）。生徒数プランは月額9,800円から、プリペイドプランは月額3,000円（燃料100付き・提供準備中）。初期費用なし。どのプランも初回のご利用開始日から30日間は月額無料。"
+		"description": "ユーザープラン1人あたり月額3,000円（税抜）。生徒数プランは月額9,800円から、プリペイドプランは月額3,000円（燃料100付き）。初期費用なし。30日間の無料トライアル（カード登録不要）。"
 	},
 	"author": { "@type": "Organization", "name": "Consilegy合同会社", "url": "https://consilegy.com/" }
 })} />
@@ -170,16 +169,16 @@ const readings = [
 		<div class="hero-copy">
 			<p class="eyebrow">
 				<img class="eyebrow-mark" src="/images/crm/logo/revenue-crm-logo-teal.svg" alt="" width="26" height="26" decoding="async" />
-				Revenue CRM法人向けβ版
+				Revenue CRM
 			</p>
-			<h1>まだCRMがない会社のための、<br class="br-wide" />最初のCRMを作りました。</h1>
+			<h1>CRMを入れて、<br />仕事を増やさない。</h1>
 			<p class="hero-lead">
-				顧客の一覧はExcel。やりとりはメール。次に誰を追うかは、担当者の頭の中。
-				40社以上のCRM導入で分かった「動くCRMの型」を、そんな会社が最初に使えるCRMにしました。
+				マーケティング・営業・顧客管理を、一つの顧客データでつなぐ中小企業向けCRMです。
+				入力・設定・運用という「CRMのための仕事」を、AIによる記録、175本の自動化、業務別の初期設定で減らします。
 			</p>
 			<div class="hero-actions">
 				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">デモを見る</a>
-				<a href="/contact/" class="btn btn--secondary">β参加を相談する</a>
+				<a href={SIGNUP_URL} class="btn btn--secondary" target="_blank" rel="noopener noreferrer">無料で始める</a>
 			</div>
 			<p class="hero-note">メールアドレスだけで実際の画面に入れます。パスワード登録も営業連絡もありません。<br /><a href="/crm/download/">サービス紹介資料（PDF）をダウンロード</a></p>
 		</div>
@@ -201,9 +200,10 @@ const readings = [
 <section class="crm-problems" id="problems">
 	<div class="container">
 		<div class="crm-section-head">
-			<p class="kicker">顧客とのやりとりを1か所に</p>
-			<h2>最初のCRMで、まず解く課題。</h2>
+			<p class="kicker">課題</p>
+			<h2>つなごうとすると、<br />仕事が増える。</h2>
 		</div>
+		<p class="section-lead">顧客との関係は、マーケティング、営業、顧客対応という部署とツールの境界で切れます。つなごうとしてツールを入れると、今度は入力・設定・運用という「CRMのための仕事」が生まれます。</p>
 		<ol class="problem-table">
 			{outcomes.map((item) => (
 				<li>
@@ -223,9 +223,9 @@ const readings = [
 	<div class="container">
 		<div class="crm-section-head">
 			<p class="kicker">使い方</p>
-			<h2>商売の形に合わせて、最初から設定済み。</h2>
+			<h2>空のCRMは渡しません。</h2>
 		</div>
-		<p class="section-lead">営業活動の入口から受注後の更新までを、同じ顧客の下に置いています。</p>
+		<p class="section-lead">用途を選ぶと、初期設定済みの状態で使い始められます。管理する単位が違うため、B2B（案件）とB2C（生徒）は最初から別に設計しています。</p>
 		<div class="edition-list">
 			{editions.map((item) => (
 				<article class="edition-item">
@@ -254,12 +254,12 @@ const readings = [
 <section class="crm-proof" id="input-assist">
 	<div class="container">
 		<div class="crm-section-head">
-			<p class="kicker">忙しい人ほど、続けられる</p>
-			<h2>CRMを入れて、<br class="br-narrow" />仕事を増やさない。</h2>
+			<p class="kicker">設計の考え方</p>
+			<h2>人をCRMに合わせるのではなく、<br class="br-narrow" />CRMを人の仕事に合わせる。</h2>
 		</div>
 		<p class="section-lead">
-			名刺も、手書きメモも、通話も、AIが記録。<br />
-			175本のワークフローと<br class="br-narrow" />業種別の初期設定まで、最初から。
+			入力はAIが下書きし、設定は済ませてあり、運用は自動化が回します。<br />
+			人は撮る・上げる・確かめるだけです。
 		</p>
 		<div class="assist-panel">
 			<div>
@@ -267,7 +267,7 @@ const readings = [
 				<h3>AIエージェントは、記録の入口です。</h3>
 			</div>
 			<p>
-				日本語で聞く。名刺を撮る。会話を貼る。通話を残す。
+				日本語で聞く。名刺を撮る。会話を貼る。録音を上げる。
 				作成された文面やデータは、保存と送信の前に必ず人が確認します。
 				APIキーは自社のもの（Anthropic / OpenAI / Gemini / Azure OpenAI）を持ち込めます。
 			</p>
@@ -282,7 +282,7 @@ const readings = [
 		</ul>
 		<p class="proof-note">
 			※「40社以上」は、代表 山口聖子が個人事業時代を含めてCRM / MA / SFAの導入を支援した累計社数です。
-			Revenue CRMはクローズドβのため、導入社数は公開していません。
+			導入企業名は、各社の了承を得たものから公開します。
 		</p>
 	</div>
 </section>
@@ -337,7 +337,7 @@ const readings = [
 			))}
 		</div>
 		<div class="plan-summary__foot">
-			<p>初期費用はありません。どのプランも、初回のご利用開始日から30日間は月額無料です。</p>
+			<p>初期費用はありません。どのプランも30日間の無料トライアル付きで、カード登録なしで始められます。</p>
 			<a href="/crm/pricing/" class="btn btn--secondary">料金の詳細</a>
 		</div>
 		<p class="proof-note">※価格はすべて税抜表示です。</p>
@@ -361,7 +361,7 @@ const readings = [
 		</dl>
 		<p class="section-foot">
 			詳しくは<a href="/crm/faq/">よくあるご質問</a>のデータとセキュリティをご覧ください。
-			ログインはGoogleアカウントに対応し、2要素認証（認証アプリの6桁コード）もお使いいただけます。SAML・OIDCによるシングルサインオンは、現時点では提供していません。
+			ログインはGoogleアカウントに対応し、多要素認証（認証アプリの6桁コード）もお使いいただけます。SAML・OIDCによるシングルサインオンは、現時点では提供していません。
 		</p>
 	</div>
 </section>
@@ -390,18 +390,18 @@ const readings = [
 	<div class="container">
 		<div class="crm-section-head">
 			<p class="kicker">無料で始める</p>
-			<h2>まだCRMがない会社の、最初の1つに。</h2>
+			<h2>まず、画面を試してください。</h2>
 		</div>
 		<div class="start-body">
-			<p>Excelの営業管理から、初めてSFA / CRMへ移る会社のために作りました。</p>
+			<p>メールアドレスを入れるだけで、パスワード登録なしにデモ環境を開けます。記録・自動化・初期設定の状態を、実際の画面で確かめられます。</p>
 			<p>
-				Salesforce・HubSpot・kintone・Marketoが既に動いているなら、乗り換えないほうがいいです。
+				CRMの運用に専任の担当者がいて、Salesforce・HubSpotなどが既に動いているなら、乗り換えないほうがいいです。
 				<a href="/services/">既存CRMの再設計</a>か、<a href="/services/sfa-adoption-support/">SFA定着支援</a>をご覧ください。
 			</p>
 			<div class="hero-actions">
 				<a href={SIGNUP_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">無料で始める</a>
 				<a href={DEMO_URL} class="btn btn--secondary" target="_blank" rel="noopener noreferrer">デモを見る</a>
-				<a href="/contact/" class="btn btn--secondary">β参加を相談する</a>
+				<a href="/crm/download/" class="btn btn--secondary">資料をダウンロード</a>
 			</div>
 		</div>
 		<div class="reading">

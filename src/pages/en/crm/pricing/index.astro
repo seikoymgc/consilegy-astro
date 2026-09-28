@@ -16,11 +16,19 @@ const terms = [
 			'The Fuel included in your plan is granted during the free period too.',
 		],
 	},
-	{ label: 'Contract term', text: ['Renews automatically every month.'] },
+	{
+		label: 'Contract term',
+		text: [
+			'The User and Student plans run for 1 year from the start of the paid contract, then renew automatically every year.',
+			'The Prepaid plan renews automatically every month.',
+		],
+	},
 	{
 		label: 'Cancellation',
 		text: [
-			'Let us know at least 14 days before your next renewal date. If we hear from you later than that, the contract ends on the renewal date after that one.',
+			'The User and Student plans cannot be cancelled mid-term. To end one, let us know at least 1 month before the term ends.',
+			'For the Prepaid plan, let us know at least 14 days before your next renewal date.',
+			'If we hear from you later than that, the contract ends at the end of the following term.',
 			'If we end the service on our side, we give at least 30 days’ notice.',
 		],
 	},
@@ -28,13 +36,13 @@ const terms = [
 		label: 'Payment',
 		text: [
 			'Monthly, in advance, by credit card (ask us about paying by invoice).',
-			'Cancelling mid-month does not refund the remaining days.',
+			'Plans with a 1-year term are also paid monthly. Paid fees are not refunded.',
 		],
 	},
 	{
 		label: 'Price changes',
 		text: [
-			'We give at least 3 months’ notice before changing the monthly fee or the Fuel granted each billing period.',
+			'We give at least 3 months’ notice before changing the monthly fee or the Fuel granted each month.',
 			'The same applies to the prices of extra Fuel and add-ons.',
 		],
 	},
@@ -48,8 +56,8 @@ const terms = [
 	{
 		label: 'When the student tier changes',
 		text: [
-			'If enrolled students stay above the tier’s limit for 14 days, the higher tier applies from the first renewal date after that. If the count falls back to the limit or below in the meantime, counting starts over.',
-			'If the count is at or below the lower tier’s limit on a renewal date, the lower tier applies from that renewal date.',
+			'If enrolled students stay above the tier’s limit for 14 days, the higher tier applies from the first billing date after that. If the count falls back to the limit or below in the meantime, counting starts over.',
+			'If the count is at or below the lower tier’s limit on a billing date, the lower tier applies from that billing date.',
 		],
 	},
 	{
@@ -99,7 +107,7 @@ const terms = [
 					<div><dt>Users</dt><dd>As contracted</dd></div>
 					<div><dt>Basic automation</dt><dd>Included</dd></div>
 					<div><dt>AI processing</dt><dd>Uses Fuel</dd></div>
-					<div><dt>Fuel per billing period</dt><dd>30 per user (min. 100)</dd></div>
+					<div><dt>Fuel per month</dt><dd>30 per user (min. 100)</dd></div>
 					<div><dt>Extra Fuel</dt><dd>400 for &yen;3,000</dd></div>
 					<div><dt>Support</dt><dd>How-to and bugs</dd></div>
 				</dl>
@@ -113,7 +121,7 @@ const terms = [
 					<div><dt>Users</dt><dd>Unlimited coaches and staff</dd></div>
 					<div><dt>Basic automation</dt><dd>Included</dd></div>
 					<div><dt>AI processing</dt><dd>Uses Fuel</dd></div>
-					<div><dt>Fuel per billing period</dt><dd>300 / 600 / 1,200</dd></div>
+					<div><dt>Fuel per month</dt><dd>300 / 600 / 1,200</dd></div>
 					<div><dt>Extra Fuel</dt><dd>400 for &yen;3,000</dd></div>
 					<div><dt>Support</dt><dd>How-to and bugs</dd></div>
 				</dl>
@@ -127,13 +135,13 @@ const terms = [
 					<div><dt>Users</dt><dd>Unlimited</dd></div>
 					<div><dt>Basic automation</dt><dd>Uses Fuel</dd></div>
 					<div><dt>AI processing</dt><dd>Uses Fuel</dd></div>
-					<div><dt>Fuel per billing period</dt><dd>100</dd></div>
+					<div><dt>Fuel per month</dt><dd>100</dd></div>
 					<div><dt>Extra Fuel</dt><dd>100 for &yen;3,000</dd></div>
 					<div><dt>Support</dt><dd>Bugs only</dd></div>
 				</dl>
 			</div>
 			<div class="price-note">
-				<p>No setup fee. Every plan is free of the monthly fee for the first 30 days from the day you start. Plans renew monthly.</p>
+				<p>No setup fee. Every plan is free of the monthly fee for the first 30 days from the day you start. The User and Student plans have a 1-year term with no mid-term cancellation; the Prepaid plan renews monthly.</p>
 				<p>Basic automation means intake, sending, automated workflows, and integrations.</p>
 			</div>
 		</div>
@@ -154,7 +162,7 @@ const terms = [
 				</tbody>
 			</table>
 			</div>
-			<p class="fuel-fineprint">On the User and Student plans, intake, automated sends, and meeting imports are covered by the monthly fee. Fuel is granted when you start and on each renewal date, and does not roll over. Extra Fuel is valid for 90 days from purchase. We give 30 days’ notice before any task uses more Fuel.</p>
+			<p class="fuel-fineprint">On the User and Student plans, intake, automated sends, and meeting imports are covered by the monthly fee. Fuel is granted when you start and on each monthly billing date, and does not roll over. Extra Fuel is valid for 90 days from purchase. We give 30 days’ notice before any task uses more Fuel.</p>
 		</div>
 		<div class="fuel-block">
 			<h3>Add-on</h3>

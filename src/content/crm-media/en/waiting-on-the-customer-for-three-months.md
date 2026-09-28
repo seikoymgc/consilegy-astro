@@ -5,7 +5,7 @@ lang: "en"
 category: "operate"
 pain: "Deals that are genuinely waiting on the customer and deals a rep has let go quiet sit in the same stage, so neglected deals become invisible"
 feature: "Waiting on customer / Pipeline review / Deal stall alert"
-screens: "Deal edit \"Waiting & decision\" / Sidebar Sales → Pipeline review / Automation \"Deal stall alert\" / Jade"
+screens: "Deal edit \"Waiting & decision\" / Sidebar Sales → Pipeline review / Automation \"Deal stall alert\" / AI agent"
 edition: "b2b"
 help_slug: "waiting, pipeline-review"
 video: "3, 9"
@@ -60,7 +60,7 @@ It also shows the amount that is "decided but not visible this quarter." The wor
 
 Days in stage are counted from the day the deal entered its current stage. History from before this feature was in use cannot be reconstructed, so existing deals may show fewer days than reality. Accurate counts build up from the day you start.
 
-For the daily check, ask Jade in the bottom right: "Show me the deals that are stuck." There is no screen location to memorize.
+For the daily check, ask the AI agent in the bottom right: "Show me the deals that are stuck." There is no screen location to memorize.
 
 ## The first step
 

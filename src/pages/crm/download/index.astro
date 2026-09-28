@@ -1,0 +1,202 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CrmSubnav from '../../../components/CrmSubnav.astro';
+
+// 受け口は Revenue CRM 自身のフォーム（Consilegy合同会社の組織「サービス紹介資料ダウンロード」）。
+// 送信内容はコンタクトとして同組織に入る。crm.consilegy.com は CORS を返さないので、
+// text/plain の単純リクエスト（no-cors）で送り、応答は読まずにダウンロードを出す。
+const FORM_ID = '3236df50-8269-4975-8d5e-139d0a04cee2';
+const SUBMIT_URL = `https://crm.consilegy.com/api/forms/${FORM_ID}/submit`;
+const PDF_URL = '/downloads/revenue-crm-service-guide-2026-09.pdf';
+
+const contents = [
+	'CRMが続かない本当の原因と、Revenue CRMの考え方',
+	'名刺・手書きメモ・通話をAIが記録する仕組み',
+	'標準搭載の175本のワークフローと、業種別の初期設定',
+	'商談カンバンと売上見込みの画面',
+	'主な機能、外部連携とAPI',
+	'料金プラン（3プラン・燃料の考え方）',
+	'データの置き場所とセキュリティ',
+];
+---
+
+<BaseLayout
+	title="サービス紹介資料ダウンロード | Revenue CRM | Consilegy"
+	description="Revenue CRMのサービス紹介資料（PDF・16ページ）をダウンロードいただけます。AIによる記録、175本のワークフロー、業種別の初期設定、料金、セキュリティをまとめています。"
+>
+	<CrmSubnav lang="ja" />
+
+	<div class="dl-page">
+		<div class="dl-grid">
+			<section class="dl-copy">
+				<p class="kicker">資料ダウンロード</p>
+				<h1>CRMを入れて、<br />仕事を増やさない。</h1>
+				<p class="lead">
+					Revenue CRMのサービス紹介資料です。社内でのご検討や、稟議の添付資料としてお使いください。
+				</p>
+				<figure class="dl-cover">
+					<img
+						src="/images/crm/service-guide-cover-2026-09.jpg"
+						alt="Revenue CRM サービス紹介資料の表紙"
+						width="1467"
+						height="825"
+						decoding="async"
+					/>
+				</figure>
+				<h2>資料の内容（PDF・16ページ）</h2>
+				<ul class="dl-contents">
+					{contents.map((item) => <li>{item}</li>)}
+				</ul>
+			</section>
+
+			<section class="dl-form-card" aria-labelledby="dl-form-title">
+				<div id="dl-form-wrap">
+					<h2 id="dl-form-title">必要事項を入力してください</h2>
+					<p class="dl-form-note">入力後、すぐにダウンロードできます。</p>
+					<form id="dl-form" novalidate>
+						<label>
+							<span>会社名<em>必須</em></span>
+							<input name="company_name" type="text" autocomplete="organization" required />
+						</label>
+						<div class="dl-name">
+							<label>
+								<span>姓<em>必須</em></span>
+								<input name="last_name" type="text" autocomplete="family-name" required />
+							</label>
+							<label>
+								<span>名<em>必須</em></span>
+								<input name="first_name" type="text" autocomplete="given-name" required />
+							</label>
+						</div>
+						<label>
+							<span>メールアドレス<em>必須</em></span>
+							<input name="email" type="email" autocomplete="email" required />
+						</label>
+						<label class="dl-hp" aria-hidden="true">
+							<span>このフィールドは空のままにしてください</span>
+							<input name="hp" type="text" tabindex="-1" autocomplete="off" />
+						</label>
+						<label class="dl-check">
+							<input name="consent" type="checkbox" />
+							<span>Consilegyからのお知らせ（メールマガジン）を受け取る</span>
+						</label>
+						<p class="dl-error" id="dl-error" role="alert" hidden></p>
+						<button type="submit" class="btn">資料をダウンロードする</button>
+						<p class="dl-privacy">
+							ご入力いただいた情報は、<a href="/privacy-policy/">プライバシーポリシー</a>に沿って取り扱います。
+						</p>
+					</form>
+				</div>
+
+				<div id="dl-done" hidden>
+					<h2>ありがとうございます</h2>
+					<p>下のボタンから資料をダウンロードいただけます。</p>
+					<a class="btn" href={PDF_URL} download>PDFをダウンロード（760KB）</a>
+					<p class="dl-next">
+						実際の画面は、登録なしで<a href="https://crm.consilegy.com/demos" target="_blank" rel="noopener noreferrer">デモ</a>からご覧いただけます。
+					</p>
+				</div>
+			</section>
+		</div>
+	</div>
+</BaseLayout>
+
+<script is:inline define:vars={{ SUBMIT_URL, PDF_URL }}>
+	(function () {
+		var form = document.getElementById('dl-form');
+		var errorBox = document.getElementById('dl-error');
+		if (!form) return;
+		form.addEventListener('submit', function (e) {
+			e.preventDefault();
+			var fd = new FormData(form);
+			var values = {
+				company_name: String(fd.get('company_name') || '').trim(),
+				last_name: String(fd.get('last_name') || '').trim(),
+				first_name: String(fd.get('first_name') || '').trim(),
+				email: String(fd.get('email') || '').trim(),
+			};
+			var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email);
+			if (!values.company_name || !values.last_name || !values.first_name || !emailOk) {
+				errorBox.textContent = !emailOk && values.email ? 'メールアドレスの形式をご確認ください。' : '必須の項目をすべて入力してください。';
+				errorBox.hidden = false;
+				return;
+			}
+			errorBox.hidden = true;
+			var params = new URLSearchParams(location.search);
+			var utm = {};
+			['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (k) {
+				if (params.get(k)) utm[k] = params.get(k);
+			});
+			if (!utm.utm_source) utm.utm_source = 'consilegy.com/crm/download';
+			var body = JSON.stringify({
+				values: values,
+				utm: utm,
+				referrer: document.referrer || location.href,
+				consent: fd.get('consent') === 'on',
+				hp: String(fd.get('hp') || ''),
+			});
+			var button = form.querySelector('button[type="submit"]');
+			button.disabled = true;
+			button.textContent = '送信しています…';
+			var done = function () {
+				document.getElementById('dl-form-wrap').hidden = true;
+				document.getElementById('dl-done').hidden = false;
+				var a = document.createElement('a');
+				a.href = PDF_URL;
+				a.download = '';
+				document.body.appendChild(a);
+				a.click();
+				a.remove();
+			};
+			fetch(SUBMIT_URL, {
+				method: 'POST',
+				mode: 'no-cors',
+				headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+				body: body,
+				keepalive: true,
+			}).then(done, done);
+		});
+	})();
+</script>
+
+<style>
+	.dl-page { max-width: 72rem; margin: 0 auto; padding: 3.5rem 1rem 5rem; }
+	.dl-grid { display: grid; gap: 2.5rem; }
+	@media (min-width: 900px) {
+		.dl-grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: start; gap: 3.5rem; }
+		.dl-form-card { position: sticky; top: 8rem; }
+		.br-narrow { display: none; }
+	}
+	.kicker { font-size: 0.8rem; letter-spacing: 0.12em; color: var(--color-primary); margin: 0 0 0.5rem; }
+	.dl-copy h1 { font-size: clamp(1.75rem, 4vw, 2.4rem); line-height: 1.35; margin: 0 0 0.75rem; }
+	.lead { color: #4a5568; line-height: 1.9; margin: 0 0 1.5rem; }
+	.dl-cover { margin: 0 0 1.75rem; }
+	.dl-cover img { width: 100%; height: auto; border-radius: 0.6rem; border: 1px solid #e6eaef; display: block; }
+	.dl-copy h2 { font-size: 1.05rem; margin: 0 0 0.75rem; }
+	.dl-contents { margin: 0; padding-left: 1.2rem; line-height: 1.9; color: #3a4551; }
+
+	.dl-form-card { background: #fff; border: 1px solid #e6eaef; border-radius: 0.75rem; padding: 1.75rem 1.5rem; }
+	.dl-form-card h2 { font-size: 1.15rem; margin: 0 0 0.35rem; }
+	.dl-form-note { margin: 0 0 1.25rem; color: #5b6673; font-size: 0.9rem; }
+	#dl-form { display: grid; gap: 1rem; }
+	#dl-form label { display: grid; gap: 0.35rem; font-size: 0.9rem; color: #3a4551; }
+	#dl-form label em { font-style: normal; font-size: 0.72rem; color: #fff; background: var(--color-primary); border-radius: 0.25rem; padding: 0.05rem 0.35rem; margin-left: 0.5rem; }
+	#dl-form input[type='text'], #dl-form input[type='email'] {
+		width: 100%; padding: 0.7rem 0.8rem; border: 1px solid #cfd6de; border-radius: 0.45rem; font-size: 1rem; background: #fff;
+	}
+	#dl-form input:focus { outline: 2px solid var(--color-primary); outline-offset: 1px; border-color: transparent; }
+	.dl-name { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+	#dl-form .dl-check { display: flex; gap: 0.5rem; align-items: flex-start; font-size: 0.85rem; }
+	.dl-check input { margin-top: 0.2rem; }
+	.dl-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+	.dl-error { margin: 0; color: #b42318; font-size: 0.875rem; }
+	.dl-error[hidden], #dl-done[hidden], #dl-form-wrap[hidden] { display: none; }
+	.btn {
+		display: inline-block; width: 100%; text-align: center; padding: 0.85rem 1.4rem; border: 0; border-radius: 0.5rem;
+		background: var(--color-primary); color: #fff; text-decoration: none; font-weight: 600; font-size: 1rem; cursor: pointer;
+	}
+	.btn:disabled { opacity: 0.6; cursor: default; }
+	.dl-privacy, .dl-next { margin: 0; font-size: 0.8rem; color: #5b6673; line-height: 1.7; }
+	#dl-done p { color: #3a4551; margin: 0 0 1rem; }
+	#dl-done .dl-next { margin-top: 1rem; }
+</style>

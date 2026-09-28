@@ -1,120 +1,87 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import CrmSubnav from '../../../components/CrmSubnav.astro';
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CrmSubnav from '../../../../components/CrmSubnav.astro';
 
 const DEMO_URL = 'https://crm.consilegy.com/demos';
+const SIGNUP_URL = 'https://crm.consilegy.com/signup';
 
-// プロダクトの contractor エディション（src/lib/editions/index.ts）に実装済みの
-// ものだけ記載。用語は商談→案件に差し替わる。coreNav は /deals・/companies・
-// /quotes・/delivery・/resources、既定の自動化は sal-31/37/39/41 と cs-30。
+// Mirrors /crm/contractor/. Only what the contractor edition actually ships
+// (src/lib/editions/index.ts in the product). Deals are called projects here.
 const screens = [
-	{
-		src: 'resources',
-		title: '空き枠カレンダー',
-		desc: 'メンバー×週で、割り当て人日とキャパを並べます。いつ誰が空くかを、感覚ではなく数字で見られます。',
-		alt: '空き枠カレンダーの画面。今週の稼働率54%、今週の空き人日7.8、逼迫週0、余剰週7のカード。その下にメンバー4名×13週の表があり、各セルに割当人日／キャパが入っている。',
-	},
-	{
-		src: 'delivery',
-		title: 'デリバリー',
-		desc: 'キックオフ・制作・レビュー・納品の工程を案件ごとに持ちます。滞留日数と期限、想定と実績の人日が同じ行に出ます。',
-		alt: 'デリバリーの画面。案件・会社・金額・デリバリー工程・滞留・期限・想定/実績（人日）の列が並び、6件の受注案件が工程ごとに表示されている。',
-	},
-	{
-		src: 'quotes',
-		title: '見積書',
-		desc: '下書き、送付済み、承認のステータスで管理します。明細は人日×単価で積み上げます。',
-		alt: '見積書の一覧画面。4件の見積が、承認・下書き・送付済みのステータスバッジ、コンタクト、会社、合計金額、有効期限つきで並んでいる。',
-	},
-	{
-		src: 'deals',
-		title: '案件',
-		desc: '商談ではなく「案件」で呼びます。アプローチから見積までのステージごとに、金額と件数が出ます。',
-		alt: '案件のカンバン画面。アプローチ・ヒアリング・提案・見積のステージに案件カードが並び、各ステージの合計金額と確度、案件ごとの金額とクローズ予定日が出ている。',
-	},
+	{ src: 'resources', title: 'Capacity calendar', desc: 'Assigned days against capacity, per person and per week. Who frees up when, in numbers rather than guesses.', alt: 'The capacity calendar: utilization this week, free person-days, and a 13-week grid of assigned days over capacity for four team members.' },
+	{ src: 'delivery', title: 'Delivery', desc: 'Kickoff, build, review, and handover stages per project, with days in stage, due dates, and planned versus actual person-days on one row.', alt: 'The delivery list: project, company, amount, delivery stage, days in stage, due date, and planned and actual person-days for six won projects.' },
+	{ src: 'quotes', title: 'Quotes', desc: 'Draft, sent, and approved, tracked by status. Line items build up as person-days times rate.', alt: 'The quote list: four quotes with approved, draft, and sent badges, contact, company, total, and expiry date.' },
+	{ src: 'deals', title: 'Projects', desc: 'Called projects, not deals. Amounts and counts by stage, from first contact to quote.', alt: 'The project kanban: cards in approach, hearing, proposal, and quote stages, with totals and probability per stage.' },
 ];
 
 const problems = [
-	{
-		title: '受注してから、回せないと気づく',
-		text: '見積を出すときに手が空いているかを確かめていない。取れてから、誰も入れられないことが分かる。',
-	},
-	{
-		title: '誰がいつ空くか分からない',
-		text: '稼働の見通しがPMの頭の中にしかない。前倒しできる案件も、断るべき案件も判断できない。',
-	},
-	{
-		title: '納品後がそのまま流れる',
-		text: '検収、請求、保守契約の更新。受注の熱が引いた後の工程が、誰の担当でもなくなっている。',
-	},
+	{ title: 'You find out after winning that you cannot staff it', text: 'Nobody checked who was free when the quote went out. Once it is won, there is no one to put on it.' },
+	{ title: 'No one knows who frees up when', text: 'The workload outlook lives in the project manager’s head, so you cannot tell which work to pull forward and which to turn down.' },
+	{ title: 'Everything after delivery drifts', text: 'Acceptance, invoicing, maintenance renewals. Once the excitement of the win fades, those steps belong to no one.' },
 ];
 
-// 既定で入る5本（contractor の defaultAutomations = sal-31/37/39/41 と cs-30）。
-// text は src/lib/revops/outcomes.ts の日本語。ただしこのエディションでは
-// 商談を「案件」と呼ぶので、そこだけ用語を合わせている。
-const projectEngine = [
-	{ label: '見積', text: '見積の依頼が来たら、作成タスクを自動で作成' },
-	{ label: '停滞', text: '止まっている案件を自動で見つけて知らせる' },
-	{ label: '予測', text: '案件の変更を、売上予測に自動で反映' },
-	{ label: '受注後', text: '受注したら、後続の処理を自動で開始' },
-	{ label: '保守更新', text: '契約更新日を自動で管理してリマインド' },
+const engine = [
+	{ label: 'Quote', text: 'Create a task automatically when a quote is requested' },
+	{ label: 'Stalled', text: 'Find stalled projects and flag them' },
+	{ label: 'Forecast', text: 'Reflect project changes in the revenue forecast' },
+	{ label: 'Won', text: 'Start the follow-on steps when a project is won' },
+	{ label: 'Renewal', text: 'Track maintenance renewal dates and send reminders' },
 ];
 
 const roles = [
-	{ name: 'オーナー', scope: '全案件・稼働・請求・権限設定' },
-	{ name: '管理者', scope: '運用全般と権限設定' },
-	{ name: 'PM', scope: '担当チームの案件・見積・稼働を閲覧・編集' },
-	{ name: 'メンバー', scope: '自分が入っている案件のみ' },
+	{ name: 'Owner', scope: 'Every project, capacity, billing, and permissions' },
+	{ name: 'Admin', scope: 'Day-to-day operations and permissions' },
+	{ name: 'Project manager', scope: 'View and edit projects, quotes, and capacity for their team' },
+	{ name: 'Member', scope: 'Only the projects they are on' },
 ];
 ---
 
 <BaseLayout
-	title="Revenue CRM 受託開発版 | 見積を出す前に、空きが見えている"
-	description="受託開発・制作会社向けの画面構成。案件・見積・稼働・納品を1か所で管理。メンバー×週の空き枠カレンダー、工程ごとの滞留と期限、保守契約の更新リマインドまで。2026年9月28日に正式リリース。どのプランも30日間無料で試せます。"
-	lang="ja"
-	alternateUrl="/en/crm/contractor/"
+	title="Revenue CRM | CRM for agencies and contract work"
+	description="CRM for agencies and contract development teams. Projects, quotes, capacity, and delivery in one place: a person-by-week capacity calendar, days in stage and due dates, and maintenance renewal reminders. 30-day free trial."
+	lang="en"
+	alternateUrl="/crm/contractor/"
 >
 <script type="application/ld+json" slot="head" set:html={JSON.stringify({
 	"@context": "https://schema.org",
 	"@type": "BreadcrumbList",
 	"itemListElement": [
-		{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://consilegy.com/"},
-		{"@type": "ListItem", "position": 2, "name": "Revenue CRM", "item": "https://consilegy.com/crm/"},
-		{"@type": "ListItem", "position": 3, "name": "受託開発版", "item": "https://consilegy.com/crm/contractor/"}
+		{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://consilegy.com/en/"},
+		{"@type": "ListItem", "position": 2, "name": "Revenue CRM", "item": "https://consilegy.com/en/crm/"},
+		{"@type": "ListItem", "position": 3, "name": "Agencies and contract work", "item": "https://consilegy.com/en/crm/contractor/"}
 	]
 })} />
 
-<CrmSubnav lang="ja" />
+<CrmSubnav lang="en" />
 
 <!-- ===================== HERO ===================== -->
 <section class="hero">
 	<div class="container hero-grid">
 		<div class="hero-copy">
-			<p class="eyebrow">Revenue CRM 受託開発版</p>
-			<h1>見積を出す前に、<br />空きが見えている。</h1>
+			<p class="eyebrow">Revenue CRM for agencies &amp; contract work</p>
+			<h1>CRM for agencies<br />and contract work.</h1>
 			<p class="hero-lead">
-				案件はスプレッドシート。稼働はPMの感覚。見積はその都度Excel。
-				受託開発版は、<strong>案件・見積・稼働・納品を1か所で見て、着手できる時期から逆算して見積を出せる</strong>構成です。
+				Projects in a spreadsheet, capacity in the project manager’s head, quotes in a new file every time. This edition <strong>puts projects, quotes, capacity, and delivery in one place, so you can quote from when you can actually start</strong>.
 			</p>
 			<div class="hero-actions">
-				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">デモを見る</a>
-				<a href="#screens" class="btn btn--secondary">画面を見る</a>
+				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">See the demo</a>
+				<a href={SIGNUP_URL} class="btn btn--secondary" target="_blank" rel="noopener noreferrer">Start free</a>
 			</div>
-			<ul class="hero-points" aria-label="受託開発版の特徴">
-				<li>商談ではなく「案件」で管理</li>
-				<li>メンバー×週で空きを可視化</li>
-				<li>30日間無料で試せる</li>
+			<ul class="hero-points" aria-label="What this edition does">
+				<li>Managed as projects, not deals</li>
+				<li>Free capacity by person and week</li>
+				<li>Starts set up for contract work</li>
 			</ul>
 		</div>
 		<figure class="hero-media">
 			<img
 				src="/images/crm/contractor/screen-resources.webp"
-				alt="空き枠カレンダーの画面。今週の稼働率54%、空き人日7.8、逼迫週0、余剰週7のカードと、メンバー4名×13週の割当表。"
+				alt="The capacity calendar: utilization, free person-days, and a 13-week grid of assignments for four team members."
 				width="1432"
 				height="840"
 				decoding="async"
 			/>
-			<figcaption>空き枠カレンダー：メンバー×週で、割り当てと空きを同じ画面で</figcaption>
+			<figcaption>Capacity calendar: assignments and free time on one screen</figcaption>
 		</figure>
 	</div>
 </section>
@@ -124,23 +91,18 @@ const roles = [
 	<div class="container">
 		<div class="pos-body">
 			<p class="pos-lead">
-				追いかけるのは「受注できるか」ではなく、<br />
-				「受けて回せるか」です。
+				The question is not “can we win it.”<br />It is “can we deliver it.”
 			</p>
 			<div class="pos-copy">
-				<p>
-					だから中心に置いたのは<strong>案件</strong>です。このエディションでは商談を案件と呼びます。
-					画面の言葉が変わるだけでなく、見積、受注、納品、請求、保守更新までを1本の案件で追えます。
-				</p>
-				<p>
-					受託の粗利は、取れたかどうかより<strong>誰をいつ入れたか</strong>で決まります。
-					稼働をメンバー×週の表で持っているので、見積を出す前に着手できる時期を確かめられます。
-					前倒しできる案件と、断るべき案件が分かります。
-				</p>
-				<p>
-					保守契約は受注のあとに続く売上です。更新日を持たせて、期日が来る前にリマインドします。
-				</p>
-				<a href="/revenue-architecture/" class="pos-link">この考え方について読む →</a>
+					<p>
+						So the center is the <strong>project</strong>. In this edition, deals are called projects, and one project carries the quote, the win, delivery, invoicing, and maintenance renewal.
+					</p>
+					<p>
+						In contract work, margin depends less on whether you won and more on <strong>who you put on it, and when</strong>. With capacity held per person and per week, you check when you can start before the quote goes out.
+					</p>
+					<p>
+						Maintenance contracts are revenue that continues after the win. Each has a renewal date, with a reminder before it comes up.
+					</p>
 			</div>
 		</div>
 	</div>
@@ -150,13 +112,13 @@ const roles = [
 <section class="problem">
 	<div class="container">
 		<div class="section-head">
-			<p class="section-eyebrow">こんな課題に</p>
-			<h2 class="prob-title">案件は取れているのに、利益が残っていませんか。</h2>
+			<p class="section-eyebrow">The problem</p>
+			<h2 class="prob-title">Winning projects, but keeping less of it?</h2>
 		</div>
 		<div class="prob-grid">
 			{problems.map((item, index) => (
 				<article class="prob-item">
-					<span class="issue-label" aria-label={`項目 ${index + 1}`}>
+					<span class="issue-label" aria-label={`Item ${index + 1}`}>
 						<span class="issue-label__number">{String(index + 1).padStart(2, '0')}</span>
 					</span>
 					<h3>{item.title}</h3>
@@ -171,9 +133,10 @@ const roles = [
 <section class="screens" id="screens">
 	<div class="container">
 		<div class="section-head">
-			<p class="section-eyebrow">画面構成</p>
-			<h2 class="sc-title">案件を軸に、日々見る画面を揃えています。</h2>
+			<p class="section-eyebrow">The screens</p>
+			<h2 class="sc-title">Everything you open daily, organized around the project.</h2>
 		</div>
+		<p class="sc-note">Screenshots show the Japanese interface. The product switches to English, Japanese, or Traditional Chinese in one click.</p>
 		<div class="sc-grid">
 			{screens.map((s) => (
 				<article class="sc-card">
@@ -197,26 +160,23 @@ const roles = [
 	</div>
 </section>
 
-<!-- ===================== 案件エンジン ===================== -->
+<!-- ===================== ENGINE ===================== -->
 <section class="support">
 	<div class="container support-inner">
 		<div>
-			<p class="section-eyebrow">案件エンジン</p>
-			<h2>取りこぼしを、人の記憶から外します。</h2>
-			<p class="support-lead">
-				受託開発版を作ると、案件まわりの自動化が最初からONになっています。
-				見積依頼からタスクを作り、止まった案件を拾い、受注後の処理を起こし、
-				保守契約の更新日を管理するところまで、毎晩の処理として走ります。
-			</p>
-			<p class="support-lead">
-				自動化が作るのはタスクと通知と下書きです。顧客に何かが自動で送られることはありません。
-				担当者が中身を見て、直してから動かします。
-			</p>
+			<p class="section-eyebrow">Project engine</p>
+			<h2>Take missed steps out of people’s memory.</h2>
+				<p class="support-lead">
+					When you create this edition, the project automations are already on. They create tasks from quote requests, catch stalled projects, start the steps after a win, and track maintenance renewals, as a nightly job.
+				</p>
+				<p class="support-lead">
+					Automations create tasks, notifications, and drafts. Nothing is sent to a customer on its own; the owner reviews it first.
+				</p>
 		</div>
 		<div class="support-list">
-			<h3>既定でONになるもの</h3>
+			<h3>On by default</h3>
 			<ul>
-				{projectEngine.map((r) => (
+				{engine.map((r) => (
 					<li><span>{r.label}</span><strong>{r.text}</strong></li>
 				))}
 			</ul>
@@ -229,25 +189,22 @@ const roles = [
 	<div class="container ai-inner">
 		<div>
 			<p class="section-eyebrow">AI</p>
-			<h2>日本語で聞けば、<br />その場で返ってきます。</h2>
-			<p class="ai-lead">
-				知りたいことのために、集計を組み立てる必要はありません。
-				話すとおりに聞けば、案件と稼働のデータを探して答えます。
-			</p>
-			<p class="ai-lead">
-				来月の空き、期限が近い案件、止まっている案件、更新が近い保守契約。
-				どれも表を作らずに、その場で確認できます。
-			</p>
-			<p class="ai-lead">
-				AIが書いたものは、すべて下書きのまま止まります。
-				担当者が確認して確定するまで、顧客には出ません。
-			</p>
+			<h2>Ask in plain language,<br />get the answer back.</h2>
+				<p class="ai-lead">
+					You do not have to build a report to find something out. Ask it the way you would say it, and it searches project and capacity data.
+				</p>
+				<p class="ai-lead">
+					Free capacity next month, projects near their due date, stalled work, maintenance renewals coming up. All checked on the spot.
+				</p>
+				<p class="ai-lead">
+					What the AI drafts stays a draft. Nothing reaches a customer until the owner has checked and confirmed it.
+				</p>
 		</div>
 		<ul class="ai-examples">
-			<li>今週の空き人日は？</li>
-			<li>期限が近い案件は？</li>
-			<li>止まっている案件は？</li>
-			<li>保守契約の更新はいつ？</li>
+				<li>How many free person-days this week?</li>
+				<li>Which projects are due soon?</li>
+				<li>Which projects are stalled?</li>
+				<li>When do maintenance contracts renew?</li>
 		</ul>
 	</div>
 </section>
@@ -256,13 +213,11 @@ const roles = [
 <section class="roles">
 	<div class="container">
 		<div class="section-head">
-			<p class="section-eyebrow">権限管理</p>
-			<h2 class="ro-title">担当案件の外は、見えないようにできます。</h2>
+			<p class="section-eyebrow">Permissions</p>
+			<h2 class="ro-title">Keep people out of projects that are not theirs.</h2>
 		</div>
 		<p class="ro-lead">
-			顧客・会社・案件のそれぞれについて、見える範囲を「全体・チーム・自分」から選べます。
-			協力会社のメンバーを入れる場合も、担当案件だけに絞れます。エクスポートの可否は別に設定できます。
-			下は設定例です。
+			For contacts, companies, and projects, choose what each role can see: everything, the team, or only their own. Partner staff can be limited to their own projects, and export rights are set separately. An example setup:
 		</p>
 		<dl class="ro-list">
 			{roles.map((r) => (
@@ -272,7 +227,7 @@ const roles = [
 				</div>
 			))}
 		</dl>
-		<p class="ro-note">操作ログが残るので、誰がいつ何を変更したかを後から追えます。</p>
+		<p class="ro-note">Actions are logged, so you can trace who changed what, and when.</p>
 	</div>
 </section>
 
@@ -280,25 +235,26 @@ const roles = [
 <section class="final-cta">
 	<div class="container cta-inner">
 		<div>
-			<p class="cta-eyebrow">30日間 無料</p>
-			<h2>今の業務に合うかは、<br />実際の画面で確かめてください。</h2>
+			<p class="cta-eyebrow">30 days free</p>
+			<h2>Try the product first.</h2>
 			<p class="cta-lead">
-				初期費用はなく、どのプランも30日間の無料トライアル付きで、カード登録なしで始められます。
-				デモはメールアドレスだけで、その場でご覧いただけます。
+				An email address opens a demo workspace with sample data. No password to set.
+				This edition starts with projects, quotes, capacity, and delivery already set up.
+				Every plan comes with a 30-day free trial, no card required.
 			</p>
 			<div class="cta-actions">
-				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">デモを見る</a>
-				<a href="/crm/download/" class="btn btn--secondary">資料をダウンロード</a>
+				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">See the demo</a>
+				<a href={SIGNUP_URL} class="btn btn--secondary" target="_blank" rel="noopener noreferrer">Start free</a>
 			</div>
 		</div>
 		<div class="cta-card">
-			<h4>デモでお見せする内容</h4>
+			<h4>What we show you</h4>
 			<ul class="cta-list">
-				<li>空き枠カレンダーと稼働率の見え方</li>
-				<li>案件ごとのデリバリー工程と滞留</li>
-				<li>見積の作成と人日×単価の積み上げ</li>
-				<li>受注後に自動で起きる処理</li>
-				<li>メンバー向けの権限設定と操作ログ</li>
+				<li>The capacity calendar and how utilization reads</li>
+				<li>Delivery stages and days in stage per project</li>
+				<li>Building a quote from person-days and rates</li>
+				<li>What starts automatically after a win</li>
+				<li>Member permissions and the audit log</li>
 			</ul>
 		</div>
 	</div>
@@ -307,6 +263,10 @@ const roles = [
 </BaseLayout>
 
 <style>
+	/* html[lang="en"] の --container は 72ch（記事の読み物幅）。LPなのでページ内だけ 1120px に戻す。 */
+	.container {
+		max-width: 1120px;
+	}
 	.section-eyebrow,
 	.eyebrow,
 	.cta-eyebrow {
@@ -949,4 +909,6 @@ const roles = [
 			align-items: stretch;
 		}
 	}
+
+	.sc-note { margin: -0.5rem 0 1.5rem; color: var(--color-text-muted); font-size: 0.85rem; }
 </style>

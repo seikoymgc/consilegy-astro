@@ -11,9 +11,8 @@ const screens = [
 	{ src: 'students', title: 'Students', desc: 'Trialing, paying, on hold, withdrawn. Where each student stands, at a glance.', alt: 'The student list, filtered by enrolled, trialing, near graduation, on hold, and graduated, with a status badge on each student.' },
 	{ src: 'schedule', title: 'Weekly schedule', desc: 'Lessons managed by the week, tied to the closure-day calendar.', alt: 'The weekly schedule: lessons this week, coaches working, and a day-by-day list of times, students, and assigned coaches.' },
 	{ src: 'lessons', title: 'Lesson records', desc: 'What was taught, kept per student. The history survives a change of coach.', alt: 'Lesson history listing student name, assigned coach, course, and date in chronological order.' },
-	{ src: 'calls', title: 'Call tracking', desc: 'Who to contact, who is still waiting, and who has been handled, kept apart.', alt: 'The home screen: enrolled students, items needing attention, calls today, and retention rate, with a list of what needs handling now.' },
 	{ src: 'hearing-ai', title: 'Intake notes', desc: 'Paste the trial transcript and AI sorts it into fields. A coach corrects it before it is saved.', alt: 'The intake form, with a transcript paste box and a fill-with-AI button above fields for how they found us, basic details, current level, and goals, each already filled in.' },
-	{ src: 'report', title: 'Monthly report', desc: 'Drafted from that month’s lesson records and calls. Check it, fix it, send it.', alt: 'The monthly report screen, showing an AI-drafted progress comment with regenerate and confirm buttons.' },
+	{ src: 'report', title: 'Monthly report', desc: 'Drafted from that month’s lesson records. Check it, fix it, send it.', alt: 'The monthly report screen, showing an AI-drafted progress comment with regenerate and confirm buttons.' },
 	{ src: 'knowledge', title: 'Knowledge base', desc: 'Teaching policy and operating rules written down, so running the school stops depending on one person.', alt: 'The knowledge base, listing articles for common questions, operating rules, and manuals.' },
 	{ src: 'billing', title: 'Billing', desc: 'Paying and failed payments in one place, so a stalled payment gets noticed early.', alt: 'The billing screen showing MRR, paying, and failed counts, with paying, cancelled, and failed badges on each contract.' },
 ];
@@ -42,8 +41,8 @@ const roles = [
 ---
 
 <BaseLayout
-	title="Revenue CRM School Edition | The state of every student, without going to look for it"
-	description="A screen layout for schools and studios. Enrollment status, the weekly schedule, lesson records, call tracking, and AI-drafted monthly reports. Built mobile first, so a coach can use it between the classroom and the train. The same foundation works for any recurring-payment business. Officially launched on September 28, 2026. Every plan is free for the first 30 days."
+	title="Revenue CRM | CRM for schools"
+	description="A screen layout for schools and studios. Enrollment status, the weekly schedule, lesson records, and AI-drafted monthly reports. Built mobile first, so a coach can use it between the classroom and the train. The same foundation works for any recurring-payment business. 30-day free trial, no card required."
 	lang="en"
 	alternateUrl="/crm/school/"
 >
@@ -64,7 +63,7 @@ const roles = [
 	<div class="container hero-grid">
 		<div class="hero-copy">
 			<p class="eyebrow">Revenue CRM School Edition</p>
-			<h1>The state of every student,<br />without going to look.</h1>
+			<h1>CRM for schools.</h1>
 			<p class="hero-lead">
 				The roster is a spreadsheet. The lesson records are on each coach's own device.
 				Payments are in a third tool. The school edition is <strong>one screen layout that
@@ -200,8 +199,7 @@ const roles = [
 				something the next person can act on.
 			</p>
 			<p class="support-lead">
-				The monthly progress report is drafted by AI from that month's lesson records and call
-				history. Counts come from the data as they stand. In a month with too little recorded,
+				The monthly progress report is drafted by AI from that month's lesson records. Counts come from the data as they stand. In a month with too little recorded,
 				it does not invent anything; it lists the records. A coach checks it, corrects it, and submits it.
 			</p>
 		</div>
@@ -240,7 +238,7 @@ const roles = [
 			<li>Which students need attention today?</li>
 			<li>What is this month's retention rate?</li>
 			<li>What lessons are scheduled this week?</li>
-			<li>List the students we haven't called</li>
+			<li>Who hasn't come in lately?</li>
 		</ul>
 	</div>
 </section>
@@ -275,7 +273,7 @@ const roles = [
 			<p class="cta-eyebrow">30 days free</p>
 			<h2>See whether it fits your school<br />on the real screens.</h2>
 			<p class="cta-lead">
-				No setup fee, and every plan is free of the monthly fee for the first 30 days.
+				No setup fee, and every plan comes with a 30-day free trial, no card required.
 				The demo opens with just an email address.
 			</p>
 			<div class="cta-actions">

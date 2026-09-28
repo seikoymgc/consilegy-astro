@@ -11,23 +11,23 @@ const SIGNUP_URL = 'https://crm.consilegy.com/signup';
 
 const proofStats = [
 	{ figure: '40+', label: 'CRM / MA / SFA implementations supported' },
-	{ figure: '175', label: 'RevOps workflows shipped with the product' },
+	{ figure: '175', label: 'Automations included in every edition' },
 	{ figure: '3', label: 'Languages: 日本語 / English / 繁體中文, UI and all' },
 	{ figure: 'Press', label: 'See News (花蓮視新聞), 25 June 2026' },
 ];
 
 const outcomes = [
 	{
-		problem: 'The customer list is spread across spreadsheets and inboxes',
-		answer: 'Contacts, companies, deals, and correspondence collect into one history.',
+		problem: 'Typing: card, note, and recording details stay with one person',
+		answer: 'AI reads and transcribes them into draft contact and deal records.',
 	},
 	{
-		problem: 'Next month’s number gets added up by hand every time',
-		answer: 'A weighted forecast comes straight off the pipeline.',
+		problem: 'Setup: a new CRM starts with designing fields and pipelines',
+		answer: 'Each edition starts with fields, pipelines, and automations already set up.',
 	},
 	{
-		problem: 'Follow-up and renewals slip once the deal is won',
-		answer: 'Workflows catch renewal dates and stalled work, and tell the owner.',
+		problem: 'Upkeep: someone has to watch for missed follow-ups and renewals',
+		answer: '175 automations catch stalled deals and due dates, and tell the owner.',
 	},
 ];
 
@@ -52,7 +52,7 @@ const editions = [
 	},
 	{
 		noun: 'Enrollment',
-		title: 'Schools & studios',
+		title: 'Schools',
 		text: 'Manage enrollment, retention, holds, and withdrawals.',
 		href: '/en/crm/school/',
 		linkLabel: 'See the school edition',
@@ -60,12 +60,11 @@ const editions = [
 ];
 
 const plans = [
-	{ tier: 'User plan', for: 'B2B edition. For companies that use the CRM every day.', figure: '3,000', unit: '/ user / month' },
+	{ tier: 'User plan', for: 'B2B, agency, and reseller editions. For companies that use the CRM every day.', figure: '3,000', unit: '/ user / month' },
 	{ tier: 'Student plan', for: 'School edition (B2C). For schools that run on it every day.', figure: '9,800', unit: '/ month and up' },
 	{
 		tier: 'Prepaid plan',
-		status: 'Coming soon',
-		for: 'B2B and School editions. For companies and schools that use it rarely, or more in some months than others.',
+		for: 'All editions. For companies and schools that use it rarely, or more in some months than others.',
 		figure: '3,000',
 		unit: '/ month',
 	},
@@ -82,14 +81,14 @@ const safeguards = [
 	},
 	{
 		label: 'Held in Tokyo',
-		text: 'Data is stored in the Tokyo region. It does not leave the country.',
+		text: 'Data is stored in the Tokyo region. AI processing goes through Anthropic, OpenAI, and Google (US), under terms that exclude what you send from training.',
 	},
 ];
 
 const faqs = [
 	{
 		q: 'What does it cost?',
-		a: 'There are three plans. The User plan is ¥3,000 per user per month. The Student plan for schools starts at ¥9,800 per month for up to 50 enrolled students. The Prepaid plan, coming soon, is ¥3,000 per month with 100 Fuel, topped up as needed. No setup fee, and every plan is free of the monthly fee for the first 30 days. All prices exclude tax.',
+		a: 'There are three plans. The User plan is ¥3,000 per user per month. The Student plan for schools starts at ¥9,800 per month for up to 50 enrolled students. The Prepaid plan is ¥3,000 per month with 100 Fuel, topped up as needed. No setup fee, and every plan comes with a 30-day free trial, no card required. All prices exclude tax.',
 	},
 	{
 		q: 'How are users counted?',
@@ -105,14 +104,14 @@ const faqs = [
 	},
 	{
 		q: 'Can we migrate from the CRM we use today?',
-		a: 'Revenue CRM is built for companies that do not have a CRM yet. If Salesforce, HubSpot, or kintone is already running, we do not recommend switching. We would redesign the revenue process around the tool you already pay for.',
+		a: 'Revenue CRM is built for teams that cannot dedicate someone to running a CRM. If a dedicated admin already runs Salesforce or HubSpot, we do not recommend switching; we support implementation and operations on the tool you have. HubSpot data can be read in without replacing it.',
 	},
 ];
 ---
 
 <BaseLayout
-	title="Revenue CRM for B2B (beta) | The first CRM for companies that don't have one yet"
-	description="The customer list is a spreadsheet, the correspondence is in an inbox, and who to follow up with next lives in one person's head. Revenue CRM is the CRM Consilegy built for those companies. An AI agent and 175 RevOps workflows ship with it. An email address is enough to open the demo. Currently in closed beta. Launches September 28, 2026."
+	title="Revenue CRM | CRM for B2B sales, agencies, SaaS resellers, and schools"
+	description="A CRM for small and mid-sized companies, with editions for B2B sales, agencies and contract work, SaaS resellers, and schools. AI drafts records from business cards, notes, and recordings, and 175 automations ship with every edition. From ¥3,000 per user per month, with a 30-day free trial."
 	ogImage="/images/crm/og-crm-en.png"
 	lang="en"
 	alternateUrl="/crm/"
@@ -126,17 +125,16 @@ const faqs = [
 		<div class="hero-copy">
 			<p class="eyebrow">
 				<img class="eyebrow-mark" src="/images/crm/logo/revenue-crm-logo-teal.svg" alt="" width="26" height="26" decoding="async" />
-				Revenue CRM for B2B, in beta
+				Revenue CRM
 			</p>
-			<h1>The first CRM for companies<br class="br-wide" />that don't have one yet.</h1>
+			<h1>CRM for B2B sales, agencies,<br class="br-wide" /> SaaS resellers, and schools.</h1>
 			<p class="hero-lead">
-				The customer list is a spreadsheet. The correspondence is in an inbox. Who to follow up with
-				next lives in one person's head. We took the pattern of a CRM that actually works, learned from
-				more than 40 CRM implementations, and made it the first CRM for companies like that.
+				One customer record across marketing, sales, and customer success. AI drafts the records,
+				175 automations keep follow-up moving, and each edition starts set up for how that business works.
 			</p>
 			<div class="hero-actions">
 				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">See the demo</a>
-				<a href="/en/contact/" class="btn btn--secondary">Talk to us about the beta</a>
+				<a href={SIGNUP_URL} class="btn btn--secondary" target="_blank" rel="noopener noreferrer">Start free</a>
 			</div>
 			<p class="hero-note">An email address opens the real product. No password to set, no sales call.</p>
 		</div>
@@ -158,8 +156,8 @@ const faqs = [
 <section class="outcomes" id="problems">
 	<div class="container">
 		<div class="section-head">
-			<p class="kicker">What changes</p>
-			<h2>What you do in a spreadsheet today becomes the team's record.</h2>
+			<p class="kicker">What it does</p>
+			<h2>Less typing, less setup, less upkeep.</h2>
 		</div>
 		<ul class="outcome-grid">
 			{outcomes.map((item) => (
@@ -177,7 +175,7 @@ const faqs = [
 	<div class="container">
 		<div class="section-head">
 			<p class="kicker">Use cases</p>
-			<h2>Set up for the shape of your business from the start.</h2>
+			<h2>Pick the edition that fits your business.</h2>
 		</div>
 		<div class="edition-grid">
 			{editions.map((item) => (
@@ -212,12 +210,12 @@ const faqs = [
 		</div>
 		<p class="ai-lead">
 			CRMs stop being used for one reason. Entering data is always the last thing on the list.
-			So we took the typing out. The AI agent inside answers when you ask in plain language.
-			Cards get photographed, threads get pasted, calls get spoken.
+			So the AI drafts the records. The AI agent inside answers when you ask in plain language.
+			Cards get photographed, threads get pasted, recordings get uploaded.
 			And the 175 workflows and the setup for your industry are in place from day one.
 		</p>
 		<p class="ai-note">
-			Anything AI writes waits for a person before it is saved or sent. Nothing goes out on its own.
+			What the AI drafts is reviewed by a person before it is saved or sent.
 			You can bring your own API key (Anthropic / OpenAI / Gemini / Azure OpenAI).
 		</p>
 		<ul class="proof-grid">
@@ -230,7 +228,7 @@ const faqs = [
 		</ul>
 		<p class="proof-note">
 			"40+" is the number of companies our founder, Seiko Yamaguchi, has supported on CRM, MA, and SFA
-			implementation, including her years as an independent consultant. Revenue CRM is in closed beta, so we do not publish a customer count for it.
+			implementation, including her years as an independent consultant. Customer names are published only with each customer's permission.
 		</p>
 	</div>
 </section>
@@ -284,7 +282,7 @@ const faqs = [
 				</div>
 			))}
 			<div class="price-note">
-				<p>No setup fee. Every plan is free of the monthly fee for the first 30 days from the day you start.</p>
+				<p>No setup fee. Every plan comes with a 30-day free trial, no card required.</p>
 			</div>
 		</div>
 		<div class="hero-actions">
@@ -310,7 +308,7 @@ const faqs = [
 			))}
 		</dl>
 		<p class="safe-note">
-			Two-factor authentication and single sign-on are not offered at this stage.
+			Sign in with Google, and multi-factor authentication (6-digit authenticator codes) is available. SAML and OIDC single sign-on are not offered at this stage.
 		</p>
 	</div>
 </section>
@@ -338,19 +336,18 @@ const faqs = [
 	<div class="container">
 		<div class="section-head">
 			<p class="kicker">Start free</p>
-			<h2>The first CRM for a company that has none.</h2>
+			<h2>Try the product first.</h2>
 		</div>
 		<div class="cta-head">
-			<p>Built for companies moving off spreadsheet-based sales management to their first CRM.</p>
+			<p>An email address opens a demo workspace with sample data. No password to set.</p>
 			<p>
-				If Salesforce, HubSpot, kintone, or Marketo is already running, don't switch.
+				If a dedicated admin already runs Salesforce or HubSpot, don't switch.
 				<a href="/en/services/">See how we redesign an existing CRM</a>.
 			</p>
 		</div>
 		<div class="hero-actions">
 			<a href={SIGNUP_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">Start free</a>
 			<a href={DEMO_URL} class="btn btn--secondary" target="_blank" rel="noopener noreferrer">See the demo</a>
-			<a href="/en/contact/" class="btn btn--secondary">Talk to us about the beta</a>
 		</div>
 	</div>
 </section>

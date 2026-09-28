@@ -33,7 +33,13 @@ There are three places to do it.
 2. "Scan card" on the Contacts list
 3. "Scan card" in Contact roles on a deal. The person is attached to that deal as you save
 
+![Home screen with the "Scan a card" button at the top right](/images/crm/media/screens/business-cards-stay-in-the-drawer-1.webp)
+*Top right of Home: "Scan a card". One click from the screen you open every morning. (Screens shown in Japanese; the UI is also available in English.)*
+
 The steps are: photograph, check, press "Save". Shoot in good light with the card filling the frame. The card image itself is kept as an attachment on the contact, so you can look back later at what the card actually said.
+
+![Card scan screen with two buttons: take a photo, or choose images](/images/crm/media/screens/business-cards-stay-in-the-drawer-2.webp)
+*The screen says it in so many words: what you photograph is not saved as is. You check the reading, then register.*
 
 On the confirmation screen, look at two things: the company name and the person's name. Japanese variant characters such as 髙, 﨑 and 眞 are sometimes normalized to their standard forms. If a contact with the same email already exists, the confirmation screen tells you; open and update the existing record rather than creating a new one. Companies are matched to existing records regardless of spelling differences (株式会社○○ and ○○ count as the same company), and a new one is created only if there is no match.
 

@@ -1,10 +1,11 @@
 ---
-import { CATEGORIES, mediaPath, type Article } from '../lib/crm-media';
+import { CATEGORIES, eyecatchPath, mediaPath, type Article } from '../lib/crm-media';
 interface Props { a: Article }
 const { a } = Astro.props;
 const lang = a.data.lang;
 ---
 <a class="card" href={mediaPath(lang, a.data.slug)}>
+  <img class="thumb" src={eyecatchPath(lang, a.data.slug)} alt="" width="1200" height="630" loading="lazy" />
   <span class="chip">{CATEGORIES[a.data.category][lang]}</span>
   <span class="title">{a.data.title}</span>
   <span class="pain">{a.data.pain}</span>
@@ -14,12 +15,14 @@ const lang = a.data.lang;
 <style>
   .card {
     display: flex; flex-direction: column; gap: 0.5rem;
-    padding: 1.1rem 1.15rem 1rem; border: 1px solid var(--color-border); border-radius: var(--radius);
+    padding: 0 0 1rem; overflow: hidden; border: 1px solid var(--color-border); border-radius: var(--radius);
     background: #fff; text-decoration: none; color: inherit; box-shadow: var(--shadow-sm);
     transition: box-shadow 0.15s, border-color 0.15s;
   }
   .card:hover { box-shadow: var(--shadow-md); border-color: var(--color-primary); }
-  .chip { align-self: flex-start; font-size: 0.75rem; font-weight: 700; color: var(--color-primary); background: #eef2ff; border-radius: 999px; padding: 0.1rem 0.65rem; }
+  .thumb { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 630; border-bottom: 1px solid var(--color-border); margin-bottom: 0.5rem; }
+  .chip { margin-left: 1.15rem; align-self: flex-start; font-size: 0.75rem; font-weight: 700; color: var(--color-primary); background: #eef2ff; border-radius: 999px; padding: 0.1rem 0.65rem; }
+  .title, .pain, .feat { padding: 0 1.15rem; }
   .title { font-weight: 700; font-size: 1.02rem; line-height: 1.55; color: var(--color-text); }
   .pain { font-size: 0.9rem; line-height: 1.7; color: var(--color-text-muted); }
   .feat { margin-top: auto; font-size: 0.8rem; font-weight: 600; color: var(--color-text-muted); }

@@ -27,12 +27,21 @@ So the bulk of the setup work is keeping the initial count small. I put the ceil
 
 Open Automations and you will see 175 of them. You do not need to read them all. Press "Find out which ones to turn on" at the top. There are four questions.
 
+![Automation library with the diagnosis card at the top](/images/crm/media/screens/which-automations-to-turn-on-first-1.webp)
+*The Automations screen. Above the list of 175 there is exactly one card: the diagnosis. (Screens shown in Japanese; the UI is also available in English.)*
+
 1. Where do your customers come from? Inquiry form, referrals, events, ads, or your own outreach. Pick as many as apply
 2. How many new inquiries a month? Up to 10, or 11 and more
 3. How many meetings does it take to close? One or two, or three and more
 4. What happens after the sale? Recurring billing, delivery followed by ongoing work, or a one-off
 
 Answer them and you get only the ones that matter first for your kind of business, each with a one-line reason. Never more than eight. Press "Turn on these N" and you are done.
+
+![The four questions: lead source, monthly inquiries, meetings to close, what follows the sale](/images/crm/media/screens/which-automations-to-turn-on-first-2.webp)
+*Four questions. Every answer is a button; nothing to type.*
+
+![The result: "start with these three", each with a one-line reason](/images/crm/media/screens/which-automations-to-turn-on-first-3.webp)
+*The result is a count and a one-line reason each. This was captured in the demo workspace, where automations that are already on are excluded, so it shows three; a fresh workspace shows around seven, as in the example above.*
 
 For example, a business that gets a few inquiries a month through a form, closes in one or two meetings and sells one-off gets roughly this set.
 

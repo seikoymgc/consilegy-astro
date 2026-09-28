@@ -92,3 +92,8 @@ export function fmtDate(d: Date, lang: Lang): string {
     ? `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`
     : d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 }
+
+/** scripts/generate-eyecatches.mjs が出す 1200x630 の SVG。 */
+export function eyecatchPath(lang: Lang, slug: string): string {
+  return lang === 'ja' ? `/images/crm/media/${slug}.svg` : `/images/crm/media/en/${slug}.svg`;
+}

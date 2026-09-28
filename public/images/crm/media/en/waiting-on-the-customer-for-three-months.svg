@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5F7FA"/>
+      <stop offset="100%" stop-color="#E8ECF2"/>
+    </linearGradient>
+    <linearGradient id="bi" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#765FC4"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#765FC4" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#765FC4" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="26"/></filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <circle cx="970" cy="310" r="240" fill="url(#glow)" filter="url(#soft)"/>
+  <line x1="720" y1="307" x2="861" y2="218" stroke="#1E3A8A" stroke-opacity="0.28" stroke-width="1.5"/>
+  <line x1="720" y1="307" x2="844" y2="380" stroke="#1E3A8A" stroke-opacity="0.32" stroke-width="1.5"/>
+  <line x1="861" y1="218" x2="980" y2="243" stroke="#1E3A8A" stroke-opacity="0.36" stroke-width="1.5"/>
+  <line x1="861" y1="218" x2="986" y2="380" stroke="#1E3A8A" stroke-opacity="0.23" stroke-width="1.5"/>
+  <line x1="844" y1="380" x2="980" y2="243" stroke="#1E3A8A" stroke-opacity="0.27" stroke-width="1.5"/>
+  <line x1="844" y1="380" x2="986" y2="380" stroke="#1E3A8A" stroke-opacity="0.37" stroke-width="1.5"/>
+  <line x1="980" y1="243" x2="1139" y2="295" stroke="#1E3A8A" stroke-opacity="0.22" stroke-width="1.5"/>
+  <line x1="986" y1="380" x2="1139" y2="295" stroke="#1E3A8A" stroke-opacity="0.35" stroke-width="1.5"/>
+  <circle cx="720" cy="307" r="9" fill="url(#bi)"/>
+  <circle cx="861" cy="218" r="9" fill="url(#bi)"/>
+  <circle cx="844" cy="380" r="6.5" fill="#F5F7FA" stroke="#1E3A8A" stroke-width="2"/>
+  <circle cx="980" cy="243" r="9" fill="url(#bi)"/>
+  <circle cx="986" cy="380" r="6.5" fill="#F5F7FA" stroke="#1E3A8A" stroke-width="2"/>
+  <circle cx="1139" cy="295" r="6.5" fill="#F5F7FA" stroke="#1E3A8A" stroke-width="2"/>
+  
+
+  <rect x="96" y="60" width="4" height="30" fill="#E62E45"/>
+  <text x="116" y="82" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="20" font-weight="600" fill="#1E3A8A" letter-spacing="0.28em">REVENUE CRM</text>
+  <line x1="96" y1="116" x2="1104" y2="116" stroke="#1E3A8A" stroke-opacity="0.12" stroke-width="1"/>
+
+  <text x="96" y="223" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="40" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">"Waiting on the</text>
+  <text x="96" y="280" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="40" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">customer" for three</text>
+  <text x="96" y="337" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="40" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">months, and nobody is</text>
+  <rect x="96" y="361" width="64" height="3" fill="#E62E45"/>
+  <text x="96" y="398" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="22" font-weight="400" fill="#64748B" letter-spacing="0.02em">Waiting on customer / Pipeline review / Deal stal…</text>
+
+  <rect x="0" y="546" width="1200" height="84" fill="#1E3A8A" fill-opacity="0.035"/>
+  <line x1="0" y1="546" x2="1200" y2="546" stroke="#1E3A8A" stroke-opacity="0.12" stroke-width="1"/>
+  <text x="96" y="598" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="22" font-weight="600" fill="#1E3A8A" letter-spacing="0.18em">CONSILEGY</text>
+  <text x="1104" y="598" text-anchor="end" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="18" font-weight="400" fill="#94A3B8" letter-spacing="0.06em">consilegy.com</text>
+</svg>

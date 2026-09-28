@@ -205,7 +205,7 @@ function motifFunnel(rng) {
 	return `<circle cx="${cx}" cy="330" r="230" fill="url(#glow)" filter="url(#soft)"/>\n  ${bars}`;
 }
 
-function renderSvg({ title, sub, lang, slug }) {
+function renderSvg({ title, sub, lang, slug, eyebrow = 'INSIGHTS' }) {
 	const P = PALETTE;
 	const { size, lines } = layoutTitle(title, lang);
 	const lineHeight = Math.round(size * 1.42);
@@ -253,7 +253,7 @@ function renderSvg({ title, sub, lang, slug }) {
   ${motif}
 
   <rect x="${MARGIN}" y="60" width="4" height="30" fill="${P.accent}"/>
-  <text x="${MARGIN + 20}" y="82" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="20" font-weight="600" fill="${P.navy}" letter-spacing="0.28em">INSIGHTS</text>
+  <text x="${MARGIN + 20}" y="82" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="20" font-weight="600" fill="${P.navy}" letter-spacing="0.28em">${esc(eyebrow)}</text>
   <line x1="${MARGIN}" y1="116" x2="${RIGHT}" y2="116" stroke="${P.hairline}" stroke-opacity="0.12" stroke-width="1"/>
 
   ${titleSpans}
@@ -290,7 +290,44 @@ function generate(dirRel, outRel, lang, onlySlug) {
 	return count;
 }
 
+// Revenue CRM 使い方メディア（src/content/crm-media/{ja,en}/*.md）。
+// 記事は Markdown なので frontmatter の title / feature を読む。アイブロウは REVENUE CRM。
+function readFrontmatter(mdPath) {
+	const src = readFileSync(mdPath, 'utf8');
+	const m = src.match(/^---\n([\s\S]*?)\n---/);
+	if (!m) return {};
+	const out = {};
+	for (const line of m[1].split('\n')) {
+		const kv = line.match(/^([a-z_]+):\s*(.*)$/);
+		if (!kv) continue;
+		let v = kv[2].trim();
+		if (v.startsWith('"') && v.endsWith('"')) v = JSON.parse(v);
+		out[kv[1]] = v;
+	}
+	return out;
+}
+
+function generateCrmMedia(lang, outRel, onlySlug) {
+	const dir = join(ROOT, 'src/content/crm-media', lang);
+	if (!existsSync(dir)) return 0;
+	let count = 0;
+	for (const file of readdirSync(dir)) {
+		if (!file.endsWith('.md')) continue;
+		const fm = readFrontmatter(join(dir, file));
+		const slug = fm.slug || file.replace(/\.md$/, '');
+		if (onlySlug && slug !== onlySlug) continue;
+		if (!fm.title) { console.warn(`skip (no title): ${file}`); continue; }
+		const svg = renderSvg({ title: fm.title, sub: fm.feature || '', lang, slug, eyebrow: 'REVENUE CRM' });
+		writeFileSync(join(ROOT, outRel, `${slug}.svg`), svg);
+		console.log(`ok: ${outRel}/${slug}.svg`);
+		count++;
+	}
+	return count;
+}
+
 const onlySlug = process.argv[2];
 const ja = generate('src/pages/insights', 'public/images/insights', 'ja', onlySlug);
 const en = generate('src/pages/en/insights', 'public/images/insights/en', 'en', onlySlug);
-console.log(`generated: ${ja} ja + ${en} en`);
+const mja = generateCrmMedia('ja', 'public/images/crm/media', onlySlug);
+const men = generateCrmMedia('en', 'public/images/crm/media/en', onlySlug);
+console.log(`generated: ${ja} ja + ${en} en insights, ${mja} ja + ${men} en crm/media`);

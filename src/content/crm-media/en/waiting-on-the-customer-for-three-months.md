@@ -27,6 +27,9 @@ Third, the genuinely neglected deals disappear. "Waiting on the customer" is a c
 
 I do not treat this as a sales problem. The CRM simply had nowhere to write down why a deal is waiting and when it will come back.
 
+![Deal detail with a banner under the stage bar: legal/security review, 63 days, expected resume date passed](/images/crm/media/screens/waiting-on-the-customer-for-three-months-1.webp)
+*A deal with a waiting reason and a resume date shows a banner at the top of its detail page. This one is past its resume date, so the banner has changed color. (Screens shown in Japanese; the UI is also available in English.)*
+
 ## In Revenue CRM you write down when the deal will come back
 
 The deal edit screen has a section called "Waiting & decision." You enter three things.
@@ -39,6 +42,9 @@ Once an expected resume date is set, no stall alert and no dormancy alert fires 
 
 One caution. If you leave the expected resume date empty, the deal is not treated as waiting and it keeps getting chased as stalled. A wait with no date is indistinguishable from neglect, so always put the date in.
 
+![The "Waiting & decision" section of the deal edit screen: reason, expected resume date, decision date](/images/crm/media/screens/waiting-on-the-customer-for-three-months-2.webp)
+*The "Waiting & decision" section on the deal edit screen. These three fields are all there is.*
+
 ## Sort three months of "waiting" in one sitting
 
 For deals that have already piled up, open "Pipeline review" under Sales in the sidebar. You can switch between 30, 60 and 90 days; the default is 60. Deals that have sat in one stage for a long time fall into three piles.
@@ -48,6 +54,9 @@ For deals that have already piled up, open "Pipeline review" under Sales in the 
 - Already decided: a decision date is recorded
 
 It also shows the amount that is "decided but not visible this quarter." The work is to clear the "No record" pile using the controls on the right. Either enter a waiting reason and resume date, or press "Already decided." Every deal you sort moves the numbers at the top.
+
+![Pipeline review: three piles with amounts, no record / waiting on the customer / already decided](/images/crm/media/screens/waiting-on-the-customer-for-three-months-3.webp)
+*Pipeline review at 60 days. The first line on the screen is the whole point: if two kinds of deal sit in the same stage, it is not a sales problem.*
 
 Days in stage are counted from the day the deal entered its current stage. History from before this feature was in use cannot be reconstructed, so existing deals may show fewer days than reality. Accurate counts build up from the day you start.
 

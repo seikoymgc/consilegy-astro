@@ -1,0 +1,152 @@
+---
+// メルマガ登録フォーム。受け口は Revenue CRM 自身のフォーム（Consilegy合同会社の組織）で、
+// 送信するとワークフローが JP / EN Newsletter の配信リストに入れる。
+// crm.consilegy.com は CORS を返さないので、text/plain の単純リクエスト（no-cors）で送る。
+// 登録そのものが配信への同意なので consent: true を送る（同意の記録は CRM 側に残る）。
+interface Props {
+	lang?: 'ja' | 'en';
+	compact?: boolean;
+}
+
+const { lang = 'ja', compact = false } = Astro.props;
+
+const FORMS = {
+	ja: '2b363cc1-b135-4175-9ccc-76e8f2e6c144',
+	en: 'a79cf8a9-38d8-4304-859b-c625a9ff401d',
+};
+const submitUrl = `https://crm.consilegy.com/api/forms/${FORMS[lang]}/submit`;
+
+const t =
+	lang === 'en'
+		? {
+				email: 'Email',
+				first: 'First name',
+				last: 'Last name',
+				optional: 'optional',
+				button: 'Subscribe',
+				sending: 'Sending…',
+				note: 'You can unsubscribe at any time from the link in each issue.',
+				privacy: 'Privacy policy',
+				privacyHref: '/en/privacy-policy/',
+				invalid: 'Please enter a valid email address.',
+				done: 'Thanks for subscribing. The next issue will arrive by email.',
+			}
+		: {
+				email: 'メールアドレス',
+				first: '名',
+				last: '姓',
+				optional: '任意',
+				button: '登録する',
+				sending: '送信しています…',
+				note: '配信は、各号のリンクからいつでも停止できます。',
+				privacy: 'プライバシーポリシー',
+				privacyHref: '/privacy-policy/',
+				invalid: 'メールアドレスの形式をご確認ください。',
+				done: 'ご登録ありがとうございます。次の号からメールでお届けします。',
+			};
+const nameOrder = lang === 'en' ? ['first_name', 'last_name'] : ['last_name', 'first_name'];
+const labelOf = (k: string) => (k === 'first_name' ? t.first : t.last);
+---
+
+<div class:list={['nlf', { 'nlf--compact': compact }]} data-nl-form data-submit-url={submitUrl} data-sending={t.sending} data-invalid={t.invalid}>
+	<form novalidate>
+		<label class="nlf-field">
+			<span>{t.email}</span>
+			<input name="email" type="email" autocomplete="email" required />
+		</label>
+		<div class="nlf-names">
+			{nameOrder.map((k) => (
+				<label class="nlf-field">
+					<span>{labelOf(k)}<small>{t.optional}</small></span>
+					<input name={k} type="text" autocomplete={k === 'first_name' ? 'given-name' : 'family-name'} />
+				</label>
+			))}
+		</div>
+		<label class="nlf-hp" aria-hidden="true">
+			<span>Leave this field empty</span>
+			<input name="hp" type="text" tabindex="-1" autocomplete="off" />
+		</label>
+		<p class="nlf-error" role="alert" hidden></p>
+		<button type="submit" class="nlf-button">{t.button}</button>
+		<p class="nlf-note">{t.note} <a href={t.privacyHref}>{t.privacy}</a></p>
+	</form>
+	<p class="nlf-done" role="status" hidden>{t.done}</p>
+</div>
+
+<script is:inline>
+	(function () {
+		document.querySelectorAll('[data-nl-form]').forEach(function (root) {
+			if (root.dataset.bound) return;
+			root.dataset.bound = '1';
+			var form = root.querySelector('form');
+			var err = root.querySelector('.nlf-error');
+			form.addEventListener('submit', function (e) {
+				e.preventDefault();
+				var fd = new FormData(form);
+				var email = String(fd.get('email') || '').trim();
+				if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+					err.textContent = root.dataset.invalid;
+					err.hidden = false;
+					return;
+				}
+				err.hidden = true;
+				var params = new URLSearchParams(location.search);
+				var utm = {};
+				['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (k) {
+					if (params.get(k)) utm[k] = params.get(k);
+				});
+				if (!utm.utm_source) utm.utm_source = 'consilegy.com' + location.pathname;
+				var btn = form.querySelector('button');
+				btn.disabled = true;
+				btn.textContent = root.dataset.sending;
+				var done = function () {
+					form.hidden = true;
+					root.querySelector('.nlf-done').hidden = false;
+				};
+				fetch(root.dataset.submitUrl, {
+					method: 'POST',
+					mode: 'no-cors',
+					headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+					body: JSON.stringify({
+						values: {
+							email: email,
+							first_name: String(fd.get('first_name') || '').trim(),
+							last_name: String(fd.get('last_name') || '').trim(),
+						},
+						utm: utm,
+						referrer: document.referrer || location.href,
+						consent: true,
+						hp: String(fd.get('hp') || ''),
+					}),
+					keepalive: true,
+				}).then(done, done);
+			});
+		});
+	})();
+</script>
+
+<style>
+	.nlf form { display: grid; gap: 0.85rem; }
+	.nlf-field { display: grid; gap: 0.3rem; font-size: 0.85rem; color: #334155; }
+	.nlf-field small { margin-left: 0.4rem; font-size: 0.72rem; color: #64748b; }
+	.nlf-field input {
+		width: 100%; padding: 0.65rem 0.75rem; border: 1px solid #cbd5e1; border-radius: 0.4rem;
+		font-size: 1rem; background: #fff; color: #0f172a;
+	}
+	.nlf-field input:focus { outline: 2px solid var(--color-primary, #1e40af); outline-offset: 1px; border-color: transparent; }
+	.nlf-names { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+	.nlf-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+	.nlf-error { margin: 0; color: #b42318; font-size: 0.82rem; }
+	.nlf-error[hidden], .nlf-done[hidden], .nlf form[hidden] { display: none; }
+	.nlf-button {
+		width: 100%; padding: 0.75rem 1rem; border: 0; border-radius: 0.45rem; cursor: pointer;
+		background: var(--color-primary, #1e40af); color: #fff; font-weight: 700; font-size: 0.95rem;
+	}
+	.nlf-button:disabled { opacity: 0.6; cursor: default; }
+	.nlf-note { margin: 0; font-size: 0.75rem; line-height: 1.7; color: #64748b; }
+	.nlf-note a { color: inherit; }
+	.nlf-done { margin: 0; padding: 0.9rem 1rem; border-radius: 0.45rem; background: #eff6ff; color: #1e3a8a; font-size: 0.9rem; line-height: 1.7; }
+	.nlf--compact .nlf-names { grid-template-columns: 1fr 1fr; }
+	.nlf--compact .nlf-field { font-size: 0.78rem; }
+	.nlf--compact .nlf-field input { padding: 0.55rem 0.65rem; font-size: 0.95rem; }
+</style>

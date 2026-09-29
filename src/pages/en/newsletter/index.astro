@@ -1,9 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import HubSpotForm from '../../../components/HubSpotForm.astro';
+import NewsletterForm from '../../../components/NewsletterForm.astro';
 
-const portalId = '46498743';
-const newsletterFormId = 'e3b68ea5-7c0f-4754-b0ec-30794227d1d6';
 
 const backnumbers: { date: string; title: string; url: string }[] = [];
 
@@ -166,7 +164,7 @@ const recentPosts = [
 			</header>
 			<div class="nl-signup-layout">
 				<div class="nl-signup-form">
-					<HubSpotForm portalId={portalId} formId={newsletterFormId} region="na2" />
+					<NewsletterForm lang="en" />
 				</div>
 				<aside class="nl-signup-aside">
 					<div class="nl-signup-or">

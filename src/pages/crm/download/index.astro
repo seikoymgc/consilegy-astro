@@ -152,6 +152,8 @@ const contents = [
 				body: body,
 				keepalive: true,
 			}).then(done, done);
+			// 受付口は通知メールを送り終えてから応答するので、応答を待たずにお礼を出す。
+			setTimeout(done, 1500);
 		});
 	})();
 </script>

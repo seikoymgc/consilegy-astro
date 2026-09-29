@@ -120,6 +120,9 @@ const labelOf = (k: string) => (k === 'first_name' ? t.first : t.last);
 					}),
 					keepalive: true,
 				}).then(done, done);
+				// 受付口は通知メールを送り終えてから応答するので数秒かかる。送信は keepalive で
+				// 続くため、応答を待たずにお礼を出す。
+				setTimeout(done, 1500);
 			});
 		});
 	})();

@@ -134,6 +134,9 @@ const t =
 					body: JSON.stringify({ values: values, utm: utm, referrer: document.referrer || location.href, hp: String(fd.get('hp') || '') }),
 					keepalive: true,
 				}).then(done, done);
+				// 受付口は通知メールを送り終えてから応答するので数秒かかる。送信は keepalive で
+				// 続くため、応答を待たずにお礼を出す。
+				setTimeout(done, 1500);
 			});
 		});
 	})();

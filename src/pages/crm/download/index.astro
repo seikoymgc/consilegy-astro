@@ -22,7 +22,7 @@ const contents = [
 
 <BaseLayout
 	title="サービス紹介資料ダウンロード | Revenue CRM | Consilegy"
-	description="Revenue CRMのサービス紹介資料（PDF・16ページ）をダウンロードいただけます。AIによる記録、175本のワークフロー、業種別の初期設定、料金、セキュリティをまとめています。"
+	description="Revenue CRMのサービス紹介資料をダウンロードいただけます。AIによる記録、175本の自動化、業務別の初期設定、料金、セキュリティをまとめています。"
 >
 	<CrmSubnav lang="ja" />
 
@@ -43,7 +43,7 @@ const contents = [
 						decoding="async"
 					/>
 				</figure>
-				<h2>資料の内容（PDF・16ページ）</h2>
+				<h2>資料の内容</h2>
 				<ul class="dl-contents">
 					{contents.map((item) => <li>{item}</li>)}
 				</ul>
@@ -91,7 +91,7 @@ const contents = [
 				<div id="dl-done" hidden>
 					<h2>ありがとうございます</h2>
 					<p>新しいタブで資料が開きます。開かない場合は、下のボタンから開いてください。</p>
-					<a class="btn" href={PDF_URL} target="_blank" rel="noopener">資料を開く（PDF・700KB）</a>
+					<a class="btn" href={PDF_URL} target="_blank" rel="noopener">資料を開く</a>
 					<p class="dl-next">
 						実際の画面は、登録なしで<a href="https://crm.consilegy.com/demos" target="_blank" rel="noopener noreferrer">デモ</a>からご覧いただけます。
 					</p>

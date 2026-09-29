@@ -6,7 +6,7 @@ import CrmSubnav from '../../components/CrmSubnav.astro';
 const DEMO_URL = 'https://crm.consilegy.com/demos';
 const SIGNUP_URL = 'https://crm.consilegy.com/signup';
 
-// 概要ページは8セクション。機能の詳細は /crm/features/、料金の詳細と契約条件は /crm/pricing/、
+// 概要ページは9セクション（スマートフォンを2026-09-29に追加）。機能の詳細は /crm/features/、料金の詳細と契約条件は /crm/pricing/、
 // 質問の全件は /crm/faq/、事業タイプ別の説明は各エディションのページに任せる。
 
 const proofStats = [
@@ -14,6 +14,13 @@ const proofStats = [
 	{ figure: '175本', label: '収録している自動化（4エディション共通）' },
 	{ figure: '3言語', label: '日本語 / English / 繁體中文をUIごと切替' },
 	{ figure: '掲載', label: 'See News（花蓮視新聞）2026年6月25日' },
+];
+
+const mobilePoints = [
+	{ title: '専用アプリは不要', text: 'ブラウザで開くだけです。画面はスマートフォンの幅に合わせて切り替わります。' },
+	{ title: '名刺はその場で撮る', text: 'ボタンを押すとカメラが開き、撮った名刺をAIが読み取ります。訪問先や展示会でそのまま登録できます。' },
+	{ title: '外出先で商談を確認', text: '金額・ステージ・次の予定まで、移動中に確かめられます。' },
+	{ title: 'パソコンと同じデータ', text: '見ているのは同じ顧客データです。スマートフォンで直した内容は、そのままパソコンにも反映されます。' },
 ];
 
 const outcomes = [
@@ -284,6 +291,30 @@ const readings = [
 			※「40社以上」は、代表 山口聖子が個人事業時代を含めてCRM / MA / SFAの導入を支援した累計社数です。
 			導入企業名は、各社の了承を得たものから公開します。
 		</p>
+	</div>
+</section>
+
+<!-- ===================== スマートフォン ===================== -->
+<section class="crm-mobile" id="mobile">
+	<div class="container">
+		<div class="crm-section-head">
+			<p class="kicker">スマートフォン</p>
+			<h2>スマートフォンでも、<br class="br-narrow" />そのまま使えます。</h2>
+		</div>
+		<div class="mobile-inner">
+			<ul class="mobile-points">
+				{mobilePoints.map((item) => (
+					<li>
+						<strong>{item.title}</strong>
+						<span>{item.text}</span>
+					</li>
+				))}
+			</ul>
+			<div class="mobile-shots">
+				<img src="/images/crm/screen-mobile-dashboard-2026-09.webp" alt="スマートフォンで開いたRevenue CRMのダッシュボード" width="390" height="844" loading="lazy" decoding="async" />
+				<img src="/images/crm/screen-mobile-deals-2026-09.webp" alt="スマートフォンで開いたRevenue CRMの商談一覧（カンバン表示）" width="390" height="844" loading="lazy" decoding="async" />
+			</div>
+		</div>
 	</div>
 </section>
 
@@ -905,6 +936,77 @@ const readings = [
 
 	.crm-editions {
 		background: #fff;
+	}
+
+	.crm-mobile {
+		padding: clamp(4rem, 7vw, 6rem) 0;
+		background: #fff;
+	}
+
+	.mobile-inner {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		gap: clamp(2rem, 5vw, 4rem);
+		align-items: center;
+	}
+
+	.mobile-points {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.mobile-points li {
+		display: grid;
+		gap: 0.3rem;
+		padding: 1.05rem 0;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.mobile-points strong {
+		color: var(--color-text);
+		font-size: 1.05rem;
+		font-weight: 700;
+	}
+
+	.mobile-points span {
+		color: #4b5563;
+		font-size: 0.95rem;
+		line-height: 1.75;
+	}
+
+	.mobile-shots {
+		display: flex;
+		gap: 1rem;
+	}
+
+	.mobile-shots img {
+		display: block;
+		width: clamp(150px, 16vw, 210px);
+		height: auto;
+		border: 1px solid var(--color-border);
+		border-radius: 18px;
+		box-shadow: 0 12px 28px rgba(17, 24, 39, 0.12);
+	}
+
+	@media (max-width: 760px) {
+		.crm-mobile {
+			padding-block: var(--space-xl);
+		}
+
+		.mobile-inner {
+			grid-template-columns: 1fr;
+		}
+
+		.mobile-shots {
+			justify-content: center;
+		}
+
+		.mobile-shots img {
+			width: calc(50% - 0.5rem);
+			max-width: 200px;
+		}
 	}
 
 	.crm-section-head {

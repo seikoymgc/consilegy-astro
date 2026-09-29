@@ -4,6 +4,7 @@ import CrmMobile from '../../../components/CrmMobile.astro';
 import CrmSubnav from '../../../components/CrmSubnav.astro';
 
 const DEMO_URL = 'https://crm.consilegy.com/demos';
+const SIGNUP_URL = 'https://crm.consilegy.com/signup';
 
 // プロダクトの contractor エディション（src/lib/editions/index.ts）に実装済みの
 // ものだけ記載。用語は商談→案件に差し替わる。coreNav は /deals・/companies・
@@ -99,6 +100,7 @@ const roles = [
 			</p>
 			<div class="hero-actions">
 				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">デモを見る</a>
+				<a href={SIGNUP_URL} class="btn btn--secondary" target="_blank" rel="noopener noreferrer">無料で始める</a>
 				<a href="#screens" class="btn btn--secondary">画面を見る</a>
 			</div>
 			<ul class="hero-points" aria-label="受託開発版の特徴">
@@ -290,7 +292,8 @@ const roles = [
 				デモはメールアドレスだけで、その場でご覧いただけます。
 			</p>
 			<div class="cta-actions">
-				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">デモを見る</a>
+				<a href={SIGNUP_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">無料で始める</a>
+				<a href={DEMO_URL} class="btn btn--secondary" target="_blank" rel="noopener noreferrer">デモを見る</a>
 				<a href="/crm/download/" class="btn btn--secondary">資料をダウンロード</a>
 			</div>
 		</div>

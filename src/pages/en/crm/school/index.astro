@@ -3,6 +3,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import CrmSubnav from '../../../../components/CrmSubnav.astro';
 
 const DEMO_URL = 'https://crm.consilegy.com/demos';
+const SIGNUP_URL = 'https://crm.consilegy.com/signup';
 
 // Mirrors the Japanese page. Only what is actually built into the product's
 // school shell (edition=b2c + shell='school') is listed here. The LINE
@@ -71,6 +72,7 @@ const roles = [
 			</p>
 			<div class="hero-actions">
 				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">See the demo</a>
+				<a href={SIGNUP_URL} class="btn btn--secondary" target="_blank" rel="noopener noreferrer">Start free</a>
 				<a href="#screens" class="btn btn--secondary">See the screens</a>
 			</div>
 			<ul class="hero-points" aria-label="What the school edition does">
@@ -277,7 +279,8 @@ const roles = [
 				The demo opens with just an email address.
 			</p>
 			<div class="cta-actions">
-				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">See the demo</a>
+				<a href={SIGNUP_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">Start free</a>
+				<a href={DEMO_URL} class="btn btn--secondary" target="_blank" rel="noopener noreferrer">See the demo</a>
 				<a href="/en/crm/" class="btn btn--secondary">See the B2B edition</a>
 			</div>
 		</div>

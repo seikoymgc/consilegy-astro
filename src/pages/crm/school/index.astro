@@ -3,6 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CrmSubnav from '../../../components/CrmSubnav.astro';
 
 const DEMO_URL = 'https://crm.consilegy.com/demos';
+const SIGNUP_URL = 'https://crm.consilegy.com/signup';
 
 // プロダクトの school shell（edition=b2c + shell='school'）に実装済みの機能のみ記載。
 // LINE連携は現時点でシミュレーション（実API未接続）のため、意図的に載せていない。
@@ -115,6 +116,7 @@ const roles = [
 			</p>
 			<div class="hero-actions">
 				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">デモを見る</a>
+				<a href={SIGNUP_URL} class="btn btn--secondary" target="_blank" rel="noopener noreferrer">無料で始める</a>
 				<a href="#screens" class="btn btn--secondary">画面を見る</a>
 			</div>
 			<ul class="hero-points" aria-label="スクール版の特徴">
@@ -509,7 +511,8 @@ const roles = [
 				デモはメールアドレスだけで、その場でご覧いただけます。
 			</p>
 			<div class="cta-actions">
-				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">デモを見る</a>
+				<a href={SIGNUP_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">無料で始める</a>
+				<a href={DEMO_URL} class="btn btn--secondary" target="_blank" rel="noopener noreferrer">デモを見る</a>
 				<a href="/crm/download/" class="btn btn--secondary">資料をダウンロード</a>
 			</div>
 		</div>

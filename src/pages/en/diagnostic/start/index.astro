@@ -462,9 +462,15 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 	// result is shown without waiting on it (keepalive lets the request finish).
 	async function submitLead(email: string, extra: Record<string, string> = {}): Promise<void> {
 		// 要約は診断専用の項目に入れる（message はお問い合わせフォームと共用で、ラベルが混ざる）。
-		const values: Record<string, string> = { email, diagnostic_summary: summaryText() };
+		// English-form keys carry an _en suffix so the notification shows English labels
+		// (field definitions are shared per org, and the Japanese form owns the plain keys).
+		const EN_KEYS: Record<string, string> = {
+			employee_size: 'employee_size_en', consilegy_industry: 'industry_en', consilegy_lead_channel: 'lead_channel_en',
+			current_tools: 'current_tools_en', consilegy_result_url: 'result_url_en', dashboard_demand: 'dashboard_demand_en', pain_point: 'pain_point_en',
+		};
+		const values: Record<string, string> = { email, diagnostic_summary_en: summaryText() };
 		for (const [name, value] of Object.entries(extra)) {
-			if (value) values[name] = value;
+			if (value) values[EN_KEYS[name] ?? name] = value;
 		}
 		const params = new URLSearchParams(location.search);
 		const utm: Record<string, string> = {};

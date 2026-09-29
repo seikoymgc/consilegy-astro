@@ -3,6 +3,7 @@
 // 送信するとワークフローが担当者にメールで知らせる（回答の中身つき）。
 // crm.consilegy.com は CORS を返さないので、text/plain の単純リクエスト（no-cors）で送る。
 // 問い合わせはメルマガの同意ではないので consent は送らない。
+// 英語版は項目名に _en を付ける（通知のラベルを英語で出すため。日本語版と項目定義を分ける）。
 interface Props {
 	lang?: 'ja' | 'en';
 }
@@ -24,9 +25,9 @@ const fields: Field[] =
 		? [
 				{ key: 'first_name', label: 'First name', type: 'text', required: true, auto: 'given-name', half: true },
 				{ key: 'last_name', label: 'Last name', type: 'text', required: true, auto: 'family-name', half: true },
-				{ key: 'company_name', label: 'Company', type: 'text', required: true, auto: 'organization' },
+				{ key: 'company_name_en', label: 'Company', type: 'text', required: true, auto: 'organization' },
 				{ key: 'email', label: 'Email', type: 'email', required: true, auto: 'email' },
-				{ key: 'message', label: 'Message', type: 'textarea', required: true },
+				{ key: 'message_en', label: 'Message', type: 'textarea', required: true },
 			]
 		: [
 				{ key: 'company_name', label: '会社名', type: 'text', required: true, auto: 'organization' },

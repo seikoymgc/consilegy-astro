@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { news, formatNewsDate } from '../../data/news';
+---
+
+<BaseLayout
+	title="ニュース | Consilegy"
+	description="Consilegy合同会社のプレスリリースとお知らせの一覧です。"
+	lang="ja"
+>
+	<header class="page-head container">
+		<p class="page-head__eyebrow">News</p>
+		<h1 class="page-head__title">ニュース</h1>
+	</header>
+
+	<section class="container news-list">
+		<ul>
+			{news.map((item) => (
+				<li class="news-item">
+					<a href={`/news/${item.slug}/`}>
+						<p class="news-item__meta">
+							<time datetime={item.date}>{formatNewsDate(item.date)}</time>
+							<span class="news-item__cat">{item.category}</span>
+						</p>
+						<p class="news-item__title">{item.title}</p>
+						<p class="news-item__summary">{item.summary}</p>
+					</a>
+				</li>
+			))}
+		</ul>
+	</section>
+</BaseLayout>
+
+<style>
+.page-head {
+	padding-block: var(--space-2xl) var(--space-lg);
+	max-width: 800px;
+}
+.page-head__eyebrow {
+	margin: 0 0 var(--space-xs);
+	font-size: 0.85rem; font-weight: 700;
+	letter-spacing: 0.12em; text-transform: uppercase;
+	color: var(--color-primary);
+}
+.page-head__title {
+	margin: 0;
+	font-size: clamp(1.75rem, 3vw, 2.25rem);
+	font-weight: 600; letter-spacing: 0.01em;
+}
+
+.news-list {
+	max-width: 800px;
+	padding-bottom: var(--space-2xl);
+}
+.news-list ul {
+	list-style: none; margin: 0; padding: 0;
+	border-top: 1px solid var(--color-border);
+}
+.news-item { border-bottom: 1px solid var(--color-border); }
+.news-item a {
+	display: block;
+	padding: 1.5rem 0;
+	color: inherit; text-decoration: none;
+}
+.news-item__meta {
+	display: flex; gap: 0.75rem; align-items: center;
+	margin: 0 0 0.5rem;
+	font-size: 0.85rem; color: var(--color-text-muted);
+}
+.news-item__cat {
+	padding: 0.1rem 0.6rem;
+	border: 1px solid var(--color-border); border-radius: 999px;
+	font-size: 0.78rem;
+}
+.news-item__title {
+	margin: 0 0 0.5rem;
+	font-size: 1.0625rem; font-weight: 600; line-height: 1.6;
+	color: var(--color-text);
+}
+.news-item a:hover .news-item__title { color: var(--color-primary); }
+.news-item__summary {
+	margin: 0;
+	font-size: 0.9rem; line-height: 1.75; color: var(--color-text-muted);
+}
+</style>

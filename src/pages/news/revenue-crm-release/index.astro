@@ -1,0 +1,227 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import { news, formatNewsDate } from '../../../data/news';
+
+const item = news.find((n) => n.slug === 'revenue-crm-release')!;
+const IMG = '/images/news/revenue-crm-release-2026-09-28';
+const PRTIMES_URL = 'https://prtimes.jp/main/html/rd/p/000000002.000191457.html';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'NewsArticle',
+	headline: item.title,
+	description: item.summary,
+	datePublished: '2026-09-28T14:51:00+09:00',
+	image: [`https://consilegy.com${IMG}-main.webp`],
+	author: { '@id': 'https://consilegy.com/#organization' },
+	publisher: { '@id': 'https://consilegy.com/#organization' },
+	mainEntityOfPage: 'https://consilegy.com/news/revenue-crm-release/',
+	sameAs: PRTIMES_URL,
+};
+---
+
+<ArticleLayout
+	title={item.title}
+	description={item.summary}
+	lang="ja"
+	eyebrow="プレスリリース"
+	ogImage={`/images/news/og-revenue-crm-release-2026-09-28.png`}
+	backHref="/news/"
+	backLabel="ニュース一覧へ"
+>
+	<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+	<div class="prose news-body">
+		<p class="post-meta">
+			<time datetime={item.date}>{formatNewsDate(item.date)}</time>　Consilegy合同会社
+		</p>
+
+		<figure>
+			<img src={`${IMG}-main.webp`} alt="現場に「使わせる」CRMから、現場の代わりに働くCRMへ。Revenue CRM 2026.9.28 正式提供開始" width="1600" height="900" loading="eager" />
+		</figure>
+
+		<p>Consilegy合同会社（本社：東京都港区、代表：山口聖子）は、マーケティング（MA）・営業（SFA）・顧客管理（CRM）を一つの顧客データでつなぐ中小企業向けCRM「Revenue CRM（レベニューCRM）」の正式版を、2026年9月28日より提供開始します。</p>
+		<p>AIによる記録、175本の自動化、業務別の初期設定を標準搭載し、CRM導入後に発生する「入力・設定・運用」の負担を減らします。法人営業（B2B）、受託開発、代理店（SaaSリセラー）、スクール（B2C）の4つのエディションを用意しています。</p>
+		<p>料金はユーザープランで1アカウント月額3,000円（税抜）。ほかに、人数無制限でAIなどの利用量に応じて払うプリペイドプラン（月額3,000円・税抜）と、スクール向けの生徒数プランがあります。30日間の無料トライアルで、自社に合うかを試していただけます。</p>
+
+		<h2>開発背景：顧客との関係は、部署とツールの境界で切れる。つなごうとすると、新しい仕事が生まれる</h2>
+		<figure>
+			<img src={`${IMG}-dashboard.webp`} alt="Revenue CRM ダッシュボード（B2Bエディション）" width="1600" height="900" loading="lazy" />
+		</figure>
+		<p>顧客との関係は、マーケティングが接点をつくり、営業が引き継ぎ、商談を経て顧客になり、その後も続く一連の流れです。ところが実際には、この流れは部署、担当者、ツールの境界で切れます。</p>
+		<p>マーケティングで得た反応が営業に十分に引き継がれず、商談の経緯は名刺、メモ、電話、チャットなどに分散し、顧客になった後の対応履歴は別の場所で管理されるケースがあります。担当者が変わると、これまでの経緯が十分に引き継がれないこともあります。</p>
+		<p>こうした顧客接点を管理するために、マーケティングではMA、営業ではSFA、顧客管理ではCRMなどのツールが使われています。ところが導入すると、今度は別の問題が生まれます。現場には「入力する仕事」、管理者には「設定する仕事」、組織には「運用を回す仕事」。</p>
+		<p>当社は支援の現場で、専任担当者を置きにくい組織において、この運用負荷がツールを使い続ける障壁となるケースを数多く見てきました。入力が止まれば記録は残らず、顧客情報は再び名刺やメモ、個人の手元に散らばります。</p>
+
+		<h2>約8年の導入支援から得た結論：教育するのではなく、CRMのための仕事を減らす</h2>
+		<p>当社代表は約8年、HubSpotやSalesforceを中心に40社以上のCRM導入・運用支援に携わってきました。その中で考え続けてきたのが、「どうすれば現場にCRMを使い続けてもらえるか」という問いです。</p>
+		<p>当社が出した答えは、定着を現場の努力だけに委ねるのではなく、CRMが人に要求する仕事そのものを減らすことでした。人をCRMに合わせるのではなく、CRMのほうを人の仕事に合わせる。Revenue CRMは、この考えから設計しました。</p>
+
+		<h2>Revenue CRMの設計思想：顧客との関係をつなぎ、CRMのための仕事を減らす</h2>
+		<p>Revenue CRMは、MA/SFA/CRMで扱われる業務を、「顧客との関係をつくり、引き継ぎ、蓄積する一連のプロセス」として設計しています。</p>
+		<p>フォーム、リスト、メール配信、リードスコアリングなどのマーケティング機能、商談・パイプライン・フォーキャストなどの営業機能、ヘルススコア・チケット・更新管理などの顧客対応機能を、一つの顧客データの上でつなぎます。</p>
+		<p>その流れを現場で続けるために、入力負荷はAIで減らし、設定は済ませた状態で届け、運用は自動化で回します。</p>
+
+		<h2>Revenue CRMを支える3つの機能</h2>
+		<figure>
+			<img src={`${IMG}-three-features.webp`} alt="Revenue CRMを支える3つの機能：AIによる記録、175本の自動化と診断、業務に合わせた初期設定" width="1600" height="900" loading="lazy" />
+		</figure>
+
+		<h3>1. AIによる記録</h3>
+		<figure>
+			<img src={`${IMG}-ai-record.webp`} alt="AIによる記録：名刺の読み取り" width="1600" height="900" loading="lazy" />
+		</figure>
+		<p>名刺を撮れば連絡先に、次に送るメッセージの文面もAIが提案。商談を話せば文字起こし・要点・次のアクションまで抽出し、議事録からタスクと連絡先を自動で作成。現場は「入力」ではなく「確認」だけで済みます。名刺やメモ、音声など、日々の業務で生まれる情報をCRMに記録する負担を減らします。</p>
+		<p>ハブスポット・ジャパン株式会社が2026年2月に発表した「日本の営業に関する意識・実態調査2026」では、生成AIを「CRM/SFAへの活動記録の入力」に活用している回答者の週あたり平均業務削減時間は4.0時間でした※。</p>
+		<p>この数値は同調査の回答であり、Revenue CRMの利用効果を示すものではありません。</p>
+
+		<h3>2. 175本の自動化と診断</h3>
+		<figure>
+			<img src={`${IMG}-automation.webp`} alt="175本の自動化と、有効化の候補を提示する診断機能" width="1600" height="900" loading="lazy" />
+		</figure>
+		<p>リードの割り当て、フォローアップの催促、ステージ移動時の通知、承認の回覧、更新時期の案内など、マーケティング・営業・カスタマーサクセスの定型業務を回す自動化を175本収録しています。</p>
+		<p>すべてを使う必要はありません。診断機能が現在の設定状況を読み、有効化の候補となる自動化を最大8本まで提示します。</p>
+
+		<h3>3. 業務に合わせた初期設定</h3>
+		<p>項目・顧客の管理方法・パイプライン・自動化を、業務に合わせてあらかじめ設計したエディションとして提供します。初期設定済みの状態で利用を開始できます。空のCRMを渡して、設定から始めてもらうことはしません。</p>
+
+		<h2>4つのエディション：業務の特性に合わせて選ぶ</h2>
+		<figure>
+			<img src={`${IMG}-editions.webp`} alt="Revenue CRMの4つのエディション" width="1600" height="900" loading="lazy" />
+		</figure>
+		<p>Revenue CRMでは、CRMを契約してから自社用にゼロから設計するのではなく、業務特性に合わせてあらかじめ設計した4つのエディションを用意しています。用途を選ぶと、初期設定済みの状態で使い始められます。</p>
+		<ul>
+			<li>B2B：法人営業・案件管理</li>
+			<li>支援会社・受託開発：案件の受注からデリバリー、稼働管理まで</li>
+			<li>代理店（SaaSリセラー）：仕入れ先の製品を再販する事業者向け</li>
+			<li>スクール（B2C）：生徒の問い合わせ・体験から在籍中の対応履歴まで</li>
+		</ul>
+		<p>法人営業は案件を追い、スクールは在籍中の一人ひとりを見続けます。管理する単位が違うため、B2BとB2Cは最初から別に設計しています。</p>
+
+		<h2>料金</h2>
+		<p>エディションは「どの業務に合わせるか」、料金プランは「どう使い、どう払うか」で分けています。3つのプランで使える機能は同じです。違うのは課金の単位（人数／生徒数／利用量）で、AIの利用枠はどのプランも月額に含み、足りなければ追加購入できます。</p>
+		<div class="table-wrap">
+			<table>
+				<thead>
+					<tr><th>プラン</th><th>料金体系</th><th>向いている使い方</th></tr>
+				</thead>
+				<tbody>
+					<tr><td>ユーザープラン</td><td>1アカウント月額3,000円（税抜）。人数が増えても単価は同じ</td><td>B2Bで日常的に使う</td></tr>
+					<tr><td>生徒数プラン</td><td>受講中の生徒数に応じた月額制。50人まで月額9,800円（税抜）から。講師・スタッフの人数は料金に影響しない</td><td>スクールで日常的に使う</td></tr>
+					<tr><td>プリペイドプラン</td><td>月額3,000円（税抜）、人数無制限。月額にAI処理などに使う利用枠を含み、足りなくなったら追加購入（有効期限90日）</td><td>使う頻度が低い、または波がある</td></tr>
+				</tbody>
+			</table>
+		</div>
+		<ul>
+			<li>初期費用なし。業務設計、データ移行、定着支援などの導入支援は有償オプション（別途お見積り）</li>
+			<li>30日間の無料トライアル</li>
+			<li>AIの利用枠と追加料金の詳細は<a href="https://crm.consilegy.com/pricing">料金ページ</a>に記載</li>
+		</ul>
+
+		<h2>まず、画面を試す</h2>
+		<p>メールアドレスを入れるだけで、パスワード登録なしにデモ環境を開けます。実際の画面で、記録・自動化・初期設定の状態を確かめられます。</p>
+		<ul>
+			<li>デモ：<a href="https://crm.consilegy.com/demos">https://crm.consilegy.com/demos</a></li>
+			<li>料金・申込：<a href="https://crm.consilegy.com/pricing">https://crm.consilegy.com/pricing</a></li>
+			<li>サービスサイト：<a href="/crm/">https://consilegy.com/crm/</a></li>
+			<li>サービス紹介資料（PDF）：<a href="/crm/download/">資料ダウンロード</a></li>
+		</ul>
+
+		<h2>代表コメント</h2>
+		<div class="ceo-comment">
+			<img src="/images/common/seiko-yamaguchi-2026b.jpg" alt="Consilegy合同会社 代表 山口聖子" width="160" height="160" loading="lazy" />
+			<div>
+				<p class="ceo-comment__name">Consilegy合同会社　代表　山口聖子</p>
+				<p>「CRMの導入支援を約8年続けてきて、ずっと違和感がありました。顧客に向き合うために導入したはずのCRMなのに、いつの間にかCRMを使うための仕事が増えていく。</p>
+				<p>使う人に頑張ってもらうのではなく、CRMのほうが人に合わせればいい。入力や設定、日々の運用に使っていた時間を、もっと顧客と向き合うことに使えるようにしたい。その考えを形にしたのがRevenue CRMです。」</p>
+			</div>
+		</div>
+
+		<h2>よくある質問</h2>
+		<h3>導入実績はありますか</h3>
+		<p>2026年6月から、スクール、B2Bなど複数の業種でクローズドβを実施し、そこで出た要望を正式版に反映しています。社名は非公開です。導入事例は、各社の了承を得たものから別途公開します。</p>
+		<h3>HubSpotやSalesforceの導入支援と、自社CRMの提供は矛盾しませんか</h3>
+		<p>対象が違います。分けているのは会社の規模ではなく、CRMの運用に専任の担当者を置けるかどうかです。置きにくい組織にはRevenue CRMを、置ける組織にはHubSpotやSalesforceの導入・運用支援を、これまでどおり提供します。</p>
+		<p>Revenue CRMは、HubSpotからのデータ読み取りと、HubSpotへのリスト送信にも対応しています。</p>
+		<h3>メール配信はどこまでできますか</h3>
+		<p>1対1の営業メール、静的・動的リストへの配信（予約配信、開封率・クリック率）、日次のステップメール（シーケンス）に対応しています。</p>
+		<p>差出人は自社ドメインにでき、設定画面からSPF/DKIMのDNS検証を行います。想定している規模は月数千通までで、月数万通規模の大量配信は対象外です。その場合は大量配信をMA側で行い、Revenue CRMと併用してください。</p>
+		<h3>「175本」は何を数えていますか</h3>
+		<p>ON/OFFで有効にできる自動化のワークフローの本数です（2026年9月時点）。4つのエディションで共通です。</p>
+		<h3>AIに渡したデータはどう扱われますか</h3>
+		<p>登録データを、外部の生成AI事業者のモデル学習に使用させないことを利用契約で定めています。AIの判定を承認・訂正した結果は、そのワークスペースの設定にのみ反映され、他の組織の判定には使われません。AIが生成した文章の権利は利用者に帰属します。</p>
+		<h3>セキュリティ対応はどうなっていますか</h3>
+		<p>組織ごとにデータへのアクセスを分離（行レベルのアクセス制御）し、多要素認証に対応しています。</p>
+		<h3>ZoomやTeamsなどの会議ツールと連携できますか</h3>
+		<p>現時点では未対応です。録音データをアップロードすると、文字起こしと要点の抽出ができます。</p>
+		<h3>無料トライアルが終わるとどうなりますか</h3>
+		<p>有料プランに申し込むと、そのままの状態で再開できます。申し込まないまま30日を過ぎると、ワークスペースは一時停止し、データは90日間保管されます。</p>
+
+		<p class="footnote">※出典：ハブスポット・ジャパン株式会社「日本の営業に関する意識・実態調査2026」（2026年2月27日発表。調査期間2025年10月30日～31日、売り手1,545名（従業員51～5,000名の企業）・買い手515名）。「4.0時間」は、生成AIを「CRM/SFAへの活動記録の入力」に活用している回答者の週あたり平均業務削減時間です。<br /><a href="https://www.hubspot.jp/company-news/stateofsales-20260227" target="_blank" rel="noopener noreferrer">https://www.hubspot.jp/company-news/stateofsales-20260227</a></p>
+
+		<h2>会社概要</h2>
+		<p>Consilegy合同会社は、営業・マーケティング・顧客管理（CRM）を一つの収益システムに統合するレベニューアーキテクチャ／RevOps設計会社です。戦略設計からMA・CRM・SFAの実装、現場定着まで一貫して伴走し、自社の顧客管理プロダクト「Revenue CRM」も開発・提供しています。</p>
+		<div class="table-wrap">
+			<table class="info-table">
+				<tbody>
+					<tr><th>所在地</th><td>〒107-0061 東京都港区北青山1丁目3番1号 アールキューブ青山3階</td></tr>
+					<tr><th>代表</th><td>山口聖子</td></tr>
+					<tr><th>設立</th><td>2025年5月</td></tr>
+					<tr><th>事業内容</th><td>B2B企業向けレベニューアーキテクチャの設計・実装支援（HubSpot／Salesforce導入）、Revenue CRMの開発・提供</td></tr>
+					<tr><th>URL</th><td><a href="/">https://consilegy.com</a></td></tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h2>本件に関するお問い合わせ</h2>
+		<p><a href="/contact/">お問い合わせフォーム</a>からご連絡ください。</p>
+
+		<p class="source-note">本リリースはPR TIMESで配信しました：<a href={PRTIMES_URL} target="_blank" rel="noopener noreferrer">PR TIMESで読む</a></p>
+	</div>
+</ArticleLayout>
+
+<style>
+.news-body { max-width: 760px; }
+.news-body figure { margin: 1.5rem 0; }
+.news-body figure img {
+	display: block; width: 100%; height: auto;
+	border: 1px solid var(--color-border); border-radius: var(--radius);
+}
+.news-body a { color: var(--color-primary); text-decoration: underline; }
+.table-wrap { overflow-x: auto; }
+.news-body table {
+	width: 100%; border-collapse: collapse;
+	font-size: 0.9rem; line-height: 1.65;
+}
+.news-body th, .news-body td {
+	padding: 0.75rem 1rem; border: 1px solid var(--color-border);
+	text-align: left; vertical-align: top;
+}
+.news-body thead th, .info-table th {
+	background: var(--color-bg-subtle); font-weight: 600; white-space: nowrap;
+}
+.ceo-comment {
+	display: flex; gap: 1.25rem; align-items: flex-start;
+	padding: 1.25rem; background: var(--color-bg-subtle);
+	border-radius: var(--radius);
+}
+.ceo-comment img {
+	flex: 0 0 auto; width: 96px; height: 96px;
+	border-radius: 50%; object-fit: cover;
+}
+.ceo-comment p { margin: 0 0 0.75rem; }
+.ceo-comment p:last-child { margin-bottom: 0; }
+.ceo-comment__name { font-weight: 600; font-size: 0.9rem; }
+.footnote, .source-note {
+	font-size: 0.85rem; color: var(--color-text-muted);
+}
+.source-note {
+	margin-top: 2.5rem; padding-top: 1rem;
+	border-top: 1px solid var(--color-border);
+}
+@media (max-width: 560px) {
+	.ceo-comment { flex-direction: column; }
+	.news-body th, .news-body td { padding: 0.6rem 0.65rem; }
+	.news-body tbody td:first-child { white-space: nowrap; }
+}
+</style>

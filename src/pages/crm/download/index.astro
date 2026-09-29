@@ -90,8 +90,8 @@ const contents = [
 
 				<div id="dl-done" hidden>
 					<h2>ありがとうございます</h2>
-					<p>下のボタンから資料をダウンロードいただけます。</p>
-					<a class="btn" href={PDF_URL} download>PDFをダウンロード（700KB）</a>
+					<p>新しいタブで資料が開きます。開かない場合は、下のボタンから開いてください。</p>
+					<a class="btn" href={PDF_URL} target="_blank" rel="noopener">資料を開く（PDF・700KB）</a>
 					<p class="dl-next">
 						実際の画面は、登録なしで<a href="https://crm.consilegy.com/demos" target="_blank" rel="noopener noreferrer">デモ</a>からご覧いただけます。
 					</p>
@@ -138,15 +138,11 @@ const contents = [
 			var button = form.querySelector('button[type="submit"]');
 			button.disabled = true;
 			button.textContent = '送信しています…';
+			// 送信ボタンを押した操作の中で開かないと、ポップアップとしてブロックされる。
+			window.open(PDF_URL, '_blank', 'noopener');
 			var done = function () {
 				document.getElementById('dl-form-wrap').hidden = true;
 				document.getElementById('dl-done').hidden = false;
-				var a = document.createElement('a');
-				a.href = PDF_URL;
-				a.download = '';
-				document.body.appendChild(a);
-				a.click();
-				a.remove();
 			};
 			fetch(SUBMIT_URL, {
 				method: 'POST',

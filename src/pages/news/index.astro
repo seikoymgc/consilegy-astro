@@ -20,6 +20,7 @@ import { news, formatNewsDate } from '../../data/news';
 				return (
 					<li class="news-item">
 						<Tag class="news-item__inner" href={item.slug ? `/news/${item.slug}/` : undefined}>
+							{item.image && <img class="news-item__photo" src={item.image} alt={item.imageAlt ?? ''} width="240" height="160" loading="lazy" />}
 							<p class="news-item__meta">
 								<time datetime={item.date}>{formatNewsDate(item.date)}</time>
 								<span class="news-item__cat">{item.category}</span>
@@ -82,6 +83,15 @@ import { news, formatNewsDate } from '../../data/news';
 	color: var(--color-text);
 }
 .news-item a:hover .news-item__title { color: var(--color-primary); }
+.news-item__photo {
+	float: right; width: 200px; height: 134px; margin: 0 0 0.75rem 1.25rem;
+	object-fit: cover; border-radius: var(--radius);
+	border: 1px solid var(--color-border);
+}
+.news-item__inner::after { content: ''; display: block; clear: both; }
+@media (max-width: 560px) {
+	.news-item__photo { float: none; width: 100%; height: auto; aspect-ratio: 3 / 2; margin: 0 0 0.75rem; }
+}
 .news-item__host {
 	margin: 0.4rem 0 0;
 	font-size: 0.8rem; color: var(--color-text-muted);

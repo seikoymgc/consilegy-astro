@@ -5,7 +5,7 @@ import { news, formatNewsDate } from '../../data/news';
 
 <BaseLayout
 	title="ニュース | Consilegy"
-	description="Consilegy合同会社のプレスリリースとお知らせの一覧です。"
+	description="Consilegy合同会社のプレスリリース、お知らせ、代表の登壇実績の一覧です。"
 	lang="ja"
 >
 	<header class="page-head container">
@@ -15,18 +15,22 @@ import { news, formatNewsDate } from '../../data/news';
 
 	<section class="container news-list">
 		<ul>
-			{news.map((item) => (
-				<li class="news-item">
-					<a href={`/news/${item.slug}/`}>
-						<p class="news-item__meta">
-							<time datetime={item.date}>{formatNewsDate(item.date)}</time>
-							<span class="news-item__cat">{item.category}</span>
-						</p>
-						<p class="news-item__title">{item.title}</p>
-						<p class="news-item__summary">{item.summary}</p>
-					</a>
-				</li>
-			))}
+			{news.map((item) => {
+				const Tag = item.slug ? 'a' : 'div';
+				return (
+					<li class="news-item">
+						<Tag class="news-item__inner" href={item.slug ? `/news/${item.slug}/` : undefined}>
+							<p class="news-item__meta">
+								<time datetime={item.date}>{formatNewsDate(item.date)}</time>
+								<span class="news-item__cat">{item.category}</span>
+							</p>
+							<p class="news-item__title">{item.title}</p>
+							<p class="news-item__summary">{item.summary}</p>
+							{item.host && <p class="news-item__host">主催：{item.host}</p>}
+						</Tag>
+					</li>
+				);
+			})}
 		</ul>
 	</section>
 </BaseLayout>
@@ -57,7 +61,7 @@ import { news, formatNewsDate } from '../../data/news';
 	border-top: 1px solid var(--color-border);
 }
 .news-item { border-bottom: 1px solid var(--color-border); }
-.news-item a {
+.news-item__inner {
 	display: block;
 	padding: 1.5rem 0;
 	color: inherit; text-decoration: none;
@@ -78,6 +82,10 @@ import { news, formatNewsDate } from '../../data/news';
 	color: var(--color-text);
 }
 .news-item a:hover .news-item__title { color: var(--color-primary); }
+.news-item__host {
+	margin: 0.4rem 0 0;
+	font-size: 0.8rem; color: var(--color-text-muted);
+}
 .news-item__summary {
 	margin: 0;
 	font-size: 0.9rem; line-height: 1.75; color: var(--color-text-muted);

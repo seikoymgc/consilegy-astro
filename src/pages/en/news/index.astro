@@ -16,10 +16,11 @@ import { newsEn as news, formatNewsDateEn as formatNewsDate } from '../../../dat
 	<section class="container news-list">
 		<ul>
 			{news.map((item) => {
-				const Tag = item.slug ? 'a' : 'div';
+				const href = item.slug ? `/en/news/${item.slug}/` : item.url;
+				const Tag = href ? 'a' : 'div';
 				return (
 					<li class="news-item">
-						<Tag class="news-item__inner" href={item.slug ? `/en/news/${item.slug}/` : undefined}>
+						<Tag class="news-item__inner" href={href} {...(item.url && !item.slug ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
 							{item.image && <img class="news-item__photo" src={item.image} alt={item.imageAlt ?? ''} width="240" height="160" loading="lazy" />}
 							<p class="news-item__meta">
 								<time datetime={item.date}>{formatNewsDate(item.date)}</time>
@@ -27,7 +28,8 @@ import { newsEn as news, formatNewsDateEn as formatNewsDate } from '../../../dat
 							</p>
 							<p class="news-item__title">{item.title}</p>
 							<p class="news-item__summary">{item.summary}</p>
-							{item.host && <p class="news-item__host">Hosted by {item.host}</p>}
+							{item.url && !item.slug && <p class="news-item__ext">Read the article ↗</p>}
+							{item.host && <p class="news-item__host">{item.category === 'Media' ? 'Published by' : 'Hosted by'} {item.host}</p>}
 						</Tag>
 					</li>
 				);
@@ -85,12 +87,16 @@ import { newsEn as news, formatNewsDateEn as formatNewsDate } from '../../../dat
 .news-item a:hover .news-item__title { color: var(--color-primary); }
 .news-item__photo {
 	float: right; width: 200px; height: 134px; margin: 0 0 0.75rem 1.25rem;
-	object-fit: cover; border-radius: var(--radius);
+	object-fit: cover; object-position: top; border-radius: var(--radius);
 	border: 1px solid var(--color-border);
 }
 .news-item__inner::after { content: ''; display: block; clear: both; }
 @media (max-width: 560px) {
 	.news-item__photo { float: none; width: 100%; height: auto; aspect-ratio: 3 / 2; margin: 0 0 0.75rem; }
+}
+.news-item__ext {
+	margin: 0.5rem 0 0;
+	font-size: 0.85rem; font-weight: 600; color: var(--color-primary);
 }
 .news-item__host {
 	margin: 0.4rem 0 0;

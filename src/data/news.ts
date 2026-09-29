@@ -1,14 +1,15 @@
 // 会社のニュース（プレスリリース・お知らせ・登壇）。新しいものを先頭に足す。
-// slug があるものだけ詳細ページを持つ。登壇は一覧に概要を載せるだけ。
+// slug があるものだけ詳細ページを持つ。url があるものは外部の記事へリンクする。
 export interface NewsItem {
 	slug?: string;
 	date: string; // YYYY-MM-DD、日が不明なら YYYY-MM
-	category: 'プレスリリース' | 'お知らせ' | '登壇';
+	category: 'プレスリリース' | 'お知らせ' | '登壇' | 'メディア掲載';
 	title: string;
 	summary: string;
 	host?: string; // 主催
 	image?: string; // 登壇写真など。/images/news/ 配下
 	imageAlt?: string;
+	url?: string; // 外部の掲載記事など。slug より後に見る
 }
 
 export const news: NewsItem[] = [
@@ -18,6 +19,16 @@ export const news: NewsItem[] = [
 		category: 'プレスリリース',
 		title: '現場に「使わせる」CRMから、現場の代わりに働くCRMへ。中小企業向けCRM「Revenue CRM」正式提供開始',
 		summary: '入力・設定・運用という「CRMのための仕事」を、AIによる記録、175本の自動化、業務別の初期設定で減らす。マーケティング・営業・顧客管理を一つの顧客データでつなぐ。',
+	},
+	{
+		date: '2026-06-25',
+		category: 'メディア掲載',
+		title: '代表の山口聖子とRevenue CRMの開発が、台湾のSee News（花蓮視新聞）に掲載',
+		summary: '台湾・花蓮県が運営する「花蓮雲基地 Hualien Cloud Hub」の第2期入居者の発表を伝える記事で、第1期メンバーとして滞在した代表の山口聖子と、滞在中に開発したCRMとAIを組み合わせた新製品（現在のRevenue CRM）が紹介されました。',
+		host: 'See News（花蓮視新聞）',
+		url: 'https://www.seenews.com.tw/news_data.php?news_id=2325&k_code=A',
+		image: '/images/news/seenews-hualien-2026-06-25-photo.jpg',
+		imageAlt: '花蓮雲基地 Hualien Cloud Hub のサインと旗の前に立つ代表 山口聖子（See News 2026年6月25日の掲載写真）',
 	},
 	{
 		date: '2026-04',

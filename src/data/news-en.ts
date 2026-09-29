@@ -3,7 +3,7 @@
 import type { NewsItem } from './news';
 
 export type NewsItemEn = Omit<NewsItem, 'category'> & {
-	category: 'Press release' | 'Announcement' | 'Talk';
+	category: 'Press release' | 'Announcement' | 'Talk' | 'Media';
 };
 
 export const newsEn: NewsItemEn[] = [
@@ -13,6 +13,16 @@ export const newsEn: NewsItemEn[] = [
 		category: 'Press release',
 		title: 'From a CRM your team has to feed, to a CRM that does the work: Revenue CRM for small and mid-sized companies is now generally available',
 		summary: 'AI-drafted records, 175 automations, and editions set up for each type of business cut the data entry, configuration, and upkeep a CRM usually demands. Marketing, sales, and customer management run on one customer record.',
+	},
+	{
+		date: '2026-06-25',
+		category: 'Media',
+		title: 'See News (花蓮視新聞) in Taiwan features CEO Seiko Yamaguchi and the build of Revenue CRM',
+		summary: 'Reporting on the second cohort of Hualien Cloud Hub (花蓮雲基地), run by Hualien County, Taiwan, the article features CEO Seiko Yamaguchi as a first-cohort member and the CRM and AI product she built during her stay, now Revenue CRM.',
+		host: 'See News (花蓮視新聞)',
+		url: 'https://www.seenews.com.tw/news_data.php?news_id=2325&k_code=A',
+		image: '/images/news/seenews-hualien-2026-06-25-photo.jpg',
+		imageAlt: 'CEO Seiko Yamaguchi in front of the Hualien Cloud Hub signs and banner (photo from See News, 25 June 2026)',
 	},
 	{
 		date: '2026-04',

@@ -1,0 +1,206 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import { newsEn, formatNewsDateEn } from '../../../../data/news-en';
+
+const item = newsEn.find((n) => n.slug === 'revenue-crm-release')!;
+const PRTIMES_URL = 'https://prtimes.jp/main/html/rd/p/000000002.000191457.html';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'NewsArticle',
+	headline: item.title,
+	description: item.summary,
+	datePublished: '2026-09-28T14:51:00+09:00',
+	inLanguage: 'en',
+	image: ['https://consilegy.com/images/crm/screen-dashboard-2026-09-en.webp'],
+	author: { '@id': 'https://consilegy.com/#organization' },
+	publisher: { '@id': 'https://consilegy.com/#organization' },
+	mainEntityOfPage: 'https://consilegy.com/en/news/revenue-crm-release/',
+};
+---
+
+<ArticleLayout
+	title={item.title}
+	description={item.summary}
+	lang="en"
+	eyebrow="Press release"
+	ogImage="/images/crm/og-crm-en.png"
+	backHref="/en/news/"
+	backLabel="All news"
+>
+	<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+	<div class="prose news-body">
+		<p class="post-meta">
+			<time datetime={item.date}>{formatNewsDateEn(item.date)}</time> · Consilegy LLC, Tokyo
+		</p>
+
+		<figure>
+			<img src="/images/crm/screen-dashboard-2026-09-en.webp" alt="Revenue CRM dashboard" width="1600" height="1000" loading="eager" />
+		</figure>
+
+		<p>Consilegy LLC (Minato, Tokyo; CEO: Seiko Yamaguchi) launched the general release of Revenue CRM on September 28, 2026. Revenue CRM is a CRM for small and mid-sized companies that connects marketing (MA), sales (SFA), and customer management (CRM) on one customer record.</p>
+		<p>AI-drafted records, 175 automations, and setups tailored to each type of business come built in, reducing the data entry, configuration, and upkeep a CRM usually demands after rollout. Four editions are available: B2B sales, agencies and contract work, SaaS resellers, and schools (B2C).</p>
+		<p>The User plan is ¥3,000 per user per month (excluding tax). There is also a Prepaid plan at ¥3,000 per month (excluding tax) with unlimited users, paid by usage such as AI processing, and a Student plan for schools. Every plan comes with a 30-day free trial.</p>
+
+		<h2>Background: customer relationships break at the boundaries between teams and tools</h2>
+		<p>A customer relationship is one continuous flow. Marketing creates the first touchpoint, sales picks it up, a deal turns into a customer, and the relationship continues from there. In practice, that flow breaks wherever it crosses a team, a person, or a tool.</p>
+		<p>Marketing signals are not fully handed over to sales. Deal history is scattered across business cards, notes, calls, and chat. After a deal closes, customer support history lives somewhere else. When the person in charge changes, the history often does not follow.</p>
+		<p>Companies use MA for marketing, SFA for sales, and CRM for customer management to hold these touchpoints together. But the tools create a new problem. The front line gets the work of entering data, managers get the work of configuring the system, and the organization gets the work of keeping it running.</p>
+		<p>In our consulting work, we have seen many organizations that cannot assign a dedicated CRM owner, where this upkeep becomes the reason teams stop using the tool. Once data entry stops, records stop too, and customer information scatters back into business cards, notes, and individual inboxes.</p>
+
+		<h2>What eight years of CRM implementation taught us: reduce the work, don't train harder</h2>
+		<p>Our founder has spent about eight years implementing and running CRMs, mainly HubSpot and Salesforce, for more than 40 companies. The question that kept coming back was how to get front-line teams to keep using the CRM.</p>
+		<p>Our answer was not to leave adoption to the team's effort, but to cut the work the CRM asks of people. Instead of fitting people to the CRM, fit the CRM to people's work. Revenue CRM is built on that idea.</p>
+
+		<h2>Design: connect the customer relationship, and cut the work done for the CRM's sake</h2>
+		<p>Revenue CRM treats the work usually split across MA, SFA, and CRM as one process: building, handing over, and accumulating the relationship with each customer.</p>
+		<p>Marketing features such as forms, lists, email, and lead scoring; sales features such as deals, pipeline, and forecasting; and customer features such as health scores, tickets, and renewals all run on the same customer record.</p>
+		<p>To keep that flow going on the front line, AI reduces data entry, configuration arrives already done, and automation keeps operations moving.</p>
+
+		<h2>Three capabilities behind Revenue CRM</h2>
+		<h3>1. AI-drafted records</h3>
+		<p>Photograph a business card and it becomes a contact, with a suggested follow-up message. Talk through a meeting and AI extracts the transcript, key points, and next actions, then creates tasks and contacts from the notes. The team reviews instead of typing. This reduces the effort of recording the information that business cards, notes, and audio generate every day.</p>
+		<p>In HubSpot Japan's "Survey on Sales in Japan 2026," published in February 2026, respondents who use generative AI to enter activity records into CRM/SFA reported saving an average of 4.0 hours per week.* This figure comes from the survey responses and does not describe the effect of using Revenue CRM.</p>
+
+		<h3>2. 175 automations, with a diagnostic</h3>
+		<p>Revenue CRM includes 175 automations for routine marketing, sales, and customer success work, such as lead assignment, follow-up reminders, stage-change notifications, approval routing, and renewal notices.</p>
+		<p>You don't need all of them. A diagnostic reads your current setup and suggests up to eight automations worth turning on.</p>
+
+		<h3>3. Setup that fits the business</h3>
+		<p>Fields, customer management, pipelines, and automations are designed in advance for each type of business and delivered as an edition. You start with the setup already in place. We do not hand over an empty CRM and ask you to configure it from scratch.</p>
+
+		<h2>Four editions, by type of business</h2>
+		<p>Instead of designing a CRM from zero after signing up, you pick one of four editions built around how the business works, and start with it already set up.</p>
+		<ul>
+			<li>B2B: corporate sales and deal management</li>
+			<li>Agencies and contract work: from winning the project through delivery and utilization</li>
+			<li>SaaS resellers: for companies reselling their suppliers' products</li>
+			<li>Schools (B2C): from student inquiries and trial lessons to support history during enrollment</li>
+		</ul>
+		<p>B2B sales tracks deals, while a school follows each enrolled student over time. Because the unit of management differs, B2B and B2C are designed separately from the start.</p>
+
+		<h2>Pricing</h2>
+		<p>Editions decide which business the CRM is set up for. Plans decide how you use it and how you pay. All three plans include the same features. What differs is the billing unit (users, students, or usage). Every plan includes an AI usage allowance in the monthly fee, and you can buy more when you run out.</p>
+		<div class="table-wrap">
+			<table>
+				<thead>
+					<tr><th>Plan</th><th>Pricing</th><th>Best for</th></tr>
+				</thead>
+				<tbody>
+					<tr><td>User plan</td><td>¥3,000 per user per month (excl. tax). The per-user price stays the same as you add users.</td><td>B2B teams using it daily</td></tr>
+					<tr><td>Student plan</td><td>Monthly fee based on enrolled students, from ¥9,800 per month (excl. tax) for up to 50. The number of teachers and staff does not affect the price.</td><td>Schools using it daily</td></tr>
+					<tr><td>Prepaid plan</td><td>¥3,000 per month (excl. tax), unlimited users. Includes an allowance for AI processing and more; top-ups are valid for 90 days.</td><td>Occasional or uneven use</td></tr>
+				</tbody>
+			</table>
+		</div>
+		<ul>
+			<li>No setup fee. Onboarding support such as process design, data migration, and adoption support is a paid option, quoted separately.</li>
+			<li>30-day free trial.</li>
+			<li>Details of the AI allowance and top-up pricing are on the <a href="/en/crm/pricing/">pricing page</a>.</li>
+		</ul>
+
+		<h2>Try it first</h2>
+		<p>Enter your email address to open a demo environment, with no password to set up. See records, automations, and the preset configuration on the real screens.</p>
+		<ul>
+			<li>Demo: <a href="https://crm.consilegy.com/demos">https://crm.consilegy.com/demos</a></li>
+			<li>Pricing: <a href="/en/crm/pricing/">https://consilegy.com/en/crm/pricing/</a></li>
+			<li>Product site: <a href="/en/crm/">https://consilegy.com/en/crm/</a></li>
+		</ul>
+
+		<h2>Comment from our CEO</h2>
+		<div class="ceo-comment">
+			<img src="/images/common/seiko-yamaguchi-2026b.jpg" alt="Seiko Yamaguchi, CEO of Consilegy LLC" width="160" height="160" loading="lazy" />
+			<div>
+				<p class="ceo-comment__name">Seiko Yamaguchi, CEO, Consilegy LLC</p>
+				<p>"After about eight years of CRM implementation work, one thing kept bothering me. Companies adopt a CRM to spend more time with customers, yet before long the CRM itself creates more work.</p>
+				<p>Instead of asking people to try harder, the CRM should adapt to them. I want the time teams spend on data entry, configuration, and upkeep to go back to their customers. Revenue CRM is that idea, built."</p>
+			</div>
+		</div>
+
+		<h2>FAQ</h2>
+		<h3>Is it already in use?</h3>
+		<p>Since June 2026 we have run a closed beta with companies in several industries, including schools and B2B, and built their feedback into the general release. Company names are not disclosed. Case studies will be published as each company approves them.</p>
+		<h3>Doesn't offering your own CRM conflict with implementing HubSpot and Salesforce?</h3>
+		<p>They serve different organizations. The line is not company size but whether the organization can assign a dedicated person to run the CRM. For organizations that can't, we offer Revenue CRM. For those that can, we continue to implement and support HubSpot and Salesforce. Revenue CRM can also read data from HubSpot and send lists to HubSpot.</p>
+		<h3>How much email can it send?</h3>
+		<p>It supports one-to-one sales email, sends to static and dynamic lists (with scheduling, open rates, and click rates), and daily sequences. You can send from your own domain, with SPF/DKIM DNS verification in settings. It is designed for up to a few thousand emails a month; bulk sends in the tens of thousands are out of scope. For those, send bulk email from your MA tool and use it alongside Revenue CRM.</p>
+		<h3>What does "175" count?</h3>
+		<p>The number of automation workflows you can switch on or off (as of September 2026). It is the same across all four editions.</p>
+		<h3>How is data sent to AI handled?</h3>
+		<p>The terms of service prohibit external generative AI providers from using your data to train their models. When you approve or correct an AI judgment, the result only affects your own workspace settings and is never used for other organizations. Rights to AI-generated text belong to the user.</p>
+		<h3>What about security?</h3>
+		<p>Data access is isolated per organization (row-level access control), and multi-factor authentication is supported.</p>
+		<h3>Does it connect to Zoom, Teams, or other meeting tools?</h3>
+		<p>Not at this time. Upload a recording to get a transcript and key points.</p>
+		<h3>What happens when the free trial ends?</h3>
+		<p>Sign up for a paid plan and you pick up where you left off. If you don't, the workspace is paused after 30 days and data is kept for 90 days.</p>
+
+		<p class="footnote">*Source: HubSpot Japan K.K., "Survey on Sales in Japan 2026" (published February 27, 2026; surveyed October 30–31, 2025; 1,545 sellers at companies with 51–5,000 employees and 515 buyers). "4.0 hours" is the average weekly time saved reported by respondents who use generative AI to enter activity records into CRM/SFA.<br /><a href="https://www.hubspot.jp/company-news/stateofsales-20260227" target="_blank" rel="noopener noreferrer">https://www.hubspot.jp/company-news/stateofsales-20260227</a> (Japanese)</p>
+
+		<h2>About Consilegy</h2>
+		<p>Consilegy LLC designs revenue architecture and RevOps, bringing sales, marketing, and customer management (CRM) into one revenue system. We work alongside clients from strategy through MA, CRM, and SFA implementation to adoption, and we build and provide our own CRM, Revenue CRM.</p>
+		<div class="table-wrap">
+			<table class="info-table">
+				<tbody>
+					<tr><th>Address</th><td>R-Cube Aoyama 3F, 1-3-1 Kita-Aoyama, Minato-ku, Tokyo 107-0061, Japan</td></tr>
+					<tr><th>CEO</th><td>Seiko Yamaguchi</td></tr>
+					<tr><th>Founded</th><td>May 2025</td></tr>
+					<tr><th>Business</th><td>Revenue architecture design and implementation for B2B companies (HubSpot and Salesforce), and development of Revenue CRM</td></tr>
+					<tr><th>Website</th><td><a href="/en/">https://consilegy.com/en/</a></td></tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h2>Contact</h2>
+		<p>Please reach us through the <a href="/en/contact/">contact form</a>.</p>
+
+		<p class="source-note">This release was originally distributed in Japanese via PR TIMES: <a href={PRTIMES_URL} target="_blank" rel="noopener noreferrer">read the original</a></p>
+	</div>
+</ArticleLayout>
+
+<style>
+.news-body { max-width: 760px; }
+.news-body figure { margin: 1.5rem 0; }
+.news-body figure img {
+	display: block; width: 100%; height: auto;
+	border: 1px solid var(--color-border); border-radius: var(--radius);
+}
+.news-body a { color: var(--color-primary); text-decoration: underline; }
+.table-wrap { overflow-x: auto; }
+.news-body table {
+	width: 100%; border-collapse: collapse;
+	font-size: 0.9rem; line-height: 1.65;
+}
+.news-body th, .news-body td {
+	padding: 0.75rem 1rem; border: 1px solid var(--color-border);
+	text-align: left; vertical-align: top;
+}
+.news-body thead th, .info-table th {
+	background: var(--color-bg-subtle); font-weight: 600; white-space: nowrap;
+}
+.ceo-comment {
+	display: flex; gap: 1.25rem; align-items: flex-start;
+	padding: 1.25rem; background: var(--color-bg-subtle);
+	border-radius: var(--radius);
+}
+.ceo-comment img {
+	flex: 0 0 auto; width: 96px; height: 96px;
+	border-radius: 50%; object-fit: cover;
+}
+.ceo-comment p { margin: 0 0 0.75rem; }
+.ceo-comment p:last-child { margin-bottom: 0; }
+.ceo-comment__name { font-weight: 600; font-size: 0.9rem; }
+.footnote, .source-note {
+	font-size: 0.85rem; color: var(--color-text-muted);
+}
+.source-note {
+	margin-top: 2.5rem; padding-top: 1rem;
+	border-top: 1px solid var(--color-border);
+}
+@media (max-width: 560px) {
+	.ceo-comment { flex-direction: column; }
+	.news-body th, .news-body td { padding: 0.6rem 0.65rem; }
+	.news-body tbody td:first-child { white-space: nowrap; }
+}
+</style>

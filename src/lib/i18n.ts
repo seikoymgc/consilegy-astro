@@ -27,6 +27,8 @@ export const jaToEn: Record<string, string> = {
   '/download/': '/en/',
   '/free-consultation/': '/en/',
   '/insights/': '/en/insights/',
+  '/news/': '/en/news/',
+  '/news/revenue-crm-release/': '/en/news/revenue-crm-release/',
 };
 
 /** EN → JA の静的URLマッピング（jaToEnの逆引き） */

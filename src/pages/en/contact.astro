@@ -37,6 +37,9 @@ import ContactForm from '../../components/ContactForm.astro';
     <p class="contact-en__note">
       We usually respond with the most appropriate next step based on your situation, scope, and timing.
     </p>
+    <p class="contact-en__note contact-en__profile">
+      Want an overview to share with HQ first? <a href="/downloads/consilegy-company-profile-en-2026-09.pdf" target="_blank" rel="noopener">Download the company profile (PDF)</a>
+    </p>
 
   </div>
 </PageLayout>
@@ -117,6 +120,15 @@ import ContactForm from '../../components/ContactForm.astro';
     text-align: center;
     margin: 0;
     opacity: 0.8;
+  }
+
+  .contact-en__profile {
+    margin-top: 0.75rem;
+  }
+
+  .contact-en__profile a {
+    color: var(--color-primary);
+    font-weight: 600;
   }
 
   @media (max-width: 600px) {

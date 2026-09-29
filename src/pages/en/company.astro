@@ -196,6 +196,10 @@ import CTA from '../../components/CTA.astro';
         <dt>Location</dt><dd>〒107-0061 R-Cube Aoyama 3F, 1-3-1 Kita-Aoyama, Minato-ku, Tokyo, Japan</dd>
         <dt>Corporate number</dt><dd>2010403035111</dd>
       </dl>
+      <p class="ab-profile">
+        <a href="/downloads/consilegy-company-profile-en-2026-09.pdf" target="_blank" rel="noopener">Download the company profile (PDF)</a>
+        <span>Services, results, pricing, and team in 12 slides. Easy to share with HQ.</span>
+      </p>
     </div>
   </section>
 
@@ -208,6 +212,9 @@ import CTA from '../../components/CTA.astro';
 </BaseLayout>
 
 <style>
+  .ab-profile { margin: 1.75rem 0 0; display: grid; gap: 0.35rem; }
+  .ab-profile a { font-weight: 700; color: var(--color-primary); }
+  .ab-profile span { font-size: 0.875rem; color: var(--color-text-muted); }
   /* ── Shared ────────────────────────────────────── */
   .ab-section-label {
     font-size: 0.7rem;

@@ -474,7 +474,8 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 	// this is a text/plain no-cors request: the response can't be read, and the
 	// result is shown without waiting on it (keepalive lets the request finish).
 	async function submitLead(email: string, extra: Record<string, string> = {}): Promise<void> {
-		const values: Record<string, string> = { email, message: summaryText() };
+		// 要約は診断専用の項目に入れる（message はお問い合わせフォームと共用で、ラベルが混ざる）。
+		const values: Record<string, string> = { email, diagnostic_summary: summaryText() };
 		for (const [name, value] of Object.entries(extra)) {
 			if (value) values[name] = value;
 		}

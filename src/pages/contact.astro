@@ -1,9 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import HubSpotForm from '../components/HubSpotForm.astro';
+import ContactForm from '../components/ContactForm.astro';
 
-const portalId = '46498743';
-const formId = 'cc38289e-4949-4119-908b-eb1c81b4631e';
 
 const faqItems = [
 	{
@@ -64,7 +62,7 @@ const faqItems = [
 	<div class="container">
 		<div class="form-layout">
 			<div class="form-main">
-				<HubSpotForm portalId={portalId} formId={formId} region="na2" />
+				<ContactForm lang="ja" />
 			</div>
 			<aside class="form-aside">
 				<div class="aside-block">

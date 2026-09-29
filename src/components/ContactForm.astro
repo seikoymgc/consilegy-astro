@@ -1,0 +1,170 @@
+---
+// お問い合わせフォーム。受け口は Revenue CRM 自身のフォーム（Consilegy合同会社の組織）で、
+// 送信するとワークフローが担当者にメールで知らせる（回答の中身つき）。
+// crm.consilegy.com は CORS を返さないので、text/plain の単純リクエスト（no-cors）で送る。
+// 問い合わせはメルマガの同意ではないので consent は送らない。
+interface Props {
+	lang?: 'ja' | 'en';
+}
+
+const { lang = 'ja' } = Astro.props;
+
+const FORMS = {
+	ja: '96142b22-fd77-4b29-a1a0-241e7d30a22d',
+	en: '48ed697e-1a4f-4dc0-a7cf-64b5beb57b4b',
+};
+const submitUrl = `https://crm.consilegy.com/api/forms/${FORMS[lang]}/submit`;
+
+type Field = { key: string; label: string; type: 'text' | 'email' | 'select' | 'textarea'; required: boolean; auto?: string; options?: string[]; half?: boolean };
+
+const TYPES = ['サービス相談', 'CRM / RevOps診断について', '資料・サービス内容について', '協業・パートナー相談', '取材・登壇依頼', '既存のお取引に関するご連絡', 'その他'];
+
+const fields: Field[] =
+	lang === 'en'
+		? [
+				{ key: 'first_name', label: 'First name', type: 'text', required: true, auto: 'given-name', half: true },
+				{ key: 'last_name', label: 'Last name', type: 'text', required: true, auto: 'family-name', half: true },
+				{ key: 'company_name', label: 'Company', type: 'text', required: true, auto: 'organization' },
+				{ key: 'email', label: 'Email', type: 'email', required: true, auto: 'email' },
+				{ key: 'message', label: 'Message', type: 'textarea', required: true },
+			]
+		: [
+				{ key: 'company_name', label: '会社名', type: 'text', required: true, auto: 'organization' },
+				{ key: 'department', label: '部署', type: 'text', required: false, half: true },
+				{ key: 'job_title', label: '役職・職種', type: 'text', required: false, auto: 'organization-title', half: true },
+				{ key: 'last_name', label: '姓', type: 'text', required: true, auto: 'family-name', half: true },
+				{ key: 'first_name', label: '名', type: 'text', required: true, auto: 'given-name', half: true },
+				{ key: 'email', label: 'メールアドレス', type: 'email', required: true, auto: 'email' },
+				{ key: 'contact_type', label: 'お問い合わせ種別', type: 'select', required: true, options: TYPES },
+				{ key: 'message', label: 'お問い合わせ内容', type: 'textarea', required: true },
+			];
+
+const t =
+	lang === 'en'
+		? {
+				required: 'Required',
+				choose: 'Please choose',
+				button: 'Send',
+				sending: 'Sending…',
+				missing: 'Please fill in all required fields.',
+				invalid: 'Please enter a valid email address.',
+				privacy: 'By sending this form, you agree to our <a href="/en/privacy-policy/">privacy policy</a>.',
+				done: 'Thank you for reaching out. We will get back to you shortly.',
+			}
+		: {
+				required: '必須',
+				choose: '選択してください',
+				button: '送信する',
+				sending: '送信しています…',
+				missing: '必須の項目をすべて入力してください。',
+				invalid: 'メールアドレスの形式をご確認ください。',
+				privacy: '送信により、<a href="/privacy-policy/">プライバシーポリシー</a>に同意したものとみなします。',
+				done: 'お問い合わせいただき、ありがとうございます。内容を拝見し、担当者よりご連絡します。',
+			};
+---
+
+<div class="cf" data-contact-form data-submit-url={submitUrl} data-sending={t.sending} data-missing={t.missing} data-invalid={t.invalid}>
+	<form novalidate>
+		<div class="cf-grid">
+			{fields.map((f) => (
+				<label class:list={['cf-field', { 'cf-field--half': f.half }]}>
+					<span>{f.label}{f.required && <em>{t.required}</em>}</span>
+					{f.type === 'textarea' ? (
+						<textarea name={f.key} rows="6" required={f.required} />
+					) : f.type === 'select' ? (
+						<select name={f.key} required={f.required}>
+							<option value="">{t.choose}</option>
+							{f.options?.map((o) => <option value={o}>{o}</option>)}
+						</select>
+					) : (
+						<input name={f.key} type={f.type} autocomplete={f.auto} required={f.required} />
+					)}
+				</label>
+			))}
+		</div>
+		<label class="cf-hp" aria-hidden="true">
+			<span>Leave this field empty</span>
+			<input name="hp" type="text" tabindex="-1" autocomplete="off" />
+		</label>
+		<p class="cf-error" role="alert" hidden></p>
+		<p class="cf-privacy" set:html={t.privacy} />
+		<button type="submit" class="cf-button">{t.button}</button>
+	</form>
+	<p class="cf-done" role="status" hidden>{t.done}</p>
+</div>
+
+<script is:inline>
+	(function () {
+		document.querySelectorAll('[data-contact-form]').forEach(function (root) {
+			if (root.dataset.bound) return;
+			root.dataset.bound = '1';
+			var form = root.querySelector('form');
+			var err = root.querySelector('.cf-error');
+			form.addEventListener('submit', function (e) {
+				e.preventDefault();
+				var fd = new FormData(form);
+				var values = {};
+				var missing = false;
+				form.querySelectorAll('input[name], textarea[name], select[name]').forEach(function (el) {
+					if (el.name === 'hp') return;
+					var v = String(fd.get(el.name) || '').trim();
+					values[el.name] = v;
+					if (el.required && !v) missing = true;
+				});
+				if (missing) { err.textContent = root.dataset.missing; err.hidden = false; return; }
+				if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email || '')) { err.textContent = root.dataset.invalid; err.hidden = false; return; }
+				err.hidden = true;
+				var params = new URLSearchParams(location.search);
+				var utm = {};
+				['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (k) {
+					if (params.get(k)) utm[k] = params.get(k);
+				});
+				if (!utm.utm_source) utm.utm_source = 'consilegy.com' + location.pathname;
+				var btn = form.querySelector('button');
+				btn.disabled = true;
+				btn.textContent = root.dataset.sending;
+				var done = function () {
+					form.hidden = true;
+					root.querySelector('.cf-done').hidden = false;
+				};
+				fetch(root.dataset.submitUrl, {
+					method: 'POST',
+					mode: 'no-cors',
+					headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+					body: JSON.stringify({ values: values, utm: utm, referrer: document.referrer || location.href, hp: String(fd.get('hp') || '') }),
+					keepalive: true,
+				}).then(done, done);
+			});
+		});
+	})();
+</script>
+
+<style>
+	.cf form { display: grid; gap: 1rem; }
+	.cf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 0.9rem; }
+	.cf-field { grid-column: 1 / -1; display: grid; gap: 0.35rem; font-size: 0.9rem; color: #334155; }
+	.cf-field--half { grid-column: auto; }
+	.cf-field em { font-style: normal; font-size: 0.7rem; color: #fff; background: var(--color-primary, #1e40af); border-radius: 0.25rem; padding: 0.05rem 0.35rem; margin-left: 0.5rem; }
+	.cf-field input, .cf-field select, .cf-field textarea {
+		width: 100%; padding: 0.7rem 0.8rem; border: 1px solid #cbd5e1; border-radius: 0.45rem;
+		font-size: 1rem; background: #fff; color: #0f172a; font-family: inherit;
+	}
+	.cf-field textarea { resize: vertical; min-height: 9rem; }
+	.cf-field input:focus, .cf-field select:focus, .cf-field textarea:focus { outline: 2px solid var(--color-primary, #1e40af); outline-offset: 1px; border-color: transparent; }
+	.cf-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+	.cf-error { margin: 0; color: #b42318; font-size: 0.85rem; }
+	.cf-error[hidden], .cf-done[hidden], .cf form[hidden] { display: none; }
+	.cf-privacy { margin: 0; font-size: 0.8rem; color: #64748b; }
+	.cf-privacy :global(a) { color: inherit; }
+	.cf-button {
+		justify-self: start; min-width: 12rem; padding: 0.85rem 1.4rem; border: 0; border-radius: 0.5rem; cursor: pointer;
+		background: var(--color-primary, #1e40af); color: #fff; font-weight: 700; font-size: 1rem;
+	}
+	.cf-button:disabled { opacity: 0.6; cursor: default; }
+	.cf-done { margin: 0; padding: 1rem 1.2rem; border-radius: 0.5rem; background: #eff6ff; color: #1e3a8a; line-height: 1.8; }
+	@media (max-width: 560px) {
+		.cf-grid { grid-template-columns: 1fr; }
+		.cf-field--half { grid-column: 1 / -1; }
+		.cf-button { justify-self: stretch; }
+	}
+</style>

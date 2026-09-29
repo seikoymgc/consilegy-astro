@@ -533,8 +533,8 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 		const forkCopy = isSchool
 			? 'If student enrolment still lives in spreadsheets or on paper, you can start from the school edition. '
 			: state.channel === 'referral'
-				? 'If you have no CRM yet, or project and contract records live with individuals, you can start from our own product. There are editions for agencies (project management) and for resellers (contract renewals). '
-				: 'If you have no CRM yet, or the team keeps falling back to spreadsheets, you can start from our own product. ';
+				? 'If no one can be dedicated to running a CRM, or project and contract records live with individuals, you can start from our own product. There are editions for agencies (project management) and for resellers (contract renewals). '
+				: 'If no one can be dedicated to running a CRM, or the team keeps falling back to spreadsheets, you can start from our own product. ';
 		const forkLink = isSchool ? 'See Revenue CRM for schools →' : 'See Revenue CRM →';
 		const copyOf = (c: (typeof CATEGORIES)[number]) =>
 			c.id === 'expansion' && oneShot ? EXPANSION_ONE_SHOT : c;

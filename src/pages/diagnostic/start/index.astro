@@ -1,10 +1,8 @@
 ---
 // 売上の取りこぼし診断 — interactive flow: 12 scored questions → tiebreak pick → lead gate → result map.
-// All quiz logic is client-side (static site). Lead capture posts the email
-// directly to a dedicated, captcha-free HubSpot form via the Submissions API
-// (no iframe, no reCAPTCHA), so submission is reliable and the result shows
-// instantly. The diagnostic summary rides along in a hidden "message" field —
-// it is never rendered to the user. Set HS_DIAGNOSTIC_FORM_ID below.
+// All quiz logic is client-side (static site). Lead capture posts to Revenue CRM's
+// own form (see submitLead), and the result shows without waiting on the response.
+// The diagnostic summary rides along in a "message" field; it is never rendered.
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 ---
 
@@ -31,11 +29,8 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 	import { CATEGORIES, CHANNELS, CHANNEL_QUESTION, EXCLUDED_LABEL, EXPANSION_ONE_SHOT, REFERRAL_SCOPE_NOTE, SIGNAL_META, isExcluded, signalOf, bandOf, patternOf } from '../../../lib/diagnostic-data';
 
 	// ── Config ──────────────────────────────────────────────
-	const HS_PORTAL_ID = '46498743';
-	// Dedicated, captcha-free diagnostic form (Email + hidden "message"), submitted
-	// via the Submissions API below. While empty, the diagnostic still works (the
-	// result shows) but no lead is captured — fill in the GUID to turn capture on.
-	const HS_DIAGNOSTIC_FORM_ID = 'df40a4b0-05e6-4fef-af58-633c398a619e';
+	// Revenue CRM のフォーム（Consilegy合同会社の組織）。送信するとワークフローが担当者に通知する。
+	const CRM_SUBMIT_URL = 'https://crm.consilegy.com/api/forms/a8a88c16-30dc-4f8e-8d5b-f68149fca711/submit';
 	const BOOK_URL = '/free-consultation/';
 	const CONTACT_URL = '/revops-assessment/';
 	const PRODUCT_URL = '/crm/';
@@ -474,47 +469,30 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 		});
 	}
 
-	function getCookie(name: string): string | undefined {
-		return document.cookie.split('; ').find((c) => c.startsWith(name + '='))?.split('=')[1];
-	}
-
-	// Post the lead straight to a dedicated, captcha-free HubSpot form via the
-	// Submissions API — no iframe, no reCAPTCHA. The diagnostic summary goes into
-	// the hidden "message" field; it is never shown on screen.
+	// Post the lead to Revenue CRM's own form (Consilegy org). The form's workflow
+	// emails the answers to the team. crm.consilegy.com returns no CORS headers, so
+	// this is a text/plain no-cors request: the response can't be read, and the
+	// result is shown without waiting on it (keepalive lets the request finish).
 	async function submitLead(email: string, extra: Record<string, string> = {}): Promise<void> {
-		if (!HS_DIAGNOSTIC_FORM_ID) {
-			// Form not configured yet — don't block the user from seeing their result.
-			console.warn('HS_DIAGNOSTIC_FORM_ID is not set; skipping lead capture.');
-			return;
-		}
-		const hutk = getCookie('hubspotutk');
-		const fields = [
-			{ name: 'email', value: email },
-			{ name: 'message', value: summaryText() },
-		];
+		const values: Record<string, string> = { email, message: summaryText() };
 		for (const [name, value] of Object.entries(extra)) {
-			if (value) fields.push({ name, value });
+			if (value) values[name] = value;
 		}
-		const payload = {
-			fields,
-			context: {
-				pageUri: location.href,
-				pageName: '売上の取りこぼし診断',
-				...(hutk ? { hutk } : {}),
-			},
-		};
-		const res = await fetch(
-			`https://api.hsforms.com/submissions/v3/integration/submit/${HS_PORTAL_ID}/${HS_DIAGNOSTIC_FORM_ID}`,
-			{
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify(payload),
-			}
-		);
-		if (!res.ok) {
-			const text = await res.text().catch(() => '');
-			throw new Error(`HubSpot submit failed: ${res.status} ${text}`);
-		}
+		const params = new URLSearchParams(location.search);
+		const utm: Record<string, string> = {};
+		['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach((k) => {
+			const v = params.get(k);
+			if (v) utm[k] = v;
+		});
+		if (!utm.utm_source) utm.utm_source = 'consilegy.com' + location.pathname;
+		const send = fetch(CRM_SUBMIT_URL, {
+			method: 'POST',
+			mode: 'no-cors',
+			headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+			body: JSON.stringify({ values, utm, referrer: document.referrer || location.href }),
+			keepalive: true,
+		}).catch((err) => console.error(err));
+		await Promise.race([send, new Promise((r) => setTimeout(r, 1500))]);
 	}
 
 	function renderResult() {

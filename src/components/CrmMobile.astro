@@ -1,0 +1,160 @@
+---
+// スマートフォンでそのまま使えることを伝えるセクション。
+// /crm/ は同じ内容をページ内に持つ（見出しの組み方がページ固有のため）。文言を変えるときは両方直す。
+interface Props {
+	lang?: 'ja' | 'en';
+}
+
+const { lang = 'ja' } = Astro.props;
+
+const copy = lang === 'en'
+	? {
+		kicker: 'Smartphone',
+		title: 'Works on your phone, as is.',
+		points: [
+			{ title: 'No app to install', text: 'It runs in the browser, and the layout adapts to the width of your phone.' },
+			{ title: 'Scan business cards on the spot', text: 'Tap the button and the camera opens. The AI reads the card, so you can add the contact right at the meeting or the trade show.' },
+			{ title: 'Check deals on the go', text: 'Amount, stage, and next steps, between meetings.' },
+			{ title: 'Same data as on your computer', text: 'It is the same customer record. What you change on your phone shows up on your computer.' },
+		],
+		shots: [
+			{ src: '/images/crm/screen-mobile-dashboard-2026-09-en.webp', alt: 'Revenue CRM dashboard on a smartphone' },
+			{ src: '/images/crm/screen-mobile-contacts-2026-09-en.webp', alt: 'Revenue CRM contact list on a smartphone, with the Scan card button' },
+		],
+	}
+	: {
+		kicker: 'スマートフォン',
+		title: 'スマートフォンでも、そのまま使えます。',
+		points: [
+			{ title: '専用アプリは不要', text: 'ブラウザで開くだけです。画面はスマートフォンの幅に合わせて切り替わります。' },
+			{ title: '名刺はその場で撮る', text: 'ボタンを押すとカメラが開き、撮った名刺をAIが読み取ります。訪問先や展示会でそのまま登録できます。' },
+			{ title: '外出先で商談を確認', text: '金額・ステージ・次の予定まで、移動中に確かめられます。' },
+			{ title: 'パソコンと同じデータ', text: '見ているのは同じ顧客データです。スマートフォンで直した内容は、そのままパソコンにも反映されます。' },
+		],
+		shots: [
+			{ src: '/images/crm/screen-mobile-dashboard-2026-09.webp', alt: 'スマートフォンで開いたRevenue CRMのダッシュボード' },
+			{ src: '/images/crm/screen-mobile-deals-2026-09.webp', alt: 'スマートフォンで開いたRevenue CRMの商談一覧（カンバン表示）' },
+		],
+	};
+---
+
+<section class="crm-mobile" id="mobile">
+	<div class="container">
+		<div class="mobile-head">
+			<p class="mobile-kicker">{copy.kicker}</p>
+			<h2>{copy.title}</h2>
+		</div>
+		<div class="mobile-inner">
+			<ul class="mobile-points">
+				{copy.points.map((item) => (
+					<li>
+						<strong>{item.title}</strong>
+						<span>{item.text}</span>
+					</li>
+				))}
+			</ul>
+			<div class="mobile-shots">
+				{copy.shots.map((shot) => (
+					<img src={shot.src} alt={shot.alt} width="390" height="844" loading="lazy" decoding="async" />
+				))}
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.crm-mobile {
+		padding: clamp(4rem, 7vw, 6rem) 0;
+		background: #fff;
+	}
+
+	/* 英語ページは --container が 72ch（読み物幅）。LPのカード並びと揃えて 1120px に戻す。 */
+	.container {
+		max-width: 1120px;
+	}
+
+	.mobile-head {
+		margin-bottom: clamp(1.6rem, 3vw, 2.4rem);
+	}
+
+	.mobile-kicker {
+		margin: 0 0 0.6rem;
+		color: var(--color-primary);
+		font-size: 0.8rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+	}
+
+	.mobile-head h2 {
+		margin: 0;
+		font-size: clamp(1.7rem, 3vw, 2.4rem);
+		font-weight: 700;
+		line-height: 1.42;
+	}
+
+	.mobile-inner {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		gap: clamp(2rem, 5vw, 4rem);
+		align-items: center;
+	}
+
+	.mobile-points {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.mobile-points li {
+		display: grid;
+		gap: 0.3rem;
+		padding: 1.05rem 0;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.mobile-points strong {
+		color: var(--color-text);
+		font-size: 1.05rem;
+		font-weight: 700;
+	}
+
+	.mobile-points span {
+		color: #4b5563;
+		font-size: 0.95rem;
+		line-height: 1.75;
+	}
+
+	.mobile-shots {
+		display: flex;
+		gap: 1rem;
+	}
+
+	.mobile-shots img {
+		display: block;
+		width: clamp(150px, 16vw, 210px);
+		height: auto;
+		border: 1px solid var(--color-border);
+		border-radius: 18px;
+		box-shadow: 0 12px 28px rgba(17, 24, 39, 0.12);
+	}
+
+	@media (max-width: 760px) {
+		.crm-mobile {
+			padding-block: var(--space-xl);
+		}
+
+		.mobile-inner {
+			grid-template-columns: 1fr;
+		}
+
+		.mobile-shots {
+			justify-content: center;
+		}
+
+		.mobile-shots img {
+			width: calc(50% - 0.5rem);
+			max-width: 200px;
+		}
+	}
+</style>

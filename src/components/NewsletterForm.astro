@@ -49,7 +49,7 @@ const labelOf = (k: string) => (k === 'first_name' ? t.first : t.last);
 ---
 
 <div class:list={['nlf', { 'nlf--compact': compact }]} data-nl-form data-submit-url={submitUrl} data-sending={t.sending} data-invalid={t.invalid}>
-	<form novalidate>
+	<form data-hs-do-not-collect="true" novalidate>
 		<label class="nlf-field">
 			<span>{t.email}</span>
 			<input name="email" type="email" autocomplete="email" required />

@@ -1,4 +1,4 @@
-# Consilegy Media
+# B2Bレベニュー戦略ジャーナル（旧 Consilegy Media）
 
 `media.consilegy.com` の Astro プロジェクトです。本体サイト（`consilegy.com`）とは独立したプロジェクトですが、同じリポジトリで管理しています。
 

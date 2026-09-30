@@ -17,7 +17,7 @@ export const GET: APIRoute = async ({ site }) => {
 
 	const lines: string[] = [];
 
-	lines.push('# Consilegy Media');
+	lines.push('# B2Bレベニュー戦略ジャーナル');
 	lines.push('');
 	lines.push(
 		'> B2Bの収益プロセスが構造的につまずく箇所を、実装の現場から記録している教育メディアです。運営はConsilegy合同会社（代表: 山口聖子 / Seiko Yamaguchi）。CRM・SFAの定着、商談プロセスと稟議、収益データの定義、マーケティングから営業への引き渡し、海外SaaSの日本市場参入を扱います。',

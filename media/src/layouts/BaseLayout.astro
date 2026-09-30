@@ -49,7 +49,7 @@ const isEn = lang === 'en';
 const site = Astro.site ?? new URL('https://media.consilegy.com');
 const abs = (path: string) => new URL(path, site).href;
 const canonical = abs(Astro.url.pathname);
-const ogImage = abs(ogImageProp ?? '/images/og-default.png');
+const ogImage = abs(ogImageProp ?? '/images/og-default-2026-10.png');
 
 // hreflang: 日英の対になるURLが両方揃っているときだけ出す。
 // 片側しか無い状態で出すと相互参照にならず、Googleに無視される。
@@ -98,7 +98,7 @@ const articleSchema =
 				isPartOf: {
 					'@type': 'Blog',
 					'@id': isEn ? abs('/en/') : abs('/'),
-					name: 'Consilegy Media',
+					name: isEn ? 'B2B Revenue Strategy Journal' : 'B2Bレベニュー戦略ジャーナル',
 				},
 			}
 		: null;
@@ -114,7 +114,7 @@ const blogSchema = isHome
 					'@type': 'WebSite',
 					'@id': `${abs('/')}#website`,
 					url: abs('/'),
-					name: 'Consilegy Media',
+					name: isEn ? 'B2B Revenue Strategy Journal' : 'B2Bレベニュー戦略ジャーナル',
 					inLanguage: isEn ? 'en' : 'ja',
 					publisher: { '@id': 'https://consilegy.com/#organization' },
 				},
@@ -122,7 +122,7 @@ const blogSchema = isHome
 					'@type': 'Blog',
 					'@id': canonical,
 					url: canonical,
-					name: 'Consilegy Media',
+					name: isEn ? 'B2B Revenue Strategy Journal' : 'B2Bレベニュー戦略ジャーナル',
 					description,
 					inLanguage: isEn ? 'en' : 'ja',
 					isPartOf: { '@id': `${abs('/')}#website` },
@@ -185,7 +185,7 @@ const breadcrumbSchema =
 		<meta property="og:image" content={ogImage} />
 		<meta property="og:locale" content={isEn ? 'en_US' : 'ja_JP'} />
 		{hasPair && <meta property="og:locale:alternate" content={isEn ? 'ja_JP' : 'en_US'} />}
-		<meta property="og:site_name" content="Consilegy Media" />
+		<meta property="og:site_name" content={isEn ? 'B2B Revenue Strategy Journal' : 'B2Bレベニュー戦略ジャーナル'} />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
@@ -200,9 +200,9 @@ const breadcrumbSchema =
 		<link rel="icon" type="image/svg+xml" href="/favicon-2026.svg" />
 		{
 			isEn ? (
-				<link rel="alternate" type="application/rss+xml" title="Consilegy Media (English)" href="/en/rss.xml" />
+				<link rel="alternate" type="application/rss+xml" title="B2B Revenue Strategy Journal (English)" href="/en/rss.xml" />
 			) : (
-				<link rel="alternate" type="application/rss+xml" title="Consilegy Media" href="/rss.xml" />
+				<link rel="alternate" type="application/rss+xml" title="B2Bレベニュー戦略ジャーナル" href="/rss.xml" />
 			)
 		}
 
@@ -231,7 +231,7 @@ const breadcrumbSchema =
 			<div class="container site-header__inner">
 				<a href="/" class="site-brand">
 					<img src="/images/consilegy-logo-2026.svg" alt="Consilegy" width="150" height="26" />
-					<span class="site-brand__tag">MEDIA</span>
+					<span class="site-brand__tag">{isEn ? 'B2B Revenue Strategy Journal' : 'B2Bレベニュー戦略ジャーナル'}</span>
 				</a>
 				<nav class="site-nav" aria-label={isEn ? 'Site navigation' : 'サイト内ナビゲーション'}>
 					{isEn ? (
@@ -261,7 +261,7 @@ const breadcrumbSchema =
 			{isEn ? (
 				<div class="container site-footer__cols">
 					<div>
-						<p class="site-footer__brand">Consilegy Media</p>
+						<p class="site-footer__brand">B2B Revenue Strategy Journal</p>
 						<p class="site-footer__desc">Practical education on B2B revenue operations, from a consultancy working across Japanese and global companies.</p>
 					</div>
 					<nav aria-label="Articles">
@@ -283,8 +283,8 @@ const breadcrumbSchema =
 			) : (
 				<div class="container site-footer__cols">
 					<div>
-						<p class="site-footer__brand">Consilegy Media</p>
-						<p class="site-footer__desc">B2Bの収益のつまずきを、構造から解決する教育メディア。運営はConsilegy合同会社。</p>
+						<p class="site-footer__brand">B2Bレベニュー戦略ジャーナル</p>
+						<p class="site-footer__desc">マーケティング・営業・CRMから考える、B2Bの売上設計。運営はConsilegy合同会社。</p>
 					</div>
 					<nav aria-label="カテゴリ">
 						<p class="site-footer__head">カテゴリ</p>

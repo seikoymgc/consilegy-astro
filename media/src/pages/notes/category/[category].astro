@@ -41,7 +41,7 @@ const collectionSchema = {
 	name: label,
 	description: hub.intro[0],
 	inLanguage: 'ja',
-	isPartOf: { '@type': 'Blog', '@id': new URL('/', site).href, name: 'Consilegy Media' },
+	isPartOf: { '@type': 'Blog', '@id': new URL('/', site).href, name: 'B2Bレベニュー戦略ジャーナル' },
 	mainEntity: {
 		'@type': 'ItemList',
 		numberOfItems: notes.length,
@@ -56,7 +56,7 @@ const collectionSchema = {
 ---
 
 <BaseLayout
-	title={`${label}｜原因と直し方 | Consilegy Media`}
+	title={`${label}｜原因と直し方 | B2Bレベニュー戦略ジャーナル`}
 	description={`${hub.intro[0]}全${notes.length}本の記事と、よくある質問への回答をまとめています。`}
 	jaPath={`/notes/category/${category}/`}
 	enPath={`/en/category/${category}/`}

@@ -73,7 +73,7 @@ Search Console エクスポート（検索タイプ: ウェブ / 期間: 過去3
 
 あわせて、レイアウトの挙動を記録しておく。
 
-- `src/pages/en/articles/[...slug].astro` … タイトルが **52字以下のとき** ` | Consilegy Media`（18字）を付ける
+- `src/pages/en/articles/[...slug].astro` … タイトルが **52字以下のとき** ` | Consilegy Media`（18字。2026-09-30に` | B2B Revenue Strategy Journal`（31字）へ変更）を付ける
 - `src/pages/notes/[...slug].astro` … タイトルが **44字以下のとき** 同じ接尾辞を付ける
 
 JA記事の最長は42字なので、**日本語は全記事に接尾辞が付いている。** 日本語検索の表示上限は全角30字前後なので、接尾辞はまず表示されない。害は小さいが、タイトル本体を30字以内に収めておくほうが安全。

@@ -41,7 +41,7 @@ const collectionSchema = {
 	name: label,
 	description: hub.intro[0],
 	inLanguage: 'en',
-	isPartOf: { '@type': 'Blog', '@id': new URL('/en/', site).href, name: 'Consilegy Media (English)' },
+	isPartOf: { '@type': 'Blog', '@id': new URL('/en/', site).href, name: 'B2B Revenue Strategy Journal (English)' },
 	mainEntity: {
 		'@type': 'ItemList',
 		numberOfItems: notes.length,
@@ -57,7 +57,7 @@ const collectionSchema = {
 
 <BaseLayout
 	lang="en"
-	title={`${label} in Japan | Consilegy Media`}
+	title={`${label} in Japan | B2B Revenue Strategy Journal`}
 	description={`${hub.intro[0]} ${notes.length} articles, plus answers to the questions headquarters asks most.`}
 	jaPath={`/notes/category/${category}/`}
 	enPath={`/en/category/${category}/`}

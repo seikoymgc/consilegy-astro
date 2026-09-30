@@ -1,0 +1,58 @@
+---
+// 使い方メディアのヘッダー。タグライン → 名前 → ナビ（読者・カテゴリ）を中央揃えで。
+// 会社サイトへの戻り口と言語切替は右上に小さく。
+import { CATEGORIES, CATEGORY_ORDER, COPY, SEGMENTS, SEGMENT_ORDER, mediaPath, mediaRoot, type Lang, type Segment } from '../lib/crm-media';
+
+interface Props { lang: Lang; alternateUrl: string }
+const { lang, alternateUrl } = Astro.props;
+const t = COPY[lang];
+const path = Astro.url.pathname;
+const root = mediaRoot(lang);
+// 今いる読者。入口では b2b をカテゴリリンクの既定にする。
+const currentSegment: Segment = SEGMENT_ORDER.find((s) => path.startsWith(mediaPath(lang, s))) ?? 'b2b';
+const isCurrent = (href: string) => (path === href ? 'page' : undefined);
+---
+<header class="mh">
+  <div class="mh-top">
+    <a class="mh-site" href={lang === 'ja' ? '/' : '/en/'}>{t.backToSite}</a>
+    <span class="mh-sep" aria-hidden="true">/</span>
+    <a class="mh-site" href={lang === 'ja' ? '/crm/' : '/en/crm/'}>{t.productPage}</a>
+    <a class="mh-lang" href={alternateUrl} data-lang-switch data-target-lang={lang === 'ja' ? 'en' : 'ja'}>{lang === 'ja' ? 'EN' : '日本語'}</a>
+  </div>
+  <p class="mh-tagline">{t.tagline}</p>
+  <a class="mh-name" href={root} aria-current={isCurrent(root)}>
+    <span class="mh-mark">Revenue CRM</span>
+    <span class="mh-sub">{lang === 'ja' ? '使い方メディア' : 'Field Guide'}</span>
+  </a>
+  <nav class="mh-nav" aria-label={t.segmentLabel}>
+    {SEGMENT_ORDER.map((s) => (
+      <a href={mediaPath(lang, s)} aria-current={isCurrent(mediaPath(lang, s))}>{SEGMENTS[s][lang]}</a>
+    ))}
+    <span class="mh-nav-sep" aria-hidden="true"></span>
+    {CATEGORY_ORDER.map((c) => (
+      <a href={`${mediaPath(lang, currentSegment)}#${c}`}>{CATEGORIES[c][lang]}</a>
+    ))}
+  </nav>
+</header>
+
+<style>
+  .mh { max-width: 72rem; margin: 0 auto; padding: 0.75rem 1.25rem 0; text-align: center; border-bottom: 1px solid var(--color-border); }
+  .mh-top { display: flex; align-items: center; justify-content: flex-end; gap: 0.5rem; font-size: 0.78rem; color: var(--color-text-muted); }
+  .mh-top a { color: inherit; text-decoration: none; }
+  .mh-top a:hover { color: var(--color-primary); }
+  .mh-lang { margin-left: 0.75rem; padding: 0.15rem 0.6rem; border: 1px solid var(--color-border); border-radius: 999px; font-weight: 600; }
+  .mh-tagline { margin: 0.75rem 0 0.35rem; font-size: 0.8rem; color: var(--color-text-muted); letter-spacing: 0.02em; }
+  .mh-name { display: inline-flex; align-items: baseline; gap: 0.6rem; text-decoration: none; color: var(--color-text); margin: 0.25rem 0 0.9rem; }
+  .mh-mark { font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 800; letter-spacing: -0.03em; color: var(--color-primary); }
+  .mh-sub { font-size: clamp(0.95rem, 2vw, 1.15rem); font-weight: 700; letter-spacing: 0.04em; }
+  .mh-nav { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0 1.75rem; padding-bottom: 0.1rem; }
+  .mh-nav a { display: inline-block; padding: 0.7rem 0; font-size: 0.95rem; font-weight: 600; color: var(--color-text); text-decoration: none; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+  .mh-nav a:hover { color: var(--color-primary); }
+  .mh-nav a[aria-current='page'] { color: var(--color-primary); border-bottom-color: var(--color-primary); }
+  .mh-nav-sep { width: 1px; height: 1rem; background: var(--color-border); }
+  @media (max-width: 640px) {
+    .mh-nav { gap: 0 1rem; }
+    .mh-nav a { font-size: 0.875rem; padding: 0.55rem 0; }
+    .mh-nav-sep { display: none; }
+  }
+</style>

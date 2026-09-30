@@ -2,7 +2,6 @@
 // 記事1本。/crm/faq/[slug] と同じ骨格（パンくず → 本文 → 関連 → CTA）。
 import { render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import CrmSubnav from './CrmSubnav.astro';
 import CrmMediaCard from './CrmMediaCard.astro';
 import CrmMediaSidebar from './CrmMediaSidebar.astro';
 import { CATEGORIES, COPY, SEGMENTS, articlePath, crmMediaArticles, eyecatchPath, fmtDate, mediaPath, type Article } from '../lib/crm-media';
@@ -34,7 +33,7 @@ const jsonLd = {
 };
 ---
 
-<BaseLayout
+<BaseLayout chrome="media"
   title={`${a.data.title} | Revenue CRM | Consilegy`}
   description={a.data.pain}
   lang={lang}
@@ -43,7 +42,6 @@ const jsonLd = {
   alternateUrl={mediaPath(lang === 'ja' ? 'en' : 'ja', segment, a.data.slug)}
 >
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-  <CrmSubnav lang={lang} />
 
   <div class="media-layout">
   <article class="media-article">
@@ -106,7 +104,7 @@ const jsonLd = {
 
 <style>
   .media-layout {
-    max-width: 72rem; margin: 0 auto; padding: 3.5rem 1.25rem 5rem;
+    max-width: 72rem; margin: 0 auto; padding: 2.5rem 1.25rem 5rem;
     display: grid; grid-template-columns: minmax(0, 1fr) 17rem; gap: 3.5rem; align-items: start;
   }
   .media-article { max-width: 46rem; min-width: 0; margin: 0 auto; }

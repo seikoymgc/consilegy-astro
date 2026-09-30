@@ -1,7 +1,6 @@
 ---
 // /crm/media/<segment>/ の一覧。読者（法人営業 / スクール・教室）ごとに1ページ。カテゴリ3つの順に並べる。
 import BaseLayout from '../layouts/BaseLayout.astro';
-import CrmSubnav from './CrmSubnav.astro';
 import CrmMediaCard from './CrmMediaCard.astro';
 import CrmMediaSegmentTabs from './CrmMediaSegmentTabs.astro';
 import CrmMediaSidebar from './CrmMediaSidebar.astro';
@@ -28,9 +27,8 @@ const jsonLd = {
 };
 ---
 
-<BaseLayout title={metaTitle} description={metaDesc} lang={lang} alternateUrl={mediaPath(lang === 'ja' ? 'en' : 'ja', segment)}>
+<BaseLayout chrome="media" title={metaTitle} description={metaDesc} lang={lang} alternateUrl={mediaPath(lang === 'ja' ? 'en' : 'ja', segment)}>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-  <CrmSubnav lang={lang} />
 
   <div class="media-page">
     <div class="main">
@@ -67,7 +65,7 @@ const jsonLd = {
 
 <style>
   .media-page {
-    max-width: 72rem; margin: 0 auto; padding: 3.5rem 1.25rem 5rem;
+    max-width: 72rem; margin: 0 auto; padding: 2.5rem 1.25rem 5rem;
     display: grid; grid-template-columns: minmax(0, 1fr) 17rem; gap: 3.5rem; align-items: start;
   }
   .main { min-width: 0; }

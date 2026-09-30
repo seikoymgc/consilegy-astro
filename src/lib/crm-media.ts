@@ -93,6 +93,10 @@ export const CATEGORIES: Record<Category, Bilingual & { lead: Record<Segment, Bi
 export const COPY = {
   ja: {
     kicker: 'Revenue CRM',
+    siteName: 'Revenue CRM 使い方メディア',
+    tagline: 'Revenue CRM を現場で使う人のための、使い方の記事',
+    backToSite: 'Consilegy',
+    productPage: 'Revenue CRM について',
     homeTitle: '現場の困りごとから、どの画面で消えるかまで',
     homeLead: '法人営業と、スクール・教室。読者が違うので入口を分けています。どちらも、現場で実際に起きている困りごとを一つずつ取り上げ、Revenue CRM のどの画面で解消するかを、導入支援8年の経験から書いています。',
     homeMetaTitle: '使い方の記事 | Revenue CRM | Consilegy',
@@ -121,6 +125,10 @@ export const COPY = {
   },
   en: {
     kicker: 'Revenue CRM',
+    siteName: 'Revenue CRM Field Guide',
+    tagline: 'How-to articles for the people who run Revenue CRM every day',
+    backToSite: 'Consilegy',
+    productPage: 'About Revenue CRM',
     homeTitle: 'From what goes wrong on the ground to the screen that fixes it',
     homeLead: 'B2B sales teams and schools have different problems, so the articles are split by reader. Each one takes a real problem and shows the exact Revenue CRM screen that removes it, written from eight years of CRM implementation work.',
     homeMetaTitle: 'Field guide | Revenue CRM | Consilegy',

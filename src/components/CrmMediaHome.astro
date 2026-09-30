@@ -2,9 +2,9 @@
 // /crm/media/ の入口。
 // 配置: タグライン → 読者のナビ → 新着記事（大きいカード3枚） → 読者×カテゴリのブロック（小さい行3本＋もっと見る）。
 import BaseLayout from '../layouts/BaseLayout.astro';
-import CrmSubnav from './CrmSubnav.astro';
 import CrmMediaCard from './CrmMediaCard.astro';
 import CrmMediaRow from './CrmMediaRow.astro';
+import CrmMediaSidebar from './CrmMediaSidebar.astro';
 import {
   CATEGORIES, CATEGORY_ORDER, COPY, SEGMENTS, SEGMENT_ORDER,
   crmMediaArticles, mediaPath, mediaRoot, type Lang,
@@ -36,18 +36,14 @@ const jsonLd = {
 };
 ---
 
-<BaseLayout title={t.homeMetaTitle} description={t.homeMetaDesc} lang={lang} alternateUrl={mediaRoot(lang === 'ja' ? 'en' : 'ja')}>
+<BaseLayout chrome="media" title={t.homeMetaTitle} description={t.homeMetaDesc} lang={lang} alternateUrl={mediaRoot(lang === 'ja' ? 'en' : 'ja')}>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-  <CrmSubnav lang={lang} />
 
   <div class="media-page">
+    <div class="main">
     <header class="media-head">
-      <p class="kicker">{t.kicker}</p>
       <h1>{t.homeTitle}</h1>
       <p class="lead">{t.homeLead}</p>
-      <nav class="seg-nav" aria-label={t.segmentLabel}>
-        {SEGMENT_ORDER.map((s) => <a href={mediaPath(lang, s)}>{SEGMENTS[s][lang]}</a>)}
-      </nav>
     </header>
 
     {latest.length > 0 && (
@@ -75,6 +71,8 @@ const jsonLd = {
     )}
 
     <p class="why"><a href="https://media.consilegy.com/">{t.why}</a></p>
+    </div>
+    <CrmMediaSidebar lang={lang} segment="b2b" />
   </div>
 </BaseLayout>
 
@@ -84,7 +82,12 @@ const jsonLd = {
 </style>
 
 <style>
-  .media-page { max-width: 68rem; margin: 0 auto; padding: 3.5rem 1.25rem 5rem; }
+  .media-page {
+    max-width: 72rem; margin: 0 auto; padding: 2.5rem 1.25rem 5rem;
+    display: grid; grid-template-columns: minmax(0, 1fr) 17rem; gap: 3.5rem; align-items: start;
+  }
+  .main { min-width: 0; }
+  @media (max-width: 900px) { .media-page { grid-template-columns: minmax(0, 1fr); gap: 3rem; } }
   .media-head { text-align: center; max-width: 46rem; margin: 0 auto 3rem; }
   .kicker { margin: 0 0 0.5rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-primary); }
   h1 { font-size: clamp(1.5rem, 3.5vw, 2.1rem); line-height: 1.4; margin: 0 0 1rem; letter-spacing: -0.02em; }

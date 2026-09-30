@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import SEO from '../components/SEO.astro';
 import Header from '../components/Header.astro';
+import CrmMediaHeader from '../components/CrmMediaHeader.astro';
 import Footer from '../components/Footer.astro';
 import Analytics from '../components/Analytics.astro';
 import { getAlternateUrl } from '../lib/i18n';
@@ -15,9 +16,11 @@ interface Props {
 	ogType?: 'website' | 'article';
 	lang?: 'ja' | 'en';
 	alternateUrl?: string;
+	/** media: 使い方メディア用のヘッダー（会社のグローバルナビを出さない） */
+	chrome?: 'site' | 'media';
 }
 
-const { alternateUrl: altProp, ...seo } = Astro.props;
+const { alternateUrl: altProp, chrome = 'site', ...seo } = Astro.props;
 const htmlLang = seo.lang ?? 'ja';
 const pathname = Astro.url.pathname;
 const alternateUrl = altProp ?? getAlternateUrl(pathname, htmlLang as 'ja' | 'en');
@@ -105,7 +108,9 @@ const xDefaultHref = new URL('/en/', site).href;
 		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T2FNKSK"
 		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<!-- End Google Tag Manager (noscript) -->
-		<Header lang={htmlLang as 'ja' | 'en'} alternateUrl={alternateUrl} />
+		{chrome === 'media'
+			? <CrmMediaHeader lang={htmlLang as 'ja' | 'en'} alternateUrl={alternateUrl} />
+			: <Header lang={htmlLang as 'ja' | 'en'} alternateUrl={alternateUrl} />}
 		<main id="main-content">
 			<slot />
 		</main>

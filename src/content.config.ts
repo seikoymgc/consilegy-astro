@@ -140,6 +140,8 @@ export const collections = {
       date: z.coerce.date(),
       updated: z.coerce.date().optional(),
       author: z.string(),
+      // サイドバー「よく読まれている記事」の並び順（1が上）。閲覧数の取り込みまでは手動。
+      featured: z.number().int().min(1).optional(),
       draft: z.boolean().default(false),
     }),
   }),

@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CrmSubnav from './CrmSubnav.astro';
 import CrmMediaCard from './CrmMediaCard.astro';
 import CrmMediaSegmentTabs from './CrmMediaSegmentTabs.astro';
+import CrmMediaSidebar from './CrmMediaSidebar.astro';
 import { CATEGORIES, CATEGORY_ORDER, COPY, SEGMENTS, crmMediaArticles, mediaPath, type Lang, type Segment } from '../lib/crm-media';
 
 interface Props { lang: Lang; segment: Segment }
@@ -32,6 +33,7 @@ const jsonLd = {
   <CrmSubnav lang={lang} />
 
   <div class="media-page">
+    <div class="main">
     <header class="media-head">
       <p class="kicker">{t.kicker}</p>
       <h1>{title}</h1>
@@ -53,6 +55,8 @@ const jsonLd = {
     })}
 
     <p class="why"><a href="https://media.consilegy.com/">{t.why}</a></p>
+    </div>
+    <CrmMediaSidebar lang={lang} segment={segment} />
   </div>
 </BaseLayout>
 
@@ -62,7 +66,12 @@ const jsonLd = {
 </style>
 
 <style>
-  .media-page { max-width: 64rem; margin: 0 auto; padding: 3.5rem 1.25rem 5rem; }
+  .media-page {
+    max-width: 72rem; margin: 0 auto; padding: 3.5rem 1.25rem 5rem;
+    display: grid; grid-template-columns: minmax(0, 1fr) 17rem; gap: 3.5rem; align-items: start;
+  }
+  .main { min-width: 0; }
+  @media (max-width: 900px) { .media-page { grid-template-columns: minmax(0, 1fr); gap: 3rem; } }
   .media-head { max-width: 46rem; margin-bottom: 2.5rem; }
   .kicker { margin: 0 0 0.5rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-primary); }
   h1 { font-size: clamp(1.5rem, 3.5vw, 2.1rem); line-height: 1.4; margin: 0 0 1rem; letter-spacing: -0.02em; }

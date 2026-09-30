@@ -12,6 +12,7 @@ help_slug: "（記事なし。操作動画台本6「最初にONにする自動�
 video: "6"
 sources: "lib/revops/recommend.ts / lib/revops/catalog.ts / app/(dashboard)/automations/diagnosis-card.tsx"
 date: 2026-09-28
+featured: 2
 author: "山口聖子"
 ---
 CRM の管理者になった人が、ワークフローの一覧を前に固まる。どれも便利そうに見えて、どれが自分の会社に要るのか分からない。結末は2つしかありません。1本も ON にしないまま半年たつか、良さそうなものを全部 ON にして、通知が鳴り止まなくなり、2週間後に全部 OFF にするか。

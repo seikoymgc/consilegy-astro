@@ -13,6 +13,7 @@ video: "4"
 sources: "supabase/migrations/146_product_help_articles_seed.sql (card-scan) / app/(dashboard)/contacts/scan/card-scan-view.tsx / lib/outbound/draft.ts / lib/consent.ts / components/outbound-draft-editor.tsx / lib/revops/recommend.ts (mkt-05)"
 date: 2026-09-28
 updated: 2026-09-30
+featured: 1
 author: "Seiko Yamaguchi"
 ---
 A sales rep comes back from a trade show, wraps the business cards in a rubber band and puts them in a desk drawer. Forty cards. "I'll enter them when things calm down." Things never calm down. Six months later the rep resigns, the successor opens the drawer and finds a stack that tells them a company name and a person's name. What was discussed, what was promised next, all of it left with the person who quit.

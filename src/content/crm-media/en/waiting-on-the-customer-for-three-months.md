@@ -12,6 +12,7 @@ help_slug: "waiting, pipeline-review"
 video: "3, 9"
 sources: "supabase/migrations/146_product_help_articles_seed.sql (waiting, pipeline-review) / 141_deal_waiting_state.sql / 143_deal_stage_dwell_and_decision.sql / lib/revops/catalog.ts (sal-37)"
 date: 2026-09-28
+featured: 3
 author: "Seiko Yamaguchi"
 ---
 Monday sales meeting. On the pipeline there is a deal that has sat in the same stage for three months. "The customer is still aligning internally." The rep says it, the manager nods, and the meeting moves on to the next deal.

@@ -12,6 +12,7 @@ help_slug: "(no article yet; matches video script 6 \"The first automations to t
 video: "6"
 sources: "lib/revops/recommend.ts / lib/revops/catalog.ts / app/(dashboard)/automations/diagnosis-card.tsx"
 date: 2026-09-28
+featured: 2
 author: "Seiko Yamaguchi"
 ---
 Someone becomes the CRM admin and freezes in front of the workflow list. Everything looks useful, and none of it obviously applies to their company. There are only two endings. Six months pass with nothing turned on, or they turn on everything that looks good, the notifications never stop, and two weeks later they turn all of it off.

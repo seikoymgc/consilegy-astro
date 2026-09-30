@@ -13,6 +13,7 @@ video: "4"
 sources: "supabase/migrations/146_product_help_articles_seed.sql (card-scan) / app/(dashboard)/contacts/scan/card-scan-view.tsx / lib/outbound/draft.ts / lib/consent.ts / components/outbound-draft-editor.tsx / lib/revops/recommend.ts (mkt-05)"
 date: 2026-09-28
 updated: 2026-09-30
+featured: 1
 author: "山口聖子"
 ---
 展示会から戻った営業が、名刺を輪ゴムで束ねて机の引き出しに入れる。40枚。「落ち着いたら入力します」と言って、落ち着く日は来ない。半年後にその人が退職し、後任が引き出しを開けると、会社名と名前しか分からない束が出てくる。どんな話をしたのか、次に何を約束したのかは、辞めた人の頭の中にしかありません。

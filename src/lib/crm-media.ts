@@ -101,6 +101,8 @@ export const COPY = {
     allIn: '記事をすべて見る',
     more: 'もっと見る',
     latest: '新着記事',
+    popular: 'よく読まれている記事',
+    categoriesLabel: 'カテゴリ',
     listLabel: '記事一覧',
     problem: '現場の困りごと',
     feature: 'Revenue CRM の機能',
@@ -127,6 +129,8 @@ export const COPY = {
     allIn: 'See all articles',
     more: 'See more',
     latest: 'New articles',
+    popular: 'Most read',
+    categoriesLabel: 'Categories',
     listLabel: 'All articles',
     problem: 'The problem',
     feature: 'Revenue CRM feature',
@@ -144,6 +148,15 @@ export const COPY = {
     crumbRoot: 'Revenue CRM',
   },
 } as const;
+
+/** サイドバー「よく読まれている記事」。frontmatter の featured 昇順。 */
+export async function featuredArticles(lang: Lang, limit = 5): Promise<Article[]> {
+  const all = await crmMediaArticles(lang);
+  return all
+    .filter((a) => a.data.featured != null)
+    .sort((a, b) => (a.data.featured ?? 0) - (b.data.featured ?? 0))
+    .slice(0, limit);
+}
 
 export async function crmMediaArticles(lang: Lang, segment?: Segment): Promise<Article[]> {
   const all = await getCollection(

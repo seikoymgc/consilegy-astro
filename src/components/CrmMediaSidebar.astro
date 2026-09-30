@@ -1,0 +1,94 @@
+---
+// 一覧と記事ページの右サイドバー。新着 → よく読まれている → 読者 → カテゴリ。
+import {
+  CATEGORIES, CATEGORY_ORDER, COPY, SEGMENTS, SEGMENT_ORDER,
+  articlePath, crmMediaArticles, eyecatchPath, featuredArticles, fmtDate, mediaPath,
+  type Lang, type Segment,
+} from '../lib/crm-media';
+
+interface Props { lang: Lang; segment: Segment; currentSlug?: string }
+const { lang, segment, currentSlug } = Astro.props;
+const t = COPY[lang];
+const latest = (await crmMediaArticles(lang)).filter((a) => a.data.slug !== currentSlug).slice(0, 5);
+const popular = (await featuredArticles(lang, 6)).filter((a) => a.data.slug !== currentSlug).slice(0, 5);
+---
+<aside class="side">
+  {latest.length > 0 && (
+    <section>
+      <h2>{t.latest}</h2>
+      <ul>
+        {latest.map((a) => (
+          <li>
+            <a href={articlePath(a)}>
+              <img src={eyecatchPath(lang, a.data.slug)} alt="" width="1200" height="630" loading="lazy" />
+              <span>
+                <b>{a.data.title}</b>
+                <time datetime={a.data.date.toISOString()}>{fmtDate(a.data.date, lang)}</time>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {popular.length > 0 && (
+    <section>
+      <h2>{t.popular}</h2>
+      <ol class="ranked">
+        {popular.map((a) => (
+          <li>
+            <a href={articlePath(a)}>
+              <img src={eyecatchPath(lang, a.data.slug)} alt="" width="1200" height="630" loading="lazy" />
+              <span><b>{a.data.title}</b></span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </section>
+  )}
+
+  <section>
+    <h2>{t.segmentLabel}</h2>
+    <ul class="links">
+      {SEGMENT_ORDER.map((s) => (
+        <li><a href={mediaPath(lang, s)} aria-current={s === segment ? 'page' : undefined}>{SEGMENTS[s][lang]}</a></li>
+      ))}
+    </ul>
+  </section>
+
+  <section>
+    <h2>{t.categoriesLabel}</h2>
+    <ul class="links">
+      {CATEGORY_ORDER.map((c) => (
+        <li><a href={`${mediaPath(lang, segment)}#${c}`}>{CATEGORIES[c][lang]}</a></li>
+      ))}
+    </ul>
+  </section>
+</aside>
+
+<style>
+  .side { display: flex; flex-direction: column; gap: 2.25rem; }
+  h2 { font-size: 0.95rem; font-weight: 700; margin: 0 0 0.9rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--color-text); }
+  ul, ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.9rem; }
+  li a { display: grid; grid-template-columns: 5.5rem 1fr; gap: 0.7rem; align-items: center; text-decoration: none; color: inherit; }
+  li img { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 630; object-fit: cover; border: 1px solid var(--color-border); border-radius: 4px; }
+  li b { display: block; font-size: 0.85rem; font-weight: 600; line-height: 1.5; color: var(--color-text); }
+  li a:hover b { color: var(--color-primary); }
+  li time { display: block; margin-top: 0.2rem; font-size: 0.72rem; color: var(--color-text-muted); }
+
+  .ranked { counter-reset: rank; }
+  .ranked li { position: relative; }
+  .ranked li::before {
+    counter-increment: rank; content: counter(rank);
+    position: absolute; left: -0.35rem; top: -0.35rem; z-index: 1;
+    min-width: 1.35rem; height: 1.35rem; padding: 0 0.3rem; border-radius: 999px;
+    background: var(--color-text); color: #fff; font-size: 0.72rem; font-weight: 700;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+
+  .links { gap: 0.45rem; }
+  .links a { display: block; font-size: 0.9rem; padding: 0.35rem 0; border-bottom: 1px solid var(--color-border); color: var(--color-text); }
+  .links a:hover { color: var(--color-primary); }
+  .links a[aria-current='page'] { font-weight: 700; color: var(--color-primary); }
+</style>

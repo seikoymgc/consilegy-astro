@@ -4,6 +4,7 @@ import { render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CrmSubnav from './CrmSubnav.astro';
 import CrmMediaCard from './CrmMediaCard.astro';
+import CrmMediaSidebar from './CrmMediaSidebar.astro';
 import { CATEGORIES, COPY, SEGMENTS, articlePath, crmMediaArticles, eyecatchPath, fmtDate, mediaPath, type Article } from '../lib/crm-media';
 
 interface Props { a: Article }
@@ -44,6 +45,7 @@ const jsonLd = {
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <CrmSubnav lang={lang} />
 
+  <div class="media-layout">
   <article class="media-article">
     <nav class="crumbs" aria-label={lang === 'ja' ? 'パンくず' : 'Breadcrumb'}>
       <a href={lang === 'ja' ? '/crm/' : '/en/crm/'}>{t.crumbRoot}</a>
@@ -93,6 +95,8 @@ const jsonLd = {
 
     <p class="back"><a href={mediaPath(lang, segment)}>{t.backToList}</a></p>
   </article>
+  <CrmMediaSidebar lang={lang} segment={segment} currentSlug={a.data.slug} />
+  </div>
 </BaseLayout>
 
 <style is:global>
@@ -101,7 +105,12 @@ const jsonLd = {
 </style>
 
 <style>
-  .media-article { max-width: 46rem; margin: 0 auto; padding: 3.5rem 1.25rem 5rem; }
+  .media-layout {
+    max-width: 72rem; margin: 0 auto; padding: 3.5rem 1.25rem 5rem;
+    display: grid; grid-template-columns: minmax(0, 1fr) 17rem; gap: 3.5rem; align-items: start;
+  }
+  .media-article { max-width: 46rem; min-width: 0; margin: 0 auto; }
+  @media (max-width: 900px) { .media-layout { grid-template-columns: minmax(0, 1fr); gap: 3rem; } }
   .crumbs { display: flex; flex-wrap: wrap; gap: 0.4rem; font-size: 0.8rem; color: #5b6673; margin-bottom: 1.5rem; }
   .crumbs a { color: #3a4551; text-decoration: none; }
   .crumbs a:hover { text-decoration: underline; }

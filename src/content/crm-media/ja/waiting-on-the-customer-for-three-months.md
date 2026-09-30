@@ -12,6 +12,7 @@ help_slug: "waiting, pipeline-review"
 video: "3, 9"
 sources: "supabase/migrations/146_product_help_articles_seed.sql (waiting, pipeline-review) / 141_deal_waiting_state.sql / 143_deal_stage_dwell_and_decision.sql / lib/revops/catalog.ts (sal-37)"
 date: 2026-09-28
+featured: 3
 author: "山口聖子"
 ---
 月曜の営業会議。画面のパイプラインに、3か月前から同じステージにいる商談があります。「先方の社内調整中です」。担当者はそう言い、上司は頷き、会議は次の案件へ進みます。

@@ -1,0 +1,13 @@
+---
+import CrmMediaArticle from '../../../../../components/CrmMediaArticle.astro';
+import { crmMediaArticles } from '../../../../../lib/crm-media';
+
+export async function getStaticPaths() {
+  return (await crmMediaArticles('en')).map((a) => ({
+    params: { segment: a.data.segment, slug: a.data.slug },
+    props: { a },
+  }));
+}
+const { a } = Astro.props;
+---
+<CrmMediaArticle a={a} />

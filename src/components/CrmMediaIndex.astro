@@ -1,36 +1,44 @@
 ---
-// /crm/media/ と /en/crm/media/ の一覧。カテゴリ3つの順に並べる。
+// /crm/media/<segment>/ の一覧。読者（法人営業 / スクール・教室）ごとに1ページ。カテゴリ3つの順に並べる。
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CrmSubnav from './CrmSubnav.astro';
 import CrmMediaCard from './CrmMediaCard.astro';
-import { CATEGORIES, CATEGORY_ORDER, COPY, crmMediaArticles, mediaPath, type Lang } from '../lib/crm-media';
+import CrmMediaSegmentTabs from './CrmMediaSegmentTabs.astro';
+import { CATEGORIES, CATEGORY_ORDER, COPY, SEGMENTS, crmMediaArticles, mediaPath, type Lang, type Segment } from '../lib/crm-media';
 
-interface Props { lang: Lang }
-const { lang } = Astro.props;
+interface Props { lang: Lang; segment: Segment }
+const { lang, segment } = Astro.props;
 const t = COPY[lang];
-const all = await crmMediaArticles(lang);
+const sg = SEGMENTS[segment];
+const title = lang === 'ja' ? sg.jaTitle : sg.enTitle;
+const lead = lang === 'ja' ? sg.jaLead : sg.enLead;
+const metaTitle = lang === 'ja' ? sg.jaMetaTitle : sg.enMetaTitle;
+const metaDesc = lang === 'ja' ? sg.jaMetaDesc : sg.enMetaDesc;
+const all = await crmMediaArticles(lang, segment);
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: t.metaTitle,
-  description: t.metaDesc,
+  name: metaTitle,
+  description: metaDesc,
   inLanguage: lang,
-  url: new URL(mediaPath(lang), Astro.site ?? 'https://consilegy.com').href,
+  url: new URL(mediaPath(lang, segment), Astro.site ?? 'https://consilegy.com').href,
   about: { '@type': 'SoftwareApplication', name: 'Revenue CRM', url: 'https://consilegy.com/crm/' },
 };
 ---
 
-<BaseLayout title={t.metaTitle} description={t.metaDesc} lang={lang} alternateUrl={mediaPath(lang === 'ja' ? 'en' : 'ja')}>
+<BaseLayout title={metaTitle} description={metaDesc} lang={lang} alternateUrl={mediaPath(lang === 'ja' ? 'en' : 'ja', segment)}>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <CrmSubnav lang={lang} />
 
   <div class="media-page">
     <header class="media-head">
       <p class="kicker">{t.kicker}</p>
-      <h1>{t.title}</h1>
-      <p class="lead">{t.lead}</p>
+      <h1>{title}</h1>
+      <p class="lead">{lead}</p>
     </header>
+
+    <CrmMediaSegmentTabs lang={lang} current={segment} />
 
     {CATEGORY_ORDER.map((c) => {
       const list = all.filter((a) => a.data.category === c);
@@ -38,7 +46,7 @@ const jsonLd = {
       return (
         <section class="media-group" id={c}>
           <h2>{CATEGORIES[c][lang]}</h2>
-          <p class="group-lead">{lang === 'ja' ? CATEGORIES[c].jaLead : CATEGORIES[c].enLead}</p>
+          <p class="group-lead">{CATEGORIES[c].lead[segment][lang]}</p>
           <div class="cards">{list.map((a) => <CrmMediaCard a={a} />)}</div>
         </section>
       );

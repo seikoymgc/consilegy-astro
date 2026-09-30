@@ -1,0 +1,79 @@
+---
+// /crm/media/ の入口。読者ごとの一覧へ振り分け、最新を数本ずつ見せる。
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CrmSubnav from './CrmSubnav.astro';
+import CrmMediaCard from './CrmMediaCard.astro';
+import { COPY, SEGMENTS, SEGMENT_ORDER, crmMediaArticles, mediaPath, mediaRoot, type Lang } from '../lib/crm-media';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = COPY[lang];
+const PER = 3;
+const groups = await Promise.all(
+  SEGMENT_ORDER.map(async (s) => ({ segment: s, list: (await crmMediaArticles(lang, s)).slice(0, PER) })),
+);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: t.homeMetaTitle,
+  description: t.homeMetaDesc,
+  inLanguage: lang,
+  url: new URL(mediaRoot(lang), Astro.site ?? 'https://consilegy.com').href,
+  about: { '@type': 'SoftwareApplication', name: 'Revenue CRM', url: 'https://consilegy.com/crm/' },
+};
+---
+
+<BaseLayout title={t.homeMetaTitle} description={t.homeMetaDesc} lang={lang} alternateUrl={mediaRoot(lang === 'ja' ? 'en' : 'ja')}>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <CrmSubnav lang={lang} />
+
+  <div class="media-page">
+    <header class="media-head">
+      <p class="kicker">{t.kicker}</p>
+      <h1>{t.homeTitle}</h1>
+      <p class="lead">{t.homeLead}</p>
+    </header>
+
+    {groups.map(({ segment, list }) => {
+      const sg = SEGMENTS[segment];
+      return (
+        <section class="seg-group" id={segment}>
+          <div class="seg-head">
+            <div>
+              <h2><a href={mediaPath(lang, segment)}>{sg[lang]}</a></h2>
+              <p class="group-lead">{lang === 'ja' ? sg.jaLead : sg.enLead}</p>
+            </div>
+            <a class="all" href={mediaPath(lang, segment)}>{t.allIn} →</a>
+          </div>
+          {list.length > 0
+            ? <div class="cards">{list.map((a) => <CrmMediaCard a={a} />)}</div>
+            : <p class="empty">{lang === 'ja' ? '準備中です。' : 'Coming soon.'}</p>}
+        </section>
+      );
+    })}
+
+    <p class="why"><a href="https://media.consilegy.com/">{t.why}</a></p>
+  </div>
+</BaseLayout>
+
+<style>
+  .media-page { max-width: 64rem; margin: 0 auto; padding: 3.5rem 1.25rem 5rem; }
+  .media-head { max-width: 46rem; margin-bottom: 2.5rem; }
+  .kicker { margin: 0 0 0.5rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-primary); }
+  h1 { font-size: clamp(1.5rem, 3.5vw, 2.1rem); line-height: 1.4; margin: 0 0 1rem; letter-spacing: -0.02em; }
+  .lead { margin: 0; color: var(--color-text-muted); line-height: 1.9; }
+  .seg-group { margin-top: 2.75rem; padding-top: 2rem; border-top: 1px solid var(--color-border); }
+  .seg-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+  .seg-head h2 { font-size: 1.3rem; margin: 0 0 0.35rem; }
+  .seg-head h2 a { color: inherit; text-decoration: none; }
+  .seg-head h2 a:hover { color: var(--color-primary); }
+  .group-lead { margin: 0; font-size: 0.925rem; color: var(--color-text-muted); max-width: 46rem; line-height: 1.8; }
+  .all { flex-shrink: 0; font-size: 0.875rem; font-weight: 600; color: var(--color-primary); text-decoration: none; white-space: nowrap; margin-top: 0.3rem; }
+  .all:hover { text-decoration: underline; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+  .empty { margin: 0; color: var(--color-text-muted); font-size: 0.925rem; }
+  .why { margin-top: 3.5rem; font-size: 0.875rem; }
+  .why a { color: var(--color-text-muted); }
+  @media (max-width: 640px) { .seg-head { flex-direction: column; gap: 0.35rem; } }
+</style>

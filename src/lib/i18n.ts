@@ -20,6 +20,8 @@ export const jaToEn: Record<string, string> = {
   '/crm/pricing/': '/en/crm/pricing/',
   '/crm/features/': '/en/crm/features/',
   '/crm/media/': '/en/crm/media/',
+  '/crm/media/b2b/': '/en/crm/media/b2b/',
+  '/crm/media/b2c/': '/en/crm/media/b2c/',
   '/diagnostic/': '/en/diagnostic/',
   '/newsletter/': '/en/newsletter/',
   '/about-revops/': '/en/',

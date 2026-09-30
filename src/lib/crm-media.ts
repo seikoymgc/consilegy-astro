@@ -5,38 +5,101 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 
 export type Lang = 'ja' | 'en';
 export type Category = 'input' | 'setup' | 'operate';
+export type Segment = 'b2b' | 'b2c';
 export type Article = CollectionEntry<'crmMedia'>;
+
+export const SEGMENT_ORDER: Segment[] = ['b2b', 'b2c'];
+
+/** 一覧は /crm/media/b2b/ と /crm/media/b2c/ に分かれる。読者の痛みが違うため。 */
+export const SEGMENTS: Record<Segment, {
+  ja: string; en: string;
+  jaTitle: string; enTitle: string;
+  jaLead: string; enLead: string;
+  jaMetaTitle: string; enMetaTitle: string;
+  jaMetaDesc: string; enMetaDesc: string;
+}> = {
+  b2b: {
+    ja: '法人営業', en: 'B2B sales',
+    jaTitle: '現場の困りごとから、どの画面で消えるかまで',
+    enTitle: 'From what goes wrong on the ground to the screen that fixes it',
+    jaLead: '中小企業の営業・管理の現場で実際に起きている困りごとを一つずつ取り上げ、Revenue CRM のどの画面・どのボタンで解消するかを、導入支援8年の経験から書いています。',
+    enLead: 'One real problem from small-company sales and operations at a time, and the exact screen and button in Revenue CRM that removes it, written from eight years of CRM implementation work.',
+    jaMetaTitle: '法人営業の記事 | Revenue CRM | Consilegy',
+    enMetaTitle: 'B2B field guide | Revenue CRM | Consilegy',
+    jaMetaDesc: '法人営業の現場の困りごと（名刺が溜まる、止まった商談に気づかない、自動化を選べない）から、Revenue CRM のどの画面で解消するかまでを1本ずつ書いた記事。',
+    enMetaDesc: 'One article per real B2B sales problem (cards piling up, stalled deals nobody sees, too many automations to choose from) and the exact Revenue CRM screen that removes it.',
+  },
+  b2c: {
+    ja: 'スクール・教室', en: 'Schools & studios',
+    jaTitle: '教室運営の困りごとから、どの画面で消えるかまで',
+    enTitle: 'From what goes wrong in running a school to the screen that fixes it',
+    jaLead: 'スクールや教室で実際に起きている困りごと（問い合わせが LINE に埋もれる、体験から入会までが追えない、振替と請求が月末作業になる）を一つずつ取り上げ、Revenue CRM のどの画面で解消するかを書いています。',
+    enLead: 'One real problem from running a school or studio at a time (inquiries buried in chat, trials that never convert, make-up lessons and billing piling up at month end) and the exact Revenue CRM screen that removes it.',
+    jaMetaTitle: 'スクール・教室の記事 | Revenue CRM | Consilegy',
+    enMetaTitle: 'School field guide | Revenue CRM | Consilegy',
+    jaMetaDesc: 'スクール・教室運営の困りごと（問い合わせが LINE に埋もれる、体験から入会が追えない、振替と請求が月末作業になる）から、Revenue CRM のどの画面で解消するかまでを1本ずつ書いた記事。',
+    enMetaDesc: 'One article per real school-operations problem (inquiries buried in chat, trials that never convert, make-up lessons and billing at month end) and the exact Revenue CRM screen that removes it.',
+  },
+};
 
 export const CATEGORY_ORDER: Category[] = ['input', 'setup', 'operate'];
 
-export const CATEGORIES: Record<Category, { ja: string; en: string; jaLead: string; enLead: string }> = {
+type Bilingual = { ja: string; en: string };
+export const CATEGORIES: Record<Category, Bilingual & { lead: Record<Segment, Bilingual> }> = {
   input: {
     ja: '入力する仕事',
     en: 'The work of entering data',
-    jaLead: '名刺、手書きメモ、通話、チャット。人が画面に向かって打ち込まなくても、記録が残るようにする。',
-    enLead: 'Business cards, handwritten notes, calls, chat. Records that get kept without a person typing them in.',
+    lead: {
+      b2b: {
+        ja: '名刺、手書きメモ、通話、チャット。人が画面に向かって打ち込まなくても、記録が残るようにする。',
+        en: 'Business cards, handwritten notes, calls, chat. Records that get kept without a person typing them in.',
+      },
+      b2c: {
+        ja: 'LINE の問い合わせ、体験のヒアリング、レッスン後のメモ。先生が画面に向かって打ち込まなくても、生徒の記録が残るようにする。',
+        en: 'Chat inquiries, trial-lesson notes, what happened in class. Student records that get kept without the teacher typing them in.',
+      },
+    },
   },
   setup: {
     ja: '設定する仕事',
     en: 'The work of setting up',
-    jaLead: '空の CRM を渡されて設定から始める、を無くす。業種別の初期設定と、迷わない自動化の選び方。',
-    enLead: 'No more starting from an empty CRM. Industry presets and a way to pick automations without guessing.',
+    lead: {
+      b2b: {
+        ja: '空の CRM を渡されて設定から始める、を無くす。業種別の初期設定と、迷わない自動化の選び方。',
+        en: 'No more starting from an empty CRM. Industry presets and a way to pick automations without guessing.',
+      },
+      b2c: {
+        ja: 'コース、料金、休校日、担当の先生。教室の形をそのまま入れて、初日から使える状態にする。',
+        en: 'Courses, fees, closed days, teachers. Put the shape of your school in as it is and use it from day one.',
+      },
+    },
   },
   operate: {
     ja: '運用を回す仕事',
     en: 'The work of running it',
-    jaLead: '催促、割り当て、進み具合の確認。運用担当を置かなくても回る状態にする。',
-    enLead: 'Reminders, assignments, checking where deals stand. Keeping it running without a dedicated operator.',
+    lead: {
+      b2b: {
+        ja: '催促、割り当て、進み具合の確認。運用担当を置かなくても回る状態にする。',
+        en: 'Reminders, assignments, checking where deals stand. Keeping it running without a dedicated operator.',
+      },
+      b2c: {
+        ja: '振替、欠席、月謝の未納、退会の兆候。事務の人を置かなくても回る状態にする。',
+        en: 'Make-up lessons, absences, unpaid fees, students about to leave. Keeping it running without an office manager.',
+      },
+    },
   },
 };
 
 export const COPY = {
   ja: {
     kicker: 'Revenue CRM',
-    title: '現場の困りごとから、どの画面で消えるかまで',
-    lead: '中小企業の営業・管理の現場で実際に起きている困りごとを一つずつ取り上げ、Revenue CRM のどの画面・どのボタンで解消するかを、導入支援8年の経験から書いています。',
-    metaTitle: '使い方の記事 | Revenue CRM | Consilegy',
-    metaDesc: '現場の困りごと（名刺が溜まる、止まった商談に気づかない、自動化を選べない）から、Revenue CRM のどの画面で解消するかまでを1本ずつ書いた記事。',
+    homeTitle: '現場の困りごとから、どの画面で消えるかまで',
+    homeLead: '法人営業と、スクール・教室。読者が違うので入口を分けています。どちらも、現場で実際に起きている困りごとを一つずつ取り上げ、Revenue CRM のどの画面で解消するかを、導入支援8年の経験から書いています。',
+    homeMetaTitle: '使い方の記事 | Revenue CRM | Consilegy',
+    homeMetaDesc: '現場の困りごとから、Revenue CRM のどの画面で解消するかまでを1本ずつ書いた記事。法人営業向けと、スクール・教室向け。',
+    segmentLabel: '読者',
+    allIn: '記事をすべて見る',
+    latest: '最新の記事',
     listLabel: '記事一覧',
     problem: '現場の困りごと',
     feature: 'Revenue CRM の機能',
@@ -55,10 +118,13 @@ export const COPY = {
   },
   en: {
     kicker: 'Revenue CRM',
-    title: 'From what goes wrong on the ground to the screen that fixes it',
-    lead: 'One real problem from small-company sales and operations at a time, and the exact screen and button in Revenue CRM that removes it, written from eight years of CRM implementation work.',
-    metaTitle: 'Field guide | Revenue CRM | Consilegy',
-    metaDesc: 'One article per real problem (cards piling up, stalled deals nobody sees, too many automations to choose from) and the exact Revenue CRM screen that removes it.',
+    homeTitle: 'From what goes wrong on the ground to the screen that fixes it',
+    homeLead: 'B2B sales teams and schools have different problems, so the articles are split by reader. Each one takes a real problem and shows the exact Revenue CRM screen that removes it, written from eight years of CRM implementation work.',
+    homeMetaTitle: 'Field guide | Revenue CRM | Consilegy',
+    homeMetaDesc: 'One article per real problem and the exact Revenue CRM screen that removes it. For B2B sales teams and for schools and studios.',
+    segmentLabel: 'For',
+    allIn: 'See all articles',
+    latest: 'Latest',
     listLabel: 'All articles',
     problem: 'The problem',
     feature: 'Revenue CRM feature',
@@ -77,14 +143,26 @@ export const COPY = {
   },
 } as const;
 
-export async function crmMediaArticles(lang: Lang): Promise<Article[]> {
-  const all = await getCollection('crmMedia', (e) => e.data.lang === lang && !e.data.draft);
+export async function crmMediaArticles(lang: Lang, segment?: Segment): Promise<Article[]> {
+  const all = await getCollection(
+    'crmMedia',
+    (e) => e.data.lang === lang && !e.data.draft && (!segment || e.data.segment === segment),
+  );
   return all.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 }
 
-export function mediaPath(lang: Lang, slug = ''): string {
-  const base = lang === 'ja' ? '/crm/media/' : '/en/crm/media/';
+/** /crm/media/ … 入口。/crm/media/<segment>/ … 一覧。/crm/media/<segment>/<slug>/ … 記事。 */
+export function mediaRoot(lang: Lang): string {
+  return lang === 'ja' ? '/crm/media/' : '/en/crm/media/';
+}
+
+export function mediaPath(lang: Lang, segment: Segment, slug = ''): string {
+  const base = `${mediaRoot(lang)}${segment}/`;
   return slug ? `${base}${slug}/` : base;
+}
+
+export function articlePath(a: Article): string {
+  return mediaPath(a.data.lang, a.data.segment, a.data.slug);
 }
 
 export function fmtDate(d: Date, lang: Lang): string {

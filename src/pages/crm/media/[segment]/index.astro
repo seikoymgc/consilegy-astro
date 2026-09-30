@@ -1,0 +1,10 @@
+---
+import CrmMediaIndex from '../../../../components/CrmMediaIndex.astro';
+import { SEGMENT_ORDER } from '../../../../lib/crm-media';
+
+export function getStaticPaths() {
+  return SEGMENT_ORDER.map((segment) => ({ params: { segment } }));
+}
+const { segment } = Astro.params;
+---
+<CrmMediaIndex lang="ja" segment={segment} />

@@ -1,10 +1,10 @@
 ---
-import { CATEGORIES, eyecatchPath, mediaPath, type Article } from '../lib/crm-media';
+import { CATEGORIES, articlePath, eyecatchPath, type Article } from '../lib/crm-media';
 interface Props { a: Article }
 const { a } = Astro.props;
 const lang = a.data.lang;
 ---
-<a class="card" href={mediaPath(lang, a.data.slug)}>
+<a class="card" href={articlePath(a)}>
   <img class="thumb" src={eyecatchPath(lang, a.data.slug)} alt="" width="1200" height="630" loading="lazy" />
   <span class="chip">{CATEGORIES[a.data.category][lang]}</span>
   <span class="title">{a.data.title}</span>

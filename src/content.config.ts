@@ -131,6 +131,8 @@ export const collections = {
       pain: z.string(),
       feature: z.string(),
       screens: z.string().optional(),
+      // segment=どの読者の一覧に載るか（URL: /crm/media/<segment>/）。edition=製品のエディション。
+      segment: z.enum(['b2b', 'b2c']).default('b2b'),
       edition: z.enum(['b2b', 'school']).default('b2b'),
       help_slug: z.union([z.string(), z.number()]).transform(String).optional(),
       video: z.union([z.string(), z.number()]).transform(String).optional(),

@@ -4,7 +4,7 @@ import { render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CrmSubnav from './CrmSubnav.astro';
 import CrmMediaCard from './CrmMediaCard.astro';
-import { CATEGORIES, COPY, crmMediaArticles, eyecatchPath, fmtDate, mediaPath, type Article } from '../lib/crm-media';
+import { CATEGORIES, COPY, SEGMENTS, articlePath, crmMediaArticles, eyecatchPath, fmtDate, mediaPath, type Article } from '../lib/crm-media';
 
 interface Props { a: Article }
 const { a } = Astro.props;
@@ -12,7 +12,8 @@ const lang = a.data.lang;
 const t = COPY[lang];
 const { Content } = await render(a);
 
-const others = (await crmMediaArticles(lang)).filter((x) => x.data.slug !== a.data.slug);
+const segment = a.data.segment;
+const others = (await crmMediaArticles(lang, segment)).filter((x) => x.data.slug !== a.data.slug);
 const sameCat = others.filter((x) => x.data.category === a.data.category);
 const next = (sameCat.length ? sameCat : others).slice(0, 2);
 
@@ -27,7 +28,7 @@ const jsonLd = {
   dateModified: (a.data.updated ?? a.data.date).toISOString(),
   author: { '@type': 'Person', '@id': 'https://consilegy.com/company/#founder', name: t.author },
   publisher: { '@id': 'https://consilegy.com/#organization' },
-  mainEntityOfPage: new URL(mediaPath(lang, a.data.slug), site).href,
+  mainEntityOfPage: new URL(articlePath(a), site).href,
   about: { '@type': 'SoftwareApplication', name: 'Revenue CRM', url: 'https://consilegy.com/crm/' },
 };
 ---
@@ -38,7 +39,7 @@ const jsonLd = {
   lang={lang}
   ogType="article"
   ogImage={lang === 'ja' ? '/images/crm/og-crm.png' : '/images/crm/og-crm-en.png'}
-  alternateUrl={mediaPath(lang === 'ja' ? 'en' : 'ja', a.data.slug)}
+  alternateUrl={mediaPath(lang === 'ja' ? 'en' : 'ja', segment, a.data.slug)}
 >
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <CrmSubnav lang={lang} />
@@ -47,7 +48,7 @@ const jsonLd = {
     <nav class="crumbs" aria-label={lang === 'ja' ? 'パンくず' : 'Breadcrumb'}>
       <a href={lang === 'ja' ? '/crm/' : '/en/crm/'}>{t.crumbRoot}</a>
       <span aria-hidden="true">›</span>
-      <a href={mediaPath(lang)}>{t.listLabel}</a>
+      <a href={mediaPath(lang, segment)}>{SEGMENTS[segment][lang]}</a>
       <span aria-hidden="true">›</span>
       <span>{CATEGORIES[a.data.category][lang]}</span>
     </nav>
@@ -90,7 +91,7 @@ const jsonLd = {
       </section>
     )}
 
-    <p class="back"><a href={mediaPath(lang)}>{t.backToList}</a></p>
+    <p class="back"><a href={mediaPath(lang, segment)}>{t.backToList}</a></p>
   </article>
 </BaseLayout>
 

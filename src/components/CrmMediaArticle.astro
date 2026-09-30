@@ -4,7 +4,7 @@ import { render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CrmMediaCard from './CrmMediaCard.astro';
 import CrmMediaSidebar from './CrmMediaSidebar.astro';
-import { CATEGORIES, COPY, SEGMENTS, articlePath, crmMediaArticles, eyecatchPath, fmtDate, mediaPath, type Article } from '../lib/crm-media';
+import { CATEGORIES, COPY, SEGMENTS, articlePath, crmMediaArticles, eyecatchPath, fmtDate, mediaPath, ogImagePath, type Article } from '../lib/crm-media';
 
 interface Props { a: Article }
 const { a } = Astro.props;
@@ -38,7 +38,7 @@ const jsonLd = {
   description={a.data.pain}
   lang={lang}
   ogType="article"
-  ogImage={lang === 'ja' ? '/images/crm/og-crm.png' : '/images/crm/og-crm-en.png'}
+  ogImage={ogImagePath(lang, a.data.slug)}
   alternateUrl={mediaPath(lang === 'ja' ? 'en' : 'ja', segment, a.data.slug)}
 >
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

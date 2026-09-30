@@ -1,0 +1,19 @@
+---
+// 入口ページのブロック用。サムネ左＋タイトル＋矢印の小さい行。
+import { articlePath, eyecatchPath, type Article } from '../lib/crm-media';
+interface Props { a: Article }
+const { a } = Astro.props;
+---
+<a class="row" href={articlePath(a)}>
+  <img src={eyecatchPath(a.data.lang, a.data.slug)} alt="" width="1200" height="630" loading="lazy" />
+  <span class="title">{a.data.title}</span>
+  <span class="chev" aria-hidden="true">›</span>
+</a>
+
+<style>
+  .row { display: grid; grid-template-columns: 7.5rem 1fr auto; align-items: center; gap: 0.75rem; text-decoration: none; color: inherit; }
+  .row img { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 630; object-fit: cover; border: 1px solid var(--color-border); border-radius: 6px; }
+  .title { font-size: 0.95rem; font-weight: 600; line-height: 1.55; color: var(--color-text); }
+  .row:hover .title { color: var(--color-primary); }
+  .chev { font-size: 1.4rem; line-height: 1; color: var(--color-text-muted); }
+</style>

@@ -105,7 +105,7 @@ featured:     サイドバー「よく読まれている記事」の順位（1�
 
 - 毎朝2本（日英セット）。法人営業（b2b）1本とスクール・教室（b2c）1本
 - 各 segment の予定表で、まだ公開されていない一番上のトピックを書く
-- アイキャッチは Recraft で場面の写真を1枚ずつ生成し `public/images/crm/media/hero/<slug>.webp` に置く。Chrome が動いていない朝は文字SVGで公開し、後日補う
+- アイキャッチは Recraft で場面の写真を1枚ずつ生成し `public/images/crm/media/hero2/<slug>.webp` に置く。Chrome が動いていない朝は文字SVGで公開し、後日補う
 - 予定表が尽きたら、製品内ヘルプ（crm `supabase/migrations/146_product_help_articles_seed.sql`）、操作動画の台本、βパートナーのフィードバックから次の痛みを選び、この表に行を足す
 
 ## 未決

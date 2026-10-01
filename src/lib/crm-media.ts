@@ -197,18 +197,18 @@ export function fmtDate(d: Date, lang: Lang): string {
 }
 
 /**
- * アイキャッチ。場面の写真 public/images/crm/media/hero/<slug>.webp（1200x630、日英共通）があればそれ。
+ * アイキャッチ。場面の写真 public/images/crm/media/hero2/<slug>.webp（1200x630、日英共通）があればそれ。
  * 無い記事は scripts/generate-eyecatches.mjs が出す文字の SVG に落ちる（写真ができたら差し替える）。
  */
 export function eyecatchPath(lang: Lang, slug: string): string {
-  const hero = `/images/crm/media/hero/${slug}.webp`;
+  const hero = `/images/crm/media/hero2/${slug}.webp`;
   if (existsSync(join(process.cwd(), 'public', hero))) return hero;
   return lang === 'ja' ? `/images/crm/media/${slug}.svg` : `/images/crm/media/en/${slug}.svg`;
 }
 
 /** OG 画像。写真があれば記事の写真、無ければ製品の OG。 */
 export function ogImagePath(lang: Lang, slug: string): string {
-  const hero = `/images/crm/media/hero/${slug}.webp`;
+  const hero = `/images/crm/media/hero2/${slug}.webp`;
   if (existsSync(join(process.cwd(), 'public', hero))) return hero;
   return lang === 'ja' ? '/images/crm/og-crm.png' : '/images/crm/og-crm-en.png';
 }

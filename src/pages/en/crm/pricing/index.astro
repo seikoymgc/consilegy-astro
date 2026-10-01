@@ -143,6 +143,7 @@ const terms = [
 			</div>
 			<div class="price-note">
 				<p>No setup fee. Every plan is free of the monthly fee for the first 30 days from the day you start. The User and Student plans have a 1-year term with no mid-term cancellation; the Prepaid plan renews monthly.</p>
+				<p><a href="#support">Onboarding, adoption, and operations support (setup from &yen;120,000)</a></p>
 				<p>Basic automation means intake, sending, automated workflows, and integrations.</p>
 			</div>
 		</div>
@@ -180,33 +181,35 @@ const terms = [
 			</div>
 		</div>
 		<div class="fuel-block">
-			<h3>Onboarding, adoption, and operations support</h3>
-			<p class="fuel-lead">Guide prices.</p>
-			<div class="fuel-grid fuel-grid--4">
-				<div class="price-card">
-					<p class="price-tier">Videos and help articles</p>
-					<p class="price-figure">Free</p>
-				</div>
-				<div class="price-card">
-					<p class="price-tier">Onboarding</p>
-					<p class="price-figure"><span class="price-yen">&yen;</span>120,000<span class="price-unit">and up</span></p>
-				</div>
-				<div class="price-card">
-					<p class="price-tier">Adoption (3 months)</p>
-					<p class="price-figure"><span class="price-yen">&yen;</span>300,000<span class="price-unit">and up</span></p>
-				</div>
-				<div class="price-card">
-					<p class="price-tier">Operations</p>
-					<p class="price-figure"><span class="price-yen">&yen;</span>30,000<span class="price-unit">/ month and up</span></p>
-				</div>
-			</div>
-			<p class="fuel-tail">Data migration and integrations are quoted separately. Plans do not include custom setup, process design, or operations consulting.</p>
-		</div>
-		<div class="fuel-block">
 			<h3>Referral program</h3>
 			<p class="fuel-lead">When a company you refer starts a paid contract, 20% of its base plan monthly fee (excluding tax) comes off your bill for 12 months.</p>
 		</div>
 		<p class="proof-note">All prices exclude consumption tax.</p>
+	</div>
+</section>
+
+<section class="support-section" id="support">
+	<div class="container">
+		<div class="section-head">
+			<p class="kicker">Onboarding, adoption, and operations</p>
+			<h2>Support from setup to daily use, only as much as you need.</h2>
+		</div>
+			<p class="fuel-lead">So you can get started on your own, basic how-to videos and help articles are free on every plan. Custom setup, process design, and operations consulting are not included in any plan. The following support is available on request.</p>
+			<div class="fuel-table-wrap">
+			<table class="fuel-table">
+				<thead>
+					<tr><th>Support</th><th>What it covers</th><th>Guide price (excl. tax)</th></tr>
+				</thead>
+				<tbody>
+					<tr><td>How-to videos and help articles</td><td>Videos and articles that explain the screens. Available any time (videos are being published in stages)</td><td>Free (1-year contract required)</td></tr>
+					<tr><td>Initial setup</td><td>Interview on what you need to get started, initial setup and permission design, and 3 walkthrough sessions (additional sessions &yen;50,000 each)</td><td>&yen;120,000 and up</td></tr>
+					<tr><td>Adoption support</td><td>3 months of hands-on support after launch: a weekly meeting, review of settings, and follow-up with people who have stopped entering data</td><td>&yen;300,000 and up (3 months)</td></tr>
+					<tr><td>Operations support</td><td>We make settings changes for you after adoption and answer your questions (up to 2 hours a month)</td><td>&yen;30,000 / month and up</td></tr>
+					<tr><td>Custom development</td><td>We develop additional features to fit how your company operates.</td><td>Quoted individually</td></tr>
+				</tbody>
+			</table>
+			</div>
+			<p class="fuel-tail">Data migration and integrations with external services take varying effort depending on volume and the services involved, so they are quoted separately. All paid support is formally quoted after we hear about your company's size and needs.</p>
 	</div>
 </section>
 
@@ -544,6 +547,13 @@ const terms = [
 		letter-spacing: 0;
 		line-break: strict;
 	}
+
+	.support-section {
+		padding: clamp(4rem, 7vw, 6rem) 0;
+		border-top: 1px solid #e5e5e0;
+	}
+
+	.support-section .fuel-lead { margin-bottom: var(--space-md); }
 
 	.terms {
 		padding: clamp(4rem, 7vw, 6rem) 0;

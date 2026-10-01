@@ -9,6 +9,14 @@ const SIGNUP_URL = 'https://crm.consilegy.com/signup';
 // 概要ページは9セクション（スマートフォンを2026-09-29に追加）。機能の詳細は /crm/features/、料金の詳細と契約条件は /crm/pricing/、
 // 質問の全件は /crm/faq/、事業タイプ別の説明は各エディションのページに任せる。
 
+const supports = [
+	{ tier: '操作動画・ヘルプ記事', figure: '無料', text: '画面の使い方を動画と記事で（1年契約が必要）。操作動画は順次公開します。' },
+	{ tier: '初期設定', figure: '120,000円〜', text: 'ヒアリング、初期設定と権限の設計、操作説明会3回。' },
+	{ tier: '定着支援（3ヶ月）', figure: '300,000円〜', text: '週1回の定例、設定の見直し、入力が止まっている方へのフォロー。' },
+	{ tier: '運用支援', figure: '月額30,000円〜', text: '設定変更の代行と、ご質問への対応（月2時間まで）。' },
+	{ tier: '追加開発', figure: '要見積', text: 'その会社の運用に合わせて、追加機能を開発します。' },
+];
+
 const proofStats = [
 	{ figure: '40社以上', label: 'CRM / MA / SFAの導入支援' },
 	{ figure: '175本', label: '収録している自動化（4エディション共通）' },
@@ -370,6 +378,31 @@ const readings = [
 		<div class="plan-summary__foot">
 			<p>初期費用はありません。どのプランも30日間の無料トライアル付きで、カード登録なしで始められます。</p>
 			<a href="/crm/pricing/" class="btn btn--secondary">料金の詳細</a>
+		</div>
+		<p class="proof-note">※価格はすべて税抜表示です。</p>
+	</div>
+</section>
+
+<!-- ===================== 5b. 導入・定着・運用のご支援（詳細は /crm/pricing/#support） ===================== -->
+<section class="crm-support" id="support">
+	<div class="container">
+		<div class="crm-section-head">
+			<p class="kicker">導入・定着・運用のご支援</p>
+			<h2>導入から運用まで、必要な分だけ支援します。</h2>
+		</div>
+		<p class="section-lead">操作動画とヘルプ記事は、すべてのプランで無料です。設定や業務設計まで任せたいときは、次の支援をご用意しています。</p>
+		<div class="support-summary">
+			{supports.map((item) => (
+				<div class="support-summary__item">
+					<p class="price-tier">{item.tier}</p>
+					<p class="price-figure">{item.figure}</p>
+					<p class="plan-for">{item.text}</p>
+				</div>
+			))}
+		</div>
+		<div class="plan-summary__foot">
+			<p>データ移行や外部サービスとの連携設定は別途お見積りします。有料の支援は、会社の規模やご要望をお伺いしたうえで、正式にお見積りします。</p>
+			<a href="/crm/pricing/#support" class="btn btn--secondary">支援の詳細</a>
 		</div>
 		<p class="proof-note">※価格はすべて税抜表示です。</p>
 	</div>
@@ -1534,6 +1567,35 @@ const readings = [
 		line-height: 1.8;
 	}
 
+	.crm-support {
+		padding: clamp(4rem, 7vw, 6rem) 0;
+		background: #f7f7f5;
+	}
+
+	.support-summary {
+		display: grid;
+		grid-template-columns: repeat(5, minmax(0, 1fr));
+		gap: 0.8rem;
+	}
+
+	.support-summary__item {
+		padding: 1.35rem;
+		background: #fff;
+		border-radius: 8px;
+	}
+
+	@media (max-width: 1000px) {
+		.support-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	}
+
+	.support-summary .plan-for {
+		margin: 0.75rem 0 0;
+	}
+
+	.support-summary .price-figure {
+		font-size: 1.5rem;
+	}
+
 	.start-body {
 		max-width: 46em;
 	}
@@ -1555,6 +1617,10 @@ const readings = [
 		.crm-start {
 			padding-block: var(--space-xl);
 		}
+
+		.crm-support { padding-block: var(--space-xl); }
+
+		.support-summary { grid-template-columns: 1fr; }
 
 		.plan-summary {
 			grid-template-columns: 1fr;

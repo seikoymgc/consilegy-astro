@@ -140,6 +140,7 @@ const terms = [
 			</div>
 			<div class="price-note">
 				<p>初期費用はありません。どのプランも、初回のご利用開始日から30日間は月額無料です。</p>
+					<p><a href="#support">導入・定着・運用のご支援（初期設定12万円〜）を見る</a></p>
 				<p>ユーザープランと生徒数プランの契約期間は1年（途中解約なし）、プリペイドプランは1ヶ月ごとの自動更新です。基本的な自動処理は、受付・送信・自動処理・外部連携を指します。</p>
 			</div>
 		</div>
@@ -177,33 +178,35 @@ const terms = [
 			</div>
 		</div>
 		<div class="fuel-block">
-			<h3>導入・定着・運用の支援</h3>
-			<p class="fuel-lead">料金の目安です。</p>
-			<div class="fuel-grid fuel-grid--4">
-				<div class="price-card">
-					<p class="price-tier">操作動画・ヘルプ記事</p>
-					<p class="price-figure">無料</p>
-				</div>
-				<div class="price-card">
-					<p class="price-tier">導入支援</p>
-					<p class="price-figure"><span class="price-yen">¥</span>120,000<span class="price-unit">〜</span></p>
-				</div>
-				<div class="price-card">
-					<p class="price-tier">定着支援（3ヶ月）</p>
-					<p class="price-figure"><span class="price-yen">¥</span>300,000<span class="price-unit">〜</span></p>
-				</div>
-				<div class="price-card">
-					<p class="price-tier">運用支援</p>
-					<p class="price-figure"><span class="price-yen">¥</span>30,000<span class="price-unit">/ 月〜</span></p>
-				</div>
-			</div>
-			<p class="fuel-tail">データ移行・外部連携は別途お見積りします。各プランに、個別の設定代行・業務設計・運用コンサルティングは含みません。</p>
-		</div>
-		<div class="fuel-block">
 			<h3>紹介プログラム</h3>
 			<p class="fuel-lead">ご紹介いただいた会社が有料契約を始めてから12ヶ月間、その会社の基本プランの月額利用料金（税抜）の20%を紹介した側の利用料金からお引きします。</p>
 		</div>
 		<p class="proof-note">※価格はすべて税抜表示です。</p>
+	</div>
+</section>
+
+<section class="support-section" id="support">
+	<div class="container">
+		<div class="section-head">
+			<p class="kicker">導入・定着・運用のご支援</p>
+			<h2>導入から運用まで、必要な分だけ支援します。</h2>
+		</div>
+			<p class="fuel-lead">ご自身で導入を進めていただけるよう、基本的な操作動画とヘルプ記事をすべてのプランで無料でご用意しています。個別の設定代行、業務設計、運用コンサルティング等は各プランに含まれず、ご希望に応じて次の支援をご用意しています。</p>
+			<div class="fuel-table-wrap">
+			<table class="fuel-table">
+				<thead>
+					<tr><th>支援</th><th>内容</th><th>料金の目安（税抜）</th></tr>
+				</thead>
+				<tbody>
+					<tr><td>操作動画・ヘルプ記事</td><td>画面の使い方を説明する動画と記事。いつでもご覧いただけます（操作動画は順次公開します）</td><td>無料（1年契約が必要）</td></tr>
+					<tr><td>初期設定</td><td>開始に必要な内容のヒアリング、初期設定と権限の設計、操作説明会（3回）※追加1回5万円</td><td>120,000円〜</td></tr>
+					<tr><td>定着支援</td><td>導入後3ヶ月間の伴走。週1回の定例、設定の見直し、入力が止まっている方へのフォロー</td><td>300,000円〜（3ヶ月）</td></tr>
+					<tr><td>運用支援</td><td>定着後の設定変更の代行、ご質問への対応（月2時間まで）</td><td>月額30,000円〜</td></tr>
+					<tr><td>追加開発</td><td>その会社の運用に合わせて、追加機能の開発を行います。</td><td>要見積</td></tr>
+				</tbody>
+			</table>
+			</div>
+			<p class="fuel-tail">データ移行や外部サービスとの連携設定は、件数や連携先によって工数が変わるため、別途お見積りします。有料の支援はいずれも、会社の規模やご要望をお伺いしたうえで、正式にお見積りします。</p>
 	</div>
 </section>
 
@@ -638,6 +641,13 @@ const terms = [
 		letter-spacing: 0;
 		line-break: strict;
 	}
+
+	.support-section {
+		padding: clamp(4rem, 7vw, 6rem) 0;
+		border-top: 1px solid #e5e5e0;
+	}
+
+	.support-section .fuel-lead { margin-bottom: var(--space-md); }
 
 	.terms {
 		padding: clamp(4rem, 7vw, 6rem) 0;

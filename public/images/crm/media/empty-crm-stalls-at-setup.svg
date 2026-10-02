@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5F7FA"/>
+      <stop offset="100%" stop-color="#E8ECF2"/>
+    </linearGradient>
+    <linearGradient id="bi" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#765FC4"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#765FC4" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#765FC4" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="26"/></filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <circle cx="970" cy="310" r="240" fill="url(#glow)" filter="url(#soft)"/>
+  <line x1="715" y1="296" x2="850" y2="249" stroke="#1E3A8A" stroke-opacity="0.19" stroke-width="1.5"/>
+  <line x1="715" y1="296" x2="852" y2="397" stroke="#1E3A8A" stroke-opacity="0.25" stroke-width="1.5"/>
+  <line x1="850" y1="249" x2="989" y2="245" stroke="#1E3A8A" stroke-opacity="0.29" stroke-width="1.5"/>
+  <line x1="850" y1="249" x2="988" y2="383" stroke="#1E3A8A" stroke-opacity="0.36" stroke-width="1.5"/>
+  <line x1="852" y1="397" x2="989" y2="245" stroke="#1E3A8A" stroke-opacity="0.37" stroke-width="1.5"/>
+  <line x1="852" y1="397" x2="988" y2="383" stroke="#1E3A8A" stroke-opacity="0.22" stroke-width="1.5"/>
+  <line x1="989" y1="245" x2="1136" y2="295" stroke="#1E3A8A" stroke-opacity="0.22" stroke-width="1.5"/>
+  <line x1="988" y1="383" x2="1136" y2="295" stroke="#1E3A8A" stroke-opacity="0.30" stroke-width="1.5"/>
+  <circle cx="715" cy="296" r="6.5" fill="#F5F7FA" stroke="#1E3A8A" stroke-width="2"/>
+  <circle cx="850" cy="249" r="9" fill="url(#bi)"/>
+  <circle cx="852" cy="397" r="6.5" fill="#F5F7FA" stroke="#1E3A8A" stroke-width="2"/>
+  <circle cx="989" cy="245" r="6.5" fill="#F5F7FA" stroke="#1E3A8A" stroke-width="2"/>
+  <circle cx="988" cy="383" r="9" fill="url(#bi)"/>
+  <circle cx="1136" cy="295" r="6.5" fill="#F5F7FA" stroke="#1E3A8A" stroke-width="2"/>
+  
+
+  <rect x="96" y="60" width="4" height="30" fill="#E62E45"/>
+  <text x="116" y="82" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="20" font-weight="600" fill="#1E3A8A" letter-spacing="0.28em">REVENUE CRM</text>
+  <line x1="96" y1="116" x2="1104" y2="116" stroke="#1E3A8A" stroke-opacity="0.12" stroke-width="1"/>
+
+  <text x="96" y="211" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="48" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">CRM を入れたら</text>
+  <text x="96" y="279" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="48" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">「設定」から始まり、</text>
+  <text x="96" y="347" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="48" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">空のまま止まる</text>
+  <rect x="96" y="371" width="64" height="3" fill="#E62E45"/>
+  <text x="96" y="408" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="22" font-weight="400" fill="#64748B" letter-spacing="0.02em">業種別エディション（最初の質問で、パイプライン・自…</text>
+
+  <rect x="0" y="546" width="1200" height="84" fill="#1E3A8A" fill-opacity="0.035"/>
+  <line x1="0" y1="546" x2="1200" y2="546" stroke="#1E3A8A" stroke-opacity="0.12" stroke-width="1"/>
+  <text x="96" y="598" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="22" font-weight="600" fill="#1E3A8A" letter-spacing="0.18em">CONSILEGY</text>
+  <text x="1104" y="598" text-anchor="end" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="18" font-weight="400" fill="#94A3B8" letter-spacing="0.06em">consilegy.com</text>
+</svg>

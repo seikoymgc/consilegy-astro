@@ -36,7 +36,11 @@
 
 ## 手順
 
-1. **トピック選定**：`topics.md` の未使用トピックから、`published-log.md` に無いものを1つ選ぶ。カテゴリが直近と偏らないようにする（crm/sales/data/japan-gtm/adoption/marketing の6分類をローテーション）。
+0. **題材の決め方（2026-10-03 改定・Seiko指示「1,2」）**：`topics.md` の実務ノート在庫(A〜F)は2026-10-02に尽きた。以後は次の2本立てにする。
+   - **(1) 正典（月1〜2本）**：Search Consoleで「表示はあるが20位以下」のクエリから選ぶ。候補と進捗は `search-review-2026-09.md` の3-2と `topic-backlog.md`。日次の枠とは別に、`topic-backlog.md` の先頭の未着手を1本ずつ書く。テンプレートAに従い、数字は5個以上、`【要数値】`は埋めずに残す（数字が足りなければ draft:true にしてSeikoに回す）。
+   - **(2) 実務ノートの新題材**：Notionの投稿計画・LinkedIn Posting Schedule・投稿内容の作成・数字を考える会などから、**まだ記事になっていない切り口**を拾う。`topic-backlog.md` の「実務ノート候補」に1行で足してから書く。既存記事（`published-log.md`）と論点が重なるものは外す。Seikoの現場の経験が要る題材は、実案件の話を作らず定性の構造で書くか、draft:true にして回す。
+   - どちらにも該当が無い日は、**無理に出さず通知で題材を求める**（一般論の記事は出さない）。
+1. **トピック選定**（上記(1)(2)が無いときのみ）：`topics.md` の未使用トピックから、`published-log.md` に無いものを1つ選ぶ。カテゴリが直近と偏らないようにする（crm/sales/data/japan-gtm/adoption/marketing の6分類をローテーション）。
 
 2. **Notionから要素を取得**：Notionの「contents schedule」系ページ（「投稿計画　最新」「LinkedIn Posting Schedule」「投稿内容の作成（日本語）」「コンテンツカレンダー」）を検索し、そのトピックに対するSeikoの切り口・フック・ポジショニング・言い回しを拾う。Seikoの投稿の主張や視点を記事の芯に使う。該当が無ければトピック側の論点で書く。
 

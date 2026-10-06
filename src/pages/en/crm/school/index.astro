@@ -10,7 +10,7 @@ const SIGNUP_URL = 'https://crm.consilegy.com/signup';
 // school shell (edition=b2c + shell='school') is listed here.
 const screens = [
 	{ src: 'students', title: 'Students', desc: 'Trialing, paying, on hold, withdrawn. Where each student stands, at a glance.', alt: 'The student list, filtered by enrolled, trialing, near graduation, on hold, and graduated, with a status badge on each student.' },
-	{ src: 'schedule', title: 'Weekly schedule', desc: 'Lessons managed by the week, tied to the closure-day calendar.', alt: 'The weekly schedule: lessons this week, coaches working, and a day-by-day list of times, students, and assigned coaches.' },
+	{ src: 'schedule', title: 'Weekly schedule', desc: 'Lessons managed by the week, tied to the closure-day calendar. Connect a Google account and each coach gets the lessons on their own Google Calendar.', alt: 'The weekly schedule: lessons this week, coaches working, and a day-by-day list of times, students, and assigned coaches.' },
 	{ src: 'lessons', title: 'Lesson records', desc: 'What was taught, kept per student. The history survives a change of coach.', alt: 'Lesson history listing student name, assigned coach, course, and date in chronological order.' },
 	{ src: 'hearing-ai', title: 'Intake notes', desc: 'Paste the trial transcript and AI sorts it into fields. A coach corrects it before it is saved.', alt: 'The intake form, with a transcript paste box and a fill-with-AI button above fields for how they found us, basic details, current level, and goals, each already filled in.' },
 	{ src: 'report', title: 'Monthly report', desc: 'Drafted from that month’s lesson records. Check it, fix it, send it.', alt: 'The monthly report screen, showing an AI-drafted progress comment with regenerate and confirm buttons.' },
@@ -21,7 +21,7 @@ const screens = [
 const highlights = [
 	{
 		title: 'Stay on LINE, keep everything',
-		text: 'Students hand in homework on the LINE app they already use, no new app to install. Submissions and conversations are saved per student, and the CRM can nudge students who keep missing homework.',
+		text: 'Students hand in homework on the LINE app they already use, no new app to install. Submissions are saved per student, and the CRM can nudge students who keep missing homework.',
 	},
 	{
 		title: "Open it, and today's work is there",
@@ -58,7 +58,7 @@ const roles = [
 
 <BaseLayout
 	title="Revenue CRM for schools | Make your day 48 hours long"
-	description="Open the home screen and today's work is already there. A CRM for schools and studios that connects to your official LINE account, so homework and messages are saved per student. Enrollment status, the weekly schedule, lesson records, and AI-drafted monthly reports in one place, built mobile first. 30-day free trial, no card required."
+	description="Open the home screen and today's work is already there. A CRM for schools and studios that connects to your official LINE account, so homework sent on LINE is saved per student. Enrollment status, the weekly schedule, lesson records, and AI-drafted monthly reports in one place, built mobile first. 30-day free trial, no card required."
 	lang="en"
 	alternateUrl="/crm/school/"
 >
@@ -89,8 +89,8 @@ const roles = [
 			<h1>Make your day<br />48 hours long.</h1>
 			<p class="hero-lead">
 				Open the home screen and today's work is already there.
-				Students keep talking to you on your official LINE account. <strong>Homework and messages arrive
-				on LINE and are saved to the CRM automatically</strong>.
+				Students keep talking to you on your official LINE account. <strong>Homework arrives on LINE
+				and is saved to each student's record automatically</strong>.
 			</p>
 			<div class="hero-actions">
 				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">See the demo</a>
@@ -99,7 +99,7 @@ const roles = [
 			</div>
 			<ul class="hero-points" aria-label="What the school edition does">
 				<li>Works with your official LINE account</li>
-				<li>Bookings go straight to Google Calendar</li>
+				<li>Lessons go straight to Google Calendar</li>
 				<li>Free for the first 30 days</li>
 			</ul>
 		</div>
@@ -319,6 +319,7 @@ const roles = [
 				The demo opens with just an email address.
 				How-to videos and help articles are free for everyone. If you want us to set it up and get it running for you,
 				hands-on onboarding is available from ¥120,000.
+				Refer another school and, for 12 months after it starts paying, 20% of its base plan fee (tax excluded) comes off your bill.
 			</p>
 			<div class="cta-actions">
 				<a href={SIGNUP_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">Start free</a>

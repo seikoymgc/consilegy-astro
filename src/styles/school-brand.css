@@ -1,0 +1,195 @@
+/* スクール版LP（/crm/school/・/en/crm/school/）だけ、スクール版の実際の画面と同じ色・角丸・数字の書体に揃える。
+   値の出どころは crm リポジトリの src/app/school/globals.css（BEYONDERS からのコピー）。
+   ページ側の scoped style（クラス1つ＋属性）に勝つよう、すべて body .school-brand から書く。 */
+
+.school-brand {
+	--color-primary: #0E2438;
+	--color-primary-dark: #16344f;
+	--color-text: #10212F;
+	--color-text-muted: #4A5965;
+	--color-bg: #F4F1EA;
+	--color-bg-subtle: #FBFAF6;
+	--color-border: #E5E0D5;
+	--school-card: #FFFFFF;
+	--school-coral: #FF5C3E;
+	--school-amber: #F4A52C;
+	--school-shadow: 0 1px 2px rgba(14, 36, 56, 0.05);
+	--school-shadow-lg: 0 6px 22px rgba(14, 36, 56, 0.10);
+	--school-num: 'Bricolage Grotesque', var(--font-sans);
+	background: var(--color-bg);
+	color: var(--color-text);
+}
+
+/* ボタン: 画面の「＋レッスン記録」と同じ濃紺、角丸12px */
+body .school-brand .btn {
+	border-radius: 12px;
+	font-weight: 700;
+}
+
+body .school-brand .btn--secondary {
+	background: var(--school-card);
+}
+
+/* 見出しの上の小さなラベル: 画面左上のロゴと同じ珊瑚→アンバーの点を添える */
+body .school-brand .eyebrow,
+body .school-brand .section-eyebrow,
+body .school-brand .cta-eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	color: var(--color-text);
+	font-family: var(--school-num);
+	font-weight: 700;
+}
+
+body .school-brand .eyebrow::before,
+body .school-brand .section-eyebrow::before,
+body .school-brand .cta-eyebrow::before {
+	content: "";
+	flex-shrink: 0;
+	width: 0.6rem;
+	height: 0.6rem;
+	border-radius: 3px;
+	background: linear-gradient(135deg, var(--school-coral), var(--school-amber));
+}
+
+/* 数字は画面のKPIと同じ Bricolage Grotesque */
+body .school-brand .proof-grid strong,
+body .school-brand .price-figure,
+body .school-brand .price-yen {
+	font-family: var(--school-num);
+	font-weight: 800;
+	letter-spacing: -0.02em;
+}
+
+body .school-brand .issue-label {
+	color: var(--school-coral);
+}
+
+body .school-brand .issue-label__number {
+	color: var(--school-coral);
+	font-family: var(--school-num);
+	font-weight: 800;
+}
+
+/* スクリーンショットの枠: 画面のカードと同じ角丸15px */
+body .school-brand .hero-media img,
+body .school-brand .prob-shot img,
+body .school-brand .sc-shot,
+body .school-brand .press-image img {
+	border: 1px solid var(--color-border);
+	border-radius: 15px;
+	background: var(--school-card);
+	box-shadow: var(--school-shadow-lg);
+	overflow: hidden;
+}
+
+body .school-brand .sc-shot img {
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+/* 線で区切っていた箱を、画面と同じ白いカードにする */
+body .school-brand .prob-item,
+body .school-brand .price-card,
+body .school-brand .fit-box,
+body .school-brand .cta-card {
+	padding: 1.25rem;
+	border: 1px solid var(--color-border);
+	border-radius: 15px;
+	background: var(--school-card);
+	box-shadow: var(--school-shadow);
+}
+
+body .school-brand .prob-item:nth-child(2),
+body .school-brand .prob-item:nth-child(3) {
+	padding-left: 1.25rem;
+	border-left: 1px solid var(--color-border);
+}
+
+body .school-brand .price-card:last-of-type {
+	border-right: 1px solid var(--color-border);
+}
+
+body .school-brand .fit-box--subtle {
+	background: var(--color-bg-subtle);
+}
+
+@media (max-width: 760px) {
+	body .school-brand .price-card {
+		padding-right: 1.25rem;
+	}
+}
+
+/* 実績の帯: 画面ホームのKPIカードと同じ形 */
+body .school-brand .proof-grid {
+	gap: 0.75rem;
+	border: 0;
+}
+
+body .school-brand .proof-grid li,
+body .school-brand .proof-grid li:first-child {
+	padding: 1rem 1.1rem;
+	border: 1px solid var(--color-border);
+	border-radius: 15px;
+	background: var(--school-card);
+	box-shadow: var(--school-shadow);
+}
+
+/* 画面構成のカード */
+body .school-brand .sc-grid {
+	gap: 1rem;
+}
+
+body .school-brand .sc-card,
+body .school-brand .sc-card:nth-child(even),
+body .school-brand .sc-card:nth-child(odd) {
+	padding: 1rem;
+	border: 1px solid var(--color-border);
+	border-radius: 15px;
+	background: var(--school-card);
+	box-shadow: var(--school-shadow);
+}
+
+body .school-brand .sc-shot {
+	box-shadow: none;
+}
+
+/* 一覧（運営サポート・権限・預ける前に）は白いカードにまとめ、行の区切りは薄い線 */
+body .school-brand .support-list,
+body .school-brand .ro-list,
+body .school-brand .safe-list {
+	padding: 0.25rem 1.25rem;
+	border: 1px solid var(--color-border);
+	border-radius: 15px;
+	background: var(--school-card);
+	box-shadow: var(--school-shadow);
+}
+
+body .school-brand .support-list li:last-child,
+body .school-brand .ro-row:last-child,
+body .school-brand .safe-row:last-child {
+	border-bottom: 0;
+}
+
+/* AIへの質問例: チャットの吹き出し */
+body .school-brand .ai-examples {
+	display: grid;
+	gap: 0.6rem;
+	border: 0;
+}
+
+body .school-brand .ai-examples li {
+	justify-self: start;
+	padding: 0.7rem 1rem;
+	border: 1px solid var(--color-border);
+	border-radius: 15px 15px 15px 4px;
+	background: var(--school-card);
+	box-shadow: var(--school-shadow);
+}
+
+body .school-brand .ai-examples li::before,
+body .school-brand .ai-examples li::after {
+	content: none;
+}

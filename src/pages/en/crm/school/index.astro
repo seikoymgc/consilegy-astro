@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import CrmSubnav from '../../../../components/CrmSubnav.astro';
+import '../../../../styles/school-brand.css';
 
 const DEMO_URL = 'https://crm.consilegy.com/demos';
 const SIGNUP_URL = 'https://crm.consilegy.com/signup';
@@ -57,7 +58,11 @@ const roles = [
 	]
 })} />
 
+<link slot="head" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&display=swap" />
+
 <CrmSubnav lang="en" />
+
+<div class="school-brand">
 
 <!-- ===================== HERO ===================== -->
 <section class="hero">
@@ -297,6 +302,7 @@ const roles = [
 	</div>
 </section>
 
+</div>
 </BaseLayout>
 
 <style>

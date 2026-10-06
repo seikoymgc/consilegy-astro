@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import CrmSubnav from '../../../../components/CrmSubnav.astro';
-import { CRM_FEATURES, featureCount } from '../../../../data/crm-features';
+import { CRM_FEATURES, CRM_ROADMAP, featureCount } from '../../../../data/crm-features';
 
 const total = featureCount();
 ---
@@ -41,6 +41,19 @@ const total = featureCount();
         </ul>
       </section>
     ))}
+
+    <section class="feat-group" id="roadmap">
+      <h2>Coming next</h2>
+      <p class="group-lead">Features we plan to build. Unlike the list above, these are not available yet.</p>
+      <ul>
+        {CRM_ROADMAP.map(item => (
+          <li>
+            <span class="n">{item.name.en}</span>
+            <span class="d">{item.desc.en}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
 
     <section class="feat-cta">
       <p>See the real screens with nothing but an email address.</p>

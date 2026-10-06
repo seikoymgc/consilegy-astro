@@ -248,8 +248,22 @@ export const CRM_FEATURES: FeatureGroup[] = [
       {
         name: { ja: '滞留商談のアラート', en: 'Stalled-deal alerts' },
         desc: {
-          ja: '動いていない商談を検知して担当者に通知する。',
-          en: 'Detect deals that have stopped moving and tell the owner.',
+          ja: '一定期間、活動（メール・通話・会議・メモ）がない商談を見つけて、担当者にタスクを立てる。',
+          en: 'Find deals with no activity (email, call, meeting, note) for a set period and create a task for the owner.',
+        },
+      },
+      {
+        name: { ja: 'リードの異常検知', en: 'Lead-volume anomaly check' },
+        desc: {
+          ja: '新規リードが前の週の半分を下回ると、原因を見るためのタスクを立てる。週に1回チェックする。',
+          en: 'When new leads fall below half of the previous week, a task is created to look into it. Checked weekly.',
+        },
+      },
+      {
+        name: { ja: '狙い目企業の自動判定（ABM）', en: 'Automatic target-account flagging (ABM)' },
+        desc: {
+          ja: 'コンタクトの関心度と、理想の顧客像に近いかどうかから、狙うべき会社に印を付ける。印の付いた会社への接触が途切れたら、タスクにする。',
+          en: 'Flags target accounts from contact intent and ideal-customer fit, and creates a task when contact with a flagged account goes quiet.',
         },
       },
       {
@@ -743,6 +757,18 @@ export const CRM_FEATURES: FeatureGroup[] = [
         },
       },
     ],
+  },
+];
+
+// 追加予定。CRM_FEATURES は「すべて動いている」と書いて出しているので、ここは別に持ち、
+// 件数（featureCount）にも数えない。時期は書かない（書くと約束になる）。
+export const CRM_ROADMAP: FeatureItem[] = [
+  {
+    name: { ja: '狙っている会社のニュース', en: 'News on your target accounts' },
+    desc: {
+      ja: '資金調達、新サービス、人事異動など、狙っている会社の公開情報を担当者に届ける。',
+      en: 'Public news on your target accounts, such as funding, launches, and leadership changes, delivered to the account owner.',
+    },
   },
 ];
 

@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CrmSubnav from '../../../components/CrmSubnav.astro';
-import { CRM_FEATURES, featureCount } from '../../../data/crm-features';
+import { CRM_FEATURES, CRM_ROADMAP, featureCount } from '../../../data/crm-features';
 
 const total = featureCount();
 ---
@@ -40,6 +40,19 @@ const total = featureCount();
         </ul>
       </section>
     ))}
+
+    <section class="feat-group" id="roadmap">
+      <h2>追加予定</h2>
+      <p class="group-lead">開発を予定している機能です。上の一覧とは違い、まだ使えません。</p>
+      <ul>
+        {CRM_ROADMAP.map(item => (
+          <li>
+            <span class="n">{item.name.ja}</span>
+            <span class="d">{item.desc.ja}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
 
     <section class="feat-cta">
       <p>実際の画面は、メールアドレスだけでご覧いただけます。</p>

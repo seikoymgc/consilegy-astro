@@ -7,8 +7,7 @@ const DEMO_URL = 'https://crm.consilegy.com/demos';
 const SIGNUP_URL = 'https://crm.consilegy.com/signup';
 
 // Mirrors the Japanese page. Only what is actually built into the product's
-// school shell (edition=b2c + shell='school') is listed here. The LINE
-// integration is still simulated, so it is deliberately left out.
+// school shell (edition=b2c + shell='school') is listed here.
 const screens = [
 	{ src: 'students', title: 'Students', desc: 'Trialing, paying, on hold, withdrawn. Where each student stands, at a glance.', alt: 'The student list, filtered by enrolled, trialing, near graduation, on hold, and graduated, with a status badge on each student.' },
 	{ src: 'schedule', title: 'Weekly schedule', desc: 'Lessons managed by the week, tied to the closure-day calendar.', alt: 'The weekly schedule: lessons this week, coaches working, and a day-by-day list of times, students, and assigned coaches.' },
@@ -17,6 +16,21 @@ const screens = [
 	{ src: 'report', title: 'Monthly report', desc: 'Drafted from that month’s lesson records. Check it, fix it, send it.', alt: 'The monthly report screen, showing an AI-drafted progress comment with regenerate and confirm buttons.' },
 	{ src: 'knowledge', title: 'Knowledge base', desc: 'Teaching policy and operating rules written down, so running the school stops depending on one person.', alt: 'The knowledge base, listing articles for common questions, operating rules, and manuals.' },
 	{ src: 'billing', title: 'Billing', desc: 'Paying and failed payments in one place, so a stalled payment gets noticed early.', alt: 'The billing screen showing MRR, paying, and failed counts, with paying, cancelled, and failed badges on each contract.' },
+];
+
+const highlights = [
+	{
+		title: 'Stay on LINE, keep everything',
+		text: 'Students hand in homework on the LINE app they already use, no new app to install. Submissions and conversations are saved per student, and the CRM can nudge students who keep missing homework.',
+	},
+	{
+		title: "Open it, and today's work is there",
+		text: "Today's lessons, students to contact, and homework waiting for review are on the home screen. No more starting the day by digging through the roster.",
+	},
+	{
+		title: 'AI writes the report',
+		text: "The monthly report is drafted from that month's lesson records. Coaches review it and fix what needs fixing.",
+	},
 ];
 
 const problems = [
@@ -44,7 +58,7 @@ const roles = [
 
 <BaseLayout
 	title="Revenue CRM for schools | Make your day 48 hours long"
-	description="Opening the roster, hunting for lesson notes, recounting who has paid. A CRM for schools and studios that gives that time back to your students. Enrollment status, the weekly schedule, lesson records, and AI-drafted monthly reports in one place, built mobile first. 30-day free trial, no card required."
+	description="Open the home screen and today's work is already there. A CRM for schools and studios that connects to your official LINE account, so homework and messages are saved per student. Enrollment status, the weekly schedule, lesson records, and AI-drafted monthly reports in one place, built mobile first. 30-day free trial, no card required."
 	lang="en"
 	alternateUrl="/crm/school/"
 >
@@ -74,9 +88,9 @@ const roles = [
 			</p>
 			<h1>Make your day<br />48 hours long.</h1>
 			<p class="hero-lead">
-				Opening the roster, hunting for lesson notes, recounting who has paid.
-				We give that time back to your students. The school edition is <strong>one screen layout that
-				puts status, records, and billing around the student</strong>.
+				Open the home screen and today's work is already there.
+				Students keep talking to you on your official LINE account. <strong>Homework and messages arrive
+				on LINE and are saved to the CRM automatically</strong>.
 			</p>
 			<div class="hero-actions">
 				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">See the demo</a>
@@ -84,8 +98,8 @@ const roles = [
 				<a href="#screens" class="btn btn--secondary">See the screens</a>
 			</div>
 			<ul class="hero-points" aria-label="What the school edition does">
-				<li>Students, lessons, and billing in one place</li>
-				<li>Mobile-first UI for coaches</li>
+				<li>Works with your official LINE account</li>
+				<li>AI drafts the monthly reports</li>
 				<li>Free for the first 30 days</li>
 			</ul>
 		</div>
@@ -164,6 +178,24 @@ const roles = [
 				went</strong> on a single page. When the coach changes, this screen tells the story.
 			</figcaption>
 		</figure>
+	</div>
+</section>
+
+<!-- ===================== HIGHLIGHTS ===================== -->
+<section class="problem highlights">
+	<div class="container">
+		<div class="section-head">
+			<p class="section-eyebrow">What it does</p>
+			<h2 class="prob-title">Let the CRM do the searching, compiling, and chasing.</h2>
+		</div>
+		<div class="prob-grid">
+			{highlights.map((item) => (
+				<article class="prob-item">
+					<h3>{item.title}</h3>
+					<p>{item.text}</p>
+				</article>
+			))}
+		</div>
 	</div>
 </section>
 
@@ -285,6 +317,8 @@ const roles = [
 			<p class="cta-lead">
 				No setup fee, and every plan comes with a 30-day free trial, no card required.
 				The demo opens with just an email address.
+				How-to videos and help articles are free for everyone. If you want us to set it up and get it running for you,
+				hands-on onboarding is available from ¥120,000.
 			</p>
 			<div class="cta-actions">
 				<a href={SIGNUP_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">Start free</a>

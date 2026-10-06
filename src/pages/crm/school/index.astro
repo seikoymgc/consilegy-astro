@@ -7,7 +7,6 @@ const DEMO_URL = 'https://crm.consilegy.com/demos';
 const SIGNUP_URL = 'https://crm.consilegy.com/signup';
 
 // プロダクトの school shell（edition=b2c + shell='school'）に実装済みの機能のみ記載。
-// LINE連携は現時点でシミュレーション（実API未接続）のため、意図的に載せていない。
 const screens = [
 	{ src: 'students', title: '生徒管理', desc: '体験中・支払中・休止中・解約済を一覧で確認。現在の状態がすぐ分かります。', alt: '生徒管理の画面。受講中・体験予定・卒業間近・課題が滞り・未確認・休止・卒業生・退会のフィルタと、生徒ごとの状態バッジが並ぶ。' },
 	{ src: 'schedule', title: '週間スケジュール', desc: 'レッスン予定を週単位で管理。休校日カレンダーとも連動します。', alt: 'スケジュールの画面。予定数と未記録レッスン数、日付ごとの時刻・生徒・担当コーチの一覧。' },
@@ -16,6 +15,21 @@ const screens = [
 	{ src: 'report', title: '月次レポート', desc: 'その月のレッスン記録から、AIが下書きを書きます。確認して直すだけで提出できます。', alt: '月次レポートの画面。AIが下書きした生徒の進捗コメントに、再生成と確定のボタンが付いている。' },
 	{ src: 'knowledge', title: 'ナレッジベース', desc: '指導方針や運用ルールを記事化。教室運営の属人化を防ぎます。', alt: 'ナレッジベースの画面。週1レッスンの進め方、文法添削の返し方、休講・振替のルールなどの記事一覧。' },
 	{ src: 'billing', title: '請求管理', desc: '支払中・支払失敗を確認。止まっている入金に早く気づけます。', alt: '請求の画面。MRR、決済失敗、未入金の件数と、生徒ごとの課金ステータス一覧に課金中・未入金・決済失敗のバッジ。' },
+];
+
+const highlights = [
+	{
+		title: 'LINEのまま、全部残る',
+		text: '生徒はアプリを入れず、いつものLINEで課題を出せます。届いた提出と会話は生徒ごとにCRMへ残り、未提出が続く生徒に自動で声をかけることもできます。',
+	},
+	{
+		title: '開けば、今日やることが出ている',
+		text: '今日のレッスン、連絡すべき生徒、確認待ちの課題がホーム画面に並びます。名簿を開いて探すところから始めなくて済みます。',
+	},
+	{
+		title: 'レポートはAIが書く',
+		text: 'その月のレッスン記録から、月次レポートの下書きを作ります。コーチは確認して直すだけです。',
+	},
 ];
 
 const problems = [
@@ -89,7 +103,7 @@ const roles = [
 
 <BaseLayout
 	title="Revenue CRM スクール版 | 1日を、48時間にしよう。教室のためのCRM"
-	description="名簿を開く、記録を探す、入金を数え直す。その時間を生徒に戻す、スクール・教室向けのCRMです。在籍状況、週間スケジュール、レッスン記録、月次レポートの下書きまで1か所に。スマホ前提で、コーチが移動中でも使えます。2026年9月28日に正式リリース。どのプランも30日間無料で試せます。"
+	description="ホーム画面を開けば、今日やることが分かる。スクール・教室向けのCRMです。公式LINEとつながり、課題の提出や連絡がそのまま生徒ごとに残ります。月次レポートはAIが下書き。スマホ前提で、コーチが移動中でも使えます。2026年9月28日に正式リリース。どのプランも30日間無料で試せます。"
 	lang="ja"
 	alternateUrl="/en/crm/school/"
 >
@@ -119,8 +133,8 @@ const roles = [
 			</p>
 			<h1>1日を、<br />48時間にしよう。</h1>
 			<p class="hero-lead">
-				名簿を開いて、記録を探して、入金を数え直す。その時間を、生徒と向き合う時間に戻します。
-				スクール版は、<strong>生徒を軸に状態・記録・請求を1か所で見られる画面構成</strong>です。
+				ホーム画面を開けば、今日やることが分かる。
+				生徒とのやりとりはいつもの公式LINEのまま。<strong>課題の提出も連絡もLINEで届き、CRMに自動で残ります</strong>。
 			</p>
 			<div class="hero-actions">
 				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">デモを見る</a>
@@ -128,8 +142,8 @@ const roles = [
 				<a href="#screens" class="btn btn--secondary">画面を見る</a>
 			</div>
 			<ul class="hero-points" aria-label="スクール版の特徴">
-				<li>生徒・レッスン・請求を一元管理</li>
-				<li>スマホ前提のコーチ向けUI</li>
+				<li>公式LINEとそのままつながる</li>
+				<li>月次レポートはAIが下書き</li>
 				<li>30日間無料で試せる</li>
 			</ul>
 		</div>
@@ -225,6 +239,24 @@ const roles = [
 				コーチが替わっても、この画面を開けば経緯が分かります。
 			</figcaption>
 		</figure>
+	</div>
+</section>
+
+<!-- ===================== HIGHLIGHTS ===================== -->
+<section class="problem highlights">
+	<div class="container">
+		<div class="section-head">
+			<p class="section-eyebrow">できること</p>
+			<h2 class="prob-title">探す・まとめる・催促するを、CRMに任せる。</h2>
+		</div>
+		<div class="prob-grid">
+			{highlights.map((item) => (
+				<article class="prob-item">
+					<h3>{item.title}</h3>
+					<p>{item.text}</p>
+				</article>
+			))}
+		</div>
 	</div>
 </section>
 
@@ -389,6 +421,8 @@ const roles = [
 			<div class="price-note">
 				<p>数えるのは<strong>在籍中の生徒</strong>だけです。体験中、休会中、卒業した生徒、問い合わせ段階の見込み客は、何人いても無料で管理できます。</p>
 				<p>初期費用はありません。30日間の無料トライアル付きで、カード登録なしで始められます。</p>
+				<p>使い方の動画とヘルプは、どなたでも無料です。設定から運用に乗せるまで任せたい場合は、個別の導入支援（12万円〜）もご用意しています。</p>
+				<p>紹介プログラムもあります。ご紹介いただいた教室が有料契約を始めてから12ヶ月間、その教室の月額（税抜）の20%を、紹介した側の利用料金からお引きします。</p>
 			</div>
 		</div>
 		<div class="price-more">

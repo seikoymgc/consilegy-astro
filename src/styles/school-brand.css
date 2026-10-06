@@ -193,3 +193,15 @@ body .school-brand .ai-examples li::before,
 body .school-brand .ai-examples li::after {
 	content: none;
 }
+
+/* ヒーローのラベルはロゴを載せるので、点は出さない（法人版の .eyebrow-mark と同じ寸法） */
+body .school-brand .eyebrow:has(.eyebrow-mark)::before {
+	content: none;
+}
+
+body .school-brand .eyebrow-mark {
+	width: 26px;
+	height: 26px;
+	border-radius: 6px;
+	flex-shrink: 0;
+}

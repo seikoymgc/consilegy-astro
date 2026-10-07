@@ -10,7 +10,7 @@
 |---|---|---|---|---|
 | 1 | SFAが定着しない理由 | sfa 定着しない／sfa 入力しない／crm入力 手間（10表示・39〜59位） | why-teams-dont-use-the-tool, change-the-meeting-not-the-manual 等 | 公開済み 2026-10-05 (why-sfa-adoption-fails) |
 | 2 | リード数とは（数え方の定義） | リード数／リード数とは（8表示・21〜23位） | lead-count-meant-different-things, define-the-denominator-first | 公開済み 2026-10-06 (what-is-a-lead-count) |
-| 3 | 稟議の通し方・他社比較表 | 稟議 比較／他社 比較 表／見積 値引き（6表示・21〜62位） | draft-the-internal-approval-document, comparison-chart-defends-the-choice | 未着手 |
+| 3 | 稟議の通し方・他社比較表 | 稟議 比較／他社 比較 表／見積 値引き（6表示・21〜62位） | draft-the-internal-approval-document, comparison-chart-defends-the-choice | 公開済み 2026-10-07 (how-to-get-an-approval-through) |
 
 公開したら、関連する実務ノートの末尾から正典へリンクを張り直す。
 

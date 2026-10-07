@@ -79,7 +79,7 @@ featured:     サイドバー「よく読まれている記事」の順位（1�
 | 6 | input | LINE・Chatwork のやり取りが個人の手元に残る | チャット貼り付け読み取り | chat-threads-stay-on-personal-phones（公開） |
 | 7 | input | Excel の顧客リストから移れない | CSV インポート／HubSpot 取り込み | customer-list-stuck-in-excel（公開） |
 | 8 | setup | CRM を入れたら「設定」から始まり空のまま止まる | 業種別エディション | |
-| 9 | setup | 画面が多すぎてスタッフが覚えられない | 役割別UI／AIエージェントに聞く | |
+| 9 | setup | 画面が多すぎてスタッフが覚えられない | 役割別UI／AIエージェントに聞く | too-many-screens-for-staff-to-learn（公開） |
 | 10 | setup | 一斉メールと個別メールの送り方が分からない | Google 連携／送信ドメイン／HubSpot へリスト送信 | |
 | 11 | operate | 経営者が「あの案件どこまで？」を人に聞かないと分からない | ホームの4つの数字／フォーキャスト | asking-people-where-the-deal-stands（公開） |
 | 12 | operate | 請求と顧客情報が別の場所にある | Stripe 連携 | |
@@ -99,7 +99,12 @@ featured:     サイドバー「よく読まれている記事」の順位（1�
 | 7 | operate | 振替と欠席の管理が先生の手帳にある | 週間スケジュール（schedule） | 保留（2026-10-04: 「振替」は「次回を予約」で入れた予約しか動かせず、もとの枠が週間スケジュールとカレンダー配信に残る。予定の時刻がサーバーの時間帯で作られており実機確認が要る。原稿は _scratch/crm-media-held/。確認できるまで書かない） |
 | 8 | operate | 月謝の未納に月末まで気づかない | 請求管理（billing。支払中・支払失敗） | |
 | 9 | operate | 退会の兆候（課題が止まる、LINE の返事が止まる）に気づくのが遅れる | ホーム「今すぐ対応」／生徒ページ「課題の提出」／生徒一覧の状態（在籍・体験中・卒業間近・休会・卒業） | signs-of-quitting-noticed-too-late（公開） |
-| 10 | operate | 月次レポートを先生が夜に書いている | 月次レポートの下書き（report/[studentId]） | |
+| 10 | operate | 月次レポートを先生が夜に書いている | 月次レポートの下書き（report/[studentId]） | 保留（2026-10-07: レポートの行（b2c_reports）を作る処理が seed スクリプト以外に見当たらず、行が無いと「再生成」「確定する」のボタンが出ない。確認できるまで書かない） |
+| 11 | input | テストの結果が紙のファイルにあって「伸びていますか」に答えられない | 成績（assessments） | 保留（2026-10-07: 下の「school-v1 について」のとおり、画面に到達する経路が確認できない。原稿は _scratch/crm-media-held/test-results-stay-in-paper-files.{ja,en}.md） |
+
+### school-v1 について（2026-10-07 のレビューで判明。要確認）
+
+crm origin/main（db20fc1）では、`src/app/school/` にあるのは `page.tsx / invite / m / trial` だけで、現行のスクール版は `src/school-app/`（コミット d6651d8「スクール版をBEYONDERSのコピーにする」2026-09-14）。`src/app/school-v1/` の画面は内部リンクが `/school/more`、`/school/assessments/new`、`/school/students/<id>` を指しているが、そのルートも `/school/*` を school-v1 に書き換える設定（next.config.ts、proxy.ts）も見当たらない。つまり school-v1 を根拠にした記事は、読者がデモで同じ画面に到達できない可能性がある。公開済みの b2c 記事も同じ根拠なので、山口が実機で確認し、b2c の一次情報をどこに置くか（school-v1 か school-app か）を決めるまで、b2c の新規記事は書かない。
 
 ## 日次タスクの回し方
 

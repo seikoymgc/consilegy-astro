@@ -80,7 +80,7 @@ featured:     サイドバー「よく読まれている記事」の順位（1�
 | 7 | input | Excel の顧客リストから移れない | CSV インポート／HubSpot 取り込み | customer-list-stuck-in-excel（公開） |
 | 8 | setup | CRM を入れたら「設定」から始まり空のまま止まる | 業種別エディション | |
 | 9 | setup | 画面が多すぎてスタッフが覚えられない | 役割別UI／AIエージェントに聞く | too-many-screens-for-staff-to-learn（公開） |
-| 10 | setup | 一斉メールと個別メールの送り方が分からない | Google 連携／送信ドメイン／HubSpot へリスト送信 | |
+| 10 | setup | 一斉メールと個別メールの送り方が分からない | 送信待ちの下書き／AIメール／Google 連携／送信ドメイン／リスト／「HubSpotに送る」 | bulk-and-one-to-one-email-get-mixed-up（公開。2026-10-08。個別は「営業連絡してよい」の記録が無いと送れず、一斉はフォームで同意した人にしか届かない前提で書いた） |
 | 11 | operate | 経営者が「あの案件どこまで？」を人に聞かないと分からない | ホームの4つの数字／フォーキャスト | asking-people-where-the-deal-stands（公開） |
 | 12 | operate | 請求と顧客情報が別の場所にある | Stripe 連携 | |
 
@@ -92,7 +92,7 @@ featured:     サイドバー「よく読まれている記事」の順位（1�
 |---|---|---|---|---|
 | 1 | input | 問い合わせが LINE に埋もれて、返事をしたかどうかも分からなくなる | 生徒ごとの LINE 履歴（students/[id]/line） | |
 | 2 | input | 体験レッスンで聞いた話が先生の頭にしか残らない | 入会時ヒアリング（文字起こしを貼って項目に振り分け） | |
-| 3 | input | レッスンで何をやったかが引き継がれず、担当が替わると最初からになる | レッスン記録（lessons/log） | 保留（2026-10-03: 記録画面は「未記録」のレッスンからしか開けず、その行を作る処理が crm origin/main に見当たらない。確認できるまで書かない） |
+| 3 | input | レッスンで何をやったかが引き継がれず、担当が替わると最初からになる | レッスン記録（school-app。生徒のカルテ「＋ レッスン記録」） | lesson-notes-vanish-when-the-teacher-changes（公開。2026-10-08。school-v1 では保留だったが、school-app の記録フォームを根拠に書いた。カルテの履歴は sort 順で40件まで、画面から入れた行は全部 sort 0 なので並び順は要実機確認） |
 | 4 | input | 生徒名簿が Excel と紙にあって、どれが最新か分からない | 生徒の取り込み（students/import） | 保留（2026-10-03: CSV で入るのはコンタクトだけで、生徒一覧が読む b2c_student_details が作られない。確認できるまで書かない） |
 | 5 | setup | コースと料金と休校日を入れるだけで初日が終わる | 初期設定（コース・休校日カレンダー holidays・コーチ coaches） | |
 | 6 | setup | 体験の申込みフォームと名簿がつながっていない | 体験申込（school-apply）から生徒登録まで | trial-form-not-connected-to-the-roster（公開） |

@@ -101,10 +101,18 @@ featured:     サイドバー「よく読まれている記事」の順位（1�
 | 9 | operate | 退会の兆候（課題が止まる、LINE の返事が止まる）に気づくのが遅れる | ホーム「今すぐ対応」／生徒ページ「課題の提出」／生徒一覧の状態（在籍・体験中・卒業間近・休会・卒業） | signs-of-quitting-noticed-too-late（公開） |
 | 10 | operate | 月次レポートを先生が夜に書いている | 月次レポートの下書き（report/[studentId]） | 保留（2026-10-07: レポートの行（b2c_reports）を作る処理が seed スクリプト以外に見当たらず、行が無いと「再生成」「確定する」のボタンが出ない。確認できるまで書かない） |
 | 11 | input | テストの結果が紙のファイルにあって「伸びていますか」に答えられない | 成績（assessments） | 保留（2026-10-07: 下の「school-v1 について」のとおり、画面に到達する経路が確認できない。原稿は _scratch/crm-media-held/test-results-stay-in-paper-files.{ja,en}.md） |
+| 12 | operate | レッスンの予定を先生ごとのカレンダーに手で入れ直している | Googleカレンダー連携（school-app） | 保留（2026-10-07: 予約の変更・取消の処理が無く、古い予定が残る。「スケジュール」画面と購読URLは bey_schedule を読み、予約（bey_bookings）とつながっていない。本番で Google 連携が通るかも未確認。原稿は _scratch/crm-media-held/lesson-schedule-retyped-into-calendars.{ja,en}.md） |
+| 13 | setup | 先生に生徒の記録は見せたいが、月謝の金額までは見せたくない | 権限管理（school-app。請求の閲覧を役割で閉じる） | teachers-see-fee-amounts-too（公開） |
 
 ### school-v1 について（2026-10-07 のレビューで判明。要確認）
 
 crm origin/main（db20fc1）では、`src/app/school/` にあるのは `page.tsx / invite / m / trial` だけで、現行のスクール版は `src/school-app/`（コミット d6651d8「スクール版をBEYONDERSのコピーにする」2026-09-14）。`src/app/school-v1/` の画面は内部リンクが `/school/more`、`/school/assessments/new`、`/school/students/<id>` を指しているが、そのルートも `/school/*` を school-v1 に書き換える設定（next.config.ts、proxy.ts）も見当たらない。つまり school-v1 を根拠にした記事は、読者がデモで同じ画面に到達できない可能性がある。公開済みの b2c 記事も同じ根拠なので、山口が実機で確認し、b2c の一次情報をどこに置くか（school-v1 か school-app か）を決めるまで、b2c の新規記事は書かない。
+
+2026-10-07 追記: 山口の指示で、#13 は現行の school-app（`src/school-app/`、`src/app/api/school-app/`）だけを根拠に書いて公開した。以後 b2c は school-app を一次情報にする。レビューで分かった school-app の前提:
+- 権限管理の16個のチップのうち、画面と操作に効くのは「請求」の閲覧と、生徒・レッスン・タスクの作成／編集。「削除」と生徒・タスクの「閲覧」はどこからも参照されていない
+- 新しく作ったスクールで `school_role_permissions` と `school_users` の初期行を入れる処理が、デモの種データと招待以外に見当たらない。行が無い間は fallback で金額は管理者のみだが、画面のチップは全部OFFに見え、最初の1タップで `can_view=true` の行ができる。実機確認が要る
+- 予約（bey_bookings）は追加だけで、変更・取消の処理が無い
+- 英語表示は辞書にある語だけが置き換わる（「閲覧」は "Viewer" と出る）
 
 ## 日次タスクの回し方
 

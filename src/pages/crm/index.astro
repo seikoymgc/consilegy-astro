@@ -11,7 +11,7 @@ const SIGNUP_URL = 'https://crm.consilegy.com/signup';
 
 const supports = [
 	{ tier: '操作動画・ヘルプ記事', figure: '無料', text: '画面の使い方を動画と記事で（1年契約が必要）。操作動画は順次公開します。' },
-	{ tier: '初期設定', figure: '120,000円〜', text: 'ヒアリング、初期設定と権限の設計、操作説明会3回。' },
+	{ tier: '初期設定', figure: '120,000円〜', text: 'ヒアリングのうえ、ひな形を自社の業務に合わせて設定。権限の設計、操作説明会3回。' },
 	{ tier: '定着支援（3ヶ月）', figure: '300,000円〜', text: '週1回の定例、設定の見直し、入力が止まっている方へのフォロー。' },
 	{ tier: '運用支援', figure: '月額30,000円〜', text: '設定変更の代行と、ご質問への対応（月2時間まで）。' },
 	{ tier: '追加開発', figure: '要見積', text: 'その会社の運用に合わせて、追加機能を開発します。' },
@@ -38,7 +38,7 @@ const outcomes = [
 	},
 	{
 		problem: '設定：CRMを入れても、項目とパイプラインの設計から始まる',
-		answer: '業務に合わせた初期設定を済ませた状態で、使い始められます。',
+		answer: 'B2B・受託開発など業務別に、パイプラインと項目のひな形が入った状態から始められます。',
 	},
 	{
 		problem: '運用：フォローや更新の抜け漏れを、人が見張っている',
@@ -150,8 +150,8 @@ const readings = [
 ---
 
 <BaseLayout
-	title="国産CRM「Revenue CRM」| CRMを入れて、仕事を増やさない。中小企業向けCRM/SFA"
-	description="マーケティング・営業・顧客管理を一つの顧客データでつなぐ中小企業向けのCRM/SFA（顧客管理・営業管理ツール）。入力・設定・運用という「CRMのための仕事」を、AIによる記録、175本の自動化、業務別の初期設定で減らします。B2B・支援会社／受託開発・代理店・スクールの4エディション。1アカウント月額3,000円（税抜）、30日間無料。"
+	title="国産CRM「Revenue CRM」| 入力がめんどくさくないCRM。中小企業向けCRM/SFA"
+	description="入力がめんどくさくないCRM。名刺は撮るだけ、商談メモは貼るだけ、録音は上げるだけで、AIが記録の下書きを作ります。マーケティング・営業・顧客管理を一つの顧客データでつなぐ中小企業向けのCRM/SFA（顧客管理・営業管理ツール）。B2B・支援会社／受託開発・代理店・スクールの4エディション。1アカウント月額3,000円（税抜）、30日間無料。"
 	ogImage="/images/crm/og-crm.png"
 	lang="ja"
 	alternateUrl="/en/crm/"
@@ -165,7 +165,7 @@ const readings = [
 	"applicationSubCategory": "CRM/SFA（顧客管理・営業管理ツール）",
 	"operatingSystem": "Web",
 	"url": "https://consilegy.com/crm/",
-	"description": "マーケティング（MA）・営業（SFA）・顧客管理（CRM）を一つの顧客データでつなぐ中小企業向けのCRM/SFA（顧客管理・営業管理ツール）。入力・設定・運用という「CRMのための仕事」を、AIによる記録、175本の自動化、業務別の初期設定で減らす。B2B、支援会社・受託開発、代理店（SaaSリセラー）、スクール（B2C）の4エディション。2026年9月28日正式提供開始。",
+	"description": "入力がめんどくさくないCRM。名刺は撮るだけ、商談メモは貼るだけ、録音は上げるだけで、AIが記録の下書きを作る。マーケティング（MA）・営業（SFA）・顧客管理（CRM）を一つの顧客データでつなぐ中小企業向けのCRM/SFA（顧客管理・営業管理ツール）。175本の自動化と業務別のひな形付き。B2B、支援会社・受託開発、代理店（SaaSリセラー）、スクール（B2C）の4エディション。2026年9月28日正式提供開始。",
 	"inLanguage": ["ja", "en", "zh-Hant"],
 	"offers": {
 		"@type": "Offer",
@@ -186,10 +186,10 @@ const readings = [
 				<img class="eyebrow-mark" src="/images/crm/logo/revenue-crm-logo-gradient.svg" alt="" width="26" height="26" decoding="async" />
 				Revenue CRM
 			</p>
-			<h1>CRMを入れて、<br />仕事を増やさない。</h1>
+			<h1>入力がめんどくさくない<br />CRM。</h1>
 			<p class="hero-lead">
-				マーケティング・営業・顧客管理を、一つの顧客データでつなぐ中小企業向けのCRM/SFA（顧客管理・営業管理ツール）です。
-				入力・設定・運用という「CRMのための仕事」を、AIによる記録、175本の自動化、業務別の初期設定で減らします。
+				名刺は撮るだけ。商談メモは貼るだけ。録音は上げるだけ。記録の下書きはAIが作り、人は確かめて保存します。
+				マーケティング・営業・顧客管理を一つの顧客データでつなぐ、中小企業向けのCRM/SFA（顧客管理・営業管理ツール）です。
 			</p>
 			<div class="hero-actions">
 				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">デモを見る</a>
@@ -240,7 +240,7 @@ const readings = [
 			<p class="kicker">使い方</p>
 			<h2>空のCRMは渡しません。</h2>
 		</div>
-		<p class="section-lead">用途を選ぶと、初期設定済みの状態で使い始められます。管理する単位が違うため、B2B（案件）とB2C（生徒）は最初から別に設計しています。</p>
+		<p class="section-lead">用途を選ぶと、パイプラインと項目のひな形が入った状態から始まります。自社の業務に合わせた設定は、ご自身でも、有償の初期設定支援でも行えます。管理する単位が違うため、B2B（案件）とB2C（生徒）は最初から別に設計しています。</p>
 		<div class="edition-list">
 			{editions.map((item) => (
 				<article class="edition-item">
@@ -273,7 +273,7 @@ const readings = [
 			<h2>人をCRMに合わせるのではなく、<br class="br-narrow" />CRMを人の仕事に合わせる。</h2>
 		</div>
 		<p class="section-lead">
-			入力はAIが下書きし、設定は済ませてあり、運用は自動化が回します。<br />
+			入力はAIが下書きし、設定はひな形から始まり、運用は自動化が回します。<br />
 			人は撮る・上げる・確かめるだけです。
 		</p>
 		<div class="assist-panel">
@@ -457,7 +457,7 @@ const readings = [
 			<h2>まず、画面を試してください。</h2>
 		</div>
 		<div class="start-body">
-			<p>メールアドレスを入れるだけで、パスワード登録なしにデモ環境を開けます。記録・自動化・初期設定の状態を、実際の画面で確かめられます。</p>
+			<p>メールアドレスを入れるだけで、パスワード登録なしにデモ環境を開けます。記録・自動化・ひな形の状態を、実際の画面で確かめられます。</p>
 			<p>
 				CRMの運用に専任の担当者がいて、Salesforce・HubSpotなどが既に動いているなら、乗り換えないほうがいいです。
 				<a href="/services/">既存CRMの再設計</a>か、<a href="/services/sfa-adoption-support/">SFA定着支援</a>をご覧ください。

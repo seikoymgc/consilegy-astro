@@ -1,31 +1,29 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import CrmSubnav from '../../../components/CrmSubnav.astro';
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CrmSubnav from '../../../../components/CrmSubnav.astro';
 
 // 受け口は Revenue CRM 自身のフォーム（Consilegy合同会社の組織「サービス紹介資料ダウンロード」）。
 // 送信内容はコンタクトとして同組織に入る。crm.consilegy.com は CORS を返さないので、
 // text/plain の単純リクエスト（no-cors）で送り、応答は読まずにダウンロードを出す。
 const FORM_ID = '3236df50-8269-4975-8d5e-139d0a04cee2';
 const SUBMIT_URL = `https://crm.consilegy.com/api/forms/${FORM_ID}/submit`;
-const PDF_URL = '/downloads/revenue-crm-service-guide-2026-10e.pdf';
+const PDF_URL = '/downloads/revenue-crm-school-guide-2026-10.pdf';
 
 const contents = [
-	'顧客との関係が部署とツールの境界で切れる理由と、Revenue CRMの考え方',
-	'名刺・手書きメモ・録音をAIが記録する仕組み',
-	'175本の自動化と、エディションごとに最初から動く自動化',
-	'商談カンバンと売上見込みの画面',
-	'主な機能、外部連携とAPI',
-	'料金プラン（3プラン・燃料の考え方）',
-	'導入・定着・運用の支援と料金の目安',
-	'スマートフォンでの画面',
-	'データの置き場所とセキュリティ',
-	'追加を予定している機能',
+	'時間を食っているもの（退会の兆候・月末の集計・引き継ぎ）',
+	'「今月も通ってもらえるか」を見るCRMの考え方',
+	'できること（生徒管理・月次レポート・課題の受付）',
+	'ホーム・生徒管理・月次レポートの画面',
+	'LINEとGoogleカレンダーとの連携',
+	'コーチには担当の生徒だけを見せる権限',
+	'生徒の情報を外に出さないための作り',
+	'料金（在籍生徒の数だけ）と導入の進め方',
 ];
 ---
 
 <BaseLayout
-	title="サービス紹介資料ダウンロード | Revenue CRM | Consilegy"
-	description="Revenue CRMのサービス紹介資料をダウンロードいただけます。AIによる記録、175本の自動化、業務別のひな形、料金、セキュリティをまとめています。"
+	title="スクール版 資料ダウンロード | Revenue CRM | Consilegy"
+	description="Revenue CRM スクール版のサービス紹介資料をダウンロードいただけます。生徒管理、LINEの課題受付、月次レポート、コーチの権限、料金をまとめています。"
 >
 	<CrmSubnav lang="ja" />
 
@@ -33,14 +31,14 @@ const contents = [
 		<div class="dl-grid">
 			<section class="dl-copy">
 				<p class="kicker">資料ダウンロード</p>
-				<h1>入力がめんどくさくない<br />CRM。</h1>
+				<h1>1日を、<br />48時間にしよう。</h1>
 				<p class="lead">
-					Revenue CRMのサービス紹介資料です。社内でのご検討や、稟議の添付資料としてお使いください。
+					Revenue CRM スクール版のサービス紹介資料です。教室内でのご検討にお使いください。
 				</p>
 				<figure class="dl-cover">
 					<img
-						src="/images/crm/service-guide-cover-2026-10.jpg"
-						alt="Revenue CRM サービス紹介資料の表紙"
+						src="/images/crm/school-guide-cover-2026-10.jpg"
+						alt="Revenue CRM スクール版 サービス紹介資料の表紙"
 						width="1467"
 						height="825"
 						decoding="async"
@@ -130,7 +128,7 @@ const contents = [
 			['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (k) {
 				if (params.get(k)) utm[k] = params.get(k);
 			});
-			if (!utm.utm_source) utm.utm_source = 'consilegy.com/crm/download';
+			if (!utm.utm_source) utm.utm_source = 'consilegy.com/crm/school/download';
 			var body = JSON.stringify({
 				values: values,
 				utm: utm,

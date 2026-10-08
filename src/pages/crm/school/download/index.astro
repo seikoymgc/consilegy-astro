@@ -7,7 +7,8 @@ import CrmSubnav from '../../../../components/CrmSubnav.astro';
 // text/plain の単純リクエスト（no-cors）で送り、応答は読まずにダウンロードを出す。
 const FORM_ID = '3236df50-8269-4975-8d5e-139d0a04cee2';
 const SUBMIT_URL = `https://crm.consilegy.com/api/forms/${FORM_ID}/submit`;
-const PDF_URL = '/downloads/revenue-crm-school-guide-2026-10.pdf';
+// 固定URL。実体の版は public/.htaccess の転送先で切り替える（ここは変えない）。
+const PDF_URL = '/downloads/revenue-crm-school-guide.pdf';
 
 const contents = [
 	'時間を食っているもの（退会の兆候・月末の集計・引き継ぎ）',

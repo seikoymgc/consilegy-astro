@@ -27,6 +27,17 @@ ErrorDocument 404 /404.html
 	RewriteRule ^services/revops-ma-crm-sfa-implementation/?$ /services/crm-revops-redesign/ [R=301,L]
 	RewriteRule ^services/operational-adoption-optimization/?$ /services/adoption-growth-support/ [R=301,L]
 	RewriteRule ^services/hubspot-implementation-consulting/?$ /services/hubspot-implementation-operations/ [R=301,L]
+
+	# サービス紹介資料の固定URL（2026-10-09）。お客様・メール・資料にはこちらを使う。
+	# 新しい版を出すときは、PDFを別名で置き、下の行の行き先だけを書き換える。
+	# 同名で差し替えると Cloudflare が古いPDFを掴むため、実体は毎回別名にする。
+	# 302 + no-store にして、転送そのものはキャッシュさせない。
+	RewriteRule ^downloads/revenue-crm-service-guide\.pdf$ /downloads/revenue-crm-service-guide-2026-10e.pdf [R=302,L,E=GUIDE_REDIRECT:1]
+	RewriteRule ^downloads/revenue-crm-school-guide\.pdf$ /downloads/revenue-crm-school-guide-2026-10.pdf [R=302,L,E=GUIDE_REDIRECT:1]
+</IfModule>
+
+<IfModule mod_headers.c>
+	Header always set Cache-Control "no-store" env=GUIDE_REDIRECT
 </IfModule>
 
 # ── Cache: immutable hashed assets (Astro fingerprints _astro/* files)

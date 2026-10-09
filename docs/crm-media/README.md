@@ -82,7 +82,7 @@ featured:     サイドバー「よく読まれている記事」の順位（1�
 | 9 | setup | 画面が多すぎてスタッフが覚えられない | 役割別UI／AIエージェントに聞く | too-many-screens-for-staff-to-learn（公開） |
 | 10 | setup | 一斉メールと個別メールの送り方が分からない | 送信待ちの下書き／AIメール／Google 連携／送信ドメイン／リスト／「HubSpotに送る」 | bulk-and-one-to-one-email-get-mixed-up（公開。2026-10-08。個別は「営業連絡してよい」の記録が無いと送れず、一斉はフォームで同意した人にしか届かない前提で書いた） |
 | 11 | operate | 経営者が「あの案件どこまで？」を人に聞かないと分からない | ホームの4つの数字／フォーキャスト | asking-people-where-the-deal-stands（公開） |
-| 12 | operate | 請求と顧客情報が別の場所にある | Stripe 連携 | |
+| 12 | operate | 請求と顧客情報が別の場所にある | Stripe 連携 | billing-and-customer-records-live-apart（公開。2026-10-09。記録に返るのは入金と支払い失敗だけで、請求書を「出した」ことと期日超過は残らない前提で書いた。入金メモの金額はコンタクトの「アクティビティ」タブには出ず、サイドバーの一覧で読む） |
 
 ## 予定: スクール・教室（segment: b2c、edition: school）10本
 
@@ -103,6 +103,7 @@ featured:     サイドバー「よく読まれている記事」の順位（1�
 | 11 | input | テストの結果が紙のファイルにあって「伸びていますか」に答えられない | 成績（assessments） | 保留（2026-10-07: 下の「school-v1 について」のとおり、画面に到達する経路が確認できない。原稿は _scratch/crm-media-held/test-results-stay-in-paper-files.{ja,en}.md） |
 | 12 | operate | レッスンの予定を先生ごとのカレンダーに手で入れ直している | Googleカレンダー連携（school-app） | 保留（2026-10-07: 予約の変更・取消の処理が無く、古い予定が残る。「スケジュール」画面と購読URLは bey_schedule を読み、予約（bey_bookings）とつながっていない。本番で Google 連携が通るかも未確認。原稿は _scratch/crm-media-held/lesson-schedule-retyped-into-calendars.{ja,en}.md） |
 | 13 | setup | 先生に生徒の記録は見せたいが、月謝の金額までは見せたくない | 権限管理（school-app。請求の閲覧を役割で閉じる） | teachers-see-fee-amounts-too（公開） |
+| 14 | operate | 宿題の催促を、先生が夜に一人ずつ LINE で打っている | 課題の自動リマインド（school-app。カルテ「この生徒に送る」、レッスン画面「課題あり」） | homework-reminders-typed-one-by-one（公開。2026-10-09。予定表が尽きたので school-app から追加。催促は休校日でも止まらない、種別なしの提出は数えない、を注意として書いた） |
 
 ### school-v1 について（2026-10-07 のレビューで判明。要確認）
 
@@ -113,6 +114,7 @@ crm origin/main（db20fc1）では、`src/app/school/` にあるのは `page.tsx
 - 新しく作ったスクールで `school_role_permissions` と `school_users` の初期行を入れる処理が、デモの種データと招待以外に見当たらない。行が無い間は fallback で金額は管理者のみだが、画面のチップは全部OFFに見え、最初の1タップで `can_view=true` の行ができる。実機確認が要る
 - 予約（bey_bookings）は追加だけで、変更・取消の処理が無い
 - 英語表示は辞書にある語だけが置き換わる（「閲覧」は "Viewer" と出る）
+- ホームの「今すぐ対応」と「届いた課題」は、役割に関係なく、その生徒の担当になっている人の画面にしか出ない（2026-10-09 のレビューで確認。src/app/school/page.tsx の taskScope）。「ホームに出る」と書くときはこの前提を添える
 
 ## 日次タスクの回し方
 

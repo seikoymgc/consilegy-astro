@@ -19,6 +19,7 @@
 | 題材 | 出どころ | 状態 |
 |---|---|---|
 | 数字を考える会（数字を見る会議の進め方） | Notion「数字を考える会」（ファシリ手順） | 公開済み 2026-10-09 (review-one-good-one-bad) | 
+| ROIは買い手が試算できる形で渡す | Notion NL（EN）連載② Buyer Visibility Is Not Buyer Enablement | 公開済み 2026-10-10 (let-buyers-calculate-the-roi) |
 | （Notionの投稿計画・投稿内容の作成から、未記事化の切り口を追記） | Notion | — |
 
 Seikoさんが現場の話を足したいときは、この表に1行書けば次回から拾う。

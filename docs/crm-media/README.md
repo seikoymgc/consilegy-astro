@@ -83,6 +83,7 @@ featured:     サイドバー「よく読まれている記事」の順位（1�
 | 10 | setup | 一斉メールと個別メールの送り方が分からない | 送信待ちの下書き／AIメール／Google 連携／送信ドメイン／リスト／「HubSpotに送る」 | bulk-and-one-to-one-email-get-mixed-up（公開。2026-10-08。個別は「営業連絡してよい」の記録が無いと送れず、一斉はフォームで同意した人にしか届かない前提で書いた） |
 | 11 | operate | 経営者が「あの案件どこまで？」を人に聞かないと分からない | ホームの4つの数字／フォーキャスト | asking-people-where-the-deal-stands（公開） |
 | 12 | operate | 請求と顧客情報が別の場所にある | Stripe 連携 | billing-and-customer-records-live-apart（公開。2026-10-09。記録に返るのは入金と支払い失敗だけで、請求書を「出した」ことと期日超過は残らない前提で書いた。入金メモの金額はコンタクトの「アクティビティ」タブには出ず、サイドバーの一覧で読む） |
+| 13 | input | 問い合わせフォームの通知メールを、誰かが顧客リストに打ち直している | フォーム（送信がそのままコンタクトになる） | inquiry-form-emails-retyped-by-hand（公開。2026-10-10。予定表が尽きたので crm のコードから追加。再送信では基本項目以外の回答が既定で置き換わる、既存コンタクトがフォームで同意にチェックしても marketing_opt_in と consent_status は変わらない（blankFill が既定値 false / unknown を空と見なさない。製品側の要確認）、を前提に書いた。デモのフォームのキーは full_name / company_name で記事の決まりと違う） |
 
 ## 予定: スクール・教室（segment: b2c、edition: school）10本
 
@@ -104,6 +105,7 @@ featured:     サイドバー「よく読まれている記事」の順位（1�
 | 12 | operate | レッスンの予定を先生ごとのカレンダーに手で入れ直している | Googleカレンダー連携（school-app） | 保留（2026-10-07: 予約の変更・取消の処理が無く、古い予定が残る。「スケジュール」画面と購読URLは bey_schedule を読み、予約（bey_bookings）とつながっていない。本番で Google 連携が通るかも未確認。原稿は _scratch/crm-media-held/lesson-schedule-retyped-into-calendars.{ja,en}.md） |
 | 13 | setup | 先生に生徒の記録は見せたいが、月謝の金額までは見せたくない | 権限管理（school-app。請求の閲覧を役割で閉じる） | teachers-see-fee-amounts-too（公開） |
 | 14 | operate | 宿題の催促を、先生が夜に一人ずつ LINE で打っている | 課題の自動リマインド（school-app。カルテ「この生徒に送る」、レッスン画面「課題あり」） | homework-reminders-typed-one-by-one（公開。2026-10-09。予定表が尽きたので school-app から追加。催促は休校日でも止まらない、種別なしの提出は数えない、を注意として書いた） |
+| 15 | setup | 新しい先生が入るたびに、代表のログインを使い回している | ユーザー管理（school-app。メールアドレスと役割で一人ずつ招待） | new-teachers-share-the-owners-login（公開。2026-10-10。参加済みのメンバーを外すボタンは画面に無い、再送信で切れるのは仮パスワードだけで前のリンクは期限内なら生きる、を書いた。招待先が既に Revenue CRM のアカウントを持つ場合は仮パスワードが設定されない（invite/route.ts の createUser が黙って失敗）ので要実機確認） |
 
 ### school-v1 について（2026-10-07 のレビューで判明。要確認）
 

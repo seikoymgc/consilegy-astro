@@ -120,7 +120,7 @@ crm origin/main（db20fc1）では、`src/app/school/` にあるのは `page.tsx
 - 予約（bey_bookings）は追加だけで、変更・取消の処理が無い
 - 英語表示は辞書にある語だけが置き換わる（「閲覧」は "Viewer" と出る）
 - ホームの「🔄 今すぐ検知」は夜の自動処理をまるごと走らせる（2026-10-12 のレビューで確認。automation/run/route.ts）。課題の催促のほか、未入金の催促とスタッフへの LINE 通知、カレンダー同期まで動く。「押して確かめる」と書かない
-- 返事をしていない LINE を拾うタスク（line_reply）は、表示の分岐があるだけで作る処理が無い。「LINE未返信がホームに出る」と書かない。school-v1 を根拠にしたまま残っている b2c 記事は5本: `inquiries-buried-in-line`、`unpaid-fees-noticed-at-month-end`、`trial-lesson-notes-stay-in-the-teachers-head`、`setup-takes-the-whole-first-day`、`trial-form-not-connected-to-the-roster`。school-app で確認し直すまで要見直し
+- 返事をしていない LINE を拾うタスク（line_reply）は、表示の分岐があるだけで作る処理が無い。「LINE未返信がホームに出る」と書かない。school-v1 を根拠にしたまま残っている b2c 記事は4本（`unpaid-fees-noticed-at-month-end` は 2026-10-12 に月謝の登録・入金確認の画面で書き直し済み）: `inquiries-buried-in-line`、`trial-lesson-notes-stay-in-the-teachers-head`、`setup-takes-the-whole-first-day`、`trial-form-not-connected-to-the-roster`。school-app で確認し直すまで要見直し
 - 「届いた課題」はカード10枚まで・本文300字まで。押すと件数は見えているカードの枚数に変わる。監査ログは全操作の最新40件
 - 英語表示は完全一致のときだけ置き換わる。生徒一覧のチップは件数つきで一致したときだけ英語になる（デモは "Paused 1"）
 - ホームの「今すぐ対応」と「届いた課題」は、役割に関係なく、その生徒の担当になっている人の画面にしか出ない（2026-10-09 のレビューで確認。src/app/school/page.tsx の taskScope）。「ホームに出る」と書くときはこの前提を添える

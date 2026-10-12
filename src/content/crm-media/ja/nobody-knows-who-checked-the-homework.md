@@ -10,6 +10,7 @@ segment: "b2c"
 edition: "school"
 sources: "src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/school-app/lib/homework.ts / src/school-app/lib/supabase.ts / src/school-app/lib/authz.ts / src/school-app/lib/notify.ts / src/school-app/lib/audit.ts / src/school-app/lib/mock-body.ts / src/school-app/lib/i18n-data.ts / src/school-app/lib/demo-seed.ts / src/app/school/page.tsx / src/app/api/school-app/submission/review/route.ts / src/app/api/school-app/line/webhook/route.ts / src/app/api/school-app/student/detail/route.ts / src/app/api/school-app/automation/run/route.ts / src/lib/demo.ts / supabase/migrations/131_beyonders_homework_submissions.sql / supabase/migrations/194_school_beyonders_copy.sql"
 date: 2026-10-12
+updated: 2026-10-13
 author: "山口聖子"
 ---
 水曜の夜。生徒が、スクールの LINE 公式アカウントに、課題の作文と音声を送ります。同じアカウントを、先生3人が見ています。メッセージには既読が付きます。3人とも、誰かが見たのだと思います。
@@ -36,7 +37,7 @@ author: "山口聖子"
 
 注意が5つあります。
 
-- ホームと「タスク」の一覧に出るのは、その生徒の担当に入っている人の画面だけです。役割は関係ありません。担当が付いていない生徒の提出は、誰のホームにも出ず、カルテにだけ残ります。先に、全員のカルテで担当を付けてください
+- ホームと「タスク」の一覧に出るのは、その生徒の担当に入っている人の画面だけです。担当が誰も付いていない生徒の提出は、担当の先生の画面には出ず、マネージャーのホームと「タスク」にだけ出ます。先に、全員のカルテで担当を付けてください
 - カードは新しい10枚までです。押すと、件数は見えているカードの枚数に変わります。10件を超えてためたときは、押し切ったあとに画面を読み込み直してください。隠れていた分が出ます
 - 押しても、生徒には何も届きません。生徒に届くのは、提出したときの受け取りの自動返信だけです。添削や感想は、カルテの「💬 LINEで送る」から返します
 - 取り消すボタンはありません。LINE のアプリで見ただけでは、確認済みになりません
@@ -46,7 +47,7 @@ author: "山口聖子"
 
 ## 最初の一歩
 
-今週、受講中の生徒のカルテを開き、担当が付いているかを全員分確かめてください。付いていない生徒の提出は、いまも誰のホームにも出ていません。
+今週、受講中の生徒のカルテを開き、担当が付いているかを全員分確かめてください。付いていない生徒の提出は、マネージャーの画面にしか出ていません。
 
 その次に、読み込み直しても「📩 届いた課題」の見出しが出なくなるまで、見たものを押します。「朝一番にホームを開いた担当が、見たものを押す」と決めるのは、そのあとです。
 

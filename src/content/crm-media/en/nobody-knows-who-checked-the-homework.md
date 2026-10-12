@@ -10,6 +10,7 @@ segment: "b2c"
 edition: "school"
 sources: "src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/school-app/lib/homework.ts / src/school-app/lib/supabase.ts / src/school-app/lib/authz.ts / src/school-app/lib/notify.ts / src/school-app/lib/audit.ts / src/school-app/lib/mock-body.ts / src/school-app/lib/i18n-data.ts / src/school-app/lib/demo-seed.ts / src/app/school/page.tsx / src/app/api/school-app/submission/review/route.ts / src/app/api/school-app/line/webhook/route.ts / src/app/api/school-app/student/detail/route.ts / src/app/api/school-app/automation/run/route.ts / src/lib/demo.ts / supabase/migrations/131_beyonders_homework_submissions.sql / supabase/migrations/194_school_beyonders_copy.sql"
 date: 2026-10-12
+updated: 2026-10-13
 author: "Seiko Yamaguchi"
 ---
 Wednesday night. A student sends a piece of writing and a voice recording to the school's account on LINE, the messaging app most schools in Japan already use with their students. Three teachers share that account. The message is marked as read, and each of the three takes that to mean one of the others has dealt with it.
@@ -36,7 +37,7 @@ Once you have looked, press 確認済みにする. There is no confirmation step
 
 Five things to know before you rely on it.
 
-- The list on Home and Tasks only shows students you are assigned to, whatever your role. A submission from a student with nobody assigned appears on no one's home screen and sits only on the student's record. Assign someone to every student first
+- The list on Home and Tasks only shows students you are assigned to. A submission from a student with nobody assigned does not reach any teacher. It shows only on a manager's Home and Tasks until someone is assigned. Assign someone to every student first
 - Only the ten newest cards are shown. After you press, the count changes to the number of cards still visible. If you let more than ten pile up, reload the screen once you have cleared what you can see, and the hidden ones appear
 - Pressing the button sends nothing to the student. The only automatic message is the receipt they get when they submit. Corrections and comments go back through 💬 LINEで送る on the student's record
 - There is no undo button, and reading the message in the LINE app does not mark it as checked. Agree that the person who looked is the one who presses, after looking
@@ -46,7 +47,7 @@ When one person presses it, the submission clears for the other assigned teacher
 
 ## The first step
 
-This week, open the record of every active student and check that someone is assigned. If nobody is, that student's homework is not reaching any home screen today.
+This week, open the record of every active student and check that someone is assigned. If nobody is, that student's homework is reaching only the manager's screen.
 
 After that, press what you have looked at until the 📩 届いた課題 heading no longer appears, even after a reload. Only then agree the rule among the teachers: whoever opens Home first in the morning presses what they have looked at.
 

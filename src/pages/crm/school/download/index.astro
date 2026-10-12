@@ -5,7 +5,7 @@ import CrmSubnav from '../../../../components/CrmSubnav.astro';
 // 受け口は Revenue CRM 自身のフォーム（Consilegy合同会社の組織「サービス紹介資料ダウンロード」）。
 // 送信内容はコンタクトとして同組織に入る。crm.consilegy.com は CORS を返さないので、
 // text/plain の単純リクエスト（no-cors）で送り、応答は読まずにダウンロードを出す。
-const FORM_ID = '3236df50-8269-4975-8d5e-139d0a04cee2';
+const FORM_ID = '0c2b50e7-728d-437a-932e-e2926c019fe0';
 const SUBMIT_URL = `https://crm.consilegy.com/api/forms/${FORM_ID}/submit`;
 // 固定URL。実体の版は public/.htaccess の転送先で切り替える（ここは変えない）。
 const PDF_URL = '/downloads/revenue-crm-school-guide.pdf';

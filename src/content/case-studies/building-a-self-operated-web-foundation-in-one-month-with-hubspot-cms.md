@@ -27,27 +27,27 @@ draft: false
 
 <section class="cs-section">
   <h2 class="cs-label">Work</h2>
-  <p>We designed and implemented a self-operated marketing infrastructure — not just a CMS migration. The goal was to transfer execution ownership to the marketing team while maintaining global brand standards, and to complete it within one month without disrupting live campaigns.</p>
+  <p>We designed and implemented a self-operated marketing infrastructure, not just a CMS migration. The goal was to transfer execution ownership to the marketing team while maintaining global brand standards, and to complete it within one month without disrupting live campaigns.</p>
   <ul>
-    <li>No-code editing environment — built a drag-and-drop page system accessible to non-engineers, eliminating the developer dependency for standard updates</li>
-    <li>Brand-aligned template architecture — created reusable page structures that enforce visual consistency without requiring design review for every page</li>
-    <li>Publishing workflow redesign — streamlined the process from planning to publish to minimize lead time</li>
-    <li>Phased migration management — executed the full transition within the one-month window without downtime or campaign interruption</li>
+    <li>No-code editing environment: built a drag-and-drop page system accessible to non-engineers, eliminating the developer dependency for standard updates</li>
+    <li>Brand-aligned template architecture: created reusable page structures that enforce visual consistency without requiring design review for every page</li>
+    <li>Publishing workflow redesign: streamlined the process from planning to publish to minimize lead time</li>
+    <li>Phased migration management: executed the full transition within the one-month window without downtime or campaign interruption</li>
   </ul>
 </section>
 
 <section class="cs-section">
   <h2 class="cs-label">Result</h2>
   <ul>
-    <li>Migration completed on schedule — no downtime, no disruption to live campaigns</li>
+    <li>Migration completed on schedule: no downtime, no disruption to live campaigns</li>
     <li>Lead time from planning to publish reduced by approximately 70-80%, with marketers now able to update and launch pages in the same day to a few business days</li>
-    <li>External resource dependency reduced — vendor reliance and execution lead time cut significantly for standard content operations</li>
-    <li>Rapid iteration enabled — team can now test, adjust, and respond to market conditions in real time</li>
+    <li>External resource dependency reduced: vendor reliance and execution lead time cut significantly for standard content operations</li>
+    <li>Rapid iteration enabled: team can now test, adjust, and respond to market conditions in real time</li>
   </ul>
 </section>
 
 <section class="cs-section">
   <h2 class="cs-label">Why it matters</h2>
   <p>Execution speed is a competitive advantage in DTC. When the gap between decision and live page is measured in weeks rather than hours, campaigns lose relevance before they launch.</p>
-  <p>What this project transferred was not just a CMS — it was ownership of the execution layer. The marketing team no longer waits on development queues to respond to what's happening in the market. That operational shift is what makes the migration meaningful beyond the technical delivery.</p>
+  <p>What this project transferred was not just a CMS. It was ownership of the execution layer. The marketing team no longer waits on development queues to respond to what's happening in the market. That operational shift is what makes the migration meaningful beyond the technical delivery.</p>
 </section>

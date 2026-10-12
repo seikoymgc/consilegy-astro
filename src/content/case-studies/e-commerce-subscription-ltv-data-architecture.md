@@ -26,27 +26,27 @@ draft: false
 
 <section class="cs-section">
   <h2 class="cs-label">Work</h2>
-  <p>Rather than focusing on tracking implementation alone, we designed a data structure and operating model that connects user behavior to revenue outcomes — built specifically for subscription dynamics.</p>
+  <p>Rather than focusing on tracking implementation alone, we designed a data structure and operating model that connects user behavior to revenue outcomes, built specifically for subscription dynamics.</p>
   <ul>
-    <li>Data architecture design — unified transactional and behavioral data to enable LTV-level analysis across the full customer lifecycle</li>
-    <li>Product analytics implementation (Amplitude) — identified behavioral patterns associated with retention versus churn</li>
-    <li>KPI alignment — established shared subscription metrics (LTV, retention rate, churn) across marketing, product, and management</li>
-    <li>Dashboard development (Looker Studio) — real-time visibility into business performance without manual aggregation</li>
+    <li>Data architecture design: unified transactional and behavioral data to enable LTV-level analysis across the full customer lifecycle</li>
+    <li>Product analytics implementation (Amplitude): identified behavioral patterns associated with retention versus churn</li>
+    <li>KPI alignment: established shared subscription metrics (LTV, retention rate, churn) across marketing, product, and management</li>
+    <li>Dashboard development (Looker Studio): real-time visibility into business performance without manual aggregation</li>
   </ul>
 </section>
 
 <section class="cs-section">
   <h2 class="cs-label">Result</h2>
   <ul>
-    <li>Marketing investment shifted to LTV-based allocation — channel spend optimized for long-term revenue, not just acquisition cost</li>
-    <li>High-retention acquisition channels identified — performance evaluated by downstream revenue contribution, not just volume</li>
-    <li>Product iteration accelerated — UX improvements prioritized based on behavioral insights tied to retention</li>
-    <li>Real-time decision-making from launch — integrated dashboards gave immediate visibility into business performance</li>
+    <li>Marketing investment shifted to LTV-based allocation: channel spend optimized for long-term revenue, not just acquisition cost</li>
+    <li>High-retention acquisition channels identified: performance evaluated by downstream revenue contribution, not just volume</li>
+    <li>Product iteration accelerated: UX improvements prioritized based on behavioral insights tied to retention</li>
+    <li>Real-time decision-making from launch: integrated dashboards gave immediate visibility into business performance</li>
   </ul>
 </section>
 
 <section class="cs-section">
   <h2 class="cs-label">Why it matters</h2>
-  <p>The risk at launch wasn't not having data — it was making early allocation decisions without knowing their long-term revenue impact. In subscription businesses, optimizing for acquisition metrics that don't connect to LTV means spending money in the wrong places from the start, with no signal to correct course.</p>
-  <p>Having LTV-connected measurement from day one changed the quality of decisions the team could make. Not just what to measure, but what to prioritize — in channel investment, product iteration, and resource allocation.</p>
+  <p>The risk at launch wasn't not having data. It was making early allocation decisions without knowing their long-term revenue impact. In subscription businesses, optimizing for acquisition metrics that don't connect to LTV means spending money in the wrong places from the start, with no signal to correct course.</p>
+  <p>Having LTV-connected measurement from day one changed the quality of decisions the team could make. Not just what to measure, but what to prioritize: in channel investment, product iteration, and resource allocation.</p>
 </section>

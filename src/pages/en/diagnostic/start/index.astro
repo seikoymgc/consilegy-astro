@@ -179,7 +179,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 		const band = bandOf(activeScores());
 		const lines = CATEGORIES.map((c, i) => {
 			const s = scores[i];
-			if (s === null) return `— ${c.name}: ${EXCLUDED_LABEL}`;
+			if (s === null) return `- ${c.name}: ${EXCLUDED_LABEL}`;
 			return `${SIGNAL_META[signalOf(s)].emoji} ${c.name}: ${s}/4`;
 		});
 		const painName = state.painCat
@@ -558,7 +558,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 					if (s === null) {
 						return `
 					<div class="rd-map-card rd-sig-off">
-						<span class="rd-map-emoji">—</span>
+						<span class="rd-map-emoji">×</span>
 						<div>
 							<span class="rd-map-name">${esc(c.name)}</span>
 							<span class="rd-map-state">${esc(EXCLUDED_LABEL)}</span>

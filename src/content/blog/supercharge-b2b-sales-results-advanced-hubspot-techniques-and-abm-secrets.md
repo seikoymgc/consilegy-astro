@@ -43,7 +43,7 @@ categories:
 <p class="has-text-color" style="color: rgb(0, 0, 0)">This is where HubSpot&#039;s &quot;segmentation&quot; and &quot;scoring&quot; features become valuable.</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"style":{"color":{"text":"rgb(0, 0, 0)"}}} -->
-<p class="has-text-color" style="color: rgb(0, 0, 0)">Specifically, by analyzing and scoring lead behavior data from multiple angles—such as email open rates, number of website pages viewed, and whitepaper download frequency—you can identify truly engaged prospects.</p>
+<p class="has-text-color" style="color: rgb(0, 0, 0)">Specifically, by analyzing and scoring lead behavior data from multiple angles, such as email open rates, number of website pages viewed, and whitepaper download frequency—you can identify truly engaged prospects.</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"style":{"color":{"text":"rgb(0, 0, 0)"}}} -->
 <p class="has-text-color" style="color: rgb(0, 0, 0)">For example, a lead who has opened multiple emails and repeatedly viewed product pages clearly shows higher potential than one who hasn&#039;t opened any emails.</p>

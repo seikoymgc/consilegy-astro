@@ -215,9 +215,9 @@ export const CRM_FEATURES: FeatureGroup[] = [
         },
       },
       {
-        name: { ja: 'ワークスペースクレジット', en: 'Workspace credits' },
+        name: { ja: '燃料の管理', en: 'Fuel usage' },
         desc: {
-          ja: 'AI機能と自動化が使ったクレジットを、ワークスペース単位で管理する。',
+          ja: 'AI機能と自動化が使った燃料を、ワークスペース単位で管理する。',
           en: 'Track what AI features and automation consume, per workspace.',
         },
       },
@@ -731,7 +731,7 @@ export const CRM_FEATURES: FeatureGroup[] = [
       {
         name: { ja: 'レート制限とAI利用上限', en: 'Rate limits & AI quota' },
         desc: {
-          ja: '公開エンドポイントにレート制限、トライアル中のAI呼び出しに日次上限を置く。',
+          ja: '公開エンドポイントにレート制限を置き、AIの利用は各プランの燃料の範囲に収める。',
           en: 'Rate limits on public endpoints, and a daily cap on AI calls during trial.',
         },
       },

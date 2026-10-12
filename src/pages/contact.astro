@@ -6,7 +6,7 @@ import ContactForm from '../components/ContactForm.astro';
 const faqItems = [
 	{
 		q: 'どの問い合わせ種別を選べばよいですか？',
-		a: 'フォーム内の「お問い合わせ内容」欄に、ご相談の内容を自由にご記入ください。サービス相談、協業・取材・登壇依頼など、種別を問わず同じフォームからご連絡いただけます。内容を拝見してから適切な担当者よりご返信します。',
+		a: '「お問い合わせ種別」で近いものを選び、「お問い合わせ内容」欄にご相談の内容を自由にご記入ください。迷う場合は「その他」で構いません。内容を拝見してから適切な担当者よりご返信します。',
 	},
 	{
 		q: 'まだ課題が整理できていなくても問い合わせできますか？',
@@ -93,7 +93,7 @@ const faqItems = [
 			<div class="branch-card branch-card--primary">
 				<p class="branch-eyebrow">Diagnosis</p>
 				<h2>CRM / RevOpsがうまくいかない方へ</h2>
-				<p>CRMが定着しない、営業・マーケ連携に課題がある、KPIやダッシュボードが機能していない場合は、専用の診断ページからご相談いただくとスムーズです。</p>
+				<p>CRMが定着しない、営業・マーケ連携に課題がある、KPIやダッシュボードが機能していない場合は、30分の無料相談からご相談いただくとスムーズです。</p>
 				<a href="/free-consultation/" class="btn btn--primary">30分無料相談を予約 →</a>
 			</div>
 			<div class="branch-card">
@@ -212,7 +212,7 @@ body { font-family: var(--font-sans); color: var(--color-navy); line-height: 1.7
 	position: relative;
 	line-height: 1.6;
 }
-.aside-list li::before { content: '—'; position: absolute; left: 0; color: var(--color-border-mid); }
+.aside-list li::before { content: '-'; position: absolute; left: 0; color: var(--color-border-mid); }
 
 /* ===== BRANCH ===== */
 .branch-section { padding: 4rem 0; background: var(--color-bg-soft); border-top: 1px solid var(--color-border); }

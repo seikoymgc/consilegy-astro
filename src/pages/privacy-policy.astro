@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const updated = '2026年5月7日';
+const updated = '2026年10月13日';
 ---
 
 <BaseLayout
@@ -31,7 +31,9 @@ const updated = '2026年5月7日';
 		<h2>2. 取得する個人情報の種類</h2>
 		<p>当社は、以下の方法および手段により個人情報を取得します。</p>
 		<ul>
-			<li><strong>お問い合わせ・無料相談フォーム：</strong>氏名、会社名、メールアドレス、電話番号、お問い合わせ内容</li>
+			<li><strong>お問い合わせ・無料相談フォーム：</strong>氏名、会社名、メールアドレス、お問い合わせ内容</li>
+			<li><strong>収益診断：</strong>メールアドレス、業種、設問への回答</li>
+			<li><strong>紹介パートナー制度の申込・紹介先の登録：</strong>氏名、会社名、メールアドレス、電話番号、報酬の振込先口座、インボイス登録番号、紹介先の会社名と担当者の連絡先</li>
 			<li><strong>ニュースレター登録フォーム：</strong>メールアドレス、氏名（任意）</li>
 			<li><strong>資料ダウンロード：</strong>氏名、会社名、メールアドレス</li>
 			<li><strong>アクセス解析：</strong>IPアドレス、閲覧ページ、滞在時間、使用端末・ブラウザ情報（クッキーを含む）など（以下「アクセスログ」）。アクセスログは単独では特定個人を識別できない場合がありますが、他の情報と照合することで個人情報となり得る場合があります。</li>
@@ -63,7 +65,8 @@ const updated = '2026年5月7日';
 		<table class="info-table">
 			<thead><tr><th>サービス名</th><th>運営会社</th><th>利用目的</th><th>所在国</th></tr></thead>
 			<tbody>
-				<tr><td>HubSpot</td><td>HubSpot, Inc.</td><td>フォーム管理、CRM、メール配信（ニュースレター含む）</td><td>米国</td></tr>
+				<tr><td>Revenue CRM（当社運営）</td><td>Consilegy合同会社（基盤：Supabase, Inc.、Vercel, Inc.、Resend, Inc.）</td><td>フォームの受付、顧客管理、メール配信（ニュースレター・自動返信含む）</td><td>日本（データベース）、米国（アプリケーションの実行、メール送信）</td></tr>
+				<tr><td>HubSpot</td><td>HubSpot, Inc.</td><td>無料相談の予約、アクセス計測</td><td>米国</td></tr>
 				<tr><td>Google Analytics 4（GA4）</td><td>Google LLC</td><td>アクセス解析</td><td>米国</td></tr>
 				<tr><td>Google Tag Manager</td><td>Google LLC</td><td>タグ管理</td><td>米国</td></tr>
 			</tbody>
@@ -111,7 +114,7 @@ const updated = '2026年5月7日';
 			Consilegy合同会社 個人情報担当<br />
 			メール：<a href="mailto:info@consilegy.com">info@consilegy.com</a>
 		</address>
-		<p>なお、個人情報保護に関する苦情については、以下の認定個人情報保護団体または個人情報保護委員会（<a href="https://www.ppc.go.jp/" target="_blank" rel="noopener noreferrer">ppc.go.jp</a>）にお申し立ていただくことも可能です。</p>
+		<p>なお、個人情報保護に関する苦情については、個人情報保護委員会（<a href="https://www.ppc.go.jp/" target="_blank" rel="noopener noreferrer">ppc.go.jp</a>）にお申し立ていただくことも可能です。</p>
 
 	</article>
 </BaseLayout>

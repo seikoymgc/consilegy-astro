@@ -100,7 +100,7 @@ featured:     サイドバー「よく読まれている記事」の順位（1�
 | 6 | setup | 体験の申込みフォームと名簿がつながっていない | 体験申込（school-apply）から生徒登録まで | trial-form-not-connected-to-the-roster（公開） |
 | 7 | operate | 振替と欠席の管理が先生の手帳にある | 週間スケジュール（schedule） | 保留（2026-10-04: 「振替」は「次回を予約」で入れた予約しか動かせず、もとの枠が週間スケジュールとカレンダー配信に残る。予定の時刻がサーバーの時間帯で作られており実機確認が要る。原稿は _scratch/crm-media-held/。確認できるまで書かない） |
 | 8 | operate | 月謝の未納に月末まで気づかない | 請求管理（billing。支払中・支払失敗） | |
-| 9 | operate | 退会の兆候（課題が止まる、LINE の返事が止まる）に気づくのが遅れる | ホーム「今すぐ対応」／生徒ページ「課題の提出」／生徒一覧の状態（在籍・体験中・卒業間近・休会・卒業） | signs-of-quitting-noticed-too-late（公開） |
+| 9 | operate | 退会の兆候（課題が止まる、LINE の返事が止まる）に気づくのが遅れる | ホーム「今すぐ対応」／生徒ページ「課題の提出」／生徒一覧の状態（在籍・体験中・卒業間近・休会・卒業） | signs-of-quitting-noticed-too-late（公開。2026-10-12 に school-app の画面に合わせて書き直した。旧版は school-v1 が根拠で、「LINE返信が届いています」の行・一覧6件まで・「生徒一覧」の絞り込み名が現行と違っていた） |
 | 10 | operate | 月次レポートを先生が夜に書いている | 月次レポートの下書き（report/[studentId]） | 保留（2026-10-07: レポートの行（b2c_reports）を作る処理が seed スクリプト以外に見当たらず、行が無いと「再生成」「確定する」のボタンが出ない。確認できるまで書かない） |
 | 11 | input | テストの結果が紙のファイルにあって「伸びていますか」に答えられない | 成績（assessments） | 保留（2026-10-07: 下の「school-v1 について」のとおり、画面に到達する経路が確認できない。原稿は _scratch/crm-media-held/test-results-stay-in-paper-files.{ja,en}.md） |
 | 12 | operate | レッスンの予定を先生ごとのカレンダーに手で入れ直している | Googleカレンダー連携（school-app） | 保留（2026-10-07: 予約の変更・取消の処理が無く、古い予定が残る。「スケジュール」画面と購読URLは bey_schedule を読み、予約（bey_bookings）とつながっていない。本番で Google 連携が通るかも未確認。原稿は _scratch/crm-media-held/lesson-schedule-retyped-into-calendars.{ja,en}.md） |
@@ -119,6 +119,10 @@ crm origin/main（db20fc1）では、`src/app/school/` にあるのは `page.tsx
 - 新しく作ったスクールで `school_role_permissions` と `school_users` の初期行を入れる処理が、デモの種データと招待以外に見当たらない。行が無い間は fallback で金額は管理者のみだが、画面のチップは全部OFFに見え、最初の1タップで `can_view=true` の行ができる。実機確認が要る
 - 予約（bey_bookings）は追加だけで、変更・取消の処理が無い
 - 英語表示は辞書にある語だけが置き換わる（「閲覧」は "Viewer" と出る）
+- ホームの「🔄 今すぐ検知」は夜の自動処理をまるごと走らせる（2026-10-12 のレビューで確認。automation/run/route.ts）。課題の催促のほか、未入金の催促とスタッフへの LINE 通知、カレンダー同期まで動く。「押して確かめる」と書かない
+- 返事をしていない LINE を拾うタスク（line_reply）は、表示の分岐があるだけで作る処理が無い。「LINE未返信がホームに出る」と書かない。school-v1 を根拠にしたまま残っている b2c 記事は5本: `inquiries-buried-in-line`、`unpaid-fees-noticed-at-month-end`、`trial-lesson-notes-stay-in-the-teachers-head`、`setup-takes-the-whole-first-day`、`trial-form-not-connected-to-the-roster`。school-app で確認し直すまで要見直し
+- 「届いた課題」はカード10枚まで・本文300字まで。押すと件数は見えているカードの枚数に変わる。監査ログは全操作の最新40件
+- 英語表示は完全一致のときだけ置き換わる。生徒一覧のチップは件数つきで一致したときだけ英語になる（デモは "Paused 1"）
 - ホームの「今すぐ対応」と「届いた課題」は、役割に関係なく、その生徒の担当になっている人の画面にしか出ない（2026-10-09 のレビューで確認。src/app/school/page.tsx の taskScope）。「ホームに出る」と書くときはこの前提を添える
 
 ## 日次タスクの回し方

@@ -4,12 +4,13 @@ slug: "signs-of-quitting-noticed-too-late"
 lang: "en"
 category: "operate"
 pain: "The signs that a student is drifting away, homework that stops and messages that go unanswered, sit with the individual teacher, and the owner learns about them the day the cancellation arrives"
-feature: "\"Needs action now\" on Home (missing homework, unanswered LINE) and \"Homework\" on the student page"
-screens: "Home \"Needs action now\": \"has not submitted homework for N business days\", \"replied on LINE\", \"N submissions from (name) not reviewed yet\" / Student page \"Homework\": \"Last submitted:\", \"Overdue\", \"On track\", \"N business days since last submission · follow up\" / \"Students\" filters \"All\" \"Enrolled\" \"Trialing\" \"Graduating\" \"Paused\" \"Alumni\" / Student page \"Actions\": \"Status\", \"Mark withdrawn\""
+feature: "The 🚨 今すぐ対応 list on Home (students three business days without homework), 📩 課題の提出 on the student record, and the 課題が滞り filter on the student list"
+screens: "Home: 🚨 今すぐ対応 (Act now), 課題未提出, 🔄 今すぐ検知, 💬 催促する, Open profile / Home: 📩 届いた課題, 未確認○件 / Student record: 📩 課題の提出 / Bottom nav Students: chips すべて, 受講中, 体験予定, 卒業間近, 課題が滞り, 休止, 卒業生, 退会 / Bottom nav Lessons: 課題あり / Student record: ⚙ ステータス変更, 退会"
 segment: "b2c"
 edition: "school"
-sources: "src/app/school-v1/home/page.tsx / src/lib/school-homework.ts / src/app/school-v1/students/[id]/page.tsx / src/app/school-v1/students/page.tsx / src/components/school/student-actions.tsx / src/app/school-v1/actions.ts / src/lib/school/status-labels.ts / src/lib/school/homework-intake.ts / src/app/api/school/line/webhook/[orgId]/route.ts / src/app/school-v1/integrations/page.tsx / src/components/school/bottom-nav.tsx / src/components/school/kpi-card.tsx / src/components/school/student-status-chip.tsx / src/lib/school-i18n.tsx"
+sources: "src/school-app/lib/render.ts / src/school-app/lib/homework.ts / src/school-app/lib/homework-reminder.ts / src/school-app/lib/supabase.ts / src/school-app/lib/authz.ts / src/school-app/lib/i18n-data.ts / src/school-app/components/MockShell.tsx / src/app/school/page.tsx / src/app/api/school-app/automation/run/route.ts / src/app/api/school-app/student/status/route.ts / src/app/api/school-app/line/webhook/route.ts / src/lib/demo.ts"
 date: 2026-10-05
+updated: 2026-10-12
 author: "Seiko Yamaguchi"
 ---
 Late in the month, a message lands on the school's LINE account: "We'd like to stop at the end of this month." The owner asks the teacher, who says, "Come to think of it, there hasn't been any homework for about three weeks." Scroll back through the chat and there is a question from two weeks ago that nobody answered.
@@ -26,25 +27,33 @@ The early signs are smaller than a missed lesson. A lesson happens once a week, 
 
 So before you build a monthly churn report, make stalled students visible in the week they stall. A report records what already happened. It gives you nothing to act on.
 
-## In Revenue CRM, a student whose homework stops for three business days appears under "Needs action now"
+## In Revenue CRM, a student whose homework stops for three business days appears under "Act now" on Home
 
-Home in the school edition has a list called "Needs action now". When an enrolled student has not submitted homework for three business days, a line appears there with the student's name: "has not submitted homework for 3 business days". Weekends are not counted (public holidays are). Nothing is flagged during a period you have registered as a school closure. A student who has never submitted is counted from their start date.
+Home in the school edition has a list headed 🚨 今すぐ対応 (it reads "🚨 Act now" when the display is in English, and I call it Act now from here on). When an active student has gone three business days without submitting a given type of homework, a line appears there tagged 課題未提出 (homework not submitted), with the student's name, the homework type and the number of business days since the last submission. Most labels for this feature stay in Japanese even in the English display, so I give them as they appear on screen.
 
-Unanswered LINE messages show up in the same list. If the latest message in a student's thread is from the student, the "replied on LINE" line stays. It clears when you reply from "LINE history" in Revenue CRM. Replies typed directly in the LINE app are not recorded, so send them from the CRM. The same line also appears when homework comes in. Homework that arrived and nobody has looked at appears as "N submissions from (name) not reviewed yet". Sending something in and hearing nothing back is its own reason to drift away.
+How the days are counted. Weekends are not counted. Nothing is flagged during a period you have registered as a school closure. A student who has never submitted is counted from their start date, or from the day they were added if no start date is set, and their line says so.
 
-The list shows the first six items. Unreviewed homework is listed first, so if the count next to the heading is higher than six, clear from the top and the hidden lines move up.
+The check runs once a day. Pressing 🔄 今すぐ検知 beside the heading runs the whole nightly job on the spot. Students you have switched to automatic homework reminders get one message for each homework type they have not already been reminded about, and overdue-payment reminders go out to students on LINE as well. Do not press it just to have a look.
 
-Tap a homework line and the student's page opens. The "Homework" card shows the "Last submitted:" date and either "Overdue" or "On track". A stalled student shows "N business days since last submission · follow up". Recent submissions are listed underneath, so you can see when the gaps started to widen.
+"Open profile" on a line opens the student's record. Under 📩 課題の提出 you see, for each homework type, the business days since the last submission. Recent submissions are listed underneath, so you can see when the gaps started to widen.
 
-There are conditions. Your school's LINE Official Account is connected, the student is linked to it, and the student has a start date. A submission is recorded when the student sends a photo or video on LINE, or presses the homework button in the LINE menu and then sends text. The photos and videos themselves are not stored.
+There is a miss in the other direction too: homework the student did send that nobody has looked at. That shows on the same Home screen under 📩 届いた課題, with an unchecked count. Sending something in and hearing nothing back is its own reason to drift away. I covered it in [Homework arrives by chat, and nobody knows which teacher looked at it](/en/crm/media/b2c/nobody-knows-who-checked-the-homework/).
 
-For the whole picture, open "Students" from the bottom menu. You can filter by "All", "Enrolled", "Trialing", "Graduating", "Paused" and "Alumni". Opening "Paused" once a month and checking that every student there has been asked when they plan to come back is a small habit that helps you catch the quiet exits.
+Three conditions.
 
-When a student does leave, go to "Actions" on the student page and change "Status" to "Withdrawn" (it is shown to people who have permission to edit students). A field for the reason appears. Write even one line before you press "Mark withdrawn".
+- The school's account on LINE, the messaging app most schools in Japan already use with their students, is connected, and the student is linked to it. A student who is not linked, or who sends work without picking a type from the 課題を出す menu, is counted as not having submitted
+- Under "Lessons" in the bottom navigation, each lesson type that sets homework is marked 課題あり. Only those types are counted
+- Someone is assigned to the student. A line under Act now only appears for the people assigned to that student. If nobody is assigned, it appears on no one's Home
+
+One thing the current school edition does not do is pick up unanswered LINE messages for you. What you see here are the homework signs.
+
+For the whole picture, open "Students" in the bottom navigation. Chips across the top filter the list: すべて (all), 受講中 (active), 体験予定 (trial booked) and 卒業間近 (graduating). When there are students who match, you also get 課題が滞り (homework stalled), 休止 (paused), 卒業生 (alumni) and 退会 (withdrawn). Each chip carries a count, and a few switch to English only when the count happens to match the built-in wording (the demo shows "Paused 1", for example). Press 課題が滞り and only the students who are three or more business days behind are listed. Opening 休止 once a month and checking that every student there has been asked when they plan to come back is a small habit that helps you catch the quiet exits.
+
+When a student does leave, go to ⚙ ステータス変更 on the student's record and press 退会 (you need permission to edit students). A small prompt asks for the reason. Write even one line (pressing Cancel there stops the withdrawal). The withdrawal date and the reason stay on the same record.
 
 ## The first step
 
-Tomorrow morning, open "Needs action now" on Home, pick the one student among the visible homework lines whose homework has been stalled the longest, and contact them that day. Not a reminder. "How have things been lately?" is enough.
+Tomorrow morning, open Act now on Home, pick the one student among the 課題未提出 lines whose homework has been stalled the longest, and contact them that day. Not a reminder. "How have things been lately?" is enough.
 
 Do not try to reach everyone. One a day is plenty. Noticing at three business days and learning at three weeks from a cancellation message leave you with very different options.
 

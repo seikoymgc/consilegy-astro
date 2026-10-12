@@ -136,6 +136,11 @@ const fields: PartnerField[] = [
 				<a href="#fit" class="btn btn--secondary">どんな会社に合うか見る</a>
 			</div>
 			<p class="rf-hero-note">申込は無料です。紹介先が契約しなかった場合も、費用はかかりません。</p>
+			<dl class="rf-stats">
+				<div><dt>報酬</dt><dd>20<small>%</small></dd></div>
+				<div><dt>期間</dt><dd>12<small>ヶ月</small></dd></div>
+				<div><dt>あなたの作業</dt><dd>転送<small>だけ</small></dd></div>
+			</dl>
 		</div>
 		<figure class="rf-hero-media">
 			<div class="rf-shot">
@@ -157,7 +162,7 @@ const fields: PartnerField[] = [
 					decoding="async"
 				/>
 			</div>
-			<figcaption>紹介していただくのは、この画面のCRMです。<a href="/crm/">製品ページを見る</a></figcaption>
+			<figcaption>紹介していただくのは、この画面のCRMです。<a href="/products/">画面をもっと見る</a></figcaption>
 		</figure>
 	</div>
 </section>
@@ -166,8 +171,9 @@ const fields: PartnerField[] = [
 	<div class="container">
 		<h2>こんな会社、身近にありませんか。</h2>
 		<div class="rf-fit">
-			{fit.map((f) => (
+			{fit.map((f, i) => (
 				<div class="rf-fit-row">
+					<span class="rf-fit-no">{String(i + 1).padStart(2, '0')}</span>
 					<p class="rf-fit-who">{f.who}</p>
 					<p class="rf-fit-change">{f.change}</p>
 				</div>
@@ -194,18 +200,17 @@ const fields: PartnerField[] = [
 
 <section class="rf-section" id="reward">
 	<div class="container">
-		<h2>報酬は、紹介先の月額利用料金の20%を12ヶ月間</h2>
-		<div class="rf-scale-wrap">
-			<table class="rf-scale">
-				<thead>
-					<tr><th scope="col">紹介して契約した会社</th><th scope="col">毎月の報酬</th><th scope="col">12ヶ月の合計</th></tr>
-				</thead>
-				<tbody>
-					{scale.map((r) => (
-						<tr><th scope="row">{r.n}社</th><td>{yen(r.monthly)}円</td><td><strong>{yen(r.total)}円</strong></td></tr>
-					))}
-				</tbody>
-			</table>
+		<h2><span class="nb">報酬は、</span><span class="nb">紹介先の月額利用料金の</span><span class="nb">20%を12ヶ月間</span></h2>
+		<div class="rf-bars" role="table" aria-label="紹介して契約した会社の数と報酬">
+			{scale.map((r) => (
+				<div class="rf-bar" role="row">
+					<span class="rf-bar-n" role="cell">{r.n}社</span>
+					<span class="rf-bar-track" role="cell">
+						<span class="rf-bar-fill" style={`width:${r.n * 10}%`}><span>月 {yen(r.monthly)}円</span></span>
+					</span>
+					<strong class="rf-bar-total" role="cell">{yen(r.total)}<small>円</small></strong>
+				</div>
+			))}
 		</div>
 		<p class="rf-note">各社がユーザープラン5人（月額15,000円・税抜）を12ヶ月続けた場合の試算です。報酬は税込で、各社の有料契約開始から12ヶ月間です。</p>
 		<table class="rf-table">
@@ -224,7 +229,7 @@ const fields: PartnerField[] = [
 
 <section class="rf-section">
 	<div class="container">
-		<h2>登録から報酬まで、3ステップ</h2>
+		<h2>登録から報酬まで、<span class="nb">3ステップ</span></h2>
 		<ol class="rf-steps">
 			{steps.map((s, i) => (
 				<li>
@@ -234,6 +239,13 @@ const fields: PartnerField[] = [
 				</li>
 			))}
 		</ol>
+	</div>
+</section>
+
+<section class="rf-cta">
+	<div class="container">
+		<p class="rf-cta-text">1社でも顔が浮かんだら。</p>
+		<a href="#apply" class="btn rf-cta-btn">紹介パートナーになる</a>
 	</div>
 </section>
 
@@ -296,55 +308,72 @@ const fields: PartnerField[] = [
 <style>
 	:global(body:has(.rf-page)) { background: #fff; }
 	.rf-page { background: #fff; }
-	.rf-page h2 { margin: 0 0 var(--space-md); font-size: clamp(1.4rem, 2.6vw, 1.85rem); font-weight: 700; line-height: 1.45; color: var(--color-text); }
-	.rf-page h3 { margin: 0 0 0.5rem; font-size: 1.05rem; line-height: 1.6; color: var(--color-text); }
+	.rf-page h2 { margin: 0 0 var(--space-md); font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; line-height: 1.4; letter-spacing: -0.01em; color: var(--color-text); }
+	.rf-page h3 { margin: 0 0 0.5rem; font-size: 1.1rem; line-height: 1.6; color: var(--color-text); }
 	.rf-page p { color: var(--color-text); }
 
-	.rf-hero { padding: var(--space-xl) 0 var(--space-xl); }
-	.rf-hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: var(--space-xl); align-items: center; }
-	.rf-eyebrow { display: flex; align-items: center; gap: 0.5rem; margin: 0 0 var(--space-md); color: var(--color-primary); font-weight: 700; font-size: 0.9rem; }
+	/* hero: 青い帯に白文字。製品画面は帯の下へはみ出す */
+	.rf-hero { padding: var(--space-xl) 0 0; background: var(--color-primary); color: #fff; }
+	.rf-hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-xl); align-items: end; }
+	.rf-hero-copy { padding-bottom: var(--space-xl); }
+	.rf-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; margin: 0 0 var(--space-md); padding: 0.3rem 0.8rem 0.3rem 0.3rem; border-radius: 999px; background: #fff; color: var(--color-primary); font-weight: 700; font-size: 0.85rem; }
 	.rf-eyebrow img { width: 24px; height: 24px; border-radius: 5px; }
-	.rf-hero h1 .nb { display: inline-block; }
-	.rf-hero h1 { margin: 0; font-size: clamp(1.75rem, 2.7vw, 2.4rem); font-weight: 700; line-height: 1.35; letter-spacing: 0; color: var(--color-text); }
-	.rf-lead { margin: var(--space-md) 0 0; font-size: 1.05rem; line-height: 1.95; max-width: 34em; }
+	.rf-hero h1 { margin: 0; font-size: clamp(2rem, 3.4vw, 3rem); font-weight: 800; line-height: 1.3; letter-spacing: -0.01em; color: #fff; }
+	.rf-page .nb { display: inline-block; }
+	.rf-lead { margin: var(--space-md) 0 0; font-size: 1.05rem; line-height: 1.95; max-width: 32em; color: rgba(255, 255, 255, 0.92) !important; }
 	.rf-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: var(--space-lg); }
-	.rf-hero-note { margin: var(--space-sm) 0 0; font-size: 0.9rem; color: var(--color-text-muted) !important; }
-	.rf-hero-media { margin: 0; min-width: 0; }
+	.rf-actions .btn--primary { background: #fff; color: var(--color-primary); box-shadow: none; }
+	.rf-actions .btn--primary:hover { background: #fff; color: var(--color-primary-dark); }
+	.rf-actions .btn--secondary { border-color: #fff; color: #fff; }
+	.rf-actions .btn--secondary:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
+	.rf-hero-note { margin: var(--space-sm) 0 0; font-size: 0.9rem; color: rgba(255, 255, 255, 0.78) !important; }
+	.rf-stats { display: flex; gap: var(--space-lg); margin: var(--space-lg) 0 0; padding-top: var(--space-md); border-top: 1px solid rgba(255, 255, 255, 0.3); }
+	.rf-stats div { margin: 0; }
+	.rf-stats dt { font-size: 0.8rem; color: rgba(255, 255, 255, 0.78); }
+	.rf-stats dd { margin: 0.1rem 0 0; font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; line-height: 1.1; color: #fff; }
+	.rf-stats small { font-size: 0.95rem; margin-left: 0.15rem; font-weight: 700; }
+	.rf-hero-media { margin: 0; min-width: 0; position: relative; bottom: -2.5rem; }
 	.rf-shot { position: relative; padding: 0 0 2.5rem 0; }
-	.rf-shot-desktop { display: block; width: 100%; height: auto; border: 1px solid var(--color-border); border-radius: 8px; box-shadow: 0 18px 40px rgba(28, 25, 23, 0.10); }
-	.rf-shot-phone { position: absolute; right: -0.5rem; bottom: 0; width: 26%; height: auto; border: 6px solid #1C1917; border-radius: 20px; background: #fff; box-shadow: 0 14px 30px rgba(28, 25, 23, 0.18); }
-	.rf-hero-media figcaption { margin-top: 0.75rem; font-size: 0.85rem; color: var(--color-text-muted); }
-	.rf-hero-media figcaption a { color: var(--color-primary); margin-left: 0.4rem; }
+	.rf-shot-desktop { display: block; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28); }
+	.rf-shot-phone { position: absolute; right: -0.5rem; bottom: 0; width: 26%; height: auto; border: 6px solid #1C1917; border-radius: 20px; background: #fff; box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3); }
+	.rf-hero-media figcaption { position: absolute; left: 0; bottom: 0.5rem; width: 70%; font-size: 0.85rem; color: rgba(255, 255, 255, 0.92); }
+	.rf-hero-media figcaption a { color: #fff; margin-left: 0.4rem; font-weight: 700; }
+	.rf-hero + .rf-section { padding-top: calc(var(--space-xl) + 2.5rem); border-top: 0; }
 
 	.rf-section { padding: var(--space-xl) 0; border-top: 1px solid var(--color-border); }
 	.rf-narrow { max-width: 48rem; }
 	.rf-sub { margin: calc(var(--space-md) * -0.6) 0 var(--space-md); color: var(--color-text-muted) !important; line-height: 1.8; }
 
-
-	.rf-fit { border-top: 1px solid var(--color-border); }
-	.rf-fit-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 0.5rem var(--space-lg); padding: 1.1rem 0; border-bottom: 1px solid var(--color-border); }
-	.rf-fit-row p { margin: 0; line-height: 1.85; }
-	.rf-fit-who { font-weight: 700; font-size: 1.05rem; }
-	.rf-fit-close { margin: var(--space-md) 0 0; font-size: 1.1rem; font-weight: 700; }
+	/* こんな会社 */
+	.rf-fit { border-top: 2px solid var(--color-text); }
+	.rf-fit-row { display: grid; grid-template-columns: 3.5rem minmax(0, 1fr) minmax(0, 1.2fr); gap: 0.5rem var(--space-md); align-items: start; padding: 1.4rem 0; border-bottom: 1px solid var(--color-border); }
+	.rf-fit-no { font-size: 1.6rem; font-weight: 800; line-height: 1.2; color: var(--color-primary); }
+	.rf-fit-row p { margin: 0; line-height: 1.8; }
+	.rf-fit-who { font-weight: 800; font-size: 1.25rem; line-height: 1.55 !important; }
+	.rf-fit-change { color: var(--color-text-muted) !important; }
+	.rf-fit-close { margin: var(--space-md) 0 0; font-size: 1.25rem; font-weight: 800; }
 	.rf-fit-close a { margin-left: 0.75rem; font-size: 0.95rem; font-weight: 600; color: var(--color-primary); }
 
+	/* つなぐだけ: 濃色の帯 */
+	.rf-section:has(.rf-connect) { background: var(--color-text); border-top: 0; }
 	.rf-connect { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-lg) var(--space-xl); align-items: start; }
-	.rf-connect h2 { margin-bottom: var(--space-sm); }
-	.rf-connect-lead { margin: 0; font-size: 1.05rem; line-height: 1.95; }
-	.rf-promises { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.8rem; }
-	.rf-promises li { position: relative; padding-left: 1.9rem; line-height: 1.8; font-weight: 600; }
-	.rf-promises li::before { content: ''; position: absolute; left: 0.2rem; top: 0.45em; width: 0.9rem; height: 0.5rem; border-left: 3px solid var(--color-primary); border-bottom: 3px solid var(--color-primary); transform: rotate(-45deg); }
-	.rf-connect-close { margin: var(--space-md) 0 0; line-height: 1.9; }
+	.rf-connect h2 { margin-bottom: var(--space-sm); color: #fff; }
+	.rf-connect-lead { margin: 0; font-size: 1.05rem; line-height: 1.95; color: rgba(255, 255, 255, 0.92) !important; }
+	.rf-promises { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.9rem; }
+	.rf-promises li { position: relative; padding-left: 2rem; line-height: 1.7; font-weight: 700; font-size: 1.1rem; color: #fff; }
+	.rf-promises li::before { content: ''; position: absolute; left: 0.25rem; top: 0.45em; width: 0.95rem; height: 0.5rem; border-left: 3px solid #fff; border-bottom: 3px solid #fff; transform: rotate(-45deg); }
+	.rf-connect-close { margin: var(--space-md) 0 0; line-height: 1.9; color: rgba(255, 255, 255, 0.78) !important; }
 
-	.rf-scale-wrap { overflow-x: auto; margin-bottom: var(--space-sm); }
-	.rf-scale { width: 100%; max-width: 40rem; border-collapse: collapse; border: 2px solid var(--color-primary); }
-	.rf-scale th, .rf-scale td { padding: 0.8rem 1rem; border-bottom: 1px solid var(--color-border); text-align: right; white-space: nowrap; }
-	.rf-scale thead th { font-size: 0.85rem; color: var(--color-text-muted); font-weight: 600; text-align: right; }
-	.rf-scale thead th:first-child, .rf-scale tbody th { text-align: left; }
-	.rf-scale tbody th { font-weight: 700; }
-	.rf-scale td strong { color: var(--color-primary); font-size: 1.15rem; }
+	/* 報酬: 横棒 */
+	.rf-bars { display: grid; gap: 0.75rem; margin-bottom: var(--space-sm); }
+	.rf-bar { display: grid; grid-template-columns: 3.5rem minmax(0, 1fr) 9rem; gap: 0.75rem; align-items: center; }
+	.rf-bar-n { font-weight: 800; font-size: 1.1rem; }
+	.rf-bar-track { display: block; height: 2.6rem; background: #fff; border: 1px solid var(--color-border); border-radius: 6px; overflow: hidden; }
+	.rf-bar-fill { display: flex; align-items: center; height: 100%; min-width: 7.5rem; padding: 0 0.8rem; background: var(--color-primary); color: #fff; font-size: 0.85rem; font-weight: 700; white-space: nowrap; border-radius: 6px 0 0 6px; }
+	.rf-bar-total { text-align: right; font-size: clamp(1.3rem, 2.4vw, 1.75rem); font-weight: 800; color: var(--color-primary); white-space: nowrap; }
+	.rf-bar-total small { font-size: 0.9rem; margin-left: 0.1rem; }
 
-	.rf-table { width: 100%; border-collapse: collapse; }
+	.rf-table { width: 100%; border-collapse: collapse; margin-top: var(--space-md); }
 	.rf-table th, .rf-table td { padding: 1rem 0; border-bottom: 1px solid var(--color-border); vertical-align: top; text-align: left; line-height: 1.85; }
 	.rf-table th { width: 10rem; padding-right: 1.5rem; font-weight: 700; white-space: nowrap; }
 	.rf-table td p { margin: 0; }
@@ -352,11 +381,19 @@ const fields: PartnerField[] = [
 	.rf-note { margin: var(--space-sm) 0 0; font-size: 0.95rem; }
 	.rf-note a { color: var(--color-primary); }
 
+	/* 3ステップ */
 	.rf-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md) var(--space-lg); }
-	.rf-steps li { padding-top: 0.9rem; border-top: 3px solid var(--color-primary); }
-	.rf-step-no { display: block; margin-bottom: 0.35rem; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; color: var(--color-primary); }
+	.rf-steps li { padding-top: 1rem; border-top: 4px solid var(--color-primary); }
+	.rf-step-no { display: block; margin-bottom: 0.35rem; font-size: 2rem; font-weight: 800; line-height: 1; color: var(--color-primary); }
+	.rf-steps h3 { font-size: 1.25rem; font-weight: 800; }
 	.rf-steps p { margin: 0; line-height: 1.85; }
 
+	/* CTA帯 */
+	.rf-cta { padding: var(--space-lg) 0; background: var(--color-primary); }
+	.rf-cta .container { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-sm) var(--space-lg); }
+	.rf-cta-text { margin: 0; font-size: clamp(1.4rem, 2.6vw, 2rem); font-weight: 800; color: #fff !important; }
+	.rf-cta-btn { background: #fff; color: var(--color-primary); font-weight: 700; padding: 0.9em 1.6em; }
+	.rf-cta-btn:hover { color: var(--color-primary-dark); }
 
 	.rf-rules { margin: 0; padding-left: 1.4rem; display: grid; gap: 0.8rem; }
 	.rf-rules li { line-height: 1.9; }
@@ -366,27 +403,38 @@ const fields: PartnerField[] = [
 	.rf-faq dt { font-weight: 700; line-height: 1.7; }
 	.rf-faq dd { margin: 0.35rem 0 0; line-height: 1.9; }
 
-	.rf-form-panel { padding: var(--space-lg); border: 1px solid var(--color-border); border-radius: 10px; }
-	.rf-step2 { margin-top: var(--space-md); scroll-margin-top: 7rem; }
-	.rf-step2[hidden] { display: none; }
+	.rf-form-panel { padding: var(--space-lg); border: 2px solid var(--color-primary); border-radius: 10px; }
 	.rf-form-panel:has(> .pf[hidden]) { display: none; }
-	.rf-step2 { margin-top: 0; }
+	.rf-step2 { margin-top: 0; scroll-margin-top: 7rem; }
+	.rf-step2[hidden] { display: none; }
 	.rf-step2-head { margin: 0 0 var(--space-md); font-weight: 700; }
 
 	@media (max-width: 900px) {
+		.rf-hero-grid { grid-template-columns: 1fr; gap: var(--space-md); }
+		.rf-hero-copy { padding-bottom: 0; }
+		.rf-hero-media { bottom: -1.5rem; }
+		.rf-hero + .rf-section { padding-top: calc(var(--space-xl) + 1.5rem); }
 		.rf-connect { grid-template-columns: 1fr; }
-		.rf-fit-row { grid-template-columns: 1fr; }
-		.br-wide { display: none; }
-		.rf-hero-grid { grid-template-columns: 1fr; gap: var(--space-lg); }
+		.rf-fit-row { grid-template-columns: 3rem minmax(0, 1fr); }
+		.rf-fit-change { grid-column: 2; }
 		.rf-steps { grid-template-columns: 1fr; }
+		.br-wide { display: none; }
 	}
 	@media (max-width: 560px) {
 		.rf-hero h1 { font-size: 1.85rem; }
 		.rf-actions { flex-direction: column; }
 		.rf-actions .btn { width: 100%; text-align: center; }
+		.rf-stats { gap: var(--space-md); }
 		.rf-shot-phone { width: 30%; right: 0; border-width: 4px; border-radius: 14px; }
+		.rf-hero-media figcaption { position: static; width: auto; margin-top: 0.5rem; color: var(--color-text-muted); }
+		.rf-hero-media figcaption a { color: var(--color-primary); }
+		.rf-bar { grid-template-columns: 2.8rem minmax(0, 1fr); }
+		.rf-bar-total { grid-column: 2; text-align: left; }
+		.rf-bar-fill { min-width: 6.5rem; font-size: 0.78rem; }
 		.rf-table th, .rf-table td { display: block; width: auto; }
 		.rf-table th { padding-bottom: 0; border-bottom: 0; }
 		.rf-form-panel { padding: var(--space-md); }
+		.rf-cta .container { flex-direction: column; align-items: stretch; }
+		.rf-cta-btn { text-align: center; }
 	}
 </style>

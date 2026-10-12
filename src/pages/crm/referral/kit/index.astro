@@ -120,7 +120,7 @@ const fields: PartnerField[] = [
 	<div class="container">
 		<p class="kicker"><a href="/crm/referral/">紹介パートナー制度</a> ／ 紹介キット</p>
 		<h1>紹介に必要なものは、ここにそろっています。</h1>
-		<p class="lead">紹介文をコピーして転送し、紹介先の了承を得たら、このページの下のフォームで登録してください。その先は、山口聖子がすべて担当します。</p>
+		<p class="lead">紹介文をコピーして転送し、紹介先の了承を得たら、このページの下のフォームで登録してください。その後の説明と商談は、当社が行います。</p>
 		<div class="hero-actions">
 			<a href="#messages" class="btn btn--primary">紹介文をコピーする</a>
 			<a href="#register" class="btn btn--secondary">紹介先を登録する</a>
@@ -131,7 +131,6 @@ const fields: PartnerField[] = [
 <section class="rf-section" id="messages">
 	<div class="container">
 		<div class="section-head">
-			<p class="kicker">紹介文</p>
 			<h2>そのまま転送できる紹介文</h2>
 		</div>
 		<div class="kit-block">
@@ -163,7 +162,6 @@ const fields: PartnerField[] = [
 <section class="rf-section rf-section--subtle">
 	<div class="container">
 		<div class="section-head">
-			<p class="kicker">資料とリンク</p>
 			<h2>紹介先に渡せる資料</h2>
 		</div>
 		<ul class="kit-materials">
@@ -189,7 +187,6 @@ const fields: PartnerField[] = [
 	<div class="container kit-two">
 		<div>
 			<div class="section-head">
-				<p class="kicker">料金の要点</p>
 				<h2>聞かれたら、ここまで答えられれば十分です。</h2>
 			</div>
 			<ul class="kit-list">
@@ -199,7 +196,6 @@ const fields: PartnerField[] = [
 		</div>
 		<div>
 			<div class="section-head">
-				<p class="kicker">合う会社</p>
 				<h2>こんな会社に合います。</h2>
 			</div>
 			<ul class="kit-list">
@@ -212,7 +208,6 @@ const fields: PartnerField[] = [
 <section class="rf-section rf-section--subtle">
 	<div class="container">
 		<div class="section-head">
-			<p class="kicker">よく聞かれること</p>
 			<h2>紹介先に聞かれたときの答え方</h2>
 		</div>
 		<dl class="rf-faq">
@@ -230,7 +225,6 @@ const fields: PartnerField[] = [
 <section class="rf-section" id="register">
 	<div class="container rf-apply">
 		<div class="section-head">
-			<p class="kicker">紹介先の登録</p>
 			<h2>紹介先を登録する</h2>
 			<p class="rf-apply-lead">送信後3営業日以内に、当社との既存の接点の有無と、対象になるかどうかをお知らせします。報酬の決まりは<a href="/crm/referral/#rules">紹介の決まり</a>をご覧ください。</p>
 		</div>
@@ -274,7 +268,8 @@ const fields: PartnerField[] = [
 	.rf-hero .lead { max-width: 44rem; margin: 0 0 var(--space-md); color: var(--color-text); font-size: 1.05rem; line-height: 1.9; }
 	.hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 	.rf-section { padding: var(--space-xl) 0; }
-	.rf-section--subtle { background: var(--color-bg-subtle); }
+	:global(body:has(.rf-section)) { background: #fff; }
+	.rf-section + .rf-section { border-top: 1px solid var(--color-border); }
 	.section-head { margin-bottom: var(--space-md); }
 	.section-head h2 { margin: 0.5rem 0 0; font-size: clamp(1.3rem, 3vw, 1.7rem); line-height: 1.5; }
 	.kit-block { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius); padding: var(--space-md); margin-bottom: var(--space-sm); }

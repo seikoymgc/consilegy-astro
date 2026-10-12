@@ -11,15 +11,15 @@ const FORM_ID = '5cb8761e-094f-4ead-962d-d34fd4c6f26b';
 
 const trust = [
 	{
-		title: '手間は、一通の転送だけです。',
-		text: '紹介文はこちらで用意しています。そのまま転送していただければ、その先の説明・デモ・商談・導入はすべて代表の山口聖子が担当します。',
+		title: '紹介文の転送だけで済みます',
+		text: '紹介文はこちらで用意しています。転送していただいた後の説明・デモ・商談は当社が行います。導入は、紹介先が30日間の無料期間に動画とヘルプを見ながら進められます。',
 	},
 	{
-		title: '「導入実績は？」への答えを用意しています。',
+		title: '聞かれそうな質問には、答え方を用意しています',
 		text: '紹介先に聞かれそうな質問と、その答え方を紹介キットにまとめました。山口がCRM・MA・SFAの導入を支援してきた40社以上の経験も、答えの一部です。',
 	},
 	{
-		title: '合わない会社には、合わないと言います。',
+		title: '合わない会社には、合わないと伝えます',
 		text: '紹介先の同意がない限り、こちらから連絡はしません。お話を伺って合わないと判断したら、契約をお勧めせずにそうお伝えします。紹介してくださった方の信用を守ることを優先します。',
 	},
 ];
@@ -28,7 +28,7 @@ const steps = [
 	{ title: '申し込む', text: 'このページの下のフォームから申し込みます。規約への同意が必要です。' },
 	{ title: '紹介する', text: '紹介文を転送し、紹介先の同意を得たうえで紹介フォームに登録します。' },
 	{ title: '確認の連絡', text: '3営業日以内に、当社との既存の接点の有無と、対象になるかどうかをお知らせします。' },
-	{ title: '商談', text: '山口が紹介先とお話しします。紹介してくださった方の同席は自由です。' },
+	{ title: '商談', text: '当社が紹介先とお話しします。紹介してくださった方の同席は自由です。' },
 	{ title: '有料契約', text: '紹介先が30日間の無料期間を経て、有料契約を始めます。' },
 	{ title: '報酬の振込', text: '紹介先からの毎月の入金ごとに報酬を確定し、月末締め・翌月末に振り込みます。' },
 ];
@@ -63,7 +63,7 @@ const faq = [
 	},
 	{
 		q: '紹介先には、何を伝えればよいですか。',
-		a: '紹介キットの紹介文をそのまま転送していただければ十分です。製品の説明や料金のご質問には、山口がお答えします。',
+		a: '紹介キットの紹介文をそのまま転送していただければ十分です。製品の説明や料金のご質問には、当社がお答えします。',
 	},
 	{
 		q: '成約しなかった場合はどうなりますか。',
@@ -96,7 +96,7 @@ const fields: PartnerField[] = [
 
 <BaseLayout
 	title="紹介パートナー制度 | Revenue CRM | Consilegy"
-	description="Revenue CRMを紹介してくださる方のための制度です。紹介文を一通転送するだけで、説明から導入までは代表の山口聖子が担当します。紹介先が有料契約を始めてから12ヶ月間、月額利用料金の20%を銀行振込でお支払いします。"
+	description="Revenue CRMを紹介してくださる方のための制度です。紹介文を転送していただければ、その後の説明と商談は当社が行います。紹介先が有料契約を始めてから12ヶ月間、月額利用料金の20%を銀行振込でお支払いします。"
 	lang="ja"
 >
 <script type="application/ld+json" slot="head" set:html={JSON.stringify({
@@ -111,44 +111,82 @@ const fields: PartnerField[] = [
 
 <CrmSubnav lang="ja" />
 
+<div class="rf-page">
+
 <section class="rf-hero">
-	<div class="container">
-		<p class="kicker">紹介パートナー制度</p>
-		<h1>「この会社に合いそう」を、<br class="br-wide" />一通の転送で。</h1>
-		<p class="lead">Revenue CRMに合いそうな会社をご存じなら、紹介文を転送していただくだけで構いません。説明から導入までは、代表の山口聖子がすべて担当します。紹介先が有料契約を始めてから12ヶ月間、月額利用料金の20%をお支払いします。</p>
-		<div class="hero-actions">
-			<a href="#apply" class="btn btn--primary">パートナーに申し込む</a>
-			<a href="#rules" class="btn btn--secondary">紹介の決まりを読む</a>
+	<div class="container rf-hero-grid">
+		<div class="rf-hero-copy">
+			<p class="rf-eyebrow">
+				<img src="/images/crm/logo/revenue-crm-logo-v3.svg" alt="" width="24" height="24" decoding="async" />
+				Revenue CRM 紹介パートナー制度
+			</p>
+			<h1>合いそうな会社を、<br />紹介してください。</h1>
+			<p class="rf-lead">紹介文はこちらで用意しています。転送していただいた後の説明と商談は、当社が行います。紹介先が有料契約を始めてから12ヶ月間、月額利用料金の20%をお支払いします。</p>
+			<div class="rf-actions">
+				<a href="#apply" class="btn btn--primary">パートナーに申し込む</a>
+				<a href="#rules" class="btn btn--secondary">紹介の決まりを読む</a>
+			</div>
+			<p class="rf-hero-note">申込は無料です。紹介先が契約しなかった場合も、費用はかかりません。</p>
 		</div>
+		<figure class="rf-hero-media">
+			<div class="rf-shot">
+				<img
+					class="rf-shot-desktop"
+					src="/images/crm/screen-dashboard-2026-09.webp"
+					alt="Revenue CRMのダッシュボード。パイプライン総額、勝率、期限切れタスク、注目の商談を一画面に表示。"
+					width="1600"
+					height="1000"
+					decoding="async"
+					fetchpriority="high"
+				/>
+				<img
+					class="rf-shot-phone"
+					src="/images/crm/screen-mobile-deals-2026-09.webp"
+					alt="スマートフォンで見たRevenue CRMの商談一覧。"
+					width="390"
+					height="844"
+					decoding="async"
+				/>
+			</div>
+			<figcaption>紹介していただくのは、この画面のCRMです。<a href="/crm/">製品ページを見る</a></figcaption>
+		</figure>
+	</div>
+</section>
+
+<section class="rf-section" id="reward">
+	<div class="container">
+		<h2>報酬は、紹介先の月額利用料金の20%を12ヶ月間</h2>
+		<div class="rf-example">
+			<p class="rf-example-label">例：ユーザープラン5人（月額15,000円・税抜）の会社を紹介した場合</p>
+			<div class="rf-example-calc">
+				<div><span>毎月の報酬</span><strong>3,000<small>円</small></strong></div>
+				<div class="rf-op" aria-hidden="true">×</div>
+				<div><span>期間</span><strong>12<small>ヶ月</small></strong></div>
+				<div class="rf-op" aria-hidden="true">=</div>
+				<div><span>合計</span><strong>36,000<small>円</small></strong></div>
+			</div>
+		</div>
+		<table class="rf-table">
+			<tbody>
+				{reward.map((row) => (
+					<tr>
+						<th scope="row">{row.label}</th>
+						<td>{row.text.map((line) => <p>{line}</p>)}</td>
+					</tr>
+				))}
+			</tbody>
+		</table>
+		<p class="rf-note">料金の一覧は<a href="/crm/pricing/">料金ページ</a>にあります。</p>
 	</div>
 </section>
 
 <section class="rf-section">
 	<div class="container">
-		<div class="section-head">
-			<p class="kicker">紹介してくださる方へ</p>
-			<h2>紹介した方の信用を、先に守ります。</h2>
-		</div>
-		<div class="rf-cards">
-			{trust.map((item) => (
-				<div class="rf-card">
-					<h3>{item.title}</h3>
-					<p>{item.text}</p>
-				</div>
-			))}
-		</div>
-	</div>
-</section>
-
-<section class="rf-section rf-section--subtle">
-	<div class="container">
-		<div class="section-head">
-			<p class="kicker">紹介の流れ</p>
-			<h2>申し込みから報酬の振込まで</h2>
-		</div>
+		<h2>申し込みから報酬の振込まで</h2>
 		<ol class="rf-steps">
-			{steps.map((s) => (
+			{steps.map((s, i) => (
 				<li>
+					<span class="rf-step-no">STEP {i + 1}</span>
 					<h3>{s.title}</h3>
 					<p>{s.text}</p>
 				</li>
@@ -159,32 +197,22 @@ const fields: PartnerField[] = [
 
 <section class="rf-section">
 	<div class="container">
-		<div class="section-head">
-			<p class="kicker">報酬</p>
-			<h2>紹介先の月額利用料金の20%を、12ヶ月間。</h2>
+		<h2>紹介してくださる方の信用のために</h2>
+		<div class="rf-points">
+			{trust.map((item) => (
+				<div>
+					<h3>{item.title}</h3>
+					<p>{item.text}</p>
+				</div>
+			))}
 		</div>
-		<div class="rf-table-wrap">
-			<table class="rf-table">
-				<tbody>
-					{reward.map((row) => (
-						<tr>
-							<th scope="row">{row.label}</th>
-							<td>{row.text.map((line) => <p>{line}</p>)}</td>
-						</tr>
-					))}
-				</tbody>
-			</table>
-		</div>
-		<p class="rf-note">例：ユーザープラン5人（月額15,000円・税抜）の会社を紹介した場合、報酬は月3,000円、12ヶ月で36,000円です。料金は<a href="/crm/pricing/">料金ページ</a>をご覧ください。</p>
 	</div>
 </section>
 
-<section class="rf-section rf-section--subtle" id="rules">
-	<div class="container">
-		<div class="section-head">
-			<p class="kicker">紹介の決まり</p>
-			<h2>申し込む前に、お読みください。</h2>
-		</div>
+<section class="rf-section" id="rules">
+	<div class="container rf-narrow">
+		<h2>紹介の決まり</h2>
+		<p class="rf-sub">申し込む前にお読みください。</p>
 		<ol class="rf-rules">
 			{rules.map((r) => <li>{r}</li>)}
 		</ol>
@@ -192,11 +220,8 @@ const fields: PartnerField[] = [
 </section>
 
 <section class="rf-section">
-	<div class="container">
-		<div class="section-head">
-			<p class="kicker">よくあるご質問</p>
-			<h2>紹介パートナー制度について</h2>
-		</div>
+	<div class="container rf-narrow">
+		<h2>よくあるご質問</h2>
 		<dl class="rf-faq">
 			{faq.map((item) => (
 				<div>
@@ -208,73 +233,98 @@ const fields: PartnerField[] = [
 	</div>
 </section>
 
-<section class="rf-section rf-section--subtle" id="apply">
-	<div class="container rf-apply">
-		<div class="section-head">
-			<p class="kicker">申し込み</p>
-			<h2>紹介パートナーに申し込む</h2>
-			<p class="rf-apply-lead">送信後、紹介キットのページをご案内します。紹介文や資料は、そちらからお使いください。</p>
+<section class="rf-section" id="apply">
+	<div class="container rf-narrow">
+		<h2>紹介パートナーに申し込む</h2>
+		<p class="rf-sub">送信後、紹介キットのページをご案内します。紹介文や資料は、そちらからお使いください。</p>
+		<div class="rf-form-panel">
+			<PartnerForm
+				formId={FORM_ID}
+				fields={fields}
+				button="申し込む"
+				done="お申し込みありがとうございます。当社から確認のご連絡をします。紹介キットは次のページからお使いいただけます。"
+				doneLink={{ href: '/crm/referral/kit/', label: '紹介キットを開く' }}
+			/>
 		</div>
-		<PartnerForm
-			formId={FORM_ID}
-			fields={fields}
-			button="申し込む"
-			done="お申し込みありがとうございます。山口から、確認のご連絡をします。紹介キットは次のページからお使いいただけます。"
-			doneLink={{ href: '/crm/referral/kit/', label: '紹介キットを開く' }}
-		/>
 	</div>
 </section>
+
+</div>
 
 </BaseLayout>
 
 <style>
-	.kicker {
-		margin: 0;
-		color: var(--color-text-muted);
-		font-size: 0.75rem;
-		font-weight: 600;
-		letter-spacing: 0.12em;
-		line-height: 1.4;
-	}
-	.rf-hero { padding: var(--space-xl) 0 var(--space-lg); }
-	.rf-hero h1 { margin: 0.75rem 0 1.25rem; font-size: clamp(1.75rem, 4vw, 2.6rem); line-height: 1.4; }
-	.rf-hero .lead { max-width: 44rem; margin: 0 0 var(--space-md); color: var(--color-text); font-size: 1.05rem; line-height: 1.9; }
-	.hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-	.rf-section { padding: var(--space-xl) 0; }
-	.rf-section--subtle { background: var(--color-bg-subtle); }
-	.section-head { margin-bottom: var(--space-md); }
-	.section-head h2 { margin: 0.5rem 0 0; font-size: clamp(1.35rem, 3vw, 1.8rem); line-height: 1.5; }
-	.rf-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-sm); }
-	.rf-card { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius); padding: var(--space-md); }
-	.rf-card h3 { margin: 0 0 0.6rem; font-size: 1.05rem; line-height: 1.6; }
-	.rf-card p { margin: 0; color: var(--color-text-muted); line-height: 1.85; }
-	.rf-steps { list-style: none; counter-reset: step; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-sm); }
-	.rf-steps li { counter-increment: step; background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius); padding: var(--space-md); }
-	.rf-steps li::before { content: counter(step); display: inline-grid; place-items: center; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--color-primary); color: #fff; font-weight: 700; font-size: 0.9rem; margin-bottom: 0.6rem; }
-	.rf-steps h3 { margin: 0 0 0.4rem; font-size: 1rem; }
-	.rf-steps p { margin: 0; color: var(--color-text-muted); line-height: 1.8; font-size: 0.95rem; }
-	.rf-table-wrap { overflow-x: auto; }
-	.rf-table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius); }
-	.rf-table th, .rf-table td { padding: 1rem 1.1rem; border-bottom: 1px solid var(--color-border); vertical-align: top; text-align: left; line-height: 1.8; }
-	.rf-table tr:last-child th, .rf-table tr:last-child td { border-bottom: 0; }
-	.rf-table th { width: 11rem; font-weight: 700; white-space: nowrap; }
+	:global(body:has(.rf-page)) { background: #fff; }
+	.rf-page { background: #fff; }
+	.rf-page h2 { margin: 0 0 var(--space-md); font-size: clamp(1.4rem, 2.6vw, 1.85rem); font-weight: 700; line-height: 1.45; color: var(--color-text); }
+	.rf-page h3 { margin: 0 0 0.5rem; font-size: 1.05rem; line-height: 1.6; color: var(--color-text); }
+	.rf-page p { color: var(--color-text); }
+
+	.rf-hero { padding: var(--space-xl) 0 var(--space-xl); }
+	.rf-hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: var(--space-xl); align-items: center; }
+	.rf-eyebrow { display: flex; align-items: center; gap: 0.5rem; margin: 0 0 var(--space-md); color: var(--color-primary); font-weight: 700; font-size: 0.9rem; }
+	.rf-eyebrow img { width: 24px; height: 24px; border-radius: 5px; }
+	.rf-hero h1 { margin: 0; font-size: clamp(2rem, 3.6vw, 2.75rem); font-weight: 700; line-height: 1.35; letter-spacing: 0; color: var(--color-text); }
+	.rf-lead { margin: var(--space-md) 0 0; font-size: 1.05rem; line-height: 1.95; max-width: 34em; }
+	.rf-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: var(--space-lg); }
+	.rf-hero-note { margin: var(--space-sm) 0 0; font-size: 0.9rem; color: var(--color-text-muted) !important; }
+	.rf-hero-media { margin: 0; min-width: 0; }
+	.rf-shot { position: relative; padding: 0 0 2.5rem 0; }
+	.rf-shot-desktop { display: block; width: 100%; height: auto; border: 1px solid var(--color-border); border-radius: 8px; box-shadow: 0 18px 40px rgba(28, 25, 23, 0.10); }
+	.rf-shot-phone { position: absolute; right: -0.5rem; bottom: 0; width: 26%; height: auto; border: 6px solid #1C1917; border-radius: 20px; background: #fff; box-shadow: 0 14px 30px rgba(28, 25, 23, 0.18); }
+	.rf-hero-media figcaption { margin-top: 0.75rem; font-size: 0.85rem; color: var(--color-text-muted); }
+	.rf-hero-media figcaption a { color: var(--color-primary); margin-left: 0.4rem; }
+
+	.rf-section { padding: var(--space-xl) 0; border-top: 1px solid var(--color-border); }
+	.rf-narrow { max-width: 48rem; }
+	.rf-sub { margin: calc(var(--space-md) * -0.6) 0 var(--space-md); color: var(--color-text-muted) !important; line-height: 1.8; }
+
+	.rf-example { margin: 0 0 var(--space-md); padding: var(--space-md) var(--space-lg); border: 2px solid var(--color-primary); border-radius: 10px; }
+	.rf-example-label { margin: 0 0 0.75rem; font-weight: 600; }
+	.rf-example-calc { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 0.5rem 1.25rem; }
+	.rf-example-calc span { display: block; font-size: 0.85rem; color: var(--color-text-muted); }
+	.rf-example-calc strong { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; line-height: 1.2; color: var(--color-primary); }
+	.rf-example-calc small { font-size: 1rem; margin-left: 0.15rem; color: var(--color-text); }
+	.rf-op { font-size: 1.6rem; padding-bottom: 0.35rem; color: var(--color-text-muted); }
+
+	.rf-table { width: 100%; border-collapse: collapse; }
+	.rf-table th, .rf-table td { padding: 1rem 0; border-bottom: 1px solid var(--color-border); vertical-align: top; text-align: left; line-height: 1.85; }
+	.rf-table th { width: 10rem; padding-right: 1.5rem; font-weight: 700; white-space: nowrap; }
 	.rf-table td p { margin: 0; }
 	.rf-table td p + p { margin-top: 0.35rem; }
-	.rf-note { margin: var(--space-sm) 0 0; color: var(--color-text-muted); line-height: 1.8; font-size: 0.95rem; }
+	.rf-note { margin: var(--space-sm) 0 0; font-size: 0.95rem; }
 	.rf-note a { color: var(--color-primary); }
-	.rf-rules { margin: 0; padding-left: 1.4rem; display: grid; gap: 0.7rem; max-width: 48rem; }
-	.rf-rules li { line-height: 1.85; }
-	.rf-faq { margin: 0; display: grid; gap: var(--space-sm); max-width: 48rem; }
+
+	.rf-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md) var(--space-lg); }
+	.rf-steps li { padding-top: 0.9rem; border-top: 3px solid var(--color-primary); }
+	.rf-step-no { display: block; margin-bottom: 0.35rem; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; color: var(--color-primary); }
+	.rf-steps p { margin: 0; line-height: 1.85; }
+
+	.rf-points { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); }
+	.rf-points p { margin: 0; line-height: 1.9; }
+
+	.rf-rules { margin: 0; padding-left: 1.4rem; display: grid; gap: 0.8rem; }
+	.rf-rules li { line-height: 1.9; }
+	.rf-faq { margin: 0; }
+	.rf-faq > div { padding: 1.1rem 0; border-bottom: 1px solid var(--color-border); }
+	.rf-faq > div:first-child { border-top: 1px solid var(--color-border); }
 	.rf-faq dt { font-weight: 700; line-height: 1.7; }
-	.rf-faq dd { margin: 0.3rem 0 0; color: var(--color-text-muted); line-height: 1.85; }
-	.rf-apply { max-width: 44rem; }
-	.rf-apply-lead { margin: 0.75rem 0 0; color: var(--color-text-muted); line-height: 1.8; }
-	@media (max-width: 860px) {
-		.rf-cards, .rf-steps { grid-template-columns: 1fr; }
-		.br-wide { display: none; }
+	.rf-faq dd { margin: 0.35rem 0 0; line-height: 1.9; }
+
+	.rf-form-panel { padding: var(--space-lg); border: 1px solid var(--color-border); border-radius: 10px; }
+
+	@media (max-width: 900px) {
+		.rf-hero-grid { grid-template-columns: 1fr; gap: var(--space-lg); }
+		.rf-steps, .rf-points { grid-template-columns: 1fr; }
 	}
 	@media (max-width: 560px) {
+		.rf-hero h1 { font-size: 1.85rem; }
+		.rf-actions { flex-direction: column; }
+		.rf-actions .btn { width: 100%; text-align: center; }
+		.rf-shot-phone { width: 30%; right: 0; border-width: 4px; border-radius: 14px; }
+		.rf-example { padding: var(--space-md); }
 		.rf-table th, .rf-table td { display: block; width: auto; }
 		.rf-table th { padding-bottom: 0; border-bottom: 0; }
+		.rf-form-panel { padding: var(--space-md); }
 	}
 </style>

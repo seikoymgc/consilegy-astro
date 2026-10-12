@@ -11,6 +11,7 @@ edition: "school"
 sources: "app/school-v1/students/[id]/line/page.tsx / app/school-v1/students/[id]/page.tsx / app/school-v1/home/page.tsx / components/school/line-send-form.tsx / components/school/line-chat-view.tsx"
 date: 2026-09-30
 author: "山口聖子"
+draft: true
 ---
 夜10時、レッスンを終えた先生がスマホを開くと、LINE の未読が14件。体験の申込み、来週の欠席連絡、月謝の引き落とし日についての質問、保護者からの「先生、今日の様子どうでしたか」。返せるものから返して、3件は「明日にしよう」と思って寝る。翌朝、その3件のうち1件が誰からだったか思い出せない。
 

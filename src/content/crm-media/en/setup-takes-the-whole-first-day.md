@@ -11,6 +11,7 @@ edition: "school"
 sources: "src/app/school-v1/more/page.tsx / src/app/school-v1/coaches/page.tsx / src/components/school/coach-pay-list.tsx / src/app/school-v1/lesson-types/page.tsx / src/components/school/lesson-types-editor.tsx / src/app/school-v1/holidays/page.tsx / src/components/school/holiday-manager.tsx / src/lib/school-homework.ts / src/lib/school/homework-reminder.ts / src/app/school-v1/home/page.tsx"
 date: 2026-10-01
 author: "Seiko Yamaguchi"
+draft: true
 ---
 Sunday evening. The owner of a small school opens the new management tool for the first time, and the first thing it asks for is configuration. Register every course. Enter the fee for each one. Type in a year of closure dates. Add the teachers one by one. Three hours later there is still not a single student in it. Classes start again on Monday, and the rest is left for "next Sunday", which never comes.
 

@@ -3,49 +3,48 @@ title: "The trial sign-up form and the student roster are not connected"
 slug: "trial-form-not-connected-to-the-roster"
 lang: "en"
 category: "setup"
-pain: "Trial lesson requests land in a form notification email and never reach the roster, so retyping and replying wait for whenever the teacher has a spare moment"
-feature: "Trial application form (from sign-up to student record and task)"
-screens: "\"More\" → \"Integrations\" \"Trial application form\" / Students \"Trialing\" / \"Tasks\" \"Open tasks\" / student page \"Actions\" \"Status\" / Home \"Trial → enrolled\""
+pain: "Trial lesson requests land in a form notification email and never reach the roster, so retyping waits for whenever the teacher has a spare moment"
+feature: "Trial booking form (an application goes straight into the student list)"
+screens: "Students: 体験予約フォーム（公開URL）, 体験予定, 体験予約 / the public form 無料体験レッスンのお申し込み / Home 体験予定 / student record 📝 初回ヒアリング, ⚙ ステータス変更, 受講中"
 segment: "b2c"
 edition: "school"
-sources: "src/app/school-v1/integrations/page.tsx / src/app/school-apply/[orgId]/page.tsx / src/app/school-apply/[orgId]/trial-apply-form.tsx / src/app/api/school/trial/[orgId]/route.ts / src/app/school-v1/students/page.tsx / src/app/school-v1/tasks/page.tsx / src/app/school-v1/home/page.tsx / src/components/school/student-actions.tsx / src/lib/school/status-labels.ts / src/components/school/bottom-nav.tsx"
+sources: "school-app/lib/render.ts / school-app/components/MockShell.tsx / school-app/components/TrialForm.tsx / app/school/trial/page.tsx / app/api/school-app/trial/route.ts / app/api/school-app/student/status/route.ts / app/api/school-app/line/webhook/route.ts / school-app/lib/public-paths.ts"
 date: 2026-10-03
+updated: 2026-10-12
 author: "Seiko Yamaguchi"
 ---
-The school's website has a trial lesson form, built with a free form tool. When someone fills it in, a notification lands in the school inbox. The teacher sees it between two lessons and thinks, "I'll answer tonight." That night, after tidying up, they open the roster spreadsheet, type in the name and contact details, and write a reply. In a busy week that happens two days later.
+Your school's website has a trial lesson form. It was made with a free form builder, and each request arrives as a notification email. The teacher sees it between lessons and thinks "I'll reply later". At night, after tidying up, they open the roster spreadsheet, type in the name and contact details, and write a reply. In a busy week that happens two days later.
 
-The request arrived. It is not on the roster. Whether anyone replied is something you find out by scrolling back through the inbox. Between the form and the roster sits one manual step, and it belongs to the busiest person in the building.
+The requests are coming in. They are not in the roster. Between the form and the roster sits one manual step, done by a teacher.
 
-## The loss is not the retyping. It is the request that goes quiet because the reply was late
+## The loss is not the retyping. It is that requests stop being countable
 
-People who ask for a trial lesson are usually looking at other schools too. The school that answers first gets the date in the diary. The one that answers late drops off the list. Nobody writes to say so. The replies simply stop, so the school never learns it lost anything.
+How many requests came in, how many people showed up, how many enrolled. With notification emails in one place and a spreadsheet in another, the only way to know is to count again at month end. A request that has not been retyped is nowhere in the roster, so you cannot even tell whether it was answered without scrolling back through the inbox.
 
-Say ten requests come in a month and two of them fade because the reply was slow. At a fee of $100 a month, a student who would have stayed a year is $1,200, so that is $2,400 of expected fees let go every month. Your numbers will differ. The shape will not.
+## In Revenue CRM, an application goes straight into the student list
 
-You also lose the count. How many asked, how many came, how many enrolled. With notifications in one place and a spreadsheet in another, the only way to know is to add it up by hand at month end.
+On the Students screen of the school edition there is a banner reading 体験予約フォーム（公開URL） (trial booking form, public URL). Tap it and the link to the form is copied. Paste it on your website or Instagram. There is no form to build, and applicants open it without logging in.
 
-Typing faster does not fix this. What needs to change is that the form and the roster are two separate things.
+The form is headed 無料体験レッスンのお申し込み. It asks for name, email address, how they found the school, English level, preferred days and times, where they want to be in three months, and a free comment. Only the name is required. Pressing 体験レッスンを申し込む shows a confirmation. The form itself is in Japanese only.
 
-## In the school edition of Revenue CRM, a request becomes a student and a task the moment it arrives
+A submitted application is registered as a student on the spot. Choose 体験予定 on the Students list and it appears with a 体験予約 badge. It also counts toward 体験予定 on Home. What the applicant wrote about how they found you, their level and their goal is already in 📝 初回ヒアリング on the student record. Nothing is retyped. Most of these labels are shown in Japanese at the time of writing, including when the display language is English.
 
-Each school gets its own trial application form, ready on day one. Open "More" in the bottom menu, then "Integrations", and under "Trial application form" there is a single URL. Put that link on your website, or wherever families message you (in Japan that is usually LINE). There is no form to build.
+When the student enrolls, press 受講中 (shown as "Active" in English display) under ⚙ ステータス変更 on the record. By default only admins can change it. Everyone sees the buttons, but nothing happens when someone without permission presses one.
 
-The page opens without a login. One caveat for schools outside Japan: the form the applicant sees is in Japanese at the moment. It asks for a name, an email address, a phone number, a preferred date and time (optional) and any requests (optional). Either email or phone is enough to submit. Requiring both loses the people who do not want to hand over a phone number.
+## What to know
 
-When the applicant submits, two things happen at once.
+Nothing tells you an application has arrived. No email, no task. New applications sit at the bottom of the list. Open 体験予定 every morning and read to the end. How fast you reply depends on that habit.
 
-First, the person is created as a student with the status "Trialing". Filter the Students list by "Trialing" and you see everyone currently at the trial stage.
+The form has no phone number field and the email address is optional. You cannot answer an application that has only a name, so where you post the link, ask people to fill in their email address.
 
-Second, a task titled with the applicant's name (the prefix is in Japanese for now) is created, due that same day. It shows under "Open tasks" on the Tasks screen, so every unanswered request is on that list when you open Tasks. No notification email is sent, so pair this with opening Tasks first thing each morning.
+The wording of the form is written for English conversation schools and cannot be changed. The questions about English level and the three-month goal appear as they are.
 
-The preferred date and time is kept on record, but agreeing the slot is still done by the school getting in touch.
+If someone who applied through the form later adds your LINE Official Account as a friend, the same person appears twice in the list. There is no merge.
 
-When they decide to enroll, go to the student's page and change "Status" under "Actions" to "Enrolled". The field appears for people with permission to edit students. On Home, "Trial → enrolled" shows how many people started a trial in the last 90 days and the share of them who went on to enroll (a simple count until five people have started a trial). No month-end recount.
+There is no screen showing how many trials turned into enrolments.
 
 ## The first step
 
-This week, copy the URL from "Integrations" and point your website's trial lesson button at it. A link in your messaging menu or social bio works as well.
+Copy the link and submit one application yourself. See where it lands under 体験予定 and what the record contains. Students cannot be deleted, so use "Test" as the name and set it to 退会 (withdrawn) under ⚙ ステータス変更 once you have looked. It asks for a reason, which you can leave empty. Then point the button on your website at the new link.
 
-You do not have to delete the old form straight away. Switch one entry point, then watch the next request appear under Students and Tasks at the same moment. After that, the retyping is gone.
-
-If you would rather see the screens first, the [demo](https://crm.consilegy.com/demos) opens with just an email address.
+The [demo](https://crm.consilegy.com/demos) opens with just an email address. Pick "Schools" to look around the school edition.

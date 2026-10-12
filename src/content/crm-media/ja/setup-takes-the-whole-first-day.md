@@ -11,6 +11,7 @@ edition: "school"
 sources: "src/app/school-v1/more/page.tsx / src/app/school-v1/coaches/page.tsx / src/components/school/coach-pay-list.tsx / src/app/school-v1/lesson-types/page.tsx / src/components/school/lesson-types-editor.tsx / src/app/school-v1/holidays/page.tsx / src/components/school/holiday-manager.tsx / src/lib/school-homework.ts / src/lib/school/homework-reminder.ts / src/app/school-v1/home/page.tsx"
 date: 2026-10-01
 author: "山口聖子"
+draft: true
 ---
 日曜の夜、教室の代表が新しい管理ツールを開きます。最初に出てくるのは設定の画面。コースを登録し、コースごとの料金を入れ、年間の休校日を1年分打ち込み、先生を1人ずつ登録する。気づくと3時間たっていて、生徒はまだ1人も入っていません。月曜からは通常のレッスンが始まり、続きは「来週の日曜に」。その日曜は来ません。
 

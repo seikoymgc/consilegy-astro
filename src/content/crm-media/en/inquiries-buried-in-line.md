@@ -11,6 +11,7 @@ edition: "school"
 sources: "app/school-v1/students/[id]/line/page.tsx / app/school-v1/students/[id]/page.tsx / app/school-v1/home/page.tsx / components/school/line-send-form.tsx / components/school/line-chat-view.tsx"
 date: 2026-09-30
 author: "Seiko Yamaguchi"
+draft: true
 ---
 Ten at night. A teacher finishes the last lesson, opens her phone and finds fourteen unread chat messages. A trial-lesson request. Next week's absence. A question about the direct-debit date. A parent asking how the lesson went today. She answers what she can, leaves three for tomorrow, and goes to sleep. In the morning she cannot remember who one of the three was from.
 

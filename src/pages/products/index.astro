@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { products } from '../../data/products';
+
+// 製品ショーケース。並べる製品は src/data/products.ts で管理する（製品を足すときはそちらに1件足す）。
+const isExternal = (href: string) => /^https?:\/\//.test(href);
+---
+
+<BaseLayout
+	title="製品一覧 | Consilegy"
+	description={`Consilegyが作っている製品の一覧です。${products.map((p) => p.name).join('・')}の画面と使い方を紹介します。`}
+	lang="ja"
+>
+<div class="pd-page">
+
+<section class="pd-hero">
+	<div class="container">
+		<h1>Consilegyの製品</h1>
+		<p class="pd-lead">現場で「続かない」「忘れる」を減らすための道具を作っています。実際の画面と、どう使うかをまとめました。</p>
+		<nav class="pd-index" aria-label="製品">
+			{products.map((p) => <a href={`#${p.slug}`}>{p.name}</a>)}
+		</nav>
+	</div>
+</section>
+
+{products.map((p) => (
+	<section class="pd-product" id={p.slug}>
+		<div class="container">
+			<div class="pd-head">
+				<div>
+					<h2>{p.name}</h2>
+					<p class="pd-summary">{p.summary}</p>
+					<ul class="pd-facts">
+						{p.facts.map((f) => <li>{f}</li>)}
+					</ul>
+				</div>
+				<div class="pd-links">
+					{p.links.map((l) => (
+						<a
+							href={l.href}
+							class:list={['btn', l.primary ? 'btn--primary' : 'btn--secondary']}
+							{...(isExternal(l.href) ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+						>{l.label}</a>
+					))}
+				</div>
+			</div>
+
+			{p.editions?.map((e) => (
+				<div class="pd-edition">
+					<div class="pd-edition-head">
+						<h3>{e.name}</h3>
+						<p>{e.lead}</p>
+						<a href={e.href}>{e.name}のページを見る</a>
+					</div>
+					<div class="pd-screens">
+						{e.screens.map((s) => (
+							<figure class:list={['pd-screen', { 'pd-screen--phone': s.phone }]}>
+								<a href={s.src} target="_blank" rel="noopener">
+									<img src={s.src} alt={s.alt} width={s.width} height={s.height} loading="lazy" decoding="async" />
+								</a>
+								<figcaption>
+									<strong>{s.title}</strong>
+									<span>{s.desc}</span>
+								</figcaption>
+							</figure>
+						))}
+					</div>
+				</div>
+			))}
+
+			{p.example && (
+				<div class="pd-example">
+					<div class="pd-chat" aria-label="LINEに返ってくる内容の表示例">
+						<pre>{p.example.text}</pre>
+					</div>
+					<p>{p.example.caption}</p>
+				</div>
+			)}
+		</div>
+	</section>
+))}
+
+</div>
+</BaseLayout>
+
+<style>
+	:global(body:has(.pd-page)) { background: #fff; }
+	.pd-page { background: #fff; }
+	.pd-page p { color: var(--color-text); }
+
+	.pd-hero { padding: var(--space-xl) 0 var(--space-lg); }
+	.pd-hero h1 { margin: 0; font-size: clamp(2rem, 3.6vw, 2.75rem); font-weight: 700; line-height: 1.35; color: var(--color-text); }
+	.pd-lead { margin: var(--space-sm) 0 0; max-width: 40em; font-size: 1.05rem; line-height: 1.9; }
+	.pd-index { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: var(--space-md); }
+	.pd-index a { padding: 0.45rem 0.95rem; border: 1px solid var(--color-border); border-radius: 999px; color: var(--color-text); font-weight: 600; font-size: 0.95rem; text-decoration: none; }
+	.pd-index a:hover { border-color: var(--color-primary); color: var(--color-primary); }
+
+	.pd-product { padding: var(--space-xl) 0; border-top: 1px solid var(--color-border); scroll-margin-top: 5rem; }
+	.pd-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-md) var(--space-xl); align-items: start; }
+	.pd-head h2 { margin: 0; font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 700; color: var(--color-text); }
+	.pd-summary { margin: 0.75rem 0 0; max-width: 42em; font-size: 1.05rem; line-height: 1.9; }
+	.pd-facts { margin: 0.9rem 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem 1.25rem; }
+	.pd-facts li { position: relative; padding-left: 1rem; color: var(--color-text); font-size: 0.95rem; }
+	.pd-facts li::before { content: ''; position: absolute; left: 0; top: 0.65em; width: 0.4rem; height: 0.4rem; border-radius: 50%; background: var(--color-primary); }
+	.pd-links { display: flex; flex-direction: column; gap: 0.6rem; min-width: 13rem; }
+	.pd-links .btn { text-align: center; }
+
+	.pd-edition { margin-top: var(--space-xl); }
+	.pd-edition-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 1rem; margin-bottom: var(--space-md); }
+	.pd-edition-head h3 { margin: 0; font-size: 1.25rem; color: var(--color-text); }
+	.pd-edition-head p { margin: 0; flex: 1 1 24rem; line-height: 1.8; }
+	.pd-edition-head a { color: var(--color-primary); font-weight: 600; font-size: 0.95rem; }
+
+	.pd-screens { display: grid; grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); gap: var(--space-md); align-items: start; }
+	.pd-screen { margin: 0; }
+	.pd-screen a { display: block; }
+	.pd-screen img { display: block; width: 100%; height: auto; border: 1px solid var(--color-border); border-radius: 8px; }
+	.pd-screen--phone img { width: auto; max-width: 100%; height: 22rem; margin: 0 auto; border: 5px solid #1C1917; border-radius: 18px; }
+	.pd-screen figcaption { margin-top: 0.6rem; line-height: 1.75; }
+	.pd-screen figcaption strong { display: block; color: var(--color-text); font-weight: 700; }
+	.pd-screen figcaption span { color: var(--color-text-muted); font-size: 0.92rem; }
+
+	.pd-example { display: grid; grid-template-columns: minmax(0, 22rem) minmax(0, 1fr); gap: var(--space-lg); align-items: center; margin-top: var(--space-lg); }
+	.pd-chat { padding: 1.25rem; border-radius: 18px; background: #8CABD8; }
+	.pd-chat pre { margin: 0; padding: 1rem 1.1rem; border-radius: 14px; background: #fff; color: #1C1917; font-family: inherit; font-size: 0.92rem; line-height: 1.7; white-space: pre-wrap; }
+	.pd-example p { margin: 0; line-height: 1.9; }
+
+	@media (max-width: 860px) {
+		.pd-head { grid-template-columns: 1fr; }
+		.pd-links { flex-direction: row; flex-wrap: wrap; min-width: 0; }
+		.pd-links .btn { flex: 1 1 12rem; }
+		.pd-example { grid-template-columns: 1fr; }
+	}
+	@media (max-width: 560px) {
+		.pd-screen--phone img { height: 20rem; }
+	}
+</style>

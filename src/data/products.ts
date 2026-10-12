@@ -23,6 +23,8 @@ export interface Edition {
 export interface Product {
 	slug: string;
 	name: string;
+	/** 開発段階など、名前の横に出す札（例：プロトタイプ） */
+	status?: string;
 	/** 誰の何を解決するか（一覧の見出しの下に出す1文） */
 	summary: string;
 	/** どこで使うか・料金の入口など、事実だけを短く */
@@ -92,6 +94,7 @@ export const products: Product[] = [
 	{
 		slug: 'otayori',
 		name: 'おたより秘書',
+		status: 'プロトタイプ',
 		summary: '学校や園の紙のおたよりを、LINEに写真で送るだけ。AIが行事・締切・持ち物を読み取り、Googleカレンダーに登録して、前日や当日の朝にLINEで知らせます。',
 		facts: ['LINEだけで使えます（アプリのインストールは不要）', '友だち追加は無料', '予定は自分のGoogleカレンダー、原本は自分のGoogleドライブに保存'],
 		links: [

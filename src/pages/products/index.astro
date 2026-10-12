@@ -18,7 +18,7 @@ const isExternal = (href: string) => /^https?:\/\//.test(href);
 		<h1>Consilegyの製品</h1>
 		<p class="pd-lead">現場で「続かない」「忘れる」を減らすための道具を作っています。実際の画面と、どう使うかをまとめました。</p>
 		<nav class="pd-index" aria-label="製品">
-			{products.map((p) => <a href={`#${p.slug}`}>{p.name}</a>)}
+			{products.map((p) => <a href={`#${p.slug}`}>{p.name}{p.status && `（${p.status}）`}</a>)}
 		</nav>
 	</div>
 </section>
@@ -28,7 +28,7 @@ const isExternal = (href: string) => /^https?:\/\//.test(href);
 		<div class="container">
 			<div class="pd-head">
 				<div>
-					<h2>{p.name}</h2>
+					<h2>{p.name}{p.status && <span class="pd-status">{p.status}</span>}</h2>
 					<p class="pd-summary">{p.summary}</p>
 					<ul class="pd-facts">
 						{p.facts.map((f) => <li>{f}</li>)}
@@ -98,6 +98,7 @@ const isExternal = (href: string) => /^https?:\/\//.test(href);
 	.pd-product { padding: var(--space-xl) 0; border-top: 1px solid var(--color-border); scroll-margin-top: 5rem; }
 	.pd-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-md) var(--space-xl); align-items: start; }
 	.pd-head h2 { margin: 0; font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 700; color: var(--color-text); }
+	.pd-status { display: inline-block; margin-left: 0.75rem; padding: 0.15rem 0.6rem; border: 1px solid var(--color-text); border-radius: 4px; font-size: 0.85rem; font-weight: 700; vertical-align: middle; color: var(--color-text); }
 	.pd-summary { margin: 0.75rem 0 0; max-width: 42em; font-size: 1.05rem; line-height: 1.9; }
 	.pd-facts { margin: 0.9rem 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem 1.25rem; }
 	.pd-facts li { position: relative; padding-left: 1rem; color: var(--color-text); font-size: 0.95rem; }

@@ -8,6 +8,12 @@ import PartnerForm, { type PartnerField } from '../../../components/PartnerForm.
 // あちらは /crm/pricing/ と src/data/crm-faq.ts に書いてある。率と期間（20%・12ヶ月）は揃えている。
 // 受け口は Revenue CRM の Consilegy合同会社の組織に作ったフォーム「紹介パートナー申込」。
 const FORM_ID = '5cb8761e-094f-4ead-962d-d34fd4c6f26b';
+// 1段目はメールアドレスだけ。フォーム「紹介パートナー登録（メールのみ）」。送信を配信同意として記録し、
+// ワークフローがリスト「紹介パートナー」に入れる（制度のお知らせはこのリストに送る）。
+const SIGNUP_FORM_ID = '92a9d771-1196-4fb1-a839-7d769bca43cf';
+const signupFields: PartnerField[] = [
+	{ key: 'email', label: 'メールアドレス', type: 'email', required: true, auto: 'email' },
+];
 
 const trust = [
 	{
@@ -34,10 +40,10 @@ const steps = [
 ];
 
 const reward = [
-	{ label: '報酬', text: ['紹介先の基本プランの月額利用料金（税抜・実際にお支払いいただいた額）の20%です。'] },
+	{ label: '報酬', text: ['紹介先の基本プランの月額利用料金（税抜・実際にお支払いいただいた額）の20%です。', '報酬額は消費税を含みます。'] },
 	{ label: '期間', text: ['紹介先が有料契約を始めてから12ヶ月間です。'] },
 	{ label: '対象のプラン', text: ['ユーザープランと生徒数プランです。', 'プリペイドプラン、追加の燃料、オプション、導入・定着・運用の支援は対象外です。'] },
-	{ label: 'お支払い', text: ['月末締め・翌月末に、ご指定の口座へ銀行振込でお支払いします。', '振込先は、申込フォームで「受け取る」を選ぶと登録できます。変更はメールでご連絡ください。','請求書を作っていただく必要はありません。当社から支払通知書をお送りします。'] },
+	{ label: 'お支払い', text: ['月末締め・翌月末に、ご指定の口座へ銀行振込でお支払いします。', '振込手数料は、報酬から差し引きます。', 'その月の報酬が3,000円に満たない場合は翌月以降に繰り越し、3,000円以上になった月にまとめてお支払いします。', '振込先は、申込フォームで「受け取る」を選ぶと登録できます。変更はメールでご連絡ください。','請求書を作っていただく必要はありません。当社から支払通知書をお送りします。'] },
 	{ label: '紹介の有効期間', text: ['受理から90日以内に初回の商談（または無料期間の開始）に至った場合に、紹介した方を確定します。', 'その後12ヶ月以内に有料契約が始まれば、報酬の対象です。'] },
 	{ label: '受け取らない選択', text: ['報酬を受け取らない、という選択もできます。申込時にお選びください。'] },
 ];
@@ -157,7 +163,7 @@ const fields: PartnerField[] = [
 	<div class="container">
 		<h2>報酬は、紹介先の月額利用料金の20%を12ヶ月間</h2>
 		<div class="rf-example">
-			<p class="rf-example-label">例：ユーザープラン5人（月額15,000円・税抜）の会社を紹介した場合</p>
+			<p class="rf-example-label">例：ユーザープラン5人（月額15,000円・税抜）の会社を紹介した場合（報酬は税込）</p>
 			<div class="rf-example-calc">
 				<div><span>毎月の報酬</span><strong>3,000<small>円</small></strong></div>
 				<div class="rf-op" aria-hidden="true">×</div>
@@ -236,8 +242,20 @@ const fields: PartnerField[] = [
 <section class="rf-section" id="apply">
 	<div class="container rf-narrow">
 		<h2>紹介パートナーに申し込む</h2>
-		<p class="rf-sub">送信後、紹介キットのページをご案内します。紹介文や資料は、そちらからお使いください。</p>
+		<p class="rf-sub">まずはメールアドレスだけ登録してください。続けて、お名前と報酬の受け取り方を伺います。</p>
 		<div class="rf-form-panel">
+			<PartnerForm
+				formId={SIGNUP_FORM_ID}
+				fields={signupFields}
+				button="登録する"
+				done="ご登録ありがとうございます。"
+				consent
+				notice="登録すると、紹介パートナー向けのお知らせ（制度の変更や、紹介に使える新しい資料など）をメールでお送りします。配信はいつでも停止できます。"
+				next="apply-step2"
+			/>
+		</div>
+		<div class="rf-form-panel rf-step2" id="apply-step2" hidden>
+			<p class="rf-step2-head">登録しました。続けて、申込の内容を入力してください。</p>
 			<PartnerForm
 				formId={FORM_ID}
 				fields={fields}
@@ -312,6 +330,11 @@ const fields: PartnerField[] = [
 	.rf-faq dd { margin: 0.35rem 0 0; line-height: 1.9; }
 
 	.rf-form-panel { padding: var(--space-lg); border: 1px solid var(--color-border); border-radius: 10px; }
+	.rf-step2 { margin-top: var(--space-md); scroll-margin-top: 7rem; }
+	.rf-step2[hidden] { display: none; }
+	.rf-form-panel:has(> .pf[hidden]) { display: none; }
+	.rf-step2 { margin-top: 0; }
+	.rf-step2-head { margin: 0 0 var(--space-md); font-weight: 700; }
 
 	@media (max-width: 900px) {
 		.rf-hero-grid { grid-template-columns: 1fr; gap: var(--space-lg); }

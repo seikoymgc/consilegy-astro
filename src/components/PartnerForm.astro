@@ -25,13 +25,18 @@ interface Props {
 	button: string;
 	done: string;
 	doneLink?: { href: string; label: string };
+	// 送信をメール配信への同意として記録する（CRM の consent）。同意の文言は notice で必ず見せる。
+	consent?: boolean;
+	notice?: string;
+	// 送信後にお礼を出さず、この id の要素を開いてメールアドレスを引き継ぐ（2段階の申込）。
+	next?: string;
 }
 
-const { formId, fields, button, done, doneLink } = Astro.props;
+const { formId, fields, button, done, doneLink, consent, notice, next } = Astro.props;
 const submitUrl = `https://crm.consilegy.com/api/forms/${formId}/submit`;
 ---
 
-<div class="pf" data-partner-form data-submit-url={submitUrl}>
+<div class="pf" data-partner-form data-submit-url={submitUrl} data-consent={consent ? '1' : undefined} data-next={next}>
 	<form data-hs-do-not-collect="true" novalidate>
 		<div class="pf-grid">
 			{fields.map((f) =>
@@ -68,6 +73,7 @@ const submitUrl = `https://crm.consilegy.com/api/forms/${formId}/submit`;
 			<input name="hp" type="text" tabindex="-1" autocomplete="off" />
 		</label>
 		<p class="pf-error" role="alert" hidden></p>
+		{notice && <p class="pf-notice">{notice}</p>}
 		<p class="pf-privacy">送信により、<a href="/privacy-policy/">プライバシーポリシー</a>に同意したものとみなします。</p>
 		<button type="submit" class="pf-button">{button}</button>
 	</form>
@@ -124,13 +130,22 @@ const submitUrl = `https://crm.consilegy.com/api/forms/${formId}/submit`;
 					if (finished) return;
 					finished = true;
 					form.hidden = true;
+					var nextEl = root.dataset.next && document.getElementById(root.dataset.next);
+					if (nextEl) {
+						root.hidden = true;
+						nextEl.hidden = false;
+						var em = nextEl.querySelector('input[type=email]');
+						if (em) { em.value = email; em.readOnly = true; }
+						nextEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+						return;
+					}
 					root.querySelector('.pf-done').hidden = false;
 				};
 				fetch(root.dataset.submitUrl, {
 					method: 'POST',
 					mode: 'no-cors',
 					headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
-					body: JSON.stringify({ values: values, utm: utm, referrer: document.referrer || location.href, hp: String((form.querySelector('[name=hp]') || {}).value || '') }),
+					body: JSON.stringify({ values: values, utm: utm, referrer: document.referrer || location.href, consent: root.dataset.consent === '1', hp: String((form.querySelector('[name=hp]') || {}).value || '') }),
 					keepalive: true,
 				}).then(done, done);
 				// 受付口は通知メールを送り終えてから応答するので数秒かかる。送信は keepalive で続くため、応答を待たずにお礼を出す。
@@ -152,12 +167,14 @@ const submitUrl = `https://crm.consilegy.com/api/forms/${formId}/submit`;
 		font-size: 1rem; background: #fff; color: #0f172a; font-family: inherit;
 	}
 	.pf-field textarea { resize: vertical; min-height: 7rem; }
+	.pf-field input[readonly] { background: #F5F5F4; color: var(--color-text, #1C1917); }
 	.pf-field input:focus, .pf-field select:focus, .pf-field textarea:focus, .pf-check input:focus { outline: 2px solid var(--color-primary, #1e40af); outline-offset: 1px; border-color: transparent; }
 	.pf-check { grid-column: 1 / -1; display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.9rem; color: #334155; line-height: 1.7; }
 	.pf-check input { margin-top: 0.35rem; width: 1.05rem; height: 1.05rem; flex: none; }
 	.pf-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 	.pf-error { margin: 0; color: #b42318; font-size: 0.85rem; }
-	.pf-error[hidden], .pf-done[hidden], .pf form[hidden], .pf-field[hidden] { display: none; }
+	.pf[hidden], .pf-error[hidden], .pf-done[hidden], .pf form[hidden], .pf-field[hidden] { display: none; }
+	.pf-notice { margin: 0; font-size: 0.9rem; line-height: 1.8; color: var(--color-text); }
 	.pf-privacy { margin: 0; font-size: 0.8rem; color: #64748b; }
 	.pf-privacy a { color: inherit; }
 	.pf-button {

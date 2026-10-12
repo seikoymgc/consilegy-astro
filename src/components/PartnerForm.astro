@@ -15,6 +15,8 @@ export type PartnerField = {
 	options?: string[];
 	half?: boolean;
 	help?: string;
+	// 別の選択項目が特定の値のときだけ表示し、そのときだけ必須にする。
+	showIf?: { key: string; value: string };
 };
 
 interface Props {
@@ -39,7 +41,12 @@ const submitUrl = `https://crm.consilegy.com/api/forms/${formId}/submit`;
 						<span>{f.label}{f.required && <em>必須</em>}</span>
 					</label>
 				) : (
-					<label class:list={['pf-field', { 'pf-field--half': f.half }]}>
+					<label
+						class:list={['pf-field', { 'pf-field--half': f.half }]}
+						data-show-key={f.showIf?.key}
+						data-show-value={f.showIf?.value}
+						hidden={f.showIf ? true : undefined}
+					>
 						<span>{f.label}{f.required && <em>必須</em>}</span>
 						{f.type === 'textarea' ? (
 							<textarea name={f.key} rows="5" required={f.required} />
@@ -78,13 +85,23 @@ const submitUrl = `https://crm.consilegy.com/api/forms/${formId}/submit`;
 			var form = root.querySelector('form');
 			var err = root.querySelector('.pf-error');
 			var show = function (msg) { err.textContent = msg; err.hidden = false; };
+			var toggle = function () {
+				root.querySelectorAll('[data-show-key]').forEach(function (wrap) {
+					var src = form.querySelector('[name="' + wrap.dataset.showKey + '"]');
+					var on = !!src && src.value === wrap.dataset.showValue;
+					wrap.hidden = !on;
+					wrap.querySelectorAll('input, select, textarea').forEach(function (el) { el.disabled = !on; });
+				});
+			};
+			form.addEventListener('change', toggle);
+			toggle();
 			form.addEventListener('submit', function (e) {
 				e.preventDefault();
 				var values = {};
 				var missing = false;
 				var email = '';
 				form.querySelectorAll('input[name], textarea[name], select[name]').forEach(function (el) {
-					if (el.name === 'hp') return;
+					if (el.name === 'hp' || el.disabled) return;
 					var v = el.type === 'checkbox' ? (el.checked ? el.value : '') : String(el.value || '').trim();
 					values[el.name] = v;
 					if (el.required && !v) missing = true;
@@ -140,7 +157,7 @@ const submitUrl = `https://crm.consilegy.com/api/forms/${formId}/submit`;
 	.pf-check input { margin-top: 0.35rem; width: 1.05rem; height: 1.05rem; flex: none; }
 	.pf-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 	.pf-error { margin: 0; color: #b42318; font-size: 0.85rem; }
-	.pf-error[hidden], .pf-done[hidden], .pf form[hidden] { display: none; }
+	.pf-error[hidden], .pf-done[hidden], .pf form[hidden], .pf-field[hidden] { display: none; }
 	.pf-privacy { margin: 0; font-size: 0.8rem; color: #64748b; }
 	.pf-privacy a { color: inherit; }
 	.pf-button {

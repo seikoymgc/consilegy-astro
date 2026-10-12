@@ -47,6 +47,7 @@ export const products: Product[] = [
 			{ label: '製品ページ', href: '/crm/', primary: true },
 			{ label: 'デモを見る', href: 'https://crm.consilegy.com/demos' },
 			{ label: '料金', href: '/crm/pricing/' },
+			{ label: '紹介パートナー制度', href: '/crm/referral/' },
 		],
 		editions: [
 			{

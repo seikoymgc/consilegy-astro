@@ -15,28 +15,31 @@ const signupFields: PartnerField[] = [
 	{ key: 'email', label: 'メールアドレス', type: 'email', required: true, auto: 'email' },
 ];
 
-const trust = [
-	{
-		title: '紹介文の転送だけで済みます',
-		text: '紹介文はこちらで用意しています。転送していただいた後の説明・デモ・商談は当社が行います。導入は、紹介先が30日間の無料期間に動画とヘルプを見ながら進められます。',
-	},
-	{
-		title: '聞かれそうな質問には、答え方を用意しています',
-		text: '紹介先に聞かれそうな質問と、その答え方を紹介キットにまとめました。山口がCRM・MA・SFAの導入を支援してきた40社以上の経験も、答えの一部です。',
-	},
-	{
-		title: '合わない会社には、合わないと伝えます',
-		text: '紹介先の同意がない限り、こちらから連絡はしません。お話を伺って合わないと判断したら、契約をお勧めせずにそうお伝えします。紹介してくださった方の信用を守ることを優先します。',
-	},
+// 「こんな会社、身近にありませんか」。左は紹介する人が思い浮かべる状況、右はそこで変わること。
+// 右側は各製品ページに書いてあることだけを書く（新しい機能や約束を作らない）。
+const fit = [
+	{ who: '営業の記録や報告に、時間を取られている会社', change: '商談メモは貼るだけ、録音は上げるだけ。記録の下書きはAIが作り、人は確かめて保存します。' },
+	{ who: '顧客管理が、Excelやスプレッドシートのままの会社', change: '顧客・商談・タスクを、一つの顧客データで管理できます。' },
+	{ who: 'CRMを入れたのに、誰も入力しなくなった会社', change: '名刺は撮るだけ。入力の手間そのものを減らすので、続けやすくなります。' },
+	{ who: '見積・稼働・納品を、Excelで追っている受託開発の会社', change: '受託開発版なら、案件・見積・稼働・納品を1か所で見て、空きから逆算して見積を出せます。' },
+	{ who: '生徒の管理を、LINEとスプレッドシートで回している教室・スクール', change: 'スクール版なら、生徒とのやりとりは公式LINEのまま。課題はLINEで届き、生徒ごとに自動で残ります。' },
 ];
 
+const promises = [
+	'製品の知識は要りません。',
+	'営業やクロージングも要りません。',
+	'紹介先の同意がない限り、こちらから連絡はしません。',
+	'紹介先に無理な営業はしません。合わない会社には、合わないと正直に伝えます。',
+];
+
+// 報酬の試算。各社ユーザープラン5人（月額15,000円・税抜）が12ヶ月続いた場合。
+const scale = [1, 3, 5, 10].map((n) => ({ n, monthly: 3000 * n, total: 36000 * n }));
+const yen = (v: number) => v.toLocaleString('ja-JP');
+
 const steps = [
-	{ title: '申し込む', text: 'このページの下のフォームから申し込みます。規約への同意が必要です。' },
-	{ title: '紹介する', text: '紹介文を転送し、紹介先の同意を得たうえで紹介フォームに登録します。' },
-	{ title: '確認の連絡', text: '3営業日以内に、当社との既存の接点の有無と、対象になるかどうかをお知らせします。' },
-	{ title: '商談', text: '当社が紹介先とお話しします。紹介してくださった方の同席は自由です。' },
-	{ title: '有料契約', text: '紹介先が30日間の無料期間を経て、有料契約を始めます。' },
-	{ title: '報酬の振込', text: '紹介先からの毎月の入金ごとに報酬を確定し、月末締め・翌月末に振り込みます。' },
+	{ title: '登録する', text: 'メールアドレスを登録し、続けてお名前と報酬の受け取り方を入力します。紹介文や資料をまとめた紹介キットをご案内します。' },
+	{ title: '紹介する', text: '紹介文を転送し、紹介先の同意を得たうえで紹介フォームに登録します。3営業日以内に、対象になるかどうかをお知らせします。その後の説明と商談は当社が行います。' },
+	{ title: '報酬を受け取る', text: '紹介先が30日間の無料期間を経て有料契約を始めたら、毎月の入金ごとに報酬を確定し、月末締め・翌月末に振り込みます。' },
 ];
 
 const reward = [
@@ -126,11 +129,11 @@ const fields: PartnerField[] = [
 				<img src="/images/crm/logo/revenue-crm-logo-v3.svg" alt="" width="24" height="24" decoding="async" />
 				Revenue CRM 紹介パートナー制度
 			</p>
-			<h1>合いそうな会社を、<br />紹介してください。</h1>
-			<p class="rf-lead">紹介文はこちらで用意しています。転送していただいた後の説明と商談は、当社が行います。紹介先が有料契約を始めてから12ヶ月間、月額利用料金の20%をお支払いします。</p>
+			<h1><span class="nb">「あの会社に教えて</span><span class="nb">あげたい」と</span><br /><span class="nb">思えるCRMです。</span></h1>
+			<p class="rf-lead">Revenue CRMは、面倒な記録や管理をAIで減らすCRMです。あなたの紹介が、知り合いの会社の働き方を変えるきっかけになります。紹介先が有料契約を始めたら、月額利用料金の20%を12ヶ月間お支払いします。</p>
 			<div class="rf-actions">
-				<a href="#apply" class="btn btn--primary">パートナーに申し込む</a>
-				<a href="#rules" class="btn btn--secondary">紹介の決まりを読む</a>
+				<a href="#apply" class="btn btn--primary">紹介パートナーになる</a>
+				<a href="#fit" class="btn btn--secondary">どんな会社に合うか見る</a>
 			</div>
 			<p class="rf-hero-note">申込は無料です。紹介先が契約しなかった場合も、費用はかかりません。</p>
 		</div>
@@ -159,19 +162,52 @@ const fields: PartnerField[] = [
 	</div>
 </section>
 
+<section class="rf-section" id="fit">
+	<div class="container">
+		<h2>こんな会社、身近にありませんか。</h2>
+		<div class="rf-fit">
+			{fit.map((f) => (
+				<div class="rf-fit-row">
+					<p class="rf-fit-who">{f.who}</p>
+					<p class="rf-fit-change">{f.change}</p>
+				</div>
+			))}
+		</div>
+		<p class="rf-fit-close">1社でも顔が浮かんだら、ぜひ紹介してください。<a href="/products/">画面を見る</a></p>
+	</div>
+</section>
+
+<section class="rf-section">
+	<div class="container rf-connect">
+		<div>
+			<h2>あなたがするのは、つなぐだけ。</h2>
+			<p class="rf-connect-lead">紹介文はこちらで用意しています。転送していただいた後の説明・デモ・商談は、当社が行います。</p>
+		</div>
+		<div>
+			<ul class="rf-promises">
+				{promises.map((t) => <li>{t}</li>)}
+			</ul>
+			<p class="rf-connect-close">大切な人との信頼関係を守りながら紹介できるように、この仕組みにしています。</p>
+		</div>
+	</div>
+</section>
+
 <section class="rf-section" id="reward">
 	<div class="container">
 		<h2>報酬は、紹介先の月額利用料金の20%を12ヶ月間</h2>
-		<div class="rf-example">
-			<p class="rf-example-label">例：ユーザープラン5人（月額15,000円・税抜）の会社を紹介した場合（報酬は税込）</p>
-			<div class="rf-example-calc">
-				<div><span>毎月の報酬</span><strong>3,000<small>円</small></strong></div>
-				<div class="rf-op" aria-hidden="true">×</div>
-				<div><span>期間</span><strong>12<small>ヶ月</small></strong></div>
-				<div class="rf-op" aria-hidden="true">=</div>
-				<div><span>合計</span><strong>36,000<small>円</small></strong></div>
-			</div>
+		<div class="rf-scale-wrap">
+			<table class="rf-scale">
+				<thead>
+					<tr><th scope="col">紹介して契約した会社</th><th scope="col">毎月の報酬</th><th scope="col">12ヶ月の合計</th></tr>
+				</thead>
+				<tbody>
+					{scale.map((r) => (
+						<tr><th scope="row">{r.n}社</th><td>{yen(r.monthly)}円</td><td><strong>{yen(r.total)}円</strong></td></tr>
+					))}
+				</tbody>
+			</table>
 		</div>
+		<p class="rf-note">各社がユーザープラン5人（月額15,000円・税抜）を12ヶ月続けた場合の試算です。報酬は税込で、各社の有料契約開始から12ヶ月間です。</p>
 		<table class="rf-table">
 			<tbody>
 				{reward.map((row) => (
@@ -188,7 +224,7 @@ const fields: PartnerField[] = [
 
 <section class="rf-section">
 	<div class="container">
-		<h2>申し込みから報酬の振込まで</h2>
+		<h2>登録から報酬まで、3ステップ</h2>
 		<ol class="rf-steps">
 			{steps.map((s, i) => (
 				<li>
@@ -201,47 +237,9 @@ const fields: PartnerField[] = [
 	</div>
 </section>
 
-<section class="rf-section">
-	<div class="container">
-		<h2>紹介してくださる方の信用のために</h2>
-		<div class="rf-points">
-			{trust.map((item) => (
-				<div>
-					<h3>{item.title}</h3>
-					<p>{item.text}</p>
-				</div>
-			))}
-		</div>
-	</div>
-</section>
-
-<section class="rf-section" id="rules">
-	<div class="container rf-narrow">
-		<h2>紹介の決まり</h2>
-		<p class="rf-sub">申し込む前にお読みください。</p>
-		<ol class="rf-rules">
-			{rules.map((r) => <li>{r}</li>)}
-		</ol>
-	</div>
-</section>
-
-<section class="rf-section">
-	<div class="container rf-narrow">
-		<h2>よくあるご質問</h2>
-		<dl class="rf-faq">
-			{faq.map((item) => (
-				<div>
-					<dt>{item.q}</dt>
-					<dd>{item.a}</dd>
-				</div>
-			))}
-		</dl>
-	</div>
-</section>
-
 <section class="rf-section" id="apply">
 	<div class="container rf-narrow">
-		<h2>紹介パートナーに申し込む</h2>
+		<h2>紹介パートナーになる</h2>
 		<p class="rf-sub">まずはメールアドレスだけ登録してください。続けて、お名前と報酬の受け取り方を伺います。</p>
 		<div class="rf-form-panel">
 			<PartnerForm
@@ -267,6 +265,30 @@ const fields: PartnerField[] = [
 	</div>
 </section>
 
+<section class="rf-section">
+	<div class="container rf-narrow">
+		<h2>よくあるご質問</h2>
+		<dl class="rf-faq">
+			{faq.map((item) => (
+				<div>
+					<dt>{item.q}</dt>
+					<dd>{item.a}</dd>
+				</div>
+			))}
+		</dl>
+	</div>
+</section>
+
+<section class="rf-section" id="rules">
+	<div class="container rf-narrow">
+		<h2>紹介の決まり</h2>
+		<p class="rf-sub">申し込む前にお読みください。</p>
+		<ol class="rf-rules">
+			{rules.map((r) => <li>{r}</li>)}
+		</ol>
+	</div>
+</section>
+
 </div>
 
 </BaseLayout>
@@ -282,7 +304,8 @@ const fields: PartnerField[] = [
 	.rf-hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: var(--space-xl); align-items: center; }
 	.rf-eyebrow { display: flex; align-items: center; gap: 0.5rem; margin: 0 0 var(--space-md); color: var(--color-primary); font-weight: 700; font-size: 0.9rem; }
 	.rf-eyebrow img { width: 24px; height: 24px; border-radius: 5px; }
-	.rf-hero h1 { margin: 0; font-size: clamp(2rem, 3.6vw, 2.75rem); font-weight: 700; line-height: 1.35; letter-spacing: 0; color: var(--color-text); }
+	.rf-hero h1 .nb { display: inline-block; }
+	.rf-hero h1 { margin: 0; font-size: clamp(1.75rem, 2.7vw, 2.4rem); font-weight: 700; line-height: 1.35; letter-spacing: 0; color: var(--color-text); }
 	.rf-lead { margin: var(--space-md) 0 0; font-size: 1.05rem; line-height: 1.95; max-width: 34em; }
 	.rf-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: var(--space-lg); }
 	.rf-hero-note { margin: var(--space-sm) 0 0; font-size: 0.9rem; color: var(--color-text-muted) !important; }
@@ -297,13 +320,29 @@ const fields: PartnerField[] = [
 	.rf-narrow { max-width: 48rem; }
 	.rf-sub { margin: calc(var(--space-md) * -0.6) 0 var(--space-md); color: var(--color-text-muted) !important; line-height: 1.8; }
 
-	.rf-example { margin: 0 0 var(--space-md); padding: var(--space-md) var(--space-lg); border: 2px solid var(--color-primary); border-radius: 10px; }
-	.rf-example-label { margin: 0 0 0.75rem; font-weight: 600; }
-	.rf-example-calc { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 0.5rem 1.25rem; }
-	.rf-example-calc span { display: block; font-size: 0.85rem; color: var(--color-text-muted); }
-	.rf-example-calc strong { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; line-height: 1.2; color: var(--color-primary); }
-	.rf-example-calc small { font-size: 1rem; margin-left: 0.15rem; color: var(--color-text); }
-	.rf-op { font-size: 1.6rem; padding-bottom: 0.35rem; color: var(--color-text-muted); }
+
+	.rf-fit { border-top: 1px solid var(--color-border); }
+	.rf-fit-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 0.5rem var(--space-lg); padding: 1.1rem 0; border-bottom: 1px solid var(--color-border); }
+	.rf-fit-row p { margin: 0; line-height: 1.85; }
+	.rf-fit-who { font-weight: 700; font-size: 1.05rem; }
+	.rf-fit-close { margin: var(--space-md) 0 0; font-size: 1.1rem; font-weight: 700; }
+	.rf-fit-close a { margin-left: 0.75rem; font-size: 0.95rem; font-weight: 600; color: var(--color-primary); }
+
+	.rf-connect { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-lg) var(--space-xl); align-items: start; }
+	.rf-connect h2 { margin-bottom: var(--space-sm); }
+	.rf-connect-lead { margin: 0; font-size: 1.05rem; line-height: 1.95; }
+	.rf-promises { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.8rem; }
+	.rf-promises li { position: relative; padding-left: 1.9rem; line-height: 1.8; font-weight: 600; }
+	.rf-promises li::before { content: ''; position: absolute; left: 0.2rem; top: 0.45em; width: 0.9rem; height: 0.5rem; border-left: 3px solid var(--color-primary); border-bottom: 3px solid var(--color-primary); transform: rotate(-45deg); }
+	.rf-connect-close { margin: var(--space-md) 0 0; line-height: 1.9; }
+
+	.rf-scale-wrap { overflow-x: auto; margin-bottom: var(--space-sm); }
+	.rf-scale { width: 100%; max-width: 40rem; border-collapse: collapse; border: 2px solid var(--color-primary); }
+	.rf-scale th, .rf-scale td { padding: 0.8rem 1rem; border-bottom: 1px solid var(--color-border); text-align: right; white-space: nowrap; }
+	.rf-scale thead th { font-size: 0.85rem; color: var(--color-text-muted); font-weight: 600; text-align: right; }
+	.rf-scale thead th:first-child, .rf-scale tbody th { text-align: left; }
+	.rf-scale tbody th { font-weight: 700; }
+	.rf-scale td strong { color: var(--color-primary); font-size: 1.15rem; }
 
 	.rf-table { width: 100%; border-collapse: collapse; }
 	.rf-table th, .rf-table td { padding: 1rem 0; border-bottom: 1px solid var(--color-border); vertical-align: top; text-align: left; line-height: 1.85; }
@@ -318,8 +357,6 @@ const fields: PartnerField[] = [
 	.rf-step-no { display: block; margin-bottom: 0.35rem; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; color: var(--color-primary); }
 	.rf-steps p { margin: 0; line-height: 1.85; }
 
-	.rf-points { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); }
-	.rf-points p { margin: 0; line-height: 1.9; }
 
 	.rf-rules { margin: 0; padding-left: 1.4rem; display: grid; gap: 0.8rem; }
 	.rf-rules li { line-height: 1.9; }
@@ -337,15 +374,17 @@ const fields: PartnerField[] = [
 	.rf-step2-head { margin: 0 0 var(--space-md); font-weight: 700; }
 
 	@media (max-width: 900px) {
+		.rf-connect { grid-template-columns: 1fr; }
+		.rf-fit-row { grid-template-columns: 1fr; }
+		.br-wide { display: none; }
 		.rf-hero-grid { grid-template-columns: 1fr; gap: var(--space-lg); }
-		.rf-steps, .rf-points { grid-template-columns: 1fr; }
+		.rf-steps { grid-template-columns: 1fr; }
 	}
 	@media (max-width: 560px) {
 		.rf-hero h1 { font-size: 1.85rem; }
 		.rf-actions { flex-direction: column; }
 		.rf-actions .btn { width: 100%; text-align: center; }
 		.rf-shot-phone { width: 30%; right: 0; border-width: 4px; border-radius: 14px; }
-		.rf-example { padding: var(--space-md); }
 		.rf-table th, .rf-table td { display: block; width: auto; }
 		.rf-table th { padding-bottom: 0; border-bottom: 0; }
 		.rf-form-panel { padding: var(--space-md); }

@@ -47,6 +47,22 @@ import CTA from '../../components/CTA.astro';
     </div>
   </section>
 
+  <!-- Mission -->
+  <section class="ab-mission">
+    <div class="container ab-mission__inner">
+      <p class="ab-hero__eyebrow">Our Mission</p>
+      <h2 class="ab-mission__title">Give society <span class="ab-mission__accent">more choices.</span></h2>
+      <ul class="ab-mission__tiers">
+        <li>Choices change the future.</li>
+        <li>Move what you want to do forward.</li>
+      </ul>
+      <div class="ab-mission__body">
+        <p>Companies that can't move forward on what they want to do aren't short on ambition. They just can't see which paths are open. Once the structure is visible, choices appear. And when a company chooses and moves forward, new choices open up for its people and its partners too.</p>
+        <p>What usually stops a choice is a lack of time and hands. So Consilegy doesn't advise from the outside. We join as part of your team. Your 24 hours, plus ours. <strong>A 48-hour day.</strong> We work alongside you from strategy through implementation and adoption, and we turn what we learn into <a href="/en/crm/">Revenue CRM</a>, a tool we share with more companies.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- Founder -->
   <section class="ab-founder">
     <div class="container ab-founder__inner">
@@ -273,6 +289,75 @@ import CTA from '../../components/CTA.astro';
 
   .ab-hero__cta:hover {
     background: var(--color-primary-dark, #1e3a8a);
+  }
+
+  /* ── Mission ───────────────────────────────────── */
+  .ab-mission {
+    padding-block: var(--space-2xl);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .ab-mission__inner {
+    max-width: 760px;
+    text-align: center;
+  }
+
+  .ab-mission__title {
+    font-size: clamp(1.75rem, 3.6vw, 2.6rem);
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--color-text);
+    margin: 0 0 var(--space-lg);
+  }
+
+  .ab-mission__accent {
+    color: var(--color-primary);
+    display: inline-block;
+  }
+
+  .ab-mission__tiers {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-xl);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem 2rem;
+  }
+
+  .ab-mission__tiers li {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .ab-mission__body {
+    text-align: left;
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .ab-mission__body p {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .ab-mission__body p + p {
+    margin-top: 1.25rem;
+  }
+
+  .ab-mission__body strong {
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .ab-mission__body a {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 
   /* ── Founder ───────────────────────────────────── */

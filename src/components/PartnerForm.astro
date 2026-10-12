@@ -1,0 +1,160 @@
+---
+// 紹介パートナー制度のフォーム（パートナー申込・紹介先の登録）。
+// 受け口は ContactForm と同じく Revenue CRM 自身のフォーム（Consilegy合同会社の組織）で、
+// 送信するとワークフローが担当者にメールで知らせる。crm.consilegy.com は CORS を返さないので
+// text/plain の単純リクエスト（no-cors）で送る。
+// メールアドレス型の項目は、送信した本人（紹介者）の1つだけにする。CRM はその項目でコンタクトを作り、
+// 自動化の対象にするため、紹介先のアドレスを email 型にすると紹介先に自動でメールが届きうる。
+// 紹介先の連絡先は text 型で受ける。
+export type PartnerField = {
+	key: string;
+	label: string;
+	type: 'text' | 'email' | 'tel' | 'select' | 'textarea' | 'checkbox';
+	required: boolean;
+	auto?: string;
+	options?: string[];
+	half?: boolean;
+	help?: string;
+};
+
+interface Props {
+	formId: string;
+	fields: PartnerField[];
+	button: string;
+	done: string;
+	doneLink?: { href: string; label: string };
+}
+
+const { formId, fields, button, done, doneLink } = Astro.props;
+const submitUrl = `https://crm.consilegy.com/api/forms/${formId}/submit`;
+---
+
+<div class="pf" data-partner-form data-submit-url={submitUrl}>
+	<form data-hs-do-not-collect="true" novalidate>
+		<div class="pf-grid">
+			{fields.map((f) =>
+				f.type === 'checkbox' ? (
+					<label class="pf-check">
+						<input name={f.key} type="checkbox" value="はい" required={f.required} />
+						<span>{f.label}{f.required && <em>必須</em>}</span>
+					</label>
+				) : (
+					<label class:list={['pf-field', { 'pf-field--half': f.half }]}>
+						<span>{f.label}{f.required && <em>必須</em>}</span>
+						{f.type === 'textarea' ? (
+							<textarea name={f.key} rows="5" required={f.required} />
+						) : f.type === 'select' ? (
+							<select name={f.key} required={f.required}>
+								<option value="">選択してください</option>
+								{f.options?.map((o) => <option value={o}>{o}</option>)}
+							</select>
+						) : (
+							<input name={f.key} type={f.type} autocomplete={f.auto} required={f.required} />
+						)}
+						{f.help && <small>{f.help}</small>}
+					</label>
+				),
+			)}
+		</div>
+		<label class="pf-hp" aria-hidden="true">
+			<span>Leave this field empty</span>
+			<input name="hp" type="text" tabindex="-1" autocomplete="off" />
+		</label>
+		<p class="pf-error" role="alert" hidden></p>
+		<p class="pf-privacy">送信により、<a href="/privacy-policy/">プライバシーポリシー</a>に同意したものとみなします。</p>
+		<button type="submit" class="pf-button">{button}</button>
+	</form>
+	<div class="pf-done" role="status" hidden>
+		<p>{done}</p>
+		{doneLink && <p><a href={doneLink.href}>{doneLink.label}</a></p>}
+	</div>
+</div>
+
+<script is:inline>
+	(function () {
+		document.querySelectorAll('[data-partner-form]').forEach(function (root) {
+			if (root.dataset.bound) return;
+			root.dataset.bound = '1';
+			var form = root.querySelector('form');
+			var err = root.querySelector('.pf-error');
+			var show = function (msg) { err.textContent = msg; err.hidden = false; };
+			form.addEventListener('submit', function (e) {
+				e.preventDefault();
+				var values = {};
+				var missing = false;
+				var email = '';
+				form.querySelectorAll('input[name], textarea[name], select[name]').forEach(function (el) {
+					if (el.name === 'hp') return;
+					var v = el.type === 'checkbox' ? (el.checked ? el.value : '') : String(el.value || '').trim();
+					values[el.name] = v;
+					if (el.required && !v) missing = true;
+					if (el.type === 'email') email = v;
+				});
+				if (missing) { show('必須の項目をすべて入力してください。'); return; }
+				if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { show('メールアドレスの形式をご確認ください。'); return; }
+				err.hidden = true;
+				var params = new URLSearchParams(location.search);
+				var utm = {};
+				['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (k) {
+					if (params.get(k)) utm[k] = params.get(k);
+				});
+				if (!utm.utm_source) utm.utm_source = 'consilegy.com' + location.pathname;
+				var btn = form.querySelector('button');
+				btn.disabled = true;
+				btn.textContent = '送信しています…';
+				var finished = false;
+				var done = function () {
+					if (finished) return;
+					finished = true;
+					form.hidden = true;
+					root.querySelector('.pf-done').hidden = false;
+				};
+				fetch(root.dataset.submitUrl, {
+					method: 'POST',
+					mode: 'no-cors',
+					headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+					body: JSON.stringify({ values: values, utm: utm, referrer: document.referrer || location.href, hp: String((form.querySelector('[name=hp]') || {}).value || '') }),
+					keepalive: true,
+				}).then(done, done);
+				// 受付口は通知メールを送り終えてから応答するので数秒かかる。送信は keepalive で続くため、応答を待たずにお礼を出す。
+				setTimeout(done, 1500);
+			});
+		});
+	})();
+</script>
+
+<style>
+	.pf form { display: grid; gap: 1rem; }
+	.pf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 0.9rem; }
+	.pf-field { grid-column: 1 / -1; display: grid; gap: 0.35rem; font-size: 0.9rem; color: #334155; }
+	.pf-field--half { grid-column: auto; }
+	.pf-field small { color: #64748b; font-size: 0.8rem; line-height: 1.6; }
+	.pf em { font-style: normal; font-size: 0.7rem; color: #fff; background: var(--color-primary, #1e40af); border-radius: 0.25rem; padding: 0.05rem 0.35rem; margin-left: 0.5rem; }
+	.pf-field input, .pf-field select, .pf-field textarea {
+		width: 100%; padding: 0.7rem 0.8rem; border: 1px solid #cbd5e1; border-radius: 0.45rem;
+		font-size: 1rem; background: #fff; color: #0f172a; font-family: inherit;
+	}
+	.pf-field textarea { resize: vertical; min-height: 7rem; }
+	.pf-field input:focus, .pf-field select:focus, .pf-field textarea:focus, .pf-check input:focus { outline: 2px solid var(--color-primary, #1e40af); outline-offset: 1px; border-color: transparent; }
+	.pf-check { grid-column: 1 / -1; display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.9rem; color: #334155; line-height: 1.7; }
+	.pf-check input { margin-top: 0.35rem; width: 1.05rem; height: 1.05rem; flex: none; }
+	.pf-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+	.pf-error { margin: 0; color: #b42318; font-size: 0.85rem; }
+	.pf-error[hidden], .pf-done[hidden], .pf form[hidden] { display: none; }
+	.pf-privacy { margin: 0; font-size: 0.8rem; color: #64748b; }
+	.pf-privacy a { color: inherit; }
+	.pf-button {
+		justify-self: start; min-width: 12rem; padding: 0.85rem 1.4rem; border: 0; border-radius: 0.5rem; cursor: pointer;
+		background: var(--color-primary, #1e40af); color: #fff; font-weight: 700; font-size: 1rem;
+	}
+	.pf-button:disabled { opacity: 0.6; cursor: default; }
+	.pf-done { padding: 1rem 1.2rem; border-radius: 0.5rem; background: #eff6ff; color: #1e3a8a; line-height: 1.8; }
+	.pf-done p { margin: 0; }
+	.pf-done p + p { margin-top: 0.5rem; }
+	.pf-done a { color: inherit; font-weight: 700; }
+	@media (max-width: 560px) {
+		.pf-grid { grid-template-columns: 1fr; }
+		.pf-field--half { grid-column: 1 / -1; }
+		.pf-button { justify-self: stretch; }
+	}
+</style>

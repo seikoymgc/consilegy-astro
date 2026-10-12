@@ -18,6 +18,8 @@ export default defineConfig({
 		mdx(),
 		sitemap({
 			lastmod: new Date(),
+			// 紹介キットは申込者にだけ案内する noindex のページ。サイトマップにも載せない。
+			filter: (page) => !page.includes('/crm/referral/kit/'),
 		}),
 	],
 });

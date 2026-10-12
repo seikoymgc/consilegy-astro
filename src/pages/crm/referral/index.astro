@@ -1,0 +1,275 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CrmSubnav from '../../../components/CrmSubnav.astro';
+import PartnerForm, { type PartnerField } from '../../../components/PartnerForm.astro';
+
+// 紹介パートナー制度（Revenue CRMを契約していない紹介者向け・報酬は銀行振込）。
+// 契約中のお客さま向けの「紹介プログラム」（利用料金から差し引く）とは別の制度。
+// あちらは /crm/pricing/ と src/data/crm-faq.ts に書いてある。率と期間（20%・12ヶ月）は揃えている。
+// 受け口は Revenue CRM の Consilegy合同会社の組織に作ったフォーム「紹介パートナー申込」。
+const FORM_ID = '00000000-0000-0000-0000-000000000000';
+
+const trust = [
+	{
+		title: '手間は、一通の転送だけです。',
+		text: '紹介文はこちらで用意しています。そのまま転送していただければ、その先の説明・デモ・商談・導入はすべて代表の山口聖子が担当します。',
+	},
+	{
+		title: '「導入実績は？」への答えを用意しています。',
+		text: '紹介先に聞かれそうな質問と、その答え方を紹介キットにまとめました。山口がCRM・MA・SFAの導入を支援してきた40社以上の経験も、答えの一部です。',
+	},
+	{
+		title: '合わない会社には、合わないと言います。',
+		text: '紹介先の同意がない限り、こちらから連絡はしません。お話を伺って合わないと判断したら、契約をお勧めせずにそうお伝えします。紹介してくださった方の信用を守ることを優先します。',
+	},
+];
+
+const steps = [
+	{ title: '申し込む', text: 'このページの下のフォームから申し込みます。規約への同意が必要です。' },
+	{ title: '紹介する', text: '紹介文を転送し、紹介先の同意を得たうえで紹介フォームに登録します。' },
+	{ title: '確認の連絡', text: '3営業日以内に、当社との既存の接点の有無と、対象になるかどうかをお知らせします。' },
+	{ title: '商談', text: '山口が紹介先とお話しします。紹介してくださった方の同席は自由です。' },
+	{ title: '有料契約', text: '紹介先が30日間の無料期間を経て、有料契約を始めます。' },
+	{ title: '報酬の振込', text: '紹介先からの毎月の入金ごとに報酬を確定し、月末締め・翌月末に振り込みます。' },
+];
+
+const reward = [
+	{ label: '報酬', text: ['紹介先の基本プランの月額利用料金（税抜・実際にお支払いいただいた額）の20%です。'] },
+	{ label: '期間', text: ['紹介先が有料契約を始めてから12ヶ月間です。'] },
+	{ label: '対象のプラン', text: ['ユーザープランと生徒数プランです。', 'プリペイドプラン、追加の燃料、オプション、導入・定着・運用の支援は対象外です。'] },
+	{ label: 'お支払い', text: ['月末締め・翌月末に、ご指定の口座へ銀行振込でお支払いします。', '請求書を作っていただく必要はありません。当社から支払通知書をお送りします。'] },
+	{ label: '紹介の有効期間', text: ['受理から90日以内に初回の商談（または無料期間の開始）に至った場合に、紹介した方を確定します。', 'その後12ヶ月以内に有料契約が始まれば、報酬の対象です。'] },
+	{ label: '受け取らない選択', text: ['報酬を受け取らない、という選択もできます。申込時にお選びください。'] },
+];
+
+const rules = [
+	'報酬の対象は、当社が受理した紹介だけです。紹介先のご担当者が、紹介してくださった方を通じた当社からの連絡に応じた時点で受理します。',
+	'当社がすでに接点を持っている会社は、対象外です。確認の連絡の際にお知らせします。',
+	'同じ会社を複数の方が紹介した場合は、先に受理した方の紹介とします。',
+	'紹介先の役員・従業員とそのご家族は、報酬の対象外です。',
+	'報酬を紹介先と分け合うこと、当社の了承なく値引きを約束することはできません。',
+	'士業・コンサルタントなど、紹介先から報酬を受けて助言する立場の方は、紹介先に報酬があることをお伝えください。紹介キットに開示文のひな形があります。',
+	'紹介してくださった方に、当社を代理して契約を結ぶ権限はありません。',
+	'SNSやブログで紹介する場合は、「広告」「PR」など、報酬を受けていることが分かる表示を入れてください。',
+	'紹介先の情報は、紹介先の同意を得てから登録してください。当社は、商談のご案内以外の目的に使いません。',
+	'紹介先の契約が取り消された場合、取り消しに対応する報酬は、次回以降の報酬と相殺します。',
+	'反社会的勢力との関係がないこと、紹介を通じて知った情報を外に出さないことを、お互いに約束します。',
+];
+
+const faq = [
+	{
+		q: 'Revenue CRMを使っていなくても申し込めますか。',
+		a: 'はい。この制度は、Revenue CRMを契約していない方のためのものです。すでにお使いの会社には、紹介した会社の利用料金の20%を自社の利用料金から差し引く紹介プログラムがあります（料金ページをご覧ください）。',
+	},
+	{
+		q: '紹介先には、何を伝えればよいですか。',
+		a: '紹介キットの紹介文をそのまま転送していただければ十分です。製品の説明や料金のご質問には、山口がお答えします。',
+	},
+	{
+		q: '成約しなかった場合はどうなりますか。',
+		a: '報酬は発生しません。費用もかかりません。',
+	},
+	{
+		q: 'インボイスの登録をしていなくても申し込めますか。',
+		a: 'はい。登録の有無は申込時に伺い、支払通知書の記載に使います。',
+	},
+];
+
+const fields: PartnerField[] = [
+	{ key: 'last_name', label: '姓', type: 'text', required: true, auto: 'family-name', half: true },
+	{ key: 'first_name', label: '名', type: 'text', required: true, auto: 'given-name', half: true },
+	{ key: 'company_name', label: '会社名・屋号', type: 'text', required: false, auto: 'organization', help: '個人の方は空欄で構いません。' },
+	{ key: 'email', label: 'メールアドレス', type: 'email', required: true, auto: 'email' },
+	{ key: 'phone', label: '電話番号', type: 'tel', required: false, auto: 'tel' },
+	{ key: 'partner_audience', label: '紹介できそうな業界・相手', type: 'textarea', required: false, help: '例：顧問先の製造業、知り合いのスクール経営者など。' },
+	{ key: 'partner_payout', label: '報酬の受け取り', type: 'select', required: true, options: ['受け取る', '受け取らない'] },
+	{ key: 'partner_invoice', label: 'インボイス（適格請求書発行事業者）の登録', type: 'select', required: true, options: ['登録している', '登録していない'] },
+	{ key: 'partner_invoice_number', label: '登録番号', type: 'text', required: false, help: '登録している方だけご記入ください（T＋13桁）。', half: true },
+	{ key: 'partner_terms', label: 'このページの「紹介の決まり」に同意します。', type: 'checkbox', required: true },
+];
+---
+
+<BaseLayout
+	title="紹介パートナー制度 | Revenue CRM | Consilegy"
+	description="Revenue CRMを紹介してくださる方のための制度です。紹介文を一通転送するだけで、説明から導入までは代表の山口聖子が担当します。紹介先が有料契約を始めてから12ヶ月間、月額利用料金の20%を銀行振込でお支払いします。"
+	lang="ja"
+>
+<script type="application/ld+json" slot="head" set:html={JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://consilegy.com/"},
+		{"@type": "ListItem", "position": 2, "name": "Revenue CRM", "item": "https://consilegy.com/crm/"},
+		{"@type": "ListItem", "position": 3, "name": "紹介パートナー制度", "item": "https://consilegy.com/crm/referral/"}
+	]
+})} />
+
+<CrmSubnav lang="ja" />
+
+<section class="rf-hero">
+	<div class="container">
+		<p class="kicker">紹介パートナー制度</p>
+		<h1>「この会社に合いそう」を、<br class="br-wide" />一通の転送で。</h1>
+		<p class="lead">Revenue CRMに合いそうな会社をご存じなら、紹介文を転送していただくだけで構いません。説明から導入までは、代表の山口聖子がすべて担当します。紹介先が有料契約を始めてから12ヶ月間、月額利用料金の20%をお支払いします。</p>
+		<div class="hero-actions">
+			<a href="#apply" class="btn btn--primary">パートナーに申し込む</a>
+			<a href="#rules" class="btn btn--secondary">紹介の決まりを読む</a>
+		</div>
+	</div>
+</section>
+
+<section class="rf-section">
+	<div class="container">
+		<div class="section-head">
+			<p class="kicker">紹介してくださる方へ</p>
+			<h2>紹介した方の信用を、先に守ります。</h2>
+		</div>
+		<div class="rf-cards">
+			{trust.map((item) => (
+				<div class="rf-card">
+					<h3>{item.title}</h3>
+					<p>{item.text}</p>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<section class="rf-section rf-section--subtle">
+	<div class="container">
+		<div class="section-head">
+			<p class="kicker">紹介の流れ</p>
+			<h2>申し込みから報酬の振込まで</h2>
+		</div>
+		<ol class="rf-steps">
+			{steps.map((s) => (
+				<li>
+					<h3>{s.title}</h3>
+					<p>{s.text}</p>
+				</li>
+			))}
+		</ol>
+	</div>
+</section>
+
+<section class="rf-section">
+	<div class="container">
+		<div class="section-head">
+			<p class="kicker">報酬</p>
+			<h2>紹介先の月額利用料金の20%を、12ヶ月間。</h2>
+		</div>
+		<div class="rf-table-wrap">
+			<table class="rf-table">
+				<tbody>
+					{reward.map((row) => (
+						<tr>
+							<th scope="row">{row.label}</th>
+							<td>{row.text.map((line) => <p>{line}</p>)}</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
+		</div>
+		<p class="rf-note">例：ユーザープラン5人（月額15,000円・税抜）の会社を紹介した場合、報酬は月3,000円、12ヶ月で36,000円です。料金は<a href="/crm/pricing/">料金ページ</a>をご覧ください。</p>
+	</div>
+</section>
+
+<section class="rf-section rf-section--subtle" id="rules">
+	<div class="container">
+		<div class="section-head">
+			<p class="kicker">紹介の決まり</p>
+			<h2>申し込む前に、お読みください。</h2>
+		</div>
+		<ol class="rf-rules">
+			{rules.map((r) => <li>{r}</li>)}
+		</ol>
+	</div>
+</section>
+
+<section class="rf-section">
+	<div class="container">
+		<div class="section-head">
+			<p class="kicker">よくあるご質問</p>
+			<h2>紹介パートナー制度について</h2>
+		</div>
+		<dl class="rf-faq">
+			{faq.map((item) => (
+				<div>
+					<dt>{item.q}</dt>
+					<dd>{item.a}</dd>
+				</div>
+			))}
+		</dl>
+	</div>
+</section>
+
+<section class="rf-section rf-section--subtle" id="apply">
+	<div class="container rf-apply">
+		<div class="section-head">
+			<p class="kicker">申し込み</p>
+			<h2>紹介パートナーに申し込む</h2>
+			<p class="rf-apply-lead">送信後、紹介キットのページをご案内します。紹介文や資料は、そちらからお使いください。</p>
+		</div>
+		<PartnerForm
+			formId={FORM_ID}
+			fields={fields}
+			button="申し込む"
+			done="お申し込みありがとうございます。山口から、確認のご連絡をします。紹介キットは次のページからお使いいただけます。"
+			doneLink={{ href: '/crm/referral/kit/', label: '紹介キットを開く' }}
+		/>
+	</div>
+</section>
+
+</BaseLayout>
+
+<style>
+	.kicker {
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.12em;
+		line-height: 1.4;
+	}
+	.rf-hero { padding: var(--space-xl) 0 var(--space-lg); }
+	.rf-hero h1 { margin: 0.75rem 0 1.25rem; font-size: clamp(1.75rem, 4vw, 2.6rem); line-height: 1.4; }
+	.rf-hero .lead { max-width: 44rem; margin: 0 0 var(--space-md); color: var(--color-text); font-size: 1.05rem; line-height: 1.9; }
+	.hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+	.rf-section { padding: var(--space-xl) 0; }
+	.rf-section--subtle { background: var(--color-bg-subtle); }
+	.section-head { margin-bottom: var(--space-md); }
+	.section-head h2 { margin: 0.5rem 0 0; font-size: clamp(1.35rem, 3vw, 1.8rem); line-height: 1.5; }
+	.rf-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-sm); }
+	.rf-card { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius); padding: var(--space-md); }
+	.rf-card h3 { margin: 0 0 0.6rem; font-size: 1.05rem; line-height: 1.6; }
+	.rf-card p { margin: 0; color: var(--color-text-muted); line-height: 1.85; }
+	.rf-steps { list-style: none; counter-reset: step; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-sm); }
+	.rf-steps li { counter-increment: step; background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius); padding: var(--space-md); }
+	.rf-steps li::before { content: counter(step); display: inline-grid; place-items: center; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--color-primary); color: #fff; font-weight: 700; font-size: 0.9rem; margin-bottom: 0.6rem; }
+	.rf-steps h3 { margin: 0 0 0.4rem; font-size: 1rem; }
+	.rf-steps p { margin: 0; color: var(--color-text-muted); line-height: 1.8; font-size: 0.95rem; }
+	.rf-table-wrap { overflow-x: auto; }
+	.rf-table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius); }
+	.rf-table th, .rf-table td { padding: 1rem 1.1rem; border-bottom: 1px solid var(--color-border); vertical-align: top; text-align: left; line-height: 1.8; }
+	.rf-table tr:last-child th, .rf-table tr:last-child td { border-bottom: 0; }
+	.rf-table th { width: 11rem; font-weight: 700; white-space: nowrap; }
+	.rf-table td p { margin: 0; }
+	.rf-table td p + p { margin-top: 0.35rem; }
+	.rf-note { margin: var(--space-sm) 0 0; color: var(--color-text-muted); line-height: 1.8; font-size: 0.95rem; }
+	.rf-note a { color: var(--color-primary); }
+	.rf-rules { margin: 0; padding-left: 1.4rem; display: grid; gap: 0.7rem; max-width: 48rem; }
+	.rf-rules li { line-height: 1.85; }
+	.rf-faq { margin: 0; display: grid; gap: var(--space-sm); max-width: 48rem; }
+	.rf-faq dt { font-weight: 700; line-height: 1.7; }
+	.rf-faq dd { margin: 0.3rem 0 0; color: var(--color-text-muted); line-height: 1.85; }
+	.rf-apply { max-width: 44rem; }
+	.rf-apply-lead { margin: 0.75rem 0 0; color: var(--color-text-muted); line-height: 1.8; }
+	@media (max-width: 860px) {
+		.rf-cards, .rf-steps { grid-template-columns: 1fr; }
+		.br-wide { display: none; }
+	}
+	@media (max-width: 560px) {
+		.rf-table th, .rf-table td { display: block; width: auto; }
+		.rf-table th { padding-bottom: 0; border-bottom: 0; }
+	}
+</style>

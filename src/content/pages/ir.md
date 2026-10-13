@@ -5,7 +5,7 @@ slug: "ir"
 sourceUrl: "https://consilegy.com/ir/"
 status: "publish"
 modified: "2025-05-07T16:16:52"
-description: ""
+description: "Consilegy合同会社のIR情報のページです。"
 featuredImage: ""
 featuredImageAlt: ""
 draft: false

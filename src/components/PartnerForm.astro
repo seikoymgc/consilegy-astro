@@ -160,7 +160,7 @@ const submitUrl = `https://crm.consilegy.com/api/forms/${formId}/submit`;
 	.pf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 0.9rem; }
 	.pf-field { grid-column: 1 / -1; display: grid; gap: 0.35rem; font-size: 0.9rem; color: #334155; }
 	.pf-field--half { grid-column: auto; }
-	.pf-field small { color: #64748b; font-size: 0.8rem; line-height: 1.6; }
+	.pf-field small { color: var(--color-text-muted); font-size: 0.8rem; line-height: 1.6; }
 	.pf em { font-style: normal; font-size: 0.7rem; color: #fff; background: var(--color-primary, #1e40af); border-radius: 0.25rem; padding: 0.05rem 0.35rem; margin-left: 0.5rem; }
 	.pf-field input, .pf-field select, .pf-field textarea {
 		width: 100%; padding: 0.7rem 0.8rem; border: 1px solid #cbd5e1; border-radius: 0.45rem;
@@ -175,7 +175,7 @@ const submitUrl = `https://crm.consilegy.com/api/forms/${formId}/submit`;
 	.pf-error { margin: 0; color: #b42318; font-size: 0.85rem; }
 	.pf[hidden], .pf-error[hidden], .pf-done[hidden], .pf form[hidden], .pf-field[hidden] { display: none; }
 	.pf-notice { margin: 0; font-size: 0.9rem; line-height: 1.8; color: var(--color-text); }
-	.pf-privacy { margin: 0; font-size: 0.8rem; color: #64748b; }
+	.pf-privacy { margin: 0; font-size: 0.8rem; color: var(--color-text-muted); }
 	.pf-privacy a { color: inherit; }
 	.pf-button {
 		justify-self: start; min-width: 12rem; padding: 0.85rem 1.4rem; border: 0; border-radius: 0.5rem; cursor: pointer;

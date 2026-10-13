@@ -42,7 +42,7 @@ The simplest route is to start from the deal itself. Opened there, the import is
 
 Press "Import" and the summary is saved as a chat record. The pasted conversation is kept as well: open the contact or deal, and "View full transcript" on that record brings it back.
 
-Two things worth knowing before you start. Very long threads are analyzed from the end only, and the screen says so: "Long conversation — AI analyzed the latest part only". What matters to a live deal is the recent part, so that is the part it keeps. And this is a copy taken at the moment you paste. Messages sent afterwards do not flow in by themselves. You paste again at the next milestone.
+Two things worth knowing before you start. Very long threads are analyzed from the end only, and the screen says so: "Long conversation: AI analyzed the latest part only". What matters to a live deal is the recent part, so that is the part it keeps. And this is a copy taken at the moment you paste. Messages sent afterwards do not flow in by themselves. You paste again at the next milestone.
 
 What you enter is not used to train AI models. You will be pasting threads with a customer's name and figures in them, so that is the answer when someone on your team asks.
 

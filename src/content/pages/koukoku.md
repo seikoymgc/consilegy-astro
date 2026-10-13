@@ -11,3 +11,5 @@ featuredImageAlt: ""
 draft: false
 ---
 
+
+<p>現在、公告すべき事項はありません。</p>

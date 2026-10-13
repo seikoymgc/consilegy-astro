@@ -67,7 +67,7 @@ const t =
 ---
 
 <div class="cf" data-contact-form data-submit-url={submitUrl} data-sending={t.sending} data-missing={t.missing} data-invalid={t.invalid} data-failed={t.failed}>
-	<form data-hs-do-not-collect="true" novalidate>
+	<form data-hs-do-not-collect="true" onsubmit="return false" novalidate>
 		<div class="cf-grid">
 			{fields.map((f) => (
 				<label class:list={['cf-field', { 'cf-field--half': f.half }]}>

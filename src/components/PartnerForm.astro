@@ -37,7 +37,7 @@ const submitUrl = `https://crm.consilegy.com/api/forms/${formId}/submit`;
 ---
 
 <div class="pf" data-partner-form data-submit-url={submitUrl} data-consent={consent ? '1' : undefined} data-next={next}>
-	<form data-hs-do-not-collect="true" novalidate>
+	<form data-hs-do-not-collect="true" onsubmit="return false" novalidate>
 		<div class="pf-grid">
 			{fields.map((f) =>
 				f.type === 'checkbox' ? (

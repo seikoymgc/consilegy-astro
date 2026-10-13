@@ -29,11 +29,11 @@ My recommendation is to stop debating "is it safe to delete?" in meetings. Settl
 
 When you delete a contact, a company or a deal in Revenue CRM, it moves to Trash. The data is not erased.
 
-There are two ways to delete. On a record, press the trash icon beside the record's name ("Move to trash"). On a list, tick the rows and press "Delete". The confirmation on the list does not mention Trash, but the record goes to the same place. Deals cannot be deleted from the kanban board. Switch to the "List" view, or delete from the deal itself.
+There are two ways to delete. On a record, press the trash icon beside the record's name ("Move to trash"). On a list, tick the rows and press "Delete". The confirmation on the list also says "Move to trash", and the record goes to the same place. Deals cannot be deleted from the kanban board. Switch to the "List" view, or delete from the deal itself.
 
 To get something back, open "Settings" in the sidebar and choose "Trash" under "Operations". The tabs "Contacts", "Companies" and "Deals" list what was deleted, newest first. Tick the rows and press "Restore", and they return to the normal list. The deals and activities attached to a record are not touched when it goes to Trash, so they are still attached when it comes back.
 
-Records stay in Trash until someone presses "Delete permanently". The Settings card mentions a retention window, but I found nothing that empties Trash after a set number of days. Each tab shows the 200 most recent deletions.
+Records stay in Trash until someone presses "Delete permanently". Nothing empties Trash after a set number of days. Each tab shows the 200 most recent deletions.
 
 Who can delete is also defined. Out of the box, only owners and admins can move records to Trash. Managers and members can still "Restore" from it. To change that, open "Permissions" in "Settings" and tick "Delete" in the table for each role.
 
@@ -42,7 +42,7 @@ Four things to know before you start.
 - A contact in Trash receives neither bulk email nor sequence steps. They are not removed from their lists, though. They still show on the list screen, so the number of people on a list and the number actually sent can differ. A sequence stays paused where it was and picks up from the same step once you restore the contact, so check before restoring someone that should not happen to. A deal in Trash does not appear in Forecast
 - By manual entry, card scanning or CSV, you cannot create a new contact with the email address of one sitting in Trash. Manual entry and card scanning show "A contact with this email address already exists." A CSV import skips the row but still counts it as imported. If someone is missing from the list and still cannot be added, look in Trash. Forms are the exception: when a contact in Trash submits a form with the same email address, they are put back on the list automatically
 - There is no merge. To resolve a duplicate, copy what you need onto the record you are keeping, then move the other one to Trash
-- "Audit log", under "Operations" in "Settings", records a move to Trash as a deletion, but the name beside it reads "システム" (system), not the person. You cannot tell afterwards who did it, so give the cleanup to one named owner
+- "Audit log", under "Operations" in "Settings", records "Move to trash", "Restore" and "Delete permanently" with the name of the person who did it, so you can trace it afterwards
 
 "Delete permanently" cannot be undone. Permanently deleting a contact also removes that contact's activities and tasks. Their deals remain, with the link to the contact cleared. Unless you have a reason to hurry, you do not need to press it at all.
 

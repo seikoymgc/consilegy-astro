@@ -28,6 +28,10 @@ ErrorDocument 404 /404.html
 	RewriteRule ^services/operational-adoption-optimization/?$ /services/adoption-growth-support/ [R=301,L]
 	RewriteRule ^services/hubspot-implementation-consulting/?$ /services/hubspot-implementation-operations/ [R=301,L]
 
+	# 旧WordPressから移した本文の空ページ（2026-10-13）。電子公告 /ir/koukoku/ は残す。
+	RewriteRule ^ir/?$ /company/ [R=301,L]
+	RewriteRule ^note/?$ https://note.com/consilegy [R=301,L]
+
 	# サービス紹介資料の固定URL（2026-10-09）。お客様・メール・資料にはこちらを使う。
 	# 新しい版を出すときは、PDFを別名で置き、下の行の行き先だけを書き換える。
 	# 同名で差し替えると Cloudflare が古いPDFを掴むため、実体は毎回別名にする。

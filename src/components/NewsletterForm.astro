@@ -1,7 +1,7 @@
 ---
 // メルマガ登録フォーム。受け口は Revenue CRM 自身のフォーム（Consilegy合同会社の組織）で、
 // 送信するとワークフローが JP / EN Newsletter の配信リストに入れる。
-// crm.consilegy.com は CORS を返さないので、text/plain の単純リクエスト（no-cors）で送る。
+// text/plain の単純リクエストで送り、応答を読んで受け付けられたかを確かめる（受け口は CORS を返す）。
 // 登録そのものが配信への同意なので consent: true を送る（同意の記録は CRM 側に残る）。
 interface Props {
 	lang?: 'ja' | 'en';
@@ -30,6 +30,7 @@ const t =
 				privacyHref: '/en/privacy-policy/',
 				invalid: 'Please enter a valid email address.',
 				done: 'Thanks for subscribing. The next issue will arrive by email.',
+				failed: 'We could not send this. Please try again later, or email info@consilegy.com.',
 			}
 		: {
 				email: 'メールアドレス',
@@ -43,12 +44,13 @@ const t =
 				privacyHref: '/privacy-policy/',
 				invalid: 'メールアドレスの形式をご確認ください。',
 				done: 'ご登録ありがとうございます。次の号からメールでお届けします。届かない場合は、info@consilegy.comへお知らせください。',
+				failed: '送信できませんでした。時間をおいてもう一度お試しいただくか、info@consilegy.comへメールでご連絡ください。',
 			};
 const nameOrder = lang === 'en' ? ['first_name', 'last_name'] : ['last_name', 'first_name'];
 const labelOf = (k: string) => (k === 'first_name' ? t.first : t.last);
 ---
 
-<div class:list={['nlf', { 'nlf--compact': compact }]} data-nl-form data-submit-url={submitUrl} data-sending={t.sending} data-invalid={t.invalid}>
+<div class:list={['nlf', { 'nlf--compact': compact }]} data-nl-form data-submit-url={submitUrl} data-sending={t.sending} data-invalid={t.invalid} data-failed={t.failed}>
 	<form data-hs-do-not-collect="true" novalidate>
 		<label class="nlf-field">
 			<span>{t.email}</span>
@@ -97,15 +99,28 @@ const labelOf = (k: string) => (k === 'first_name' ? t.first : t.last);
 				});
 				if (!utm.utm_source) utm.utm_source = 'consilegy.com' + location.pathname;
 				var btn = form.querySelector('button');
+				var label = btn.dataset.label || btn.textContent;
+				btn.dataset.label = label;
 				btn.disabled = true;
 				btn.textContent = root.dataset.sending;
+				var finished = false;
+				var fail = function () {
+					if (finished) return;
+					finished = true;
+					btn.disabled = false;
+					btn.textContent = label;
+					err.textContent = root.dataset.failed;
+					err.hidden = false;
+				};
 				var done = function () {
+					if (finished) return;
+					finished = true;
 					form.hidden = true;
 					root.querySelector('.nlf-done').hidden = false;
 				};
 				fetch(root.dataset.submitUrl, {
 					method: 'POST',
-					mode: 'no-cors',
+					mode: 'cors',
 					headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
 					body: JSON.stringify({
 						values: {
@@ -119,10 +134,10 @@ const labelOf = (k: string) => (k === 'first_name' ? t.first : t.last);
 						hp: String(fd.get('hp') || ''),
 					}),
 					keepalive: true,
-				}).then(done, done);
-				// 受付口は通知メールを送り終えてから応答するので数秒かかる。送信は keepalive で
-				// 続くため、応答を待たずにお礼を出す。
-				setTimeout(done, 1500);
+				}).then(function (res) { if (res.ok) done(); else fail(); }, fail);
+				// 受付口は通知メールを送り終えてから応答するので数秒かかる。20秒たっても応答がなければ、
+				// 送信は keepalive で続いているとみなしてお礼を出す（失敗と分かったときだけ止める）。
+				setTimeout(done, 20000);
 			});
 		});
 	})();

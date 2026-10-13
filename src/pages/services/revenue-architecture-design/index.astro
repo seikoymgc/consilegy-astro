@@ -4,11 +4,11 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 const faqItems = [
 	{
 		q: 'レベニューアーキテクチャはRevOpsと同じですか？',
-		a: '同じではありません。RevOpsは、営業・マーケティング・カスタマーサクセスなど、収益に関わる業務を継続的に運用・改善する機能です。一方、レベニューアーキテクチャは、その運用を成立させるために、データ、システム、KPI、業務プロセスをどのようにつなぐかを設計する構造そのものを指します。Consilegyでは、RevOpsを「運用」、レベニューアーキテクチャを「その土台となる設計」と定義しています。',
+		a: '同じではありません。RevOpsは、営業・マーケティング・カスタマーサクセスなど、収益に関わる業務を継続的に運用・改善する機能です。一方、レベニューアーキテクチャはその運用を成立させるために、データ・システム・KPI・業務プロセスをどのようにつなぐかを設計する構造そのものを指します。Consilegyでは、RevOpsを「運用」、レベニューアーキテクチャを「その土台となる設計」と定義しています。',
 	},
 	{
 		q: 'レベニューアーキテクチャとエンタープライズアーキテクチャの違いは何ですか？',
-		a: 'エンタープライズアーキテクチャ（EA）は、企業全体の業務、組織、ITシステムを対象とした全社設計です。一方、レベニューアーキテクチャは、その中でも特に「顧客獲得・商談化・受注・継続収益」といった収益プロセスと、それを支えるCRM・SFA・MA、請求、データ構造に焦点を当てます。Revenue Architectureは「売上に特化した業務・データ・システム設計」です。',
+		a: 'エンタープライズアーキテクチャ（EA）は、企業全体の業務・組織・ITシステムを対象とした全社設計です。一方、レベニューアーキテクチャはその中でも特に「顧客獲得・商談化・受注・継続収益」といった収益プロセスに焦点を当てます。それを支えるCRM・SFA・MA、請求、データ構造も焦点の対象です。Revenue Architectureは「売上に特化した業務・データ・システム設計」です。',
 	},
 	{
 		q: 'レベニューアーキテクチャの責任者は誰ですか？',
@@ -23,8 +23,8 @@ const faqItems = [
 		a: '代表的な兆候として以下があります。ダッシュボードごとに売上数字が違う / CRM内で顧客データが重複している / 商談ステージ定義が部門ごとに異なる / 見積・契約・請求フローに時間がかかる / 売上予測の精度が低い / KPIが部門単位で分断されている / MAで獲得したリードが受注につながったか追えない / マーケティング施策と継続収益が接続されていない。こうした状態は、個別施策ではなく、Revenue Architecture全体を見直す必要があるサインです。',
 	},
 	{
-		q: 'Revenue Architecture Design は、CRM導入支援と何が違いますか？',
-		a: 'CRM導入支援が「ツール導入」を目的とするのに対し、Revenue Architecture Design は、営業・マーケ・CS・KPI・会議体を含めた収益構造全体を設計する上流支援です。CRMはその構造を実現するための手段の一つに過ぎません。ConsilegyはCRM導入を目的とせず、収益プロセスの設計を目的として支援を行います。',
+		q: 'Revenue Architecture Designは、CRM導入支援と何が違いますか？',
+		a: 'CRM導入支援が「ツール導入」を目的とするのに対し、Revenue Architecture Designは、営業・マーケ・CS・KPI・会議体を含めた収益構造全体を設計する上流支援です。CRMはその構造を実現するための手段の一つに過ぎません。ConsilegyはCRM導入を目的とせず、収益プロセスの設計を目的として支援を行います。',
 	},
 ];
 
@@ -72,10 +72,10 @@ const breadcrumbSchema = {
 		</div>
 		<h1>分断された営業・マーケ・CRMを、<br /><span class="accent">売上につながる構造へ再設計する</span></h1>
 		<p class="hero-sub">
-			営業、マーケティング、カスタマーサクセスが分断されたままでは、CRMも施策も成果につながりません。
+			営業・マーケティング・カスタマーサクセスが分断されたままでは、CRMも施策も成果につながりません。
 		</p>
 		<p class="hero-lead">
-			Consilegyは、顧客獲得から受注、継続収益までの流れを「レベニューアーキテクチャ」として設計し、
+			Consilegyは、顧客獲得から受注・継続収益までの流れを「レベニューアーキテクチャ」として設計し、
 			経営が売上を判断できる仕組みをつくります。
 		</p>
 		<div class="hero-cta">
@@ -112,7 +112,7 @@ const breadcrumbSchema = {
 			</div>
 			<div class="issue-card">
 				<div class="issue-card__num">02</div>
-				<p>リード、商談、受注、継続の定義が部門ごとに違う</p>
+				<p>リード・商談・受注・継続の定義が部門ごとに違う</p>
 			</div>
 			<div class="issue-card">
 				<div class="issue-card__num">03</div>
@@ -143,7 +143,7 @@ const breadcrumbSchema = {
 		</div>
 		<div class="root-cause__body">
 			<p>
-				多くの企業では、マーケティング、営業、カスタマーサクセスが個別最適で動いています。
+				多くの企業では、マーケティング・営業・カスタマーサクセスが個別最適で動いています。
 				その結果、どこに本当のボトルネックがあるかを判断できなくなります。
 			</p>
 			<div class="bottleneck-row">
@@ -161,7 +161,7 @@ const breadcrumbSchema = {
 			</p>
 			<div class="root-cause__resolution">
 				<p>
-					<strong>Revenue Architecture Design では、</strong>売上を「部門別成果」ではなく、
+					<strong>Revenue Architecture Designでは、</strong>売上を「部門別成果」ではなく、
 					顧客獲得から継続までをつなぐ一つの構造として再設計します。
 				</p>
 			</div>
@@ -174,9 +174,9 @@ const breadcrumbSchema = {
 	<div class="container">
 		<div class="definition-inner">
 			<p class="eyebrow-label">Definition</p>
-			<h2>Revenue Architecture Design とは</h2>
+			<h2>Revenue Architecture Designとは</h2>
 			<p class="definition-text">
-				Revenue Architecture Design は、マーケティング、営業、カスタマーサクセス、CRM / SFA / MA・KPI、会議体、運用ルールを横断し、売上が生まれる仕組み全体を設計する上流支援です。
+				Revenue Architecture Designは、マーケティング・営業・カスタマーサクセス・CRM / SFA / MA・KPI・会議体・運用ルールを横断し、売上が生まれる仕組み全体を設計する上流支援です。
 			</p>
 			<div class="definition-oneline">
 				<p>売上を、属人的な営業活動ではなく、再現可能な業務構造として設計するサービスです。</p>
@@ -196,7 +196,7 @@ const breadcrumbSchema = {
 			<div class="scope-card">
 				<div class="scope-card__num">01</div>
 				<h3>Revenue Process</h3>
-				<p>顧客獲得、商談化、受注、継続までの収益プロセス設計。ステージ定義と部門間のハンドオフを言語化します。</p>
+				<p>顧客獲得・商談化・受注・継続までの収益プロセス設計。ステージ定義と部門間のハンドオフを言語化します。</p>
 			</div>
 			<div class="scope-card">
 				<div class="scope-card__num">02</div>
@@ -266,7 +266,7 @@ const breadcrumbSchema = {
 			<div class="pstep">
 				<div class="pstep__num">5</div>
 				<div class="pstep__body">
-					<h3>Revenue Architecture 設計</h3>
+					<h3>Revenue Architecture設計</h3>
 					<p>収益構造全体を統合した設計書を作成。部門間合意まで支援</p>
 				</div>
 			</div>
@@ -429,7 +429,7 @@ const breadcrumbSchema = {
 					<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
 				</div>
 				<h3>上流設計から定着まで</h3>
-				<p>単なる設定代行ではなく、KPI、会議体、部門連携、運用定着まで一貫して支援します。設計が現場で機能するまで伴走します。</p>
+				<p>単なる設定代行ではなく、KPI・会議体・部門連携・運用定着まで一貫して支援します。設計が現場で機能するまで伴走します。</p>
 			</div>
 		</div>
 
@@ -562,10 +562,10 @@ const breadcrumbSchema = {
 				<p class="eyebrow-label">Our Approach</p>
 				<h2>目的に応じて、最適な<br />進め方をご提案しています</h2>
 				<p>
-					Consilegyでは、全社的なRevOps再設計だけでなく、CRM運用改善やダッシュボード整理など、部分的な改善支援からご相談いただくケースもあります。
+					Consilegyでは全社的なRevOps再設計だけでなく、CRM運用改善やダッシュボード整理など、部分的な改善支援からご相談いただくケースもあります。
 				</p>
 				<p>
-					現状の課題、組織体制、既存ツール環境に応じて、最適な支援範囲をご提案します。まずは現状のヒアリングから始めます。
+					現状の課題・組織体制・既存ツール環境に応じて、最適な支援範囲をご提案します。まずは現状のヒアリングから始めます。
 				</p>
 			</div>
 			<div class="approach-list">
@@ -595,7 +595,7 @@ const breadcrumbSchema = {
 				<div class="pricing-service">レベニューアーキテクチャ設計</div>
 				<div class="pricing-amount">300万〜800万円</div>
 				<p class="pricing-note">
-					範囲、対象部門数、既存CRM環境、成果物範囲により変動します。
+					範囲・対象部門数・既存CRM環境・成果物範囲により変動します。
 					初回の無料診断で状況をヒアリングし、プロジェクト規模感をお伝えします。
 				</p>
 			</div>
@@ -675,7 +675,7 @@ const breadcrumbSchema = {
 			<p class="cta-eyebrow">Get Started</p>
 			<h2>売上が伸びない原因を、<br />構造から整理しませんか。</h2>
 			<p class="cta-lead">
-				現状のCRM、営業プロセス、マーケティング施策、KPI設計を確認し、
+				現状のCRM・営業プロセス・マーケティング施策・KPI設計を確認し、
 				どこに収益上のボトルネックがあるかを整理します。
 				初回ご相談は無料です。
 			</p>

@@ -33,7 +33,7 @@ const mobilePoints = [
 
 const outcomes = [
 	{
-		problem: '入力：名刺、メモ、録音の中身が、担当者の手元に残る',
+		problem: '入力：名刺・メモ・録音の中身が、担当者の手元に残る',
 		answer: 'AIが読み取り・文字起こしをして、顧客と商談の記録の下書きにします。',
 	},
 	{
@@ -50,28 +50,28 @@ const editions = [
 	{
 		noun: '商談',
 		title: 'B2B',
-		text: '法人営業向け。見込み客を商談として管理し、パイプライン、見積、フォーキャスト、停滞アラートに対応。',
+		text: '法人営業向け。見込み客を商談として管理し、パイプライン・見積・フォーキャスト・停滞アラートに対応。',
 		href: '/crm/features/',
 		linkLabel: `機能一覧を見る（全${featureCount()}項目）`,
 	},
 	{
 		noun: '案件',
 		title: '受託開発',
-		text: '支援会社・受託開発向け。見積、受注、納品、請求、保守更新までを案件単位で管理。',
+		text: '支援会社・受託開発向け。見積・受注・納品・請求・保守更新までを案件単位で管理。',
 		href: '/crm/contractor/',
 		linkLabel: '受託開発版を見る',
 	},
 	{
 		noun: '契約',
 		title: '代理店',
-		text: 'SaaSリセラー向け。契約更新、解約リスク、更新商談、クロスセル候補を追跡。',
+		text: 'SaaSリセラー向け。契約更新・解約リスク・更新商談・クロスセル候補を追跡。',
 		href: '/crm/reseller/',
 		linkLabel: '代理店版を見る',
 	},
 	{
 		noun: '在籍',
 		title: 'スクール',
-		text: 'B2Cの教室・スクール向け。生徒の在籍、継続、休会、退会を管理。',
+		text: 'B2Cの教室・スクール向け。生徒の在籍・継続・休会・退会を管理。',
 		href: '/crm/school/',
 		linkLabel: 'スクール版を見る',
 	},
@@ -110,7 +110,7 @@ const safeguards = [
 	},
 	{
 		label: '東京に置いてある',
-		text: 'データは東京リージョンに保存しています。AIの処理は Anthropic・OpenAI・Google（米国）を経由しますが、送った内容を学習に使わせない契約です。',
+		text: 'データは東京リージョンに保存しています。AIの処理はAnthropic・OpenAI・Google（米国）を経由しますが、送った内容を学習に使わせない契約です。',
 	},
 ];
 
@@ -151,7 +151,7 @@ const readings = [
 
 <BaseLayout
 	title="国産CRM「Revenue CRM」| 入力がめんどくさくないCRM。中小企業向けCRM/SFA"
-	description="入力がめんどくさくないCRM。名刺は撮るだけ、商談メモは貼るだけ、録音は上げるだけで、AIが記録の下書きを作ります。マーケティング・営業・顧客管理を一つの顧客データでつなぐ中小企業向けのCRM/SFA（顧客管理・営業管理ツール）。B2B・支援会社／受託開発・代理店・スクールの4エディション。1アカウント月額3,000円（税抜）、30日間無料。"
+	description="入力がめんどくさくないCRM。名刺は撮るだけ、商談メモは貼るだけ、録音は上げるだけ。AIが記録の下書きを作ります。マーケティング・営業・顧客管理を一つの顧客データでつなぐ中小企業向けのCRM/SFA（顧客管理・営業管理ツール）。B2B・支援会社／受託開発・代理店・スクールの4エディション。1アカウント月額3,000円（税抜）、30日間無料。"
 	ogImage="/images/crm/og-crm.png"
 	lang="ja"
 	alternateUrl="/en/crm/"
@@ -165,7 +165,7 @@ const readings = [
 	"applicationSubCategory": "CRM/SFA（顧客管理・営業管理ツール）",
 	"operatingSystem": "Web",
 	"url": "https://consilegy.com/crm/",
-	"description": "入力がめんどくさくないCRM。名刺は撮るだけ、商談メモは貼るだけ、録音は上げるだけで、AIが記録の下書きを作る。マーケティング（MA）・営業（SFA）・顧客管理（CRM）を一つの顧客データでつなぐ中小企業向けのCRM/SFA（顧客管理・営業管理ツール）。175本の自動化と業務別のひな形付き。B2B、支援会社・受託開発、代理店（SaaSリセラー）、スクール（B2C）の4エディション。2026年9月28日正式提供開始。",
+	"description": "入力がめんどくさくないCRM。名刺は撮るだけ、商談メモは貼るだけ、録音は上げるだけ。AIが記録の下書きを作る。マーケティング（MA）・営業（SFA）・顧客管理（CRM）を一つの顧客データでつなぐ中小企業向けのCRM/SFA（顧客管理・営業管理ツール）。175本の自動化と業務別のひな形付き。B2B、支援会社・受託開発、代理店（SaaSリセラー）とスクール（B2C）の4エディション。2026年9月28日正式提供開始。",
 	"inLanguage": ["ja", "en", "zh-Hant"],
 	"offers": {
 		"@type": "Offer",
@@ -200,7 +200,7 @@ const readings = [
 		<figure class="hero-media">
 			<img
 				src="/images/crm/screen-dashboard-2026-09.webp"
-				alt="Revenue CRMのダッシュボード。パイプライン総額、加重フォーキャスト、勝率、期限切れタスク、ステージ別パイプライン、注目の商談を一画面に表示。"
+				alt="Revenue CRMのダッシュボード。パイプライン総額・加重フォーキャスト・勝率・期限切れタスク・ステージ別パイプライン・注目の商談を一画面に表示。"
 				width="1600"
 				height="1000"
 				decoding="async"
@@ -218,7 +218,7 @@ const readings = [
 			<p class="kicker">課題</p>
 			<h2>つなごうとすると、<br />仕事が増える。</h2>
 		</div>
-		<p class="section-lead">顧客との関係は、マーケティング、営業、顧客対応という部署とツールの境界で切れます。つなごうとしてツールを入れると、今度は入力・設定・運用という「CRMのための仕事」が生まれます。</p>
+		<p class="section-lead">顧客との関係は、マーケティング・営業・顧客対応という部署とツールの境界で切れます。つなごうとしてツールを入れると、今度は入力・設定・運用という「CRMのための仕事」が生まれます。</p>
 		<ol class="problem-table">
 			{outcomes.map((item) => (
 				<li>
@@ -254,13 +254,13 @@ const readings = [
 		<figure class="hero-media usecase-media">
 			<img
 				src="/videos/revenue-crm-demo-2026-09.gif"
-				alt="Revenue CRMの操作デモ。ダッシュボード、商談カンバン、自動化ライブラリ、AIエージェント、3言語切替を順に操作している。"
+				alt="Revenue CRMの操作デモ。ダッシュボード・商談カンバン・自動化ライブラリ・AIエージェント・3言語切替を順に操作している。"
 				width="800"
 				height="585"
 				loading="lazy"
 				decoding="async"
 			/>
-			<figcaption>操作デモ：ダッシュボード、商談カンバン、自動化ライブラリ、AIエージェント、3言語切替</figcaption>
+			<figcaption>操作デモ：ダッシュボード・商談カンバン・自動化ライブラリ・AIエージェント・3言語切替</figcaption>
 		</figure>
 	</div>
 </section>

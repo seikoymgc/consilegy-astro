@@ -179,7 +179,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 		const band = bandOf(activeScores());
 		const lines = CATEGORIES.map((c, i) => {
 			const s = scores[i];
-			if (s === null) return `— ${c.name}: ${EXCLUDED_LABEL}`;
+			if (s === null) return `- ${c.name}: ${EXCLUDED_LABEL}`;
 			return `${SIGNAL_META[signalOf(s)].emoji} ${c.name}: ${s}/4`;
 		});
 		const painName = state.painCat
@@ -531,7 +531,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 			: state.channel === 'referral'
 				? 'CRMの運用に人を割けない、または案件・契約の記録が個人任せになっている場合は、自社プロダクトから始める選択肢もあります。支援会社向けの案件管理、代理店向けの契約更新管理のエディションがあります。'
 				: 'CRMの運用に人を割けない、またはExcelに戻っている場合は、自社プロダクトから始める選択肢もあります。';
-		const forkLink = isSchool ? 'Revenue CRM スクール版を見る →' : 'Revenue CRM を見る →';
+		const forkLink = isSchool ? 'Revenue CRMスクール版を見る →' : 'Revenue CRMを見る →';
 		const copyOf = (c: (typeof CATEGORIES)[number]) =>
 			c.id === 'expansion' && oneShot ? EXPANSION_ONE_SHOT : c;
 
@@ -565,7 +565,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 					if (s === null) {
 						return `
 					<div class="rd-map-card rd-sig-off">
-						<span class="rd-map-emoji">—</span>
+						<span class="rd-map-emoji">×</span>
 						<div>
 							<span class="rd-map-name">${esc(c.name)}</span>
 							<span class="rd-map-state">${esc(EXCLUDED_LABEL)}</span>

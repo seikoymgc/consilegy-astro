@@ -1,7 +1,7 @@
 ---
 // お問い合わせフォーム。受け口は Revenue CRM 自身のフォーム（Consilegy合同会社の組織）で、
 // 送信するとワークフローが担当者にメールで知らせる（回答の中身つき）。
-// crm.consilegy.com は CORS を返さないので、text/plain の単純リクエスト（no-cors）で送る。
+// text/plain の単純リクエストで送り、応答を読んで受け付けられたかを確かめる（受け口は CORS を返す）。
 // 問い合わせはメルマガの同意ではないので consent は送らない。
 // 英語版は項目名に _en を付ける（通知のラベルを英語で出すため。日本語版と項目定義を分ける）。
 interface Props {
@@ -51,6 +51,7 @@ const t =
 				invalid: 'Please enter a valid email address.',
 				privacy: 'By sending this form, you agree to our <a href="/en/privacy-policy/">privacy policy</a>.',
 				done: 'Thank you for reaching out. We will get back to you shortly.',
+				failed: 'We could not send this. Please try again later, or email info@consilegy.com.',
 			}
 		: {
 				required: '必須',
@@ -61,10 +62,11 @@ const t =
 				invalid: 'メールアドレスの形式をご確認ください。',
 				privacy: '送信により、<a href="/privacy-policy/">プライバシーポリシー</a>に同意したものとみなします。',
 				done: 'お問い合わせいただき、ありがとうございます。内容を拝見し、担当者よりご連絡します。3営業日たっても連絡がない場合は、info@consilegy.comへお知らせください。',
+				failed: '送信できませんでした。時間をおいてもう一度お試しいただくか、info@consilegy.comへメールでご連絡ください。',
 			};
 ---
 
-<div class="cf" data-contact-form data-submit-url={submitUrl} data-sending={t.sending} data-missing={t.missing} data-invalid={t.invalid}>
+<div class="cf" data-contact-form data-submit-url={submitUrl} data-sending={t.sending} data-missing={t.missing} data-invalid={t.invalid} data-failed={t.failed}>
 	<form data-hs-do-not-collect="true" novalidate>
 		<div class="cf-grid">
 			{fields.map((f) => (
@@ -122,22 +124,35 @@ const t =
 				});
 				if (!utm.utm_source) utm.utm_source = 'consilegy.com' + location.pathname;
 				var btn = form.querySelector('button');
+				var label = btn.dataset.label || btn.textContent;
+				btn.dataset.label = label;
 				btn.disabled = true;
 				btn.textContent = root.dataset.sending;
+				var finished = false;
+				var fail = function () {
+					if (finished) return;
+					finished = true;
+					btn.disabled = false;
+					btn.textContent = label;
+					err.textContent = root.dataset.failed;
+					err.hidden = false;
+				};
 				var done = function () {
+					if (finished) return;
+					finished = true;
 					form.hidden = true;
 					root.querySelector('.cf-done').hidden = false;
 				};
 				fetch(root.dataset.submitUrl, {
 					method: 'POST',
-					mode: 'no-cors',
+					mode: 'cors',
 					headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
 					body: JSON.stringify({ values: values, utm: utm, referrer: document.referrer || location.href, hp: String(fd.get('hp') || '') }),
 					keepalive: true,
-				}).then(done, done);
-				// 受付口は通知メールを送り終えてから応答するので数秒かかる。送信は keepalive で
-				// 続くため、応答を待たずにお礼を出す。
-				setTimeout(done, 1500);
+				}).then(function (res) { if (res.ok) done(); else fail(); }, fail);
+				// 受付口は通知メールを送り終えてから応答するので数秒かかる。20秒たっても応答がなければ、
+				// 送信は keepalive で続いているとみなしてお礼を出す（失敗と分かったときだけ止める）。
+				setTimeout(done, 20000);
 			});
 		});
 	})();

@@ -2,7 +2,7 @@
 // 紹介パートナー制度のフォーム（パートナー申込・紹介先の登録）。
 // 受け口は ContactForm と同じく Revenue CRM 自身のフォーム（Consilegy合同会社の組織）で、
 // 送信するとワークフローが担当者にメールで知らせる。crm.consilegy.com は CORS を返さないので
-// text/plain の単純リクエスト（no-cors）で送る。
+// text/plain の単純リクエストで送り、応答を読んで受け付けられたかを確かめる（受け口は CORS を返す）。
 // メールアドレス型の項目は、送信した本人（紹介者）の1つだけにする。CRM はその項目でコンタクトを作り、
 // 自動化の対象にするため、紹介先のアドレスを email 型にすると紹介先に自動でメールが届きうる。
 // 紹介先の連絡先は text 型で受ける。
@@ -123,9 +123,18 @@ const submitUrl = `https://crm.consilegy.com/api/forms/${formId}/submit`;
 				});
 				if (!utm.utm_source) utm.utm_source = 'consilegy.com' + location.pathname;
 				var btn = form.querySelector('button');
+				var label = btn.dataset.label || btn.textContent;
+				btn.dataset.label = label;
 				btn.disabled = true;
 				btn.textContent = '送信しています…';
 				var finished = false;
+				var fail = function () {
+					if (finished) return;
+					finished = true;
+					btn.disabled = false;
+					btn.textContent = label;
+					show('送信できませんでした。時間をおいてもう一度お試しいただくか、info@consilegy.comへメールでご連絡ください。');
+				};
 				var done = function () {
 					if (finished) return;
 					finished = true;
@@ -143,13 +152,14 @@ const submitUrl = `https://crm.consilegy.com/api/forms/${formId}/submit`;
 				};
 				fetch(root.dataset.submitUrl, {
 					method: 'POST',
-					mode: 'no-cors',
+					mode: 'cors',
 					headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
 					body: JSON.stringify({ values: values, utm: utm, referrer: document.referrer || location.href, consent: root.dataset.consent === '1', hp: String((form.querySelector('[name=hp]') || {}).value || '') }),
 					keepalive: true,
-				}).then(done, done);
-				// 受付口は通知メールを送り終えてから応答するので数秒かかる。送信は keepalive で続くため、応答を待たずにお礼を出す。
-				setTimeout(done, 1500);
+				}).then(function (res) { if (res.ok) done(); else fail(); }, fail);
+				// 受付口は通知メールを送り終えてから応答するので数秒かかる。20秒たっても応答がなければ、
+				// 送信は keepalive で続いているとみなして先へ進める（失敗と分かったときだけ止める）。
+				setTimeout(done, 20000);
 			});
 		});
 	})();

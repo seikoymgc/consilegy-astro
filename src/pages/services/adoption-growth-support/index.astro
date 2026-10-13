@@ -12,11 +12,11 @@ const faqItems = [
 	},
 	{
 		q: 'KPIレビューも対応できますか？',
-		a: 'はい。月次・隔週でのKPIレビュー運営支援は支援範囲の中心です。単に数字を確認するだけの会議ではなく、KPIから改善アクションを設計し、優先順位を付け、実行まで追跡する会議体の設計と運営支援を行います。',
+		a: 'はい。月次・隔週でのKPIレビュー運営支援は支援範囲の中心です。単に数字を確認するだけの会議にはしません。KPIから改善アクションを設計し、優先順位を付け、実行まで追跡する会議体の設計と運営支援を行います。',
 	},
 	{
 		q: 'RevOpsとは何ですか？',
-		a: 'RevOps（Revenue Operations）は、営業・マーケティング・カスタマーサクセスなど、収益に関わる部門を横断して、プロセス・データ・ツール・KPIを統合的に運用・改善する機能です。ツール導入だけでは実現せず、業務プロセス設計・KPI定義・会議体設計・継続的な改善サイクルが揃って初めて機能します。CRM・SFA・MAの「定着」と「改善」は、RevOpsの実践そのものです。',
+		a: 'RevOps（Revenue Operations）は、営業・マーケティング・カスタマーサクセスなど収益に関わる部門を横断して、プロセス・データ・ツール・KPIを統合的に運用・改善する機能です。ツール導入だけでは実現せず、業務プロセス設計・KPI定義・会議体設計・継続的な改善サイクルが揃って初めて機能します。CRM・SFA・MAの「定着」と「改善」は、RevOpsの実践そのものです。',
 	},
 	{
 		q: 'Revenue Architectureとの違いは何ですか？',
@@ -179,7 +179,7 @@ const deliverables = [
 		<div class="collapse-footer">
 			<p>
 				Revenue Operationsは、導入しただけでは機能しません。<br />
-				入力、レビュー、改善、会議運用まで含めて、<br />
+				入力・レビュー・改善・会議運用まで含めて、<br />
 				継続的に改善される必要があります。
 			</p>
 		</div>
@@ -467,7 +467,7 @@ const deliverables = [
 			<div class="cycle-text">
 				<div class="cycle-text__block">
 					<h3>改善サイクルが止まる理由</h3>
-					<p>多くの企業では、KPIを定義しても「Review」が形骸化し、改善アクションが生まれません。Consilegyは、Measure から Operate まで、各フェーズが実際に機能するよう設計・支援します。</p>
+					<p>多くの企業では、KPIを定義しても「Review」が形骸化し、改善アクションが生まれません。Consilegyは、MeasureからOperateまで、各フェーズが実際に機能するよう設計・支援します。</p>
 				</div>
 				<div class="cycle-text__block">
 					<h3>月次を基盤にする</h3>
@@ -542,7 +542,7 @@ const deliverables = [
 							<div class="dash-bar" style="height:70%"></div>
 							<div class="dash-bar dash-bar--hi" style="height:92%"></div>
 						</div>
-						<div class="dash-mock__chart-label">6ヶ月 Pipeline推移</div>
+						<div class="dash-mock__chart-label">6ヶ月Pipeline推移</div>
 					</div>
 				</div>
 				<!-- Slack Notification Mock -->
@@ -554,21 +554,21 @@ const deliverables = [
 					<div class="slack-msg">
 						<div class="slack-msg__meta">
 							<span class="slack-bot">RevOps Bot</span>
-							<span class="slack-time">月曜 9:00</span>
+							<span class="slack-time">月曜9:00</span>
 						</div>
 						<div class="slack-msg__body">
-							<p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg> <strong>週次 KPIサマリー</strong></p>
+							<p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg> <strong>週次KPIサマリー</strong></p>
 							<p>Pipeline: ¥142M（前週比 +¥12M）</p>
 							<p>商談化アラート: 3件 要確認</p>
 						</div>
 					</div>
 					<div class="slack-alert">
 						<span class="slack-alert__icon">⚠</span>
-						<span>Q3 MQL達成率 64%（要対応）</span>
+						<span>Q3 MQL達成率64%（要対応）</span>
 					</div>
 					<div class="slack-notif">
 						<span class="slack-notif__icon">🔔</span>
-						<span>停滞案件 5件（30日以上更新なし）</span>
+						<span>停滞案件5件（30日以上更新なし）</span>
 					</div>
 				</div>
 			</div>
@@ -712,12 +712,12 @@ const deliverables = [
 				<p class="eyebrow-label">How We Work</p>
 				<h2>月額伴走の進め方</h2>
 				<p class="approach-lead">
-					Consilegyでは、単発改善ではなく、継続的にRevenue Operationsを改善する月額伴走支援を提供しています。月次レビュー、KPI分析、CRM改善、会議改善、RevOps改善を継続的に実施します。
+					Consilegyでは、単発改善ではなく、継続的にRevenue Operationsを改善する月額伴走支援を提供しています。月次レビュー・KPI分析・CRM改善・会議改善・RevOps改善を継続的に実施します。
 				</p>
 				<div class="approach-micro">
 					<p>Consilegyでは、単に改善提案を行うだけではありません。</p>
 					<p>
-						不要な入力項目の整理、ワークフロー自動化、レポート作成の巻き取り、ダッシュボード整備などを通じて、<strong>現場の入力・集計負荷を下げ、営業が「売ること」に集中できる状態を作ります</strong>
+						不要な入力項目の整理・ワークフロー自動化・レポート作成の巻き取り・ダッシュボード整備などを通じて、<strong>現場の入力・集計負荷を下げ、営業が「売ること」に集中できる状態を作ります</strong>
 					</p>
 				</div>
 				<ul class="approach-list">
@@ -757,7 +757,7 @@ const deliverables = [
 		</div>
 		<div class="pricing-pre">
 			<p>
-				CRM導入後に運用が崩れると、営業工数、レポート工数、会議工数、マーケティングROIが継続的に失われます。<br />
+				CRM導入後に運用が崩れると、営業工数・レポート工数・会議工数・マーケティングROIが継続的に失われます。<br />
 				Revenue Operationsは、導入よりも、<strong>改善運用フェーズで差が生まれます</strong>
 			</p>
 		</div>
@@ -779,7 +779,7 @@ const deliverables = [
 				<div class="pricing-phase__badge">推奨</div>
 				<div class="pricing-phase__phase">Phase 2</div>
 				<h3>運用定着・改善伴走支援</h3>
-				<div class="pricing-phase__price">月額 30万〜100万円</div>
+				<div class="pricing-phase__price">月額30万〜100万円</div>
 				<p class="pricing-phase__desc">RevOps改善サイクルの設計・定着・継続改善を伴走支援します。支援範囲に応じてプランを設定。</p>
 				<ul class="pricing-includes">
 					<li>KPI改善</li>
@@ -860,7 +860,7 @@ const deliverables = [
 			「導入しただけ」で終わらせていませんか。
 		</h2>
 		<p class="cta-final__body">
-			現状のCRM運用、KPI、会議体、営業マーケ連携を整理し、<br />
+			現状のCRM運用・KPI・会議体・営業マーケ連携を整理し、<br />
 			どこでRevenue Operationsが崩れているのかを可視化します。
 		</p>
 		<div class="cta-final__btns">

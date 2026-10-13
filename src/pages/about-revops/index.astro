@@ -4,27 +4,27 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const faqItems = [
 	{
 		q: 'RevOpsとは何ですか？',
-		a: 'RevOpsとは、営業・マーケティング・カスタマーサクセスなど、収益に関わる部門の業務、KPI、データ、システムを横断して運用・改善する考え方です。部門ごとに分断された収益活動をつなぎ、売上を再現性高く生み出すための運用機能として機能します。',
+		a: 'RevOpsとは、営業・マーケティング・カスタマーサクセスなど、収益に関わる部門の業務・KPI・データ・システムを横断して運用・改善する考え方です。部門ごとに分断された収益活動をつなぎ、売上を再現性高く生み出すための運用機能として機能します。',
 	},
 	{
 		q: 'RevOpsとCRMは何が違いますか？',
-		a: 'CRMは顧客情報や商談を管理するツールです。RevOpsは、そのCRMを含む業務プロセス、KPI、データ、会議体を横断して改善する運用機能です。CRMはツールであり、RevOpsはそのツールを収益改善に使うための運用設計です。',
+		a: 'CRMは顧客情報や商談を管理するツールです。RevOpsは、そのCRMを含む業務プロセス・KPI・データ・会議体を横断して改善する運用機能です。CRMはツールであり、RevOpsはそのツールを収益改善に使うための運用設計です。',
 	},
 	{
 		q: 'RevOpsとレベニューアーキテクチャ（Revenue Architecture）は何が違いますか？',
-		a: 'RevOpsは収益に関わる業務を運用・改善する機能です。レベニューアーキテクチャ（Revenue Architecture）は、そのRevOpsを成立させるために、データ、システム、プロセス、KPIのつながり方を設計する土台です。Consilegyでは、RevOpsを「運用」、レベニューアーキテクチャを「その土台となる設計」として定義しています。',
+		a: 'RevOpsは収益に関わる業務を運用・改善する機能です。レベニューアーキテクチャ（Revenue Architecture）は、そのRevOpsを成立させるために、データ・システム・プロセス・KPIのつながり方を設計する土台です。Consilegyでは、RevOpsを「運用」、レベニューアーキテクチャを「その土台となる設計」として定義しています。',
 	},
 	{
 		q: 'RevOpsはどの部門が担当しますか？',
-		a: '営業企画、マーケティングオペレーション、カスタマーサクセス、情報システム、経営企画などが横断的に関与します。特定の1部署が単独で担うものではなく、KPI・データ・プロセスの統一ルールを全社で共有することが重要です。',
+		a: '営業企画・マーケティングオペレーション・カスタマーサクセス・情報システム・経営企画などが横断的に関与します。特定の1部署が単独で担うものではなく、KPI・データ・プロセスの統一ルールを全社で共有することが重要です。',
 	},
 	{
 		q: '中小企業にもRevOpsは必要ですか？',
-		a: '営業、マーケティング、CSが分業化し、CRMやMAを使い始めた段階でRevOpsの考え方は有効です。特に20〜300名規模のBtoB企業では、部門間連携とKPI整備が成長のボトルネックになりやすく、早期に整備することで拡張性が高まります。',
+		a: '営業・マーケティング・CSが分業化し、CRMやMAを使い始めた段階でRevOpsの考え方は有効です。特に20〜300名規模のBtoB企業では、部門間連携とKPI整備が成長のボトルネックになりやすく、早期に整備することで拡張性が高まります。',
 	},
 	{
 		q: 'RevOpsを始めるには何から行うべきですか？',
-		a: 'まずCRM・KPI、営業・マーケ連携、会議体の現状を整理し、どこで収益プロセスが分断しているかを確認することから始めます。現状診断によってボトルネックを特定してから、KPI・プロセス・システムの順番で整備するのが効果的です。',
+		a: 'まずCRM・KPI、営業・マーケ連携と会議体の現状を整理して、どこで収益プロセスが分断しているかを確認することから始めます。現状診断によってボトルネックを特定してから、KPI・プロセス・システムの順番で整備するのが効果的です。',
 	},
 ];
 
@@ -48,11 +48,11 @@ const breadcrumbSchema = {
 };
 
 const domains = [
-	{ en: 'Process', ja: 'プロセス', desc: 'リード獲得、商談化、受注、継続までの業務プロセス。各フェーズの定義とハンドオフを整備します。' },
-	{ en: 'Data', ja: 'データ', desc: '顧客、担当者、商談、契約、活動履歴などのデータ構造。判断に使えるデータ品質を保ちます。' },
-	{ en: 'KPI', ja: 'KPI', desc: 'MQL・SQL、商談化率、受注率、LTV・CACなどの指標定義。部門横断で統一した基準を持ちます。' },
+	{ en: 'Process', ja: 'プロセス', desc: 'リード獲得・商談化・受注・継続までの業務プロセス。各フェーズの定義とハンドオフを整備します。' },
+	{ en: 'Data', ja: 'データ', desc: '顧客・担当者・商談・契約・活動履歴などのデータ構造。判断に使えるデータ品質を保ちます。' },
+	{ en: 'KPI', ja: 'KPI', desc: 'MQL・SQL、商談化率と受注率、LTV・CACなどの指標定義。部門横断で統一した基準を持ちます。' },
 	{ en: 'System', ja: 'システム', desc: 'CRM・SFA・MA・BI、会計、請求ツールなどのシステム連携。ツールを収益プロセスに接続します。' },
-	{ en: 'Operating Rhythm', ja: '会議・運用', desc: '営業会議、マーケ会議、CSレビュー、経営報告などの会議体。意思決定サイクルを設計します。' },
+	{ en: 'Operating Rhythm', ja: '会議・運用', desc: '営業会議・マーケ会議・CSレビュー・経営報告などの会議体。意思決定サイクルを設計します。' },
 ];
 
 const issues = [
@@ -107,7 +107,7 @@ const relatedServices = [
 
 <BaseLayout
 	title="RevOpsとは | レベニューオペレーション（Revenue Operations）の定義・導入・CRMとの違い | Consilegy"
-	description="RevOps（レベニューオペレーション）とは、営業・マーケティング・カスタマーサクセスの業務、KPI、データ、システムを横断して運用・改善する考え方です。CRMとの違い、レベニューアーキテクチャとの関係、導入の進め方を解説します。"
+	description="RevOps（レベニューオペレーション）とは、営業・マーケティング・カスタマーサクセスの業務とKPI・データ・システムを横断して運用・改善する考え方です。CRMとの違い、レベニューアーキテクチャとの関係、導入の進め方を解説します。"
 	lang="ja"
 >
 	<Fragment slot="head">
@@ -161,7 +161,7 @@ const relatedServices = [
 		</div>
 		<div class="def-body">
 			<p class="def-long">
-				RevOpsとは、レベニューオペレーション（Revenue Operations）の略で、営業・マーケティング・カスタマーサクセス・財務・システムなど、収益に関わる部門のプロセス、KPI、データ、ツールを統合的に運用・改善する考え方です。
+				RevOpsとは、レベニューオペレーション（Revenue Operations）の略です。営業・マーケティング・カスタマーサクセス・財務・システムなど、収益に関わる部門のプロセス・KPI・データ・ツールを統合的に運用・改善する考え方です。
 			</p>
 			<div class="def-oneline">
 				<p><strong>RevOpsは部門ごとに分断された収益活動をつなぎ、売上を再現性高く生み出す運用機能です。</strong></p>
@@ -179,7 +179,7 @@ const relatedServices = [
 				<div class="distinction-col">
 					<p class="distinction-tag">レベニューアーキテクチャ（Revenue Architecture）</p>
 					<p class="distinction-role">「構造設計」の土台</p>
-					<p class="distinction-text">その運用を成立させるために、CRM、データ、KPI、業務プロセスをどう接続するかを設計する構造そのものを指します。</p>
+					<p class="distinction-text">その運用を成立させるために、CRM・データ・KPI・業務プロセスをどう接続するかを設計する構造そのものを指します。</p>
 				</div>
 			</div>
 		</div>
@@ -195,8 +195,8 @@ const relatedServices = [
 		</div>
 		<div class="why-body">
 			<div class="why-text">
-				<p>BtoB企業では、マーケティング、営業、カスタマーサクセスがそれぞれ別のKPI、別のツール、別の会議体で動いていることが多くあります。</p>
-				<p>その結果、リードは増えているのに商談化しない、営業活動は増えているのに受注率が上がらない、継続率やLTVが見えないといった問題が起こります。</p>
+				<p>BtoB企業では、マーケティング・営業・カスタマーサクセスがそれぞれ別のKPI・別のツール・別の会議体で動いていることが多くあります。</p>
+				<p>その結果、リードは増えているのに商談化しない、営業活動は増えているのに受注率が上がらないといった問題が起こります。継続率やLTVも見えません。</p>
 				<p>RevOpsは、これらを部門ごとの問題ではなく、収益プロセス全体の問題として捉え直します。</p>
 			</div>
 			<ul class="issue-grid">
@@ -285,7 +285,7 @@ const relatedServices = [
 			<h2>RevOpsとCRMの違い</h2>
 		</div>
 		<div class="compare-intro">
-			<p>CRMは、顧客情報や商談情報を管理するためのシステムです。一方、RevOpsは、そのCRMを含む営業・マーケティング・CSの業務、KPI、データ、会議体を横断して改善する運用機能です。</p>
+			<p>CRMは、顧客情報や商談情報を管理するためのシステムです。一方、RevOpsは、そのCRMを含む営業・マーケティング・CSの業務とKPI・データ・会議体を横断して改善する運用機能です。</p>
 			<p>つまり、<strong>CRMはツールであり、RevOpsはそのツールを収益改善に使うための運用設計</strong>です。</p>
 		</div>
 		<div class="compare-grid">
@@ -324,7 +324,7 @@ const relatedServices = [
 			<h2>RevOpsとレベニューアーキテクチャ（Revenue Architecture）の違い</h2>
 		</div>
 		<div class="compare-intro">
-			<p>RevOpsは、収益に関わる業務を運用・改善する機能です。一方、レベニューアーキテクチャ（Revenue Architecture）は、そのRevOpsを成立させるために、データ、システム、プロセス、KPIのつながり方を設計する土台です。</p>
+			<p>RevOpsは、収益に関わる業務を運用・改善する機能です。一方、レベニューアーキテクチャ（Revenue Architecture）は、そのRevOpsを成立させる土台です。データ・システム・プロセス・KPIのつながり方を設計します。</p>
 		</div>
 		<div class="ra-compare">
 			<div class="ra-card ra-card--revops">
@@ -420,7 +420,7 @@ const relatedServices = [
 			<p class="eyebrow">Our Approach</p>
 			<h2>ConsilegyのRevOps支援の考え方</h2>
 		</div>
-		<p class="approach-lead">Consilegyは、RevOpsを単なるツール運用やレポート整備とは捉えていません。営業、マーケティング、カスタマーサクセス、CRM・KPI、データ構造、会議体を一体で見直し、レベニューアーキテクチャ（Revenue Architecture）に基づいて売上改善の仕組みを設計します。</p>
+		<p class="approach-lead">Consilegyは、RevOpsを単なるツール運用やレポート整備とは捉えていません。営業・マーケティング・カスタマーサクセス、CRM・KPI、データ構造と会議体を一体で見直します。そのうえで、レベニューアーキテクチャ（Revenue Architecture）に基づいて売上改善の仕組みを設計します。</p>
 		<div class="approach-grid">
 			<div class="approach-card">
 				<p class="approach-en">Vendor-Free</p>
@@ -483,7 +483,7 @@ const relatedServices = [
 	<div class="container">
 		<div class="final-cta__inner">
 			<h2>RevOpsを、自社の売上改善にどう活かすべきか<br />整理しませんか。</h2>
-			<p>CRM、営業・マーケ連携、KPI、データ構造、Revenue Architectureの観点から、現状の課題を整理します。</p>
+			<p>CRMと営業・マーケ連携、KPIとデータ構造、Revenue Architectureの観点から現状の課題を整理します。</p>
 			<div class="final-cta__actions">
 				<a href="/diagnostic/" class="btn btn--cta-primary">収益を自己診断</a>
 				<a href="/download/" class="btn btn--cta-ghost">サービス資料をダウンロード</a>

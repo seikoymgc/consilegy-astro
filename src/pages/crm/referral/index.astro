@@ -316,17 +316,13 @@ const fields: PartnerField[] = [
 	.rf-page p { color: var(--color-text); }
 
 	/* hero: 青い帯に白文字。製品画面は帯の下へはみ出す */
-	.rf-hero { padding: 0; background: var(--color-primary); color: #fff; }
+	.rf-hero { padding: 0; }
 	.rf-page .nb { display: inline-block; }
-	.rf-lead { margin: var(--space-md) 0 0; font-size: 1.05rem; line-height: 1.95; max-width: 32em; color: rgba(255, 255, 255, 0.92) !important; }
+	.rf-lead { margin: var(--space-md) 0 0; font-size: 1.05rem; line-height: 1.95; max-width: 32em; color: var(--color-text) !important; }
 	.rf-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: var(--space-lg); }
-	.rf-actions .btn--primary { background: #fff; color: var(--color-primary); box-shadow: none; }
-	.rf-actions .btn--primary:hover { background: #fff; color: var(--color-primary-dark); }
-	.rf-actions .btn--secondary { border-color: #fff; color: #fff; }
-	.rf-actions .btn--secondary:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
-	.rf-hero-note { margin: var(--space-sm) 0 0; font-size: 0.9rem; color: rgba(255, 255, 255, 0.78) !important; }
+	.rf-hero-note { margin: var(--space-sm) 0 0; font-size: 0.9rem; color: var(--color-text-muted) !important; }
 
-	.rf-hero-base { padding-top: var(--space-lg); padding-bottom: var(--space-lg); }
+	.rf-hero-base { padding-top: var(--space-lg); padding-bottom: var(--space-lg); border-bottom: 1px solid var(--color-border); }
 	.rf-hero-row { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--space-md) var(--space-lg); margin-top: 0; }
 	.rf-hero-row .rf-lead { margin: 0; }
 	.rf-hero-row .rf-actions { margin-top: 0; }
@@ -334,7 +330,8 @@ const fields: PartnerField[] = [
 	/* FVの下半分: 左が法人営業、右がスクール。同じ幅・同じ構成にする */
 	.rf-split { display: grid; grid-template-columns: 1fr 1fr; }
 	.rf-half { display: flex; padding: var(--space-lg) var(--space-lg) 0; }
-	.rf-half--b2b { justify-content: flex-end; background: var(--color-primary-dark); }
+	.rf-half--b2b { justify-content: flex-end; background: #0B1F44; }
+	.rf-half--b2b .rf-half-tag { color: #0B1F44; }
 	.rf-half--school { justify-content: flex-start; background: #F4F1EA; color: #10212F; }
 	.rf-half-inner { display: flex; flex-direction: column; width: 100%; max-width: 560px; }
 	.rf-half-tag { align-self: flex-start; margin: 0 0 0.75rem; padding: 0.25rem 0.8rem; border-radius: 999px; font-size: 0.85rem; font-weight: 700; background: #fff; color: var(--color-primary); }

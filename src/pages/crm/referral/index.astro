@@ -120,51 +120,57 @@ const fields: PartnerField[] = [
 <div class="rf-page">
 
 <section class="rf-hero">
-	<div class="container rf-hero-grid">
-		<div class="rf-hero-copy">
-			<p class="rf-eyebrow">
-				<img src="/images/crm/logo/revenue-crm-logo-v3.svg" alt="" width="24" height="24" decoding="async" />
-				Revenue CRM紹介パートナー制度
-			</p>
-			<h1><span class="nb">「あの会社にも、</span><span class="nb">あの教室にも</span><br /><span class="nb">教えたい」と</span><span class="nb">思えるCRMです。</span></h1>
-			<p class="rf-lead">Revenue CRMは、面倒な記録や管理をAIで減らすCRMです。法人営業の商談管理にも、教室・スクールの生徒管理にも使えます。紹介先が有料契約を始めたら、月額利用料金の20%を12ヶ月間お支払いします。</p>
+	<div class="container rf-hero-top">
+		<p class="rf-eyebrow">
+			<img src="/images/crm/logo/revenue-crm-logo-v3.svg" alt="" width="24" height="24" decoding="async" />
+			Revenue CRM紹介パートナー制度
+		</p>
+		<h1><span class="nb">「あの会社にも、</span><span class="nb">あの教室にも教えたい」と</span><span class="nb">思えるCRMです。</span></h1>
+		<div class="rf-hero-row">
+			<div>
+				<p class="rf-lead">紹介先が有料契約を始めたら、月額利用料金の20%を12ヶ月間お支払いします。あなたの作業は、紹介文の転送だけです。</p>
+				<p class="rf-hero-note">申込は無料です。紹介先が契約しなかった場合も、費用はかかりません。</p>
+			</div>
 			<div class="rf-actions">
 				<a href="#apply" class="btn btn--primary">紹介パートナーになる</a>
 				<a href="#fit" class="btn btn--secondary">どんな会社・教室に合うか見る</a>
 			</div>
-			<p class="rf-hero-note">申込は無料です。紹介先が契約しなかった場合も、費用はかかりません。</p>
-			<dl class="rf-stats">
-				<div><dt>報酬</dt><dd>20<small>%</small></dd></div>
-				<div><dt>期間</dt><dd>12<small>ヶ月</small></dd></div>
-				<div><dt>あなたの作業</dt><dd>転送<small>だけ</small></dd></div>
-			</dl>
 		</div>
-		<figure class="rf-hero-media">
-			<div class="rf-shots">
-				<div class="rf-shot rf-shot--b2b">
-					<span class="rf-shot-tag">法人営業</span>
-					<img
-						src="/images/crm/screen-dashboard-2026-09.webp"
-						alt="Revenue CRMのダッシュボード。パイプライン総額・勝率・期限切れタスク・注目の商談を一画面に表示。"
-						width="1600"
-						height="1000"
-						decoding="async"
-						fetchpriority="high"
-					/>
-				</div>
-				<div class="rf-shot rf-shot--school">
-					<span class="rf-shot-tag">教室・スクール</span>
-					<img
-						src="/images/crm/school/screen-students-v3.webp"
-						alt="Revenue CRMスクール版の生徒管理。生徒ごとの課題の提出状況とLINEの返信状況を一覧で表示。"
-						width="1200"
-						height="750"
-						decoding="async"
-					/>
-				</div>
+	</div>
+	<div class="rf-split">
+		<div class="rf-half rf-half--b2b">
+			<div class="rf-half-inner">
+				<p class="rf-half-tag">法人営業</p>
+				<p class="rf-half-title">「あの会社に、教えたい」</p>
+				<p class="rf-half-text">営業の記録や報告に、時間を取られている会社に。商談メモは貼るだけ。記録の下書きはAIが作ります。</p>
+				<a class="rf-half-link" href="/products/">法人営業版を見る</a>
+				<img
+					class="rf-half-shot"
+					src="/images/crm/screen-dashboard-2026-09.webp"
+					alt="Revenue CRMのダッシュボード。パイプライン総額・勝率・期限切れタスク・注目の商談を一画面に表示。"
+					width="1600"
+					height="1000"
+					decoding="async"
+					fetchpriority="high"
+				/>
 			</div>
-			<figcaption>紹介していただくのは、この画面のCRMです。<a href="/products/">法人営業版</a><a href="/crm/school/">スクール版</a></figcaption>
-		</figure>
+		</div>
+		<div class="rf-half rf-half--school">
+			<div class="rf-half-inner">
+				<p class="rf-half-tag">教室・スクール</p>
+				<p class="rf-half-title">「あの教室に、教えたい」</p>
+				<p class="rf-half-text">生徒の管理を、LINEとスプレッドシートで回している教室に。課題はLINEで届き、生徒ごとに自動で残ります。</p>
+				<a class="rf-half-link" href="/crm/school/">スクール版を見る</a>
+				<img
+					class="rf-half-shot"
+					src="/images/crm/school/screen-students-v3.webp"
+					alt="Revenue CRMスクール版の生徒管理。生徒ごとの課題の提出状況とLINEの返信状況を一覧で表示。"
+					width="1200"
+					height="750"
+					decoding="async"
+				/>
+			</div>
+		</div>
 	</div>
 </section>
 
@@ -315,8 +321,6 @@ const fields: PartnerField[] = [
 
 	/* hero: 青い帯に白文字。製品画面は帯の下へはみ出す */
 	.rf-hero { padding: var(--space-xl) 0 0; background: var(--color-primary); color: #fff; }
-	.rf-hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-xl); align-items: end; }
-	.rf-hero-copy { padding-bottom: var(--space-xl); }
 	.rf-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; margin: 0 0 var(--space-md); padding: 0.3rem 0.8rem 0.3rem 0.3rem; border-radius: 999px; background: #fff; color: var(--color-primary); font-weight: 700; font-size: 0.85rem; }
 	.rf-eyebrow img { width: 24px; height: 24px; border-radius: 5px; }
 	.rf-hero h1 { margin: 0; font-size: clamp(2rem, 3.4vw, 3rem); font-weight: 800; line-height: 1.3; letter-spacing: -0.01em; color: #fff; }
@@ -328,21 +332,29 @@ const fields: PartnerField[] = [
 	.rf-actions .btn--secondary { border-color: #fff; color: #fff; }
 	.rf-actions .btn--secondary:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
 	.rf-hero-note { margin: var(--space-sm) 0 0; font-size: 0.9rem; color: rgba(255, 255, 255, 0.78) !important; }
-	.rf-stats { display: flex; gap: var(--space-lg); margin: var(--space-lg) 0 0; padding-top: var(--space-md); border-top: 1px solid rgba(255, 255, 255, 0.3); }
-	.rf-stats div { margin: 0; }
-	.rf-stats dt { font-size: 0.8rem; color: rgba(255, 255, 255, 0.78); }
-	.rf-stats dd { margin: 0.1rem 0 0; font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; line-height: 1.1; color: #fff; }
-	.rf-stats small { font-size: 0.95rem; margin-left: 0.15rem; font-weight: 700; }
-	.rf-hero-media { margin: 0; min-width: 0; padding-bottom: var(--space-xl); }
-	.rf-shots { position: relative; padding-top: 0.9rem; }
-	.rf-shot { position: relative; width: 80%; }
-	.rf-shot--school { margin: -22% 0 0 auto; }
-	.rf-shot img { display: block; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28); }
-	.rf-shot-tag { position: absolute; top: -0.9rem; left: 0.75rem; z-index: 1; padding: 0.25rem 0.75rem; border-radius: 999px; background: #fff; color: var(--color-primary); font-size: 0.8rem; font-weight: 700; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18); }
-	.rf-shot--school .rf-shot-tag { color: #C2410C; }
-	.rf-hero-media figcaption { margin-top: var(--space-sm); font-size: 0.85rem; color: rgba(255, 255, 255, 0.92); }
-	.rf-hero-media figcaption a { color: #fff; margin-left: 0.6rem; font-weight: 700; }
+
+	.rf-hero-top { padding-bottom: var(--space-lg); }
+	.rf-hero-top h1 { font-size: clamp(1.8rem, 2.6vw, 2.4rem); }
+	.rf-hero-row { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--space-md) var(--space-lg); margin-top: var(--space-md); }
+	.rf-hero-row .rf-lead { margin: 0; }
+	.rf-hero-row .rf-actions { margin-top: 0; }
 	.rf-hero + .rf-section { border-top: 0; }
+	/* FVの下半分: 左が法人営業、右がスクール。同じ幅・同じ構成にする */
+	.rf-split { display: grid; grid-template-columns: 1fr 1fr; }
+	.rf-half { display: flex; padding: var(--space-lg) var(--space-lg) 0; }
+	.rf-half--b2b { justify-content: flex-end; background: var(--color-primary-dark); }
+	.rf-half--school { justify-content: flex-start; background: #F4F1EA; color: #10212F; }
+	.rf-half-inner { display: flex; flex-direction: column; width: 100%; max-width: 560px; }
+	.rf-half-tag { align-self: flex-start; margin: 0 0 0.75rem; padding: 0.25rem 0.8rem; border-radius: 999px; font-size: 0.85rem; font-weight: 700; background: #fff; color: var(--color-primary); }
+	.rf-half--school .rf-half-tag { background: #FF5C3E; color: #fff; }
+	.rf-half-title { margin: 0; font-size: clamp(1.4rem, 2.2vw, 1.9rem); font-weight: 800; line-height: 1.4; color: #fff !important; }
+	.rf-half--school .rf-half-title { color: #10212F !important; }
+	.rf-half-text { margin: 0.6rem 0 0; line-height: 1.85; color: rgba(255, 255, 255, 0.9) !important; }
+	.rf-half--school .rf-half-text { color: #4A5965 !important; }
+	.rf-half-link { align-self: flex-start; margin-top: 0.6rem; font-weight: 700; font-size: 0.95rem; color: #fff !important; }
+	.rf-half--school .rf-half-link { color: #C2410C !important; }
+	.rf-half-shot { display: block; width: 100%; height: auto; margin-top: var(--space-md); border-radius: 10px 10px 0 0; box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.22); }
+	.rf-half--school .rf-half-shot { box-shadow: 0 -8px 40px rgba(14, 36, 56, 0.16); }
 
 	.rf-section { padding: var(--space-xl) 0; border-top: 1px solid var(--color-border); }
 	.rf-narrow { max-width: 48rem; }
@@ -414,8 +426,8 @@ const fields: PartnerField[] = [
 	.rf-step2-head { margin: 0 0 var(--space-md); font-weight: 700; }
 
 	@media (max-width: 900px) {
-		.rf-hero-grid { grid-template-columns: 1fr; gap: var(--space-md); }
-		.rf-hero-copy { padding-bottom: 0; }
+		.rf-split { grid-template-columns: 1fr; }
+		.rf-half { justify-content: center; }
 		.rf-connect { grid-template-columns: 1fr; }
 		.rf-fit-row { grid-template-columns: 3rem minmax(0, 1fr); }
 		.rf-fit-change { grid-column: 2; }
@@ -424,11 +436,10 @@ const fields: PartnerField[] = [
 	}
 	@media (max-width: 560px) {
 		.rf-hero h1 { font-size: 1.85rem; }
+		.rf-half { padding: var(--space-md) var(--space-md) 0; }
 		.rf-actions { flex-direction: column; }
+		.rf-hero-row .rf-actions { width: 100%; }
 		.rf-actions .btn { width: 100%; text-align: center; }
-		.rf-stats { gap: var(--space-md); }
-		.rf-shot { width: 88%; }
-		.rf-shot--school { margin-top: -12%; }
 		.rf-bar { grid-template-columns: 2.8rem minmax(0, 1fr); }
 		.rf-bar-total { grid-column: 2; text-align: left; }
 		.rf-bar-fill { min-width: 6.5rem; font-size: 0.78rem; }

@@ -326,6 +326,11 @@ const fields: PartnerField[] = [
 	.rf-hero-row { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--space-md) var(--space-lg); margin-top: 0; }
 	.rf-hero-row .rf-lead { margin: 0; }
 	.rf-hero-row .rf-actions { margin-top: 0; }
+	/* 申込ボタンはページで唯一の暖色にする。白文字とのコントラスト比4.8（AA） */
+	.rf-hero-base .btn--primary { background: #CF3F12; border-color: #CF3F12; color: #fff; box-shadow: none; }
+	.rf-hero-base .btn--primary:hover { background: #B4360F; border-color: #B4360F; color: #fff; }
+	.rf-hero-base .btn--secondary { border-color: #0B1F44; color: #0B1F44; }
+	.rf-hero-base .btn--secondary:hover { background: #0B1F44; color: #fff; }
 	.rf-hero + .rf-section { border-top: 0; }
 	/* FVの下半分: 左が法人営業、右がスクール。同じ幅・同じ構成にする */
 	.rf-split { display: grid; grid-template-columns: 1fr 1fr; }

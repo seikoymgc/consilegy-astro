@@ -120,27 +120,11 @@ const fields: PartnerField[] = [
 <div class="rf-page">
 
 <section class="rf-hero">
-	<div class="container rf-hero-top">
-		<p class="rf-eyebrow">
-			<img src="/images/crm/logo/revenue-crm-logo-v3.svg" alt="" width="24" height="24" decoding="async" />
-			Revenue CRM紹介パートナー制度
-		</p>
-		<h1><span class="nb">「あの会社にも、</span><span class="nb">あの教室にも教えたい」と</span><span class="nb">思えるCRMです。</span></h1>
-		<div class="rf-hero-row">
-			<div>
-				<p class="rf-lead">紹介先が有料契約を始めたら、月額利用料金の20%を12ヶ月間お支払いします。あなたの作業は、紹介文の転送だけです。</p>
-				<p class="rf-hero-note">申込は無料です。紹介先が契約しなかった場合も、費用はかかりません。</p>
-			</div>
-			<div class="rf-actions">
-				<a href="#apply" class="btn btn--primary">紹介パートナーになる</a>
-				<a href="#fit" class="btn btn--secondary">どんな会社・教室に合うか見る</a>
-			</div>
-		</div>
-	</div>
+	<h1 class="visually-hidden">Revenue CRM紹介パートナー制度</h1>
 	<div class="rf-split">
 		<div class="rf-half rf-half--b2b">
 			<div class="rf-half-inner">
-				<p class="rf-half-tag">法人営業</p>
+				<p class="rf-half-tag">B2B</p>
 				<p class="rf-half-title">「あの会社に、教えたい」</p>
 				<p class="rf-half-text">営業の記録や報告に、時間を取られている会社に。商談メモは貼るだけ。記録の下書きはAIが作ります。</p>
 				<a class="rf-half-link" href="/products/">法人営業版を見る</a>
@@ -169,6 +153,18 @@ const fields: PartnerField[] = [
 					height="750"
 					decoding="async"
 				/>
+			</div>
+		</div>
+	</div>
+	<div class="container rf-hero-base">
+		<div class="rf-hero-row">
+			<div>
+				<p class="rf-lead">紹介先が有料契約を始めたら、月額利用料金の20%を12ヶ月間お支払いします。あなたの作業は、紹介文の転送だけです。</p>
+				<p class="rf-hero-note">申込は無料です。紹介先が契約しなかった場合も、費用はかかりません。</p>
+			</div>
+			<div class="rf-actions">
+				<a href="#apply" class="btn btn--primary">紹介パートナーになる</a>
+				<a href="#fit" class="btn btn--secondary">どんな会社・教室に合うか見る</a>
 			</div>
 		</div>
 	</div>
@@ -320,10 +316,7 @@ const fields: PartnerField[] = [
 	.rf-page p { color: var(--color-text); }
 
 	/* hero: 青い帯に白文字。製品画面は帯の下へはみ出す */
-	.rf-hero { padding: var(--space-xl) 0 0; background: var(--color-primary); color: #fff; }
-	.rf-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; margin: 0 0 var(--space-md); padding: 0.3rem 0.8rem 0.3rem 0.3rem; border-radius: 999px; background: #fff; color: var(--color-primary); font-weight: 700; font-size: 0.85rem; }
-	.rf-eyebrow img { width: 24px; height: 24px; border-radius: 5px; }
-	.rf-hero h1 { margin: 0; font-size: clamp(2rem, 3.4vw, 3rem); font-weight: 800; line-height: 1.3; letter-spacing: -0.01em; color: #fff; }
+	.rf-hero { padding: 0; background: var(--color-primary); color: #fff; }
 	.rf-page .nb { display: inline-block; }
 	.rf-lead { margin: var(--space-md) 0 0; font-size: 1.05rem; line-height: 1.95; max-width: 32em; color: rgba(255, 255, 255, 0.92) !important; }
 	.rf-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: var(--space-lg); }
@@ -333,9 +326,8 @@ const fields: PartnerField[] = [
 	.rf-actions .btn--secondary:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
 	.rf-hero-note { margin: var(--space-sm) 0 0; font-size: 0.9rem; color: rgba(255, 255, 255, 0.78) !important; }
 
-	.rf-hero-top { padding-bottom: var(--space-lg); }
-	.rf-hero-top h1 { font-size: clamp(1.8rem, 2.6vw, 2.4rem); }
-	.rf-hero-row { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--space-md) var(--space-lg); margin-top: var(--space-md); }
+	.rf-hero-base { padding-top: var(--space-lg); padding-bottom: var(--space-lg); }
+	.rf-hero-row { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--space-md) var(--space-lg); margin-top: 0; }
 	.rf-hero-row .rf-lead { margin: 0; }
 	.rf-hero-row .rf-actions { margin-top: 0; }
 	.rf-hero + .rf-section { border-top: 0; }
@@ -435,7 +427,6 @@ const fields: PartnerField[] = [
 		.br-wide { display: none; }
 	}
 	@media (max-width: 560px) {
-		.rf-hero h1 { font-size: 1.85rem; }
 		.rf-half { padding: var(--space-md) var(--space-md) 0; }
 		.rf-actions { flex-direction: column; }
 		.rf-hero-row .rf-actions { width: 100%; }

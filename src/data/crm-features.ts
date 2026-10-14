@@ -32,8 +32,8 @@ export const CRM_FEATURES: FeatureGroup[] = [
       {
         name: { ja: 'コンタクト / 会社 / 商談', en: 'Contacts / Companies / Deals' },
         desc: {
-          ja: '人と会社と案件を関連づけて持つ。事業タイプに応じて呼び名が変わる（受託開発では商談が案件、B2Cではコンタクトがお客様）。',
-          en: 'People, companies, and deals, linked. Nouns follow your edition: deals become projects for contractors, contacts become customers in B2C.',
+          ja: '人と会社と案件を関連づけて持つ。事業タイプに応じて呼び名が変わる（受託開発では商談が案件）。',
+          en: 'People, companies, and deals, linked. Nouns follow your edition: deals become projects for contractors.',
         },
       },
       {
@@ -241,8 +241,8 @@ export const CRM_FEATURES: FeatureGroup[] = [
       {
         name: { ja: '事業タイプ別の初期ON', en: 'Defaults per edition' },
         desc: {
-          ja: '受託開発、代理店、B2C、B2Bそれぞれの中心となるループが最初からONになっている。',
-          en: 'Contractor, reseller, B2C, and B2B each start with their core loop already on.',
+          ja: '受託開発、代理店、B2Bそれぞれの中心となるループが最初からONになっている。',
+          en: 'Contractor, reseller, and B2B each start with their core loop already on.',
         },
       },
       {
@@ -557,15 +557,15 @@ export const CRM_FEATURES: FeatureGroup[] = [
     id: 'subscriptions',
     title: { ja: 'サブスク・請求', en: 'Subscriptions & billing' },
     lead: {
-      ja: '継続収益を扱う商売のための土台。代理店とB2Cで最初から出る。',
-      en: 'The base for recurring revenue. On by default for resellers and B2C.',
+      ja: '継続収益を扱う商売のための土台。代理店で最初から出る。',
+      en: 'The base for recurring revenue. On by default for resellers.',
     },
     items: [
       {
         name: { ja: 'エディション切り替え', en: 'Edition switch' },
         desc: {
-          ja: 'B2B / 受託開発 / 代理店 / B2Cで、出る画面と呼び名と初期の自動化が変わる。コードは分岐しない。',
-          en: 'B2B, contractor, reseller, or B2C changes the nav, the nouns, and the default automations. Not the code base.',
+          ja: 'B2B / 受託開発 / 代理店で、出る画面と呼び名と初期の自動化が変わる。コードは分岐しない。スクール版は教室専用の画面で動く。',
+          en: 'B2B, contractor, or reseller changes the nav, the nouns, and the default automations. Not the code base. The school edition runs on its own screens built for classrooms.',
         },
       },
       {

@@ -10,55 +10,54 @@ const SIGNUP_URL = 'https://crm.consilegy.com/signup';
 // school shell (edition=b2c + shell='school') is listed here.
 const screens = [
 	{ src: 'students', title: 'Students', desc: 'Trialing, paying, on hold, withdrawn. Where each student stands, at a glance.', alt: 'The student list, filtered by enrolled, trialing, near graduation, on hold, and graduated, with a status badge on each student.' },
-	{ src: 'schedule', title: 'Weekly schedule', desc: 'Lessons managed by the week, tied to the closure-day calendar. Connect a Google account and each coach gets the lessons on their own Google Calendar.', alt: 'The weekly schedule: lessons this week, coaches working, and a day-by-day list of times, students, and assigned coaches.' },
-	{ src: 'lessons', title: 'Lesson records', desc: 'What was taught, kept per student. The history survives a change of coach.', alt: 'Lesson history listing student name, assigned coach, course, and date in chronological order.' },
-	{ src: 'hearing-ai', title: 'Intake notes', desc: 'Paste the trial transcript and AI sorts it into fields. A coach corrects it before it is saved.', alt: 'The intake form, with a transcript paste box and a fill-with-AI button above fields for how they found us, basic details, current level, and goals, each already filled in.' },
+	{ src: 'schedule', title: 'Weekly schedule', desc: 'Lessons managed by the week, tied to the closure-day calendar. Connect a Google account and each teacher gets the lessons on their own Google Calendar.', alt: 'The weekly schedule: lessons this week, teachers working, and a day-by-day list of times, students, and assigned teachers.' },
+	{ src: 'lessons', title: 'Lesson records', desc: 'What was taught, kept per student. The history survives a change of teacher.', alt: 'Lesson history listing student name, assigned teacher, course, and date in chronological order.' },
+	{ src: 'hearing-ai', title: 'Intake notes', desc: 'Paste the trial transcript and AI sorts it into fields. A teacher corrects it before it is saved.', alt: 'The intake form, with a transcript paste box and a fill-with-AI button above fields for how they found us, basic details, current level, and goals, each already filled in.' },
 	{ src: 'report', title: 'Monthly report', desc: 'Drafted from that month’s lesson records. Check it, fix it, send it.', alt: 'The monthly report screen, showing an AI-drafted progress comment with regenerate and confirm buttons.' },
 	{ src: 'knowledge', title: 'Knowledge base', desc: 'Teaching policy and operating rules written down, so running the school stops depending on one person.', alt: 'The knowledge base, listing articles for common questions, operating rules, and manuals.' },
-	{ src: 'billing', title: 'Billing', desc: 'Paying and failed payments in one place, so a stalled payment gets noticed early.', alt: 'The billing screen showing MRR, paying, and failed counts, with paying, cancelled, and failed badges on each contract.' },
+	{ src: 'billing', title: 'Billing', desc: 'Paying and failed payments in one place. Unpaid tuition is flagged, and you can send the reminder on LINE.', alt: 'The billing screen showing MRR, paying, and failed counts, with paying, cancelled, and failed badges on each contract.' },
 ];
 
 const highlights = [
 	{
-		title: 'Stay on LINE, keep everything',
-		text: 'Students hand in homework on the LINE app they already use, no new app to install. Submissions are saved per student, and the CRM can nudge students who keep missing homework.',
+		title: 'Homework and bookings, from LINE',
+		text: 'Students hand in homework on the LINE app they already use, no new app to install, and book lessons from the LINE menu. Bookings go onto Google Calendar, and homework is saved per student. The CRM can also nudge students who have not handed in their homework.',
 	},
 	{
-		title: "Open it, and today's work is there",
-		text: "Today's lessons, students to contact, and homework waiting for review are on the home screen. No more starting the day by digging through the roster.",
+		title: 'Unpaid tuition, chased on LINE',
+		text: 'Enrolled, on hold, and withdrawn students in one list. The CRM flags unpaid tuition, and the reminder goes out on LINE.',
 	},
 	{
 		title: 'AI writes the report',
-		text: "The monthly report is drafted from that month's lesson records. Coaches review it and fix what needs fixing.",
+		text: "The monthly report is drafted from that month's lesson records. Teachers review it and fix what needs fixing.",
 	},
 ];
 
 const problems = [
 	{
-		title: 'You find out after they leave',
-		text: 'Absences, unanswered messages, a failed payment, a change in how they reply. You notice once they have already quit.',
+		title: 'Bookings are taken by hand',
+		text: 'Lesson bookings go back and forth on LINE, and each one is taken by hand.',
 	},
 	{
-		title: 'Handover lives in one person',
-		text: 'When the coach changes, what happened last time, what the guardian said, and what to watch next all go with them.',
+		title: 'Homework checks rely on read receipts',
+		text: 'Whether a teacher has checked the homework is tracked by who has read what in the LINE group.',
 	},
 	{
-		title: 'Enrollment and billing become month-end work',
-		text: 'Enrolled, on hold, withdrawn, paid. Counted again in a spreadsheet at the end of every month.',
+		title: 'The last tool did not stick',
+		text: 'You tried school management software, but nobody kept up with the data entry and it never took hold.',
 	},
 ];
 
 const roles = [
-	{ name: 'Owner', scope: 'Every school, every student, billing, and permissions' },
-	{ name: 'School admin', scope: 'Day-to-day operations and permissions' },
-	{ name: 'Manager', scope: 'View and edit student data for their school or team' },
-	{ name: 'Coach', scope: 'Only their own students and lesson records' },
+	{ name: 'Manager', scope: 'Students, tuition, and permission settings' },
+	{ name: 'Office staff', scope: 'Students and day-to-day office work' },
+	{ name: 'Teacher', scope: 'Gets the tasks and homework for their own students' },
 ];
 ---
 
 <BaseLayout
 	title="Revenue CRM for schools | Make your day 48 hours long"
-	description="Open the home screen and today's work is already there. A CRM for schools and studios that connects to your official LINE account, so homework sent on LINE is saved per student. Enrollment status, the weekly schedule, lesson records, and AI-drafted monthly reports in one place, built mobile first. 30-day free trial, no card required."
+	description="Open the home screen and today's work is already there. A CRM for schools and studios that connects to your official LINE account. Students hand in homework and book lessons on LINE; homework is saved per student and bookings go to Google Calendar. Enrollment status, the weekly schedule, lesson records, and AI-drafted monthly reports in one place, built mobile first. 30-day free trial, no card required."
 	lang="en"
 	alternateUrl="/crm/school/"
 >
@@ -89,8 +88,8 @@ const roles = [
 			<h1>Make your day<br />48 hours long.</h1>
 			<p class="hero-lead">
 				Open the home screen and today's work is already there.
-				Students keep talking to you on your official LINE account. <strong>Homework arrives on LINE
-				and is saved to each student's record automatically</strong>.
+				Students keep talking to you on your official LINE account. <strong>Homework and bookings arrive on LINE,
+				and homework is saved to each student's record automatically</strong>.
 			</p>
 			<div class="hero-actions">
 				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">See the demo</a>
@@ -120,23 +119,21 @@ const roles = [
 <section class="positioning">
 	<div class="container">
 		<div class="pos-body">
-			<p class="pos-lead">
-				What you follow is not "can we close this."<br />
-				It is "will they still be coming next month."
-			</p>
+			<p class="pos-lead">Everything a team-run school manages, in one place.</p>
 			<div class="pos-copy">
 				<p>
-					So the three things at the center are <strong>students, lessons, and coaches</strong>.
-					Not just whether someone is enrolled, but who took what and when, and how far they got.
+					<strong>Bookings, homework, lesson records, and tuition</strong> on one screen.
+					Every teacher sees the same picture, and the home screen tells you what to do today:
+					today's lessons, students to contact, and homework waiting for review.
 				</p>
 				<p>
-					The screens are built <strong>for the phone first</strong>. What mattered was a coach
+					The screens are built <strong>for the phone first</strong>. What mattered was a teacher
 					opening it between the classroom and the train, recording what just happened, and
 					checking who is next, right there.
 				</p>
 				<p>
 					The same foundation works for any business built on recurring payments, subscriptions
-					and repeat orders included. Take the student, lesson, and coach parts out and it
+					and repeat orders included. Take the student, lesson, and teacher parts out and it
 					watches contracts and retention instead. Ask us.
 				</p>
 				<a href="/en/services/revenue-architecture-design/" class="pos-link">Read about this approach →</a>
@@ -149,8 +146,8 @@ const roles = [
 <section class="problem">
 	<div class="container">
 		<div class="section-head">
-			<p class="section-eyebrow">What eats your time</p>
-			<h2 class="prob-title">The day runs short because what drives retention is scattered around the school.</h2>
+			<p class="section-eyebrow">Sound familiar?</p>
+			<h2 class="prob-title">The day runs short because the information is scattered around the school.</h2>
 		</div>
 		<div class="prob-grid">
 			{problems.map((item, index) => (
@@ -167,7 +164,7 @@ const roles = [
 		<figure class="prob-shot">
 			<img
 				src="/images/common/school-student-detail-en.jpg"
-				alt="A student detail page, showing the assigned coach, lesson history, intake notes, and billing status on one screen."
+				alt="A student detail page, showing the assigned teacher, lesson history, intake notes, and billing status on one screen."
 				width="1600"
 				height="1000"
 				loading="lazy"
@@ -175,9 +172,31 @@ const roles = [
 			/>
 			<figcaption>
 				One screen per student. <strong>Who is responsible, what was done and when, and how it
-				went</strong> on a single page. When the coach changes, this screen tells the story.
+				went</strong> on a single page. When the teacher changes, this screen tells the story.
 			</figcaption>
 		</figure>
+	</div>
+</section>
+
+<!-- ===================== WHY ===================== -->
+<section class="positioning">
+	<div class="container">
+		<div class="pos-body">
+			<p class="pos-lead">Why we built the school edition.<br />Give society more choices.</p>
+			<div class="pos-copy">
+				<p>
+					For 8 years we have built customer management systems, helping more than 40 companies put them in place.
+					What we saw again and again was a tool going unused because entering data was too much work.
+					Not more features, but a system that keeps running without people straining to enter data. That is why we built it.
+				</p>
+				<p>
+					The school edition grew out of how a friend runs an English school. Raising a child while teaching
+					about 40 students, the owner was so buried in admin that new enrollment had been put on hold.
+					Since starting to use it, the school has been able to take new students again.
+				</p>
+				<p>Let the CRM take on the admin work, and give the school a 48-hour day.</p>
+			</div>
+		</div>
 	</div>
 </section>
 
@@ -242,7 +261,7 @@ const roles = [
 			</p>
 			<p class="support-lead">
 				The monthly progress report is drafted by AI from that month's lesson records. Counts come from the data as they stand. In a month with too little recorded,
-				it does not invent anything; it lists the records. A coach checks it, corrects it, and submits it.
+				it does not invent anything; it lists the records. A teacher checks it, corrects it, and submits it.
 			</p>
 		</div>
 		<div class="support-list">
@@ -273,7 +292,7 @@ const roles = [
 			</p>
 			<p class="ai-lead">
 				Anything AI writes stops at a draft. Nothing reaches a student or a guardian until a
-				coach has checked it and confirmed it.
+				teacher has checked it and confirmed it.
 			</p>
 		</div>
 		<ul class="ai-examples">
@@ -290,11 +309,11 @@ const roles = [
 	<div class="container">
 		<div class="section-head">
 			<p class="section-eyebrow">Permissions</p>
-			<h2 class="ro-title">Coaches see their own students. No one else's.</h2>
+			<h2 class="ro-title">Each teacher gets only what they need.</h2>
 		</div>
 		<p class="ro-lead">
-			In schools that work with a lot of contract coaches, how far each person can see is a
-			practical problem. Scope is set per role.
+			Every teacher can see student information. The assigned teacher gets that student's tasks
+			and homework, and nothing more. Who sees amounts such as tuition is set per role.
 		</p>
 		<dl class="ro-list">
 			{roles.map((r) => (
@@ -334,7 +353,7 @@ const roles = [
 				<li>The weekly schedule and closure-day management</li>
 				<li>How lesson records and intake notes accumulate</li>
 				<li>The AI-drafted monthly report</li>
-				<li>Coach permissions and the audit log</li>
+				<li>Role permissions and the audit log</li>
 			</ul>
 		</div>
 	</div>

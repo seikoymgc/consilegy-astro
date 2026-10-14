@@ -427,7 +427,16 @@ const fields: PartnerField[] = [
 		.br-wide { display: none; }
 	}
 	@media (max-width: 560px) {
-		.rf-half { padding: var(--space-md) var(--space-md) 0; }
+		/* スマホでも左右に並べ、両方とボタンを最初の画面に入れる。説明文は下の「こんな会社や教室」にある */
+		.rf-split { grid-template-columns: 1fr 1fr; }
+		.rf-half { padding: var(--space-md) 0.75rem 0; }
+		.rf-half-tag { margin-bottom: 0.5rem; padding: 0.15rem 0.6rem; font-size: 0.75rem; }
+		.rf-half-title { font-size: 1.05rem; line-height: 1.5; }
+		.rf-half-text { display: none; }
+		.rf-half-link { margin-top: 0.35rem; font-size: 0.8rem; }
+		.rf-half-shot { margin-top: 0.75rem; border-radius: 6px 6px 0 0; }
+		.rf-hero-base { padding-top: var(--space-md); padding-bottom: var(--space-md); }
+		.rf-hero-row .rf-lead { font-size: 0.95rem; line-height: 1.8; }
 		.rf-actions { flex-direction: column; }
 		.rf-hero-row .rf-actions { width: 100%; }
 		.rf-actions .btn { width: 100%; text-align: center; }

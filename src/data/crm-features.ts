@@ -267,10 +267,10 @@ export const CRM_FEATURES: FeatureGroup[] = [
         },
       },
       {
-        name: { ja: 'SLAエスカレーション', en: 'SLA escalation' },
+        name: { ja: '対応期限の超過チェック', en: 'Overdue response check' },
         desc: {
-          ja: '対応期限を超えた問い合わせを上位へ上げる。',
-          en: 'Escalate inquiries that pass their response deadline.',
+          ja: '対応期限を超えた問い合わせを、担当者の優先タスクにする。',
+          en: 'Turns inquiries past their response deadline into a high-priority task for the owner.',
         },
       },
       {

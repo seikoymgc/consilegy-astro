@@ -86,7 +86,7 @@ export const products: Product[] = [
 				href: '/crm/school/',
 				screens: [
 					{ src: crm('school/screen-students-v3.webp'), width: 1200, height: 750, title: '生徒管理', desc: '体験中・支払中・休止中・解約済を一覧で確認できます。', alt: '生徒管理の画面。受講中・体験予定・卒業間近・課題が滞り・未確認・休止・卒業生・退会のフィルタと、生徒ごとの状態バッジが並ぶ。' },
-					{ src: crm('school/screen-report-v4.webp'), width: 1200, height: 750, title: '月次レポート', desc: '直近30日のレッスン記録から、AIが下書きを書きます。講師が読み直して、LINEで送れます。', alt: '進捗レポートの画面。直近30日のレッスン記録からAIが下書きした生徒のコメントに、再生成・コピー・LINEで送るのボタンが付いている。' },
+					{ src: crm('school/screen-report-v5.webp'), width: 1200, height: 750, title: '月次レポート', desc: '直近30日のレッスン記録から、AIが下書きを書きます。講師が読み直して、LINEで送れます。', alt: '進捗レポートの画面。直近30日のレッスン記録からAIが下書きした生徒のコメントに、再生成・コピー・LINEで送るのボタンが付いている。' },
 					{ src: crm('school/screen-billing-v3.webp'), width: 1200, height: 750, title: '請求管理', desc: '支払中・支払失敗を確認して、止まっている入金に早く気づけます。', alt: '請求の画面。MRR、決済失敗、未入金の件数と、生徒ごとの課金ステータス一覧に課金中・未入金・決済失敗のバッジ。' },
 				],
 			},

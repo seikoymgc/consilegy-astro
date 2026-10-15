@@ -99,6 +99,13 @@ export const CRM_FEATURES: FeatureGroup[] = [
           en: 'Save a filtered view and reuse it. Search across every object from one box.',
         },
       },
+      {
+        name: { ja: 'ホームの「今やること」', en: 'Today on the home screen' },
+        desc: {
+          ja: 'ホームを開くと、自分の担当で期限切れのタスク、今日が期限のタスク、期限のないタスクが優先度順に並ぶ。その場で完了にできる。',
+          en: 'Open the home screen and see your own overdue tasks, tasks due today, and undated tasks, sorted by priority. Check them off right there.',
+        },
+      },
     ],
   },
   {
@@ -147,8 +154,8 @@ export const CRM_FEATURES: FeatureGroup[] = [
       {
         name: { ja: '名刺スキャン', en: 'Business card scanning' },
         desc: {
-          ja: '写真1枚から17項目を読み取ってコンタクトを作る。',
-          en: 'One photo, 17 fields, a new contact.',
+          ja: '写真1枚から17項目を読み取ってコンタクトを作る。10枚まで並べて撮れば、まとめて読む。登録済みの相手は名刺の内容で更新し、新しい相手には1通目のメールを下書きする（承認するまで送らない）。どこで会ったかも残せる。',
+          en: 'One photo, 17 fields, a new contact. Lay out up to 10 cards and scan them in one shot. Existing contacts are updated from the card; new ones get a first-email draft that waits for your approval. Note where you met, too.',
         },
       },
       {
@@ -189,8 +196,8 @@ export const CRM_FEATURES: FeatureGroup[] = [
       {
         name: { ja: '企業リサーチとICP判定', en: 'Company research & ICP tiering' },
         desc: {
-          ja: '会社を調べてICPのどこに当たるかを判定し、優先順位づけに使う。',
-          en: 'Research a company, place it against your ICP, and use that to prioritize.',
+          ja: '会社を調べ、自社で書いたICPの説明をもとにTierを判定して、優先順位づけに使う。確信度の低い判定は人の確認を待つ。',
+          en: 'Research a company, assign a tier against the ICP you describe, and use that to prioritize. Low-confidence calls wait for a person to review.',
         },
       },
       {
@@ -314,15 +321,15 @@ export const CRM_FEATURES: FeatureGroup[] = [
       {
         name: { ja: 'フォームビルダー', en: 'Form builder' },
         desc: {
-          ja: '公開ページ付きのフォームを作る。送信でコンタクトが自動で立つ。',
-          en: 'Build a form with a public page. A submission creates the contact.',
+          ja: '公開ページ付きのフォームを作る。送信でコンタクトが自動で立ち、内容はインボックスの会話になる。返信はそこからメールで送れる。',
+          en: 'Build a form with a public page. A submission creates the contact and lands in the inbox as a conversation you can reply to by email.',
         },
       },
       {
         name: { ja: 'メール配信', en: 'Email delivery' },
         desc: {
-          ja: 'テンプレートとキャンペーンで一斉配信する。',
-          en: 'Templates and campaigns for one-to-many sends.',
+          ja: 'テンプレートとキャンペーンで一斉配信する。一時的な送信エラーは自動で送り直す。送り直しても、同じ相手に二重には届かない。',
+          en: 'Templates and campaigns for one-to-many sends. Temporary send errors are retried automatically, without anyone getting the same email twice.',
         },
       },
       {
@@ -703,8 +710,8 @@ export const CRM_FEATURES: FeatureGroup[] = [
       {
         name: { ja: '営業通知', en: 'Sales notifications' },
         desc: {
-          ja: '商談やタスクの動きをメールとSlackへ流す。',
-          en: 'Push deal and task activity to email and Slack.',
+          ja: '商談やタスクの動きをメールとSlackへ流す。タスクの期限は前日と当日の朝10時に、PCやスマホへのプッシュ通知でも知らせる（iPhoneはホーム画面に追加して使う）。',
+          en: 'Push deal and task activity to email and Slack. Task due dates also arrive as push notifications on your PC or phone at 10 a.m. the day before and the day of (on iPhone, add the app to your home screen first).',
         },
       },
       {

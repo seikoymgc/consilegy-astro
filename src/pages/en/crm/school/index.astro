@@ -9,19 +9,19 @@ const SIGNUP_URL = 'https://crm.consilegy.com/signup';
 // Mirrors the Japanese page. Only what is actually built into the product's
 // school shell (edition=b2c + shell='school') is listed here.
 const screens = [
-	{ src: 'students', title: 'Students', desc: 'Trialing, paying, on hold, withdrawn. Where each student stands, at a glance.', alt: 'The student list, filtered by enrolled, trialing, near graduation, on hold, and graduated, with a status badge on each student.' },
+	{ src: 'students', title: 'Students', desc: 'Trial, enrolled, on hold, graduated, withdrawn. Where each student stands, at a glance.', alt: 'The student list, filtered by enrolled, trialing, near graduation, on hold, and graduated, with a status badge on each student.' },
 	{ src: 'schedule', title: 'Weekly schedule', desc: 'Lessons managed by the week, tied to the closure-day calendar. Connect a Google account and each teacher gets the lessons on their own Google Calendar.', alt: 'The weekly schedule: lessons this week, teachers working, and a day-by-day list of times, students, and assigned teachers.' },
 	{ src: 'lessons', title: 'Lesson records', desc: 'What was taught, kept per student. The history survives a change of teacher.', alt: 'Lesson history listing student name, assigned teacher, course, and date in chronological order.' },
-	{ src: 'hearing-ai', title: 'Intake notes', desc: 'Paste the trial transcript and AI sorts it into fields. A teacher corrects it before it is saved.', alt: 'The intake form, with a transcript paste box and a fill-with-AI button above fields for how they found us, basic details, current level, and goals, each already filled in.' },
-	{ src: 'report', title: 'Monthly report', desc: 'Drafted from that month’s lesson records. Check it, fix it, send it.', alt: 'The monthly report screen, showing an AI-drafted progress comment with regenerate and confirm buttons.' },
-	{ src: 'knowledge', title: 'Knowledge base', desc: 'Teaching policy and operating rules written down, so running the school stops depending on one person.', alt: 'The knowledge base, listing articles for common questions, operating rules, and manuals.' },
+	{ src: 'hearing-ai', title: 'Intake notes', desc: 'Paste the trial transcript and AI sorts it into the student record. A teacher can correct it afterwards.', alt: 'The intake form, with a transcript paste box and a fill-with-AI button above fields for how they found us, basic details, current level, and goals, each already filled in.' },
+	{ src: 'report', title: 'Monthly report', desc: 'AI drafts it from the student’s lesson records. A teacher checks it before using it.', alt: 'The monthly report screen, showing an AI-drafted progress comment with regenerate and confirm buttons.' },
+	{ src: 'knowledge', title: 'Knowledge base', desc: 'Teacher manuals and operating rules synced from Google Drive, so teachers can look them up fast. The AI cites them when it answers.', alt: 'The knowledge base, listing articles for common questions, operating rules, and manuals.' },
 	{ src: 'billing', title: 'Billing', desc: 'Paying and failed payments in one place. Unpaid tuition is flagged, and you can send the reminder on LINE.', alt: 'The billing screen showing MRR, paying, and failed counts, with paying, cancelled, and failed badges on each contract.' },
 ];
 
 const highlights = [
 	{
 		title: 'Homework and bookings, from LINE',
-		text: 'Students hand in homework on the LINE app they already use, no new app to install, and book lessons from the LINE menu. Bookings go onto Google Calendar, and homework is saved per student. The CRM can also nudge students who have not handed in their homework.',
+		text: 'Students hand in homework on the LINE app they already use, no new app to install, and book lessons from the LINE menu. Bookings go onto Google Calendar, and each submission is logged per student (text can be read in the CRM; photos and audio stay in LINE). The CRM can also nudge students who have not handed in their homework.',
 	},
 	{
 		title: 'Unpaid tuition, chased on LINE',
@@ -29,7 +29,7 @@ const highlights = [
 	},
 	{
 		title: 'AI writes the report',
-		text: "The monthly report is drafted from that month's lesson records. Teachers review it and fix what needs fixing.",
+		text: "The monthly report is drafted from each student's lesson records. Teachers review it before using it.",
 	},
 ];
 
@@ -260,8 +260,8 @@ const roles = [
 				something the next person can act on.
 			</p>
 			<p class="support-lead">
-				The monthly progress report is drafted by AI from that month's lesson records. Counts come from the data as they stand. In a month with too little recorded,
-				it does not invent anything; it lists the records. A teacher checks it, corrects it, and submits it.
+				The monthly progress report is drafted by AI from each student's lesson records.
+				A teacher checks it and decides whether it is ready to use.
 			</p>
 		</div>
 		<div class="support-list">
@@ -291,15 +291,15 @@ const roles = [
 				you, their level, what they are after, and what the trial exposed. The writing-up afterwards goes away.
 			</p>
 			<p class="ai-lead">
-				Anything AI writes stops at a draft. Nothing reaches a student or a guardian until a
-				teacher has checked it and confirmed it.
+				Nothing AI writes is sent to a student or a guardian without a teacher seeing it first.
+				For now, AI answers and drafts are in Japanese.
 			</p>
 		</div>
 		<ul class="ai-examples">
 			<li>Which students need attention today?</li>
-			<li>What is this month's retention rate?</li>
-			<li>What lessons are scheduled this week?</li>
-			<li>Who hasn't come in lately?</li>
+			<li>Who hasn't paid yet?</li>
+			<li>Who is on hold?</li>
+			<li>Draft a reply to this student.</li>
 		</ul>
 	</div>
 </section>

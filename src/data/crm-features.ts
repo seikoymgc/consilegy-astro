@@ -25,8 +25,8 @@ export const CRM_FEATURES: FeatureGroup[] = [
     id: 'crm-core',
     title: { ja: 'CRMコア', en: 'CRM core' },
     lead: {
-      ja: '顧客、案件、対応履歴を1か所に置く。どのエディションでも共通の土台。',
-      en: 'Customers, deals, and history in one place. The shared base under every edition.',
+      ja: '顧客、案件、対応履歴を1か所に置く。B2B・受託開発・代理店で共通の土台。',
+      en: 'Customers, deals, and history in one place. The shared base under the B2B, agency, and reseller editions.',
     },
     items: [
       {

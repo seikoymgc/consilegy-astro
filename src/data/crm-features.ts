@@ -140,8 +140,8 @@ export const CRM_FEATURES: FeatureGroup[] = [
       {
         name: { ja: '通話解析', en: 'Call analysis' },
         desc: {
-          ja: '商談の音声からMEDDPICC / BANT / CHAMP / SPINで論点を抽出し、埋まっていない項目を出す。',
-          en: 'Pull MEDDPICC / BANT / CHAMP / SPIN signals out of a call recording, and show what is still unanswered.',
+          ja: '商談の文字起こしからMEDDPICC / BANT / CHAMP / SPINで論点を抽出し、埋まっていない項目を出す。',
+          en: 'Pull MEDDPICC / BANT / CHAMP / SPIN signals out of a call transcript, and show what is still unanswered.',
         },
       },
       {

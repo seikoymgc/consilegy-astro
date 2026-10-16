@@ -46,7 +46,9 @@ const nav =
 				rest: [
 					{ label: '機能', href: '/crm/features/' },
 					{ label: '料金', href: '/crm/pricing/' },
-					{ label: 'よくある質問', href: '/crm/faq/' },
+					// スクール版のページでは、スクール版の答えに送る（法人版の答えにはゴミ箱など
+					// スクール版に無いものが書いてある）。
+					{ label: 'よくある質問', href: path.startsWith('/crm/school/') ? '/crm/school/faq/' : '/crm/faq/' },
 					{ label: '記事', href: '/crm/media/' },
 					{ label: '資料ダウンロード', href: '/crm/download/' },
 				] as Item[],

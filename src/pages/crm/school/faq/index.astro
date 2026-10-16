@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CrmSubnav from '../../../../components/CrmSubnav.astro';
+import { SCHOOL_FAQ, SCHOOL_FAQ_CATEGORIES } from '../../../../data/crm-school-faq';
+
+// スクール版は問いが少ないので、法人版（/crm/faq/）のような1問1ページにはせず、
+// 1ページに答えまで並べる。
+const groups = SCHOOL_FAQ_CATEGORIES
+  .map(cat => ({ cat, items: SCHOOL_FAQ.filter(item => item.cat === cat) }))
+  .filter(group => group.items.length > 0);
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: SCHOOL_FAQ.map(item => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a.join('\n') },
+  })),
+};
+---
+
+<BaseLayout
+  title="よくあるご質問（スクール版） | Revenue CRM | Consilegy"
+  description="Revenue CRM スクール版の料金・導入・LINE連携・AI・データとセキュリティについて、導入前によくいただくご質問と回答です。"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+  <CrmSubnav lang="ja" />
+
+  <div class="faq-page">
+    <header class="faq-head">
+      <nav class="crumbs" aria-label="パンくず">
+        <a href="/crm/school/">スクール版</a>
+        <span aria-hidden="true">›</span>
+        <span>よくあるご質問</span>
+      </nav>
+      <h1>よくあるご質問（スクール版）</h1>
+      <p class="lead">
+        スクール・教室向けの版について、導入前によくいただくご質問です。法人の営業向けの版については、<a href="/crm/faq/">法人版のよくあるご質問</a>をご覧ください。
+      </p>
+    </header>
+
+    <nav class="faq-jump" aria-label="カテゴリ">
+      {groups.map(group => <a href={`#${encodeURIComponent(group.cat)}`}>{group.cat}</a>)}
+    </nav>
+
+    {groups.map(group => (
+      <section class="faq-group" id={group.cat}>
+        <h2>{group.cat}</h2>
+        <dl>
+          {group.items.map(item => (
+            <div class="qa" id={item.id}>
+              <dt>{item.q}</dt>
+              <dd>{item.a.map(p => <p>{p}</p>)}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+    ))}
+
+    <section class="faq-cta">
+      <p>ここに答えがないご質問は、直接お聞かせください。</p>
+      <div class="faq-cta-links">
+        <a class="btn" href="https://crm.consilegy.com/demos" target="_blank" rel="noopener noreferrer">デモを見る</a>
+        <a class="btn ghost" href="/free-consultation/">30分無料相談</a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .faq-page { max-width: 62rem; margin: 0 auto; padding: 4rem 1rem 5rem; }
+  .faq-head { margin-bottom: 2.5rem; }
+  .crumbs { display: flex; gap: 0.5rem; font-size: 0.8rem; color: #5b6673; margin-bottom: 0.75rem; }
+  .crumbs a { color: var(--color-primary); text-decoration: none; }
+  .faq-head h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); margin: 0 0 0.75rem; line-height: 1.4; }
+  .lead { color: #4a5568; line-height: 1.9; margin: 0; }
+  .lead a { color: var(--color-primary); }
+
+  .faq-jump { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; }
+  .faq-jump a {
+    border: 1px solid #d9dee5; border-radius: 999px; padding: 0.35rem 0.9rem;
+    font-size: 0.85rem; color: #3a4551; text-decoration: none;
+  }
+  .faq-jump a:hover { background: #f2f5f8; }
+
+  .faq-group { margin-bottom: 2.75rem; scroll-margin-top: 7.5rem; }
+  .faq-group h2 { font-size: 1.15rem; margin: 0 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #e6eaef; }
+  .faq-group dl { margin: 0; }
+  .qa { padding: 1rem 1.1rem; border: 1px solid #e6eaef; border-radius: 0.6rem; background: #fff; scroll-margin-top: 7.5rem; }
+  .qa + .qa { margin-top: 0.5rem; }
+  .qa dt { font-weight: 600; margin-bottom: 0.4rem; }
+  .qa dd { margin: 0; color: #3a4551; line-height: 1.85; font-size: 0.95rem; }
+  .qa dd p { margin: 0; }
+  .qa dd p + p { margin-top: 0.5rem; }
+
+  .faq-cta { margin-top: 3rem; padding: 1.75rem; border-radius: 0.75rem; background: #f4f7f9; text-align: center; }
+  .faq-cta p { margin: 0 0 1rem; color: #3a4551; }
+  .faq-cta-links { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+  .btn {
+    display: inline-block; padding: 0.65rem 1.4rem; border-radius: 0.5rem;
+    background: var(--color-primary); color: #fff; text-decoration: none; font-weight: 600; font-size: 0.95rem;
+  }
+  .btn.ghost { background: #fff; color: var(--color-primary); border: 1px solid var(--color-primary); }
+</style>

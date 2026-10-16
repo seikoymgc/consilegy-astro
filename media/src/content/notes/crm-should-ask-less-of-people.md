@@ -5,8 +5,8 @@ publishedAt: 2026-09-29
 updatedAt: 2026-10-16
 category: crm
 principle: CRMの定着は、教育の量ではなく、CRMが人に頼んでいる仕事の量で決まる。研修を足す前に、現場の入力、管理者の設定、組織の運用という3つの仕事を洗い出し、頼まなくてよいものから消す。
-canonUrl: https://consilegy.com/crm/
-canonLabel: Revenue CRM
+canonUrl: https://consilegy.com/revenue-architecture/
+canonLabel: レベニューアーキテクチャとは
 draft: false
 ---
 

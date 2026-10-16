@@ -5,8 +5,8 @@ publishedAt: 2026-09-29
 updatedAt: 2026-10-16
 category: crm
 principle: "CRM adoption in Japan is set by how much work the tool asks of people, not by how much training they get. Count the entry, configuration and upkeep work first, and remove what you can before you teach the rest."
-canonUrl: https://consilegy.com/en/crm/
-canonLabel: Revenue CRM
+canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
+canonLabel: Japan Market GTM and Messaging
 draft: false
 ---
 

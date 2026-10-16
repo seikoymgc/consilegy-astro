@@ -39,6 +39,11 @@ AddCharset UTF-8 .txt
 
 # 統合した記事の転送（2026-10-16）。
 # why-teams-dont-use-the-tool は why-sfa-adoption-fails と結論・数字が重なっていたため統合した。
-# astro.config.mjs の redirects でも同じ転送を出している（mod_alias が効かない場合の保険）。
-Redirect 301 /notes/why-teams-dont-use-the-tool/ https://media.consilegy.com/notes/why-sfa-adoption-fails/
-Redirect 301 /en/articles/why-teams-dont-use-the-tool/ https://media.consilegy.com/en/articles/why-sfa-adoption-fails/
+# astro.config.mjs の redirects でも同じ転送を出している（サーバー側が効かない場合の保険）。
+#
+# 2026-10-17: 当初は mod_alias の `Redirect 301` で書いたが、LiteSpeed では HEAD にだけ 301 が返り、
+# GET では同じパスにある静的ファイル（Astro の転送用ページ）が先に返った。
+# 静的ファイルより先に評価される mod_rewrite に切り替えた。
+RewriteEngine On
+RewriteRule ^notes/why-teams-dont-use-the-tool/?$ https://media.consilegy.com/notes/why-sfa-adoption-fails/ [R=301,L]
+RewriteRule ^en/articles/why-teams-dont-use-the-tool/?$ https://media.consilegy.com/en/articles/why-sfa-adoption-fails/ [R=301,L]

@@ -73,6 +73,6 @@ HubSpot Japanの調査（2026年2月27日公表、マクロミル委託の自社
 
 ## 関連する記事
 
-ツールを決めた後、項目をどこまで持つかで迷ったときは、[SFA・CRMの入力率が低いとき、項目を減らす前にやること](/notes/crm-custom-properties-cut-in-half/)が続きの論点になります。
+ツールを決めた後、項目をどこまで持つかで迷ったときは、[CRMの項目を半分に削るとき、消す前に確かめること](/notes/crm-custom-properties-cut-in-half/)が続きの論点になります。
 
 同じ悩みの記事は「[CRM・SFAが定着しない](/notes/category/crm/)」にまとめています。

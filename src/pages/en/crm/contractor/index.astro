@@ -31,8 +31,8 @@ const engine = [
 const roles = [
 	{ name: 'Owner', scope: 'Every project, capacity, billing, and permissions' },
 	{ name: 'Admin', scope: 'Day-to-day operations and permissions' },
-	{ name: 'Manager (PM)', scope: 'View and edit projects for their team' },
-	{ name: 'Member', scope: 'Only the projects they own' },
+	{ name: 'Manager (PM)', scope: 'View and edit projects and quotes for their team' },
+	{ name: 'Member', scope: 'Only the projects they own, and their quotes' },
 ];
 ---
 
@@ -191,20 +191,20 @@ const roles = [
 			<p class="section-eyebrow">AI</p>
 			<h2>Ask in plain language,<br />get the answer back.</h2>
 				<p class="ai-lead">
-					You do not have to build a report to find something out. Ask it the way you would say it, and it searches contacts, companies, projects, and attached documents.
+					You do not have to build a report to find something out. Ask it the way you would say it, and it searches projects, capacity, customers, and attached documents.
 				</p>
 				<p class="ai-lead">
-					The largest projects, who the contact is, what a proposal or spec says. All checked on the spot.
+					Free capacity this week, projects near their due date, stalled work. All checked on the spot.
 				</p>
 				<p class="ai-lead">
 					Ask and it will also add contacts or tasks for you. The AI never emails a customer.
 				</p>
 		</div>
 		<ul class="ai-examples">
+				<li>How many free person-days this week?</li>
+				<li>Which projects are due soon?</li>
+				<li>Which projects are stalled?</li>
 				<li>Which projects are the largest?</li>
-				<li>Who is the contact on this project?</li>
-				<li>Find the delivery terms in the spec</li>
-				<li>Which automation flags stalled projects?</li>
 		</ul>
 	</div>
 </section>
@@ -217,7 +217,7 @@ const roles = [
 			<h2 class="ro-title">Keep people out of projects that are not theirs.</h2>
 		</div>
 		<p class="ro-lead">
-			For contacts, companies, and projects, choose what each role can see: everything, the team, or only their own. Partner staff can be limited to the projects they own, though the quote list is visible to everyone, and export rights are set separately. An example setup:
+			For contacts, companies, and projects, choose what each role can see: everything, the team, or only their own. Partner staff can be limited to the projects they own and those quotes, and export rights are set separately. An example setup:
 		</p>
 		<dl class="ro-list">
 			{roles.map((r) => (

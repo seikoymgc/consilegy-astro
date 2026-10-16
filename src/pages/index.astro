@@ -1,26 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { articles } from '../data/insights';
 
-const insightsPosts = [
-	{
-		slug: 'why-good-marketing-does-not-create-repeatable-growth',
-		title: 'なぜ「良い施策」を打っているのに、組織が再現性を持てないのか',
-		description: '優秀な施策や営業人材がいるのに成長が再現しない原因を、Revenue ArchitectureとRevOpsの観点から解説します。',
-		category: 'レベニューアーキテクチャ',
-	},
-	{
-		slug: 'why-dashboards-do-not-improve-executive-decisions',
-		title: 'ダッシュボードを作っても意思決定が速くならない理由',
-		description: 'BIやダッシュボードを整備しても経営判断が速くならない原因を、KPI設計・Revenue Architecture・RevOpsの観点から解説します。',
-		category: 'KPI・BI',
-	},
-	{
-		slug: 'why-marketing-automation-does-not-improve-pipeline',
-		title: 'MAを導入しても商談化率が改善しない理由',
-		description: 'HubSpotやMarketoなどのMAを導入しても商談化率が改善しない原因を、Revenue ArchitectureとRevOpsの観点から解説します。',
-		category: 'CRM',
-	},
-];
+// 最新コラムはコラム一覧の先頭3件。一覧に足せばトップも追従する。
+const insightsPosts = articles.slice(0, 3);
 ---
 
 <BaseLayout
@@ -426,7 +409,7 @@ LTVが見えないまま広告費を積んでいる。GA4・MA・受注データ
 B2Bマーケティング歴10年以上。Moloco・Kaizen Platform・アリババ・UCC上島珈琲・西川などでマーケ・営業・CRMの設計と実装を担当。広告・SaaS・EC・食品・寝具と業界はばらばらですが、売上が止まる場所はどこも似ていました。その共通点を集めたのが、いまの設計です。
 				</p>
 				<p class="founder-bio">
-LinkedIn 6,400名とニュースレター約2,000名に、日本のB2B収益設計を発信しています。
+LinkedIn 6,000名以上とニュースレター約2,000名に、日本のB2B収益設計を発信しています。
 				</p>
 				<blockquote class="founder-quote">
 					「戦略だけ描いて去る人」を何度も見てきたので、私はそうしないと決めています。
@@ -543,7 +526,7 @@ LinkedIn 6,400名とニュースレター約2,000名に、日本のB2B収益設�
 						<div class="blog-img">
 							<img
 								src={`/images/insights/${post.slug}-2026b.svg`}
-								alt={post.category}
+								alt={post.cat}
 								loading="lazy"
 								width="1200"
 								height="630"
@@ -552,9 +535,9 @@ LinkedIn 6,400名とニュースレター約2,000名に、日本のB2B収益設�
 							<span class="blog-new">新着</span>
 						</div>
 						<div class="blog-body">
-							<span class="blog-cat">{post.category}</span>
+							<span class="blog-cat">{post.cat}</span>
 							<h3 class="blog-title">{post.title}</h3>
-							<p class="blog-desc">{post.description}</p>
+							<p class="blog-desc">{post.desc}</p>
 							<div class="blog-foot">
 								<span class="blog-arrow" aria-hidden="true">→</span>
 							</div>
@@ -572,7 +555,7 @@ LinkedIn 6,400名とニュースレター約2,000名に、日本のB2B収益設�
 				<div class="nl-cta-strip__copy">
 					<p class="nl-cta-strip__eyebrow">Newsletter</p>
 					<h3>次世代B2Bレベニュー戦略バイブル</h3>
-					<p>Revenue Architecture・RevOps・CRM実装の実践知を毎月配信。約2,000人が購読中。</p>
+					<p>Revenue Architecture・RevOps・CRM実装の実践知を隔週で配信。約2,000人が購読中。</p>
 				</div>
 				<a href="/newsletter/#signup" class="btn nl-cta-strip__btn">無料で登録する →</a>
 			</div>

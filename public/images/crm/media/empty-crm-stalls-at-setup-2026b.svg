@@ -37,7 +37,7 @@
   <text x="116" y="82" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="20" font-weight="600" fill="#1E3A8A" letter-spacing="0.28em">REVENUE CRM</text>
   <line x1="96" y1="116" x2="1104" y2="116" stroke="#1E3A8A" stroke-opacity="0.12" stroke-width="1"/>
 
-  <text x="96" y="211" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="48" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">CRM を入れたら</text>
+  <text x="96" y="211" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="48" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">CRMを入れたら</text>
   <text x="96" y="279" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="48" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">「設定」から始まり、</text>
   <text x="96" y="347" font-family="'Hiragino Sans','Hiragino Kaku Gothic ProN',system-ui,sans-serif" font-size="48" font-weight="600" fill="#1E3A8A" letter-spacing="0.01em">空のまま止まる</text>
   <rect x="96" y="371" width="64" height="3" fill="#E05265"/>

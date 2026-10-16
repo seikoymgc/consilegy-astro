@@ -540,8 +540,8 @@ export const CRM_FEATURES: FeatureGroup[] = [
       {
         name: { ja: '受信メールの会話化', en: 'Inbound email as conversations' },
         desc: {
-          ja: '届いたメールを会話として扱い、担当とステータスを持たせる。',
-          en: 'Incoming mail becomes a conversation with an owner and a status.',
+          ja: '届いたメールを会話として扱い、担当とステータスを持たせる。受信箱ごとに転送先アドレスが出るので、いまの問い合わせアドレスから転送を設定するだけでつながる。',
+          en: 'Incoming mail becomes a conversation with an owner and a status. Each inbox gets its own forwarding address, so you connect by forwarding your existing support address to it.',
         },
       },
       {

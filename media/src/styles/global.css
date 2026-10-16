@@ -268,3 +268,8 @@ main h1, main h2, main h3 { text-wrap: pretty; overflow-wrap: anywhere; }
 .breadcrumb { flex-wrap: wrap; }
 .prose p, .hub-intro p, .faq dd p { overflow-wrap: anywhere; }
 .faq dd p:first-child { margin-top: 0; }
+
+.term-guide { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin: 0 0 1rem; font-size: .75rem; line-height: 1.8; }
+.term-guide div { display: flex; flex-wrap: wrap; }
+.term-guide dt { font-weight: 600; color: #fff; }
+.term-guide dd { margin: 0; }

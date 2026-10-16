@@ -1,0 +1,15 @@
+---
+import { technicalTerms } from '../data/technical-terms.mjs';
+interface Props { text: string; }
+const { text } = Astro.props;
+const terms = [...new Set(text.match(/\b(?:CRM|SFA|MA)\b/g) ?? [])];
+---
+{terms.length > 0 && <div class="article-terms" aria-label="この記事で使う用語">
+	<p class="article-terms__label">用語</p>
+	<ul>{terms.map(term => <li>{term}（{technicalTerms[term]}）</li>)}</ul>
+</div>}
+<style>
+	.article-terms { margin-top: .8rem; color: var(--color-text-muted); font-size: .75rem; line-height: 1.8; }
+	.article-terms__label { font-weight: 600; }
+	.article-terms ul { display: flex; flex-wrap: wrap; gap: .25rem 1.2rem; list-style: none; padding: 0; margin: .2rem 0 0; }
+</style>

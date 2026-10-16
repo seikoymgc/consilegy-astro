@@ -1,4 +1,5 @@
 ---
+import TechnicalTerms from '../components/TechnicalTerms.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
 import { categories } from '../content.config';
@@ -56,6 +57,7 @@ const formatDate = (date: Date) =>
 
 			<p class="note-cat">{categories[d.category]}</p>
 			<h1>{d.title}</h1>
+			<TechnicalTerms text={`${d.title} ${note.body ?? ''}`} />
 
 			<div class="note-dates">
 				<time datetime={d.publishedAt.toISOString()}>公開 {formatDate(d.publishedAt)}</time>

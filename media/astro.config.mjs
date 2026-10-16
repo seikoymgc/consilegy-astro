@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
+import explainTechnicalTerms from './src/plugins/explain-technical-terms.mjs';
 import sitemap from '@astrojs/sitemap';
 import { readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
@@ -57,6 +58,7 @@ const newest = [...articleDates.values()].sort((a, b) => b - a)[0] ?? new Date()
 export default defineConfig({
 	site: 'https://media.consilegy.com',
 	trailingSlash: 'always',
+	markdown: { remarkPlugins: [explainTechnicalTerms] },
 	redirects,
 	integrations: [
 		mdx(),

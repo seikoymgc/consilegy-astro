@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { editorialTeam } from '../data/editorial';
+import { technicalTerms } from '../data/technical-terms.mjs';
 import Analytics from '../components/Analytics.astro';
 import { categories, categoriesEn, type CategoryKey } from '../content.config';
 import { GTM_ID, PRIVACY_URL_JA, PRIVACY_URL_EN, MEDIA_TAGLINE_JA, MEDIA_TAGLINE_EN } from '../site-config';
@@ -312,6 +313,7 @@ const breadcrumbSchema =
 				</div>
 			)}
 			<div class="container site-footer__bottom">
+				{!isEn && ogType !== 'article' && <dl class="term-guide" aria-label="用語の説明">{Object.entries(technicalTerms).map(([term, label]) => <div><dt>{term}</dt><dd>（{label}）</dd></div>)}</dl>}
 				<p>&copy; 2025 Consilegy LLC.</p>
 			</div>
 		</footer>

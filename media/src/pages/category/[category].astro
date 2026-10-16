@@ -1,4 +1,5 @@
 ---
+import { explainFirstTerms } from '../../data/technical-terms.mjs';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import { getCollection } from 'astro:content';
@@ -15,6 +16,7 @@ const { category } = Astro.params as { category: CategoryKey };
 const label = categories[category];
 const color = categoryColors[category];
 const hub = categoryHubs[category];
+const explainedTerms = new Set();
 
 const notes = (await getCollection('notes', ({ data }) => !data.draft && data.category === category)).sort(
 	(a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf(),
@@ -82,7 +84,7 @@ const collectionSchema = {
 			</nav>
 			<h1 style={`--cat-color: ${color};`}>{label}</h1>
 			<div class="hub-intro">
-				{hub.intro.map(p => <p>{p}</p>)}
+				{hub.intro.map(p => <p>{explainFirstTerms(p, explainedTerms)}</p>)}
 			</div>
 			<p class="page-lead">全{notes.length}本</p>
 		</div>

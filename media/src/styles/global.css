@@ -262,3 +262,9 @@ a:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 4px; 
 @media (prefers-reduced-motion: reduce) {
 	html { scroll-behavior: auto; }
 }
+
+/* Editorial text wraps to the viewport; paragraph breaks belong in the content. */
+main h1, main h2, main h3 { text-wrap: pretty; overflow-wrap: anywhere; }
+.breadcrumb { flex-wrap: wrap; }
+.prose p, .hub-intro p, .faq dd p { overflow-wrap: anywhere; }
+.faq dd p:first-child { margin-top: 0; }

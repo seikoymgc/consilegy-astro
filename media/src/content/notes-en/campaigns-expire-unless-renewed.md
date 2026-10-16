@@ -1,10 +1,10 @@
 ---
-title: "Japan will not cancel a programme. Give each an expiry date"
-description: "HQ asks the Japan team to cut what is not working. The plan that comes back keeps everything, and the things that do quietly disappear are the ones closest to revenue. In a Japanese company, cancelling a programme means reversing an approval someone gave, so nobody proposes it. Japanese survey data (n=103, n=237, n=432) and the design that replaces the kill decision."
+title: "Give Japan programmes a renewal date and a decision rule"
+description: "Give each programme a review date and a renewal criterion before it starts. Require evidence for continuing it rather than waiting for someone to propose a cancellation."
 publishedAt: 2026-09-21
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: marketing
-principle: "Do not ask Japan to decide what to stop. A cancellation reverses an approval someone gave, so the request returns a plan that keeps everything. Put an expiry date and one renewal metric on every programme before it starts, and let anything without a renewal case end on its own."
+principle: "Give each programme a review date and a renewal criterion before it starts. Require evidence for continuing it rather than waiting for someone to propose a cancellation."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -54,7 +54,9 @@ None of these has a line in the budget. They live inside someone's working hours
 
 What decides whether a programme survives, then, is not performance but whether it has a line. Programmes with a line continue on bad numbers. Programmes without a line vanish before anyone looks at their numbers. Being in the spreadsheet is doing the work that evidence is supposed to do.
 
-For Japan specifically, this is expensive, because the programmes without a line are often the ones that move deals. A Japanese buyer's first meeting goes differently when there is a case study from a company of similar size in the same industry. That case study has no line. Next year the visible programmes remain and the ones doing the quiet work are gone. HQ then looks at the mix and concludes Japan spends on the wrong things, which is true, and misses that the mix was produced by what could be stopped without anyone losing face.
+For Japan specifically, this is expensive, because the programmes without a line are often the ones that move deals. A Japanese buyer's first meeting goes differently when there is a case study from a company of similar size in the same industry. That case study has no line. Next year the visible programmes remain and the ones doing the quiet work are gone.
+
+HQ then looks at the mix and concludes Japan spends on the wrong things, which is true, and misses that the mix was produced by what could be stopped without anyone losing face.
 
 ## Replace the kill decision with an expiry date and one renewal metric
 
@@ -68,17 +70,23 @@ When the date arrives, the programme ends unless a renewal case is filed. That i
 
 Then write down, before the programme starts, the one number the renewal case must show. This matters more than it sounds. Written afterwards, the number is chosen by the person who wants to continue, and they will choose one they can hit.
 
-Do not make that number closed revenue. Fast Marketing's survey of Japanese B2B companies (fielded May 2026, 432 people involved in marketing or sales at B2B companies; the company sells B2B marketing strategy services, so treat the shares as orders of magnitude) found 36.8% reporting an average time to close of three months or more, rising to 48.9% among SaaS providers. A programme reviewed quarterly and judged on revenue is judged on revenue that cannot yet exist in Japan. That is exactly how HQ ends up killing last quarter's launch while the trade show sails through.
+Do not make that number closed revenue. Fast Marketing's survey of Japanese B2B companies (fielded May 2026, 432 people involved in marketing or sales at B2B companies; the company sells B2B marketing strategy services, so treat the shares as orders of magnitude) found 36.8% reporting an average time to close of three months or more, rising to 48.9% among SaaS providers.
+
+A programme reviewed quarterly and judged on revenue is judged on revenue that cannot yet exist in Japan. That is exactly how HQ ends up killing last quarter's launch while the trade show sails through.
 
 Use two counts instead. How many records the next stage received from this programme, and how many of those moved one step further by the expiry date. For a webinar, how many attendees sales asked to meet, and how many of those first meetings took place. For a case study, how many times sales used it in a live deal, and how many of those deals advanced.
 
-Counting them requires each lead and deal to carry the programme it came from. Most CRMs have a way to attach a campaign, and many Japan instances do not use it. Decide before launch who attaches it and when: the programme owner when importing the list, or the rep when creating the deal. Fix attribution in one line, for example "a contact touched by several programmes counts toward the first one attached". Skip this and the expiry date arrives with no number, or with the credit-splitting argument the design was meant to avoid.
+Counting them requires each lead and deal to carry the programme it came from. Most CRMs have a way to attach a campaign, and many Japan instances do not use it. Decide before launch who attaches it and when: the programme owner when importing the list, or the rep when creating the deal. Fix attribution in one line, for example "a contact touched by several programmes counts toward the first one attached".
+
+Skip this and the expiry date arrives with no number, or with the credit-splitting argument the design was meant to avoid.
 
 The threshold goes in before launch, in one line: "If fewer than three have moved a step by the expiry date, no renewal is filed." With that line, the expiry date needs no meeting. Someone reads the number and files or does not.
 
 The part only HQ can do is to make this the global standard rather than a Japan rule. Applied to Japan alone, it reads as a cancellation notice with extra steps, and every sponsor starts defending. Applied everywhere, it questions nobody. Name one person, in the Japan time zone, who can accept or decline a renewal case without a second approval, and the queue clears in days instead of a quarter.
 
-**One option I would not take** is the annual zero-based review of the Japan mix, where every programme has to be rejustified from scratch against a cost-per-outcome ranking. It is tidy on paper. In the room it becomes a discussion about which programme deserves credit for which deal, the ratios never settle, and the budget lines do not move. It also asks the Japan team to argue against their own colleagues' programmes in front of HQ, which they will not do.
+**One option I would not take** is the annual zero-based review of the Japan mix, where every programme has to be rejustified from scratch against a cost-per-outcome ranking. It is tidy on paper. In the room it becomes a discussion about which programme deserves credit for which deal, the ratios never settle, and the budget lines do not move.
+
+It also asks the Japan team to argue against their own colleagues' programmes in front of HQ, which they will not do.
 
 Expiry dates are not a way to cut the Japan budget. They are a way to make every programme that continues state, each time, why it continues. Programmes that can say why survive. Programmes that cannot end without anyone being wrong.
 

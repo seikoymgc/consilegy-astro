@@ -1,10 +1,10 @@
 ---
 title: "Merging Duplicate CRM Records: Name the Approver First"
-description: "Your Japan team asks to merge duplicate CRM records and HQ wants it done by rule. Writing the rule is the easy part. A merge cannot be undone and it takes a record away from a named account owner. Sort duplicates into auto-merge, human review and never-merge, and settle who signs off before anyone runs it."
+description: "Check recovery options and downstream effects before merging. Separate automatic merges, human review and records that must stay apart, and name the approver for exceptions."
 publishedAt: 2026-10-03
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: crm
-principle: "Deciding who has the authority to merge is harder than writing the merge rule. A merge cannot be undone, so split duplicates into auto-merge, human review and never-merge, and name the approver for review and exceptions before anyone runs it."
+principle: "Check recovery options and downstream effects before merging. Separate automatic merges, human review and records that must stay apart, and name the approver for exceptions."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false

@@ -1,8 +1,8 @@
 ---
-title: "Your Japan team will not read the guide. Change the weekly meeting"
+title: "Japan CRM adoption: put the records to work in the weekly meeting"
 description: "When the Japan team stops updating the CRM, HQ ships a localised guide and another training session. Adoption does not move, because nothing in the local week depends on the record. Here is the change that does work: rebuild the agenda of the meetings that already exist so they can only be built from the CRM, down to which lists to open and how to handle exceptions."
 publishedAt: 2026-08-02
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: adoption
 principle: "Do not add process to make a Japan team adopt a system. Change the input source of the meetings they already hold, so the agenda can only be built from the record."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -62,7 +62,7 @@ A CRM is not held to tidy information. It is held to fix who decides what, and w
 
 ## Related reading
 
-Once the meeting runs on the record, how to measure whether adoption is real is covered in [Your Japan adoption number is green because it counts logins, not decisions](/en/articles/adoption-metric-is-not-login-rate/). This note is about building the agenda; that one is about measuring whether it was built from the record.
+Once the meeting runs on the record, how to measure whether adoption is real is covered in [Japan CRM adoption: check record use as well as logins](/en/articles/adoption-metric-is-not-login-rate/). This note is about building the agenda; that one is about measuring whether it was built from the record.
 
 If changing the meeting still does not move the data, the problem is upstream: read [why Japan CRM adoption stalls](/en/articles/why-sfa-adoption-fails/), which covers what the CRM has to return to the person entering it.
 

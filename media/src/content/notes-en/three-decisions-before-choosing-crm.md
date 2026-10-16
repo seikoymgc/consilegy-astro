@@ -1,10 +1,10 @@
 ---
 title: "Choosing a CRM for your Japan team: three decisions that settle it"
-description: "Headquarters assumes the global CRM will simply extend to Japan, and six months later the Japan team is running a spreadsheet next to it. The tool is rarely the problem. Who enters the data, which system holds the master record, and who administers it locally are the three decisions that decide whether the rollout survives."
+description: "Before comparing CRM products, agree who enters the data, which system is authoritative and who owns local operations. Assess features and cost against those requirements."
 publishedAt: 2026-08-06
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: crm
-principle: "A CRM decision for Japan is settled by three answers, not by a feature comparison: who enters the data, which system is the master record, and who administers it locally."
+principle: "Before comparing CRM products, agree who enters the data, which system is authoritative and who owns local operations. Assess features and cost against those requirements."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -38,7 +38,9 @@ Decide the boundary explicitly, then move data one way. One-directional sync pro
 
 Someone has to add fields, fix reports, and answer questions in Japanese. This is the thinnest layer in a Japanese subsidiary.
 
-Japan's Information-technology Promotion Agency reported in its DX White Paper 2023 (published February 2023, fielded June to July 2022, 543 Japanese and 386 US companies) that 10.9% of Japanese companies said they had enough digital transformation talent, against 73.4% of US companies. JETRO's FY2024 survey of foreign-affiliated companies in Japan (published March 2025, 1,427 valid responses from 7,301 distributed, a 19.5% response rate) found sales and marketing roles the hardest to fill, at roughly 60%, ahead of IT and technical roles at roughly 40%.
+Japan's Information-technology Promotion Agency reported in its DX White Paper 2023 (published February 2023, fielded June to July 2022, 543 Japanese and 386 US companies) that 10.9% of Japanese companies said they had enough digital transformation talent, against 73.4% of US companies.
+
+JETRO's FY2024 survey of foreign-affiliated companies in Japan (published March 2025, 1,427 valid responses from 7,301 distributed, a 19.5% response rate) found sales and marketing roles the hardest to fill, at roughly 60%, ahead of IT and technical roles at roughly 40%.
 
 Neither survey measures CRM administrators specifically, so treat what follows as an inference rather than a finding: if digital and technical talent is this scarce in Japan overall, a dedicated local CRM administrator is unlikely to exist unless someone funded the role.
 
@@ -66,7 +68,7 @@ A senior Japanese sales hire may have spent a full career without a CRM. That is
 
 Designing the operating rules before the tool is part of [Japan GTM and messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/), not an IT project.
 
-**A CRM decision for Japan is settled by three answers, not by a feature comparison: who enters the data, which system is the master record, and who administers it locally.**
+**Before comparing CRM products, agree who enters the data, which system is authoritative and who owns local operations. Assess features and cost against those requirements.**
 
 ## Related reading
 

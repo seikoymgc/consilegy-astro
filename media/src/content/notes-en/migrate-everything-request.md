@@ -2,7 +2,7 @@
 title: "CRM migration in Japan: when they ask to move every field"
 description: "Your Japan team asks to migrate every field from the legacy system and says the unused ones can be deleted later. They will not be. HubSpot's own documentation shows why: a property in use cannot be archived, and an archived property is permanently deleted after 90 days. Reframe the choice from keep-or-discard to CRM-property-or-readable-archive, and the negotiation ends."
 publishedAt: 2026-09-17
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: crm
 principle: "In a Japan CRM migration, stop negotiating what to discard. Offer two destinations instead: a CRM property, or a readable archive. Nothing is lost, nobody has to approve a deletion, and the CRM stays light."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -20,7 +20,9 @@ Ask the Japan team privately and most will tell you that half those fields are d
 
 A field that gets migrated and never used costs nothing that anyone will trace back to a person. A field that was left behind and turns out to be needed has a name attached to it: the person who agreed to drop it. And the legacy system is usually decommissioned after cutover, so there is no recovery path.
 
-This asymmetry exists everywhere. It bites harder in Japan for a specific reason. A decision of consequence is expected to move through 稟議 (ringi), the written internal approval circuit, where a named approver signs off. Discarding company records is exactly the kind of decision that circuit exists for. Your Japan counterpart, sitting in a project meeting with a vendor, has no standing to make it alone and no appetite to start a ringi document in order to throw data away.
+This asymmetry exists everywhere. It bites harder in Japan for a specific reason. A decision of consequence is expected to move through 稟議 (ringi), the written internal approval circuit, where a named approver signs off. Discarding company records is exactly the kind of decision that circuit exists for.
+
+Your Japan counterpart, sitting in a project meeting with a vendor, has no standing to make it alone and no appetite to start a ringi document in order to throw data away.
 
 So "everything" is not a requirement. It is the answer that needs no approval.
 
@@ -50,7 +52,9 @@ What decides the destination is one question: **after cutover, who enters a valu
 
 If no name comes back, the field has no reason to be a CRM property. A field that only holds historical values cannot be a reporting dimension, cannot drive a forecast, and cannot branch an automation. It can only sit in the record layout and make every future report builder stop and ask whether it is trustworthy.
 
-Reference frequency comes after that question, not instead of it. A field nobody will enter does not become a CRM property, however often it is read. If it is read monthly or more, put an entry point to the archive on the company or deal record in the new CRM so people can get to the old values in one step. If it is read a few times a year, the archive alone is enough. Ask "how many times did you open this in the last six months" and you will usually get a real answer, which you will not get from "do you need this."
+Reference frequency comes after that question, not instead of it. A field nobody will enter does not become a CRM property, however often it is read. If it is read monthly or more, put an entry point to the archive on the company or deal record in the new CRM so people can get to the old values in one step. If it is read a few times a year, the archive alone is enough.
+
+Ask "how many times did you open this in the last six months" and you will usually get a real answer, which you will not get from "do you need this."
 
 ## Adding a property is one decision; removing one is a sequence of tasks
 
@@ -70,13 +74,19 @@ Records created from the cutover date forward go into the CRM. Everything before
 
 Migrate only what straddles that date: open deals, live contracts, tickets still in progress. Anything closed and static is, as a rule, adequately served by the archive.
 
-Two exceptions. Migrate every company and contact, because excluding existing customers from campaigns and choosing upsell targets cannot be done inside the new CRM otherwise. Migrate closed-won deals with three values only: amount, close date and product. Those three are enough to report existing-customer revenue and year-on-year comparisons in the new system. Decide separately how much activity history, email, attachments and the associations between companies, contacts and deals to bring across. That is usually the heaviest part of a migration, and it is not a field question.
+Two exceptions. Migrate every company and contact, because excluding existing customers from campaigns and choosing upsell targets cannot be done inside the new CRM otherwise. Migrate closed-won deals with three values only: amount, close date and product. Those three are enough to report existing-customer revenue and year-on-year comparisons in the new system. Decide separately how much activity history, email, attachments and the associations between companies, contacts and deals to bring across.
 
-Then add one line to the migration plan: **ninety days after cutover, export every property with its fill rate and review.** Whether fill rates can be pulled for all properties at once depends on the tool and its configuration; if they cannot, the review means checking property by property in reports, so reserve the time for it in the plan. Fields at zero are the deletion candidates, and by then the evidence exists rather than being demanded in advance.
+That is usually the heaviest part of a migration, and it is not a field question.
+
+Then add one line to the migration plan: **ninety days after cutover, export every property with its fill rate and review.** Whether fill rates can be pulled for all properties at once depends on the tool and its configuration; if they cannot, the review means checking property by property in reports, so reserve the time for it in the plan.
+
+Fields at zero are the deletion candidates, and by then the evidence exists rather than being demanded in advance.
 
 That line is what lets your Japan counterpart stop saying "everything." It moves the decision to a point where data supports it instead of asking them to carry it personally now. It also reads well in a ringi document, which matters more than HQ usually expects.
 
-The input cost of the extra fields is not hypothetical. In a survey Keywalker ran from 8 to 10 October 2025 (online panel survey via PRIZMA, 1,034 frontline sales staff and sales managers at Japanese companies already using SFA, CRM, or BI tools), the second most common reason for delayed data entry was "too many fields to fill in," at 38.5%. It is a BI vendor surveying its own market, so read the figure as an order of magnitude. The relationship it points at is not in doubt: the field count you accept at migration becomes the screen your Japan reps face every day, and low adoption gets reported back to HQ as a Japan problem.
+The input cost of the extra fields is not hypothetical. In a survey Keywalker ran from 8 to 10 October 2025 (online panel survey via PRIZMA, 1,034 frontline sales staff and sales managers at Japanese companies already using SFA, CRM, or BI tools), the second most common reason for delayed data entry was "too many fields to fill in," at 38.5%.
+
+It is a BI vendor surveying its own market, so read the figure as an order of magnitude. The relationship it points at is not in doubt: the field count you accept at migration becomes the screen your Japan reps face every day, and low adoption gets reported back to HQ as a Japan problem.
 
 **Stop negotiating what to discard. Offer a CRM property or a readable archive, and let the cutover date carry the rest.**
 
@@ -84,6 +94,6 @@ Open the migration field list for your Japan rollout this week and write a name 
 
 ## Related reading
 
-The same failure mode appears one step earlier, when the question is which record in the Japanese master corresponds to which record in the global CRM. That decision also gets postponed into a tool evaluation and also has to be made before anything moves: [Your Japan integration will not fail on the connector. It fails on the key.](/en/articles/decide-the-master-before-integrating/)
+The same failure mode appears one step earlier, when the question is which record in the Japanese master corresponds to which record in the global CRM. That decision also gets postponed into a tool evaluation and also has to be made before anything moves: [Before connecting Japan’s CRM, agree the matching key](/en/articles/decide-the-master-before-integrating/)
 
 Other notes on the same problem are collected under [CRM adoption](/en/category/crm/).

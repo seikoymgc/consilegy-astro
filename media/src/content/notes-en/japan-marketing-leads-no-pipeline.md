@@ -1,7 +1,8 @@
 ---
-title: "Your Japan marketing gets leads but no pipeline. Fix the handoff, not the tool"
+title: "Japan leads without pipeline: examine the handoff"
 description: "Leads go up, pipeline does not move. In Japan the cause is rarely the marketing automation tool or the team's effort. It is that the post-capture handoff between marketing, inside sales, and field sales is never defined. Here is the data and the fix."
 publishedAt: 2026-07-23
+updatedAt: 2026-10-17
 category: marketing
 principle: "Marketing automation stalls when the content inventory and the marketing-to-sales handoff criteria are undefined. Switching tools does not fix it."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/

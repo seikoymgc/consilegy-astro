@@ -1,10 +1,10 @@
 ---
-title: "Validate Japan approval, not demand, before you incorporate"
-description: "The Japan decision arrives as an entity question, so the validation work goes into market sizing, competitors and price acceptance. Six months later the answer is yes, you incorporate, and four quarters after that the pipeline has not moved. Demand was the one thing you could establish without an entity. Here is what to test instead, and how to test it before the entity exists."
+title: "Before incorporating in Japan, test the approval process"
+description: "Validate demand and the buyer’s approval process before incorporating. Record where live deals stop and which roles must approve them, then use that evidence to decide what the local entity needs to do."
 publishedAt: 2026-09-16
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: japan-gtm
-principle: "Before you incorporate in Japan, do not validate demand. Validate whether a Japanese buyer can get you approved internally. Run live deals with no entity, record where each one stops and who stopped it, and let that distribution specify what the entity is actually for."
+principle: "Validate demand and the buyer’s approval process before incorporating. Record where live deals stop and which roles must approve them, then use that evidence to decide what the local entity needs to do."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -18,7 +18,9 @@ The research was not weak. It answered a question that does not decide Japan ent
 
 ## Demand is something you can establish from your desk
 
-Market size, who else is selling, what Japanese companies already pay: all of that is desk-researchable. So is the fact that more foreign companies are arriving. JETRO's 2025 report on inward investment recorded greenfield investment, the kind that creates a new legal entity, at 4.8 trillion yen, up 15.4% year on year and the highest on record. That is not evidence of demand for your product. What it tells you is that the shortlist your Japanese buyer looks at is getting longer.
+Market size, who else is selling, what Japanese companies already pay: all of that is desk-researchable. So is the fact that more foreign companies are arriving. JETRO's 2025 report on inward investment recorded greenfield investment, the kind that creates a new legal entity, at 4.8 trillion yen, up 15.4% year on year and the highest on record. That is not evidence of demand for your product.
+
+What it tells you is that the shortlist your Japanese buyer looks at is getting longer.
 
 None of this requires an entity. Which means demand is not what the entity buys you information about.
 
@@ -26,7 +28,9 @@ What the entity buys you information about is one thing only: whether the person
 
 ## The Japanese approval route stalls in places that have nothing to do with your product
 
-In the survey by IDEATECH and Hiroyasu Kitagawa of Demagen Research (published 16 April 2026, fielded 23 to 26 March 2026, n=307, restricted to people who took part with at least one colleague in a Japanese purchase of business software worth 3 million yen or more, and run as survey-as-PR, so read it for order of magnitude), 60.9% of purchases required two approval stages, more than 80% required two or more, and roughly 20% required three or more. Evaluation ran 3 to 8 months in 63.6% of cases, with about 40% taking six months or more.
+In the survey by IDEATECH and Hiroyasu Kitagawa of Demagen Research (published 16 April 2026, fielded 23 to 26 March 2026, n=307, restricted to people who took part with at least one colleague in a Japanese purchase of business software worth 3 million yen or more, and run as survey-as-PR, so read it for order of magnitude), 60.9% of purchases required two approval stages, more than 80% required two or more, and roughly 20% required three or more.
+
+Evaluation ran 3 to 8 months in 63.6% of cases, with about 40% taking six months or more.
 
 Somewhere inside that route, your champion gets handed a set of questions. Can the invoice be issued in yen. Can you issue a qualified invoice under Japan's invoice system. Is there a Japanese-language contract, and what is the governing law. Is there a support window in Japan Standard Time. How does procurement run its credit check and its anti-organised-crime screening on a foreign counterparty.
 
@@ -46,7 +50,9 @@ You can sell into Japan without an entity. Contract from the foreign parent, sel
 
 The answers depend on the structure and terms you choose, so this note does not give them. It is not tax or legal advice.
 
-Then take five to ten named prospects and run them to the end. Offer terms you could actually deliver if they sign. The champion spends their own internal effort routing your deal through approval, and a prospect you ran for research only will not take your call twice. Since the goal is not revenue, do not push hard on negotiation. Record two things: the point at which the deal stopped, and the job title of the person who stopped it.
+Then take five to ten named prospects and run them to the end. Offer terms you could actually deliver if they sign. The champion spends their own internal effort routing your deal through approval, and a prospect you ran for research only will not take your call twice. Since the goal is not revenue, do not push hard on negotiation.
+
+Record two things: the point at which the deal stopped, and the job title of the person who stopped it.
 
 Keep the record somewhere it can be counted, not in each rep's memory. In the CRM, add a picklist on the opportunity for the stage that stopped it (legal, finance, IT, credit check, final approval) and a field for the stopper's job title. For five to ten deals, a shared sheet is enough.
 

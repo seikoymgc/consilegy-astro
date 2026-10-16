@@ -45,5 +45,12 @@ AddCharset UTF-8 .txt
 # GET では同じパスにある静的ファイル（Astro の転送用ページ）が先に返った。
 # 静的ファイルより先に評価される mod_rewrite に切り替えた。
 RewriteEngine On
-RewriteRule ^notes/why-teams-dont-use-the-tool/?$ https://media.consilegy.com/notes/why-sfa-adoption-fails/ [R=301,L]
+RewriteRule ^(?:notes/)?why-teams-dont-use-the-tool/?$ https://media.consilegy.com/why-sfa-adoption-fails/ [R=301,L]
 RewriteRule ^en/articles/why-teams-dont-use-the-tool/?$ https://media.consilegy.com/en/articles/why-sfa-adoption-fails/ [R=301,L]
+
+# /notes/ 階層の廃止。旧URLはクエリを維持して新URLへ直接301転送する。
+# 一覧・カテゴリを先に扱い、一般の記事ルールに飲み込ませない。
+RewriteRule ^notes/?$ https://media.consilegy.com/articles/ [R=301,L]
+RewriteRule ^notes/category/?$ https://media.consilegy.com/articles/ [R=301,L]
+RewriteRule ^notes/category/(.+?)/?$ https://media.consilegy.com/category/$1/ [R=301,L]
+RewriteRule ^notes/(.+?)/?$ https://media.consilegy.com/$1/ [R=301,L]

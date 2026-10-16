@@ -1,8 +1,8 @@
 ---
-title: "A weekly Japan pipeline review with a monthly agenda changes nothing"
+title: "A weekly Japan review needs decisions, not another monthly report"
 description: "Headquarters tightens the marketing and sales cadence for Japan, and the numbers stay flat. The problem is not frequency. A rollup of MQLs and SQLs has no field for the thing that actually decides Japanese deals, which is the weeks when nothing visible happens."
 publishedAt: 2026-09-09
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: marketing
 principle: "Change what the meeting opens, from a regional rollup to one live deal neither team can explain on its own. Cadence then follows from whether that deal is still open when you meet."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -20,7 +20,9 @@ Frequency was not the constraint. The dashboard was.
 
 A global alignment view is built from events. Form filled, MQL created, meeting held, stage advanced. Regions get compared on the rate at which events occur.
 
-In Japan the decisive stretches are the ones where no event occurs. In a survey by IDEATECH and Hiroyasu Kitagawa of Demagen Research (published 16 April 2026, fielded 23 to 26 March 2026, n=307, restricted to people who took part with at least one colleague in a Japanese purchase of business software worth 3 million yen or more, and run as survey-as-PR by a company whose business is survey-as-PR, so read it for order of magnitude), more than 80% of those deals passed through two or more approval layers, and 63.6% ran 3 to 8 months. By the time a vendor was properly engaged, the buying process was already about 40% complete.
+In Japan the decisive stretches are the ones where no event occurs. In a survey by IDEATECH and Hiroyasu Kitagawa of Demagen Research (published 16 April 2026, fielded 23 to 26 March 2026, n=307, restricted to people who took part with at least one colleague in a Japanese purchase of business software worth 3 million yen or more, and run as survey-as-PR by a company whose business is survey-as-PR, so read it for order of magnitude), more than 80% of those deals passed through two or more approval layers, and 63.6% ran 3 to 8 months.
+
+By the time a vendor was properly engaged, the buying process was already about 40% complete.
 
 Six weeks of a champion circulating a draft internally produces exactly nothing your dashboard can render. Meeting more often does not make an absence visible.
 
@@ -28,7 +30,9 @@ Six weeks of a champion circulating a draft internally produces exactly nothing 
 
 This is not unique to Japan, but the Japan team feels it harder because the rep is the only person with any visibility into the silent stretch.
 
-A survey of the two functions in Japan by Softbrain (fielded 4 to 6 October 2024, published 17 December 2024, 159 sales and 139 marketing respondents for a total of 298, conducted by IDEATECH; a vendor survey with roughly 150 per side, so treat it as ranking rather than a precise rate) asked each side the same question. Marketing's top complaint about sales was that follow-up is never improved, at 47.5%. Sales' top complaint about marketing was that lead information is insufficient, at 42.1%.
+A survey of the two functions in Japan by Softbrain (fielded 4 to 6 October 2024, published 17 December 2024, 159 sales and 139 marketing respondents for a total of 298, conducted by IDEATECH; a vendor survey with roughly 150 per side, so treat it as ranking rather than a precise rate) asked each side the same question. Marketing's top complaint about sales was that follow-up is never improved, at 47.5%.
+
+Sales' top complaint about marketing was that lead information is insufficient, at 42.1%.
 
 Neither of those is checkable from a rollup. Whether the information on a lead was sufficient is a property of one record. So is what the rep sent and what came back.
 

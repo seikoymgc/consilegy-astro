@@ -1,10 +1,10 @@
 ---
-title: "Why every lost deal in Japan shows up as \"price\" in your CRM"
-description: "Your Japan closed-lost report says price, so headquarters approves a discount policy, and nothing changes. The picklist was designed for a market where deals are lost to competitors. In Japan they are lost to an approval that stops moving, and there is no value in the field for that. Here is how to rebuild the list."
+title: "When Japan’s lost deals are all recorded as “price”"
+description: "Give reps a way to record the buyer’s actual reason for stopping. Separate internal approval from price before using the loss report to set discount policy."
 publishedAt: 2026-08-05
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: sales
-principle: "Closed-lost reasons are set by the picklist, not by the rep. Rebuild the values around what Japanese buyers actually drop you for, and give \"internal approval stalled\" its own entry."
+principle: "Give reps a way to record the buyer’s actual reason for stopping. Separate internal approval from price before using the loss report to set discount policy."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -26,7 +26,9 @@ Faced with that, a rep picks the closest available value. Usually price or timin
 
 ## What Japanese buyers say when they drop you
 
-A joint survey by IDEATECH and Hiroyasu Kitagawa (published April 2026, n=307, limited to buyers who participated with at least one colleague in B2B purchases of 3 million yen or more; it is a vendor-sponsored survey skewed toward large, multi-stakeholder deals) asked why vendors were cut from consideration. The top answers were missing functionality for the buyer's problem at 39.1%, the vendor not fitting the buyer's company size at 34.5%, and no customer example resembling the buyer at 26.4%.
+A joint survey by IDEATECH and Hiroyasu Kitagawa (published April 2026, n=307, limited to buyers who participated with at least one colleague in B2B purchases of 3 million yen or more; it is a vendor-sponsored survey skewed toward large, multi-stakeholder deals) asked why vendors were cut from consideration.
+
+The top answers were missing functionality for the buyer's problem at 39.1%, the vendor not fitting the buyer's company size at 34.5%, and no customer example resembling the buyer at 26.4%.
 
 The second and third have no equivalent in a standard picklist. Neither is price and neither is a competitor. Both describe evidence your Japan team was never given. They sit on the same axis, so the list below holds them as one value.
 
@@ -48,7 +50,7 @@ The list we implement has five entries.
 4. Lost to a named competitor
 5. The buyer's project itself stopped
 
-Budget is not on the list. In Japan, "no budget" usually means the deal missed the customer's budget cycle, so park it as on hold with the next budget-setting month as the restart date rather than closing it lost; the reasoning is in ["No budget" in Japan is a date, not a number](/en/articles/no-budget-means-no-slot/). If your global list already has a budget value, rename it "budget timing (move to on hold)" and route it to on hold, not closed-lost.
+Budget is not on the list. In Japan, "no budget" usually means the deal missed the customer's budget cycle, so park it as on hold with the next budget-setting month as the restart date rather than closing it lost; the reasoning is in [“No budget” in Japan: check the amount and the timing](/en/articles/no-budget-means-no-slot/). If your global list already has a budget value, rename it "budget timing (move to on hold)" and route it to on hold, not closed-lost.
 
 Removing price leaves reps unsure where real price losses go, so set the boundary up front. A cheaper competitor won: value four, with the price gap in one line of free text. The amount did not clear the customer's approval: value two, with the layer it stopped at, usually finance or an executive. Budget timing: on hold, not lost.
 
@@ -82,7 +84,7 @@ That number cannot be imported. Your own closed-lost field is the only place it 
 
 Designing what the local team hands the approver is part of [Japan GTM and messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/), not a CRM cleanup task.
 
-**Closed-lost reasons are set by the picklist, not by the rep. Rebuild the values around what Japanese buyers actually drop you for, and give "internal approval stalled" its own entry.**
+**Give reps a way to record the buyer’s actual reason for stopping. Separate internal approval from price before using the loss report to set discount policy.**
 
 ## Related reading
 

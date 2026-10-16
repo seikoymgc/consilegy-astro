@@ -1,10 +1,10 @@
 ---
-title: "In Japan, the first meeting is not discovery. The shortlist already exists."
-description: "Your global first-call framework opens with pain discovery. Japanese buyers of large B2B deals have finished that work before your rep joins the call, and a two-to-three vendor shortlist is already drawn. Here is what to ask instead, and which fields the answers belong in."
+title: "The first Japan sales call: check what the buyer has already decided"
+description: "Check what the buyer has already evaluated before restarting discovery. Ask about competing options, budget and the next approval step, and investigate the gaps that remain."
 publishedAt: 2026-08-19
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: sales
-principle: "In Japan the first meeting is not discovery, it is the one chance to be added to a shortlist that already exists. Ask about the comparison set and the approval chain before you ask about pain."
+principle: "Check what the buyer has already evaluated before restarting discovery. Ask about competing options, budget and the next approval step, and investigate the gaps that remain."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -57,7 +57,11 @@ Note what is not claimed here. There is no published primary data on the number 
 
 ## What headquarters should change
 
-**Record the answers where the deal already lives, not in five new fields.** Question one goes in the next-step field (use the standard one if your CRM has it). Question two is a role on each contact attached to the deal: decision maker, operational owner, or information gathering. Question three is one new field, competing vendors and the criteria. Question four is not a separate field: it sets the final rung on the approval-progress axis described in [Forecast your Japan pipeline on approval progress, not rep confidence](/en/articles/forecast-by-approval-not-confidence/), because the same approval held in two fields means one of them goes stale. Question five is the external deadline and its date. None of these is required when the deal is created, since a first meeting does not always produce the answer. They are what should be filled before the deal moves past the first-meeting stage.
+**Record the answers where the deal already lives, not in five new fields.** Question one goes in the next-step field (use the standard one if your CRM has it). Question two is a role on each contact attached to the deal: decision maker, operational owner, or information gathering. Question three is one new field, competing vendors and the criteria.
+
+Question four is not a separate field: it sets the final rung on the approval-progress axis described in [Forecast your Japan pipeline on approval progress, not rep confidence](/en/articles/forecast-by-approval-not-confidence/), because the same approval held in two fields means one of them goes stale. Question five is the external deadline and its date. None of these is required when the deal is created, since a first meeting does not always produce the answer.
+
+They are what should be filled before the deal moves past the first-meeting stage.
 
 **Stop scoring the first meeting on discovery notes.** Score it on whether the rep learned the comparison set and the approval path, and whether a specific next meeting is in the calendar.
 
@@ -65,11 +69,11 @@ Note what is not claimed here. There is no published primary data on the number 
 
 **Read a thin first-meeting note as a process failure, not a language barrier.** If the record says the buyer is interested and nothing else, the rep ran a script written for a buyer who has not yet started.
 
-**In Japan the first meeting is not discovery, it is the one chance to be added to a shortlist that already exists. Ask about the comparison set and the approval chain before you ask about pain.**
+**Check what the buyer has already evaluated before restarting discovery. Ask about competing options, budget and the next approval step, and investigate the gaps that remain.**
 
 ## Related reading
 
-Once you know the approval chain from question four, the next deliverable is the document that travels it, which is covered in [In Japan, your champion cannot write the business case. Write it for them.](/en/articles/draft-the-internal-approval-document/).
+Once you know the approval chain from question four, the next deliverable is the document that travels it, which is covered in [Help the Japan buyer prepare a draft business case](/en/articles/draft-the-internal-approval-document/).
 
 [Japan deal cycle length can be estimated at the first meeting](/en/articles/long-deals-show-at-first-meeting/) lists three things to record at the first meeting: who brought the deal in, whether a budget line exists, and the next internal meeting and its date. That note is about reading cycle length from the record; this one reorders the conversation so the record can be filled. Capture those three inside the five-question flow.
 

@@ -1,10 +1,10 @@
 ---
 title: "Your Japan team's conversion rates don't match HQ's? Start with the denominator"
-description: "When your Japan pipeline's conversion numbers won't reconcile with the global dashboard, the cause is rarely the CRM. 'Lead' is defined differently across the org, and the numerator and denominator are counted as of different dates. Before you compare Japan to HQ, align what you count and when you count it."
+description: "Before comparing conversion rates, align both the numerator and denominator, the unit of count and the cut-off date. Document any differences that remain."
 publishedAt: 2026-07-26
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: data
-principle: "A conversion rate is decided by its denominator. Before comparing Japan to global, align the definition of what counts, and as of when, on one shared map."
+principle: "Before comparing conversion rates, align both the numerator and denominator, the unit of count and the cut-off date. Document any differences that remain."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 ---
@@ -65,7 +65,7 @@ For Japan, no public benchmark discloses the denominator and method behind lead-
 
 That makes it doubly important to align your own definitions and cutoff dates first, so you can at least compare Japan to itself over time. This is the foundation for measuring the full revenue path end to end, which is what [Japan GTM built on Revenue Architecture](https://consilegy.com/en/services-en/japan-market-gtm-messaging/) depends on.
 
-**A conversion rate is decided by its denominator. Before comparing Japan to global, align the definition of what counts, and as of when, on one shared map.**
+**Before comparing conversion rates, align both the numerator and denominator, the unit of count and the cut-off date. Document any differences that remain.**
 
 ## Common mistakes
 

@@ -1,10 +1,10 @@
 ---
 title: "Japan pipeline grew, revenue flat: the stall is downstream"
-description: "You told the Japan team to run more meetings. Meeting count and pipeline value both climbed, and bookings did not move. The usual readings are weak reps or soft demand. Neither explains it. The added deals all queued at the same point, inside the buyer's approval circuit, where meeting volume has no effect and the work that does have an effect has no field in your global CRM."
+description: "Before raising meeting targets, locate the common point of delay. If deals are waiting on buyer approval, plan support for that step and test whether it reduces the wait."
 publishedAt: 2026-09-18
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: sales
-principle: "Activity converts to revenue only where deals are stalled on your side of the table, so when the stall sits inside the Japanese buyer's approval circuit, the meetings you add become queue rather than bookings."
+principle: "Before raising meeting targets, locate the common point of delay. If deals are waiting on buyer approval, plan support for that step and test whether it reduces the wait."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -74,7 +74,9 @@ This is a direction rather than a measurement, and it is enough to decide with. 
 
 Two conditions. Losses concentrate in "never made the shortlist" or "never reached anyone," and the stall points on open deals are known and mostly on your side. With both true, activity converts and the instruction needs no revision.
 
-One option not taken: capping the number of open deals a rep may carry at once. It does reduce queue, but once the cap binds, someone has to decline new conversations, and that judgment lands on a rep who cannot yet see value or probability. What survives a cap is the easy deal. Making stall location visible gets the same result without handing the local team a decision they are not equipped to make, and without HQ discovering the cap in a QBR.
+One option not taken: capping the number of open deals a rep may carry at once. It does reduce queue, but once the cap binds, someone has to decline new conversations, and that judgment lands on a rep who cannot yet see value or probability. What survives a cap is the easy deal.
+
+Making stall location visible gets the same result without handing the local team a decision they are not equipped to make, and without HQ discovering the cap in a QBR.
 
 The full model for designing revenue around the buyer's internal process, rather than around seller activity, sits in [Japan Market GTM and Messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/).
 

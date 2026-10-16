@@ -1,3 +1,4 @@
+import { MEDIA_TAGLINE_JA } from '../site-config';
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import { categories, categoriesEn, type CategoryKey } from '../content.config';
@@ -20,7 +21,7 @@ export const GET: APIRoute = async ({ site }) => {
 	lines.push('# B2Bレベニュー戦略ジャーナル');
 	lines.push('');
 	lines.push(
-		'> B2Bの収益プロセスが構造的につまずく箇所を、実装の現場から記録している教育メディアです。運営はConsilegy合同会社、執筆・編集はConsilegy メディア編集部です。CRM・SFAの定着、商談プロセスと稟議、収益データの定義、マーケティングから営業への引き渡し、海外SaaSの日本市場参入を扱います。',
+		`> ${MEDIA_TAGLINE_JA} 運営はConsilegy合同会社、執筆・編集はConsilegy メディア編集部です。`,
 	);
 	lines.push('');
 	lines.push('## このサイトの方針');
@@ -43,7 +44,7 @@ export const GET: APIRoute = async ({ site }) => {
 	lines.push('');
 	for (const key of Object.keys(categories) as CategoryKey[]) {
 		const count = ja.filter(n => n.data.category === key).length;
-		lines.push(`- [${categories[key]}](${abs(`/notes/category/${key}/`)}): 全${count}本。原因の構造とよくある質問への回答を含みます。`);
+		lines.push(`- [${categories[key]}](${abs(`/category/${key}/`)}): 全${count}本。原因の構造とよくある質問への回答を含みます。`);
 	}
 	lines.push('');
 
@@ -51,7 +52,7 @@ export const GET: APIRoute = async ({ site }) => {
 	lines.push('');
 	for (const n of ja) {
 		lines.push(
-			`- [${n.data.title}](${abs(`/notes/${n.id}/`)}): ${n.data.principle}（${categories[n.data.category]} / ${n.data.publishedAt.toISOString().slice(0, 10)}）`,
+			`- [${n.data.title}](${abs(`/${n.id}/`)}): ${n.data.principle}（${categories[n.data.category]} / ${n.data.publishedAt.toISOString().slice(0, 10)}）`,
 		);
 	}
 	lines.push('');
@@ -73,7 +74,7 @@ export const GET: APIRoute = async ({ site }) => {
 	lines.push('');
 	lines.push(`- [編集部について](${abs('/about/')}): Consilegy メディア編集部`);
 	lines.push(`- [About the editorial team](${abs('/en/about/')})`);
-	lines.push(`- [記事一覧](${abs('/notes/')})`);
+	lines.push(`- [記事一覧](${abs('/articles/')})`);
 	lines.push(`- [All articles (English edition)](${abs('/en/articles/')})`);
 	lines.push(`- [RSS (日本語)](${abs('/rss.xml')})`);
 	lines.push(`- [RSS (English)](${abs('/en/rss.xml')})`);

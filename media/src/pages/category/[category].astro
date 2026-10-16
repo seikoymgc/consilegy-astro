@@ -1,9 +1,9 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import ArticleCard from '../../../components/ArticleCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
 import { getCollection } from 'astro:content';
-import { categories, categoryColors, type CategoryKey } from '../../../content.config';
-import { categoryHubs } from '../../../data/category-hubs';
+import { categories, categoryColors, type CategoryKey } from '../../content.config';
+import { categoryHubs } from '../../data/category-hubs';
 
 export async function getStaticPaths() {
 	return (Object.keys(categories) as CategoryKey[]).map(category => ({
@@ -48,7 +48,7 @@ const collectionSchema = {
 		itemListElement: notes.map((n, i) => ({
 			'@type': 'ListItem',
 			position: i + 1,
-			url: new URL(`/notes/${n.id}/`, site).href,
+			url: new URL(`/${n.id}/`, site).href,
 			name: n.data.title,
 		})),
 	},
@@ -58,11 +58,11 @@ const collectionSchema = {
 <BaseLayout
 	title={`${label}｜原因と直し方 | B2Bレベニュー戦略ジャーナル`}
 	description={`${hub.intro[0]}全${notes.length}本の記事と、よくある質問への回答をまとめています。`}
-	jaPath={`/notes/category/${category}/`}
+	jaPath={`/category/${category}/`}
 	enPath={`/en/category/${category}/`}
 	breadcrumbs={[
 		{ name: 'ホーム', url: '/' },
-		{ name: '記事一覧', url: '/notes/' },
+		{ name: '記事一覧', url: '/articles/' },
 		{ name: label },
 	]}
 >
@@ -76,7 +76,7 @@ const collectionSchema = {
 			<nav class="breadcrumb" aria-label="パンくずリスト">
 				<a href="/">ホーム</a>
 				<span aria-hidden="true">›</span>
-				<a href="/notes/">記事一覧</a>
+				<a href="/articles/">記事一覧</a>
 				<span aria-hidden="true">›</span>
 				<span aria-current="page">{label}</span>
 			</nav>
@@ -97,7 +97,7 @@ const collectionSchema = {
 					<div class="card-grid">
 						{notes.map(n => (
 							<ArticleCard
-								href={`/notes/${n.id}/`}
+								href={`/${n.id}/`}
 								title={n.data.title}
 								description={n.data.description}
 								categoryLabel={label}
@@ -120,7 +120,7 @@ const collectionSchema = {
 					hub.faq.map(f => (
 						<>
 							<dt>{f.q}</dt>
-							<dd>{f.a}</dd>
+							<dd>{f.a.split('\n\n').map(paragraph => <p>{paragraph}</p>)}</dd>
 						</>
 					))
 				}
@@ -134,7 +134,7 @@ const collectionSchema = {
 							.filter(key => key !== category)
 							.map(key => (
 								<li>
-									<a href={`/notes/category/${key}/`}>{categories[key]}</a>
+									<a href={`/category/${key}/`}>{categories[key]}</a>
 								</li>
 							))
 					}
@@ -217,6 +217,10 @@ const collectionSchema = {
 		margin-top: 0;
 		padding-top: 0;
 		border-top: none;
+	}
+
+	.faq dd p + p {
+		margin-top: 0.9rem;
 	}
 
 	.faq dd {

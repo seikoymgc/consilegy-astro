@@ -1,9 +1,10 @@
 ---
 title: "What your Japan handoff drops is the reason the contract was approved"
-description: "Your Japan closed-won record is complete: contract terms, contacts, go-live date. It is still missing the one artifact that decides the renewal, which is the sentence the customer's own approval document used to justify the purchase. That sentence exists, it is in Japanese, it was half-written by your seller, and it lives in a folder you will never open. Why renewals in Japan turn into fresh approvals, and the one field to add before your next close."
+description: "Pass on why the customer approved the purchase, as well as the account facts. Record the result that renewal must justify and who will explain it internally."
 publishedAt: 2026-09-12
+updatedAt: 2026-10-17
 category: sales
-principle: "In Japan the handoff must carry the sentence the customer's internal approval document used, not the facts about the customer. Without it the renewal is not a continuation decision, it is a second approval cycle run by people who were not there the first time."
+principle: "Pass on why the customer approved the purchase, as well as the account facts. Record the result that renewal must justify and who will explain it internally."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -25,7 +26,9 @@ In a domestic North American or European deal you can survive this, because the 
 
 A Japanese enterprise purchase of any size clears a *ringi*, a written circulating approval. Someone on the customer side authored a document, in Japanese, stating what this spend is for, which budget line it comes from, what will be stopped or not stopped, and why now.
 
-Your seller did not just wait for that document. In a well-run Japan deal the seller helped shape it: which framing survives the finance review, whether to position the purchase as new investment or as a replacement, what the first line has to say for the approver to read the second. The finished justification is written in the customer's own vocabulary and is usually about their internal workload, not about your product. Something closer to "eliminates the three days per quarter currently spent assembling the divisional report" than to anything in your feature list.
+Your seller did not just wait for that document. In a well-run Japan deal the seller helped shape it: which framing survives the finance review, whether to position the purchase as new investment or as a replacement, what the first line has to say for the approver to read the second. The finished justification is written in the customer's own vocabulary and is usually about their internal workload, not about your product.
+
+Something closer to "eliminates the three days per quarter currently spent assembling the divisional report" than to anything in your feature list.
 
 That sentence is half your seller's work product. It is also the only version of your value proposition that has ever been read by the people who release the money. And it is nowhere in your CRM, because your CRM has a field for contract value and no field for what the contract was approved as.
 
@@ -41,11 +44,15 @@ No competitor has to show up for you to lose this.
 
 ## The room was larger than your CRM ever recorded
 
-IDEATECH and Hiroyasu Kitagawa of Demagen Research Institute surveyed buyers between 25 and 26 May 2026 (an internet panel survey run under IDEATECH's research-PR service, covering people who were one of two or more participants in the purchase, replacement or major renewal of B2B business software or IT infrastructure with an annual contract value of 5 million yen or more; 330 valid responses, this question n=325). Deals involving seven or more decision participants were 58.5% of the sample. Departments that took part included finance and accounting at 38.2% and legal at 33.2%.
+IDEATECH and Hiroyasu Kitagawa of Demagen Research Institute surveyed buyers between 25 and 26 May 2026 (an internet panel survey run under IDEATECH's research-PR service, covering people who were one of two or more participants in the purchase, replacement or major renewal of B2B business software or IT infrastructure with an annual contract value of 5 million yen or more; 330 valid responses, this question n=325). Deals involving seven or more decision participants were 58.5% of the sample.
+
+Departments that took part included finance and accounting at 38.2% and legal at 33.2%.
 
 The survey exists to demonstrate the vendor's own research service and it is a panel sample, so read the order of magnitude rather than the exact ratio. The magnitude is the point. Seven or more people, several of them from functions your account executive never met, formed a shared understanding of what this purchase was for. Your CRM stored one or two of their names.
 
-HiCustomer's *Customer Success White Paper 2023* (fieldwork 18 to 30 April 2023, 203 valid responses) found that among companies reporting an inadequate handoff from sales to customer success, 63.3% had a churn rate of 2% or higher, 1.7 times the rate among companies reporting an adequate handoff. Small sample, self-reported, run by a vendor in the customer success tooling market, and correlation rather than cause: companies with low churn are probably better organised overall, handoffs included. Worth looking at once, not worth building a business case on.
+HiCustomer's *Customer Success White Paper 2023* (fieldwork 18 to 30 April 2023, 203 valid responses) found that among companies reporting an inadequate handoff from sales to customer success, 63.3% had a churn rate of 2% or higher, 1.7 times the rate among companies reporting an adequate handoff. Small sample, self-reported, run by a vendor in the customer success tooling market, and correlation rather than cause: companies with low churn are probably better organised overall, handoffs included.
+
+Worth looking at once, not worth building a business case on.
 
 ## HQ will diagnose this as pricing, because pricing is the only thing measured
 

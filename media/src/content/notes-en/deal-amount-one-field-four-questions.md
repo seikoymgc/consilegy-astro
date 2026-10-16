@@ -1,9 +1,10 @@
 ---
 title: "Japan CRM deal amounts: why the pipeline won't reconcile"
-description: "HQ rolls up the Japan pipeline and it does not match billing. The cause is rarely optimism. It is the deal amount field: Japanese reps copy numbers from quotes, invoices and approval documents that each state the price differently, and one field asks four questions at once. How to split the field, let the CRM compute ARR, and decide which system wins."
+description: "Label the currency, tax treatment, period and one-off charges separately. Agree what reps enter and calculate the amount used in the regional rollup."
 publishedAt: 2026-09-23
+updatedAt: 2026-10-17
 category: crm
-principle: "A Japan deal amount that drifts is not a training problem. Name what each amount is in the field label, let reps enter only what they can copy without judgment, and let the CRM compute every number that gets summed."
+principle: "Label the currency, tax treatment, period and one-off charges separately. Agree what reps enter and calculate the amount used in the regional rollup."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -34,7 +35,7 @@ The screen shows a label that says Amount and one box. To fill it, the rep is si
 - Does it include one-off fees such as setup or onboarding?
 - Yen, or thousands of yen?
 
-The last one is easy to overlook from outside Japan. Japanese internal spreadsheets and management reports commonly state figures in units of ¥1,000 (千円), and a rep pasting from one of those drops three zeros without noticing. Then HQ's rollup adds a fifth question, the conversion rate and date, which the Japan team never sees.
+The last one is easy to overlook from outside Japan. Japanese internal spreadsheets and management reports commonly state figures in units of ¥1,000 (千円), and a rep pasting from one of those drops three zeros without noticing. HQ’s rollup adds a fifth question: the exchange rate and date. Make those visible to the local team as well.
 
 The standard response is a line in the playbook: enter amounts excluding tax, annualised. It holds for about a quarter. The rule lives outside the screen. New hires enter deals before they read the playbook, and experienced reps entering a deal while looking at the invoice type the tax-inclusive number.
 
@@ -56,7 +57,9 @@ Let the CRM compute what the forecast and the board deck sum:
 
 Putting the unit and tax basis in the label matters more than it looks. A field called "Monthly fee (JPY, excl. tax)" does not need a playbook.
 
-If you run HubSpot, most of this already exists. When a deal has line items with a billing frequency and a term, HubSpot calculates Annual contract value, Annual recurring revenue, Monthly recurring revenue and Total contract value automatically. HubSpot's own description of Total contract value is that it is calculated from the associated line items and does not take the Amount property into account. So a portal where Japan types into Amount and the dashboards sum Amount is carrying the drift straight into the forecast, while the calculated properties sit unused next to it.
+If you run HubSpot, most of this already exists. When a deal has line items with a billing frequency and a term, HubSpot calculates Annual contract value, Annual recurring revenue, Monthly recurring revenue and Total contract value automatically. HubSpot's own description of Total contract value is that it is calculated from the associated line items and does not take the Amount property into account.
+
+So a portal where Japan types into Amount and the dashboards sum Amount is carrying the drift straight into the forecast, while the calculated properties sit unused next to it.
 
 Then write down which property every report and forecast sums, and put it in the dashboard description. Splitting the field does nothing if different people start adding up different columns.
 
@@ -84,14 +87,16 @@ The decision that saves the most time is the last one: when the CRM and accounti
 
 It is tempting to read inconsistent amounts as a discipline problem. From the rep's seat, it is usually that nobody said what the number is for.
 
-A survey by Keywalker, a Japanese BI vendor, run by PRIZMA between 8 and 10 October 2025 among 1,034 frontline sales staff and managers at Japanese companies already using SFA, CRM or BI tools, found that the top factor that motivates people to enter data was "the purpose of the input and how the data will be used is clear", at 54.8%. In the same survey, the top dashboard use among managers was checking figures in sales meetings, at 58.2%. It is a vendor survey, so read the percentages as orders of magnitude, but the direction is plain. The deal amount is the number that gets added up in that meeting. Say so on the screen.
+A survey by Keywalker, a Japanese BI vendor, run by PRIZMA between 8 and 10 October 2025 among 1,034 frontline sales staff and managers at Japanese companies already using SFA, CRM or BI tools, found that the top factor that motivates people to enter data was "the purpose of the input and how the data will be used is clear", at 54.8%.
 
-**A Japan deal amount that drifts is not a training problem. Name what each amount is in the field label, let reps enter only what they can copy without judgment, and let the CRM compute every number that gets summed.**
+In the same survey, the top dashboard use among managers was checking figures in sales meetings, at 58.2%. It is a vendor survey, so read the percentages as orders of magnitude, but the direction is plain. The deal amount is the number that gets added up in that meeting. Say so on the screen.
+
+**Label the currency, tax treatment, period and one-off charges separately. Agree what reps enter and calculate the amount used in the regional rollup.**
 
 This week, pull the last ten Japan deals marked closed-won. Put the CRM amount next to the invoice, converted to monthly and excluding tax, and calculate the ratio for each. If the ratios read 1.0, 1.1 and 12, the problem is not your Japan team. It is one box answering four questions.
 
 ## Related reading
 
-The amount problem starts earlier than the CRM. Whether Japan is quoted in yen or dollars decides whether the buyer can put one fixed number into the ringi, and that number is the one your rep later copies into the deal: [Quoting Japan in USD stalls the approval, not the negotiation](/en/articles/price-in-yen-or-dollars/).
+The amount problem starts earlier than the CRM. Whether Japan is quoted in yen or dollars decides whether the buyer can put one fixed number into the ringi, and that number is the one your rep later copies into the deal: [Quoting in yen or dollars: what the Japan buyer needs for approval](/en/articles/price-in-yen-or-dollars/).
 
 Other notes on the same problem are collected under [CRM adoption](/en/category/crm/).

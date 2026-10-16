@@ -1,10 +1,10 @@
 ---
 title: "Distributor or direct: choosing your Japan entry model"
-description: "HQ frames Japan entry as a channel question: distributor first, or hire a country manager and go direct. Japanese government survey data shows what foreign-affiliated companies actually do, why the global partner list is only the third door in Japan, and why the real decision is whether the record of each deal reaches your CRM."
+description: "Compare speed to revenue with the evidence each route will leave in your own records. Agree what a partner will share about decisions, delays and losses before launch."
 publishedAt: 2026-08-10
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: japan-gtm
-principle: "Decide Japan's entry route not by which one produces revenue first, but by which one puts the reason a deal stalled into your own record."
+principle: "Compare speed to revenue with the evidence each route will leave in your own records. Agree what a partner will share about decisions, delays and losses before launch."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -63,11 +63,15 @@ Neither set of numbers tells you which route is correct. They tell you that both
 
 Change the criterion. For the first ten Japanese deals, ask whether these three things land in a system you own.
 
-**1. Where the deal stopped, and who did not agree.** Japanese purchases clear multiple approval stages. If you cannot see which stage a deal reached before it went quiet, you cannot fix the deck, the pricing sheet or the security answers. When a partner owns the account, that information stays in an account manager's head and never crosses into your region reporting. HQ then reads the aggregate and concludes that Japan is slow, which is a description, not a cause.
+**1. Where the deal stopped, and who did not agree.** Japanese purchases clear multiple approval stages. If you cannot see which stage a deal reached before it went quiet, you cannot fix the deck, the pricing sheet or the security answers. When a partner owns the account, that information stays in an account manager's head and never crosses into your region reporting.
+
+HQ then reads the aggregate and concludes that Japan is slow, which is a description, not a cause.
 
 **2. The loss reason, at the granularity the buyer used.** Partner-reported losses compress into "budget" and "timing" almost every time. A quarter of that reporting tells you nothing you can act on. Japanese buyers drop vendors for reasons that are specific and fixable, and none of them survive that compression.
 
-**3. One counting rule for partner-registered and direct deals.** If partner deal registration and your own opportunities are not reconciled from day one, the same Japanese company appears twice, regional pipeline inflates, and nobody can say which route produced the revenue. This is the failure that shows up latest and costs most, because the numbers look fine until the forecast misses. If a global partner under an HQ agreement is also working the same Japanese accounts, the rule has to say whose registration wins and who gets paid.
+**3. One counting rule for partner-registered and direct deals.** If partner deal registration and your own opportunities are not reconciled from day one, the same Japanese company appears twice, regional pipeline inflates, and nobody can say which route produced the revenue. This is the failure that shows up latest and costs most, because the numbers look fine until the forecast misses.
+
+If a global partner under an HQ agreement is also working the same Japanese accounts, the rule has to say whose registration wins and who gets paid.
 
 If all three land, start with a partner and take the speed. If none of them land, the partner route will produce revenue and zero market knowledge, and you will enter year two with a bigger number and the same understanding you had at the start.
 
@@ -81,12 +85,12 @@ On your side, add six fields to partner-sourced deals: referring partner, referr
 
 One more reason to treat your own first ten deals as the dataset: there is no published Japanese primary data on the success or exit rate of foreign software companies entering Japan. Japan's Ministry of Economy, Trade and Industry discontinued its survey of foreign-affiliated companies after fiscal 2020, and nothing has replaced it. Benchmarking this decision against peers is not available to you.
 
-**Decide Japan's entry route not by which one produces revenue first, but by which one puts the reason a deal stalled into your own record.**
+**Compare speed to revenue with the evidence each route will leave in your own records. Agree what a partner will share about decisions, delays and losses before launch.**
 
 Pull three currently open partner-sourced Japanese deals and read the last recorded loss or stall reason. If all three say budget or timing, that channel is sending you revenue and no information, and the second year of your Japan plan is being written blind.
 
 ## Related reading
 
-Once the reasons do reach your CRM, the next failure is the picklist itself. Global closed-lost values were designed for markets where deals are lost to a competitor, and they have no value for the way Japanese deals actually end. That rebuild is covered in [Why every lost deal in Japan shows up as "price" in your CRM](/en/articles/loss-reason-defaults-to-price/).
+Once the reasons do reach your CRM, the next failure is the picklist itself. Global closed-lost values were designed for markets where deals are lost to a competitor, and they have no value for the way Japanese deals actually end. That rebuild is covered in [When Japan’s lost deals are all recorded as “price”](/en/articles/loss-reason-defaults-to-price/).
 
 Other notes on the same problem are collected under [Japan market entry](/en/category/japan-gtm/).

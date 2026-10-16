@@ -2,7 +2,7 @@
 title: "Download counts do not show whether a buyer used the file"
 description: "HQ reads Japan whitepaper downloads as pipeline signal, then wonders why sales calls go nowhere. A download records that someone received a file, not that it was used inside the buyer's company. Two 2026 Japanese B2B purchasing surveys show which content actually helped, and what to count instead."
 publishedAt: 2026-09-29
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: marketing
 principle: "A download records that someone received a file, not that it was used inside the buyer's company. Judge each asset by whether a champion could use it to explain the decision internally, and count a trace of internal circulation instead of the download."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -18,7 +18,9 @@ Meanwhile the Japan sales team reports the opposite. They call the people who do
 
 The event you capture is a click on a button. Whether the person read it, and whether anyone else ever saw it, is not in the record.
 
-In large Japanese B2B purchases the gap matters more than it does elsewhere. IDEATECH and the Demagen Research Institute published a survey on 16 April 2026, fielded 23 to 26 March 2026. Respondents were employees and executives who had, in the previous 12 months, been involved together with at least one other person in buying or reviewing B2B products costing 3 million yen or more per year (n=307). IDEATECH's business is survey PR and the sample is an online panel, so read the figures as orders of magnitude.
+In large Japanese B2B purchases the gap matters more than it does elsewhere. IDEATECH and the Demagen Research Institute published a survey on 16 April 2026, fielded 23 to 26 March 2026. Respondents were employees and executives who had, in the previous 12 months, been involved together with at least one other person in buying or reviewing B2B products costing 3 million yen or more per year (n=307).
+
+IDEATECH's business is survey PR and the sample is an online panel, so read the figures as orders of magnitude.
 
 By the time a buyer was substantively talking to a vendor's sales rep, the purchasing process was on average about 40% complete. Your rep is calling into a process that started without you. The person who downloaded the file is one contributor to it, and often not the one who signs.
 
@@ -30,7 +32,9 @@ Ask which single source had the greatest influence, though (n=300), and whitepap
 
 ## The content buyers found helpful lets them run their own numbers and explain the choice inside the company
 
-A second survey from the same two organisations, published 9 June 2026, asked about the content that helped a purchase decision. It was fielded 25 to 26 May 2026, with 330 valid responses (the base varies by question). Respondents had been involved with at least one other person in buying business software, SaaS, IT infrastructure or security products costing 5 million yen or more per year. The threshold and questions differ from the first survey, so do not combine the figures. It is again an online panel run by a survey-PR company.
+A second survey from the same two organisations, published 9 June 2026, asked about the content that helped a purchase decision. It was fielded 25 to 26 May 2026, with 330 valid responses (the base varies by question). Respondents had been involved with at least one other person in buying business software, SaaS, IT infrastructure or security products costing 5 million yen or more per year.
+
+The threshold and questions differ from the first survey, so do not combine the figures. It is again an online panel run by a survey-PR company.
 
 The most helpful content type was an ROI calculator at 55.4%, followed by case studies from the buyer's own industry or a similar size at 46.5%, slides written for internal explanation at 26.8%, and materials to support the approval request at 14.2% (all multiple answers).
 

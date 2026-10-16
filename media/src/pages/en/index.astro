@@ -1,5 +1,6 @@
 ---
 import '../../styles/journal-home.css';
+import { MEDIA_DESCRIPTION_EN } from '../../site-config';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { categoriesEn, type CategoryKey } from '../../content.config';
@@ -20,8 +21,8 @@ const fmt = (d: Date) =>
 
 <BaseLayout
 	lang="en"
-	title="B2B Revenue Strategy Journal | Marketing, sales, and CRM for B2B revenue in Japan"
-	description="Practical guides on entering and operating in the Japanese market: ringi approval, CRM adoption, sales process, and revenue data. Written from hands-on implementation work, with sourced data throughout."
+	title="B2B Revenue Strategy Journal | Marketing, sales and CRM in Japan"
+	description={MEDIA_DESCRIPTION_EN}
 	jaPath="/"
 	enPath="/en/"
 >

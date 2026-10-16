@@ -1,9 +1,10 @@
 ---
-title: "Your Japan team wants its own pipeline. Give them four fields instead."
-description: "When the Japan team asks for a separate pipeline, the real problem is usually that your global stages have no way to represent where a Japanese deal actually sits: inside an approval process that takes months. Splitting the pipeline hides that. Adding fields exposes it."
+title: "Before giving Japan a separate pipeline, compare the exit criteria"
+description: "Compare stage exit criteria before splitting a pipeline. Use fields and views for local approval details where the underlying sales process is shared."
 publishedAt: 2026-08-14
+updatedAt: 2026-10-17
 category: crm
-principle: "Split a pipeline only when the exit criteria differ. In Japan they usually do not. What differs is that the deal advances through approvals your stages do not model, and that belongs in fields, not in a second pipeline."
+principle: "Compare stage exit criteria before splitting a pipeline. Use fields and views for local approval details where the underlying sales process is shared."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -29,7 +30,7 @@ A separate pipeline does not add that representation. It just moves the blank sp
 
 ## What splitting actually costs you
 
-The moment Japan has its own pipeline, you lose the ability to answer the only question that matters about the region.
+A separate pipeline needs a mapping back to the shared forecast. Without it, the regional review cannot reliably compare stages.
 
 Headquarters will keep saying Japan is slow. With one pipeline, that claim is testable: you can compare stage-by-stage duration against other regions and see whether Japan is slower in discovery, slower in evaluation, or slower only after the proposal. Each of those has a different fix, and two of them are your fault, not the market's.
 
@@ -54,7 +55,7 @@ Even then, split the pipeline but keep two things common with the global one: th
 
 Write the exit condition of each stage as a single sentence, for the global pipeline and for the proposed Japan pipeline. Who does what, and then the deal advances.
 
-**Split a pipeline only when the exit criteria differ. In Japan they usually do not. What differs is that the deal advances through approvals your stages do not model, and that belongs in fields, not in a second pipeline.**
+**Compare stage exit criteria before splitting a pipeline. Use fields and views for local approval details where the underlying sales process is shared.**
 
 ## Related reading
 

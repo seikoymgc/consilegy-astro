@@ -22,12 +22,12 @@ const latest = (await getCollection('notes', ({ data }) => !data.draft))
 			</p>
 
 			<nav class="nf__cats" aria-label="カテゴリ">
-				<p class="nf__label">悩みから探す</p>
+				<p class="nf__label">カテゴリから探す</p>
 				<ul>
 					{
 						(Object.keys(categories) as CategoryKey[]).map(key => (
 							<li>
-								<a href={`/notes/category/${key}/`}>{categories[key]}</a>
+								<a href={`/category/${key}/`}>{categories[key]}</a>
 							</li>
 						))
 					}
@@ -40,7 +40,7 @@ const latest = (await getCollection('notes', ({ data }) => !data.draft))
 					{
 						latest.map(n => (
 							<li>
-								<a href={`/notes/${n.id}/`}>{n.data.title}</a>
+								<a href={`/${n.id}/`}>{n.data.title}</a>
 							</li>
 						))
 					}
@@ -48,7 +48,7 @@ const latest = (await getCollection('notes', ({ data }) => !data.draft))
 			</nav>
 
 			<p class="nf__foot">
-				<a href="/notes/">記事一覧をすべて見る</a> ／ <a href="/en/">English edition</a>
+				<a href="/articles/">記事一覧をすべて見る</a> ／ <a href="/en/">English edition</a>
 			</p>
 		</div>
 	</section>

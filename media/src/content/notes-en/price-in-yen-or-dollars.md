@@ -1,10 +1,10 @@
 ---
-title: "Quoting Japan in USD stalls the approval, not the negotiation"
-description: "HQ reads a request for yen pricing as a discount request or a pricing exception. In Japan it is neither. The approval document takes one number, and a USD price list hands the job of producing that number to the buyer. Japanese survey data (n=330) on who is actually in the room, and the one page to ship instead."
+title: "Quoting in yen or dollars: what the Japan buyer needs for approval"
+description: "Specify currency, tax, contract period and quote validity so the buyer can submit a stable amount for approval. Check who carries the exchange-rate risk."
 publishedAt: 2026-08-28
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: japan-gtm
-principle: "Quote currency is not a commercial term in Japan. It decides whether the buyer can put a fixed number into the internal approval document. Ship one page in yen, excluding tax, annual, with a rate and an expiry that do not move."
+principle: "Specify currency, tax, contract period and quote validity so the buyer can submit a stable amount for approval. Check who carries the exchange-rate risk."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -73,7 +73,9 @@ But fixing the rate is a decision about who carries currency risk. If the yen we
 
 Get those approved as a set, framed as a local commercial policy rather than a pricing exception.
 
-Settle the CRM side at the same time. Once yen amounts sit on deals, the USD rollup HQ reads depends on which rate converts them, and Japan's bookings can shift month to month on currency alone. Salesforce supports dated exchange rates and HubSpot supports multiple currencies with exchange rates, but what you can configure and how it behaves depends on edition and settings. Decide who maintains the conversion rate, how often it is updated, and whether it matches the quoted rate or HQ's finance rate. Otherwise every month's Japan number needs a currency footnote.
+Settle the CRM side at the same time. Once yen amounts sit on deals, the USD rollup HQ reads depends on which rate converts them, and Japan's bookings can shift month to month on currency alone. Salesforce supports dated exchange rates and HubSpot supports multiple currencies with exchange rates, but what you can configure and how it behaves depends on edition and settings.
+
+Decide who maintains the conversion rate, how often it is updated, and whether it matches the quoted rate or HQ's finance rate. Otherwise every month's Japan number needs a currency footnote.
 
 This sits inside the same work as getting your [Japan GTM and messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/) right, because both start from what the buyer has to carry through their own organisation.
 

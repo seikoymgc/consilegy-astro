@@ -1,10 +1,10 @@
 ---
-title: "Japan Reps Ask the Last Owner, Not the CRM: Fix the Record"
-description: "HQ has call summaries and deal history in the CRM, yet the new owner of a Japan account still asks the previous rep what to do next. A call summary is not decision material. Keep three lines in a fixed place so the next owner can decide in three minutes, or the record stops being read and then stops being written."
+title: "When Japan reps ask the last owner instead of reading the CRM"
+description: "Keep the conversation summary, but add a fixed place for the next check, the approval owner and the last point of delay. Test whether the next rep can act from that record."
 publishedAt: 2026-10-13
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: crm
-principle: "A record nobody reads keeps costing the people who write it. What the CRM should hold is not a summary of the conversation but three lines the next owner can decide from in three minutes: the next check, who holds approval, and where it stalled last time."
+principle: "Keep the conversation summary, but add a fixed place for the next check, the approval owner and the last point of delay. Test whether the next rep can act from that record."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -28,7 +28,9 @@ The new owner learns from a failed attempt. Open the record a few times, fail to
 
 Then the record is no longer referenced. A record nobody references keeps charging the people who write it. When writers see that nothing is read, they stop writing. More logging turns into more unused logging.
 
-Japanese survey data points the same way, with caveats. Matsurika's SFA/CRM usage survey (fielded by IDEATECH, 25 to 28 November 2024, managers and team leads in the sales departments of B2B companies, n=101) found 39.6% naming "necessary information is not shared properly" as a problem with SFA/CRM. It is a vendor survey from a company that sells SFA, and the sample is small, so read the figure as an order of magnitude. It does show that a sizeable group has the tool and still lacks the information.
+Japanese survey data points the same way, with caveats. Matsurika's SFA/CRM usage survey (fielded by IDEATECH, 25 to 28 November 2024, managers and team leads in the sales departments of B2B companies, n=101) found 39.6% naming "necessary information is not shared properly" as a problem with SFA/CRM. It is a vendor survey from a company that sells SFA, and the sample is small, so read the figure as an order of magnitude.
+
+It does show that a sizeable group has the tool and still lacks the information.
 
 A second source: Keywalker (online survey by PRIZMA, 8 to 10 October 2025, n=1,034, sales managers and field staff at companies that have adopted SFA, CRM or BI tools; the sponsor sells BI implementation support, so it is also a vendor survey). Asked what they use dashboards for, 15.4% of managers and 20.7% of field staff chose "deciding the next action". The top answer for managers, "checking numbers in the sales meeting", was 58.2%.
 
@@ -48,7 +50,9 @@ The person who writes them is the rep holding the deal, at the moment they move 
 
 Left optional, the lines are blank within six months. Make them a condition for moving the deal to the next stage, not a requirement at creation. Approval holders are not always known early, so allow "not yet confirmed" as an answer; a deal full of those is telling you what to check next.
 
-Overwrite the lines to keep them current. Their job is to show the present state in three minutes; reading the history is a different job. If you want to see how the stall point moved, paste the same three lines into the activity note each time the stage changes, and the earlier versions stay. In the weekly pipeline review, the manager starts with deals where the lines are empty or still "not yet confirmed". We covered the same constraint for contract handoffs in [What your Japan handoff drops is the reason the contract was approved](/en/articles/handoff-misses-why-it-was-approved/): only the person who held the deal can write it.
+Overwrite the lines to keep them current. Their job is to show the present state in three minutes; reading the history is a different job. If you want to see how the stall point moved, paste the same three lines into the activity note each time the stage changes, and the earlier versions stay. In the weekly pipeline review, the manager starts with deals where the lines are empty or still "not yet confirmed".
+
+We covered the same constraint for contract handoffs in [What your Japan handoff drops is the reason the contract was approved](/en/articles/handoff-misses-why-it-was-approved/): only the person who held the deal can write it.
 
 Placement matters more than it sounds. The rep opens the deal screen, the manager opens the pipeline list, customer success opens the contract screen. Put the same three lines where each of those roles actually looks.
 
@@ -68,6 +72,6 @@ A test for this week: pick three Japan deals whose owner changed recently. Ask t
 
 ## Related reading
 
-Before reducing how much people enter, make a place where what they enter gets used. That argument is in [Why Japan CRM Adoption Stalls: A Design Problem, Not Effort](/en/articles/why-sfa-adoption-fails/).
+Before reducing how much people enter, make a place where what they enter gets used. That argument is in [Japan CRM adoption: examine the work, the records and their use](/en/articles/why-sfa-adoption-fails/).
 
 Other notes on the same problem are collected under [CRM adoption](/en/category/crm/).

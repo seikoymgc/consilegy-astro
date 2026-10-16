@@ -2,7 +2,7 @@
 title: "Don't leave hiring until after translation and pricing in Japan"
 description: "Foreign SaaS launches in Japan usually start with the language and pricing debates. The people who will operate them, local sales and marketing talent, are the role foreign-affiliated companies in Japan struggle most to secure, according to JETRO's government survey. How to move hiring to the front of the plan, what to have ready before the first hire, and how to cover the gap."
 publishedAt: 2026-07-28
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: japan-gtm
 principle: "In a Japan launch, hiring is not a step that follows translation and pricing. The local sales and marketing people who will run the market are the role foreign companies struggle most to secure, so rewrite the role for Japan and prepare to receive the hire at the same time you start localizing."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -53,7 +53,9 @@ On the receiving side, have two things ready.
 
 Until hires land, the gap gets covered by partners, contractors, or people flying in from HQ. This note cannot point you to public data on which of those works best.
 
-The same JETRO survey does show that foreign companies running a collaboration with Japanese companies or universities had a higher share of revenue growth (57.0% of those collaborating, against 45.9% of those neither collaborating nor considering it). But the counterparties are mostly large companies, SMEs and universities, and the most common content is joint marketing and channel development. It is not evidence that outsourcing your sales function works. It is also a correlation: companies already growing find it easier to attract partners, and the same figures support that reading equally well.
+The same JETRO survey does show that foreign companies running a collaboration with Japanese companies or universities had a higher share of revenue growth (57.0% of those collaborating, against 45.9% of those neither collaborating nor considering it). But the counterparties are mostly large companies, SMEs and universities, and the most common content is joint marketing and channel development. It is not evidence that outsourcing your sales function works.
+
+It is also a correlation: companies already growing find it easier to attract partners, and the same figures support that reading equally well.
 
 The axis you can actually decide on is whether the record of each deal stays with you, whichever option you pick. Who objected, which stage it stalled at, why it was lost. If the period you hand to outsiders leaves no record in your own system, your first hire inherits nothing. That axis is covered in [Distributor or direct: choosing your Japan entry model](/en/articles/partner-or-direct-first-in-japan/).
 

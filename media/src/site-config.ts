@@ -30,3 +30,11 @@ export const GTM_ID: string = import.meta.env.PUBLIC_GTM_ID || 'GTM-T2FNKSK';
 // 記載があるため、メディア側はここへリンクすれば外部送信の公表を満たせる。
 export const PRIVACY_URL_JA = 'https://consilegy.com/privacy-policy/';
 export const PRIVACY_URL_EN = 'https://consilegy.com/en/privacy-policy/';
+
+// 媒体の説明。ツール名ではなく、扱う仕事の範囲を示す。
+export const MEDIA_TAGLINE_JA = '集客から受注、その後の継続・拡大まで。B2Bの売上を考える実務メディア。';
+export const MEDIA_TAGLINE_EN = 'From attracting customers to winning, retaining and growing accounts. Practical insights for B2B teams.';
+
+// 検索結果と配信先でも、扱う分野が具体的に伝わる説明。
+export const MEDIA_DESCRIPTION_JA = '集客から受注、その後の継続・拡大まで。マーケティング・営業・CRMの実務と、顧客との取引を続け、広げるための判断を扱うB2Bメディアです。';
+export const MEDIA_DESCRIPTION_EN = 'Practical insights on B2B marketing, sales and CRM, from attracting customers to winning, retaining and growing accounts in Japan.';

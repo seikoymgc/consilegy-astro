@@ -1,10 +1,10 @@
 ---
-title: "Lost Deals in Japan Need a Restart Trigger, Not a Reason"
-description: "HQ runs the same win-back sequence on the Japan closed-lost list and gets silence. A lost deal comes back when something changes on the buyer's side, not on a date your CRM picked. Record what would reopen it, and who checks when, at the moment the rep closes the deal."
+title: "Add a restart condition to lost deals in Japan"
+description: "Record the reason for loss, the change that would justify another conversation and a check date while the rep still has the context."
 publishedAt: 2026-10-12
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: sales
-principle: "Do not close a lost deal in Japan with a reason alone. Close it with the condition that would reopen it and a date to check, written by the rep at the moment of closing, because no one can reconstruct it later."
+principle: "Record the reason for loss, the change that would justify another conversation and a check date while the rep still has the context."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -20,9 +20,9 @@ The rep did not neglect the account. At the moment the deal was closed, nothing 
 
 ## The same loss reason reopens for different reasons
 
-Sorting loss reasons well does not tell you when to go back. We covered the design of the dropdown in [Why every lost deal in Japan shows up as "price" in your CRM](/en/articles/loss-reason-defaults-to-price/). The restart condition sits somewhere else, and it differs by reason.
+Sorting loss reasons well does not tell you when to go back. We covered the design of the dropdown in [When Japan’s lost deals are all recorded as “price”](/en/articles/loss-reason-defaults-to-price/). The restart condition sits somewhere else, and it differs by reason.
 
-Take one case out first. **A deal stopped by "no budget" should not be closed-lost at all.** Put it on hold, with the buyer's next budget cycle as the restart date, as set out in ["No budget" in Japan is a date, not a number](/en/articles/no-budget-means-no-slot/). If your loss reasons include "budget," define it as "budget timing does not fit (move to on hold)" so choosing it parks the deal instead of losing it.
+Take one case out first. **A deal stopped by "no budget" should not be closed-lost at all.** Put it on hold, with the buyer's next budget cycle as the restart date, as set out in [“No budget” in Japan: check the amount and the timing](/en/articles/no-budget-means-no-slot/). If your loss reasons include "budget," define it as "budget timing does not fit (move to on hold)" so choosing it parks the deal instead of losing it.
 
 The deals that are genuinely lost restart in three different ways.
 
@@ -42,9 +42,11 @@ So the record is made in the same action that closes the deal. Three fields:
 2. The date to check, even if it is only a month.
 3. Who checks.
 
-Require these as a condition of moving the deal to closed-lost, alongside the loss reason; at that moment the rep knows the answers. Make "not applicable" a valid answer for the first field. If every field is mandatory, reps type something to get past the screen and the data gets worse. We wrote about that failure in [In Japan, a required field produces confident wrong answers](/en/articles/dont-make-unknown-fields-required/).
+Require these as a condition of moving the deal to closed-lost, alongside the loss reason; at that moment the rep knows the answers. Make "not applicable" a valid answer for the first field. If every field is mandatory, reps type something to get past the screen and the data gets worse. We wrote about that failure in [Required CRM fields: check whether the Japan team knows the answer](/en/articles/dont-make-unknown-fields-required/).
 
-One survey figure is worth adding. Fast Marketing Inc. surveyed 432 people at B2B companies who work in marketing or sales (online survey, May 2026, "BtoB Marketing Survey 2026"). Where results of handed-off leads were shared back down to the reason for the win or loss, 82.1% reported meeting their sales target. Where sharing stopped at whether someone had followed up, it was 54.3%. The report itself states that this is a correlation, not causation, and the publisher sells marketing strategy support, so its conclusion favours its own business. Read the percentages as direction and rough size.
+One survey figure is worth adding. Fast Marketing Inc. surveyed 432 people at B2B companies who work in marketing or sales (online survey, May 2026, "BtoB Marketing Survey 2026"). Where results of handed-off leads were shared back down to the reason for the win or loss, 82.1% reported meeting their sales target. Where sharing stopped at whether someone had followed up, it was 54.3%.
+
+The report itself states that this is a correlation, not causation, and the publisher sells marketing strategy support, so its conclusion favours its own business. Read the percentages as direction and rough size.
 
 The direction is clear enough. When the reason and the restart condition reach marketing, marketing can write to that buyer about that condition. When they do not, the only option is the same email to everyone.
 

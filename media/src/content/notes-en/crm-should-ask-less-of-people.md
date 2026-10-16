@@ -1,10 +1,10 @@
 ---
 title: "Japan CRM adoption rises when the tool asks less of people"
-description: "Data entry in your Japan CRM stalls, so HQ adds another training round, and six months later it stalls again. Training is aimed at the wrong variable. A 2025 survey of 1,034 Japanese sales staff shows why entry is late, and this note explains how to count the work your CRM asks for before adding more enablement."
+description: "List the entry, configuration and upkeep work the CRM requires. Remove work that serves no decision, then train people on the tasks that remain."
 publishedAt: 2026-09-29
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: crm
-principle: "CRM adoption in Japan is set by how much work the tool asks of people, not by how much training they get. Count the entry, configuration and upkeep work first, and remove what you can before you teach the rest."
+principle: "List the entry, configuration and upkeep work the CRM requires. Remove work that serves no decision, then train people on the tasks that remain."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -32,7 +32,9 @@ After go-live, the tool makes demands, and it helps to split them by who is bein
 
 Reps are asked to enter: contacts, deal history, next steps. Administrators are asked to configure: fields, pipelines, permissions, automations. The organisation is asked to sustain: review the data in a regular meeting, keep definitions stable, keep things running when people change roles.
 
-Even with a dedicated operations owner, one person cannot carry all three. Entry stays with the reps, and reviewing the numbers in the regular meeting stays with the sales manager. A Japan office without a dedicated operations person carries all three on the same few people. The sales lead enters data, the sales manager configures the system, and the country head worries about upkeep. Work squeezed in beside the day job is the first thing to stop in a month when the day job gets busy.
+Even with a dedicated operations owner, one person cannot carry all three. Entry stays with the reps, and reviewing the numbers in the regular meeting stays with the sales manager. A Japan office without a dedicated operations person carries all three on the same few people. The sales lead enters data, the sales manager configures the system, and the country head worries about upkeep.
+
+Work squeezed in beside the day job is the first thing to stop in a month when the day job gets busy.
 
 ## Count one week of the work your CRM generates, by who does it
 
@@ -52,7 +54,9 @@ One of the three is usually far heavier than the others. Cut there first. Traini
 
 What separates CRMs that last is not how many features they have, but how much of these three the tool takes off people, and how small it keeps the work it creates in return.
 
-One example from our own product. Revenue CRM, which we at Consilegy launched on 28 September 2026 for Japanese small and mid-sized companies, was designed around these three cuts. It ships in four industry editions with initial settings already in place, and its automation diagnostic asks four questions and suggests at most eight automations to switch on first. The cap exists to keep the review work above from growing. Details are in the [press release](/en/news/revenue-crm-release/). If your Japan entity runs on your global HubSpot or Salesforce instance, the count and the three cuts apply the same way.
+One example from our own product. Revenue CRM, which we at Consilegy launched on 28 September 2026 for Japanese small and mid-sized companies, was designed around these three cuts. It ships in four industry editions with initial settings already in place, and its automation diagnostic asks four questions and suggests at most eight automations to switch on first. The cap exists to keep the review work above from growing. Details are in the [press release](https://consilegy.com/en/news/revenue-crm-release/).
+
+If your Japan entity runs on your global HubSpot or Salesforce instance, the count and the three cuts apply the same way.
 
 ## Teach only what is left after you have removed work
 
@@ -60,7 +64,7 @@ Enablement is not the problem. The order is. Piling training onto a heavy worklo
 
 Count the work, remove what you can, then spend teaching time on what remains. Do not leave adoption to the effort of the field team alone.
 
-**CRM adoption in Japan is set by how much work the tool asks of people, not by how much training they get. Count the entry, configuration and upkeep work first, and remove what you can before you teach the rest.**
+**List the entry, configuration and upkeep work the CRM requires. Remove work that serves no decision, then train people on the tasks that remain.**
 
 If you do one thing this week, ask one rep on the Japan team to count the screens they open and the fields they fill to log a single deal.
 
@@ -72,6 +76,6 @@ If you do one thing this week, ask one rep on the Japan team to count the screen
 
 ## Related reading
 
-What happens to a CRM when the person who pushed it through moves on is covered in [Japan CRM adoption collapses when the HQ sponsor moves on](/en/articles/adoption-stops-when-the-sponsor-leaves/). The load a tool puts on people and whether anyone owns it are two sides of the same problem.
+What happens to a CRM when the person who pushed it through moves on is covered in [Keeping a Japan CRM rollout running after its sponsor leaves](/en/articles/adoption-stops-when-the-sponsor-leaves/). The load a tool puts on people and whether anyone owns it are two sides of the same problem.
 
 Other notes on the same problem are collected under [CRM adoption](/en/category/crm/).

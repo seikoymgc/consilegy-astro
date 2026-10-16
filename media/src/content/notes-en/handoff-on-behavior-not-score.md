@@ -1,8 +1,8 @@
 ---
-title: "In Japan, hand leads to sales on behavior, not on score"
+title: "Japan lead handoffs: record the buyer action behind the score"
 description: "Your Japan team hits its MQL target, but pipeline does not move and local sales says the leads do not land. Handing off on behavior is not a new idea. What matters in Japan is which behaviors you can actually capture in large multi-stakeholder deals, how to migrate from the score-based MQL rule without breaking your numbers, and how often to change the definition."
 publishedAt: 2026-07-29
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: marketing
 principle: "Define the handoff on the buyer's evaluation behavior, not on attribute score. If your team cannot explain in one line why a lead was passed, the criteria are not yet written down."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -12,11 +12,11 @@ draft: false
 
 Your Japan team reports that this month's MQL target was met, yet pipeline barely moves and local sales says the leads do not land. If you keep responding by tuning the scoring model, the complaint will not go away. Sales does not act on a score. It acts on whether there is a reason to move now.
 
-Handing off on behavior rather than score is not a new idea. This note is about what comes after it in Japan: which behaviors you can and cannot capture in large Japanese deals, how to move off the score-based MQL rule that is already running without breaking your trend lines, and how often to change the definition. Skip those and "hand off on behavior" drifts back to a score within a quarter.
+Handing off on behavior rather than score is not a new idea. This note is about what comes after it in Japan: which behaviors you can and cannot capture in large Japanese deals, how to move off the score-based MQL rule that is already running without breaking your trend lines, and how often to change the definition. If those decisions remain open, the existing score rule is likely to stay in use.
 
 ## Why "MQLs are up, pipeline is flat" happens
 
-Marketing says it passed the lead because the score crossed the threshold. Sales says the buyer is not ready to pursue. Both are right, and they do not connect, because the two sides never agreed on what a passable lead is. Survey data on how each side sees the other is covered in [Japan Sales Won't Chase Your Leads: Log Why, in 4 Choices](/en/articles/record-why-leads-come-back/).
+Marketing says it passed the lead because the score crossed the threshold. Sales says the buyer is not ready to pursue. Both are right, and they do not connect, because the two sides never agreed on what a passable lead is. Survey data on how each side sees the other is covered in [Four reasons to record when Japan sales returns a lead](/en/articles/record-why-leads-come-back/).
 
 For a foreign SaaS entering Japan, the threshold usually comes from headquarters and was tuned on another market's signals. An attribute-only or single-action rule (right title, right company size, one whitepaper download) tells your local rep nothing about where the buyer is in their internal process.
 
@@ -30,7 +30,9 @@ The survey does not compare score and behavior as predictors of pipeline. What f
 
 The first problem with a behavior-based rule is whether the behavior can actually be recorded.
 
-A separate joint survey by IDEATECH and Hiroyasu Kitagawa of Demagen Research (published 9 June 2026, fielded 25 to 26 May 2026, n=325, limited to people who took part with at least one colleague in a Japanese purchase of business software or IT infrastructure worth 5 million yen or more per year; a vendor-run survey-as-PR exercise) found 58.5% of those deals involved seven or more people. In a seven-person evaluation it is unlikely all seven fill in your form. Most of the people visiting your site will not have a record in your CRM.
+A separate joint survey by IDEATECH and Hiroyasu Kitagawa of Demagen Research (published 9 June 2026, fielded 25 to 26 May 2026, n=325, limited to people who took part with at least one colleague in a Japanese purchase of business software or IT infrastructure worth 5 million yen or more per year; a vendor-run survey-as-PR exercise) found 58.5% of those deals involved seven or more people.
+
+In a seven-person evaluation it is unlikely all seven fill in your form. Most of the people visiting your site will not have a record in your CRM.
 
 That splits behaviors into two groups.
 
@@ -62,7 +64,7 @@ The handoff line gets refined as you run it. Change the definition every week, t
 
 Keep the two apart.
 
-- **Every week, look.** Look at the leads sales declined and why. Have sales pick the reason from a fixed list rather than free text; how to set up that list is covered in [Japan Sales Won't Chase Your Leads: Log Why, in 4 Choices](/en/articles/record-why-leads-come-back/). The weekly session handles one input only, which behaviors turned into opportunities, and does not touch the definition.
+- **Every week, look.** Look at the leads sales declined and why. Have sales pick the reason from a fixed list rather than free text; how to set up that list is covered in [Four reasons to record when Japan sales returns a lead](/en/articles/record-why-leads-come-back/). The weekly session handles one input only, which behaviors turned into opportunities, and does not touch the definition.
 - **Once a quarter, change.** Use what the weekly reviews collected to add or drop conditions or move thresholds. Changing definitions only at a quarter boundary follows the same rule as [How to Define a Lead Count in Japan So HQ and Japan Agree](/en/articles/what-is-a-lead-count/).
 
 Localize this for the Japanese buying process on top of [Japan GTM and messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/) work.

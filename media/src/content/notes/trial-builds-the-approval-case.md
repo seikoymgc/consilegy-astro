@@ -2,7 +2,7 @@
 title: 「まず無料トライアルで」だけでは日本の稟議が通らない理由と、代わりに渡すもの
 description: 無料トライアルを使ってもらえたのに商談が止まるのは、製品でも価格でもなく、トライアルの結果が社内承認の材料になっていないからです。日本のB2B購買データをもとに、トライアルを稟議の材料づくりに設計し直す手順をまとめます。
 publishedAt: 2026-08-03
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: japan-gtm
 principle: 日本のトライアルは製品を評価する場ではなく、社内承認を通す材料を作る場である。
 canonUrl: https://consilegy.com/revenue-architecture/
@@ -64,6 +64,6 @@ IDEATECHと北川裕康氏の共同調査（2026年4月16日公表、n=307。直
 
 ## 関連する記事
 
-稟議で実際に効く材料が何かは、[日本の商談は、機能で外され、前例で残る](/notes/japanese-deals-win-on-precedent/)で調査データとともに扱っています。
+稟議で実際に効く材料が何かは、[日本の商談は、機能で外され、前例で残る](/japanese-deals-win-on-precedent/)で調査データとともに扱っています。
 
-同じ悩みの記事は「[日本市場で成果が出ない](/notes/category/japan-gtm/)」にまとめています。
+同じカテゴリの記事は「[日本市場・GTM](/category/japan-gtm/)」にまとめています。

@@ -1,10 +1,10 @@
 ---
-title: "A Japan programme paused until the data improves has already been cancelled"
-description: "HQ parks a Japan investment pending better numbers, and it never comes back. A rule of thumb from the programmes we have seen paused: three questions that show whether data is really the constraint, and the two lines that turn a pause into a decision."
+title: "A paused Japan programme needs a review date and a restart condition"
+description: "A pause needs a review date, the evidence required to restart and a person responsible for deciding. State what happens if the evidence is still missing on that date."
 publishedAt: 2026-09-07
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: data
-principle: "Waiting for better Japan data is a decision only when a restart date and the single number to check on that date are written down. Without them, the pause produces the same outcome as cancelling, plus the cost of revisiting it every month."
+principle: "A pause needs a review date, the evidence required to restart and a person responsible for deciding. State what happens if the evidence is still missing on that date."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -22,7 +22,9 @@ Look back at a programme held "until the data improves" and you often find that 
 
 What was being waited for, in most cases, was someone's judgement. When a Japan programme is held for more numbers, the numbers are rarely the binding constraint. The unresolved question is who explains the call if it goes wrong.
 
-A similar pattern shows up on the buying side, though it is not about internal programmes. In IDEATECH and Demagen Research's second-wave study of large B2B purchases in Japan (published 9 June 2026, 330 valid responses; an online panel run by a survey-PR company), the leading reason purchases ran long (n=239) was waiting for executive judgement at 63.6%, ahead of information gathering at 45.2%. That is a purchasing survey and does not prove anything about paused programmes. It does match what we see: judgement, not information, is usually the longer queue.
+A similar pattern shows up on the buying side, though it is not about internal programmes. In IDEATECH and Demagen Research's second-wave study of large B2B purchases in Japan (published 9 June 2026, 330 valid responses; an online panel run by a survey-PR company), the leading reason purchases ran long (n=239) was waiting for executive judgement at 63.6%, ahead of information gathering at 45.2%. That is a purchasing survey and does not prove anything about paused programmes.
+
+It does match what we see: judgement, not information, is usually the longer queue.
 
 ## Japan's CRM does not fill itself in while the programme is parked
 
@@ -54,7 +56,9 @@ The reason to be strict is that held items are invisible in the plan. Cancelled 
 
 One approach that did not work: a standing list of held Japan initiatives, reviewed monthly. The review became the place where deciding was permanently optional. Dates attached to individual items worked better than a list attached to a meeting.
 
-None of this argues against pausing. If the commitment is reversible, act on partial information and correct later. If it is irreversible, waiting is worth real money. The test is whether you can stop and undo it if it turns out wrong. Long contracts, hires and migrations cannot be undone and can justify waiting; campaign spend and channel allocation can be reversed next month and should not wait. Either way, the restart date still gets written. That judgement turns on reversibility, not on how much data has accumulated.
+None of this argues against pausing. If the commitment is reversible, act on partial information and correct later. If it is irreversible, waiting is worth real money. The test is whether you can stop and undo it if it turns out wrong. Long contracts, hires and migrations cannot be undone and can justify waiting; campaign spend and channel allocation can be reversed next month and should not wait. Either way, the restart date still gets written.
+
+That judgement turns on reversibility, not on how much data has accumulated.
 
 **Waiting for better Japan data is a decision only when a restart date and the number to check on that date are written down. Without them, the pause produces the same outcome as cancelling, plus the cost of revisiting it every month.**
 
@@ -68,6 +72,6 @@ Pull the list of Japan initiatives currently on hold and check how many carry a 
 
 ## Related reading
 
-When the stated reason for holding is that the numbers cannot yet be allocated precisely, more precision will not change the call: [Japan can't fill in your attribution model, and that is not a maturity problem](/en/articles/stop-debating-attribution-weights/).
+When the stated reason for holding is that the numbers cannot yet be allocated precisely, more precision will not change the call: [Japan attribution: agree the decision before debating the weights](/en/articles/stop-debating-attribution-weights/).
 
 Other notes on the same problem are collected under [Revenue data](/en/category/data/).

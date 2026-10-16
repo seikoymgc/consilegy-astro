@@ -2,7 +2,7 @@
 title: "Before importing your Japan contact lists, decide three things"
 description: "When a global SaaS company stands up a CRM for its Japan team, someone always says \"just import what we have.\" Japanese business-card and spreadsheet data breaks matching, overwrite and email-consent rules in ways HQ playbooks do not anticipate. Decide these three points before the import, not after."
 publishedAt: 2026-07-31
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: crm
 principle: "Decide the match key, the overwrite priority and the source-of-record columns before you import. After the load, fixing any of the three costs many times more."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -54,7 +54,9 @@ Do not count on the import tool to enforce that list. Imports generally overwrit
 
 Add four columns to every file you import: acquisition channel, acquisition date, who imported it, and consent status.
 
-This one is not housekeeping. Under Japan's Act on Regulation of Transmission of Specified Electronic Mail, advertising email requires prior opt-in, with an exception where the recipient supplied their email address in writing, which includes a business-card exchange (Article 3, Paragraph 1, Item 2; see the guidelines issued by the Ministry of Internal Affairs and Communications and the Consumer Affairs Agency). Sender identification and an unsubscribe route are still mandatory under the exception. Purchased lists and lists handed over by a third party do not fall under it. Before a bulk advertising send to cards collected at a trade show, confirm with counsel that the exception covers how they were collected (this is not legal advice). Even where sending is legal, we do not treat a card exchange alone as consent to email; the reasoning is in [Your Japan team came back from the show with 900 business cards](/en/articles/business-cards-after-the-trade-show/).
+This one is not housekeeping. Under Japan's Act on Regulation of Transmission of Specified Electronic Mail, advertising email requires prior opt-in, with an exception where the recipient supplied their email address in writing, which includes a business-card exchange (Article 3, Paragraph 1, Item 2; see the guidelines issued by the Ministry of Internal Affairs and Communications and the Consumer Affairs Agency). Sender identification and an unsubscribe route are still mandatory under the exception.
+
+Purchased lists and lists handed over by a third party do not fall under it. Before a bulk advertising send to cards collected at a trade show, confirm with counsel that the exception covers how they were collected (this is not legal advice). Even where sending is legal, we do not treat a card exchange alone as consent to email; the reasoning is in [Your Japan team came back from the show with 900 business cards](/en/articles/business-cards-after-the-trade-show/).
 
 After the import, both look like the same contact record. The only thing that separates them is a column you decided to keep. A rule such as "lists with unknown consent status are excluded from automated sends" cannot be written at all without it.
 

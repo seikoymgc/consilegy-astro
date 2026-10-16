@@ -1,9 +1,10 @@
 ---
 title: "Japan renewal dates that miss the customer's budget year"
-description: "A renewal set 90 days out on the contract anniversary should be routine. Instead it stalls every year, and not because the account is unhappy. Most Japanese fiscal years run April to March, and next year's budget is built in January and February. A deal signed in September gets its 90-day renewal reminder in June, four months after the budget that has to pay for it was locked. Here is what changes if you date the renewal from the customer's fiscal year instead of the signature date."
+description: "Map the renewal date against the customer’s budget cycle. Start the discussion before the budget closes and review the contract period if the dates repeatedly conflict."
 publishedAt: 2026-09-26
+updatedAt: 2026-10-17
 category: japan-gtm
-principle: "A renewal dated from the signature date can mean the renewal conversation starts after the customer's next-year budget is already fixed. If the renewal is not in that budget, it needs a fresh approval no matter how satisfied the account is. Date the renewal, and the renewal conversation, from the customer's fiscal year end, not the signature date."
+principle: "Map the renewal date against the customer’s budget cycle. Start the discussion before the budget closes and review the contract period if the dates repeatedly conflict."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -25,13 +26,17 @@ The first purchase is often funded mid-year from a contingency or a department's
 
 HQ tends to assume a renewal carries less friction than a new deal. The evaluation is done, the product is in use, the account is satisfied. Surely the approval is lighter.
 
-In many Japanese organisations, what determines whether spend clears easily is not satisfaction. It is whether that spend has a line in the current year's budget table. If it does, renewal is signing off a row that was already planned. If it does not, someone has to open a new approval for supplementary or reallocated budget, at the same weight as a new purchase, regardless of how long the product has been running. Occasionally it is heavier, because the champion now has to explain why something already in use needs a fresh approval at all.
+In many Japanese organisations, what determines whether spend clears easily is not satisfaction. It is whether that spend has a line in the current year's budget table. If it does, renewal is signing off a row that was already planned. If it does not, someone has to open a new approval for supplementary or reallocated budget, at the same weight as a new purchase, regardless of how long the product has been running.
+
+Occasionally it is heavier, because the champion now has to explain why something already in use needs a fresh approval at all.
 
 ## Two equally satisfied accounts can carry completely different renewal risk
 
 Take two customers on the same product, equally satisfied, same usage. One signed in April, so its 90-day reminder fires in January, exactly when next year's budget is being assembled. The other signed in September, so its reminder fires in June, after that year's budget has closed.
 
-A CS health score will not tell these two accounts apart. Both show the same usage and the same sentiment. But one renewal needs no new approval and the other does, and the difference has nothing to do with the account manager or the product. When a regional dashboard shows the September cohort renewing worse than the April cohort, the read is usually "Japan satisfaction is soft." What is actually different is where the renewal date happens to fall on a fiscal calendar nobody built the CS motion around.
+A CS health score will not tell these two accounts apart. Both show the same usage and the same sentiment. But one renewal needs no new approval and the other does, and the difference has nothing to do with the account manager or the product.
+
+When a regional dashboard shows the September cohort renewing worse than the April cohort, the read is usually "Japan satisfaction is soft." What is actually different is where the renewal date happens to fall on a fiscal calendar nobody built the CS motion around.
 
 ## Two fixes that do not work
 
@@ -41,15 +46,19 @@ Multi-year contracts were also considered and set aside. The first term still ha
 
 ## What works: land the first renewal inside the budget window, not on the anniversary
 
-The fix that has held up is renegotiating the first contract term to end at the customer's fiscal year boundary rather than twelve months after signature. A September signature becomes a seven-month first term running to the following March, prorated, with the twelve-month cycle starting from there. Every subsequent renewal then falls in April, and its 90-day conversation lands in January, inside the customer's budget window. The renewal discussion and the budget request become one conversation instead of two.
+The fix that has held up is renegotiating the first contract term to end at the customer's fiscal year boundary rather than twelve months after signature. A September signature becomes a seven-month first term running to the following March, prorated, with the twelve-month cycle starting from there. Every subsequent renewal then falls in April, and its 90-day conversation lands in January, inside the customer's budget window.
 
-Where that renegotiation is not available, the minimum fix is a field. Record the customer's fiscal year end in the CRM as a property separate from the contract date, and start the renewal conversation counting back from the customer's budget planning window (roughly January and February for an April start), not from the contract's own anniversary. It costs one field and one changed habit, and it tells the Japan team, months earlier, whether this renewal has anywhere to go.
+The renewal discussion and the budget request become one conversation instead of two.
+
+Where that renegotiation is not available, the minimum fix is a field. Record the customer's fiscal year end in the CRM as a property separate from the contract date, and start the renewal conversation counting back from the customer's budget planning window (roughly January and February for an April start), not from the contract's own anniversary.
+
+It costs one field and one changed habit, and it tells the Japan team, months earlier, whether this renewal has anywhere to go.
 
 The wider approach to designing revenue processes around the buyer's calendar rather than the seller's is in [Japan Market GTM and Messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/).
 
 **If the renewal conversation starts after the customer's budget is fixed, the renewal needs a fresh approval no matter how satisfied the account is. Date the renewal, and the conversation, from the customer's fiscal year end, not the signature date.**
 
-This week, pull every account renewing this fiscal year and check the gap between the renewal date and the customer's fiscal year end. Every account with a gap of six months or more is a renewal your Japan team will have to re-argue from budget zero.
+This week, pull every account renewing this fiscal year and check the gap between the renewal date and the customer's fiscal year end. A gap of six months or more is a reason to check the budget status. It does not, by itself, establish that a fresh approval is required.
 
 ## Common mistakes
 

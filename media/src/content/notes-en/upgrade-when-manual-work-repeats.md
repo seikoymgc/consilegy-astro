@@ -2,7 +2,7 @@
 title: "When to Upgrade a Free CRM Plan: Count Manual Work First"
 description: "Your Japan team is on a free CRM tier and HQ asks when it should move to a paid plan. The feature comparison table cannot answer that. What can is one sentence naming the manual task someone repeats every week and the decision that waits on it, and in Japan that sentence is also what gets a recurring cost approved internally."
 publishedAt: 2026-10-02
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: crm
 principle: "The reason to upgrade a free CRM plan is not on the feature table. It is a manual task someone repeats on a schedule and a decision that waits for its output. If you can write both in one sentence, it is time to upgrade; if you cannot, the gap is an undecided operating routine, not a missing feature."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -44,9 +44,11 @@ The same sentence has a second use in a Japan team. A new recurring cost usually
 
 For HQ, this changes how to ask the Japan team for an upgrade case. Do not ask which tier they want. Ask them to name the task, how often it happens, and what decision it holds up. That is the document the local approval process needs, and it is the evidence HQ needs to see before agreeing.
 
-Put the cost on both sides of the same sentence so finance does not stop it. One side: hours per occurrence × occurrences per year × the hourly cost of the person doing it. The other: the annual price difference of the upgrade, multiplied by the seats it applies to. Whether every seat must move up or only the people who need the feature can is a matter of the tool and the contract, so check before you request a quote.
+Put the cost on both sides of the same sentence so finance does not stop it. One side: hours per occurrence × occurrences per year × the hourly cost of the person doing it. The other: the annual price difference of the upgrade, multiplied by the seats it applies to.
 
-How the earlier design choices affect what Japan can actually use is covered in [In Japan, a required field produces confident wrong answers](/en/articles/dont-make-unknown-fields-required/). Settle who sees what and who fills what first, then price the tier.
+Whether every seat must move up or only the people who need the feature can is a matter of the tool and the contract, so check before you request a quote.
+
+How the earlier design choices affect what Japan can actually use is covered in [Required CRM fields: check whether the Japan team knows the answer](/en/articles/dont-make-unknown-fields-required/). Settle who sees what and who fills what first, then price the tier.
 
 **The reason to upgrade a free CRM plan is a manual task someone repeats on a schedule, plus the decision waiting on it. If you can write both in one sentence, it is time. If you cannot, the missing piece is an operating routine, not a feature.**
 
@@ -64,6 +66,6 @@ Upgrading to fix low usage. Low usage in the free tier is a sign the routine is 
 
 ## Related reading
 
-Before the upgrade, settle which system owns which record. That decision is covered in [Your Japan integration will not fail on the connector. It fails on the key.](/en/articles/decide-the-master-before-integrating/) A paid plan with two sources of truth just automates the disagreement.
+Before the upgrade, settle which system owns which record. That decision is covered in [Before connecting Japan’s CRM, agree the matching key](/en/articles/decide-the-master-before-integrating/) A paid plan with two sources of truth just automates the disagreement.
 
 Other notes on the same problem are collected under [CRM adoption](/en/category/crm/).

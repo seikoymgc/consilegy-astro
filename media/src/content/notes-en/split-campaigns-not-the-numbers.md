@@ -1,10 +1,10 @@
 ---
 title: "Adapt the Japan campaign, keep the global pipeline wiring"
-description: "Every quarter the global campaign lands in Tokyo and the same argument starts: run it as is, or let Japan rebuild it. Deciding this campaign by campaign is why it never settles. The split is by layer, not by programme. Japan gets to change the content and the calendar. Japan does not get to change the definitions, and here is what the Japanese buyer data says about which is which."
+description: "Agree which content and scheduling choices the local team owns, and which metric definitions remain shared. Record the mapping so regional results remain comparable."
 publishedAt: 2026-09-23
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: japan-gtm
-principle: "Do not decide campaign by campaign whether Japan follows the global programme. Split by layer: Japan owns the content and the calendar, headquarters owns the definitions and the wiring. The moment Japan changes the definitions along with the content, headquarters can no longer read Japan, and unreadable markets lose budget."
+principle: "Agree which content and scheduling choices the local team owns, and which metric definitions remain shared. Record the mapping so regional results remain comparable."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -54,13 +54,17 @@ That is not a Japan execution problem. It is a calendar problem. Running the glo
 
 The reason to draw the line at content and calendar is what happens when the line is not drawn.
 
-A Japan team given permission to adapt content often keeps going: its own form fields and where they are stored, its own lifecycle stage definitions, its own way of linking campaigns to opportunities. Six months later headquarters looks at the regional table and Japan is the one column where the numbers mean something different. Numbers that cannot be read are not evaluated, and markets that are not evaluated lose budget in the next planning round. Japan does not get cut for adapting the content. It gets cut for adapting the definitions.
+A Japan team given permission to adapt content often keeps going: its own form fields and where they are stored, its own lifecycle stage definitions, its own way of linking campaigns to opportunities. Six months later headquarters looks at the regional table and Japan is the one column where the numbers mean something different. Numbers that cannot be read are not evaluated, and markets that are not evaluated lose budget in the next planning round.
+
+Japan does not get cut for adapting the content. It gets cut for adapting the definitions.
 
 Forms are where this is most often misread. Name order, phonetic readings of names, and how department and title are asked should differ on the Japanese form; serving the global form unchanged reduces submissions in Japan. What stays global is not the screen but which field each answer is stored in, under which internal name.
 
 Three things stay identical to global. The Japan KGI, written as the same single sentence headquarters uses. Lifecycle stage and lead definitions. The fields that connect campaign to opportunity to closed deal. With those three held constant, Japan can run entirely local content on an entirely local calendar and still appear in the global report as a market that is legible.
 
-The third only holds if it lives in the tool. In Salesforce, use the campaign hierarchy with the global campaign as parent and Japan's programmes as children, and fill the opportunity's primary campaign source by the same rule as other regions. In HubSpot, associate Japan's assets to the campaign object and follow the global naming convention for campaigns. Exact settings vary by tool and edition, so agree them once with the global operations owner, looking at the screens together.
+The third only holds if it lives in the tool. In Salesforce, use the campaign hierarchy with the global campaign as parent and Japan's programmes as children, and fill the opportunity's primary campaign source by the same rule as other regions. In HubSpot, associate Japan's assets to the campaign object and follow the global naming convention for campaigns.
+
+Exact settings vary by tool and edition, so agree them once with the global operations owner, looking at the screens together.
 
 **Do not decide campaign by campaign whether Japan follows the global programme. Split by layer: Japan owns the content and the calendar, headquarters owns the definitions and the wiring.**
 

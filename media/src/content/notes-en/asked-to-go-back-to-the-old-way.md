@@ -1,10 +1,10 @@
 ---
 title: "When your Japan team asks to go back to the spreadsheet, answer with a date"
-description: "A month after the global rollout, the Japan entity asks to go back to its old spreadsheet. HQ hears resistance, or a local exception request, and answers yes or no. Neither answer makes the request go away. It moves to a file HQ never sees, while the Japan adoption dashboard stays green. Japanese survey data (n=101, n=1,034) and what the request is actually reporting."
+description: "Ask which task the old spreadsheet still supports. Name the owner and date for providing that function in the new process before deciding whether to retire the file."
 publishedAt: 2026-09-14
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: adoption
-principle: "A request to go back names one job the old way did that the new design has not picked up. Answer it with yes or no and the request does not disappear, it moves to a file outside the system and never surfaces again."
+principle: "Ask which task the old spreadsheet still supports. Name the owner and date for providing that function in the new process before deciding whether to retire the file."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -38,7 +38,9 @@ Adoption metrics hold up. The data stops describing the business.
 
 And from that point, design gaps stop getting reported at all. Someone with a workaround is no longer blocked, so they have nothing to raise.
 
-No Japanese public survey measures how often a parallel file exists, at least none I have been able to find. The closest is Keywalker's survey (fielded 8 to 10 October 2025, published 11 November 2025, n=1,034 sales staff and managers at Japanese companies already using SFA, CRM or BI tools, run online through PRIZMA; a survey by a company that sells BI implementation services), where 12.5% of respondents said they are not entering data or have frequent gaps. That measures admitted non-entry, not where the data went instead.
+No Japanese public survey measures how often a parallel file exists, at least none I have been able to find. The closest is Keywalker's survey (fielded 8 to 10 October 2025, published 11 November 2025, n=1,034 sales staff and managers at Japanese companies already using SFA, CRM or BI tools, run online through PRIZMA; a survey by a company that sells BI implementation services), where 12.5% of respondents said they are not entering data or have frequent gaps.
+
+That measures admitted non-entry, not where the data went instead.
 
 Since it cannot be measured from HQ, it has to be spotted. A file you do not recognise flashes past during a screen share. You ask about a deal and hear context that is nowhere in the record. Every Japan opportunity has a last-modified timestamp from the day before the regional call.
 

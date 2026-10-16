@@ -1,9 +1,10 @@
 ---
 title: "Japan's parallel run has an end date but no end condition"
-description: "HQ rolls the global CRM out to the Japan entity and grants a three-month parallel run with the local spreadsheet. Three months later the request is for an extension, and a year later Japan's number still arrives by email. The parallel run does not end because nobody wrote down what would end it. Japanese survey data (n=1,545, n=305) and the four steps that actually close a legacy system in a Japan entity."
+description: "Give a parallel run both a deadline and exit criteria. Confirm that the required work can run in the new system, then stop legacy writes before removing read access."
 publishedAt: 2026-09-01
+updatedAt: 2026-10-17
 category: adoption
-principle: "End a parallel run on a condition, not a date. The legacy system in your Japan entity closes on the day one recurring meeting can only be prepared from the new system, and not before."
+principle: "Give a parallel run both a deadline and exit criteria. Confirm that the required work can run in the new system, then stop legacy writes before removing read access."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -35,7 +36,9 @@ That is an AI question, not a migration question. But the gap is the interesting
 
 A parallel run is, by definition, the permission stage. The new system is allowed. It is not yet required by anything.
 
-Meanwhile the friction is at its peak. In Hammock's survey of SFA usage (fielded September to October 2021, n=305 executives and board members at companies with 300 or more employees; a vendor survey, and now several years old, so read it directionally), the most common reason given for a sales system not being used was that it takes time to become proficient, at 52.3%. An update that took three minutes in the old file takes fifteen in the new system during the first weeks. That is normal, and it is temporary.
+Meanwhile the friction is at its peak. In Hammock's survey of SFA usage (fielded September to October 2021, n=305 executives and board members at companies with 300 or more employees; a vendor survey, and now several years old, so read it directionally), the most common reason given for a sales system not being used was that it takes time to become proficient, at 52.3%.
+
+An update that took three minutes in the old file takes fifteen in the new system during the first weeks. That is normal, and it is temporary.
 
 Put those together. A parallel run formally preserves the easier route during precisely the period when the new one is hardest to use. The Japan team is not resisting. They are choosing correctly, given the choice they were handed.
 

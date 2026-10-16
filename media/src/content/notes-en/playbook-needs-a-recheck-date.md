@@ -2,7 +2,7 @@
 title: "The Japan playbook that worked once is quietly decaying"
 description: "The comparison chart and approval script your Japan team wrote at market entry is still handed to new reps unrevised, while the competitors in it have changed. Why a Japan playbook needs a recheck date, a CRM field that records which deals used it, and a competitor trigger, not just an author."
 publishedAt: 2026-09-26
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: data
 principle: "A Japan playbook is a snapshot of the market on the day it was written, and the market keeps moving. So on the day it is written, decide how each deal will record which version it used, and what triggers a re-measure: a date, and a competitor appearing that the chart does not list. Without that, the first sign of decay is a quarter that missed."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -16,7 +16,9 @@ Two years later, the same document is still what new reps get handed on day one.
 
 ## The market kept moving after the document was written
 
-The comparison chart lists the competitors that existed when it was built. New entrants, and in most markets there are some within two years, are missing from it entirely rather than misrepresented in it. A rep who has now met the same new competitor in three consecutive deals has to choose between running a chart they know is out of date or improvising around it alone, and there is rarely a channel back to headquarters that reads as "the reference material is stale" rather than "the rep isn't following the playbook."
+The comparison chart lists the competitors that existed when it was built. New entrants, and in most markets there are some within two years, are missing from it entirely rather than misrepresented in it.
+
+A rep who has now met the same new competitor in three consecutive deals has to choose between running a chart they know is out of date or improvising around it alone, and there is rarely a channel back to headquarters that reads as "the reference material is stale" rather than "the rep isn't following the playbook."
 
 The same happens to the reference customers. A case study chosen because it matched a prospect's size and industry in year one drifts further from what a prospect looks like in year three, while the document keeps presenting it as the closest match on file.
 
@@ -26,7 +28,9 @@ None of this shows up as one bad quarter. It shows up as a slow decline in the w
 
 The standard response to a slipping Japan win rate is to ask the local team whether they are executing the playbook correctly. That question assumes the playbook is still correct, which is the exact assumption decay breaks.
 
-It goes undetected longer in Japan than in faster-cycle markets for a structural reason. Fast Marketing's Japan B2B study (fielded May 2026, 432 valid responses screened from 12,003; the firm sells B2B marketing strategy support, so read the magnitudes rather than the decimals) found 36.8% of respondents reporting a lead-to-booking cycle of three months or more, rising to 48.9% among SaaS sellers. On that clock, a playbook that started decaying two quarters ago is still closing deals that opened before the decay began. The scoreboard lags the cause by roughly the length of the sales cycle, and headquarters reads the eventual miss as regional softness rather than a stale document.
+It goes undetected longer in Japan than in faster-cycle markets for a structural reason. Fast Marketing's Japan B2B study (fielded May 2026, 432 valid responses screened from 12,003; the firm sells B2B marketing strategy support, so read the magnitudes rather than the decimals) found 36.8% of respondents reporting a lead-to-booking cycle of three months or more, rising to 48.9% among SaaS sellers.
+
+On that clock, a playbook that started decaying two quarters ago is still closing deals that opened before the decay began. The scoreboard lags the cause by roughly the length of the sales cycle, and headquarters reads the eventual miss as regional softness rather than a stale document.
 
 ## What to attach to a playbook instead of an author's name
 
@@ -34,9 +38,15 @@ Four things, decided when the playbook is written rather than when it stops work
 
 **A recheck date and the specific number it checks.** Not a calendar reminder to "review the playbook," a named comparison: the win rate of deals that used the playbook this quarter against the cohort from the quarter it was written. If nobody can produce that comparison on request, the playbook has no owner in any sense that matters.
 
-**A field that records which deals used it.** That comparison is impossible unless the CRM knows which deals ran on which version. Do not ask reps whether they "followed the playbook"; that is a self-assessment and the number will be noise. Record a fact instead: a picklist on the opportunity called "comparison chart version," with one value per version (for example "April 2026") plus "not sent." Make it required when a deal moves into the stage where the chart is handed over, so it costs the rep one selection at a moment they are already updating the record. When a new version ships, add a value and keep the old ones, or you lose the cohort you are comparing against. Be clear about the limit: this records whether the chart was sent, not whether the rep ran the whole motion, and a deal where the chart was only talked through lands in "not sent."
+**A field that records which deals used it.** That comparison is impossible unless the CRM knows which deals ran on which version. Do not ask reps whether they "followed the playbook"; that is a self-assessment and the number will be noise.
 
-**A trigger that works before the sample is big enough.** If one playbook closes only a handful of deals in a quarter, a few deals either way move the win rate, and the difference means nothing. Keep putting the numbers side by side, but extend the window until enough deals have closed before you act on the rate alone. What does not need a large sample is a name. Make the competitor field on the opportunity a picklist with "other" plus a free-text box. When "other" starts filling with a name the current chart does not list, that is the re-measure trigger, regardless of the date. The win rate tells you something has dropped; the gap between the competitors in the chart and the competitors reps are actually meeting tells you what.
+Record a fact instead: a picklist on the opportunity called "comparison chart version," with one value per version (for example "April 2026") plus "not sent." Make it required when a deal moves into the stage where the chart is handed over, so it costs the rep one selection at a moment they are already updating the record.
+
+When a new version ships, add a value and keep the old ones, or you lose the cohort you are comparing against. Be clear about the limit: this records whether the chart was sent, not whether the rep ran the whole motion, and a deal where the chart was only talked through lands in "not sent."
+
+**A trigger that works before the sample is big enough.** If one playbook closes only a handful of deals in a quarter, a few deals either way move the win rate, and the difference means nothing. Keep putting the numbers side by side, but extend the window until enough deals have closed before you act on the rate alone. What does not need a large sample is a name.
+
+Make the competitor field on the opportunity a picklist with "other" plus a free-text box. When "other" starts filling with a name the current chart does not list, that is the re-measure trigger, regardless of the date. The win rate tells you something has dropped; the gap between the competitors in the chart and the competitors reps are actually meeting tells you what.
 
 **An owner tied to the recheck date, not to whoever holds the country manager title.** Tying playbook ownership to the current country manager means it gets rewritten only when someone new wants to make their mark, then sits untouched for however long the previous one stays. The update trigger should be the date or the competitor signal, not a change of personnel.
 

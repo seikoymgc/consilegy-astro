@@ -33,9 +33,23 @@ function collectDates(dir, urlPrefix) {
 }
 
 const articleDates = new Map([
-	...collectDates('src/content/notes', '/notes/'),
+	...collectDates('src/content/notes', '/'),
 	...collectDates('src/content/notes-en', '/en/articles/'),
 ]);
+
+// 静的ホストとローカル開発用の転送。HTTP 301 は public/.htaccess が返す。
+const categories = ['crm', 'sales', 'data', 'japan-gtm', 'adoption', 'marketing'];
+const redirects = {
+	'/notes/': '/articles/',
+	'/notes/category/': '/articles/',
+	...Object.fromEntries(categories.map(key => [`/notes/category/${key}/`, `/category/${key}/`])),
+	...Object.fromEntries([...articleDates.keys()]
+		.filter(url => !url.startsWith('/en/'))
+		.map(url => [`/notes${url}`, url])),
+	'/notes/why-teams-dont-use-the-tool/': '/why-sfa-adoption-fails/',
+	'/why-teams-dont-use-the-tool/': '/why-sfa-adoption-fails/',
+	'/en/articles/why-teams-dont-use-the-tool/': '/en/articles/why-sfa-adoption-fails/',
+};
 
 // 一覧・カテゴリ・トップは、載っている記事のうち最も新しい日付を使う
 const newest = [...articleDates.values()].sort((a, b) => b - a)[0] ?? new Date();
@@ -43,18 +57,17 @@ const newest = [...articleDates.values()].sort((a, b) => b - a)[0] ?? new Date()
 export default defineConfig({
 	site: 'https://media.consilegy.com',
 	trailingSlash: 'always',
-	// 統合した記事の転送。public/.htaccess の Redirect 301 と同じ内容（サーバー側が効かない場合の保険）
-	redirects: {
-		'/notes/why-teams-dont-use-the-tool/': '/notes/why-sfa-adoption-fails/',
-		'/en/articles/why-teams-dont-use-the-tool/': '/en/articles/why-sfa-adoption-fails/',
-	},
+	redirects,
 	integrations: [
 		mdx(),
 		sitemap({
 			// hreflang は BaseLayout の <link rel="alternate"> で出している。
 			// sitemap の i18n オプションは「ロケール接頭辞だけが違うURL」を前提にしており、
-			// 日本語 /notes/{slug}/ と英語 /en/articles/{slug}/ のような構造には対応できないため使わない。
-			filter: page => !/\.(xml|txt|json)\/?$/.test(new URL(page).pathname),
+			// 日本語 /{slug}/ と英語 /en/articles/{slug}/ のような構造には対応できないため使わない。
+			filter: page => {
+				const pathname = new URL(page).pathname;
+				return !/\.(xml|txt|json)\/?$/.test(pathname) && !(pathname in redirects);
+			},
 			serialize(item) {
 				const pathname = new URL(item.url).pathname;
 				const own = articleDates.get(pathname);
@@ -65,7 +78,8 @@ export default defineConfig({
 				if (
 					pathname === '/' ||
 					pathname === '/en/' ||
-					pathname.startsWith('/notes/') ||
+					pathname === '/articles/' ||
+					pathname.startsWith('/category/') ||
 					pathname.startsWith('/en/articles/') ||
 					pathname.startsWith('/en/category/')
 				) {

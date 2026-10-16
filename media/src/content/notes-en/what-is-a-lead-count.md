@@ -2,7 +2,7 @@
 title: "How to Define a Lead Count in Japan So HQ and Japan Agree"
 description: "A lead count is the number of prospects that meet a counting rule your company has chosen. Three lines decide it: unit, entry point, and exclusions. A guide for HQ and Japan teams, with three Japanese surveys."
 publishedAt: 2026-10-06
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: data
 principle: "Fix three lines in writing before you count Japan's leads: the unit, the entry point, and the exclusions and cut-off. A lead number without those lines cannot be explained when it moves."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -71,7 +71,9 @@ The method is simple. The order matters.
 
 The sheet should also say which CRM object and which date field the count runs on. The same lines can produce different numbers depending on how the tool holds the record: in Salesforce, what happens to a lead after conversion; in HubSpot, how lifecycle stages move. This varies by tool and configuration, so check the count on the actual screen, and make sure HQ's dashboard reads the same field.
 
-Then decide where the counted leads are handed to sales. In the same Fast Marketing survey (2026, n=432), companies with a clear handoff standard that is actually operated reported an order-attainment rate of 84.6%. Companies with no standard and individual discretion reported 51.9%, and companies with no handoff process at all reported 26.1%. That is a gap of more than 30 points, but it is a correlation, not proof that writing a standard raises attainment. Companies with a written standard may simply be better run in other ways too. What the shared document does guarantee is that the counting line and the handoff line cannot drift apart unnoticed, so write the lead lines in the same document as the handoff standard.
+Then decide where the counted leads are handed to sales. In the same Fast Marketing survey (2026, n=432), companies with a clear handoff standard that is actually operated reported an order-attainment rate of 84.6%. Companies with no standard and individual discretion reported 51.9%, and companies with no handoff process at all reported 26.1%. That is a gap of more than 30 points, but it is a correlation, not proof that writing a standard raises attainment.
+
+Companies with a written standard may simply be better run in other ways too. What the shared document does guarantee is that the counting line and the handoff line cannot drift apart unnoticed, so write the lead lines in the same document as the handoff standard.
 
 ## Changing the definition breaks comparison with the past
 

@@ -1,9 +1,10 @@
 ---
 title: "Your Japan battlecard is read in a room your rep never enters"
-description: "HQ localises the global comparison matrix, the Japan team sends it, and the deal still sits in evaluation. Japanese buyers finish comparing before your rep is invited, and the document that actually moves inside their company is not a battlecard but an attachment to an approval. Survey data (n=307, n=330) and the sheet to ship instead."
+description: "Build the comparison around the buyer’s criteria, including requirements you cannot meet. Give the champion evidence they can use to explain the choice internally."
 publishedAt: 2026-08-29
+updatedAt: 2026-10-17
 category: sales
-principle: "A comparison document is not how a Japanese buyer decides. It is how a champion defends a decision in a room you are not in. Put their criteria in the rows, and write the 'no' yourself."
+principle: "Build the comparison around the buyer’s criteria, including requirements you cannot meet. Give the champion evidence they can use to explain the choice internally."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -17,7 +18,9 @@ The card is not the problem. Nobody in Japan is going to carry it into the room 
 
 ## In Japan the comparison is finished before your rep is invited
 
-A joint survey by IDEATECH and Hiroyasu Kitagawa of Demagen Soken (published 16 April 2026, fielded 23 to 26 March 2026, n=307, restricted to Japanese employees and executives who took part with at least one colleague in a purchase of B2B products with annual contract value or one-off implementation cost of 3 million yen or more; run by a firm whose business is survey-based PR, so read it for order of magnitude) found that roughly 90% had drawn up a list of several vendors before speaking to any of them. Around 70% shortlist two or three. By the time serious conversations with a vendor begin, the buying process is on average about 40% complete.
+A joint survey by IDEATECH and Hiroyasu Kitagawa of Demagen Soken (published 16 April 2026, fielded 23 to 26 March 2026, n=307, restricted to Japanese employees and executives who took part with at least one colleague in a purchase of B2B products with annual contract value or one-off implementation cost of 3 million yen or more; run by a firm whose business is survey-based PR, so read it for order of magnitude) found that roughly 90% had drawn up a list of several vendors before speaking to any of them.
+
+Around 70% shortlist two or three. By the time serious conversations with a vendor begin, the buying process is on average about 40% complete.
 
 In the same survey, 91.2% used generative AI or AI search during the evaluation. The most common use was comparison, at 47.6%.
 

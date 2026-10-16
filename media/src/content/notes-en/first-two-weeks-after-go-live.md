@@ -1,10 +1,10 @@
 ---
 title: "Silence after your Japan go-live is not adoption. It is the first warning"
-description: "HQ ships the CRM to the Japan team, the project closes at go-live, and no support tickets come in. A quarter later the Japan pipeline data is empty. In Japan, zero questions rarely means success. What to do in the first two weeks after go-live instead of waiting for tickets."
+description: "Keep ownership of adoption after go-live. Review field-level records during the first two weeks, contact users about missing or inconsistent entries, and verify that fixes reach them."
 publishedAt: 2026-08-26
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: adoption
-principle: "For a Japan go-live, keep the project open two more weeks: read the field-level data daily, fix frictions within 48 hours, and close the loop visibly. Waiting for tickets measures nothing, because a Japanese team that has quietly stopped using the tool files no tickets."
+principle: "Keep ownership of adoption after go-live. Review field-level records during the first two weeks, contact users about missing or inconsistent entries, and verify that fixes reach them."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -44,7 +44,7 @@ Make the ownership explicit before the project closes. The person reading the da
 
 ## The principle
 
-**For a Japan go-live, keep the project open two more weeks: read the field-level data daily, fix frictions within 48 hours, and close the loop visibly. Waiting for tickets measures nothing, because a Japanese team that has quietly stopped using the tool files no tickets.**
+**Keep ownership of adoption after go-live. Review field-level records during the first two weeks, contact users about missing or inconsistent entries, and verify that fixes reach them.**
 
 ## Related reading
 

@@ -2,7 +2,7 @@
 title: "Open rates from your Japan list are not evidence of intent"
 description: "Your Japan open rate comes back at or above the EMEA number, HQ reads that as engagement, and two quarters later the pipeline still has not moved. The number cannot carry that weight: a recorded open may be a proxy fetching an image on delivery. Here is what Apple and Google actually document, and what to instrument instead."
 publishedAt: 2026-09-15
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: marketing
 principle: "An open rate cannot tell you whether anyone read the email, and a cross-region comparison of open rates compares measurement environments rather than interest. Report one named next step per send, counted in people."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -73,6 +73,6 @@ When you drop the metric, list every workflow, list and score that uses opens as
 
 ## Related reading
 
-Counting people who took a named step is only useful if sales agrees that the step is a reason to act. Drawing that line is covered in [In Japan, hand leads to sales on behavior, not on score](/en/articles/handoff-on-behavior-not-score/).
+Counting people who took a named step is only useful if sales agrees that the step is a reason to act. Drawing that line is covered in [Japan lead handoffs: record the buyer action behind the score](/en/articles/handoff-on-behavior-not-score/).
 
 Other notes on the same problem are collected under [Demand generation](/en/category/marketing/).

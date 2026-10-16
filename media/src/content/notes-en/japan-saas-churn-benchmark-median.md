@@ -1,9 +1,10 @@
 ---
-title: "Why Japan's \"3% SaaS churn\" benchmark misleads your HQ (read the median)"
-description: "The often-cited 3% monthly churn for Japanese SaaS is a mean, pulled up by a few outliers. The median company sits near 1%. Here is how to read Japan benchmarks, and report your own Japan numbers to HQ, without misleading anyone."
+title: "Reading Japan’s SaaS churn benchmark: check the distribution"
+description: "Check the population, denominator and distribution before using a churn benchmark. Report a median only when the underlying distribution supports it; do not substitute it for your own rate."
 publishedAt: 2026-07-24
+updatedAt: 2026-10-17
 category: data
-principle: "When a distribution is skewed, report the median, not the mean. A single averaged number, misread across a market, sets the wrong target for the whole Japan operation."
+principle: "Check the population, denominator and distribution before using a churn benchmark. Report a median only when the underlying distribution supports it; do not substitute it for your own rate."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 ---
@@ -51,7 +52,7 @@ A dashboard exists to surface what needs intervention, not to produce a tidy sin
 - **Name the source, year, and sample every time.** When you cite the Japan benchmark, say "Fullstar 2025, n=200, vendor survey." HQ can weigh a vendor survey of 200 companies appropriately, and a sourced number survives scrutiny that an unsourced one does not.
 - **Do not compare Japan and home-market retention as if the numbers are equivalent.** US benchmarks such as Benchmarkit 2025 report a median net revenue retention around 101%, and Japan's Fullstar reports a mean NRR of 102.1%, but the samples, methods, and mean-versus-median basis all differ. They look close; they are not directly comparable. Present each with its own definition and let HQ draw the line.
 
-**When a distribution is skewed, report the median, not the mean. A single averaged number, misread across a market, sets the wrong target for the whole Japan operation.**
+**Check the population, denominator and distribution before using a churn benchmark. Report a median only when the underlying distribution supports it; do not substitute it for your own rate.**
 
 ## Common mistakes
 

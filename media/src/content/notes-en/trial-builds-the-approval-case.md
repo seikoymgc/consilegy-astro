@@ -1,15 +1,15 @@
 ---
-title: "A free trial alone won't get your Japan deal approved. The paperwork will."
-description: "Japanese buyers happily use your trial and then go quiet for months. The blocker isn't product or price; it's that trial results don't travel into the internal approval process. Here is the data, and how to redesign the trial as approval material."
+title: "Use a Japan trial to test the product and prepare the approval case"
+description: "Use a trial to test the product and collect the evidence the buyer needs for approval. Agree the evaluation criteria, owner and intended decision before it starts."
 publishedAt: 2026-08-03
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: japan-gtm
-principle: "In Japan, a trial is not where the product gets evaluated. It is where the material that clears internal approval gets built."
+principle: "Use a trial to test the product and collect the evidence the buyer needs for approval. Agree the evaluation criteria, owner and intended decision before it starts."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 ---
 
-Your self-serve motion works in every other market. In Japan, prospects take the trial, use it, say good things, and then nothing happens for three months.
+A prospect takes the trial, uses the product and gives positive feedback. Three months later, the purchase has not moved. Before extending the trial, ask what evidence the buyer still needs for approval.
 
 HQ reads this as a product-market fit problem, or a pricing problem. It is neither.
 
@@ -64,7 +64,7 @@ This is not an argument against product-led growth. It is an argument for wrappi
 
 Treating the Japanese market as one continuous [revenue architecture](https://consilegy.com/en/services-en/japan-market-gtm-messaging/) from acquisition through retention is what tells you where in the process the trial belongs.
 
-**In Japan, a trial is not where the product gets evaluated. It is where the material that clears internal approval gets built.**
+**Use a trial to test the product and collect the evidence the buyer needs for approval. Agree the evaluation criteria, owner and intended decision before it starts.**
 
 ## Common mistakes
 
@@ -74,6 +74,6 @@ Treating the Japanese market as one continuous [revenue architecture](https://co
 
 ## Related reading
 
-What actually carries an approval document internally is precedent, not features. [In Japan, features get you cut and precedent keeps you in](/en/articles/japanese-deals-win-on-precedent/) has the data.
+What actually carries an approval document internally is precedent, not features. [Japanese enterprise sales: references matter alongside features](/en/articles/japanese-deals-win-on-precedent/) has the data.
 
 Other notes on the same problem are collected under [Japan market entry](/en/category/japan-gtm/).

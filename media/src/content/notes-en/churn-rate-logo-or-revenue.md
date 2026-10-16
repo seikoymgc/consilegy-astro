@@ -1,10 +1,10 @@
 ---
 title: "Japan's NRR looks healthy on your dashboard. Ask for the logo churn."
-description: "Net revenue retention, gross revenue churn and logo churn tell different stories anywhere, but in Japan the gap between them is wider, because early Japan revenue sits in a handful of accounts and non-renewal arrives at the contract anniversary rather than month by month."
+description: "Read logo churn, gross revenue churn and NRR together. State the denominator for each and check customer concentration before drawing a conclusion about the region."
 publishedAt: 2026-08-15
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: data
-principle: "Never read a single retention number for Japan. Logo churn, gross revenue churn and NRR must appear together with the concentration of the account base, or the number describes one customer rather than a market."
+principle: "Read logo churn, gross revenue churn and NRR together. State the denominator for each and check customer concentration before drawing a conclusion about the region."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -30,9 +30,13 @@ For reference, Benchmarkit's 2025 SaaS Performance Metrics (published May 2025, 
 
 Three structural reasons, and none of them are visible in a regional column on a global dashboard.
 
-**Your Japan revenue is concentrated.** Most foreign SaaS operations in Japan land a small number of large accounts first, because that is who will sign a contract with a company that has no local track record. When twelve customers make up the country's ARR, losing one is 8% logo churn and can be 25% revenue churn. In your home market, with hundreds of accounts, those two numbers stay close together. In Japan they do not, and the regional view gives them the same two columns.
+**Your Japan revenue is concentrated.** Most foreign SaaS operations in Japan land a small number of large accounts first, because that is who will sign a contract with a company that has no local track record. When twelve customers make up the country's ARR, losing one is 8% logo churn and can be 25% revenue churn. In your home market, with hundreds of accounts, those two numbers stay close together.
 
-**Non-renewal arrives at the anniversary, not month by month.** Leaving a vendor in Japan goes through the same internal approval document that buying did. Research by IDEATECH with Hiroyasu Kitagawa, published 16 April 2026, surveying 307 people who took part in a B2B purchase of at least ¥3 million alongside at least one colleague, found 60.9% required two approval stages and more than 80% required two or more, with consideration running three to eight months in 63.6% of cases. Budgets move on the same annual cycle. The decision not to renew is therefore made months before the date on your contract, and lands as a single event.
+In Japan they do not, and the regional view gives them the same two columns.
+
+**Non-renewal arrives at the anniversary, not month by month.** Leaving a vendor in Japan goes through the same internal approval document that buying did. Research by IDEATECH with Hiroyasu Kitagawa, published 16 April 2026, surveying 307 people who took part in a B2B purchase of at least ¥3 million alongside at least one colleague, found 60.9% required two approval stages and more than 80% required two or more, with consideration running three to eight months in 63.6% of cases.
+
+Budgets move on the same annual cycle. The decision not to renew is therefore made months before the date on your contract, and lands as a single event.
 
 A monthly churn chart for Japan will be flat, flat, flat, cliff. It is close to the wrong instrument.
 
@@ -49,7 +53,9 @@ Four lines, replacing the single retention number.
 3. **NRR**: the same base after expansion
 4. **Concentration**: the share of Japan ARR held by the top three accounts
 
-Lines 2 and 3 need history, not just current values. Gross revenue churn and NRR are calculated from contract value at the start of the period plus every downgrade and expansion during it. If the CRM holds only today's contract value, you cannot reconstruct last year's. Take a monthly snapshot of contract value, use a subscription or contract line-item object that keeps history, or pull the amounts from billing. Without one of these, only logo churn can be produced.
+Lines 2 and 3 need history, not just current values. Gross revenue churn and NRR are calculated from contract value at the start of the period plus every downgrade and expansion during it. If the CRM holds only today's contract value, you cannot reconstruct last year's. Take a monthly snapshot of contract value, use a subscription or contract line-item object that keeps history, or pull the amounts from billing.
+
+Without one of these, only logo churn can be produced.
 
 The fourth line is what makes the first three readable. At 60% concentration, a 100% NRR tells you about three customers. At 10%, it tells you about a market. Headquarters has no way to know which one it is looking at unless the line is there.
 
@@ -61,7 +67,7 @@ Then require **churn reason**, from the same picklist your other regions use, as
 
 A country operation of a dozen accounts does not have a retention rate. It has a list of twelve renewal decisions, and each one has a name and a date.
 
-**Never read a single retention number for Japan. Logo churn, gross revenue churn and NRR must appear together with the concentration of the account base, or the number describes one customer rather than a market.**
+**Read logo churn, gross revenue churn and NRR together. State the denominator for each and check customer concentration before drawing a conclusion about the region.**
 
 ## Related reading
 

@@ -1,9 +1,10 @@
 ---
 title: "Japan win rate up, revenue down: read all three numbers"
-description: "A rising win rate in the Japan region is the easiest number in your global dashboard to misread. Win rate is a ratio and says nothing about money. Deal count and average deal size move with it, and in Japan they move for reasons the global report does not show."
+description: "Compare deal count, win rate and average deal size on the same period and cohort. A higher win rate alone does not establish revenue growth."
 publishedAt: 2026-08-07
+updatedAt: 2026-10-17
 category: data
-principle: "A regional win rate cannot be read on its own. Until deal count and average deal size sit next to it, on the same period and the same cohort, a rising win rate in Japan is not evidence of anything."
+principle: "Compare deal count, win rate and average deal size on the same period and cohort. A higher win rate alone does not establish revenue growth."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -43,7 +44,9 @@ A deal pushed out of this quarter does not come back and lift next quarter's win
 
 The second structural issue is cohort lag, and Japan has more of it than most regions you compare it against.
 
-A joint study by IDEATECH and Hiroyasu Kitagawa (published April 2026, n=307, covering people who took part with at least one colleague in evaluating B2B products with an annual or one-off value above 3 million yen; a research-PR study limited to larger, multi-stakeholder purchases) found 63.6% of decisions took three to eight months from start to vendor selection, with roughly 40% taking six months or more. Approval ran to two stages for 60.9% of respondents and to two or more stages for over 80%.
+A joint study by IDEATECH and Hiroyasu Kitagawa (published April 2026, n=307, covering people who took part with at least one colleague in evaluating B2B products with an annual or one-off value above 3 million yen; a research-PR study limited to larger, multi-stakeholder purchases) found 63.6% of decisions took three to eight months from start to vendor selection, with roughly 40% taking six months or more.
+
+Approval ran to two stages for 60.9% of respondents and to two or more stages for over 80%.
 
 The deals that closed in Japan this quarter were created two quarters ago, under the enablement, pricing, and messaging you had then. When headquarters credits this quarter's win rate to this quarter's regional initiative, the wrong initiative gets funded and the one that actually worked gets cut before its results arrive.
 
@@ -51,7 +54,7 @@ The deals that closed in Japan this quarter were created two quarters ago, under
 
 There is no published primary benchmark for Japanese lead-to-opportunity or opportunity-to-win conversion. We looked; the large datasets are international, and they mix deal sizes and approval structures that Japan does not share.
 
-That has a practical consequence. A cross-region win rate column in the global dashboard invites a comparison that the underlying data cannot support. Japan's number can only be read against Japan's own history, on a consistent cohort.
+That has a practical consequence. A cross-region win rate column in the global dashboard invites a comparison that the underlying data cannot support. Compare Japan with its own history first. Cross-region comparisons also need consistent cohorts, definitions and reporting periods.
 
 If you keep the column, keep deal count and average deal size beside it, and stop ranking regions on the ratio alone.
 
@@ -64,7 +67,7 @@ If you keep the column, keep deal count and average deal size beside it, and sto
 
 Reading a region by its structure rather than by one ratio is what [Japan GTM and messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/) work starts with.
 
-**A regional win rate cannot be read on its own. Until deal count and average deal size sit next to it, on the same period and the same cohort, a rising win rate in Japan is not evidence of anything.**
+**Compare deal count, win rate and average deal size on the same period and cohort. A higher win rate alone does not establish revenue growth.**
 
 ## Related reading
 

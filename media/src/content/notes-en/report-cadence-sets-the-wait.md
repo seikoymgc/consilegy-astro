@@ -1,10 +1,10 @@
 ---
 title: "Your review cadence sets how long Japan waits for answers"
-description: "Adoption in the Japan entity stalls, so HQ adds an executive sponsor and puts Japan on the monthly regional review. Nothing moves. The backlog in Japan is not work, it is decisions a local manager cannot make alone and that do not qualify for a formal approval route. Japanese survey data (n=1,034, n=312) and how to set the cadence."
+description: "Set review frequency around decisions the local team cannot make alone. Give urgent exceptions an escalation route so they do not wait for the next scheduled review."
 publishedAt: 2026-09-20
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: adoption
-principle: "Set the review cadence by how many days a decision the Japan team cannot make on its own can sit before the team builds a workaround, not by how much progress detail HQ wants. Whatever you make them wait becomes permanent local practice."
+principle: "Set review frequency around decisions the local team cannot make alone. Give urgent exceptions an escalation route so they do not wait for the next scheduled review."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -42,7 +42,9 @@ The local project owner could raise it directly with the division head. In pract
 
 Japanese approval is often described as slow, and by headcount it is. But it has a route, and routes return answers.
 
-The survey on *ringi* practice from Professional Tech Soken, run inside Bengo4.com (published 16 January 2025, n=312; every respondent uses an electronic contract service, so this sample skews toward digitally advanced companies and the elapsed times are almost certainly shorter than the market as a whole) found that two to three days was the most common answer at 52.5%, and that 73.5% take a day or more. The complaints were about the number of people involved and about the informal pre-alignment that happens before the document is even written.
+The survey on *ringi* practice from Professional Tech Soken, run inside Bengo4.com (published 16 January 2025, n=312; every respondent uses an electronic contract service, so this sample skews toward digitally advanced companies and the elapsed times are almost certainly shorter than the market as a whole) found that two to three days was the most common answer at 52.5%, and that 73.5% take a day or more.
+
+The complaints were about the number of people involved and about the informal pre-alignment that happens before the document is even written.
 
 A request that qualifies for the formal route comes back in days. A request that does not qualify has exactly one destination: the next project meeting, or the next review with you.
 
@@ -50,7 +52,7 @@ On a monthly cadence that is fifteen days on average, thirty at worst. The *ring
 
 Two things then happen that you do not see. Nobody raises the backlog in the regional call, because a question about an approved global design, asked in a second language in front of the region, reads as an objection to it. And the team solves it locally. The legacy ledger stays open, the CRM gets whatever the pipeline call needs, the discount does not go in the field.
 
-The Japan team is good at this. Give them no answer and they will still close the quarter. The only problem is that nobody reports the workaround, because it works. A workaround running for a month is not a workaround any more, it is how the Japan office operates.
+A local team may find a workaround while waiting for an answer. The only problem is that nobody reports the workaround, because it works. A workaround used for a month can become the accepted routine. Review it before relying on the original process in the next report.
 
 Meanwhile the adoption dashboard holds up, because it counts logins and filled fields rather than whether the record describes the business. In the cases I have seen, this surfaces about a year in, and not through the dashboard. Through a forecast that does not reconcile.
 
@@ -85,6 +87,6 @@ The first turns the review into a place where things get decided. The second sen
 
 ## Related reading
 
-Setting the cadence handles the decisions that flow up. Changing what the Japan team's own weekly meeting runs on is the other half, and is covered in [Your Japan team will not read the guide. Change the weekly meeting](/en/articles/change-the-meeting-not-the-manual/).
+Setting the cadence handles the decisions that flow up. Changing what the Japan team's own weekly meeting runs on is the other half, and is covered in [Japan CRM adoption: put the records to work in the weekly meeting](/en/articles/change-the-meeting-not-the-manual/).
 
 Other notes on the same problem are collected under [Change management](/en/category/adoption/).

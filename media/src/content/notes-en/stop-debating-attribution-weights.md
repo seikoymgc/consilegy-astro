@@ -1,9 +1,10 @@
 ---
-title: "Japan can't fill in your attribution model, and that is not a maturity problem"
-description: "HQ asks the Japan team which touchpoint produced the win, and the answer never arrives cleanly. The model was calibrated on buyers who leave a trail. Japanese survey data (n=330, n=298) on why the trail is missing, and what to ask Japan for instead."
+title: "Japan attribution: agree the decision before debating the weights"
+description: "Decide which budget choice the attribution report must support. Keep a traceable link between campaigns and opportunities and state what the records cannot establish."
 publishedAt: 2026-08-31
+updatedAt: 2026-10-17
 category: data
-principle: "Fractional credit across touchpoints cannot be settled in a Japanese enterprise purchase, and settling it would not change a budget decision anyway. Ask Japan for one uneditable source per opportunity, not for a share of the win."
+principle: "Decide which budget choice the attribution report must support. Keep a traceable link between campaigns and opportunities and state what the records cannot establish."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -17,7 +18,9 @@ It is not that. The attribution model was calibrated on buyers who leave a trail
 
 ## Seven people decided, and one of them talked to you
 
-IDEATECH ran a second wave of its large-deal purchasing study with Hiroyasu Kitagawa of Demagen Research (fielded 25 to 26 May 2026, published 9 June 2026, 330 valid responses; respondents had been one of two or more people involved in a software, SaaS or IT infrastructure purchase with an annual contract value above 5 million yen). In that sample, 58.5% said seven or more people were involved in the decision (n=325). The specialist functions that joined were IT at 42.2%, finance and accounting at 38.2%, security at 37.2%, legal at 33.2% and procurement at 32.0%.
+IDEATECH ran a second wave of its large-deal purchasing study with Hiroyasu Kitagawa of Demagen Research (fielded 25 to 26 May 2026, published 9 June 2026, 330 valid responses; respondents had been one of two or more people involved in a software, SaaS or IT infrastructure purchase with an annual contract value above 5 million yen). In that sample, 58.5% said seven or more people were involved in the decision (n=325).
+
+The specialist functions that joined were IT at 42.2%, finance and accounting at 38.2%, security at 37.2%, legal at 33.2% and procurement at 32.0%.
 
 IDEATECH sells survey-based PR as a business and this was a panel study, so treat these as orders of magnitude rather than precise rates.
 
@@ -31,9 +34,13 @@ Before the next attribution discussion, put one question on the table: if the tr
 
 Usually not. The exhibition decision turns on who your team actually met, not on the decimal.
 
-ProFuture, with fieldwork by Macromill, surveyed Japanese B2B marketers about 2026 budgets and programmes (fielded 3 to 4 February 2026, published 4 March 2026, 103 valid responses). The metric respondents most wanted to prioritise was the density of the target audience at 43.7%, ahead of cost per lead at 35.9%. In the same study, the programme most often felt to be underdelivering on return was the trade show, at 42.7%. The base is small and ProFuture sells advertising into its own HR media, so read the ranking rather than the percentages.
+ProFuture, with fieldwork by Macromill, surveyed Japanese B2B marketers about 2026 budgets and programmes (fielded 3 to 4 February 2026, published 4 March 2026, 103 valid responses). The metric respondents most wanted to prioritise was the density of the target audience at 43.7%, ahead of cost per lead at 35.9%. In the same study, the programme most often felt to be underdelivering on return was the trade show, at 42.7%.
 
-The resolution that decisions need is coarser than the resolution these arguments assume. Ebsta and Pavilion's 2025 GTM benchmarks (n=655,000 opportunities across 387 companies, international rather than Japanese data) index channel efficiency, win rate times deal size divided by sales cycle, against an average of 1.0: referral 1.3x, organic 1.2x, outbound 1.05x, events 0.78x, paid 0.68x. Ranked that way, you can decide what to grow and what to cut. Nobody needed a share of a single win to get there.
+The base is small and ProFuture sells advertising into its own HR media, so read the ranking rather than the percentages.
+
+The resolution that decisions need is coarser than the resolution these arguments assume. Ebsta and Pavilion's 2025 GTM benchmarks (n=655,000 opportunities across 387 companies, international rather than Japanese data) index channel efficiency, win rate times deal size divided by sales cycle, against an average of 1.0: referral 1.3x, organic 1.2x, outbound 1.05x, events 0.78x, paid 0.68x. Ranked that way, you can decide what to grow and what to cut.
+
+Nobody needed a share of a single win to get there.
 
 ## The argument is often about handoff quality, not about credit
 

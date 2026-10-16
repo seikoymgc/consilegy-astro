@@ -1,10 +1,10 @@
 ---
-title: "In Japan, buyers drop you when no company like theirs is in your case studies"
-description: "Your global customer stories translate cleanly into Japanese and still do nothing. Japanese buyers do not read case studies as proof of value. They read them to check whether a company their size, in their industry, already runs you, and to assemble material for a two-stage approval. Here is the data and the six questions your Japan case studies have to answer."
+title: "Japan case studies: give buyers enough detail to assess the fit"
+description: "Ask about scale, alternatives, approval and operating responsibilities as well as satisfaction. Let the next buyer judge whether the case applies to their company."
 publishedAt: 2026-08-12
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: marketing
-principle: "A case study in Japan is not a story, it is screening material. Localize the questions you ask customers, not just the language of the stories you already have."
+principle: "Ask about scale, alternatives, approval and operating responsibilities as well as satisfaction. Let the next buyer judge whether the case applies to their company."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -20,7 +20,9 @@ The problem is not the translation. It is that your library was built to answer 
 
 In Japan, a case study is screening material, not persuasion material.
 
-The joint study by IDEATECH and Hiroyasu Kitagawa (Demagen Institute), published 16 April 2026, surveyed 307 employees and executives at Japanese B2B companies who had been involved, with at least one colleague, in a purchase with an annual contract value or one-time implementation cost of 3 million yen or more in the previous 12 months. Fieldwork ran 23–26 March 2026. It is research PR from IDEATECH, and the screening criteria skew it toward large, multi-stakeholder deals, so read it as data on that segment.
+The joint study by IDEATECH and Hiroyasu Kitagawa (Demagen Institute), published 16 April 2026, surveyed 307 employees and executives at Japanese B2B companies who had been involved, with at least one colleague, in a purchase with an annual contract value or one-time implementation cost of 3 million yen or more in the previous 12 months. Fieldwork ran 23–26 March 2026.
+
+It is research PR from IDEATECH, and the screening criteria skew it toward large, multi-stakeholder deals, so read it as data on that segment.
 
 Two findings sit on either side of the same behavior.
 
@@ -56,7 +58,9 @@ Do not translate the stories. Commission new ones, and fix the interview questio
 
 Agree the publishable level of detail at the start of the interview, not at the end. Many Japanese customers will not allow their name to be used, and HQ often reads "no named logo" as "no case study." That is a false equivalence. An anonymized story that states industry, employee band, seat count, operating department, and deployment days does the screening job. A named logo with no numbers does not.
 
-Questions 3 and 4 are the ones least likely to survive as asked. Japanese customers rarely name the vendors they compared or the person who objected, and PR or legal review will strike both. Agree the substitute wording up front and show it: "two major Japanese vendors and one overseas vendor" for the comparison, "the IT department" rather than a named individual for the objection, and an index (before = 100) in place of raw figures. Asking "could we publish it in this form?" gets a yes far more often than asking for permission in the abstract.
+Questions 3 and 4 are the ones least likely to survive as asked. Japanese customers rarely name the vendors they compared or the person who objected, and PR or legal review will strike both. Agree the substitute wording up front and show it: "two major Japanese vendors and one overseas vendor" for the comparison, "the IT department" rather than a named individual for the objection, and an index (before = 100) in place of raw figures.
+
+Asking "could we publish it in this form?" gets a yes far more often than asking for permission in the abstract.
 
 ## What HQ should do differently
 
@@ -66,10 +70,10 @@ Three changes. Budget the first two or three Japanese customer stories as part o
 
 There is no published benchmark for how many Japanese buyers a missing local case study costs you; nobody has measured it. What is measurable is your own funnel: count how many Japan opportunities went quiet after the first request for a local reference.
 
-**A case study in Japan is not a story, it is screening material. Localize the questions you ask customers, not just the language of the stories you already have.**
+**Ask about scale, alternatives, approval and operating responsibilities as well as satisfaction. Let the next buyer judge whether the case applies to their company.**
 
 ## Related reading
 
-Why precedent, rather than feature superiority, is what clears internal approval in Japan is covered in [In Japan, features get you cut and precedent keeps you in](/en/articles/japanese-deals-win-on-precedent/). Case studies are the artifact that makes that precedent visible from outside.
+Why precedent, rather than feature superiority, is what clears internal approval in Japan is covered in [Japanese enterprise sales: references matter alongside features](/en/articles/japanese-deals-win-on-precedent/). Case studies are the artifact that makes that precedent visible from outside.
 
 Other notes on the same problem are collected under [Demand generation](/en/category/marketing/).

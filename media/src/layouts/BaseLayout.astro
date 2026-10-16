@@ -3,7 +3,7 @@ import '../styles/global.css';
 import { editorialTeam } from '../data/editorial';
 import Analytics from '../components/Analytics.astro';
 import { categories, categoriesEn, type CategoryKey } from '../content.config';
-import { GTM_ID, PRIVACY_URL_JA, PRIVACY_URL_EN } from '../site-config';
+import { GTM_ID, PRIVACY_URL_JA, PRIVACY_URL_EN, MEDIA_TAGLINE_JA, MEDIA_TAGLINE_EN } from '../site-config';
 
 interface Crumb {
 	name: string;
@@ -217,7 +217,7 @@ const breadcrumbSchema =
 		}
 		{GTM_ID && <Analytics />}
 		<a class="skip-link" href="#main-content">{isEn ? 'Skip to content' : '本文へ移動'}</a>
-		<div class="publication-bar"><div class="container"><span>{isEn ? 'INSIGHTS FOR REVENUE LEADERS' : 'マーケティング・営業・CRMから考える、B2Bの売上設計'}</span><a href={isEn ? 'https://consilegy.com/en/' : 'https://consilegy.com/'}>Published by Consilegy ↗</a></div></div>
+		<div class="publication-bar"><div class="container"><span>{isEn ? 'INSIGHTS FOR REVENUE LEADERS' : MEDIA_TAGLINE_JA}</span><a href={isEn ? 'https://consilegy.com/en/' : 'https://consilegy.com/'}>Published by Consilegy ↗</a></div></div>
 		<header class="site-header">
 			<div class="container site-header__inner">
 				<a href={isEn ? '/en/' : '/'} class="site-brand">
@@ -234,7 +234,7 @@ const breadcrumbSchema =
 						</>
 					) : (
 						<>
-							<a href="/notes/">記事一覧</a>
+							<a href="/articles/">記事一覧</a>
 							<a href="https://consilegy.com/" class="site-nav__ext">運営会社 ↗</a>
 							<a href="/en/">EN</a>
 							<a href="https://consilegy.com/contact/" class="site-nav__btn">お問い合わせ</a>
@@ -243,9 +243,9 @@ const breadcrumbSchema =
 				</nav>
 			</div>
 			<div class="topic-nav"><nav class="container" aria-label={isEn ? 'Topics' : 'テーマ別ナビゲーション'}>
-				<a href={isEn ? '/en/articles/' : '/notes/'} aria-current={Astro.url.pathname === (isEn ? '/en/articles/' : '/notes/') ? 'page' : undefined}>{isEn ? 'All articles' : 'すべての記事'}</a>
+				<a href={isEn ? '/en/articles/' : '/articles/'} aria-current={Astro.url.pathname === (isEn ? '/en/articles/' : '/articles/') ? 'page' : undefined}>{isEn ? 'All articles' : 'すべての記事'}</a>
 				{(Object.keys(categories) as CategoryKey[]).map(key => {
-					const href = isEn ? `/en/category/${key}/` : `/notes/category/${key}/`;
+					const href = isEn ? `/en/category/${key}/` : `/category/${key}/`;
 					return <a href={href} aria-current={Astro.url.pathname === href ? 'page' : undefined}>{isEn ? categoriesEn[key] : categories[key]}</a>;
 				})}
 			</nav></div>
@@ -260,7 +260,7 @@ const breadcrumbSchema =
 				<div class="container site-footer__cols">
 					<div>
 						<p class="site-footer__brand">B2B Revenue Strategy Journal</p>
-						<p class="site-footer__desc">Practical education on B2B revenue operations, from a consultancy working across Japanese and global companies.</p>
+						<p class="site-footer__desc">{MEDIA_TAGLINE_EN} Published by Consilegy LLC.</p>
 					</div>
 					<nav aria-label="Articles">
 						<p class="site-footer__head">Read</p>
@@ -282,20 +282,20 @@ const breadcrumbSchema =
 				<div class="container site-footer__cols">
 					<div>
 						<p class="site-footer__brand">B2Bレベニュー戦略ジャーナル</p>
-						<p class="site-footer__desc">マーケティング・営業・CRMから考える、B2Bの売上設計。運営はConsilegy合同会社。</p>
+						<p class="site-footer__desc">{MEDIA_TAGLINE_JA} 運営はConsilegy合同会社。</p>
 					</div>
 					<nav aria-label="カテゴリ">
 						<p class="site-footer__head">カテゴリ</p>
-						<a href="/notes/category/crm/">CRM・SFA</a>
-						<a href="/notes/category/sales/">営業・商談管理</a>
-						<a href="/notes/category/data/">データ・KPI</a>
-						<a href="/notes/category/japan-gtm/">日本市場・GTM</a>
-						<a href="/notes/category/adoption/">組織・運用定着</a>
-						<a href="/notes/category/marketing/">マーケティング</a>
+						<a href="/category/crm/">CRM・SFA</a>
+						<a href="/category/sales/">営業・商談管理</a>
+						<a href="/category/data/">データ・KPI</a>
+						<a href="/category/japan-gtm/">日本市場・GTM</a>
+						<a href="/category/adoption/">組織・運用定着</a>
+						<a href="/category/marketing/">マーケティング</a>
 					</nav>
 					<nav aria-label="サイト">
 						<p class="site-footer__head">サイト</p>
-						<a href="/notes/">記事一覧</a>
+						<a href="/articles/">記事一覧</a>
 						<a href="/about/">編集部について</a>
 						<a href="/en/">English edition</a>
 						<a href="/rss.xml">RSS</a>

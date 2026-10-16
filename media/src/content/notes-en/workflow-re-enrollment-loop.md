@@ -1,9 +1,10 @@
 ---
 title: "Why your Japan workflow fired three times and nobody reported it"
-description: "A global workflow sent the same notification three nights running to Japanese contacts. Re-enrollment was on, for a good reason. The cause was a trigger built on a property the workflow itself wrote, combined with a local nightly sync that wrote the old value back. Why this pattern is close to universal in Japan subsidiaries, why the Japan team reports it as silence rather than a bug, and the one-line test to run before go-live."
+description: "If an automation writes a property used in its own trigger, test re-enrolment and external write-backs. Separate the trigger where needed and verify that repeated updates do not repeat the action."
 publishedAt: 2026-09-11
+updatedAt: 2026-10-17
 category: crm
-principle: "Never trigger an automation on a property that the same automation writes. In a Japan subsidiary a local system usually rewrites every field nightly, so a property you think only people touch is updated every night, and the loop runs where nobody is watching."
+principle: "If an automation writes a property used in its own trigger, test re-enrolment and external write-backs. Separate the trigger where needed and verify that repeated updates do not repeat the action."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -25,7 +26,7 @@ Nothing in the editor shows this as a loop. Read top to bottom, the workflow is 
 
 This distinction is where most automation designs quietly break.
 
-An enrollment condition can be written as a state: contacts whose lead status is "hot". With re-enrollment on, what actually runs is "every time a contact returns to hot". The requirements document describes a state. Production counts changes. In a requirements document written in English and implemented in Japanese, the two usually collapse into one sentence.
+An enrollment condition can be written as a state: contacts whose lead status is "hot". With re-enrollment on, what actually runs is "every time a contact returns to hot". The requirements document describes a state. Production counts changes. Check that the requirements distinguish the current state from the change that triggers enrolment. Translation does not resolve an ambiguity in the original specification.
 
 To a person reviewing the record, the contact has been "hot" all week. The property history shows hot, notified, hot, every night. The platform responds to the history.
 
@@ -49,7 +50,9 @@ A misfire in Japan produces a different signal than it does in the US or Europe,
 
 Japanese B2B recipients rarely reply to complain about a duplicate send, and they rarely tell the individual rep. If the contact is the designated point of contact for the vendor relationship, the complaint goes through their internal channel, and what the sales rep observes is a meeting that does not get scheduled. Your monitoring shows a healthy send volume. Your pipeline shows a deal that stopped moving. Nothing connects the two.
 
-There is also a compliance edge. Japan's Act on Regulation of Transmission of Specified Electronic Mail requires opt-in for advertising email, with narrow exceptions such as an address given directly on a business card, and requires sender identification and a working opt-out in each message. Repeated unwanted sends are therefore not only an annoyance in this market. They become a question for the customer's legal or general affairs function, which in Japan frequently sits inside the approval path you are trying to get through.
+There is also a compliance edge. Japan's Act on Regulation of Transmission of Specified Electronic Mail requires opt-in for advertising email, with narrow exceptions such as an address given directly on a business card, and requires sender identification and a working opt-out in each message. Repeated unwanted sends are therefore not only an annoyance in this market.
+
+They become a question for the customer's legal or general affairs function, which in Japan frequently sits inside the approval path you are trying to get through.
 
 And the local fix is predictable. The Japan team turns the automation off and does the step by hand, because manual work is recoverable and a second incident is not. Headquarters then sees a region with low workflow usage and reads it as resistance to the global playbook.
 
@@ -67,7 +70,9 @@ Those two findings meet at exactly the point where a workflow misfires in front 
 
 For every enrollment trigger, ask whether this workflow writes to that property. If it does, the design is not closed.
 
-Three things to do. List every workflow with its trigger fields in one column and its action fields in another, and look for a field appearing on both sides. Where you cannot separate them, rewrite the trigger from a change to a state, adding a completion flag: enroll records that are in the state and not yet flagged, and set the flag as the final action. Keep the flag on a field the integration does not map, or the sync will clear it and the loop returns. The second pass then fails the condition.
+Three things to do. List every workflow with its trigger fields in one column and its action fields in another, and look for a field appearing on both sides. Where you cannot separate them, rewrite the trigger from a change to a state, adding a completion flag: enroll records that are in the state and not yet flagged, and set the flag as the final action.
+
+Keep the flag on a field the integration does not map, or the sync will clear it and the loop returns. The second pass then fails the condition.
 
 On the integration side, make the write-back incremental and take fields the CRM owns out of the mapping. Depending on the platform and how the connector writes, a connector that rewrites unchanged fields every night can damage your reporting even without automation attached, because last-modified dates stop meaning anything and any report built on stalled records silently empties. That breaks more quietly than a duplicate email and takes far longer to find.
 

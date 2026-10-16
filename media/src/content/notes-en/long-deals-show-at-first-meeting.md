@@ -2,7 +2,7 @@
 title: "Japan deal cycle length can be estimated at the first meeting"
 description: "HQ benchmarks a Japan deal against the global average cycle and asks why it is slow. Much of the cycle was likely shaped before your rep walked in. In Japanese large-ticket purchases, the buyer is about 40% of the way through the process by the time they engage a vendor. Record three things at the first meeting, estimate the cycle from them, and check the estimate against your own data three months later."
 publishedAt: 2026-10-01
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: sales
 principle: "Work from the hypothesis that in Japan, deal length depends less on what your rep does than on how far the buyer's organisation had already moved at the first meeting. Record who brought the deal in, whether a budget line exists, and where it must be approved next, estimate the cycle from day one, and check it against your own data after three months."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -14,7 +14,9 @@ A Japan deal is in its fourth month. HQ looks at the global average cycle, sees 
 
 ## The buyer is already well into the process when your rep first sits down
 
-A joint survey by IDEATECH and Hiroyasu Kitagawa (Demand Gen Research Institute), fielded 23-26 March 2026 and published 16 April, asked 307 people in Japan who had taken part, with at least one other person, in buying or renewing B2B products costing JPY 3 million or more. By the time they began serious exchanges with a vendor's sales rep, the purchase process was on average about 40% complete. About 90% had already shortlisted several vendors before talking to sales.
+A joint survey by IDEATECH and Hiroyasu Kitagawa (Demand Gen Research Institute), fielded 23-26 March 2026 and published 16 April, asked 307 people in Japan who had taken part, with at least one other person, in buying or renewing B2B products costing JPY 3 million or more. By the time they began serious exchanges with a vendor's sales rep, the purchase process was on average about 40% complete.
+
+About 90% had already shortlisted several vendors before talking to sales.
 
 This is a panel survey run by a firm that sells survey PR, and it covers only large, multi-person purchases, so read 40% as an order of magnitude. The direction is consistent with what Japan teams report: someone inside the buyer has already named the problem, listed candidates and, sometimes, started looking for budget. Your rep meets that person, partway through.
 
@@ -34,7 +36,7 @@ Whether a budget line exists. If this year's budget table already carries a line
 
 Where it is approved next, and when that forum meets. A department meeting, a management committee, an IT review. A deal with a date can be timed. A deal without one has no destination yet.
 
-Two of the three overlap with the questions in [In Japan, the first meeting is not discovery. The shortlist already exists.](/en/articles/first-meeting-five-questions/). Who brought the deal in comes out when you ask question two (what each person is responsible for), and the next forum comes out with question four (whose approval is needed). The only question this note adds to the first meeting is the budget line.
+Two of the three overlap with the questions in [The first Japan sales call: check what the buyer has already decided](/en/articles/first-meeting-five-questions/). Who brought the deal in comes out when you ask question two (what each person is responsible for), and the next forum comes out with question four (whose approval is needed). The only question this note adds to the first meeting is the budget line.
 
 None of these change with sales skill. What changes is whether they are asked and recorded at the first meeting. Deals run without them tend to surface "actually, we still need to talk internally" at meeting two or three, and the six months start there.
 
@@ -58,7 +60,9 @@ Adding more stages to track it finely. Stages describe the seller's progress. Mi
 
 ## Keep the three points as fields separate from stage
 
-Add three deal properties: the role of the person who brought it, budget line (yes, no, unknown), and the date of the next forum. Which approval stage that forum is goes in the approval-progress field from the five-questions note, so this field holds only the date. The same approval held in two fields means one of them goes stale. Keep each to three options or fewer so a rep can fill them in a minute after the first meeting. Leave unknown as a valid answer and do not make the fields mandatory, because forcing an answer invites a guess entered as fact.
+Add three deal properties: the role of the person who brought it, budget line (yes, no, unknown), and the date of the next forum. Which approval stage that forum is goes in the approval-progress field from the five-questions note, so this field holds only the date. The same approval held in two fields means one of them goes stale.
+
+Keep each to three options or fewer so a rep can fill them in a minute after the first meeting. Leave unknown as a valid answer and do not make the fields mandatory, because forcing an answer invites a guess entered as fact.
 
 After about three months, check whether deals with more unknowns ran longer in your own data. This is where the hypothesis in this note gets tested in your business. If they did run longer, keep placing them this way, and you have an internal benchmark for Japan that no global average can give you. If there was no difference, look at which of the three points is not doing any work.
 

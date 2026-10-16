@@ -1,9 +1,10 @@
 ---
-title: "Why deals in Japan take 3 to 8 months, and how to forecast"
-description: "Japanese deals are not slow because of culture. There is an extra, measurable stage in the buying process. Here is the structure, the data, and how to build it into your pipeline."
+title: "Explain Japan deal timing through the approval process"
+description: "Show HQ the approval steps, the current point of delay and the next condition for progress. Test the explanation against your own deal history rather than attributing it to culture."
 publishedAt: 2026-07-24
+updatedAt: 2026-10-17
 category: japan-gtm
-principle: "Don't say Japan is slow. Say the process has one more stage. Structure can be measured and managed; culture cannot."
+principle: "Show HQ the approval steps, the current point of delay and the next condition for progress. Test the explanation against your own deal history rather than attributing it to culture."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 ---
@@ -57,7 +58,7 @@ Two practical notes:
 - **Do not use the "Japanese deals take 2 to 3 times longer than Western deals" comparison.** It circulates widely, but no published study using the same methodology across regions exists, as far as we can verify. One unsourced number can undermine an otherwise solid deck. Use the Japan-side numbers above, with their source, and let HQ compare against its own benchmarks.
 - **Pair the expectation reset with a playbook.** Supporting the champion's internal process (drafting the ringi document with them, preparing a one-page summary for their executives, joining the internal briefing) shortens the invisible stage. Presenting this alongside the data turns the message from "Japan is slow" into "here is how we win in Japan."
 
-**Don't say Japan is slow. Say the process has one more stage. Structure can be measured and managed; culture cannot.**
+**Show HQ the approval steps, the current point of delay and the next condition for progress. Test the explanation against your own deal history rather than attributing it to culture.**
 
 ## Common mistakes
 

@@ -1,15 +1,16 @@
 ---
 title: "Japan metrics you drop still need an owner and a cadence"
-description: "HQ trims the Japan business review to three headline metrics, and the in-quarter signals disappear with the slides nobody owns. Why a market where 36.8% of purchases run past three months cannot be governed on outcome metrics alone, and what to attach to every metric you remove."
+description: "Give every metric removed from the regional review an owner, a review date and a decision it supports. Shortening the meeting should not leave a business risk unmonitored."
 publishedAt: 2026-09-19
+updatedAt: 2026-10-17
 category: data
-principle: "Cutting a Japan review down to three metrics is not the work. The work is attaching an owner, a cadence and a decision right to each metric you remove. A metric without those does not disappear; it returns at quarter end as a miss nobody saw coming."
+principle: "Give every metric removed from the regional review an owner, a review date and a decision it supports. Shortening the meeting should not leave a business risk unmonitored."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
 ---
 
-The Japan business review had grown to eleven slides, so HQ cut it to three metrics: ARR attainment, pipeline coverage, win rate. Cleaner meeting, faster decisions, one region reporting like every other region.
+The Japan business review had grown to eleven slides, so HQ cut it to three metrics: ARR attainment, pipeline coverage, win rate. The meeting became shorter and the reporting matched the other regions. That still left a question: who would review the measures taken out of the deck?
 
 Two quarters later Japan misses, and the review that was supposed to catch it had nothing on it that moved before the miss.
 
@@ -33,7 +34,9 @@ An instruction from HQ to simplify the review is read locally as an instruction 
 
 HQ sees a leaner meeting. Japan sees the same monthly workload. Neither side is reporting the gap, because from HQ's side there is nothing to report, and from Japan's side raising it would mean asking whether a headquarters instruction was thought through.
 
-The same survey asked how often teams review what happened to the leads they generated. Respondents reviewing weekly or more reported 84.8% attainment against their booking targets; those with no review at all reported 26.7%. The report itself states this is correlation, not causation, and the reverse reading holds easily enough: companies already hitting targets have the slack to review. What the question isolates is not which metric is tracked but whether a fixed cadence exists. A metric you removed without assigning one sits in the zero-cadence group by definition.
+The same survey asked how often teams review what happened to the leads they generated. Respondents reviewing weekly or more reported 84.8% attainment against their booking targets; those with no review at all reported 26.7%. The report itself states this is correlation, not causation, and the reverse reading holds easily enough: companies already hitting targets have the slack to review. What the question isolates is not which metric is tracked but whether a fixed cadence exists.
+
+A metric you removed without assigning one sits in the zero-cadence group by definition.
 
 ## What to attach to a metric before you remove it
 
@@ -45,11 +48,13 @@ Three things, and all three have to be named before the slide comes out.
 
 **A decision right.** What the new owner is permitted to do when the number moves. This is the one most often skipped with Japan, and it is where the [threshold you should have written](/en/articles/threshold-before-dashboard/) belongs: the number, and what happens at that number. Without it, the local owner escalates to HQ, and the escalation arrives on the same quarterly clock you were trying to get ahead of.
 
-There is a fourth step specific to Japan, and it is not optional. A metric named in HQ language rarely survives the move to a local weekly meeting. "Conversion rate" is a management-level read; the person sitting in a Tuesday pipeline meeting cannot change it tomorrow. "Inquiries from last week with no first contact inside five business days" measures the same behaviour and tells the person in the room what to do on Wednesday. Renaming is not cosmetic here. It decides whether the slide gets opened.
+There is a fourth step specific to Japan, and it is not optional. A metric named in HQ language rarely survives the move to a local weekly meeting. "Conversion rate" is a management-level read; the person sitting in a Tuesday pipeline meeting cannot change it tomorrow. "Inquiries from last week with no first contact inside five business days" measures the same behaviour and tells the person in the room what to do on Wednesday.
+
+Renaming is not cosmetic here. It decides whether the slide gets opened.
 
 Two approaches worth skipping. Standing up a separate small meeting per removed metric recreates the eleven slides as eleven meetings. Circulating the removed metrics by monthly email gets them distributed and gives you no way to detect that nobody reads them.
 
-**Cutting a Japan review down to three metrics is not the work. The work is attaching an owner, a cadence and a decision right to each metric you remove. A metric without those does not disappear; it returns at quarter end as a miss nobody saw coming.**
+**Give every metric removed from the regional review an owner, a review date and a decision it supports. Shortening the meeting should not leave a business risk unmonitored.**
 
 Take the last metric you removed from a Japan review and name the person who looked at it this month. If you cannot, it is still in the review, just without a reader.
 

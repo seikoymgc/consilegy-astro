@@ -1,10 +1,10 @@
 ---
-title: "Why Japan CRM Adoption Stalls: A Design Problem, Not Effort"
-description: "If your Japan team won't keep the CRM updated, effort is rarely the cause. Four Japanese surveys show why entry stalls when nothing is returned or used, and the order in which to fix it."
+title: "Japan CRM adoption: examine the work, the records and their use"
+description: "Reduce unnecessary data entry and make the remaining records useful in deal preparation and the weekly review. Verify both effort and use before declaring adoption fixed."
 publishedAt: 2026-10-05
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: crm
-principle: "Before cutting data-entry effort in Japan, make sure what reps enter is used in their next-day deal prep and in the weekly meeting. Entry with no use will not last, however light you make it."
+principle: "Reduce unnecessary data entry and make the remaining records useful in deal preparation and the weekly review. Verify both effort and use before declaring adoption fixed."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 ---
@@ -35,7 +35,9 @@ A survey by Keywalker in October 2025 (sales staff and managers at companies tha
 - 12.5% say they are not keeping up or have many gaps. That is roughly one in eight.
 - Among those who do not enter immediately, the reasons are "other work takes priority" (44.2%) and "too many fields" (38.5%).
 
-The most useful result is about motivation. **The top motivator is "a clear purpose and clear use for the data," at 54.8%**, followed by "my own results and growth become visible" at 40.1%. This is a different survey asking a different question from Matsurika's, so the two numbers cannot be compared directly, and we have not checked whether a "less effort" option was offered here. Even so, when more than half of respondents name a clear use for the data as their top motivator, effort alone does not explain adoption.
+The most useful result is about motivation. **The top motivator is "a clear purpose and clear use for the data," at 54.8%**, followed by "my own results and growth become visible" at 40.1%. This is a different survey asking a different question from Matsurika's, so the two numbers cannot be compared directly, and we have not checked whether a "less effort" option was offered here.
+
+Even so, when more than half of respondents name a clear use for the data as their top motivator, effort alone does not explain adoption.
 
 ## Managers use the dashboard for reporting, not for deciding the next move
 

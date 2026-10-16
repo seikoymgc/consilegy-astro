@@ -1,7 +1,8 @@
 ---
-title: "In Japan, a required field produces confident wrong answers"
+title: "Required CRM fields: check whether the Japan team knows the answer"
 description: "HQ sees blank fields in the Japan pipeline and makes them required. Completion goes to 100% and the data gets worse, because in a Japanese deal the answer often does not exist yet at the moment the record is saved. Japanese survey data (n=101, n=1,034), why the economic buyer field fails specifically in Japan, and the two conditions a field must meet before you require it."
 publishedAt: 2026-09-05
+updatedAt: 2026-10-17
 category: crm
 principle: "Require a field only when the answer is settled at the moment of entry and a wrong value would be caught within a week. In Japan the approver is often not knowable during the deal, so requiring that field replaces a readable blank with an unreadable guess."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -25,7 +26,9 @@ What just happened is not that data appeared. It is that a single state, "not kn
 
 This is where the global playbook and the Japanese buying process come apart.
 
-In a US deal, the economic buyer is usually a person the rep can meet, and a blank in that field is a reasonable prompt to go and meet them. In a Japanese deal of any size, the decision is often made through a written internal approval routed to people who never join a call. IDEATECH and Hiroyasu Kitagawa of Demagen Research surveyed large B2B purchases in Japan (published April 2026, n=307, respondents involved in buying business software, SaaS, or IT infrastructure) and found that more than 80% of purchases required two or more approval stages, with 60.9% at exactly two, and that two to four functions were involved in around 80% of cases.
+In a US deal, the economic buyer is usually a person the rep can meet, and a blank in that field is a reasonable prompt to go and meet them. In a multi-person Japanese purchase, written approval may involve people who do not join the sales calls.
+
+IDEATECH and Hiroyasu Kitagawa of Demagen Research surveyed large B2B purchases in Japan (published April 2026, n=307, respondents involved in buying business software, SaaS, or IT infrastructure) and found that more than 80% of purchases required two or more approval stages, with 60.9% at exactly two, and that two to four functions were involved in around 80% of cases.
 
 The rep is not being lazy. In many of these deals there is no single person who can be named as the buyer at the point the record is updated, because the approval is still being assembled and the final signatory depends on the amount and the category.
 
@@ -61,7 +64,9 @@ Close date and contract value pass. The answer sits in the signed agreement, and
 
 The test to run on your own instance: for each required field, name the person who would notice a wrong value, and the week they would notice it. If you cannot answer for a field, it should not be required.
 
-Two things to put in its place. Attach the requirement to a stage transition rather than to the object, using required properties per deal stage in HubSpot or validation rules in Salesforce, so the answer is only demanded once it plausibly exists. And report the blank rate itself, in the weekly pipeline review, as a pipeline number rather than a compliance number. "Twelve open deals with no named approver" is a conversation about deals. "Your completion rate is 74%" is a conversation about the rep.
+Two things to put in its place. Attach the requirement to a stage transition rather than to the object, using required properties per deal stage in HubSpot or validation rules in Salesforce, so the answer is only demanded once it plausibly exists. And report the blank rate itself, in the weekly pipeline review, as a pipeline number rather than a compliance number. "Twelve open deals with no named approver" is a conversation about deals.
+
+"Your completion rate is 74%" is a conversation about the rep.
 
 That second point has support in the Keywalker survey: the strongest motivator for entering data was a clear purpose and clear downstream use, at 54.8%. A field made mandatory without an explanation of what it is for is, by that measure, the weakest possible design.
 

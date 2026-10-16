@@ -2,7 +2,7 @@
 title: "Give Japanese Buyers an ROI Model They Can Edit Themselves"
 description: "In Japan, buyers struggle to estimate ROI before they ever talk to sales, and the content they find most useful is an ROI calculator. Here is why a model the buyer can edit beats a claim your rep makes in the room, and how to build one for the Japan team."
 publishedAt: 2026-10-10
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: marketing
 principle: "Do not hand a Japanese buyer an ROI claim. Hand them a model they can fill with their own numbers, with assumptions visible, so they can defend it to approvers you will never meet."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -56,12 +56,14 @@ Turn it into a sheet with five inputs or fewer. Decide later whether to publish 
 
 If you want to use a real customer's figures, get their permission first. If you cannot, a blank sheet with the assumptions filled in is enough.
 
-Keep the sheet after you hand it over. When the buyer returns it with their own numbers, attach it to the deal, the same way the approval draft is attached rather than turned into new fields. The conservative-case annual benefit in particular becomes the baseline for checking value after go-live and for the renewal, when the same question gets asked again. Put that number in the handoff note; [What your Japan handoff drops is the reason the contract was approved](/en/articles/handoff-misses-why-it-was-approved/) explains what usually goes missing there.
+Keep the sheet after you hand it over. When the buyer returns it with their own numbers, attach it to the deal, the same way the approval draft is attached rather than turned into new fields. The conservative-case annual benefit in particular becomes the baseline for checking value after go-live and for the renewal, when the same question gets asked again.
+
+Put that number in the handoff note; [What your Japan handoff drops is the reason the contract was approved](/en/articles/handoff-misses-why-it-was-approved/) explains what usually goes missing there.
 
 One caution on the data. The survey was run through IDEATECH's own survey PR service as an online panel. Read the percentages as orders of magnitude and rankings, and do not mix them with the earlier survey, which used a different amount threshold and different questions.
 
 ## Related reading
 
-Once the model is in the buyer's hands, the next gap is the internal approval document itself, which your champion usually cannot write. We covered that in [In Japan, your champion cannot write the business case. Write it for them.](/en/articles/draft-the-internal-approval-document/)
+Once the model is in the buyer's hands, the next gap is the internal approval document itself, which your champion usually cannot write. We covered that in [Help the Japan buyer prepare a draft business case](/en/articles/draft-the-internal-approval-document/)
 
 Other notes on the same problem are collected under [Demand generation](/en/category/marketing/).

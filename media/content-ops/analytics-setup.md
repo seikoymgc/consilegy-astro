@@ -75,7 +75,7 @@ GTM-T2FNKSK にアクセスできるGoogleアカウントでログインする�
 
 ### 1-4. 確認して公開
 
-プレビュー（Tag Assistant）で `https://media.consilegy.com/notes/...` を開き、フッターの「30分無料相談」をクリック。`media_outbound_click` が発火し、パラメータが入っていることを確認してから公開する。
+プレビュー（Tag Assistant）で `https://media.consilegy.com/記事名/` を開き、フッターの「30分無料相談」をクリック。`media_outbound_click` が発火し、パラメータが入っていることを確認してから公開する。
 
 ---
 

@@ -1,7 +1,7 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
-import { categories } from '../../content.config';
+import { categories } from '../content.config';
 
 export async function getStaticPaths() {
 	const notes = await getCollection('notes', ({ data }) => !data.draft);
@@ -35,12 +35,12 @@ const formatDate = (date: Date) =>
 	updatedAt={d.updatedAt}
 	ogImage={`/images/eyecatch/${note.id}.jpg`}
 	section={categories[d.category]}
-	jaPath={hasEn ? `/notes/${note.id}/` : undefined}
+	jaPath={hasEn ? `/${note.id}/` : undefined}
 	enPath={hasEn ? `/en/articles/${note.id}/` : undefined}
 	breadcrumbs={[
 		{ name: 'ホーム', url: '/' },
-		{ name: '記事一覧', url: '/notes/' },
-		{ name: categories[d.category], url: `/notes/category/${d.category}/` },
+		{ name: '記事一覧', url: '/articles/' },
+		{ name: categories[d.category], url: `/category/${d.category}/` },
 		{ name: d.title },
 	]}
 >
@@ -49,9 +49,9 @@ const formatDate = (date: Date) =>
 			<nav class="breadcrumb" aria-label="パンくずリスト">
 				<a href="/">ホーム</a>
 				<span aria-hidden="true">›</span>
-				<a href="/notes/">記事一覧</a>
+				<a href="/articles/">記事一覧</a>
 				<span aria-hidden="true">›</span>
-				<a href={`/notes/category/${d.category}/`}>{categories[d.category]}</a>
+				<a href={`/category/${d.category}/`}>{categories[d.category]}</a>
 			</nav>
 
 			<p class="note-cat">{categories[d.category]}</p>
@@ -105,7 +105,7 @@ const formatDate = (date: Date) =>
 			<aside class="author">
 				<p class="author__name">Consilegy メディア編集部</p>
 				<p class="author__bio">
-					マーケティング・営業・CRMを中心に、Consilegyの実装・運用支援で得た知見と公開調査をもとに、B2Bの売上設計に役立つ情報を発信しています。
+					集客・受注・取引の継続と拡大について、Consilegyの実装・運用支援で得た知見と公開調査をもとに、B2Bの売上設計に役立つ情報を発信しています。
 				</p>
 				<a href="/about/">編集部について →</a>
 			</aside>
@@ -117,7 +117,7 @@ const formatDate = (date: Date) =>
 						<ul>
 							{related.map(r => (
 								<li>
-									<a href={`/notes/${r.id}/`}>{r.data.title}</a>
+									<a href={`/${r.id}/`}>{r.data.title}</a>
 								</li>
 							))}
 						</ul>
@@ -212,7 +212,7 @@ const formatDate = (date: Date) =>
 
 	.note-body {
 		margin-top: 2rem;
-		font-size: 0.95rem;
+		font-size: 1rem;
 		line-height: 2;
 	}
 
@@ -229,7 +229,8 @@ const formatDate = (date: Date) =>
 	}
 
 	.note-body :global(p) {
-		margin-top: 1.1rem;
+		margin-top: 1.25em;
+		overflow-wrap: anywhere;
 	}
 
 	.note-body :global(ul),
@@ -264,6 +265,18 @@ const formatDate = (date: Date) =>
 	.note-body :global(td) {
 		border-bottom: 1px solid var(--color-border);
 		padding: 0.55rem 0.5rem;
+		text-align: left;
+	}
+
+	.note-body :global(table) {
+		display: block;
+		max-width: 100%;
+		overflow-x: auto;
+		border-collapse: collapse;
+	}
+	.note-body :global(th), .note-body :global(td) {
+		padding: 0.6rem;
+		border-bottom: 1px solid var(--color-border);
 		text-align: left;
 	}
 

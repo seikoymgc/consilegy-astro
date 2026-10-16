@@ -1,10 +1,10 @@
 ---
-title: "Your customer success playbook assumes a counterpart Japan has not hired"
-description: "HQ ships the global CS playbook to the Japan entity. Health scores stay green, adoption looks normal, and then a renewal is lost on conditions nobody heard. Japanese survey data (n=64,138) shows the playbook's vocabulary does not reach the people who renew. Here is what to change, and where to hold it in the CRM, before the first Japanese renewal."
+title: "Does your Japan customer success playbook have a customer-side owner?"
+description: "Check who on the customer side will explain the results internally. If that role is unassigned, include the supporting materials and ownership in the account plan."
 publishedAt: 2026-08-18
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: japan-gtm
-principle: "A customer success playbook assumes someone on the customer side can explain your value internally. In Japan that person is part of what you have to build, not something you inherit at handoff."
+principle: "Check who on the customer side will explain the results internally. If that role is unassigned, include the supporting materials and ownership in the account plan."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -46,15 +46,21 @@ In a Japan entity the exposure is larger than the number suggests. The global pl
 
 ## What to change before the first Japanese renewal
 
-**Ship the handoff before the health score.** Four fields, none of which may be blank at kickoff: success criteria in the customer's own words, the named operator on the customer side and their manager, what sales committed verbally, and contract scope. Success criteria and contract scope blank means the handoff does not pass. Do not let it rest on the AE's verbal briefing. In the CRM, hold the four on the deal and make them exit criteria for the closed-won stage rather than required at creation, since nobody knows them when the deal is opened and the AE does know them at close. After close, copy them from the deal to the account record where CS works. Customer-side contacts change: when CS hears of a change, the CSM updates the account record that day, and opens each quarterly review by confirming the named operator and manager are still the same people.
+**Ship the handoff before the health score.** Four fields, none of which may be blank at kickoff: success criteria in the customer's own words, the named operator on the customer side and their manager, what sales committed verbally, and contract scope. Success criteria and contract scope blank means the handoff does not pass. Do not let it rest on the AE's verbal briefing.
 
-**Budget CSM time for the customer's internal renewal document.** In the global playbook, producing a business case is a sales activity. In Japan, a renewal that carries spend goes back through the customer's own written approval process, and the document that decides it is assembled two to three months before the contract end date. In HQ's split of duties, nobody owns that artifact. Note that there is no public primary data on how Japanese B2B renewals are approved; anyone quoting a breakdown is quoting a vendor's own customer list.
+In the CRM, hold the four on the deal and make them exit criteria for the closed-won stage rather than required at creation, since nobody knows them when the deal is opened and the AE does know them at close. After close, copy them from the deal to the account record where CS works.
+
+Customer-side contacts change: when CS hears of a change, the CSM updates the account record that day, and opens each quarterly review by confirming the named operator and manager are still the same people.
+
+**Budget CSM time for the customer's internal renewal document.** In the global playbook, producing a business case is a sales activity. In Japan, a renewal that carries spend goes back through the customer's own written approval process, and the document that decides it is assembled two to three months before the contract end date. In HQ's split of duties, nobody owns that artifact.
+
+Note that there is no public primary data on how Japanese B2B renewals are approved; anyone quoting a breakdown is quoting a vendor's own customer list.
 
 **Change the QBR output from minutes to one circulatable page.** Order it: what returns if we do not renew, this period's results in the customer's own numbers, what expands next period. It has to survive being read by someone who has never heard the phrase "customer success."
 
 **Stop reporting Japan in LTV and adoption.** Report it in profit, revenue, and cost avoided. Keep LTV for the HQ board deck, where it works.
 
-**A customer success playbook assumes someone on the customer side can explain your value internally. In Japan that person is part of what you have to build, not something you inherit at handoff.**
+**Check who on the customer side will explain the results internally. If that role is unassigned, include the supporting materials and ownership in the account plan.**
 
 Designing the post-sale motion for the market you are actually operating in, rather than porting the one that works at home, is covered in [Japan Market GTM and Messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/).
 

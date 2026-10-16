@@ -1,3 +1,4 @@
+import { MEDIA_DESCRIPTION_JA } from '../site-config';
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 
@@ -8,14 +9,13 @@ export async function GET(context) {
 
 	return rss({
 		title: 'B2Bレベニュー戦略ジャーナル',
-		description:
-			'マーケティング・営業・CRMから考える、B2Bの売上設計。CRM定着、商談プロセス、データ計測、MA活用、日本市場参入の教育メディア。',
+		description: MEDIA_DESCRIPTION_JA,
 		site: context.site,
 		items: notes.map(note => ({
 			title: note.data.title,
 			description: note.data.description,
 			pubDate: note.data.publishedAt,
-			link: `/notes/${note.id}/`,
+			link: `/${note.id}/`,
 		})),
 		customData: '<language>ja</language>',
 	});

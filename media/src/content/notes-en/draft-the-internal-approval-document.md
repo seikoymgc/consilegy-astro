@@ -1,8 +1,8 @@
 ---
-title: "In Japan, your champion cannot write the business case. Write it for them."
+title: "Help the Japan buyer prepare a draft business case"
 description: "Headquarters tells the Japan team to have the champion build the internal business case. In Japan that document is a ringi, it circulates to people your reps will never meet, and your champion has never written one for a product like yours. Here is what to hand over instead, and which CRM fields to add."
 publishedAt: 2026-08-13
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: japan-gtm
 principle: "Many Japanese deals stall because the buyer has nothing to paste into their internal approval document. Ship a Japanese-language draft skeleton the buyer can fill with their own numbers, and track it on the deal record."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -22,7 +22,9 @@ Global sales methodologies assume a champion who advocates in rooms. Japanese pu
 
 That changes what your champion needs from you. They do not need to be more convinced. They need text they can paste.
 
-Research by Professional Tech Soken (Bengo4.com), surveying 312 CloudSign users between 25 September and 31 October 2024, found that 65.2% see problems with their own approval process. The top three: too many people involved in completing the approval (41.0%), time spent on consultation and groundwork before the document is even written (35.9%), and too broad a range of decisions requiring one (31.6%). Note that these respondents already use an electronic contracting service, so they sit at the digitised end of the market. The typical Japanese buyer's experience is heavier than these numbers suggest.
+Research by Professional Tech Soken (Bengo4.com), surveying 312 CloudSign users between 25 September and 31 October 2024, found that 65.2% see problems with their own approval process. The top three: too many people involved in completing the approval (41.0%), time spent on consultation and groundwork before the document is even written (35.9%), and too broad a range of decisions requiring one (31.6%).
+
+Note that these respondents already use an electronic contracting service, so they sit at the digitised end of the market. The typical Japanese buyer's experience is heavier than these numbers suggest.
 
 The second figure is the one headquarters never sees. The groundwork happens **before** the document exists. Nothing appears in your CRM during that period, because nothing has been submitted.
 
@@ -36,7 +38,9 @@ The same survey found only 9.7% of companies feel they reach decision-making exe
 
 ## What to hand over
 
-Not a translated deck, and not a finished document either. In the second wave of a joint survey by IDEATECH and Hiroyasu Kitagawa (fielded 25 to 26 May 2026, 330 valid responses, online panel), buyers named the ROI calculator as the most useful decision material at 55.4%. "Approval application support material" scored 14.2%. A polished approval text does not get used just because you wrote it. What gets used is material the buyer can rerun with their own numbers. Read those figures as rank order, not precision.
+Not a translated deck, and not a finished document either. In the second wave of a joint survey by IDEATECH and Hiroyasu Kitagawa (fielded 25 to 26 May 2026, 330 valid responses, online panel), buyers named the ROI calculator as the most useful decision material at 55.4%. "Approval application support material" scored 14.2%. A polished approval text does not get used just because you wrote it.
+
+What gets used is material the buyer can rerun with their own numbers. Read those figures as rank order, not precision.
 
 So hand over a Japanese-language skeleton at paste-in granularity, with blanks for the customer's own figures, covering four things in the order objections arrive:
 

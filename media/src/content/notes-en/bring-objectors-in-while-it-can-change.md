@@ -1,10 +1,10 @@
 ---
 title: "Bring your Japan team in while one decision is still open"
-description: "HQ finalises the global rollout, then runs a feedback session with the Japan entity. Nobody objects, so HQ records agreement, and three weeks after go-live the adoption numbers say otherwise. Silence in that room is not consent. It is what happens when a team is invited to comment on something they cannot change. Japanese survey data (n=101, n=1,034, n=312) and the three decisions worth handing over."
+description: "Ask for input while a meaningful decision is still open. State what the local team can change and who will decide before inviting people to the review."
 publishedAt: 2026-09-08
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: adoption
-principle: "Invite the objector while one decision is still theirs to make. A Japan review meeting with nothing left to change does not produce objections. It produces agreement that does not hold."
+principle: "Ask for input while a meaningful decision is still open. State what the local team can change and who will decide before inviting people to the review."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -36,7 +36,9 @@ Filing all of this under "change resistance" leaves exactly one available move, 
 
 Split it and other moves appear.
 
-Mazrica's survey on SFA and CRM usage (fielded by IDEATECH, 25 to 28 November 2024, published 28 January 2025, n=101 sales managers and team leads at Japanese B2B companies; a survey run by a company that sells sales software, on a small sample, so read it directionally) asked why salespeople do not enter data. Entering it takes too long, 54.5%. It is tedious, 39.6%. The benefit of entering it is unclear, 32.7%. And: I do not want my results visible to other people, 27.7%.
+Mazrica's survey on SFA and CRM usage (fielded by IDEATECH, 25 to 28 November 2024, published 28 January 2025, n=101 sales managers and team leads at Japanese B2B companies; a survey run by a company that sells sales software, on a small sample, so read it directionally) asked why salespeople do not enter data. Entering it takes too long, 54.5%. It is tedious, 39.6%. The benefit of entering it is unclear, 32.7%.
+
+And: I do not want my results visible to other people, 27.7%.
 
 In the other public surveys we have looked through, that last one rarely shows up. It also never gets said out loud in a training session, and it will not be said in your feedback call either.
 
@@ -58,9 +60,9 @@ In a global CRM or process rollout, three decisions can usually be handed to the
 - **When data gets entered.** Immediately after the meeting, batched at end of day, or before the weekly pipeline review. Let the local team pick the operating rhythm
 - **Which meeting and which report the entered data shows up in.** Exposure is the one objection that can only be handled here, and only by naming the audience
 
-Whatever is agreed on the third is kept as an operating commitment, not through permissions. If the team decides that deals with an unconfirmed probability stay out of the regional leadership deck, what changes is the filter on the report behind that deck and who the dashboard is shared with. Hiding the records through permissions breaks handovers and the regional forecast. That line is drawn in [Your Japan team wants records hidden. Almost none of it is confidentiality.](/en/articles/crm-permissions-too-fine/).
+Whatever is agreed on the third is kept as an operating commitment, not through permissions. If the team decides that deals with an unconfirmed probability stay out of the regional leadership deck, what changes is the filter on the report behind that deck and who the dashboard is shared with. Hiding the records through permissions breaks handovers and the regional forecast. That line is drawn in [Japan CRM permissions: separate record access from field protection](/en/articles/crm-permissions-too-fine/).
 
-None of the three threatens global reporting, which is why they can be given away. Stage definitions, the object model, and whether the rollout happens at all cannot be. Offering to "co-design" something already fixed is the fastest way to lose a Japan team's trust, and they will not tell you they have stopped believing you.
+None of the three threatens global reporting, which is why they can be given away. Stage definitions, the object model, and whether the rollout happens at all cannot be. Do not describe a fixed decision as co-design. State which constraints are settled and which choices remain open.
 
 Once the transferable decisions are named, the date follows. Hold the session shortly before the last day those decisions can still move.
 
@@ -68,11 +70,15 @@ Once the transferable decisions are named, the date follows. Hold the session sh
 
 Not every objection belongs on the agenda.
 
-Japanese decisions carry more people than HQ usually expects. In a survey by Professional Tech Research Institute, part of Bengo4.com (fielded 25 September to 31 October 2024, published 16 January 2025, n=312; respondents were users of the CloudSign e-signature service, so this sample skews toward companies further along with digitisation), the most common complaint about the internal approval process was that too many people are involved before approval completes, at 41.0%. Second was that the consultation and groundwork before the approval document is even written takes too long, at 35.9%.
+Japanese decisions carry more people than HQ usually expects. In a survey by Professional Tech Research Institute, part of Bengo4.com (fielded 25 September to 31 October 2024, published 16 January 2025, n=312; respondents were users of the CloudSign e-signature service, so this sample skews toward companies further along with digitisation), the most common complaint about the internal approval process was that too many people are involved before approval completes, at 41.0%.
+
+Second was that the consultation and groundwork before the approval document is even written takes too long, at 35.9%.
 
 That second number is the one worth sitting with. A material share of the objection handling in a Japanese company happens before any document exists, in one-to-one conversations HQ never sees. The formal meeting is often where a conclusion is confirmed, not where it is reached.
 
-Use that rather than fight it. An objection to something already approved, such as the investment itself or whether to adopt the platform, should be taken one to one, outside the session, by two people: the objector's direct line manager in Japan, and the project sponsor on the side that approved the rollout. The sponsor can explain why the decision was made; the line manager can take on what it means for the objector's workload and evaluation. Put it on the agenda instead and every other attendee reads it as evidence that the decision is still open, and the two things you actually needed decided that day will not get decided.
+Use that rather than fight it. An objection to something already approved, such as the investment itself or whether to adopt the platform, should be taken one to one, outside the session, by two people: the objector's direct line manager in Japan, and the project sponsor on the side that approved the rollout. The sponsor can explain why the decision was made; the line manager can take on what it means for the objector's workload and evaluation.
+
+Put it on the agenda instead and every other attendee reads it as evidence that the decision is still open, and the two things you actually needed decided that day will not get decided.
 
 Handle only the objections that fall inside the decisions you handed over. State that boundary in the first two minutes and it holds.
 

@@ -1,9 +1,10 @@
 ---
 title: "Log why a Japan deal made the forecast, or misses repeat"
-description: "Your Japan forecast misses again and HQ asks whether the local rep is too optimistic. If nobody kept the reason a deal was counted this month, you cannot tell a buyer who changed course from a rep who misread. Record the basis on the day you count it, then lay it next to the outcome."
+description: "Save the approval stage, budget timing and next owner when a deal enters the forecast. Compare that dated basis with the outcome when reviewing a miss."
 publishedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: sales
-principle: "A forecast miss can only be fixed if the basis for counting the deal was kept on the day. Record approval stage, budget timing and who holds the ball, with dates, then compare them with the outcome."
+principle: "Save the approval stage, budget timing and next owner when a deal enters the forecast. Compare that dated basis with the outcome when reviewing a miss."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false

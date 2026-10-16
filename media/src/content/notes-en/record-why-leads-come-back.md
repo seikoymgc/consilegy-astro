@@ -1,8 +1,8 @@
 ---
-title: "Japan Sales Won't Chase Your Leads: Log Why, in 4 Choices"
+title: "Four reasons to record when Japan sales returns a lead"
 description: "Your Japan sales team does not follow up on the leads marketing passes over, and nobody records why. 'Low quality' does not say what to fix. Have sales pick one of four reasons when they decline a lead, and HQ can see whether the problem is targeting, timing, interest or the handoff itself."
 publishedAt: 2026-10-14
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: marketing
 principle: "'Low quality' does not tell you where to fix. If sales records why a lead was not chased, as one of four reasons (wrong target, too early, shallow interest, not explained), you can see whether to change the MQL criteria or the handoff."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -45,17 +45,23 @@ Group 4 is different in kind. It is not a flaw in the lead. It is a flaw in the 
 
 "Why this person, now" matters because the buyer is further along than the dashboard suggests.
 
-In a survey by IDEATECH and Hiroyasu Kitagawa of Demagen Research (23 to 26 March 2026, office workers and executives who had been involved with two or more people in introducing, reviewing, switching or renewing B2B products with annual contract value of 3 million yen or more, n=307), the purchasing process was on average about 40% complete by the time the buyer first engaged seriously with sales. About 90% had already shortlisted several vendors. The survey is run by a company that sells survey PR, uses a panel, and covers large, multi-person purchases only. Do not read it as all of Japanese B2B.
+In a survey by IDEATECH and Hiroyasu Kitagawa of Demagen Research (23 to 26 March 2026, office workers and executives who had been involved with two or more people in introducing, reviewing, switching or renewing B2B products with annual contract value of 3 million yen or more, n=307), the purchasing process was on average about 40% complete by the time the buyer first engaged seriously with sales. About 90% had already shortlisted several vendors.
+
+The survey is run by a company that sells survey PR, uses a panel, and covers large, multi-person purchases only. Do not read it as all of Japanese B2B.
 
 In the same survey, the factors that most influenced adding the eventual vendor to the shortlist were "a case study from a company of similar size" (44.3%) and "features clearly addressing our problem" (40.3%), top three choices, n=298.
 
-The survey describes buyer behavior. It does not prescribe a handoff. The next step is my reading: if buyers are already comparing, what a Japan rep needs at first contact is not job title or download count but what this person is comparing and where they likely stalled. MQL criteria typically measure whether the lead looks good for the seller. They do not measure why now, and when that is missing from the criteria the receiving rep has little to act on.
+The survey describes buyer behavior. It does not prescribe a handoff. The next step is my reading: if buyers are already comparing, what a Japan rep needs at first contact is not job title or download count but what this person is comparing and where they likely stalled. MQL criteria typically measure whether the lead looks good for the seller.
+
+They do not measure why now, and when that is missing from the criteria the receiving rep has little to act on.
 
 ## Put four options on the screen where the lead is declined
 
 The change is small. Where a rep returns a lead, or decides not to chase it, put the four reasons as a pick list. Do not rely on free text alone: it costs the writer effort and the reader cannot count it.
 
-Do not put it on the lifecycle stage. Keep lifecycle stage moving forward only; if you move it back, returned leads sit as MQL or re-enter the workflow that makes them MQL again. Put the reason on the field that describes the lead's status. In HubSpot that is the disqualification reason on the Leads object; in Salesforce, lead status plus a reason pick list. The standard field names, and how far you can edit their options, depend on the tool and its configuration, so check what already exists before adding fields.
+Do not put it on the lifecycle stage. Keep lifecycle stage moving forward only; if you move it back, returned leads sit as MQL or re-enter the workflow that makes them MQL again. Put the reason on the field that describes the lead's status. In HubSpot that is the disqualification reason on the Leads object; in Salesforce, lead status plus a reason pick list.
+
+The standard field names, and how far you can edit their options, depend on the tool and its configuration, so check what already exists before adding fields.
 
 Settle a few points in advance:
 
@@ -91,6 +97,6 @@ How the boundary between departments fits into the revenue system is in [What Is
 
 ## Related reading
 
-Defining the handoff on buyer behavior rather than score is covered in [In Japan, hand leads to sales on behavior, not on score](/en/articles/handoff-on-behavior-not-score/). If your returned leads cluster in group 3, start there.
+Defining the handoff on buyer behavior rather than score is covered in [Japan lead handoffs: record the buyer action behind the score](/en/articles/handoff-on-behavior-not-score/). If your returned leads cluster in group 3, start there.
 
 Other notes on the same problem are collected under [Demand generation](/en/category/marketing/).

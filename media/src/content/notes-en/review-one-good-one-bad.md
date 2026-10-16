@@ -2,7 +2,7 @@
 title: "Run Your Japan Sales Review on One Won Deal and One Lost Deal"
 description: "HQ asks the Japan team to review last month's pipeline, and the meeting ends with nothing changed. The cause is usually the format. Open one won deal and one lost deal instead of the whole table, name the reasons, and leave with one or two changes. Here is the 30-minute format we use ourselves, and the three things to change before you run it on sales deals."
 publishedAt: 2026-10-09
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: data
 principle: "Do not review the Japan numbers as a table. Open one won deal and one lost deal, choose cases likely to recur rather than the extremes, examine the sequence of events rather than the rep, and end the meeting with one or two changes for next month."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -40,17 +40,21 @@ The selection rule is: how many deals of the same shape are still in the pipelin
 
 Tell the rep the day before which deal will be opened. Naming someone cold in the meeting puts them on the defensive before they explain anything.
 
-The question is not "what did you do?" but "at what point, and what happened on the buyer's side?" Lay out the dates the CRM already holds, first meeting, proposal, quote, the buyer's internal approval, and look together at where the deal moved and where it stopped. Keep target pressure out of this meeting. Once it mixes in, nobody volunteers a lost deal again. In a Japan team that reports to HQ, this matters more: the review should feel like analysis the team owns, not an audit HQ runs.
+The question is not "what did you do?" but "at what point, and what happened on the buyer's side?" Lay out the dates the CRM already holds, first meeting, proposal, quote, the buyer's internal approval, and look together at where the deal moved and where it stopped. Keep target pressure out of this meeting. Once it mixes in, nobody volunteers a lost deal again.
+
+In a Japan team that reports to HQ, this matters more: the review should feel like analysis the team owns, not an audit HQ runs.
 
 ### 3. After the reason, always ask what happens next time
 
 For the win: when did the buyer's organisation start to move, and can that be created again? For the loss: where did it stop, and what will we do the next time the same signal appears? Reasons without the second question turn into commentary.
 
-If every lost deal comes back as "price", fix the loss reason options before fixing the meeting. That is covered in [Why every lost deal in Japan shows up as "price" in your CRM](/en/articles/loss-reason-defaults-to-price/).
+If every lost deal comes back as "price", fix the loss reason options before fixing the meeting. That is covered in [When Japan’s lost deals are all recorded as “price”](/en/articles/loss-reason-defaults-to-price/).
 
 ## Leave with one or two changes
 
-The output is one or two changes, at the level of "after a first meeting without the decision maker, ask how the approval will be routed" or "send a case study from a company of the same size before the proposal". More than two and nobody can tell next month which one worked. Close with a read-back of the two deals, the reasons, and the change, and record the reasons on the deal records in the CRM, not only in the minutes. The next meeting opens by checking that change first.
+The output is one or two changes, at the level of "after a first meeting without the decision maker, ask how the approval will be routed" or "send a case study from a company of the same size before the proposal". More than two and nobody can tell next month which one worked.
+
+Close with a read-back of the two deals, the reasons, and the change, and record the reasons on the deal records in the CRM, not only in the minutes. The next meeting opens by checking that change first.
 
 For a Japan team reporting to HQ, this also gives the team a position it can defend. A change tied to one named pattern is easier to approve than a general promise to "improve conversion".
 
@@ -74,6 +78,6 @@ Do not open the table first. Before the meeting, pick one won deal and one lost 
 
 If the Japan team's figures raise the question "is that good or bad?" in every meeting, the fix is to write the threshold first, as described in [Before you add another Japan dashboard, write the threshold](/en/articles/threshold-before-dashboard/).
 
-For closing a lost deal with a condition for reopening it, see [Lost Deals in Japan Need a Restart Trigger, Not a Reason](/en/articles/reopen-lost-deals-on-a-trigger/).
+For closing a lost deal with a condition for reopening it, see [Add a restart condition to lost deals in Japan](/en/articles/reopen-lost-deals-on-a-trigger/).
 
 Other notes on the same problem are collected under [Revenue data](/en/category/data/).

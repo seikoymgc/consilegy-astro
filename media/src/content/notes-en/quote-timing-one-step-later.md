@@ -1,10 +1,10 @@
 ---
 title: "Why your 30-day quote expires inside Japan's approval cycle"
-description: "HQ tells the Japan team to get the quote out fast. But in Japan the quote is the number a stranger has to defend in writing, and 73.5% of large purchases run longer than planned (IDEATECH, 2026). A quote issued before requirements settle becomes a price increase later. What to send instead, and how to set the validity date."
+description: "Distinguish an indicative price from a formal quote. Confirm configuration and the approval path before issuing the formal version, with validity that fits the buyer’s calendar."
 publishedAt: 2026-09-06
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: sales
-principle: "A quote in Japan is not a price communication. It is the number that enters a written approval and gets defended by people your reps never meet. Issue it once the configuration and the approval path are known, and set its validity against the buyer's approval calendar, not your standard 30 days."
+principle: "Distinguish an indicative price from a formal quote. Confirm configuration and the approval path before issuing the formal version, with validity that fits the buyer’s calendar."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -16,7 +16,9 @@ Three months later the same deal needs a revised quote, and the buyer's side goe
 
 ## Price decides the deal, but the buyer cannot yet calculate what price means
 
-IDEATECH and Hiroyasu Kitagawa of Demagen Research published the second wave of their study of large B2B purchases in Japan on 9 June 2026 (fieldwork 25 to 26 May 2026, 330 valid responses, n=325 on most questions). Respondents had been one of two or more people involved in buying B2B business software, SaaS, or IT infrastructure and security products with annual contract value above 5 million yen. IDEATECH sells survey-based PR, and this is a panel survey, so treat the figures as order of magnitude.
+IDEATECH and Hiroyasu Kitagawa of Demagen Research published the second wave of their study of large B2B purchases in Japan on 9 June 2026 (fieldwork 25 to 26 May 2026, 330 valid responses, n=325 on most questions). Respondents had been one of two or more people involved in buying B2B business software, SaaS, or IT infrastructure and security products with annual contract value above 5 million yen.
+
+IDEATECH sells survey-based PR, and this is a panel survey, so treat the figures as order of magnitude.
 
 Price and cost was the most cited factor in the final vendor decision, at 58.5%, well ahead of fit with the respondent's industry at 39.7%.
 
@@ -48,13 +50,15 @@ The answer is not to withhold pricing. Buyers who cannot estimate operational lo
 
 The first thing to send is a one-page reference price: in yen, excluding tax, annual, and fixed until a stated date. Attach to it what makes the number calculable: seat count, contract term, migration volume, integrations, and how each moves the total. Give them a version they can run themselves.
 
-How to build that one page, and the survey data showing that these buyers want to produce their own figure rather than be persuaded, are in [Quoting Japan in USD stalls the approval, not the negotiation](/en/articles/price-in-yen-or-dollars/). This note covers the next step: when to issue the formal quote.
+How to build that one page, and the survey data showing that these buyers want to produce their own figure rather than be persuaded, are in [Quoting in yen or dollars: what the Japan buyer needs for approval](/en/articles/price-in-yen-or-dollars/). This note covers the next step: when to issue the formal quote.
 
 ## The exception: procurement that collects competing quotes early
 
 Some buyers' procurement teams gather formal quotes from several vendors early, and procurement was involved in 32.0% of the purchases in this study. Under some purchasing rules, a reference price or a range does not count as a quote, and a vendor without a formal quote drops off the comparison sheet.
 
-Do not refuse in that case. Issue the quote, and write the assumed configuration into it (seats, term, migration scope, integrations), together with a statement on the same page that the amount changes if those assumptions change. What then sits in procurement's file is a figure with its assumptions attached, so a later change reads as a change in scope rather than a price increase. Start by asking the procurement contact which format and line items their comparison needs.
+Do not refuse in that case. Issue the quote, and write the assumed configuration into it (seats, term, migration scope, integrations), together with a statement on the same page that the amount changes if those assumptions change. What then sits in procurement's file is a figure with its assumptions attached, so a later change reads as a change in scope rather than a price increase.
+
+Start by asking the procurement contact which format and line items their comparison needs.
 
 ## Set the validity date against their approval calendar, not your quarter
 
@@ -72,7 +76,7 @@ Three rules are worth fixing in the CRM before the next quarter:
 
 The wider view of designing revenue around the buyer's internal process sits in [Japan Market GTM and Messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/).
 
-**A quote in Japan is not a price communication. It is the number that enters a written approval and gets defended by people your reps never meet. Issue it once the configuration and the approval path are known, and set its validity against the buyer's approval calendar, not your standard 30 days.**
+**Distinguish an indicative price from a formal quote. Confirm configuration and the approval path before issuing the formal version, with validity that fits the buyer’s calendar.**
 
 ## Common mistakes
 
@@ -82,6 +86,6 @@ The wider view of designing revenue around the buyer's internal process sits in 
 
 ## Related reading
 
-The validity date is only as good as your read on the buyer's budget calendar, which is a separate question from the approval calendar and is covered in ["No budget" in Japan is a date, not a number](/en/articles/no-budget-means-no-slot/).
+The validity date is only as good as your read on the buyer's budget calendar, which is a separate question from the approval calendar and is covered in [“No budget” in Japan: check the amount and the timing](/en/articles/no-budget-means-no-slot/).
 
 Other notes on the same problem are collected under [Sales process](/en/category/sales/).

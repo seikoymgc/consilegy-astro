@@ -59,7 +59,7 @@ const collectionSchema = {
 	lang="en"
 	title={`${label} in Japan | B2B Revenue Strategy Journal`}
 	description={`${hub.intro[0]} ${notes.length} articles, plus answers to the questions headquarters asks most.`}
-	jaPath={`/notes/category/${category}/`}
+	jaPath={`/category/${category}/`}
 	enPath={`/en/category/${category}/`}
 	breadcrumbs={[
 		{ name: 'Home', url: '/en/' },
@@ -121,7 +121,7 @@ const collectionSchema = {
 					hub.faq.map(f => (
 						<>
 							<dt>{f.q}</dt>
-							<dd>{f.a}</dd>
+							<dd>{f.a.split('\n\n').map(paragraph => <p>{paragraph}</p>)}</dd>
 						</>
 					))
 				}
@@ -218,6 +218,10 @@ const collectionSchema = {
 		margin-top: 0;
 		padding-top: 0;
 		border-top: none;
+	}
+
+	.faq dd p + p {
+		margin-top: 0.9rem;
 	}
 
 	.faq dd {

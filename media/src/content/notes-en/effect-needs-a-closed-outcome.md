@@ -1,10 +1,10 @@
 ---
 title: "When Japan reports a campaign is working, ask what has closed since"
-description: "Japan sends a positive monthly update, HQ funds the next quarter, and the pipeline never follows. Japanese survey data (n=432) on why a monthly read on a market where 36.8% of purchases run past three months can only be answered with inlet metrics."
+description: "Separate response metrics from evidence about revenue. Label open deals as interim results; for closed deals, examine the connection to the campaign before claiming an effect."
 publishedAt: 2026-09-13
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: data
-principle: "A Japan update can claim effect only when at least one deal downstream of the number has closed, won or lost. Before that, the honest claim is that response increased. An effect declared on inlet metrics gets corrected a quarter later, and the correction reads as the local team having overstated."
+principle: "Separate response metrics from evidence about revenue. Label open deals as interim results; for closed deals, examine the connection to the campaign before claiming an effect."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -46,7 +46,7 @@ Two Japan-specific frictions make this worse. Local teams rarely volunteer "no e
 
 One question settles whether an update is reporting effect or response: of the increase, how many deals have closed, won or lost.
 
-Counting that requires knowing which leads and deals came from the campaign: a campaign or source field attached at entry. Who attaches it and when is covered in [Japan will not cancel a programme. Give each an expiry date](/en/articles/campaigns-expire-unless-renewed/). Leave historical records without the link out of the count, and count only from the date the link started.
+Counting that requires knowing which leads and deals came from the campaign: a campaign or source field attached at entry. Who attaches it and when is covered in [Give Japan programmes a renewal date and a decision rule](/en/articles/campaigns-expire-unless-renewed/). Leave historical records without the link out of the count, and count only from the date the link started.
 
 If the answer is zero, the update should say response increased. Not as a demotion, but so the reader can see it is pre-verdict.
 
@@ -72,7 +72,7 @@ So the conditions belong inside the sentence. "Sessions 1.4x. Zero closed outcom
 
 There is also a reporting-line version of this. Japan often sends the update into a regional review where nobody has seen a Japanese deal close. The number is read against a market where a single buyer signs in weeks, so a Japanese inlet metric looks like progress and a Japanese "not yet" looks like underperformance. Setting the expected verdict date in the same line removes the comparison.
 
-**A Japan update can claim effect only when at least one deal downstream of the number has closed, won or lost. Before that, the honest claim is that response increased. An effect declared on inlet metrics gets corrected a quarter later, and the correction reads as the local team having overstated.**
+**Separate response metrics from evidence about revenue. Label open deals as interim results; for closed deals, examine the connection to the campaign before claiming an effect.**
 
 Open the last Japan marketing update and look for a closed count. If it is not there, you funded a response.
 

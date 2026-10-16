@@ -2,6 +2,7 @@
 title: "In Japan, 'we'll take it back' is a handoff, not an answer"
 description: "Your Japan rep closes the meeting with the buyer saying they will take it back and consider internally. HQ hears a soft yes, or a soft no, and the deal sits in the CRM as 'evaluating' for a quarter. It is neither. It is the moment the deal is handed to seven or more people your team will never meet, with no record of the handoff on either side. What to ask before leaving the room, where to put the follow-up date, and the two fields to add."
 publishedAt: 2026-09-24
+updatedAt: 2026-10-17
 category: sales
 principle: "In Japan, 'we'll take it back and consider' is not an answer but a handoff into the buyer's organisation, so the follow-up date belongs the day after the buyer's next internal event, not two weeks out on your rep's calendar, and the question to ask is what came up, not how it felt."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -19,7 +20,9 @@ HQ has two readings for that sentence. One camp hears a polite no, and wants the
 
 In a US deal, "let me take this back" usually means the person you met will make a decision, or make a recommendation, and return with it. In Japan the person you met is rarely the one deciding. They are the one carrying the deal to the people who will.
 
-What they carry it into is wide. IDEATECH, with Hiroyasu Kitagawa of Demagen Research Institute, surveyed 330 people on 25 and 26 May 2026 who had been involved, with at least one colleague, in buying, replacing or renewing B2B software, SaaS or IT infrastructure and security products at annual contract values of 5 million yen or more. Of them, 58.5% said seven or more people took part in the decision (n=325 for that question). The specialist functions involved were IT 42.2%, finance and accounting 38.2%, security 37.2%, legal 33.2%, procurement 32.0% (multiple answers).
+What they carry it into is wide. IDEATECH, with Hiroyasu Kitagawa of Demagen Research Institute, surveyed 330 people on 25 and 26 May 2026 who had been involved, with at least one colleague, in buying, replacing or renewing B2B software, SaaS or IT infrastructure and security products at annual contract values of 5 million yen or more. Of them, 58.5% said seven or more people took part in the decision (n=325 for that question).
+
+The specialist functions involved were IT 42.2%, finance and accounting 38.2%, security 37.2%, legal 33.2%, procurement 32.0% (multiple answers).
 
 So at the moment your rep hears "we'll take it back," the deal has moved to seven or more people nobody on your side has met. There is no handoff document. What your CRM holds is one line, "proposal sent," and a task dated fourteen days out.
 
@@ -45,7 +48,9 @@ The fix is one instruction to the Japan team: before leaving a meeting that ends
 
 If the answer is "I'll mention it to my director," ask when they next meet the director. If it is "I'll share it at next week's department meeting," get the date. This is not interrogation. It is logistics, and Japanese contacts respond to it as logistics, especially when the rep adds: "If there is material you could use in that meeting, we will prepare it. What format would help?"
 
-Sometimes nothing comes back. No name, no date, no format. Read that as: there is no destination yet. The deal has not been declined, but it is not on anyone's desk either. Foreign teams sometimes call "we'll take it back" the politest no in the world. More precisely, it is a state in which whether it becomes a no has not been decided. Whether the CRM says "evaluating" or "no internal owner yet" changes what your forecast call argues about next month.
+Sometimes nothing comes back. No name, no date, no format. Read that as: there is no destination yet. The deal has not been declined, but it is not on anyone's desk either. Foreign teams sometimes call "we'll take it back" the politest no in the world. More precisely, it is a state in which whether it becomes a no has not been decided.
+
+Whether the CRM says "evaluating" or "no internal owner yet" changes what your forecast call argues about next month.
 
 ## The material to send depends on the destination, and HQ's default deck is the wrong one
 
@@ -87,6 +92,6 @@ Measuring the Japan rep on touch frequency. A weekly call with nothing to ask da
 
 ## Related reading
 
-When the destination turns out to be a ringi, what to hand over so that it actually moves is in [In Japan, your champion cannot write the business case. Write it for them.](/en/articles/draft-the-internal-approval-document/) This note is about learning where the deal went; that one is about what to send once you know.
+When the destination turns out to be a ringi, what to hand over so that it actually moves is in [Help the Japan buyer prepare a draft business case](/en/articles/draft-the-internal-approval-document/) This note is about learning where the deal went; that one is about what to send once you know.
 
 Other notes on the same problem are collected under [Sales process](/en/category/sales/).

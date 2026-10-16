@@ -1,10 +1,10 @@
 ---
 title: "Why Your Japan Team Ignores KPIs: Translate Them to Actions"
-description: "HQ keeps asking the Japan team to look at the numbers, and the team keeps not opening them. The cause is usually not attitude. Outcome metrics are being handed over without being translated into what to do tomorrow. Here is a three-step test for the Japan KPI list, including how to check the translation with the team."
+description: "For each KPI assigned to the field, name an action the team can take. Keep outcome reporting, but separate it from the measures people use to decide their next task."
 publishedAt: 2026-10-08
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: adoption
-principle: "Hand the Japan team only KPIs they can turn into a next-day action. Keep outcome-only numbers at HQ as observation, and do not ask the field to own them."
+principle: "For each KPI assigned to the field, name an action the team can take. Keep outcome reporting, but separate it from the measures people use to decide their next task."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -16,7 +16,9 @@ Typical signs: the monthly attainment figure is first opened the day before the 
 
 ## A number with no next action gives people no reason to open it
 
-Survey data on how dashboards are actually used points the same way. In a survey by Keywalker (fielded 8 to 10 October 2025, n=1,034 sales managers and field staff at Japanese companies that had adopted SFA, CRM or BI tools, run as an online panel survey), 58.2% of managers said they use the dashboard to check figures in sales meetings, and 15.4% said they use it to decide the next action. Among field staff the split was 48.6% and 20.7%. In the same survey, the top motivator for entering data was "the purpose and use of the data is clear", at 54.8%. The sponsor sells BI implementation support, so read the percentages as orders of magnitude.
+Survey data on how dashboards are actually used points the same way. In a survey by Keywalker (fielded 8 to 10 October 2025, n=1,034 sales managers and field staff at Japanese companies that had adopted SFA, CRM or BI tools, run as an online panel survey), 58.2% of managers said they use the dashboard to check figures in sales meetings, and 15.4% said they use it to decide the next action.
+
+Among field staff the split was 48.6% and 20.7%. In the same survey, the top motivator for entering data was "the purpose and use of the data is clear", at 54.8%. The sponsor sells BI implementation support, so read the percentages as orders of magnitude.
 
 A dashboard is opened to confirm, and rarely to decide. If your Japan KPI list is built the same way, it will be reviewed and not acted on.
 
@@ -24,7 +26,9 @@ A dashboard is opened to confirm, and rarely to decide. If your Japan KPI list i
 
 Monthly revenue attainment is a number for observing the business. A Japanese sales rep who opens it learns nothing about tomorrow. Translate it into "new first meetings booked this week" or "follow-up sent within three days of a proposal", and the rep can answer the question without being coached.
 
-One caution. "New first meetings booked this week" comes out of a standard report in most CRMs. "Follow-up within three days of a proposal" does not, unless the system can compute the gap between the date a deal reached the proposal stage and the date of the next activity. Whether that needs extra date fields or an automation depends on your CRM and its configuration. If the CRM cannot produce the translated number, either rephrase it into one it can, or build the mechanism first. A number someone has to count by hand every week does not survive long.
+One caution. "New first meetings booked this week" comes out of a standard report in most CRMs. "Follow-up within three days of a proposal" does not, unless the system can compute the gap between the date a deal reached the proposal stage and the date of the next activity. Whether that needs extra date fields or an automation depends on your CRM and its configuration.
+
+If the CRM cannot produce the translated number, either rephrase it into one it can, or build the mechanism first. A number someone has to count by hand every week does not survive long.
 
 ## One question to run over the whole list
 

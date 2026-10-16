@@ -18,8 +18,8 @@ const formatDate = (d: Date) =>
 
 <BaseLayout
 	title="記事一覧 | B2Bレベニュー戦略ジャーナル"
-	description="CRMの定着、商談プロセス、データ計測、MA活用、日本市場参入。B2Bの収益にまつわる悩み別に、原因と解決手順を解説した記事の一覧です。"
-	jaPath="/notes/"
+	description="CRMの定着、商談プロセス、データ計測、MA活用、日本市場参入。B2Bの売上設計に関わる実務記事を、領域別にまとめています。"
+	jaPath="/articles/"
 	enPath="/en/articles/"
 	breadcrumbs={[{ name: 'ホーム', url: '/' }, { name: '記事一覧' }]}
 >
@@ -28,7 +28,9 @@ const formatDate = (d: Date) =>
 			<p class="eyebrow">Articles</p>
 			<h1>記事一覧</h1>
 			<p class="page-lead">
-				悩みのカテゴリから探せます。どの記事も、原因の構造から解決の手順まで、出典付きのデータとともに解説しています。全{notes.length}本。
+				集客・受注から、取引の継続と拡大までの実務記事を、6つのカテゴリで整理しています。
+			</p>
+			<p class="page-lead">全{notes.length}本。現場での判断と、参照した調査の条件を記録しています。
 			</p>
 		</div>
 	</section>
@@ -53,7 +55,7 @@ const formatDate = (d: Date) =>
 					<ul class="note-list">
 						{notes.map(note => (
 							<li>
-								<a href={`/notes/${note.id}/`} class="note-row">
+								<a href={`/${note.id}/`} class="note-row">
 									<div class="note-meta">
 										<time datetime={note.data.publishedAt.toISOString()}>
 											{formatDate(note.data.publishedAt)}

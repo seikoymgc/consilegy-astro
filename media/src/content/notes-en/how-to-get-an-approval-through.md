@@ -1,16 +1,16 @@
 ---
-title: "How to Get a Japanese Ringi Approved: Three Sales Materials"
-description: "Getting a ringi approved means giving each approver a case they can defend under their own name. For HQ and Japan teams: the three materials sales should prepare (comparison, quote, draft), with four Japanese surveys."
+title: "Three materials to support a Japanese ringi approval"
+description: "Prepare a comparison, a quote with its conditions, and a draft business case. Make the assumptions visible so the buyer can adapt the materials for internal approval."
 publishedAt: 2026-10-07
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: sales
-principle: "A ringi is approved by people who can explain the decision, not by people who were persuaded. Sales prepares three materials (a comparison, a quote with its moving conditions, and a draft case) that the buyer can use as written."
+principle: "Prepare a comparison, a quote with its conditions, and a draft business case. Make the assumptions visible so the buyer can adapt the materials for internal approval."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
 ---
 
-Getting a ringi approved means giving every approver a case they can defend under their own name: why this vendor, and why this amount. **A ringi does not move on persuasion.** For a global company, the visible symptom is a Japan deal that sits at "proposal sent" for two quarters while the champion says everything is fine.
+Getting a ringi approved means giving every approver a case they can defend under their own name: why this vendor, and why this amount. **The champion also needs material they can explain to the approvers.** For a global company, the visible symptom is a Japan deal that sits at "proposal sent" for two quarters while the champion says everything is fine.
 
 This note covers where Japanese approvals stall, according to survey data, the three materials your Japan team should prepare, and where to record progress in the CRM.
 
@@ -51,7 +51,9 @@ The buyer does not use your comparison to compare. They compared before you arri
 
 What fails is the table where the vendor ticks every row. If the champion brings it to a meeting, the topic shifts from the product to the champion's judgment.
 
-What gets used turns the table around. Put the buyer's own requirements in the rows, in the words they used in the first meeting. Use three columns only: meets, meets with conditions, does not meet. Write the "does not meet" cells yourself. In the "with conditions" cells, say what has to happen in implementation terms. Those cells become the champion's answers to internal objections. The full method is in [Your Japan battlecard is read in a room your rep never enters](/en/articles/comparison-chart-defends-the-choice/).
+What gets used turns the table around. Put the buyer's own requirements in the rows, in the words they used in the first meeting. Use three columns only: meets, meets with conditions, does not meet. Write the "does not meet" cells yourself. In the "with conditions" cells, say what has to happen in implementation terms. Those cells become the champion's answers to internal objections.
+
+The full method is in [Your Japan battlecard is read in a room your rep never enters](/en/articles/comparison-chart-defends-the-choice/).
 
 ## A quote fixes the amount the approver will see
 
@@ -61,7 +63,9 @@ In the second wave, price and cost was the top factor when choosing a vendor, at
 
 Send a quote early and the minimum-configuration number stays in the buyer's company. Requirements settle, the scope grows, you reissue, and internally it reads as a price increase. Finance (38.2%), legal (33.2%), and procurement (32.0%) were among the specialist functions involved (multiple answers), and they remember the first number.
 
-So before the quote, hand over not the amount but the conditions that move it: what is added, and what that does to the price. [Why your 30-day quote expires inside Japan's approval cycle](/en/articles/quote-timing-one-step-later/) sets out the order. In the CRM, keep the quote amount, configuration, discount, term, sent date, and expiry on the deal, keep the quote amount equal to the deal amount, and route exceptions to an approval flow. In Salesforce, a quote synced to the opportunity plus an approval process does this job. HubSpot also has quotes and approvals, but availability depends on edition and configuration, so check your own subscription before you design around it.
+So before the quote, hand over not the amount but the conditions that move it: what is added, and what that does to the price. [Why your 30-day quote expires inside Japan's approval cycle](/en/articles/quote-timing-one-step-later/) sets out the order. In the CRM, keep the quote amount, configuration, discount, term, sent date, and expiry on the deal, keep the quote amount equal to the deal amount, and route exceptions to an approval flow.
+
+In Salesforce, a quote synced to the opportunity plus an approval process does this job. HubSpot also has quotes and approvals, but availability depends on edition and configuration, so check your own subscription before you design around it.
 
 ## The draft case should be a frame the buyer can change numbers in
 
@@ -71,7 +75,9 @@ One result surprised me. In the second wave, the most helpful content was an ROI
 
 Buyers used what let them move the numbers themselves more than a finished ringi text. They do not want to be persuaded. They want to build the number. This is a panel survey ranking, so treat it as a tendency.
 
-Put four items in the draft, in the order objections appear: what continues if they do nothing; which vendors were compared and why others were dropped; expected objections with answers (IT security, legal terms, finance payment terms); and days to go live with the buyer's own workload. Leave editable cells for the numbers. How to write each of the four, and how to record what was handed over, is in [In Japan, your champion cannot write the business case. Write it for them.](/en/articles/draft-the-internal-approval-document/).
+Put four items in the draft, in the order objections appear: what continues if they do nothing; which vendors were compared and why others were dropped; expected objections with answers (IT security, legal terms, finance payment terms); and days to go live with the buyer's own workload. Leave editable cells for the numbers.
+
+How to write each of the four, and how to record what was handed over, is in [Help the Japan buyer prepare a draft business case](/en/articles/draft-the-internal-approval-document/).
 
 ## Each material answers one question the approver asks
 
@@ -115,6 +121,6 @@ Add fields for approval stage and the buyer's internal deadline, and ask the cha
 
 ## Related reading
 
-The timing of the quote and how to hand over the conditions that move it are covered in [Why your 30-day quote expires inside Japan's approval cycle](/en/articles/quote-timing-one-step-later/). Why features decide who gets cut and precedent decides who stays in is the background in [In Japan, features get you cut and precedent keeps you in](/en/articles/japanese-deals-win-on-precedent/).
+The timing of the quote and how to hand over the conditions that move it are covered in [Why your 30-day quote expires inside Japan's approval cycle](/en/articles/quote-timing-one-step-later/). Why features decide who gets cut and precedent decides who stays in is the background in [Japanese enterprise sales: references matter alongside features](/en/articles/japanese-deals-win-on-precedent/).
 
 Other notes on the same problem are collected under [Sales process](/en/category/sales/).

@@ -203,7 +203,7 @@ export function fmtDate(d: Date, lang: Lang): string {
 export function eyecatchPath(lang: Lang, slug: string): string {
   const hero = `/images/crm/media/hero2/${slug}.webp`;
   if (existsSync(join(process.cwd(), 'public', hero))) return hero;
-  return lang === 'ja' ? `/images/crm/media/${slug}.svg` : `/images/crm/media/en/${slug}.svg`;
+  return lang === 'ja' ? `/images/crm/media/${slug}-2026b.svg` : `/images/crm/media/en/${slug}-2026b.svg`;
 }
 
 /** OG 画像。写真があれば記事の写真、無ければ製品の OG。 */

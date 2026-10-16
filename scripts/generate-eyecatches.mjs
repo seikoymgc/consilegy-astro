@@ -127,9 +127,12 @@ const PALETTE = {
 	sub: '#64748B',    // subtitle: slate, readable but recessive
 	url: '#94A3B8',    // footer url: quiet
 	hairline: '#1E3A8A', // structural lines, used at low opacity
-	accent: '#E62E45',  // accent (5%): ロゴの赤。アイブロウバーと罫のみに使う
-	brandViolet: '#765FC4', // ロゴの紫。ブランドビジュアルのグラデーション
+	accent: '#E05265',  // accent (5%): ロゴの赤。アイブロウバーと罫のみに使う
+	brandViolet: '#8758C9', // ロゴの紫。ブランドビジュアルのグラデーション
 };
+
+// 出力ファイル名の接尾辞。CloudflareはURL単位で旧画像を掴み続けるため、見た目を変えたら接尾辞を上げ、参照側（src）も同時に直す。
+const SUFFIX = '-2026b';
 
 const MARGIN = 96;          // left/right safe margin (info kept off the edges)
 const RIGHT = W - MARGIN;   // right anchor for end-aligned text
@@ -283,8 +286,8 @@ function generate(dirRel, outRel, lang, onlySlug) {
 		}
 		const { title, sub } = splitHeadline(headline);
 		const svg = renderSvg({ title, sub, lang, slug });
-		writeFileSync(join(ROOT, outRel, `${slug}.svg`), svg);
-		console.log(`ok: ${outRel}/${slug}.svg`);
+		writeFileSync(join(ROOT, outRel, `${slug}${SUFFIX}.svg`), svg);
+		console.log(`ok: ${outRel}/${slug}${SUFFIX}.svg`);
 		count++;
 	}
 	return count;
@@ -318,8 +321,8 @@ function generateCrmMedia(lang, outRel, onlySlug) {
 		if (onlySlug && slug !== onlySlug) continue;
 		if (!fm.title) { console.warn(`skip (no title): ${file}`); continue; }
 		const svg = renderSvg({ title: fm.title, sub: fm.feature || '', lang, slug, eyebrow: 'REVENUE CRM' });
-		writeFileSync(join(ROOT, outRel, `${slug}.svg`), svg);
-		console.log(`ok: ${outRel}/${slug}.svg`);
+		writeFileSync(join(ROOT, outRel, `${slug}${SUFFIX}.svg`), svg);
+		console.log(`ok: ${outRel}/${slug}${SUFFIX}.svg`);
 		count++;
 	}
 	return count;

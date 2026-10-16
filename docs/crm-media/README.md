@@ -62,7 +62,7 @@ featured:     サイドバー「よく読まれている記事」の順位（1�
 
 ## 画像
 
-- アイキャッチは `node scripts/generate-eyecatches.mjs <slug>` で `public/images/crm/media/<slug>.svg` と `en/<slug>.svg` を生成する
+- アイキャッチは `node scripts/generate-eyecatches.mjs <slug>` で `public/images/crm/media/<slug>-2026b.svg` と `en/<slug>-2026b.svg`（接尾辞はスクリプトの SUFFIX） を生成する
 - 本文の画面スクリーンショットは `public/images/crm/media/screens/` にあるものだけ使う（`![alt](/images/crm/media/screens/<file>.webp)` と直後の斜体キャプション）。無ければ画像なしで公開してよい。撮影は山口が撮影用ワークスペースで行う
 
 ## 予定: 法人営業（segment: b2b）12本

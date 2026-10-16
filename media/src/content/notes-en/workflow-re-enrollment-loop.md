@@ -1,6 +1,6 @@
 ---
 title: "Why your Japan workflow fired three times and nobody reported it"
-description: "A global workflow sent the same notification three nights running to Japanese contacts. Re-enrollment was off. The cause was a trigger built on a property the workflow itself wrote, combined with a local nightly sync that rewrites every field. Why this pattern is close to universal in Japan subsidiaries, why the Japan team reports it as silence rather than a bug, and the one-line test to run before go-live."
+description: "A global workflow sent the same notification three nights running to Japanese contacts. Re-enrollment was on, for a good reason. The cause was a trigger built on a property the workflow itself wrote, combined with a local nightly sync that wrote the old value back. Why this pattern is close to universal in Japan subsidiaries, why the Japan team reports it as silence rather than a bug, and the one-line test to run before go-live."
 publishedAt: 2026-09-11
 category: crm
 principle: "Never trigger an automation on a property that the same automation writes. In a Japan subsidiary a local system usually rewrites every field nightly, so a property you think only people touch is updated every night, and the loop runs where nobody is watching."
@@ -11,23 +11,23 @@ draft: false
 
 The same notification reached the same Japanese contacts three times, on three consecutive nights, shortly after 1am Japan time.
 
-Re-enrollment was switched off. The first thing headquarters asked was whether the Japan team had edited the workflow. They had not.
+The first thing headquarters asked was whether the Japan team had edited the workflow. They had not. The second was whether re-enrollment was on. It was, deliberately: a contact whose lead status drops and later rises again should be notified again. Switching it off would stop the duplicates and the legitimate second notification with them.
 
-## Re-enrollment off and duplicates arriving means the system is not counting the same person twice
+## Turning re-enrollment off stops the sends but leaves the cause in place
 
-The re-enrollment setting decides whether someone who already completed the workflow can be admitted again. If duplicates arrive with it off, the platform is not treating those as repeat entries. It is accepting a new enrollment each time.
+The re-enrollment setting decides whether a record that meets the trigger again can be admitted again. With it on, a record re-enters every time it returns to the trigger state. The real question is why these records kept returning every night.
 
-The workflow in question started on an update to a lead status property, and its final action wrote to that same property. Writing the value updates it. The update matches the trigger. The record enters again.
+The workflow in question enrolled contacts whose lead status was "hot", and its final action set that same property to "notified". The workflow moved the record out of its own trigger. As soon as something put "hot" back, the record matched again and entered again.
 
 Nothing in the editor shows this as a loop. Read top to bottom, the workflow is correct. The cycle only exists once the last step and the first step are placed on the same field, and no screen in HubSpot or Salesforce puts those two next to each other.
 
-## A trigger on a property update watches events, not state
+## With re-enrollment on, a state trigger behaves like a change trigger
 
 This distinction is where most automation designs quietly break.
 
-There are two kinds of enrollment condition. One selects records that are currently in a state. The other catches the moment a value changes. The first reads state. The second reads history. In the builder they look almost identical, and in a requirements document written in English and implemented in Japanese they usually collapse into one sentence.
+An enrollment condition can be written as a state: contacts whose lead status is "hot". With re-enrollment on, what actually runs is "every time a contact returns to hot". The requirements document describes a state. Production counts changes. In a requirements document written in English and implemented in Japanese, the two usually collapse into one sentence.
 
-A change-based condition fires on a write, not on a difference. Writing "A" onto a field that already says "A" is still an update. To a person reviewing the record, nothing happened. To the platform, an event occurred.
+To a person reviewing the record, the contact has been "hot" all week. The property history shows hot, notified, hot, every night. The platform responds to the history.
 
 That asymmetry is what lets an automation restart itself on its own output.
 
@@ -37,9 +37,9 @@ This is the part a global template does not account for, and it is why the patte
 
 A Japan office that has been operating for any length of time runs on something local. Sales administration in kintone, an order or billing system the parent company has never logged into, a card-scanning service holding the contact history, a spreadsheet that the inside sales team maintains. When the global CRM arrives, nobody retires those. They get connected, and the connector is usually built locally, quickly, to a deadline set in another timezone.
 
-Those integrations very often push the full record rather than a diff. Simpler to build, and until an automation is layered on top, nothing visibly breaks. So every night, every mapped field is written again, whether or not the value changed.
+Those integrations very often push the full record from the local system rather than a diff. Simpler to build, and until an automation is layered on top, nothing visibly breaks. So every night, every mapped field is overwritten with the local system's value. The local system still said "hot". Whatever the CRM changed during the day was put back overnight.
 
-Put a change-based trigger on any mapped field and the workflow now has a scheduled nightly cause. In this case the timing gave it away. Not 1am because of a delay in the platform, but 1am because that is when the local sync ran.
+Put a trigger on any mapped field that the workflow also writes, and the workflow now has a scheduled nightly cause. In this case the timing gave it away. Not 1am because of a delay in the platform, but 1am because that is when the local sync ran.
 
 Once an integration exists, a property in your CRM is no longer something only humans touch. Decide which system owns which field before you put automation on top of it, or the meaning of your trigger changes without anyone editing the trigger. That is the same failure I described in [your Japan integration will not fail on the connector, it fails on the key](/en/articles/decide-the-master-before-integrating/), arriving through a different door.
 
@@ -67,11 +67,11 @@ Those two findings meet at exactly the point where a workflow misfires in front 
 
 For every enrollment trigger, ask whether this workflow writes to that property. If it does, the design is not closed.
 
-Three things to do. List every workflow with its trigger fields in one column and its action fields in another, and look for a field appearing on both sides. Where you cannot separate them, rewrite the trigger from a change to a state, adding a completion flag: enroll records that are in the state and not yet flagged, and set the flag as the final action. The second pass then fails the condition.
+Three things to do. List every workflow with its trigger fields in one column and its action fields in another, and look for a field appearing on both sides. Where you cannot separate them, rewrite the trigger from a change to a state, adding a completion flag: enroll records that are in the state and not yet flagged, and set the flag as the final action. Keep the flag on a field the integration does not map, or the sync will clear it and the loop returns. The second pass then fails the condition.
 
-On the integration side, make the write-back incremental. A connector that rewrites unchanged fields every night is already damaging your reporting even without automation attached, because last-modified dates stop meaning anything and any report built on stalled records silently empties. That breaks more quietly than a duplicate email and takes far longer to find.
+On the integration side, make the write-back incremental and take fields the CRM owns out of the mapping. Depending on the platform and how the connector writes, a connector that rewrites unchanged fields every night can damage your reporting even without automation attached, because last-modified dates stop meaning anything and any report built on stalled records silently empties. That breaks more quietly than a duplicate email and takes far longer to find.
 
-Then test one record before go-live, using the test function in the HubSpot workflow editor or a sandbox in Salesforce. Read the enrollment history rather than the outcome. If the record appears once, the loop is closed. If it appears twice in a test, it will appear nightly in production, in a timezone where nobody is awake to see the first one.
+Then test one record before go-live, using the test function in the HubSpot workflow editor or a sandbox in Salesforce. Read the enrollment history rather than the outcome, and run the integration's write-back once after the test. If the record appears once, the loop is closed. If it appears twice in a test, it will appear nightly in production, in a timezone where nobody is awake to see the first one.
 
 The wider view of designing revenue around the buyer's internal process sits in [Japan Market GTM and Messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/).
 
@@ -80,6 +80,7 @@ The wider view of designing revenue around the buyer's internal process sits in 
 ## Common mistakes
 
 - **Assuming the Japan instance only receives data from the global CRM.** The local order, billing, or card-scanning system that predates your rollout is almost always still writing into it, and the connector was probably built to push whole records rather than differences.
+- **Fixing it by switching re-enrollment off.** The duplicates stop, and so does every legitimate re-notification. The trigger and the sync are still crossed.
 - **Treating a workflow misfire in Japan as a minor operational issue.** The recipient will not complain to the rep, the complaint routes internally, and the first symptom you see is a deal that stops moving.
 - **Reading low workflow usage in Japan as resistance.** After one visible misfire the team reverts to manual work deliberately, because a second incident in front of the same customer is not recoverable.
 - **Testing the outcome instead of the enrollment history.** A correct email proves the actions work. Only the enrollment log tells you whether the record came back around.

@@ -55,9 +55,9 @@ export const products: Product[] = [
 				lead: '顧客・商談・タスクを一つの顧客データで管理します。',
 				href: '/crm/',
 				screens: [
-					{ src: crm('screen-dashboard-2026-09.webp'), width: 1600, height: 1000, title: 'ダッシュボード', desc: '最初に見る数字と、次に動く相手を同じ画面で確認します。', alt: 'Revenue CRMのダッシュボード。パイプライン総額、加重フォーキャスト、勝率、期限切れタスク、ステージ別パイプライン、注目の商談を一画面に表示。' },
-					{ src: crm('screen-mobile-deals-2026-09.webp'), width: 390, height: 844, title: 'スマートフォン', desc: '商談の一覧は、外出先からスマートフォンでも見られます。', alt: 'スマートフォンで見たRevenue CRMの商談一覧。', phone: true },
-					{ src: crm('screen-mobile-dashboard-2026-09.webp'), width: 390, height: 844, title: 'スマートフォンのダッシュボード', desc: 'ダッシュボードも、スマートフォンの幅に合わせて表示されます。', alt: 'スマートフォンで見たRevenue CRMのダッシュボード。', phone: true },
+					{ src: crm('screen-dashboard-2026-10.webp'), width: 1600, height: 1000, title: 'ダッシュボード', desc: '最初に見る数字と、次に動く相手を同じ画面で確認します。', alt: 'Revenue CRMのダッシュボード。パイプライン総額、加重フォーキャスト、勝率、期限切れタスク、ステージ別パイプライン、注目の商談を一画面に表示。' },
+					{ src: crm('screen-mobile-deals-2026-10.webp'), width: 390, height: 844, title: 'スマートフォン', desc: '商談の一覧は、外出先からスマートフォンでも見られます。', alt: 'スマートフォンで見たRevenue CRMの商談一覧。', phone: true },
+					{ src: crm('screen-mobile-dashboard-2026-10.webp'), width: 390, height: 844, title: 'スマートフォンのダッシュボード', desc: 'ダッシュボードも、スマートフォンの幅に合わせて表示されます。', alt: 'スマートフォンで見たRevenue CRMのダッシュボード。', phone: true },
 				],
 			},
 			{
@@ -65,9 +65,9 @@ export const products: Product[] = [
 				lead: '案件・見積・稼働・納品を1か所で見て、着手できる時期から逆算して見積を出せます。',
 				href: '/crm/contractor/',
 				screens: [
-					{ src: crm('contractor/screen-resources.webp'), width: 1432, height: 840, title: '空き枠カレンダー', desc: 'メンバー×週で、割り当て人日とキャパを並べます。いつ誰が空くかを、感覚ではなく数字で見られます。', alt: '空き枠カレンダーの画面。今週の稼働率54%、今週の空き人日7.8、逼迫週0、余剰週7のカード。その下にメンバー4名×13週の表があり、各セルに割当人日／キャパが入っている。' },
-					{ src: crm('contractor/screen-delivery.webp'), width: 1432, height: 840, title: 'デリバリー', desc: 'キックオフ・制作・レビュー・納品の工程を案件ごとに持ちます。滞留日数と期限、想定と実績の人日が同じ行に出ます。', alt: 'デリバリーの画面。案件・会社・金額・デリバリー工程・滞留・期限・想定/実績（人日）の列が並び、6件の受注案件が工程ごとに表示されている。' },
-					{ src: crm('contractor/screen-quotes.webp'), width: 1432, height: 840, title: '見積書', desc: '下書き、送付済み、承認のステータスで管理します。明細は人日×単価で積み上げます。', alt: '見積書の一覧画面。4件の見積が、承認・下書き・送付済みのステータスバッジ、コンタクト、会社、合計金額、有効期限つきで並んでいる。' },
+					{ src: crm('contractor/screen-resources-2026-10.webp'), width: 1790, height: 1050, title: '空き枠カレンダー', desc: 'メンバー×週で、割り当て人日とキャパを並べます。いつ誰が空くかを、感覚ではなく数字で見られます。', alt: '空き枠カレンダーの画面。今週の稼働率19%、今週の空き人日13.8、逼迫週0、余剰週12のカード。その下にメンバー4名×12週の表があり、各セルに割当人日／キャパが入っている。' },
+					{ src: crm('contractor/screen-delivery-2026-10.webp'), width: 1790, height: 1050, title: 'デリバリー', desc: 'キックオフ・制作・レビュー・納品の工程を案件ごとに持ちます。滞留日数と期限、想定と実績の人日が同じ行に出ます。', alt: 'デリバリーの画面。案件・会社・金額・デリバリー工程・滞留・期限・想定/実績（人日）の列が並び、6件の受注案件が工程ごとに表示されている。' },
+					{ src: crm('contractor/screen-quotes-2026-10.webp'), width: 1790, height: 1050, title: '見積書', desc: '下書き、送付済み、承認のステータスで管理します。明細は人日×単価で積み上げます。', alt: '見積書の一覧画面。4件の見積が、承認・下書き・送付済みのステータスバッジ、コンタクト、会社、合計金額、有効期限つきで並んでいる。' },
 				],
 			},
 			{
@@ -75,9 +75,9 @@ export const products: Product[] = [
 				lead: '契約・更新・継続収益を1か所で見て、更新の90日前から自動で動きます。',
 				href: '/crm/reseller/',
 				screens: [
-					{ src: crm('reseller/screen-subscriptions.webp'), width: 1432, height: 840, title: '契約と継続収益', desc: 'プランごとのマージン、稼働中と解約、MRR・ARR・LTVが1画面に出ます。', alt: 'サブスクの画面。MRR ¥765,000、ARR ¥9,180,000、稼働中6件、解約率0.0%、LTV ¥3,060,000のカードが並び、その下にプラン（マージン率つき）・お客様・ステータス・金額・MRRの契約一覧が出ている。' },
-					{ src: crm('reseller/screen-automations.webp'), width: 1432, height: 840, title: '更新・解約リスク監視', desc: '更新日、ヘルス低下、解約予兆、追加提案の候補を早めに知らせます。', alt: '自動化ライブラリの画面。「更新・解約リスク監視」のセットが4/7 ONで、ONの自動化29件、今すぐON可能138件、設定待ち8件のカード。ライブラリ全体は175件。' },
-					{ src: crm('reseller/screen-deals.webp'), width: 1432, height: 840, title: '新規も増席も同じ場所で', desc: '新規導入と増席・追加ライセンスを同じパイプラインで扱います。', alt: '商談のカンバン画面。アプローチ・ヒアリング・提案・見積のステージに、新規導入と増席のカードが確度とクローズ予定日つきで並ぶ。' },
+					{ src: crm('reseller/screen-subscriptions-2026-10.webp'), width: 1790, height: 1050, title: '契約と継続収益', desc: 'プランごとのマージン、稼働中と解約、MRR・ARR・LTVが1画面に出ます。', alt: 'サブスクの画面。MRR ¥765,000、ARR ¥9,180,000、稼働中6件、解約率0.0%、LTV ¥3,060,000のカードが並び、その下にプラン（マージン率つき）・お客様・ステータス・金額・MRRの契約一覧が出ている。' },
+					{ src: crm('reseller/screen-automations-2026-10.webp'), width: 1790, height: 1050, title: '更新・解約リスク監視', desc: '更新日、ヘルス低下、解約予兆、追加提案の候補を早めに知らせます。', alt: '自動化ライブラリの画面。「更新・解約リスク監視」のセットが4/7 ONで、ONの自動化29件、今すぐON可能138件、設定待ち8件のカード。ライブラリ全体は175件。' },
+					{ src: crm('reseller/screen-deals-2026-10.webp'), width: 1790, height: 1050, title: '新規も増席も同じ場所で', desc: '新規導入と増席・追加ライセンスを同じパイプラインで扱います。', alt: '商談のカンバン画面。アプローチ・ヒアリング・提案・見積のステージに、新規導入と増席のカードが確度とクローズ予定日つきで並ぶ。' },
 				],
 			},
 			{

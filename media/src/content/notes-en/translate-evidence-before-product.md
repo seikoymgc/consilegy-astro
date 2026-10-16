@@ -42,7 +42,7 @@ Japanese evaluators want the opposite: specification detail, named precedents, a
 
 On a Japan launch for a global commerce and technology company, the longest part of the work was not translation. It was negotiating with the headquarters brand team about density. The information the Japan side needed to add was classified, in the global design system, as something you do not put on a page. It looked like a translation project and was actually an information design negotiation.
 
-I cannot give a figure here for how much inbound moved after the order changed on that launch. What I can say is where the time went.
+We cannot give a figure here for how much inbound moved after the order changed on that launch. What we can say is where the time went.
 
 Commission the translation first and that negotiation gets settled by default, in favour of the existing layout. Adding the missing material afterwards is a second budget request, and by then the launch is already being judged on its numbers.
 

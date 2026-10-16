@@ -41,7 +41,7 @@ With two pipelines and different stage names, the claim becomes unfalsifiable. "
 Add these to the deal record, globally or as Japan-visible fields. Each one turns a month of silence into a value someone can filter on.
 
 1. **Approval stage reached.** Not your stage. Theirs. Section head, division head, executive, board. Blank means your rep has not asked, which is itself the finding.
-2. **Number of approvers remaining.** With more than 80% of purchases requiring two or more stages, this is the single best predictor of remaining time you can collect in one question.
+2. **Number of approvers remaining.** With more than 80% of purchases requiring two or more stages, this is the cheapest field to collect that tells you how much of the route is left.
 3. **Customer decision deadline.** The date driven by the buyer's budget cycle and their internal submission cut-off, not by your fiscal quarter. Reps almost never ask for this, and it is usually the date that decides the outcome.
 4. **Internal document handed over: yes or no.** Whether your team has given the champion Japanese-language text they can paste into their own approval document.
 

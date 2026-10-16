@@ -15,9 +15,7 @@ HQ reads this as a product-market fit problem, or a pricing problem. It is neith
 
 The trial proves your product works. It does not produce anything the buyer can take into a Japanese approval process.
 
-## Same product, opposite front door
-
-In the US, the entry point is "try it first." In Japan, the same product usually opens with "let's talk first." That is not a cultural quirk; it is structural.
+## For systems of record, the front door is a conversation
 
 For systems of record such as CRM, ERP, marketing automation, and security tooling, fit cannot be judged by touching the product alone. It depends on existing integrations, workflows, who will operate it after go-live, and internal security requirements. None of that appears on a product screen or a public pricing page.
 

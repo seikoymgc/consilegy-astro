@@ -80,7 +80,7 @@ A region measured on login rate has been told, in effect, that the purpose of th
 
 **Measure Japan adoption by the number of decisions produced from the record and by how stale the record is, not by how often it was opened.**
 
-Before the next regional review, ask your Japan lead to build the whole agenda from the CRM. Whatever they cannot build is not a training gap. It is a field that no decision depends on, and you can retire it.
+Before the next regional review, ask your Japan lead to build the agenda of the last few weekly meetings from the CRM. Count how many items they could build from the record alone. If the answer is none, the CRM is not adopted in Japan, whatever the login rate says. Each item they could not build points to a decision the record does not yet support.
 
 Getting the local operating model right, rather than shipping the global one and measuring compliance with it, is covered in [Japan Market GTM and Messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/).
 

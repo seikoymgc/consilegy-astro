@@ -10,7 +10,7 @@ canonLabel: Japan Market GTM and Messaging
 draft: false
 ---
 
-A Japan deal is in its fourth month. HQ looks at the global average cycle, sees a gap, and asks what the Japan team is doing wrong. The follow-up was prompt and the demo went well, so the team has no answer that sounds convincing. Often there is one, and much of it was visible at the first meeting. That is my hypothesis, and how to test it in your own data is at the end.
+A Japan deal is in its fourth month. HQ looks at the global average cycle, sees a gap, and asks what the Japan team is doing wrong. The follow-up was prompt and the demo went well, so the team has no answer that sounds convincing. Often there is one, and much of it was visible at the first meeting. That is our hypothesis, and how to test it in your own data is at the end.
 
 ## The buyer is already well into the process when your rep first sits down
 

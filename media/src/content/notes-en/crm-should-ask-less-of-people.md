@@ -22,7 +22,7 @@ Asked when they enter data, 40.2% said immediately every time and 32.2% said in 
 
 Among people who do not enter immediately, the top reason was that other work took priority (44.2%). Second was too many input fields (38.5%), third was that mobile entry is awkward (30.7%).
 
-A smaller survey points the same way. Matsurica, with fieldwork by IDEATECH in November 2024, asked 101 sales managers and team leads why people do not enter data. The top answer was that it takes time, at 54.5%. The sample is small and the sponsor is an SFA vendor, so treat it as directional.
+A smaller survey points the same way. Mazrica, with fieldwork by IDEATECH in November 2024, asked 101 sales managers and team leads why people do not enter data. The top answer was that it takes time, at 54.5%. The sample is small and the sponsor is an SFA vendor, so treat it as directional.
 
 Neither survey's top reasons are about willingness. They are about time, number of fields, and how awkward entry is. In Japan, as elsewhere, the CRM is losing to the rest of the job.
 

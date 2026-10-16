@@ -42,7 +42,7 @@ An update that took three minutes in the old file takes fifteen in the new syste
 
 Put those together. A parallel run formally preserves the easier route during precisely the period when the new one is hardest to use. The Japan team is not resisting. They are choosing correctly, given the choice they were handed.
 
-There is a local reason this runs longer in Japan than in other regions. HQ usually finds out about a reverted rollout through a metric, not a message. A Japanese team that has gone back to the spreadsheet will keep updating both for a while, then let one go stale, and will rarely raise it on a global call. By the time the silence is legible, the parallel run is a year old.
+There is also a reason it runs on unnoticed. HQ usually finds out about a reverted rollout through a metric, not a message. A team that has gone back to the spreadsheet has no reason to report it: the parallel run makes that choice legitimate. By the time the silence is legible, the parallel run can be a year old.
 
 ## Close the meeting first, then the write access, then the system
 

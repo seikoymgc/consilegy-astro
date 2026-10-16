@@ -18,7 +18,7 @@ The variable is not timing. It is whether anything the person can still change e
 
 ## Silence in the Japan feedback call is not agreement, and HQ finds out through a metric
 
-"Involve them early" is sound advice. The failure mode I see more often is the early meeting that makes things worse.
+"Involve them early" is sound advice. The failure mode we see more often is the early meeting that makes things worse.
 
 Here is the usual shape. HQ locks the global design, then schedules a session with the Japan entity to gather input. Required fields: decided. Stage definitions: decided. Go-live date: decided and already on a board slide. The Japan team is then asked for feedback.
 

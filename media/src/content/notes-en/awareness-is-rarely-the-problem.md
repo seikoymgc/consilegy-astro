@@ -67,7 +67,7 @@ This is the same work as getting your [Japan GTM and messaging](https://consileg
 - **Funding awareness because pipeline is flat.** Flat pipeline is consistent with both losses. Size the budget after you split them, not before.
 - **Treating the closed-lost list as the whole picture.** It only holds the buyers who reached a rep. The ones who cut you earlier show up, if at all, as engaged accounts in marketing automation that never became opportunities.
 - **Translating the global case studies and calling it localisation.** The buyer is checking for a company of their size in their industry. A translated US enterprise logo answers neither.
-- **Reading "we had never heard of you" as evidence.** In Japan it is also a polite way to end a conversation. Weigh what the buyer did over what they said on the way out.
+- **Reading "we had never heard of you" as evidence.** It is also a common way to end a conversation politely. Weigh what the buyer did over what they said on the way out.
 
 ## Related reading
 

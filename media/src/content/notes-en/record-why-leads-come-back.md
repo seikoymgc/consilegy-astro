@@ -39,7 +39,7 @@ Groups 2 and 3 both look like thin activity, so they blur. Set the rule first. I
 
 "Low quality" hides all four. If most declined leads are group 1, tightening the MQL criteria changes nothing, because the target is still wrong. If most are group 4, retuning the score threshold does not help until sales sees why this person, now.
 
-Group 4 is different in kind. It is not a flaw in the lead. It is a flaw in the handoff, and usually nobody is slacking. There is just no place at the boundary for the reason to sit. My hypothesis is that a good share of what gets labelled "low quality" is actually group 4. I have not counted it, though. Count your own and the largest group will be obvious.
+Group 4 is different in kind. It is not a flaw in the lead. It is a flaw in the handoff, and usually nobody is slacking. There is just no place at the boundary for the reason to sit. Our hypothesis is that a good share of what gets labelled "low quality" is actually group 4. We have not counted it, though. Count your own and the largest group will be obvious.
 
 ## Japanese buyers have already compared vendors before sales calls
 
@@ -51,7 +51,7 @@ The survey is run by a company that sells survey PR, uses a panel, and covers la
 
 In the same survey, the factors that most influenced adding the eventual vendor to the shortlist were "a case study from a company of similar size" (44.3%) and "features clearly addressing our problem" (40.3%), top three choices, n=298.
 
-The survey describes buyer behavior. It does not prescribe a handoff. The next step is my reading: if buyers are already comparing, what a Japan rep needs at first contact is not job title or download count but what this person is comparing and where they likely stalled. MQL criteria typically measure whether the lead looks good for the seller.
+The survey describes buyer behavior. It does not prescribe a handoff. The next step is our reading: if buyers are already comparing, what a Japan rep needs at first contact is not job title or download count but what this person is comparing and where they likely stalled. MQL criteria typically measure whether the lead looks good for the seller.
 
 They do not measure why now, and when that is missing from the criteria the receiving rep has little to act on.
 
@@ -69,7 +69,7 @@ Settle a few points in advance:
 - Capture the reason on the same screen as the action. Reconstructing it later brings back "low quality."
 - Sales picks. But agree up front that when group 4 is chosen, marketing reviews the handoff. At the monthly review, name one person in marketing who owns the group 4 follow-up and reports at the next review what was changed. If picking changes nothing, reps stop picking.
 
-Review once a month. Look at the split of the four reasons together and fix the largest first. The meeting topic moves from "quality is low" to "which reason is largest." In one engagement I worked on, that shift was the biggest change: the abstract, negative phrase went away and the talk became what to fix.
+Review once a month. Look at the split of the four reasons together and fix the largest first. The meeting topic moves from "quality is low" to "which reason is largest." In one engagement we worked on, that shift was the biggest change: the abstract, negative phrase went away and the talk became what to fix.
 
 If many leads come back with no reason at all, that is the first finding. It means there is no material yet for deciding where to fix.
 

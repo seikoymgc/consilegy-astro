@@ -54,13 +54,13 @@ Economic buyer blank on 30% of deals means the Japan team has not reached the ap
 
 Each of those is actionable from Tokyo or from headquarters. Each becomes unreadable the moment the field is required.
 
-The fields I have seen break fastest after being made mandatory are loss reason and economic buyer. The one that never caused trouble was contract value. That difference has nothing to do with rep discipline and everything to do with whether an answer exists at the time of entry.
+The fields we have seen break fastest after being made mandatory are loss reason and economic buyer. The one that never caused trouble was contract value. That difference has nothing to do with rep discipline and everything to do with whether an answer exists at the time of entry.
 
 ## Two conditions, and a one-line test
 
 Require a field only if both hold. The answer is settled at the moment of entry. And a wrong value would surface within about a week.
 
-Close date and contract value pass. The answer sits in the signed agreement, and an error shows up in billing or revenue recognition almost immediately. Economic buyer, expected implementation date, competitor under evaluation, and loss reason fail the first condition during an open deal, and usually the second as well, because nobody checks a field that is already populated.
+Contract value and the actual closed-won date pass, when entered at close. The answer sits in the signed agreement, and an error shows up in billing or revenue recognition almost immediately. (An expected close date on an open deal does not pass the first condition; treat it as a forecast, not a fact.) Economic buyer, expected implementation date, competitor under evaluation, and loss reason fail the first condition during an open deal, and usually the second as well, because nobody checks a field that is already populated.
 
 The test to run on your own instance: for each required field, name the person who would notice a wrong value, and the week they would notice it. If you cannot answer for a field, it should not be required.
 

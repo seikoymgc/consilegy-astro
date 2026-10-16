@@ -2,6 +2,7 @@
 title: "In Japan, legal review is a deal stage, not post-signature paperwork"
 description: "Price agreed, product agreed, then you send the contract and the deal goes quiet. What stalls it is rarely a clause. It is that nobody owns the answer or the date. Japanese survey data (n=330) on when legal joins the evaluation, the five places Japanese counsel always marks up, and the one page to send ahead of the contract."
 publishedAt: 2026-09-03
+updatedAt: 2026-10-17
 category: japan-gtm
 principle: "Legal review in Japan runs during the evaluation, not after the win. Decide which clauses move and which do not, name an owner and a turnaround for each, and track it as a deal stage."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -35,9 +36,9 @@ For the buyer's legal team, an unanswered point is heavier than an unfavourable 
 
 So the champion waits rather than files. From your side, that looks like a deal that stopped caring.
 
-## Japanese counsel marks up the same five places nearly every time
+## Japanese counsel tends to mark up the same five places
 
-Governing law and jurisdiction. Auto-renewal and the notice period for termination. Limitation of liability. Handling of personal data and the scope of subprocessing. And whether the agreement contains an anti-organised-crime clause, which most Japanese companies treat as mandatory and which almost no foreign template includes.
+Governing law and jurisdiction. Auto-renewal and the notice period for termination. Limitation of liability. Handling of personal data and the scope of subprocessing. And whether the agreement contains an anti-organised-crime clause, which many Japanese companies treat as mandatory and which foreign templates often leave out.
 
 None of this is Japanese exceptionalism. It is that contract review runs off an internal checklist, and a blank line on that checklist is not something the reviewer is allowed to skip.
 
@@ -72,7 +73,7 @@ This is the same work as the rest of your [Japan GTM and messaging](https://cons
 - **Treating legal review as a post-close step.** It runs during the evaluation. Scheduling it after verbal agreement guarantees the slip you are trying to avoid.
 - **Sending the master agreement with no position sheet.** The redline that comes back is the buyer guessing at what you will move on, which is a slower way to have the same conversation.
 - **Leaving the turnaround unstated.** Even a slow answer with a committed date lets the champion keep filing. An open-ended one does not.
-- **Assuming your template is complete because it clears other markets.** The anti-organised-crime clause is absent from nearly every foreign template and required by nearly every Japanese reviewer.
+- **Assuming your template is complete because it clears other markets.** The anti-organised-crime clause is often absent from foreign templates and is on the checklist of most Japanese reviewers.
 
 ## Related reading
 

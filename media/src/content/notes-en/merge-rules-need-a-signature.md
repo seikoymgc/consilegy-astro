@@ -48,7 +48,7 @@ Check the integrations. Records synced with marketing automation, with a HubSpot
 
 Many teams give merge approval to the CRM admin because the admin can operate the tool. The admin does not know which of two records is the real account. The rep who meets that customer does.
 
-For the review box, I suggest this. Same owner on both records: that owner decides. Different owners: the sales lead decides. Undecided by a set date: do not merge, keep both. Allow one hold at most; if the second deadline passes too, close it as keep both.
+For the review box, we suggest this. Same owner on both records: that owner decides. Different owners: the sales lead decides. Undecided by a set date: do not merge, keep both. Allow one hold at most; if the second deadline passes too, close it as keep both.
 
 The deadline default matters most. Leaving undecided items open means the project never ends. Merging them automatically at the deadline turns approval into a formality. "Undecided means keep both" is the safest default, and a later merge is always possible.
 

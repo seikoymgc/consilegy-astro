@@ -17,7 +17,7 @@ This note sets out the three lines that decide a lead count, why they drift in J
 - The cost is not an argument about numbers. It is distrust between sales and marketing.
 - The fix is a one-page definition sheet, tied to the handoff rule.
 
-Counting my years as an independent consultant before Consilegy, I have supported more than 40 CRM, marketing-automation and SFA implementations, and "the lead numbers don't match" is a call I get often, including from global SaaS companies setting up a Japan team.
+Counting work done before Consilegy was founded, we have supported more than 40 CRM, marketing-automation and SFA implementations, and "the lead numbers don't match" is a call we get often, including from global SaaS companies setting up a Japan team.
 
 ## Lead counts disagree because three lines sit in different places
 

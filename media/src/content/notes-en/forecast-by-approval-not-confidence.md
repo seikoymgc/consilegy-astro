@@ -18,11 +18,9 @@ Run a second axis next to the sales stage that tracks how far the approval has a
 
 ## Positive meetings are not decisions
 
-In a survey by ProFuture and Macromill conducted on 3 and 4 February 2026 (n=103, employees working in B2B marketing roles in Japan; a self-run survey by a B2B marketing services provider with a small sample, so read it as directional), 8 in 10 companies said their marketing budget would hold or rise for the coming year: 48.5% unchanged, 32.0% a slight increase, 2.9% a large increase.
+Japanese B2B marketers describe the same gap from their side. In a survey by ProFuture and Macromill conducted on 3 and 4 February 2026 (n=103, employees working in B2B marketing roles in Japan; a self-run survey by a B2B marketing services provider with a small sample, so read it as directional), only 9.7% said their programmes reach decision-makers adequately.
 
-In the same survey, only 9.7% said they were reaching decision-makers adequately.
-
-Budgets are holding or rising, and the person who signs has not been reached. Your CRM says "in negotiation." Nothing has moved inside the account.
+The respondents are sellers rating their own marketing, not reps reporting on individual deals, so it does not tell you who your team has met. It does suggest that, seen from the selling side, the signer is the hard person to reach. Your CRM says "in negotiation." That does not mean anything has moved inside the account.
 
 ## In Japan, the gap between evaluator and approver is structural
 

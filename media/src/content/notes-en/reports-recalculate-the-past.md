@@ -20,21 +20,19 @@ Three mechanics, all documented, all boring.
 
 **The date the report counts by can be edited.** HubSpot's own documentation on funnel report types, last updated 19 November 2025, states that legacy funnel reports use the `createdate` property and that this property can be manually modified by users. Any bulk update during a migration moves records into and out of past periods.
 
-Japan subsidiaries migrate more often than most regions, out of spreadsheets, out of kintone, out of a domestic sales system that predates the global CRM, and a bulk date correction during that work is normal housekeeping rather than an incident anyone reports.
+Japan subsidiaries often go through a migration out of spreadsheets, kintone or a domestic sales system that predates the global CRM, and a bulk date correction during that work is normal housekeeping rather than an incident anyone reports.
 
-**Merges rewrite history.** The same document notes that legacy funnel reports rely on contact properties that get reordered during merges, and may show contacts in a funnel because of merge-induced property changes. Japan generates duplicates at a higher rate than the regions your model was calibrated on, because lead capture runs through trade show badges, exchanged business cards, and named-account reps entering the same person twice under two spellings.
-
-Deduplication is continuous, so the past keeps shifting under the report.
+**Merges rewrite history.** The same document notes that legacy funnel reports rely on contact properties that get reordered during merges, and may show contacts in a funnel because of merge-induced property changes. As long as the same person is captured more than once, at trade shows, through business cards and inquiry forms, merges keep happening and the past keeps shifting under the report.
 
 **Counting rules changed underneath you.** HubSpot's transition from legacy to journey funnel reports changes four things at once: stages must now complete in chronological order rather than merely within the date range, the look-back is capped at five years and shorter for high-event accounts, object creation uses the real timestamp rather than the editable property, and merged contacts are handled differently. HubSpot states plainly that this may result in lower conversion numbers.
 
 If your Japan number dropped between two board decks and nobody touched the pipeline, check whether the report type changed before you ask the country manager to explain.
 
-## Why the drift is larger in Japan
+## Why late entry moves the Japan number
 
-Late entry. A survey by Keywalker, fielded 8 to 10 October 2025 through PRIZMA's online panel, n=1,034 sales staff and managers at Japanese companies already running SFA, CRM, or BI tools, found that only 40.2% enter activity into the system immediately. The rest enter at the end of the day (32.2%), a few times a week (11.2%), a few times a month (3.9%), or not reliably at all (12.5%).
+A survey by Keywalker, fielded 8 to 10 October 2025 through PRIZMA's online panel, n=1,034 sales staff and managers at Japanese companies already running SFA, CRM, or BI tools, found that only 40.2% enter activity into the system immediately. The rest enter at the end of the day (32.2%), a few times a week (11.2%), a few times a month (3.9%), or not reliably at all (12.5%).
 
-This is a vendor's own study of a market it sells BI services into, and it is a panel survey, so read it as an order of magnitude rather than a precise figure. The order of magnitude is enough: roughly six in ten entries arrive after the fact, carrying an activity date that lands in a month you already closed and reported.
+This is a vendor's own study of a market it sells BI services into, and it is a panel survey, so read it as an order of magnitude rather than a precise figure. The order of magnitude is enough: roughly six in ten entries arrive after the fact. Most of that is same-day, but the weekly and monthly batches (about 15%), plus the 12.5% with gaps, are the entries that can land in a period you have already reported.
 
 Then the reporting habit compounds it. In the same study, 58.2% of managers said they use dashboards to check numbers in the sales meeting, while 15.4% said they use them to decide the next action. A number that is only checked can move without anyone noticing.
 
@@ -50,7 +48,7 @@ The gap between the two is not a nuisance, it is the most useful early warning y
 
 Move the reporting date to a timestamp users cannot edit: in HubSpot, the automatically recorded date a record entered each lifecycle stage; in Salesforce, field history or opportunity stage history. Check which are available in your configuration and edition. And stop tightening report filters as a fix. No filter changes the fact that the report computes at runtime.
 
-One more thing worth saying out loud to a global team: this is not Japan being unreliable with data. Every region's reports recalculate the past. Japan simply has more duplicates, more migrations, and more delayed entry for the report to recalculate over, and the person who knows that is usually not in the meeting where the number is challenged.
+One more thing worth saying out loud to a global team: this is not Japan being unreliable with data. Every region's reports recalculate the past. Where the Japan number moves more, look first at delayed entry and recent migration work, which give the report more to recalculate over, and the person who knows that is usually not in the meeting where the number is challenged.
 
 **Reports built from current records can change past-period results after an update. Define the cut-off, owner and saved snapshot for figures that must remain final.**
 

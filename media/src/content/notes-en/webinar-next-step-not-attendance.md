@@ -40,7 +40,7 @@ A joint survey by IDEATECH and Hiroyasu Kitagawa (published April 2026, n=307, l
 
 So a single attendee list mixes someone who started looking last week with someone who has already narrowed the field to two or three vendors. Attendance does not separate them.
 
-Second, attending a webinar in Japan is a deliberately low-commitment act. Registering does not signal intent to a Japanese buyer the way raising a hand does in a US funnel, and the person attending is often gathering material to circulate internally rather than deciding. Passing that list to sales as-is guarantees the "these leads do not land" conversation.
+Second, the attendee is often one of several people involved, gathering material to circulate internally rather than deciding. Passing that list to sales as-is guarantees the "these leads do not land" conversation.
 
 ## Change the KPI, then the topic rule
 
@@ -64,7 +64,7 @@ Localize this alongside the rest of your [Japan GTM and messaging](https://consi
 
 - **Reporting the Japan webinar program on registrations.** It is the one number headquarters can compare globally, and it is the number that pushes the local team toward broad topics. Report the self-initiated next steps instead.
 - **Running more sessions when pipeline is flat.** If the topic rule has not changed, more sessions produce more of the same audience. Narrow before you scale.
-- **Handing the raw attendee list to local sales.** Attendance in Japan is a low-commitment act by someone who may be researching on behalf of others. Pass the buyers who did something afterward, and say what they did.
+- **Handing the raw attendee list to local sales.** Attendance alone does not say who is deciding, and the attendee may be researching on behalf of others. Pass the buyers who did something afterward, and say what they did.
 
 ## Related reading
 

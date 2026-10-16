@@ -34,7 +34,7 @@ So when a buyer says there is no budget, the accurate translation is: the increa
 
 ## The fiscal year is the part HQ keeps missing
 
-Most Japanese companies close their fiscal year on 31 March. Budget requests for the following year are drafted through autumn and winter, and the envelope hardens well before April.
+Most large Japanese companies close their fiscal year on 31 March: 68% of companies listed on the Tokyo Stock Exchange's Prime Market close their books in March (Nomura Securities, published March 2023). Budget requests for the following year are drafted through autumn and winter, and the envelope hardens well before April.
 
 Put a global sales calendar on top of that and the mismatch is structural. A US-headquartered vendor pushing hard through its own Q4 in December or January is arriving after the Japanese buyer's envelope is essentially set. A deal that hits "no budget" in September is not a lost deal. It is an early one.
 
@@ -56,7 +56,7 @@ Three things, in this order, before any conversation about price.
 
 **When is the next budget set?** A contact who can answer with a month is at least adjacent to the process. A contact who cannot is outside it, which is a different problem and a more useful one to know about.
 
-**Which envelope does this come out of?** Given that 66.3% of budget growth is going to system replacement and reinforcement, a proposal framed as a new initiative competes for the scarcest money in the company. The same product framed as replacing an existing arrangement, the spreadsheet, the legacy order-management workflow, the third-party contract nobody wants to renew, competes against a cost that is already approved.
+**Which envelope does this come out of?** Given that system replacement and reinforcement was the top reason for budget increases, cited by 66.3% of companies that raised budgets, a proposal framed as a new initiative competes for the scarcest money in the company. The same product framed as replacing an existing arrangement, the spreadsheet, the legacy order-management workflow, the third-party contract nobody wants to renew, competes against a cost that is already approved.
 
 The comparison stops being you versus a competitor and becomes you versus the current run rate.
 

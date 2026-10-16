@@ -54,11 +54,11 @@ Two things then happen that you do not see. Nobody raises the backlog in the reg
 
 A local team may find a workaround while waiting for an answer. The only problem is that nobody reports the workaround, because it works. A workaround used for a month can become the accepted routine. Review it before relying on the original process in the next report.
 
-Meanwhile the adoption dashboard holds up, because it counts logins and filled fields rather than whether the record describes the business. In the cases I have seen, this surfaces about a year in, and not through the dashboard. Through a forecast that does not reconcile.
+Meanwhile the adoption dashboard holds up, because it counts logins and filled fields rather than whether the record describes the business. In the cases we have seen, this surfaces about a year in, and not through the dashboard. Through a forecast that does not reconcile.
 
 ## Set the cadence by days-to-workaround
 
-Ask the local project owner for two dates on every open item: when the request went out, and when local practice changed without an answer. The gap between them is your number. In the rollouts I have worked on it has been somewhere around seven working days, which is roughly how long it takes to conclude that nothing is coming. That is my own observation, not a figure from a counted sample, so measure yours.
+Ask the local project owner for two dates on every open item: when the request went out, and when local practice changed without an answer. The gap between them is your number. In the rollouts we have worked on it has been somewhere around seven working days, which is roughly how long it takes to conclude that nothing is coming. That is our own observation, not a figure from a counted sample, so measure yours.
 
 A single spreadsheet is enough. Six columns: date raised, raised by, the request, who can close it, date answered, and date local practice changed without an answer. The local project owner adds a row when a request comes in and fills the last two columns when an answer arrives or when the team is found to have gone back to the legacy ledger.
 
@@ -70,7 +70,7 @@ The part only you can do is the delegation. Name one person who can answer these
 
 Stop weekly when the "one decision we need from you" line comes back empty three times running. Not on a date. Keep meeting after the decisions run out and you get reporting written for the sake of the meeting.
 
-**One option I would not take** is opening a direct escalation line from the Japan team to the global project owner. On wait time alone it is the fastest design. But it routes around the local manager, and in a Japanese organisation that costs them standing in front of their own team. What you get afterwards is a team that stops telling that manager things, and a manager who stops telling you things.
+**One option we would not take** is opening a direct escalation line from the Japan team to the global project owner. On wait time alone it is the fastest design. But it routes around the local manager, and in a Japanese organisation that costs them standing in front of their own team. What you get afterwards is a team that stops telling that manager things, and a manager who stops telling you things.
 
 There is a version that keeps the speed without the cost. The list of unresolved items goes out under the local manager's name, in writing, ahead of the call. Contents reach you directly. The person who owns the relationship is still the one raising them.
 

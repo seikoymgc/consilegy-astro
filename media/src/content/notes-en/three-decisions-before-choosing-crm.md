@@ -46,7 +46,7 @@ Neither survey measures CRM administrators specifically, so treat what follows a
 
 Plan for no local administrator unless you have funded one or a local partner. If the answer is nobody, choose the configuration that an untrained person can leave alone for a quarter.
 
-## What I recommend once the three are answered
+## What we recommend once the three are answered
 
 Keep the global instance when headquarters reporting continuity matters, which is most of the time, and fund a local administrator or partner alongside it. If HQ already runs Account Engagement or Marketo connected to that instance, the case for keeping it gets stronger still. A second tool in Japan buys short-term relief and costs you the regional roll-up permanently.
 

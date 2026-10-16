@@ -26,7 +26,7 @@ Broken out by seniority, 78.6% of company top management had never heard the phr
 
 What these figures establish is a language gap, nothing more. They cannot tell you whether a given account has someone able to explain your value internally. They do tell you that the words "customer success" and "LTV" carry no weight in the room, so write in the customer's own terms instead.
 
-So the executive sponsor your playbook schedules a QBR with is, in most Japanese accounts, someone with no existing frame for the meeting. The QBR is received as a progress report, because a progress report is the nearest thing they have a category for. Your CSM is not failing to run the meeting. The meeting is landing in a slot that does not exist.
+So when your QBR deck leads with "customer success", "adoption" and "LTV", most Japanese sponsors will be reading vocabulary they have no prior use for. Lead with results against their own numbers.
 
 ## The vocabulary the playbook reports in is not the vocabulary they buy in
 

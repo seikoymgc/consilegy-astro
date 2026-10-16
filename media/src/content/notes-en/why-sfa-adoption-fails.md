@@ -17,13 +17,13 @@ This note checks that claim against four Japanese surveys and sets out the order
 - How managers use the dashboard shapes whether reps keep entering data.
 - Fix what the data is used for first, what it returns to the rep second, and form length last.
 
-Counting my years as an independent consultant before Consilegy, I have supported more than 40 CRM, marketing-automation and SFA implementations, and "we deployed it and it didn't stick" is the call I get most.
+Counting work done before Consilegy was founded, we have supported more than 40 CRM, marketing-automation and SFA implementations, and "we deployed it and it didn't stick" is the call we get most.
 
 ## The top reason is time, but the next three are about value
 
 Ask Japanese sales teams why they don't enter data and effort comes first. Read down the list and it is not only effort.
 
-In a November 2024 survey by Matsurika (managers and team leads in B2B sales, n=101; run by an SFA vendor, small sample), the top reason was "entry takes time" at 54.5%. Further down the list were "it's a hassle" at 39.6%, "I can't see the benefit of entering it" at 32.7%, "there are too many fields" at 28.7%, and "I don't want my results visible to others" at 27.7%.
+In a November 2024 survey by Mazrica (managers and team leads in B2B sales, n=101; run by an SFA vendor, small sample), the top reason was "entry takes time" at 54.5%. Further down the list were "it's a hassle" at 39.6%, "I can't see the benefit of entering it" at 32.7%, "there are too many fields" at 28.7%, and "I don't want my results visible to others" at 27.7%.
 
 Reps who cite effort often mean something close to "this entry does not come back to me." If an entry makes tomorrow's deal prep easier, people write it even when it takes time.
 
@@ -35,7 +35,7 @@ A survey by Keywalker in October 2025 (sales staff and managers at companies tha
 - 12.5% say they are not keeping up or have many gaps. That is roughly one in eight.
 - Among those who do not enter immediately, the reasons are "other work takes priority" (44.2%) and "too many fields" (38.5%).
 
-The most useful result is about motivation. **The top motivator is "a clear purpose and clear use for the data," at 54.8%**, followed by "my own results and growth become visible" at 40.1%. This is a different survey asking a different question from Matsurika's, so the two numbers cannot be compared directly, and we have not checked whether a "less effort" option was offered here.
+The most useful result is about motivation. **The top motivator is "a clear purpose and clear use for the data," at 54.8%**, followed by "my own results and growth become visible" at 40.1%. This is a different survey asking a different question from Mazrica's, so the two numbers cannot be compared directly, and we have not checked whether a "less effort" option was offered here.
 
 Even so, when more than half of respondents name a clear use for the data as their top motivator, effort alone does not explain adoption.
 
@@ -49,8 +49,8 @@ For a Japan team this pattern is easy to fall into. The CRM becomes the screen t
 
 | Layer | What happens in the Japan team | What Japanese surveys show | The fix |
 |---|---|---|---|
-| 1. Entry effort | Too many fields, hard to enter on the move, batched at day end | Entry takes time 54.5% (Matsurika 2024); too many fields 38.5% (Keywalker 2025) | Cut fields, auto-capture data |
-| 2. Entry return | Entering does not change the rep's next day | Can't see the benefit 32.7% (Matsurika 2024); clear use is the top motivator at 54.8% (Keywalker 2025) | Show the rep next actions and stale deals from what they entered |
+| 1. Entry effort | Too many fields, hard to enter on the move, batched at day end | Entry takes time 54.5% (Mazrica 2024); too many fields 38.5% (Keywalker 2025) | Cut fields, auto-capture data |
+| 2. Entry return | Entering does not change the rep's next day | Can't see the benefit 32.7% (Mazrica 2024); clear use is the top motivator at 54.8% (Keywalker 2025) | Show the rep next actions and stale deals from what they entered |
 | 3. Entry use | Numbers feed reports, not decisions | Managers using it for the next action 15.4% (Keywalker 2025) | Make the weekly meeting agenda something only the CRM can produce |
 
 *Figure: the three layers where CRM use stalls. Fixing layer 1 alone leaves layers 2 and 3 in place, and entry does not last.*

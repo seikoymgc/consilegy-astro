@@ -18,7 +18,7 @@ This note covers where Japanese approvals stall, according to survey data, the t
 - The waits sit in rooms your rep cannot enter.
 - A comparison, a quote, and a draft case, each written so the buyer can use it as is, answer the approvers' actual questions.
 
-I have supported more than 40 CRM and marketing-automation implementations, mostly on HubSpot and Salesforce, including for global SaaS companies building a Japan team, and I redesign how stalled approvals get recorded.
+We have supported more than 40 CRM and marketing-automation implementations, mostly on HubSpot and Salesforce, including for global SaaS companies building a Japan team, and we redesign how stalled approvals get recorded.
 
 ## A ringi is approved by whoever can explain it
 
@@ -71,7 +71,7 @@ In Salesforce, a quote synced to the opportunity plus an approval process does t
 
 Your champion has never written a ringi for your product. On top of a full workload, they have to turn a first-time investment into a document that several people can read. Putting it off is rational.
 
-One result surprised me. In the second wave, the most helpful content was an ROI calculator at 55.4%, then success stories from similar industries and sizes at 46.5%. Materials in support of the ringi application itself were chosen by 14.2%.
+One result surprised us. In the second wave, the most helpful content was an ROI calculator at 55.4%, then success stories from similar industries and sizes at 46.5%. Materials in support of the ringi application itself were chosen by 14.2%.
 
 Buyers used what let them move the numbers themselves more than a finished ringi text. They do not want to be persuaded. They want to build the number. This is a panel survey ranking, so treat it as a tendency.
 

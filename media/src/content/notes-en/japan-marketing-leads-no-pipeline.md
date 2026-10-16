@@ -1,6 +1,6 @@
 ---
 title: "Japan leads without pipeline: examine the handoff"
-description: "Leads go up, pipeline does not move. In Japan the cause is rarely the marketing automation tool or the team's effort. It is that the post-capture handoff between marketing, inside sales, and field sales is never defined. Here is the data and the fix."
+description: "Leads go up, pipeline does not move. In the Japan teams we see, the cause is usually not the marketing automation tool or the team's effort. It is that the post-capture handoff between marketing, inside sales, and field sales is never defined. Here is the data and the fix."
 publishedAt: 2026-07-23
 updatedAt: 2026-10-17
 category: marketing
@@ -15,7 +15,7 @@ But pipeline is flat, and HQ is asking why demand generation in Japan does not c
 
 Before you audit the tool or the team, look at the handoff.
 
-In Japan, the reason leads do not become deals is almost never the platform or the effort. It is that the work **after** lead capture, moving a lead into a real opportunity, is never designed.
+In the Japan teams we see, the reason leads do not become deals is usually not the platform or the effort. It is that the work **after** lead capture, moving a lead into a real opportunity, is never designed.
 
 ## First, drop the "90% of MA fails" number
 
@@ -27,19 +27,19 @@ Repeating it just builds a quiet case that Japan MA is unwinnable, which is the 
 
 The real failure is structural, and structural problems can be fixed.
 
-## Japan MA is not "not adopted." It is "adopted but not moving"
+## For the companies that have adopted MA, the problem is activation, not the tool
 
 Two Japan-specific facts, both worth putting in front of HQ.
 
 First, adoption is genuinely low. Only 1.5% of Japanese companies run a marketing automation platform (Nexal MA implementation study, conducted May 2023, n=626,003).
 
-This is not a survey; Nexal crawled the source code of company websites to measure it directly, and Nexal is a consultancy, not an MA vendor, so there is no vendor bias inflating the number.
+This is a crawl of public website code rather than a survey, so it avoids self-reporting bias, but it misses MA running outside the corporate site and likely understates adoption.
 
 Among listed companies the rate is 14.6%.
 
 Second, among companies that have adopted, over 51% say they are "not using it," even though more than 80% rated the same features as important before buying (Innovation & Co. survey, October 2022, n=438; note this is a vendor survey and should be read with that caveat). 
 
-Put together, Japan MA is not an adoption problem. It is an activation problem: tools go in, then stall.
+Put together: adoption is low, but among the companies that did adopt, the bigger problem is activation. Tools go in, then stall. This note deals with the second problem.
 
 For a global SaaS entering Japan, this matters because the instinct at HQ is to send a better tool or a better playbook.
 
@@ -79,7 +79,7 @@ Three things to design, in order.
 
 2. **Scoring defined by behavior.** Translate "this lead is warm" into behavioral signals any person would score the same way (viewed pricing twice, opened a case study). If the criteria vary by individual, the process is not repeatable, and nothing you report to HQ will hold.
 
-3. **A handoff both teams agree on.** Marketing's criteria for passing a lead (MQL) and sales' criteria for accepting it (SQL) must be written in the same words and agreed by both. Without this, most passed leads bounce back as "not real opportunities," and the content budget resets to zero every quarter instead of compounding.
+3. **A handoff both teams agree on.** Marketing's criteria for passing a lead (MQL) and sales' criteria for accepting it (SAL, or SQL if you do not separate the two) must be written in the same words and agreed by both. Without this, most passed leads bounce back as "not real opportunities," and the content budget resets to zero every quarter instead of compounding.
 
 Run MA or SFA without these three, and the information you put in never converts into the next action. The data is visible but unused.
 

@@ -65,7 +65,7 @@ Held requests get two things instead. First, an operating rule that assumes visi
 
 If a rep opens the CRM and sees their own accounts first, the daily irritation disappears. Not being able to see something and not having to look for it feel identical on Monday morning, and the second one is almost always what was actually being asked for.
 
-There is a Japan-specific reason to hold the line here rather than concede it as a cultural accommodation. Account ownership in a Japanese sales organisation is often tied to seniority and to how someone is evaluated, so a visibility request can be a request about standing rather than about data. Granting it in the permission model freezes an internal arrangement into the system, where the next reorganisation will have to break it out again.
+There is one more reason to hold the line here rather than concede it as a local accommodation. Where account ownership is tied to how someone is evaluated, a visibility request can be a request about standing rather than about data. Granting it in the permission model freezes an internal arrangement into the system, where the next reorganisation will have to break it out again.
 
 If you do decide to partition records, attach one condition. Name the role that produces the company-wide numbers first, and keep full record access on it. The integration user that connects other systems needs the same treatment. Skip that and the next quarterly forecast turns into a permission redesign.
 

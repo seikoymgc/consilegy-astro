@@ -38,7 +38,7 @@ Adoption metrics hold up. The data stops describing the business.
 
 And from that point, design gaps stop getting reported at all. Someone with a workaround is no longer blocked, so they have nothing to raise.
 
-No Japanese public survey measures how often a parallel file exists, at least none I have been able to find. The closest is Keywalker's survey (fielded 8 to 10 October 2025, published 11 November 2025, n=1,034 sales staff and managers at Japanese companies already using SFA, CRM or BI tools, run online through PRIZMA; a survey by a company that sells BI implementation services), where 12.5% of respondents said they are not entering data or have frequent gaps.
+No Japanese public survey measures how often a parallel file exists, at least none we have been able to find. The closest is Keywalker's survey (fielded 8 to 10 October 2025, published 11 November 2025, n=1,034 sales staff and managers at Japanese companies already using SFA, CRM or BI tools, run online through PRIZMA; a survey by a company that sells BI implementation services), where 12.5% of respondents said they are not entering data or have frequent gaps.
 
 That measures admitted non-entry, not where the data went instead.
 

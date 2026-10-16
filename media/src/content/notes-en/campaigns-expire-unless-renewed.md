@@ -40,7 +40,7 @@ Stopping it means going back to the same people. "We are cancelling this" is, in
 
 Bad numbers do not help here. They make it worse. The stronger the evidence that the programme failed, the more the conversation turns to why it was approved, and the more it becomes a question of the original sponsor's standing. So the local team does not file the request, even with the numbers in hand. That is not a lack of nerve. It is a system that puts the whole weight of a stop decision on one person.
 
-When I look back at how programmes actually ended in the Japanese organisations I have worked with, it was almost always a staff rotation or the fiscal year boundary. I struggle to recall one that ended because someone looked at the numbers and decided.
+When we look back at how programmes actually ended in the Japanese organisations we have worked with, it was almost always a staff rotation or the fiscal year boundary. We struggle to recall one that ended because someone looked at the numbers and decided.
 
 So the trade show comes back every year, not because it works, but because the booking for next year is placed each autumn through a routine that never passes through a renewal decision.
 
@@ -84,7 +84,7 @@ The threshold goes in before launch, in one line: "If fewer than three have move
 
 The part only HQ can do is to make this the global standard rather than a Japan rule. Applied to Japan alone, it reads as a cancellation notice with extra steps, and every sponsor starts defending. Applied everywhere, it questions nobody. Name one person, in the Japan time zone, who can accept or decline a renewal case without a second approval, and the queue clears in days instead of a quarter.
 
-**One option I would not take** is the annual zero-based review of the Japan mix, where every programme has to be rejustified from scratch against a cost-per-outcome ranking. It is tidy on paper. In the room it becomes a discussion about which programme deserves credit for which deal, the ratios never settle, and the budget lines do not move.
+**One option we would not take** is the annual zero-based review of the Japan mix, where every programme has to be rejustified from scratch against a cost-per-outcome ranking. It is tidy on paper. In the room it becomes a discussion about which programme deserves credit for which deal, the ratios never settle, and the budget lines do not move.
 
 It also asks the Japan team to argue against their own colleagues' programmes in front of HQ, which they will not do.
 

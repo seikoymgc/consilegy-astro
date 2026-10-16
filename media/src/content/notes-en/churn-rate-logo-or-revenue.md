@@ -34,9 +34,9 @@ Three structural reasons, and none of them are visible in a regional column on a
 
 In Japan they do not, and the regional view gives them the same two columns.
 
-**Non-renewal arrives at the anniversary, not month by month.** Leaving a vendor in Japan goes through the same internal approval document that buying did. Research by IDEATECH with Hiroyasu Kitagawa, published 16 April 2026, surveying 307 people who took part in a B2B purchase of at least ¥3 million alongside at least one colleague, found 60.9% required two approval stages and more than 80% required two or more, with consideration running three to eight months in 63.6% of cases.
+**Non-renewal arrives at the anniversary, not month by month.** Cancelling a contract in Japan can need internal sign-off too, and budgets move on an annual cycle. The approval research below covers buying, not leaving, so read it as a description of the route, not of churn. Research by IDEATECH with Hiroyasu Kitagawa, published 16 April 2026, surveying 307 people who took part in a B2B purchase of at least ¥3 million alongside at least one colleague, found 60.9% required two approval stages and more than 80% required two or more, with consideration running three to eight months in 63.6% of cases.
 
-Budgets move on the same annual cycle. The decision not to renew is therefore made months before the date on your contract, and lands as a single event.
+If cancelling runs a similar route, the decision not to renew is made months before the date on your contract, and lands as a single event.
 
 A monthly churn chart for Japan will be flat, flat, flat, cliff. It is close to the wrong instrument.
 
@@ -61,7 +61,7 @@ The fourth line is what makes the first three readable. At 60% concentration, a 
 
 ## Two fields, and one rule
 
-In the CRM, add the customer's own **renewal decision date**, which is when their internal approval cycle needs an answer, not your contract end date, and the **notice deadline** in the contract. In Japan these are usually one to three months apart, and the second one is the date you actually lose.
+In the CRM, add the customer's own **renewal decision date**, which is when their internal approval cycle needs an answer, not your contract end date, and the **notice deadline** in the contract. Check the contract for how far apart the two dates are; the notice deadline is the date you actually lose.
 
 Then require **churn reason**, from the same picklist your other regions use, as a condition for moving the account to churned rather than as an always-mandatory field. A live customer has no churn reason to give. If Japan gets its own free-text field, the pattern will never reach a board deck.
 

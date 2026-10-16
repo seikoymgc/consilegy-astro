@@ -2,7 +2,7 @@
 title: "Setting up HubSpot for a Japan team: don't merge lifecycle stage and deal stage"
 description: "Global SaaS teams often tie lifecycle stage to deal stage into one funnel when they stand up HubSpot for Japan. Deals can move to closed lost; lifecycle stage does not move back on its own. Here is how that corrupts the counts HQ reads, and how to separate the two."
 publishedAt: 2026-07-25
-updatedAt: 2026-10-16
+updatedAt: 2026-10-17
 category: crm
 principle: "Do not use lifecycle stage to track deal progress. Record wins and losses on the deal, and let lifecycle stage hold only what relationship the contact has reached."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -51,6 +51,8 @@ The fix is not to build a mechanism that moves lifecycle stage back. It is to st
 **Count live deals from deals.** The open pipeline is the deals that are neither won nor lost. Build the follow-up list on the stage of the associated deal, not on lifecycle stage.
 
 With that split, the Japan count HQ reads matches the deals the team is working, and lost contacts drop out of the follow-up emails.
+
+**Catch a returning lost contact on another field, not on lifecycle stage.** A contact whose deal was lost may inquire again months later. Leave lifecycle stage where it is. Because the contact is still at Opportunity, any owner assignment or sales notification triggered by a change to MQL or SQL will not fire for that second inquiry. Pick up the return on lead status or a behavior field such as the most recent inquiry date, and put the assignment and notification conditions there too. When you make the switch, list your existing assignment and notification workflows and check that none of them is triggered by a lifecycle stage change.
 
 One company can also hold several deals at once. Deal stages line up one per deal; lifecycle stage is a single value. Pushing deal progress into that single value guarantees a mismatch somewhere.
 

@@ -28,7 +28,7 @@ The new owner learns from a failed attempt. Open the record a few times, fail to
 
 Then the record is no longer referenced. A record nobody references keeps charging the people who write it. When writers see that nothing is read, they stop writing. More logging turns into more unused logging.
 
-Japanese survey data points the same way, with caveats. Matsurika's SFA/CRM usage survey (fielded by IDEATECH, 25 to 28 November 2024, managers and team leads in the sales departments of B2B companies, n=101) found 39.6% naming "necessary information is not shared properly" as a problem with SFA/CRM. It is a vendor survey from a company that sells SFA, and the sample is small, so read the figure as an order of magnitude.
+Japanese survey data points the same way, with caveats. Mazrica's SFA/CRM usage survey (fielded by IDEATECH, 25 to 28 November 2024, managers and team leads in the sales departments of B2B companies, n=101) found 39.6% naming "necessary information is not shared properly" as a problem with SFA/CRM. It is a vendor survey from a company that sells SFA, and the sample is small, so read the figure as an order of magnitude.
 
 It does show that a sizeable group has the tool and still lacks the information.
 

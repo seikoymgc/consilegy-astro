@@ -30,11 +30,7 @@ There are three ways a win rate rises, and only one of them is performance.
 
 On a dashboard the three are identical. Deal count and average deal size are what separate them.
 
-## Why the first one is the default outcome in Japan
-
-In many regions a dead deal gets marked closed-lost. In Japan it more often stays open. The buyer does not decline, the internal approval simply does not move, and nobody involved wants to declare it finished while a relationship exists.
-
-That habit removes deals from the denominator without removing them from the pipeline. A Japan win rate calculated from your global CRM is therefore structurally flattered relative to regions where losses get recorded promptly, and the size of the flattery depends on local hygiene rather than on local performance.
+## Pushed deals come back at a lower win rate
 
 Ebsta and Pavilion's 2024 B2B Sales Benchmarks (published February 2024, 4.2 million opportunities across 530 companies, an international study rather than a Japanese one) found 44% of deals slipped past their close date, and that slipped deals won 67% less often. Their 2025 GTM Benchmarks (655,000 opportunities, 387 companies, also international) put the realised win rate at 13% for deals that slipped a month, 8% at three months, and 3% beyond six.
 
@@ -62,7 +58,7 @@ If you keep the column, keep deal count and average deal size beside it, and sto
 
 - **Four columns before the ratio.** Closed deal count, won count, won value, and average deal size, with win rate as a calculated fifth column. Put the ratio first and the ratio is all anyone reads.
 - **A count of close-date changes.** One column showing how many Japan deals had their close date moved in the period tells you whether the win rate rose because the team improved or because the denominator emptied.
-- **A written rule for marking a Japan deal lost.** Without one, Japan's denominator is decided by politeness. A simple rule works: no buyer-side activity and no approval movement for 60 days closes the deal, and it can be reopened if it returns.
+- **A written rule for marking a Japan deal lost.** Without one, Japan's denominator is decided by whoever chooses when to close a deal. A simple rule works: no buyer-side activity and no approval movement for 60 days closes the deal, and it can be reopened if it returns.
 - **Median as well as mean deal size.** A single large win moves the average and hides a shift toward small deals underneath it.
 
 Reading a region by its structure rather than by one ratio is what [Japan GTM and messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/) work starts with.

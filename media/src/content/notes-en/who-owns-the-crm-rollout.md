@@ -36,7 +36,7 @@ Corporate planning, *keiei kikaku*, is the department that builds the numbers th
 
 **Agenda ownership of the Japan review.** In a Japan entity the monthly review deck is a circulated document. People who never open the CRM read it, and it is where a number becomes real. Whoever builds that deck decides what data has to exist. HQ routinely grants admin rights to one person and leaves the agenda with the country manager, which leaves data entry and the meeting agenda under different owners. Agree how those owners will resolve changes.
 
-**Written authority to retire fields for the Japan entity.** A Japanese local owner will not delete a field that a global team asked for. They will keep it and fill it, and the values will be technically present and analytically worthless. HQ then reads Japan as low-quality data when Japan is being compliant. The authority has to come from HQ in writing, because the local owner cannot grant it to themselves.
+**Written authority to retire fields for the Japan entity.** A local owner without written authority will not delete a field that a global team asked for. They will keep it and fill it, and the values will be technically present and analytically worthless. HQ then reads Japan as low-quality data when Japan is being compliant. The authority has to come from HQ in writing, because the local owner cannot grant it to themselves.
 
 **What they do not need is deeper product knowledge.** Configuration skill can be supplied from the side, by the system administrator or an implementation partner. Authority cannot be supplied by anyone else, and six months spent with the wrong person costs a large part of the ramp year.
 

@@ -30,7 +30,7 @@ A single region's open rate moving over time is hard enough to interpret. Compar
 
 Device and mail-client mix differs by market. Corporate gateway policy differs too: in Japan it is common for the receiving side to block external images by default, which suppresses opens even when the message is genuinely read. And the named contact on a Japanese record is frequently not the person doing the evaluating.
 
-That last one is the structural point. In a Japanese purchase, the person who subscribed often exports your email to a PDF and circulates it inside an internal approval thread. The reading that decides anything happens in a place no pixel reaches. So the Japan number can overstate opening and understate reading at the same time, and the two errors do not cancel.
+That last one is the structural point. Whatever reading happens further inside the buyer's organisation, by the people who decide, is invisible to the pixel. So the Japan number can overstate opening and understate reading at the same time, and the two errors do not cancel.
 
 One comparison does survive. If your Japan team randomly splits a list and tests two subject lines, the environment bias falls on both arms equally, and the winner is real. What does not survive is Japan against EMEA, this quarter against last, or before-launch against after-launch. Those are the comparisons that end up in the board pack.
 

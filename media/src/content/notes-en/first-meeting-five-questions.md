@@ -53,7 +53,7 @@ The reordering is small and it changes what your CRM knows about the deal.
 
 Discovery of the pain comes after question five, and it comes as your hypothesis for the buyer to correct rather than as an open question for them to answer from scratch.
 
-Note what is not claimed here. There is no published primary data on the number of individuals in a Japanese buying committee. Figures circulating on that point come from a US study and are quoted as though they were Japanese. Departments and approval stages are measured. Headcount is not.
+Be careful with the widely quoted buying-committee headcount: it comes from a US study and is often presented as if it were Japanese. Japanese data does exist and points the same way. In a second wave of the IDEATECH and Kitagawa study (fielded 25 to 26 May 2026, buyers of software or IT infrastructure at 5 million yen or more per year), 58.5% of deals involved seven or more people in the decision (n=325). HubSpot Japan's 2026 buying survey (n=1,573, a vendor study) found 46.9% of purchases involved five or more internal stakeholders including the respondent. Cite these with their source, not the US figure.
 
 ## What headquarters should change
 

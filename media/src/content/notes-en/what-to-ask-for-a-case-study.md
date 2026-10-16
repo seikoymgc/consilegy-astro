@@ -34,7 +34,7 @@ A Japanese buyer opens your case study page to check whether you serve companies
 
 ## Three reasons the global library does not transfer
 
-First, the logos are the wrong evidence. A page of US enterprise names does not read in Japan as "this vendor is credible." It reads as "this vendor sells to companies unlike ours." Buyers who drop vendors on perceived size mismatch are reading your customer list as size evidence, and translating it does not change what it says.
+First, the logos may be the wrong evidence. The survey did not ask whether a US logo counts as "a company like ours", so treat that as untested. What it does show is that buyers drop vendors whose case studies have no company like theirs. Your customer list gets read as evidence of who you serve, and translating it does not change what it says.
 
 Second, the reader is usually not the decision maker. In the same study, most deals went through two or more approval stages, typically a department head and then an executive. The person reading your case study is assembling material for people who will never visit your site. A narrative about transformation does not survive being pasted into a ringi document. Specific figures, headcount, deployment time, and the internal objection that was resolved do survive.
 

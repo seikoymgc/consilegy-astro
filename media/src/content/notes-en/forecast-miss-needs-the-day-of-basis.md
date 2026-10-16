@@ -14,7 +14,7 @@ The same Japan deal appears in "closing this month" for the third month running.
 
 That question is usually the wrong one. The more useful one is whether anyone can show why the deal was counted.
 
-In one engagement I supported, the account owner knew the buyer was waiting for next fiscal year's budget. She had said so in meetings. The CRM held only a stage and an expected close date, so she pushed the date back a month at a time by hand. The deal was counted as "closing this month" every month and missed every month.
+In one engagement we supported, the account owner knew the buyer was waiting for next fiscal year's budget. She had said so in meetings. The CRM held only a stage and an expected close date, so she pushed the date back a month at a time by hand. The deal was counted as "closing this month" every month and missed every month.
 
 The fact that decided the timing was known to the team and had no place to live in the forecast.
 
@@ -66,7 +66,7 @@ The axis that decides which approval rung a deal sits on is covered in [Forecast
 
 ## What changes when a deal misses
 
-I cannot promise this makes the forecast accurate. Whether a count built on budget timing and approval stage predicts better only shows after you compare forecasts with outcomes a few times.
+We cannot promise this makes the forecast accurate. Whether a count built on budget timing and approval stage predicts better only shows after you compare forecasts with outcomes a few times.
 
 What changes is the miss itself.
 

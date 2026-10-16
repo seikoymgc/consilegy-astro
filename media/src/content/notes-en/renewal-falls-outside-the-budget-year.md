@@ -1,10 +1,10 @@
 ---
 title: "Japan renewal dates that miss the customer's budget year"
-description: "Map the renewal date against the customer’s budget cycle. Start the discussion before the budget closes and review the contract period if the dates repeatedly conflict."
+description: "Compare when the renewal conversation starts with when the customer's next budget is locked. If the conversation comes later, get next year's fee into the first purchase approval as a planned amount, and end the first term at the customer's fiscal year end."
 publishedAt: 2026-09-26
 updatedAt: 2026-10-17
 category: japan-gtm
-principle: "Map the renewal date against the customer’s budget cycle. Start the discussion before the budget closes and review the contract period if the dates repeatedly conflict."
+principle: "Compare when the renewal conversation starts with when the customer's next budget is locked. If the conversation comes later, get next year's fee into the first purchase approval as a planned amount, and end the first term at the customer's fiscal year end."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -44,11 +44,17 @@ Moving the reminder from 90 days to 120 days does not solve this. For a Septembe
 
 Multi-year contracts were also considered and set aside. The first term still has to land inside some fiscal year's budget at signing, and Japanese buyers, especially early in a vendor relationship, are often reluctant to commit multiple years before they have seen a full cycle of value. When multi-year deals do get signed, the renewal conversation usually still carries a price step-up, which reopens the same fiscal-year mismatch at a larger number.
 
-## What works: land the first renewal inside the budget window, not on the anniversary
+## What we recommend: carry next year in the first approval, and end the first term at fiscal year end
 
-The fix that has held up is renegotiating the first contract term to end at the customer's fiscal year boundary rather than twelve months after signature. A September signature becomes a seven-month first term running to the following March, prorated, with the twelve-month cycle starting from there. Every subsequent renewal then falls in April, and its 90-day conversation lands in January, inside the customer's budget window.
+Two moves, used together.
 
-The renewal discussion and the budget request become one conversation instead of two.
+**1. Put next year's fee into the first purchase approval as a planned amount.** When the September purchase goes through the customer's internal approval, ask the champion to include next fiscal year's annual fee as a planned figure. When next year's budget is built in January and February, the champion is no longer asking for a new line from zero. To support that, the vendor hands the champion a one-page summary of actual usage by December.
+
+The evidence is thin four or five months in. That is exactly why the vendor should prepare it rather than wait for the customer to.
+
+**2. End the first contract term at the customer's fiscal year end.** A September signature becomes a seven-month first term running to the following March, prorated, with the twelve-month cycle starting from there. Every subsequent renewal then falls in April, and its 90-day conversation lands in January, inside the customer's budget window.
+
+Move 2 on its own still leaves the first renewal to be budgeted four or five months after go-live, which is the problem described above. Move 1 carries the first renewal; move 2 puts every renewal after it on the customer's budget calendar.
 
 Where that renegotiation is not available, the minimum fix is a field. Record the customer's fiscal year end in the CRM as a property separate from the contract date, and start the renewal conversation counting back from the customer's budget planning window (roughly January and February for an April start), not from the contract's own anniversary.
 
@@ -56,13 +62,13 @@ It costs one field and one changed habit, and it tells the Japan team, months ea
 
 The wider approach to designing revenue processes around the buyer's calendar rather than the seller's is in [Japan Market GTM and Messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/).
 
-**If the renewal conversation starts after the customer's budget is fixed, the renewal needs a fresh approval no matter how satisfied the account is. Date the renewal, and the conversation, from the customer's fiscal year end, not the signature date.**
+**If the renewal conversation starts after the customer's budget is fixed, the renewal needs a fresh approval no matter how satisfied the account is. Carry the first renewal in the first purchase approval, and align every renewal after it to the customer's fiscal year end. The reference point is the customer's fiscal year, not the signature date.**
 
-This week, pull every account renewing this fiscal year and check the gap between the renewal date and the customer's fiscal year end. A gap of six months or more is a reason to check the budget status. It does not, by itself, establish that a fresh approval is required.
+This week, pull every account with an upcoming renewal and compare two dates: the day your renewal conversation starts (renewal date minus 90 days) and the month the customer locks the budget for the fiscal year that renewal falls in (around February for an April start). Every account whose conversation starts after that month is a renewal your Japan team will likely have to re-argue from budget zero. Where the customer's fiscal year end is not in the CRM, fill that in first.
 
 ## Common mistakes
 
-Reading a soft renewal rate in one signature cohort as a satisfaction problem. Check the gap to the customer's fiscal year end before concluding anything about the account.
+Reading a soft renewal rate in one signature cohort as a satisfaction problem. Check whether the renewal conversation started after the customer's budget was locked before concluding anything about the account.
 
 Moving the reminder earlier without moving the renewal date. An earlier warning about a bad landing spot is still a bad landing spot.
 

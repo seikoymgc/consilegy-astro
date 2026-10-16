@@ -46,7 +46,7 @@ The readable archive is a read-only account on the legacy system, or a dated ful
 
 Cost and approval differ between the two. A read-only account keeps the legacy contract alive, so licence fees continue. A full export costs almost nothing, but it puts a file containing personal data on an internal drive, so IT and legal in Japan need to approve who can open it, how long it is kept, and how it is prevented from leaving the company. The migration owner picks one after putting those costs side by side.
 
-Framed this way, "discard" is no longer on the table. Nothing is being thrown away, so no deletion needs approving, and the thing your Japan team was protecting stays protected. In my experience the request to migrate everything simply stops once people see this.
+Framed this way, "discard" is no longer on the table. Nothing is being thrown away, so no deletion needs approving, and the thing your Japan team was protecting stays protected. In our experience the request to migrate everything simply stops once people see this.
 
 What decides the destination is one question: **after cutover, who enters a value in this field?**
 

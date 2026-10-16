@@ -2,6 +2,7 @@
 title: "Adapt the Japan campaign, keep the global pipeline wiring"
 description: "Every quarter the global campaign lands in Tokyo and the same argument starts: run it as is, or let Japan rebuild it. Deciding this campaign by campaign is why it never settles. The split is by layer, not by programme. Japan gets to change the content and the calendar. Japan does not get to change the definitions, and here is what the Japanese buyer data says about which is which."
 publishedAt: 2026-09-23
+updatedAt: 2026-10-16
 category: japan-gtm
 principle: "Do not decide campaign by campaign whether Japan follows the global programme. Split by layer: Japan owns the content and the calendar, headquarters owns the definitions and the wiring. The moment Japan changes the definitions along with the content, headquarters can no longer read Japan, and unreadable markets lose budget."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -29,7 +30,9 @@ In the second IDEATECH and Hiroyasu Kitagawa survey (published 9 June 2026, fiel
 
 The same survey asked what did not influence the decision. Top of that list: general industry trend reports at 49.5% and feature comparison tables at 46.2%.
 
-Now look at what is in a typical global campaign kit. A trend report. A competitive comparison. Case studies from global enterprises. It lines up almost item for item with the "did not influence" column.
+Now look at what is in your global campaign kit. Some headquarters build around customer stories, but a common kit is a trend report, a competitive comparison, and case studies from global enterprises. If yours looks like that, the first two sit in the "did not influence" column.
+
+One caveat: the respondents were Japanese buyers in general, not only people buying from foreign vendors. The data does not show that global material in particular fails. It shows that generic and comparison material does little for Japanese buyers, whoever produces it.
 
 The first survey (published 16 April 2026, n=307) points the same way: industry-specific information was decisive or supportive for 62.5% of respondents, and the top reason a vendor was chosen was a case study from a company of similar size, at 44.3% (that question alone, n=298).
 
@@ -41,7 +44,9 @@ Why the pre-contact material belongs inside the revenue model rather than in a m
 
 According to a note by Nomura Securities' investment research team published on Tosho Manebu, the Japan Exchange Group's investor site, in March 2023, 68% of companies listed on the Tokyo Stock Exchange Prime Market close their fiscal year in March. December year-ends account for 13%.
 
-If your headquarters closes in December, your Q4 push runs October to December. In that window a March-year-end Japanese buyer is assembling next year's budget request, and this year's envelope is already spent or committed. Add the evaluation length from the first survey, three to eight months in 63.6% of cases, and a programme launched in Tokyo in October can plausibly land in next fiscal year's budget. It will not come back as Q4 bookings.
+If your headquarters closes in December, your Q4 push runs October to December. In that window, many March-year-end Japanese buyers are in the middle of assembling next year's budget. Add the evaluation length from the first survey, three to eight months in 63.6% of cases, and a programme launched in Tokyo in October can plausibly land in next fiscal year's budget. It will not come back as Q4 bookings.
+
+January to March is the other side of it. That is the end of the Japanese fiscal year, and at some companies deals funded from the remaining budget for the year do move, in the same window as headquarters' Q1. Either way, headquarters' quarters and the Japanese buyer's budget peaks sit at different points, and how far apart depends on the buyer's fiscal year-end.
 
 That is not a Japan execution problem. It is a calendar problem. Running the global campaign calendar in Japan does not produce no effect. It produces the effect outside the period headquarters is measuring, which from the board's seat looks identical. Let Japan set its own dates.
 
@@ -49,9 +54,13 @@ That is not a Japan execution problem. It is a calendar problem. Running the glo
 
 The reason to draw the line at content and calendar is what happens when the line is not drawn.
 
-A Japan team given permission to adapt content often keeps going: its own form fields, its own lifecycle stage definitions, its own way of linking campaigns to opportunities. Six months later headquarters looks at the regional table and Japan is the one column where the numbers mean something different. Numbers that cannot be read are not evaluated, and markets that are not evaluated lose budget in the next planning round. Japan does not get cut for adapting the content. It gets cut for adapting the definitions.
+A Japan team given permission to adapt content often keeps going: its own form fields and where they are stored, its own lifecycle stage definitions, its own way of linking campaigns to opportunities. Six months later headquarters looks at the regional table and Japan is the one column where the numbers mean something different. Numbers that cannot be read are not evaluated, and markets that are not evaluated lose budget in the next planning round. Japan does not get cut for adapting the content. It gets cut for adapting the definitions.
+
+Forms are where this is most often misread. Name order, phonetic readings of names, and how department and title are asked should differ on the Japanese form; serving the global form unchanged reduces submissions in Japan. What stays global is not the screen but which field each answer is stored in, under which internal name.
 
 Three things stay identical to global. The Japan KGI, written as the same single sentence headquarters uses. Lifecycle stage and lead definitions. The fields that connect campaign to opportunity to closed deal. With those three held constant, Japan can run entirely local content on an entirely local calendar and still appear in the global report as a market that is legible.
+
+The third only holds if it lives in the tool. In Salesforce, use the campaign hierarchy with the global campaign as parent and Japan's programmes as children, and fill the opportunity's primary campaign source by the same rule as other regions. In HubSpot, associate Japan's assets to the campaign object and follow the global naming convention for campaigns. Exact settings vary by tool and edition, so agree them once with the global operations owner, looking at the screens together.
 
 **Do not decide campaign by campaign whether Japan follows the global programme. Split by layer: Japan owns the content and the calendar, headquarters owns the definitions and the wiring.**
 

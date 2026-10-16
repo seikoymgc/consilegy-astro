@@ -2,6 +2,7 @@
 title: "Validate Japan approval, not demand, before you incorporate"
 description: "The Japan decision arrives as an entity question, so the validation work goes into market sizing, competitors and price acceptance. Six months later the answer is yes, you incorporate, and four quarters after that the pipeline has not moved. Demand was the one thing you could establish without an entity. Here is what to test instead, and how to test it before the entity exists."
 publishedAt: 2026-09-16
+updatedAt: 2026-10-16
 category: japan-gtm
 principle: "Before you incorporate in Japan, do not validate demand. Validate whether a Japanese buyer can get you approved internally. Run live deals with no entity, record where each one stops and who stopped it, and let that distribution specify what the entity is actually for."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -15,11 +16,11 @@ So the validation work goes where validation work goes: market size, competitive
 
 The research was not weak. It answered a question that does not decide Japan entry.
 
-## Demand is the one input you could have established from your desk
+## Demand is something you can establish from your desk
 
-Market size, who else is selling, what Japanese companies already pay: all of that is desk-researchable, and the macro picture is not the obstacle. JETRO's 2025 report on inward investment recorded greenfield investment, the kind that creates a new legal entity, at 4.8 trillion yen, up 15.4% year on year and the highest on record.
+Market size, who else is selling, what Japanese companies already pay: all of that is desk-researchable. So is the fact that more foreign companies are arriving. JETRO's 2025 report on inward investment recorded greenfield investment, the kind that creates a new legal entity, at 4.8 trillion yen, up 15.4% year on year and the highest on record. That is not evidence of demand for your product. What it tells you is that the shortlist your Japanese buyer looks at is getting longer.
 
-Nothing about that number is hard to obtain before you commit. Which means demand is not what the entity buys you information about.
+None of this requires an entity. Which means demand is not what the entity buys you information about.
 
 What the entity buys you information about is one thing only: whether the person who wants your product can get it approved inside their own company. That is the variable you cannot read off a slide, and it is the one that decides the first two years.
 
@@ -27,7 +28,7 @@ What the entity buys you information about is one thing only: whether the person
 
 In the survey by IDEATECH and Hiroyasu Kitagawa of Demagen Research (published 16 April 2026, fielded 23 to 26 March 2026, n=307, restricted to people who took part with at least one colleague in a Japanese purchase of business software worth 3 million yen or more, and run as survey-as-PR, so read it for order of magnitude), 60.9% of purchases required two approval stages, more than 80% required two or more, and roughly 20% required three or more. Evaluation ran 3 to 8 months in 63.6% of cases, with about 40% taking six months or more.
 
-Somewhere inside that route, your champion gets handed a set of questions. Can the invoice be issued in yen. Is there a Japanese-language contract, and what is the governing law. Is there a support window in Japan Standard Time. How does procurement run its credit check and its anti-organised-crime screening on a foreign counterparty.
+Somewhere inside that route, your champion gets handed a set of questions. Can the invoice be issued in yen. Can you issue a qualified invoice under Japan's invoice system. Is there a Japanese-language contract, and what is the governing law. Is there a support window in Japan Standard Time. How does procurement run its credit check and its anti-organised-crime screening on a foreign counterparty.
 
 None of these are product questions. And they split into two groups that look identical from headquarters: the ones a Japanese entity solves, and the ones it does not. Incorporating before you know the split means the entity gets specified on instinct, and the first budget goes to whichever function your global playbook happens to fund first.
 
@@ -35,9 +36,19 @@ Why this pre-contact stretch has to sit inside the revenue model rather than out
 
 ## Run ten deals with no entity and the map of where they stop is the spec for the entity
 
-You can sell into Japan without an entity. Contract from the foreign parent, sell through a distributor, or use an invoicing agent for yen billing. All three work commercially, and since the goal here is not revenue, unfavourable terms are acceptable.
+You can sell into Japan without an entity. Contract from the foreign parent, sell through a distributor, or use an invoicing agent for yen billing. All three work commercially, but only after tax and legal review. Before the first deal, take at least these questions to Japanese tax and legal advisers:
 
-Take five to ten named prospects and run them to the end. Closing is optional. Record two things: the point at which the deal stopped, and the job title of the person who stopped it.
+- whether your activity in Japan could be treated as a permanent establishment
+- how Japanese consumption tax applies, and whether to register under the invoice system (the buyer's finance team will ask)
+- whether any payment is subject to withholding tax
+- which party contracts with the buyer (the foreign parent, the distributor or the invoicing agent) and under which governing law
+- what is required to handle Japanese personal data outside Japan
+
+The answers depend on the structure and terms you choose, so this note does not give them. It is not tax or legal advice.
+
+Then take five to ten named prospects and run them to the end. Offer terms you could actually deliver if they sign. The champion spends their own internal effort routing your deal through approval, and a prospect you ran for research only will not take your call twice. Since the goal is not revenue, do not push hard on negotiation. Record two things: the point at which the deal stopped, and the job title of the person who stopped it.
+
+Keep the record somewhere it can be counted, not in each rep's memory. In the CRM, add a picklist on the opportunity for the stage that stopped it (legal, finance, IT, credit check, final approval) and a field for the stopper's job title. For five to ten deals, a shared sheet is enough.
 
 The distribution tells you what to build.
 

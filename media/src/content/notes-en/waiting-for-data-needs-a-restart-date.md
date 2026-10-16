@@ -1,7 +1,8 @@
 ---
 title: "A Japan programme paused until the data improves has already been cancelled"
-description: "HQ parks a Japan investment pending better numbers, and it never comes back. Japanese survey data (n=330, n=1,034) on where the waiting time actually goes, and the two lines that turn a pause into a decision."
+description: "HQ parks a Japan investment pending better numbers, and it never comes back. A rule of thumb from the programmes we have seen paused: three questions that show whether data is really the constraint, and the two lines that turn a pause into a decision."
 publishedAt: 2026-09-07
+updatedAt: 2026-10-16
 category: data
 principle: "Waiting for better Japan data is a decision only when a restart date and the single number to check on that date are written down. Without them, the pause produces the same outcome as cancelling, plus the cost of revisiting it every month."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -11,31 +12,21 @@ draft: false
 
 A regional review parks the Japan investment. Not cancelled. Held, until the numbers are good enough to justify it.
 
-Nobody objects, because holding sounds more responsible than cutting. Two quarters later the position is unchanged, and the review has spent time on it six times.
+Nobody objects, because holding sounds more responsible than cutting. In the paused programmes we have seen, the position two quarters later is often unchanged, and the review has spent a slice of every meeting on it.
 
-The difference between a pause that resumes and a pause that quietly ends is one line in the plan: the date on which somebody checks a specific number.
+The pauses that did resume had one line in the plan: the date on which somebody checks a specific number. What follows is a working rule drawn from that experience, not a survey finding.
 
-## The waiting time you are absorbing is approval time, not research time
+## The waiting time you are absorbing is mostly not research time
 
-If the pause is on the buyer's side rather than yours, look at where a Japanese enterprise purchase actually loses months.
+Look back at a programme held "until the data improves" and you often find that little data arrived while it waited. Nobody works a paused programme, so no new numbers come in, and the old ones go stale before they grow.
 
-IDEATECH ran a second wave of its large-deal purchasing study with Hiroyasu Kitagawa of Demagen Research (fielded 25 to 26 May 2026, published 9 June 2026, 330 valid responses; respondents had been one of two or more people involved in a software, SaaS or IT infrastructure purchase with an annual contract value above 5 million yen). IDEATECH sells survey-based PR and this was an online panel study, so read the ranking rather than the decimals.
+What was being waited for, in most cases, was someone's judgement. When a Japan programme is held for more numbers, the numbers are rarely the binding constraint. The unresolved question is who explains the call if it goes wrong.
 
-In that sample, 73.5% said the purchase ran long. Asked why (n=239), the leading cause was waiting for executive judgement at 63.6%. Time spent gathering information came second at 45.2%, more stakeholders joining and needing coordination third at 38.1%, and budget approval fourth at 31.0%.
-
-Information gathering is genuinely on the list. It is not the largest block. Sending more collateral, another benchmark deck or a fresh analyst report compresses the second item and leaves the first one untouched.
-
-The same asymmetry applies inside your own company. When a Japan programme is held for more numbers, the numbers are rarely the binding constraint. The unresolved question is who explains the call if it goes wrong.
+A similar pattern shows up on the buying side, though it is not about internal programmes. In IDEATECH and Demagen Research's second-wave study of large B2B purchases in Japan (published 9 June 2026, 330 valid responses; an online panel run by a survey-PR company), the leading reason purchases ran long (n=239) was waiting for executive judgement at 63.6%, ahead of information gathering at 45.2%. That is a purchasing survey and does not prove anything about paused programmes. It does match what we see: judgement, not information, is usually the longer queue.
 
 ## Japan's CRM does not fill itself in while the programme is parked
 
-The other assumption inside a pause is that waiting produces data. In most Japanese sales organisations it does not.
-
-Keywalker surveyed sales teams at companies that already run SFA, CRM or BI tools (fielded 8 to 10 October 2025, published 11 November 2025, n=1,034, fieldwork by PRIZMA; Keywalker is a BI vendor that implements Tableau, so this is a vendor study). Asked when they enter activity records, 12.5% answered that they either cannot keep up or have frequent gaps. Among those who do not enter immediately, the leading reasons were other work taking priority at 44.2% and too many required fields at 38.5%.
-
-Neither reason improves because a programme is on hold. If anything the gaps widen, because nobody is working the pipeline that would have generated the records.
-
-Incomplete data is not a temporary condition that a pause outlasts. It is the operating baseline. Waiting for a baseline to end sets no end date at all.
+The other assumption inside a pause is that waiting produces data. Where records are already entered with gaps, it does not. Incomplete data in that kind of organisation is not a temporary condition that a pause outlasts. It is the operating baseline. Waiting for a baseline to end sets no end date at all.
 
 ## Three questions that show whether data is the actual constraint
 
@@ -57,11 +48,13 @@ Two rules are enough.
 
 Any Japan initiative placed on hold gets a restart date, an owner and one number to check on that date. The date goes in a calendar, not in meeting minutes. Anything that cannot be given those three moves out of "on hold" and into "not this year."
 
+Where "not this year" lives does not matter: the initiative tracker, a ticket board, a planning page. What matters is that it exists as a status, and that the call is made by the executive who owns the budget for the initiative. Left to the person who proposed it, an initiative tends to stay "on hold."
+
 The reason to be strict is that held items are invisible in the plan. Cancelled work counts as zero and stops consuming attention. Held work consumes a few minutes of every review, sits in the country manager's head, and delivers the same result as cancellation with the revisiting cost added on top.
 
 One approach that did not work: a standing list of held Japan initiatives, reviewed monthly. The review became the place where deciding was permanently optional. Dates attached to individual items worked better than a list attached to a meeting.
 
-None of this argues against pausing. If the commitment is reversible, act on partial information and correct later. If it is irreversible, waiting is worth real money. That judgement turns on reversibility, not on how much data has accumulated.
+None of this argues against pausing. If the commitment is reversible, act on partial information and correct later. If it is irreversible, waiting is worth real money. The test is whether you can stop and undo it if it turns out wrong. Long contracts, hires and migrations cannot be undone and can justify waiting; campaign spend and channel allocation can be reversed next month and should not wait. Either way, the restart date still gets written. That judgement turns on reversibility, not on how much data has accumulated.
 
 **Waiting for better Japan data is a decision only when a restart date and the number to check on that date are written down. Without them, the pause produces the same outcome as cancelling, plus the cost of revisiting it every month.**
 

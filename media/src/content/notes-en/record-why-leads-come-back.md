@@ -2,6 +2,7 @@
 title: "Japan Sales Won't Chase Your Leads: Log Why, in 4 Choices"
 description: "Your Japan sales team does not follow up on the leads marketing passes over, and nobody records why. 'Low quality' does not say what to fix. Have sales pick one of four reasons when they decline a lead, and HQ can see whether the problem is targeting, timing, interest or the handoff itself."
 publishedAt: 2026-10-14
+updatedAt: 2026-10-16
 category: marketing
 principle: "'Low quality' does not tell you where to fix. If sales records why a lead was not chased, as one of four reasons (wrong target, too early, shallow interest, not explained), you can see whether to change the MQL criteria or the handoff."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -34,9 +35,11 @@ Sort the leads sales declined by reason and they mostly land in four groups.
 | 3. Shallow interest (curious, not worth a call) | The MQL criteria |
 | 4. Not explained (sales cannot see why to chase) | The handoff itself: what is passed and how sales is notified |
 
+Groups 2 and 3 both look like thin activity, so they blur. Set the rule first. If there is anything that points to timing (the buyer named a quarter, a contract renewal or budget cycle is known to be later), it is group 2. If there is no timing signal and the activity is a one-off, such as a single download, it is group 3. When in doubt, use group 3.
+
 "Low quality" hides all four. If most declined leads are group 1, tightening the MQL criteria changes nothing, because the target is still wrong. If most are group 4, retuning the score threshold does not help until sales sees why this person, now.
 
-Group 4 is different in kind. It is not a flaw in the lead. It is a flaw in the handoff, and usually nobody is slacking. There is just no place at the boundary for the reason to sit. Of the four, group 4 is the one most often labelled "low quality."
+Group 4 is different in kind. It is not a flaw in the lead. It is a flaw in the handoff, and usually nobody is slacking. There is just no place at the boundary for the reason to sit. My hypothesis is that a good share of what gets labelled "low quality" is actually group 4. I have not counted it, though. Count your own and the largest group will be obvious.
 
 ## Japanese buyers have already compared vendors before sales calls
 
@@ -52,19 +55,21 @@ The survey describes buyer behavior. It does not prescribe a handoff. The next s
 
 The change is small. Where a rep returns a lead, or decides not to chase it, put the four reasons as a pick list. Do not rely on free text alone: it costs the writer effort and the reader cannot count it.
 
+Do not put it on the lifecycle stage. Keep lifecycle stage moving forward only; if you move it back, returned leads sit as MQL or re-enter the workflow that makes them MQL again. Put the reason on the field that describes the lead's status. In HubSpot that is the disqualification reason on the Leads object; in Salesforce, lead status plus a reason pick list. The standard field names, and how far you can edit their options, depend on the tool and its configuration, so check what already exists before adding fields.
+
 Settle a few points in advance:
 
 - Fix the options to the four above. If you add "other," limit it to one line.
 - Capture the reason on the same screen as the action. Reconstructing it later brings back "low quality."
-- Sales picks. But agree up front that when group 4 is chosen, marketing reviews the handoff. If picking changes nothing, reps stop picking.
+- Sales picks. But agree up front that when group 4 is chosen, marketing reviews the handoff. At the monthly review, name one person in marketing who owns the group 4 follow-up and reports at the next review what was changed. If picking changes nothing, reps stop picking.
 
-Review once a month. Look at the split of the four reasons together and fix the largest first. The meeting topic moves from "quality is low" to "which reason is largest." In one engagement I worked on, that shift was the biggest change: the abstract, negative phrase went away and the talk became which score band to improve.
+Review once a month. Look at the split of the four reasons together and fix the largest first. The meeting topic moves from "quality is low" to "which reason is largest." In one engagement I worked on, that shift was the biggest change: the abstract, negative phrase went away and the talk became what to fix.
 
 If many leads come back with no reason at all, that is the first finding. It means there is no material yet for deciding where to fix.
 
 ## If marketing is judged on MQL count, nobody has a reason to tighten the criteria
 
-This is a general point, not about any one project. Tightening the handoff criteria can lower the MQL count.
+Tightening the handoff criteria can lower the MQL count.
 
 If marketing is evaluated only on MQL count, its team has no reason to tighten. The incentive design decides behavior, not the individual's ability. Even if the log shows group 3 dominates, changing the criteria lowers their number, so it does not get changed.
 

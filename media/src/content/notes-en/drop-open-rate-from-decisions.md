@@ -2,6 +2,7 @@
 title: "Open rates from your Japan list are not evidence of intent"
 description: "Your Japan open rate comes back at or above the EMEA number, HQ reads that as engagement, and two quarters later the pipeline still has not moved. The number cannot carry that weight: a recorded open may be a proxy fetching an image on delivery. Here is what Apple and Google actually document, and what to instrument instead."
 publishedAt: 2026-09-15
+updatedAt: 2026-10-16
 category: marketing
 principle: "An open rate cannot tell you whether anyone read the email, and a cross-region comparison of open rates compares measurement environments rather than interest. Report one named next step per send, counted in people."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -19,7 +20,7 @@ The open rate never supported the first conclusion, so it cannot support the sec
 
 Open tracking works by embedding a small image in the body and counting how often that image is loaded. The whole metric rests on the assumption that a load means a human opened the message.
 
-Apple removed that assumption in 2021. The Mail User Guide (Apple's own support documentation, macOS 27 edition) states that when Protect Mail Activity is on, the recipient's IP address is hidden from senders and remote content is privately downloaded in the background when the message is received, rather than when it is viewed.
+Apple removed that assumption in 2021. Apple's Mail User Guide, part of its official support documentation, states that when Protect Mail Activity is on, the recipient's IP address is hidden from senders and remote content is privately downloaded in the background when the message is received, rather than when it is viewed.
 
 The pixel fires whether or not anyone looks at the message. The setting has been offered since iOS 15 shipped in September 2021, and the recipient chooses it the first time Mail opens. Senders cannot see who chose it, and there is no way to find out what share of a given list is in that state.
 
@@ -43,15 +44,23 @@ The receiving platform measures whether people objected, not whether they opened
 
 ## Instrument one named next step per send, and report it as a count
 
-Replacing open rate with click rate moves the same problem one step along. Security products follow links in messages before the recipient does, and those fetches are recorded as clicks.
+Replacing open rate with click rate moves the same problem one step along. Security products follow links in messages before the recipient does, and those fetches are recorded as clicks. Some platforms offer settings that filter bot clicks, but what they catch, and how, varies by tool.
 
 The change worth making is not a new rate. For every send, decide the single next step you want the reader to take, then count the people who took it.
 
-If the email carries a pre-implementation checklist, count the people who opened the checklist. If it carries a customer story, count the people who reached the enquiry form from that page. If it proposes a meeting, count the people who picked a time.
+If the email carries a pre-implementation checklist, count the people who opened the checklist. If it carries a customer story, count the people who reached the enquiry form from that page. If it proposes a meeting, count the people who picked a time. Because click-based steps can be inflated by link prefetching, lean toward steps that only a person's action can record, such as a form submission or a booked meeting.
 
 Report those as counts, not percentages, and name the step in the report. Small Japanese lists make rates jump for no reason, and when HQ has to decide whether to keep funding the Japan programme, the question underneath is how many accounts moved, not what percentage of an unstable denominator did something unobservable.
 
 There is a useful side effect. An email whose next step cannot be named in one line is an email without a reason to exist. If your monthly Japan newsletter fails that test every month, the thing to fix is the programme, not the subject line.
+
+## Inventory every automation that uses opens, at the same time as you drop the metric
+
+Opens are not only in the report. They are often in lead-score rules, in dormancy rules that stop sending after a period with no opens, in list and segment criteria, and in A/B tests that pick the winner automatically by open rate. All of these misfire once an open can mean a delivery.
+
+Dormancy rules fail in the worst direction. A contact whose opens are recorded on delivery never goes dormant, even if they never read anything. Keep sending to people who do not read, and complaints rise, which pushes you toward Google's 0.10% line from the previous section.
+
+When you drop the metric, list every workflow, list and score that uses opens as a condition, and replace each condition with a next-step action such as a click or a form submission. If A/B winners are chosen automatically, choose them on the next step too.
 
 **An open rate cannot tell you whether anyone read the email, and a cross-region comparison of open rates compares measurement environments rather than interest. Report one named next step per send, counted in people.**
 

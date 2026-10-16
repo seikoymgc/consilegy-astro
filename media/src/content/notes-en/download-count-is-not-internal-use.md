@@ -2,6 +2,7 @@
 title: "Download counts do not show whether a buyer used the file"
 description: "HQ reads Japan whitepaper downloads as pipeline signal, then wonders why sales calls go nowhere. A download records that someone received a file, not that it was used inside the buyer's company. Two 2026 Japanese B2B purchasing surveys show which content actually helped, and what to count instead."
 publishedAt: 2026-09-29
+updatedAt: 2026-10-16
 category: marketing
 principle: "A download records that someone received a file, not that it was used inside the buyer's company. Judge each asset by whether a champion could use it to explain the decision internally, and count a trace of internal circulation instead of the download."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -37,7 +38,7 @@ The items that did not influence the decision were led by generic industry trend
 
 The pattern is easy to read. What helped is content the buyer can put their own numbers into and carry into an internal meeting, or use as it is. What did not help is content that is read as general information, or that only compares.
 
-Assets that collect many downloads tend to sit in the second group. They are easy to pick up, so they are picked up often. Volume of downloads does not turn into volume of deals.
+The survey asked about influence, not download volume. Still, in the accounts we have worked with, the assets that top the download ranking tend to sit in the second group. They are easy to pick up, so they are picked up often. Volume of downloads does not turn into volume of deals.
 
 ## Count a trace of internal circulation, and choose it before you publish the asset
 
@@ -46,8 +47,16 @@ Start by writing one line per asset: in which internal situation does the buyer 
 Then choose one trace that shows it was used in that situation. For example:
 
 - Opens of a one-page internal summary linked from the asset, holding the key points and an indicative cost
-- Visits to the same asset or related pages from a second person at the same company domain
+- Visits to the same asset or related pages by a different person at the downloader's email domain
 - Inquiries to sales that include phrases like "I need to explain this internally" or "to attach to the approval request"
+
+Each needs a capture mechanism decided in advance, or nobody will be able to count it.
+
+For the first, a PDF sent as an attachment records nothing. Deliver the one-pager as a web page that logs views, or through a URL with tracking parameters.
+
+For the second, your marketing automation or CRM can only follow people who are already known contacts and whose browsing is tied to their record. Picking up anonymous visitors from the same company needs a separate capability that infers the company from the visit, and whether you have it depends on your tools and contract. Counting known contacts at the same domain, other than the downloader, is enough to start.
+
+For the third, free text in an inquiry is never tallied. Either add an optional "purpose" choice to the inquiry form, or have sales record "for internal explanation or approval" in a field on the deal.
 
 None of these can be captured completely. Some Japanese companies pass PDFs around by email without going through any link you control. Still, each is closer to something moving inside the buyer's company than a download is.
 

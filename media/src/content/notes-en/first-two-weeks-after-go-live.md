@@ -2,6 +2,7 @@
 title: "Silence after your Japan go-live is not adoption. It is the first warning"
 description: "HQ ships the CRM to the Japan team, the project closes at go-live, and no support tickets come in. A quarter later the Japan pipeline data is empty. In Japan, zero questions rarely means success. What to do in the first two weeks after go-live instead of waiting for tickets."
 publishedAt: 2026-08-26
+updatedAt: 2026-10-16
 category: adoption
 principle: "For a Japan go-live, keep the project open two more weeks: read the field-level data daily, fix frictions within 48 hours, and close the loop visibly. Waiting for tickets measures nothing, because a Japanese team that has quietly stopped using the tool files no tickets."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -23,7 +24,7 @@ In a Japan entity, you mostly cannot. Raising an issue in a global channel means
 
 So the signal you should read is not tickets. It is the data itself: who has logged in, which mandatory fields are being left empty, which stage every Japanese deal is parked in. Zero questions plus thin data is not adoption. It is your earliest and cheapest warning.
 
-The weight of this launch window shows up in Japanese survey data too. In HiCustomer's Customer Success Survey 2023 (conducted April 2023, n=203; a vendor-run survey, and correlation rather than causation), "reworking the onboarding process" ranked first among initiatives that moved the respondents' top-priority KPI, at 25.1 percent, for the second consecutive year. What happens right after launch outranks everything teams try later.
+Why two weeks? This is a rule of thumb from the rollouts we have supported, not a survey finding. Within the first few weeks a team tips toward either a using habit or an avoiding habit, and two weeks is roughly when the tilt becomes visible in the data. Retraining after the avoiding habit has set in means first undoing the shared assumption that this tool, too, will fade.
 
 ## Keep the project open for two more weeks
 
@@ -31,9 +32,15 @@ Do not let the rollout team leave at go-live. Three things, in order:
 
 **1. Read Japan's field-level data every day.** Ten minutes each morning: logins, empty fields, stuck stages. Assign this to someone who can read the local context, not just the dashboard. The data will tell you what the team will not say in a global channel.
 
+Ten minutes is only realistic if the views exist before go-live. Build three: records created and updated per rep, the count of empty values in the key fields, and days spent in each stage. How you build them depends on your CRM and its configuration. Starting on go-live day means missing the first few days.
+
 **2. Fix frictions within 48 hours.** The most common Japan-side friction is a global mandatory field that assumes a sales process Japan does not run, such as a single decision-maker field in a consensus-driven deal. Remove it for Japan, shorten the picklist, or move the input into an existing local meeting. Small, fast changes. No change request cycle.
 
+Fast is not the same as unchecked. A field or picklist value may be referenced by reports, automations, integrations to other systems, and records already entered. Removing a picklist value can strand the existing records that carry it. Before changing anything, check where the field is used, and prefer hiding it for Japan or blocking it for new entries over deleting it. Log every change in one line: what, when, and why. That log becomes the material for step three.
+
 **3. Close the loop visibly.** At the end of week two, tell the Japan team exactly what was changed because of what the data showed. Once the team sees that friction gets fixed without anyone having to escalate in English, the reporting starts to flow. Fix things silently and you get credit for none of it, and the silence continues.
+
+Make the ownership explicit before the project closes. The person reading the data is a Japan-side rollout lead who knows the local sales process; the person fixing is a CRM admin with rights to change the configuration. At the go-live decision meeting, the project sponsor approves moving the project end date to two weeks after go-live and keeping both people's time allocated until then.
 
 ## The principle
 

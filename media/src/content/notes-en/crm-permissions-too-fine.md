@@ -2,8 +2,9 @@
 title: "Your Japan team wants records hidden. Almost none of it is confidentiality."
 description: "When a global SaaS company rolls out its CRM in Japan, the local team asks for visibility restrictions HQ has never granted anywhere else. Most of those requests are about who owns a record, not about what is in it, and the two break in completely different ways after go-live. Japanese survey data (n=101, n=1,545) and the question to ask before you touch the permission model."
 publishedAt: 2026-08-30
+updatedAt: 2026-10-16
 category: crm
-principle: "Hiding a field is cheap and reversible. Hiding a record partitions the organisation and cannot be reported around. Separate the two requests before you edit the permission model, because only one of them is about confidentiality."
+principle: "Hiding a field is cheap and reversible. Hiding a record partitions the organisation and cannot be reported around. Separate the two requests before you edit the permission model, because outside regulated or contract-bound cases only one of them is about confidentiality."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -26,7 +27,9 @@ Write out what the Japan team wants restricted and it separates cleanly.
 
 The first three are about who owns the record. Only the last is about what the record contains.
 
-Only the last one is a confidentiality requirement. The other three are about exposure.
+In most cases only the last one is a confidentiality requirement. The other three are about exposure.
+
+There are real exceptions: deals touching M&A or insider information, businesses such as financial institutions where regulation requires an information wall between divisions, competitive information between resellers, and personal data restricted to a stated purpose. Those need records isolated, not just fields. Everything below is about the requests that fall outside those cases.
 
 That is not a criticism of the Japan team. In Mazrica's SFA/CRM survey (published 28 January 2025, fielded 25 to 28 November 2024, n=101 Japanese B2B sales managers and team leads; run by a vendor that sells SFA software, with a small base, so read it for ordering rather than precision), the fifth most common reason reps gave for not entering data was "I don't want my results and my process visible to other people," at 27.7%.
 
@@ -38,11 +41,13 @@ The difference only shows up after go-live.
 
 Hiding a field costs nothing. A rep who cannot see margin still runs the deal, because they never needed the number to run it. Turn the restriction off later and nothing has to be rebuilt.
 
+Two caveats. Whether you can hide a field at all depends on the tool and edition: Salesforce does it with field-level security, while in HubSpot it is limited to certain editions, so check what your Japan instance's edition supports before you design around it. If it is not available, that field has to live somewhere else. And anything calculated from a hidden field, such as formula fields, rollups and reports, may show blank or zero to users who cannot see the source. Hide cost but show a margin calculated from it, and the margin breaks.
+
 Hiding records splits the organisation once per rule. Restrict by owner and every account handover needs a manual grant. Restrict by business unit and the regional roll-up breaks, which is the moment HQ discovers that Japan's number now arrives as a spreadsheet.
 
 Worse, the partitions multiply. Each person who cannot see something they need produces one more exception group, and past a certain count nobody in the company can say who can see what.
 
-The endpoint is visible in the same survey. The third most common complaint about using SFA and CRM was "necessary information is not properly shared," at 39.6%, effectively level with "data entry and updating is cumbersome" at 43.6% and "field reps don't enter information" at 40.6%.
+Permission design is not the only cause, but the endpoint is visible in the same survey. The third most common complaint about using SFA and CRM was "necessary information is not properly shared," at 39.6%, effectively level with "data entry and updating is cumbersome" at 43.6% and "field reps don't enter information" at 40.6%.
 
 HubSpot Japan's annual survey (published 19 February 2024, fielded by Macromill, n=1,545 sellers at companies of 51 to 5,000 employees; a survey by a company that sells CRM) found the same pattern from the data side. Among difficulties with using data, "data within the sales organisation is not properly managed" came in at 28.1% and "data integration with other departments has not progressed" at 24.4%.
 
@@ -52,15 +57,15 @@ HQ tends to treat the entry problem and the sharing problem as separate workstre
 
 Ask for the reason at the moment the request arrives, in writing, in one line.
 
-If the answer names a law, a contract clause or personnel data, restrict the field. If it does not, the request is about record ownership and it goes on hold.
+If the answer names a law, a contract clause or personnel data, restrict the field. If regulation or a contract requires the record itself to be walled off, partition the record. If it names neither, the request is about record ownership and it goes on hold.
 
-Held requests get two things instead. First, an operating rule that assumes visibility. "Do not contact an account you do not own" is a norm, enforceable by a manager, and it does not partition anything. Second, a default view. If a rep opens the CRM and sees their own accounts first, the daily irritation disappears. Not being able to see something and not having to look for it feel identical on Monday morning, and the second one is almost always what was actually being asked for.
+Held requests get two things instead. First, an operating rule that assumes visibility. "Do not contact an account you do not own" is a norm, enforceable by a manager, and it does not partition anything. Second, a default view: save a list filtered to the rep's own accounts and make it the first screen they land on (how you pin it depends on the tool and edition). If a rep opens the CRM and sees their own accounts first, the daily irritation disappears. Not being able to see something and not having to look for it feel identical on Monday morning, and the second one is almost always what was actually being asked for.
 
 There is a Japan-specific reason to hold the line here rather than concede it as a cultural accommodation. Account ownership in a Japanese sales organisation is often tied to seniority and to how someone is evaluated, so a visibility request can be a request about standing rather than about data. Granting it in the permission model freezes an internal arrangement into the system, where the next reorganisation will have to break it out again.
 
-If you do decide to partition records, attach one condition. Name the role that produces the company-wide numbers first, and keep full record access on it. Skip that and the next quarterly forecast turns into a permission redesign.
+If you do decide to partition records, attach one condition. Name the role that produces the company-wide numbers first, and keep full record access on it. The integration user that connects other systems needs the same treatment. Skip that and the next quarterly forecast turns into a permission redesign.
 
-**Hiding a field is cheap and reversible. Hiding a record partitions the organisation. Sort the requests before you edit the model, because only one kind is about confidentiality.**
+**Hiding a field is cheap and reversible. Hiding a record partitions the organisation. Sort the requests before you edit the model, because outside regulated or contract-bound cases only one kind is about confidentiality.**
 
 ## Common mistakes
 

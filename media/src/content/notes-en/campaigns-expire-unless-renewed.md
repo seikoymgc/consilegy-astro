@@ -2,6 +2,7 @@
 title: "Japan will not cancel a programme. Give each an expiry date"
 description: "HQ asks the Japan team to cut what is not working. The plan that comes back keeps everything, and the things that do quietly disappear are the ones closest to revenue. In a Japanese company, cancelling a programme means reversing an approval someone gave, so nobody proposes it. Japanese survey data (n=103, n=237, n=432) and the design that replaces the kill decision."
 publishedAt: 2026-09-21
+updatedAt: 2026-10-16
 category: marketing
 principle: "Do not ask Japan to decide what to stop. A cancellation reverses an approval someone gave, so the request returns a plan that keeps everything. Put an expiry date and one renewal metric on every programme before it starts, and let anything without a renewal case end on its own."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -23,7 +24,7 @@ ProFuture, the publisher behind the marketing site Marketrunk, ran a survey with
 
 Asked which current programmes they felt were not paying back their cost, respondents put trade shows first at 42.7%, followed by search ads at 33.0%, display at 30.1% and social ads at 26.2%.
 
-Asked what would happen to the 2026 budget, 48.5% said unchanged, 32.0% said a slight increase, 2.9% said a large increase. Just over one in ten expected a cut.
+Asked what would happen to the 2026 budget, 48.5% said unchanged, 32.0% said a slight increase, 2.9% said a large increase. More than eight in ten expected to hold or increase. The remaining 16.6% includes those expecting a cut and may include other answers such as "don't know", so at most fewer than one in five expected a cut.
 
 The programme most often named as not paying back is almost certainly also the programme most often run. A separate survey by IT Communications (fielded 3 to 8 October 2025, published 9 December 2025, 237 B2B marketing, PR and sales-promotion staff; the company sells a lead-generation tool, and the sample and questions differ from ProFuture's, so this is a juxtaposition rather than a cross-tabulation) found trade shows were the most-run programme of the previous year at 52.3%, and also rated among the most effective at 49.1%.
 
@@ -37,7 +38,7 @@ Starting a programme in a Japanese company takes approval. Someone drafts the pr
 
 Stopping it means going back to the same people. "We are cancelling this" is, in that room, a statement that the judgement they made last year was wrong. Who drafts that? What does the drafter say to the general manager who approved it?
 
-Bad numbers do not help here. They make it worse. The stronger the evidence that the programme failed, the more the conversation turns to why it was approved, and the more it becomes a question of the original sponsor's standing. So the local team does not file the request, even with the numbers in hand. That is a rational read of the room, not a lack of nerve.
+Bad numbers do not help here. They make it worse. The stronger the evidence that the programme failed, the more the conversation turns to why it was approved, and the more it becomes a question of the original sponsor's standing. So the local team does not file the request, even with the numbers in hand. That is not a lack of nerve. It is a system that puts the whole weight of a stop decision on one person.
 
 When I look back at how programmes actually ended in the Japanese organisations I have worked with, it was almost always a staff rotation or the fiscal year boundary. I struggle to recall one that ended because someone looked at the numbers and decided.
 
@@ -61,7 +62,7 @@ If you set kill criteria for Japan, you run straight into the structure above. T
 
 So change the design. Do not stop programmes. Let them expire.
 
-Every programme gets an expiry date. For the trade show, the deadline for next year's booking. For paid media, quarter end. For the things with no line, case studies, sales material, nurture, assign one anyway. Six months out is fine.
+Every programme gets an expiry date. For the trade show, the deadline for next year's booking, or the earlier date when cancellation fees start, if there is one. For paid media, quarter end. For the things with no line, case studies, sales material, nurture, assign one anyway. Six months out is fine.
 
 When the date arrives, the programme ends unless a renewal case is filed. That is the whole mechanism. No cancellation request, no reversal, no one's judgement questioned. The general manager who approved it receives a fact, "the term ended and no renewal was filed", rather than a verdict on last year's decision.
 
@@ -71,6 +72,8 @@ Do not make that number closed revenue. Fast Marketing's survey of Japanese B2B 
 
 Use two counts instead. How many records the next stage received from this programme, and how many of those moved one step further by the expiry date. For a webinar, how many attendees sales asked to meet, and how many of those first meetings took place. For a case study, how many times sales used it in a live deal, and how many of those deals advanced.
 
+Counting them requires each lead and deal to carry the programme it came from. Most CRMs have a way to attach a campaign, and many Japan instances do not use it. Decide before launch who attaches it and when: the programme owner when importing the list, or the rep when creating the deal. Fix attribution in one line, for example "a contact touched by several programmes counts toward the first one attached". Skip this and the expiry date arrives with no number, or with the credit-splitting argument the design was meant to avoid.
+
 The threshold goes in before launch, in one line: "If fewer than three have moved a step by the expiry date, no renewal is filed." With that line, the expiry date needs no meeting. Someone reads the number and files or does not.
 
 The part only HQ can do is to make this the global standard rather than a Japan rule. Applied to Japan alone, it reads as a cancellation notice with extra steps, and every sponsor starts defending. Applied everywhere, it questions nobody. Name one person, in the Japan time zone, who can accept or decline a renewal case without a second approval, and the queue clears in days instead of a quarter.
@@ -79,7 +82,7 @@ The part only HQ can do is to make this the global standard rather than a Japan 
 
 Expiry dates are not a way to cut the Japan budget. They are a way to make every programme that continues state, each time, why it continues. Programmes that can say why survive. Programmes that cannot end without anyone being wrong.
 
-The kill decision is probably never coming from Japan. Design for that, and put the ending in place before the start.
+Do not put the stop decision on one person in Japan. Put the ending in place before the start, so that a programme can end without anyone having to say "cancel".
 
 ## Common mistakes
 

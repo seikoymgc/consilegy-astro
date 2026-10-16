@@ -1,7 +1,8 @@
 ---
 title: "Your Japan team will not read the guide. Change the weekly meeting"
-description: "When the Japan team stops updating the CRM, HQ ships a localised guide and another training session. Adoption does not move, because nothing in the local week depends on the record. Here is the change that does work: rebuild the agenda of the meetings that already exist so they can only be built from the CRM."
+description: "When the Japan team stops updating the CRM, HQ ships a localised guide and another training session. Adoption does not move, because nothing in the local week depends on the record. Here is the change that does work: rebuild the agenda of the meetings that already exist so they can only be built from the CRM, down to which lists to open and how to handle exceptions."
 publishedAt: 2026-08-02
+updatedAt: 2026-10-16
 category: adoption
 principle: "Do not add process to make a Japan team adopt a system. Change the input source of the meetings they already hold, so the agenda can only be built from the record."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -25,11 +26,7 @@ What separates those groups is not feature depth. It is whether the data entered
 
 ## Do not add process. The Japan team has no one to run it
 
-The usual HQ fix is a new cadence: a data-hygiene routine, a weekly CRM review, a local admin checklist. Assume it will lapse. A Japan team at entry stage is small, everyone holds two or three roles, and there is no operations owner to sustain a new ritual.
-
-The scarcity is measurable. IPA, an agency under Japan's Ministry of Economy, Trade and Industry, published DX White Paper 2023 (released 9 February 2023; the Japan-US company survey was fielded June to July 2022, with 543 valid responses in Japan and 386 in the United States). Asked whether they had sufficient people to drive digital transformation, 10.9% of Japanese companies said yes, against 73.4% of US companies. "Severely insufficient" was 49.6% in Japan, up from 30.6% the prior year, against 3.3% in the US.
-
-Read that before you assign a local systems owner in your rollout plan. The role you are assuming exists at HQ scale usually does not exist in the Japan entity, and the same survey design was used on both sides, so the gap is not a translation artefact.
+The usual HQ fix is a new cadence: a data-hygiene routine, a weekly CRM review, a local admin checklist. Expect it to lapse. A new ritual needs someone to run it every week, and a Japan team at entry stage is small, with people holding two or three roles. Unless you have named and funded that owner, the meeting survives on the calendar after its content is gone.
 
 So change the input source of three things that already happen, and add nothing.
 
@@ -37,11 +34,23 @@ So change the input source of three things that already happen, and add nothing.
 - Build the weekly sales meeting agenda from the CRM record. A deal that is not in the system does not get discussed.
 - Change the one-on-one from a status check into a review of why a deal did not move, examined as a process problem rather than an individual one.
 
+Do not change all three at once. Start with the weekly sales meeting, and only the first agenda item. Move to the one-on-one once the meeting runs on the record.
+
+## Build the agenda from three saved lists
+
+"Build the agenda from the CRM" means the manager opens three lists the day before the meeting:
+
+- Deals whose stage moved this week
+- Open deals past their expected close date
+- Deals with no next step recorded
+
+The meeting reads them top to bottom. The first list confirms what moved, the second decides whether the forecast changes, the third decides who does what next. How you build each filter depends on the tool and its configuration, but once saved, they are opened, not rebuilt, every week.
+
+Settle the exceptions before week one. Entry closes at the end of the working day before the meeting. If a rep is travelling and cannot update a large deal, their manager or an assistant may enter it for them. What does not happen is a verbal update added to the agenda in the room. Allow it once and the meeting tends to drift back to verbal status the following week.
+
 ## What makes it hold is that the rep, not HQ, is the one inconvenienced
 
 Once the agenda can only be assembled from the record, an unrecorded deal gets no airtime, no manager support and no exception approval. The cost of not updating lands on the person who wants the deal to progress. At that point the guide is unnecessary.
-
-Designing the review rather than relying on discipline shows up in the global data as well. McKinsey (published April 2021, based on a global survey of 2,500 B2B companies; not Japan-specific) reports that sales-growth outperformers are 50% more likely to review and reallocate account priorities monthly rather than annually. The difference is not the calibre of the sellers. It is whether the review is scheduled as a mechanism.
 
 ## The principle
 
@@ -52,6 +61,8 @@ Ask your Japan lead to build the next weekly agenda entirely from the CRM. Whate
 A CRM is not held to tidy information. It is held to fix who decides what, and when, inside the local organisation. The wider frame is in [Japan Market GTM and Messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/).
 
 ## Related reading
+
+Once the meeting runs on the record, how to measure whether adoption is real is covered in [Your Japan adoption number is green because it counts logins, not decisions](/en/articles/adoption-metric-is-not-login-rate/). This note is about building the agenda; that one is about measuring whether it was built from the record.
 
 If changing the meeting still does not move the data, the problem is upstream: read [why Japan CRM adoption stalls](/en/articles/why-sfa-adoption-fails/), which covers what the CRM has to return to the person entering it.
 

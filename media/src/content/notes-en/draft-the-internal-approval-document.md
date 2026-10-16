@@ -2,8 +2,9 @@
 title: "In Japan, your champion cannot write the business case. Write it for them."
 description: "Headquarters tells the Japan team to have the champion build the internal business case. In Japan that document is a ringi, it circulates to people your reps will never meet, and your champion has never written one for a product like yours. Here is what to hand over instead, and which CRM fields to add."
 publishedAt: 2026-08-13
+updatedAt: 2026-10-16
 category: japan-gtm
-principle: "Japanese deals stall because the buyer has nothing to paste into their internal approval document. Ship a Japanese-language draft as a sales deliverable, and track it as a field on the deal."
+principle: "Many Japanese deals stall because the buyer has nothing to paste into their internal approval document. Ship a Japanese-language draft skeleton the buyer can fill with their own numbers, and track it on the deal record."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -13,7 +14,7 @@ Your Japan rep reports a strong meeting. The evaluator loves the product. Headqu
 
 Three months later nothing has been submitted. The rep says the customer is still preparing the paperwork, and the deal quietly ages out.
 
-Your champion is not stalling. Your champion is being asked to author a document they have never written before, for a product they have owned for six weeks, in a format your company has never given them.
+Some deals die of budget freezes or shifting priorities. But in many, your champion is not stalling. Your champion is being asked to author a document they have never written before, for a product they have owned for six weeks, in a format your company has never given them.
 
 ## The unit of decision in Japan is a document, not a meeting
 
@@ -27,33 +28,43 @@ The second figure is the one headquarters never sees. The groundwork happens **b
 
 ## The people who stop the deal are people your reps cannot reach
 
-A survey by ProFuture and Macromill of 103 B2B marketing professionals, conducted 3 to 4 February 2026, asked which departments are hardest to reach from outside. The top three were corporate planning (29.1%), IT (27.2%), and HR and general affairs (23.3%). Finance and legal followed.
+A survey by ProFuture and Macromill of 103 B2B marketing professionals, conducted 3 to 4 February 2026, asked which departments are hardest to reach from outside. The respondents are sellers describing their own reach, not buyers describing their approval routes, so read this as supporting colour rather than a map of who blocks a ringi. The top three were corporate planning (29.1%), IT (27.2%), and HR and general affairs (23.3%). Finance and legal followed.
 
 In many markets those functions are consulted. In a ringi they are on the routing path. Their objection does not surface in your discovery call, it surfaces as a document that comes back to your champion with a comment, weeks later, without ever reaching your rep.
 
-The same survey found only 9.7% of companies feel they reach decision-making executives directly. That study has a small sample, 103 respondents, and was published by a company that sells media access to executives, so treat the figure as directional. The operating conclusion holds regardless: design the deal on the assumption that your reps will not be in the room when it is decided.
+The same survey found only 9.7% of companies feel they reach decision-making executives directly. That is again a seller-side self-assessment with a small sample, 103 respondents, published by a company that sells media access to executives, so treat the figure as directional. The operating conclusion holds regardless: design the deal on the assumption that your reps will not be in the room when it is decided.
 
 ## What to hand over
 
-Not a translated deck. A Japanese-language draft at paste-in granularity, covering four things in the order objections arrive:
+Not a translated deck, and not a finished document either. In the second wave of a joint survey by IDEATECH and Hiroyasu Kitagawa (fielded 25 to 26 May 2026, 330 valid responses, online panel), buyers named the ROI calculator as the most useful decision material at 55.4%. "Approval application support material" scored 14.2%. A polished approval text does not get used just because you wrote it. What gets used is material the buyer can rerun with their own numbers. Read those figures as rank order, not precision.
+
+So hand over a Japanese-language skeleton at paste-in granularity, with blanks for the customer's own figures, covering four things in the order objections arrive:
 
 1. **The cost of doing nothing**, in the customer's own numbers. This goes before the benefit case
 2. **The alternatives considered and why they were excluded.** Japanese procurement expects a comparison. If your champion has to assemble it alone, the document comes back
 3. **Anticipated objections and the answers**, written for IT security, legal terms, and payment conditions. These are the departments above
 4. **Days to go live and the hours required from the customer's side.** Left blank, approvers assume the worst case
 
-Localisation here is not translation. A ROI slide built for a single economic buyer does not survive being pasted into a form that five people read in sequence.
+Localisation here is not translation. A ROI slide built for a single economic buyer does not survive being pasted into a form that several departments read in sequence.
 
-## Four fields, and one question your forecast is missing
+## Two new fields, and one question your forecast is missing
 
-Make the handover visible on the deal record rather than in the rep's head:
+Make the handover visible on the deal record rather than in the rep's head. Most of it does not need a new field. Every field you add is more typing for the rep.
 
-- **Internal approval support**: draft delivered, or not
-- **Business case / ROI material sent**: which assets, in Japanese
-- **Decision deadline**: the customer's internal deadline, not your quarter end
-- **Champion support level**: is the evaluator now the person carrying it upward
+| What to track | Where and how | Who enters it | When it is required |
+|---|---|---|---|
+| How far the approval has climbed | No new field. Use the single approval-progress field on the deal: frontline agrees / manager approved / executive approved / decision final | Deal owner | When the deal moves into the approval stage |
+| What to confirm with the customer next | No new field. Write it in the standard next-step field | Deal owner | Updated after every exchange with the customer |
+| Decision deadline | New date field: the customer's internal deadline, not your quarter end | Deal owner, asked of the customer | When the deal moves into the approval stage |
+| Champion support level | New picklist: shares information / explains it internally / will submit the ringi | Deal owner proposes, manager checks in the weekly deal review | When the deal moves into the approval stage |
+| Business case / ROI material sent | No new field. The email and attachment activity log covers it | Deal owner | When sent |
+| The draft skeleton itself | No new field. Attach it to the deal; whether it was delivered is visible from the attachment | Deal owner | When delivered |
 
-The third field is the one that changes forecasting. Headquarters asks the Japan team for a close date, and receives a date derived from your fiscal calendar. The date that governs the outcome is the customer's budget cycle and the submission deadline inside their approval process. Nobody has asked for it.
+Do not create a separate approval-status field for the ringi handover. The same approval held in two fields means one of them goes stale. How the approval-progress field feeds the forecast is covered in [Forecast your Japan pipeline on approval progress, not rep confidence](/en/articles/forecast-by-approval-not-confidence/).
+
+Neither of the two new fields can be answered when the deal is created, so require them as stage-exit criteria, not at creation.
+
+The decision deadline is the one that changes forecasting. Headquarters asks the Japan team for a close date, and receives a date derived from your fiscal calendar. The date that governs the outcome is the customer's budget cycle and the submission deadline inside their approval process. Nobody has asked for it.
 
 ## For headquarters
 
@@ -63,9 +74,9 @@ Three actions.
 
 **Add the fields before the next quarter, not after the post-mortem.** Deals lost this way are recorded as timing or budget, so the pattern never reaches the executive summary.
 
-**Change the question in the pipeline review.** Instead of asking how confident the rep is, ask how many of the open Japan deals have had an approval draft delivered. If the answer is none, the deals are not stalled inside the customer. They are stalled at your handover.
+**Change the question in the pipeline review.** Instead of asking how confident the rep is, ask how many of the open Japan deals have an approval draft attached. If the answer is none, before blaming the customer's budget or priorities, you still have at least one move of your own left.
 
-**Japanese deals stall because the buyer has nothing to paste into their internal approval document. Ship a Japanese-language draft as a sales deliverable, and track it as a field on the deal.**
+**Many Japanese deals stall because the buyer has nothing to paste into their internal approval document. Ship a Japanese-language draft skeleton the buyer can fill with their own numbers, and track it on the deal record.**
 
 ## Related reading
 

@@ -2,6 +2,7 @@
 title: "A weekly Japan pipeline review with a monthly agenda changes nothing"
 description: "Headquarters tightens the marketing and sales cadence for Japan, and the numbers stay flat. The problem is not frequency. A rollup of MQLs and SQLs has no field for the thing that actually decides Japanese deals, which is the weeks when nothing visible happens."
 publishedAt: 2026-09-09
+updatedAt: 2026-10-16
 category: marketing
 principle: "Change what the meeting opens, from a regional rollup to one live deal neither team can explain on its own. Cadence then follows from whether that deal is still open when you meet."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -35,7 +36,11 @@ Neither of those is checkable from a rollup. Whether the information on a lead w
 
 Take the first fifteen minutes. Put two deals on screen that are still open.
 
+Marketing brings one and sales brings one. The rule: handed over since the last meeting, and the stage has not moved. Because each side brings a deal in turn, it is harder for the session to become a hearing against one team. What gets examined is the path the deal took, not the person who owned it.
+
 Marketing walks the path in: what the person read, what they downloaded, what state the record was in at handover. Sales continues it: what was sent, what came back, where it is sitting now. One record, in order, in front of both.
+
+If both teams work in the same CRM, that is one screen. If marketing automation and sales sit in different tools, Marketo and Salesforce for example, whether marketing's touch history shows on the opportunity depends on the sync configuration. Check that first, and if it does not, open the two screens side by side.
 
 For the first several sessions you will not reach tactics. What surfaces is definitional. The state marketing calls a qualified opportunity is not the state sales calls one, and both regional numbers were internally correct the whole time. That mismatch is invisible in aggregate and obvious in a single record.
 
@@ -47,7 +52,9 @@ Monthly, the deals available to open are mostly the ones that already closed. Re
 
 The test for cadence is whether you can still open something whose outcome is not yet fixed. In Japan that test is easy to pass, given evaluation periods of 3 to 8 months. Deals survive the gap between meetings comfortably.
 
-So weekly is not about speed. It is that at one meeting a month, two records fill the entire agenda.
+So cadence is not about speed. It is about how many deals worth opening accumulate. Each session uses fifteen minutes for two deals, which a monthly meeting can also find.
+
+The condition is one line. If at least two deals meeting the rule above build up every week, go weekly. If only two appear in a month, weekly meetings drift back to explaining rollups. In between, every other week is enough.
 
 **Change what the meeting opens, not how often it happens. One live deal neither team can explain on its own is worth more than a quarter of rollups.**
 

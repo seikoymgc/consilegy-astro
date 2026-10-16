@@ -2,6 +2,7 @@
 title: "Brand awareness is rarely why your Japan pipeline is flat"
 description: "Flat Japan pipeline gets read as low brand awareness, and the budget follows. But two different losses hide inside that one word, and in Japan the second one never reaches your local reps or your CRM. Here is how to tell them apart before you fund the wrong one."
 publishedAt: 2026-08-27
+updatedAt: 2026-10-16
 category: marketing
 principle: "Awareness is a hypothesis until you have counted the deals where you made the Japanese shortlist and were cut from it. Split the losses first, then decide whether the problem is reach or resolution."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -43,9 +44,13 @@ Neither of those moves with media spend. You would be sending more people to the
 
 ## Split the losses before you size the budget
 
-Open last quarter's Japanese losses and non-responses, and sort them by whether the buyer named you first or you named yourself. That single test separates reach from resolution well enough to act on.
+One caveat first: your loss data can only show half of this. A buyer who cut you after talking to your rep is in the closed-lost list. A buyer who cut you before ever contacting you is not in your CRM at all. So you need two instruments.
 
-If resolution is the bigger pile, rebuild the Japanese case library by company size crossed with industry rather than by industry alone. In the same survey, industry-specific information was decisive for 16.9% of buyers and reinforced the decision for another 45.6%, so 62.5% were influenced by it. A translated wall of global enterprise logos does not answer the question a Japanese buyer is actually asking, which is whether a company shaped like theirs solved this.
+For the half you can see, open last quarter's Japanese losses and non-responses, and sort them by whether the buyer named you first or you named yourself. Named you first means you were on the shortlist; you named yourself means you were not. If your lead source field (Original Source in HubSpot, Lead Source in Salesforce) already separates inbound from rep-sourced, use it. If not, add one picklist to the deal. The answer is known at the first meeting, so it costs the Japan team almost nothing to fill.
+
+For the half you cannot see, estimate it from outside the loss list. In marketing automation, count Japanese companies that downloaded material or viewed the pricing page and never became an opportunity. And ask won and lost Japanese customers how many vendors they first listed and where they heard of each. Together these give you a rough size for the buyers who shortlisted you and never called.
+
+If resolution is the bigger pile, have the Japan marketing owner rebuild the Japanese case library by company size crossed with industry rather than by industry alone. In the same survey, industry-specific information was decisive for 16.9% of buyers and reinforced the decision for another 45.6%, so 62.5% were influenced by it. A translated wall of global enterprise logos does not answer the question a Japanese buyer is actually asking, which is whether a company shaped like theirs solved this.
 
 If reach is the bigger pile, then fund reach, but not into last year's channels. The same survey found 91.2% of buyers used generative AI or AI search during evaluation, mostly for comparison and price research. The place where Japanese shortlists get assembled has moved. Most media plans have not.
 
@@ -56,6 +61,7 @@ This is the same work as getting your [Japan GTM and messaging](https://consileg
 ## Common mistakes
 
 - **Funding awareness because pipeline is flat.** Flat pipeline is consistent with both losses. Size the budget after you split them, not before.
+- **Treating the closed-lost list as the whole picture.** It only holds the buyers who reached a rep. The ones who cut you earlier show up, if at all, as engaged accounts in marketing automation that never became opportunities.
 - **Translating the global case studies and calling it localisation.** The buyer is checking for a company of their size in their industry. A translated US enterprise logo answers neither.
 - **Reading "we had never heard of you" as evidence.** In Japan it is also a polite way to end a conversation. Weigh what the buyer did over what they said on the way out.
 

@@ -2,6 +2,7 @@
 title: "How to Get a Japanese Ringi Approved: Three Sales Materials"
 description: "Getting a ringi approved means giving each approver a case they can defend under their own name. For HQ and Japan teams: the three materials sales should prepare (comparison, quote, draft), with four Japanese surveys."
 publishedAt: 2026-10-07
+updatedAt: 2026-10-16
 category: sales
 principle: "A ringi is approved by people who can explain the decision, not by people who were persuaded. Sales prepares three materials (a comparison, a quote with its moving conditions, and a draft case) that the buyer can use as written."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -44,8 +45,6 @@ The first is time spent in a room sales never joins. A separate survey by Profes
 
 Your CRM records none of that groundwork. The stage reads "proposal sent" for a month, then two.
 
-One overseas figure, for contrast. Ebsta and Pavilion's 2024 B2B Sales Benchmarks (4.2 million deals, 530 companies; an overseas dataset, not Japanese) put "indecision" behind 61% of lost deals. Japan's approval structure makes that pattern plausible in the direction, though not in the size.
-
 ## A comparison should be something the buyer can defend
 
 The buyer does not use your comparison to compare. They compared before you arrived. In the first wave, about 90% had listed multiple vendors before serious contact with sales, and the purchasing process was on average about 40% complete by the time sales was involved. Asked what had not influenced their purchase decision, 46.2% in the second wave named feature comparison tables, second only to generic industry trend reports at 49.5%.
@@ -56,13 +55,13 @@ What gets used turns the table around. Put the buyer's own requirements in the r
 
 ## A quote fixes the amount the approver will see
 
-The question behind "quote" and "discount" is usually not the size of the discount. A quote fixes the amount that goes into the buyer's ringi.
+Before you think about the size of the discount, be clear what the quote does. A quote fixes the amount that goes into the buyer's ringi.
 
 In the second wave, price and cost was the top factor when choosing a vendor, at 58.5% (up to three choices). Yet the item buyers found hardest to judge on their own before talking to sales was "estimating the operating load after adoption" at 56.3%, with ROI estimation third at 41.5%. They decide on price but cannot compute the total.
 
 Send a quote early and the minimum-configuration number stays in the buyer's company. Requirements settle, the scope grows, you reissue, and internally it reads as a price increase. Finance (38.2%), legal (33.2%), and procurement (32.0%) were among the specialist functions involved (multiple answers), and they remember the first number.
 
-So before the quote, hand over not the amount but the conditions that move it: what is added, and what that does to the price. [Why your 30-day quote expires inside Japan's approval cycle](/en/articles/quote-timing-one-step-later/) sets out the order. In the CRM, keep the quote amount, configuration, discount, term, sent date, and expiry on the deal, keep the quote amount equal to the deal amount, and route exceptions to an approval flow.
+So before the quote, hand over not the amount but the conditions that move it: what is added, and what that does to the price. [Why your 30-day quote expires inside Japan's approval cycle](/en/articles/quote-timing-one-step-later/) sets out the order. In the CRM, keep the quote amount, configuration, discount, term, sent date, and expiry on the deal, keep the quote amount equal to the deal amount, and route exceptions to an approval flow. In Salesforce, a quote synced to the opportunity plus an approval process does this job. HubSpot also has quotes and approvals, but availability depends on edition and configuration, so check your own subscription before you design around it.
 
 ## The draft case should be a frame the buyer can change numbers in
 
@@ -72,7 +71,7 @@ One result surprised me. In the second wave, the most helpful content was an ROI
 
 Buyers used what let them move the numbers themselves more than a finished ringi text. They do not want to be persuaded. They want to build the number. This is a panel survey ranking, so treat it as a tendency.
 
-Put four items in the draft, in the order objections appear: what continues if they do nothing; which vendors were compared and why others were dropped; expected objections with answers (IT security, legal terms, finance payment terms); and days to go live with the buyer's own workload. Leave editable cells for the numbers. The steps are in [In Japan, your champion cannot write the business case. Write it for them.](/en/articles/draft-the-internal-approval-document/).
+Put four items in the draft, in the order objections appear: what continues if they do nothing; which vendors were compared and why others were dropped; expected objections with answers (IT security, legal terms, finance payment terms); and days to go live with the buyer's own workload. Leave editable cells for the numbers. How to write each of the four, and how to record what was handed over, is in [In Japan, your champion cannot write the business case. Write it for them.](/en/articles/draft-the-internal-approval-document/).
 
 ## Each material answers one question the approver asks
 
@@ -90,9 +89,9 @@ A missing material does not disappear. It becomes homework for your champion.
 
 ## Record progress in the CRM, with the buyer's own deadline
 
-Record whether each material was handed over. In Consilegy's CRM design, approval support is its own workflow, and each deal keeps approval support status, materials sent, ROI hypothesis, the buyer's internal deadline, and champion support level.
+Record whether each material was handed over. Which fields to create, and who fills them when, is laid out in a table in the draft-case note above. One point here: the field most often empty is the buyer's internal deadline. Your own quarter-end is in the CRM, but nobody has asked about the buyer's budget cycle or ringi deadline.
 
-The deadline is the field most often empty. Your own quarter-end is in the CRM, but nobody has asked about the buyer's budget cycle or ringi deadline. Track who approves and how far the approval has progressed on a separate axis from sales stage, as in [Forecast your Japan pipeline on approval progress, not rep confidence](/en/articles/forecast-by-approval-not-confidence/), and the stall becomes visible.
+Track who approves and how far the approval has progressed on a separate axis from sales stage, as in [Forecast your Japan pipeline on approval progress, not rep confidence](/en/articles/forecast-by-approval-not-confidence/), and the stall becomes visible.
 
 When an approval stalls, the first thing to look at is not the champion's enthusiasm. It is which of the three materials has not been handed over yet.
 
@@ -104,7 +103,7 @@ That every approver has material they can explain under their own responsibility
 
 ### When should we send a comparison table in Japan?
 
-Once you know you are on the final shortlist. In the 2026 IDEATECH and Kitagawa survey (n=307), about 90% listed multiple vendors before sales contact. Sending one in the first meeting sets the contest on feature count, where "missing features" is already the top reason for dropping a vendor at 39.1%.
+Ask about the comparison in the first meeting; send the table once you know you are on the final shortlist. In the 2026 IDEATECH and Kitagawa survey (n=307), about 90% listed multiple vendors before sales contact. In the first meeting, ask only who else they are looking at and on what criteria. Sending a table then sets the contest on feature count, where "missing features" is already the top reason for dropping a vendor at 39.1%.
 
 ### What should we do when a buyer asks for a discount on the quote?
 

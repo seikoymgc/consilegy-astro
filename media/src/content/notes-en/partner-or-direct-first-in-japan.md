@@ -2,6 +2,7 @@
 title: "Distributor or direct: choosing your Japan entry model"
 description: "HQ frames Japan entry as a channel question: distributor first, or hire a country manager and go direct. Japanese government survey data shows what foreign-affiliated companies actually do, why the global partner list is only the third door in Japan, and why the real decision is whether the record of each deal reaches your CRM."
 publishedAt: 2026-08-10
+updatedAt: 2026-10-16
 category: japan-gtm
 principle: "Decide Japan's entry route not by which one produces revenue first, but by which one puts the reason a deal stalled into your own record."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -34,7 +35,7 @@ The most common content of those collaborations is joint marketing and channel d
 
 Your global partner programme is built around a motion where somebody resells your licence and implements it for a margin. In Japan, the arrangement that shows up most often in the data is a commercial partner who opens the market with you, not one who resells you. If your Japan plan starts by asking which distributor to appoint, you have narrowed the field before you have looked at it.
 
-One caveat on a number HQ will want to quote. Among companies running a collaboration, 57.0% grew revenue year on year (n=270), against 52.0% for those considering one (n=150) and 45.9% for those doing neither (n=796), with the full sample at 48.7%. That is a correlation. Companies already growing find it easier to attract Japanese counterparties, and the same figures support that reading equally well.
+One caveat on a number HQ will want to quote. Among companies running a collaboration, 57.0% grew revenue year on year (n=270), against 45.9% for those doing neither (n=796). That is a correlation, and growing companies find it easier to attract counterparties, so do not use it to justify the entry decision.
 
 ## Your global partner list is the third door in Japan, not the first
 
@@ -66,11 +67,17 @@ Change the criterion. For the first ten Japanese deals, ask whether these three 
 
 **2. The loss reason, at the granularity the buyer used.** Partner-reported losses compress into "budget" and "timing" almost every time. A quarter of that reporting tells you nothing you can act on. Japanese buyers drop vendors for reasons that are specific and fixable, and none of them survive that compression.
 
-**3. One counting rule for partner-registered and direct deals.** If partner deal registration and your own opportunities are not reconciled from day one, the same Japanese company appears twice, regional pipeline inflates, and nobody can say which route produced the revenue. This is the failure that shows up latest and costs most, because the numbers look fine until the forecast misses.
+**3. One counting rule for partner-registered and direct deals.** If partner deal registration and your own opportunities are not reconciled from day one, the same Japanese company appears twice, regional pipeline inflates, and nobody can say which route produced the revenue. This is the failure that shows up latest and costs most, because the numbers look fine until the forecast misses. If a global partner under an HQ agreement is also working the same Japanese accounts, the rule has to say whose registration wins and who gets paid.
 
 If all three land, start with a partner and take the speed. If none of them land, the partner route will produce revenue and zero market knowledge, and you will enter year two with a bigger number and the same understanding you had at the start.
 
-The implementation is small. Add eight fields before the first partner deal, not after: referral source, referring individual, referral type, referral date, commission eligibility, partner-side owner, status, and the linked opportunity. Then make the loss reason and the approval stage reached a contractual deliverable in the partner agreement rather than a favour you ask for quarterly.
+The heavy part is not your CRM. It is getting the partner to write the record, and giving them a reason to. Partners do not work inside your CRM. Decide three things before the first partner deal:
+
+- **Who enters what, where.** Give the partner a way to register deals and update the stage reached and the loss reason: a partner portal or a shared registration form. Which of these you have depends on your tool and edition.
+- **What the contract says.** Make registration and those two updates an obligation in the partner agreement rather than a favour you ask for quarterly.
+- **What they get in return.** Japanese resellers are often reluctant to hand customer information to the vendor. Offer terms that make reporting pay: registered deals are protected as theirs, and only deals with current updates are commission-eligible. If you cannot get this through the negotiation, assume the record will not arrive, and lean towards going direct.
+
+On your side, add six fields to partner-sourced deals: referring partner, referring individual, referral type, referral date, commission eligibility, and partner-side owner. Status lives in the deal stage, and the partner relationship is an association between the deal and the partner's company record, not a field. Stage reached and loss reason use the same fields as direct deals.
 
 One more reason to treat your own first ten deals as the dataset: there is no published Japanese primary data on the success or exit rate of foreign software companies entering Japan. Japan's Ministry of Economy, Trade and Industry discontinued its survey of foreign-affiliated companies after fiscal 2020, and nothing has replaced it. Benchmarking this decision against peers is not available to you.
 

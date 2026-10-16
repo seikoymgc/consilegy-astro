@@ -2,6 +2,7 @@
 title: "Who should own your Japan CRM rollout (not the power user)"
 description: "HQ asks the Japan entity to nominate a local CRM owner, and the nomination goes to whoever is most comfortable with the system. Six months later Japan has the worst data of any region. The constraint is not skill. It is that the ops function HQ assumes exists does not exist locally, and admin rights are not the lever in a Japan entity."
 publishedAt: 2026-08-16
+updatedAt: 2026-10-16
 category: adoption
 principle: "In a Japan entity, give the CRM owner agenda ownership of the local review and written authority to retire global fields. Admin rights without either produce a compliant record that nobody uses."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -37,7 +38,7 @@ Corporate planning, *keiei kikaku*, is the department that builds the numbers th
 
 **Written authority to retire fields for the Japan entity.** A Japanese local owner will not delete a field that a global team asked for. They will keep it and fill it, and the values will be technically present and analytically worthless. HQ then reads Japan as low-quality data when Japan is being compliant. The authority has to come from HQ in writing, because the local owner cannot grant it to themselves.
 
-**What they do not need is deeper product knowledge.** Tool knowledge transfers in two weeks. Authority does not transfer at all, and six months spent with the wrong person costs a full ramp year.
+**What they do not need is deeper product knowledge.** Configuration skill can be supplied from the side, by the system administrator or an implementation partner. Authority cannot be supplied by anyone else, and six months spent with the wrong person costs a large part of the ramp year.
 
 ## What to do before the next quarter
 
@@ -45,7 +46,7 @@ Name what the person stops doing, in the entity's plan, by task and by who picks
 
 Give the same person the agenda of the Japan review, not only the admin seat.
 
-Grant field-retirement rights for the Japan instance in writing, with a quarterly note back to the global CRM owner. If your global change process runs on a six-week cycle, exempt the Japan entity for its first four quarters. The entire ramp is four quarters long, and a six-week queue consumes it.
+Grant field-retirement rights for the Japan instance in writing, with a quarterly note back to the global CRM owner. Separate the decision from the deletion: the local owner decides, and the system administrator checks what references the field (reports, workflows, validation rules, integrations with ERP or marketing automation) before removing it. User provisioning and permissions can stay with the administrator. If your global change process runs on a six-week cycle, exempt the Japan entity for its first four quarters. The entire ramp is four quarters long, and a six-week queue consumes it.
 
 **In a Japan entity, give the CRM owner agenda ownership of the local review and written authority to retire global fields. Admin rights without either produce a compliant record that nobody uses.**
 

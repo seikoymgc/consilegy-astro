@@ -2,6 +2,7 @@
 title: "Forecast your Japan pipeline on approval progress, not rep confidence"
 description: "Every deal in your Japan pipeline looks positive, yet the quarter slips again. The cause is not weak local reps. It is that confidence is set by the rep's read of a buyer who cannot approve anything. Add a second axis that tracks how far the approval has climbed, and define which deals leave the forecast before the quarter closes."
 publishedAt: 2026-07-30
+updatedAt: 2026-10-16
 category: sales
 principle: "Forecast on approval progress, not on rep confidence. Run a second axis that tracks whose yes is still missing, and write the exclusion rule before the quarter closes."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -21,7 +22,7 @@ In a survey by ProFuture and Macromill conducted on 3 and 4 February 2026 (n=103
 
 In the same survey, only 9.7% said they were reaching decision-makers adequately.
 
-Budget is up, leads are up, and the person who signs has not been reached. Your CRM says "in negotiation." Nothing has moved inside the account.
+Budgets are holding or rising, and the person who signs has not been reached. Your CRM says "in negotiation." Nothing has moved inside the account.
 
 ## In Japan, the gap between evaluator and approver is structural
 
@@ -29,7 +30,7 @@ A joint survey by IDEATECH and Hiroyasu Kitagawa (published April 2026, n=307, l
 
 The functions involved are information systems at 45.6%, the business unit at 37.5%, and corporate planning at 29.0%.
 
-Your champion's yes is one of four, and headquarters is reading it as the deal.
+Your champion's yes sits below those layers. With two layers of approval, two more people still have to say yes, and headquarters is reading the first one as the deal.
 
 ## Add the second axis
 
@@ -39,7 +40,11 @@ Define the approval ladder as stages your local team can observe: the working le
 
 Take the lower of the two. A deal at 90% sales confidence sitting at "department head approves" is carried at that rung's weight, not at 90%. That single rule stops the higher number from setting the forecast.
 
-Write the exclusion rule down before you need it: a deal that has not reached executive approval is not in this quarter's commit. It stays in the pipeline, and it stays in the weighted forecast at its rung's weight. It only leaves the commit.
+Write the exclusion rule down by deal size, before you need it. If every deal must reach executive approval, deals small enough for a department head to sign drop out of the commit for no reason. Set the required rung per deal-size band (this band closes at department head, this one at executive), then write: a deal that has not reached the rung its size requires is not in this quarter's commit. It stays in the pipeline, and it stays in the weighted forecast at its rung's weight. It only leaves the commit. If your CRM has forecast categories, express the rule there: below the required rung, never Commit.
+
+Decide who updates the axis and when. The rep updates the approval rung on the same screen when moving the sales stage, and the manager checks rung and evidence in the weekly forecast call. That adds one field for the rep, so look for an optional field you can retire at the same time.
+
+Switch at the start of a quarter. Changing the logic mid-quarter breaks the comparison with past forecast accuracy. For the first quarter, report the confidence-based number and the approval-based number side by side, check which landed closer, and only then retire the old one.
 
 ## Stalled deals do not come back
 

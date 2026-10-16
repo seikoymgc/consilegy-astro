@@ -2,6 +2,7 @@
 title: "When Japan reports a campaign is working, ask what has closed since"
 description: "Japan sends a positive monthly update, HQ funds the next quarter, and the pipeline never follows. Japanese survey data (n=432) on why a monthly read on a market where 36.8% of purchases run past three months can only be answered with inlet metrics."
 publishedAt: 2026-09-13
+updatedAt: 2026-10-16
 category: data
 principle: "A Japan update can claim effect only when at least one deal downstream of the number has closed, won or lost. Before that, the honest claim is that response increased. An effect declared on inlet metrics gets corrected a quarter later, and the correction reads as the local team having overstated."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -33,7 +34,7 @@ The second reason Japan reports at the inlet is that the outlet numbers are not 
 
 In the same study, the metrics tracked regularly (multiple answers) were led by site sessions and pageviews at 38.4% and enquiry volume at 33.8%. New booking value sat at 15.0%, SQLs at 14.8% and LTV at 7.9%. Separately, 62.0% said they experience numbers looking good without commercial follow-through (16.7% often, 45.4% sometimes).
 
-Goal attainment in that sample fell through the funnel: lead acquisition 67.8% and MQL 65.3%, against SQL 59.0%, new opportunities 57.2% and new bookings 57.9%.
+Goal attainment (the share of companies at or near target, not a conversion rate) fell through the funnel: lead acquisition 67.8% and MQL 65.3%, against SQL 59.0%, new opportunities 57.2% and new bookings 57.9%.
 
 The sharpest item is what happens after handoff. Companies that share outcomes including won and lost reasons reported 82.1% attainment on new bookings. Where sharing stops at whether sales followed up, attainment was 54.3%. That is a correlation, not a causal finding, and the reverse reading holds as well: companies already hitting numbers have the slack to run a feedback loop.
 
@@ -45,7 +46,13 @@ Two Japan-specific frictions make this worse. Local teams rarely volunteer "no e
 
 One question settles whether an update is reporting effect or response: of the increase, how many deals have closed, won or lost.
 
-If the answer is zero, the update should say response increased. Not as a demotion, but so the reader can see it is pre-verdict. If the answer is one or more, ask for the lost ones with reasons attached. Counting only wins hides the block of losses the same campaign produced.
+Counting that requires knowing which leads and deals came from the campaign: a campaign or source field attached at entry. Who attaches it and when is covered in [Japan will not cancel a programme. Give each an expiry date](/en/articles/campaigns-expire-unless-renewed/). Leave historical records without the link out of the count, and count only from the date the link started.
+
+If the answer is zero, the update should say response increased. Not as a demotion, but so the reader can see it is pre-verdict.
+
+One closed deal is not effect either. Ask for three numbers side by side: deals closed, the won/lost split, and deals still open. Early closures skew toward early disqualifications, so on a product with a three-month-plus cycle, a monthly count of closed deals alone makes the loss rate look worse than it is. The open count keeps that visible. Set the floor for calling it effect in advance, against your normal win rate.
+
+Ask for the lost ones with reasons attached. Counting only wins hides the block of losses the same campaign produced. If the reasons are free text or "other", fix the loss-reason picklist first.
 
 Two approaches that looked better than they worked.
 

@@ -2,6 +2,7 @@
 title: "Your Japan adoption number is green because it counts logins, not decisions"
 description: "HQ sees Japan at 90%+ weekly active users and calls the rollout a success, while the regional forecast still has to be collected verbally. Login and active-user metrics count the screen being opened, not what was decided from it. Here is what to measure instead in a Japan entity."
 publishedAt: 2026-08-09
+updatedAt: 2026-10-16
 category: adoption
 principle: "Measure Japan adoption by the number of decisions produced from the record and by how stale the record is, not by how often it was opened."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -17,9 +18,11 @@ Both are true at once, and they are not in tension. An active-user or login metr
 
 ## Ask whether the tool is used in Japan and almost everyone says yes
 
-Any metric built on usage will pass in Japan. Local teams comply with instructions from HQ, so a compliance-shaped metric returns a compliant number.
+Almost any metric built on usage will pass in Japan. Local teams comply with instructions from HQ, so a compliance-shaped metric returns a compliant number.
 
-A survey by Keywalker (fielded 8 to 10 October 2025, published 11 November 2025, online panel survey run by PRIZMA, n=1,034, frontline staff and managers in sales departments at Japanese companies that have already deployed an SFA, CRM or BI tool; Keywalker sells BI implementation services, so read it as a vendor survey) asked what people actually use their dashboards for. Only 2.2% of managers and 1.9% of frontline staff said they hardly use them at all. On a usage metric, 98% of the Japanese market passes.
+There is no published Japanese study of login rates as such. The closest evidence is people being asked whether they use the tool.
+
+A survey by Keywalker (fielded 8 to 10 October 2025, published 11 November 2025, online panel survey run by PRIZMA, n=1,034, frontline staff and managers in sales departments at Japanese companies that have already deployed an SFA, CRM or BI tool; Keywalker sells BI implementation services, so read it as a vendor survey) asked what people actually use their dashboards for. Only 2.2% of managers and 1.9% of frontline staff said they hardly use them at all. On a usage metric, 98% of the Japanese market passes. That is self-report rather than telemetry, but it behaves the way a login rate does: ask whether the screen gets opened and nearly everyone says yes.
 
 What that 98% is doing is the part HQ does not see. The question allowed multiple answers, so the figures below sum to more than 100%.
 
@@ -43,13 +46,13 @@ The consequence is specific: the region where your adoption metric looks best ca
 
 ## What to measure instead in a Japan entity
 
-Three replacements. All three can be built from data you already hold.
+Three replacements. The second comes straight out of the CRM. The first and third cannot be pulled from the system: someone has to count them in the meeting, so add one line to the Japan meeting minutes template where the note-taker records both numbers each week.
 
 **1. Agendas that can be built from the record alone.** Count how many items on the Japan weekly sales meeting agenda could be assembled from the CRM without asking a rep. An item that requires a verbal answer is an item the record did not support.
 
-**2. Staleness of open deals.** Count open deals whose last meaningful update is older than seven days, as a count and as a share. A login metric is satisfied by opening the tool daily even if nothing has been updated for a fortnight. In the same Keywalker survey, 40.2% said they enter data immediately after each activity, 32.2% at the end of the day, 11.2% a few times a week, 3.9% a few times a month, and 12.5% said they either do not enter it or frequently miss entries.
+**2. Staleness of open deals.** Count open deals whose last human activity is older than seven days, as a count and as a share. Do not use last modified date. In both HubSpot and Salesforce it moves whenever a workflow, an integration or a bulk update writes to the record, so a single running sync makes every deal look fresh. Use a date driven by logged activity instead (Last activity date in HubSpot, LastActivityDate in Salesforce; check in your own instance what updates it, because that depends on configuration), or record the date the next-step field was last changed. A login metric is satisfied by opening the tool daily even if nothing has been updated for a fortnight. In the same Keywalker survey, 40.2% said they enter data immediately after each activity, 32.2% at the end of the day, 11.2% a few times a week, 3.9% a few times a month, and 12.5% said they either do not enter it or frequently miss entries.
 
-Staleness deserves particular weight in Japan because the cycle hides it. The IDEATECH survey found that 63.6% of considerations ran three to eight months, with roughly 40% at six months or more. In a market with a 30-day cycle, a record that has not moved in three weeks is conspicuous. In a six-month Japanese cycle, it looks normal, and a deal that has quietly stopped is indistinguishable from one that is progressing slowly.
+Staleness deserves particular weight in Japan because the cycle hides it. The IDEATECH survey found that 63.6% of considerations ran three to eight months, with roughly 40% at six months or more. In a market with a 30-day cycle, a record that has not moved in three weeks is conspicuous. In a six-month Japanese cycle, it looks normal, and a deal that has quietly stopped is indistinguishable from one that is progressing slowly. So set the threshold by stage. Seven days is reasonable for an active evaluation; a deal waiting on the buyer's internal approval may legitimately sit longer, and needs its own limit.
 
 **3. Deals that progressed outside the record.** Count the deals discussed verbally on the regional call that have no corresponding update in the system. A high count means the record sits outside the decision path, whatever the login rate says.
 
@@ -59,7 +62,7 @@ Entering data without using it is a distinct and measurable state. In a survey b
 
 Of the three, staleness of open deals is the one that changes behaviour, and the reason is structural rather than cultural.
 
-A login rate inconveniences nobody. It reassures the person writing the rollout report. A published count of open deals not updated in seven days inconveniences the rep who owns them, because those deals stop being supportable in the weekly meeting. Adoption moves when the cost of not recording lands on the person who wants the deal to move.
+A login rate inconveniences nobody. It reassures the person writing the rollout report. A published count of open deals with no logged activity in seven days inconveniences the rep who owns them, because those deals stop being supportable in the weekly meeting. Adoption moves when the cost of not recording lands on the person who wants the deal to move.
 
 Choosing the metric is also a statement about why you are asking for the data. In the Keywalker survey, the top driver of willingness to enter data was "the purpose of the entry and how the data will be used is clear" at 54.8%, followed by "my own results and growth become visible" at 40.1% and "what I enter is connected to a KPI" at 36.5%. A region measured on login rate has been told, in effect, that the purpose of the data is supervision.
 
@@ -72,6 +75,8 @@ Before the next regional review, ask your Japan lead to build the whole agenda f
 Getting the local operating model right, rather than shipping the global one and measuring compliance with it, is covered in [Japan Market GTM and Messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/).
 
 ## Related reading
+
+How to build the Japan weekly agenda from the record in the first place, down to which lists to open the day before, is in [Your Japan team will not read the guide. Change the weekly meeting](/en/articles/change-the-meeting-not-the-manual/). This note is the measurement side of the same change.
 
 Once you are counting decisions rather than sessions, the next question is what each number has to reach before anyone acts. That is covered in [before you add another Japan dashboard, write the threshold](/en/articles/threshold-before-dashboard/).
 

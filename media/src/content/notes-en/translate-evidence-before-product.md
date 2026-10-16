@@ -2,6 +2,7 @@
 title: "Localising the product pages first is why your Japan launch produced no inbound"
 description: "The Japan localisation budget goes to the site, the product pages, the datasheets and the UI, in that order. Six months later the Japanese pages exist and inbound is flat. The problem is the order, not the volume. Here is how to sequence what gets localised, using what Japanese buyers say they cannot work out on their own."
 publishedAt: 2026-09-10
+updatedAt: 2026-10-16
 category: japan-gtm
 principle: "Localisation is not translating everything. Decide which questions a Japanese buyer has to answer without your rep in the room, and localise those first. The order comes from the reasons you were dropped."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -39,7 +40,7 @@ Global brand systems tend to be refined by subtraction. Short copy, generous whi
 
 Japanese evaluators want the opposite: specification detail, named precedents, and a clear picture of who operates the thing after go-live and how much of their time it takes. This is not a taste difference. It is the difference between deciding for yourself and having to explain the decision to other people. The buyer can be personally convinced and still stall, because what they can circulate internally is three sentences and a hero image.
 
-On a Japan launch for a global commerce and technology company, the longest part of the work was not translation. It was negotiating with the headquarters brand team about density. The information the Japan side needed to add was classified, in the global design system, as something you do not put on a page. It looked like a translation project and was actually an information design negotiation.
+On a Japan launch for a global commerce and technology company, the longest part of the work was not translation. It was negotiating with the headquarters brand team about density. The information the Japan side needed to add was classified, in the global design system, as something you do not put on a page. It looked like a translation project and was actually an information design negotiation. I cannot give a figure here for how much inbound moved after the order changed on that launch. What I can say is where the time went.
 
 Commission the translation first and that negotiation gets settled by default, in favour of the existing layout. Adding the missing material afterwards is a second budget request, and by then the launch is already being judged on its numbers.
 
@@ -54,6 +55,10 @@ Three steps.
 1. Take the Japanese opportunities lost or shelved in the last quarter and sort the reasons into three buckets.
 2. Localise only the material that answers those three buckets: similar-size references, the headcount and skills needed to operate the product after go-live, and a cost breakdown someone can put in front of finance.
 3. Put the full product catalogue at the back of the queue.
+
+The reasons for step 1 come from two places. Deals lost after your rep engaged carry a loss reason in the CRM. But the loss this note is about happened before engagement, and those buyers never became opportunities. For them, read the free text in inquiry forms, webinar Q&A, the first questions asked in first meetings, and what partners hear in the market. Each shows what the buyer could not confirm on their own.
+
+If the Japan loss-reason field is mostly "other" or blank, it cannot be sorted; fix the picklist first. If the launch is too recent to have even five losses, borrow the loss reasons from other regions and the reasons you lose competitive comparisons, set a provisional order, and replace it as Japanese data accumulates.
 
 Reordering usually reduces total translation spend, because the assumption that everything gets translated is what made the number large.
 

@@ -2,6 +2,7 @@
 title: "In Japan, buyers drop you when no company like theirs is in your case studies"
 description: "Your global customer stories translate cleanly into Japanese and still do nothing. Japanese buyers do not read case studies as proof of value. They read them to check whether a company their size, in their industry, already runs you, and to assemble material for a two-stage approval. Here is the data and the six questions your Japan case studies have to answer."
 publishedAt: 2026-08-12
+updatedAt: 2026-10-16
 category: marketing
 principle: "A case study in Japan is not a story, it is screening material. Localize the questions you ask customers, not just the language of the stories you already have."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -23,19 +24,17 @@ The joint study by IDEATECH and Hiroyasu Kitagawa (Demagen Institute), published
 
 Two findings sit on either side of the same behavior.
 
-Among reasons for dropping a vendor from consideration (multiple answers, n=307): missing functionality 39.1%, "the company did not seem to fit our size" 34.5%, and "there was no company similar to ours in their case studies" 26.4%.
+Among reasons for dropping a vendor from consideration (multiple answers, n=307), "there was no company similar to ours in their case studies" was among the top three, at 26.4%.
 
-Among factors that mattered when the eventual winner was first added to the shortlist (n=298 for this question, up to three answers): "they had a case study from a company similar to ours in size" 44.3%, "the functionality addressing our problem was clear" 40.3%, "they had implementations in our industry" 29.5%.
-
-Industry-specific information, meaning vertical case studies and industry-specific feature explanations, influenced shortlisting for 62.5% of respondents (16.9% "it was the deciding factor" plus 45.6% "it pushed the decision forward").
+Among factors that mattered when the eventual winner was first added to the shortlist (n=298 for this question, up to three answers), "they had a case study from a company similar to ours in size" came first, at 44.3%.
 
 A Japanese buyer opens your case study page to check whether you serve companies like theirs. If the answer is no, that is a disqualification, not a missed opportunity to inspire.
 
 ## Three reasons the global library does not transfer
 
-First, the logos are the wrong evidence. A page of US enterprise names does not read in Japan as "this vendor is credible." It reads as "this vendor sells to companies unlike ours." The 34.5% who drop vendors on perceived size mismatch are reading your customer list as size evidence, and translating it does not change what it says.
+First, the logos are the wrong evidence. A page of US enterprise names does not read in Japan as "this vendor is credible." It reads as "this vendor sells to companies unlike ours." Buyers who drop vendors on perceived size mismatch are reading your customer list as size evidence, and translating it does not change what it says.
 
-Second, the reader is usually not the decision maker. In the same study, 60.9% of deals went through a two-stage approval (department head plus executive), and more than 80% went through two stages or more. The person reading your case study is assembling material for people who will never visit your site. A narrative about transformation does not survive being pasted into a ringi document. Specific figures, headcount, deployment time, and the internal objection that was resolved do survive.
+Second, the reader is usually not the decision maker. In the same study, most deals went through two or more approval stages, typically a department head and then an executive. The person reading your case study is assembling material for people who will never visit your site. A narrative about transformation does not survive being pasted into a ringi document. Specific figures, headcount, deployment time, and the internal objection that was resolved do survive.
 
 Third, global libraries are organized by product or use case. Japanese buyers screen by industry and company size. The same content, reorganized by Japanese industry category and employee-count band, gets found; organized by "Enterprise Automation" it does not.
 
@@ -49,13 +48,15 @@ Do not translate the stories. Commission new ones, and fix the interview questio
 
 3. **The comparison.** How many vendors were evaluated and why each was ruled out. This is the buyer's own selection logic, and readers overlay it on their own comparison sheet.
 
-4. **How it got approved internally.** Who objected, and what evidence resolved the objection. In a market where 80%+ of deals clear two or more approval stages, this is the paragraph that gets reused.
+4. **How it got approved internally.** Who objected, and what evidence resolved the objection. In a market where most deals clear two or more approval stages, this is the paragraph that gets reused.
 
 5. **Time to running.** Days from contract to actual use, and how much of whose time the customer had to commit. When implementation load is invisible, readers substitute their worst assumption.
 
 6. **What stopped.** Which task the team no longer performs. Behavior change travels better than a metric a reader cannot verify.
 
 Agree the publishable level of detail at the start of the interview, not at the end. Many Japanese customers will not allow their name to be used, and HQ often reads "no named logo" as "no case study." That is a false equivalence. An anonymized story that states industry, employee band, seat count, operating department, and deployment days does the screening job. A named logo with no numbers does not.
+
+Questions 3 and 4 are the ones least likely to survive as asked. Japanese customers rarely name the vendors they compared or the person who objected, and PR or legal review will strike both. Agree the substitute wording up front and show it: "two major Japanese vendors and one overseas vendor" for the comparison, "the IT department" rather than a named individual for the objection, and an index (before = 100) in place of raw figures. Asking "could we publish it in this form?" gets a yes far more often than asking for permission in the abstract.
 
 ## What HQ should do differently
 

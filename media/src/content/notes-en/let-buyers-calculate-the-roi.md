@@ -2,6 +2,7 @@
 title: "Give Japanese Buyers an ROI Model They Can Edit Themselves"
 description: "In Japan, buyers struggle to estimate ROI before they ever talk to sales, and the content they find most useful is an ROI calculator. Here is why a model the buyer can edit beats a claim your rep makes in the room, and how to build one for the Japan team."
 publishedAt: 2026-10-10
+updatedAt: 2026-10-16
 category: marketing
 principle: "Do not hand a Japanese buyer an ROI claim. Hand them a model they can fill with their own numbers, with assumptions visible, so they can defend it to approvers you will never meet."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -23,11 +24,13 @@ The content they found most helpful was an ROI calculator, at 55.4%. Case studie
 
 The reasonable reading is that buyers do not want the answer you calculated. They want the means to calculate it.
 
-## Price dominates the stated criteria, and ROI sits inside it
+## Price dominates the stated criteria, and ROI may sit inside it
 
 In the same survey, the top criterion for choosing a vendor (up to three answers) was price and cost at 58.5%. The persuasiveness of ROI was cited by 11.1%.
 
-I would not read that as ROI mattering little. For most buyers ROI is probably not a separate criterion. It is the work of showing that the price is worth paying, so it appears as price. What decides the deal is whether the buyer can justify the price internally, which means the useful thing is material for justifying, not a better argument.
+Read at face value, ROI carries little weight when the vendor is chosen. Yet in the same survey, the most helpful content was an ROI calculator. Both facts stand side by side.
+
+Our hypothesis for connecting them, which the survey did not test: buyers do not weigh ROI as a criterion separate from price. They use it to check whether the price can be justified internally, so it shows up as price. That would explain why "persuasive ROI" is rarely named while a calculator the buyer can run is valued. If the hypothesis holds, material for justifying beats a better argument.
 
 ## A model the buyer owns travels through the approval chain
 
@@ -52,6 +55,8 @@ Ask the Japan team to recall three recent deals and find the moment a buyer aske
 Turn it into a sheet with five inputs or fewer. Decide later whether to publish it or hand it over after the second meeting. Building it usually shows that each rep has been using different assumptions, which is worth knowing before HQ sees the pipeline.
 
 If you want to use a real customer's figures, get their permission first. If you cannot, a blank sheet with the assumptions filled in is enough.
+
+Keep the sheet after you hand it over. When the buyer returns it with their own numbers, attach it to the deal, the same way the approval draft is attached rather than turned into new fields. The conservative-case annual benefit in particular becomes the baseline for checking value after go-live and for the renewal, when the same question gets asked again. Put that number in the handoff note; [What your Japan handoff drops is the reason the contract was approved](/en/articles/handoff-misses-why-it-was-approved/) explains what usually goes missing there.
 
 One caution on the data. The survey was run through IDEATECH's own survey PR service as an online panel. Read the percentages as orders of magnitude and rankings, and do not mix them with the earlier survey, which used a different amount threshold and different questions.
 

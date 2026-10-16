@@ -2,8 +2,9 @@
 title: "Before importing your Japan contact lists, decide three things"
 description: "When a global SaaS company stands up a CRM for its Japan team, someone always says \"just import what we have.\" Japanese business-card and spreadsheet data breaks matching, overwrite and email-consent rules in ways HQ playbooks do not anticipate. Decide these three points before the import, not after."
 publishedAt: 2026-07-31
+updatedAt: 2026-10-16
 category: crm
-principle: "Decide the match key, the overwrite priority and the source-of-record columns before you import. After the load, none of the three can be reconstructed."
+principle: "Decide the match key, the overwrite priority and the source-of-record columns before you import. After the load, fixing any of the three costs many times more."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -19,7 +20,7 @@ Decide three things before the file is touched.
 
 HubSpot Japan's annual survey (published 27 February 2026, n=1,545, commissioned by HubSpot and fielded by Macromill) puts CRM adoption among Japanese sellers at 38.1%, with cloud CRM in the mid-20% range. Neither number has moved much since 2022.
 
-For the other 60%, customer information sits in business cards, individual reps' spreadsheets and event lists.
+The survey measures adoption only, but for the other 60% customer information most likely sits in business cards, individual reps' spreadsheets and event lists.
 
 In the same company's 2024 survey (n=1,545, also fielded by Macromill), 79% of sales organisations reported some difficulty using their data, and 28.1% said data inside the sales department is not properly managed.
 
@@ -33,9 +34,11 @@ One Japanese company arrives written four ways: 株式会社◯◯, (株)◯◯,
 
 Match people on email address and companies on domain.
 
+Japan has domain exceptions to plan for. Group companies often share the parent's domain, so domain-based auto-association pulls a subsidiary's contacts into the parent account. Some companies run several domains by business line. Free-mail domains such as Gmail must be excluded from company matching. Write the exception list before the load.
+
 Business cards without an email address are handled separately by default. If someone merges them by hand because "it is probably the same person," you are left with a merge nobody can reproduce or reverse. Records that cannot be judged by key should not auto-merge; they should become a review task.
 
-There is no published Japanese study of duplicate-record rates in CRM systems, and importing a US benchmark tells you nothing about your file. Count the duplicate rate in your own extract before loading, and you have the only measured number that applies.
+We have not found a published Japanese study of duplicate-record rates in CRM systems, and importing a US benchmark tells you nothing about your file. Count the duplicate rate in your own extract before loading, and you have the only measured number that applies.
 
 ## 2. Decide which value wins
 
@@ -45,15 +48,25 @@ The rule that holds up: the record carrying deal and activity history becomes th
 
 Then write the field-level exceptions before the load. Email and phone take the newer value; owner and original source stay with the existing record.
 
+Do not count on the import tool to enforce that list. Imports generally overwrite existing values wherever the file has a value, and whether you can choose a winner per field depends on the tool and configuration. The reliable way is to build it into the files: leave the existing-wins columns out of the update file, and run create-only and update-only imports separately so you can trace which value replaced which.
+
 ## 3. Decide how you will prove where the data came from
 
 Add four columns to every file you import: acquisition channel, acquisition date, who imported it, and consent status.
 
-This one is not housekeeping. Under Japan's Act on Regulation of Transmission of Specified Electronic Mail, advertising email requires prior opt-in, with an exception where the recipient supplied their email address in writing, which includes a business-card exchange (Article 3, Paragraph 1, Item 2; see the guidelines issued by the Ministry of Internal Affairs and Communications and the Consumer Affairs Agency). Purchased lists and lists handed over by a third party do not fall under that exception.
+This one is not housekeeping. Under Japan's Act on Regulation of Transmission of Specified Electronic Mail, advertising email requires prior opt-in, with an exception where the recipient supplied their email address in writing, which includes a business-card exchange (Article 3, Paragraph 1, Item 2; see the guidelines issued by the Ministry of Internal Affairs and Communications and the Consumer Affairs Agency). Sender identification and an unsubscribe route are still mandatory under the exception. Purchased lists and lists handed over by a third party do not fall under it. Before a bulk advertising send to cards collected at a trade show, confirm with counsel that the exception covers how they were collected (this is not legal advice). Even where sending is legal, we do not treat a card exchange alone as consent to email; the reasoning is in [Your Japan team came back from the show with 900 business cards](/en/articles/business-cards-after-the-trade-show/).
 
 After the import, both look like the same contact record. The only thing that separates them is a column you decided to keep. A rule such as "lists with unknown consent status are excluded from automated sends" cannot be written at all without it.
 
 This is also the point where HQ and the Japan team most often talk past each other. A global marketing operations team that works to GDPR or CAN-SPAM assumptions will not ask about the business-card exception, and the local team will not volunteer that half the list came from a drawer.
+
+## Make the import day reversible
+
+Even with the three decisions made, imports surprise people. Add three steps to the day itself.
+
+- **Export every record in the target objects first.** If an overwrite goes wrong, you can restore the old values.
+- **Load 50 rows, then open them.** Check matching, overwrites and company association behave as intended before loading the rest.
+- **Review the enrollment criteria of active workflows.** Imported contacts that meet a trigger can send a nurture sequence to existing customers in one go. Pause anything that would fire for the duration of the load.
 
 ## The principle
 

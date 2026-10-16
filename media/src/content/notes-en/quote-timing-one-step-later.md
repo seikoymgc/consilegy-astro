@@ -2,6 +2,7 @@
 title: "Why your 30-day quote expires inside Japan's approval cycle"
 description: "HQ tells the Japan team to get the quote out fast. But in Japan the quote is the number a stranger has to defend in writing, and 73.5% of large purchases run longer than planned (IDEATECH, 2026). A quote issued before requirements settle becomes a price increase later. What to send instead, and how to set the validity date."
 publishedAt: 2026-09-06
+updatedAt: 2026-10-16
 category: sales
 principle: "A quote in Japan is not a price communication. It is the number that enters a written approval and gets defended by people your reps never meet. Issue it once the configuration and the approval path are known, and set its validity against the buyer's approval calendar, not your standard 30 days."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -35,7 +36,7 @@ That is the part that does not translate from a US or European process. In those
 
 Early quotes are minimum configurations, because the requirements are not in yet.
 
-The requirements arrive next. Coordinating functional requirements across departments was the most common source of internal friction, 56.9%, followed by budget size and allocation at 51.7%. Configurations grow during that process. They almost always do.
+The requirements arrive next. Coordinating functional requirements across departments was the most common source of internal friction, 56.9%, followed by budget size and allocation at 51.7%. Configurations tend to grow during that process.
 
 When you reissue at the correct number, your champion is not delivering a corrected quote to their colleagues. They are delivering a price increase, to people who have already seen the first figure and have no context for why it moved. Some of those people are in procurement, whose job includes noticing exactly that.
 
@@ -45,13 +46,15 @@ You were right on the substance and you still lost standing. This is the most av
 
 The answer is not to withhold pricing. Buyers who cannot estimate operational load are not helped by vagueness.
 
-Send what makes the number calculable: seat count, contract term, migration volume, integrations, and how each moves the total. Give them a version they can run themselves.
+The first thing to send is a one-page reference price: in yen, excluding tax, annual, and fixed until a stated date. Attach to it what makes the number calculable: seat count, contract term, migration volume, integrations, and how each moves the total. Give them a version they can run themselves.
 
-The study supports this directly. The single most useful piece of content for these buyers was an ROI calculator or investment-return estimation tool, 55.4%. Meanwhile, the persuasiveness of a vendor's ROI argument was cited by only 11.1% as a factor in the final decision.
+How to build that one page, and the survey data showing that these buyers want to produce their own figure rather than be persuaded, are in [Quoting Japan in USD stalls the approval, not the negotiation](/en/articles/price-in-yen-or-dollars/). This note covers the next step: when to issue the formal quote.
 
-Buyers are not looking to be convinced. They are looking to produce their own figure, because that is the figure that goes into the written request.
+## The exception: procurement that collects competing quotes early
 
-Worth noting alongside it: the second most common answer for content that had no influence on the purchase decision was the feature comparison table pitting your product against competitors, 46.2%. The asset most global marketing teams localise first is the one buyers report ignoring.
+Some buyers' procurement teams gather formal quotes from several vendors early, and procurement was involved in 32.0% of the purchases in this study. Under some purchasing rules, a reference price or a range does not count as a quote, and a vendor without a formal quote drops off the comparison sheet.
+
+Do not refuse in that case. Issue the quote, and write the assumed configuration into it (seats, term, migration scope, integrations), together with a statement on the same page that the amount changes if those assumptions change. What then sits in procurement's file is a figure with its assumptions attached, so a later change reads as a change in scope rather than a price increase. Start by asking the procurement contact which format and line items their comparison needs.
 
 ## Set the validity date against their approval calendar, not your quarter
 
@@ -63,9 +66,9 @@ Reissuing an expired quote is not a neutral administrative step on the buyer's s
 
 Three rules are worth fixing in the CRM before the next quarter:
 
-- **Issue the quote once the configuration, the approver, and the meeting date are known.** Before that, send the pricing variables and a range.
+- **Issue the quote once the configuration, the approver, and the meeting date are known.** Before that, send the one-page reference price and the pricing variables. When the quote goes out, the variables that move the amount go with it. The procurement exception above is the one case where a quote goes out earlier.
 - **Set validity from the buyer's approval calendar.** Ask when the decision meeting sits, then set the date past it.
-- **Keep the quote amount and the deal amount identical, and route non-standard pricing through approval before it leaves.** Forecasts built on amounts that no quote supports are not forecasts.
+- **Keep the quote amount and the deal amount identical, and route non-standard pricing through approval before it leaves.** Forecasts built on amounts that no quote supports are not forecasts. Before the formal quote, fill the deal amount with the reference-price figure for the assumed configuration, not the rep's hoped-for number or the top of a range, and overwrite it with the quote amount once issued. Whether the CRM syncs quote and deal amounts automatically, and how, depends on the tool and its configuration; if it does not, decide who overwrites the amount and when.
 
 The wider view of designing revenue around the buyer's internal process sits in [Japan Market GTM and Messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/).
 

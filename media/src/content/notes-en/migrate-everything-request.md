@@ -2,6 +2,7 @@
 title: "CRM migration in Japan: when they ask to move every field"
 description: "Your Japan team asks to migrate every field from the legacy system and says the unused ones can be deleted later. They will not be. HubSpot's own documentation shows why: a property in use cannot be archived, and an archived property is permanently deleted after 90 days. Reframe the choice from keep-or-discard to CRM-property-or-readable-archive, and the negotiation ends."
 publishedAt: 2026-09-17
+updatedAt: 2026-10-16
 category: crm
 principle: "In a Japan CRM migration, stop negotiating what to discard. Offer two destinations instead: a CRM property, or a readable archive. Nothing is lost, nobody has to approve a deletion, and the CRM stays light."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -39,15 +40,17 @@ You cannot win this by negotiating harder on the reduction. You change what the 
 
 Replace "migrate or discard" with "CRM property or readable archive."
 
-The readable archive is a read-only account on the legacy system, or a dated full export taken on cutover day and stored on the shared drive. Operating cost is close to zero. Not one record is lost.
+The readable archive is a read-only account on the legacy system, or a dated full export taken on cutover day and stored on the shared drive. Either way, not one record is lost.
 
-Framed this way, "discard" is no longer on the table. Nothing is being thrown away, so nothing needs approving, and the thing your Japan team was protecting stays protected. In my experience the request to migrate everything simply stops once people see this.
+Cost and approval differ between the two. A read-only account keeps the legacy contract alive, so licence fees continue. A full export costs almost nothing, but it puts a file containing personal data on an internal drive, so IT and legal in Japan need to approve who can open it, how long it is kept, and how it is prevented from leaving the company. The migration owner picks one after putting those costs side by side.
+
+Framed this way, "discard" is no longer on the table. Nothing is being thrown away, so no deletion needs approving, and the thing your Japan team was protecting stays protected. In my experience the request to migrate everything simply stops once people see this.
 
 What decides the destination is one question: **after cutover, who enters a value in this field?**
 
 If no name comes back, the field has no reason to be a CRM property. A field that only holds historical values cannot be a reporting dimension, cannot drive a forecast, and cannot branch an automation. It can only sit in the record layout and make every future report builder stop and ask whether it is trustworthy.
 
-Draw the line on reference frequency. Opened monthly or more, migrate it. Opened a few times a year, archive it. Ask "how many times did you open this in the last six months" and you will usually get a real answer, which you will not get from "do you need this."
+Reference frequency comes after that question, not instead of it. A field nobody will enter does not become a CRM property, however often it is read. If it is read monthly or more, put an entry point to the archive on the company or deal record in the new CRM so people can get to the old values in one step. If it is read a few times a year, the archive alone is enough. Ask "how many times did you open this in the last six months" and you will usually get a real answer, which you will not get from "do you need this."
 
 ## Adding a property is one decision; removing one is a sequence of tasks
 
@@ -65,9 +68,11 @@ Decide the date before you decide the scope.
 
 Records created from the cutover date forward go into the CRM. Everything before it stays in the legacy system and is read there. The question changes from "what do we move" to "when do we start writing in the new place," and a single date is something a Japanese project team can agree on in one meeting, because it is a schedule item rather than a disposal.
 
-Migrate only what straddles that date: open deals, live contracts, tickets still in progress. Anything closed and static is adequately served by the archive.
+Migrate only what straddles that date: open deals, live contracts, tickets still in progress. Anything closed and static is, as a rule, adequately served by the archive.
 
-Then add one line to the migration plan: **ninety days after cutover, export every property with its fill rate and review.** HubSpot exports property definitions and fill rate (the share of records holding a value) in one file, so the review takes half an hour. Fields at zero are the deletion candidates, and by then the evidence exists rather than being demanded in advance.
+Two exceptions. Migrate every company and contact, because excluding existing customers from campaigns and choosing upsell targets cannot be done inside the new CRM otherwise. Migrate closed-won deals with three values only: amount, close date and product. Those three are enough to report existing-customer revenue and year-on-year comparisons in the new system. Decide separately how much activity history, email, attachments and the associations between companies, contacts and deals to bring across. That is usually the heaviest part of a migration, and it is not a field question.
+
+Then add one line to the migration plan: **ninety days after cutover, export every property with its fill rate and review.** Whether fill rates can be pulled for all properties at once depends on the tool and its configuration; if they cannot, the review means checking property by property in reports, so reserve the time for it in the plan. Fields at zero are the deletion candidates, and by then the evidence exists rather than being demanded in advance.
 
 That line is what lets your Japan counterpart stop saying "everything." It moves the decision to a point where data supports it instead of asking them to carry it personally now. It also reads well in a ringi document, which matters more than HQ usually expects.
 

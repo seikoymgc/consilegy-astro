@@ -2,6 +2,7 @@
 title: "How to Define a Lead Count in Japan So HQ and Japan Agree"
 description: "A lead count is the number of prospects that meet a counting rule your company has chosen. Three lines decide it: unit, entry point, and exclusions. A guide for HQ and Japan teams, with three Japanese surveys."
 publishedAt: 2026-10-06
+updatedAt: 2026-10-16
 category: data
 principle: "Fix three lines in writing before you count Japan's leads: the unit, the entry point, and the exclusions and cut-off. A lead number without those lines cannot be explained when it moves."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -10,13 +11,13 @@ canonLabel: Japan Market GTM and Messaging
 
 A lead count is the number of prospects that meet a counting rule your company has chosen. **If the rule is not written down, the same month produces a different number in every team.** For a global company, the gap shows up when HQ's dashboard and the Japan team's report disagree on how many leads Japan generated.
 
-This note sets out the three lines that decide a lead count, why they drift in Japan, and how HQ and the Japan entity can fix them in one document.
+This note sets out the three lines that decide a lead count, why they drift in Japan, and how HQ and the Japan entity can fix them in one document. It is the definition piece. How conversion-rate denominators and cut-off dates drift is covered separately in [Your Japan team's conversion rates don't match HQ's? Start with the denominator](/en/articles/define-the-denominator-first/).
 
 - Lead counts diverge in three places: the unit, the entry point, and the exclusions and cut-off.
 - The cost is not an argument about numbers. It is distrust between sales and marketing.
 - The fix is a one-page definition sheet, tied to the handoff rule.
 
-I have supported more than 40 CRM and marketing-automation implementations, mostly on HubSpot and Salesforce, and "the lead numbers don't match" is a call I get often, including from global SaaS companies setting up a Japan team.
+Counting my years as an independent consultant before Consilegy, I have supported more than 40 CRM, marketing-automation and SFA implementations, and "the lead numbers don't match" is a call I get often, including from global SaaS companies setting up a Japan team.
 
 ## Lead counts disagree because three lines sit in different places
 
@@ -32,7 +33,7 @@ A lead count looks like a tally of prospects. In practice it is a decision about
 
 Take a month reported as 300, 180, and 120 leads (illustrative numbers, not actuals). The 300 counts every inquiry from content downloads onward. The 180 merges repeat inquiries from the same person. The 120 also removes existing customers and internal tests, and keeps only contacts sales can actually reach. All three are correct arithmetic. Nobody has decided which one is "the lead count."
 
-Japan adds two sources of drift that HQ definitions rarely anticipate. Business cards collected at trade shows and seminars often enter the CRM as leads in bulk, and company names are written inconsistently, so a company-level count needs matching work first. [Clean the list before you import it into the CRM](/en/articles/clean-lists-before-crm-import/) covers the second problem.
+Japan adds two sources of drift that HQ definitions rarely anticipate. Business cards collected at trade shows and seminars often enter the CRM as leads in bulk, and company names are written inconsistently, so a company-level count needs matching work first. [Before importing your Japan contact lists, decide three things](/en/articles/clean-lists-before-crm-import/) covers the second problem.
 
 ## The cost shows up as distrust, not as a numbers debate
 
@@ -68,7 +69,9 @@ The method is simple. The order matters.
 
 **4. Put all three lines on one definition sheet and record approval from each function.** A verbal agreement reverts when people change.
 
-Then decide where the counted leads are handed to sales. In the same Fast Marketing survey (2026, n=432), companies with a clear handoff standard that is actually operated reported an order-attainment rate of 84.6%. Companies with no standard and individual discretion reported 51.9%, and companies with no handoff process at all reported 26.1%. That is a gap of more than 30 points. Writing the lead lines in the same document as the handoff standard makes both harder to drift.
+The sheet should also say which CRM object and which date field the count runs on. The same lines can produce different numbers depending on how the tool holds the record: in Salesforce, what happens to a lead after conversion; in HubSpot, how lifecycle stages move. This varies by tool and configuration, so check the count on the actual screen, and make sure HQ's dashboard reads the same field.
+
+Then decide where the counted leads are handed to sales. In the same Fast Marketing survey (2026, n=432), companies with a clear handoff standard that is actually operated reported an order-attainment rate of 84.6%. Companies with no standard and individual discretion reported 51.9%, and companies with no handoff process at all reported 26.1%. That is a gap of more than 30 points, but it is a correlation, not proof that writing a standard raises attainment. Companies with a written standard may simply be better run in other ways too. What the shared document does guarantee is that the counting line and the handoff line cannot drift apart unnoticed, so write the lead lines in the same document as the handoff standard.
 
 ## Changing the definition breaks comparison with the past
 
@@ -90,7 +93,7 @@ The entry point is probably wide, so people who only downloaded content outnumbe
 
 ### Who should decide the lead definition?
 
-Representatives of marketing, sales, and customer success decide it in the same meeting. Taking it offline lets each function's convenience leak in. Record the decision with everyone's approval on one definition sheet.
+Representatives of marketing, sales, and customer success decide it in the same meeting, with one final decision-maker named in advance for when they split. In a global company, that person also needs to sign off on whether HQ reporting switches to the same definition. Record the decision with approvals on one definition sheet. Because the lead line feeds directly into each function's targets, change the targets in the same approval when the definition changes.
 
 ## Related reading
 

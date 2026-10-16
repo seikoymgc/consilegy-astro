@@ -83,6 +83,6 @@ How to redesign the full process around this sits on top of [Revenue Architectur
 
 ## Related reading
 
-The common mistake is to lead with a free trial instead of precedent. [Your free trial won't close the deal in Japan](/en/articles/trial-builds-the-approval-case/) covers what to send instead.
+The common mistake is to lead with a free trial instead of precedent. [A free trial alone won't get your Japan deal approved](/en/articles/trial-builds-the-approval-case/) covers what to send instead.
 
 Other notes on the same problem are collected under [Sales process](/en/category/sales/).

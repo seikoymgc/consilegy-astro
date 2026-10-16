@@ -2,6 +2,7 @@
 title: "When your Japan team asks to go back to the spreadsheet, answer with a date"
 description: "A month after the global rollout, the Japan entity asks to go back to its old spreadsheet. HQ hears resistance, or a local exception request, and answers yes or no. Neither answer makes the request go away. It moves to a file HQ never sees, while the Japan adoption dashboard stays green. Japanese survey data (n=101, n=1,034) and what the request is actually reporting."
 publishedAt: 2026-09-14
+updatedAt: 2026-10-16
 category: adoption
 principle: "A request to go back names one job the old way did that the new design has not picked up. Answer it with yes or no and the request does not disappear, it moves to a file outside the system and never surfaces again."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -23,7 +24,7 @@ The HQ team saw the legacy spreadsheet once, during requirements gathering, tran
 
 So the request is not resistance. It is the only comparative report HQ is going to get, and it arrives disguised as a complaint.
 
-It also has a shelf life. Raised twice with no visible result, it stops being raised. In a Japanese office that threshold is lower than HQ expects, because raising it a third time starts to look like a personal position against a decision that has already been approved.
+It also has a shelf life. Raised a couple of times with no visible result, it stops being raised. In a Japanese office that threshold is lower than HQ expects, because raising it again starts to look like a personal position against a decision that has already been approved.
 
 Mazrica's survey on SFA and CRM usage (fielded by IDEATECH, 25 to 28 November 2024, published 28 January 2025, n=101 sales managers and team leads at Japanese B2B companies; run by a company that sells sales software, on a small sample, so read it directionally) found the top usage complaints were that entering and updating information is cumbersome, 43.6%, and that the system is hard to operate, 38.6%. Neither of those is visible from a design review. Both are only visible from use.
 
@@ -49,7 +50,17 @@ Nobody in Japan is nostalgic about the legacy spreadsheet. The request points at
 - **Somewhere to put information that is not confirmed yet.** This is the one HQ almost never sees. The local spreadsheet held things that were not ready to be seen: a read on how the meeting went, which internal stakeholder is actually blocking, what needs checking before the next visit. A global CRM designed to hold confirmed facts only leaves that material with nowhere to go, and in a culture where putting an unconfirmed judgement into a system of record visible to HQ carries real personal cost, it goes back to the private file immediately
 - **Seeing everything at once.** The old sheet showed all accounts on one screen. Most CRM layouts show one record at a time. Anyone whose working habit starts with a morning scan of the whole book of business loses that habit on day one
 
-Speed and the overview are usually configuration problems. The middle one is not. It cannot be fixed by adding a field, because the issue is not the absence of a place to type. It is who can read what gets typed.
+Speed and the overview are usually configuration problems. For speed, let reps log a one-line note against a deal from the mobile app. For the overview, set the columns of a list view that shows a rep's whole book on one screen, or use a board view by stage. Feature names differ by tool, but none of this adds a field.
+
+The middle one is not. It cannot be fixed by adding a field, because the issue is not the absence of a place to type. It is who can read what gets typed.
+
+So decide the audience first, then the place. There are three candidates:
+
+- **Notes on the deal record.** Easiest, but in most setups visible to everyone who can see the deal
+- **A private draft for the rep alone.** A task assigned to themselves, or a private note. Whether this exists depends on the tool
+- **A field for the rep's one-to-one with their manager.** Visible to the two of them by design
+
+Who can see each of these depends on the tool and on permission settings. Once chosen, check the actual visibility from the rep's own login and from a colleague's in the same team before announcing it. If nothing can be restricted to rep and manager, assume everyone can read it, and agree a format that separates fact from the rep's own read. An entry clearly marked as a read can be written before it is confirmed.
 
 ## An exception you can count is cheaper than a file you cannot see
 
@@ -58,6 +69,10 @@ The answer to give is not yes or no. It is a date.
 Tell the Japan team you will come back within two weeks with a decision on where that one job now lives. Then decide, before the two weeks start, what happens if the answer is that it does not live anywhere yet.
 
 If it does not, keep the old way for that one thing, and keep it in the open. Name it as an exception, write down when it gets reviewed, and make it something you can count users of.
+
+The container is a one-page exception register with four columns: the exception, who uses it, the end date, and who owns finding its replacement. The local CRM owner keeps it and checks only the items that have reached their date in the weekly review.
+
+What you keep is one function of the old way, with an end date, not the old system. If keeping it requires extending the legacy licence, it is not an exception. It is an extension of the parallel run, and it needs its own approval with the cost and the date written down.
 
 To the Japan team, an official exception and a private file feel identical. To whoever owns the platform, they are opposites. An exception appears in a review and eventually closes. A private file has no owner, no review, and no closing date.
 

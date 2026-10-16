@@ -2,6 +2,7 @@
 title: "Japan pipeline grew, revenue flat: the stall is downstream"
 description: "You told the Japan team to run more meetings. Meeting count and pipeline value both climbed, and bookings did not move. The usual readings are weak reps or soft demand. Neither explains it. The added deals all queued at the same point, inside the buyer's approval circuit, where meeting volume has no effect and the work that does have an effect has no field in your global CRM."
 publishedAt: 2026-09-18
+updatedAt: 2026-10-16
 category: sales
 principle: "Activity converts to revenue only where deals are stalled on your side of the table, so when the stall sits inside the Japanese buyer's approval circuit, the meetings you add become queue rather than bookings."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -33,7 +34,7 @@ Those respondents were then asked why (n=239, multiple answers). Top of the list
 
 Read that ranking against the instruction your Japan team received. What dominates the delay is time spent waiting for the buyer's own approvers to reach the item. A shortage of vendor contact sits four places below it. The constraint is downstream of everything a meeting can influence, and it is inside an organisation you do not manage.
 
-The caveat belongs in the open: IDEATECH sells research-led PR, so this survey doubles as a demonstration of its own service, and it is an online panel. Treat the percentages as order of magnitude and ranking. The gap between 63.6% and 16.7% is not a gap that reverses.
+The caveat belongs in the open: IDEATECH sells research-led PR, so this survey doubles as a demonstration of its own service, and it is an online panel. Treat the percentages as order of magnitude and ranking. Respondents are buyers, and buyers may find it easier to blame their own management than to say a vendor gave them too little. Even allowing for that, the gap between 63.6% and 16.7% is not a gap that reverses.
 
 One more number sets the scale of the circuit the deal is moving through. In the same survey, 58.5% of deals involved seven or more people in the decision, and the specialist functions taking part were IT 42.2%, finance and accounting 38.2%, security 37.2%, legal 33.2%, procurement 32.0% (n=325, multiple answers). Adding a rep does not add capacity to any of them.
 
@@ -60,6 +61,8 @@ Change the order of the decision. Before signing off more meetings or more headc
 If most cannot, the increase is not yet a decision you can make, because you will not be able to tell afterwards whether what you bought was bookings or queue.
 
 A rough read takes half an hour and no new tooling. Open ten recent Japan losses and ten open deals untouched for more than three months. For each, look only at the last activity: did your side act last, or was your side waiting on the buyer.
+
+This only works where activity is actually logged. If email sync is on for only some reps, and calls and meetings rarely get recorded, the last activity skews toward your own outbound email and every deal looks like it is waiting on the buyer. Check first that email sync is on for everyone and that calls and meetings are logged. If the record is thin, ask each rep deal by deal instead.
 
 Where your side acted last, the delay is yours. Proposal turnaround, internal quote approval, or simply nobody having time. That distribution is the one where more meetings and more headcount convert, and the instruction was right.
 

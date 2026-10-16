@@ -2,6 +2,7 @@
 title: "Quoting Japan in USD stalls the approval, not the negotiation"
 description: "HQ reads a request for yen pricing as a discount request or a pricing exception. In Japan it is neither. The approval document takes one number, and a USD price list hands the job of producing that number to the buyer. Japanese survey data (n=330) on who is actually in the room, and the one page to ship instead."
 publishedAt: 2026-08-28
+updatedAt: 2026-10-16
 category: japan-gtm
 principle: "Quote currency is not a commercial term in Japan. It decides whether the buyer can put a fixed number into the internal approval document. Ship one page in yen, excluding tax, annual, with a rate and an expiry that do not move."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -25,7 +26,7 @@ On paper, clerical. For the person doing it, not at all.
 
 Pick a rate yourself and you own it. If the yen moves six months later, that number was your choice, and the document has your name on it. Meanwhile the figure shifts slightly each time you brief someone more senior, and the moment somebody asks whether it was a different number last time, the meeting stops being about the product and starts being about you.
 
-So the safest move is to not decide yet. A fair share of deals that look enthusiastic and then go quiet are sitting right there.
+So the safest move is to not decide yet. Our hypothesis is that some of the deals that look enthusiastic and then go quiet are sitting right there. We have no figure for how many.
 
 ## The people arguing about the number are not the people your reps have met
 
@@ -37,7 +38,7 @@ The second most common source of internal disagreement was budget size and alloc
 
 Your reps are talking to the business unit and to IT. Finance, legal and procurement often go the entire cycle without meeting anyone from your side.
 
-People you have never met are arguing about how to write your number.
+The survey shows finance and procurement in the evaluation and budget negotiation taking time. It does not ask whether currency is what they argue about. What it does make clear is that the room where the number is settled usually has nobody from your side in it. If converting dollars to yen becomes an agenda item there, you will not get to answer.
 
 ## Japanese buyers do not want a persuasive ROI. They want to build one.
 
@@ -53,13 +54,26 @@ The currency on your price list is the front door to that.
 
 Yen. Excluding consumption tax. Annual, with year one separated from what follows. An expiry date, and a line saying the figure holds until then whatever the rate does. That is the whole document.
 
+This page is a reference price for the start of the evaluation, not the formal quote. Attach a short table of what moves the amount (seats, contract term and so on). The formal quote comes later, at the approval stage once scope and approvers are settled, issued together with those conditions. The sequence is in [Why your 30-day quote expires inside Japan's approval cycle](/en/articles/quote-timing-one-step-later/).
+
 Two alternatives are worth naming and rejecting.
 
 A USD sheet with a currency footnote looks accommodating and adds a step. Finance reads the footnote and asks what number actually goes on the approval, and you answer that question anyway, a week later.
 
 Converting at the spot rate on each call is worse. The figure moves every time your champion explains it upward, which is the exact failure you were trying to prevent, now caused by you.
 
-None of this breaks global price governance. Keep USD list price intact and fix only the Japanese quoted rate and its expiry. Framed as a local commercial policy rather than a pricing exception, it usually clears headquarters without much argument.
+None of this breaks global price governance. Keep USD list price intact and fix only the Japanese quoted rate and its expiry.
+
+But fixing the rate is a decision about who carries currency risk. If the yen weakens before the expiry, the USD value of the booking shrinks. Does the Japan entity absorb that, or HQ? The Japan lead should bring four points to HQ together:
+
+- **Who sets the quoted rate, and how often it is revised** (quarterly, for example)
+- **The band within which it is not revised**
+- **The longest expiry allowed**, which is how many months of currency exposure you accept
+- **Who approves it**: HQ finance, the pricing committee, or both
+
+Get those approved as a set, framed as a local commercial policy rather than a pricing exception.
+
+Settle the CRM side at the same time. Once yen amounts sit on deals, the USD rollup HQ reads depends on which rate converts them, and Japan's bookings can shift month to month on currency alone. Salesforce supports dated exchange rates and HubSpot supports multiple currencies with exchange rates, but what you can configure and how it behaves depends on edition and settings. Decide who maintains the conversion rate, how often it is updated, and whether it matches the quoted rate or HQ's finance rate. Otherwise every month's Japan number needs a currency footnote.
 
 This sits inside the same work as getting your [Japan GTM and messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/) right, because both start from what the buyer has to carry through their own organisation.
 

@@ -2,6 +2,7 @@
 title: "In Japan, the first meeting is not discovery. The shortlist already exists."
 description: "Your global first-call framework opens with pain discovery. Japanese buyers of large B2B deals have finished that work before your rep joins the call, and a two-to-three vendor shortlist is already drawn. Here is what to ask instead, and which fields the answers belong in."
 publishedAt: 2026-08-19
+updatedAt: 2026-10-16
 category: sales
 principle: "In Japan the first meeting is not discovery, it is the one chance to be added to a shortlist that already exists. Ask about the comparison set and the approval chain before you ask about pain."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -28,9 +29,9 @@ By the point of first substantive contact with a vendor:
 
 Two caveats belong in any use of these numbers. The sample is restricted to large, multi-stakeholder deals, so it is not a representative figure for Japanese B2B buying overall. And IDEATECH published the study to promote its own research service.
 
-Neither caveat changes what it means for a first meeting. When your rep asks what problem the buyer is trying to solve, roughly seven in ten are being asked to repeat, out loud, an answer they finished writing weeks ago, often with a language model.
+Neither caveat changes what it means for a first meeting. When your rep asks what problem the buyer is trying to solve, roughly seven in ten are being asked to repeat, out loud, an answer they worked out before the meeting, and most of them used AI somewhere along the way.
 
-## The shortlist has two or three seats, and one is still open
+## The shortlist has two or three seats, and sales contact can still win one
 
 The same survey contains the finding that should change the meeting rather than cancel it.
 
@@ -56,7 +57,7 @@ Note what is not claimed here. There is no published primary data on the number 
 
 ## What headquarters should change
 
-**Add two fields to the deal record: competing vendors and number of approval stages.** Both come from questions three and four. Both are objective. Neither depends on how the rep felt about the call.
+**Record the answers where the deal already lives, not in five new fields.** Question one goes in the next-step field (use the standard one if your CRM has it). Question two is a role on each contact attached to the deal: decision maker, operational owner, or information gathering. Question three is one new field, competing vendors and the criteria. Question four is not a separate field: it sets the final rung on the approval-progress axis described in [Forecast your Japan pipeline on approval progress, not rep confidence](/en/articles/forecast-by-approval-not-confidence/), because the same approval held in two fields means one of them goes stale. Question five is the external deadline and its date. None of these is required when the deal is created, since a first meeting does not always produce the answer. They are what should be filled before the deal moves past the first-meeting stage.
 
 **Stop scoring the first meeting on discovery notes.** Score it on whether the rep learned the comparison set and the approval path, and whether a specific next meeting is in the calendar.
 
@@ -69,5 +70,7 @@ Note what is not claimed here. There is no published primary data on the number 
 ## Related reading
 
 Once you know the approval chain from question four, the next deliverable is the document that travels it, which is covered in [In Japan, your champion cannot write the business case. Write it for them.](/en/articles/draft-the-internal-approval-document/).
+
+[Japan deal cycle length can be estimated at the first meeting](/en/articles/long-deals-show-at-first-meeting/) lists three things to record at the first meeting: who brought the deal in, whether a budget line exists, and the next internal meeting and its date. That note is about reading cycle length from the record; this one reorders the conversation so the record can be filled. Capture those three inside the five-question flow.
 
 Other notes on the same problem are collected under [Sales process](/en/category/sales/).

@@ -2,6 +2,7 @@
 title: "Your Japan webinars fill up. Your pipeline does not move."
 description: "Registrations for your localized Japan webinars hit target, and none of it turns into pipeline. The fix is not more webinars or a faster SDR cadence. It is changing what the Japan team is measured on, from attendance to the number of attendees who took a next step on their own. Here is the data and the change."
 publishedAt: 2026-08-04
+updatedAt: 2026-10-16
 category: marketing
 principle: "Measure a webinar by the number of attendees who took a next step on their own, not by attendance. The moment attendance is the target, topic selection drifts away from the problem you actually solve."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -47,13 +48,13 @@ Do not add sessions. Change what the Japan program is measured on, and topic sel
 
 Fix each session on one problem your team has actually solved for a Japanese customer, and require the topic to be chosen from that list rather than from what will fill the room.
 
-Replace the registration target with the count of attendees who took a next step on their own: booked a consultation, viewed the pricing page, or sent a second colleague from the same company. Only actions the buyer initiated count.
+Replace the registration target with the count of attendees who took a next step on their own: booked a consultation, viewed the pricing page, or sent a second colleague from the same company. Only actions the buyer initiated count, and set the counting window up front (for example, 30 days after the session).
 
-Then set exactly one re-contact rule and run it every time. "Two weeks after the session, reply to the question that attendee asked live" is enough. One rule executed consistently beats a branching nurture flow nobody maintains.
+Whether you can count them depends on instrumentation. Pricing-page views only count if the site carries the tracking code, the visitor has given cookie consent, and the visit is tied to a known contact. Most marketing automation tools can build a list that combines webinar attendance with later page views, but the details depend on the tool and its setup. A second registrant from the same company only counts if contacts are deduplicated to the company level. If none of that is in place yet, start by counting consultation bookings alone.
+
+Then decide re-contact timing by trigger, not by speed. An attendee who books a consultation or views the pricing page has just shown interest; contact them by a set deadline, such as the next business day. An attendee who only attended gives your rep nothing to talk about yet, so "two weeks after the session, reply to the question that attendee asked live" is enough. Either way, one rule executed consistently beats a branching nurture flow nobody maintains.
 
 Localize this alongside the rest of your [Japan GTM and messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/) work, because the topic list has to come from Japanese cases, not translated global ones.
-
-For context on the channel, Ebsta and Pavilion's 2025 GTM Benchmarks (655,000 opportunities across 387 companies; an international dataset, not Japanese) put event-sourced efficiency at 0.78x against an average of 1.0, below referral at 1.3x and organic at 1.2x. Events are the channel that decays without design.
 
 **Measure a webinar by the number of attendees who took a next step on their own, not by attendance. The moment attendance is the target, topic selection drifts away from the problem you actually solve.**
 

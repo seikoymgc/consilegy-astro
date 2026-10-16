@@ -1,7 +1,8 @@
 ---
-title: "Your free trial won't close the deal in Japan. The approval document will."
+title: "A free trial alone won't get your Japan deal approved. The paperwork will."
 description: "Japanese buyers happily use your trial and then go quiet for months. The blocker isn't product or price; it's that trial results don't travel into the internal approval process. Here is the data, and how to redesign the trial as approval material."
 publishedAt: 2026-08-03
+updatedAt: 2026-10-16
 category: japan-gtm
 principle: "In Japan, a trial is not where the product gets evaluated. It is where the material that clears internal approval gets built."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -48,9 +49,9 @@ What is being judged is fit and precedent, not product behaviour.
 
 Do not remove the trial. Change what it is for. In Japan it is not an evaluation stage; it is a manufacturing stage for approval material.
 
-1. **Agree the deliverable before the trial starts.** Write down who receives what, and on what date. A trial without a named approver and a submission date ends as an opinion, not a document.
+1. **Agree the deliverable before the trial starts.** Write down who receives what, and on what date. A trial without a named approver and a submission date ends as an opinion, not a document. In the CRM, give the opportunity the approver (a contact associated with an approver role), the submission date, and the trial start and end dates, and make those three the entry condition for the trial stage. Attach the agreed one-pager to the opportunity so rep and buyer work from the same page.
 2. **Bring the IT department in on day one.** IT is the most frequently involved department (45.6%). Deferring integration and security review until after the trial simply starts a second multi-month process.
-3. **Place the trial just before the final comparison, not at the top of the funnel.** With 63.6% of deals running three to eight months, a 30-day trial run early is stale by the time the approval paper circulates.
+3. **Place the sales-assisted trial just before the final comparison, not at the top of the funnel.** With 63.6% of deals running three to eight months, a trial run early evaluates the product before the criteria and configuration are settled, so its numbers cannot go into the approval paper. This does not mean switching off a self-serve free tier or open sign-up. Treat self-serve usage as a signal of interest. When sales engages and the deal moves toward approval material, switch to a trial with a defined period and scope, run on points 1 to 4.
 4. **Ship documents, not impressions.** A cost-benefit calculation, the named operator and estimated effort after go-live, the integration and security review result, and a reference customer of similar size. Those four items are the contents of the approval paper.
 
 Aim the documents at what Japanese buyers actually trust. In the HubSpot Japan survey, the highest-trust information was "clear pricing, additional costs, and contract terms" at 60.6%, "an individual explanation from the vendor's representative" at 59.8%, and "the vendor's customer references" at 57.0%.
@@ -67,7 +68,7 @@ Treating the Japanese market as one continuous [revenue architecture](https://co
 
 ## Common mistakes
 
-- **Reporting Japan on trial-to-paid conversion.** In a market where the trial sits late and sales comes first, that ratio measures the wrong stage. Track how many approval-ready documents a deal has produced.
+- **Reporting Japan on trial-to-paid conversion.** In a market where the sales-assisted trial sits late and sales comes first, that ratio measures the wrong stage. Track how many approval-ready documents a deal has produced.
 - **Reading a happy user as pipeline progress.** "They said it was easy to use" is not progress in a two-stage approval structure. Progress is a document reaching the next approver.
 - **Leaving the business case to the buyer.** Explaining cost-benefit internally is their single biggest difficulty. Hand over the calculation template and the assumptions, not a link to a trial.
 

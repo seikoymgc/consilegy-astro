@@ -2,6 +2,7 @@
 title: "\"No budget\" in Japan is a date, not a number"
 description: "Your Japan rep reports no budget, HQ reads soft demand, and the response is discount approval. But Japanese IT budgets are rising: 52.6% of surveyed companies increased theirs (JUAS, n=957). The increase is pre-committed, and the fiscal year runs to March. What to ask for instead of a price cut, and the CRM fields that keep the deal alive."
 publishedAt: 2026-09-04
+updatedAt: 2026-10-16
 category: sales
 principle: "In Japan, \"no budget\" rarely means the money does not exist. It means this purchase is not in the current envelope. Before approving a discount, get three things: the month the next budget is set, which envelope it comes from, and who drafts the request."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -19,7 +20,7 @@ JUAS, the Japan Users Association of Information Systems, has run an annual surv
 
 The diffusion index, increases minus decreases, was 43.3 points, its fifth consecutive annual rise. The forward-looking figure for FY2026 is 39.9 points.
 
-This is a survey of large listed companies, so do not stretch it to small and mid-sized firms. Directionally it is unambiguous. Money is not the constraint.
+This is a survey of large listed companies, so do not stretch it to small and mid-sized firms. It also asked IT department heads about IT budgets. A sales tool is often paid from a business unit's budget instead, so read the figure as a sign that companies are not cutting IT spend, not as a measure of your buyer's own envelope. Directionally it is still clear. The IT wallet, at least, is not shrinking.
 
 ## The increase is already spoken for, and a weak yen makes your product part of it
 
@@ -45,7 +46,7 @@ IDEATECH and Hiroyasu Kitagawa of Demagen Research published a second-wave study
 
 The second most common source of internal friction was coordinating budget size and allocation, 51.7%. Among those whose evaluation ran long (n=239), 63.6% pointed to waiting on an executive decision and 31.0% to budget approval itself. Finance and accounting appeared in 38.2% of evaluations as an involved function.
 
-Your rep meets none of those people. "No budget" is a message relayed out of a room they have never entered. Persuading the messenger does not change what happened in the room.
+Your rep usually meets none of those people. A large existing customer may invite a vendor in before the budget is set, but a new deal rarely gets that. "No budget" is a message relayed out of a room the rep has not entered. Persuading the messenger does not change what happened in the room.
 
 ## Ask for a date, an envelope, and a name
 
@@ -57,7 +58,9 @@ Three things, in this order, before any conversation about price.
 
 **Who drafts the request?** Not who approves it. Who writes it. That person is doing unpaid work on your behalf inside a company you cannot see.
 
-Then hold the deal properly. Do not mark it closed-lost with reason "price." Give it a status of its own, a date field for the month the next budget is set, and a named drafter. A follow-up task three months out with no basis behind the date produces a call on a day when nothing has changed inside the buyer. A call two months before the budget month lands while they are actively looking for material to build the request with. Same call, different room.
+Then hold the deal properly. Do not mark it closed-lost with reason "price." Put it on hold, record the month the next budget is set, set the restart date two months before it, and associate the drafter to the deal as a contact with a "drafter" role rather than typed as free text, so the name survives a transfer. If your loss reasons already include "budget," keep it but define it as "budget timing does not fit (move to on hold)," so choosing it parks the deal instead of losing it.
+
+Take on-hold deals out of this period's forecast. Left open, they keep counting in pipeline value and forecast, and inflate end-of-quarter coverage. In Salesforce, set the forecast category to Omitted. In HubSpot, use an on-hold stage at 0% probability or a separate pipeline. What you can configure depends on the tool and your subscription. When the restart date arrives and the buyer's budget conversation is live again, move the deal back to a normal stage and weight it by approval stage. A follow-up task three months out with no basis behind the date produces a call on a day when nothing has changed inside the buyer. A call two months before the budget month lands while they are actively looking for material to build the request with. Same call, different room.
 
 The wider view of designing revenue around the buyer's internal process sits in [Japan Market GTM and Messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/).
 

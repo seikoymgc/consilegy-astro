@@ -1,7 +1,8 @@
 ---
 title: "Why Your Japan Team Ignores KPIs: Translate Them to Actions"
-description: "HQ keeps asking the Japan team to look at the numbers, and the team keeps not opening them. The cause is usually not attitude. Outcome metrics are being handed over without being translated into what to do tomorrow. Here is a three-step test for the Japan KPI list."
+description: "HQ keeps asking the Japan team to look at the numbers, and the team keeps not opening them. The cause is usually not attitude. Outcome metrics are being handed over without being translated into what to do tomorrow. Here is a three-step test for the Japan KPI list, including how to check the translation with the team."
 publishedAt: 2026-10-08
+updatedAt: 2026-10-16
 category: adoption
 principle: "Hand the Japan team only KPIs they can turn into a next-day action. Keep outcome-only numbers at HQ as observation, and do not ask the field to own them."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -23,9 +24,7 @@ A dashboard is opened to confirm, and rarely to decide. If your Japan KPI list i
 
 Monthly revenue attainment is a number for observing the business. A Japanese sales rep who opens it learns nothing about tomorrow. Translate it into "new first meetings booked this week" or "follow-up sent within three days of a proposal", and the rep can answer the question without being coached.
 
-Japanese B2B teams also tend to watch the front of the funnel. In a survey by Fast Marketing (fielded May 2026, n=432 sales and marketing staff at B2B companies in Japan, online panel), the metrics tracked regularly were site visits and page views at 38.4%, new-deal value at 15.0%, and LTV at 7.9%. And 62.0% said they sometimes or often see healthy numbers that do not turn into deals or wins. The publisher sells marketing strategy support, so use the ranking, not the decimals.
-
-When the number the field sees and the outcome HQ cares about are far apart, nobody in Japan can draw the line between their own work and the result.
+One caution. "New first meetings booked this week" comes out of a standard report in most CRMs. "Follow-up within three days of a proposal" does not, unless the system can compute the gap between the date a deal reached the proposal stage and the date of the next activity. Whether that needs extra date fields or an automation depends on your CRM and its configuration. If the CRM cannot produce the translated number, either rephrase it into one it can, or build the mechanism first. A number someone has to count by hand every week does not survive long.
 
 ## One question to run over the whole list
 
@@ -34,6 +33,10 @@ Pick one KPI and ask: **"If the Japan manager looks at this, can they say what t
 ## Check the cause-and-effect with the Japan team, not for them
 
 Once a metric is translated, the logic behind it has to be shared. If the manager alone decides that faster follow-up moves deals, and the team does not believe it, the number becomes another reporting item. Working through the link together is what builds trust in the metric.
+
+This does not need a new meeting. In the weekly sales meeting where the metric is chosen, state in one line which outcome number should move if the team does this. A few weeks later, in the same meeting, put the action number and the outcome number side by side. If the action went up and the outcome did not, the translation was wrong, so translate again.
+
+The trap to watch for: an action metric loses its substance once it becomes a target. Chase "follow-up within three days" and the number fills with empty check-in emails. Keeping it next to the outcome number is how you notice. An action metric works as a signal only while you keep checking its link to the result.
 
 ## A metric with no owner and no review date comes back even after you cut it
 

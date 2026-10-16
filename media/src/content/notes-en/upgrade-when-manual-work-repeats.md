@@ -2,6 +2,7 @@
 title: "When to Upgrade a Free CRM Plan: Count Manual Work First"
 description: "Your Japan team is on a free CRM tier and HQ asks when it should move to a paid plan. The feature comparison table cannot answer that. What can is one sentence naming the manual task someone repeats every week and the decision that waits on it, and in Japan that sentence is also what gets a recurring cost approved internally."
 publishedAt: 2026-10-02
+updatedAt: 2026-10-16
 category: crm
 principle: "The reason to upgrade a free CRM plan is not on the feature table. It is a manual task someone repeats on a schedule and a decision that waits for its output. If you can write both in one sentence, it is time to upgrade; if you cannot, the gap is an undecided operating routine, not a missing feature."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -12,6 +13,8 @@ draft: false
 A common question from HQ, a few months after a Japan team starts on a free CRM tier: when do we move them to the paid plan, the same one the other regions are on?
 
 The pricing page will not settle it. It lists what the free tier lacks, and every line reads like a reason to upgrade. Workflows, more reports, higher user limits. Wanting more features and having a reason to pay for them are different things, and a Japan upgrade decided from the feature table usually buys capability the team has no routine to use.
+
+This note uses the free-to-paid step as its example, but the same test applies when a team already on a paid plan moves to a higher edition or buys an add-on. What differs between tiers depends on the tool; the question does not.
 
 ## Wanting a feature is not a reason to upgrade
 
@@ -40,6 +43,8 @@ That is not a feature shortage. It means the team has not yet decided how it wil
 The same sentence has a second use in a Japan team. A new recurring cost usually needs internal approval, often through the ringi route, where the proposal circulates to every approver in turn. An approver reading "more capable features" has nothing to compare against other departments' requests. An approver reading "this removes half a day of weekly manual work and the pipeline review starts from a finished list" can say yes or no.
 
 For HQ, this changes how to ask the Japan team for an upgrade case. Do not ask which tier they want. Ask them to name the task, how often it happens, and what decision it holds up. That is the document the local approval process needs, and it is the evidence HQ needs to see before agreeing.
+
+Put the cost on both sides of the same sentence so finance does not stop it. One side: hours per occurrence × occurrences per year × the hourly cost of the person doing it. The other: the annual price difference of the upgrade, multiplied by the seats it applies to. Whether every seat must move up or only the people who need the feature can is a matter of the tool and the contract, so check before you request a quote.
 
 How the earlier design choices affect what Japan can actually use is covered in [In Japan, a required field produces confident wrong answers](/en/articles/dont-make-unknown-fields-required/). Settle who sees what and who fills what first, then price the tier.
 

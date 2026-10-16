@@ -1,15 +1,16 @@
 ---
-title: "Japan deal cycle length is mostly set at the first meeting"
-description: "HQ benchmarks a Japan deal against the global average cycle and asks why it is slow. The cycle was mostly set before your rep walked in. In Japanese large-ticket purchases, the buyer is about 40% of the way through the process by the time they engage a vendor. Three things recorded at the first meeting tell you how long the deal will run."
+title: "Japan deal cycle length can be estimated at the first meeting"
+description: "HQ benchmarks a Japan deal against the global average cycle and asks why it is slow. Much of the cycle was likely shaped before your rep walked in. In Japanese large-ticket purchases, the buyer is about 40% of the way through the process by the time they engage a vendor. Record three things at the first meeting, estimate the cycle from them, and check the estimate against your own data three months later."
 publishedAt: 2026-10-01
+updatedAt: 2026-10-16
 category: sales
-principle: "In Japan, deal length is set less by what your rep does than by how far the buyer's organisation had already moved at the first meeting. Record who brought the deal in, whether a budget line exists, and where it must be approved next, then read the cycle from day one."
+principle: "Work from the hypothesis that in Japan, deal length depends less on what your rep does than on how far the buyer's organisation had already moved at the first meeting. Record who brought the deal in, whether a budget line exists, and where it must be approved next, estimate the cycle from day one, and check it against your own data after three months."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
 ---
 
-A Japan deal is in its fourth month. HQ looks at the global average cycle, sees a gap, and asks what the Japan team is doing wrong. The follow-up was prompt and the demo went well, so the team has no answer that sounds convincing. There usually is one, and it was available at the first meeting.
+A Japan deal is in its fourth month. HQ looks at the global average cycle, sees a gap, and asks what the Japan team is doing wrong. The follow-up was prompt and the demo went well, so the team has no answer that sounds convincing. Often there is one, and much of it was visible at the first meeting. That is my hypothesis, and how to test it in your own data is at the end.
 
 ## The buyer is already well into the process when your rep first sits down
 
@@ -17,7 +18,7 @@ A joint survey by IDEATECH and Hiroyasu Kitagawa (Demand Gen Research Institute)
 
 This is a panel survey run by a firm that sells survey PR, and it covers only large, multi-person purchases, so read 40% as an order of magnitude. The direction is consistent with what Japan teams report: someone inside the buyer has already named the problem, listed candidates and, sometimes, started looking for budget. Your rep meets that person, partway through.
 
-So deals differ in how much was already done. A deal that arrives with most of the internal work finished is short. One that arrives with none of it is long. Your rep's effort lands on top of that difference.
+But 40% is an average. The survey says nothing about how that figure varies from deal to deal, or how the variation relates to cycle length. The working assumption from here on is that deals differ in how much was already done, and that a deal arriving with most of the internal work finished tends to run short while one arriving with none of it tends to run long. The test for that assumption comes at the end.
 
 ## The floor on cycle length is the number of rooms the deal must pass through
 
@@ -33,13 +34,19 @@ Whether a budget line exists. If this year's budget table already carries a line
 
 Where it is approved next, and when that forum meets. A department meeting, a management committee, an IT review. A deal with a date can be timed. A deal without one has no destination yet.
 
+Two of the three overlap with the questions in [In Japan, the first meeting is not discovery. The shortlist already exists.](/en/articles/first-meeting-five-questions/). Who brought the deal in comes out when you ask question two (what each person is responsible for), and the next forum comes out with question four (whose approval is needed). The only question this note adds to the first meeting is the budget line.
+
 None of these change with sales skill. What changes is whether they are asked and recorded at the first meeting. Deals run without them tend to surface "actually, we still need to talk internally" at meeting two or three, and the six months start there.
 
 ## Place long deals as long deals from the start
 
-Sort the first meeting into groups. If the person who brought it has a reason to move it, there is a budget line, and the next forum is visible, the deal is on the short side. If two of the three are unknown, it is on the long side.
+Sort the first meeting into groups. If the person who brought it has a reason to move it, there is a budget line, and the next forum is visible, the deal is on the short side. If two or more of the three are unknown, it is on the long side. If only one is unknown, ask that one at the next contact and let the answer move the deal to one side or the other.
 
 Then change how the deal is placed, not how the rep behaves. Putting a long-side deal in the same "in progress" column as a short-side deal means it is chased every month as stalled when it was never going to be quick. Place it as a deal waiting for a forum to be set, and act when the forum becomes visible. The forecast error and the rep fatigue both shrink.
+
+Do this in the forecast, not by adding a stage. Long-side deals carry a lower weight and stay out of commit, and a saved view lists every deal with no next forum date.
+
+Waiting does not mean leaving the deal alone. Once a month the rep checks with the buyer whether the next forum has been scheduled. When a date goes in, the deal goes back to being handled like any other. Make the owner of the forecast call responsible for reviewing that view. Chasing a deal in a panic after it has slipped costs far more rep time than tracking one date from the start.
 
 Global data points the same way, with a caveat. Ebsta's 2025 GTM Benchmarks, covering 655,000 deals across 387 companies and not drawn from Japan, show win rates falling with the length of a slip: 18% after a one-week slip, 13% after one month, 8% after three, 5% after six, and 3% beyond six. The figures do not transfer to Japan. They do support spotting slow deals early over trying to rescue them late.
 
@@ -51,13 +58,13 @@ Adding more stages to track it finely. Stages describe the seller's progress. Mi
 
 ## Keep the three points as fields separate from stage
 
-Add three deal properties: the role of the person who brought it, budget line (yes, no, unknown), and next forum with date. Keep each to three options or fewer so a rep can fill them in a minute after the first meeting. Leave unknown as a valid answer and do not make the fields mandatory, because forcing an answer invites a guess entered as fact.
+Add three deal properties: the role of the person who brought it, budget line (yes, no, unknown), and the date of the next forum. Which approval stage that forum is goes in the approval-progress field from the five-questions note, so this field holds only the date. The same approval held in two fields means one of them goes stale. Keep each to three options or fewer so a rep can fill them in a minute after the first meeting. Leave unknown as a valid answer and do not make the fields mandatory, because forcing an answer invites a guess entered as fact.
 
-After about three months, check whether deals with more unknowns ran longer in your own data. If they did, you have an internal benchmark for Japan that no global average can give you.
+After about three months, check whether deals with more unknowns ran longer in your own data. This is where the hypothesis in this note gets tested in your business. If they did run longer, keep placing them this way, and you have an internal benchmark for Japan that no global average can give you. If there was no difference, look at which of the three points is not doing any work.
 
 The wider model, forecasting from the buyer's internal process rather than from seller activity, is in [Japan Market GTM and Messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/).
 
-**In Japan, deal length is set less by what your rep does than by how far the buyer's organisation had already moved at the first meeting. Record who brought the deal in, whether a budget line exists, and where it must be approved next, then read the cycle from day one.**
+**In Japan, deal length depends less on what your rep does than on how far the buyer's organisation had already moved at the first meeting. Record who brought the deal in, whether a budget line exists, and where it must be approved next, estimate the cycle from day one, and check it against your own data after three months.**
 
 This week, open five live Japan deals and check whether the budget line and the next forum date can be read from the CRM. The number you cannot read is the number of deals with no basis yet for a cycle estimate.
 

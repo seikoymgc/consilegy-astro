@@ -17,13 +17,13 @@ This note checks that claim against four Japanese surveys and sets out the order
 - How managers use the dashboard shapes whether reps keep entering data.
 - Fix what the data is used for first, what it returns to the rep second, and form length last.
 
-I have supported more than 40 CRM and marketing-automation implementations, mostly on HubSpot and Salesforce, and "we deployed it and it didn't stick" is the call I get most.
+Counting my years as an independent consultant before Consilegy, I have supported more than 40 CRM, marketing-automation and SFA implementations, and "we deployed it and it didn't stick" is the call I get most.
 
 ## The top reason is time, but the next three are about value
 
 Ask Japanese sales teams why they don't enter data and effort comes first. Read down the list and it is not only effort.
 
-In a November 2024 survey by Matsurika (managers and team leads in B2B sales, n=101; run by an SFA vendor, small sample), the top reason was "entry takes time" at 54.5%. The next items were "it's a hassle" at 39.6%, "I can't see the benefit of entering it" at 32.7%, and "I don't want my results visible to others" at 27.7%.
+In a November 2024 survey by Matsurika (managers and team leads in B2B sales, n=101; run by an SFA vendor, small sample), the top reason was "entry takes time" at 54.5%. Further down the list were "it's a hassle" at 39.6%, "I can't see the benefit of entering it" at 32.7%, "there are too many fields" at 28.7%, and "I don't want my results visible to others" at 27.7%.
 
 Reps who cite effort often mean something close to "this entry does not come back to me." If an entry makes tomorrow's deal prep easier, people write it even when it takes time.
 
@@ -35,13 +35,13 @@ A survey by Keywalker in October 2025 (sales staff and managers at companies tha
 - 12.5% say they are not keeping up or have many gaps. That is roughly one in eight.
 - Among those who do not enter immediately, the reasons are "other work takes priority" (44.2%) and "too many fields" (38.5%).
 
-The most useful result is about motivation. **The top motivator is "a clear purpose and clear use for the data," at 54.8%**, followed by "my own results and growth become visible" at 40.1%. Making entry lighter is not the lead item. Knowing what the entry is for is.
+The most useful result is about motivation. **The top motivator is "a clear purpose and clear use for the data," at 54.8%**, followed by "my own results and growth become visible" at 40.1%. This is a different survey asking a different question from Matsurika's, so the two numbers cannot be compared directly, and we have not checked whether a "less effort" option was offered here. Even so, when more than half of respondents name a clear use for the data as their top motivator, effort alone does not explain adoption.
 
 ## Managers use the dashboard for reporting, not for deciding the next move
 
 The same survey asked how the dashboard is used. For managers, the top use is checking numbers in the sales meeting (58.2%), then reviewing activity (46.6%), tracking progress to target (41.0%), and building reports for executives (35.9%). **Deciding the next action is 15.4%.** For front-line reps, checking numbers in the sales meeting is 48.6%, and deciding the next action is 20.7%.
 
-For a Japan team this pattern is easy to fall into. The CRM becomes the screen that feeds the regional report to HQ. Reps then see their entries go up and nothing come back to them. The 27.7% who don't want their results visible is the other side of the same picture: if entry is only ever used to assess you, not writing it is a rational choice.
+For a Japan team this pattern is easy to fall into. The CRM becomes the screen that feeds the regional report to HQ. Reps then see their entries go up and nothing come back to them. Our reading, which the survey did not test, is that the 27.7% who don't want their results visible is the other side of the same picture: if entry is only ever used to assess you, not writing it is a rational choice.
 
 ## Adoption stalls in three layers, and the fix runs from the top down
 
@@ -55,6 +55,8 @@ For a Japan team this pattern is easy to fall into. The CRM becomes the screen t
 
 Most HQ teams start at layer 1: fewer fields, a mobile app, another training round. Start from layer 3 and work back. Once the use is fixed, what to return follows, and then which fields to keep.
 
+This is not an argument against reducing effort. The amount of work a CRM asks of people does decide adoption, as set out in [Japan CRM adoption rises when the tool asks less of people](/en/articles/crm-should-ask-less-of-people/). The point is order: what to cut and what to keep can only be decided once the use is fixed. Cut first, and the fields you needed go too.
+
 ## "We can't use all of it" often means the data isn't used
 
 Executives see the same thing. In a September to October 2021 survey by Hammock (executives at companies with 300+ employees, n=305; vendor survey, and dated), 27.6% said they used every SFA function and 49.8% used some. Among those not fully using it (n=221), the reasons were "it takes time to master" (52.3%), "entered data is not put to use" (30.1%), and "entry burden increases" (28.0%).
@@ -67,7 +69,7 @@ None of this needs new tooling.
 
 **1. Pick one place where the data is used.** Take an existing meeting, such as the weekly sales meeting, and make one agenda item something only the CRM screen can produce, for example deals with no movement last week. Do not start by banning spreadsheets. Change the agenda. See [change the weekly meeting, not the guide](/en/articles/change-the-meeting-not-the-manual/).
 
-**2. Decide what comes back to the rep the next day.** The rep who enters should see their next actions and neglected deals. Before adding any field, check three things, and if the answer to any is no, the field waits.
+**2. Decide what comes back to the rep the next day.** The rep who enters should see their next actions and neglected deals. Existing features usually cover this: task queues and saved views in HubSpot, list views and report components on the home page in Salesforce (what is available depends on edition and configuration). Before adding any field, check three things, and if the answer to any is no, the field waits.
 
 - **Does the rep who enters it gain something the next day?** If filling it does not make their own deal prep or prioritization easier, the field exists for HQ, not for the field.
 - **Are the people entering and the people using the data in the same place?** If entry is local and every dashboard is read at HQ eight time zones away, the CRM becomes a daily report written for someone the rep never sees.
@@ -77,13 +79,13 @@ None of this needs new tooling.
 
 **4. Put someone who builds the sales-meeting pack in charge, not the person who knows the tool best.** See [who should own the CRM rollout](/en/articles/who-owns-the-crm-rollout/).
 
-If a tool genuinely lacks a function, redesign will not help. A quick check: could the same agenda item be run from a spreadsheet? If yes, it is a design problem.
+If a tool genuinely lacks a function, redesign will not help. A quick check: could the same agenda item be run from a spreadsheet? If yes, the tool has enough function and the problem is design. If not even a spreadsheet could run it, suspect a missing function.
 
 ## Frequently asked questions
 
 ### What is the main reason SFA adoption stalls in Japan?
 
-What reps enter is not used in their own decisions or in the weekly meeting. Effort is the top stated reason for not entering (54.5%, n=101), yet the top motivator is a clear use for the data (54.8%, n=1,034).
+What reps enter is not used in their own decisions or in the weekly meeting. Effort is the top stated reason for not entering (54.5%, n=101). A separate survey that asked about motivation found the top motivator was a clear use for the data (54.8%, n=1,034). Cutting effort is not enough without designing the use.
 
 ### Will cutting fields raise entry rates?
 

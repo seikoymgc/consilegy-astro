@@ -2,6 +2,7 @@
 title: "Japan Reps Ask the Last Owner, Not the CRM: Fix the Record"
 description: "HQ has call summaries and deal history in the CRM, yet the new owner of a Japan account still asks the previous rep what to do next. A call summary is not decision material. Keep three lines in a fixed place so the next owner can decide in three minutes, or the record stops being read and then stops being written."
 publishedAt: 2026-10-13
+updatedAt: 2026-10-16
 category: crm
 principle: "A record nobody reads keeps costing the people who write it. What the CRM should hold is not a summary of the conversation but three lines the next owner can decide from in three minutes: the next check, who holds approval, and where it stalled last time."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -31,11 +32,11 @@ Japanese survey data points the same way, with caveats. Matsurika's SFA/CRM usag
 
 A second source: Keywalker (online survey by PRIZMA, 8 to 10 October 2025, n=1,034, sales managers and field staff at companies that have adopted SFA, CRM or BI tools; the sponsor sells BI implementation support, so it is also a vendor survey). Asked what they use dashboards for, 15.4% of managers and 20.7% of field staff chose "deciding the next action". The top answer for managers, "checking numbers in the sales meeting", was 58.2%.
 
-Records get used to confirm figures. They are rarely used to choose the next move, which is roughly what your Japan team is telling you when they ask the last owner.
+Records get used to confirm figures. They are rarely used to choose the next move. The survey asked about dashboards, not about handoffs, so it does not explain why your Japan team asks the last owner. It does point the same way: the record is not where the next move gets decided.
 
 ## Keep three lines in one fixed place, and let the person who held the deal write them
 
-The fix is not more transcripts or longer summaries. It is a state in which the next owner can decide in three minutes. On the deal record, in a fixed place, keep three lines:
+The fix is not more transcripts or longer summaries. It is a state in which the next owner can decide in three minutes. On the deal record, in a fixed place, keep three lines. HubSpot and Salesforce both have a standard next-step field on the deal; use it for the first line and add custom fields only for the other two:
 
 - **What to check next**, with a date if possible.
 - **Who holds approval.** A role is enough if the name is not known.
@@ -43,15 +44,23 @@ The fix is not more transcripts or longer summaries. It is a state in which the 
 
 The summary can stay. But with these three lines in place there is a reason to open the record, and one successful decision is what makes the next opening likely.
 
-The person who writes them is the rep holding the deal, at the moment they move the stage or book the next meeting, on the same screen. Written later from memory, the temperature is gone. We covered the same constraint for contract handoffs in [What your Japan handoff drops is the reason the contract was approved](/en/articles/handoff-misses-why-it-was-approved/): only the person who held the deal can write it.
+The person who writes them is the rep holding the deal, at the moment they move the stage or book the next meeting, on the same screen. Written later from memory, the temperature is gone.
+
+Left optional, the lines are blank within six months. Make them a condition for moving the deal to the next stage, not a requirement at creation. Approval holders are not always known early, so allow "not yet confirmed" as an answer; a deal full of those is telling you what to check next.
+
+Overwrite the lines to keep them current. Their job is to show the present state in three minutes; reading the history is a different job. If you want to see how the stall point moved, paste the same three lines into the activity note each time the stage changes, and the earlier versions stay. In the weekly pipeline review, the manager starts with deals where the lines are empty or still "not yet confirmed". We covered the same constraint for contract handoffs in [What your Japan handoff drops is the reason the contract was approved](/en/articles/handoff-misses-why-it-was-approved/): only the person who held the deal can write it.
 
 Placement matters more than it sounds. The rep opens the deal screen, the manager opens the pipeline list, customer success opens the contract screen. Put the same three lines where each of those roles actually looks.
 
+## Asking AI instead of opening the screen does not remove the need for the three lines
+
+More teams now query the CRM through an AI assistant in plain language, and for some questions that is faster than any screen. It does not make the three lines unnecessary. It makes them more necessary.
+
+An assistant can only return what the record contains. If the record holds call summaries, the assistant summarises the summaries. Only when a line says "talk to IT first, the department head is still waiting to see" can the assistant say it too. Whether the next owner reads the screen or asks through AI, the result depends on whether the decision material sits in a fixed place.
+
 ## Telling a Japan team to "check the CRM first" will not work
 
-I have caught myself doing it. I increasingly ask Claude in plain language what HubSpot or Salesforce holds, instead of opening the CRM screen, even though CRM design is my work. I pick the fastest source at that moment.
-
-So an instruction to look at the record first does little. People pick the fastest way. The only way to get the CRM chosen is to make opening it the faster route.
+An instruction to look at the record first does little. People pick the fastest way. The only way to get the CRM chosen is to make opening it, or asking it, faster than messaging the previous rep.
 
 **A CRM that is a place to read will not be used. It has to be a place to decide.**
 

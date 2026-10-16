@@ -2,6 +2,7 @@
 title: "Choosing a CRM for your Japan team: three decisions that settle it"
 description: "Headquarters assumes the global CRM will simply extend to Japan, and six months later the Japan team is running a spreadsheet next to it. The tool is rarely the problem. Who enters the data, which system holds the master record, and who administers it locally are the three decisions that decide whether the rollout survives."
 publishedAt: 2026-08-06
+updatedAt: 2026-10-16
 category: crm
 principle: "A CRM decision for Japan is settled by three answers, not by a feature comparison: who enters the data, which system is the master record, and who administers it locally."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -14,6 +15,8 @@ Headquarters rarely treats this as a decision. The company runs Salesforce, so t
 The tool was not the mistake. Three questions were never answered for Japan: who enters the data, which system holds the master record, and who administers the instance locally.
 
 Answer those three and the choice narrows itself. Leave them open and any tool produces the same spreadsheet.
+
+A disclosure before the recommendations: Consilegy has implemented HubSpot and Salesforce for clients, and since September 2026 we also offer our own CRM, Revenue CRM, for Japanese small and mid-sized companies. The three decisions below apply whichever product you end up with, ours included.
 
 ## Decision 1: who actually enters the data
 
@@ -29,7 +32,7 @@ A Japanese subsidiary almost always arrives with an incumbent system. A domestic
 
 Headquarters treats the global CRM as the master by default. The local finance and operations teams do not, and they are usually right about their own data. Company names, contract terms, and billing entities keep living in the domestic system.
 
-Decide the boundary explicitly, then move data one way. One-directional sync produces a delay you can explain. Two-way sync between a global CRM and a domestic system produces records where nobody can say which value is correct, and the reconciliation lands on the Japan team, who did not ask for either system.
+Decide the boundary explicitly, then move data one way. One-directional sync produces a delay you can explain. Two-way sync between a global CRM and a domestic system produces records where nobody can say which value is correct, and the reconciliation lands on the Japan team, who did not ask for either system. Some standard connectors are bidirectional by default; where that is the case, set the sync direction field by field rather than accepting the default.
 
 ## Decision 3: who administers it locally
 
@@ -37,13 +40,15 @@ Someone has to add fields, fix reports, and answer questions in Japanese. This i
 
 Japan's Information-technology Promotion Agency reported in its DX White Paper 2023 (published February 2023, fielded June to July 2022, 543 Japanese and 386 US companies) that 10.9% of Japanese companies said they had enough digital transformation talent, against 73.4% of US companies. JETRO's FY2024 survey of foreign-affiliated companies in Japan (published March 2025, 1,427 valid responses from 7,301 distributed, a 19.5% response rate) found sales and marketing roles the hardest to fill, at roughly 60%, ahead of IT and technical roles at roughly 40%.
 
+Neither survey measures CRM administrators specifically, so treat what follows as an inference rather than a finding: if digital and technical talent is this scarce in Japan overall, a dedicated local CRM administrator is unlikely to exist unless someone funded the role.
+
 Plan for no local administrator unless you have funded one or a local partner. If the answer is nobody, choose the configuration that an untrained person can leave alone for a quarter.
 
 ## What I recommend once the three are answered
 
-Keep the global instance when headquarters reporting continuity matters, which is most of the time, and fund a local administrator or partner alongside it. A second tool in Japan buys short-term relief and costs you the regional roll-up permanently.
+Keep the global instance when headquarters reporting continuity matters, which is most of the time, and fund a local administrator or partner alongside it. If HQ already runs Account Engagement or Marketo connected to that instance, the case for keeping it gets stronger still. A second tool in Japan buys short-term relief and costs you the regional roll-up permanently.
 
-Choose a lighter, self-administered CRM when the Japan entity operates largely on its own, has no dedicated operations headcount, and headquarters only consumes a monthly summary.
+Choose a lighter, self-administered CRM when the Japan entity operates largely on its own, has no dedicated operations headcount, and headquarters only consumes a monthly summary. This is the case our own Revenue CRM is built for, so weigh that recommendation with the disclosure above in mind; the test is the same three answers either way.
 
 Accept a domestic system as the master for orders and billing in either case. Trying to make a global CRM the source of truth for Japanese invoicing is a fight you will lose to the finance team, and losing it slowly is worse than conceding it on day one.
 

@@ -2,6 +2,7 @@
 title: "Your review cadence sets how long Japan waits for answers"
 description: "Adoption in the Japan entity stalls, so HQ adds an executive sponsor and puts Japan on the monthly regional review. Nothing moves. The backlog in Japan is not work, it is decisions a local manager cannot make alone and that do not qualify for a formal approval route. Japanese survey data (n=1,034, n=312) and how to set the cadence."
 publishedAt: 2026-09-20
+updatedAt: 2026-10-16
 category: adoption
 principle: "Set the review cadence by how many days a decision the Japan team cannot make on its own can sit before the team builds a workaround, not by how much progress detail HQ wants. Whatever you make them wait becomes permanent local practice."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -45,7 +46,7 @@ The survey on *ringi* practice from Professional Tech Soken, run inside Bengo4.c
 
 A request that qualifies for the formal route comes back in days. A request that does not qualify has exactly one destination: the next project meeting, or the next review with you.
 
-On a monthly cadence that is fifteen days on average, thirty at worst. The unofficial decision is slower than the official one.
+On a monthly cadence that is fifteen days on average, thirty at worst. The *ringi* figures and this wait come from different populations measured in different ways, so they cannot be set side by side as a race. The difference that matters is the route: the formal request has one that returns an answer, and the informal decision has none until the next meeting.
 
 Two things then happen that you do not see. Nobody raises the backlog in the regional call, because a question about an approved global design, asked in a second language in front of the region, reads as an objection to it. And the team solves it locally. The legacy ledger stays open, the CRM gets whatever the pipeline call needs, the discount does not go in the field.
 
@@ -55,7 +56,9 @@ Meanwhile the adoption dashboard holds up, because it counts logins and filled f
 
 ## Set the cadence by days-to-workaround
 
-Ask the local project owner for two dates on every open item: when the request went out, and when local practice changed without an answer. The gap between them is your number. In the rollouts I have worked on it has been somewhere around seven working days, which is roughly how long it takes to conclude that nothing is coming.
+Ask the local project owner for two dates on every open item: when the request went out, and when local practice changed without an answer. The gap between them is your number. In the rollouts I have worked on it has been somewhere around seven working days, which is roughly how long it takes to conclude that nothing is coming. That is my own observation, not a figure from a counted sample, so measure yours.
+
+A single spreadsheet is enough. Six columns: date raised, raised by, the request, who can close it, date answered, and date local practice changed without an answer. The local project owner adds a row when a request comes in and fills the last two columns when an answer arrives or when the team is found to have gone back to the legacy ledger.
 
 Have the list sorted by who can actually close each item. Local manager, local project owner, or someone above both. Count only the third group. That count tells you more about the rollout than the adoption percentage does.
 

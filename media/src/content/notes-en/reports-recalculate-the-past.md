@@ -2,6 +2,7 @@
 title: "Japan's conversion rate changed after you reported it to HQ"
 description: "The number your Japan team sent to headquarters last quarter does not match the same report today, and Japan looks like it is revising its own results. The report is not broken. It recalculates the past every time it opens, and conditions in Japan make that drift larger."
 publishedAt: 2026-08-25
+updatedAt: 2026-10-16
 category: data
 principle: "A report does not store the past. It recomputes it from today's data every time it runs. If a number has to hold, someone has to close the period and save it."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -33,9 +34,9 @@ Then the reporting habit compounds it. In the same study, 58.2% of managers said
 
 Not a better report. A close.
 
-Fix a closing date, third business day of the month works, and have a named person in Japan save the numbers as of that date somewhere the report cannot reach. What goes into the QBR is the saved value. What the team works from day to day is the live value. The gap between the two is not a nuisance, it is the most useful early warning you have about entry lag in the Japan pipeline.
+Fix a closing date, third business day of the month works, and save the numbers as of that date somewhere the report cannot reach. Look for a standard feature first: Salesforce has reporting snapshots, which save report results to a separate object on a schedule. Whether other tools can store point-in-time values depends on the product and edition. Only where nothing exists should someone copy values into a spreadsheet on close day, and then it needs a named owner in Japan, usually whoever builds the review deck, with the task on their calendar. An unowned manual save stops within a few months. What goes into the QBR is the saved value. What the team works from day to day is the live value. The gap between the two is not a nuisance, it is the most useful early warning you have about entry lag in the Japan pipeline.
 
-Move the reporting date to a timestamp users cannot edit, and stop tightening report filters as a fix. No filter changes the fact that the report computes at runtime.
+Move the reporting date to a timestamp users cannot edit: in HubSpot, the automatically recorded date a record entered each lifecycle stage; in Salesforce, field history or opportunity stage history. Check which are available in your configuration and edition. And stop tightening report filters as a fix. No filter changes the fact that the report computes at runtime.
 
 One more thing worth saying out loud to a global team: this is not Japan being unreliable with data. Every region's reports recalculate the past. Japan simply has more duplicates, more migrations, and more delayed entry for the report to recalculate over, and the person who knows that is usually not in the meeting where the number is challenged.
 

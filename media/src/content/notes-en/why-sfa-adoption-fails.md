@@ -2,6 +2,7 @@
 title: "Why Japan CRM Adoption Stalls: A Design Problem, Not Effort"
 description: "If your Japan team won't keep the CRM updated, effort is rarely the cause. Four Japanese surveys show why entry stalls when nothing is returned or used, and the order in which to fix it."
 publishedAt: 2026-10-05
+updatedAt: 2026-10-16
 category: crm
 principle: "Before cutting data-entry effort in Japan, make sure what reps enter is used in their next-day deal prep and in the weekly meeting. Entry with no use will not last, however light you make it."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -66,7 +67,11 @@ None of this needs new tooling.
 
 **1. Pick one place where the data is used.** Take an existing meeting, such as the weekly sales meeting, and make one agenda item something only the CRM screen can produce, for example deals with no movement last week. Do not start by banning spreadsheets. Change the agenda. See [change the weekly meeting, not the guide](/en/articles/change-the-meeting-not-the-manual/).
 
-**2. Decide what comes back to the rep the next day.** The rep who enters should see their next actions and neglected deals. The reasoning is in [why your Japan team won't log data](/en/articles/why-teams-dont-use-the-tool/).
+**2. Decide what comes back to the rep the next day.** The rep who enters should see their next actions and neglected deals. Before adding any field, check three things, and if the answer to any is no, the field waits.
+
+- **Does the rep who enters it gain something the next day?** If filling it does not make their own deal prep or prioritization easier, the field exists for HQ, not for the field.
+- **Are the people entering and the people using the data in the same place?** If entry is local and every dashboard is read at HQ eight time zones away, the CRM becomes a daily report written for someone the rep never sees.
+- **Did anyone follow a Japanese rep through an actual day before finalizing the schema?** A spec written in a headquarters meeting rarely matches how the local day runs.
 
 **3. Keep only the fields that use needs.** Don't make unknown fields required: it clears the blanks and adds errors.
 

@@ -36,3 +36,9 @@ AddCharset UTF-8 .txt
 		Header set Content-Type "text/plain; charset=UTF-8"
 	</FilesMatch>
 </IfModule>
+
+# 統合した記事の転送（2026-10-16）。
+# why-teams-dont-use-the-tool は why-sfa-adoption-fails と結論・数字が重なっていたため統合した。
+# astro.config.mjs の redirects でも同じ転送を出している（mod_alias が効かない場合の保険）。
+Redirect 301 /notes/why-teams-dont-use-the-tool/ https://media.consilegy.com/notes/why-sfa-adoption-fails/
+Redirect 301 /en/articles/why-teams-dont-use-the-tool/ https://media.consilegy.com/en/articles/why-sfa-adoption-fails/

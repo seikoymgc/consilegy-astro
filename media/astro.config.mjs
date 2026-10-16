@@ -43,6 +43,11 @@ const newest = [...articleDates.values()].sort((a, b) => b - a)[0] ?? new Date()
 export default defineConfig({
 	site: 'https://media.consilegy.com',
 	trailingSlash: 'always',
+	// 統合した記事の転送。public/.htaccess の Redirect 301 と同じ内容（サーバー側が効かない場合の保険）
+	redirects: {
+		'/notes/why-teams-dont-use-the-tool/': '/notes/why-sfa-adoption-fails/',
+		'/en/articles/why-teams-dont-use-the-tool/': '/en/articles/why-sfa-adoption-fails/',
+	},
 	integrations: [
 		mdx(),
 		sitemap({

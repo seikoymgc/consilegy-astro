@@ -53,6 +53,6 @@ A CRM is not held to tidy information. It is held to fix who decides what, and w
 
 ## Related reading
 
-If changing the meeting still does not move the data, the problem is upstream: read [why your Japan team won't log data](/en/articles/why-teams-dont-use-the-tool/), which covers what the CRM has to return to the person entering it.
+If changing the meeting still does not move the data, the problem is upstream: read [why Japan CRM adoption stalls](/en/articles/why-sfa-adoption-fails/), which covers what the CRM has to return to the person entering it.
 
 Other notes on the same problem are collected under [Change management](/en/category/adoption/).

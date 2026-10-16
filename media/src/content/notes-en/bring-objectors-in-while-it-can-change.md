@@ -83,6 +83,6 @@ Handle only the objections that fall inside the decisions you handed over. State
 
 ## Related reading
 
-Even after the exposure question is settled, a Japan team keeps entering data only if something comes back to the person who entered it. That design order is covered in [why your Japan team won't log data](/en/articles/why-teams-dont-use-the-tool/).
+Even after the exposure question is settled, a Japan team keeps entering data only if something comes back to the person who entered it. That design order is covered in [why Japan CRM adoption stalls](/en/articles/why-sfa-adoption-fails/).
 
 Other notes on the same problem are collected under [Change management](/en/category/adoption/).

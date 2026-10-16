@@ -8,9 +8,9 @@ const SIGNUP_URL = 'https://crm.consilegy.com/signup';
 // Mirrors /crm/contractor/. Only what the contractor edition actually ships
 // (src/lib/editions/index.ts in the product). Deals are called projects here.
 const screens = [
-	{ src: 'resources', title: 'Capacity calendar', desc: 'Assigned days against capacity, per person and per week. Who frees up when, in numbers rather than guesses.', alt: 'The capacity calendar: utilization this week, free person-days, and a 13-week grid of assigned days over capacity for four team members.' },
+	{ src: 'resources', title: 'Capacity calendar', desc: 'Assigned days against capacity, per person and per week. Who frees up when, in numbers rather than guesses.', alt: 'The capacity calendar: utilization this week, free person-days, and a 12-week grid of assigned days over capacity for four team members.' },
 	{ src: 'delivery', title: 'Delivery', desc: 'Kickoff, build, review, and handover stages per project, with days in stage, due dates, and planned versus actual person-days on one row.', alt: 'The delivery list: project, company, amount, delivery stage, days in stage, due date, and planned and actual person-days for six won projects.' },
-	{ src: 'quotes', title: 'Quotes', desc: 'Draft, sent, and approved, tracked by status. Line items build up as person-days times rate.', alt: 'The quote list: four quotes with approved, draft, and sent badges, contact, company, total, and expiry date.' },
+	{ src: 'quotes', title: 'Quotes', desc: 'Draft, sent, and approved, tracked by status. Line items build up as quantity times rate; enter person-days as the quantity for a person-day quote.', alt: 'The quote list: four quotes with approved, draft, and sent badges, contact, company, total, and expiry date.' },
 	{ src: 'deals', title: 'Projects', desc: 'Called projects, not deals. Amounts and counts by stage, from first contact to quote.', alt: 'The project kanban: cards in approach, hearing, proposal, and quote stages, with totals and probability per stage.' },
 ];
 
@@ -21,18 +21,18 @@ const problems = [
 ];
 
 const engine = [
-	{ label: 'Quote', text: 'Create a task automatically when a quote is requested' },
+	{ label: 'Quote', text: 'Create a task automatically when a project reaches the quote stage' },
 	{ label: 'Stalled', text: 'Find stalled projects and flag them' },
 	{ label: 'Forecast', text: 'Reflect project changes in the revenue forecast' },
-	{ label: 'Won', text: 'Start the follow-on steps when a project is won' },
-	{ label: 'Renewal', text: 'Track maintenance renewal dates and send reminders' },
+	{ label: 'Won', text: 'When a project is won, create a task to collect the contract and PO' },
+	{ label: 'Renewal', text: 'Create a renewal prep task 60 days before the contract end date' },
 ];
 
 const roles = [
 	{ name: 'Owner', scope: 'Every project, capacity, billing, and permissions' },
 	{ name: 'Admin', scope: 'Day-to-day operations and permissions' },
-	{ name: 'Project manager', scope: 'View and edit projects, quotes, and capacity for their team' },
-	{ name: 'Member', scope: 'Only the projects they are on' },
+	{ name: 'Manager (PM)', scope: 'View and edit projects for their team' },
+	{ name: 'Member', scope: 'Only the projects they own' },
 ];
 ---
 
@@ -61,7 +61,7 @@ const roles = [
 			<p class="eyebrow">Revenue CRM for agencies &amp; contract work</p>
 			<h1>CRM for agencies<br />and contract work.</h1>
 			<p class="hero-lead">
-				Projects in a spreadsheet, capacity in the project manager’s head, quotes in a new file every time. This edition <strong>puts projects, quotes, capacity, and delivery in one place, so you can quote from when you can actually start</strong>.
+				Projects in a spreadsheet, capacity in the project manager’s head, quotes in a new file every time. This edition <strong>puts projects, quotes, capacity, and delivery in one place, so you can check when you can start before the quote goes out</strong>.
 			</p>
 			<div class="hero-actions">
 				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">See the demo</a>
@@ -76,7 +76,7 @@ const roles = [
 		<figure class="hero-media">
 			<img
 				src="/images/crm/contractor/screen-resources.webp"
-				alt="The capacity calendar: utilization, free person-days, and a 13-week grid of assignments for four team members."
+				alt="The capacity calendar: utilization, free person-days, and a 12-week grid of assignments for four team members."
 				width="1432"
 				height="840"
 				decoding="async"
@@ -95,13 +95,13 @@ const roles = [
 			</p>
 			<div class="pos-copy">
 					<p>
-						So the center is the <strong>project</strong>. In this edition, deals are called projects, and one project carries the quote, the win, delivery, invoicing, and maintenance renewal.
+						So the center is the <strong>project</strong>. In this edition, deals are called projects, and one project carries the quote, the win, delivery, and maintenance renewal.
 					</p>
 					<p>
 						In contract work, margin depends less on whether you won and more on <strong>who you put on it, and when</strong>. With capacity held per person and per week, you check when you can start before the quote goes out.
 					</p>
 					<p>
-						Maintenance contracts are revenue that continues after the win. Each has a renewal date, with a reminder before it comes up.
+						Maintenance contracts are revenue that continues after the win. Put a contract end date on the project and a renewal prep task is created 60 days before it.
 					</p>
 			</div>
 		</div>
@@ -167,10 +167,10 @@ const roles = [
 			<p class="section-eyebrow">Project engine</p>
 			<h2>Take missed steps out of people’s memory.</h2>
 				<p class="support-lead">
-					When you create this edition, the project automations are already on. They create tasks from quote requests, catch stalled projects, start the steps after a win, and track maintenance renewals, as a nightly job.
+					When you create this edition, the project automations are already on. They create a task when a project reaches the quote stage, catch stalled projects, create a contract and PO collection task after a win, and prepare maintenance renewals, once a day.
 				</p>
 				<p class="support-lead">
-					Automations create tasks, notifications, and drafts. Nothing is sent to a customer on its own; the owner reviews it first.
+					Automations create tasks, notifications, and drafts, and update the forecast. Customer emails go out only from automations you have turned on yourself, with the recipients and wording you chose.
 				</p>
 		</div>
 		<div class="support-list">
@@ -191,20 +191,20 @@ const roles = [
 			<p class="section-eyebrow">AI</p>
 			<h2>Ask in plain language,<br />get the answer back.</h2>
 				<p class="ai-lead">
-					You do not have to build a report to find something out. Ask it the way you would say it, and it searches project and capacity data.
+					You do not have to build a report to find something out. Ask it the way you would say it, and it searches contacts, companies, projects, and attached documents.
 				</p>
 				<p class="ai-lead">
-					Free capacity next month, projects near their due date, stalled work, maintenance renewals coming up. All checked on the spot.
+					The largest projects, who the contact is, what a proposal or spec says. All checked on the spot.
 				</p>
 				<p class="ai-lead">
-					What the AI drafts stays a draft. Nothing reaches a customer until the owner has checked and confirmed it.
+					Ask and it will also add contacts or tasks for you. The AI never emails a customer.
 				</p>
 		</div>
 		<ul class="ai-examples">
-				<li>How many free person-days this week?</li>
-				<li>Which projects are due soon?</li>
-				<li>Which projects are stalled?</li>
-				<li>When do maintenance contracts renew?</li>
+				<li>Which projects are the largest?</li>
+				<li>Who is the contact on this project?</li>
+				<li>Find the delivery terms in the spec</li>
+				<li>Which automation flags stalled projects?</li>
 		</ul>
 	</div>
 </section>
@@ -217,7 +217,7 @@ const roles = [
 			<h2 class="ro-title">Keep people out of projects that are not theirs.</h2>
 		</div>
 		<p class="ro-lead">
-			For contacts, companies, and projects, choose what each role can see: everything, the team, or only their own. Partner staff can be limited to their own projects, and export rights are set separately. An example setup:
+			For contacts, companies, and projects, choose what each role can see: everything, the team, or only their own. Partner staff can be limited to the projects they own, though the quote list is visible to everyone, and export rights are set separately. An example setup:
 		</p>
 		<dl class="ro-list">
 			{roles.map((r) => (
@@ -227,7 +227,7 @@ const roles = [
 				</div>
 			))}
 		</dl>
-		<p class="ro-note">Actions are logged, so you can trace who changed what, and when.</p>
+		<p class="ro-note">Contacts, companies, and projects keep a change history, so you can trace who changed what, and when.</p>
 	</div>
 </section>
 
@@ -252,9 +252,9 @@ const roles = [
 			<ul class="cta-list">
 				<li>The capacity calendar and how utilization reads</li>
 				<li>Delivery stages and days in stage per project</li>
-				<li>Building a quote from person-days and rates</li>
-				<li>What starts automatically after a win</li>
-				<li>Member permissions and the audit log</li>
+				<li>Building a quote line by line</li>
+				<li>Tasks created automatically as projects move</li>
+				<li>Member permissions and change history</li>
 			</ul>
 		</div>
 	</div>

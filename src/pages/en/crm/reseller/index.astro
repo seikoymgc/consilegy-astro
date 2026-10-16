@@ -8,7 +8,7 @@ const SIGNUP_URL = 'https://crm.consilegy.com/signup';
 // Mirrors /crm/reseller/. Only what the reseller edition actually ships
 // (src/lib/editions/index.ts in the product).
 const screens = [
-	{ src: 'subscriptions', title: 'Contracts and recurring revenue', desc: 'Margin per plan, active and churned contracts, MRR, ARR, and LTV on one screen. No rebuilding the spreadsheet at month end.', alt: 'The subscriptions screen: MRR, ARR, active contracts, churn rate, and LTV cards above a contract list with plan, margin rate, customer, status, amount, and MRR.' },
+	{ src: 'subscriptions', title: 'Contracts and recurring revenue', desc: 'Margin per contract, active and churned contracts, MRR, ARR, and LTV on one screen. No rebuilding the spreadsheet at month end.', alt: 'The subscriptions screen: MRR, ARR, active contracts, churn rate, and LTV cards above a contract list with plan, margin rate, customer, status, amount, and MRR.' },
 	{ src: 'automations', title: 'Renewal and churn watch', desc: 'Early warning on renewal dates, falling health, churn signals, and upsell candidates. Turned on as a set.', alt: 'The automation library with the renewal and churn watch set switched on, out of 175 automations in total.' },
 	{ src: 'deals', title: 'New and add-on in one place', desc: 'New deployments and extra seats or licenses in the same pipeline, with amounts and counts by stage.', alt: 'The deal kanban with new-deployment and seat-expansion deals across approach, hearing, proposal, and quote stages.' },
 ];
@@ -30,7 +30,7 @@ const engine = [
 const roles = [
 	{ name: 'Owner', scope: 'Every customer, contract, billing, and permissions' },
 	{ name: 'Admin', scope: 'Day-to-day operations and permissions' },
-	{ name: 'Manager', scope: 'View and edit customers, deals, and contracts for their team' },
+	{ name: 'Manager', scope: 'View and edit customers and deals for their team' },
 	{ name: 'Sales rep', scope: 'Only their own customers and deals' },
 ];
 ---
@@ -94,13 +94,13 @@ const roles = [
 			</p>
 			<div class="pos-copy">
 					<p>
-						So the center is the <strong>contract</strong>. A deal ends when it is won; a reseller’s revenue starts there. Whether the contract is live, when it renews, and what margin it carries sit on the same screen as the deal.
+						So the center is the <strong>contract</strong>. A deal ends when it is won; a reseller’s revenue starts there. Whether the contract is live, when it renews, and what margin it carries all show on the contracts screen.
 					</p>
 					<p>
 						New deployments and extra seats or licenses run in the same pipeline. When most revenue comes from existing customers, there is no reason to track them apart.
 					</p>
 					<p>
-						When you carry several products, margin rates differ. Each contract holds its rate, so you can sort by <strong>what you keep</strong>, not by revenue.
+						When you carry several products, margin rates differ. Enter the cost on each contract and you see <strong>what you keep</strong> per contract, not just revenue.
 					</p>
 			</div>
 		</div>
@@ -166,10 +166,10 @@ const roles = [
 			<p class="section-eyebrow">Renewal engine</p>
 			<h2>Take renewal prep out of people’s memory.</h2>
 				<p class="support-lead">
-					When you create this edition, the renewal automations are already on. Renewal date tracking, the 90-day approach, renewal deals, and churn signal detection run as a nightly job.
+					When you create this edition, the renewal automations are already on. Renewal date tracking, the 90-day approach, renewal deals, and churn signal detection run once a day. Renewal risk and renewal deals apply to contracts linked to a customer: those created from a won deal by automation, or imported through the Stripe integration.
 				</p>
 				<p class="support-lead">
-					Automations create tasks, notifications, and drafts. Nothing is sent to a customer on its own; the owner reviews it first.
+					Automations create tasks, notifications, drafts, and renewal deals. Customer emails go out only from automations you have turned on yourself, with the recipients and wording you chose.
 				</p>
 		</div>
 		<div class="support-list">
@@ -190,20 +190,20 @@ const roles = [
 			<p class="section-eyebrow">AI</p>
 			<h2>Ask in plain language,<br />get the answer back.</h2>
 				<p class="ai-lead">
-					You do not have to build a report to find something out. Ask it the way you would say it, and it searches contract and deal data.
+					You do not have to build a report to find something out. Ask it the way you would say it, and it searches contacts, companies, deals, and attached documents.
 				</p>
 				<p class="ai-lead">
-					Contracts renewing soon, products with thin margins, customers whose activity has dropped. All checked on the spot.
+					The largest deals, who the contact is, what a contract clause says. All checked on the spot.
 				</p>
 				<p class="ai-lead">
-					What the AI drafts stays a draft. Nothing reaches a customer until the owner has checked and confirmed it.
+					Ask and it will also add contacts or tasks for you. The AI never emails a customer.
 				</p>
 		</div>
 		<ul class="ai-examples">
-				<li>Which contracts renew this month?</li>
-				<li>Break down our MRR</li>
-				<li>Which customers are at churn risk?</li>
-				<li>Which contracts have low margin?</li>
+				<li>Which deals are the largest?</li>
+				<li>Who is the contact on this deal?</li>
+				<li>Find the termination clause in the contract</li>
+				<li>Which automation prevents missed renewal outreach?</li>
 		</ul>
 	</div>
 </section>
@@ -226,7 +226,7 @@ const roles = [
 				</div>
 			))}
 		</dl>
-		<p class="ro-note">Actions are logged, so you can trace who changed what, and when.</p>
+		<p class="ro-note">The contract list is visible to everyone regardless of scope. Contacts, companies, and deals keep a change history, so you can trace who changed what, and when.</p>
 	</div>
 </section>
 
@@ -250,10 +250,10 @@ const roles = [
 			<h4>What we show you</h4>
 			<ul class="cta-list">
 				<li>The contract list and how MRR, ARR, and LTV read</li>
-				<li>Margin per plan</li>
+				<li>Margin per contract</li>
 				<li>Setting up renewal and churn watch</li>
 				<li>New and add-on deals in one pipeline</li>
-				<li>Rep permissions and the audit log</li>
+				<li>Rep permissions and change history</li>
 			</ul>
 		</div>
 	</div>

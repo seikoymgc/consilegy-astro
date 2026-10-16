@@ -116,6 +116,6 @@ Add fields for approval stage and the buyer's internal deadline, and ask the cha
 
 ## Related reading
 
-The timing of the quote and how to hand over the conditions that move it are covered in [Why your 30-day quote expires inside Japan's approval cycle](/en/articles/quote-timing-one-step-later/). Why approvals pass on precedent rather than features is the background in [In Japan, deals are won on precedent rather than features](/en/articles/japanese-deals-win-on-precedent/).
+The timing of the quote and how to hand over the conditions that move it are covered in [Why your 30-day quote expires inside Japan's approval cycle](/en/articles/quote-timing-one-step-later/). Why features decide who gets cut and precedent decides who stays in is the background in [In Japan, features get you cut and precedent keeps you in](/en/articles/japanese-deals-win-on-precedent/).
 
 Other notes on the same problem are collected under [Sales process](/en/category/sales/).

@@ -73,6 +73,6 @@ Treating the Japanese market as one continuous [revenue architecture](https://co
 
 ## Related reading
 
-What actually carries an approval document internally is precedent, not features. [why deals in Japan are won on precedent rather than features](/en/articles/japanese-deals-win-on-precedent/) has the data.
+What actually carries an approval document internally is precedent, not features. [In Japan, features get you cut and precedent keeps you in](/en/articles/japanese-deals-win-on-precedent/) has the data.
 
 Other notes on the same problem are collected under [Japan market entry](/en/category/japan-gtm/).

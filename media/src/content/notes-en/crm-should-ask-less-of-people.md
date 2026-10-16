@@ -2,6 +2,7 @@
 title: "Japan CRM adoption rises when the tool asks less of people"
 description: "Data entry in your Japan CRM stalls, so HQ adds another training round, and six months later it stalls again. Training is aimed at the wrong variable. A 2025 survey of 1,034 Japanese sales staff shows why entry is late, and this note explains how to count the work your CRM asks for before adding more enablement."
 publishedAt: 2026-09-29
+updatedAt: 2026-10-16
 category: crm
 principle: "CRM adoption in Japan is set by how much work the tool asks of people, not by how much training they get. Count the entry, configuration and upkeep work first, and remove what you can before you teach the rest."
 canonUrl: https://consilegy.com/en/crm/
@@ -31,7 +32,7 @@ After go-live, the tool makes demands, and it helps to split them by who is bein
 
 Reps are asked to enter: contacts, deal history, next steps. Administrators are asked to configure: fields, pipelines, permissions, automations. The organisation is asked to sustain: review the data in a regular meeting, keep definitions stable, keep things running when people change roles.
 
-A Japan office without a dedicated operations person carries all three on the same few people. The sales lead enters data, the sales manager configures the system, and the country head worries about upkeep. Squeezing three kinds of work in beside the day job holds for a few months after launch.
+Even with a dedicated operations owner, one person cannot carry all three. Entry stays with the reps, and reviewing the numbers in the regular meeting stays with the sales manager. A Japan office without a dedicated operations person carries all three on the same few people. The sales lead enters data, the sales manager configures the system, and the country head worries about upkeep. Work squeezed in beside the day job is the first thing to stop in a month when the day job gets busy.
 
 ## Count one week of the work your CRM generates, by who does it
 
@@ -41,25 +42,27 @@ For reps: how many fields, across how many screens, does it take to log one deal
 
 One of the three is usually far heavier than the others. Cut there first. Training covers only what you could not remove.
 
-There are three ways to remove work: turn entry into review, deliver the configuration already done, and let automation run the upkeep. What separates CRMs that last is not how many features they have, but how much of these three the tool takes off people.
+## There are three ways to remove the work
 
-## What we did with Revenue CRM, and who it is for
+**Turn entry into review.** If a value is already decided in another system or an earlier step, do not ask a person to type it. Take fields that an integration or auto-fill can populate off the entry screen, and do not use free text where a picklist will do. What is left for the rep is what only they know, plus checking that the filled values are right.
 
-Revenue CRM is a CRM we launched on 28 September 2026 for Japanese small and mid-sized companies. It was designed around the three cuts above. The full announcement is in our [Revenue CRM press release](/en/news/revenue-crm-release/).
+**Deliver the configuration already done.** Settle fields, pipelines and permissions to fit the work before the Japan team opens the system. Hand over something close to empty with a promise to "refine it as we go," and the refining lands on the people using it.
 
-Entry becomes review. Photograph a business card and it becomes a contact. Audio from a meeting yields a transcript, key points and next actions. The rep checks for errors instead of typing.
+**Let automation run the upkeep, but start small.** Assignment, reminders and stage-change alerts can be automated. Each automation, though, creates its own work: checking that it still runs and who it is sending what to. Switch on only a few at first, and decide who reviews them and when. For example, once a quarter, open the list of active automations and turn off the ones whose alerts nobody reads.
 
-Configuration arrives done. Four editions (B2B, contract development and services, reseller, and school) come with fields, pipelines and automations already set for the work. We do not hand over an empty CRM and ask the customer to start configuring.
+What separates CRMs that last is not how many features they have, but how much of these three the tool takes off people, and how small it keeps the work it creates in return.
 
-Upkeep runs on automation. 175 automations are included, and a diagnostic reads the current settings and suggests up to eight to switch on first.
-
-This is not a replacement for your global CRM. It is built for companies that cannot easily assign someone to run a CRM. If your Japan entity has a dedicated RevOps owner, a full HubSpot or Salesforce implementation with proper operating support is usually the better fit. The dividing line is not company size but whether someone can carry the three kinds of work.
+One example from our own product. Revenue CRM, which we at Consilegy launched on 28 September 2026 for Japanese small and mid-sized companies, was designed around these three cuts. It ships in four industry editions with initial settings already in place, and its automation diagnostic asks four questions and suggests at most eight automations to switch on first. The cap exists to keep the review work above from growing. Details are in the [press release](/en/news/revenue-crm-release/). If your Japan entity runs on your global HubSpot or Salesforce instance, the count and the three cuts apply the same way.
 
 ## Teach only what is left after you have removed work
 
 Enablement is not the problem. The order is. Piling training onto a heavy workload leaves the team with one new thing: more to remember.
 
 Count the work, remove what you can, then spend teaching time on what remains. Do not leave adoption to the effort of the field team alone.
+
+**CRM adoption in Japan is set by how much work the tool asks of people, not by how much training they get. Count the entry, configuration and upkeep work first, and remove what you can before you teach the rest.**
+
+If you do one thing this week, ask one rep on the Japan team to count the screens they open and the fields they fill to log a single deal.
 
 ## Common mistakes
 

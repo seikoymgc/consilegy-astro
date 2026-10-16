@@ -1,9 +1,10 @@
 ---
 title: "The Japan playbook that worked once is quietly decaying"
-description: "The comparison chart and approval script your Japan team wrote at market entry is still handed to new reps unrevised, while the competitors in it have changed. Why a Japan playbook needs a recheck date attached to it, not just an author."
+description: "The comparison chart and approval script your Japan team wrote at market entry is still handed to new reps unrevised, while the competitors in it have changed. Why a Japan playbook needs a recheck date, a CRM field that records which deals used it, and a competitor trigger, not just an author."
 publishedAt: 2026-09-26
+updatedAt: 2026-10-16
 category: data
-principle: "A Japan playbook is a snapshot of the market on the day it was written. The market keeps moving after that; the document does not, unless someone attaches a date to re-measure whether it still predicts wins. Without that date, the first sign of decay is a quarter that missed."
+principle: "A Japan playbook is a snapshot of the market on the day it was written, and the market keeps moving. So on the day it is written, decide how each deal will record which version it used, and what triggers a re-measure: a date, and a competitor appearing that the chart does not list. Without that, the first sign of decay is a quarter that missed."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
@@ -29,17 +30,19 @@ It goes undetected longer in Japan than in faster-cycle markets for a structural
 
 ## What to attach to a playbook instead of an author's name
 
-Two things, decided when the playbook is written rather than when it stops working.
+Four things, decided when the playbook is written rather than when it stops working.
 
-**A recheck date and the specific number it checks.** Not a calendar reminder to "review the playbook," a named comparison: the win rate of deals that followed the playbook this quarter against the cohort from the quarter it was written. If nobody can produce that comparison on request, the playbook has no owner in any sense that matters.
+**A recheck date and the specific number it checks.** Not a calendar reminder to "review the playbook," a named comparison: the win rate of deals that used the playbook this quarter against the cohort from the quarter it was written. If nobody can produce that comparison on request, the playbook has no owner in any sense that matters.
 
-**An owner tied to the recheck date, not to whoever holds the country manager title.** Tying playbook ownership to the current country manager means it gets rewritten only when someone new wants to make their mark, then sits untouched for however long the previous one stays. The update trigger should be the date, not a change of personnel.
+**A field that records which deals used it.** That comparison is impossible unless the CRM knows which deals ran on which version. Do not ask reps whether they "followed the playbook"; that is a self-assessment and the number will be noise. Record a fact instead: a picklist on the opportunity called "comparison chart version," with one value per version (for example "April 2026") plus "not sent." Make it required when a deal moves into the stage where the chart is handed over, so it costs the rep one selection at a moment they are already updating the record. When a new version ships, add a value and keep the old ones, or you lose the cohort you are comparing against. Be clear about the limit: this records whether the chart was sent, not whether the rep ran the whole motion, and a deal where the chart was only talked through lands in "not sent."
+
+**A trigger that works before the sample is big enough.** If one playbook closes only a handful of deals in a quarter, a few deals either way move the win rate, and the difference means nothing. Keep putting the numbers side by side, but extend the window until enough deals have closed before you act on the rate alone. What does not need a large sample is a name. Make the competitor field on the opportunity a picklist with "other" plus a free-text box. When "other" starts filling with a name the current chart does not list, that is the re-measure trigger, regardless of the date. The win rate tells you something has dropped; the gap between the competitors in the chart and the competitors reps are actually meeting tells you what.
+
+**An owner tied to the recheck date, not to whoever holds the country manager title.** Tying playbook ownership to the current country manager means it gets rewritten only when someone new wants to make their mark, then sits untouched for however long the previous one stays. The update trigger should be the date or the competitor signal, not a change of personnel.
 
 Two responses look like fixes and are not. Rewriting the whole playbook on a fixed annual schedule regardless of what actually decayed produces the same "roughly what we had before" document at the cost of a full rewrite. Leaving revisions to individual rep judgment produces exactly the silent improvisation described above: real, useful to the rep doing it, and invisible to whoever owns the source document.
 
-**A Japan playbook is a snapshot of the market on the day it was written. The market keeps moving after that; the document does not, unless someone attaches a date to re-measure whether it still predicts wins. Without that date, the first sign of decay is a quarter that missed.**
-
-As outside corroboration only, not as a Japan figure: Ebsta and Pavilion's 2024 B2B Sales Benchmarks (4.2 million opportunities, 530 companies, published 2024) reported win rates down 27% against 2021 and down 18% against 2022, both relative figures, aggregated across the US and global accounts in their data set. This is not Japan-specific, but it makes the underlying point on its own: win rates move with the market whether or not anyone is watching, and a document that stops moving with them starts falling behind on the day it is finished.
+**A Japan playbook is a snapshot of the market on the day it was written, and the market keeps moving. So on the day it is written, decide how each deal will record which version it used, and what triggers a re-measure: a date, and a competitor appearing that the chart does not list. Without that, the first sign of decay is a quarter that missed.**
 
 ## Related reading
 

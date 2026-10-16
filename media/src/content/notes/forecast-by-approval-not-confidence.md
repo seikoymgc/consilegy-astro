@@ -57,6 +57,6 @@ EbstaとPavilionの共同調査（2024年、n=420万商談。海外の調査で�
 
 ## 関連する記事
 
-決裁の進捗を前に進めるために何を渡すかは、[稟議は機能の優位ではなく前例で通る　日本の商談プロセス設計](/notes/japanese-deals-win-on-precedent/)に書いています。
+決裁の進捗を前に進めるために何を渡すかは、[日本の商談は、機能で外され、前例で残る](/notes/japanese-deals-win-on-precedent/)に書いています。
 
 同じ悩みの記事は「[商談が進まない・受注が読めない](/notes/category/sales/)」にまとめています。

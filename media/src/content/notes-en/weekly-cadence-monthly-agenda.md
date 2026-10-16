@@ -59,6 +59,6 @@ So weekly is not about speed. It is that at one meeting a month, two records fil
 
 ## Related reading
 
-If the deals you open turn out never to have been ready for handover, the line itself is the problem. Where to redraw it is covered in [changing the handover rule from lead score to buying behaviour](/en/articles/handoff-on-behavior-not-score/).
+If the deals you open turn out never to have been ready for handover, the line itself is the problem. Where to redraw it is covered in [hand leads to sales on behavior, not on score](/en/articles/handoff-on-behavior-not-score/).
 
 Other notes on the same problem are collected under [Demand generation](/en/category/marketing/).

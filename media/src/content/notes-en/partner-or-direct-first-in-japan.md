@@ -54,7 +54,7 @@ The alternative is not cheap either, and its constraint sits upstream of any pip
 
 In the same survey, 42.4% of respondents said they were finding it hard to secure the people they need (n=1,385). Among those, sales and marketing talent was the hardest category at 57.3%, ahead of IT and technical talent at 39.1% (n=583, multiple response). In the major metropolitan prefectures, Tokyo, Kanagawa, Aichi and Osaka, sales and marketing rises to 61.7% (n=472).
 
-"Go direct" is, in practice, "start after you have hired a Japanese seller." The sequencing consequences are covered in [why your first bottleneck in Japan is hiring, not translation](/en/articles/japan-entry-bottleneck-is-hiring/)
+"Go direct" is, in practice, "start after you have hired a Japanese seller." The sequencing consequences are covered in [Don't leave hiring until after translation and pricing in Japan](/en/articles/japan-entry-bottleneck-is-hiring/)
 
 ## Decide on the record, not the channel
 

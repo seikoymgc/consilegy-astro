@@ -13,12 +13,24 @@ const { title, description, canonical, ogImage, noindex = false, ogType = 'websi
 
 const site = Astro.site ?? new URL('https://consilegy.com');
 const canonicalURL = canonical ?? new URL(Astro.url.pathname, site).href;
+// ページ専用の OG 画像が無いときの代わり。Revenue CRM の配下は製品・版ごとの画像、それ以外はサイト共通（scripts/generate-og.mjs）
+const path = Astro.url.pathname;
+const ogLang = lang === 'en' || path.startsWith('/en/') ? 'en' : 'ja';
+const ogKey = /^\/(en\/)?crm\/school(\/|$)/.test(path)
+	? 'crm-school'
+	: /^\/(en\/)?crm\/contractor(\/|$)/.test(path)
+		? 'crm-contractor'
+		: /^\/(en\/)?crm\/reseller(\/|$)/.test(path)
+			? 'crm-reseller'
+			: /^\/(en\/)?crm(\/|$)/.test(path)
+				? 'crm'
+				: 'default';
 const og =
 	ogImage != null && ogImage !== ''
 		? ogImage.startsWith('http')
 			? ogImage
 			: new URL(ogImage, site).href
-		: new URL('/images/og-default.png', site).href;
+		: new URL(`/images/og/${ogKey}-${ogLang}-2026b.png`, site).href;
 const fullTitle = title.includes('Consilegy') ? title : `${title} | Consilegy`;
 const ogLocale = lang === 'en' ? 'en_US' : 'ja_JP';
 ---

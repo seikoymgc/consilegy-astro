@@ -42,6 +42,7 @@ const jsonLd = {
     <h1>{item.q}</h1>
     <div class="body">
       {item.a.map(paragraph => <p>{paragraph}</p>)}
+      {item.link && <p><a href={item.link.href}>{item.link.label}</a></p>}
     </div>
 
     {related.length > 0 && (
@@ -72,6 +73,7 @@ const jsonLd = {
   .crumbs a:hover { text-decoration: underline; }
   h1 { font-size: clamp(1.5rem, 3.5vw, 2rem); line-height: 1.5; margin: 0 0 1.5rem; }
   .body p { line-height: 2; color: #37404b; margin: 0 0 1.1rem; }
+  .body a { color: var(--color-primary); }
 
   .related { margin-top: 2.75rem; padding-top: 1.5rem; border-top: 1px solid #e6eaef; }
   .related h2 { font-size: 1rem; margin: 0 0 0.75rem; }

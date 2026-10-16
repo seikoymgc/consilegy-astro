@@ -1,44 +1,27 @@
 ---
+import { editorialTeam } from '../../data/editorial';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const personSchema = {
-	'@context': 'https://schema.org',
-	'@type': 'Person',
-	'@id': 'https://consilegy.com/company/#founder',
-	name: 'Seiko Yamaguchi',
-	alternateName: '山口 聖子',
-	jobTitle: 'Founder / Revenue Architect',
-	worksFor: { '@id': 'https://consilegy.com/#organization' },
-	url: 'https://media.consilegy.com/en/about/',
-	sameAs: ['https://www.linkedin.com/company/consilegy', 'https://note.com/consilegy'],
-	knowsAbout: [
-		'Revenue Architecture',
-		'Revenue Operations',
-		'HubSpot',
-		'Salesforce',
-		'B2B Go-to-Market',
-		'Japan Market Entry',
-	],
-};
+const teamSchema = { '@context': 'https://schema.org', ...editorialTeam('en') };
 ---
 
 <BaseLayout
 	lang="en"
-	title="About the author | B2B Revenue Strategy Journal"
-	description="Seiko Yamaguchi, Founder of Consilegy LLC. Revenue architecture, RevOps, and HubSpot / CRM implementation and adoption, across Japanese enterprises and global SaaS companies entering Japan."
+	title="About the editorial team | B2B Revenue Strategy Journal"
+	description="The Consilegy Media Editorial Team shares practical insights on marketing, sales, CRM, and B2B revenue operations, drawing on implementation work and published research."
 	jaPath="/about/"
 	enPath="/en/about/"
-	breadcrumbs={[{ name: 'Home', url: '/en/' }, { name: 'About the author' }]}
+	breadcrumbs={[{ name: 'Home', url: '/en/' }, { name: 'About the editorial team' }]}
 >
 	<Fragment slot="head">
-		<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(teamSchema)} />
 	</Fragment>
 
 	<section class="page-head">
 		<div class="container container--narrow">
 			<p class="eyebrow">About</p>
-			<h1>Seiko Yamaguchi</h1>
-			<p class="role">Founder, Consilegy LLC / Revenue Architect</p>
+			<h1>Consilegy Media Editorial Team</h1>
+			<p class="role">Published by Consilegy LLC</p>
 		</div>
 	</section>
 
@@ -46,13 +29,13 @@ const personSchema = {
 		<div class="container container--narrow">
 			<div class="prose">
 				<p>
-					I design B2B revenue structures, implement them, and see them through to adoption on the ground. The work is to take marketing, sales, and customer success operating in silos, and rebuild them into a single revenue process.
+					The Consilegy Media Editorial Team shares practical knowledge about marketing, sales, CRM, and B2B revenue operations. Articles draw on Consilegy’s implementation work and published research to help readers make decisions in the field.
 				</p>
 				<p>
-					I am not a reseller for any single tool, so I choose the design that fits the business, whether that runs on Salesforce, HubSpot, or kintone. The engagement does not stop at upstream design; it assumes implementation and operational adoption through to the end.
+					Consilegy designs and implements revenue processes across marketing, sales, and customer success, and supports operational adoption. The journal records the decisions and lessons from that work.
 				</p>
 
-				<h2>What I work on</h2>
+				<h2>Topics we cover</h2>
 				<ul>
 					<li>Revenue Architecture design</li>
 					<li>RevOps, sales process, and KPI design</li>
@@ -67,13 +50,13 @@ const personSchema = {
 					What is written here comes from real engagements: what was chosen, what worked, and what did not. Rounded to a level that respects confidentiality, but recorded together with the reasoning behind each decision.
 				</p>
 				<p>
-					I have decided not to write generalities. Sentences anyone could write, like "sales and marketing alignment is important," do not go here. There is no point placing content you can already read elsewhere.
+					Our editorial policy is to focus on concrete decisions and practical lessons. Sentences anyone could write, like "sales and marketing alignment is important," do not go here. There is no point placing content you can already read elsewhere.
 				</p>
 				<p>
 					The definitions and the framework itself live on the corporate site, in <a href="https://consilegy.com/en/services-en/japan-market-gtm-messaging/">Japan Market GTM and Messaging</a> and the broader revenue architecture work. This edition is the record of how that framework did, or did not, function in the field.
 				</p>
 
-				<h2>How I handle numbers</h2>
+				<h2>How we handle numbers</h2>
 				<p>
 					When an article cites a number, it always states three things: who ran the study, in what year, and the sample size. Numbers whose source cannot be traced, or that circulate in a form different from the original, are not used.
 				</p>

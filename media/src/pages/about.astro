@@ -1,43 +1,26 @@
 ---
+import { editorialTeam } from '../data/editorial';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const personSchema = {
-	'@context': 'https://schema.org',
-	'@type': 'Person',
-	'@id': 'https://consilegy.com/company/#founder',
-	name: '山口 聖子',
-	alternateName: 'Seiko Yamaguchi',
-	jobTitle: 'Founder / Revenue Architect',
-	worksFor: { '@id': 'https://consilegy.com/#organization' },
-	url: 'https://media.consilegy.com/about/',
-	sameAs: ['https://www.linkedin.com/company/consilegy', 'https://note.com/consilegy'],
-	knowsAbout: [
-		'Revenue Architecture',
-		'Revenue Operations',
-		'HubSpot',
-		'Salesforce',
-		'B2B Go-to-Market',
-		'Japan Market Entry',
-	],
-};
+const teamSchema = { '@context': 'https://schema.org', ...editorialTeam('ja') };
 ---
 
 <BaseLayout
-	title="著者について | B2Bレベニュー戦略ジャーナル"
-	description="山口聖子（Consilegy合同会社 代表）。B2BのRevOps、Revenue Architecture設計、HubSpot・CRM実装と定着支援。日本企業と海外SaaSの日本参入の双方を担当。"
+	title="編集部について | B2Bレベニュー戦略ジャーナル"
+	description="Consilegy メディア編集部。マーケティング・営業・CRMを中心に、実装の現場で得た知見と公開調査をもとに、B2Bの売上設計に役立つ情報を発信しています。"
 	jaPath="/about/"
 	enPath="/en/about/"
-	breadcrumbs={[{ name: 'ホーム', url: '/' }, { name: '著者について' }]}
+	breadcrumbs={[{ name: 'ホーム', url: '/' }, { name: '編集部について' }]}
 >
 	<Fragment slot="head">
-		<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(teamSchema)} />
 	</Fragment>
 
 	<section class="page-head">
 		<div class="container container--narrow">
 			<p class="eyebrow">About</p>
-			<h1>山口 聖子</h1>
-			<p class="role">Consilegy合同会社 代表 / Revenue Architect</p>
+			<h1>Consilegy メディア編集部</h1>
+			<p class="role">運営：Consilegy合同会社</p>
 		</div>
 	</section>
 
@@ -45,10 +28,10 @@ const personSchema = {
 		<div class="container container--narrow">
 			<div class="prose">
 				<p>
-					B2Bの収益構造を設計し、実装し、現場に定着するまでを担当しています。マーケティング、営業、カスタマーサクセスが分断されたまま動いている状態を、ひとつの収益プロセスとして組み直す仕事です。
+					Consilegy メディア編集部は、マーケティング・営業・CRMを中心に、B2Bの売上設計に役立つ情報を発信しています。Consilegyの実装・運用支援で得た知見と公開調査をもとに、現場での判断に使える形でまとめます。
 				</p>
 				<p>
-					特定ツールの代理店ではないため、SalesforceでもHubSpotでもkintoneでも、事業構造に合う設計を選びます。上流の設計だけで終わらせず、実装と運用定着まで見届けることを前提にしています。
+					運営会社のConsilegyは、マーケティング、営業、カスタマーサクセスをつなぐ収益プロセスの設計から、CRMの実装、現場への運用定着までを支援しています。本メディアでは、その過程で得た判断と学びを記録しています。
 				</p>
 
 				<h2>扱っている領域</h2>
@@ -85,7 +68,7 @@ const personSchema = {
 					<li><a href="https://consilegy.com/contact/">お問い合わせ</a></li>
 					<li><a href="https://consilegy.com/free-consultation/">30分無料相談</a></li>
 					<li><a href="https://www.linkedin.com/company/consilegy">LinkedIn</a></li>
-					<li><a href="https://consilegy.com/newsletter/">ニュースレター（月次配信）</a></li>
+					<li><a href="https://consilegy.com/newsletter/">ニュースレター</a></li>
 				</ul>
 			</div>
 		</div>

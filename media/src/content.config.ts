@@ -3,8 +3,17 @@ import { glob } from 'astro/loaders';
 
 // 教育コンテンツ。読者の悩みが主語、記事は解決策。
 // 「なぜ壊れるか（洞察）」は本体サイト、「どう直すか（解決）」はここ。
-// カテゴリは読者の悩みで切る。
+// カテゴリは領域で分け、課題からの入口は categoryQuestions で提供する。
 export const categories = {
+	crm: 'CRM・SFA',
+	sales: '営業・商談管理',
+	data: 'データ・KPI',
+	'japan-gtm': '日本市場・GTM',
+	adoption: '組織・運用定着',
+	marketing: 'マーケティング',
+} as const;
+
+export const categoryQuestions = {
 	crm: 'CRM・SFAが定着しない',
 	sales: '商談が進まない・受注が読めない',
 	data: '数字が部署ごとに合わない',
@@ -27,12 +36,12 @@ export const categoryColors: Record<CategoryKey, string> = {
 
 // 英語版カテゴリ（Japan GTM中心。海外SaaS読者向け）
 export const categoriesEn = {
-	'japan-gtm': 'Japan market entry',
-	crm: 'CRM adoption',
-	sales: 'Sales process',
-	data: 'Revenue data',
-	adoption: 'Change management',
-	marketing: 'Demand generation',
+	'japan-gtm': 'Japan market & GTM',
+	crm: 'CRM & SFA',
+	sales: 'Sales & pipeline',
+	data: 'Data & KPIs',
+	adoption: 'Organization & adoption',
+	marketing: 'Marketing',
 } as const;
 
 const notes = defineCollection({

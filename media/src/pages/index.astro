@@ -2,7 +2,7 @@
 import '../styles/journal-home.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import { categories, type CategoryKey } from '../content.config';
+import { categories, categoryQuestions, type CategoryKey } from '../content.config';
 
 const notes = (await getCollection('notes', ({ data }) => !data.draft)).sort(
 	(a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf(),
@@ -56,7 +56,7 @@ const fmt = (d: Date) =>
 
 				<section class="wrap topic-directory" aria-labelledby="topics-heading">
 					<div class="topic-intro"><span>EXPLORE TOPICS</span><h2 id="topics-heading">課題から、知見を探す</h2></div>
-					<div class="topic-grid">{(Object.keys(categories) as CategoryKey[]).map((key, i) => <a href={`/notes/category/${key}/`}><span class="topic-number">0{i + 1}</span><span>{categories[key]}</span><span aria-hidden="true">↗</span></a>)}</div>
+					<div class="topic-grid">{(Object.keys(categories) as CategoryKey[]).map((key, i) => <a href={`/notes/category/${key}/`}><span class="topic-number">0{i + 1}</span><span>{categoryQuestions[key]}</span><span aria-hidden="true">↗</span></a>)}</div>
 				</section>
 				<div class="wrap main-grid">
 					<section class="latest">

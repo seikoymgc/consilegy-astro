@@ -20,7 +20,7 @@ export const GET: APIRoute = async ({ site }) => {
 	lines.push('# B2Bレベニュー戦略ジャーナル');
 	lines.push('');
 	lines.push(
-		'> B2Bの収益プロセスが構造的につまずく箇所を、実装の現場から記録している教育メディアです。運営はConsilegy合同会社（代表: 山口聖子 / Seiko Yamaguchi）。CRM・SFAの定着、商談プロセスと稟議、収益データの定義、マーケティングから営業への引き渡し、海外SaaSの日本市場参入を扱います。',
+		'> B2Bの収益プロセスが構造的につまずく箇所を、実装の現場から記録している教育メディアです。運営はConsilegy合同会社、執筆・編集はConsilegy メディア編集部です。CRM・SFAの定着、商談プロセスと稟議、収益データの定義、マーケティングから営業への引き渡し、海外SaaSの日本市場参入を扱います。',
 	);
 	lines.push('');
 	lines.push('## このサイトの方針');
@@ -39,7 +39,7 @@ export const GET: APIRoute = async ({ site }) => {
 	);
 	lines.push('');
 
-	lines.push('## 悩み別カテゴリ（日本語）');
+	lines.push('## テーマ別カテゴリ（日本語）');
 	lines.push('');
 	for (const key of Object.keys(categories) as CategoryKey[]) {
 		const count = ja.filter(n => n.data.category === key).length;
@@ -71,8 +71,8 @@ export const GET: APIRoute = async ({ site }) => {
 
 	lines.push('## その他');
 	lines.push('');
-	lines.push(`- [著者について](${abs('/about/')}): 山口聖子（Consilegy合同会社 代表 / Revenue Architect）`);
-	lines.push(`- [About the author](${abs('/en/about/')})`);
+	lines.push(`- [編集部について](${abs('/about/')}): Consilegy メディア編集部`);
+	lines.push(`- [About the editorial team](${abs('/en/about/')})`);
 	lines.push(`- [記事一覧](${abs('/notes/')})`);
 	lines.push(`- [All articles (English edition)](${abs('/en/articles/')})`);
 	lines.push(`- [RSS (日本語)](${abs('/rss.xml')})`);

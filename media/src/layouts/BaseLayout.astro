@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { editorialTeam } from '../data/editorial';
 import Analytics from '../components/Analytics.astro';
 import { categories, categoriesEn, type CategoryKey } from '../content.config';
 import { GTM_ID, PRIVACY_URL_JA, PRIVACY_URL_EN } from '../site-config';
@@ -64,14 +65,6 @@ const organizationSchema = {
 	alternateName: 'Consilegy LLC',
 	url: 'https://consilegy.com',
 	sameAs: ['https://www.linkedin.com/company/consilegy', 'https://note.com/consilegy'],
-	founder: {
-		'@type': 'Person',
-		'@id': 'https://consilegy.com/company/#founder',
-		name: '山口 聖子',
-		alternateName: 'Seiko Yamaguchi',
-		jobTitle: 'Founder / Revenue Architect',
-		sameAs: ['https://www.linkedin.com/company/consilegy', 'https://note.com/consilegy'],
-	},
 };
 
 const articleSchema =
@@ -88,13 +81,7 @@ const articleSchema =
 				...(section ? { articleSection: section } : {}),
 				datePublished: publishedAt?.toISOString(),
 				dateModified: (updatedAt ?? publishedAt)?.toISOString(),
-				author: {
-					'@type': 'Person',
-					'@id': 'https://consilegy.com/company/#founder',
-					name: '山口 聖子',
-					alternateName: 'Seiko Yamaguchi',
-					url: isEn ? abs('/en/about/') : abs('/about/'),
-				},
+				author: editorialTeam(lang),
 				publisher: { '@id': 'https://consilegy.com/#organization' },
 				isPartOf: {
 					'@type': 'Blog',
@@ -128,7 +115,7 @@ const blogSchema = isHome
 					inLanguage: isEn ? 'en' : 'ja',
 					isPartOf: { '@id': `${abs('/')}#website` },
 					publisher: { '@id': 'https://consilegy.com/#organization' },
-					author: { '@id': 'https://consilegy.com/company/#founder' },
+					author: editorialTeam(lang),
 				},
 			],
 		}
@@ -259,7 +246,7 @@ const breadcrumbSchema =
 				<a href={isEn ? '/en/articles/' : '/notes/'} aria-current={Astro.url.pathname === (isEn ? '/en/articles/' : '/notes/') ? 'page' : undefined}>{isEn ? 'All articles' : 'すべての記事'}</a>
 				{(Object.keys(categories) as CategoryKey[]).map(key => {
 					const href = isEn ? `/en/category/${key}/` : `/notes/category/${key}/`;
-					return <a href={href} aria-current={Astro.url.pathname === href ? 'page' : undefined}>{isEn ? categoriesEn[key] : ({ crm: 'CRM・SFA', sales: '営業・商談管理', data: 'データ活用', 'japan-gtm': '日本市場・GTM', adoption: '組織・定着', marketing: 'マーケティング' })[key]}</a>;
+					return <a href={href} aria-current={Astro.url.pathname === href ? 'page' : undefined}>{isEn ? categoriesEn[key] : categories[key]}</a>;
 				})}
 			</nav></div>
 		</header>
@@ -279,7 +266,7 @@ const breadcrumbSchema =
 						<p class="site-footer__head">Read</p>
 						<a href="/en/">Latest</a>
 						<a href="/en/articles/">All articles</a>
-						<a href="/en/about/">Author</a>
+						<a href="/en/about/">Editorial team</a>
 						<a href="/en/rss.xml">RSS</a>
 						<a href="/">日本語版</a>
 					</nav>
@@ -299,17 +286,17 @@ const breadcrumbSchema =
 					</div>
 					<nav aria-label="カテゴリ">
 						<p class="site-footer__head">カテゴリ</p>
-						<a href="/notes/category/crm/">CRM・SFAが定着しない</a>
-						<a href="/notes/category/sales/">商談が進まない・受注が読めない</a>
-						<a href="/notes/category/data/">数字が部署ごとに合わない</a>
-						<a href="/notes/category/japan-gtm/">日本市場で成果が出ない</a>
-						<a href="/notes/category/adoption/">導入したのに使われない</a>
-						<a href="/notes/category/marketing/">リードが商談につながらない</a>
+						<a href="/notes/category/crm/">CRM・SFA</a>
+						<a href="/notes/category/sales/">営業・商談管理</a>
+						<a href="/notes/category/data/">データ・KPI</a>
+						<a href="/notes/category/japan-gtm/">日本市場・GTM</a>
+						<a href="/notes/category/adoption/">組織・運用定着</a>
+						<a href="/notes/category/marketing/">マーケティング</a>
 					</nav>
 					<nav aria-label="サイト">
 						<p class="site-footer__head">サイト</p>
 						<a href="/notes/">記事一覧</a>
-						<a href="/about/">著者について</a>
+						<a href="/about/">編集部について</a>
 						<a href="/en/">English edition</a>
 						<a href="/rss.xml">RSS</a>
 					</nav>

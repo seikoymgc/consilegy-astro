@@ -46,7 +46,7 @@ const fmt = (d: Date) =>
 		flex-direction: column;
 		background: var(--color-surface);
 		border: 1px solid var(--color-border);
-		border-radius: 10px;
+		border-radius: 2px;
 		overflow: hidden;
 		color: var(--color-text);
 		transition: border-color 0.15s ease, transform 0.15s ease;
@@ -113,8 +113,11 @@ const fmt = (d: Date) =>
 	}
 
 	.card__title {
-		display: none;
+		font-size: 1rem;
+		font-weight: 700;
+		line-height: 1.7;
 	}
+	.card:has(.card__thumb) .card__title { display: none; }
 
 	.card__desc {
 		font-size: 0.8rem;

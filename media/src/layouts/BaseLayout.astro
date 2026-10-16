@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Analytics from '../components/Analytics.astro';
+import { categories, categoriesEn, type CategoryKey } from '../content.config';
 import { GTM_ID, PRIVACY_URL_JA, PRIVACY_URL_EN } from '../site-config';
 
 interface Crumb {
@@ -228,11 +229,13 @@ const breadcrumbSchema =
 			)
 		}
 		{GTM_ID && <Analytics />}
+		<a class="skip-link" href="#main-content">{isEn ? 'Skip to content' : '本文へ移動'}</a>
+		<div class="publication-bar"><div class="container"><span>{isEn ? 'INSIGHTS FOR REVENUE LEADERS' : 'マーケティング・営業・CRMから考える、B2Bの売上設計'}</span><a href={isEn ? 'https://consilegy.com/en/' : 'https://consilegy.com/'}>Published by Consilegy ↗</a></div></div>
 		<header class="site-header">
 			<div class="container site-header__inner">
-				<a href="/" class="site-brand">
-					<img src="/images/consilegy-logo-2026b.svg" alt="Consilegy" width="144" height="26" />
-					<span class="site-brand__tag">{isEn ? 'B2B Revenue Strategy Journal' : 'B2Bレベニュー戦略ジャーナル'}</span>
+				<a href={isEn ? '/en/' : '/'} class="site-brand">
+					<span class="site-brand__eyebrow">CONSILEGY / REVENUE INSIGHTS</span>
+					<span class="site-brand__name">{isEn ? 'B2B Revenue Strategy Journal' : 'B2Bレベニュー戦略ジャーナル'}</span>
 				</a>
 				<nav class="site-nav" aria-label={isEn ? 'Site navigation' : 'サイト内ナビゲーション'}>
 					{isEn ? (
@@ -252,9 +255,16 @@ const breadcrumbSchema =
 					)}
 				</nav>
 			</div>
+			<div class="topic-nav"><nav class="container" aria-label={isEn ? 'Topics' : 'テーマ別ナビゲーション'}>
+				<a href={isEn ? '/en/articles/' : '/notes/'} aria-current={Astro.url.pathname === (isEn ? '/en/articles/' : '/notes/') ? 'page' : undefined}>{isEn ? 'All articles' : 'すべての記事'}</a>
+				{(Object.keys(categories) as CategoryKey[]).map(key => {
+					const href = isEn ? `/en/category/${key}/` : `/notes/category/${key}/`;
+					return <a href={href} aria-current={Astro.url.pathname === href ? 'page' : undefined}>{isEn ? categoriesEn[key] : ({ crm: 'CRM・SFA', sales: '営業・商談管理', data: 'データ活用', 'japan-gtm': '日本市場・GTM', adoption: '組織・定着', marketing: 'マーケティング' })[key]}</a>;
+				})}
+			</nav></div>
 		</header>
 
-		<main>
+		<main id="main-content">
 			<slot />
 		</main>
 

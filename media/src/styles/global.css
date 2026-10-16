@@ -1,23 +1,25 @@
 /* B2Bレベニュー戦略ジャーナル（旧 Consilegy Media）— 本体サイト（consilegy.com）のトークンを継承 */
 
 :root {
-	--color-bg: #FFFFFF;
-	--color-bg-subtle: #F7F7F5;
+	--color-bg: #FAFAF9;
+	--color-bg-subtle: #F5F5F4;
 	--color-surface: #FFFFFF;
-	--color-border: #E5E3DF;
-	--color-border-strong: #111111;
-	--color-text: #111111;
-	--color-text-muted: #767370;
-	--color-primary: #111111;
-	--color-primary-dark: #000000;
-	--color-secondary: #767370;
-	--color-accent: #111111;
-	--color-accent-purple: #767370;
+	--color-border: #E7E5E4;
+	--color-border-strong: #1C1917;
+	--color-text: #1C1917;
+	--color-text-muted: #44403C;
+	--color-primary: #1e40af;
+	--color-primary-dark: #1d4ed8;
+	--color-secondary: #3b82f6;
+	--color-accent: #1e40af;
+	--color-accent-purple: #7c5cbf;
 
 	--font-sans: 'IBM Plex Sans', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Yu Gothic', sans-serif;
 	--font-serif: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
-	--ink: #14110d;
-	--font-serif: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+	--ink: #1C1917;
+	--color-footer: #111827;
+	--color-on-dark-muted: #CBD5E1;
+	--color-on-dark-border: #1e293b;
 
 	--space-xs: 0.5rem;
 	--space-sm: 0.75rem;
@@ -25,8 +27,8 @@
 	--space-lg: 2.5rem;
 	--space-xl: 4rem;
 
-	--radius: 8px;
-	--container: 1000px;
+	--radius: 2px;
+	--container: 1200px;
 }
 
 *,
@@ -59,7 +61,7 @@ h4 {
 	font-weight: 600;
 	color: var(--color-text);
 	margin: 0;
-	font-family: var(--font-serif);
+	font-family: var(--font-sans);
 }
 
 p {
@@ -109,95 +111,49 @@ img {
 	white-space: nowrap;
 }
 
-/* ── Site header ─────────────────────────────────────────── */
-.site-header {
-	border-bottom: 1px solid var(--color-border);
-	background: var(--color-surface);
-	position: sticky;
-	top: 0;
-	z-index: 20;
+/* Publication masthead and topic navigation */
+.publication-bar { background: var(--color-footer); color: var(--color-on-dark-muted); font-size: .65rem; letter-spacing: .06em; }
+.publication-bar .container { display: flex; justify-content: space-between; gap: 1rem; padding-block: .4rem; }
+.publication-bar a { color: var(--color-on-dark-muted); white-space: nowrap; }
+.site-header { background: #fff; border-bottom: 1px solid var(--color-border); }
+.site-header__inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; min-height: 106px; padding-block: 1.2rem; }
+.site-brand { display: flex; flex-direction: column; gap: .3rem; color: var(--ink); }
+.site-brand:hover { text-decoration: none; }
+.site-brand__eyebrow { font-family: 'IBM Plex Sans', sans-serif; color: var(--color-primary); font-size: .65rem; font-weight: 600; letter-spacing: .17em; }
+.site-brand__name { font-size: clamp(1.15rem, 2.2vw, 1.65rem); font-weight: 700; letter-spacing: -.04em; line-height: 1.5; }
+.site-nav { display: flex; align-items: center; gap: 1.25rem; font-size: .75rem; flex-shrink: 0; }
+.site-nav a { color: var(--ink); }
+.site-nav .site-nav__btn { background: var(--ink); color: #fff; padding: .65rem 1rem; font-weight: 500; }
+.site-nav .site-nav__btn:hover { background: var(--color-primary); text-decoration: none; }
+.topic-nav { border-top: 1px solid var(--color-border); }
+.topic-nav nav { display: flex; overflow-x: auto; scrollbar-width: thin; }
+.topic-nav a { color: var(--ink); flex: 1 0 auto; text-align: center; padding: .9rem 1rem; font-size: .78rem; font-weight: 500; border-bottom: 3px solid transparent; }
+.topic-nav a:hover, .topic-nav a[aria-current] { color: var(--color-primary); border-bottom-color: var(--color-primary); text-decoration: none; background: var(--color-bg-subtle); }
+a:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 4px; }
+.skip-link { position: fixed; top: -100px; left: 1rem; z-index: 100; padding: .7rem 1rem; background: white; }
+.skip-link:focus { top: 1rem; }
+@media (max-width: 900px) {
+ .site-header__inner { flex-wrap: wrap; gap: .8rem; padding-block: 1rem; }
+ .site-nav { gap: 1rem; }
+ .topic-nav a { padding: .7rem .9rem; }
 }
-
-.site-header__inner {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: var(--space-md);
-	height: 64px;
-}
-
-.site-brand {
-	display: flex;
-	align-items: center;
-	gap: 0.6rem;
-}
-
-.site-brand img {
-	height: 24px;
-	width: auto;
-	display: block;
-}
-
-.site-brand:hover {
-	text-decoration: none;
-}
-
-.site-brand__tag {
-	font-size: 0.8rem;
-	font-weight: 600;
-	letter-spacing: 0.04em;
-	color: var(--color-text-muted);
-	padding-left: 0.6rem;
-	border-left: 1px solid var(--color-border);
-}
-
-.site-nav {
-	display: flex;
-	align-items: center;
-	gap: var(--space-md);
-	font-size: 0.85rem;
-}
-
-.site-nav a {
-	color: var(--color-text-muted);
-}
-
-.site-nav a:hover {
-	color: var(--color-text);
-	text-decoration: none;
-}
-
-.site-nav .site-nav__cta {
-	color: var(--color-primary);
-	font-weight: 500;
-}
-
-.site-nav .site-nav__ext {
-	color: var(--color-text-muted);
-}
-
-.site-nav .site-nav__btn {
-	background: var(--color-primary);
-	color: #fff;
-	padding: 0.5rem 1rem;
-	border-radius: var(--radius);
-	font-weight: 500;
-}
-
-.site-nav .site-nav__btn:hover {
-	background: var(--color-primary-dark);
-	color: #fff;
-	text-decoration: none;
+@media (max-width: 600px) {
+ .publication-bar .container > span { display: none; }
+ .publication-bar .container { justify-content: flex-end; }
+ .site-header__inner { gap: .9rem; }
+ .site-brand { width: 100%; }
+ .site-brand__name { font-size: 1.2rem; }
+ .site-nav { width: 100%; justify-content: space-between; }
 }
 
 /* ── Site footer（サイトマップ型） ───────────────────────── */
 .site-footer {
 	margin-top: var(--space-xl);
 	border-top: 1px solid var(--color-border);
-	background: #26241f;
+	background: var(--color-footer);
 	padding-block: var(--space-lg) var(--space-md);
 	font-size: 0.8rem;
-	color: #b3aea6;
+	color: var(--color-on-dark-muted);
 }
 
 .site-footer__cols {
@@ -224,12 +180,12 @@ img {
 	font-size: 0.78rem;
 	margin-bottom: 0.4rem;
 	padding-bottom: 0.35rem;
-	border-bottom: 1px solid #4a463f;
+	border-bottom: 1px solid var(--color-on-dark-border);
 }
 
 .site-footer__cols nav a {
 	display: block;
-	color: #b3aea6;
+	color: var(--color-on-dark-muted);
 	font-size: 0.76rem;
 	padding-block: 0.28rem;
 }
@@ -242,7 +198,7 @@ img {
 .site-footer__bottom {
 	margin-top: 1.75rem;
 	padding-top: 0.9rem;
-	border-top: 1px solid #4a463f;
+	border-top: 1px solid var(--color-on-dark-border);
 	font-size: 0.72rem;
 }
 
@@ -301,4 +257,8 @@ img {
 	.site-brand__tag {
 		display: none;
 	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html { scroll-behavior: auto; }
 }

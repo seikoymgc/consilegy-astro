@@ -39,7 +39,7 @@ Define the approval ladder as stages your local team can observe: the working le
 
 Take the lower of the two. A deal at 90% sales confidence sitting at "department head approves" is carried at that rung's weight, not at 90%. That single rule stops the higher number from setting the forecast.
 
-Write the exclusion rule down before you need it: a deal that has not reached executive approval is not in this quarter's commit. It stays in the pipeline. It leaves the forecast.
+Write the exclusion rule down before you need it: a deal that has not reached executive approval is not in this quarter's commit. It stays in the pipeline, and it stays in the weighted forecast at its rung's weight. It only leaves the commit.
 
 ## Stalled deals do not come back
 

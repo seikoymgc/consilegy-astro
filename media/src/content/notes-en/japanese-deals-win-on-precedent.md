@@ -68,7 +68,7 @@ A stalled deal then reads as "in ringi, stage 2, day 34" instead of "no update,"
 
 Internal-consensus support should be engineered into the process, not left to instinct or to a single champion.
 
-Western frameworks hand the job of moving the organization to one buyer-side champion and stop there.
+Western frameworks such as MEDDPICC do track the decision and paper process, but they leave most of the work of moving the organization to one buyer-side champion.
 
 In Japan, developing one champion is not enough, because the decision spans multiple departments.
 

@@ -1,6 +1,6 @@
 ---
 title: "Run Your Japan Monthly Review on One Win and One Miss"
-description: "HQ asks the Japan team to review last month's numbers, and the meeting ends with nothing changed. The cause is usually the format. Open one strong case and one weak case instead of the whole table, name the reasons, and leave with one or two changes. Here is the 45-minute version."
+description: "HQ asks the Japan team to review last month's numbers, and the meeting ends with nothing changed. The cause is usually the format. Open one strong case and one weak case instead of the whole table, name the reasons, and leave with one or two changes. Here is the 30-minute version."
 publishedAt: 2026-10-09
 category: data
 principle: "Do not review the Japan numbers as a table. Open one strong case and one weak case, say why each happened, and end the meeting with one or two changes for next month."

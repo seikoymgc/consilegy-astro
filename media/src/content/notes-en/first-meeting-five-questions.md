@@ -34,7 +34,7 @@ Neither caveat changes what it means for a first meeting. When your rep asks wha
 
 The same survey contains the finding that should change the meeting rather than cancel it.
 
-More than eight in ten respondents added a vendor to their candidate list that they first learned about through sales contact. **34.2%** said that vendor made the final shortlist. Meanwhile, the final comparison stage came down to **two or three vendors for roughly 70%** of deals, with only 6.8% deciding without comparing at all.
+More than seven in ten respondents (73.0%) added a vendor to their candidate list that they first learned about through sales contact. **34.2%** said that vendor made the final shortlist. Meanwhile, the final comparison stage came down to **two or three vendors for roughly 70%** of deals, with only 6.8% deciding without comparing at all.
 
 So the first meeting is not discovery and it is not hopeless. It is the audition. The comparison table exists, it has two or three rows, and one of them can still be yours.
 

@@ -110,6 +110,7 @@ const cases = (await getCollection('caseStudies'))
           <a href="/en/crm/" class="en-fork__link">For B2B teams →</a>
           <a href="/en/crm/school/" class="en-fork__link">For schools and coaching businesses →</a>
         </div>
+        <p class="en-fork__media">How-to guides and common problems: <a href="/en/crm/media/b2b/">B2B sales</a> / <a href="/en/crm/media/b2c/">schools</a></p>
       </article>
 
       <article class="en-fork__card en-fork__card--consulting">
@@ -650,6 +651,8 @@ const cases = (await getCollection('caseStudies'))
 .en-fork__links { display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-start; }
 .en-fork__link { font-weight: 700; color: var(--color-primary); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 1px; }
 .en-fork__link:hover { color: var(--color-primary-dark); }
+.en-fork__media { margin: 1rem 0 0; font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.75; }
+.en-fork__media a { color: var(--color-primary); }
 @media (max-width: 900px) {
   .en-fork { grid-template-columns: 1fr; }
   .en-fork__steps li { grid-template-columns: 7rem minmax(0, 1fr); }

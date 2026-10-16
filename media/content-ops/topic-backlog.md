@@ -22,6 +22,7 @@
 | ROIは買い手が試算できる形で渡す | Notion NL（EN）連載② Buyer Visibility Is Not Buyer Enablement | 公開済み 2026-10-10 (let-buyers-calculate-the-roi) |
 | 失注した商談に戻る条件と確認日をつける | Notion note「失注した案件、そのまま捨てていませんか？」(Li No.24)（選択式・自動フォロー・入力者の3ステップ）を再構成 | 公開済み 2026-10-12 (reopen-lost-deals-on-a-trigger) |
 | 追わなかったリードの戻す理由を4分類で記録する | Notion NL連載③（10/1配信） | 公開済み 2026-10-14 (record-why-leads-come-back) |
+| 予測が外れた理由を、数えた日の根拠で検証する | Notion NL連載④（10/15確定稿） | 公開済み 2026-10-16 (forecast-miss-needs-the-day-of-basis) |
 | （Notionの投稿計画・投稿内容の作成から、未記事化の切り口を追記） | Notion | — |
 
 Seikoさんが現場の話を足したいときは、この表に1行書けば次回から拾う。

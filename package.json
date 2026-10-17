@@ -19,6 +19,7 @@
     "astro": "^6.2.1"
   },
   "devDependencies": {
-    "budoux": "^0.8.4"
+    "budoux": "^0.8.4",
+    "playwright-core": "^1.56.1"
   }
 }

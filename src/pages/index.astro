@@ -2,8 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { articles } from '../data/insights';
 
-// 最新コラムはコラム一覧の先頭3件。一覧に足せばトップも追従する。
-const insightsPosts = articles.slice(0, 3);
+// 最新コラムはコラム一覧の先頭5件。一覧に足せばトップも追従する。
+// PCは先頭が2列幅なので、5件で2行がちょうど埋まる（3件だと2行目に1枚だけ残る）。スマホは3件まで。
+const insightsPosts = articles.slice(0, 5);
 ---
 
 <BaseLayout
@@ -1675,6 +1676,7 @@ section { padding-block: var(--space-2xl); }
 }
 @media (max-width: 768px) {
 	.blog-grid { grid-template-columns: 1fr; }
+	.blog-card:nth-child(n+4) { display: none; }
 	.cta-inner { grid-template-columns: 1fr; gap: 2rem; }
 	.tools-row { gap: 0.25rem 0.5rem; font-size: 0.75rem; }
 	.assurance-grid { grid-template-columns: 1fr; }

@@ -26,11 +26,11 @@ const topics = [
 		core: true,
 	},
 	{
-		href: '/services/hubspot-implementation-operations/',
-		en: 'HubSpot Implementation & Operations',
-		title: 'HubSpot導入・運用支援',
-		desc: 'HubSpotを利用中の企業向けに、設計・実装・運用改善を支援します。',
-		step: 'Step 02〜03',
+		href: '/crm/',
+		en: 'Integrations & Automation',
+		title: '業務に合わせた仕組みづくり',
+		desc: 'いまの仕事の流れを聞いて、足りない連携と自動化を作って渡す。専任担当を置けない会社向け。',
+		step: 'Revenue CRM＋連携・自動化',
 	},
 	{
 		href: '/services/adoption-growth-support/',
@@ -45,6 +45,13 @@ const topics = [
 		title: 'SFA定着支援',
 		desc: '入れたSFAが現場で動く状態にする。営業5〜50名向け、Excelからの移行にも対応。',
 		step: 'Step 03',
+	},
+	{
+		href: '/services/hubspot-implementation-operations/',
+		en: 'HubSpot Implementation & Operations',
+		title: 'HubSpot導入・運用支援',
+		desc: 'HubSpotを利用中の企業向けに、設計・実装・運用改善を支援します。',
+		step: 'Step 02〜03',
 	},
 ];
 ---
@@ -167,6 +174,17 @@ const topics = [
 			<h2>CRMの運用に人を割けない場合は、自社プロダクトから始められます。</h2>
 			<p class="section-lead">
 				40社以上のCRM / MA / SFA導入支援で分かった「動くCRMの型」を製品にしたのが「Revenue CRM」です。移行作業なし。Excelの記録がそのまま残るところから始まります。2026年9月28日に正式リリースしました。
+			</p>
+			<p class="svc-product__custom">
+				貴社の業務に合わせた連携・自動化も、有償の導入支援として対応します。
+			</p>
+			<p class="svc-product__custom">
+				すでに使っているツールと連携できるよう接続する。<br />
+				LINEからの予約をGoogleカレンダーに自動で登録する。<br />
+				名刺や議事録から連絡先とタスクを自動で作成する。
+			</p>
+			<p class="svc-product__custom">
+				こうした部分を、CRMに合わせて仕事を変えるのではなく、いまの仕事の流れに合わせて作ります。
 			</p>
 			<p class="svc-product__note">以下のStep 01〜03は、CRMの運用に専任担当を置ける会社向けの支援です。</p>
 			<a href="/crm/" class="btn btn--outline-primary">Revenue CRMを見る →</a>
@@ -334,6 +352,7 @@ const topics = [
 				<li><span class="check" aria-hidden="true">✓</span>営業 / マーケ / CSプロセス再設計</li>
 				<li><span class="check" aria-hidden="true">✓</span>KPI / レポーティング基盤の再構築</li>
 				<li><span class="check" aria-hidden="true">✓</span>実装ベンダー選定支援（中立）</li>
+				<li><span class="check" aria-hidden="true">✓</span>標準機能で足りない連携・自動化の実装（設計だけ渡して終わりにせず、必要な部分は当社で作って渡します）</li>
 				<li><span class="check" aria-hidden="true">✓</span>PMO / ステアリング運営</li>
 			</ul>
 			<a href="/diagnostic/" class="btn btn--primary plan-cta">収益を自己診断</a>
@@ -679,6 +698,10 @@ const topics = [
 .svc-product__copy h2 {
 	font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 700;
 	line-height: 1.35; color: var(--color-text); margin: 0 0 1rem;
+}
+.svc-product__custom {
+	margin: 0 0 0.75rem;
+	line-height: 1.8;
 }
 .svc-product__note {
 	margin: 1rem 0 1.25rem; font-size: 0.8125rem; line-height: 1.7; color: var(--color-text-muted);

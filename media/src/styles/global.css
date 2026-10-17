@@ -273,3 +273,23 @@ main h1, main h2, main h3 { text-wrap: pretty; overflow-wrap: anywhere; }
 .term-guide div { display: flex; flex-wrap: wrap; }
 .term-guide dt { font-weight: 600; color: #fff; }
 .term-guide dd { margin: 0; }
+
+/* 記事内の図（2026-10-17）。記事の .md に <figure class="note-figure"><svg>…</svg></figure> を直接書く。
+   viewBox は幅400で描く。スマホ幅（343px）でも文字が12px前後で読めるように、横に広げない。 */
+.note-figure { margin: 2rem 0; }
+.note-figure svg { display: block; width: 100%; max-width: 560px; height: auto; margin: 0 auto; font-family: var(--font-sans); }
+.note-figure figcaption { max-width: 560px; margin: .75rem auto 0; font-size: .875rem; line-height: 1.7; color: var(--color-text-muted); }
+.fig-box { fill: var(--color-surface); stroke: #A8A29E; stroke-width: 1.2; }
+.fig-box-accent { fill: #EEF2FB; stroke: var(--color-primary); stroke-width: 1.5; }
+.fig-box-solid { fill: var(--color-primary); stroke: var(--color-primary); }
+.fig-box-dash { fill: var(--color-bg-subtle); stroke: var(--color-text-muted); stroke-width: 1.5; stroke-dasharray: 5 4; }
+.fig-bar-soft { fill: #C7D2EE; }
+.fig-bar { fill: var(--color-primary); }
+.fig-text { fill: var(--color-text); font-size: 13.5px; }
+.fig-small { fill: var(--color-text-muted); font-size: 12.5px; }
+.fig-strong { fill: var(--color-text); font-size: 13.5px; font-weight: 700; }
+.fig-accent { fill: var(--color-primary); font-size: 13.5px; font-weight: 700; }
+.fig-on-solid { fill: #fff; font-size: 12px; font-weight: 700; }
+.fig-line { stroke: #57534E; stroke-width: 1.5; fill: none; }
+.fig-line-dash { stroke: #57534E; stroke-width: 1.5; fill: none; stroke-dasharray: 5 4; }
+.fig-head { fill: #57534E; }

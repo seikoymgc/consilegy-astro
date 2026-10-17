@@ -214,4 +214,7 @@ console.log(`
  4. Google スライド（法人版 17p-0lQJ3CyHfwbkKXhrmtsU5PgH6jkHWs3i0GdfPvTI）: 2 の push 後に replaceImage で https://consilegy.com/images/brand/deck/deck-*-${S}.jpg へ
  5. CRM の /demos カード: ${RAW}/demo*-${S}.jpg を crm の public/demos に置き、demos-client.tsx の接尾辞を ${S} にして PR（スクール版3枚は名前だけ変える）
  6. ステップメール（デモ体験者フォロー／Demo follow-up (EN)）: sequence_steps の本文の画像URLを public/images/crm/email/*-${S}.jpg に置き換える（本番DBの書き換え。承認を取る）
- 7. J-GoodTech: 掲載済みなら先方の画面で上げ直す`);
+ 7. J-GoodTech: 掲載済みなら先方の画面で上げ直す
+ 8. ステップメールの AI チャット画像（demo-ai-chat*-<suffix>.jpg）はこのスクリプトでは撮らない。AI エージェントに
+    「サンプル商事の田中健太さんを追加して、来週火曜に電話するタスクも入れて」（英: "Add Tanaka from Acme and set a call task for next Tuesday."）
+    を送ると、デモに連絡先とタスクが1件ずつ増える。撮る前に本人の了承を取る`);

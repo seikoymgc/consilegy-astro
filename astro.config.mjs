@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import explainTerms from './src/integrations/explain-terms.mjs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -21,5 +22,7 @@ export default defineConfig({
 			// 紹介キットは申込者にだけ案内する noindex のページ。サイトマップにも載せない。
 			filter: (page) => !page.includes('/crm/referral/kit/'),
 		}),
+		// 日本語ページの CRM・SFA・MA に、最初の1回だけ説明を添える（ビルド後のHTMLに対して）。
+		explainTerms(),
 	],
 });

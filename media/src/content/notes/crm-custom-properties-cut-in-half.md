@@ -44,6 +44,8 @@ canonLabel: レベニューアーキテクチャとは
 
 参照先を外し終えても、すぐには消しません。順番は3段です。
 
+<figure class="note-figure"><svg viewBox="0 0 400 118" role="img" aria-label="項目を消す順番。参照先を外したあと、入力画面から外し、一四半期待ち、値をCSVで書き出してから消す"><text class="fig-small" x="15" y="18" text-anchor="start">参照先（自動化・連携など）を外し終えてから</text><rect class="fig-box" x="15" y="28" width="110" height="56" rx="2"/><text class="fig-small" x="70" y="48" text-anchor="middle">手順1</text><text class="fig-strong" x="70" y="68" text-anchor="middle">画面から外す</text><text class="fig-small" x="70" y="106" text-anchor="middle">データは残る</text><rect class="fig-box" x="145" y="28" width="110" height="56" rx="2"/><text class="fig-small" x="200" y="48" text-anchor="middle">手順2</text><text class="fig-strong" x="200" y="68" text-anchor="middle">一四半期待つ</text><text class="fig-small" x="200" y="106" text-anchor="middle">聞かれたら戻す</text><rect class="fig-box-solid" x="275" y="28" width="110" height="56" rx="2"/><text class="fig-on-solid" x="330" y="48" text-anchor="middle">手順3</text><text class="fig-on-solid" x="330" y="68" text-anchor="middle">書き出して消す</text><text class="fig-small" x="330" y="106" text-anchor="middle">CSVで保存してから</text><line class="fig-line" x1="125" y1="56" x2="141" y2="56"/><polygon class="fig-head" points="145,56 139,52 139,60"/><line class="fig-line" x1="255" y1="56" x2="271" y2="56"/><polygon class="fig-head" points="275,56 269,52 269,60"/></svg><figcaption>消すのは3段目だけ。1段目と2段目は、いつでも元に戻せる。</figcaption></figure>
+
 **1. 入力画面から外す。** 項目は残したまま、レコードの画面やフォームから見えなくします。データは消えません。
 
 **2. 一四半期待つ。** 四半期に一度しか開かれないレポートや、決算期だけ動くデータの書き出しがあります。誰からも「あの項目はどこへ行ったか」と聞かれなければ、次に進みます。聞かれたら、その人が見る人です。棚卸しの表に戻します。

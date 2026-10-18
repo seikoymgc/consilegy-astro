@@ -23,6 +23,8 @@ canonLabel: レベニューアーキテクチャとは
 
 冒頭の300件と120件のような差は、この3つを1本ずつ分けて見ると説明がつきます。資料ダウンロードを入れるかどうか、いつの時点で締めるか、同じ人の複数回を何件と数えるか。線を1本ずつ揃えるたびに、差のどこが何から来たのかが言えるようになります。
 
+<figure class="note-figure"><svg viewBox="0 0 400 262" role="img" aria-label="マーケの報告300件と営業の集計120件の差は、母数、時点、重複の3本の線のずれから出る"><rect class="fig-box" x="15" y="20" width="175" height="56" rx="2"/><text class="fig-small" x="102" y="42" text-anchor="middle">マーケの報告</text><text class="fig-strong" x="102" y="64" text-anchor="middle">300件</text><rect class="fig-box" x="210" y="20" width="175" height="56" rx="2"/><text class="fig-small" x="297" y="42" text-anchor="middle">営業の集計</text><text class="fig-strong" x="297" y="64" text-anchor="middle">120件</text><text class="fig-accent" x="15" y="108" text-anchor="start">差が出る3本の線</text><rect class="fig-box-dash" x="15" y="120" width="370" height="34" rx="2"/><text class="fig-strong" x="30" y="142" text-anchor="start">母数</text><text class="fig-text" x="80" y="142" text-anchor="start">資料ダウンロードを入れるか</text><rect class="fig-box-dash" x="15" y="162" width="370" height="34" rx="2"/><text class="fig-strong" x="30" y="184" text-anchor="start">時点</text><text class="fig-text" x="80" y="184" text-anchor="start">いつの時点で締めるか</text><rect class="fig-box-dash" x="15" y="204" width="370" height="34" rx="2"/><text class="fig-strong" x="30" y="226" text-anchor="start">重複</text><text class="fig-text" x="80" y="226" text-anchor="start">同じ人の複数回を何件と数えるか</text></svg><figcaption>線を1本揃えるたびに、差のどこが何から来たのかが言えるようになる。</figcaption></figure>
+
 リード数の数え方そのもの（単位・入口・除外と締め）は[リード数とは？3つの線で数え方を揃える](/what-is-a-lead-count/)で整理しています。この記事は、その定義を社内でどう決め切るかの話です。
 
 それでも定義がなかなか揃わないのには、理由があります。**マーケの評価はリード数に、営業の評価は受注に紐づいています**。線を狭めればマーケの数字は減り、広げれば営業の手間が増えます。定義の会議は、実は評価の会議です。

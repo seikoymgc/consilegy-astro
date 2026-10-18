@@ -24,6 +24,8 @@ draft: false
 
 受注率が18%から26%へ上がったとします。同じ期間にクローズした商談数が120件から70件へ減っていれば、受注件数は21.6件から18.2件に落ちます。平均単価も下がっていれば、売上の下げ幅はさらに広がります。
 
+<figure class="note-figure"><svg viewBox="0 0 400 244" role="img" aria-label="前期はクローズ商談120件で受注率18%、受注21.6件。今期は70件で26%、受注18.2件。受注率は上がり、受注件数は減った"><text class="fig-strong" x="15" y="22" text-anchor="start">前期</text><text class="fig-small" x="15" y="42" text-anchor="start">クローズした商談 120件 × 受注率 18%</text><rect class="fig-bar-soft" x="15" y="50" width="240" height="20" rx="2"/><text class="fig-text" x="262" y="65" text-anchor="start">商談 120件</text><rect class="fig-bar" x="15" y="74" width="43" height="20" rx="2"/><text class="fig-strong" x="65" y="89" text-anchor="start">受注 21.6件</text><text class="fig-strong" x="15" y="128" text-anchor="start">今期</text><text class="fig-small" x="15" y="148" text-anchor="start">クローズした商談 70件 × 受注率 26%</text><rect class="fig-bar-soft" x="15" y="156" width="140" height="20" rx="2"/><text class="fig-text" x="162" y="171" text-anchor="start">商談 70件</text><rect class="fig-bar" x="15" y="180" width="36" height="20" rx="2"/><text class="fig-strong" x="58" y="195" text-anchor="start">受注 18.2件</text><text class="fig-accent" x="15" y="230" text-anchor="start">受注率は上がり、受注件数は減った</text></svg><figcaption>平均単価が同じでも、売上は前期の約84%になる。単価も下がれば、下げ幅はさらに広がる。</figcaption></figure>
+
 受注率は改善しています。売上は減っています。両方とも事実です。片方だけを報告すると、事実の半分が消えます。
 
 ## 受注率が上がる経路は3つあり、実力なのは1つだけです

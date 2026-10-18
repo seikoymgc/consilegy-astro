@@ -8,8 +8,8 @@ const insightsPosts = articles.slice(0, 5);
 ---
 
 <BaseLayout
-	title="マーケから営業へ。見込み客を商談・受注につなげる | Consilegy"
-	description="見込み客は増えたのに、商談・受注につながらない。マーケティングから営業への引き継ぎ、対応ルール、CRMのデータを整え、受注結果を次の施策に活かせる状態まで支援します。CRM / MA / SFAの導入支援実績40社以上。"
+	title="売上が止まっているのは、営業力の問題ではありません | Consilegy"
+	description="「顧客情報がExcelとメールにしかない」「入れたはずのMA/SFAに入力されない」。原因は営業力ではなく、収益構造の設計にあります。Salesforce・HubSpot・kintone・MarketoとAIを組み合わせ、マーケ・営業・CSをつなぐ収益プロセスを設計し、現場で回るところまで伴走します。CRM / MA / SFAの導入支援実績40社以上。"
 	lang="ja"
 >
 	<link
@@ -41,29 +41,24 @@ const insightsPosts = articles.slice(0, 5);
 	</div>
 	<div class="container hero-inner">
 		<div class="hero-copy">
-			<h1>
-				見込み客は増えた。<br />
-				でも、商談と受注に<br />
-				<span class="hero-accent">つながらない。</span>
+			<h1 class="hero-h1--v2">
+				売上が止まっているのは、<br />
+				<span class="hero-accent">営業力の問題ではありません。</span>
 			</h1>
+			<ul class="hero-symptoms" aria-label="よくある状態">
+				<li>「顧客情報が、まだExcelとメールにしかない」</li>
+				<li>「入れたはずのCRMに、入力されない」</li>
+				<li>「どの施策が受注につながったか、分からない」</li>
+			</ul>
 			<p class="hero-lead">
-				マーケティングから営業への引き継ぎ、対応ルール、CRMのデータを整えます。どの施策が受注につながったかを確認し、次の改善を判断できる状態まで支援します。
+				これから仕組みをつくる会社も、つくったのに動いていない会社も、原因は同じです。顧客データが、部門ごとにバラバラなこと。つなぎ直して、動くところまで一緒にやります。
 			</p>
-			<div class="hero-actions">
-				<a href="/services/" class="btn btn--hero-primary btn--lg">
-					支援内容と料金を見る
-				</a>
-				<a href="/free-consultation/" class="btn btn--hero-outline btn--lg">
-					30分無料相談
-				</a>
-			</div>
 			<p class="hero-proof">
-				<span>支援実績40社+</span>
+				<span>支援実績40社以上</span>
 				<span class="hero-proof__sep" aria-hidden="true">|</span>
-				<span>自社プロダクト <a href="/crm/" class="hero-inline-link">Revenue CRM</a></span>
+				<span>今お使いのツールを前提に設計</span>
 			</p>
 		</div>
-
 	</div>
 	<div class="hero-tools">
 		<div class="container proof">
@@ -83,201 +78,230 @@ const insightsPosts = articles.slice(0, 5);
 	</div>
 </section>
 
-<!-- ===================== PROBLEMS ===================== -->
+<!-- ===================== FORK（入口2つ） ===================== -->
+<section class="fork">
+	<div class="container">
+		<header class="fork-head">
+			<p class="section-eyebrow">Where You Are</p>
+			<h2>あなたの会社は、どちらですか。</h2>
+		</header>
+
+		<div class="fork-grid">
+
+			<article class="fork-card">
+				<span class="fork-tag">まだ、仕組みがない</span>
+				<p class="fork-state">
+顧客情報はExcelとメール。案件の状況は担当者の頭の中。
+				</p>
+				<p class="fork-answer"><span>私たちの答え</span>自社プロダクト「Revenue CRM」</p>
+				<a href="/crm/" class="fork-shot" aria-label="Revenue CRMのダッシュボード画面。詳細ページへ">
+					<span class="fork-shot__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+					<img
+						src="/images/crm/screen-dashboard-2026-10c.webp"
+						alt="Revenue CRMのダッシュボード。パイプライン総額・加重フォーキャスト・勝率・期限切れタスク・ステージ別パイプライン・注目の商談を一画面に表示。"
+						width="1600"
+						height="1000"
+						loading="lazy"
+						decoding="async"
+					/>
+				</a>
+				<p class="fork-body">
+まだCRMを持っていない会社の、最初の1つを作りました。移行作業はありません。Excelでやっていたことが、そのまま記録として残るところから始まります。
+				</p>
+				<p class="fork-price">1人あたり月額3,000円〜 ／ 初期費用なし・30日間無料</p>
+				<a href="/crm/" class="btn btn--cta fork-btn">Revenue CRMを見る →</a>
+			</article>
+
+			<article class="fork-card fork-card--consulting">
+				<span class="fork-tag">入れたのに、動いていない</span>
+				<p class="fork-state">
+Salesforce・HubSpot・kintone。入っているのに営業は入力しない。数字は信用されず、結局スプレッドシートで会議をしている。
+				</p>
+				<p class="fork-answer"><span>私たちの答え</span>今のツールのまま、仕組みを直す</p>
+				<p class="fork-body">
+これはツールの問題ではなく、設計の問題です。営業へ渡す基準・データのつながり・会議での使い方を、今のツール構成を前提に直し、現場で回るまで伴走します。乗り換えありきではありません。
+				</p>
+				<p class="fork-price">現状分析 10万円〜 ／ 再設計 300万円〜 ／ 伴走 月額30万円〜</p>
+				<a href="/services/" class="btn btn--cta fork-btn">支援内容と料金を見る →</a>
+			</article>
+
+		</div>
+
+		<div class="fork-third">
+			<p>
+どちらか分からない場合は、3分の収益診断からどうぞ。どこで止まっているかを整理してお返しします。
+			</p>
+			<a href="/diagnostic/" class="btn fork-third__btn">3分の収益診断（無料）</a>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== ASSURANCE（一文：使われるまで、離れない） ===================== -->
+<section class="founder founder--slim">
+	<div class="container">
+		<div class="founder-assurance founder-assurance--solo">
+			<header class="sub-head">
+				<p class="section-eyebrow">Why It Works</p>
+				<h2 class="assurance-ja assurance-ja--main">導入して終わりにしない。<br />使われるまで、離れない。</h2>
+			</header>
+			<p class="assurance-body">
+戦略レポートも設計図も、それ自体は1円も生みません。現場が使い始め、使い続けて、初めて数字が動きます。
+ダッシュボードの読み方、営業会議での使い方、1on1での問いの立て方まで一緒に設計し、「これがないと仕事が回らない」と現場が言う状態まで並走します。
+			</p>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== PROBLEMS（こんなお悩みありませんか） ===================== -->
 <section class="why">
 	<div class="container">
 		<div class="why-grid">
 			<div class="why-head">
-				<p class="section-eyebrow">よくある相談</p>
+				<p class="section-eyebrow">Common Problems</p>
 				<h2>マーケと営業の間で、<br /><span class="text-primary">止まっていませんか。</span></h2>
-				<p class="section-lead">見込み客を渡しても、その後が分からない。営業に聞くと「質が悪い」で終わってしまう。両部門が同じ顧客情報を見て、対応と改善を決められるようにします。</p>
+				<blockquote class="why-anecdote">
+					<p>ある会社のCRMには商談ステージが<strong>79段階</strong>ありました。<br />実際に使われていたのは<strong>5段階</strong>です。</p>
+				</blockquote>
+				<p class="section-lead">
+これは営業部だけ、マーケ部だけを直しても戻りません。部門をまたぐ設計の問題です。
+				</p>
+				<a href="/services/" class="btn btn--outline-primary">支援内容を見る →</a>
 			</div>
 			<div class="why-problems">
 				<div class="layer-card">
 					<h3 class="layer-title">渡した見込み客が、追われていない</h3>
-					<p class="layer-desc">誰が、いつまでに、何をするかが曖昧で、問い合わせや名刺が担当者の手元に残る。</p>
+					<p class="layer-desc">誰が、いつまでに連絡するかが曖昧で、問い合わせや名刺が担当者の手元に残る。</p>
+					<p class="layer-fix">→ 営業へ渡す基準と連絡の期限、今すぐ買わない人のフォローを両部門で決めます。</p>
 				</div>
+
 				<div class="layer-card">
-					<h3 class="layer-title">「質が悪い」の理由が戻ってこない</h3>
+					<h3 class="layer-title">「質が悪い」の理由が、戻ってこない</h3>
 					<p class="layer-desc">対象外だったのか、時期が早かったのか。営業の対応結果が共有されず、集客の改善に使えない。</p>
+					<p class="layer-fix">→ 失注理由と次のアクションをCRMに残し、マーケに返る仕組みにします。</p>
 				</div>
+
 				<div class="layer-card">
-					<h3 class="layer-title">どの施策が受注につながったか分からない</h3>
+					<h3 class="layer-title">どの施策が受注につながったか、分からない</h3>
 					<p class="layer-desc">集客の数字と商談・受注の数字が別々で、次にどこへ予算を使うか判断できない。</p>
+					<p class="layer-fix">→ CRM・MA・SFAの項目と連携を整え、施策ごとの商談・受注を一つの画面で見られるようにします。</p>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
 
-<!-- ===================== APPROACH ===================== -->
-<section class="how">
+<!-- ===================== RESULTS（事例3つ：動き出すと、こう変わる） ===================== -->
+<section class="how how--after-only">
 	<div class="container">
-		<div class="how-grid">
-			<div class="how-visual">
-				<div class="flow-diagram" role="img" aria-label="マーケティングが顧客の関心を営業へ渡し、営業が商談・受注・失注の結果をマーケティングへ返す。受注後は顧客対応へ引き継ぐ流れ。">
-					<div class="flow-step flow-step--top">
-						<span class="flow-label">マーケティング</span>
-						<div class="flow-tools">どこから来たか・何に関心があるか</div>
-					</div>
-					<div class="flow-arrow" aria-hidden="true">↓</div>
-					<div class="flow-center">
-						<span class="flow-center-label">誰に・いつ・何を渡すかを決める</span>
-						<span class="flow-center-sub">CRMで顧客情報と対応状況を共有</span>
-					</div>
-					<div class="flow-arrow" aria-hidden="true">↓</div>
-					<div class="flow-step flow-step--mid">
-						<span class="flow-label">営業</span>
-						<div class="flow-tools">対応・商談・受注・失注の理由を記録</div>
-					</div>
-					<div class="flow-kpi">
-						<span>↑ 結果をマーケへ返し、対象と施策を見直す</span>
-					</div>
-					<div class="flow-arrow" aria-hidden="true">↓</div>
-					<div class="flow-step flow-step--bot">
-						<span class="flow-label">受注後の顧客対応</span>
-						<div class="flow-tools">顧客の目的と約束した内容を引き継ぐ</div>
-					</div>
-				</div>
+		<div class="how-after">
+			<header class="sub-head">
+				<p class="section-eyebrow">After</p>
+				<h2>動き出すと、こう変わります。</h2>
+			</header>
+			<div class="after-list after-list--three">
+				<article class="after-item after-item--metric">
+					<h3>数字をつくる時間が、返ってくる</h3>
+					<p>医療テック企業（約150名）。データ管理・抽出の作業が<strong>約65%</strong>減り、<strong>月約100時間</strong>が戻りました。</p>
+				</article>
+				<article class="after-item after-item--metric">
+					<h3>打ち手が、当たったかどうか分かる</h3>
+					<p>ITバックオフィスSaaS（約200名）。マーケが渡したリードが商談になる割合が<strong>最大20%</strong>上がりました。</p>
+				</article>
+				<article class="after-item after-item--metric">
+					<h3>人が増えなくても、立ち上がる</h3>
+					<p>コンサル会社の新規AI部門。3名の兼務チームで、<strong>2ヶ月</strong>で市場・顧客・販売方針を整理し、3名のまま回る仕組みができました。</p>
+				</article>
 			</div>
-			<div class="how-copy">
-				<p class="section-eyebrow">支援内容</p>
-				<h2>引き継ぎのルールから、<br /><span class="text-primary">現場での使い方まで。</span></h2>
-				<ul class="how-points">
-					<li>
-						<span class="how-num">01</span>
-						<div>
-							<strong>営業へ渡す基準と、対応を決める</strong>
-							<p>どんな見込み客を渡すか、誰がいつまでに連絡するか、今すぐ買わない人をどうフォローするか。両部門で決めます。</p>
-						</div>
-					</li>
-					<li>
-						<span class="how-num">02</span>
-						<div>
-							<strong>集客から受注までのデータをつなぐ</strong>
-							<p>CRM・MA・SFAの項目と連携を整えます。施策ごとの商談・受注と、途中で止まっている顧客を確認できるようにします。</p>
-						</div>
-					</li>
-					<li>
-						<span class="how-num">03</span>
-						<div>
-							<strong>結果を返し、次の施策を一緒に決める</strong>
-							<p>営業の対応結果をマーケへ返す仕組みと、両部門で数字を見る場をつくります。入力・通知・集計も自動化し、運用を支えます。</p>
-						</div>
-					</li>
-				</ul>
-				<p class="section-lead">Salesforce・HubSpotなど、今お使いのツールを前提に支援します。</p>
-				<a href="/services/" class="btn btn--outline-primary">支援内容を詳しく見る →</a>
-			</div>
+			<p class="track-more"><a class="btn btn--secondary" href="/case-studies/">導入事例を見る</a></p>
 		</div>
 	</div>
 </section>
 
-<!-- ===================== TRACK RECORD（実績＋業界別） ===================== -->
+<!-- ===================== TRACK RECORD（実績＋代表） ===================== -->
 <section class="track">
 	<div class="container">
 		<header class="section-head track-head">
 			<p class="section-eyebrow">Track Record</p>
 			<h2>支援実績40社以上。</h2>
 			<p class="section-lead">
-代表の個人事業時代を含め、40社以上のCRM / MA / SFA導入を支援してきました。SaaS・EC・メーカーなどを支援しています。
+代表・山口聖子が、個人事業時代から現在までに手がけたCRM / MA / SFA導入の累計です。SaaS・EC / D2C・メーカーなど業種は問いません。
 			</p>
 		</header>
 
-		<ul class="track-list">
-			<li class="track-item">
-				<span class="track-who">医療テック企業<span class="track-size">約150名</span></span>
-				<p class="track-result">データ管理・抽出業務を<strong>約65%削減</strong><strong>月約100時間</strong>を創出</p>
-			</li>
-			<li class="track-item">
-				<span class="track-who">ITバックオフィスSaaS<span class="track-size">約200名</span></span>
-				<p class="track-result">見込み客から営業へ引き継ぐ割合（MQL→SQL）を<strong>最大20%向上</strong></p>
-			</li>
-			<li class="track-item">
-				<span class="track-who">グローバルDTCブランド<span class="track-size">約20,000名</span></span>
-				<p class="track-result">企画から公開までのリードタイムを<strong>約70〜80%短縮</strong>移行は1ヶ月で完遂</p>
-			</li>
-			<li class="track-item">
-				<span class="track-who">コンサル新規AIプロダクト部門<span class="track-size">3名の兼務チーム</span></span>
-				<p class="track-result"><strong>2ヶ月</strong>で市場・顧客・販売方針を整理し、3名で運用できる営業・マーケの仕組みを構築</p>
-			</li>
+		<ul class="track-list track-list--tags">
+			<li class="track-item"><span class="track-who">医療テック企業<span class="track-size">約150名</span></span></li>
+			<li class="track-item"><span class="track-who">ITバックオフィスSaaS<span class="track-size">約200名</span></span></li>
+			<li class="track-item"><span class="track-who">グローバルDTCブランド<span class="track-size">約20,000名</span></span></li>
+			<li class="track-item"><span class="track-who">大手食品メーカー<span class="track-size">HubSpot導入</span></span></li>
+			<li class="track-item"><span class="track-who">コンサル新規AIプロダクト部門<span class="track-size">3名の兼務チーム</span></span></li>
 		</ul>
 
-		<p class="track-more"><a class="btn btn--secondary" href="/case-studies/">導入事例を見る</a></p>
-	</div>
-</section>
-
-<!-- ===================== FOUNDER（誰がやるか＋約束） ===================== -->
-<section class="founder">
-	<div class="container">
-		<div class="founder-inner">
-			<div class="founder-photo">
-				<img
-					src="/images/common/seiko-yamaguchi-2026b.jpg"
-					alt="Consilegy代表 山口 聖子"
-					width="720"
-					height="600"
-					loading="lazy"
-				/>
-			</div>
-			<div class="founder-copy">
-				<p class="section-eyebrow">Who Does It</p>
-				<h2>設計するのは、<br />代表の山口聖子です。</h2>
-				<p class="founder-bio">
-B2Bマーケティング歴10年以上。Moloco・Kaizen Platform・アリババ・UCC上島珈琲・西川などでマーケ・営業・CRMの設計と実装を担当。
-				</p>
-				<a href="/company/" class="btn btn--outline-primary">会社概要を見る →</a>
-			</div>
-		</div>
-
-	</div>
-</section>
-
-<!-- ===================== PRICING（料金） ===================== -->
-<section class="pricing">
-	<div class="container">
-		<header class="section-head pricing-head">
-			<p class="section-eyebrow">Pricing</p>
-			<h2>料金</h2>
-		</header>
-
-		<div class="pricing-block pricing-block--consulting">
-			<p class="pricing-for">
-				マーケと営業の連携・CRM運用を見直したい会社へ
-				<span class="pricing-for__note">従業員50〜300名の企業を中心に支援しています</span>
+		<div class="track-founder">
+			<p>
+設計するのは、代表の山口聖子です。B2Bマーケティング歴10年以上。Moloco・Kaizen Platform・アリババなどでマーケ・営業・CRMの設計と実装を担当してきました。
+				<a href="/company/">会社概要 →</a>
 			</p>
-			<div class="price-rows">
-				<div class="price-row">
-					<span class="price-step">Step 01</span>
-					<span class="price-name">収益構造の現状分析</span>
-					<span class="price-amount">10万円 〜 50万円</span>
-				</div>
-				<div class="price-row">
-					<span class="price-step">Step 02</span>
-					<span class="price-name">収益プロセス再設計</span>
-					<span class="price-amount">300万円 〜 800万円</span>
-				</div>
-				<div class="price-row">
-					<span class="price-step">Step 03</span>
-					<span class="price-name">伴走・顧問支援</span>
-					<span class="price-amount">月額30万円〜100万円</span>
-				</div>
-			</div>
-				<p class="tax-note">価格はすべて税抜です。</p>
-
-			<p class="pricing-note">課題の整理だけのご依頼や、既存の運用の改善からも始められます。</p>
-			<a href="/services/" class="pricing-link">料金の詳細を見る →</a>
 		</div>
-		<div class="pricing-block">
-			<p class="pricing-for">これから顧客管理を始めたい会社へ</p>
-			<div class="price-row price-row--single">
-				<span class="price-name">自社プロダクト Revenue CRM</span>
-				<span class="price-amount">1人あたり月額3,000円から</span>
+	</div>
+</section>
+
+<!-- ===================== FLAG（考え方：レベニューアーキテクチャ） ===================== -->
+<section class="why why--flag-only">
+	<div class="container">
+		<div class="why-flag">
+			<div>
+				<p class="section-eyebrow">Revenue Architecture</p>
+				<h2>この設計を、<br /><span class="text-primary">レベニューアーキテクチャ</span>と呼んでいます。</h2>
 			</div>
-			<p class="pricing-note">名刺・商談メモ・録音からAIが記録を下書きするCRM。初期費用なし、初回30日間は月額無料です。価格は税抜です。</p>
-			<a href="/crm/" class="pricing-link">画面・機能・料金を見る →</a>
+			<div class="flag-body">
+				<p>
+見込み客の獲得から受注・継続までを、部門ごとではなく一つの流れとして設計する考え方です。海外のB2B SaaSで体系化された方法を、日本の稟議・合意形成に合わせて作り直しました。
+					日本の稟議は、待ち時間の塊。だから転換率だけでなく<strong>「待ち時間」も指標に入れ</strong>ます。
+				</p>
+				<a href="/revenue-architecture/" class="btn btn--outline-primary">レベニューアーキテクチャとは →</a>
+			</div>
 		</div>
 
+		<figure class="flag-figure" aria-label="売上を取りこぼす6つの境目">
+			<svg viewBox="0 0 760 170" role="img" xmlns="http://www.w3.org/2000/svg">
+				<title>マーケティング・営業・カスタマーサクセスの流れと、売上を取りこぼす6つの境目</title>
+				<defs>
+					<marker id="fa" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#94a3b8"/></marker>
+				</defs>
+				<!-- flow -->
+				<rect x="20" y="52" width="190" height="56" rx="8" fill="#fff" stroke="#cbd5e1"/>
+				<text x="115" y="86" text-anchor="middle" font-size="15" font-weight="600" fill="#0f172a">マーケティング</text>
+				<rect x="285" y="52" width="190" height="56" rx="8" fill="#fff" stroke="#cbd5e1"/>
+				<text x="380" y="86" text-anchor="middle" font-size="15" font-weight="600" fill="#0f172a">営業</text>
+				<rect x="550" y="52" width="190" height="56" rx="8" fill="#fff" stroke="#cbd5e1"/>
+				<text x="645" y="86" text-anchor="middle" font-size="15" font-weight="600" fill="#0f172a">カスタマーサクセス</text>
+				<line x1="212" y1="80" x2="280" y2="80" stroke="#94a3b8" stroke-width="2" marker-end="url(#fa)"/>
+				<line x1="477" y1="80" x2="545" y2="80" stroke="#94a3b8" stroke-width="2" marker-end="url(#fa)"/>
+				<!-- base layer -->
+				<rect x="20" y="128" width="720" height="30" rx="6" fill="#f1f5f9" stroke="#e2e8f0"/>
+				<text x="36" y="148" text-anchor="start" font-size="12" fill="#475569">顧客データ ／ CRM・MA・SFA</text>
+				<!-- boundary markers -->
+				<g font-size="12" font-weight="700" fill="#fff" text-anchor="middle">
+					<circle cx="246" cy="80" r="12" fill="#0F172A"/><text x="246" y="84">1</text>
+					<circle cx="340" cy="38" r="12" fill="#0F172A"/><text x="340" y="42">2</text>
+					<circle cx="420" cy="38" r="12" fill="#0F172A"/><text x="420" y="42">3</text>
+					<circle cx="560" cy="143" r="12" fill="#0F172A"/><text x="560" y="147">4</text>
+					<circle cx="660" cy="143" r="12" fill="#0F172A"/><text x="660" y="147">5</text>
+					<circle cx="511" cy="80" r="12" fill="#0F172A"/><text x="511" y="84">6</text>
+				</g>
+			</svg>
+			<figcaption>
+				<ol class="flag-legend">
+					<li><b>1</b>マーケ→営業の受け渡し</li>
+					<li><b>2</b>営業の属人化</li>
+					<li><b>3</b>商談ステージのズレ</li>
+					<li><b>4</b>データの分断</li>
+					<li><b>5</b>ツールの非定着</li>
+					<li><b>6</b>受注後の継続・拡大</li>
+				</ol>
+				<p>売上は部門の中ではなく、部門と部門の「境目」で取りこぼします。この6か所を一つの流れとして設計し直すのが、レベニューアーキテクチャです。</p>
+			</figcaption>
+		</figure>
 	</div>
 </section>
 
@@ -287,7 +311,7 @@ B2Bマーケティング歴10年以上。Moloco・Kaizen Platform・アリババ
 		<header class="section-head">
 			<p class="section-eyebrow">Insights</p>
 			<h2>最新コラム</h2>
-			<p class="section-lead">マーケと営業の連携、CRMの運用について解説しています。</p>
+			<p class="section-lead">マーケと営業の連携、CRMの運用について書いています。</p>
 		</header>
 		<div class="blog-grid">
 			{insightsPosts.map((post) => (
@@ -307,6 +331,7 @@ B2Bマーケティング歴10年以上。Moloco・Kaizen Platform・アリババ
 						<div class="blog-body">
 							<span class="blog-cat">{post.cat}</span>
 							<h3 class="blog-title">{post.title}</h3>
+							<p class="blog-desc">{post.desc}</p>
 							<div class="blog-foot">
 								<span class="blog-arrow" aria-hidden="true">→</span>
 							</div>
@@ -318,35 +343,43 @@ B2Bマーケティング歴10年以上。Moloco・Kaizen Platform・アリババ
 		<p style="margin-top: var(--space-lg); text-align: center;">
 			<a class="btn btn--secondary" href="/insights/">コラム一覧へ</a>
 		</p>
-		<p class="journal-link">
-			現場で判断したことの記録は <a href="https://media.consilegy.com/">B2Bレベニュー戦略ジャーナル</a> に書いています。
-		</p>
 
+		<div class="nl-cta-strip nl-cta-strip--inline">
+			<div class="nl-cta-strip__inner">
+				<div class="nl-cta-strip__copy">
+					<p class="nl-cta-strip__eyebrow">Newsletter</p>
+					<h3>次世代B2Bレベニュー戦略バイブル</h3>
+					<p>Revenue Architecture・RevOps・CRM実装の実践知を隔週で配信。約2,000人が購読中。</p>
+				</div>
+				<a href="/newsletter/#signup" class="btn nl-cta-strip__btn">無料で登録する →</a>
+			</div>
+		</div>
 	</div>
 </section>
 
-
-
 <!-- ===================== FINAL CTA ===================== -->
 <section class="final-cta">
-	<div class="container cta-inner">
+	<div class="container cta-inner cta-inner--single">
 		<div class="cta-copy">
 			<p class="cta-eyebrow">Get Started</p>
-			<h2>いま困っていることから、<br />ご相談ください。</h2>
-			<p class="cta-lead cta-lead--close">「営業に渡した後が分からない」「受注につながる施策を知りたい」。いまの状況を伺い、支援できることをお伝えします。初回30分は無料です。</p>
+			<h2>マーケと営業の間のこと、<br />ご相談ください。</h2>
+			<p class="cta-lead">
+				「営業に渡した後が分からない」「どの施策が効いたか知りたい」。
+				まず3分の収益診断で、どこで止まっているかを見ます。
+				その結果をもとに、30分の無料相談で優先順位を一緒に整理できます。
+			</p>
+			<p class="cta-lead cta-lead--close">
+				診断は、質問が価値ではありません。結果が価値です。<br />
+				<strong>止まっている場所さえ分かれば、事業は動き出します。</strong>
+			</p>
 			<div class="cta-actions">
-				<a href="/free-consultation/" class="btn btn--cta-primary btn--lg">
+				<a href="/diagnostic/" class="btn btn--cta-primary btn--lg">
+					3分の収益診断（無料）
+				</a>
+				<a href="/free-consultation/" class="btn btn--cta-outline btn--lg">
 					30分無料相談を予約する
 				</a>
-				<a href="/diagnostic/" class="btn btn--cta-outline btn--lg">
-					まずは3分の無料診断
-				</a>
 			</div>
-		</div>
-		<div class="cta-checklist">
-			<h3>支援の考え方を知りたい方へ</h3>
-			<p>見込み客の獲得から受注・継続までを、一つの流れとして設計する考え方をまとめています。</p>
-			<a href="/revenue-architecture/" class="hero-inline-link">レベニューアーキテクチャとは →</a>
 		</div>
 	</div>
 </section>
@@ -1219,11 +1252,10 @@ section { padding-block: var(--space-2xl); }
 	box-shadow: 0 8px 32px rgba(0,0,0,0.12);
 	padding: 2rem;
 }
-.cta-checklist h3 {
-	margin: 0 0 1rem; font-size: 1rem; color: #fff;
-	font-weight: 500;
+.cta-checklist h4 {
+	margin: 0 0 1rem; font-size: 0.5625rem; color: rgba(255,255,255,0.78);
+	letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;
 }
-.cta-checklist p { font-size: 0.9375rem; line-height: 1.8; margin: 0 0 1rem; }
 .cta-checklist ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0; }
 .cta-checklist li {
 	display: flex; align-items: flex-start; gap: 0.75rem;
@@ -1445,4 +1477,65 @@ section { padding-block: var(--space-2xl); }
 	.blog-img__asset, .blog-arrow { transition: none; }
 	.layer-card:hover, .as-card:hover, .blog-card:hover { transform: none; }
 }
+
+/* ===== v2 追加（2026-10-18） ===== */
+.hero-symptoms {
+	list-style: none;
+	padding: 0;
+	margin: var(--space-md) 0 var(--space-sm);
+	display: grid;
+	gap: 0.35rem;
+	font-size: 1.05rem;
+	color: var(--color-text-muted, #475569);
+}
+.fork-price {
+	margin: var(--space-sm) 0 var(--space-md);
+	font-weight: 600;
+	font-size: 0.95rem;
+}
+.fork-btn { align-self: flex-start; }
+.founder--slim { padding-block: var(--space-xl); }
+.founder-assurance--solo { max-width: 52rem; margin-inline: auto; text-align: center; }
+.assurance-ja--main { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; line-height: 1.4; margin-top: var(--space-xs); }
+.assurance-body { margin-top: var(--space-md); line-height: 1.9; }
+.layer-fix { margin-top: 0.5rem; font-size: 0.95rem; font-weight: 600; color: var(--color-primary); }
+.track-list--tags { display: flex; flex-wrap: wrap; gap: 0.6rem; border: 0; }
+.track-list--tags .track-item { display: block; border-bottom: 1px solid var(--color-border, #e2e8f0); border: 1px solid var(--color-border, #e2e8f0); border-radius: 999px; padding: 0.5rem 1rem; background: #fff; }
+.track-list--tags .track-who { display: inline-flex; align-items: baseline; gap: 0.5rem; font-size: 0.95rem; }
+.track-list--tags .track-size { font-size: 0.8rem; }
+.track-founder { margin-top: var(--space-lg); max-width: 52rem; line-height: 1.9; }
+.track-founder a { font-weight: 600; }
+.why--flag-only .why-flag { margin-top: 0; }
+.cta-inner--single { grid-template-columns: 1fr; max-width: 56rem; }
+.cta-inner--single .cta-copy h2 { font-size: clamp(2rem, 3.6vw, 3.6rem); line-height: 1.2; }
+.hero-copy h1.hero-h1--v2 { font-size: clamp(1.9rem, 3vw, 2.75rem); line-height: 1.3; }
+.how--after-only { padding-top: var(--space-xl); }
+.how--after-only .how-after { margin-top: 0; padding-top: 0; border-top: 0; }
+
+/* ===== v2b: CTA色（ロゴの紫）とボタンの強弱、6つの境目の図 ===== */
+.btn--cta {
+	display: inline-flex; align-items: center;
+	background: #8758C9; color: #fff; border: 1px solid #8758C9;
+	padding: 0.85rem 1.5rem; font-weight: 600; font-size: 0.95rem; text-decoration: none;
+	transition: background 0.15s, border-color 0.15s;
+}
+.btn--cta:hover { background: #6f45ad; border-color: #6f45ad; color: #fff; }
+.fork-third__btn { background: transparent; color: var(--color-primary); border: 1px solid var(--color-primary); }
+.fork-third__btn:hover { background: rgba(30,64,175,0.05); }
+.nl-cta-strip__btn { background: transparent; color: var(--color-primary); border: 1px solid var(--color-primary); }
+.nl-cta-strip__btn:hover { background: rgba(30,64,175,0.05); }
+.flag-figure { margin: var(--space-xl) 0 0; padding-top: var(--space-lg); border-top: 1px solid var(--color-border); }
+.flag-figure svg { display: block; width: 100%; max-width: 760px; height: auto; }
+.flag-figure figcaption { margin-top: var(--space-md); }
+.flag-legend {
+	list-style: none; padding: 0; margin: 0 0 var(--space-sm);
+	display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.4rem 1.5rem; font-size: 0.95rem;
+}
+.flag-legend b {
+	display: inline-flex; align-items: center; justify-content: center;
+	width: 1.4rem; height: 1.4rem; border-radius: 999px; margin-right: 0.5rem;
+	background: #0F172A; color: #fff; font-size: 0.75rem; font-weight: 700;
+}
+.flag-figure figcaption p { margin: 0; font-size: 0.95rem; line-height: 1.8; color: var(--color-text-muted, #475569); max-width: 52rem; }
+@media (max-width: 640px) { .flag-legend { grid-template-columns: 1fr 1fr; } .flag-figure svg text { font-size: 15px; } }
 </style>

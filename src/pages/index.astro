@@ -45,11 +45,6 @@ const insightsPosts = articles.slice(0, 5);
 				売上が止まっているのは、<br />
 				<span class="hero-accent">営業力の問題ではありません。</span>
 			</h1>
-			<ul class="hero-symptoms" aria-label="よくある状態">
-				<li>「顧客情報が、まだExcelとメールにしかない」</li>
-				<li>「入れたはずのCRMに、入力されない」</li>
-				<li>「どの施策が受注につながったか、分からない」</li>
-			</ul>
 			<p class="hero-lead hero-lead--short">
 				原因は、顧客データが部門ごとにバラバラなこと。つなぎ直して、動くまで一緒にやります。
 			</p>
@@ -68,13 +63,11 @@ const insightsPosts = articles.slice(0, 5);
 			<p class="hero-entries__label">あなたの会社は、どちらですか。</p>
 			<a href="/crm/" class="hero-entry">
 				<span class="hero-entry__tag">まだ、仕組みがない</span>
-				<span class="hero-entry__state">顧客情報はExcelとメール。案件は担当者の頭の中。</span>
 				<span class="hero-entry__answer">自社プロダクト「Revenue CRM」<small>1人あたり月額3,000円〜・30日間無料</small></span>
 				<span class="hero-entry__cta">Revenue CRMを見る →</span>
 			</a>
 			<a href="/services/" class="hero-entry hero-entry--consulting">
 				<span class="hero-entry__tag">入れたのに、動いていない</span>
-				<span class="hero-entry__state">Salesforce・HubSpot・kintone。入っているのに入力されず、会議はスプレッドシート。</span>
 				<span class="hero-entry__answer">今のツールのまま、仕組みを直す<small>現状分析 10万円〜／再設計 300万円〜／伴走 月額30万円〜</small></span>
 				<span class="hero-entry__cta">支援内容と料金を見る →</span>
 			</a>
@@ -1458,7 +1451,7 @@ section { padding-block: var(--space-2xl); }
 .fork-card { display: flex; flex-direction: column; }
 .fork-price { margin-top: auto; padding-top: var(--space-md); }
 .fork-btn { align-self: flex-start; }
-.hero-lead--short { margin-bottom: 1.25rem; }
+.hero-lead--short { margin: 1.25rem 0 1.5rem; font-size: 1.1rem; }
 .hero-actions .btn--cta { padding: 0.95rem 1.6rem; font-size: 1rem; }
 .founder--slim { padding-block: var(--space-xl); }
 .founder-assurance--solo { max-width: 52rem; margin-inline: auto; text-align: center; }

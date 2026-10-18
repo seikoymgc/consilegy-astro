@@ -50,9 +50,13 @@ const insightsPosts = articles.slice(0, 5);
 				<li>「入れたはずのCRMに、入力されない」</li>
 				<li>「どの施策が受注につながったか、分からない」</li>
 			</ul>
-			<p class="hero-lead">
-				これから仕組みをつくる会社も、つくったのに動いていない会社も、原因は同じです。顧客データが、部門ごとにバラバラなこと。つなぎ直して、動くところまで一緒にやります。
+			<p class="hero-lead hero-lead--short">
+				原因は、顧客データが部門ごとにバラバラなこと。つなぎ直して、動くまで一緒にやります。
 			</p>
+			<div class="hero-actions">
+				<a href="/diagnostic/" class="btn btn--cta btn--lg">3分の収益診断（無料）</a>
+				<a href="/services/" class="btn btn--hero-outline btn--lg">支援内容と料金を見る</a>
+			</div>
 			<p class="hero-proof">
 				<span>支援実績40社以上</span>
 				<span class="hero-proof__sep" aria-hidden="true">|</span>
@@ -127,12 +131,6 @@ Salesforce・HubSpot・kintone。入っているのに営業は入力しない�
 
 		</div>
 
-		<div class="fork-third">
-			<p>
-どちらか分からない場合は、3分の収益診断からどうぞ。どこで止まっているかを整理してお返しします。
-			</p>
-			<a href="/diagnostic/" class="btn fork-third__btn">3分の収益診断（無料）</a>
-		</div>
 	</div>
 </section>
 
@@ -1493,7 +1491,11 @@ section { padding-block: var(--space-2xl); }
 	font-weight: 600;
 	font-size: 0.95rem;
 }
+.fork-card { display: flex; flex-direction: column; }
+.fork-price { margin-top: auto; padding-top: var(--space-md); }
 .fork-btn { align-self: flex-start; }
+.hero-lead--short { margin-bottom: 1.25rem; }
+.hero-actions .btn--cta { padding: 0.95rem 1.6rem; font-size: 1rem; }
 .founder--slim { padding-block: var(--space-xl); }
 .founder-assurance--solo { max-width: 52rem; margin-inline: auto; text-align: center; }
 .assurance-ja--main { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; line-height: 1.4; margin-top: var(--space-xs); }

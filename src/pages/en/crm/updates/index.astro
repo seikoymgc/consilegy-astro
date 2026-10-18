@@ -6,7 +6,7 @@ import { CRM_UPDATES, EDITION_LABEL } from '../../../../data/crm-updates';
 // 更新履歴。中身は src/data/crm-updates.ts（日英共通）。日付ごとにまとめて新しい順。
 const lang = 'en' as const;
 const byDate = new Map<string, typeof CRM_UPDATES>();
-for (const u of CRM_UPDATES) byDate.set(u.date, [...(byDate.get(u.date) ?? []), u]);
+for (const u of CRM_UPDATES.filter(u => !u.jaOnly)) byDate.set(u.date, [...(byDate.get(u.date) ?? []), u]);
 const days = [...byDate.entries()].sort((a, b) => (a[0] < b[0] ? 1 : -1));
 const fmt = (d: string) => {
   const [y, m, day] = d.split('-').map(Number);
@@ -46,7 +46,7 @@ const fmt = (d: string) => {
     <section class="up-cta">
       <p>See the real screens with just your email address.</p>
       <div class="up-cta-links">
-        <a class="btn" href="https://crm.consilegy.com/demos" target="_blank" rel="noopener noreferrer">Try the demo</a>
+        <a class="btn" href="https://crm.consilegy.com/demos" target="_blank" rel="noopener noreferrer">See the demo</a>
       </div>
     </section>
   </div>

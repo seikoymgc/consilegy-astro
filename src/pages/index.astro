@@ -63,6 +63,22 @@ const insightsPosts = articles.slice(0, 5);
 				<span>今お使いのツールを前提に設計</span>
 			</p>
 		</div>
+
+		<div class="hero-entries" aria-label="あなたの会社はどちらですか">
+			<p class="hero-entries__label">あなたの会社は、どちらですか。</p>
+			<a href="/crm/" class="hero-entry">
+				<span class="hero-entry__tag">まだ、仕組みがない</span>
+				<span class="hero-entry__state">顧客情報はExcelとメール。案件は担当者の頭の中。</span>
+				<span class="hero-entry__answer">自社プロダクト「Revenue CRM」<small>1人あたり月額3,000円〜・30日間無料</small></span>
+				<span class="hero-entry__cta">Revenue CRMを見る →</span>
+			</a>
+			<a href="/services/" class="hero-entry hero-entry--consulting">
+				<span class="hero-entry__tag">入れたのに、動いていない</span>
+				<span class="hero-entry__state">Salesforce・HubSpot・kintone。入っているのに入力されず、会議はスプレッドシート。</span>
+				<span class="hero-entry__answer">今のツールのまま、仕組みを直す<small>現状分析 10万円〜／再設計 300万円〜／伴走 月額30万円〜</small></span>
+				<span class="hero-entry__cta">支援内容と料金を見る →</span>
+			</a>
+		</div>
 	</div>
 	<div class="hero-tools">
 		<div class="container proof">
@@ -79,58 +95,6 @@ const insightsPosts = articles.slice(0, 5);
 				</div>
 			</div>
 		</div>
-	</div>
-</section>
-
-<!-- ===================== FORK（入口2つ） ===================== -->
-<section class="fork">
-	<div class="container">
-		<header class="fork-head">
-			<p class="section-eyebrow">Where You Are</p>
-			<h2>あなたの会社は、どちらですか。</h2>
-		</header>
-
-		<div class="fork-grid">
-
-			<article class="fork-card">
-				<span class="fork-tag">まだ、仕組みがない</span>
-				<p class="fork-state">
-顧客情報はExcelとメール。案件の状況は担当者の頭の中。
-				</p>
-				<p class="fork-answer"><span>私たちの答え</span>自社プロダクト「Revenue CRM」</p>
-				<a href="/crm/" class="fork-shot" aria-label="Revenue CRMのダッシュボード画面。詳細ページへ">
-					<span class="fork-shot__bar" aria-hidden="true"><i></i><i></i><i></i></span>
-					<img
-						src="/images/crm/screen-dashboard-2026-10c.webp"
-						alt="Revenue CRMのダッシュボード。パイプライン総額・加重フォーキャスト・勝率・期限切れタスク・ステージ別パイプライン・注目の商談を一画面に表示。"
-						width="1600"
-						height="1000"
-						loading="lazy"
-						decoding="async"
-					/>
-				</a>
-				<p class="fork-body">
-まだCRMを持っていない会社の、最初の1つを作りました。移行作業はありません。Excelでやっていたことが、そのまま記録として残るところから始まります。
-				</p>
-				<p class="fork-price">1人あたり月額3,000円〜 ／ 初期費用なし・30日間無料</p>
-				<a href="/crm/" class="btn btn--cta fork-btn">Revenue CRMを見る →</a>
-			</article>
-
-			<article class="fork-card fork-card--consulting">
-				<span class="fork-tag">入れたのに、動いていない</span>
-				<p class="fork-state">
-Salesforce・HubSpot・kintone。入っているのに営業は入力しない。数字は信用されず、結局スプレッドシートで会議をしている。
-				</p>
-				<p class="fork-answer"><span>私たちの答え</span>今のツールのまま、仕組みを直す</p>
-				<p class="fork-body">
-これはツールの問題ではなく、設計の問題です。営業へ渡す基準・データのつながり・会議での使い方を、今のツール構成を前提に直し、現場で回るまで伴走します。乗り換えありきではありません。
-				</p>
-				<p class="fork-price">現状分析 10万円〜 ／ 再設計 300万円〜 ／ 伴走 月額30万円〜</p>
-				<a href="/services/" class="btn btn--cta fork-btn">支援内容と料金を見る →</a>
-			</article>
-
-		</div>
-
 	</div>
 </section>
 
@@ -1510,9 +1474,28 @@ section { padding-block: var(--space-2xl); }
 .why--flag-only .why-flag { margin-top: 0; }
 .cta-inner--single { grid-template-columns: 1fr; max-width: 56rem; }
 .cta-inner--single .cta-copy h2 { font-size: clamp(2rem, 3.6vw, 3.6rem); line-height: 1.2; }
-.hero-copy h1.hero-h1--v2 { font-size: clamp(1.9rem, 3vw, 2.75rem); line-height: 1.3; }
+.hero-copy h1.hero-h1--v2 { font-size: clamp(1.75rem, 2.6vw, 2.4rem); line-height: 1.3; }
 .how--after-only { padding-top: var(--space-xl); }
 .how--after-only .how-after { margin-top: 0; padding-top: 0; border-top: 0; }
+
+/* ===== v2c: ファーストビューを左右に（左＝見出し、右＝入口2つ） ===== */
+.hero-inner { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 3rem; align-items: center; }
+.hero-copy { max-width: none; }
+.hero-entries { display: grid; gap: 0.9rem; }
+.hero-entries__label { margin: 0 0 0.1rem; font-size: 0.8rem; letter-spacing: 0.08em; color: rgba(255,255,255,0.72); }
+.hero-entry {
+	display: grid; gap: 0.4rem; padding: 1.15rem 1.3rem; border-radius: 10px;
+	background: rgba(255,255,255,0.96); color: var(--color-text); text-decoration: none;
+	border: 1px solid rgba(255,255,255,0.6); transition: transform 0.15s, box-shadow 0.15s;
+}
+.hero-entry:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+.hero-entry--consulting { border-top: 3px solid #8758C9; }
+.hero-entry__tag { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em; color: #8758C9; }
+.hero-entry__state { font-size: 0.92rem; line-height: 1.6; color: var(--color-text-muted, #475569); }
+.hero-entry__answer { font-size: 1.05rem; font-weight: 700; line-height: 1.4; }
+.hero-entry__answer small { display: block; font-size: 0.8rem; font-weight: 500; color: var(--color-text-muted, #475569); margin-top: 0.2rem; }
+.hero-entry__cta { font-size: 0.9rem; font-weight: 600; color: #8758C9; }
+@media (max-width: 960px) { .hero-inner { grid-template-columns: 1fr; gap: 2rem; } }
 
 /* ===== v2b: CTA色（ロゴの紫）とボタンの強弱、6つの境目の図 ===== */
 .btn--cta {

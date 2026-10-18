@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CrmSubnav from '../../../components/CrmSubnav.astro';
+import { CRM_UPDATES, EDITION_LABEL } from '../../../data/crm-updates';
+
+// 更新履歴。中身は src/data/crm-updates.ts（日英共通）。日付ごとにまとめて新しい順。
+const lang = 'ja' as const;
+const byDate = new Map<string, typeof CRM_UPDATES>();
+for (const u of CRM_UPDATES) byDate.set(u.date, [...(byDate.get(u.date) ?? []), u]);
+const days = [...byDate.entries()].sort((a, b) => (a[0] < b[0] ? 1 : -1));
+const fmt = (d: string) => {
+  const [y, m, day] = d.split('-').map(Number);
+  return lang === 'ja' ? `${y}年${m}月${day}日` : new Date(Date.UTC(y, m - 1, day)).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+};
+---
+
+<BaseLayout
+  title="更新履歴 | Revenue CRM | Consilegy"
+  description="Revenue CRMの更新履歴です。使う人に見える新しい機能と変更を、日付ごとにまとめています。"
+  lang={lang}
+>
+  <CrmSubnav lang={lang} />
+
+  <div class="up-page">
+    <header class="up-head">
+      <p class="kicker">Revenue CRM</p>
+      <h1>更新履歴</h1>
+      <p class="lead">使う人に見える新しい機能と変更を、日付ごとにまとめています。不具合の修正や内部の変更は載せていません。</p>
+    </header>
+
+    {days.map(([date, items]) => (
+      <section class="up-day">
+        <h2><time datetime={date}>{fmt(date)}</time></h2>
+        <ul>
+          {items.map(u => (
+            <li class="up-item">
+              <div class="tags">{u.editions.map(e => <span class="tag">{EDITION_LABEL[e][lang]}</span>)}</div>
+              <h3>{u.title[lang]}</h3>
+              <p>{u.body[lang]}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+
+    <section class="up-cta">
+      <p>実際の画面は、メールアドレスだけでご覧いただけます。</p>
+      <div class="up-cta-links">
+        <a class="btn" href="https://crm.consilegy.com/demos" target="_blank" rel="noopener noreferrer">デモを見る</a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .up-page { max-width: 46rem; margin: 0 auto; padding: 4rem 1rem 5rem; }
+  .up-head { margin-bottom: 2.5rem; }
+  .kicker { font-size: 0.8rem; letter-spacing: 0.12em; color: var(--color-primary); margin: 0 0 0.5rem; }
+  .up-head h1 { font-size: clamp(1.75rem, 4vw, 2.4rem); margin: 0 0 0.75rem; line-height: 1.4; }
+  .lead { color: #4a5568; line-height: 1.9; margin: 0; }
+  .up-day { margin-bottom: 2.5rem; }
+  .up-day h2 { font-size: 1rem; color: #5b6673; margin: 0 0 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid #e6eaef; }
+  .up-day ul { list-style: none; margin: 0; padding: 0; }
+  .up-item { padding: 1rem 1.1rem; border: 1px solid #e6eaef; border-radius: 0.6rem; background: #fff; }
+  .up-item + .up-item { margin-top: 0.5rem; }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.4rem; }
+  .tag { font-size: 0.72rem; color: #3a4551; background: #f2f5f8; border-radius: 999px; padding: 0.1rem 0.6rem; }
+  .up-item h3 { font-size: 1rem; margin: 0 0 0.35rem; line-height: 1.6; }
+  .up-item p { margin: 0; color: #3a4551; line-height: 1.85; font-size: 0.93rem; }
+  .up-cta { margin-top: 3rem; padding: 1.75rem; border-radius: 0.75rem; background: #f4f7f9; text-align: center; }
+  .up-cta p { margin: 0 0 1rem; color: #3a4551; }
+  .btn { display: inline-block; padding: 0.65rem 1.4rem; border-radius: 0.5rem; background: var(--color-primary); color: #fff; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+</style>

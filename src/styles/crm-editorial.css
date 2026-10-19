@@ -93,6 +93,9 @@
 	background: none;
 	color: inherit;
 }
+/* 紺の半面では color: inherit が本文の黒になり、ラベルが見えなくなる。半面ごとに文字色を持つ。 */
+#main-content.crm-editorial .rf-half--b2b .rf-half-tag { color: rgba(255, 255, 255, 0.85); }
+#main-content.crm-editorial .rf-half--school .rf-half-tag { color: #C2410C; }
 #main-content.crm-editorial :is(.kit-block, .kit-materials li) {
 	border: 0;
 	border-radius: 0;

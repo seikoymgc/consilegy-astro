@@ -27,7 +27,7 @@ const mobilePoints = [
 // 課題は左右で対応させる。左＝よくある戻り方、右＝Revenue CRMではどうなるか。
 const problems = [
 	{ topic: '入力', problem: '入力が、辛い。', answer: '声で話せば記録になる。名刺を撮れば入る。議事録を貼れば、タスクと連絡先ができる。人は確かめて保存するだけです。' },
-	{ topic: '立ち上げ', problem: 'ツールを覚えるのに、<br />時間がかかる。', answer: '空のCRMは渡しません。用途を選ぶと、商談の段階と、よく使う自動化が入った状態から始まります。' },
+	{ topic: '立ち上げ', problem: 'ツールを覚えるのに、<br />時間がかかる。', answer: '空のツールは渡しません。用途を選ぶと、商談の段階と、よく使う自動化が入った状態から始まります。' },
 	{ topic: '属人化', problem: '運用していた一人が、<br />辞める。', answer: '設定は画面に残り、自動化は175本の中から選ぶだけ。操作動画とヘルプ記事は、すべてのプランで無料です。' },
 ];
 
@@ -45,7 +45,7 @@ const editions = [
 ];
 
 const plans = [
-	{ tier: 'ユーザープラン', figure: '3,000円', unit: '/ 人 / 月', for: 'B2B・受託開発・代理店版。毎日CRMを使う会社に' },
+	{ tier: 'ユーザープラン', figure: '3,000円', unit: '/ 人 / 月', for: 'B2B・受託開発・代理店版。毎日使う会社に' },
 	{ tier: '生徒数プラン', figure: '9,800円', unit: '/ 月〜', for: 'スクール版。在籍生徒50人まで' },
 	{ tier: 'プリペイドプラン', figure: '3,000円', unit: '/ 月', for: '全エディション。使う頻度が低い会社に' },
 ];
@@ -63,7 +63,7 @@ const faqs = [
 	{ q: 'ユーザー数はどう数えますか。', a: 'ワークスペースに参加しているメンバーの数です。招待したまま使っていないアカウントも含みます。人数の増減は、次回の請求から反映されます。' },
 	{ q: '解約はどうすればいいですか。', a: 'ユーザープランと生徒数プランの契約期間は1年で、以後1年ごとに自動更新します。契約期間の途中で解約することはできません。終了する場合は、契約期間の満了日の1ヶ月前までにご連絡ください。プリペイドプランは1ヶ月ごとの自動更新で、次の契約更新日の14日前までのご連絡で終了できます。お支払いは毎月の前払いで、お支払い済みの料金は返金しません。' },
 	{ q: 'データを取り出せますか。', a: 'コンタクト、会社、商談をCSVで書き出せます。ご契約終了日から30日間も書き出せます。自社のデータは自社のものです。' },
-	{ q: 'いま使っているCRMからデータを移行できますか。', a: 'Revenue CRMは、CRMの運用に専任の担当者を置きにくい組織のために作っています。Salesforce・HubSpotなどを専任の担当者が運用している場合は、乗り換えではなく、そのツールを活かした導入・運用支援をご提案します。HubSpotのデータは、置き換えずに読み取って取り込めます。' },
+	{ q: 'いま使っているツールからデータを移行できますか。', a: 'Revenue CRMは、顧客管理の運用に専任の担当者を置きにくい組織のために作っています。Salesforce・HubSpotなどを専任の担当者が運用している場合は、乗り換えではなく、そのツールを活かした導入・運用支援をご提案します。HubSpotのデータは、置き換えずに読み取って取り込めます。' },
 ];
 
 const readings = [
@@ -164,10 +164,10 @@ const readings = [
 	<div class="container">
 		<div class="assurance-inner">
 			<p class="section-eyebrow">Why It Works</p>
-			<h2>人がCRMのために働くのではなく、<br />CRMが人のために働く。</h2>
+			<h2>人がツールのために働くのではなく、<br />AIが人のために働く。</h2>
 			<p class="assurance-body">
-CRMを開きたくない人のためのCRMです。記録はAIが作り、人は確かめて保存するだけ。
-マーケティング・営業・顧客管理を一つの顧客データでつなぐ、中小企業向けのCRM／SFA（顧客管理・営業支援ツール）です。
+顧客管理ツールを開きたくない人のための、顧客管理ツールです。記録はAIが作り、人は確かめて保存するだけ。
+マーケティング・営業・顧客管理を一つの顧客データでつなぐ、中小企業向けの顧客管理・営業支援ツール（CRM／SFA）です。
 			</p>
 		</div>
 	</div>
@@ -179,11 +179,11 @@ CRMを開きたくない人のためのCRMです。記録はAIが作り、人は
 		<header class="problems-overview">
 			<div class="why-head">
 				<p class="section-eyebrow">Common Problems</p>
-				<h2>CRMを入れて3か月。<br /><span class="text-primary">チームは、スプレッドシートに戻る。</span></h2>
+				<h2>ツールを入れて3か月。<br /><span class="text-primary">チームは、スプレッドシートに戻る。</span></h2>
 				<p class="section-lead">立ち上げるのは簡単。難しいのは、使い続けてもらうこと。</p>
 			</div>
 			<blockquote class="problem-example">
-				<p>CRMは安くありません。<br />誰も使わないCRMに払い続けるのは、<strong>大きな無駄</strong>です。</p>
+				<p>顧客管理ツールは安くありません。<br />誰も使わないツールに払い続けるのは、<strong>大きな無駄</strong>です。</p>
 			</blockquote>
 		</header>
 		<div class="problem-rows">
@@ -232,7 +232,7 @@ CRMを開きたくない人のためのCRMです。記録はAIが作り、人は
 	<div class="container">
 		<header class="section-head track-head">
 			<p class="section-eyebrow">Editions</p>
-			<h2>空のCRMは渡しません。</h2>
+			<h2>空のツールは渡しません。</h2>
 			<p class="section-lead">用途を選ぶと、商談の段階と、よく使う自動化が入った状態から始まります。スクール版はLINEとつながり、生徒はワンタップでレッスンを予約できます。</p>
 		</header>
 		<ul class="track-list">
@@ -289,7 +289,7 @@ CRMを開きたくない人のためのCRMです。記録はAIが作り、人は
 			<header class="sub-head">
 				<p class="section-eyebrow">Support</p>
 				<h2>設定から定着まで、<br />一緒に回します。</h2>
-				<p class="section-lead">40社以上のCRMを定着させてきたやり方で入ります。自分で進めるなら、操作動画とヘルプ記事は無料です。</p>
+				<p class="section-lead">40社以上の顧客管理ツールを定着させてきたやり方で入ります。自分で進めるなら、操作動画とヘルプ記事は無料です。</p>
 			</header>
 			<dl class="row-list row-list--figure">
 				{supports.map((item) => (
@@ -341,7 +341,7 @@ CRMを開きたくない人のためのCRMです。記録はAIが作り、人は
 			</p>
 			<p class="cta-lead cta-lead--close">
 				専任の担当者がいて、Salesforce・HubSpotが既に動いているなら、乗り換えないほうがいい。<br />
-				その場合は<a href="/services/">既存CRMの再設計</a>をご覧ください。
+				その場合は<a href="/services/">今お使いのツールの再設計</a>をご覧ください。
 			</p>
 			<div class="cta-actions">
 				<a href={SIGNUP_URL} class="btn btn--cta-primary btn--lg" target="_blank" rel="noopener noreferrer">無料で始める</a>

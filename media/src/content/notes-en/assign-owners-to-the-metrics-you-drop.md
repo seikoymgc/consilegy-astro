@@ -10,7 +10,9 @@ canonLabel: Japan Market GTM and Messaging
 draft: false
 ---
 
-The Japan business review had grown to eleven slides, so HQ cut it to three metrics: ARR attainment, pipeline coverage, win rate. The meeting became shorter and the reporting matched the other regions. That still left a question: who would review the measures taken out of the deck?
+The Japan business review had grown to eleven slides, so HQ cut it to three metrics: ARR attainment, pipeline coverage, win rate. The meeting became shorter and the reporting matched the other regions.
+
+That still left a question: who would review the measures taken out of the deck?
 
 Two quarters later Japan misses, and the review that was supposed to catch it had nothing on it that moved before the miss.
 
@@ -20,7 +22,9 @@ The three metrics were the right three to keep. The mistake was in what happened
 
 ARR attainment, pipeline coverage and win rate are all outcome metrics. In a market where a deal opens and closes inside a quarter, that is tolerable, because the outcome arrives while there is still time to react.
 
-Japan does not behave that way. Fast Marketing's Japan B2B study (fielded May 2026, 432 valid responses from 12,003 screened, online panel; the firm sells B2B marketing strategy support, so read it as a vendor study and take the magnitudes rather than the decimals) found 36.8% of respondents reporting an average time from lead to booking of three months or more, rising to 48.9% among SaaS providers.
+Japan does not behave that way.
+
+Fast Marketing's Japan B2B study (fielded May 2026, 432 valid responses from 12,003 screened, online panel; the firm sells B2B marketing strategy support, so read it as a vendor study and take the magnitudes rather than the decimals) found 36.8% of respondents reporting an average time from lead to booking of three months or more, rising to 48.9% among SaaS providers.
 
 On that clock, the three metrics you kept report a quarter that is already decided. Whatever was going to tell you about this quarter was on the eight slides you removed: deals sitting in one stage, accounts where the champion has gone quiet, proposals waiting on an internal approval round.
 
@@ -30,11 +34,17 @@ Those are the Japan-specific signals, and they are the ones with no obvious glob
 
 The eight metrics did not stop existing. In most cases the local team kept producing them.
 
-An instruction from HQ to simplify the review is read locally as an instruction about the review, not about the underlying work. Nobody in the Japan office will decide on their own to stop compiling a number that a headquarters forum once asked for, because stopping would mean overriding a decision made above them without being asked to. So the effort continues, the output goes to a dashboard, and the readership goes to zero.
+An instruction from HQ to simplify the review is read locally as an instruction about the review, not about the underlying work. Nobody in the Japan office will decide on their own to stop compiling a number that a headquarters forum once asked for, because stopping would mean overriding a decision made above them without being asked to.
 
-HQ sees a leaner meeting. Japan sees the same monthly workload. Neither side is reporting the gap, because from HQ's side there is nothing to report, and from Japan's side raising it would mean asking whether a headquarters instruction was thought through.
+So the effort continues, the output goes to a dashboard, and the readership goes to zero.
 
-The same survey asked how often teams review what happened to the leads they generated. Respondents reviewing weekly or more reported 84.8% attainment against their booking targets; those with no review at all reported 26.7%. The report itself states this is correlation, not causation, and the reverse reading holds easily enough: companies already hitting targets have the slack to review. What the question isolates is not which metric is tracked but whether a fixed cadence exists.
+HQ sees a leaner meeting. Japan sees the same monthly workload.
+
+Neither side is reporting the gap, because from HQ's side there is nothing to report, and from Japan's side raising it would mean asking whether a headquarters instruction was thought through.
+
+The same survey asked how often teams review what happened to the leads they generated. Respondents reviewing weekly or more reported 84.8% attainment against their booking targets; those with no review at all reported 26.7%.
+
+The report itself states this is correlation, not causation, and the reverse reading holds easily enough: companies already hitting targets have the slack to review. What the question isolates is not which metric is tracked but whether a fixed cadence exists.
 
 A metric you removed without assigning one sits in the zero-cadence group by definition.
 
@@ -46,9 +56,13 @@ Three things, and all three have to be named before the slide comes out.
 
 **A cadence and a forum.** Which recurring meeting opens it, how often, and who is in the room. A metric moved to a forum where no attendee can act on it has been retired with extra steps.
 
-**A decision right.** What the new owner is permitted to do when the number moves. This is the one most often skipped with Japan, and it is where the [threshold you should have written](/en/articles/threshold-before-dashboard/) belongs: the number, and what happens at that number. Without it, the local owner escalates to HQ, and the escalation arrives on the same quarterly clock you were trying to get ahead of.
+**A decision right.** What the new owner is permitted to do when the number moves.
 
-There is a fourth step specific to Japan, and it is not optional. A metric named in HQ language rarely survives the move to a local weekly meeting. "Conversion rate" is a management-level read; the person sitting in a Tuesday pipeline meeting cannot change it tomorrow. "Inquiries from last week with no first contact inside five business days" measures the same behaviour and tells the person in the room what to do on Wednesday.
+This is the one most often skipped with Japan, and it is where the [threshold you should have written](/en/articles/threshold-before-dashboard/) belongs: the number, and what happens at that number. Without it, the local owner escalates to HQ, and the escalation arrives on the same quarterly clock you were trying to get ahead of.
+
+There is a fourth step specific to Japan, and it is not optional. A metric named in HQ language rarely survives the move to a local weekly meeting.
+
+"Conversion rate" is a management-level read; the person sitting in a Tuesday pipeline meeting cannot change it tomorrow. "Inquiries from last week with no first contact inside five business days" measures the same behaviour and tells the person in the room what to do on Wednesday.
 
 Renaming is not cosmetic here. It decides whether the slide gets opened.
 

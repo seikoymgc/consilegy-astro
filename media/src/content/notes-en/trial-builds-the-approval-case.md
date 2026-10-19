@@ -9,7 +9,9 @@ canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 ---
 
-A prospect takes the trial, uses the product and gives positive feedback. Three months later, the purchase has not moved. Before extending the trial, ask what evidence the buyer still needs for approval.
+A prospect takes the trial, uses the product and gives positive feedback. Three months later, the purchase has not moved.
+
+Before extending the trial, ask what evidence the buyer still needs for approval.
 
 HQ reads this as a product-market fit problem, or a pricing problem. It is neither.
 
@@ -17,7 +19,9 @@ The trial proves your product works. It does not produce anything the buyer can 
 
 ## For systems of record, the front door is a conversation
 
-For systems of record such as CRM, ERP, marketing automation, and security tooling, fit cannot be judged by touching the product alone. It depends on existing integrations, workflows, who will operate it after go-live, and internal security requirements. None of that appears on a product screen or a public pricing page.
+For systems of record such as CRM, ERP, marketing automation, and security tooling, fit cannot be judged by touching the product alone. It depends on existing integrations, workflows, who will operate it after go-live, and internal security requirements.
+
+None of that appears on a product screen or a public pricing page.
 
 So the buyer asks a person first. Sales comes before the trial, not after it.
 

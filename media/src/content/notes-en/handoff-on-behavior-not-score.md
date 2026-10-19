@@ -10,21 +10,37 @@ canonLabel: Japan Market GTM and Messaging
 draft: false
 ---
 
-Your Japan team reports that this month's MQL target was met, yet pipeline barely moves and local sales says the leads do not land. If you keep responding by tuning the scoring model, the complaint will not go away. Sales does not act on a score. It acts on whether there is a reason to move now.
+Your Japan team reports that this month's MQL target was met, yet pipeline barely moves and local sales says the leads do not land. If you keep responding by tuning the scoring model, the complaint will not go away.
 
-Handing off on behavior rather than score is not a new idea. This note is about what comes after it in Japan: which behaviors you can and cannot capture in large Japanese deals, how to move off the score-based MQL rule that is already running without breaking your trend lines, and how often to change the definition. If those decisions remain open, the existing score rule is likely to stay in use.
+Sales does not act on a score. It acts on whether there is a reason to move now.
+
+Handing off on behavior rather than score is not a new idea.
+
+This note is about what comes after it in Japan: which behaviors you can and cannot capture in large Japanese deals, how to move off the score-based MQL rule that is already running without breaking your trend lines, and how often to change the definition.
+
+If those decisions remain open, the existing score rule is likely to stay in use.
 
 ## Why "MQLs are up, pipeline is flat" happens
 
-Marketing says it passed the lead because the score crossed the threshold. Sales says the buyer is not ready to pursue. Both are right, and they do not connect, because the two sides never agreed on what a passable lead is. Survey data on how each side sees the other is covered in [Four reasons to record when Japan sales returns a lead](/en/articles/record-why-leads-come-back/).
+Marketing says it passed the lead because the score crossed the threshold. Sales says the buyer is not ready to pursue.
 
-For a foreign SaaS entering Japan, the threshold usually comes from headquarters and was tuned on another market's signals. An attribute-only or single-action rule (right title, right company size, one whitepaper download) tells your local rep nothing about where the buyer is in their internal process.
+Both are right, and they do not connect, because the two sides never agreed on what a passable lead is.
+
+Survey data on how each side sees the other is covered in [Four reasons to record when Japan sales returns a lead](/en/articles/record-why-leads-come-back/).
+
+For a foreign SaaS entering Japan, the threshold usually comes from headquarters and was tuned on another market's signals.
+
+An attribute-only or single-action rule (right title, right company size, one whitepaper download) tells your local rep nothing about where the buyer is in their internal process.
 
 ## Attributes do not tell you how far the evaluation has gone
 
 A joint survey by IDEATECH and Hiroyasu Kitagawa (published April 2026, n=307, limited to buyers who participated with at least one colleague in purchases of 3 million yen or more, so it reflects larger, multi-stakeholder deals; it is also a vendor-sponsored survey) found that by the time serious conversations with a vendor begin, the buying process is on average about 40% complete.
 
-The survey does not compare score and behavior as predictors of pipeline. What follows is our reading. If buyers move this far before talking to a rep, what the rep needs to know is how far they have moved. Title and company size do not change as the evaluation progresses. Progress shows up in behavior: what was viewed, by whom, and what was requested.
+The survey does not compare score and behavior as predictors of pipeline. What follows is our reading.
+
+If buyers move this far before talking to a rep, what the rep needs to know is how far they have moved.
+
+Title and company size do not change as the evaluation progresses. Progress shows up in behavior: what was viewed, by whom, and what was requested.
 
 ## In large Japanese deals, separate the behaviors you can capture from the ones you cannot
 
@@ -36,31 +52,51 @@ In a seven-person evaluation it is unlikely all seven fill in your form. Most of
 
 That splits behaviors into two groups.
 
-**Behaviors you can capture.** Activity by known contacts, people who have submitted a form before. Pricing page views, comparison document requests and case study views can be tied to the person in most marketing automation tools. Page tracking generally relies on browser cookies, though, so visits from another device or with cookies cleared are not counted.
+**Behaviors you can capture.** Activity by known contacts, people who have submitted a form before. Pricing page views, comparison document requests and case study views can be tied to the person in most marketing automation tools.
 
-**Behaviors you can capture only under conditions.** "Several people from the same company visited" can only be counted when each of them is a known contact associated with the same company record. Seeing colleagues who never submitted a form at the company level requires a separate feature that infers the visiting company from the IP address or similar. Whether you have it, and how accurate it is for Japanese companies, depends on the tool and the contract.
+Page tracking generally relies on browser cookies, though, so visits from another device or with cookies cleared are not counted.
 
-Write "three or more visitors from the same company" into the rule without this distinction, and the only accounts that qualify are the ones where several people have already enquired. The account where one person is quietly building the internal case early never gets passed.
+**Behaviors you can capture only under conditions.** "Several people from the same company visited" can only be counted when each of them is a known contact associated with the same company record.
 
-So build the rule on conditions that a single known contact's behavior can meet, and use company-level conditions to raise priority when they are available. Make company-level conditions the core of the rule only after you have confirmed that anonymous visits are actually being matched to companies.
+Seeing colleagues who never submitted a form at the company level requires a separate feature that infers the visiting company from the IP address or similar.
+
+Whether you have it, and how accurate it is for Japanese companies, depends on the tool and the contract.
+
+Write "three or more visitors from the same company" into the rule without this distinction, and the only accounts that qualify are the ones where several people have already enquired.
+
+The account where one person is quietly building the internal case early never gets passed.
+
+So build the rule on conditions that a single known contact's behavior can meet, and use company-level conditions to raise priority when they are available.
+
+Make company-level conditions the core of the rule only after you have confirmed that anonymous visits are actually being matched to companies.
 
 ## Run the new rule next to the existing score before you switch
 
-In most setups, an automation already marks a contact as MQL once the score crosses the threshold. Switch it off mid-month and the MQL count changes meaning halfway through, and the month can no longer be compared with the last.
+In most setups, an automation already marks a contact as MQL once the score crosses the threshold.
+
+Switch it off mid-month and the MQL count changes meaning halfway through, and the month can no longer be compared with the last.
 
 Do it in three steps.
 
 **1. Record the behavior condition in its own field.** Leave the existing score alone and add a field that records whether the behavior condition was met.
 
-**2. Count both for one quarter.** Split the leads passed under the old rule by whether they also met the behavior condition, and compare how many of each became opportunities. Also count leads that met the behavior condition but were never passed under the old rule. That comparison, not a survey, is your evidence for whether behavior works better in your Japan funnel.
+**2. Count both for one quarter.** Split the leads passed under the old rule by whether they also met the behavior condition, and compare how many of each became opportunities. Also count leads that met the behavior condition but were never passed under the old rule.
+
+That comparison, not a survey, is your evidence for whether behavior works better in your Japan funnel.
 
 **3. Switch at the quarter boundary.** If the behavior-based group converted better, move the MQL rule to the behavior condition. Record the switch date and a rough conversion factor against the old rule on the definition sheet.
 
-Do not reclassify contacts that are already MQLs. In HubSpot, lifecycle stage by default only moves forward, and moving it back requires clearing the value first. Leave past MQLs as old-rule MQLs, apply the new rule from the switch date, and draw the line at that date when you compare.
+Do not reclassify contacts that are already MQLs.
+
+In HubSpot, lifecycle stage by default only moves forward, and moving it back requires clearing the value first.
+
+Leave past MQLs as old-rule MQLs, apply the new rule from the switch date, and draw the line at that date when you compare.
 
 ## Review weekly, change the definition quarterly
 
-The handoff line gets refined as you run it. Change the definition every week, though, and the MQL count measures something different each week, so nobody can read the trend.
+The handoff line gets refined as you run it.
+
+Change the definition every week, though, and the MQL count measures something different each week, so nobody can read the trend.
 
 Keep the two apart.
 

@@ -11,7 +11,9 @@ canonLabel: Japan Market GTM and Messaging
 
 Your global dashboard says Japan's lead-to-opportunity rate is far below every other region, and headquarters wants to know why the Japan team is underperforming. Before you accept that read, check the denominator.
 
-When Japan's conversion numbers won't reconcile with HQ's, the cause is rarely the CRM or the team. The definitions drift in two places: what counts as a lead, and as of which date the numerator and denominator are counted. The second is easy to miss, and it often survives a definitions meeting.
+When Japan's conversion numbers won't reconcile with HQ's, the cause is rarely the CRM or the team.
+
+The definitions drift in two places: what counts as a lead, and as of which date the numerator and denominator are counted. The second is easy to miss, and it often survives a definitions meeting.
 
 ## The same "conversion rate" is a different division in each place
 
@@ -33,19 +35,27 @@ Draw the path from lead to closed deal as a single horizontal map, and write, in
 
 Once this one page exists, marketing and the Japan sales team can answer "where is that deal right now" by looking at the same picture.
 
-Written stage conditions also let you split the conversion rate. Instead of one lead-to-opportunity number, track two: from the marketing handover to the inside sales stage, and from the inside sales stage to a registered opportunity. Once you see which step is leaking, you know which team needs to change.
+Written stage conditions also let you split the conversion rate.
+
+Instead of one lead-to-opportunity number, track two: from the marketing handover to the inside sales stage, and from the inside sales stage to a registered opportunity. Once you see which step is leaking, you know which team needs to change.
 
 ## Fix "as of when" to one method
 
 Even with aligned definitions, the number moves again if people take the cutoff date differently. There are two common ways to count a "June conversion rate."
 
-**By creation month (cohort).** The denominator is leads created in June; the numerator is how many of those converted, even if they converted in July or later. Numerator and denominator are the same population, so the ratio is clean. The catch is that recent months still have leads in progress, so their numbers keep rising after you report them.
+**By creation month (cohort).** The denominator is leads created in June; the numerator is how many of those converted, even if they converted in July or later. Numerator and denominator are the same population, so the ratio is clean.
 
-**By period.** The numerator is opportunities created in June; the denominator is leads created in June. It is available at month-end and does not move afterward. The catch is that the numerator includes conversions from leads created in May or earlier, so the two are different populations. A month that follows heavy lead acquisition will read high.
+The catch is that recent months still have leads in progress, so their numbers keep rising after you report them.
+
+**By period.** The numerator is opportunities created in June; the denominator is leads created in June. It is available at month-end and does not move afterward.
+
+The catch is that the numerator includes conversions from leads created in May or earlier, so the two are different populations. A month that follows heavy lead acquisition will read high.
 
 Neither is more correct. Period counting shows recent movement sooner; cohort counting is better for comparing campaigns. What matters is that Japan and HQ use the same one.
 
-Before you measure, write in a single line "as of when, and which population," and name the field each date comes from. In HubSpot, the date a record entered each lifecycle stage; in Salesforce, the lead's converted date or the opportunity's created date. If HQ counts by period and Japan by cohort, the regional gap you are escalating may be a difference in arithmetic, not performance.
+Before you measure, write in a single line "as of when, and which population," and name the field each date comes from. In HubSpot, the date a record entered each lifecycle stage; in Salesforce, the lead's converted date or the opportunity's created date.
+
+If HQ counts by period and Japan by cohort, the regional gap you are escalating may be a difference in arithmetic, not performance.
 
 Cohort numbers that rise after you report them are handled with a close process, covered in [Japan's conversion rate changed after you reported it to HQ](/en/articles/reports-recalculate-the-past/).
 
@@ -53,7 +63,9 @@ Cohort numbers that rise after you report them are handled with a close process,
 
 Definitions get revised, and every revision moves the conversion rate. Decide in advance what happens to the history.
 
-If the old records hold the fields needed to recompute under the new definition, recompute. If they do not, leave them and annotate the report: "before this date, the old definition." Join the two periods into one unbroken line and the month the definition changed will look like a result of the Japan team's work.
+If the old records hold the fields needed to recompute under the new definition, recompute. If they do not, leave them and annotate the report: "before this date, the old definition."
+
+Join the two periods into one unbroken line and the month the definition changed will look like a result of the Japan team's work.
 
 ## There is no public Japan conversion benchmark to anchor to
 

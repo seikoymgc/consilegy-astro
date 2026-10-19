@@ -22,7 +22,9 @@ The rep did not neglect the account. At the moment the deal was closed, nothing 
 
 Sorting loss reasons well does not tell you when to go back. We covered the design of the dropdown in [When Japan’s lost deals are all recorded as “price”](/en/articles/loss-reason-defaults-to-price/). The restart condition sits somewhere else, and it differs by reason.
 
-Take one case out first. **A deal stopped by "no budget" should not be closed-lost at all.** Put it on hold, with the buyer's next budget cycle as the restart date, as set out in [“No budget” in Japan: check the amount and the timing](/en/articles/no-budget-means-no-slot/). If your loss reasons include "budget," define it as "budget timing does not fit (move to on hold)" so choosing it parks the deal instead of losing it.
+Take one case out first. **A deal stopped by "no budget" should not be closed-lost at all.** Put it on hold, with the buyer's next budget cycle as the restart date, as set out in [“No budget” in Japan: check the amount and the timing](/en/articles/no-budget-means-no-slot/).
+
+If your loss reasons include "budget," define it as "budget timing does not fit (move to on hold)" so choosing it parks the deal instead of losing it.
 
 The deals that are genuinely lost restart in three different ways.
 
@@ -42,9 +44,13 @@ So the record is made in the same action that closes the deal. Three fields:
 2. The date to check, even if it is only a month.
 3. Who checks.
 
-Require these as a condition of moving the deal to closed-lost, alongside the loss reason; at that moment the rep knows the answers. Make "not applicable" a valid answer for the first field. If every field is mandatory, reps type something to get past the screen and the data gets worse. We wrote about that failure in [Required CRM fields: check whether the Japan team knows the answer](/en/articles/dont-make-unknown-fields-required/).
+Require these as a condition of moving the deal to closed-lost, alongside the loss reason; at that moment the rep knows the answers.
 
-One survey figure is worth adding. Fast Marketing Inc. surveyed 432 people at B2B companies who work in marketing or sales (online survey, May 2026, "BtoB Marketing Survey 2026"). Where results of handed-off leads were shared back down to the reason for the win or loss, 82.1% reported meeting their sales target. Where sharing stopped at whether someone had followed up, it was 54.3%.
+Make "not applicable" a valid answer for the first field. If every field is mandatory, reps type something to get past the screen and the data gets worse. We wrote about that failure in [Required CRM fields: check whether the Japan team knows the answer](/en/articles/dont-make-unknown-fields-required/).
+
+One survey figure is worth adding. Fast Marketing Inc. surveyed 432 people at B2B companies who work in marketing or sales (online survey, May 2026, "BtoB Marketing Survey 2026").
+
+Where results of handed-off leads were shared back down to the reason for the win or loss, 82.1% reported meeting their sales target. Where sharing stopped at whether someone had followed up, it was 54.3%.
 
 The report itself states that this is a correlation, not causation, and the publisher sells marketing strategy support, so its conclusion favours its own business. Read the percentages as direction and rough size.
 
@@ -52,17 +58,23 @@ The direction is clear enough. When the reason and the restart condition reach m
 
 ## Automate the reminder, not the message
 
-The tempting design is to send different automated emails per loss reason. That works up to a point: a buyer who left on cost can reasonably receive cost-saving case studies. Beyond that it backfires. A buyer whose condition is "the competitor's renewal" gets nothing from a periodic email.
+The tempting design is to send different automated emails per loss reason. That works up to a point: a buyer who left on cost can reasonably receive cost-saving case studies.
+
+Beyond that it backfires. A buyer whose condition is "the competitor's renewal" gets nothing from a periodic email.
 
 Automate only this: on the check date, notify the rep. When the notification arrives, the previous restart condition should be visible on the screen. The rep then checks one thing about the buyer's situation, by whatever channel suits the relationship.
 
-Do not hard-code the notification to a named person. Tie it to the deal owner field, or route it to a shared team queue, so that reassigning the owner when a rep leaves also moves the reminder. A reminder addressed to an individual recreates the original problem: the memory leaves with the person.
+Do not hard-code the notification to a named person. Tie it to the deal owner field, or route it to a shared team queue, so that reassigning the owner when a rep leaves also moves the reminder.
+
+A reminder addressed to an individual recreates the original problem: the memory leaves with the person.
 
 Decide who enters the condition. It is whoever presses the closed-lost button. A field without a named owner is empty within six months.
 
 ## When it restarts, open a new deal
 
-When the condition is met and the buyer is talking again, the tempting move is to drag the lost deal back into an open stage. Don't. Reopening a lost deal rewrites history: win rate, lost count, sales cycle length and close dates all change retroactively, and the numbers HQ saw last month no longer match this month's report.
+When the condition is met and the buyer is talking again, the tempting move is to drag the lost deal back into an open stage. Don't.
+
+Reopening a lost deal rewrites history: win rate, lost count, sales cycle length and close dates all change retroactively, and the numbers HQ saw last month no longer match this month's report.
 
 Create a new deal and associate it with the original lost one. The original stays lost, so past reporting holds. The new deal carries a visible link to the restart condition and the history, and you can finally count how many lost deals came back.
 

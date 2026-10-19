@@ -20,7 +20,9 @@ The form is not the problem because it is too long or too short. It is the probl
 
 Most demand-gen forms are built on one premise. The person filling it in can decide to look at your product, and later can decide to buy it.
 
-In Japanese enterprise deals that premise breaks early. A joint survey by IDEATECH and Hiroyasu Kitagawa of Demagen Research (published 9 June 2026, fielded 25 to 26 May 2026, n=325, limited to people who took part with at least one colleague in a Japanese purchase of business software or IT infrastructure worth 5 million yen or more per year; a vendor-run survey-as-PR exercise, so read it for order of magnitude) found 58.5% of those deals involved seven or more people.
+In Japanese enterprise deals that premise breaks early.
+
+A joint survey by IDEATECH and Hiroyasu Kitagawa of Demagen Research (published 9 June 2026, fielded 25 to 26 May 2026, n=325, limited to people who took part with at least one colleague in a Japanese purchase of business software or IT infrastructure worth 5 million yen or more per year; a vendor-run survey-as-PR exercise, so read it for order of magnitude) found 58.5% of those deals involved seven or more people.
 
 The functions in the room were IT at 42.2%, finance and accounting at 38.2%, and legal at 33.2%.
 
@@ -30,29 +32,41 @@ Your form is filled in by one of them. The survey does not ask at what stage tha
 
 Someone who has not yet raised the topic internally and someone whose evaluation is already circulating between departments land in your CRM as the same record.
 
-With nothing on the form to separate them, the rep sends one sequence to both. Too early for the first, too late for the second. The more a shorter form lifts submissions, the more of these unsorted records you get, and the sentence every Japan team eventually hears from sales is that the leads are low quality.
+With nothing on the form to separate them, the rep sends one sequence to both. Too early for the first, too late for the second.
+
+The more a shorter form lifts submissions, the more of these unsorted records you get, and the sentence every Japan team eventually hears from sales is that the leads are low quality.
 
 ## Cut the fields you can recover without asking, keep the one you cannot
 
 The test is a single question. After the form is submitted, can this field be filled in without going back to the submitter?
 
-Company name lets you fill industry, headcount and location from a company database. Some CRMs and marketing automation tools can enrich company data from the company name or email domain. Coverage depends on the tool and the contract, and Japanese company names are harder to match (more on that below), so check that recent Japanese submissions actually get filled before you delete anything.
+Company name lets you fill industry, headcount and location from a company database.
+
+Some CRMs and marketing automation tools can enrich company data from the company name or email domain. Coverage depends on the tool and the contract, and Japanese company names are harder to match (more on that below), so check that recent Japanese submissions actually get filled before you delete anything.
 
 The other route is to ask later. Skip a field on the first form and ask for it on the second download or webinar registration. Some tools can hide fields you already know and show the next one instead.
 
 Having reps fill fields in by hand is not recovery. It moves the effort from the submitter to sales.
 
-Some fields can be recovered but not in time. Job title shows up in an email signature once the person replies, but if your first response is routed by title, you need it at submission. Do not drop a field used for first-touch routing until you have confirmed enrichment fills it.
+Some fields can be recovered but not in time.
 
-What cannot be recovered is what the person was reading and trying to solve at the moment they clicked. Call them the next day and they will have rewritten it into something tidy and general. The specific version only exists at submit time.
+Job title shows up in an email signature once the person replies, but if your first response is routed by title, you need it at submission. Do not drop a field used for first-touch routing until you have confirmed enrichment fills it.
+
+What cannot be recovered is what the person was reading and trying to solve at the moment they clicked. Call them the next day and they will have rewritten it into something tidy and general.
+
+The specific version only exists at submit time.
 
 So keep one optional free-text question. Something close to "in one line, what are you looking at right now." Whether it is answered at all is your only usable signal for splitting the traffic you just increased.
 
-One Japan-specific caution on matching. Japanese company names arrive with 株式会社 before or after the name, in full-width or half-width characters, sometimes under a former name, so matching a submission to an existing account or to an enrichment record fails often. That is a [list preparation problem, not a form problem](/en/articles/clean-lists-before-crm-import/), and shortening the form does not fix it.
+One Japan-specific caution on matching.
+
+Japanese company names arrive with 株式会社 before or after the name, in full-width or half-width characters, sometimes under a former name, so matching a submission to an existing account or to an enrichment record fails often. That is a [list preparation problem, not a form problem](/en/articles/clean-lists-before-crm-import/), and shortening the form does not fix it.
 
 ## Before deleting a field, find everything that reads it
 
-Form fields keep working after submission. Industry, headcount and job title often feed owner assignment, lead scoring, MQL rules, list segmentation and required fields in the sync to your sales system. Remove one from the form and new Japanese leads arrive with it blank: assignment falls to the default owner, scores stop rising, and the sync may start throwing errors.
+Form fields keep working after submission.
+
+Industry, headcount and job title often feed owner assignment, lead scoring, MQL rules, list segmentation and required fields in the sync to your sales system. Remove one from the form and new Japanese leads arrive with it blank: assignment falls to the default owner, scores stop rising, and the sync may start throwing errors.
 
 Before you cut, check:
 
@@ -61,13 +75,17 @@ Before you cut, check:
 3. Lists and segments
 4. Field mappings to your sales system or other tools, especially fields that are required on the other side
 
-HubSpot shows where a property is used in its property details, and Salesforce has "Where is this used?" on the field. What they list varies by tool and object, and required settings on the receiving system often do not show up at all. For each field that is referenced, decide first whether enrichment will fill it or whether the rule will stop using it.
+HubSpot shows where a property is used in its property details, and Salesforce has "Where is this used?" on the field. What they list varies by tool and object, and required settings on the receiving system often do not show up at all.
+
+For each field that is referenced, decide first whether enrichment will fill it or whether the rule will stop using it.
 
 Do it in the other order and routing and scoring break quietly in the month submissions go up.
 
 ## Change what the submit button leads to, not only the number of fields
 
-In the same survey, the things Japanese buyers said were hardest to judge before talking to a vendor were the operational load after go-live at 56.3%, feature comparison at 47.1%, and calculating ROI at 41.5%. The content they found most useful was an ROI calculator at 55.4%, followed by case studies from a similar industry and company size at 46.5%, and slides they could use to explain the purchase internally at 26.8%.
+In the same survey, the things Japanese buyers said were hardest to judge before talking to a vendor were the operational load after go-live at 56.3%, feature comparison at 47.1%, and calculating ROI at 41.5%.
+
+The content they found most useful was an ROI calculator at 55.4%, followed by case studies from a similar industry and company size at 46.5%, and slides they could use to explain the purchase internally at 26.8%.
 
 The same respondents said general industry trend reports at 49.5% and feature comparison tables at 46.2% had no influence on the decision.
 

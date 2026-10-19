@@ -50,11 +50,17 @@ Fix each session on one problem your team has actually solved for a Japanese cus
 
 Replace the registration target with the count of attendees who took a next step on their own: booked a consultation, viewed the pricing page, or sent a second colleague from the same company. Only actions the buyer initiated count, and set the counting window up front (for example, 30 days after the session).
 
-Whether you can count them depends on instrumentation. Pricing-page views only count if the site carries the tracking code, the visitor has given cookie consent, and the visit is tied to a known contact. Most marketing automation tools can build a list that combines webinar attendance with later page views, but the details depend on the tool and its setup. A second registrant from the same company only counts if contacts are deduplicated to the company level.
+Whether you can count them depends on instrumentation.
+
+Pricing-page views only count if the site carries the tracking code, the visitor has given cookie consent, and the visit is tied to a known contact. Most marketing automation tools can build a list that combines webinar attendance with later page views, but the details depend on the tool and its setup. A second registrant from the same company only counts if contacts are deduplicated to the company level.
 
 If none of that is in place yet, start by counting consultation bookings alone.
 
-Then decide re-contact timing by trigger, not by speed. An attendee who books a consultation or views the pricing page has just shown interest; contact them by a set deadline, such as the next business day. An attendee who only attended gives your rep nothing to talk about yet, so "two weeks after the session, reply to the question that attendee asked live" is enough. Either way, one rule executed consistently beats a branching nurture flow nobody maintains.
+Then decide re-contact timing by trigger, not by speed.
+
+An attendee who books a consultation or views the pricing page has just shown interest; contact them by a set deadline, such as the next business day. An attendee who only attended gives your rep nothing to talk about yet, so "two weeks after the session, reply to the question that attendee asked live" is enough.
+
+Either way, one rule executed consistently beats a branching nurture flow nobody maintains.
 
 Localize this alongside the rest of your [Japan GTM and messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/) work, because the topic list has to come from Japanese cases, not translated global ones.
 

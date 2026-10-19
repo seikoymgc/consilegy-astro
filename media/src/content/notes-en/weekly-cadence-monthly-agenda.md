@@ -20,7 +20,9 @@ Frequency was not the constraint. The dashboard was.
 
 A global alignment view is built from events. Form filled, MQL created, meeting held, stage advanced. Regions get compared on the rate at which events occur.
 
-In Japan the decisive stretches are the ones where no event occurs. In a survey by IDEATECH and Hiroyasu Kitagawa of Demagen Research (published 16 April 2026, fielded 23 to 26 March 2026, n=307, restricted to people who took part with at least one colleague in a Japanese purchase of business software worth 3 million yen or more, and run as survey-as-PR by a company whose business is survey-as-PR, so read it for order of magnitude), more than 80% of those deals passed through two or more approval layers, and 63.6% ran 3 to 8 months.
+In Japan the decisive stretches are the ones where no event occurs.
+
+In a survey by IDEATECH and Hiroyasu Kitagawa of Demagen Research (published 16 April 2026, fielded 23 to 26 March 2026, n=307, restricted to people who took part with at least one colleague in a Japanese purchase of business software worth 3 million yen or more, and run as survey-as-PR by a company whose business is survey-as-PR, so read it for order of magnitude), more than 80% of those deals passed through two or more approval layers, and 63.6% ran 3 to 8 months.
 
 By the time a vendor was properly engaged, the buying process was already about 40% complete.
 
@@ -30,7 +32,9 @@ Six weeks of a champion circulating a draft internally produces exactly nothing 
 
 This is not unique to Japan, but the Japan team feels it harder because the rep is the only person with any visibility into the silent stretch.
 
-A survey of the two functions in Japan by Softbrain (fielded 4 to 6 October 2024, published 17 December 2024, 159 sales and 139 marketing respondents for a total of 298, conducted by IDEATECH; a vendor survey with roughly 150 per side, so treat it as ranking rather than a precise rate) asked each side the same question. Marketing's top complaint about sales was that follow-up is never improved, at 47.5%.
+A survey of the two functions in Japan by Softbrain (fielded 4 to 6 October 2024, published 17 December 2024, 159 sales and 139 marketing respondents for a total of 298, conducted by IDEATECH; a vendor survey with roughly 150 per side, so treat it as ranking rather than a precise rate) asked each side the same question.
+
+Marketing's top complaint about sales was that follow-up is never improved, at 47.5%.
 
 Sales' top complaint about marketing was that lead information is insufficient, at 42.1%.
 
@@ -40,13 +44,19 @@ Neither of those is checkable from a rollup. Whether the information on a lead w
 
 Take the first fifteen minutes. Put two deals on screen that are still open.
 
-Marketing brings one and sales brings one. The rule: handed over since the last meeting, and the stage has not moved. Because each side brings a deal in turn, it is harder for the session to become a hearing against one team. What gets examined is the path the deal took, not the person who owned it.
+Marketing brings one and sales brings one. The rule: handed over since the last meeting, and the stage has not moved.
+
+Because each side brings a deal in turn, it is harder for the session to become a hearing against one team. What gets examined is the path the deal took, not the person who owned it.
 
 Marketing walks the path in: what the person read, what they downloaded, what state the record was in at handover. Sales continues it: what was sent, what came back, where it is sitting now. One record, in order, in front of both.
 
-If both teams work in the same CRM, that is one screen. If marketing automation and sales sit in different tools, Marketo and Salesforce for example, whether marketing's touch history shows on the opportunity depends on the sync configuration. Check that first, and if it does not, open the two screens side by side.
+If both teams work in the same CRM, that is one screen.
 
-For the first several sessions you will not reach tactics. What surfaces is definitional. The state marketing calls a qualified opportunity is not the state sales calls one, and both regional numbers were internally correct the whole time. That mismatch is invisible in aggregate and obvious in a single record.
+If marketing automation and sales sit in different tools, Marketo and Salesforce for example, whether marketing's touch history shows on the opportunity depends on the sync configuration. Check that first, and if it does not, open the two screens side by side.
+
+For the first several sessions you will not reach tactics. What surfaces is definitional.
+
+The state marketing calls a qualified opportunity is not the state sales calls one, and both regional numbers were internally correct the whole time. That mismatch is invisible in aggregate and obvious in a single record.
 
 Headquarters gets something out of this too. The reason a Japanese deal is quiet becomes narratable: who is assembling the internal case, which approval layer it is on, what document is missing. That is a far better input to a forecast than a stage name.
 
@@ -58,7 +68,9 @@ The test for cadence is whether you can still open something whose outcome is no
 
 So cadence is not about speed. It is about how many deals worth opening accumulate. Each session uses fifteen minutes for two deals, which a monthly meeting can also find.
 
-The condition is one line. If at least two deals meeting the rule above build up every week, go weekly. If only two appear in a month, weekly meetings drift back to explaining rollups. In between, every other week is enough.
+The condition is one line.
+
+If at least two deals meeting the rule above build up every week, go weekly. If only two appear in a month, weekly meetings drift back to explaining rollups. In between, every other week is enough.
 
 **Change what the meeting opens, not how often it happens. One live deal neither team can explain on its own is worth more than a quarter of rollups.**
 

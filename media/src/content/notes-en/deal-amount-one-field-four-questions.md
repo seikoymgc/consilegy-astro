@@ -10,9 +10,15 @@ canonLabel: Japan Market GTM and Messaging
 draft: false
 ---
 
-Headquarters rolls up the Japan pipeline for the quarterly review, converts it to USD, and puts it next to billing. It does not reconcile. The usual reading is that Japan is optimistic, or that the reps are not updating their deals.
+Headquarters rolls up the Japan pipeline for the quarterly review, converts it to USD, and puts it next to billing. It does not reconcile.
 
-Open ten closed-won deals and compare the amount field to the invoice, and a different picture appears. One rep entered the monthly fee excluding tax. Another entered the annual fee including tax. A third entered the full contract value with the setup fee on top. For the same deal (¥100,000 a month excluding tax, a 12-month term, a ¥300,000 setup fee) the CRM could show ¥100,000, ¥1,320,000 or ¥1,500,000. That is a spread of 15x on one contract.
+The usual reading is that Japan is optimistic, or that the reps are not updating their deals.
+
+Open ten closed-won deals and compare the amount field to the invoice, and a different picture appears.
+
+One rep entered the monthly fee excluding tax. Another entered the annual fee including tax. A third entered the full contract value with the setup fee on top.
+
+For the same deal (¥100,000 a month excluding tax, a 12-month term, a ¥300,000 setup fee) the CRM could show ¥100,000, ¥1,320,000 or ¥1,500,000. That is a spread of 15x on one contract.
 
 Nobody on the Japan team thinks they made a mistake. That is the useful part.
 
@@ -20,9 +26,15 @@ Nobody on the Japan team thinks they made a mistake. That is the useful part.
 
 Reps copy the number from whatever document they last had open, and in a Japanese B2B deal those documents disagree by design.
 
-The quote (見積書, mitsumori-sho) is usually excluding tax. The invoice shows the tax-inclusive total prominently, with Japan's 10% consumption tax broken out. The internal approval document the buyer circulates, the ringi, asks for the total amount of the commitment, so it carries the full contract value. Finance on the customer side often talks in monthly terms, because that is how the budget line is booked.
+The quote (見積書, mitsumori-sho) is usually excluding tax. The invoice shows the tax-inclusive total prominently, with Japan's 10% consumption tax broken out.
 
-Nothing forces these onto one basis. Japan's Ministry of Finance states in its FAQ on total-price display (Q1) that quotes, contracts and invoices are not subject to the tax-inclusive display requirement, which targets price tags and advertising aimed at the general public. Between businesses, tax-exclusive and tax-inclusive documents coexist as a matter of routine. So each number your rep typed was correct on the page it came from.
+The internal approval document the buyer circulates, the ringi, asks for the total amount of the commitment, so it carries the full contract value. Finance on the customer side often talks in monthly terms, because that is how the budget line is booked.
+
+Nothing forces these onto one basis.
+
+Japan's Ministry of Finance states in its FAQ on total-price display (Q1) that quotes, contracts and invoices are not subject to the tax-inclusive display requirement, which targets price tags and advertising aimed at the general public. Between businesses, tax-exclusive and tax-inclusive documents coexist as a matter of routine.
+
+So each number your rep typed was correct on the page it came from.
 
 HQ tends to miss this because its own reps work from one document, an order form in one currency with sales tax handled at billing. The Japan team works across four.
 
@@ -35,9 +47,13 @@ The screen shows a label that says Amount and one box. To fill it, the rep is si
 - Does it include one-off fees such as setup or onboarding?
 - Yen, or thousands of yen?
 
-The last one is easy to overlook from outside Japan. Japanese internal spreadsheets and management reports commonly state figures in units of ¥1,000 (千円), and a rep pasting from one of those drops three zeros without noticing. HQ’s rollup adds a fifth question: the exchange rate and date. Make those visible to the local team as well.
+The last one is easy to overlook from outside Japan. Japanese internal spreadsheets and management reports commonly state figures in units of ¥1,000 (千円), and a rep pasting from one of those drops three zeros without noticing.
 
-The standard response is a line in the playbook: enter amounts excluding tax, annualised. It holds for about a quarter. The rule lives outside the screen. New hires enter deals before they read the playbook, and experienced reps entering a deal while looking at the invoice type the tax-inclusive number.
+HQ’s rollup adds a fifth question: the exchange rate and date. Make those visible to the local team as well.
+
+The standard response is a line in the playbook: enter amounts excluding tax, annualised. It holds for about a quarter.
+
+The rule lives outside the screen. New hires enter deals before they read the playbook, and experienced reps entering a deal while looking at the invoice type the tax-inclusive number.
 
 ## Split the field by what the amount is, and compute everything that gets summed
 
@@ -57,7 +73,9 @@ Let the CRM compute what the forecast and the board deck sum:
 
 Putting the unit and tax basis in the label matters more than it looks. A field called "Monthly fee (JPY, excl. tax)" does not need a playbook.
 
-If you run HubSpot, most of this already exists. When a deal has line items with a billing frequency and a term, HubSpot calculates Annual contract value, Annual recurring revenue, Monthly recurring revenue and Total contract value automatically. HubSpot's own description of Total contract value is that it is calculated from the associated line items and does not take the Amount property into account.
+If you run HubSpot, most of this already exists.
+
+When a deal has line items with a billing frequency and a term, HubSpot calculates Annual contract value, Annual recurring revenue, Monthly recurring revenue and Total contract value automatically. HubSpot's own description of Total contract value is that it is calculated from the associated line items and does not take the Amount property into account.
 
 So a portal where Japan types into Amount and the dashboards sum Amount is carrying the drift straight into the forecast, while the calculated properties sit unused next to it.
 
@@ -89,11 +107,15 @@ It is tempting to read inconsistent amounts as a discipline problem. From the re
 
 A survey by Keywalker, a Japanese BI vendor, run by PRIZMA between 8 and 10 October 2025 among 1,034 frontline sales staff and managers at Japanese companies already using SFA, CRM or BI tools, found that the top factor that motivates people to enter data was "the purpose of the input and how the data will be used is clear", at 54.8%.
 
-In the same survey, the top dashboard use among managers was checking figures in sales meetings, at 58.2%. It is a vendor survey, so read the percentages as orders of magnitude, but the direction is plain. The deal amount is the number that gets added up in that meeting. Say so on the screen.
+In the same survey, the top dashboard use among managers was checking figures in sales meetings, at 58.2%. It is a vendor survey, so read the percentages as orders of magnitude, but the direction is plain.
+
+The deal amount is the number that gets added up in that meeting. Say so on the screen.
 
 **Label the currency, tax treatment, period and one-off charges separately. Agree what reps enter and calculate the amount used in the regional rollup.**
 
-This week, pull the last ten Japan deals marked closed-won. Put the CRM amount next to the invoice, converted to monthly and excluding tax, and calculate the ratio for each. If the ratios read 1.0, 1.1 and 12, the problem is not your Japan team. It is one box answering four questions.
+This week, pull the last ten Japan deals marked closed-won. Put the CRM amount next to the invoice, converted to monthly and excluding tax, and calculate the ratio for each.
+
+If the ratios read 1.0, 1.1 and 12, the problem is not your Japan team. It is one box answering four questions.
 
 ## Related reading
 

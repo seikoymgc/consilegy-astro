@@ -12,27 +12,37 @@ draft: false
 
 Your Japan team translates the flagship whitepaper and publishes it. Downloads climb for two months, and the number goes into the regional review as the proof that Japan demand generation is working.
 
-Meanwhile the Japan sales team reports the opposite. They call the people who downloaded it, and get "we are still gathering information" or a colleague who has moved teams. HQ hears a disagreement between marketing and sales. It is more useful to read it as two teams counting different things.
+Meanwhile the Japan sales team reports the opposite. They call the people who downloaded it, and get "we are still gathering information" or a colleague who has moved teams.
+
+HQ hears a disagreement between marketing and sales. It is more useful to read it as two teams counting different things.
 
 ## A download records that a file was received, and nothing after that
 
 The event you capture is a click on a button. Whether the person read it, and whether anyone else ever saw it, is not in the record.
 
-In large Japanese B2B purchases the gap matters more than it does elsewhere. IDEATECH and the Demagen Research Institute published a survey on 16 April 2026, fielded 23 to 26 March 2026. Respondents were employees and executives who had, in the previous 12 months, been involved together with at least one other person in buying or reviewing B2B products costing 3 million yen or more per year (n=307).
+In large Japanese B2B purchases the gap matters more than it does elsewhere.
+
+IDEATECH and the Demagen Research Institute published a survey on 16 April 2026, fielded 23 to 26 March 2026. Respondents were employees and executives who had, in the previous 12 months, been involved together with at least one other person in buying or reviewing B2B products costing 3 million yen or more per year (n=307).
 
 IDEATECH's business is survey PR and the sample is an online panel, so read the figures as orders of magnitude.
 
-By the time a buyer was substantively talking to a vendor's sales rep, the purchasing process was on average about 40% complete. Your rep is calling into a process that started without you. The person who downloaded the file is one contributor to it, and often not the one who signs.
+By the time a buyer was substantively talking to a vendor's sales rep, the purchasing process was on average about 40% complete.
+
+Your rep is calling into a process that started without you. The person who downloaded the file is one contributor to it, and often not the one who signs.
 
 ## A file can get you onto the shortlist without being the file that decides
 
 In the same survey (n=307), whitepapers and downloadable materials were used by 41.0% of respondents when listing candidate vendors (multiple answers allowed), close to vendor-hosted webinars at 42.3%. So downloadable content does earn a place at the shortlisting stage.
 
-Ask which single source had the greatest influence, though (n=300), and whitepapers and materials drop to 20.3%. The two questions differ in wording and base, so do not read 41.0% to 20.3% as a fall by half. What the pair does show is that "helped us build a shortlist" and "helped us decide" are separate questions, and a download count speaks only to a slice of the first.
+Ask which single source had the greatest influence, though (n=300), and whitepapers and materials drop to 20.3%.
+
+The two questions differ in wording and base, so do not read 41.0% to 20.3% as a fall by half. What the pair does show is that "helped us build a shortlist" and "helped us decide" are separate questions, and a download count speaks only to a slice of the first.
 
 ## The content buyers found helpful lets them run their own numbers and explain the choice inside the company
 
-A second survey from the same two organisations, published 9 June 2026, asked about the content that helped a purchase decision. It was fielded 25 to 26 May 2026, with 330 valid responses (the base varies by question). Respondents had been involved with at least one other person in buying business software, SaaS, IT infrastructure or security products costing 5 million yen or more per year.
+A second survey from the same two organisations, published 9 June 2026, asked about the content that helped a purchase decision.
+
+It was fielded 25 to 26 May 2026, with 330 valid responses (the base varies by question). Respondents had been involved with at least one other person in buying business software, SaaS, IT infrastructure or security products costing 5 million yen or more per year.
 
 The threshold and questions differ from the first survey, so do not combine the figures. It is again an online panel run by a survey-PR company.
 
@@ -40,9 +50,13 @@ The most helpful content type was an ROI calculator at 55.4%, followed by case s
 
 The items that did not influence the decision were led by generic industry trend reports at 49.5% and feature comparison tables at 46.2%.
 
-The pattern is easy to read. What helped is content the buyer can put their own numbers into and carry into an internal meeting, or use as it is. What did not help is content that is read as general information, or that only compares.
+The pattern is easy to read.
 
-The survey asked about influence, not download volume. Still, in the accounts we have worked with, the assets that top the download ranking tend to sit in the second group. They are easy to pick up, so they are picked up often. Volume of downloads does not turn into volume of deals.
+What helped is content the buyer can put their own numbers into and carry into an internal meeting, or use as it is. What did not help is content that is read as general information, or that only compares.
+
+The survey asked about influence, not download volume.
+
+Still, in the accounts we have worked with, the assets that top the download ranking tend to sit in the second group. They are easy to pick up, so they are picked up often. Volume of downloads does not turn into volume of deals.
 
 ## Count a trace of internal circulation, and choose it before you publish the asset
 
@@ -58,19 +72,25 @@ Each needs a capture mechanism decided in advance, or nobody will be able to cou
 
 For the first, a PDF sent as an attachment records nothing. Deliver the one-pager as a web page that logs views, or through a URL with tracking parameters.
 
-For the second, your marketing automation or CRM can only follow people who are already known contacts and whose browsing is tied to their record. Picking up anonymous visitors from the same company needs a separate capability that infers the company from the visit, and whether you have it depends on your tools and contract. Counting known contacts at the same domain, other than the downloader, is enough to start.
+For the second, your marketing automation or CRM can only follow people who are already known contacts and whose browsing is tied to their record.
+
+Picking up anonymous visitors from the same company needs a separate capability that infers the company from the visit, and whether you have it depends on your tools and contract. Counting known contacts at the same domain, other than the downloader, is enough to start.
 
 For the third, free text in an inquiry is never tallied. Either add an optional "purpose" choice to the inquiry form, or have sales record "for internal explanation or approval" in a field on the deal.
 
 None of these can be captured completely. Some Japanese companies pass PDFs around by email without going through any link you control. Still, each is closer to something moving inside the buyer's company than a download is.
 
-The choice has a side effect. An asset that cannot support a one-page internal summary is often information that lets a reader feel informed without helping them act. That is a reason to rework the asset before you rework the number.
+The choice has a side effect.
+
+An asset that cannot support a one-page internal summary is often information that lets a reader feel informed without helping them act. That is a reason to rework the asset before you rework the number.
 
 ## Move the download count to the bottom of the report
 
 You do not have to stop recording downloads. As a rough measure of how wide the top of the funnel is, they are fine.
 
-What to drop is the habit of reporting success with them. The number at the top of a regional review decides the next quarter's plan: make more of whatever grew, stop whatever did not. The first assets to go are the ROI calculator and the internal-explanation deck, because they never gather many downloads, and they are the ones the survey says helped.
+What to drop is the habit of reporting success with them.
+
+The number at the top of a regional review decides the next quarter's plan: make more of whatever grew, stop whatever did not. The first assets to go are the ROI calculator and the internal-explanation deck, because they never gather many downloads, and they are the ones the survey says helped.
 
 ## Common mistakes
 

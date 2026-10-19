@@ -18,23 +18,31 @@ Nothing on the dashboard was wrong. The problem is that one retention number, ap
 
 ## The two numbers point in opposite directions
 
-They do so even in the aggregate. The Fullstar Customer Success Survey (2025 edition), run by CloudCircus with 200 customer success and support staff at Japanese B2B information and communications companies between 15 and 18 August 2025, published two headline figures side by side: **a mean monthly customer churn rate of 3.01%** and **a mean net revenue retention of 102.1%**. It is a vendor survey, and worth reading as one.
+They do so even in the aggregate.
+
+The Fullstar Customer Success Survey (2025 edition), run by CloudCircus with 200 customer success and support staff at Japanese B2B information and communications companies between 15 and 18 August 2025, published two headline figures side by side: **a mean monthly customer churn rate of 3.01%** and **a mean net revenue retention of 102.1%**. It is a vendor survey, and worth reading as one.
 
 Read the first and Japanese SaaS is leaking customers every month. Read the second and Japanese SaaS is growing inside its existing base. Same 200 respondents, same period, two instruments measuring different things.
 
 The gap is expansion revenue. NRR counts what existing customers added; logo churn counts who left. Neither is the other's sanity check.
 
-For reference, Benchmarkit's 2025 SaaS Performance Metrics (published May 2025, covering FY2024) reports a median NRR of 101% against a median gross revenue retention of 88%. Note that the effective sample differs by metric: 228 for NRR, 225 for GRR, not the 583 total responses on the cover. Strip out expansion and the typical company loses 12% of its existing revenue every year, then buys it back through upsell.
+For reference, Benchmarkit's 2025 SaaS Performance Metrics (published May 2025, covering FY2024) reports a median NRR of 101% against a median gross revenue retention of 88%. Note that the effective sample differs by metric: 228 for NRR, 225 for GRR, not the 583 total responses on the cover.
+
+Strip out expansion and the typical company loses 12% of its existing revenue every year, then buys it back through upsell.
 
 ## Why the gap is wider in Japan than at home
 
 Three structural reasons, and none of them are visible in a regional column on a global dashboard.
 
-**Your Japan revenue is concentrated.** Most foreign SaaS operations in Japan land a small number of large accounts first, because that is who will sign a contract with a company that has no local track record. When twelve customers make up the country's ARR, losing one is 8% logo churn and can be 25% revenue churn. In your home market, with hundreds of accounts, those two numbers stay close together.
+**Your Japan revenue is concentrated.** Most foreign SaaS operations in Japan land a small number of large accounts first, because that is who will sign a contract with a company that has no local track record.
+
+When twelve customers make up the country's ARR, losing one is 8% logo churn and can be 25% revenue churn. In your home market, with hundreds of accounts, those two numbers stay close together.
 
 In Japan they do not, and the regional view gives them the same two columns.
 
-**Non-renewal arrives at the anniversary, not month by month.** Cancelling a contract in Japan can need internal sign-off too, and budgets move on an annual cycle. The approval research below covers buying, not leaving, so read it as a description of the route, not of churn. Research by IDEATECH with Hiroyasu Kitagawa, published 16 April 2026, surveying 307 people who took part in a B2B purchase of at least ¥3 million alongside at least one colleague, found 60.9% required two approval stages and more than 80% required two or more, with consideration running three to eight months in 63.6% of cases.
+**Non-renewal arrives at the anniversary, not month by month.** Cancelling a contract in Japan can need internal sign-off too, and budgets move on an annual cycle. The approval research below covers buying, not leaving, so read it as a description of the route, not of churn.
+
+Research by IDEATECH with Hiroyasu Kitagawa, published 16 April 2026, surveying 307 people who took part in a B2B purchase of at least ¥3 million alongside at least one colleague, found 60.9% required two approval stages and more than 80% required two or more, with consideration running three to eight months in 63.6% of cases.
 
 If cancelling runs a similar route, the decision not to renew is made months before the date on your contract, and lands as a single event.
 
@@ -53,17 +61,23 @@ Four lines, replacing the single retention number.
 3. **NRR**: the same base after expansion
 4. **Concentration**: the share of Japan ARR held by the top three accounts
 
-Lines 2 and 3 need history, not just current values. Gross revenue churn and NRR are calculated from contract value at the start of the period plus every downgrade and expansion during it. If the CRM holds only today's contract value, you cannot reconstruct last year's. Take a monthly snapshot of contract value, use a subscription or contract line-item object that keeps history, or pull the amounts from billing.
+Lines 2 and 3 need history, not just current values.
+
+Gross revenue churn and NRR are calculated from contract value at the start of the period plus every downgrade and expansion during it. If the CRM holds only today's contract value, you cannot reconstruct last year's. Take a monthly snapshot of contract value, use a subscription or contract line-item object that keeps history, or pull the amounts from billing.
 
 Without one of these, only logo churn can be produced.
 
-The fourth line is what makes the first three readable. At 60% concentration, a 100% NRR tells you about three customers. At 10%, it tells you about a market. Headquarters has no way to know which one it is looking at unless the line is there.
+The fourth line is what makes the first three readable.
+
+At 60% concentration, a 100% NRR tells you about three customers. At 10%, it tells you about a market. Headquarters has no way to know which one it is looking at unless the line is there.
 
 ## Two fields, and one rule
 
 In the CRM, add the customer's own **renewal decision date**, which is when their internal approval cycle needs an answer, not your contract end date, and the **notice deadline** in the contract. Check the contract for how far apart the two dates are; the notice deadline is the date you actually lose.
 
-Then require **churn reason**, from the same picklist your other regions use, as a condition for moving the account to churned rather than as an always-mandatory field. A live customer has no churn reason to give. If Japan gets its own free-text field, the pattern will never reach a board deck.
+Then require **churn reason**, from the same picklist your other regions use, as a condition for moving the account to churned rather than as an always-mandatory field.
+
+A live customer has no churn reason to give. If Japan gets its own free-text field, the pattern will never reach a board deck.
 
 A country operation of a dozen accounts does not have a retention rate. It has a list of twelve renewal decisions, and each one has a name and a date.
 

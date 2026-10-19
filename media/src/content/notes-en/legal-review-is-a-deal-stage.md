@@ -30,9 +30,15 @@ That reorders the sequence most foreign vendors assume. Legal review is not the 
 
 Japanese counsel returns a redline. Your Japan lead forwards it to headquarters.
 
-From that point nobody owns the clock. There is a time-zone gap, the comments have to be rewritten in English, and the request joins a queue behind every other region. Two weeks later your Japan lead can still only say that headquarters is reviewing it.
+From that point nobody owns the clock.
 
-For the buyer's legal team, an unanswered point is heavier than an unfavourable one. Internal policy leaves unconfirmed items marked open, and an approval document submitted with open items makes the person who filed it personally accountable for them.
+There is a time-zone gap, the comments have to be rewritten in English, and the request joins a queue behind every other region.
+
+Two weeks later your Japan lead can still only say that headquarters is reviewing it.
+
+For the buyer's legal team, an unanswered point is heavier than an unfavourable one.
+
+Internal policy leaves unconfirmed items marked open, and an approval document submitted with open items makes the person who filed it personally accountable for them.
 
 So the champion waits rather than files. From your side, that looks like a deal that stopped caring.
 
@@ -46,7 +52,9 @@ Which means the stall is predictable. If it is predictable, you can answer it be
 
 ## Send a position sheet before you send the contract
 
-One page, clause by clause: what you can concede, what you can concede with conditions, and what you cannot move. For each immovable item, one line of reasoning and one alternative you can offer instead. Against every item, the name of the person at headquarters who answers it and how many working days that answer normally takes.
+One page, clause by clause: what you can concede, what you can concede with conditions, and what you cannot move. For each immovable item, one line of reasoning and one alternative you can offer instead.
+
+Against every item, the name of the person at headquarters who answers it and how many working days that answer normally takes.
 
 The buyer's legal team is not trying to establish whether your terms are reasonable. They are trying to establish how many days this will take.
 
@@ -54,7 +62,9 @@ Two approaches are worth naming and rejecting.
 
 Translating the agreement into Japanese makes it readable and removes no points of contention. It adds one, because now somebody has to decide which language version governs.
 
-Rewriting the whole agreement under Japanese law will not clear your own legal team, and forcing it through takes months. In practice a short Japan-specific addendum covers what the checklist needs.
+Rewriting the whole agreement under Japanese law will not clear your own legal team, and forcing it through takes months.
+
+In practice a short Japan-specific addendum covers what the checklist needs.
 
 ## Once it is a stage, "waiting on legal" becomes a date
 
@@ -62,7 +72,9 @@ The CRM side is simple. Put four fields on the deal: legal review status, securi
 
 Then two rules. A deal with legal or security review open cannot enter the contracting stage. A review past its due date notifies the sales manager.
 
-After that, "we're waiting on legal" stops being a rep's impression and becomes a number of days overdue. Whether to hold the deal in the forecast becomes a decision you can make from the record rather than from the call.
+After that, "we're waiting on legal" stops being a rep's impression and becomes a number of days overdue.
+
+Whether to hold the deal in the forecast becomes a decision you can make from the record rather than from the call.
 
 This is the same work as the rest of your [Japan GTM and messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/): designing around what the buyer has to carry through their own organisation.
 

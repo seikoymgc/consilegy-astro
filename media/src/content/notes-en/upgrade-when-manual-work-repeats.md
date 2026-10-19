@@ -12,39 +12,59 @@ draft: false
 
 A common question from HQ, a few months after a Japan team starts on a free CRM tier: when do we move them to the paid plan, the same one the other regions are on?
 
-The pricing page will not settle it. It lists what the free tier lacks, and every line reads like a reason to upgrade. Workflows, more reports, higher user limits. Wanting more features and having a reason to pay for them are different things, and a Japan upgrade decided from the feature table usually buys capability the team has no routine to use.
+The pricing page will not settle it.
+
+It lists what the free tier lacks, and every line reads like a reason to upgrade. Workflows, more reports, higher user limits.
+
+Wanting more features and having a reason to pay for them are different things, and a Japan upgrade decided from the feature table usually buys capability the team has no routine to use.
 
 This note uses the free-to-paid step as its example, but the same test applies when a team already on a paid plan moves to a higher edition or buys an add-on. What differs between tiers depends on the tool; the question does not.
 
 ## Wanting a feature is not a reason to upgrade
 
-Start from the table and the question becomes "would this be nice to have". Everything on a paid tier would be nice to have. A team that buys on that basis pays for unused capability every month, because nothing in the decision tied the feature to a job someone actually does.
+Start from the table and the question becomes "would this be nice to have". Everything on a paid tier would be nice to have.
 
-The free tier already handles a customer list, deal progress, and email history. The right moment to upgrade comes when a real person hits the ceiling of that. But if "hits the ceiling" stays vague, the upgrade moves the same pain to a different screen.
+A team that buys on that basis pays for unused capability every month, because nothing in the decision tied the feature to a job someone actually does.
+
+The free tier already handles a customer list, deal progress, and email history. The right moment to upgrade comes when a real person hits the ceiling of that.
+
+But if "hits the ceiling" stays vague, the upgrade moves the same pain to a different screen.
 
 ## The upgrade point is a named task, a frequency, and a waiting decision
 
 Two things tell you it is time.
 
-First, a manual task someone repeats on a schedule inside the free tier. Every Monday, a rep exports the deal list into a spreadsheet and compares it against last week. At month end, three people send forecast numbers that someone pastes together. A task with a name and a frequency.
+First, a manual task someone repeats on a schedule inside the free tier.
+
+Every Monday, a rep exports the deal list into a spreadsheet and compares it against last week. At month end, three people send forecast numbers that someone pastes together. A task with a name and a frequency.
 
 Second, the decision waiting on that task. The Monday comparison has to finish before the team knows which deals to review. The month-end paste has to finish before anyone can talk about next month's target.
 
-If you can write both in one sentence, you have a reason to upgrade: "Every Monday a rep spends half a day building the deal list by hand, and we want it generated before the pipeline review." The needed feature follows from the sentence. Workflow, report, or seat count is clear before you open the pricing table.
+If you can write both in one sentence, you have a reason to upgrade: "Every Monday a rep spends half a day building the deal list by hand, and we want it generated before the pipeline review."
+
+The needed feature follows from the sentence. Workflow, report, or seat count is clear before you open the pricing table.
 
 ## If you cannot write the sentence, the gap is not a feature
 
-Sometimes no manual task comes to mind, or there is a task but nothing waits on its output. Upgrading then buys nothing, and it creates a quieter problem: capability grows while use does not. An automation with no meeting that reads its output is ignored. A new report with no named reader and no review date is a screen nobody opens.
+Sometimes no manual task comes to mind, or there is a task but nothing waits on its output. Upgrading then buys nothing, and it creates a quieter problem: capability grows while use does not.
+
+An automation with no meeting that reads its output is ignored. A new report with no named reader and no review date is a screen nobody opens.
 
 That is not a feature shortage. It means the team has not yet decided how it will work. Fixing one routine on the free tier first makes a later paid plan pay off.
 
 ## In Japan, the sentence also becomes the approval request
 
-The same sentence has a second use in a Japan team. A new recurring cost usually needs internal approval, often through the ringi route, where the proposal circulates to every approver in turn. An approver reading "more capable features" has nothing to compare against other departments' requests. An approver reading "this removes half a day of weekly manual work and the pipeline review starts from a finished list" can say yes or no.
+The same sentence has a second use in a Japan team. A new recurring cost usually needs internal approval, often through the ringi route, where the proposal circulates to every approver in turn.
 
-For HQ, this changes how to ask the Japan team for an upgrade case. Do not ask which tier they want. Ask them to name the task, how often it happens, and what decision it holds up. That is the document the local approval process needs, and it is the evidence HQ needs to see before agreeing.
+An approver reading "more capable features" has nothing to compare against other departments' requests. An approver reading "this removes half a day of weekly manual work and the pipeline review starts from a finished list" can say yes or no.
 
-Put the cost on both sides of the same sentence so finance does not stop it. One side: hours per occurrence × occurrences per year × the hourly cost of the person doing it. The other: the annual price difference of the upgrade, multiplied by the seats it applies to.
+For HQ, this changes how to ask the Japan team for an upgrade case.
+
+Do not ask which tier they want. Ask them to name the task, how often it happens, and what decision it holds up. That is the document the local approval process needs, and it is the evidence HQ needs to see before agreeing.
+
+Put the cost on both sides of the same sentence so finance does not stop it.
+
+One side: hours per occurrence × occurrences per year × the hourly cost of the person doing it. The other: the annual price difference of the upgrade, multiplied by the seats it applies to.
 
 Whether every seat must move up or only the people who need the feature can is a matter of the tool and the contract, so check before you request a quote.
 

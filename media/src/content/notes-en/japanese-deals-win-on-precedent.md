@@ -21,34 +21,58 @@ A joint survey by IDEATECH and Hiroyasu Kitagawa (published April 2026, n=307, l
 
 The top reasons a vendor was dropped mid-evaluation (multiple response) were "lacked the features our problem required" at 39.1%, "did not seem to fit our company size" at 34.5%, and "no case study from a company like ours" at 26.4%.
 
-The top factors in adding the eventual winner to the shortlist (n=298 for this question, up to three answers) were "a case study from a similar-sized company existed" at 44.3%, "the features were clear" at 40.3%, and "a track record in our industry" at 29.5%. And 62.5% of buyers said industry-specific information influenced their shortlist.
+The top factors in adding the eventual winner to the shortlist (n=298 for this question, up to three answers) were "a case study from a similar-sized company existed" at 44.3%, "the features were clear" at 40.3%, and "a track record in our industry" at 29.5%.
 
-Features are the first filter: miss there and you are out. Past that filter, the second and third reasons for dropping a vendor and the first and third reasons for keeping one all ask the same question: does a company like ours already use this?
+And 62.5% of buyers said industry-specific information influenced their shortlist.
 
-One line worth drawing. The survey asked why vendors were shortlisted or dropped, not what the final approver looked at before signing. That precedent carries the ringi (formal circulated approval) is an interpretation, based on the next number: in the same survey, 60.9% of companies require exactly two approval stages and over 80% require two or more. Once your contact is convinced, they still have to explain the decision upward.
+Features are the first filter: miss there and you are out.
+
+Past that filter, the second and third reasons for dropping a vendor and the first and third reasons for keeping one all ask the same question: does a company like ours already use this?
+
+One line worth drawing. The survey asked why vendors were shortlisted or dropped, not what the final approver looked at before signing.
+
+That precedent carries the ringi (formal circulated approval) is an interpretation, based on the next number: in the same survey, 60.9% of companies require exactly two approval stages and over 80% require two or more.
+
+Once your contact is convinced, they still have to explain the decision upward.
 
 "A company your size, in your industry, uses us this way and got this result" is a sentence they can paste straight into that explanation.
 
-For a foreign SaaS company, this changes what the translated global comparison chart is for. It keeps you from being dropped on features. It does not, on its own, keep you on the shortlist.
+For a foreign SaaS company, this changes what the translated global comparison chart is for.
+
+It keeps you from being dropped on features. It does not, on its own, keep you on the shortlist.
 
 ## Your framework already has the stage. Japan has more steps in it.
 
-None of this is foreign to a Western sales methodology. MEDDPICC tracks the decision process, the paper process, and the champion, and many teams already run a Mutual Action Plan with the buyer. If someone at HQ says "we already do this," they are partly right.
+None of this is foreign to a Western sales methodology. MEDDPICC tracks the decision process, the paper process, and the champion, and many teams already run a Mutual Action Plan with the buyer.
 
-The difference is how many stages and departments that process has to pass through. In the IDEATECH survey, roughly 80% of buyers had two to four departments involved, led by IT (45.6%), business units (37.5%), and corporate planning (29.0%). 63.6% took three to eight months to evaluate, and by the time serious conversations with a vendor begin, the buying process is already about 40% complete on average.
+If someone at HQ says "we already do this," they are partly right.
 
-The champion model still holds in Japan. What changes is how many rooms one champion has to walk into. Treated as one line in a qualification checklist, it does not keep up. Run it as a stage of its own.
+The difference is how many stages and departments that process has to pass through.
+
+In the IDEATECH survey, roughly 80% of buyers had two to four departments involved, led by IT (45.6%), business units (37.5%), and corporate planning (29.0%).
+
+63.6% took three to eight months to evaluate, and by the time serious conversations with a vendor begin, the buying process is already about 40% complete on average.
+
+The champion model still holds in Japan. What changes is how many rooms one champion has to walk into.
+
+Treated as one line in a qualification checklist, it does not keep up. Run it as a stage of its own.
 
 ## Track consensus, not sales activity
 
 Your CRM says "proposal sent," but inside the buyer, the working team has merely nodded, the department head is watching, IT has an open concern, legal review is pending, and the executive briefing is next month.
 
-What you need to track is not your activity. It is "who has not yet said yes." Add two fields to the opportunity, alongside your sales stage.
+What you need to track is not your activity. It is "who has not yet said yes."
+
+Add two fields to the opportunity, alongside your sales stage.
 
 - **Approval stage** (picklist): working team agrees, department head approved, executive approved, final approval.
 - **Date entered this stage** (date): the rep fills it in whenever the approval stage changes.
 
-Days stalled is the gap between that date and today. Compute it with a formula in the CRM or in a weekly export; either works. A stalled deal then reads as "in ringi, stage 2, day 34" instead of "no update," and your forecast can carry realistic exit dates. Forecasting on this axis is covered in [Forecast your Japan pipeline on approval progress, not rep confidence](/en/articles/forecast-by-approval-not-confidence/).
+Days stalled is the gap between that date and today. Compute it with a formula in the CRM or in a weekly export; either works.
+
+A stalled deal then reads as "in ringi, stage 2, day 34" instead of "no update," and your forecast can carry realistic exit dates.
+
+Forecasting on this axis is covered in [Forecast your Japan pipeline on approval progress, not rep confidence](/en/articles/forecast-by-approval-not-confidence/).
 
 ## Count your case-study inventory by industry and size
 
@@ -59,7 +83,9 @@ To hand over precedent, you need precedent on the shelf. Count it in cells, not 
 - **How to get permission.** At the start of the interview, ask which level the customer will allow: named, anonymized with industry and size only, or usable only in live sales conversations and non-public material. An anonymized case with industry and size still works for matching.
 - **Who owns it.** One person in sales ops or marketing keeps a single sheet: the grid, and the permission level of each case. Reps nominate a customer after every win. Interviews take the customer's time, so say up front what you will ask and what you plan to publish.
 
-Early on, most of your references will be from outside Japan. Whether a Japanese buyer treats a US or European logo as "a company like ours" is not something this survey asked. Treat it as untested, and ask in the first meeting what the buyer will compare you against.
+Early on, most of your references will be from outside Japan.
+
+Whether a Japanese buyer treats a US or European logo as "a company like ours" is not something this survey asked. Treat it as untested, and ask in the first meeting what the buyer will compare you against.
 
 ## Make nemawashi a designed motion
 

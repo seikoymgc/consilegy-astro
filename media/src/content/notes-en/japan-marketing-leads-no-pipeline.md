@@ -63,7 +63,9 @@ Sales' number-one complaint about marketing is "the lead information is insuffic
 
 Marketing's number-one complaint about sales is "they do not improve their follow-up" (47.5%) (Softbrain "cross-functional collaboration survey," fielded by IDEATECH, October 2024, n=298, split as 159 sales and 139 marketing; a vendor survey with a modest sample).
 
-The revealing part is that both sides blame the other. The sender believes it is handing over properly; the receiver believes it arrives unusable.
+The revealing part is that both sides blame the other.
+
+The sender believes it is handing over properly; the receiver believes it arrives unusable.
 
 Neither is slacking. There is simply no agreement on **what gets handed over, in what state.**
 

@@ -20,7 +20,9 @@ Two quarters later, Japan has the worst data of any region, and the review deck 
 
 HQ's mental model is a US or EMEA org where a revenue operations hire is available, because that is how the function was staffed at home.
 
-IPA, Japan's Information-technology Promotion Agency, ran the same questionnaire in both countries for its *DX White Paper 2023* (fielded June to July 2022, 543 valid responses in Japan and 386 in the United States, a public-sector survey rather than a vendor one). Companies answering that they had **enough people to drive digital transformation: 10.9% in Japan against 73.4% in the United States.**
+IPA, Japan's Information-technology Promotion Agency, ran the same questionnaire in both countries for its *DX White Paper 2023* (fielded June to July 2022, 543 valid responses in Japan and 386 in the United States, a public-sector survey rather than a vendor one).
+
+Companies answering that they had **enough people to drive digital transformation: 10.9% in Japan against 73.4% in the United States.**
 
 Read that as a labour-market fact rather than a maturity judgment. The role HQ wants to appoint into is one that most Japanese companies have not been able to staff either, so there is no pool to hire from and no internal precedent to copy.
 
@@ -30,7 +32,9 @@ That changes what the nomination actually is. It is not a nomination. It is a re
 
 Virtualex Consulting's domestic RevOps survey (fielded 24 to 26 March 2023, n=9,798, executives and full-time employees aged 20 and over across Japan; the firm sells RevOps services, so treat it as a vendor study) found that in Japan the work is more often carried inside **corporate planning or marketing** than inside a dedicated revenue-operations team.
 
-Corporate planning, *keiei kikaku*, is the department that builds the numbers the management meeting reads. Most foreign-owned entities in their first year do not have one, and HQ has no direct equivalent to map it to. So the closest local analogue to the person HQ is looking for is a function HQ does not recognise and the entity has not hired.
+Corporate planning, *keiei kikaku*, is the department that builds the numbers the management meeting reads. Most foreign-owned entities in their first year do not have one, and HQ has no direct equivalent to map it to.
+
+So the closest local analogue to the person HQ is looking for is a function HQ does not recognise and the entity has not hired.
 
 ## Two things the local owner needs, and one they do not
 
@@ -46,7 +50,9 @@ Name what the person stops doing, in the entity's plan, by task and by who picks
 
 Give the same person the agenda of the Japan review, not only the admin seat.
 
-Grant field-retirement rights for the Japan instance in writing, with a quarterly note back to the global CRM owner. Separate the decision from the deletion: the local owner decides, and the system administrator checks what references the field (reports, workflows, validation rules, integrations with ERP or marketing automation) before removing it. User provisioning and permissions can stay with the administrator.
+Grant field-retirement rights for the Japan instance in writing, with a quarterly note back to the global CRM owner.
+
+Separate the decision from the deletion: the local owner decides, and the system administrator checks what references the field (reports, workflows, validation rules, integrations with ERP or marketing automation) before removing it. User provisioning and permissions can stay with the administrator.
 
 If your global change process runs on a six-week cycle, exempt the Japan entity for its first four quarters. The entire ramp is four quarters long, and a six-week queue consumes it.
 

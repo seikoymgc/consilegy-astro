@@ -22,21 +22,31 @@ Open tracking works by embedding a small image in the body and counting how ofte
 
 Apple removed that assumption in 2021. Apple's Mail User Guide, part of its official support documentation, states that when Protect Mail Activity is on, the recipient's IP address is hidden from senders and remote content is privately downloaded in the background when the message is received, rather than when it is viewed.
 
-The pixel fires whether or not anyone looks at the message. The setting has been offered since iOS 15 shipped in September 2021, and the recipient chooses it the first time Mail opens. Senders cannot see who chose it, and there is no way to find out what share of a given list is in that state.
+The pixel fires whether or not anyone looks at the message.
+
+The setting has been offered since iOS 15 shipped in September 2021, and the recipient chooses it the first time Mail opens. Senders cannot see who chose it, and there is no way to find out what share of a given list is in that state.
 
 ## The comparison HQ is making is between measurement environments, not between markets
 
 A single region's open rate moving over time is hard enough to interpret. Comparing Japan against EMEA or the US is worse, because three things differ across those lists and none of them are visible on the HQ dashboard.
 
-Device and mail-client mix differs by market. Corporate gateway policy differs too: in Japan it is common for the receiving side to block external images by default, which suppresses opens even when the message is genuinely read. And the named contact on a Japanese record is frequently not the person doing the evaluating.
+Device and mail-client mix differs by market.
 
-That last one is the structural point. Whatever reading happens further inside the buyer's organisation, by the people who decide, is invisible to the pixel. So the Japan number can overstate opening and understate reading at the same time, and the two errors do not cancel.
+Corporate gateway policy differs too: in Japan it is common for the receiving side to block external images by default, which suppresses opens even when the message is genuinely read. And the named contact on a Japanese record is frequently not the person doing the evaluating.
 
-One comparison does survive. If your Japan team randomly splits a list and tests two subject lines, the environment bias falls on both arms equally, and the winner is real. What does not survive is Japan against EMEA, this quarter against last, or before-launch against after-launch. Those are the comparisons that end up in the board pack.
+That last one is the structural point.
+
+Whatever reading happens further inside the buyer's organisation, by the people who decide, is invisible to the pixel. So the Japan number can overstate opening and understate reading at the same time, and the two errors do not cancel.
+
+One comparison does survive. If your Japan team randomly splits a list and tests two subject lines, the environment bias falls on both arms equally, and the winner is real.
+
+What does not survive is Japan against EMEA, this quarter against last, or before-launch against after-launch. Those are the comparisons that end up in the board pack.
 
 ## Google does not track opens, and the line it does draw is 0.10%
 
-Google's Email sender guidelines carry a heading called Open rate, and it runs three lines. Google does not track open rates. Google cannot verify the accuracy of open rates reported by third parties. A low open rate is not necessarily an accurate indicator of deliverability or spam classification problems.
+Google's Email sender guidelines carry a heading called Open rate, and it runs three lines.
+
+Google does not track open rates. Google cannot verify the accuracy of open rates reported by third parties. A low open rate is not necessarily an accurate indicator of deliverability or spam classification problems.
 
 The number Google does put in writing is the spam complaint rate: keep it below 0.10% in Postmaster Tools and never let it reach 0.30%. Since 1 February 2024, senders of more than 5,000 messages per day to personal Gmail accounts have been required to meet that condition alongside SPF, DKIM and DMARC.
 
@@ -44,21 +54,31 @@ The receiving platform measures whether people objected, not whether they opened
 
 ## Instrument one named next step per send, and report it as a count
 
-Replacing open rate with click rate moves the same problem one step along. Security products follow links in messages before the recipient does, and those fetches are recorded as clicks. Some platforms offer settings that filter bot clicks, but what they catch, and how, varies by tool.
+Replacing open rate with click rate moves the same problem one step along.
+
+Security products follow links in messages before the recipient does, and those fetches are recorded as clicks. Some platforms offer settings that filter bot clicks, but what they catch, and how, varies by tool.
 
 The change worth making is not a new rate. For every send, decide the single next step you want the reader to take, then count the people who took it.
 
-If the email carries a pre-implementation checklist, count the people who opened the checklist. If it carries a customer story, count the people who reached the enquiry form from that page. If it proposes a meeting, count the people who picked a time. Because click-based steps can be inflated by link prefetching, lean toward steps that only a person's action can record, such as a form submission or a booked meeting.
+If the email carries a pre-implementation checklist, count the people who opened the checklist. If it carries a customer story, count the people who reached the enquiry form from that page. If it proposes a meeting, count the people who picked a time.
+
+Because click-based steps can be inflated by link prefetching, lean toward steps that only a person's action can record, such as a form submission or a booked meeting.
 
 Report those as counts, not percentages, and name the step in the report. Small Japanese lists make rates jump for no reason, and when HQ has to decide whether to keep funding the Japan programme, the question underneath is how many accounts moved, not what percentage of an unstable denominator did something unobservable.
 
-There is a useful side effect. An email whose next step cannot be named in one line is an email without a reason to exist. If your monthly Japan newsletter fails that test every month, the thing to fix is the programme, not the subject line.
+There is a useful side effect.
+
+An email whose next step cannot be named in one line is an email without a reason to exist. If your monthly Japan newsletter fails that test every month, the thing to fix is the programme, not the subject line.
 
 ## Inventory every automation that uses opens, at the same time as you drop the metric
 
-Opens are not only in the report. They are often in lead-score rules, in dormancy rules that stop sending after a period with no opens, in list and segment criteria, and in A/B tests that pick the winner automatically by open rate. All of these misfire once an open can mean a delivery.
+Opens are not only in the report. They are often in lead-score rules, in dormancy rules that stop sending after a period with no opens, in list and segment criteria, and in A/B tests that pick the winner automatically by open rate.
 
-Dormancy rules fail in the worst direction. A contact whose opens are recorded on delivery never goes dormant, even if they never read anything. Keep sending to people who do not read, and complaints rise, which pushes you toward Google's 0.10% line from the previous section.
+All of these misfire once an open can mean a delivery.
+
+Dormancy rules fail in the worst direction.
+
+A contact whose opens are recorded on delivery never goes dormant, even if they never read anything. Keep sending to people who do not read, and complaints rise, which pushes you toward Google's 0.10% line from the previous section.
 
 When you drop the metric, list every workflow, list and score that uses opens as a condition, and replace each condition with a next-step action such as a click or a form submission. If A/B winners are chosen automatically, choose them on the next step too.
 

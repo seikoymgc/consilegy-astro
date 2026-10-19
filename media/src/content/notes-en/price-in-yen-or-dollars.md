@@ -24,9 +24,13 @@ A USD price list hands the production of that figure to the buyer. Which rate, f
 
 On paper, clerical. For the person doing it, not at all.
 
-Pick a rate yourself and you own it. If the yen moves six months later, that number was your choice, and the document has your name on it. Meanwhile the figure shifts slightly each time you brief someone more senior, and the moment somebody asks whether it was a different number last time, the meeting stops being about the product and starts being about you.
+Pick a rate yourself and you own it. If the yen moves six months later, that number was your choice, and the document has your name on it.
 
-So the safest move is to not decide yet. Our hypothesis is that some of the deals that look enthusiastic and then go quiet are sitting right there. We have no figure for how many.
+Meanwhile the figure shifts slightly each time you brief someone more senior, and the moment somebody asks whether it was a different number last time, the meeting stops being about the product and starts being about you.
+
+So the safest move is to not decide yet.
+
+Our hypothesis is that some of the deals that look enthusiastic and then go quiet are sitting right there. We have no figure for how many.
 
 ## The people arguing about the number are not the people your reps have met
 
@@ -34,17 +38,23 @@ A joint survey by IDEATECH and Hiroyasu Kitagawa of Demagen Soken (published 9 J
 
 After IT at 42.2% came finance and accounting at 38.2%, legal at 33.2%, and procurement at 32.0% (multiple response, n=325).
 
-The second most common source of internal disagreement was budget size and allocation, at 51.7%. Among the 73.5% who said the evaluation ran longer than planned, 63.6% blamed waiting on an executive decision and 31.0% blamed budget approval itself.
+The second most common source of internal disagreement was budget size and allocation, at 51.7%.
+
+Among the 73.5% who said the evaluation ran longer than planned, 63.6% blamed waiting on an executive decision and 31.0% blamed budget approval itself.
 
 Your reps are talking to the business unit and to IT. Finance, legal and procurement often go the entire cycle without meeting anyone from your side.
 
-The survey shows finance and procurement in the evaluation and budget negotiation taking time. It does not ask whether currency is what they argue about. What it does make clear is that the room where the number is settled usually has nobody from your side in it. If converting dollars to yen becomes an agenda item there, you will not get to answer.
+The survey shows finance and procurement in the evaluation and budget negotiation taking time. It does not ask whether currency is what they argue about.
+
+What it does make clear is that the room where the number is settled usually has nobody from your side in it. If converting dollars to yen becomes an agenda item there, you will not get to answer.
 
 ## Japanese buyers do not want a persuasive ROI. They want to build one.
 
 In the same survey, the top factor in choosing a vendor was price and cost at 58.5%. The persuasiveness of a vendor's ROI argument came in at 11.1% (top three selections, n=325).
 
-Read alone, that looks like indifference to ROI. It is not. The single most useful piece of content buyers named was an ROI calculator, at 55.4%, and estimating ROI was one of the things 41.5% could not settle internally before talking to a vendor.
+Read alone, that looks like indifference to ROI. It is not.
+
+The single most useful piece of content buyers named was an ROI calculator, at 55.4%, and estimating ROI was one of the things 41.5% could not settle internally before talking to a vendor.
 
 The ROI you build does not travel. The one they build does, because when the numbers are theirs they can defend them in a room you are not in.
 
@@ -54,7 +64,9 @@ The currency on your price list is the front door to that.
 
 Yen. Excluding consumption tax. Annual, with year one separated from what follows. An expiry date, and a line saying the figure holds until then whatever the rate does. That is the whole document.
 
-This page is a reference price for the start of the evaluation, not the formal quote. Attach a short table of what moves the amount (seats, contract term and so on). The formal quote comes later, at the approval stage once scope and approvers are settled, issued together with those conditions. The sequence is in [Why your 30-day quote expires inside Japan's approval cycle](/en/articles/quote-timing-one-step-later/).
+This page is a reference price for the start of the evaluation, not the formal quote. Attach a short table of what moves the amount (seats, contract term and so on).
+
+The formal quote comes later, at the approval stage once scope and approvers are settled, issued together with those conditions. The sequence is in [Why your 30-day quote expires inside Japan's approval cycle](/en/articles/quote-timing-one-step-later/).
 
 Two alternatives are worth naming and rejecting.
 
@@ -64,7 +76,11 @@ Converting at the spot rate on each call is worse. The figure moves every time y
 
 None of this breaks global price governance. Keep USD list price intact and fix only the Japanese quoted rate and its expiry.
 
-But fixing the rate is a decision about who carries currency risk. If the yen weakens before the expiry, the USD value of the booking shrinks. Does the Japan entity absorb that, or HQ? The Japan lead should bring four points to HQ together:
+But fixing the rate is a decision about who carries currency risk.
+
+If the yen weakens before the expiry, the USD value of the booking shrinks. Does the Japan entity absorb that, or HQ?
+
+The Japan lead should bring four points to HQ together:
 
 - **Who sets the quoted rate, and how often it is revised** (quarterly, for example)
 - **The band within which it is not revised**
@@ -73,7 +89,9 @@ But fixing the rate is a decision about who carries currency risk. If the yen we
 
 Get those approved as a set, framed as a local commercial policy rather than a pricing exception.
 
-Settle the CRM side at the same time. Once yen amounts sit on deals, the USD rollup HQ reads depends on which rate converts them, and Japan's bookings can shift month to month on currency alone. Salesforce supports dated exchange rates and HubSpot supports multiple currencies with exchange rates, but what you can configure and how it behaves depends on edition and settings.
+Settle the CRM side at the same time. Once yen amounts sit on deals, the USD rollup HQ reads depends on which rate converts them, and Japan's bookings can shift month to month on currency alone.
+
+Salesforce supports dated exchange rates and HubSpot supports multiple currencies with exchange rates, but what you can configure and how it behaves depends on edition and settings.
 
 Decide who maintains the conversion rate, how often it is updated, and whether it matches the quoted rate or HQ's finance rate. Otherwise every month's Japan number needs a currency footnote.
 

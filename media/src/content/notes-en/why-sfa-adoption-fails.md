@@ -9,7 +9,9 @@ canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 ---
 
-SFA adoption is stuck when sales reps in Japan stop updating the CRM and the data that does get entered never feeds a deal decision. For a global team, the usual diagnosis is effort or discipline. The better diagnosis is that **nothing the reps enter is used to make a decision**, and that is a design problem HQ can fix.
+SFA adoption is stuck when sales reps in Japan stop updating the CRM and the data that does get entered never feeds a deal decision.
+
+For a global team, the usual diagnosis is effort or discipline. The better diagnosis is that **nothing the reps enter is used to make a decision**, and that is a design problem HQ can fix.
 
 This note checks that claim against four Japanese surveys and sets out the order to fix it in, written for HQ teams and Japan entities running a CRM in Japan.
 
@@ -23,7 +25,9 @@ Counting work done before Consilegy was founded, we have supported more than 40 
 
 Ask Japanese sales teams why they don't enter data and effort comes first. Read down the list and it is not only effort.
 
-In a November 2024 survey by Mazrica (managers and team leads in B2B sales, n=101; run by an SFA vendor, small sample), the top reason was "entry takes time" at 54.5%. Further down the list were "it's a hassle" at 39.6%, "I can't see the benefit of entering it" at 32.7%, "there are too many fields" at 28.7%, and "I don't want my results visible to others" at 27.7%.
+In a November 2024 survey by Mazrica (managers and team leads in B2B sales, n=101; run by an SFA vendor, small sample), the top reason was "entry takes time" at 54.5%.
+
+Further down the list were "it's a hassle" at 39.6%, "I can't see the benefit of entering it" at 32.7%, "there are too many fields" at 28.7%, and "I don't want my results visible to others" at 27.7%.
 
 Reps who cite effort often mean something close to "this entry does not come back to me." If an entry makes tomorrow's deal prep easier, people write it even when it takes time.
 
@@ -35,15 +39,21 @@ A survey by Keywalker in October 2025 (sales staff and managers at companies tha
 - 12.5% say they are not keeping up or have many gaps. That is roughly one in eight.
 - Among those who do not enter immediately, the reasons are "other work takes priority" (44.2%) and "too many fields" (38.5%).
 
-The most useful result is about motivation. **The top motivator is "a clear purpose and clear use for the data," at 54.8%**, followed by "my own results and growth become visible" at 40.1%. This is a different survey asking a different question from Mazrica's, so the two numbers cannot be compared directly, and we have not checked whether a "less effort" option was offered here.
+The most useful result is about motivation. **The top motivator is "a clear purpose and clear use for the data," at 54.8%**, followed by "my own results and growth become visible" at 40.1%.
+
+This is a different survey asking a different question from Mazrica's, so the two numbers cannot be compared directly, and we have not checked whether a "less effort" option was offered here.
 
 Even so, when more than half of respondents name a clear use for the data as their top motivator, effort alone does not explain adoption.
 
 ## Managers use the dashboard for reporting, not for deciding the next move
 
-The same survey asked how the dashboard is used. For managers, the top use is checking numbers in the sales meeting (58.2%), then reviewing activity (46.6%), tracking progress to target (41.0%), and building reports for executives (35.9%). **Deciding the next action is 15.4%.** For front-line reps, checking numbers in the sales meeting is 48.6%, and deciding the next action is 20.7%.
+The same survey asked how the dashboard is used.
 
-For a Japan team this pattern is easy to fall into. The CRM becomes the screen that feeds the regional report to HQ. Reps then see their entries go up and nothing come back to them. Our reading, which the survey did not test, is that the 27.7% who don't want their results visible is the other side of the same picture: if entry is only ever used to assess you, not writing it is a rational choice.
+For managers, the top use is checking numbers in the sales meeting (58.2%), then reviewing activity (46.6%), tracking progress to target (41.0%), and building reports for executives (35.9%). **Deciding the next action is 15.4%.** For front-line reps, checking numbers in the sales meeting is 48.6%, and deciding the next action is 20.7%.
+
+For a Japan team this pattern is easy to fall into. The CRM becomes the screen that feeds the regional report to HQ. Reps then see their entries go up and nothing come back to them.
+
+Our reading, which the survey did not test, is that the 27.7% who don't want their results visible is the other side of the same picture: if entry is only ever used to assess you, not writing it is a rational choice.
 
 ## Adoption stalls in three layers, and the fix runs from the top down
 
@@ -57,11 +67,15 @@ For a Japan team this pattern is easy to fall into. The CRM becomes the screen t
 
 Most HQ teams start at layer 1: fewer fields, a mobile app, another training round. Start from layer 3 and work back. Once the use is fixed, what to return follows, and then which fields to keep.
 
-This is not an argument against reducing effort. The amount of work a CRM asks of people does decide adoption, as set out in [Japan CRM adoption rises when the tool asks less of people](/en/articles/crm-should-ask-less-of-people/). The point is order: what to cut and what to keep can only be decided once the use is fixed. Cut first, and the fields you needed go too.
+This is not an argument against reducing effort. The amount of work a CRM asks of people does decide adoption, as set out in [Japan CRM adoption rises when the tool asks less of people](/en/articles/crm-should-ask-less-of-people/).
+
+The point is order: what to cut and what to keep can only be decided once the use is fixed. Cut first, and the fields you needed go too.
 
 ## "We can't use all of it" often means the data isn't used
 
-Executives see the same thing. In a September to October 2021 survey by Hammock (executives at companies with 300+ employees, n=305; vendor survey, and dated), 27.6% said they used every SFA function and 49.8% used some. Among those not fully using it (n=221), the reasons were "it takes time to master" (52.3%), "entered data is not put to use" (30.1%), and "entry burden increases" (28.0%).
+Executives see the same thing.
+
+In a September to October 2021 survey by Hammock (executives at companies with 300+ employees, n=305; vendor survey, and dated), 27.6% said they used every SFA function and 49.8% used some. Among those not fully using it (n=221), the reasons were "it takes time to master" (52.3%), "entered data is not put to use" (30.1%), and "entry burden increases" (28.0%).
 
 Nearly a third say entered data is not used. That is the reverse causality in the same numbers: reps stop entering because the data is not used.
 
@@ -81,7 +95,9 @@ None of this needs new tooling.
 
 **4. Put someone who builds the sales-meeting pack in charge, not the person who knows the tool best.** See [who should own the CRM rollout](/en/articles/who-owns-the-crm-rollout/).
 
-If a tool genuinely lacks a function, redesign will not help. A quick check: could the same agenda item be run from a spreadsheet? If yes, the tool has enough function and the problem is design. If not even a spreadsheet could run it, suspect a missing function.
+If a tool genuinely lacks a function, redesign will not help. A quick check: could the same agenda item be run from a spreadsheet?
+
+If yes, the tool has enough function and the problem is design. If not even a spreadsheet could run it, suspect a missing function.
 
 ## Frequently asked questions
 

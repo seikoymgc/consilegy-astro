@@ -34,7 +34,9 @@ That change was scoped early and pushed to "after adoption settles." It was stil
 
 ## The successor did not inherit a habit, only a login
 
-Between the transfer being announced and the successor's first pipeline call, nobody with authority was checking the CRM. Reps quietly went back to the spreadsheet and the verbal update they had used before the rollout. Nobody decided this. It simply became true.
+Between the transfer being announced and the successor's first pipeline call, nobody with authority was checking the CRM. Reps quietly went back to the spreadsheet and the verbal update they had used before the rollout.
+
+Nobody decided this. It simply became true.
 
 The successor is not at fault here, and neither, really, is the VP who moved on. A regional VP's job is the next region, not permanent stewardship of a CRM they already fixed once.
 

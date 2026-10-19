@@ -30,13 +30,21 @@ A Japan launch usually inherits that state, not a clean table.
 
 Do not match on company name.
 
-One Japanese company arrives written four ways: 株式会社◯◯, (株)◯◯, ◯◯株式会社, and ◯◯ with the legal form dropped entirely. The legal form can sit before or after the name, characters come in full-width and half-width forms, spacing is inconsistent, and former names and branch names are mixed in. A name-based key either splits one company across five records or collapses two companies into one.
+One Japanese company arrives written four ways: 株式会社◯◯, (株)◯◯, ◯◯株式会社, and ◯◯ with the legal form dropped entirely.
+
+The legal form can sit before or after the name, characters come in full-width and half-width forms, spacing is inconsistent, and former names and branch names are mixed in. A name-based key either splits one company across five records or collapses two companies into one.
 
 Match people on email address and companies on domain.
 
-Japan has domain exceptions to plan for. Group companies often share the parent's domain, so domain-based auto-association pulls a subsidiary's contacts into the parent account. Some companies run several domains by business line. Free-mail domains such as Gmail must be excluded from company matching. Write the exception list before the load.
+Japan has domain exceptions to plan for.
 
-Business cards without an email address are handled separately by default. If someone merges them by hand because "it is probably the same person," you are left with a merge nobody can reproduce or reverse. Records that cannot be judged by key should not auto-merge; they should become a review task.
+Group companies often share the parent's domain, so domain-based auto-association pulls a subsidiary's contacts into the parent account. Some companies run several domains by business line. Free-mail domains such as Gmail must be excluded from company matching.
+
+Write the exception list before the load.
+
+Business cards without an email address are handled separately by default.
+
+If someone merges them by hand because "it is probably the same person," you are left with a merge nobody can reproduce or reverse. Records that cannot be judged by key should not auto-merge; they should become a review task.
 
 We have not found a published Japanese study of duplicate-record rates in CRM systems, and importing a US benchmark tells you nothing about your file. Count the duplicate rate in your own extract before loading, and you have the only measured number that applies.
 
@@ -48,17 +56,25 @@ The rule that holds up: the record carrying deal and activity history becomes th
 
 Then write the field-level exceptions before the load. Email and phone take the newer value; owner and original source stay with the existing record.
 
-Do not count on the import tool to enforce that list. Imports generally overwrite existing values wherever the file has a value, and whether you can choose a winner per field depends on the tool and configuration. The reliable way is to build it into the files: leave the existing-wins columns out of the update file, and run create-only and update-only imports separately so you can trace which value replaced which.
+Do not count on the import tool to enforce that list.
+
+Imports generally overwrite existing values wherever the file has a value, and whether you can choose a winner per field depends on the tool and configuration. The reliable way is to build it into the files: leave the existing-wins columns out of the update file, and run create-only and update-only imports separately so you can trace which value replaced which.
 
 ## 3. Decide how you will prove where the data came from
 
 Add four columns to every file you import: acquisition channel, acquisition date, who imported it, and consent status.
 
-This one is not housekeeping. Under Japan's Act on Regulation of Transmission of Specified Electronic Mail, advertising email requires prior opt-in, with an exception where the recipient supplied their email address in writing, which includes a business-card exchange (Article 3, Paragraph 1, Item 2; see the guidelines issued by the Ministry of Internal Affairs and Communications and the Consumer Affairs Agency). Sender identification and an unsubscribe route are still mandatory under the exception.
+This one is not housekeeping.
 
-Purchased lists and lists handed over by a third party do not fall under it. Before a bulk advertising send to cards collected at a trade show, confirm with counsel that the exception covers how they were collected (this is not legal advice). Even where sending is legal, we do not treat a card exchange alone as consent to email; the reasoning is in [Your Japan team came back from the show with 900 business cards](/en/articles/business-cards-after-the-trade-show/).
+Under Japan's Act on Regulation of Transmission of Specified Electronic Mail, advertising email requires prior opt-in, with an exception where the recipient supplied their email address in writing, which includes a business-card exchange (Article 3, Paragraph 1, Item 2; see the guidelines issued by the Ministry of Internal Affairs and Communications and the Consumer Affairs Agency). Sender identification and an unsubscribe route are still mandatory under the exception.
 
-After the import, both look like the same contact record. The only thing that separates them is a column you decided to keep. A rule such as "lists with unknown consent status are excluded from automated sends" cannot be written at all without it.
+Purchased lists and lists handed over by a third party do not fall under it. Before a bulk advertising send to cards collected at a trade show, confirm with counsel that the exception covers how they were collected (this is not legal advice).
+
+Even where sending is legal, we do not treat a card exchange alone as consent to email; the reasoning is in [Your Japan team came back from the show with 900 business cards](/en/articles/business-cards-after-the-trade-show/).
+
+After the import, both look like the same contact record. The only thing that separates them is a column you decided to keep.
+
+A rule such as "lists with unknown consent status are excluded from automated sends" cannot be written at all without it.
 
 This is also the point where HQ and the Japan team most often talk past each other. A global marketing operations team that works to GDPR or CAN-SPAM assumptions will not ask about the business-card exception, and the local team will not volunteer that half the list came from a drawer.
 

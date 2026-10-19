@@ -17,7 +17,9 @@ That 3% is a mean, and it is pulled up by a small number of high-churn companies
 
 ## The number that circulates
 
-The figure comes from CloudCircus's Fullstar "Customer Success Survey 2025" (fielded August 2025, n=200, customer success and support staff at B2B information and communications companies in Japan; note that this is a vendor survey). The headline is a **mean monthly churn of 3.01%**.
+The figure comes from CloudCircus's Fullstar "Customer Success Survey 2025" (fielded August 2025, n=200, customer success and support staff at B2B information and communications companies in Japan; note that this is a vendor survey).
+
+The headline is a **mean monthly churn of 3.01%**.
 
 But the same survey publishes the distribution, and it is heavily skewed: **45% of companies report 1% or lower**, while about 9% report 10% or higher.
 

@@ -11,7 +11,9 @@ canonLabel: レベニューアーキテクチャとは
 
 商談化率が会議のたびに違う数字になる。集計を調べる前に、各部署が何を分子と分母にしているかを並べてください。同じ名前で別の対象を数えていることがあります。
 
-ずれは2か所で起きます。何をリードと数えるか。そして、分子と分母をいつ時点で数えるか。後者は見落とされやすく、定義の会議を一度開いた会社でも残っていることがあります。
+ずれは2か所で起きます。何をリードと数えるか。そして、分子と分母をいつ時点で数えるか。
+
+後者は見落とされやすく、定義の会議を一度開いた会社でも残っていることがあります。
 
 ## 同じ「商談化率」が、部署ごとに別の割り算になっている
 
@@ -19,7 +21,9 @@ canonLabel: レベニューアーキテクチャとは
 
 マーケティング部門は資料をダウンロードした全件をリードと数え、インサイドセールスは電話がつながった件だけをリードと数え、営業は予算と決裁者が見えた件しかリードと認めない。
 
-三者が別の分母で同じ「商談化率」を計算すれば、数字が一致しないのは当然です。リード数そのものを揃える手順は、[リード数の定義が部署ごとに合わないときの揃え方](/lead-count-meant-different-things/)に書きました。この記事は、そのうえで転換率を出すときに残るずれを扱います。
+三者が別の分母で同じ「商談化率」を計算すれば、数字が一致しないのは当然です。
+
+リード数そのものを揃える手順は、[リード数の定義が部署ごとに合わないときの揃え方](/lead-count-meant-different-things/)に書きました。この記事は、そのうえで転換率を出すときに残るずれを扱います。
 
 ## 段の「入る条件」を、1枚の図に書き切る
 
@@ -33,7 +37,9 @@ canonLabel: レベニューアーキテクチャとは
 
 この1枚があると、「あの案件は今どこにあるか」という問いに、マーケティングも営業も同じ図を見て答えられます。
 
-段の条件が書けると、転換率も分けて見られるようになります。「リードから商談化」を1本で追う代わりに、「マーケティングが渡す段からインサイドセールスが引き継ぐ段へ」と「引き継ぐ段から案件登録へ」の2本に分ける。どちらの段でこぼれているかが分かれば、直す部署も決まります。
+段の条件が書けると、転換率も分けて見られるようになります。「リードから商談化」を1本で追う代わりに、「マーケティングが渡す段からインサイドセールスが引き継ぐ段へ」と「引き継ぐ段から案件登録へ」の2本に分ける。
+
+どちらの段でこぼれているかが分かれば、直す部署も決まります。
 
 ## 「いつ時点の数字か」を1つに決める
 
@@ -45,7 +51,9 @@ canonLabel: レベニューアーキテクチャとは
 
 <figure class="note-figure"><svg viewBox="0 0 400 342" role="img" aria-label="同じ6月の商談化率の2つの数え方。コホート型は6月のリードが分母と分子。期間型は6月の商談化を6月のリードで割り、分子に5月のリード由来も入る"><text class="fig-strong" x="15" y="22" text-anchor="start">発生月で数える（コホート型）</text><text class="fig-small" x="140" y="44" text-anchor="middle">5月</text><text class="fig-small" x="240" y="44" text-anchor="middle">6月</text><text class="fig-small" x="340" y="44" text-anchor="middle">7月</text><text class="fig-text" x="15" y="74" text-anchor="start">リード</text><text class="fig-text" x="15" y="124" text-anchor="start">商談化</text><rect class="fig-box" x="95" y="54" width="90" height="30" rx="2"/><rect class="fig-box" x="95" y="104" width="90" height="30" rx="2"/><rect class="fig-box-accent" x="195" y="54" width="90" height="30" rx="2"/><text class="fig-accent" x="240" y="74" text-anchor="middle">分母</text><rect class="fig-box-accent" x="195" y="104" width="90" height="30" rx="2"/><text class="fig-accent" x="240" y="124" text-anchor="middle">分子</text><rect class="fig-box" x="295" y="54" width="90" height="30" rx="2"/><rect class="fig-box-accent" x="295" y="104" width="90" height="30" rx="2"/><text class="fig-accent" x="340" y="124" text-anchor="middle">分子</text><line class="fig-line" x1="240" y1="84" x2="240" y2="104"/><line class="fig-line" x1="240" y1="84" x2="340" y2="104"/><text class="fig-small" x="15" y="156" text-anchor="start">分母も分子も6月のリード。7月の商談化も6月の分に入る</text><text class="fig-strong" x="15" y="194" text-anchor="start">期間で数える（期間型）</text><text class="fig-small" x="140" y="216" text-anchor="middle">5月</text><text class="fig-small" x="240" y="216" text-anchor="middle">6月</text><text class="fig-small" x="340" y="216" text-anchor="middle">7月</text><text class="fig-text" x="15" y="246" text-anchor="start">リード</text><text class="fig-text" x="15" y="296" text-anchor="start">商談化</text><rect class="fig-box" x="95" y="226" width="90" height="30" rx="2"/><rect class="fig-box" x="95" y="276" width="90" height="30" rx="2"/><rect class="fig-box-accent" x="195" y="226" width="90" height="30" rx="2"/><text class="fig-accent" x="240" y="246" text-anchor="middle">分母</text><rect class="fig-box-accent" x="195" y="276" width="90" height="30" rx="2"/><text class="fig-accent" x="240" y="296" text-anchor="middle">分子</text><rect class="fig-box" x="295" y="226" width="90" height="30" rx="2"/><rect class="fig-box" x="295" y="276" width="90" height="30" rx="2"/><line class="fig-line" x1="140" y1="256" x2="240" y2="276"/><line class="fig-line" x1="240" y1="256" x2="240" y2="276"/><text class="fig-small" x="15" y="328" text-anchor="start">分子には、5月のリードから6月に商談化したものも入る</text></svg><figcaption>青枠が数える対象。どちらを使うかを、全部署でそろえる。</figcaption></figure>
 
-どちらが正しいということではありません。直近の動きを早く見たいなら期間型、施策ごとの効果を比べたいならコホート型が向いています。決めるべきは、どちらを使うかを全部署でそろえることです。
+どちらが正しいということではありません。
+
+直近の動きを早く見たいなら期間型、施策ごとの効果を比べたいならコホート型が向いています。決めるべきは、どちらを使うかを全部署でそろえることです。
 
 計測を始める前に「いつ時点の、どの母集団の数字か」を1行で書き、その日付をどの項目から取るかまで決めます。HubSpotならライフサイクルステージごとに記録される「その段階になった日付」、Salesforceならリードの取引開始日や商談の作成日が候補になります。
 
@@ -55,7 +63,9 @@ canonLabel: レベニューアーキテクチャとは
 
 定義は一度決めて終わりではありません。段の条件を見直せば、転換率は変わります。そのとき、過去の数字をどう扱うかを先に決めておきます。
 
-新しい定義で過去分を計算し直せるなら、計算し直します。必要な項目が過去のレコードに残っていなければ、無理に直さず、「この日より前は旧定義」とレポートに注記して線を引きます。境目を書かずに折れ線をつなげると、定義を変えた月の増減が、施策の成果に見えてしまいます。
+新しい定義で過去分を計算し直せるなら、計算し直します。必要な項目が過去のレコードに残っていなければ、無理に直さず、「この日より前は旧定義」とレポートに注記して線を引きます。
+
+境目を書かずに折れ線をつなげると、定義を変えた月の増減が、施策の成果に見えてしまいます。
 
 ## 日本には転換率の公開ベンチマークがない
 
@@ -65,7 +75,9 @@ canonLabel: レベニューアーキテクチャとは
 
 一方で、日本のリードから商談化、商談から受注までの転換率について、母数と手法を開示した公開ベンチマークは見当たりません。つまり日本企業には「自社の45%は高いのか低いのか」を照らす外部の物差しがありません。
 
-だからこそ、まず自社の定義と基準日をそろえ、時系列で自社を自社と比べられる状態を作ることが先決です。この母数と時点の設計は、[レベニューアーキテクチャ](https://consilegy.com/revenue-architecture/)で収益全体を一続きに測るときの土台になります。
+だからこそ、まず自社の定義と基準日をそろえ、時系列で自社を自社と比べられる状態を作ることが先決です。
+
+この母数と時点の設計は、[レベニューアーキテクチャ](https://consilegy.com/revenue-architecture/)で収益全体を一続きに測るときの土台になります。
 
 ## よくあるつまずき
 

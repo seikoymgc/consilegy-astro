@@ -10,37 +10,53 @@ canonLabel: Japan Market GTM and Messaging
 draft: false
 ---
 
-A deal in Japan is moving. The buyer asks for pricing. The rep sends a quote the same week, HQ sees a quoted opportunity appear in the forecast, and everyone treats that as progress.
+A deal in Japan is moving. The buyer asks for pricing.
+
+The rep sends a quote the same week, HQ sees a quoted opportunity appear in the forecast, and everyone treats that as progress.
 
 Three months later the same deal needs a revised quote, and the buyer's side goes quiet.
 
 ## Price decides the deal, but the buyer cannot yet calculate what price means
 
-IDEATECH and Hiroyasu Kitagawa of Demagen Research published the second wave of their study of large B2B purchases in Japan on 9 June 2026 (fieldwork 25 to 26 May 2026, 330 valid responses, n=325 on most questions). Respondents had been one of two or more people involved in buying B2B business software, SaaS, or IT infrastructure and security products with annual contract value above 5 million yen.
+IDEATECH and Hiroyasu Kitagawa of Demagen Research published the second wave of their study of large B2B purchases in Japan on 9 June 2026 (fieldwork 25 to 26 May 2026, 330 valid responses, n=325 on most questions).
+
+Respondents had been one of two or more people involved in buying B2B business software, SaaS, or IT infrastructure and security products with annual contract value above 5 million yen.
 
 IDEATECH sells survey-based PR, and this is a panel survey, so treat the figures as order of magnitude.
 
 Price and cost was the most cited factor in the final vendor decision, at 58.5%, well ahead of fit with the respondent's industry at 39.7%.
 
-Then look at what those same buyers could not work out on their own before talking to a vendor. Top of that list: estimating the operational load after implementation, 56.3%. Third: calculating ROI, 41.5%. A quarter, 25.5%, could not judge how much room existed to negotiate price and terms.
+Then look at what those same buyers could not work out on their own before talking to a vendor.
 
-So price decides the outcome, and the buyer cannot yet build the number that price sits inside. Sending one figure early does not solve that. It just puts one figure into circulation.
+Top of that list: estimating the operational load after implementation, 56.3%. Third: calculating ROI, 41.5%. A quarter, 25.5%, could not judge how much room existed to negotiate price and terms.
+
+So price decides the outcome, and the buyer cannot yet build the number that price sits inside.
+
+Sending one figure early does not solve that. It just puts one figure into circulation.
 
 ## The quote does not stay with the person who asked for it
 
 In the same study, 58.5% of these purchases involved seven or more people. Finance and accounting were involved in 38.2% of them, legal in 33.2%, procurement in 32.0%.
 
-Your rep meets perhaps two of those people. The quote reaches all of them, in writing, attached to an internal request that someone on the buyer's side has to author and defend.
+Your rep meets perhaps two of those people.
 
-That is the part that does not translate from a US or European process. In those markets an early quote is a conversation opener that can be revised without cost. In Japan it becomes an exhibit.
+The quote reaches all of them, in writing, attached to an internal request that someone on the buyer's side has to author and defend.
+
+That is the part that does not translate from a US or European process.
+
+In those markets an early quote is a conversation opener that can be revised without cost. In Japan it becomes an exhibit.
 
 ## A quote issued before requirements settle turns into a price increase
 
 Early quotes are minimum configurations, because the requirements are not in yet.
 
-The requirements arrive next. Coordinating functional requirements across departments was the most common source of internal friction, 56.9%, followed by budget size and allocation at 51.7%. Configurations tend to grow during that process.
+The requirements arrive next.
 
-When you reissue at the correct number, your champion is not delivering a corrected quote to their colleagues. They are delivering a price increase, to people who have already seen the first figure and have no context for why it moved. Some of those people are in procurement, whose job includes noticing exactly that.
+Coordinating functional requirements across departments was the most common source of internal friction, 56.9%, followed by budget size and allocation at 51.7%. Configurations tend to grow during that process.
+
+When you reissue at the correct number, your champion is not delivering a corrected quote to their colleagues. They are delivering a price increase, to people who have already seen the first figure and have no context for why it moved.
+
+Some of those people are in procurement, whose job includes noticing exactly that.
 
 You were right on the substance and you still lost standing. This is the most avoidable way to damage a Japanese deal.
 
@@ -48,15 +64,23 @@ You were right on the substance and you still lost standing. This is the most av
 
 The answer is not to withhold pricing. Buyers who cannot estimate operational load are not helped by vagueness.
 
-The first thing to send is a one-page reference price: in yen, excluding tax, annual, and fixed until a stated date. Attach to it what makes the number calculable: seat count, contract term, migration volume, integrations, and how each moves the total. Give them a version they can run themselves.
+The first thing to send is a one-page reference price: in yen, excluding tax, annual, and fixed until a stated date.
 
-How to build that one page, and the survey data showing that these buyers want to produce their own figure rather than be persuaded, are in [Quoting in yen or dollars: what the Japan buyer needs for approval](/en/articles/price-in-yen-or-dollars/). This note covers the next step: when to issue the formal quote.
+Attach to it what makes the number calculable: seat count, contract term, migration volume, integrations, and how each moves the total. Give them a version they can run themselves.
+
+How to build that one page, and the survey data showing that these buyers want to produce their own figure rather than be persuaded, are in [Quoting in yen or dollars: what the Japan buyer needs for approval](/en/articles/price-in-yen-or-dollars/).
+
+This note covers the next step: when to issue the formal quote.
 
 ## The exception: procurement that collects competing quotes early
 
-Some buyers' procurement teams gather formal quotes from several vendors early, and procurement was involved in 32.0% of the purchases in this study. Under some purchasing rules, a reference price or a range does not count as a quote, and a vendor without a formal quote drops off the comparison sheet.
+Some buyers' procurement teams gather formal quotes from several vendors early, and procurement was involved in 32.0% of the purchases in this study.
 
-Do not refuse in that case. Issue the quote, and write the assumed configuration into it (seats, term, migration scope, integrations), together with a statement on the same page that the amount changes if those assumptions change. What then sits in procurement's file is a figure with its assumptions attached, so a later change reads as a change in scope rather than a price increase.
+Under some purchasing rules, a reference price or a range does not count as a quote, and a vendor without a formal quote drops off the comparison sheet.
+
+Do not refuse in that case. Issue the quote, and write the assumed configuration into it (seats, term, migration scope, integrations), together with a statement on the same page that the amount changes if those assumptions change.
+
+What then sits in procurement's file is a figure with its assumptions attached, so a later change reads as a change in scope rather than a price increase.
 
 Start by asking the procurement contact which format and line items their comparison needs.
 
@@ -64,7 +88,9 @@ Start by asking the procurement contact which format and line items their compar
 
 Standard 30-day validity is where a global template quietly breaks in Japan.
 
-In the same survey, 73.5% of these purchases ran longer than the buyer originally planned, and the leading cause was waiting for an executive decision, 63.6% (n=239). Budget approval itself accounted for 31.0%. A quote issued at the start of that sequence expires while the approval is still moving through it.
+In the same survey, 73.5% of these purchases ran longer than the buyer originally planned, and the leading cause was waiting for an executive decision, 63.6% (n=239). Budget approval itself accounted for 31.0%.
+
+A quote issued at the start of that sequence expires while the approval is still moving through it.
 
 Reissuing an expired quote is not a neutral administrative step on the buyer's side. It restarts a document that was already circulating and invites everyone who saw it to look again.
 

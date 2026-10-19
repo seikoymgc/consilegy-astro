@@ -10,11 +10,15 @@ canonLabel: Japan Market GTM and Messaging
 draft: false
 ---
 
-The Japan entity gets the global customer success playbook in its first year, and on paper it runs. Health scores are green. Adoption sits in the normal band. The CSM files quarterly business reviews on schedule.
+The Japan entity gets the global customer success playbook in its first year, and on paper it runs.
+
+Health scores are green. Adoption sits in the normal band. The CSM files quarterly business reviews on schedule.
 
 Then a renewal is lost three months out, on conditions nobody at HQ had heard of. The post-mortem says the Japanese CSM was too junior, or that Japanese customers are hard to read.
 
-Both are wrong. The playbook was written for a person the customer's company has not hired. That is an observation from the field, not something a survey measures. What the data can show is the step before it: the playbook's language does not reach the customer.
+Both are wrong. The playbook was written for a person the customer's company has not hired.
+
+That is an observation from the field, not something a survey measures. What the data can show is the step before it: the playbook's language does not reach the customer.
 
 ## The role your QBR is addressed to does not exist by name
 
@@ -24,13 +28,17 @@ Virtualex Consulting has run an annual Japanese survey on customer success since
 
 Broken out by seniority, 78.6% of company top management had never heard the phrase. 4.6% of them understood it. The highest-scoring layer was executive officers and division heads, at 12.3%.
 
-What these figures establish is a language gap, nothing more. They cannot tell you whether a given account has someone able to explain your value internally. They do tell you that the words "customer success" and "LTV" carry no weight in the room, so write in the customer's own terms instead.
+What these figures establish is a language gap, nothing more.
+
+They cannot tell you whether a given account has someone able to explain your value internally. They do tell you that the words "customer success" and "LTV" carry no weight in the room, so write in the customer's own terms instead.
 
 So when your QBR deck leads with "customer success", "adoption" and "LTV", most Japanese sponsors will be reading vocabulary they have no prior use for. Lead with results against their own numbers.
 
 ## The vocabulary the playbook reports in is not the vocabulary they buy in
 
-The same survey series (part nine, published 25 March 2025) asked 101 executives and managers at companies not practising customer success what outcome would make it worth doing. Profit growth scored 74.3% and revenue growth 70.3%. Maximising lifetime value ranked comparatively low.
+The same survey series (part nine, published 25 March 2025) asked 101 executives and managers at companies not practising customer success what outcome would make it worth doing.
+
+Profit growth scored 74.3% and revenue growth 70.3%. Maximising lifetime value ranked comparatively low.
 
 Two caveats. That question is about running a CS function, not about being a customer of one, and n=101 is small. But it is a usable signal about the language Japanese executives evaluate recurring revenue in.
 
@@ -40,19 +48,29 @@ Global CS playbooks are built on LTV and adoption. Both words are doing the work
 
 HiCustomer's Customer Success White Paper 2023 (fielded 18 to 30 April 2023, 203 valid responses; a CS tooling vendor's own survey, small n, self-reported) found 38.5% saying the handoff from sales to CS was not adequate. Among companies reporting an inadequate handoff, 63.3% had churn of 2% or higher, roughly 1.7 times the rate at companies reporting an adequate one.
 
-That is a correlation, not a cause. Companies with low churn are probably better organised in general, handoffs included. Read alongside the finding that the top initiative contributing to the primary KPI was reviewing the onboarding process, at 25.1% for the second year running, it is still the right place to start.
+That is a correlation, not a cause. Companies with low churn are probably better organised in general, handoffs included.
 
-In a Japan entity the exposure is larger than the number suggests. The global playbook assumes a populated CRM record produced by an SDR, an AE, and a solutions engineer. A three-person Japan team produces a thinner record than that, and the one person who ever met the customer's internal champion is also carrying quota. Nothing about the local operating reality makes the handoff richer. Everything makes it thinner.
+Read alongside the finding that the top initiative contributing to the primary KPI was reviewing the onboarding process, at 25.1% for the second year running, it is still the right place to start.
+
+In a Japan entity the exposure is larger than the number suggests.
+
+The global playbook assumes a populated CRM record produced by an SDR, an AE, and a solutions engineer. A three-person Japan team produces a thinner record than that, and the one person who ever met the customer's internal champion is also carrying quota.
+
+Nothing about the local operating reality makes the handoff richer. Everything makes it thinner.
 
 ## What to change before the first Japanese renewal
 
-**Ship the handoff before the health score.** Four fields, none of which may be blank at kickoff: success criteria in the customer's own words, the named operator on the customer side and their manager, what sales committed verbally, and contract scope. Success criteria and contract scope blank means the handoff does not pass. Do not let it rest on the AE's verbal briefing.
+**Ship the handoff before the health score.** Four fields, none of which may be blank at kickoff: success criteria in the customer's own words, the named operator on the customer side and their manager, what sales committed verbally, and contract scope.
+
+Success criteria and contract scope blank means the handoff does not pass. Do not let it rest on the AE's verbal briefing.
 
 In the CRM, hold the four on the deal and make them exit criteria for the closed-won stage rather than required at creation, since nobody knows them when the deal is opened and the AE does know them at close. After close, copy them from the deal to the account record where CS works.
 
 Customer-side contacts change: when CS hears of a change, the CSM updates the account record that day, and opens each quarterly review by confirming the named operator and manager are still the same people.
 
-**Budget CSM time for the customer's internal renewal document.** In the global playbook, producing a business case is a sales activity. In Japan, a renewal that carries spend goes back through the customer's own written approval process, and the document that decides it is assembled two to three months before the contract end date. In HQ's split of duties, nobody owns that artifact.
+**Budget CSM time for the customer's internal renewal document.** In the global playbook, producing a business case is a sales activity.
+
+In Japan, a renewal that carries spend goes back through the customer's own written approval process, and the document that decides it is assembled two to three months before the contract end date. In HQ's split of duties, nobody owns that artifact.
 
 Note that there is no public primary data on how Japanese B2B renewals are approved; anyone quoting a breakdown is quoting a vendor's own customer list.
 

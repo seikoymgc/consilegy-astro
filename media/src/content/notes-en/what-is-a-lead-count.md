@@ -11,7 +11,9 @@ canonLabel: Japan Market GTM and Messaging
 
 A lead count is the number of prospects that meet a counting rule your company has chosen. **If the rule is not written down, the same month produces a different number in every team.** For a global company, the gap shows up when HQ's dashboard and the Japan team's report disagree on how many leads Japan generated.
 
-This note sets out the three lines that decide a lead count, why they drift in Japan, and how HQ and the Japan entity can fix them in one document. It is the definition piece. How conversion-rate denominators and cut-off dates drift is covered separately in [Your Japan team's conversion rates don't match HQ's? Start with the denominator](/en/articles/define-the-denominator-first/).
+This note sets out the three lines that decide a lead count, why they drift in Japan, and how HQ and the Japan entity can fix them in one document. It is the definition piece.
+
+How conversion-rate denominators and cut-off dates drift is covered separately in [Your Japan team's conversion rates don't match HQ's? Start with the denominator](/en/articles/define-the-denominator-first/).
 
 - Lead counts diverge in three places: the unit, the entry point, and the exclusions and cut-off.
 - The cost is not an argument about numbers. It is distrust between sales and marketing.
@@ -31,7 +33,11 @@ A lead count looks like a tally of prospects. In practice it is a decision about
 
 *Figure: the three lines that define a lead count. If any one differs, the same month yields a different number.*
 
-Take a month reported as 300, 180, and 120 leads (illustrative numbers, not actuals). The 300 counts every inquiry from content downloads onward. The 180 merges repeat inquiries from the same person. The 120 also removes existing customers and internal tests, and keeps only contacts sales can actually reach. All three are correct arithmetic. Nobody has decided which one is "the lead count."
+Take a month reported as 300, 180, and 120 leads (illustrative numbers, not actuals).
+
+The 300 counts every inquiry from content downloads onward. The 180 merges repeat inquiries from the same person. The 120 also removes existing customers and internal tests, and keeps only contacts sales can actually reach.
+
+All three are correct arithmetic. Nobody has decided which one is "the lead count."
 
 Japan adds two sources of drift that HQ definitions rarely anticipate. Business cards collected at trade shows and seminars often enter the CRM as leads in bulk, and company names are written inconsistently, so a company-level count needs matching work first. [Before importing your Japan contact lists, decide three things](/en/articles/clean-lists-before-crm-import/) covers the second problem.
 
@@ -39,7 +45,9 @@ Japan adds two sources of drift that HQ definitions rarely anticipate. Business 
 
 The worst effect of misaligned lines is not the mismatch. It is that nobody can see why the numbers differ, so each side blames the other.
 
-A survey by Softbrain, run by IDEATECH in October 2024 (sales n=159, marketing n=139, 298 in total; a vendor survey with small groups), found that the top complaint from sales about marketing was "lead information is insufficient" at 42.1%, followed by "we don't get the quality and volume of leads we asked for" at 37.1%. In the other direction, 39.6% of marketing respondents said sales does not make effective use of the leads it receives.
+A survey by Softbrain, run by IDEATECH in October 2024 (sales n=159, marketing n=139, 298 in total; a vendor survey with small groups), found that the top complaint from sales about marketing was "lead information is insufficient" at 42.1%, followed by "we don't get the quality and volume of leads we asked for" at 37.1%.
+
+In the other direction, 39.6% of marketing respondents said sales does not make effective use of the leads it receives.
 
 Both sides are talking about the same leads, but each is counting something different, so the discussion slides toward emotion.
 
@@ -69,21 +77,31 @@ The method is simple. The order matters.
 
 **4. Put all three lines on one definition sheet and record approval from each function.** A verbal agreement reverts when people change.
 
-The sheet should also say which CRM object and which date field the count runs on. The same lines can produce different numbers depending on how the tool holds the record: in Salesforce, what happens to a lead after conversion; in HubSpot, how lifecycle stages move. This varies by tool and configuration, so check the count on the actual screen, and make sure HQ's dashboard reads the same field.
+The sheet should also say which CRM object and which date field the count runs on.
 
-Then decide where the counted leads are handed to sales. In the same Fast Marketing survey (2026, n=432), companies with a clear handoff standard that is actually operated reported an order-attainment rate of 84.6%. Companies with no standard and individual discretion reported 51.9%, and companies with no handoff process at all reported 26.1%. That is a gap of more than 30 points, but it is a correlation, not proof that writing a standard raises attainment.
+The same lines can produce different numbers depending on how the tool holds the record: in Salesforce, what happens to a lead after conversion; in HubSpot, how lifecycle stages move. This varies by tool and configuration, so check the count on the actual screen, and make sure HQ's dashboard reads the same field.
+
+Then decide where the counted leads are handed to sales.
+
+In the same Fast Marketing survey (2026, n=432), companies with a clear handoff standard that is actually operated reported an order-attainment rate of 84.6%. Companies with no standard and individual discretion reported 51.9%, and companies with no handoff process at all reported 26.1%.
+
+That is a gap of more than 30 points, but it is a correlation, not proof that writing a standard raises attainment.
 
 Companies with a written standard may simply be better run in other ways too. What the shared document does guarantee is that the counting line and the handoff line cannot drift apart unnoticed, so write the lead lines in the same document as the handoff standard.
 
 ## Changing the definition breaks comparison with the past
 
-Redrawing the lines breaks comparison with earlier numbers. Two steps help. Change definitions only at a quarter boundary, and count one quarter under both the old and new definitions so you leave a conversion factor behind. Record both on the definition sheet's change log. Without this, nobody can explain the year-over-year gap six months later.
+Redrawing the lines breaks comparison with earlier numbers. Two steps help.
+
+Change definitions only at a quarter boundary, and count one quarter under both the old and new definitions so you leave a conversion factor behind. Record both on the definition sheet's change log. Without this, nobody can explain the year-over-year gap six months later.
 
 ## FAQ
 
 ### How is a lead count different from an MQL count?
 
-A lead is the entry count of prospects. An MQL is the subset that marketing has judged ready to hand to sales. If the lead lines are not fixed, the MQL conversion rate changes meaning too. See [Your Japan team's conversion rates don't match HQ's? Start with the denominator](/en/articles/define-the-denominator-first/).
+A lead is the entry count of prospects. An MQL is the subset that marketing has judged ready to hand to sales.
+
+If the lead lines are not fixed, the MQL conversion rate changes meaning too. See [Your Japan team's conversion rates don't match HQ's? Start with the denominator](/en/articles/define-the-denominator-first/).
 
 ### Should leads be counted by person or by company?
 
@@ -91,11 +109,15 @@ In B2B, deals move at the company level, so company is the default. But company 
 
 ### Why do lead counts rise while deals do not?
 
-The entry point is probably wide, so people who only downloaded content outnumber contacts worth a sales call. In Fast Marketing's 2026 survey (n=432), 62.0% reported results that look fine on paper but do not become deals. Review the handoff standard before widening the entry point.
+The entry point is probably wide, so people who only downloaded content outnumber contacts worth a sales call.
+
+In Fast Marketing's 2026 survey (n=432), 62.0% reported results that look fine on paper but do not become deals. Review the handoff standard before widening the entry point.
 
 ### Who should decide the lead definition?
 
-Representatives of marketing, sales, and customer success decide it in the same meeting, with one final decision-maker named in advance for when they split. In a global company, that person also needs to sign off on whether HQ reporting switches to the same definition. Record the decision with approvals on one definition sheet. Because the lead line feeds directly into each function's targets, change the targets in the same approval when the definition changes.
+Representatives of marketing, sales, and customer success decide it in the same meeting, with one final decision-maker named in advance for when they split. In a global company, that person also needs to sign off on whether HQ reporting switches to the same definition.
+
+Record the decision with approvals on one definition sheet. Because the lead line feeds directly into each function's targets, change the targets in the same approval when the definition changes.
 
 ## Related reading
 

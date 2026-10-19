@@ -14,7 +14,9 @@ Your Japan rep reports a strong meeting. The evaluator loves the product. Headqu
 
 Three months later nothing has been submitted. The rep says the customer is still preparing the paperwork, and the deal quietly ages out.
 
-Some deals die of budget freezes or shifting priorities. But in many, your champion is not stalling. Your champion is being asked to author a document they have never written before, for a product they have owned for six weeks, in a format your company has never given them.
+Some deals die of budget freezes or shifting priorities.
+
+But in many, your champion is not stalling. Your champion is being asked to author a document they have never written before, for a product they have owned for six weeks, in a format your company has never given them.
 
 ## The unit of decision in Japan is a document, not a meeting
 
@@ -22,7 +24,9 @@ Global sales methodologies assume a champion who advocates in rooms. Japanese pu
 
 That changes what your champion needs from you. They do not need to be more convinced. They need text they can paste.
 
-Research by Professional Tech Soken (Bengo4.com), surveying 312 CloudSign users between 25 September and 31 October 2024, found that 65.2% see problems with their own approval process. The top three: too many people involved in completing the approval (41.0%), time spent on consultation and groundwork before the document is even written (35.9%), and too broad a range of decisions requiring one (31.6%).
+Research by Professional Tech Soken (Bengo4.com), surveying 312 CloudSign users between 25 September and 31 October 2024, found that 65.2% see problems with their own approval process.
+
+The top three: too many people involved in completing the approval (41.0%), time spent on consultation and groundwork before the document is even written (35.9%), and too broad a range of decisions requiring one (31.6%).
 
 Note that these respondents already use an electronic contracting service, so they sit at the digitised end of the market. The typical Japanese buyer's experience is heavier than these numbers suggest.
 
@@ -30,15 +34,25 @@ The second figure is the one headquarters never sees. The groundwork happens **b
 
 ## The people who stop the deal are people your reps cannot reach
 
-A survey by ProFuture and Macromill of 103 B2B marketing professionals, conducted 3 to 4 February 2026, asked which departments are hardest to reach from outside. The respondents are sellers describing their own reach, not buyers describing their approval routes, so read this as supporting colour rather than a map of who blocks a ringi. The top three were corporate planning (29.1%), IT (27.2%), and HR and general affairs (23.3%). Finance and legal followed.
+A survey by ProFuture and Macromill of 103 B2B marketing professionals, conducted 3 to 4 February 2026, asked which departments are hardest to reach from outside. The respondents are sellers describing their own reach, not buyers describing their approval routes, so read this as supporting colour rather than a map of who blocks a ringi.
 
-In many markets those functions are consulted. In a ringi they are on the routing path. Their objection does not surface in your discovery call, it surfaces as a document that comes back to your champion with a comment, weeks later, without ever reaching your rep.
+The top three were corporate planning (29.1%), IT (27.2%), and HR and general affairs (23.3%). Finance and legal followed.
 
-The same survey found only 9.7% of companies feel they reach decision-making executives directly. That is again a seller-side self-assessment with a small sample, 103 respondents, published by a company that sells media access to executives, so treat the figure as directional. The operating conclusion holds regardless: design the deal on the assumption that your reps will not be in the room when it is decided.
+In many markets those functions are consulted. In a ringi they are on the routing path.
+
+Their objection does not surface in your discovery call, it surfaces as a document that comes back to your champion with a comment, weeks later, without ever reaching your rep.
+
+The same survey found only 9.7% of companies feel they reach decision-making executives directly. That is again a seller-side self-assessment with a small sample, 103 respondents, published by a company that sells media access to executives, so treat the figure as directional.
+
+The operating conclusion holds regardless: design the deal on the assumption that your reps will not be in the room when it is decided.
 
 ## What to hand over
 
-Not a translated deck, and not a finished document either. In the second wave of a joint survey by IDEATECH and Hiroyasu Kitagawa (fielded 25 to 26 May 2026, 330 valid responses, online panel), buyers named the ROI calculator as the most useful decision material at 55.4%. "Approval application support material" scored 14.2%. A polished approval text does not get used just because you wrote it.
+Not a translated deck, and not a finished document either.
+
+In the second wave of a joint survey by IDEATECH and Hiroyasu Kitagawa (fielded 25 to 26 May 2026, 330 valid responses, online panel), buyers named the ROI calculator as the most useful decision material at 55.4%. "Approval application support material" scored 14.2%.
+
+A polished approval text does not get used just because you wrote it.
 
 What gets used is material the buyer can rerun with their own numbers. Read those figures as rank order, not precision.
 
@@ -64,11 +78,15 @@ Make the handover visible on the deal record rather than in the rep's head. Most
 | Business case / ROI material sent | No new field. The email and attachment activity log covers it | Deal owner | When sent |
 | The draft skeleton itself | No new field. Attach it to the deal; whether it was delivered is visible from the attachment | Deal owner | When delivered |
 
-Do not create a separate approval-status field for the ringi handover. The same approval held in two fields means one of them goes stale. How the approval-progress field feeds the forecast is covered in [Forecast your Japan pipeline on approval progress, not rep confidence](/en/articles/forecast-by-approval-not-confidence/).
+Do not create a separate approval-status field for the ringi handover. The same approval held in two fields means one of them goes stale.
+
+How the approval-progress field feeds the forecast is covered in [Forecast your Japan pipeline on approval progress, not rep confidence](/en/articles/forecast-by-approval-not-confidence/).
 
 Neither of the two new fields can be answered when the deal is created, so require them as stage-exit criteria, not at creation.
 
-The decision deadline is the one that changes forecasting. Headquarters asks the Japan team for a close date, and receives a date derived from your fiscal calendar. The date that governs the outcome is the customer's budget cycle and the submission deadline inside their approval process. Nobody has asked for it.
+The decision deadline is the one that changes forecasting. Headquarters asks the Japan team for a close date, and receives a date derived from your fiscal calendar.
+
+The date that governs the outcome is the customer's budget cycle and the submission deadline inside their approval process. Nobody has asked for it.
 
 ## For headquarters
 

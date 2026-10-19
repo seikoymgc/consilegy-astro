@@ -12,13 +12,17 @@ draft: false
 
 Japan usually reaches the board as an entity question. Do we set up a KK, hire a country manager, and fund a year of runway?
 
-So the validation work goes where validation work goes: market size, competitive landscape, price acceptance, a few analyst calls. Six months later the answer is yes. You incorporate, you hire, and four quarters after go-live the Japan pipeline looks nothing like the model.
+So the validation work goes where validation work goes: market size, competitive landscape, price acceptance, a few analyst calls. Six months later the answer is yes.
+
+You incorporate, you hire, and four quarters after go-live the Japan pipeline looks nothing like the model.
 
 The research was not weak. It answered a question that does not decide Japan entry.
 
 ## Demand is something you can establish from your desk
 
-Market size, who else is selling, what Japanese companies already pay: all of that is desk-researchable. So is the fact that more foreign companies are arriving. JETRO's 2025 report on inward investment recorded greenfield investment, the kind that creates a new legal entity, at 4.8 trillion yen, up 15.4% year on year and the highest on record. That is not evidence of demand for your product.
+Market size, who else is selling, what Japanese companies already pay: all of that is desk-researchable. So is the fact that more foreign companies are arriving.
+
+JETRO's 2025 report on inward investment recorded greenfield investment, the kind that creates a new legal entity, at 4.8 trillion yen, up 15.4% year on year and the highest on record. That is not evidence of demand for your product.
 
 What it tells you is that the shortlist your Japanese buyer looks at is getting longer.
 
@@ -32,15 +36,21 @@ In the survey by IDEATECH and Hiroyasu Kitagawa of Demagen Research (published 1
 
 Evaluation ran 3 to 8 months in 63.6% of cases, with about 40% taking six months or more.
 
-Somewhere inside that route, your champion gets handed a set of questions. Can the invoice be issued in yen. Can you issue a qualified invoice under Japan's invoice system. Is there a Japanese-language contract, and what is the governing law. Is there a support window in Japan Standard Time. How does procurement run its credit check and its anti-organised-crime screening on a foreign counterparty.
+Somewhere inside that route, your champion gets handed a set of questions.
 
-None of these are product questions. And they split into two groups that look identical from headquarters: the ones a Japanese entity solves, and the ones it does not. Incorporating before you know the split means the entity gets specified on instinct, and the first budget goes to whichever function your global playbook happens to fund first.
+Can the invoice be issued in yen. Can you issue a qualified invoice under Japan's invoice system. Is there a Japanese-language contract, and what is the governing law. Is there a support window in Japan Standard Time. How does procurement run its credit check and its anti-organised-crime screening on a foreign counterparty.
+
+None of these are product questions.
+
+And they split into two groups that look identical from headquarters: the ones a Japanese entity solves, and the ones it does not. Incorporating before you know the split means the entity gets specified on instinct, and the first budget goes to whichever function your global playbook happens to fund first.
 
 Why this pre-contact stretch has to sit inside the revenue model rather than outside it is covered in [Japan Market GTM and Messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/).
 
 ## Run ten deals with no entity and the map of where they stop is the spec for the entity
 
-You can sell into Japan without an entity. Contract from the foreign parent, sell through a distributor, or use an invoicing agent for yen billing. All three work commercially, but only after tax and legal review. Before the first deal, take at least these questions to Japanese tax and legal advisers:
+You can sell into Japan without an entity.
+
+Contract from the foreign parent, sell through a distributor, or use an invoicing agent for yen billing. All three work commercially, but only after tax and legal review. Before the first deal, take at least these questions to Japanese tax and legal advisers:
 
 - whether your activity in Japan could be treated as a permanent establishment
 - how Japanese consumption tax applies, and whether to register under the invoice system (the buyer's finance team will ask)
@@ -50,7 +60,9 @@ You can sell into Japan without an entity. Contract from the foreign parent, sel
 
 The answers depend on the structure and terms you choose, so this note does not give them. It is not tax or legal advice.
 
-Then take five to ten named prospects and run them to the end. Offer terms you could actually deliver if they sign. The champion spends their own internal effort routing your deal through approval, and a prospect you ran for research only will not take your call twice. Since the goal is not revenue, do not push hard on negotiation.
+Then take five to ten named prospects and run them to the end. Offer terms you could actually deliver if they sign.
+
+The champion spends their own internal effort routing your deal through approval, and a prospect you ran for research only will not take your call twice. Since the goal is not revenue, do not push hard on negotiation.
 
 Record two things: the point at which the deal stopped, and the job title of the person who stopped it.
 
@@ -62,7 +74,9 @@ The distribution tells you what to build.
 - Everything stops at finance: you need yen billing and Japanese payment terms, which is a treasury and billing-vendor decision more than an entity decision.
 - Everything stops at "we like it, but nobody in Japan has done this yet": an entity does not fix that, and no amount of local hiring will.
 
-Two alternatives were on the table and are worth naming. Commission a local research firm for a market study. Or publish a Japanese landing page and watch the response. Both measure demand. Neither measures approvability, and both spend two quarters improving the precision of something you already knew.
+Two alternatives were on the table and are worth naming. Commission a local research firm for a market study. Or publish a Japanese landing page and watch the response.
+
+Both measure demand. Neither measures approvability, and both spend two quarters improving the precision of something you already knew.
 
 ## "Company size mismatch" does not get fixed by incorporating
 
@@ -72,7 +86,9 @@ Registering a company in Tokyo does not add a single Japanese reference. The cou
 
 So the objective of the validation period is not revenue. It is producing one or two customers whose names you are allowed to use.
 
-Decide that before you start, or you will pick the first few accounts on likelihood of closing. The selection criterion is not who will buy. It is who you can name in the next meeting: right industry, right headcount band, using the product the way your target segment would.
+Decide that before you start, or you will pick the first few accounts on likelihood of closing.
+
+The selection criterion is not who will buy. It is who you can name in the next meeting: right industry, right headcount band, using the product the way your target segment would.
 
 **Do not validate Japanese demand before you incorporate. Validate whether a Japanese buyer can get you approved internally, by running live deals with no entity and recording where each one stops and who stopped it.**
 

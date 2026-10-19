@@ -10,31 +10,47 @@ canonLabel: Japan Market GTM and Messaging
 draft: false
 ---
 
-The migration testing had passed. Every field mapped, every workflow fired, every record landed where the spec said it would. One week before go-live, the rehearsal still turned up three people in the Tokyo office who could not log in.
+The migration testing had passed. Every field mapped, every workflow fired, every record landed where the spec said it would.
 
-The cause traced back to how users and permissions had been set up: as a one-to-one match to job titles in the legacy system. In practice, several people held more than one title through concurrent roles, or had changed teams in the last rotation cycle, and their access no longer matched what their title implied. Testing had checked whether the data moved correctly. The rehearsal checked whether those specific people could start their day inside the new system.
+One week before go-live, the rehearsal still turned up three people in the Tokyo office who could not log in.
+
+The cause traced back to how users and permissions had been set up: as a one-to-one match to job titles in the legacy system. In practice, several people held more than one title through concurrent roles, or had changed teams in the last rotation cycle, and their access no longer matched what their title implied.
+
+Testing had checked whether the data moved correctly. The rehearsal checked whether those specific people could start their day inside the new system.
 
 Those are two different questions, and a migration plan that answers only the first will discover the second on go-live morning.
 
 ## A test and a rehearsal are not the same check run twice
 
-Migration testing is done by developers or the implementation vendor, against a script someone wrote in advance. Did this field move. Did this workflow fire. Did this report render. What it confirms is that the system behaves as specified. That is necessary. It is not sufficient.
+Migration testing is done by developers or the implementation vendor, against a script someone wrote in advance. Did this field move. Did this workflow fire. Did this report render.
+
+What it confirms is that the system behaves as specified. That is necessary. It is not sufficient.
 
 A rehearsal is the point where the actual people who will use the system touch it, with their actual permissions, following their actual daily sequence of tasks.
 
 This is where the behaviour the test script never anticipated shows up: someone whose concurrent role puts them in two permission groups at once, someone whose email address changed in a rotation and whose account was provisioned under the old one, a task that took one screen in the legacy system and now needs two screens the person has not yet discovered.
 
-Testing looks at the mechanism. A rehearsal looks at the person. A mechanism that works correctly says nothing about whether a person can get through their first day inside it.
+Testing looks at the mechanism. A rehearsal looks at the person.
+
+A mechanism that works correctly says nothing about whether a person can get through their first day inside it.
 
 ## A sandbox does not close this gap, and HubSpot's own documentation says why
 
 The instinct is to assume this is what the sandbox testing already covered. It is not, and the vendor is explicit about the reason.
 
-HubSpot's documentation on standard sandbox accounts, last updated 27 July 2026, states that integrations connected in the production account are not automatically connected in the sandbox. It also notes that record IDs differ between the sandbox and production environments, and recommends creating a separate "external record ID" property if you need to track how a record in one environment corresponds to a record in the other.
+HubSpot's documentation on standard sandbox accounts, last updated 27 July 2026, states that integrations connected in the production account are not automatically connected in the sandbox.
 
-So a green result in sandbox testing tells you the migration logic works. It does not tell you that the production integration on the other end of that connection behaves the same way, because in most configurations it was never in the loop. The only environment where the production integration, the production permission structure, and the production email domain are all present at once is production itself, one time, before go-live.
+It also notes that record IDs differ between the sandbox and production environments, and recommends creating a separate "external record ID" property if you need to track how a record in one environment corresponds to a record in the other.
 
-That run has one non-negotiable condition: nothing reaches a customer. Touch only test records created internally for the rehearsal. Restrict every email send to internal addresses. Set automations so that records cannot enrol on their own, and enrol the test records by hand. Count, before you start, how many records will be written back to connected systems. When you finish, delete the test records and confirm they are gone from the connected systems too.
+So a green result in sandbox testing tells you the migration logic works. It does not tell you that the production integration on the other end of that connection behaves the same way, because in most configurations it was never in the loop.
+
+The only environment where the production integration, the production permission structure, and the production email domain are all present at once is production itself, one time, before go-live.
+
+That run has one non-negotiable condition: nothing reaches a customer.
+
+Touch only test records created internally for the rehearsal. Restrict every email send to internal addresses. Set automations so that records cannot enrol on their own, and enrol the test records by hand.
+
+Count, before you start, how many records will be written back to connected systems. When you finish, delete the test records and confirm they are gone from the connected systems too.
 
 How you configure each of these depends on the tool and on how the integration was built, but skip any of them and the rehearsal becomes a live send to your Japanese customers, which is a far more expensive finding than three locked-out users.
 
@@ -46,7 +62,9 @@ Two structural features of how Japanese companies staff roles do the damage. Con
 
 Planned job rotation moves people between roles and departments on a schedule the org chart does not reflect in real time, so the "sales manager" account provisioned from the HR feed six weeks ago may now belong to someone doing a different job.
 
-Neither shows up in a rollout plan built around role names, because role names are exactly what stayed stable in the plan while the person behind them changed. It also means the person best placed to catch it, someone doing the actual Japan-side job that week, is rarely on the invite list for a rehearsal HQ scripted centrally for every region.
+Neither shows up in a rollout plan built around role names, because role names are exactly what stayed stable in the plan while the person behind them changed.
+
+It also means the person best placed to catch it, someone doing the actual Japan-side job that week, is rarely on the invite list for a rehearsal HQ scripted centrally for every region.
 
 If nobody representing Japan operations sits in the rehearsal with their real login, the gap carries straight through to go-live morning, and it surfaces first as a support ticket rather than as a finding.
 
@@ -58,11 +76,17 @@ There is still time to fix what the rehearsal finds. Correcting a permission gro
 
 At the same time, a week is short enough that production has not moved underneath the fix. Rehearse a month out and you may cross one of Japan's main rotation dates, typically April or October, along with a permission change and a shift in the legacy data, and the specific problem the rehearsal found may already look different by go-live.
 
-A rehearsal is meant to be the one failure you deliberately have, as close to production as you can get, before the failure that matters. Too close and there is no time left to fix anything. Too far out and you are rehearsing a state that will not exist by the time it counts. One week is close enough to matter and far enough to still act on.
+A rehearsal is meant to be the one failure you deliberately have, as close to production as you can get, before the failure that matters.
 
-One week assumes the fixes are light: a permission group, a notification recipient. If the migration is large enough that a data reload is a realistic outcome, one rehearsal a week out cannot absorb it. Schedule an earlier full rehearsal as well, and keep the one-week run for confirmation.
+Too close and there is no time left to fix anything. Too far out and you are rehearsing a state that will not exist by the time it counts. One week is close enough to matter and far enough to still act on.
 
-Decide two things before the rehearsal starts: what findings would postpone go-live, and who makes that call. A reasonable line is any issue that stops work, such as users who still cannot log in, people who cannot see their own deals, or an integration that stops, and that cannot be fixed and re-checked before go-live. The call belongs to the project owner and the business owner on the Japan side, together.
+One week assumes the fixes are light: a permission group, a notification recipient. If the migration is large enough that a data reload is a realistic outcome, one rehearsal a week out cannot absorb it.
+
+Schedule an earlier full rehearsal as well, and keep the one-week run for confirmation.
+
+Decide two things before the rehearsal starts: what findings would postpone go-live, and who makes that call.
+
+A reasonable line is any issue that stops work, such as users who still cannot log in, people who cannot see their own deals, or an integration that stops, and that cannot be fixed and re-checked before go-live. The call belongs to the project owner and the business owner on the Japan side, together.
 
 Without that agreed in advance, the severity of whatever the rehearsal finds gets debated the day before launch.
 
@@ -80,7 +104,9 @@ The design decisions that produce a clean migration in the first place are cover
 
 **A migration test checks whether the system works to specification. A rehearsal checks whether a real person, in their real Japan role, can start their day inside it. One week before go-live is the window that leaves time to fix what breaks without letting the environment drift.**
 
-This week, look at who is invited to your next rehearsal. If the list is developers and administrators only, that is a second migration test wearing a different name. Add at least one person holding a genuinely representative combination of Japan-side roles, and give them their real login before go-live day does.
+This week, look at who is invited to your next rehearsal.
+
+If the list is developers and administrators only, that is a second migration test wearing a different name. Add at least one person holding a genuinely representative combination of Japan-side roles, and give them their real login before go-live day does.
 
 ## Common mistakes
 

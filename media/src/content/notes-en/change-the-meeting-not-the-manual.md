@@ -18,15 +18,21 @@ The place to intervene is not the documentation. It is the weekly sales meeting 
 
 ## In Japan, the status is collected verbally, so the record is optional
 
-Ask how the local weekly meeting runs. In most Japan offices, the manager asks each rep where a deal stands and the reps answer out loud. The information is gathered in the room. Once that is true, the CRM is a system that no one has to open in order to get through the week, and updating it becomes a favour to HQ rather than part of the job.
+Ask how the local weekly meeting runs. In most Japan offices, the manager asks each rep where a deal stands and the reps answer out loud. The information is gathered in the room.
 
-That the system ends up partly used is not unusual. In a survey by Hammock (fielded 30 September to 2 October 2021, n=305, executives and board members at Japanese companies with 300 or more employees that had deployed an SFA; Hammock is an SFA vendor and the survey is now several years old), 27.6% said they were using all of the functionality, 49.8% said they were using some of it, 7.5% said they only entered data, and 5.9% said they were no longer using it at all.
+Once that is true, the CRM is a system that no one has to open in order to get through the week, and updating it becomes a favour to HQ rather than part of the job.
+
+That the system ends up partly used is not unusual.
+
+In a survey by Hammock (fielded 30 September to 2 October 2021, n=305, executives and board members at Japanese companies with 300 or more employees that had deployed an SFA; Hammock is an SFA vendor and the survey is now several years old), 27.6% said they were using all of the functionality, 49.8% said they were using some of it, 7.5% said they only entered data, and 5.9% said they were no longer using it at all.
 
 What separates those groups is not feature depth. It is whether the data entered is consumed anywhere the person entering it can see.
 
 ## Do not add process. The Japan team has no one to run it
 
-The usual HQ fix is a new cadence: a data-hygiene routine, a weekly CRM review, a local admin checklist. Expect it to lapse. A new ritual needs someone to run it every week, and a Japan team at entry stage is small, with people holding two or three roles. Unless you have named and funded that owner, the meeting survives on the calendar after its content is gone.
+The usual HQ fix is a new cadence: a data-hygiene routine, a weekly CRM review, a local admin checklist. Expect it to lapse.
+
+A new ritual needs someone to run it every week, and a Japan team at entry stage is small, with people holding two or three roles. Unless you have named and funded that owner, the meeting survives on the calendar after its content is gone.
 
 So change the input source of three things that already happen, and add nothing.
 
@@ -46,7 +52,11 @@ Do not change all three at once. Start with the weekly sales meeting, and only t
 
 The meeting reads them top to bottom. The first list confirms what moved, the second decides whether the forecast changes, the third decides who does what next. How you build each filter depends on the tool and its configuration, but once saved, they are opened, not rebuilt, every week.
 
-Settle the exceptions before week one. Entry closes at the end of the working day before the meeting. If a rep is travelling and cannot update a large deal, their manager or an assistant may enter it for them. What does not happen is a verbal update added to the agenda in the room. Allow it once and the meeting tends to drift back to verbal status the following week.
+Settle the exceptions before week one.
+
+Entry closes at the end of the working day before the meeting. If a rep is travelling and cannot update a large deal, their manager or an assistant may enter it for them.
+
+What does not happen is a verbal update added to the agenda in the room. Allow it once and the meeting tends to drift back to verbal status the following week.
 
 ## What makes it hold is that the rep, not HQ, is the one inconvenienced
 
@@ -58,7 +68,9 @@ Once the agenda can only be assembled from the record, an unrecorded deal gets n
 
 Ask your Japan lead to build the next weekly agenda entirely from the CRM. Whatever cannot be built from it is not an entry gap; it is a field that no one is using to make a decision, and it can be removed.
 
-A CRM is not held to tidy information. It is held to fix who decides what, and when, inside the local organisation. The wider frame is in [Japan Market GTM and Messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/).
+A CRM is not held to tidy information. It is held to fix who decides what, and when, inside the local organisation.
+
+The wider frame is in [Japan Market GTM and Messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/).
 
 ## Related reading
 

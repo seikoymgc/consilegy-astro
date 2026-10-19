@@ -20,7 +20,9 @@ Run a second axis next to the sales stage that tracks how far the approval has a
 
 Japanese B2B marketers describe the same gap from their side. In a survey by ProFuture and Macromill conducted on 3 and 4 February 2026 (n=103, employees working in B2B marketing roles in Japan; a self-run survey by a B2B marketing services provider with a small sample, so read it as directional), only 9.7% said their programmes reach decision-makers adequately.
 
-The respondents are sellers rating their own marketing, not reps reporting on individual deals, so it does not tell you who your team has met. It does suggest that, seen from the selling side, the signer is the hard person to reach. Your CRM says "in negotiation." That does not mean anything has moved inside the account.
+The respondents are sellers rating their own marketing, not reps reporting on individual deals, so it does not tell you who your team has met. It does suggest that, seen from the selling side, the signer is the hard person to reach.
+
+Your CRM says "in negotiation." That does not mean anything has moved inside the account.
 
 ## In Japan, the gap between evaluator and approver is structural
 
@@ -36,15 +38,25 @@ Do not try to calibrate rep confidence. Add an axis.
 
 Define the approval ladder as stages your local team can observe: the working level agrees, the department head approves, the executive approves, the approval is complete. Keep the sales stage exactly as it is.
 
-Take the lower of the two. A deal at 90% sales confidence sitting at "department head approves" is carried at that rung's weight, not at 90%. That single rule stops the higher number from setting the forecast.
+Take the lower of the two.
 
-Write the exclusion rule down by deal size, before you need it. If every deal must reach executive approval, deals small enough for a department head to sign drop out of the commit for no reason. Set the required rung per deal-size band (this band closes at department head, this one at executive), then write: a deal that has not reached the rung its size requires is not in this quarter's commit.
+A deal at 90% sales confidence sitting at "department head approves" is carried at that rung's weight, not at 90%. That single rule stops the higher number from setting the forecast.
 
-It stays in the pipeline, and it stays in the weighted forecast at its rung's weight. It only leaves the commit. If your CRM has forecast categories, express the rule there: below the required rung, never Commit.
+Write the exclusion rule down by deal size, before you need it. If every deal must reach executive approval, deals small enough for a department head to sign drop out of the commit for no reason.
 
-Decide who updates the axis and when. The rep updates the approval rung on the same screen when moving the sales stage, and the manager checks rung and evidence in the weekly forecast call. That adds one field for the rep, so look for an optional field you can retire at the same time.
+Set the required rung per deal-size band (this band closes at department head, this one at executive), then write: a deal that has not reached the rung its size requires is not in this quarter's commit.
 
-Switch at the start of a quarter. Changing the logic mid-quarter breaks the comparison with past forecast accuracy. For the first quarter, report the confidence-based number and the approval-based number side by side, check which landed closer, and only then retire the old one.
+It stays in the pipeline, and it stays in the weighted forecast at its rung's weight. It only leaves the commit.
+
+If your CRM has forecast categories, express the rule there: below the required rung, never Commit.
+
+Decide who updates the axis and when. The rep updates the approval rung on the same screen when moving the sales stage, and the manager checks rung and evidence in the weekly forecast call.
+
+That adds one field for the rep, so look for an optional field you can retire at the same time.
+
+Switch at the start of a quarter. Changing the logic mid-quarter breaks the comparison with past forecast accuracy.
+
+For the first quarter, report the confidence-based number and the approval-based number side by side, check which landed closer, and only then retire the old one.
 
 ## Stalled deals do not come back
 

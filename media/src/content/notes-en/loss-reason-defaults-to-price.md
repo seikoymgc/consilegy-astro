@@ -10,7 +10,9 @@ canonLabel: Japan Market GTM and Messaging
 draft: false
 ---
 
-The quarterly review shows the Japan closed-lost breakdown. Price is the top reason, by a wide margin. Headquarters approves a discount band for the region, and the next quarter looks exactly the same.
+The quarterly review shows the Japan closed-lost breakdown. Price is the top reason, by a wide margin.
+
+Headquarters approves a discount band for the region, and the next quarter looks exactly the same.
 
 The local reps are not hiding anything. Your global picklist has no value that describes what actually happened.
 
@@ -18,11 +20,17 @@ Rebuild the list around what Japanese buyers drop you for, and give "internal ap
 
 ## The picklist was designed for a different failure mode
 
-Many global CRM instances carry some version of the same closed-lost values: price, competitor, no budget, timing, other. That list encodes an assumption. It assumes deals are lost to someone else who won them.
+Many global CRM instances carry some version of the same closed-lost values: price, competitor, no budget, timing, other.
 
-In a Japanese deal, the common ending is different. The evaluation went well, the champion was convinced, and then the request sat at the department head for three months and quietly expired. Nobody won it.
+That list encodes an assumption. It assumes deals are lost to someone else who won them.
 
-Faced with that, a rep picks the closest available value. Usually price or timing. Headquarters then reads a market signal that was never there and responds with the one lever the report seems to justify. Discounting does not move an approval chain.
+In a Japanese deal, the common ending is different.
+
+The evaluation went well, the champion was convinced, and then the request sat at the department head for three months and quietly expired. Nobody won it.
+
+Faced with that, a rep picks the closest available value. Usually price or timing.
+
+Headquarters then reads a market signal that was never there and responds with the one lever the report seems to justify. Discounting does not move an approval chain.
 
 ## What Japanese buyers say when they drop you
 
@@ -30,15 +38,23 @@ A joint survey by IDEATECH and Hiroyasu Kitagawa (published April 2026, n=307, l
 
 The top answers were missing functionality for the buyer's problem at 39.1%, the vendor not fitting the buyer's company size at 34.5%, and no customer example resembling the buyer at 26.4%.
 
-The second and third have no equivalent in a standard picklist. Neither is price and neither is a competitor. Both describe evidence your Japan team was never given. They sit on the same axis, so the list below holds them as one value.
+The second and third have no equivalent in a standard picklist. Neither is price and neither is a competitor.
 
-The same survey found the leading reason a vendor made the shortlist was having a customer example of similar size, at 44.3% (n=298 for that question). The reason buyers drop you and the reason they keep you are two sides of one axis. If the field cannot record that axis, no amount of loss data will point at it.
+Both describe evidence your Japan team was never given. They sit on the same axis, so the list below holds them as one value.
+
+The same survey found the leading reason a vendor made the shortlist was having a customer example of similar size, at 44.3% (n=298 for that question).
+
+The reason buyers drop you and the reason they keep you are two sides of one axis. If the field cannot record that axis, no amount of loss data will point at it.
 
 ## "Lost to competitor" is on the list. "No one decided" is not
 
-Deals are lost in two ways: someone else wins them, or nobody decides and they expire. The deal that sat at the department head for three months is the second kind. Yet "lost to competitor" is in nearly every default list, while "no decision" is often missing, and where it exists it cannot say where the decision stopped.
+Deals are lost in two ways: someone else wins them, or nobody decides and they expire. The deal that sat at the department head for three months is the second kind.
 
-Japan, in our reading, makes "no decision" more likely. That is an inference: as the section below notes, there is no Japanese data on the share of no-decision losses. What we can point to is the number of approval layers. In the IDEATECH survey, 60.9% of purchases required two approval layers and more than 80% required two or more. Each additional layer is another place the deal can stop without anyone rejecting it.
+Yet "lost to competitor" is in nearly every default list, while "no decision" is often missing, and where it exists it cannot say where the decision stopped.
+
+Japan, in our reading, makes "no decision" more likely. That is an inference: as the section below notes, there is no Japanese data on the share of no-decision losses.
+
+What we can point to is the number of approval layers. In the IDEATECH survey, 60.9% of purchases required two approval layers and more than 80% required two or more. Each additional layer is another place the deal can stop without anyone rejecting it.
 
 ## Five values, and one of them is the approval
 
@@ -50,15 +66,23 @@ The list we implement has five entries.
 4. Lost to a named competitor
 5. The buyer's project itself stopped
 
-Budget is not on the list. In Japan, "no budget" usually means the deal missed the customer's budget cycle, so park it as on hold with the next budget-setting month as the restart date rather than closing it lost; the reasoning is in [“No budget” in Japan: check the amount and the timing](/en/articles/no-budget-means-no-slot/). If your global list already has a budget value, rename it "budget timing (move to on hold)" and route it to on hold, not closed-lost.
+Budget is not on the list. In Japan, "no budget" usually means the deal missed the customer's budget cycle, so park it as on hold with the next budget-setting month as the restart date rather than closing it lost; the reasoning is in [“No budget” in Japan: check the amount and the timing](/en/articles/no-budget-means-no-slot/).
 
-Removing price leaves reps unsure where real price losses go, so set the boundary up front. A cheaper competitor won: value four, with the price gap in one line of free text. The amount did not clear the customer's approval: value two, with the layer it stopped at, usually finance or an executive. Budget timing: on hold, not lost.
+If your global list already has a budget value, rename it "budget timing (move to on hold)" and route it to on hold, not closed-lost.
+
+Removing price leaves reps unsure where real price losses go, so set the boundary up front.
+
+A cheaper competitor won: value four, with the price gap in one line of free text. The amount did not clear the customer's approval: value two, with the layer it stopped at, usually finance or an executive. Budget timing: on hold, not lost.
 
 Three operating rules keep it honest.
 
-If you keep "other," make free text mandatory, promote any answer that appears three or more times in a month to its own value, and deactivate any value nobody has chosen in six months, so it cannot be selected on new records. The picklist is a design artifact you revise each quarter, not a fixed schema.
+If you keep "other," make free text mandatory, promote any answer that appears three or more times in a month to its own value, and deactivate any value nobody has chosen in six months, so it cannot be selected on new records.
 
-When a rep selects the second value, require one more field: which layer it stopped at, chosen from department head, executive, IT, legal, or finance. That single field is what tells you whether Japan needs a security review pack or an ROI worksheet, and it is invisible today.
+The picklist is a design artifact you revise each quarter, not a fixed schema.
+
+When a rep selects the second value, require one more field: which layer it stopped at, chosen from department head, executive, IT, legal, or finance.
+
+That single field is what tells you whether Japan needs a security review pack or an ROI worksheet, and it is invisible today.
 
 For the fourth value, require the competitor's name. If your team cannot name one, it belongs in value five. Most "we lost to a competitor" reports in Japan disappear at this step.
 

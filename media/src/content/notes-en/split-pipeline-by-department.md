@@ -20,7 +20,9 @@ Ask one question first: **do deals in Japan exit each stage on different conditi
 
 Global pipelines are named after seller actions. Demo delivered. Proposal sent. Negotiation. Those names work in markets where the deal moves when the seller moves.
 
-In Japan the deal moves when a document moves. Research by IDEATECH and Hiroyasu Kitagawa, published 16 April 2026, surveying 307 people in Japan who took part in a B2B purchase of at least ¥3 million alongside at least one colleague, found that 60.9% of purchases required two approval stages and more than 80% required two or more. Consideration ran three to eight months in 63.6% of cases, with roughly 40% taking six months or more.
+In Japan the deal moves when a document moves.
+
+Research by IDEATECH and Hiroyasu Kitagawa, published 16 April 2026, surveying 307 people in Japan who took part in a B2B purchase of at least ¥3 million alongside at least one colleague, found that 60.9% of purchases required two approval stages and more than 80% required two or more. Consideration ran three to eight months in 63.6% of cases, with roughly 40% taking six months or more.
 
 So a Japanese deal parks at "Proposal sent" for four months. Nothing in your CRM changes, because in your CRM nothing has happened. The proposal was already sent.
 
@@ -32,9 +34,13 @@ A separate pipeline does not add that representation. It just moves the blank sp
 
 A separate pipeline needs a mapping back to the shared forecast. Without it, the regional review cannot reliably compare stages.
 
-Headquarters will keep saying Japan is slow. With one pipeline, that claim is testable: you can compare stage-by-stage duration against other regions and see whether Japan is slower in discovery, slower in evaluation, or slower only after the proposal. Each of those has a different fix, and two of them are your fault, not the market's.
+Headquarters will keep saying Japan is slow.
 
-With two pipelines and different stage names, the claim becomes unfalsifiable. "Japan is slow" turns into a permanent line in the board deck, and no one can show which part is slow. The regional plan then gets built on a description instead of a diagnosis.
+With one pipeline, that claim is testable: you can compare stage-by-stage duration against other regions and see whether Japan is slower in discovery, slower in evaluation, or slower only after the proposal. Each of those has a different fix, and two of them are your fault, not the market's.
+
+With two pipelines and different stage names, the claim becomes unfalsifiable. "Japan is slow" turns into a permanent line in the board deck, and no one can show which part is slow.
+
+The regional plan then gets built on a description instead of a diagnosis.
 
 ## Four fields, not a second pipeline
 
@@ -51,7 +57,9 @@ Four fields cost an afternoon of configuration. A second pipeline costs you the 
 
 There is one case where a second pipeline in Japan is the right call: partner and reseller deals, where the exit criteria genuinely differ because the partner, not your rep, controls the steps.
 
-Even then, split the pipeline but keep two things common with the global one: the closed-won and closed-lost definitions, and the loss-reason picklist. If those two are shared, five pipelines still roll up into one forecast. If they are not, one pipeline will not save you.
+Even then, split the pipeline but keep two things common with the global one: the closed-won and closed-lost definitions, and the loss-reason picklist.
+
+If those two are shared, five pipelines still roll up into one forecast. If they are not, one pipeline will not save you.
 
 Write the exit condition of each stage as a single sentence, for the global pipeline and for the proposed Japan pipeline. Who does what, and then the deal advances.
 

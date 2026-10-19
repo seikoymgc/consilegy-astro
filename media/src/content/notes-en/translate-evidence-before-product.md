@@ -18,11 +18,15 @@ Volume was not the problem. The queue was ordered by what your global site happe
 
 ## Your Japanese pages get read in the hours nobody from your team is in the room
 
-In Japanese enterprise purchases, the buyer is already well into the process before a vendor is properly engaged. In the survey by IDEATECH and Hiroyasu Kitagawa of Demagen Research (published 16 April 2026, fielded 23 to 26 March 2026, n=307, restricted to people who took part with at least one colleague in a Japanese purchase of business software worth 3 million yen or more, and run as survey-as-PR, so read it for order of magnitude), the process was on average about 40% complete by the time a vendor was engaged, and roughly 90% of buyers had already assembled a shortlist of multiple vendors.
+In Japanese enterprise purchases, the buyer is already well into the process before a vendor is properly engaged.
+
+In the survey by IDEATECH and Hiroyasu Kitagawa of Demagen Research (published 16 April 2026, fielded 23 to 26 March 2026, n=307, restricted to people who took part with at least one colleague in a Japanese purchase of business software worth 3 million yen or more, and run as survey-as-PR, so read it for order of magnitude), the process was on average about 40% complete by the time a vendor was engaged, and roughly 90% of buyers had already assembled a shortlist of multiple vendors.
 
 So the Japanese pages are consumed in the stretch where you have no representative present. Whatever was missing there never reaches your rep, because the buyer who found it missing did not contact you.
 
-This is why regional reporting on a launch is misleading. The Japan team reports on meetings and pipeline, which are the events that happen after the shortlist. The loss happened before it, and nothing in your CRM records it. What that pre-contact stretch does to a revenue model is covered in [Japan Market GTM and Messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/).
+This is why regional reporting on a launch is misleading. The Japan team reports on meetings and pipeline, which are the events that happen after the shortlist. The loss happened before it, and nothing in your CRM records it.
+
+What that pre-contact stretch does to a revenue model is covered in [Japan Market GTM and Messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/).
 
 ## What they cannot work out alone is the cost of running you, not the feature list
 
@@ -32,15 +36,25 @@ Top answer: estimating the operational load after go-live, 56.3%. Then feature c
 
 Asked which content actually helped them decide, the top answer was an ROI calculator at 55.4%, followed by success stories from their own industry and company size at 46.5%. Asked what had no influence, they named generic industry trend reports at 49.5% and feature comparison tables at 46.2%.
 
-Feature comparison appears on both lists. That is not a contradiction. Listing features is not the hard part. Working out what those features mean for the way their own operation runs is, and a comparison table does not do that work. Localise the table and you have a Japanese-language artifact that gets read and changes nothing.
+Feature comparison appears on both lists. That is not a contradiction.
+
+Listing features is not the hard part. Working out what those features mean for the way their own operation runs is, and a comparison table does not do that work.
+
+Localise the table and you have a Japanese-language artifact that gets read and changes nothing.
 
 ## A minimalist global page, translated well, is still a page that is missing information
 
 Global brand systems tend to be refined by subtraction. Short copy, generous whitespace, one abstract claim per screen. It is usually the strongest asset the company has.
 
-Japanese evaluators want the opposite: specification detail, named precedents, and a clear picture of who operates the thing after go-live and how much of their time it takes. This is not a taste difference. It is the difference between deciding for yourself and having to explain the decision to other people. The buyer can be personally convinced and still stall, because what they can circulate internally is three sentences and a hero image.
+Japanese evaluators want the opposite: specification detail, named precedents, and a clear picture of who operates the thing after go-live and how much of their time it takes.
 
-On a Japan launch for a global commerce and technology company, the longest part of the work was not translation. It was negotiating with the headquarters brand team about density. The information the Japan side needed to add was classified, in the global design system, as something you do not put on a page. It looked like a translation project and was actually an information design negotiation.
+This is not a taste difference. It is the difference between deciding for yourself and having to explain the decision to other people.
+
+The buyer can be personally convinced and still stall, because what they can circulate internally is three sentences and a hero image.
+
+On a Japan launch for a global commerce and technology company, the longest part of the work was not translation. It was negotiating with the headquarters brand team about density.
+
+The information the Japan side needed to add was classified, in the global design system, as something you do not put on a page. It looked like a translation project and was actually an information design negotiation.
 
 We cannot give a figure here for how much inbound moved after the order changed on that launch. What we can say is where the time went.
 
@@ -58,7 +72,9 @@ Three steps.
 2. Localise only the material that answers those three buckets: similar-size references, the headcount and skills needed to operate the product after go-live, and a cost breakdown someone can put in front of finance.
 3. Put the full product catalogue at the back of the queue.
 
-The reasons for step 1 come from two places. Deals lost after your rep engaged carry a loss reason in the CRM. But the loss this note is about happened before engagement, and those buyers never became opportunities. For them, read the free text in inquiry forms, webinar Q&A, the first questions asked in first meetings, and what partners hear in the market. Each shows what the buyer could not confirm on their own.
+The reasons for step 1 come from two places. Deals lost after your rep engaged carry a loss reason in the CRM.
+
+But the loss this note is about happened before engagement, and those buyers never became opportunities. For them, read the free text in inquiry forms, webinar Q&A, the first questions asked in first meetings, and what partners hear in the market. Each shows what the buyer could not confirm on their own.
 
 If the Japan loss-reason field is mostly "other" or blank, it cannot be sorted; fix the picklist first. If the launch is too recent to have even five losses, borrow the loss reasons from other regions and the reasons you lose competitive comparisons, set a provisional order, and replace it as Japanese data accumulates.
 

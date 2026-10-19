@@ -16,7 +16,11 @@ The reflex at HQ is to add a view. It rarely works, because the missing piece is
 
 ## Visibility is not the constraint in Japan
 
-Japanese sales organisations are close to evenly split on whether they decide with data at all. In HubSpot Japan's annual survey (published 19 February 2024, fielded 24 to 27 November 2023, n=1,545 sellers at companies with 51 to 5,000 employees, commissioned by HubSpot and fielded by Macromill), 44.5% said their organisation prioritises data in how it runs, evaluates and decides on sales activity, and 55.5% said it prioritises human judgement. That question does not ask whether thresholds exist.
+Japanese sales organisations are close to evenly split on whether they decide with data at all.
+
+In HubSpot Japan's annual survey (published 19 February 2024, fielded 24 to 27 November 2023, n=1,545 sellers at companies with 51 to 5,000 employees, commissioned by HubSpot and fielded by Macromill), 44.5% said their organisation prioritises data in how it runs, evaluates and decides on sales activity, and 55.5% said it prioritises human judgement.
+
+That question does not ask whether thresholds exist.
 
 What it does tell HQ is that a data-first decision is not a default you can assume in Japan, so showing the number is not the same as getting it used.
 
@@ -24,9 +28,13 @@ What it does tell HQ is that a data-first decision is not a default you can assu
 
 A Japanese decision usually has to survive more than one approval layer. In the IDEATECH and Hiroyasu Kitagawa joint study (published April 2026, n=307, restricted to people who took part in a B2B purchase of 3 million yen or more alongside at least one colleague), 60.9% of purchases required two approval stages and more than 80% required two or more.
 
-That study describes buying decisions, not internal reporting. But the mechanism is the same one your Japan team faces internally when they ask for budget, headcount or a pricing exception. The person who reads your dashboard is not the person who approves. They have to carry the number upward, in writing, to someone who has never seen the view.
+That study describes buying decisions, not internal reporting. But the mechanism is the same one your Japan team faces internally when they ask for budget, headcount or a pricing exception.
 
-A number travels through that structure only when it arrives with a rule attached. "Pipeline coverage is 2.4x" invites debate at every layer. "Coverage below 3x for two consecutive months triggers a demand-generation review" is something a manager can put in a request and get signed.
+The person who reads your dashboard is not the person who approves. They have to carry the number upward, in writing, to someone who has never seen the view.
+
+A number travels through that structure only when it arrives with a rule attached.
+
+"Pipeline coverage is 2.4x" invites debate at every layer. "Coverage below 3x for two consecutive months triggers a demand-generation review" is something a manager can put in a request and get signed.
 
 ## Write one line per metric, then cut the rest
 
@@ -38,9 +46,13 @@ The order matters. Write the rule first, then keep only the numbers needed to te
 
 The numbers are examples. Set yours from your own history.
 
-Put each line next to the number it governs. Written anywhere else, it is forgotten by next month. If your dashboard components have a description field, write it there, and if you can draw a target line, draw the threshold. Which of these is available depends on your tool and edition. If neither is, open every review deck with a one-page list of metrics and their lines, with the name of whoever wrote each rule.
+Put each line next to the number it governs. Written anywhere else, it is forgotten by next month.
 
-Three rules that someone owns beat nine dashboards that no one opens. Note also that in the HubSpot survey above, internal meetings and internal reporting have ranked at the top of wasteful activities in all five annual rounds. A view built for reporting adds reporting time.
+If your dashboard components have a description field, write it there, and if you can draw a target line, draw the threshold. Which of these is available depends on your tool and edition. If neither is, open every review deck with a one-page list of metrics and their lines, with the name of whoever wrote each rule.
+
+Three rules that someone owns beat nine dashboards that no one opens.
+
+Note also that in the HubSpot survey above, internal meetings and internal reporting have ranked at the top of wasteful activities in all five annual rounds. A view built for reporting adds reporting time.
 
 ## The principle
 

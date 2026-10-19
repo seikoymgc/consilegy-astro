@@ -44,19 +44,27 @@ Neither of those moves with media spend. You would be sending more people to the
 
 ## Split the losses before you size the budget
 
-One caveat first: your loss data can only show half of this. A buyer who cut you after talking to your rep is in the closed-lost list. A buyer who cut you before ever contacting you is not in your CRM at all. So you need two instruments.
+One caveat first: your loss data can only show half of this.
 
-For the half you can see, open last quarter's Japanese losses and non-responses, and sort them by whether the buyer named you first or you named yourself. Named you first means you were on the shortlist; you named yourself means you were not. If your lead source field (Original Source in HubSpot, Lead Source in Salesforce) already separates inbound from rep-sourced, use it. If not, add one picklist to the deal.
+A buyer who cut you after talking to your rep is in the closed-lost list. A buyer who cut you before ever contacting you is not in your CRM at all. So you need two instruments.
+
+For the half you can see, open last quarter's Japanese losses and non-responses, and sort them by whether the buyer named you first or you named yourself. Named you first means you were on the shortlist; you named yourself means you were not.
+
+If your lead source field (Original Source in HubSpot, Lead Source in Salesforce) already separates inbound from rep-sourced, use it. If not, add one picklist to the deal.
 
 The answer is known at the first meeting, so it costs the Japan team almost nothing to fill.
 
-For the half you cannot see, estimate it from outside the loss list. In marketing automation, count Japanese companies that downloaded material or viewed the pricing page and never became an opportunity. And ask won and lost Japanese customers how many vendors they first listed and where they heard of each. Together these give you a rough size for the buyers who shortlisted you and never called.
+For the half you cannot see, estimate it from outside the loss list.
+
+In marketing automation, count Japanese companies that downloaded material or viewed the pricing page and never became an opportunity. And ask won and lost Japanese customers how many vendors they first listed and where they heard of each. Together these give you a rough size for the buyers who shortlisted you and never called.
 
 If resolution is the bigger pile, have the Japan marketing owner rebuild the Japanese case library by company size crossed with industry rather than by industry alone. In the same survey, industry-specific information was decisive for 16.9% of buyers and reinforced the decision for another 45.6%, so 62.5% were influenced by it.
 
 A translated wall of global enterprise logos does not answer the question a Japanese buyer is actually asking, which is whether a company shaped like theirs solved this.
 
-If reach is the bigger pile, then fund reach, but not into last year's channels. The same survey found 91.2% of buyers used generative AI or AI search during evaluation, mostly for comparison and price research. The place where Japanese shortlists get assembled has moved. Most media plans have not.
+If reach is the bigger pile, then fund reach, but not into last year's channels. The same survey found 91.2% of buyers used generative AI or AI search during evaluation, mostly for comparison and price research.
+
+The place where Japanese shortlists get assembled has moved. Most media plans have not.
 
 This is the same work as getting your [Japan GTM and messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/) right, because both the case library and the positioning have to come from Japanese deals rather than translation.
 

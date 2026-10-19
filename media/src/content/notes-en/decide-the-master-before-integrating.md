@@ -10,9 +10,13 @@ canonLabel: Japan Market GTM and Messaging
 draft: false
 ---
 
-Your Japan team keeps its customer records somewhere else. Usually kintone, sometimes a domestic sales-management package, often a spreadsheet that has been maintained for a decade. HQ has standardised on a global CRM and wants Japan connected to it.
+Your Japan team keeps its customer records somewhere else. Usually kintone, sometimes a domestic sales-management package, often a spreadsheet that has been maintained for a decade.
 
-The integration project opens, a connector is evaluated, and then it stalls. The status report says the tool is being assessed. That is not what is happening.
+HQ has standardised on a global CRM and wants Japan connected to it.
+
+The integration project opens, a connector is evaluated, and then it stalls. The status report says the tool is being assessed.
+
+That is not what is happening.
 
 What is happening is that nobody has answered two questions: which single field says these two records are the same customer, and which system is right when the two disagree.
 
@@ -20,19 +24,31 @@ What is happening is that nobody has answered two questions: which single field 
 
 Most global CRM integrations quietly assume the individual email address is the identifier. That assumption holds in a lot of markets. It holds much less well in a Japanese B2B customer master.
 
-Records inherited from years of trade-show badges, 名刺 (business card) exchanges, and phone-based account management routinely carry a company name, a main switchboard number, a department, and a family name, with no individual email address at all. HubSpot's contact sync, for example, syncs only contacts with a valid email address by default; including the rest requires a deliberate configuration change and a decision about what happens to them ([HubSpot knowledge base, "Connect and use HubSpot data sync"](https://knowledge.hubspot.com/integrations/connect-and-use-hubspot-data-sync)).
+Records inherited from years of trade-show badges, 名刺 (business card) exchanges, and phone-based account management routinely carry a company name, a main switchboard number, a department, and a family name, with no individual email address at all.
 
-There is a second constraint that surprises teams used to writing their own matching logic. When you choose your own fields for record matching in HubSpot data sync, the unique identifier must be a text field, and only the one field you select is used to decide a match ([HubSpot knowledge base, "Match records in data sync"](https://knowledge.hubspot.com/integrations/match-records-in-data-sync)). A rule like "same person if name and company and phone all agree" cannot be expressed there.
+HubSpot's contact sync, for example, syncs only contacts with a valid email address by default; including the rest requires a deliberate configuration change and a decision about what happens to them ([HubSpot knowledge base, "Connect and use HubSpot data sync"](https://knowledge.hubspot.com/integrations/connect-and-use-hubspot-data-sync)).
 
-If your Japan data needs that rule, you have a deduplication project, not an integration project, and it comes first. Check at selection time whether kintone, or whatever the Japan system is, is among the apps HubSpot data sync supports. If it is not, you will be building through an iPaaS or a custom integration, and the matching constraints are whatever that route imposes. Salesforce and other CRMs name and limit matching differently too. The two decisions below do not change.
+There is a second constraint that surprises teams used to writing their own matching logic. When you choose your own fields for record matching in HubSpot data sync, the unique identifier must be a text field, and only the one field you select is used to decide a match ([HubSpot knowledge base, "Match records in data sync"](https://knowledge.hubspot.com/integrations/match-records-in-data-sync)).
+
+A rule like "same person if name and company and phone all agree" cannot be expressed there.
+
+If your Japan data needs that rule, you have a deduplication project, not an integration project, and it comes first.
+
+Check at selection time whether kintone, or whatever the Japan system is, is among the apps HubSpot data sync supports. If it is not, you will be building through an iPaaS or a custom integration, and the matching constraints are whatever that route imposes.
+
+Salesforce and other CRMs name and limit matching differently too. The two decisions below do not change.
 
 ## The three decisions to make before selecting a tool
 
 **One field, named.** Pick the single text field that will decide identity. If the honest answer is that no such field exists today, the deliverable is to create one, not to keep comparing connectors.
 
-**Who mints the ID, and who stores it.** A CRM-generated record ID works as an ongoing identifier only once it exists on both sides and is shared between them. In practice this means a two-stage design: match once on some other field, then run on the ID pair from that point forward. The Japan-side system needs a field to hold that ID, and ordinary users must not be able to edit it.
+**Who mints the ID, and who stores it.** A CRM-generated record ID works as an ongoing identifier only once it exists on both sides and is shared between them.
 
-**Which system is right, field by field.** Postal address from the local master, engagement history from the CRM, company name from one of them. Any field where you cannot name the authority should be synced one way, not both. Two-way sync on an undecided field means the last writer wins, forever, silently.
+In practice this means a two-stage design: match once on some other field, then run on the ID pair from that point forward. The Japan-side system needs a field to hold that ID, and ordinary users must not be able to edit it.
+
+**Which system is right, field by field.** Postal address from the local master, engagement history from the CRM, company name from one of them.
+
+Any field where you cannot name the authority should be synced one way, not both. Two-way sync on an undecided field means the last writer wins, forever, silently.
 
 ## Before the first sync, check who gets emailed and what gets billed
 
@@ -46,11 +62,15 @@ A decided key is not a licence to sync tens of thousands of Japanese records in 
 
 Integration does not reduce operational work in Japan. It moves it and adds to it.
 
-Someone has to review failing and excluded records on a schedule. Someone has to reconcile the local master after a merge is performed in the CRM. Someone has to fill in the blanks on records the CRM created, because the local system's required fields are usually stricter than the CRM's, and records that fail those requirements will keep failing until a human intervenes. Budget a named owner for this, in Japan, with time allocated.
+Someone has to review failing and excluded records on a schedule. Someone has to reconcile the local master after a merge is performed in the CRM. Someone has to fill in the blanks on records the CRM created, because the local system's required fields are usually stricter than the CRM's, and records that fail those requirements will keep failing until a human intervenes.
+
+Budget a named owner for this, in Japan, with time allocated.
 
 The hours depend on volume and failure patterns, so at sign-off write down the owner and the review frequency, and re-measure the weekly hours after the first month. A connector without an operator degrades into a queue of silent errors within a quarter.
 
-One specification is worth flagging because it is widely misread: in HubSpot data sync, filters control which records sync initially, not whether an already-synced record keeps syncing ([HubSpot knowledge base, "Connect and use HubSpot data sync"](https://knowledge.hubspot.com/integrations/connect-and-use-hubspot-data-sync)). Behaviour can differ by app and settings, so confirm it on the integration you use. "We put a filter on it" is not a containment strategy.
+One specification is worth flagging because it is widely misread: in HubSpot data sync, filters control which records sync initially, not whether an already-synced record keeps syncing ([HubSpot knowledge base, "Connect and use HubSpot data sync"](https://knowledge.hubspot.com/integrations/connect-and-use-hubspot-data-sync)).
+
+Behaviour can differ by app and settings, so confirm it on the integration you use. "We put a filter on it" is not a containment strategy.
 
 None of this is a Japan-specific dysfunction, and it should not be reported to HQ as one.
 
@@ -58,7 +78,9 @@ The principle generalises beyond Japan, but the cost of ignoring it is higher he
 
 **Decide the key and the authority before you decide the tool.**
 
-Open one Japan integration in your portfolio this week and look for those two decisions in writing. If they are not there, what your team is comparing is not connectors. It is a design decision they have not made yet.
+Open one Japan integration in your portfolio this week and look for those two decisions in writing.
+
+If they are not there, what your team is comparing is not connectors. It is a design decision they have not made yet.
 
 ## Related reading
 

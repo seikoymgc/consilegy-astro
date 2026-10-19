@@ -18,7 +18,9 @@ Revenue is deal count multiplied by win rate multiplied by average deal size. A 
 
 ## The arithmetic before the Japan part
 
-If win rate improves from 18% to 26% while closed deal count falls from 120 to 70 in the same period, closed-won drops from about 21.6 to about 18.2. If average deal size fell too, revenue falls further. Every number in that sentence is accurate. Only the conclusion drawn from the first one is not.
+If win rate improves from 18% to 26% while closed deal count falls from 120 to 70 in the same period, closed-won drops from about 21.6 to about 18.2. If average deal size fell too, revenue falls further.
+
+Every number in that sentence is accurate. Only the conclusion drawn from the first one is not.
 
 There are three ways a win rate rises, and only one of them is performance.
 
@@ -32,7 +34,9 @@ On a dashboard the three are identical. Deal count and average deal size are wha
 
 ## Pushed deals come back at a lower win rate
 
-Ebsta and Pavilion's 2024 B2B Sales Benchmarks (published February 2024, 4.2 million opportunities across 530 companies, an international study rather than a Japanese one) found 44% of deals slipped past their close date, and that slipped deals won 67% less often. Their 2025 GTM Benchmarks (655,000 opportunities, 387 companies, also international) put the realised win rate at 13% for deals that slipped a month, 8% at three months, and 3% beyond six.
+Ebsta and Pavilion's 2024 B2B Sales Benchmarks (published February 2024, 4.2 million opportunities across 530 companies, an international study rather than a Japanese one) found 44% of deals slipped past their close date, and that slipped deals won 67% less often.
+
+Their 2025 GTM Benchmarks (655,000 opportunities, 387 companies, also international) put the realised win rate at 13% for deals that slipped a month, 8% at three months, and 3% beyond six.
 
 A deal pushed out of this quarter does not come back and lift next quarter's win rate. It lands in next quarter's denominator carrying a low probability. The improvement you booked this quarter is repaid with interest in the next one.
 
@@ -50,7 +54,9 @@ The deals that closed in Japan this quarter were created two quarters ago, under
 
 There is no published primary benchmark for Japanese lead-to-opportunity or opportunity-to-win conversion. We looked; the large datasets are international, and they mix deal sizes and approval structures that Japan does not share.
 
-That has a practical consequence. A cross-region win rate column in the global dashboard invites a comparison that the underlying data cannot support. Compare Japan with its own history first. Cross-region comparisons also need consistent cohorts, definitions and reporting periods.
+That has a practical consequence. A cross-region win rate column in the global dashboard invites a comparison that the underlying data cannot support.
+
+Compare Japan with its own history first. Cross-region comparisons also need consistent cohorts, definitions and reporting periods.
 
 If you keep the column, keep deal count and average deal size beside it, and stop ranking regions on the ratio alone.
 

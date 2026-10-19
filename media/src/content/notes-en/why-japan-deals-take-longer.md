@@ -37,7 +37,9 @@ When your champion says yes, the decision has not ended. The internal process ha
 
 **2. Buying takes three to eight months on the buyer's side.** 63.6% of companies take 3 to 8 months from the start of evaluation to vendor selection, and about 40% take six months or longer.
 
-This is the buyer's evaluation period, not your sales cycle. Part of it runs before you are in the deal (see the next number), so measure your own Japan cycle from first meeting before setting forecast dates. What the number does tell you is that a forecast assuming in-quarter closes for deals still in approval will keep missing.
+This is the buyer's evaluation period, not your sales cycle. Part of it runs before you are in the deal (see the next number), so measure your own Japan cycle from first meeting before setting forecast dates.
+
+What the number does tell you is that a forecast assuming in-quarter closes for deals still in approval will keep missing.
 
 **3. By first sales contact, the process is 40% done.** On average, the buying process is about 40% complete before serious conversations with a vendor begin.
 

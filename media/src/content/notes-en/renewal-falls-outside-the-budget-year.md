@@ -10,15 +10,21 @@ canonLabel: Japan Market GTM and Messaging
 draft: false
 ---
 
-A renewal reminder fires ninety days out, right on schedule, for an account your team considers healthy. Then it stalls, the same way it stalled last year, and the year before that with a different account in the same industry. Nobody in Japan says the product isn't working. The renewal is simply not on anyone's approved list of spend for the year it happens to fall in.
+A renewal reminder fires ninety days out, right on schedule, for an account your team considers healthy. Then it stalls, the same way it stalled last year, and the year before that with a different account in the same industry.
+
+Nobody in Japan says the product isn't working. The renewal is simply not on anyone's approved list of spend for the year it happens to fall in.
 
 ## Renewal dates set from the signature date ignore a calendar that already exists
 
 Most CS platforms date the renewal from the day the contract was signed. Sign in September, renew the following September. It is a clean rule, and it has nothing to do with when the customer's fiscal year runs.
 
-Most large Japanese companies run an April to March fiscal year. Of companies listed on the Tokyo Stock Exchange's Prime Market, 68% close their books in March, 13% in December, and 5% in February (Nomura Securities Investment Information Department, published March 2023, based on TSE Prime company filings). Budgets for the year starting in April are typically built the preceding January and February.
+Most large Japanese companies run an April to March fiscal year. Of companies listed on the Tokyo Stock Exchange's Prime Market, 68% close their books in March, 13% in December, and 5% in February (Nomura Securities Investment Information Department, published March 2023, based on TSE Prime company filings).
 
-A contract signed in September renews the following September, so the renewal has to be in the budget built that January or February, four to five months after go-live. But the 90-day reminder, counted from the signature date, fires in June. By the time the vendor raises the renewal, the budget that has to pay for it was locked four months earlier.
+Budgets for the year starting in April are typically built the preceding January and February.
+
+A contract signed in September renews the following September, so the renewal has to be in the budget built that January or February, four to five months after go-live.
+
+But the 90-day reminder, counted from the signature date, fires in June. By the time the vendor raises the renewal, the budget that has to pay for it was locked four months earlier.
 
 The first purchase is often funded mid-year from a contingency or a department's discretionary pool. Four or five months in, with little evidence of value yet, few champions will put the renewal into next year's budget unprompted.
 
@@ -26,7 +32,9 @@ The first purchase is often funded mid-year from a contingency or a department's
 
 HQ tends to assume a renewal carries less friction than a new deal. The evaluation is done, the product is in use, the account is satisfied. Surely the approval is lighter.
 
-In many Japanese organisations, what determines whether spend clears easily is not satisfaction. It is whether that spend has a line in the current year's budget table. If it does, renewal is signing off a row that was already planned. If it does not, someone has to open a new approval for supplementary or reallocated budget, at the same weight as a new purchase, regardless of how long the product has been running.
+In many Japanese organisations, what determines whether spend clears easily is not satisfaction. It is whether that spend has a line in the current year's budget table.
+
+If it does, renewal is signing off a row that was already planned. If it does not, someone has to open a new approval for supplementary or reallocated budget, at the same weight as a new purchase, regardless of how long the product has been running.
 
 Occasionally it is heavier, because the champion now has to explain why something already in use needs a fresh approval at all.
 
@@ -34,15 +42,21 @@ Occasionally it is heavier, because the champion now has to explain why somethin
 
 Take two customers on the same product, equally satisfied, same usage. One signed in April, so its 90-day reminder fires in January, exactly when next year's budget is being assembled. The other signed in September, so its reminder fires in June, after that year's budget has closed.
 
-A CS health score will not tell these two accounts apart. Both show the same usage and the same sentiment. But one renewal needs no new approval and the other does, and the difference has nothing to do with the account manager or the product.
+A CS health score will not tell these two accounts apart. Both show the same usage and the same sentiment.
+
+But one renewal needs no new approval and the other does, and the difference has nothing to do with the account manager or the product.
 
 When a regional dashboard shows the September cohort renewing worse than the April cohort, the read is usually "Japan satisfaction is soft." What is actually different is where the renewal date happens to fall on a fiscal calendar nobody built the CS motion around.
 
 ## Two fixes that do not work
 
-Moving the reminder from 90 days to 120 days does not solve this. For a September renewal, 120 days out is May, still well after the January and February budget window. The earlier warning only tells you sooner that the account has no budget line, not how to get one created outside the planning cycle.
+Moving the reminder from 90 days to 120 days does not solve this.
 
-Multi-year contracts were also considered and set aside. The first term still has to land inside some fiscal year's budget at signing, and Japanese buyers, especially early in a vendor relationship, are often reluctant to commit multiple years before they have seen a full cycle of value. When multi-year deals do get signed, the renewal conversation usually still carries a price step-up, which reopens the same fiscal-year mismatch at a larger number.
+For a September renewal, 120 days out is May, still well after the January and February budget window. The earlier warning only tells you sooner that the account has no budget line, not how to get one created outside the planning cycle.
+
+Multi-year contracts were also considered and set aside. The first term still has to land inside some fiscal year's budget at signing, and Japanese buyers, especially early in a vendor relationship, are often reluctant to commit multiple years before they have seen a full cycle of value.
+
+When multi-year deals do get signed, the renewal conversation usually still carries a price step-up, which reopens the same fiscal-year mismatch at a larger number.
 
 ## What we recommend: carry next year in the first approval, and end the first term at fiscal year end
 
@@ -64,7 +78,9 @@ The wider approach to designing revenue processes around the buyer's calendar ra
 
 **If the renewal conversation starts after the customer's budget is fixed, the renewal needs a fresh approval no matter how satisfied the account is. Carry the first renewal in the first purchase approval, and align every renewal after it to the customer's fiscal year end. The reference point is the customer's fiscal year, not the signature date.**
 
-This week, pull every account with an upcoming renewal and compare two dates: the day your renewal conversation starts (renewal date minus 90 days) and the month the customer locks the budget for the fiscal year that renewal falls in (around February for an April start). Every account whose conversation starts after that month is a renewal your Japan team will likely have to re-argue from budget zero. Where the customer's fiscal year end is not in the CRM, fill that in first.
+This week, pull every account with an upcoming renewal and compare two dates: the day your renewal conversation starts (renewal date minus 90 days) and the month the customer locks the budget for the fiscal year that renewal falls in (around February for an April start).
+
+Every account whose conversation starts after that month is a renewal your Japan team will likely have to re-argue from budget zero. Where the customer's fiscal year end is not in the CRM, fill that in first.
 
 ## Common mistakes
 

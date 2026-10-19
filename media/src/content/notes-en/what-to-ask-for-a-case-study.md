@@ -34,9 +34,13 @@ A Japanese buyer opens your case study page to check whether you serve companies
 
 ## Three reasons the global library does not transfer
 
-First, the logos may be the wrong evidence. The survey did not ask whether a US logo counts as "a company like ours", so treat that as untested. What it does show is that buyers drop vendors whose case studies have no company like theirs. Your customer list gets read as evidence of who you serve, and translating it does not change what it says.
+First, the logos may be the wrong evidence. The survey did not ask whether a US logo counts as "a company like ours", so treat that as untested.
 
-Second, the reader is usually not the decision maker. In the same study, most deals went through two or more approval stages, typically a department head and then an executive. The person reading your case study is assembling material for people who will never visit your site. A narrative about transformation does not survive being pasted into a ringi document. Specific figures, headcount, deployment time, and the internal objection that was resolved do survive.
+What it does show is that buyers drop vendors whose case studies have no company like theirs. Your customer list gets read as evidence of who you serve, and translating it does not change what it says.
+
+Second, the reader is usually not the decision maker. In the same study, most deals went through two or more approval stages, typically a department head and then an executive.
+
+The person reading your case study is assembling material for people who will never visit your site. A narrative about transformation does not survive being pasted into a ringi document. Specific figures, headcount, deployment time, and the internal objection that was resolved do survive.
 
 Third, global libraries are organized by product or use case. Japanese buyers screen by industry and company size. The same content, reorganized by Japanese industry category and employee-count band, gets found; organized by "Enterprise Automation" it does not.
 
@@ -56,9 +60,15 @@ Do not translate the stories. Commission new ones, and fix the interview questio
 
 6. **What stopped.** Which task the team no longer performs. Behavior change travels better than a metric a reader cannot verify.
 
-Agree the publishable level of detail at the start of the interview, not at the end. Many Japanese customers will not allow their name to be used, and HQ often reads "no named logo" as "no case study." That is a false equivalence. An anonymized story that states industry, employee band, seat count, operating department, and deployment days does the screening job. A named logo with no numbers does not.
+Agree the publishable level of detail at the start of the interview, not at the end.
 
-Questions 3 and 4 are the ones least likely to survive as asked. Japanese customers rarely name the vendors they compared or the person who objected, and PR or legal review will strike both. Agree the substitute wording up front and show it: "two major Japanese vendors and one overseas vendor" for the comparison, "the IT department" rather than a named individual for the objection, and an index (before = 100) in place of raw figures.
+Many Japanese customers will not allow their name to be used, and HQ often reads "no named logo" as "no case study." That is a false equivalence.
+
+An anonymized story that states industry, employee band, seat count, operating department, and deployment days does the screening job. A named logo with no numbers does not.
+
+Questions 3 and 4 are the ones least likely to survive as asked. Japanese customers rarely name the vendors they compared or the person who objected, and PR or legal review will strike both.
+
+Agree the substitute wording up front and show it: "two major Japanese vendors and one overseas vendor" for the comparison, "the IT department" rather than a named individual for the objection, and an index (before = 100) in place of raw figures.
 
 Asking "could we publish it in this form?" gets a yes far more often than asking for permission in the abstract.
 
@@ -66,7 +76,11 @@ Asking "could we publish it in this form?" gets a yes far more often than asking
 
 Stop treating Japan case studies as a localization line item. They are a market-entry deliverable, and they are on the critical path: without one, your Japan team is asking buyers to be the first, in a market that screens on precedent.
 
-Three changes. Budget the first two or three Japanese customer stories as part of the entry plan, with the six questions above as the required fields. Reorganize the Japan case study index by industry and employee-count band rather than by product line. And measure your Japan marketing team on whether local sales can answer "which company like ours uses you" in one sentence, not on how many assets were translated.
+Three changes.
+
+Budget the first two or three Japanese customer stories as part of the entry plan, with the six questions above as the required fields. Reorganize the Japan case study index by industry and employee-count band rather than by product line.
+
+And measure your Japan marketing team on whether local sales can answer "which company like ours uses you" in one sentence, not on how many assets were translated.
 
 There is no published benchmark for how many Japanese buyers a missing local case study costs you; nobody has measured it. What is measurable is your own funnel: count how many Japan opportunities went quiet after the first request for a local reference.
 

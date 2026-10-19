@@ -1,9 +1,9 @@
 :root {
-	/* Accent — one color, the brand blue */
-	--color-primary: #1e40af;
-	--color-primary-dark: #1d4ed8;
-	--color-secondary: #3b82f6;
-	--color-accent-purple: #7c5cbf;
+	/* Accent — one color, the brand purple (logo). 2026-10-19: blue → purple so links, buttons and emphasis share the CTA color */
+	--color-primary: #7042ac;
+	--color-primary-dark: #5c3690;
+	--color-secondary: #8758C9;
+	--color-accent-purple: #8758C9;
 
 	/* Stone palette — warm neutrals */
 	--color-text: #1C1917;        /* stone-900 */

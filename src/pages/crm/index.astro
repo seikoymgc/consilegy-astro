@@ -113,7 +113,7 @@ const readings = [
 				<p class="hero-half__tag">法人営業</p>
 				<p class="hero-half__title">営業の記録や報告に、<br />時間を取られている会社に。</p>
 				<p class="hero-half__text">商談メモは貼るだけ、議事録は自動で入る。記録の下書きはAIが作り、人は確かめて保存します。</p>
-				<a class="hero-half__link" href="/crm/features/">法人営業版を見る →</a>
+				<a class="btn hero-half__btn" href="/crm/features/">法人営業版を見る →</a>
 				<img
 					class="hero-half__shot"
 					src="/images/crm/screen-dashboard-2026-10c.webp"
@@ -130,7 +130,7 @@ const readings = [
 				<p class="hero-half__tag">教室・スクール</p>
 				<p class="hero-half__title">生徒の管理を、LINEと<br />スプレッドシートで回している教室に。</p>
 				<p class="hero-half__text">生徒とのやりとりは公式LINEのまま。課題はLINEで届き、生徒ごとに自動で残ります。</p>
-				<a class="hero-half__link" href="/crm/school/">スクール版を見る →</a>
+				<a class="btn hero-half__btn" href="/crm/school/">スクール版を見る →</a>
 				<img
 					class="hero-half__shot"
 					src="/images/crm/school/screen-students-v3.webp"
@@ -387,8 +387,10 @@ h3 { font-weight: 500; }
 .hero-half--school .hero-half__title { color: #10212F; }
 .hero-half__text { margin: 0.6rem 0 0; font-size: 0.9375rem; line-height: 1.85; color: rgba(255,255,255,0.9); }
 .hero-half--school .hero-half__text { color: #4A5965; }
-.hero-half__link { align-self: flex-start; margin-top: 0.6rem; font-weight: 700; font-size: 0.95rem; color: #fff; }
-.hero-half--school .hero-half__link { color: #C2410C; }
+.hero-half__btn { align-self: flex-start; margin-top: 1rem; padding: 0.7rem 1.25rem; font-size: 0.9rem; font-weight: 600; background: #fff; color: #0B1F44; border: 1px solid #fff; }
+.hero-half__btn:hover { background: #E8EDF7; color: #0B1F44; }
+.hero-half--school .hero-half__btn { background: #FF5C3E; color: #fff; border-color: #FF5C3E; }
+.hero-half--school .hero-half__btn:hover { background: #E4482C; color: #fff; }
 .hero-half__shot { display: block; width: 100%; height: auto; margin-top: var(--space-md); border-radius: 10px 10px 0 0; box-shadow: 0 -8px 40px rgba(0,0,0,0.22); }
 .hero-half--school .hero-half__shot { box-shadow: 0 -8px 40px rgba(14,36,56,0.16); }
 .hero-base { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-md) var(--space-lg); padding-top: var(--space-lg); padding-bottom: var(--space-lg); border-bottom: 1px solid var(--color-border); }

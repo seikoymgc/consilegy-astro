@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import '../styles/editorial.css';
 import SEO from '../components/SEO.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -39,7 +40,7 @@ const htmlLang = seo.lang ?? 'ja';
 		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<!-- End Google Tag Manager (noscript) -->
 		<Header />
-		<main id="main-content">
+		<main id="main-content" class="editorial">
 			<article class="wp-block-post-content has-global-padding entry-content is-layout-constrained">
 				<slot />
 			</article>

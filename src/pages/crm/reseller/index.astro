@@ -99,8 +99,8 @@ const roles = [
 			<div class="hero-actions">
 				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">デモを見る</a>
 				<a href={SIGNUP_URL} class="btn btn--secondary" target="_blank" rel="noopener noreferrer">無料で始める</a>
-				<a href="#screens" class="btn btn--secondary">画面を見る</a>
 			</div>
+			<p class="hero-download"><a href="/crm/download/">資料をダウンロード</a></p>
 			<ul class="hero-points" aria-label="代理店版の特徴">
 				<li>契約・更新・マージンを一元管理</li>
 				<li>更新90日前から自動で追跡</li>
@@ -921,7 +921,7 @@ const roles = [
 		}
 
 		.hero h1 {
-			font-size: 2.25rem;
+			font-size: clamp(1.5rem, 7.5vw, 2.25rem);
 		}
 
 		.hero-lead {

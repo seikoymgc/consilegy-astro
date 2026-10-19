@@ -52,7 +52,7 @@ const nav =
 					{ label: 'よくある質問', href: path.startsWith('/crm/school/') ? '/crm/school/faq/' : '/crm/faq/' },
 					{ label: '記事', href: '/crm/media/' },
 					{ label: '更新履歴', href: '/crm/updates/' },
-					{ label: '資料ダウンロード', href: '/crm/download/' },
+					{ label: '資料ダウンロード', href: path.startsWith('/crm/school/') ? '/crm/school/download/' : '/crm/download/' },
 				] as Item[],
 				cta: '無料で始める',
 			};
@@ -65,7 +65,7 @@ const currentOf = (href: string): 'page' | 'true' | undefined => {
 	return undefined;
 };
 
-const useCaseCurrent = nav.useCases.some((item) => currentOf(item.href));
+const useCaseCurrent = nav.useCases.some((item) => path === item.href);
 const panelId = `crm-subnav-usecases-${lang}`;
 ---
 

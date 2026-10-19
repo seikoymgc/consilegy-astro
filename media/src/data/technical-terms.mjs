@@ -1,7 +1,7 @@
 // 読者向けの呼び方。技術的な詳細は各記事の文脈で補う。
 export const technicalTerms = Object.freeze({
-	CRM: '顧客管理ツール',
-	SFA: '営業管理ツール',
+	CRM: '顧客管理システム',
+	SFA: '営業支援システム',
 	MA: 'マーケティング自動化ツール',
 });
 
@@ -13,7 +13,7 @@ export function explainFirstTerms(text, seen = new Set()) {
 			if (seen.has(term)) return term;
 			const before = part.slice(Math.max(0, offset - 40), offset);
 			const after = part.slice(offset + term.length);
-			// 日本語の説明に続く（SFA）や、既に説明済みの CRM（顧客管理ツール）を重ねない。
+			// 日本語の説明に続く（SFA）や、既に説明済みの CRM（顧客管理システム）を重ねない。
 			if (/[（(]$/u.test(before) && /[）)]/u.test(after[0] ?? '') && /(?:管理|支援|自動化|顧客関係)/u.test(before)) {
 				seen.add(term);
 				return term;

@@ -1,4 +1,4 @@
-// 日本語ページで、CRM・SFA・MA の最初の出現にだけ「（顧客管理ツール）」のような説明を添える。
+// 日本語ページで、CRM・SFA・MA の最初の出現にだけ「（顧客管理システム）」のような説明を添える。
 // 読者の多くはこの略語を知らない前提で書く（「まだ仕組みがない」会社が主な読者のため）。
 //
 // ページの原稿は直書きのHTMLが中心で、remark では拾えない。ビルド後の dist/ のHTMLを読み、
@@ -50,9 +50,16 @@ function explainText(text, seen) {
 			if (terms.every((t) => seen.has(t))) return run;
 			terms.forEach((t) => seen.add(t));
 			const uniq = [...new Set(terms)];
-			// 「MAツール」のように直後が「ツール」なら、括弧の中では繰り返さない。
-			const suffix = /^\s*ツール/u.test(after) ? '' : 'ツール';
-			return `${run}（${uniq.map((t) => LABEL[t]).join('・')}${suffix}）`;
+			// CRM・SFA は「顧客管理システム」「営業支援システム」（検索でも使われる言い方）、MA は「マーケティング自動化ツール」。
+			// 「MAツール」のように直後が「ツール／システム」なら、括弧の中では語尾を繰り返さない。
+			const WORD = { CRM: 'システム', SFA: 'システム', MA: 'ツール' };
+			const bare = /^\s*(ツール|システム)/u.test(after);
+			const labels = uniq.map((t) => LABEL[t] + (bare ? '' : WORD[t]));
+			// 語尾が同じものが並ぶときは「顧客管理・営業支援システム」とまとめる。
+			const joined = !bare && uniq.every((t) => WORD[t] === WORD[uniq[0]])
+				? uniq.map((t) => LABEL[t]).join('・') + WORD[uniq[0]]
+				: labels.join('・');
+			return `${run}（${joined}）`;
 		});
 	}).join('');
 }

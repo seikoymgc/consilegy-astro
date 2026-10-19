@@ -28,7 +28,7 @@ const PAGES = [
 	{ name: 'default-ja', lang: 'ja', theme: BRAND, label: 'Consilegy合同会社', lines: ['使われていない', '顧客データを、', '売上が動く仕組みへ。'], size: 58, sub: 'CRM・SFA・MAとAIで収益の仕組みを設計し、現場で回るまで伴走します。', subSize: 23, url: 'consilegy.com' },
 	{ name: 'default-en', lang: 'en', theme: BRAND, label: 'Consilegy LLC', lines: ['Make Japan revenue', 'execution visible,', 'manageable, and', 'repeatable.'], size: 54, url: 'consilegy.com/en' },
 	// crm-ja は 2026-10-19 に文言を変えたので接尾辞を -2026c に（他は -2026b のまま。同名で差し替えると Cloudflare が旧画像を返す）
-	{ name: 'crm-ja', suffix: '-2026c', lang: 'ja', theme: CRM, label: 'Revenue CRM', lines: ['AIが代わりに働く。', '入力がめんどくさくない', '顧客管理ツール。'], size: 54, sub: '中小企業向けの顧客管理・営業支援ツール（CRM／SFA）', subSize: 24, url: 'consilegy.com/crm' },
+	{ name: 'crm-ja', suffix: '-2026c', rule: false, lang: 'ja', theme: CRM, label: 'Revenue CRM', lines: ['AIが代わりに働く。', '入力がめんどくさくない', '顧客管理ツール。'], size: 54, sub: '中小企業向けの顧客管理・営業支援ツール（CRM／SFA）', subSize: 24, url: 'consilegy.com/crm' },
 	{ name: 'crm-en', lang: 'en', theme: CRM, label: 'Revenue CRM', lines: ['A CRM for people', "who don't like", 'opening their CRM.'], size: 58, url: 'consilegy.com/en/crm' },
 	{ name: 'crm-school-ja', lang: 'ja', theme: SCHOOL, label: 'Revenue CRM スクール版', lines: ['1日を、', '48時間にしよう。'], size: 66, sub: '教室のためのCRM', url: 'consilegy.com/crm/school' },
 	{ name: 'crm-school-en', lang: 'en', theme: SCHOOL, label: 'Revenue CRM for schools', lines: ['Make your day', '48 hours long.'], size: 62, url: 'consilegy.com/en/crm/school' },
@@ -65,7 +65,7 @@ function textSvg(p) {
   <text x="${M + 20}" y="124" font-family="${font}" font-size="28" font-weight="700" fill="${p.theme.color}">${esc(p.label)}</text>
   ${head}
   ${sub}
-  <line x1="${M}" y1="532" x2="${W - M}" y2="532" stroke="${INK}" stroke-opacity="0.10" stroke-width="2"/>
+  ${p.rule === false ? '' : `<line x1="${M}" y1="532" x2="${W - M}" y2="532" stroke="${INK}" stroke-opacity="0.10" stroke-width="2"/>`}
   <text x="${W - M}" y="584" text-anchor="end" font-family="${EN_FONT}" font-size="24" fill="${QUIET}">${esc(p.url)}</text>
 </svg>`;
 }

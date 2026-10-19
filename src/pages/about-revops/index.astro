@@ -166,6 +166,39 @@ const relatedServices = [
 			<div class="def-oneline">
 				<p><strong>RevOpsは部門ごとに分断された収益活動をつなぎ、売上を再現性高く生み出す運用機能です。</strong></p>
 			</div>
+
+			<figure class="ro-figure" aria-labelledby="ro-figure-caption">
+				<svg viewBox="0 0 1120 330" role="img" aria-label="マーケティング、営業、カスタマーサクセスの3部門の上に、データ・プロセス・ツールを横断して整えるRevOpsが乗る関係図">
+					<defs><marker id="ro-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
+					<g font-family="inherit">
+						<rect x="40" y="30" width="1040" height="96" rx="6" fill="#0F172A"/>
+						<text x="60" y="58" font-size="13" fill="#94A3B8" letter-spacing="1">RevOps</text>
+						<text x="60" y="88" font-size="20" font-weight="600" fill="#fff">部門を横断して、データ・プロセス・ツールを一つの運用に整える</text>
+						<g font-size="14" fill="#CBD5E1">
+							<rect x="60" y="100" width="12" height="12" rx="2" fill="#8758C9"/><text x="80" y="111">共通のKPIと定義</text>
+							<rect x="240" y="100" width="12" height="12" rx="2" fill="#8758C9"/><text x="260" y="111">一つの顧客データ</text>
+							<rect x="420" y="100" width="12" height="12" rx="2" fill="#8758C9"/><text x="440" y="111">受け渡しのルール</text>
+							<rect x="600" y="100" width="12" height="12" rx="2" fill="#8758C9"/><text x="620" y="111">CRM・SFA・MAの運用</text>
+						</g>
+						<g stroke="#8758C9" stroke-width="2">
+							<line x1="190" y1="126" x2="190" y2="166"/><line x1="560" y1="126" x2="560" y2="166"/><line x1="930" y1="126" x2="930" y2="166"/>
+						</g>
+						<rect x="40" y="170" width="300" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
+						<text x="60" y="200" font-size="13" fill="#64748b" letter-spacing="1">マーケティング</text>
+						<text x="60" y="232" font-size="19" font-weight="600" fill="#0F172A">見込み客をつくる</text>
+						<rect x="410" y="170" width="300" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
+						<text x="430" y="200" font-size="13" fill="#64748b" letter-spacing="1">営業</text>
+						<text x="430" y="232" font-size="19" font-weight="600" fill="#0F172A">商談を受注にする</text>
+						<rect x="780" y="170" width="300" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
+						<text x="800" y="200" font-size="13" fill="#64748b" letter-spacing="1">カスタマーサクセス</text>
+						<text x="800" y="232" font-size="19" font-weight="600" fill="#0F172A">継続・拡大させる</text>
+						<line x1="340" y1="220" x2="406" y2="220" stroke="#0F172A" stroke-width="2" marker-end="url(#ro-arr)"/>
+						<line x1="710" y1="220" x2="776" y2="220" stroke="#0F172A" stroke-width="2" marker-end="url(#ro-arr)"/>
+						<text x="40" y="310" font-size="13" fill="#64748b">部門の中は各部門が回す。部門の「間」と共通の土台を、RevOpsが受け持つ。</text>
+					</g>
+				</svg>
+				<figcaption id="ro-figure-caption">RevOps は4つ目の部門ではなく、3部門の上に乗って「間」を整える運用の機能です。</figcaption>
+			</figure>
 			<div class="def-note">
 				<p>RevOps＝レベニューオペレーション（Revenue Operations）。SaaS企業を中心に広まった概念ですが、現在はBtoB企業全般で必要とされる運用設計の考え方として普及しています。</p>
 			</div>
@@ -1226,4 +1259,7 @@ details[open] .faq-q::after { content: '−'; }
 	.distinction-block { grid-template-columns: 1fr; }
 	.distinction-sep { padding-top: 0; }
 }
+.ro-figure { margin: var(--space-lg) 0 0; }
+.ro-figure svg { display: block; width: 100%; height: auto; }
+.ro-figure figcaption { margin-top: 0.75rem; font-size: 0.875rem; color: var(--color-text-muted); }
 </style>

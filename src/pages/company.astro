@@ -272,6 +272,36 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			</div>
 		</div>
 	</div>
+	<div class="container">
+		<figure class="founder-figure" aria-labelledby="founder-figure-caption">
+				<svg viewBox="0 0 1120 200" role="img" aria-label="代表の年表。9歳、16歳、25歳、30歳、35歳、36歳の出来事">
+					<g font-family="inherit">
+						<text x="40" y="40" font-size="13" fill="#64748b" letter-spacing="1">Timeline</text>
+						<line x1="60" y1="120" x2="1060" y2="120" stroke="#E2E8F0" stroke-width="3"/>
+						<line x1="840" y1="120" x2="1030" y2="120" stroke="#8758C9" stroke-width="3"/>
+						<circle cx="80" cy="120" r="9" fill="#0F172A"/>
+						<text x="80" y="88" font-size="20" font-weight="700" fill="#0F172A" text-anchor="middle">9<tspan font-size="13" font-weight="400" fill="#64748b">歳</tspan></text>
+						<text x="80" y="158" font-size="14" fill="#334155" text-anchor="middle">兄からパソコンをもらう</text>
+						<circle cx="270" cy="120" r="9" fill="#0F172A"/>
+						<text x="270" y="88" font-size="20" font-weight="700" fill="#0F172A" text-anchor="middle">16<tspan font-size="13" font-weight="400" fill="#64748b">歳</tspan></text>
+						<text x="270" y="158" font-size="14" fill="#334155" text-anchor="middle">家を出て、自活を始める</text>
+						<circle cx="460" cy="120" r="9" fill="#0F172A"/>
+						<text x="460" y="88" font-size="20" font-weight="700" fill="#0F172A" text-anchor="middle">25<tspan font-size="13" font-weight="400" fill="#64748b">歳</tspan></text>
+						<text x="460" y="158" font-size="14" fill="#334155" text-anchor="middle">独立（フリーランス）</text>
+						<circle cx="650" cy="120" r="9" fill="#0F172A"/>
+						<text x="650" y="88" font-size="20" font-weight="700" fill="#0F172A" text-anchor="middle">30<tspan font-size="13" font-weight="400" fill="#64748b">歳</tspan></text>
+						<text x="650" y="158" font-size="14" fill="#334155" text-anchor="middle">台湾へ移住</text>
+						<circle cx="840" cy="120" r="9" fill="#0F172A"/>
+						<text x="840" y="88" font-size="20" font-weight="700" fill="#0F172A" text-anchor="middle">35<tspan font-size="13" font-weight="400" fill="#64748b">歳</tspan></text>
+						<text x="840" y="158" font-size="14" fill="#334155" text-anchor="middle">Consilegy合同会社 設立</text>
+						<circle cx="1030" cy="120" r="12" fill="#8758C9"/>
+						<text x="1030" y="88" font-size="20" font-weight="700" fill="#7042ac" text-anchor="middle">36<tspan font-size="13" font-weight="400" fill="#64748b">歳</tspan></text>
+						<text x="1030" y="158" font-size="14" fill="#334155" text-anchor="middle">Revenue CRM リリース</text>
+					</g>
+				</svg>
+				<figcaption id="founder-figure-caption">与えられた環境に合わせるのではなく、合わなければ自分で次の環境をつくってきた年表です。</figcaption>
+			</figure>
+	</div>
 </section>
 
 <!-- ===================== TRACK RECORD ===================== -->
@@ -823,4 +853,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 .founder-origin p { font-size: 0.9375rem; line-height: 2; color: var(--color-text); margin: 0; }
 .founder-origin p + p { margin-top: 0.75rem; }
 .founder-origin a { color: var(--color-primary); font-weight: 600; }
+.founder-figure { margin: var(--space-lg) 0 0; }
+.founder-figure svg { display: block; width: 100%; height: auto; }
+.founder-figure figcaption { margin-top: 0.75rem; font-size: 0.875rem; color: var(--color-text-muted); }
 </style>

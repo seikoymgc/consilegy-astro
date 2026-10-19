@@ -239,6 +239,38 @@ const deliverables = [
 			<h2>GTM設計プロセス</h2>
 			<p class="section-note">このサービスは「広告運用代行」ではなく、売上につながる市場開拓構造の設計が主目的です。</p>
 		</div>
+
+		<figure class="gtm-figure" aria-labelledby="gtm-figure-caption">
+			<svg viewBox="0 0 1120 330" role="img" aria-label="GTM設計の流れ。市場・顧客、導線、商談化、計測の4段階が循環する" font-family="inherit">
+				<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
+				<rect x="40" y="90" width="250" height="150" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<text x="58" y="122" font-size="13" fill="#64748b" letter-spacing="1">01 MARKET</text>
+				<text x="58" y="158" font-size="19" font-weight="600" fill="#0F172A">市場・顧客</text>
+				<text x="58" y="190" font-size="14" fill="#475569">誰に、何を、なぜ今か。</text>
+				<text x="58" y="212" font-size="14" fill="#475569">ICPと勝ち筋を決める</text>
+				<line x1="294" y1="165" x2="318" y2="165" stroke="#0F172A" stroke-width="2" marker-end="url(#arr)"/>
+				<rect x="320" y="90" width="250" height="150" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<text x="338" y="122" font-size="13" fill="#64748b" letter-spacing="1">02 PATH</text>
+				<text x="338" y="158" font-size="19" font-weight="600" fill="#0F172A">導線</text>
+				<text x="338" y="190" font-size="14" fill="#475569">接点から商談までの道筋。</text>
+				<text x="338" y="212" font-size="14" fill="#475569">施策を流れに置き直す</text>
+				<line x1="574" y1="165" x2="598" y2="165" stroke="#0F172A" stroke-width="2" marker-end="url(#arr)"/>
+				<rect x="600" y="90" width="250" height="150" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<text x="618" y="122" font-size="13" fill="#64748b" letter-spacing="1">03 PIPELINE</text>
+				<text x="618" y="158" font-size="19" font-weight="600" fill="#0F172A">商談化</text>
+				<text x="618" y="190" font-size="14" fill="#475569">マーケ→営業の受け渡し。</text>
+				<text x="618" y="212" font-size="14" fill="#475569">基準と期限を決める</text>
+				<line x1="854" y1="165" x2="878" y2="165" stroke="#0F172A" stroke-width="2" marker-end="url(#arr)"/>
+				<rect x="880" y="90" width="250" height="150" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<text x="898" y="122" font-size="13" fill="#64748b" letter-spacing="1">04 MEASURE</text>
+				<text x="898" y="158" font-size="19" font-weight="600" fill="#0F172A">計測</text>
+				<text x="898" y="190" font-size="14" fill="#475569">どの施策が受注になったか。</text>
+				<text x="898" y="212" font-size="14" fill="#475569">同じ画面で見える</text>
+				<path d="M1060 240 L1060 262 Q1060 290 1030 290 L90 290 Q60 290 60 262 L60 244" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arr)"/>
+				<text x="560" y="316" font-size="14" fill="#64748b" text-anchor="middle">計測した結果を、市場・顧客の定義に戻す</text>
+			</svg>
+			<figcaption id="gtm-figure-caption">市場・顧客の定義から計測まで、4段階を一つの流れとして設計します。計測の結果は定義に戻し、回し続けます。</figcaption>
+		</figure>
 		<div class="process-flow">
 			<div class="pstep">
 				<div class="pstep__num">①</div>
@@ -1161,5 +1193,8 @@ details[open] .faq-q::after { content: '−'; }
 	.deliverables-mockup { flex-direction: column; }
 	.pricing-card__cta { flex-direction: column; }
 }
+	.gtm-figure { margin: var(--space-lg) 0; }
+	.gtm-figure svg { display: block; width: 100%; height: auto; }
+	.gtm-figure figcaption { margin-top: 0.75rem; font-size: 0.875rem; color: var(--color-text-muted); }
 </style>
 </BaseLayout>

@@ -181,6 +181,27 @@ const readings = [
 <!-- ===================== PROBLEMS（3か月後、スプレッドシートに戻る） ===================== -->
 <section class="why" id="problems">
 	<div class="container">
+		<figure class="input-figure" aria-labelledby="input-figure-caption">
+			<svg viewBox="0 0 1120 300" role="img" aria-label="記録の流れ：撮る・話す・貼る、AIが下書き、人が確認、次の行動を提案">
+				<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
+				<g font-family="inherit">
+				<rect x="40" y="60" width="236" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/><rect x="40" y="60" width="236" height="4" rx="2" fill="#8758C9"/><text x="58" y="94" font-size="13" fill="#64748b" letter-spacing="1">Input</text><text x="58" y="124" font-size="18" font-weight="600" fill="#0F172A">撮る・話す・貼る</text>
+<text x="58" y="184" font-size="14" fill="#475569">名刺・声・議事録</text>
+<line x1="276" y1="108" x2="308" y2="108" stroke="#0F172A" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="312" y="60" width="236" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/><rect x="312" y="60" width="236" height="4" rx="2" fill="#8758C9"/><text x="330" y="94" font-size="13" fill="#64748b" letter-spacing="1">AI</text><text x="330" y="124" font-size="18" font-weight="600" fill="#0F172A">AIが記録の下書きを作る</text>
+<text x="330" y="184" font-size="14" fill="#475569">連絡先・商談・タスク</text>
+<line x1="548" y1="108" x2="580" y2="108" stroke="#0F172A" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="584" y="60" width="236" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/><rect x="584" y="60" width="236" height="4" rx="2" fill="#8758C9"/><text x="602" y="94" font-size="13" fill="#64748b" letter-spacing="1">Check</text><text x="602" y="124" font-size="18" font-weight="600" fill="#0F172A">人が確かめて保存</text>
+<text x="602" y="184" font-size="14" fill="#475569">直すのは差分だけ</text>
+<line x1="820" y1="108" x2="852" y2="108" stroke="#0F172A" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="856" y="60" width="236" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/><rect x="856" y="60" width="236" height="4" rx="2" fill="#8758C9"/><text x="874" y="94" font-size="13" fill="#64748b" letter-spacing="1">Next</text><text x="874" y="124" font-size="18" font-weight="600" fill="#0F172A">次にやることを提案</text>
+<text x="874" y="184" font-size="14" fill="#475569">175本の自動化が見張る</text>
+				<rect x="40" y="226" width="1052" height="50" rx="6" fill="#0F172A"/>
+				<text x="566" y="257" font-size="15" font-weight="600" fill="#fff" text-anchor="middle">入力の手間はAIが引き受け、人は判断だけをする</text>
+				</g>
+			</svg>
+			<figcaption id="input-figure-caption">記録はAIが作り、人は確かめるだけ。保存した記録から、次にやることが自動で出てきます。</figcaption>
+		</figure>
 		<header class="problems-overview">
 			<div class="why-head">
 				<p class="section-eyebrow">Common Problems</p>
@@ -553,4 +574,8 @@ section#support { background: #F1F5F9; }
 	.hero-actions, .cta-actions { flex-direction: column; }
 	.hero-actions .btn, .cta-actions .btn { width: 100%; justify-content: center; }
 }
+
+	.input-figure { margin: 0 0 var(--space-xl); }
+	.input-figure svg { display: block; width: 100%; height: auto; }
+	.input-figure figcaption { margin-top: 0.75rem; font-size: 0.875rem; color: var(--color-text-muted); }
 </style>

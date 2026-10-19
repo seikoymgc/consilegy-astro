@@ -20,6 +20,24 @@ const isExternal = (href: string) => /^https?:\/\//.test(href);
 		<nav class="pd-index" aria-label="製品">
 			{products.map((p) => <a href={`#${p.slug}`}>{p.name}{p.status && `（${p.status}）`}</a>)}
 		</nav>
+		<figure class="pd-figure" aria-labelledby="pd-figure-caption">
+			<svg viewBox="0 0 1120 330" role="img" aria-label="製品の関係図：Revenue CRMと4つのエディション、おたより秘書、支援サービス">
+				<g font-family="inherit">
+				<rect x="40" y="30" width="1050" height="82" rx="6" fill="#0F172A"/>
+				<text x="64" y="60" font-size="13" fill="rgba(255,255,255,0.6)" letter-spacing="1">PRODUCT</text>
+				<text x="64" y="92" font-size="22" font-weight="700" fill="#fff">Revenue CRM</text>
+				<text x="1066" y="92" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="end">AIと仕組みが代わりに働く顧客管理システム。用途で4つのエディション</text>
+				<rect x="40" y="150" width="236" height="76" rx="6" fill="#fff" stroke="#E2E8F0"/><rect x="40" y="150" width="236" height="4" rx="2" fill="#8758C9"/><text x="58" y="183" font-size="17" font-weight="600" fill="#0F172A">B2B版</text><text x="58" y="208" font-size="13" fill="#64748b">法人営業</text><line x1="158" y1="112" x2="158" y2="146" stroke="#CBD5E1" stroke-width="2"/><rect x="302" y="150" width="236" height="76" rx="6" fill="#fff" stroke="#E2E8F0"/><rect x="302" y="150" width="236" height="4" rx="2" fill="#8758C9"/><text x="320" y="183" font-size="17" font-weight="600" fill="#0F172A">受託開発版</text><text x="320" y="208" font-size="13" fill="#64748b">案件・見積・稼働</text><line x1="420" y1="112" x2="420" y2="146" stroke="#CBD5E1" stroke-width="2"/><rect x="564" y="150" width="236" height="76" rx="6" fill="#fff" stroke="#E2E8F0"/><rect x="564" y="150" width="236" height="4" rx="2" fill="#8758C9"/><text x="582" y="183" font-size="17" font-weight="600" fill="#0F172A">代理店版</text><text x="582" y="208" font-size="13" fill="#64748b">契約・更新</text><line x1="682" y1="112" x2="682" y2="146" stroke="#CBD5E1" stroke-width="2"/><rect x="826" y="150" width="236" height="76" rx="6" fill="#fff" stroke="#E2E8F0"/><rect x="826" y="150" width="236" height="4" rx="2" fill="#8758C9"/><text x="844" y="183" font-size="17" font-weight="600" fill="#0F172A">スクール版</text><text x="844" y="208" font-size="13" fill="#64748b">生徒・LINE</text><line x1="944" y1="112" x2="944" y2="146" stroke="#CBD5E1" stroke-width="2"/>
+				<rect x="40" y="258" width="512" height="56" rx="6" fill="#F1F5F9"/>
+				<text x="60" y="281" font-size="13" fill="#7042ac" font-weight="600" letter-spacing="1">ADD-ON</text>
+				<text x="60" y="303" font-size="15" fill="#0F172A">おたより秘書：教室のお知らせ配信を手伝う</text>
+				<rect x="578" y="258" width="512" height="56" rx="6" fill="#F1F5F9"/>
+				<text x="598" y="281" font-size="13" fill="#7042ac" font-weight="600" letter-spacing="1">SERVICES</text>
+				<text x="598" y="303" font-size="15" fill="#0F172A">設定・定着・運用の支援。既存CRMの再設計も</text>
+				</g>
+			</svg>
+			<figcaption id="pd-figure-caption">中心は Revenue CRM。用途ごとのエディションと、周辺の道具・支援サービスがつながっています。</figcaption>
+		</figure>
 	</div>
 </section>
 
@@ -135,4 +153,8 @@ const isExternal = (href: string) => /^https?:\/\//.test(href);
 	@media (max-width: 560px) {
 		.pd-screen--phone img { height: 20rem; }
 	}
+
+	.pd-figure { margin: var(--space-lg) 0 0; }
+	.pd-figure svg { display: block; width: 100%; height: auto; }
+	.pd-figure figcaption { margin-top: 0.75rem; font-size: 0.875rem; color: var(--color-text-muted); }
 </style>

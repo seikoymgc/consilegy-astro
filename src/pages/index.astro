@@ -85,6 +85,32 @@ const insightsPosts = articles.slice(0, 5);
 戦略レポートも設計図も、それ自体は1円も生みません。現場が使い始め、使い続けて、初めて数字が動きます。
 ダッシュボードの読み方、営業会議での使い方、1on1での問いの立て方まで一緒に設計し、「これがないと仕事が回らない」と現場が言う状態まで並走します。
 			</p>
+			<figure class="assurance-figure" aria-labelledby="assurance-figure-caption">
+				<svg viewBox="0 0 1120 200" role="img" aria-label="設計、導入、定着の3段階。導入から定着までが支援の範囲">
+					<defs><marker id="asr-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
+					<g font-family="inherit">
+						<rect x="396" y="18" width="684" height="34" rx="4" fill="#F1F5F9"/>
+						<path d="M400 56 L400 66 L1076 66 L1076 56" fill="none" stroke="#8758C9" stroke-width="2"/>
+						<text x="738" y="41" font-size="15" font-weight="600" fill="#7042ac" text-anchor="middle">ここまでが、仕事です</text>
+						<rect x="40" y="84" width="320" height="86" rx="6" fill="#fff" stroke="#E2E8F0"/>
+						<text x="60" y="113" font-size="13" fill="#64748b" letter-spacing="1">Design</text>
+						<text x="60" y="146" font-size="20" font-weight="600" fill="#0F172A">設計</text>
+						<text x="120" y="146" font-size="15" fill="#475569">流れとデータを決める</text>
+						<line x1="360" y1="127" x2="396" y2="127" stroke="#0F172A" stroke-width="2" marker-end="url(#asr-arr)"/>
+						<rect x="400" y="84" width="320" height="86" rx="6" fill="#fff" stroke="#8758C9" stroke-width="2"/>
+						<text x="420" y="113" font-size="13" fill="#64748b" letter-spacing="1">Implement</text>
+						<text x="420" y="146" font-size="20" font-weight="600" fill="#0F172A">導入</text>
+						<text x="480" y="146" font-size="15" fill="#475569">設定して、現場に渡す</text>
+						<line x1="720" y1="127" x2="756" y2="127" stroke="#0F172A" stroke-width="2" marker-end="url(#asr-arr)"/>
+						<rect x="760" y="84" width="320" height="86" rx="6" fill="#0F172A"/>
+						<text x="780" y="113" font-size="13" fill="#94A3B8" letter-spacing="1">Adoption</text>
+						<text x="780" y="146" font-size="20" font-weight="600" fill="#fff">定着</text>
+						<text x="840" y="146" font-size="15" fill="#CBD5E1">使われるまで並走する</text>
+						<text x="40" y="192" font-size="13" fill="#64748b">多くの支援は「導入」で終わる。数字が動くのは、その先。</text>
+					</g>
+				</svg>
+				<figcaption id="assurance-figure-caption">設計図を渡して終わりではなく、導入から定着までを支援の範囲にしています。</figcaption>
+			</figure>
 		</div>
 	</div>
 </section>
@@ -1413,7 +1439,7 @@ section { padding-block: var(--space-2xl); }
 .hero-lead--short { margin: 1.25rem 0 1.5rem; font-size: 1.1rem; }
 .hero-actions .btn--cta { padding: 0.95rem 1.6rem; font-size: 1rem; }
 .founder--slim { padding-block: var(--space-xl); }
-.founder-assurance--solo { max-width: 40rem; margin: 0 auto; padding-top: 0; border-top: 0; text-align: left; }
+.founder-assurance--solo { max-width: 52rem; margin: 0 auto; padding-top: 0; border-top: 0; text-align: left; }
 .assurance-ja--main { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; line-height: 1.4; margin-top: var(--space-xs); }
 .assurance-body { margin-top: var(--space-md); line-height: 1.9; }
 .after-item .result-metric { display: flex; flex-direction: column; gap: 0.4rem; margin: 1.25rem 0; }
@@ -1521,4 +1547,7 @@ section { padding-block: var(--space-2xl); }
  .revenue-flow h3 { margin-bottom: 1rem; }
 }
 
+.assurance-figure { margin: var(--space-lg) 0 0; }
+.assurance-figure svg { display: block; width: 100%; height: auto; }
+.assurance-figure figcaption { margin-top: 0.75rem; font-size: 0.875rem; color: var(--color-text-muted); }
 </style>

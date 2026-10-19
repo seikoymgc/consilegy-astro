@@ -1,0 +1,72 @@
+---
+// 「3部門の流れ＋共有する顧客データの土台」の正典図。
+// サービス・レベニューアーキテクチャ関連のページで共通に使う（ページごとに描き直さない）。
+// steps: 上に Step 01〜03 の帯を出す（サービスページ用）。boundaries: 'two'（①②）か 'six'（6つの境目）。
+interface Props {
+	id: string;
+	caption: string;
+	steps?: boolean;
+	boundaries?: 'two' | 'six';
+	label?: string;
+}
+const { id, caption, steps = false, boundaries = 'two', label = 'Revenue flow' } = Astro.props;
+const H = steps ? 400 : 340;
+const top = steps ? 110 : 50;
+const six = boundaries === 'six';
+---
+<figure class="rf-fig" aria-labelledby={`${id}-caption`}>
+	<svg viewBox={`0 0 1120 ${H}`} role="img" aria-label="マーケティング、営業、カスタマーサクセスの流れと、全部門で共有する顧客データの土台" font-family="inherit">
+		<defs>
+			<marker id={`${id}-arr`} viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker>
+			<marker id={`${id}-arr2`} viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#94A3B8"/></marker>
+		</defs>
+		<text x="40" y="24" font-size="14" letter-spacing="1.5" fill="#64748b">{label.toUpperCase()}</text>
+		{steps && (
+			<g font-size="16">
+				<rect x="40" y="40" width="1040" height="44" rx="6" fill="#F1F5F9"/>
+				<text x="60" y="68" fill="#7042ac" font-weight="700">Step 01</text><text x="140" y="68" fill="#334155">境目を見つける</text>
+				<text x="430" y="68" fill="#7042ac" font-weight="700">Step 02</text><text x="510" y="68" fill="#334155">流れとデータを作り直す</text>
+				<text x="820" y="68" fill="#7042ac" font-weight="700">Step 03</text><text x="900" y="68" fill="#334155">現場で回るまで</text>
+			</g>
+		)}
+		<g>
+			<rect x="40" y={top} width="300" height="104" rx="6" fill="#fff" stroke="#E2E8F0"/>
+			<text x="60" y={top + 32} font-size="14" fill="#64748b" letter-spacing="1">マーケティング</text>
+			<text x="60" y={top + 70} font-size="20" font-weight="600" fill="#0F172A">見込み客を、営業へ。</text>
+			<rect x="410" y={top} width="300" height="104" rx="6" fill="#fff" stroke="#E2E8F0"/>
+			<text x="430" y={top + 32} font-size="14" fill="#64748b" letter-spacing="1">営業</text>
+			<text x="430" y={top + 70} font-size="20" font-weight="600" fill="#0F172A">商談を、受注へ。</text>
+			<rect x="780" y={top} width="300" height="104" rx="6" fill="#fff" stroke="#E2E8F0"/>
+			<text x="800" y={top + 32} font-size="14" fill="#64748b" letter-spacing="1">カスタマーサクセス</text>
+			<text x="800" y={top + 70} font-size="20" font-weight="600" fill="#0F172A">受注を、次の取引へ。</text>
+			<line x1="340" y1={top + 52} x2="406" y2={top + 52} stroke="#0F172A" stroke-width="2" marker-end={`url(#${id}-arr)`}/>
+			<line x1="710" y1={top + 52} x2="776" y2={top + 52} stroke="#0F172A" stroke-width="2" marker-end={`url(#${id}-arr)`}/>
+			<circle cx="373" cy={top + 52} r="15" fill="#8758C9"/><text x="373" y={top + 57} font-size="14" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+			{six ? (
+				<>
+					<circle cx="743" cy={top + 52} r="15" fill="#8758C9"/><text x="743" y={top + 57} font-size="14" font-weight="700" fill="#fff" text-anchor="middle">6</text>
+					<circle cx="560" cy={top + 119} r="15" fill="#8758C9"/><text x="560" y={top + 124} font-size="14" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+					<circle cx="596" cy={top + 119} r="15" fill="#8758C9"/><text x="596" y={top + 124} font-size="14" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+				</>
+			) : (
+				<>
+					<circle cx="743" cy={top + 52} r="15" fill="#8758C9"/><text x="743" y={top + 57} font-size="14" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+				</>
+			)}
+		</g>
+		<rect x="40" y={top + 134} width="1040" height="56" rx="6" fill="#0F172A"/>
+		<text x="560" y={top + 169} font-size="16" font-weight="600" fill="#fff" text-anchor="middle">全部門で共有する顧客データと運用（顧客管理・営業支援・マーケティング自動化）</text>
+		{six && (
+			<>
+				<circle cx="960" cy={top + 162} r="15" fill="#8758C9"/><text x="960" y={top + 167} font-size="14" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+				<circle cx="994" cy={top + 162} r="15" fill="#8758C9"/><text x="994" y={top + 167} font-size="14" font-weight="700" fill="#fff" text-anchor="middle">5</text>
+			</>
+		)}
+		<path d={`M1080 ${top + 104} L1080 ${top + 118} Q1080 ${top + 212} 990 ${top + 212} L130 ${top + 212} Q40 ${top + 212} 40 ${top + 118} L40 ${top + 104}`} fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4 4" marker-end={`url(#${id}-arr2)`}/>
+		<text x="560" y={top + 236} font-size="14" fill="#64748b" text-anchor="middle">営業・顧客対応の結果を、マーケティングへ返す</text>
+		{six && (
+			<text x="40" y={top + 268} font-size="14" fill="#64748b">1 マーケ→営業の受け渡し ／ 2 営業の属人化 ／ 3 商談ステージのズレ ／ 4 データの分断 ／ 5 システムの非定着 ／ 6 受注後の継続・拡大</text>
+		)}
+	</svg>
+	<figcaption id={`${id}-caption`}>{caption}</figcaption>
+</figure>

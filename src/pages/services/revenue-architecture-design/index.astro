@@ -1,4 +1,5 @@
 ---
+import RevenueFlowFigure from '../../../components/figures/RevenueFlowFigure.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const faqItems = [
@@ -182,31 +183,8 @@ const breadcrumbSchema = {
 				<p>売上を、属人的な営業活動ではなく、再現可能な業務構造として設計するサービスです。</p>
 			</div>
 
-		<figure class="ra-figure" aria-labelledby="ra-figure-caption">
-			<svg viewBox="0 0 1120 330" role="img" aria-label="レベニューアーキテクチャの構造。3部門の流れと、共有する顧客データの土台" font-family="inherit">
-				<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
-				<rect x="40" y="40" width="300" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/>
-				<text x="60" y="70" font-size="13" fill="#64748b" letter-spacing="1">マーケティング</text>
-				<text x="60" y="104" font-size="19" font-weight="600" fill="#0F172A">見込み客を、営業へ。</text>
-				<line x1="340" y1="88" x2="406" y2="88" stroke="#0F172A" stroke-width="2" marker-end="url(#arr)"/>
-				<circle cx="373" cy="88" r="14" fill="#8758C9"/><text x="373" y="93" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">1</text>
-				<rect x="410" y="40" width="300" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/>
-				<text x="430" y="70" font-size="13" fill="#64748b" letter-spacing="1">営業</text>
-				<text x="430" y="104" font-size="19" font-weight="600" fill="#0F172A">商談を、受注へ。</text>
-				<line x1="710" y1="88" x2="776" y2="88" stroke="#0F172A" stroke-width="2" marker-end="url(#arr)"/>
-				<circle cx="743" cy="88" r="14" fill="#8758C9"/><text x="743" y="93" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">2</text>
-				<rect x="780" y="40" width="300" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/>
-				<text x="800" y="70" font-size="13" fill="#64748b" letter-spacing="1">カスタマーサクセス</text>
-				<text x="800" y="104" font-size="19" font-weight="600" fill="#0F172A">受注を、次の取引へ。</text>
-				<rect x="40" y="166" width="1040" height="56" rx="6" fill="#0F172A"/>
-				<text x="560" y="200" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">全部門で共有する顧客データと運用（CRM・SFA・MA、KPI、会議体）</text>
-				<path d="M1080 136 L1080 150 Q1080 250 990 250 L130 250 Q40 250 40 150 L40 136" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arr)"/>
-				<text x="560" y="276" font-size="14" fill="#64748b" text-anchor="middle">営業・顧客対応の結果を、マーケティングへ返す</text>
-				<text x="40" y="310" font-size="14" fill="#64748b">①②は部門の境目。ここと土台で、流れは止まります。</text>
-			</svg>
-			<figcaption id="ra-figure-caption">設計するのは、この一枚の全体です。部門の中ではなく、境目①②と土台から設計します。</figcaption>
-		</figure>
 		</div>
+		<RevenueFlowFigure id="rad-flow" caption="3部門の流れと、全部門で共有する顧客データの土台。境目（1・2）と土台が止まる場所です。" />
 	</div>
 </section>
 
@@ -1358,7 +1336,4 @@ details[open] .faq-q::after { content: "−"; }
 	.pricing-card__main { padding: 1.75rem; }
 	.pricing-amount { font-size: 2rem; }
 }
-	.ra-figure { margin: var(--space-lg) 0; }
-	.ra-figure svg { display: block; width: 100%; height: auto; }
-	.ra-figure figcaption { margin-top: 0.75rem; font-size: 0.875rem; color: var(--color-text-muted); }
 </style>

@@ -1,0 +1,39 @@
+---
+// 週単位の進め方（ガント）の共通図。サービスの Step 01 と現状分析ページで使う。
+interface Props {
+	id: string;
+	caption: string;
+	weeks?: number;
+	phases: { name: string; note: string; start: number; end: number; accent?: boolean }[];
+	label?: string;
+}
+const { id, caption, weeks = 6, phases, label = 'Timeline' } = Astro.props;
+const X0 = 40, X1 = 1080, W = X1 - X0;
+const wx = (w: number) => X0 + (W * w) / weeks;
+const rowH = 66;
+const H = 100 + phases.length * rowH + 10;
+---
+<figure class="gantt-fig" aria-labelledby={`${id}-caption`}>
+	<svg viewBox={`0 0 1120 ${H}`} role="img" aria-label="進め方の週ごとの段取り" font-family="inherit">
+		<text x="40" y="24" font-size="14" letter-spacing="1.5" fill="#64748b">{label.toUpperCase()}</text>
+		<rect x={X0} y="60" width={W} height="6" rx="3" fill="#E2E8F0"/>
+		{Array.from({ length: weeks + 1 }, (_, i) => (
+			<>
+				<line x1={wx(i)} y1="52" x2={wx(i)} y2="74" stroke="#94A3B8" stroke-width="1.5"/>
+				{i < weeks && <text x={wx(i) + 6} y="46" font-size="14" fill="#64748b">Week {i + 1}</text>}
+			</>
+		))}
+		{phases.map((p, i) => {
+			const y = 96 + i * rowH;
+			const x = wx(p.start), w = wx(p.end) - wx(p.start);
+			return (
+				<>
+					<rect x={x} y={y} width={w} height="40" rx="6" fill={p.accent ? '#8758C9' : '#0F172A'}/>
+					<text x={x + 16} y={y + 26} font-size="17" font-weight="600" fill="#fff">{p.name}</text>
+					<text x={x} y={y + 58} font-size="16" fill="#475569">{p.note}</text>
+				</>
+			);
+		})}
+	</svg>
+	<figcaption id={`${id}-caption`}>{caption}</figcaption>
+</figure>

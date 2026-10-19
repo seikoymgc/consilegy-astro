@@ -557,3 +557,14 @@ a:hover {
 ) { font-size: 1rem; }
 #main-content .service-summary > p { font-size: 0.875rem; }
 #main-content :is(.row-list__foot, .fuel-fineprint, .pf-privacy, .pf-notice, .plan-foot, .result-metric__note, .cta-note) { font-size: 0.875rem; }
+
+/* ── 図解（インラインSVG）の共通ルール（2026-10-20）────────────────
+   figure > svg の図はすべてこれに従う。スマホでは縮めず、横スクロールで読ませる。 */
+figure:has(> svg[viewBox]) { margin: var(--space-lg) 0 0; }
+figure:has(> svg[viewBox]) > svg { display: block; width: 100%; height: auto; }
+figure:has(> svg[viewBox]) > figcaption { margin-top: 0.75rem; font-size: 0.875rem; color: var(--color-text-muted); }
+@media (max-width: 767px) {
+	figure:has(> svg[viewBox]) { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 0.25rem; }
+	figure:has(> svg[viewBox]) > svg { min-width: 1120px; }  /* viewBox と等倍。縮めると16pxが保てない */
+	figure:has(> svg[viewBox]) > figcaption::after { content: "（図は横にスクロールできます）"; color: var(--color-text-muted); }
+}

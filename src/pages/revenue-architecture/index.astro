@@ -1,4 +1,5 @@
 ---
+import RevenueFlowFigure from '../../components/figures/RevenueFlowFigure.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const faqItems = [
@@ -372,34 +373,7 @@ const relatedServices = [
 			<h2>Revenue Architectureが扱う4つの構造</h2>
 		</div>
 
-		<figure class="ra-figure" aria-labelledby="ra-map-caption">
-			<svg viewBox="0 0 1120 340" role="img" aria-label="マーケティング、営業、カスタマーサクセスの流れと、共有する顧客データの土台。その間にある6つの境目">
-				<defs><marker id="ra-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
-				<g font-family="inherit">
-					<text x="40" y="34" font-size="13" fill="#64748b" letter-spacing="1">Six boundaries</text>
-					<rect x="40" y="60" width="300" height="110" rx="6" fill="#fff" stroke="#E2E8F0"/>
-					<text x="60" y="90" font-size="13" fill="#64748b" letter-spacing="1">マーケティング</text>
-					<text x="60" y="122" font-size="19" font-weight="600" fill="#0F172A">見込み客を、営業へ。</text>
-					<text x="60" y="152" font-size="14" fill="#7042ac">1 マーケ→営業の受け渡し</text>
-					<rect x="410" y="60" width="300" height="110" rx="6" fill="#fff" stroke="#E2E8F0"/>
-					<text x="430" y="90" font-size="13" fill="#64748b" letter-spacing="1">営業</text>
-					<text x="430" y="122" font-size="19" font-weight="600" fill="#0F172A">商談を、受注へ。</text>
-					<text x="430" y="152" font-size="14" fill="#7042ac">2 営業の属人化　3 商談ステージのズレ</text>
-					<rect x="780" y="60" width="300" height="110" rx="6" fill="#fff" stroke="#E2E8F0"/>
-					<text x="800" y="90" font-size="13" fill="#64748b" letter-spacing="1">カスタマーサクセス</text>
-					<text x="800" y="122" font-size="19" font-weight="600" fill="#0F172A">受注を、次の取引へ。</text>
-					<text x="800" y="152" font-size="14" fill="#7042ac">6 受注後の継続・拡大</text>
-					<line x1="340" y1="115" x2="406" y2="115" stroke="#0F172A" stroke-width="2" marker-end="url(#ra-arr)"/>
-					<line x1="710" y1="115" x2="776" y2="115" stroke="#0F172A" stroke-width="2" marker-end="url(#ra-arr)"/>
-					<rect x="40" y="200" width="1040" height="70" rx="6" fill="#0F172A"/>
-					<text x="60" y="230" font-size="16" font-weight="600" fill="#fff">全部門で共有する顧客データと運用</text>
-					<text x="60" y="256" font-size="14" fill="#CBD5E1">4 データの分断　5 ツールの非定着</text>
-					<path d="M1080 170 L1080 186 Q1080 300 990 300 L130 300 Q40 300 40 186 L40 170" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#ra-arr)"/>
-					<text x="560" y="326" font-size="13" fill="#64748b" text-anchor="middle">営業・顧客対応の結果を、マーケティングへ返す</text>
-				</g>
-			</svg>
-			<figcaption id="ra-map-caption">売上は部門の中ではなく、部門の「境目」で止まります。Revenue Architecture は、この6つの境目を一つの流れとして設計します。</figcaption>
-		</figure>
+		<RevenueFlowFigure id="ra-map" boundaries="six" label="Six boundaries" caption="獲得から継続までの流れの、どこで止まるか。番号は本文の6つの境目に対応します。" />
 		<div class="structures-grid">
 			{structures.map(s => (
 				<div class="structure-card">
@@ -458,30 +432,30 @@ const relatedServices = [
 		</div>
 
 		<figure class="ra-figure" aria-labelledby="ra-metrics-caption">
-			<svg viewBox="0 0 1120 300" role="img" aria-label="工程ごとの転換率と待ち時間を並べた概念図。商談から受注の待ち時間が最も長い例">
+			<svg viewBox="0 0 1120 320" role="img" aria-label="工程ごとの転換率と待ち時間を並べた概念図。商談から受注の待ち時間が最も長い例">
 				<g font-family="inherit">
-					<text x="40" y="34" font-size="13" fill="#64748b" letter-spacing="1">CR × Δt（例）</text>
-					<rect x="820" y="20" width="14" height="14" rx="2" fill="#0F172A"/><text x="842" y="32" font-size="14" fill="#334155">転換率（CR）</text>
-					<rect x="960" y="20" width="14" height="14" rx="2" fill="#8758C9"/><text x="982" y="32" font-size="14" fill="#334155">待ち時間（Δt）</text>
+					<text x="40" y="34" font-size="14" fill="#64748b" letter-spacing="1.5">CR × ΔT（例）</text>
+					<rect x="800" y="20" width="14" height="14" rx="2" fill="#0F172A"/><text x="822" y="33" font-size="16" fill="#334155">転換率（CR）</text>
+					<rect x="950" y="20" width="14" height="14" rx="2" fill="#8758C9"/><text x="972" y="33" font-size="16" fill="#334155">待ち時間（Δt）</text>
 					<line x1="60" y1="240" x2="1080" y2="240" stroke="#E2E8F0" stroke-width="2"/>
 					<rect x="160" y="188" width="56" height="52" rx="3" fill="#0F172A"/>
-					<text x="188" y="180" font-size="14" font-weight="600" fill="#0F172A" text-anchor="middle">35%</text>
+					<text x="188" y="178" font-size="16" font-weight="600" fill="#0F172A" text-anchor="middle">35%</text>
 					<rect x="232" y="210" width="56" height="30" rx="3" fill="#8758C9"/>
-					<text x="260" y="202" font-size="14" font-weight="600" fill="#7042ac" text-anchor="middle">12日</text>
-					<text x="224" y="266" font-size="15" fill="#334155" text-anchor="middle">マーケ→営業</text>
-					<rect x="500" y="203" width="56" height="37" rx="3" fill="#0F172A"/>
-					<text x="528" y="195" font-size="14" font-weight="600" fill="#0F172A" text-anchor="middle">25%</text>
+					<text x="260" y="200" font-size="16" font-weight="600" fill="#7042ac" text-anchor="middle">12日</text>
+					<text x="224" y="268" font-size="16" fill="#334155" text-anchor="middle">マーケ→営業</text>
+					<rect x="500" y="172" width="56" height="68" rx="3" fill="#0F172A"/>
+					<text x="528" y="162" font-size="16" font-weight="600" fill="#0F172A" text-anchor="middle">45%</text>
 					<rect x="572" y="120" width="56" height="120" rx="3" fill="#8758C9"/>
-					<text x="600" y="112" font-size="14" font-weight="600" fill="#7042ac" text-anchor="middle">48日</text>
-					<text x="564" y="266" font-size="15" fill="#334155" text-anchor="middle">商談→受注</text>
+					<text x="600" y="110" font-size="16" font-weight="600" fill="#7042ac" text-anchor="middle">48日</text>
+					<text x="564" y="268" font-size="16" fill="#334155" text-anchor="middle">商談→受注</text>
 					<rect x="840" y="120" width="56" height="120" rx="3" fill="#0F172A"/>
-					<text x="868" y="112" font-size="14" font-weight="600" fill="#0F172A" text-anchor="middle">80%</text>
+					<text x="868" y="110" font-size="16" font-weight="600" fill="#0F172A" text-anchor="middle">80%</text>
 					<rect x="912" y="225" width="56" height="15" rx="3" fill="#8758C9"/>
-					<text x="940" y="217" font-size="14" font-weight="600" fill="#7042ac" text-anchor="middle">6日</text>
-					<text x="904" y="266" font-size="15" fill="#334155" text-anchor="middle">受注→継続</text>
-					<rect x="430" y="60" width="330" height="26" rx="4" fill="#F1F5F9"/>
-					<text x="595" y="78" font-size="13" fill="#7042ac" text-anchor="middle">転換率は悪くないのに、ここで48日止まっている</text>
-					<text x="40" y="288" font-size="13" fill="#64748b">数値は説明のための例です。転換率だけを見ていると、稟議などの「待ち時間」の滞留は見えません。</text>
+					<text x="940" y="215" font-size="16" font-weight="600" fill="#7042ac" text-anchor="middle">6日</text>
+					<text x="904" y="268" font-size="16" fill="#334155" text-anchor="middle">受注→継続</text>
+					<rect x="400" y="56" width="390" height="30" rx="4" fill="#F1F5F9"/>
+					<text x="595" y="77" font-size="16" fill="#7042ac" text-anchor="middle">転換率は悪くないのに、ここで48日止まっている</text>
+					<text x="40" y="304" font-size="16" fill="#475569">数値は説明のための例です。転換率だけを見ていると、稟議などの「待ち時間」の滞留は見えません。</text>
 				</g>
 			</svg>
 			<figcaption id="ra-metrics-caption">工程ごとに転換率（CR）と待ち時間（Δt）を並べて測ると、どこで止まっているかが見えます。</figcaption>

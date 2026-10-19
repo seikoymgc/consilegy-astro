@@ -50,11 +50,16 @@ function explainText(text, seen) {
 			if (terms.every((t) => seen.has(t))) return run;
 			terms.forEach((t) => seen.add(t));
 			const uniq = [...new Set(terms)];
-			// 「MAツール」のように直後が「ツール」なら、括弧の中では繰り返さない。
-			// CRM・SFA は「顧客管理システム」（検索でも使われる言い方）、MA は「マーケティング自動化ツール」。
-			const word = uniq.every((t) => t === 'CRM' || t === 'SFA') ? 'システム' : 'ツール';
-			const suffix = /^\s*(ツール|システム)/u.test(after) ? '' : word;
-			return `${run}（${uniq.map((t) => LABEL[t]).join('・')}${suffix}）`;
+			// CRM・SFA は「顧客管理システム」「営業支援システム」（検索でも使われる言い方）、MA は「マーケティング自動化ツール」。
+			// 「MAツール」のように直後が「ツール／システム」なら、括弧の中では語尾を繰り返さない。
+			const WORD = { CRM: 'システム', SFA: 'システム', MA: 'ツール' };
+			const bare = /^\s*(ツール|システム)/u.test(after);
+			const labels = uniq.map((t) => LABEL[t] + (bare ? '' : WORD[t]));
+			// 語尾が同じものが並ぶときは「顧客管理・営業支援システム」とまとめる。
+			const joined = !bare && uniq.every((t) => WORD[t] === WORD[uniq[0]])
+				? uniq.map((t) => LABEL[t]).join('・') + WORD[uniq[0]]
+				: labels.join('・');
+			return `${run}（${joined}）`;
 		});
 	}).join('');
 }

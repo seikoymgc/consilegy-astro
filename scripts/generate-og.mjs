@@ -27,8 +27,8 @@ const BRAND = { mark: 'public/favicon-2026b.svg', color: '#8758C9', glow: '#8758
 const PAGES = [
 	{ name: 'default-ja', lang: 'ja', theme: BRAND, label: 'Consilegy合同会社', lines: ['使われていない', '顧客データを、', '売上が動く仕組みへ。'], size: 58, sub: 'CRM・SFA・MAとAIで収益の仕組みを設計し、現場で回るまで伴走します。', subSize: 23, url: 'consilegy.com' },
 	{ name: 'default-en', lang: 'en', theme: BRAND, label: 'Consilegy LLC', lines: ['Make Japan revenue', 'execution visible,', 'manageable, and', 'repeatable.'], size: 54, url: 'consilegy.com/en' },
-	// crm-ja は 2026-10-19 に文言を変えたので接尾辞を -2026c に（他は -2026b のまま。同名で差し替えると Cloudflare が旧画像を返す）
-	{ name: 'crm-ja', suffix: '-2026c', rule: false, lang: 'ja', theme: CRM, label: 'Revenue CRM', lines: ['AIが代わりに働く。', '入力がめんどくさくない', '顧客管理ツール。'], size: 54, sub: '中小企業向けの顧客管理・営業支援ツール（CRM／SFA）', subSize: 24, url: 'consilegy.com/crm' },
+	// crm-ja は 2026-10-19 に文言を変えたので接尾辞を -2026d に（他は -2026b のまま。同名で差し替えると Cloudflare が旧画像を返す）
+	{ name: 'crm-ja', suffix: '-2026d', rule: false, lang: 'ja', theme: CRM, label: 'Revenue CRM', lines: ['AIが代わりに働く。', '入力がめんどくさくない', '顧客管理システム。'], size: 54, sub: '中小企業向けの顧客管理・営業支援システム（CRM／SFA）', subSize: 24, url: 'consilegy.com/crm' },
 	{ name: 'crm-en', lang: 'en', theme: CRM, label: 'Revenue CRM', lines: ['A CRM for people', "who don't like", 'opening their CRM.'], size: 58, url: 'consilegy.com/en/crm' },
 	{ name: 'crm-school-ja', lang: 'ja', theme: SCHOOL, label: 'Revenue CRM スクール版', lines: ['1日を、', '48時間にしよう。'], size: 66, sub: '教室のためのCRM', url: 'consilegy.com/crm/school' },
 	{ name: 'crm-school-en', lang: 'en', theme: SCHOOL, label: 'Revenue CRM for schools', lines: ['Make your day', '48 hours long.'], size: 62, url: 'consilegy.com/en/crm/school' },

@@ -88,7 +88,9 @@ So change the design. Do not stop programmes. Let them expire.
 
 Every programme gets an expiry date.
 
-For the trade show, the deadline for next year's booking, or the earlier date when cancellation fees start, if there is one. For paid media, quarter end. For the things with no line, case studies, sales material, nurture, assign one anyway. Six months out is fine.
+For the trade show, the deadline for next year's booking, or the earlier date when cancellation fees start, if there is one. For paid media, quarter end.
+
+For the things with no line, case studies, sales material, nurture, assign one anyway. Six months out is fine.
 
 When the date arrives, the programme ends unless a renewal case is filed. That is the whole mechanism.
 

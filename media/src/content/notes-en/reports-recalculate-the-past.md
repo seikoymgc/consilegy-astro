@@ -70,4 +70,6 @@ Where the Japan number moves more, look first at delayed entry and recent migrat
 
 ## Related reading
 
-If the numbers disagree even before the close, the problem is one step earlier, in what each side is counting. That case is covered in "[Your Japan team's conversion rates don't match HQ's? Start with the denominator](/en/articles/define-the-denominator-first/)". Other notes on the same problem are collected under [Revenue data](/en/category/data/).
+If the numbers disagree even before the close, the problem is one step earlier, in what each side is counting. That case is covered in "[Your Japan team's conversion rates don't match HQ's? Start with the denominator](/en/articles/define-the-denominator-first/)".
+
+Other notes on the same problem are collected under [Revenue data](/en/category/data/).

@@ -22,7 +22,9 @@ At the next month's meeting, nobody could look up what the deal had been counted
 
 ## A miss is only explainable if the day-of basis was kept
 
-Forecasts miss for several reasons. The buyer's budget changes. A competitor enters. An internal decision slips. The rep misreads the situation. All of these happen in Japan as anywhere.
+Forecasts miss for several reasons. The buyer's budget changes. A competitor enters. An internal decision slips. The rep misreads the situation.
+
+All of these happen in Japan as anywhere.
 
 The trouble starts after the miss.
 

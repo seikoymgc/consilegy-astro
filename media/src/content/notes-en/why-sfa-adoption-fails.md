@@ -83,9 +83,13 @@ Nearly a third say entered data is not used. That is the reverse causality in th
 
 None of this needs new tooling.
 
-**1. Pick one place where the data is used.** Take an existing meeting, such as the weekly sales meeting, and make one agenda item something only the CRM screen can produce, for example deals with no movement last week. Do not start by banning spreadsheets. Change the agenda. See [change the weekly meeting, not the guide](/en/articles/change-the-meeting-not-the-manual/).
+**1. Pick one place where the data is used.** Take an existing meeting, such as the weekly sales meeting, and make one agenda item something only the CRM screen can produce, for example deals with no movement last week.
 
-**2. Decide what comes back to the rep the next day.** The rep who enters should see their next actions and neglected deals. Existing features usually cover this: task queues and saved views in HubSpot, list views and report components on the home page in Salesforce (what is available depends on edition and configuration). Before adding any field, check three things, and if the answer to any is no, the field waits.
+Do not start by banning spreadsheets. Change the agenda. See [change the weekly meeting, not the guide](/en/articles/change-the-meeting-not-the-manual/).
+
+**2. Decide what comes back to the rep the next day.** The rep who enters should see their next actions and neglected deals. Existing features usually cover this: task queues and saved views in HubSpot, list views and report components on the home page in Salesforce (what is available depends on edition and configuration).
+
+Before adding any field, check three things, and if the answer to any is no, the field waits.
 
 - **Does the rep who enters it gain something the next day?** If filling it does not make their own deal prep or prioritization easier, the field exists for HQ, not for the field.
 - **Are the people entering and the people using the data in the same place?** If entry is local and every dashboard is read at HQ eight time zones away, the CRM becomes a daily report written for someone the rep never sees.
@@ -103,7 +107,11 @@ If yes, the tool has enough function and the problem is design. If not even a sp
 
 ### What is the main reason SFA adoption stalls in Japan?
 
-What reps enter is not used in their own decisions or in the weekly meeting. Effort is the top stated reason for not entering (54.5%, n=101). A separate survey that asked about motivation found the top motivator was a clear use for the data (54.8%, n=1,034). Cutting effort is not enough without designing the use.
+What reps enter is not used in their own decisions or in the weekly meeting. Effort is the top stated reason for not entering (54.5%, n=101).
+
+A separate survey that asked about motivation found the top motivator was a clear use for the data (54.8%, n=1,034).
+
+Cutting effort is not enough without designing the use.
 
 ### Will cutting fields raise entry rates?
 

@@ -18,7 +18,9 @@ Ask one question first: **do deals in Japan exit each stage on different conditi
 
 ## Almost always, it is the second one
 
-Global pipelines are named after seller actions. Demo delivered. Proposal sent. Negotiation. Those names work in markets where the deal moves when the seller moves.
+Global pipelines are named after seller actions. Demo delivered. Proposal sent. Negotiation.
+
+Those names work in markets where the deal moves when the seller moves.
 
 In Japan the deal moves when a document moves.
 

@@ -58,7 +58,11 @@ Before you approve or refuse, ask one question: who will look at this field, and
 
 The first type is useful in the global forecast call, not just in Tokyo.
 
-Record the approval step in one deal field, with steps such as working team aligned, manager approved, executive approved, decision made. Keep the picklist values identical across regions; only the display labels should be translated. If the values themselves differ by region, the field is shared but the reporting axis is not. HQ and each regional sales lead agree the step definitions.
+Record the approval step in one deal field, with steps such as working team aligned, manager approved, executive approved, decision made.
+
+Keep the picklist values identical across regions; only the display labels should be translated. If the values themselves differ by region, the field is shared but the reporting axis is not.
+
+HQ and each regional sales lead agree the step definitions.
 
 Only the approval step goes into that single field.
 

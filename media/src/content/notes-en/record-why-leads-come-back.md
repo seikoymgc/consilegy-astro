@@ -53,7 +53,9 @@ If there is anything that points to timing (the buyer named a quarter, a contrac
 
 If most declined leads are group 1, tightening the MQL criteria changes nothing, because the target is still wrong. If most are group 4, retuning the score threshold does not help until sales sees why this person, now.
 
-Group 4 is different in kind. It is not a flaw in the lead. It is a flaw in the handoff, and usually nobody is slacking. There is just no place at the boundary for the reason to sit.
+Group 4 is different in kind. It is not a flaw in the lead.
+
+It is a flaw in the handoff, and usually nobody is slacking. There is just no place at the boundary for the reason to sit.
 
 Our hypothesis is that a good share of what gets labelled "low quality" is actually group 4. We have not counted it, though. Count your own and the largest group will be obvious.
 

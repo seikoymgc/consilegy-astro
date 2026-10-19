@@ -71,9 +71,13 @@ The method is simple. The order matters.
 
 **1. Start with line 3.** Decide what is removed first: existing customers, competitors, internal contacts, duplicates. What remains becomes "a prospect worth contacting." Debate about widening the entry point comes after.
 
-**2. Set line 2 at a touchpoint sales can act on.** Decide whether one download is enough or repeated visits are required. Draw the line where a sales call would actually be a conversation. Combining attributes with buying behavior, such as visiting the pricing page or reading a comparison article, is covered in [Hand off on behavior, not on score](/en/articles/handoff-on-behavior-not-score/).
+**2. Set line 2 at a touchpoint sales can act on.** Decide whether one download is enough or repeated visits are required. Draw the line where a sales call would actually be a conversation.
 
-**3. Fix line 1 as a single unit.** Person or company. In B2B, counting by company usually maps better to deals, but only if company matching is done. If it is not, count people first and report the company count alongside.
+Combining attributes with buying behavior, such as visiting the pricing page or reading a comparison article, is covered in [Hand off on behavior, not on score](/en/articles/handoff-on-behavior-not-score/).
+
+**3. Fix line 1 as a single unit.** Person or company.
+
+In B2B, counting by company usually maps better to deals, but only if company matching is done. If it is not, count people first and report the company count alongside.
 
 **4. Put all three lines on one definition sheet and record approval from each function.** A verbal agreement reverts when people change.
 

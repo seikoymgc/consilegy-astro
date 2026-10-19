@@ -96,7 +96,9 @@ Most of what is stuck is genuinely small, and it is stuck because the person aut
 
 Stop weekly when the "one decision we need from you" line comes back empty three times running. Not on a date. Keep meeting after the decisions run out and you get reporting written for the sake of the meeting.
 
-**One option we would not take** is opening a direct escalation line from the Japan team to the global project owner. On wait time alone it is the fastest design. But it routes around the local manager, and in a Japanese organisation that costs them standing in front of their own team. What you get afterwards is a team that stops telling that manager things, and a manager who stops telling you things.
+**One option we would not take** is opening a direct escalation line from the Japan team to the global project owner. On wait time alone it is the fastest design.
+
+But it routes around the local manager, and in a Japanese organisation that costs them standing in front of their own team. What you get afterwards is a team that stops telling that manager things, and a manager who stops telling you things.
 
 There is a version that keeps the speed without the cost.
 

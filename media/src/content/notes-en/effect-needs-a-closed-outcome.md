@@ -74,7 +74,9 @@ Ask for the lost ones with reasons attached. Counting only wins hides the block 
 
 Two approaches that looked better than they worked.
 
-Requiring the increase to be broken out by source before it is reported. The analysis is right, and it does not fit a monthly deadline. What fits the deadline is counting closures. Do the breakout next month.
+Requiring the increase to be broken out by source before it is reported. The analysis is right, and it does not fit a monthly deadline.
+
+What fits the deadline is counting closures. Do the breakout next month.
 
 Requiring statistical significance on Japan numbers. Japanese monthly cohorts are often two digits. A significance test on that base either stops the report or becomes a ritual, and neither adds a decision.
 

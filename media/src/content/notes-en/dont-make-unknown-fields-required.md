@@ -52,7 +52,9 @@ The top reason given for not entering information was that entry takes too much 
 
 A larger survey by Keywalker (fieldwork 8 to 10 October 2025, n=1,034, current users and managers at companies with SFA, CRM, or BI tools deployed, conducted online through PRIZMA; the sponsor is a BI vendor) found the reasons for delayed entry were other work taking priority at 44.2%, too many fields at 38.5%, and difficulty entering on mobile at 30.7%.
 
-Read the lists and notice what is absent. Refusal barely appears. Time, field count, interface. Every item is something the person who configured the system controls.
+Read the lists and notice what is absent. Refusal barely appears.
+
+Time, field count, interface. Every item is something the person who configured the system controls.
 
 Requiring a field addresses none of them. It removes one thing only: the option available to a rep who does not have the answer.
 

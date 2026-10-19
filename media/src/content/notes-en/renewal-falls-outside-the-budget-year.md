@@ -62,7 +62,9 @@ When multi-year deals do get signed, the renewal conversation usually still carr
 
 Two moves, used together.
 
-**1. Put next year's fee into the first purchase approval as a planned amount.** When the September purchase goes through the customer's internal approval, ask the champion to include next fiscal year's annual fee as a planned figure. When next year's budget is built in January and February, the champion is no longer asking for a new line from zero. To support that, the vendor hands the champion a one-page summary of actual usage by December.
+**1. Put next year's fee into the first purchase approval as a planned amount.** When the September purchase goes through the customer's internal approval, ask the champion to include next fiscal year's annual fee as a planned figure.
+
+When next year's budget is built in January and February, the champion is no longer asking for a new line from zero. To support that, the vendor hands the champion a one-page summary of actual usage by December.
 
 The evidence is thin four or five months in. That is exactly why the vendor should prepare it rather than wait for the customer to.
 

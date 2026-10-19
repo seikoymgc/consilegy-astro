@@ -2,7 +2,9 @@
    Keep edition colors, product screenshots, navigation states, form controls,
    pricing comparisons and diagrams intact. */
 #main-content.crm-editorial .hero-download { margin: 1rem 0 0; font-size: 0.9375rem; }
-#main-content.crm-editorial .hero-download a { color: var(--color-primary); text-underline-offset: 0.25em; }
+@media (max-width: 760px) {
+	#main-content.crm-editorial .hero-download .btn { width: 100%; justify-content: center; }
+}
 #main-content.crm-editorial :is(.hero-points, .hero-points li, .pos-body, .section-head, .prob-grid, .sc-grid, .proof-grid, .proof-grid li, .support-list, .support-list h3, .support-list li, .ai-examples, .ai-examples li, .ro-list, .ro-row, .safe-list, .safe-row, .fit-box li, .cta-card h4, .cta-list li, .resource-list, .resource-list li) {
 	border: 0;
 	box-shadow: none;

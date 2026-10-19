@@ -3,6 +3,7 @@
 // 送信するとワークフローが JP / EN Newsletter の配信リストに入れる。
 // text/plain の単純リクエストで送り、応答を読んで受け付けられたかを確かめる（受け口は CORS を返す）。
 // 登録そのものが配信への同意なので consent: true を送る（同意の記録は CRM 側に残る）。
+// 2026-10-19: 入力はメールアドレスだけにした（姓名の欄は外した。受け口の互換のため空文字で送る）。
 interface Props {
 	lang?: 'ja' | 'en';
 	compact?: boolean;
@@ -20,6 +21,7 @@ const t =
 	lang === 'en'
 		? {
 				email: 'Email',
+				placeholder: 'you@company.com',
 				first: 'First name',
 				last: 'Last name',
 				optional: 'optional',
@@ -34,6 +36,7 @@ const t =
 			}
 		: {
 				email: 'メールアドレス',
+				placeholder: 'メールアドレス',
 				first: '名',
 				last: '姓',
 				optional: '任意',
@@ -46,30 +49,22 @@ const t =
 				done: 'ご登録ありがとうございます。次の号からメールでお届けします。届かない場合は、info@consilegy.comへお知らせください。',
 				failed: '送信できませんでした。時間をおいてもう一度お試しいただくか、info@consilegy.comへメールでご連絡ください。',
 			};
-const nameOrder = lang === 'en' ? ['first_name', 'last_name'] : ['last_name', 'first_name'];
-const labelOf = (k: string) => (k === 'first_name' ? t.first : t.last);
 ---
 
 <div class:list={['nlf', { 'nlf--compact': compact }]} data-nl-form data-submit-url={submitUrl} data-sending={t.sending} data-invalid={t.invalid} data-failed={t.failed}>
 	<form data-hs-do-not-collect="true" onsubmit="return false" novalidate>
-		<label class="nlf-field">
-			<span>{t.email}</span>
-			<input name="email" type="email" autocomplete="email" required />
-		</label>
-		<div class="nlf-names">
-			{nameOrder.map((k) => (
-				<label class="nlf-field">
-					<span>{labelOf(k)}<small>{t.optional}</small></span>
-					<input name={k} type="text" autocomplete={k === 'first_name' ? 'given-name' : 'family-name'} />
-				</label>
-			))}
+		<div class="nlf-row">
+			<label class="nlf-field">
+				<span class="nlf-visually-hidden">{t.email}</span>
+				<input name="email" type="email" autocomplete="email" inputmode="email" placeholder={t.placeholder} required />
+			</label>
+			<button type="submit" class="nlf-button">{t.button}</button>
 		</div>
 		<label class="nlf-hp" aria-hidden="true">
 			<span>Leave this field empty</span>
 			<input name="hp" type="text" tabindex="-1" autocomplete="off" />
 		</label>
 		<p class="nlf-error" role="alert" hidden></p>
-		<button type="submit" class="nlf-button">{t.button}</button>
 		<p class="nlf-note">{t.note} <a href={t.privacyHref}>{t.privacy}</a></p>
 	</form>
 	<p class="nlf-done" role="status" hidden>{t.done}</p>
@@ -152,19 +147,21 @@ const labelOf = (k: string) => (k === 'first_name' ? t.first : t.last);
 		font-size: 1rem; background: #fff; color: #0f172a;
 	}
 	.nlf-field input:focus { outline: 2px solid var(--color-primary, #1e40af); outline-offset: 1px; border-color: transparent; }
-	.nlf-names { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+	.nlf-row { display: flex; gap: 0.5rem; align-items: stretch; }
+	.nlf-row .nlf-field { flex: 1 1 auto; min-width: 0; }
+	.nlf-visually-hidden { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+	@media (max-width: 480px) { .nlf-row { flex-direction: column; } }
 	.nlf-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 	.nlf-error { margin: 0; color: #b42318; font-size: 0.82rem; }
 	.nlf-error[hidden], .nlf-done[hidden], .nlf form[hidden] { display: none; }
 	.nlf-button {
-		width: 100%; padding: 0.75rem 1rem; border: 0; border-radius: 0.45rem; cursor: pointer;
+		flex: 0 0 auto; white-space: nowrap; padding: 0.75rem 1.25rem; border: 0; border-radius: 0.45rem; cursor: pointer;
 		background: var(--color-primary, #1e40af); color: #fff; font-weight: 700; font-size: 0.95rem;
 	}
 	.nlf-button:disabled { opacity: 0.6; cursor: default; }
 	.nlf-note { margin: 0; font-size: 0.75rem; line-height: 1.7; color: var(--color-text-muted); }
 	.nlf-note a { color: inherit; }
 	.nlf-done { margin: 0; padding: 0.9rem 1rem; border-radius: 0.45rem; background: #eff6ff; color: #1e3a8a; font-size: 0.9rem; line-height: 1.7; }
-	.nlf--compact .nlf-names { grid-template-columns: 1fr 1fr; }
 	.nlf--compact .nlf-field { font-size: 0.78rem; }
 	.nlf--compact .nlf-field input { padding: 0.55rem 0.65rem; font-size: 0.95rem; }
 </style>

@@ -105,30 +105,56 @@ const readings = [
 
 <CrmSubnav lang="ja" />
 
-<!-- ===================== HERO（トップと同じ型：左＝見出しとCTA、右＝画面） ===================== -->
+<!-- ===================== HERO（紹介パートナーページと同じ型：左＝法人営業、右＝教室・スクール。下に見出しとCTA） ===================== -->
 <section class="hero">
-	<div class="container hero-inner">
+	<div class="hero-split">
+		<div class="hero-half hero-half--b2b">
+			<div class="hero-half__inner">
+				<p class="hero-half__tag">法人営業</p>
+				<p class="hero-half__title">営業の記録や報告に、<br />時間を取られている会社に。</p>
+				<p class="hero-half__text">商談メモは貼るだけ、議事録は自動で入る。記録の下書きはAIが作り、人は確かめて保存します。</p>
+				<a class="hero-half__link" href="/crm/features/">法人営業版を見る →</a>
+				<img
+					class="hero-half__shot"
+					src="/images/crm/screen-dashboard-2026-10c.webp"
+					alt="Revenue CRMのダッシュボード。パイプライン総額・加重フォーキャスト・勝率・期限切れタスク・ステージ別パイプライン・注目の商談を一画面に表示。"
+					width="1600"
+					height="1000"
+					decoding="async"
+					fetchpriority="high"
+				/>
+			</div>
+		</div>
+		<div class="hero-half hero-half--school">
+			<div class="hero-half__inner">
+				<p class="hero-half__tag">教室・スクール</p>
+				<p class="hero-half__title">生徒の管理を、LINEと<br />スプレッドシートで回している教室に。</p>
+				<p class="hero-half__text">生徒とのやりとりは公式LINEのまま。課題はLINEで届き、生徒ごとに自動で残ります。</p>
+				<a class="hero-half__link" href="/crm/school/">スクール版を見る →</a>
+				<img
+					class="hero-half__shot"
+					src="/images/crm/school/screen-students-v3.webp"
+					alt="Revenue CRMスクール版の生徒管理。生徒ごとの課題の提出状況とLINEの返信状況を一覧で表示。"
+					width="1200"
+					height="750"
+					decoding="async"
+				/>
+			</div>
+		</div>
+	</div>
+	<div class="container hero-base">
 		<div class="hero-copy">
 			<p class="hero-eyebrow"><img src="/images/crm/logo/revenue-crm-logo-v3.svg" alt="" width="22" height="22" decoding="async" />Revenue CRM</p>
-			<h1>入力がめんどくさくない<br /><span class="hero-accent">顧客管理ツール。</span></h1>
+			<h1>入力がめんどくさくない顧客管理ツール。</h1>
 			<p class="hero-lead">名刺を撮る、声で話す、議事録を貼る。記録はAIが作ります。</p>
+		</div>
+		<div class="hero-cta">
 			<div class="hero-actions">
 				<a href={SIGNUP_URL} class="btn btn--cta btn--lg" target="_blank" rel="noopener noreferrer">無料で始める</a>
-				<a href={DEMO_URL} class="btn btn--hero-outline btn--lg" target="_blank" rel="noopener noreferrer">デモを見る</a>
+				<a href={DEMO_URL} class="btn btn--outline-dark btn--lg" target="_blank" rel="noopener noreferrer">デモを見る</a>
 			</div>
 			<p class="hero-proof">1人あたり月額<strong>3,000円〜</strong><span class="hero-proof__sep">・</span>30日間無料<span class="hero-proof__sep">・</span>カード登録不要</p>
 		</div>
-		<figure class="hero-media">
-			<img
-				src="/images/crm/screen-dashboard-2026-10c.webp"
-				alt="Revenue CRMのダッシュボード。パイプライン総額・加重フォーキャスト・勝率・期限切れタスク・ステージ別パイプライン・注目の商談を一画面に表示。"
-				width="1600"
-				height="1000"
-				decoding="async"
-				fetchpriority="high"
-			/>
-			<figcaption>最初に見る数字と、次に動く相手を、同じ画面で。</figcaption>
-		</figure>
 	</div>
 </section>
 
@@ -348,23 +374,36 @@ h3 { font-weight: 500; }
 .btn--outline-primary { background: transparent; color: var(--color-primary); padding: 0.75rem 1.25rem; font-weight: 500; font-size: 0.875rem; border: 1px solid var(--color-primary); }
 .btn--outline-primary:hover { background: rgba(30,64,175,0.05); color: var(--color-primary); }
 
-/* ── Hero ── */
-.hero { position: relative; overflow: hidden; background: #0F172A url('/images/common/hero-visual.webp') center / cover no-repeat; border-bottom: 1px solid var(--color-border); padding-block: 0; }
-.hero::before { content: ""; position: absolute; inset: 0; background: rgba(12, 17, 28, 0.66); }
-.hero-inner { position: relative; display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); gap: 3rem; align-items: center; padding-block: 5rem 4.25rem; }
-.hero-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; margin: 0 0 1.25rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; color: rgba(255,255,255,0.85); }
-.hero-eyebrow img { width: 22px; height: 22px; border-radius: 4px; background: #fff; }
-.hero-copy h1 { font-size: clamp(1.75rem, 3vw, 2.65rem); font-weight: 500; line-height: 1.3; letter-spacing: 0; color: #fff; margin: 0 0 1.25rem; }
-.hero-accent { color: #fff; display: block; }
-.hero-lead { margin: 0 0 1.5rem; font-size: 1.1rem; line-height: 1.78; color: rgba(255,255,255,0.92); }
+/* ── Hero（紹介パートナーページ /crm/referral/ の rf-split と同じ配色・構造） ── */
+.hero { padding: 0; }
+.hero-split { display: grid; grid-template-columns: 1fr 1fr; }
+.hero-half { display: flex; padding: var(--space-lg) var(--space-lg) 0; }
+.hero-half--b2b { justify-content: flex-end; background: #0B1F44; }
+.hero-half--school { justify-content: flex-start; background: #F4F1EA; }
+.hero-half__inner { display: flex; flex-direction: column; width: 100%; max-width: 560px; }
+.hero-half__tag { align-self: flex-start; margin: 0 0 0.75rem; padding: 0.25rem 0.8rem; border-radius: 999px; font-size: 0.85rem; font-weight: 700; background: #fff; color: var(--color-primary); }
+.hero-half--school .hero-half__tag { background: #FF5C3E; color: #fff; }
+.hero-half__title { margin: 0; font-size: clamp(1.3rem, 2vw, 1.75rem); font-weight: 800; line-height: 1.45; color: #fff; }
+.hero-half--school .hero-half__title { color: #10212F; }
+.hero-half__text { margin: 0.6rem 0 0; font-size: 0.9375rem; line-height: 1.85; color: rgba(255,255,255,0.9); }
+.hero-half--school .hero-half__text { color: #4A5965; }
+.hero-half__link { align-self: flex-start; margin-top: 0.6rem; font-weight: 700; font-size: 0.95rem; color: #fff; }
+.hero-half--school .hero-half__link { color: #C2410C; }
+.hero-half__shot { display: block; width: 100%; height: auto; margin-top: var(--space-md); border-radius: 10px 10px 0 0; box-shadow: 0 -8px 40px rgba(0,0,0,0.22); }
+.hero-half--school .hero-half__shot { box-shadow: 0 -8px 40px rgba(14,36,56,0.16); }
+.hero-base { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-md) var(--space-lg); padding-top: var(--space-lg); padding-bottom: var(--space-lg); border-bottom: 1px solid var(--color-border); }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; margin: 0 0 0.75rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; color: var(--color-text-muted); }
+.hero-eyebrow img { width: 22px; height: 22px; border-radius: 4px; }
+.hero-copy h1 { font-size: clamp(1.5rem, 2.4vw, 2.1rem); font-weight: 500; line-height: 1.35; letter-spacing: -0.01em; color: var(--color-text); margin: 0 0 0.6rem; }
+.hero-lead { margin: 0; font-size: 1rem; line-height: 1.78; color: var(--color-text-muted); }
+.hero-cta { flex: 0 0 auto; }
 .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
 .hero-actions .btn--cta { padding: 0.95rem 1.6rem; font-size: 1rem; }
-.hero-proof { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem; margin: 1.25rem 0 0; font-size: 0.75rem; letter-spacing: 0.06em; color: rgba(255,255,255,0.78); }
-.hero-proof strong { font-size: 0.9375rem; font-weight: 600; color: #fff; letter-spacing: 0; }
-.hero-proof__sep { color: rgba(255,255,255,0.45); }
-.hero-media { margin: 0; justify-self: end; width: 100%; max-width: 34rem; }
-.hero-media img { display: block; width: 100%; height: auto; border-radius: 6px; border: 1px solid rgba(255,255,255,0.25); box-shadow: 0 24px 60px rgba(0,0,0,0.35); }
-.hero-media figcaption { margin-top: 0.75rem; font-size: 0.75rem; color: rgba(255,255,255,0.72); }
+.btn--outline-dark { background: transparent; color: #0B1F44; border: 1px solid #0B1F44; font-weight: 500; font-size: 0.9375rem; white-space: nowrap; }
+.btn--outline-dark:hover { background: #0B1F44; color: #fff; }
+.hero-proof { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem; margin: 0.9rem 0 0; font-size: 0.75rem; letter-spacing: 0.06em; color: var(--color-text-muted); }
+.hero-proof strong { font-size: 0.9375rem; font-weight: 600; color: var(--color-text); letter-spacing: 0; }
+.hero-proof__sep { color: var(--color-border); }
 
 /* ── Assurance ── */
 .assurance { background: var(--color-bg-subtle); border-top: 1px solid var(--color-border); padding-block: var(--space-xl); }
@@ -466,8 +505,9 @@ h3 { font-weight: 500; }
 
 /* ── Responsive ── */
 @media (max-width: 960px) {
-	.hero-inner { grid-template-columns: 1fr; gap: 2rem; }
-	.hero-media { max-width: none; }
+	.hero-split { grid-template-columns: 1fr; }
+	.hero-half { justify-content: flex-start; padding: var(--space-md) var(--space-md) 0; }
+	.hero-base { flex-direction: column; align-items: flex-start; }
 	.problems-overview { grid-template-columns: 1fr; gap: 1.5rem; }
 	.problem-row { grid-template-columns: 1fr; gap: 1.25rem; }
 	.after-list { grid-template-columns: 1fr; }
@@ -479,9 +519,11 @@ h3 { font-weight: 500; }
 @media (max-width: 640px) {
 	.container { padding-inline: 1.25rem; }
 	section { padding-block: var(--space-xl); }
-	.hero-inner { padding-block: 3.5rem 3rem; }
-	.assurance h2 { font-size: 1.35rem; }
-	.hero-copy h1 { font-size: 1.7rem; }
+	.assurance h2 { font-size: 1.25rem; }
+	.hero-half__title { font-size: 1.2rem; }
+	.hero-half__title br { display: none; }
+	.hero-copy h1 { font-size: 1.5rem; }
+	.hero-cta { width: 100%; }
 	.hero-actions, .cta-actions { flex-direction: column; }
 	.hero-actions .btn, .cta-actions .btn { width: 100%; justify-content: center; }
 }

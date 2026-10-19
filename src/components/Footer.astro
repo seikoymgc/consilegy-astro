@@ -1,6 +1,12 @@
 ---
+import NewsletterForm from './NewsletterForm.astro';
 const pathname = Astro.url.pathname;
 const isEN = pathname.startsWith('/en');
+// ニュースレター登録はフッターの上に全ページで出す。登録ページ自体ではフォームが二重になるので出さない。
+const showNewsletter = !/^\/(en\/)?newsletter\//.test(pathname);
+const nl = isEN
+	? { eyebrow: 'Newsletter', title: 'B2B Revenue Strategy, every other week', text: 'Practical notes on Revenue Architecture, RevOps and CRM. Free, unsubscribe anytime.' }
+	: { eyebrow: 'Newsletter', title: '次世代B2Bレベニュー戦略バイブル', text: 'Revenue Architecture・RevOps・CRM実装の実践知を隔週で配信。約2,000人が購読中。無料です。' };
 
 const services = isEN
 	? [
@@ -63,6 +69,21 @@ const company = isEN
 
 const privacyHref = isEN ? '/en/privacy-policy/' : '/privacy-policy/';
 ---
+
+{showNewsletter && (
+	<section class="footer-newsletter" aria-label={nl.eyebrow}>
+		<div class="container footer-newsletter__inner">
+			<div class="footer-newsletter__copy">
+				<p class="footer-newsletter__eyebrow">{nl.eyebrow}</p>
+				<p class="footer-newsletter__title">{nl.title}</p>
+				<p class="footer-newsletter__text">{nl.text}</p>
+			</div>
+			<div class="footer-newsletter__form">
+				<NewsletterForm lang={isEN ? 'en' : 'ja'} compact />
+			</div>
+		</div>
+	</section>
+)}
 
 <footer class={`site-footer${isEN ? ' site-footer--en' : ''}`}>
 	<div class="container site-footer__grid">
@@ -163,6 +184,13 @@ const privacyHref = isEN ? '/en/privacy-policy/' : '/privacy-policy/';
 </footer>
 
 <style>
+	.footer-newsletter { background: #f1f5f9; border-top: 1px solid #e2e8f0; padding: 2.5rem 0; }
+	.footer-newsletter__inner { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 1.5rem 3rem; align-items: center; }
+	.footer-newsletter__eyebrow { margin: 0 0 0.3rem; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: #64748b; }
+	.footer-newsletter__title { margin: 0 0 0.35rem; font-size: 1.15rem; font-weight: 700; color: #0f172a; }
+	.footer-newsletter__text { margin: 0; font-size: 0.9rem; line-height: 1.7; color: #475569; }
+	@media (max-width: 760px) { .footer-newsletter__inner { grid-template-columns: 1fr; } }
+
 	.site-footer {
 		background: #111827;
 		color: #CBD5E1;

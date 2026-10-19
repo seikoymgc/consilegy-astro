@@ -1,0 +1,122 @@
+/* Product pages use the same open text groups as the corporate site.
+   Keep edition colors, product screenshots, navigation states, form controls,
+   pricing comparisons and diagrams intact. */
+#main-content.crm-editorial .hero-download { margin: 1rem 0 0; font-size: 0.9375rem; }
+#main-content.crm-editorial .hero-download a { color: var(--color-primary); text-underline-offset: 0.25em; }
+#main-content.crm-editorial :is(.hero-points, .hero-points li, .pos-body, .section-head, .prob-grid, .sc-grid, .proof-grid, .proof-grid li, .support-list, .support-list h3, .support-list li, .ai-examples, .ai-examples li, .ro-list, .ro-row, .safe-list, .safe-row, .fit-box li, .cta-card h4, .cta-list li, .resource-list, .resource-list li) {
+	border: 0;
+	box-shadow: none;
+}
+
+#main-content.crm-editorial :is(.hero, .positioning, .problem, .screens, .support, .ai, .roles, .proof, .safeguards, .pricing, .fit, .media-proof, .faq, .resources, .final-cta) {
+	border-top: 0;
+	border-bottom: 0;
+}
+#main-content.crm-editorial :is(.screens, .roles) { background: var(--color-bg); }
+#main-content.crm-editorial :is(.support-inner, .ai-inner, .cta-inner, .media-inner) > div:first-child { border-top: 0; }
+
+/* Override the school edition's card skin as well as the other editions' rails. */
+#main-content.crm-editorial :is(.prob-item, .sc-card, .fit-box, .cta-card),
+#main-content.crm-editorial .proof-grid li,
+#main-content.crm-editorial .ai-examples li {
+	border: 0;
+	border-radius: 0;
+	background: none;
+	box-shadow: none;
+	padding: 1rem 0;
+}
+#main-content.crm-editorial :is(.prob-grid, .sc-grid) { gap: 1.5rem 2rem; }
+#main-content.crm-editorial .proof-grid { gap: 1rem 2rem; }
+#main-content.crm-editorial :is(.support-list, .ro-list, .safe-list) {
+	padding: 0;
+	border-radius: 0;
+	background: none;
+}
+#main-content.crm-editorial .issue-label::after { content: none; }
+#main-content.crm-editorial .issue-label__number {
+	font-family: var(--font-sans);
+	font-size: 0.875rem;
+	font-weight: 400;
+	color: var(--color-text-muted);
+}
+#main-content.crm-editorial :is(.section-eyebrow, .cta-eyebrow)::before { content: none; }
+#main-content.crm-editorial :is(.hero-media img, .prob-shot img, .sc-shot, .press-image img, .rf-half-shot) {
+	box-shadow: none;
+	border-radius: 6px;
+}
+
+/* Long feature/answer lists need spacing, rather than a box for every item. */
+#main-content.crm-editorial .feat-group li,
+#main-content.crm-editorial .faq-group .qa {
+	padding: 0.9rem 0;
+	border: 0;
+	border-radius: 0;
+	background: none;
+}
+#main-content.crm-editorial .faq-group a {
+	border: 0;
+	border-radius: 0;
+	padding-inline: 0;
+	background: none;
+}
+#main-content.crm-editorial .faq-group a:hover .q { text-decoration: underline; text-underline-offset: 0.2em; }
+#main-content.crm-editorial .faq-group a .q { color: var(--color-primary); }
+#main-content.crm-editorial :is(.feat-jump, .faq-jump) { gap: 0.5rem 1.5rem; }
+#main-content.crm-editorial :is(.feat-jump, .faq-jump) a {
+	border: 0;
+	border-radius: 0;
+	padding: 0.4rem 0;
+	text-decoration: underline;
+	text-underline-offset: 0.25em;
+}
+#main-content.crm-editorial :is(.feat-cta, .faq-cta, .up-cta, .faq-detail .cta) {
+	border: 0;
+	border-radius: 0;
+	background: none;
+	padding-inline: 0;
+}
+#main-content.crm-editorial :is(.faq-detail .related, .up-item) { border: 0; }
+#main-content.crm-editorial .up-item {
+	border-radius: 0;
+	background: none;
+	padding-inline: 0;
+}
+#main-content.crm-editorial .up-item .tag { background: none; padding-inline: 0; }
+
+/* Partner pages: retain the reward chart/table and the registration form. */
+#main-content.crm-editorial :is(.rf-section, .rf-hero-base, .rf-fit, .rf-fit-row, .rf-steps li, .rf-faq > div) { border: 0; }
+#main-content.crm-editorial .rf-half-tag {
+	border-radius: 0;
+	padding: 0;
+	background: none;
+	color: inherit;
+}
+#main-content.crm-editorial :is(.kit-block, .kit-materials li) {
+	border: 0;
+	border-radius: 0;
+	background: none;
+	padding-inline: 0;
+}
+#main-content.crm-editorial .kit-messages { gap: 2rem; }
+
+/* The CRM how-to section is part of this site, separate from media.consilegy.com. */
+#main-content.crm-editorial :is(.media-page, .media-layout) :is(h1, h2, h3) { font-weight: 500; }
+#main-content.crm-editorial :is(.media-page, .media-layout) h2 { border: 0; }
+#main-content.crm-editorial :is(.media-page, .media-layout) .rule::before,
+#main-content.crm-editorial :is(.media-page, .media-layout) .rule::after { content: none; }
+#main-content.crm-editorial :is(.media-page, .media-layout) .rule span { align-items: flex-start; text-align: left; }
+#main-content.crm-editorial :is(.media-page, .media-layout) .card {
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+	transform: none;
+}
+#main-content.crm-editorial :is(.media-page, .media-layout) .body h2 { border-top: 0; }
+#main-content.crm-editorial :is(.media-page, .media-layout) :is(.author, .links a) { border: 0; }
+
+#main-content.crm-editorial .media-article :is(.summary, .cta) {
+	border: 0;
+	border-radius: 0;
+	background: none;
+	padding-inline: 0;
+}

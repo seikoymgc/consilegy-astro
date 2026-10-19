@@ -38,19 +38,7 @@ const contents = [
 				<p class="lead">
 					Revenue CRMスクール版のサービス紹介資料です。教室内でのご検討にお使いください。
 				</p>
-				<figure class="dl-cover">
-					<img
-						src="/images/crm/school-guide-cover-2026-10.jpg"
-						alt="Revenue CRMスクール版 サービス紹介資料の表紙"
-						width="1467"
-						height="825"
-						decoding="async"
-					/>
-				</figure>
-				<h2>資料の内容</h2>
-				<ul class="dl-contents">
-					{contents.map((item) => <li>{item}</li>)}
-				</ul>
+
 			</section>
 
 			<section class="dl-form-card" aria-labelledby="dl-form-title">
@@ -100,6 +88,22 @@ const contents = [
 						実際の画面は、登録なしで<a href="https://crm.consilegy.com/demos" target="_blank" rel="noopener noreferrer">デモ</a>からご覧いただけます。
 					</p>
 				</div>
+			</section>
+
+			<section class="dl-details" aria-label="資料の内容">
+				<figure class="dl-cover">
+					<img
+						src="/images/crm/school-guide-cover-2026-10.jpg"
+						alt="Revenue CRMスクール版 サービス紹介資料の表紙"
+						width="1467"
+						height="825"
+						decoding="async"
+					/>
+				</figure>
+				<h2>資料の内容</h2>
+				<ul class="dl-contents">
+					{contents.map((item) => <li>{item}</li>)}
+				</ul>
 			</section>
 		</div>
 	</div>
@@ -163,18 +167,22 @@ const contents = [
 
 <style>
 	.dl-page { max-width: 72rem; margin: 0 auto; padding: 3.5rem 1rem 5rem; }
-	.dl-grid { display: grid; gap: 2.5rem; }
+	.dl-grid { display: grid; grid-template-areas: "intro" "form" "details"; gap: 1.5rem; }
+	.dl-copy { grid-area: intro; }
+	.dl-details { grid-area: details; }
+	.dl-form-card { grid-area: form; scroll-margin-top: 8rem; }
 	@media (min-width: 900px) {
-		.dl-grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: start; gap: 3.5rem; }
+		.dl-grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); grid-template-areas: "intro form" "details form"; grid-template-rows: auto 1fr; align-items: start; gap: 1.5rem 3.5rem; }
 		.dl-form-card { position: sticky; top: 8rem; }
 		.br-narrow { display: none; }
 	}
 	.kicker { font-size: 0.8rem; letter-spacing: 0.12em; color: var(--color-primary); margin: 0 0 0.5rem; }
 	.dl-copy h1 { font-size: clamp(1.75rem, 4vw, 2.4rem); line-height: 1.35; margin: 0 0 0.75rem; }
 	.lead { color: #4a5568; line-height: 1.9; margin: 0 0 1.5rem; }
+	.dl-copy .lead { margin-bottom: 0; }
 	.dl-cover { margin: 0 0 1.75rem; }
 	.dl-cover img { width: 100%; height: auto; border-radius: 0.6rem; border: 1px solid #e6eaef; display: block; }
-	.dl-copy h2 { font-size: 1.05rem; margin: 0 0 0.75rem; }
+	.dl-details h2 { font-size: 1.05rem; margin: 0 0 0.75rem; }
 	.dl-contents { margin: 0; padding-left: 1.2rem; line-height: 1.9; color: #3a4551; }
 
 	.dl-form-card { background: #fff; border: 1px solid #e6eaef; border-radius: 0.75rem; padding: 1.75rem 1.5rem; }
@@ -201,4 +209,9 @@ const contents = [
 	.dl-privacy, .dl-next { margin: 0; font-size: 0.8rem; color: #5b6673; line-height: 1.7; }
 	#dl-done p { color: #3a4551; margin: 0 0 1rem; }
 	#dl-done .dl-next { margin-top: 1rem; }
+	@media (max-width: 899px) {
+		.dl-page { padding-top: 1.75rem; }
+		.dl-form-card { padding: 1.25rem; }
+		#dl-form { gap: 0.75rem; }
+	}
 </style>

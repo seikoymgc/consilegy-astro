@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import '../styles/editorial.css';
+import '../styles/crm-editorial.css';
 import SEO from '../components/SEO.astro';
 import Header from '../components/Header.astro';
 import CrmMediaHeader from '../components/CrmMediaHeader.astro';
@@ -118,7 +120,10 @@ const xDefaultHref = new URL('/en/', site).href;
 		{chrome === 'media'
 			? <CrmMediaHeader lang={htmlLang as 'ja' | 'en'} alternateUrl={alternateUrl} />
 			: <Header lang={htmlLang as 'ja' | 'en'} alternateUrl={alternateUrl} />}
-		<main id="main-content">
+		<main id="main-content" class:list={{
+			editorial: chrome === 'site' && pathname !== '/' && pathname !== '/en/',
+			'crm-editorial': /^(?:\/en)?\/crm(?:\/|$)/.test(pathname),
+		}}>
 			<slot />
 		</main>
 		<Footer />

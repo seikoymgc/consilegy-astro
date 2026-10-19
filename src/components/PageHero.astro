@@ -19,8 +19,7 @@ const { eyebrow, title, lede } = Astro.props;
 
 <style>
 	.page-hero {
-		background: linear-gradient(160deg, #f0f4ff 0%, #ffffff 70%);
-		border-bottom: 1px solid var(--color-border);
+		background: var(--color-bg);
 		padding-block: var(--space-2xl) var(--space-xl);
 	}
 
@@ -34,15 +33,6 @@ const { eyebrow, title, lede } = Astro.props;
 		display: inline-flex;
 		align-items: center;
 		gap: 0.5em;
-	}
-
-	.page-hero__eyebrow::before {
-		content: '';
-		display: inline-block;
-		width: 20px;
-		height: 2px;
-		background: var(--color-primary);
-		border-radius: 2px;
 	}
 
 	.page-hero__title {

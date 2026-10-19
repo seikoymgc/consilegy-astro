@@ -1,0 +1,140 @@
+/* Corporate pages share the homepage's typography-first presentation.
+   Select named presentation elements only; table rules, fields, disclosure
+   controls, charts and keyboard focus indicators retain their own styling. */
+#main-content.editorial {
+	--glass-bg: #fff;
+	--glass-bg-strong: #fff;
+	--glass-blur: none;
+	--glass-shadow: none;
+	--glass-shadow-hover: none;
+	--shadow-sm: none;
+	--shadow-md: none;
+	--shadow-lg: none;
+}
+
+#main-content.editorial :is(h1, h2, h3, h4) {
+	font-family: var(--font-sans);
+	font-weight: 500;
+}
+#main-content.editorial :is(h2, h3) { border: 0; padding-bottom: 0; }
+
+#main-content.editorial :is(.section-title, .section__title, .section-head h2, .section-header h2, .cap-head h2) {
+	font-size: clamp(1.5rem, 2.4vw, 2rem);
+	line-height: 1.45;
+	letter-spacing: -0.01em;
+}
+
+/* Labels are labels, without rules, pills or ornamental dots. */
+#main-content.editorial :is(.eyebrow, .section-eyebrow, .section-label, .hero-eyebrow, .hero-tag, .hero-kicker, .page-hero__eyebrow, .hero__subtitle, .section-kicker) {
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	background: none;
+	box-shadow: none;
+	font-size: 0.75rem;
+	font-weight: 400;
+	letter-spacing: 0.08em;
+	color: var(--color-text-muted);
+}
+#main-content.editorial :is(.eyebrow__dot, .hero__bg, .hero__visual) { display: none; }
+#main-content.editorial :is(.eyebrow, .section-eyebrow, .section-label, .page-hero__eyebrow, .hero__subtitle)::before,
+#main-content.editorial :is(.eyebrow, .section-eyebrow, .section-label, .page-hero__eyebrow)::after { content: none; }
+
+/* Light introductory surfaces. Dark product heroes keep their own palette. */
+#main-content.editorial :is(.page-hero, .service-hero, .hero__bg) {
+	background: var(--color-bg);
+	border: 0;
+}
+#main-content.editorial > :is(section, .article) { border-top: 0; border-bottom: 0; }
+#main-content.editorial :is(.section--subtle, .section--soft, .plan-section--alt, .capabilities, .tools, .process) {
+	background: var(--color-bg);
+	border-top: 0;
+	border-bottom: 0;
+}
+
+/* Explanatory cards become open text groups; price and action cards stay distinct. */
+#main-content.editorial :is(.problem-card, .why-card, .cap-card, .pillar-card, .pain-card, .approach-card, .value-card, .deliverable-card, .benefit-card, .issue-card, .info-card, .why-item, .it-item, .cause-card, .failure-card, .finding-card, .hero-def-card) {
+	border: 0;
+	border-radius: 0;
+	background: none;
+	box-shadow: none;
+	backdrop-filter: none;
+	padding: 1rem 0;
+	transform: none;
+}
+#main-content.editorial :is(.problem-grid, .cap-grid, .pillars-grid, .values-grid, .issues-grid) { gap: 2rem 3rem; }
+#main-content.editorial :is(.info-card__header, .info-card__header--blue, .info-card__header--green, .info-card__header--muted) {
+	background: none;
+	padding-inline: 0;
+	border: 0;
+}
+#main-content.editorial :is(.why-num, .cap-num, .issue-num) {
+	border: 0;
+	border-radius: 0;
+	background: none;
+	color: var(--color-text-muted);
+	font-weight: 400;
+}
+
+/* Notes and quotations rely on spacing rather than a colored rail or panel. */
+#main-content.editorial :is(blockquote, .callout, .callout-box, .key-point, .why-foot, .svc-product__note, .pn-custom-note, .pn-diag-note, .guide-card, .hero-poem, .ba-note, .approach-micro, .problem-conclusion, .article-callout, .takeaway, .principle-note, .pricing-pretext, .promise-note, .company-name-origin, .crm-note, .cs-summary, .def-oneline, .def-quick-oneline, .definition-oneliner, .metrics-callout, .pricing-diag, .root-cause-closing, .root-cause__resolution, .tools-note, .rd-calc-out, .rd-insight-quant, .rd-promise) {
+	border: 0;
+	border-radius: 0;
+	background: none;
+	box-shadow: none;
+	padding-inline: 0;
+}
+#main-content.editorial :is(.hero-meta, .ov-step__meta, .svc-product, .article__header, .article__visual, .article-services, .article-pubdate, .section-head, .crm-section-head, .root-cause-list, .sv-problem-list) {
+	border-top: 0;
+	border-bottom: 0;
+	border-left: 0;
+}
+#main-content.editorial :is(.prose, .wp-content, .article-prose, .article-content, .content-body) h2 {
+	border: 0;
+	padding-bottom: 0;
+	margin-top: 2.5em;
+}
+#main-content.editorial :is(.prose, .wp-content) blockquote {
+	max-width: 40rem;
+	margin-block: 2rem;
+	line-height: 1.9;
+}
+
+/* Linked cards retain a visible hit area, with no floating or glass effect. */
+#main-content.editorial :is(.card, .topic-card, .related-card, .article-related__card, .article-services__card, .branch-card, .ov-step, .pricing-card, .plan-card) {
+	box-shadow: none;
+	backdrop-filter: none;
+	border-radius: 6px;
+}
+#main-content.editorial .article-services__card {
+	border: 0;
+	background: none;
+	padding-inline: 0;
+}
+#main-content.editorial :is(.card--link, .topic-card, .related-card, .article-related__card, .guide-card, .ov-step):hover {
+	transform: none;
+	box-shadow: none;
+}
+#main-content.editorial :is(.article__cover, .hero__media img, .svc-product__shot) {
+	box-shadow: none;
+	border-radius: 6px;
+}
+
+/* Keep calls to action visible, using a solid surface instead of a glow. */
+#main-content.editorial .cta-band { background: #1e3a6f; }
+#main-content.editorial .hero__grid:has(> .hero__visual) {
+	grid-template-columns: minmax(0, 1fr);
+	max-width: 52rem;
+}
+#main-content.editorial .article-hr {
+	border: 0;
+	height: 0;
+}
+#main-content.editorial .mission-body { border-top: 0; }
+#main-content.editorial .cta-checklist {
+	border: 0;
+	background: none;
+	box-shadow: none;
+	backdrop-filter: none;
+	padding-inline: 0;
+}

@@ -8,7 +8,7 @@ import { readdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { parse } from 'parse5';
 
-const LABEL = { CRM: '顧客管理', SFA: '営業管理', MA: 'マーケティング自動化' };
+const LABEL = { CRM: '顧客管理', SFA: '営業支援', MA: 'マーケティング自動化' };
 
 // ここに入るテキストには付けない。見出し・ナビ・リンク・ボタンは短く読ませたいので、本文で説明する。
 const SKIP_TAGS = new Set([

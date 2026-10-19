@@ -542,3 +542,18 @@ a:hover {
 
 /* 料金の税抜注記（全サービスページ共通） */
 .tax-note { margin: 1rem 0 0; font-size: 0.9rem; color: var(--color-text-muted); }
+
+/* ── 本文の最小サイズ（2026-10-19）────────────────────────────
+   カードの中も含め、本文は 16px 以上。小さくてよいのはラベル・注記・キャプションだけ。
+   見出し代わりの大きな p/li は除外（リストに足せば守られる）。 */
+#main-content :is(p, li, dd, dt, td, th, blockquote):not(
+	.hero-lead, .price-figure, .section-lead, .japan-data-stat, .rf-fit-who, .pos-lead, .plan-group-sub,
+	.hero-half__title, .rf-half-title, .pd-summary, .distinction-role, .rf-lead, .rf-fit-close,
+	.rf-connect-lead, .rf-cta-text, .lead, .page-hero__lede, .why-lead, .dx-sub, .pd-lead, .vsc-lead,
+	.section-eyebrow, .eyebrow, .kicker, .eyebrow-label, .cta-eyebrow, .nl-eyebrow, .nl-cta-eyebrow, .sv-label,
+	.mobile-kicker, .hero-eyebrow, .problem-topic, .topic-en, .hero-proof, .proof-note, .cta-note, .track-size,
+	.track-noun, .hero-half__tag, .rf-half-tag, .supported-tools, .readings, .row-list__foot, .service-summary__links,
+	.fuel-fineprint, .pf-privacy, .pf-notice, .plan-foot, .hero-note, .result-metric, .assurance-ways__k
+) { font-size: 1rem; }
+#main-content .service-summary > p { font-size: 0.875rem; }
+#main-content :is(.row-list__foot, .fuel-fineprint, .pf-privacy, .pf-notice, .plan-foot, .result-metric__note, .cta-note) { font-size: 0.875rem; }

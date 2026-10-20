@@ -4,6 +4,8 @@ import EnServicePage from '../../../components/EnServicePage.astro';
 
 <EnServicePage
   slug="japan-market-gtm-messaging"
+  figureLabel="How it works"
+  figureHeading="Messaging designed with the pipeline it feeds"
   title="Japan Market GTM & Messaging"
   description="We help English-speaking leaders in Japan adapt positioning, offers, and conversion paths so they fit how Japanese buyers actually evaluate trust, risk, and value."
   heroTagline="Make your messaging work in Japan, not just in translation."
@@ -13,7 +15,7 @@ import EnServicePage from '../../../components/EnServicePage.astro';
   problemHeading="Why English-speaking leaders get stuck"
   problemItems={[
     "You can see that conversion is low, but your Japan team's explanation doesn't help you identify where the offer or message is breaking down.",
-    "The positioning your HQ built works in other markets. In Japan, it loses persuasion, and buyers disengage without explaining why.",
+    "The positioning your HQ built works in other markets. In Japan, it loses its pull, and buyers disengage without explaining why.",
     "Your Japan sales team asks for better leads. Your marketing team believes the leads are qualified. You're caught between two interpretations with no structural way to resolve it.",
     "The ICP and positioning were designed at HQ and handed to Japan as-is. The message was translated. It was never adapted for how Japanese buyers evaluate risk, trust, and value.",
   ]}
@@ -67,4 +69,42 @@ import EnServicePage from '../../../components/EnServicePage.astro';
       a: "Many clients continue into Revenue Architecture Design or CRM implementation once messaging and ICP are clear. We can work sequentially or scope a broader engagement from the start.",
     },
   ]}
-/>
+>
+  <Fragment slot="figure">
+    <figure class="en-fig" aria-labelledby="en-gtm-caption">
+    	<svg viewBox="0 0 1120 278" role="img" aria-label="Japan GTM flow: market and buyer, message, pipeline, measure" font-family="inherit">
+    		<defs><marker id="en-gtm-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
+    		<text x="40" y="26" font-size="14" letter-spacing="1.5" fill="#64748b">JAPAN GTM FLOW</text>
+    		<rect x="40" y="50" width="240" height="136" rx="6" fill="#fff" stroke="#E2E8F0"/>
+    <rect x="40" y="50" width="240" height="3" fill="#8758C9"/>
+    <text x="56" y="80" font-size="14" letter-spacing="1.5" fill="#64748b">01 MARKET</text>
+    <text x="56" y="108" font-size="18" font-weight="600" fill="#0F172A">Market and buyer</text>
+    <text x="56" y="136" font-size="16" fill="#475569">Who buys, and how</text>
+    <text x="56" y="160" font-size="16" fill="#475569">approval works</text>
+    <line x1="282" y1="98" x2="304" y2="98" stroke="#0F172A" stroke-width="2" marker-end="url(#en-gtm-arr)"/>
+    <rect x="306" y="50" width="240" height="136" rx="6" fill="#fff" stroke="#E2E8F0"/>
+    <rect x="306" y="50" width="240" height="3" fill="#8758C9"/>
+    <text x="322" y="80" font-size="14" letter-spacing="1.5" fill="#64748b">02 MESSAGE</text>
+    <text x="322" y="108" font-size="18" font-weight="600" fill="#0F172A">Message</text>
+    <text x="322" y="136" font-size="16" fill="#475569">Positioning that</text>
+    <text x="322" y="160" font-size="16" fill="#475569">survives ringi</text>
+    <line x1="548" y1="98" x2="570" y2="98" stroke="#0F172A" stroke-width="2" marker-end="url(#en-gtm-arr)"/>
+    <rect x="572" y="50" width="240" height="136" rx="6" fill="#fff" stroke="#E2E8F0"/>
+    <rect x="572" y="50" width="240" height="3" fill="#8758C9"/>
+    <text x="588" y="80" font-size="14" letter-spacing="1.5" fill="#64748b">03 PIPELINE</text>
+    <text x="588" y="108" font-size="18" font-weight="600" fill="#0F172A">Pipeline</text>
+    <text x="588" y="136" font-size="16" fill="#475569">Channels and handoff</text>
+    <text x="588" y="160" font-size="16" fill="#475569">into sales</text>
+    <line x1="814" y1="98" x2="836" y2="98" stroke="#0F172A" stroke-width="2" marker-end="url(#en-gtm-arr)"/>
+    <rect x="838" y="50" width="240" height="136" rx="6" fill="#fff" stroke="#E2E8F0"/>
+    <rect x="838" y="50" width="240" height="3" fill="#8758C9"/>
+    <text x="854" y="80" font-size="14" letter-spacing="1.5" fill="#64748b">04 MEASURE</text>
+    <text x="854" y="108" font-size="18" font-weight="600" fill="#0F172A">Measure</text>
+    <text x="854" y="136" font-size="16" fill="#475569">Conversion and</text>
+    <text x="854" y="160" font-size="16" fill="#475569">waiting time</text>
+    <rect x="40" y="206" width="1040" height="52" rx="6" fill="#0F172A"/><text x="560" y="238" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">What you measure feeds the next round of messaging</text>
+    	</svg>
+    	<figcaption id="en-gtm-caption">Messaging for Japan is designed together with the pipeline it has to feed, and measured on conversion and waiting time.</figcaption>
+    </figure>
+  </Fragment>
+</EnServicePage>

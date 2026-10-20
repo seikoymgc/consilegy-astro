@@ -181,6 +181,50 @@ const roles = [
 			</ul>
 		</div>
 	</div>
+	<div class="container engine-fig">
+		<figure class="en-fig" aria-labelledby="en-rs-caption">
+			<svg viewBox="40 0 1040 278" role="img" aria-label="Renewal flow: contract, in use, renewal alert 90 days before, renewal deal, cross-sell" font-family="inherit">
+				<defs><marker id="en-rs-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
+				<text x="40" y="26" font-size="14" letter-spacing="1.5" fill="#64748b">RENEWAL FLOW</text>
+				<rect x="40" y="50" width="188" height="136" rx="6" fill="#fff" stroke="#E2E8F0"/>
+		<rect x="40" y="50" width="188" height="3" fill="#8758C9"/>
+		<text x="56" y="80" font-size="14" letter-spacing="1.5" fill="#64748b">CONTRACT</text>
+		<text x="56" y="108" font-size="18" font-weight="600" fill="#0F172A">Contract</text>
+		<text x="56" y="136" font-size="16" fill="#475569">Customer, term,</text>
+		<text x="56" y="160" font-size="16" fill="#475569">amount</text>
+		<line x1="230" y1="98" x2="250" y2="98" stroke="#0F172A" stroke-width="2" marker-end="url(#en-rs-arr)"/>
+		<rect x="252" y="50" width="188" height="136" rx="6" fill="#fff" stroke="#E2E8F0"/>
+		<rect x="252" y="50" width="188" height="3" fill="#8758C9"/>
+		<text x="268" y="80" font-size="14" letter-spacing="1.5" fill="#64748b">USAGE</text>
+		<text x="268" y="108" font-size="18" font-weight="600" fill="#0F172A">In use</text>
+		<text x="268" y="136" font-size="16" fill="#475569">Churn signals</text>
+		<text x="268" y="160" font-size="16" fill="#475569">watched daily</text>
+		<line x1="442" y1="98" x2="462" y2="98" stroke="#0F172A" stroke-width="2" marker-end="url(#en-rs-arr)"/>
+		<rect x="464" y="50" width="188" height="136" rx="6" fill="#fff" stroke="#E2E8F0"/>
+		<rect x="464" y="50" width="188" height="3" fill="#8758C9"/>
+		<text x="480" y="80" font-size="14" letter-spacing="1.5" fill="#64748b">90 DAYS</text>
+		<text x="480" y="108" font-size="18" font-weight="600" fill="#0F172A">Renewal alert</text>
+		<text x="480" y="136" font-size="16" fill="#475569">Task created 90</text>
+		<text x="480" y="160" font-size="16" fill="#475569">days before</text>
+		<line x1="654" y1="98" x2="674" y2="98" stroke="#0F172A" stroke-width="2" marker-end="url(#en-rs-arr)"/>
+		<rect x="676" y="50" width="188" height="136" rx="6" fill="#fff" stroke="#E2E8F0"/>
+		<rect x="676" y="50" width="188" height="3" fill="#8758C9"/>
+		<text x="692" y="80" font-size="14" letter-spacing="1.5" fill="#64748b">DEAL</text>
+		<text x="692" y="108" font-size="18" font-weight="600" fill="#0F172A">Renewal deal</text>
+		<text x="692" y="136" font-size="16" fill="#475569">Created and</text>
+		<text x="692" y="160" font-size="16" fill="#475569">tracked</text>
+		<line x1="866" y1="98" x2="886" y2="98" stroke="#0F172A" stroke-width="2" marker-end="url(#en-rs-arr)"/>
+		<rect x="888" y="50" width="188" height="136" rx="6" fill="#0F172A" stroke="#E2E8F0"/>
+		<rect x="888" y="50" width="188" height="3" fill="#8758C9"/>
+		<text x="904" y="80" font-size="14" letter-spacing="1.5" fill="rgba(255,255,255,0.7)">EXPAND</text>
+		<text x="904" y="108" font-size="18" font-weight="600" fill="#fff">Cross-sell</text>
+		<text x="904" y="136" font-size="16" fill="rgba(255,255,255,0.85)">Next product</text>
+		<text x="904" y="160" font-size="16" fill="rgba(255,255,255,0.85)">candidates</text>
+		<rect x="40" y="206" width="1040" height="52" rx="6" fill="#0F172A"/><text x="560" y="238" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">Renewal date tracking and churn signals run automatically, once a day</text>
+			</svg>
+			<figcaption id="en-rs-caption">Every contract carries its renewal date, so the next renewal is always visible ahead of time.</figcaption>
+		</figure>
+	</div>
 </section>
 
 <!-- ===================== AI ===================== -->
@@ -567,7 +611,7 @@ const roles = [
 	}
 
 	.issue-label__number {
-		color: rgba(30, 64, 175, 0.24);
+		color: rgba(112, 66, 172, 0.24);
 		font-size: 2.45rem;
 		font-weight: 500;
 		font-variant-numeric: tabular-nums;
@@ -910,4 +954,5 @@ const roles = [
 	}
 
 	.sc-note { margin: -0.5rem 0 1.5rem; color: var(--color-text-muted); font-size: 0.85rem; }
+	.engine-fig { margin-top: var(--space-lg); }
 </style>

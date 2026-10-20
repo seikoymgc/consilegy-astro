@@ -210,5 +210,5 @@ export function eyecatchPath(lang: Lang, slug: string): string {
 export function ogImagePath(lang: Lang, slug: string): string {
   const hero = `/images/crm/media/hero2/${slug}.webp`;
   if (existsSync(join(process.cwd(), 'public', hero))) return hero;
-  return lang === 'ja' ? '/images/og/crm-ja-2026e.png' : '/images/og/crm-en-2026b.png';
+  return lang === 'ja' ? '/images/og/crm-ja-2026e.png' : '/images/og/crm-en-2026c.png';
 }

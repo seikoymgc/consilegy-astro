@@ -135,7 +135,7 @@ export const CATEGORIES: DiagnosticCategory[] = [
 	},
 	{
 		id: 'adoption',
-		name: 'Tool non-adoption',
+		name: 'System non-adoption',
 		shortName: 'Adoption',
 		questions: [
 			{

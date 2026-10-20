@@ -9,7 +9,7 @@
 	--color-text: #1C1917;        /* stone-900 */
 	--color-text-muted: #44403C;  /* stone-700 — 2段階だけの本文/副次テキスト */
 	--color-bg: #FFFFFF;
-	--color-bg-subtle: #F5F5F4;   /* stone-100 */
+	--color-bg-subtle: #F1F5F9;   /* 薄いグレーの帯（デザインルール） */
 	--color-border: #E7E5E4;      /* stone-200 */
 
 	--font-sans: 'IBM Plex Sans', 'Noto Sans JP', 'Hiragino Sans', system-ui, sans-serif;
@@ -437,7 +437,7 @@ a:hover {
 }
 
 .btn--secondary:hover {
-	background: rgba(30, 64, 175, 0.06);
+	background: rgba(112, 66, 172, 0.06);
 	color: var(--color-primary);
 }
 
@@ -473,7 +473,7 @@ a:hover {
 	font-weight: 700;
 	letter-spacing: 0.04em;
 	color: var(--color-primary);
-	background: rgba(30, 64, 175, 0.08);
+	background: rgba(112, 66, 172, 0.08);
 	border-radius: 100px;
 	text-transform: uppercase;
 	white-space: nowrap;
@@ -511,7 +511,7 @@ a:hover {
 }
 .article-services__card:hover {
 	border-color: var(--color-primary, #1e40af);
-	box-shadow: 0 2px 8px rgba(30, 64, 175, 0.1);
+	box-shadow: 0 2px 8px rgba(112, 66, 172, 0.1);
 }
 .article-services__cat {
 	font-size: 0.7rem;
@@ -567,4 +567,5 @@ figure:has(> svg[viewBox]) > figcaption { margin-top: 0.75rem; font-size: 0.875r
 	figure:has(> svg[viewBox]) { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 0.25rem; }
 	figure:has(> svg[viewBox]) > svg { min-width: 1120px; }  /* viewBox と等倍。縮めると16pxが保てない */
 	figure:has(> svg[viewBox]) > figcaption::after { content: "（図は横にスクロールできます）"; color: var(--color-text-muted); }
+	:root[lang="en"] figure:has(> svg[viewBox]) > figcaption::after { content: " (Scroll sideways to see the full diagram.)"; }
 }

@@ -14,7 +14,7 @@ const rowH = 66;
 const H = 100 + phases.length * rowH + 10;
 ---
 <figure class="gantt-fig" aria-labelledby={`${id}-caption`}>
-	<svg viewBox={`0 0 1120 ${H}`} role="img" aria-label="進め方の週ごとの段取り" font-family="inherit">
+	<svg viewBox={`0 0 1120 ${H}`} role="img" aria-label={label + ": week-by-week plan"} font-family="inherit">
 		<text x="40" y="24" font-size="14" letter-spacing="1.5" fill="#64748b">{label.toUpperCase()}</text>
 		<rect x={X0} y="60" width={W} height="6" rx="3" fill="#E2E8F0"/>
 		{Array.from({ length: weeks + 1 }, (_, i) => (

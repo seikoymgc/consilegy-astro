@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import RevenueFlowFigure from '../../../components/figures/RevenueFlowFigure.astro';
 
 const faqItems = [
 	{
@@ -12,7 +13,7 @@ const faqItems = [
 	},
 	{
 		q: 'Is this the same as revenue management?',
-		a: 'No. Revenue management comes from airlines and hotels and refers to price and inventory optimisation. Revenue architecture refers to the structural design of the revenue process and the data and systems beneath it.',
+		a: 'No. Revenue management comes from airlines and hotels and refers to price and inventory optimization. Revenue architecture refers to the structural design of the revenue process and the data and systems beneath it.',
 	},
 	{
 		q: 'When should a company revisit its revenue architecture?',
@@ -28,11 +29,11 @@ const faqItems = [
 	},
 	{
 		q: 'What changes when you run this in Japan?',
-		a: 'One stage has to be added. In Japan B2B, internal approval sits between selection and contract as a distinct stage of its own. In a survey of 307 people involved in B2B purchases above roughly 3 million yen, over 80 percent reported two or more approval layers, and 63.6 percent reported that 3 to 8 months passed between starting evaluation and choosing a vendor (IDEATECH and Hiroyasu Kitagawa, published April 2026). If that stage is not modelled, the time a buyer spends getting internal agreement disappears into a single opportunity stage called "in discussion".',
+		a: 'One stage has to be added. In Japan B2B, internal approval sits between selection and contract as a distinct stage of its own. In a survey of 307 people involved in B2B purchases above roughly 3 million yen, over 80 percent reported two or more approval layers, and 63.6 percent reported that 3 to 8 months passed between starting evaluation and choosing a vendor (IDEATECH and Hiroyasu Kitagawa, published April 2026). If that stage is not modeled, the time a buyer spends getting internal agreement disappears into a single opportunity stage called "in discussion".',
 	},
 	{
-		q: 'Another thing global teams get wrong about Japan',
-		a: 'Assuming the measurement layer is there. Nexal crawled the source code of 626,003 Japanese company websites in May 2023 and found marketing automation tags on 9,444 of them, or 1.5 percent. Among listed companies it was 14.6 percent. A design that assumes behavioural tracking exists will not survive contact with most of the market.',
+		q: 'What else do global teams get wrong about Japan?',
+		a: 'Assuming the measurement layer is there. Nexal crawled the source code of 626,003 Japanese company websites in May 2023 and found marketing automation tags on 9,444 of them, or 1.5 percent. Among listed companies it was 14.6 percent. A design that assumes behavioral tracking exists will not survive contact with most of the market.',
 	},
 	{
 		q: 'Where should we start?',
@@ -56,7 +57,7 @@ const definedTermSchema = {
 	'@id': 'https://consilegy.com/en/revenue-architecture/#revenue-architecture',
 	name: 'Revenue Architecture',
 	description:
-		'Revenue architecture is the structural design of how marketing, sales, customer success, CRM, KPIs, data and systems connect as a single flow that produces revenue. It treats revenue as a designed structure rather than the sum of individual effort. Where RevOps answers how the operation is run, revenue architecture defines what is being built underneath it.',
+		'Revenue architecture is the structural design of how marketing, sales, customer success, CRM, KPIs, data, and systems connect as a single flow that produces revenue. It treats revenue as a designed structure rather than the sum of individual effort. Where RevOps answers how the operation is run, revenue architecture defines what is being built underneath it.',
 	url: 'https://consilegy.com/en/revenue-architecture/',
 	inDefinedTermSet: {
 		'@type': 'DefinedTermSet',
@@ -78,7 +79,7 @@ const structures = [
 	{ en: 'Process', body: 'How demand enters, how it moves, who owns it at each point, and what has to be true before it moves again.' },
 	{ en: 'Metrics', body: 'What each stage measures, how the definitions nest, and which numbers are allowed to be reported upward.' },
 	{ en: 'Data', body: 'What is recorded, by whom, at what moment, and in a shape that the next person can act on.' },
-	{ en: 'Systems', body: 'CRM, marketing automation, support, billing and the joins between them, configured against the design rather than ahead of it.' },
+	{ en: 'Systems', body: 'CRM, marketing automation, support, billing, and the joins between them, configured against the design rather than ahead of it.' },
 ];
 
 const sources = [
@@ -120,10 +121,10 @@ const sources = [
 ];
 
 const relatedServices = [
-	{ label: 'Revenue Architecture Design', href: '/en/services/revenue-architecture-design/', desc: 'Upstream design of the revenue process, KPIs and data structure' },
-	{ label: 'CRM and RevOps Implementation', href: '/en/services/crm-revops-implementation/', desc: 'Design and build across Salesforce, HubSpot and other major platforms' },
+	{ label: 'Revenue Architecture Design', href: '/en/services/revenue-architecture-design/', desc: 'Upstream design of the revenue process, KPIs, and data structure' },
+	{ label: 'CRM and RevOps Implementation', href: '/en/services/crm-revops-implementation/', desc: 'Design and build across Salesforce, HubSpot, and other major platforms' },
 	{ label: 'Japan Market GTM and Messaging', href: '/en/services/japan-market-gtm-messaging/', desc: 'GTM structure, qualification process and marketing alignment for Japan' },
-	{ label: 'HubSpot Implementation and Operations', href: '/en/services/hubspot-implementation-operations-support/', desc: 'HubSpot design, build and operational improvement' },
+	{ label: 'HubSpot Implementation and Operations', href: '/en/services/hubspot-implementation-operations-support/', desc: 'HubSpot design, build, and operational improvement' },
 	{ label: 'Adoption and Growth Support', href: '/en/services/adoption-growth-support/', desc: 'Making the design stick, KPI reviews and continuous improvement' },
 ];
 
@@ -131,13 +132,13 @@ const relatedReading = [
 	{ label: 'What revenue architecture means for Japan GTM', href: '/en/insights/what-revenue-architecture-means-for-japan-gtm/' },
 	{ label: 'Why CRM implementation fails without revenue architecture', href: '/en/insights/why-crm-implementation-fails-without-revenue-architecture/' },
 	{ label: 'Where Japan GTM breaks after lead generation', href: '/en/insights/where-japan-gtm-breaks-after-lead-generation/' },
-	{ label: 'RevOps for Japan GTM: what global teams need to localise', href: '/en/insights/revops-for-japan-gtm-what-global-teams-need-to-localize/' },
+	{ label: 'RevOps for Japan GTM: what global teams need to localize', href: '/en/insights/revops-for-japan-gtm-what-global-teams-need-to-localize/' },
 ];
 ---
 
 <BaseLayout
 	title="What is Revenue Architecture | Definition, how it differs from RevOps, and what changes in Japan | Consilegy"
-	description="Revenue architecture is the structural design of how marketing, sales, customer success, CRM, KPIs and data connect as one revenue-producing flow. Definition, the conversion and waiting-time metric set, how it differs from RevOps and enterprise architecture, and the approval stage global teams have to add for Japan, with sourced data."
+	description="Revenue architecture is the structural design of how marketing, sales, customer success, CRM, KPIs, and data connect as one revenue-producing flow. Definition, the conversion and waiting-time metric set, how it differs from RevOps and enterprise architecture, and the approval stage global teams have to add for Japan, with sourced data."
 	lang="en"
 	canonical="https://consilegy.com/en/revenue-architecture/"
 	alternateUrl="/revenue-architecture/"
@@ -159,7 +160,7 @@ const relatedReading = [
 		</nav>
 		<div class="hero-body">
 			<div class="hero-text">
-				<h1>When marketing, sales and CRM are separated,<br class="br-sp" />revenue stops being readable.</h1>
+				<h1>When marketing, sales, and CRM are separated, <br class="br-sp" />revenue stops being readable.</h1>
 				<p class="hero-lead">
 					Which activity produced the deal. Why the forecast keeps missing. Why the CRM will not stick.
 				</p>
@@ -173,12 +174,12 @@ const relatedReading = [
 			</div>
 			<div class="hero-def-card">
 				<p class="def-card__label">Revenue Architecture</p>
-				<p class="def-card__text">The structural design of how marketing, sales, customer success, CRM, KPIs, data and systems connect as one flow that produces revenue.</p>
+				<p class="def-card__text">The structural design of how marketing, sales, customer success, CRM, KPIs, data, and systems connect as one flow that produces revenue.</p>
 				<div class="def-card__divider"></div>
 				<ul class="def-card__attrs">
 					<li><span>Scope</span>Every function and system with revenue exposure</li>
 					<li><span>Purpose</span>Make revenue a repeatable structure, not an individual result</li>
-					<li><span>Method</span>Designing process, metrics, data and systems together</li>
+					<li><span>Method</span>Designing process, metrics, data, and systems together</li>
 				</ul>
 			</div>
 		</div>
@@ -190,7 +191,7 @@ const relatedReading = [
 	<div class="container">
 		<div class="def-quick-inner">
 			<h2>What revenue architecture is</h2>
-			<p class="def-quick-body">Revenue architecture is the structural design of how marketing, sales, customer success, CRM, KPIs, data and systems connect as a single flow that produces revenue. It treats revenue as something you design, not something you add up at the end of the quarter.</p>
+			<p class="def-quick-body">Revenue architecture is the structural design of how marketing, sales, customer success, CRM, KPIs, data, and systems connect as a single flow that produces revenue. It treats revenue as something you design, not something you add up at the end of the quarter.</p>
 		</div>
 	</div>
 </section>
@@ -205,7 +206,7 @@ const relatedReading = [
 		<div class="problem-body">
 			<div class="problem-text">
 				<p>Marketing is running campaigns. Sales is working opportunities. Customer success is handling accounts.</p>
-				<p>In most companies where revenue will not stabilise, those three are all moving, and moving separately.</p>
+				<p>In most companies where revenue will not stabilize, those three are all moving, and moving separately.</p>
 				<ul class="problem-list">
 					<li>Nobody can say which marketing activity produced which win</li>
 					<li>Leads handed to sales disappear from view</li>
@@ -213,6 +214,9 @@ const relatedReading = [
 				</ul>
 				<p class="problem-conclusion">Revenue architecture closes those gaps by designing marketing through to closed and retained revenue as one flow rather than three adjacent ones.</p>
 			</div>
+		</div>
+		<div style="margin-top:2.5rem">
+			<RevenueFlowFigure id="en-ra-six" boundaries="six" lang="en" label="Six seams" caption="Revenue leaks at the six seams between marketing, sales, and customer success, not inside each team." />
 		</div>
 	</div>
 </section>
@@ -250,10 +254,33 @@ const relatedReading = [
 			</div>
 			<div class="metric-card">
 				<h3>Time, &Delta;t1 to &Delta;t8</h3>
-				<p>The elapsed time between those movements. Not time spent working, time spent waiting. This is the half most companies never instrument, and it is usually where the quarter is lost.</p>
+				<p>The elapsed time between those movements. Not time spent working, time spent waiting. This is the half most companies never instrument, and it is usually where the quarter is lost. The standard also defines &Delta;t9 (closed loop), but reserves it for future use, so it is left out here.</p>
 			</div>
 		</div>
-		<p class="metrics-note">A ninety-day sales cycle is not a number you can act on. Ninety days split into seller time and buyer time is, because the two point at opposite investments.</p>
+		<div style="margin-block:2rem">
+			<figure class="en-fig" aria-labelledby="en-crdt-caption">
+				<svg viewBox="0 0 1120 320" role="img" aria-label="Example chart of conversion rate and waiting time by stage" font-family="inherit">
+					<defs><marker id="en-crdt-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
+					<text x="40" y="26" font-size="14" letter-spacing="1.5" fill="#64748b">CONVERSION AND WAITING (EXAMPLE)</text>
+					<line x1="80" y1="250" x2="1060" y2="250" stroke="#E2E8F0" stroke-width="2"/>
+			<rect x="760" y="16" width="16" height="16" fill="#0F172A"/><text x="784" y="30" font-size="16" fill="#334155">Conversion (CR)</text>
+			<rect x="930" y="16" width="16" height="16" fill="#8758C9"/><text x="954" y="30" font-size="16" fill="#334155">Waiting (Δt)</text>
+			<rect x="170" y="197.5" width="52" height="52.5" fill="#0F172A"/><text x="196" y="189.5" font-size="16" font-weight="700" fill="#0F172A" text-anchor="middle">35%</text>
+			<rect x="238" y="214" width="52" height="36" fill="#8758C9"/><text x="264" y="206" font-size="16" font-weight="700" fill="#7042ac" text-anchor="middle">12 days</text>
+			<text x="230" y="276" font-size="16" fill="#334155" text-anchor="middle">Marketing → Sales</text>
+			<rect x="500" y="182.5" width="52" height="67.5" fill="#0F172A"/><text x="526" y="174.5" font-size="16" font-weight="700" fill="#0F172A" text-anchor="middle">45%</text>
+			<rect x="568" y="106" width="52" height="144" fill="#8758C9"/><text x="594" y="98" font-size="16" font-weight="700" fill="#7042ac" text-anchor="middle">48 days</text>
+			<text x="560" y="276" font-size="16" fill="#334155" text-anchor="middle">Deal → Won</text>
+			<rect x="830" y="130.0" width="52" height="120.0" fill="#0F172A"/><text x="856" y="122.0" font-size="16" font-weight="700" fill="#0F172A" text-anchor="middle">80%</text>
+			<rect x="898" y="232" width="52" height="18" fill="#8758C9"/><text x="924" y="224" font-size="16" font-weight="700" fill="#7042ac" text-anchor="middle">6 days</text>
+			<text x="890" y="276" font-size="16" fill="#334155" text-anchor="middle">Won → Renewal</text>
+			<rect x="320" y="48" width="430" height="34" rx="4" fill="#F1F5F9"/><text x="535" y="71" font-size="16" fill="#7042ac" text-anchor="middle">Conversion looks fine, but deals wait 48 days here.</text>
+			<text x="80" y="306" font-size="14" fill="#64748b">EXAMPLE — illustrative numbers. Conversion alone hides the waiting, such as internal approval.</text>
+				</svg>
+				<figcaption id="en-crdt-caption">Measure conversion and waiting time side by side for each stage, and you can see where the flow actually stalls.</figcaption>
+			</figure>
+		</div>
+		<p class="metrics-note">A ninety-day sales cycle is not a number you can act on. Split those ninety days into seller time and buyer time, and you can act on it: each points to a different fix.</p>
 	</div>
 </section>
 
@@ -268,7 +295,7 @@ const relatedReading = [
 			<div class="problem-text">
 				<p>The framework is not Japan-specific. Two things about running it here are.</p>
 				<p><strong>Internal approval is a stage, not an interruption.</strong> In a survey of 307 people involved in B2B purchases above roughly 3 million yen, more than 80 percent reported two or more layers of approval, and 63.6 percent reported 3 to 8 months between starting evaluation and selecting a vendor. If that stage is not in your model, the time a buyer spends assembling internal agreement is invisible, and it gets recorded as an opportunity sitting in "in discussion".</p>
-				<p><strong>The measurement layer is thinner than global playbooks assume.</strong> Nexal crawled the source code of 626,003 Japanese company sites in May 2023 and found marketing automation tags on 1.5 percent of them. Among listed companies, 14.6 percent. A design that assumes behavioural tracking is already in place will not hold for most of the market.</p>
+				<p><strong>The measurement layer is thinner than global playbooks assume.</strong> Nexal crawled the source code of 626,003 Japanese company sites in May 2023 and found marketing automation tags on 1.5 percent of them. Among listed companies, 14.6 percent. A design that assumes behavioral tracking is already in place will not hold for most of the market.</p>
 				<p class="problem-conclusion">Neither of these makes Japan exotic. Both make the standard design incomplete if you import it unchanged.</p>
 			</div>
 		</div>
@@ -374,7 +401,7 @@ const relatedReading = [
 	<div class="container">
 		<div class="cta-body">
 			<h2>Where should your own structure be fixed first?</h2>
-			<p>Three minutes, all multiple choice. It maps where revenue is leaking across marketing, sales, CRM and KPIs.</p>
+			<p>Three minutes, all multiple choice. It maps where revenue is leaking across marketing, sales, CRM, and KPIs.</p>
 			<div class="cta-actions">
 				<a href="/en/diagnostic/" class="btn btn--cta-primary">Run the revenue diagnostic</a>
 				<a href="/en/contact/" class="btn btn--cta-ghost">Talk to us</a>
@@ -655,7 +682,7 @@ const relatedReading = [
 		font-weight: 700;
 		letter-spacing: 0.12em;
 		text-transform: uppercase;
-		color: var(--color-primary, #1e40af);
+		color: var(--color-primary, #7042ac);
 		margin: 0;
 	}
 
@@ -672,23 +699,23 @@ const relatedReading = [
 	}
 
 	.btn--primary {
-		background: var(--color-primary, #1e40af);
+		background: var(--color-primary, #7042ac);
 		color: #fff;
 		border: 2px solid transparent;
 	}
 
 	.btn--primary:hover {
-		background: var(--color-primary-dark, #1d4ed8);
+		background: var(--color-primary-dark, #5c3690);
 	}
 
 	.btn--ghost {
 		background: transparent;
-		color: var(--color-primary, #1e40af);
-		border: 2px solid var(--color-primary, #1e40af);
+		color: var(--color-primary, #7042ac);
+		border: 2px solid var(--color-primary, #7042ac);
 	}
 
 	.btn--ghost:hover {
-		background: rgba(30, 64, 175, 0.05);
+		background: rgba(112, 66, 172, 0.05);
 	}
 
 	/* ── Breadcrumb ────────────────────────────────────────── */
@@ -706,7 +733,7 @@ const relatedReading = [
 		text-decoration: none;
 	}
 
-	.breadcrumb a:hover { color: var(--color-primary, #1e40af); }
+	.breadcrumb a:hover { color: var(--color-primary, #7042ac); }
 
 	/* ── HERO ──────────────────────────────────────────────── */
 	.hero {
@@ -846,7 +873,7 @@ const relatedReading = [
 	.problem-conclusion {
 		font-weight: 600;
 		color: var(--color-navy, #0f172a) !important;
-		border-left: 3px solid var(--color-primary, #1e40af);
+		border-left: 3px solid var(--color-primary, #7042ac);
 		padding-left: 1rem;
 	}
 
@@ -893,7 +920,7 @@ const relatedReading = [
 
 	.def-quick-oneline {
 		background: var(--color-bg-soft, #f8fafc);
-		border-left: 4px solid var(--color-primary, #1e40af);
+		border-left: 4px solid var(--color-primary, #7042ac);
 		border-radius: 0 8px 8px 0;
 		padding: 1.1rem 1.5rem;
 		font-size: 0.95rem;
@@ -916,7 +943,7 @@ const relatedReading = [
 
 	.def-oneline {
 		background: var(--color-bg-soft, #f8fafc);
-		border-left: 4px solid var(--color-primary, #1e40af);
+		border-left: 4px solid var(--color-primary, #7042ac);
 		border-radius: 0 8px 8px 0;
 		padding: 1.25rem 1.5rem;
 		margin: 0 0 1.5rem;
@@ -961,7 +988,7 @@ const relatedReading = [
 	.issue-num {
 		font-size: 0.72rem;
 		font-weight: 700;
-		color: var(--color-primary, #1e40af);
+		color: var(--color-primary, #7042ac);
 		opacity: 0.6;
 		flex-shrink: 0;
 		padding-top: 0.15rem;
@@ -1001,7 +1028,7 @@ const relatedReading = [
 		font-size: 0.72rem;
 		font-weight: 800;
 		letter-spacing: 0.1em;
-		color: var(--color-primary, #1e40af);
+		color: var(--color-primary, #7042ac);
 		margin: 0 0 0.75rem;
 	}
 
@@ -1069,7 +1096,7 @@ const relatedReading = [
 
 	.vs-relation-arrow {
 		font-size: 1.25rem;
-		color: var(--color-primary, #1e40af);
+		color: var(--color-primary, #7042ac);
 		line-height: 1;
 	}
 
@@ -1095,7 +1122,7 @@ const relatedReading = [
 	}
 
 	.compare-table thead th:first-child {
-		background: var(--color-primary, #1e40af);
+		background: var(--color-primary, #7042ac);
 	}
 
 	.compare-table tbody td {
@@ -1118,13 +1145,13 @@ const relatedReading = [
 		padding: 0.875rem 1.25rem;
 		font-size: 0.85rem;
 		font-weight: 700;
-		color: var(--color-primary, #1e40af);
+		color: var(--color-primary, #7042ac);
 		text-decoration: none;
 		border-top: 2px solid var(--color-border, #e2e8f0);
 		text-align: right;
 	}
 
-	.compare-cta:hover { background: rgba(30, 64, 175, 0.03); }
+	.compare-cta:hover { background: rgba(112, 66, 172, 0.03); }
 
 	/* ── VS CRM ────────────────────────────────────────────── */
 	.crm-body {
@@ -1142,7 +1169,7 @@ const relatedReading = [
 
 	.crm-note {
 		background: var(--color-bg-soft, #f8fafc);
-		border-left: 3px solid var(--color-primary, #1e40af);
+		border-left: 3px solid var(--color-primary, #7042ac);
 		padding: 1rem 1.25rem;
 		border-radius: 0 6px 6px 0;
 	}
@@ -1177,7 +1204,7 @@ const relatedReading = [
 	}
 
 	.crm-compare-col--ra .crm-compare-label {
-		color: var(--color-primary, #1e40af);
+		color: var(--color-primary, #7042ac);
 	}
 
 	.crm-compare-col ul {
@@ -1198,14 +1225,14 @@ const relatedReading = [
 	}
 
 	.crm-compare-col--ra li {
-		background: rgba(30, 64, 175, 0.05);
+		background: rgba(112, 66, 172, 0.05);
 		color: var(--color-navy, #0f172a);
 		font-weight: 500;
 	}
 
 	.crm-compare-sep {
 		font-size: 1.5rem;
-		color: var(--color-primary, #1e40af);
+		color: var(--color-primary, #7042ac);
 		font-weight: 700;
 		flex-shrink: 0;
 		align-self: center;
@@ -1235,7 +1262,7 @@ const relatedReading = [
 		width: 6px;
 		height: 6px;
 		border-radius: 50%;
-		background: var(--color-primary, #1e40af);
+		background: var(--color-primary, #7042ac);
 		opacity: 0.5;
 		flex-shrink: 0;
 	}
@@ -1267,7 +1294,7 @@ const relatedReading = [
 		font-size: 0.7rem;
 		font-weight: 800;
 		letter-spacing: 0.1em;
-		color: var(--color-primary, #1e40af);
+		color: var(--color-primary, #7042ac);
 		margin: 0 0 0.5rem;
 		display: block;
 	}
@@ -1319,7 +1346,7 @@ const relatedReading = [
 		font-size: 0.72rem;
 		font-weight: 800;
 		letter-spacing: 0.1em;
-		color: var(--color-primary, #1e40af);
+		color: var(--color-primary, #7042ac);
 		margin: 0 0 0.75rem;
 	}
 
@@ -1358,8 +1385,8 @@ const relatedReading = [
 	}
 
 	.service-card:hover {
-		border-color: var(--color-primary, #1e40af);
-		box-shadow: 0 2px 12px rgba(30, 64, 175, 0.08);
+		border-color: var(--color-primary, #7042ac);
+		box-shadow: 0 2px 12px rgba(112, 66, 172, 0.08);
 	}
 
 	.service-label {
@@ -1378,7 +1405,7 @@ const relatedReading = [
 
 	.service-arrow {
 		font-size: 0.85rem;
-		color: var(--color-primary, #1e40af);
+		color: var(--color-primary, #7042ac);
 		margin-top: 0.25rem;
 	}
 
@@ -1418,7 +1445,7 @@ const relatedReading = [
 		content: '+';
 		font-size: 1.25rem;
 		font-weight: 300;
-		color: var(--color-primary, #1e40af);
+		color: var(--color-primary, #7042ac);
 		flex-shrink: 0;
 		transition: transform 0.2s;
 	}
@@ -1433,12 +1460,36 @@ const relatedReading = [
 		margin: 0;
 	}
 
+	/* ── RELATED CARDS ─────────────────────────────────────── */
+	.related-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+		gap: 1rem;
+	}
+	.related-card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		padding: 1.25rem 1.5rem;
+		background: #fff;
+		border: 1px solid #E2E8F0;
+		border-top: 3px solid #8758C9;
+		border-radius: 6px;
+		box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+		text-decoration: none;
+		color: var(--color-text, #0F172A);
+		transition: box-shadow 0.2s, transform 0.2s;
+	}
+	.related-card:hover { box-shadow: 0 6px 18px rgba(15, 23, 42, 0.10); transform: translateY(-2px); }
+	.related-card__label { font-size: 1rem; font-weight: 600; line-height: 1.5; color: var(--color-text, #0F172A); }
+	.related-card__label::after { content: " →"; color: var(--color-primary, #7042ac); }
+	.related-card__desc { font-size: 1rem; line-height: 1.7; color: var(--color-text-muted, #475569); }
+
 	/* ── FINAL CTA ─────────────────────────────────────────── */
 	.section-cta {
 		padding-block: 5rem;
 		background:
-			radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%),
-			linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+			#1e3a6f;
 	}
 
 	.cta-body {
@@ -1471,7 +1522,7 @@ const relatedReading = [
 
 	.btn--cta-primary {
 		background: #fff;
-		color: var(--color-primary, #1e40af);
+		color: var(--color-primary, #7042ac);
 		border: 2px solid transparent;
 		padding: 0.9em 1.75em;
 		font-size: 1rem;

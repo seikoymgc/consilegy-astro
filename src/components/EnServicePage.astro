@@ -56,6 +56,10 @@ interface Props {
   // FAQ (optional)
   faq?: FaqItem[];
 
+  // Figure section heading (used when the "figure" slot is filled)
+  figureLabel?: string;
+  figureHeading?: string;
+
   // Breadcrumb slug (used to build BreadcrumbList schema)
   slug?: string;
 }
@@ -88,6 +92,8 @@ const {
   japanGTM,
   faq,
   slug,
+  figureLabel = 'How it works',
+  figureHeading,
 } = Astro.props;
 
 const breadcrumbSchema = slug ? {
@@ -108,6 +114,24 @@ const hasNotAFit = notAFit?.length;
 const hasCallout = calloutHeading;
 const hasDeliverables = deliverables?.length;
 const hasFaq = faq?.length;
+const hasFigure = Astro.slots.has('figure');
+
+// White and grey bands alternate in render order, whichever sections are present.
+// The Japan GTM section is a navy band and restarts the alternation after it.
+const band: Record<string, string> = {};
+{
+  let i = 0;
+  const order: [string, unknown][] = [
+    ['problem', hasProblem], ['figure', hasFigure], ['bestFit', hasBestFit], ['covers', hasCovers],
+    ['goodFit', hasGoodFit], ['notAFit', hasNotAFit], ['callout', hasCallout],
+    ['deliverables', hasDeliverables], ['pricing', pricingNote], ['japan', japanGTM], ['faq', hasFaq],
+  ];
+  for (const [key, on] of order) {
+    if (!on) continue;
+    if (key === 'japan') { i = 0; continue; }
+    band[key] = i++ % 2 === 0 ? 'sv-section--white' : 'sv-section--subtle';
+  }
+}
 ---
 
 <BaseLayout title={`${title} | Consilegy`} description={description} lang="en">
@@ -135,7 +159,7 @@ const hasFaq = faq?.length;
 
   <!-- ── PROBLEM ───────────────────────────────────── -->
   {hasProblem && (
-    <section class="sv-section sv-section--light">
+    <section class={`sv-section ${band.problem}`}>
       <div class="sv-container sv-container--narrow">
         {problemHeading && <p class="sv-label">{problemHeading}</p>}
         {problemItems && (
@@ -148,11 +172,26 @@ const hasFaq = faq?.length;
     </section>
   )}
 
+  <!-- ── FIGURE (optional slot) ───────────────────── -->
+  {hasFigure && (
+    <section class={`sv-section sv-section--figure ${band.figure}`}>
+      <div class="sv-container">
+        <div class="sv-figure-head">
+          <p class="sv-label">{figureLabel}</p>
+          {figureHeading && <h2 class="sv-section__h2">{figureHeading}</h2>}
+        </div>
+        <div class="sv-figure">
+          <slot name="figure" />
+        </div>
+      </div>
+    </section>
+  )}
+
   <!-- ── BEST FIT ───────────────────────────────────── -->
   {hasBestFit && (
-    <section class="sv-section sv-section--subtle">
+    <section class={`sv-section ${band.bestFit}`}>
       <div class="sv-container sv-container--narrow">
-        <p class="sv-label">Who this is for</p>
+        <p class="sv-label">Fit</p>
         <h2 class="sv-section__h2">{bestFitHeading ?? 'This service is best suited for teams that are:'}</h2>
         <ul class="sv-fit-list">
           {bestFitItems!.map((item) => (
@@ -168,7 +207,7 @@ const hasFaq = faq?.length;
 
   <!-- ── WHAT COVERS ────────────────────────────────── -->
   {hasCovers && (
-    <section class="sv-section sv-section--white">
+    <section class={`sv-section ${band.covers}`}>
       <div class="sv-container sv-container--narrow">
         <p class="sv-label">What we do</p>
         <h2 class="sv-section__h2">{coversHeading ?? 'What this service covers'}</h2>
@@ -187,7 +226,7 @@ const hasFaq = faq?.length;
 
   <!-- ── GOOD FIT ───────────────────────────────────── -->
   {hasGoodFit && (
-    <section class="sv-section sv-section--subtle">
+    <section class={`sv-section ${band.goodFit}`}>
       <div class="sv-container sv-container--narrow">
         <p class="sv-label">Good fit</p>
         <h2 class="sv-section__h2">{goodFitHeading ?? 'This is a good fit if:'}</h2>
@@ -205,7 +244,7 @@ const hasFaq = faq?.length;
 
   <!-- ── NOT A FIT ──────────────────────────────────── -->
   {hasNotAFit && (
-    <section class="sv-section sv-section--white">
+    <section class={`sv-section ${band.notAFit}`}>
       <div class="sv-container sv-container--narrow">
         <p class="sv-label">Scope clarity</p>
         <h2 class="sv-section__h2">This is not for you if…</h2>
@@ -223,7 +262,7 @@ const hasFaq = faq?.length;
 
   <!-- ── CALLOUT ────────────────────────────────────── -->
   {hasCallout && (
-    <section class="sv-section sv-section--subtle">
+    <section class={`sv-section ${band.callout}`}>
       <div class="sv-container sv-container--narrow">
         <div class="sv-callout">
           <h2 class="sv-callout__heading">{calloutHeading}</h2>
@@ -235,7 +274,7 @@ const hasFaq = faq?.length;
 
   <!-- ── DELIVERABLES ───────────────────────────────── -->
   {hasDeliverables && (
-    <section class="sv-section sv-section--white">
+    <section class={`sv-section ${band.deliverables}`}>
       <div class="sv-container sv-container--narrow">
         <p class="sv-label">What you get</p>
         <h2 class="sv-section__h2">Deliverables</h2>
@@ -253,7 +292,7 @@ const hasFaq = faq?.length;
 
   <!-- ── PRICING NOTE ───────────────────────────────── -->
   {pricingNote && (
-    <section class="sv-section sv-section--subtle">
+    <section class={`sv-section ${band.pricing}`}>
       <div class="sv-container sv-container--narrow">
         <p class="sv-label">Pricing guidance</p>
         <p class="sv-pricing-note">{pricingNote}</p>
@@ -274,7 +313,7 @@ const hasFaq = faq?.length;
 
   <!-- ── FAQ ───────────────────────────────────────── -->
   {hasFaq && (
-    <section class="sv-section sv-section--white">
+    <section class={`sv-section ${band.faq}`}>
       <div class="sv-container sv-container--narrow">
         <p class="sv-label">FAQ</p>
         <h2 class="sv-section__h2">Frequently asked questions</h2>
@@ -301,7 +340,7 @@ const hasFaq = faq?.length;
       <div class="sv-cta-final__actions">
         <a href="/en/contact/" class="sv-btn sv-btn--primary sv-btn--lg">{primaryCta}</a>
         {secondaryCta && (
-          <a href={secondaryCtaHref} class="sv-btn sv-btn--ghost-light">{secondaryCta} →</a>
+          <a href={secondaryCtaHref} class="sv-btn sv-btn--ghost">{secondaryCta} →</a>
         )}
       </div>
     </div>
@@ -317,7 +356,7 @@ const hasFaq = faq?.length;
 /* ── Buttons ───────────────────────────── */
 .sv-btn {
   display: inline-flex; align-items: center; padding: 0.75em 1.5em;
-  font-size: 0.9375rem; font-weight: 700; border-radius: 8px;
+  font-size: 1rem; font-weight: 700; border-radius: 4px;
   text-decoration: none; transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
 .sv-btn--lg { padding: 0.9em 2em; font-size: 1rem; }
@@ -326,7 +365,7 @@ const hasFaq = faq?.length;
 .sv-btn--ghost { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.4); }
 .sv-btn--ghost:hover { border-color: #fff; color: #fff; }
 .sv-btn--ghost-light { background: transparent; color: var(--color-primary); border: 2px solid var(--color-primary); }
-.sv-btn--ghost-light:hover { background: rgba(30,64,175,0.06); color: var(--color-primary); }
+.sv-btn--ghost-light:hover { background: rgba(112,66,172,0.06); color: var(--color-primary); }
 
 /* ── Labels / Headings ────────────────── */
 .sv-eyebrow a { font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.06em; color: rgba(255,255,255,0.45); text-decoration: none; }
@@ -339,7 +378,7 @@ const hasFaq = faq?.length;
 .sv-section__h2--light { color: #fff; }
 
 /* ── Hero ──────────────────────────────── */
-.sv-hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #1e40af 100%); padding: 72px 0 64px; color: #fff; }
+.sv-hero { background: #0F172A; padding: 72px 0 64px; color: #fff; }
 .sv-hero__h1 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); font-weight: 600; line-height: 1.2; margin: 0.75rem 0 0.75rem; color: #fff; }
 .sv-hero__tagline { font-size: 1.125rem; font-weight: 600; line-height: 1.5; color: rgba(255,255,255,0.95); max-width: 640px; margin: 0 0 0.75rem; }
 .sv-hero__brief { font-size: 1rem; line-height: 1.75; color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 0 2rem; }
@@ -349,8 +388,20 @@ const hasFaq = faq?.length;
 .sv-section { padding: 72px 0; }
 .sv-section--white  { background: #fff; }
 .sv-section--light  { background: #fff; }
-.sv-section--subtle { background: #f8f9fc; }
-.sv-section--dark   { background: #0f172a; }
+.sv-section--subtle { background: #F1F5F9; }
+.sv-section--dark   { background: #0F172A; }
+
+/* ── Figure band ───────────────────────── */
+/* The SVGs draw their content 40 units in from a 1120-wide viewBox, so the heading and
+   caption take the same inset (40/1120) to line up with what is drawn. */
+.sv-section--figure { padding: 56px 0; }
+.sv-figure-head { padding-inline: 3.5714%; }
+.sv-figure-head .sv-section__h2 { margin-bottom: 0.5rem; }
+.sv-figure :global(figure) { margin: 1rem 0 0; }
+.sv-figure :global(figure > figcaption) { padding-inline: 3.5714%; }
+@media (max-width: 767px) {
+  .sv-figure-head, .sv-figure :global(figure > figcaption) { padding-inline: 0; }
+}
 
 /* ── Problem ───────────────────────────── */
 .sv-problem-list {
@@ -365,31 +416,31 @@ const hasFaq = faq?.length;
 /* ── Fit lists (best fit / good fit) ───── */
 .sv-fit-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; }
 .sv-fit-list__item { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 1rem; line-height: 1.65; color: var(--color-text); }
-.sv-fit-list__check { flex-shrink: 0; width: 1.4rem; height: 1.4rem; background: rgba(30,64,175,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: var(--color-primary); margin-top: 0.15rem; }
+.sv-fit-list__check { flex-shrink: 0; width: 1.4rem; height: 1.4rem; background: rgba(112,66,172,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: var(--color-primary); margin-top: 0.15rem; }
 
 /* ── Covers ────────────────────────────── */
 .sv-covers { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; }
-.sv-covers__item { padding: 1rem 0; border-bottom: 1px solid var(--color-border); font-size: 0.9375rem; line-height: 1.65; color: var(--color-text-muted); display: flex; flex-direction: column; gap: 0.2rem; }
+.sv-covers__item { padding: 1rem 0; border-bottom: 1px solid var(--color-border); font-size: 1rem; line-height: 1.65; color: var(--color-text-muted); display: flex; flex-direction: column; gap: 0.2rem; }
 .sv-covers__item:first-child { border-top: 1px solid var(--color-border); }
-.sv-covers__title { display: block; font-size: 0.9375rem; font-weight: 700; color: var(--color-text); }
+.sv-covers__title { display: block; font-size: 1rem; font-weight: 700; color: var(--color-text); }
 .sv-covers__body { color: var(--color-text-muted); }
-.sv-covers-note { margin-top: 1.25rem; font-size: 0.9375rem; color: var(--color-text-muted); font-style: italic; }
+.sv-covers-note { margin-top: 1.25rem; font-size: 1rem; color: var(--color-text-muted); font-style: italic; }
 
 /* ── Not a fit ─────────────────────────── */
 .sv-not-fit { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; }
-.sv-not-fit__item { display: flex; gap: 0.75rem; align-items: flex-start; font-size: 0.9375rem; line-height: 1.65; color: var(--color-text-muted); background: #f8f9fc; border: 1px solid var(--color-border); border-radius: 8px; padding: 0.875rem 1.25rem; }
-.sv-not-fit__icon { flex-shrink: 0; width: 1.4rem; height: 1.4rem; background: rgba(239,68,68,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; color: #dc2626; margin-top: 0.1rem; }
+.sv-not-fit__item { display: flex; gap: 0.75rem; align-items: flex-start; font-size: 1rem; line-height: 1.65; color: var(--color-text-muted); background: #fff; border: 1px solid var(--color-border); border-radius: 6px; padding: 0.875rem 1.25rem; }
+.sv-not-fit__icon { flex-shrink: 0; width: 1.4rem; height: 1.4rem; background: rgba(100,116,139,0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem; font-weight: 700; color: #64748B; margin-top: 0.1rem; }
 
 /* ── Callout ───────────────────────────── */
-.sv-callout { background: #fff; border: 2px solid var(--color-primary); border-radius: 8px; padding: 2rem; }
+.sv-callout { background: #fff; border: 1px solid var(--color-border); border-top: 3px solid #8758C9; border-radius: 6px; padding: 2rem; box-shadow: 0 1px 3px rgba(15,23,42,0.06); }
 .sv-callout__heading { font-size: 1.125rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.75rem; }
 .sv-callout__body { font-size: 1rem; line-height: 1.75; color: var(--color-text-muted); margin: 0; }
 
 /* ── Deliverables ──────────────────────── */
 .sv-deliverables { list-style: none; padding: 0; margin: 0; }
-.sv-deliverables__item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.875rem 0; border-bottom: 1px solid var(--color-border); font-size: 0.9375rem; line-height: 1.65; color: var(--color-text); }
+.sv-deliverables__item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.875rem 0; border-bottom: 1px solid var(--color-border); font-size: 1rem; line-height: 1.65; color: var(--color-text); }
 .sv-deliverables__item:first-child { border-top: 1px solid var(--color-border); }
-.sv-deliverables__check { flex-shrink: 0; width: 1.4rem; height: 1.4rem; background: rgba(30,64,175,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: var(--color-primary); margin-top: 0.1rem; }
+.sv-deliverables__check { flex-shrink: 0; width: 1.4rem; height: 1.4rem; background: rgba(112,66,172,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: var(--color-primary); margin-top: 0.1rem; }
 
 /* ── Pricing note ──────────────────────── */
 .sv-pricing-note { font-size: 1rem; line-height: 1.8; color: var(--color-text-muted); margin: 0; }
@@ -401,13 +452,13 @@ const hasFaq = faq?.length;
 .sv-faq { margin: 0; }
 .sv-faq__q { font-size: 1rem; font-weight: 700; color: var(--color-text); margin: 1.5rem 0 0.4rem; border-top: 1px solid var(--color-border); padding-top: 1.25rem; }
 .sv-faq__q:first-of-type { border-top: none; margin-top: 0; padding-top: 0; }
-.sv-faq__a { font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted); margin: 0; }
+.sv-faq__a { font-size: 1rem; line-height: 1.75; color: var(--color-text-muted); margin: 0; }
 
 /* ── Final CTA ─────────────────────────── */
-.sv-cta-final { background: #f8f9fc; border-top: 1px solid var(--color-border); padding: 80px 0; }
+.sv-cta-final { background: #1e3a6f; padding: 80px 0; }
 .sv-cta-final__inner { text-align: center; }
-.sv-cta-final__h2 { font-size: clamp(1.375rem, 2.5vw, 1.875rem); font-weight: 700; color: var(--color-text); margin: 0 0 0.75rem; }
-.sv-cta-final__body { font-size: 1rem; line-height: 1.75; color: var(--color-text-muted); margin: 0 0 2rem; }
+.sv-cta-final__h2 { font-size: clamp(1.375rem, 2.5vw, 1.875rem); font-weight: 700; color: #fff; margin: 0 0 0.75rem; }
+.sv-cta-final__body { font-size: 1rem; line-height: 1.75; color: rgba(255,255,255,0.8); margin: 0 0 2rem; }
 .sv-cta-final__actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
 /* ── Responsive ────────────────────────── */

@@ -1,9 +1,12 @@
 ---
 import EnServicePage from '../../../components/EnServicePage.astro';
+import RevenueFlowFigure from '../../../components/figures/RevenueFlowFigure.astro';
 ---
 
 <EnServicePage
   slug="revenue-architecture-design"
+  figureLabel="What we design"
+  figureHeading="One flow across marketing, sales, and customer success"
   title="Revenue Architecture Design"
   description="Design the operating structure behind Japan-facing revenue growth, funnel logic, lifecycle definitions, handoff rules, and KPI framework built for how Japan deals actually move."
   heroTagline="Design the operating structure behind Japan-facing revenue growth."
@@ -74,4 +77,8 @@ import EnServicePage from '../../../components/EnServicePage.astro';
     },
   ]}
   japanGTM="Japan's buying process adds specific structural requirements to revenue architecture. Decision cycles often involve multiple internal approvers, trust-building happens before formal qualification, and the gap between first conversation and purchase decision is often longer than in Western markets. For English-speaking leaders managing Japan revenue, the result of architecture that wasn't built for this is pipeline stages that don't reflect how deals progress, forecast data that can't be trusted, and reporting that shows the wrong bottlenecks. We design the architecture around how Japan's revenue motion actually works, and make it legible to both the English-speaking leadership layer and the Japanese-speaking execution team."
-/>
+>
+  <Fragment slot="figure">
+    <RevenueFlowFigure id="en-rad-flow" lang="en" caption="Marketing, sales, and customer success run as one flow on shared customer data. The design work is at the seams between them." />
+  </Fragment>
+</EnServicePage>

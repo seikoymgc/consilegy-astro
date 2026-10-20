@@ -769,7 +769,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 	letter-spacing: 0.1em; text-transform: uppercase;
 }
 :global(.rd-progress-count) { font-size: 0.75rem; color: var(--color-text-muted); font-variant-numeric: tabular-nums; }
-:global(.rd-progress-bar) { height: 4px; background: rgba(30,64,175,0.1); border-radius: 2px; overflow: hidden; }
+:global(.rd-progress-bar) { height: 4px; background: rgba(112,66,172,0.1); border-radius: 2px; overflow: hidden; }
 :global(.rd-progress-fill) { height: 100%; background: var(--color-primary); border-radius: 2px; transition: width 0.25s ease; }
 
 /* Question */
@@ -792,9 +792,9 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 	font-family: inherit; line-height: 1.6; cursor: pointer;
 	transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
 }
-:global(.rd-option:hover) { border-color: rgba(30,64,175,0.45); background: var(--glass-bg-strong); }
+:global(.rd-option:hover) { border-color: rgba(112,66,172,0.45); background: var(--glass-bg-strong); }
 :global(.rd-option:active) { transform: scale(0.99); }
-:global(.rd-option.is-selected) { border-color: var(--color-primary); background: rgba(30,64,175,0.06); }
+:global(.rd-option.is-selected) { border-color: var(--color-primary); background: rgba(112,66,172,0.06); }
 :global(.rd-option:focus-visible) { outline: 2px solid var(--color-primary); outline-offset: 2px; }
 
 :global(.rd-nav) { margin-top: 1.5rem; display: flex; justify-content: space-between; }
@@ -844,7 +844,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 :global(.rd-input::placeholder) { color: var(--color-text-muted); }
 :global(.rd-input:focus) {
 	outline: none; border-color: var(--color-primary);
-	box-shadow: 0 0 0 3px rgba(30,64,175,0.12);
+	box-shadow: 0 0 0 3px rgba(112,66,172,0.12);
 }
 :global(.rd-lead-error) { font-size: 0.8125rem; color: #B91C1C; margin: 0.75rem 0 0; line-height: 1.6; }
 :global(.rd-lead-submit) {
@@ -861,7 +861,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 :global(.rd-privacy) { font-size: 0.75rem; color: var(--color-text-muted); line-height: 1.7; margin-top: 1rem; }
 
 :global(.rd-probe) {
-	background: rgba(30,64,175,0.04); border: 1px solid var(--color-border);
+	background: rgba(112,66,172,0.04); border: 1px solid var(--color-border);
 	border-radius: var(--radius-card); padding: 1.25rem; margin-top: 1.5rem;
 }
 :global(.rd-probe-q) { font-size: 0.875rem; font-weight: 600; color: var(--color-text); line-height: 1.6; margin: 0 0 0.875rem; }
@@ -932,7 +932,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 :global(.rd-insight-text) { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.7; margin: 0; }
 :global(.rd-insight-quant) {
 	font-size: 0.8125rem; color: var(--color-text); line-height: 1.7; margin: 0.5rem 0 0;
-	padding-left: 0.75rem; border-left: 2px solid rgba(30,64,175,0.3);
+	padding-left: 0.75rem; border-left: 2px solid rgba(112,66,172,0.3);
 }
 :global(.rd-insight-actions-label) {
 	font-size: 0.625rem; font-weight: 700; color: var(--color-primary);
@@ -942,8 +942,8 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 :global(.rd-insight-actions li) { font-size: 0.8125rem; color: var(--color-text); line-height: 1.65; }
 
 :global(.rd-pattern) {
-	background: linear-gradient(180deg, rgba(30,64,175,0.07), rgba(30,64,175,0.03));
-	border: 1px solid rgba(30,64,175,0.22);
+	background: linear-gradient(180deg, rgba(112,66,172,0.07), rgba(112,66,172,0.03));
+	border: 1px solid rgba(112,66,172,0.22);
 	border-radius: var(--radius-card);
 	padding: 1.5rem; margin-bottom: 1.75rem;
 }
@@ -955,8 +955,8 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 :global(.rd-pattern-body) { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.75; margin: 0; }
 
 :global(.rd-firststep) {
-	background: rgba(30,64,175,0.05);
-	border: 1px solid rgba(30,64,175,0.18);
+	background: rgba(112,66,172,0.05);
+	border: 1px solid rgba(112,66,172,0.18);
 	border-radius: var(--radius-card);
 	padding: 1.5rem; margin-bottom: 2.25rem;
 }
@@ -996,7 +996,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 	border-radius: var(--radius);
 	transition: background 0.15s ease;
 }
-:global(.rd-cta-secondary:hover) { background: rgba(30,64,175,0.05); }
+:global(.rd-cta-secondary:hover) { background: rgba(112,66,172,0.05); }
 
 :global(.rd-retry) { text-align: center; margin-top: 2rem; }
 :global(.rd-retry button) {
@@ -1029,7 +1029,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 /* Out-of-scope seam + scope note */
 :global(.rd-sig-off) { opacity: 0.55; border-style: dashed; }
 :global(.rd-scopenote) {
-	background: rgba(30,64,175,0.04);
+	background: rgba(112,66,172,0.04);
 	border: 1px solid var(--color-border);
 	border-radius: var(--radius-card);
 	padding: 1rem 1.125rem; margin: 0 0 1.75rem;

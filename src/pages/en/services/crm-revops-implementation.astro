@@ -4,6 +4,8 @@ import EnServicePage from '../../../components/EnServicePage.astro';
 
 <EnServicePage
   slug="crm-revops-implementation"
+  figureLabel="Before and after"
+  figureHeading="From disconnected tools to one flow"
   title="CRM / RevOps Implementation"
   description="Turn revenue architecture into CRM configuration, workflows, automation, and reporting that teams can actually use."
   heroTagline="Turn revenue architecture into systems, workflows, and reporting that teams can actually use."
@@ -71,5 +73,42 @@ import EnServicePage from '../../../components/EnServicePage.astro';
       a: "We deliver documented CRM configuration and a process runbook, run end-to-end testing, and confirm the system reflects your revenue model before handoff. Ongoing operations support is available separately.",
     },
   ]}
-  japanGTM="Japan-facing CRM implementation requires decisions that differ from standard setups. Lead scoring logic needs to reflect Japan-specific qualification signals. Pipeline stages need to account for the extended trust-building phase before formal sales engagement. Handoff timing rules need to fit Japan's relationship-driven sales motion. Reporting needs to surface the metrics that matter for Japan's longer decision cycles. For English-speaking leaders, this also means the system needs to be legible in English while being operated day-to-day in Japanese, we build for both layers, not just the default template."
-/>
+  japanGTM="Japan-facing CRM implementation requires decisions that differ from standard setups. Lead scoring logic needs to reflect Japan-specific qualification signals. Pipeline stages need to account for the extended trust-building phase before formal sales engagement. Handoff timing rules need to fit Japan's relationship-driven sales motion. Reporting needs to surface the metrics that matter for Japan's longer decision cycles. For English-speaking leaders, this also means the system needs to be legible in English while being operated day-to-day in Japanese. We build for both layers, not just the default template."
+>
+  <Fragment slot="figure">
+    <figure class="en-fig" aria-labelledby="en-cr-caption">
+    	<svg viewBox="0 0 1120 206" role="img" aria-label="Before: tools split and numbers disagree. After: one flow on shared data" font-family="inherit">
+    		<defs><marker id="en-cr-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
+    		<text x="40" y="26" font-size="14" letter-spacing="1.5" fill="#64748b">BEFORE AND AFTER</text>
+    		<rect x="40" y="50" width="240" height="136" rx="6" fill="#fff" stroke="#E2E8F0"/>
+    <rect x="40" y="50" width="240" height="3" fill="#8758C9"/>
+    <text x="56" y="80" font-size="14" letter-spacing="1.5" fill="#64748b">BEFORE</text>
+    <text x="56" y="108" font-size="18" font-weight="600" fill="#0F172A">Split by tool</text>
+    <text x="56" y="136" font-size="16" fill="#475569">Spreadsheets, MA, SFA,</text>
+    <text x="56" y="160" font-size="16" fill="#475569">and CRM don't connect</text>
+    <line x1="282" y1="98" x2="304" y2="98" stroke="#0F172A" stroke-width="2" marker-end="url(#en-cr-arr)"/>
+    <rect x="306" y="50" width="240" height="136" rx="6" fill="#fff" stroke="#E2E8F0"/>
+    <rect x="306" y="50" width="240" height="3" fill="#8758C9"/>
+    <text x="322" y="80" font-size="14" letter-spacing="1.5" fill="#64748b">BEFORE</text>
+    <text x="322" y="108" font-size="18" font-weight="600" fill="#0F172A">Numbers disagree</text>
+    <text x="322" y="136" font-size="16" fill="#475569">Same customer in</text>
+    <text x="322" y="160" font-size="16" fill="#475569">three places</text>
+    <line x1="548" y1="98" x2="570" y2="98" stroke="#0F172A" stroke-width="2" marker-end="url(#en-cr-arr)"/>
+    <rect x="572" y="50" width="240" height="136" rx="6" fill="#fff" stroke="#E2E8F0"/>
+    <rect x="572" y="50" width="240" height="3" fill="#8758C9"/>
+    <text x="588" y="80" font-size="14" letter-spacing="1.5" fill="#64748b">AFTER</text>
+    <text x="588" y="108" font-size="18" font-weight="600" fill="#0F172A">One flow</text>
+    <text x="588" y="136" font-size="16" fill="#475569">Marketing to sales</text>
+    <text x="588" y="160" font-size="16" fill="#475569">to success</text>
+    <line x1="814" y1="98" x2="836" y2="98" stroke="#0F172A" stroke-width="2" marker-end="url(#en-cr-arr)"/>
+    <rect x="838" y="50" width="240" height="136" rx="6" fill="#0F172A" stroke="#E2E8F0"/>
+    <rect x="838" y="50" width="240" height="3" fill="#8758C9"/>
+    <text x="854" y="80" font-size="14" letter-spacing="1.5" fill="rgba(255,255,255,0.7)">AFTER</text>
+    <text x="854" y="108" font-size="18" font-weight="600" fill="#fff">Shared data</text>
+    <text x="854" y="136" font-size="16" fill="rgba(255,255,255,0.85)">One customer record,</text>
+    <text x="854" y="160" font-size="16" fill="rgba(255,255,255,0.85)">one set of rules</text>
+    	</svg>
+    	<figcaption id="en-cr-caption">The redesign changes how the systems connect, not which tool you use.</figcaption>
+    </figure>
+  </Fragment>
+</EnServicePage>

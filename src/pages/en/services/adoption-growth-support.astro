@@ -4,6 +4,8 @@ import EnServicePage from '../../../components/EnServicePage.astro';
 
 <EnServicePage
   slug="adoption-growth-support"
+  figureLabel="How it works"
+  figureHeading="Adoption is a cycle, not a training day"
   title="Adoption & Growth Support"
   description="Support the operating habits, reporting cycles, documentation, and improvement routines needed after CRM, RevOps, or GTM changes are launched."
   heroTagline="Keep Japan pipeline data clean enough that you can actually manage from it."
@@ -71,4 +73,42 @@ import EnServicePage from '../../../components/EnServicePage.astro';
     },
   ]}
   japanGTM="Adoption in Japan-facing teams has specific dynamics. Japan-side sales teams often operate with implicit knowledge that doesn't naturally translate into CRM fields. Resistance to process change is often expressed indirectly rather than raised as a direct objection. For English-speaking leaders, this creates a particular challenge: you may not know the system has stopped being used correctly until the data you're reporting to HQ is already wrong. Effective adoption support in this context means designing operating rules that fit how Japan-side teams actually work, building reporting that matches what the English-speaking leadership layer actually needs to review, and reinforcing usage in ways that fit Japan's communication culture."
-/>
+>
+  <Fragment slot="figure">
+    <figure class="en-fig" aria-labelledby="en-ad-caption">
+    	<svg viewBox="0 0 1120 278" role="img" aria-label="Adoption cycle: weekly review, adjust, improve, repeated until adopted" font-family="inherit">
+    		<defs><marker id="en-ad-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
+    		<text x="40" y="26" font-size="14" letter-spacing="1.5" fill="#64748b">ADOPTION CYCLE</text>
+    		<rect x="40" y="50" width="240" height="136" rx="6" fill="#fff" stroke="#E2E8F0"/>
+    <rect x="40" y="50" width="240" height="3" fill="#8758C9"/>
+    <text x="56" y="80" font-size="14" letter-spacing="1.5" fill="#64748b">WEEKLY</text>
+    <text x="56" y="108" font-size="18" font-weight="600" fill="#0F172A">Review</text>
+    <text x="56" y="136" font-size="16" fill="#475569">Pipeline and data</text>
+    <text x="56" y="160" font-size="16" fill="#475569">quality, every week</text>
+    <line x1="282" y1="98" x2="304" y2="98" stroke="#0F172A" stroke-width="2" marker-end="url(#en-ad-arr)"/>
+    <rect x="306" y="50" width="240" height="136" rx="6" fill="#fff" stroke="#E2E8F0"/>
+    <rect x="306" y="50" width="240" height="3" fill="#8758C9"/>
+    <text x="322" y="80" font-size="14" letter-spacing="1.5" fill="#64748b">THEN</text>
+    <text x="322" y="108" font-size="18" font-weight="600" fill="#0F172A">Adjust</text>
+    <text x="322" y="136" font-size="16" fill="#475569">Rules, fields,</text>
+    <text x="322" y="160" font-size="16" fill="#475569">stage definitions</text>
+    <line x1="548" y1="98" x2="570" y2="98" stroke="#0F172A" stroke-width="2" marker-end="url(#en-ad-arr)"/>
+    <rect x="572" y="50" width="240" height="136" rx="6" fill="#fff" stroke="#E2E8F0"/>
+    <rect x="572" y="50" width="240" height="3" fill="#8758C9"/>
+    <text x="588" y="80" font-size="14" letter-spacing="1.5" fill="#64748b">THEN</text>
+    <text x="588" y="108" font-size="18" font-weight="600" fill="#0F172A">Improve</text>
+    <text x="588" y="136" font-size="16" fill="#475569">Training and</text>
+    <text x="588" y="160" font-size="16" fill="#475569">automation fixes</text>
+    <line x1="814" y1="98" x2="836" y2="98" stroke="#0F172A" stroke-width="2" marker-end="url(#en-ad-arr)"/>
+    <rect x="838" y="50" width="240" height="136" rx="6" fill="#0F172A" stroke="#E2E8F0"/>
+    <rect x="838" y="50" width="240" height="3" fill="#8758C9"/>
+    <text x="854" y="80" font-size="14" letter-spacing="1.5" fill="rgba(255,255,255,0.7)">OUTCOME</text>
+    <text x="854" y="108" font-size="18" font-weight="600" fill="#fff">Adopted</text>
+    <text x="854" y="136" font-size="16" fill="rgba(255,255,255,0.85)">The team runs</text>
+    <text x="854" y="160" font-size="16" fill="rgba(255,255,255,0.85)">on the system</text>
+    <rect x="40" y="206" width="1040" height="52" rx="6" fill="#0F172A"/><text x="560" y="238" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">Repeat review, adjust, and improve until the system is how the team works</text>
+    	</svg>
+    	<figcaption id="en-ad-caption">Adoption is the result of a repeated cycle, not a training day. The first three steps repeat, and together they lead to adoption.</figcaption>
+    </figure>
+  </Fragment>
+</EnServicePage>

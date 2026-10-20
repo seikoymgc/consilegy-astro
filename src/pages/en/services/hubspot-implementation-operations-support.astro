@@ -4,6 +4,8 @@ import EnServicePage from '../../../components/EnServicePage.astro';
 
 <EnServicePage
   slug="hubspot-implementation-operations-support"
+  figureLabel="How it works"
+  figureHeading="Five steps from design to daily operation"
   title="HubSpot Implementation & Operations Support"
   description="Set up, improve, and operate HubSpot as part of your revenue system, not as a standalone tool setup project."
   heroTagline="Set up, improve, and operate HubSpot as part of your revenue system."
@@ -66,4 +68,48 @@ import EnServicePage from '../../../components/EnServicePage.astro';
     },
   ]}
   japanGTM="HubSpot for Japan-facing operations requires specific configuration decisions: lifecycle stages that reflect Japan's longer trust-building phase, contact properties that capture Japan-relevant qualification data, automation logic that fits Japan's communication and follow-up norms, and reporting that surfaces what matters for Japan's buying cycle. For English-speaking leaders, this also means HubSpot needs to produce reports that are legible to you and your HQ, while being operated daily in Japanese by your local team. We configure for both layers, not just to pass a standard onboarding checklist."
-/>
+>
+  <Fragment slot="figure">
+    <figure class="en-fig" aria-labelledby="en-hs-caption">
+    	<svg viewBox="0 0 1120 206" role="img" aria-label="HubSpot implementation in five steps: design, configure, migrate, train, operate" font-family="inherit">
+    		<defs><marker id="en-hs-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
+    		<text x="40" y="26" font-size="14" letter-spacing="1.5" fill="#64748b">IMPLEMENTATION STEPS</text>
+    		<rect x="40" y="50" width="188" height="136" rx="6" fill="#fff" stroke="#E2E8F0"/>
+    <rect x="40" y="50" width="188" height="3" fill="#8758C9"/>
+    <text x="56" y="80" font-size="14" letter-spacing="1.5" fill="#64748b">01 DESIGN</text>
+    <text x="56" y="108" font-size="18" font-weight="600" fill="#0F172A">Design</text>
+    <text x="56" y="136" font-size="16" fill="#475569">Objects, stages,</text>
+    <text x="56" y="160" font-size="16" fill="#475569">owners</text>
+    <line x1="230" y1="98" x2="250" y2="98" stroke="#0F172A" stroke-width="2" marker-end="url(#en-hs-arr)"/>
+    <rect x="252" y="50" width="188" height="136" rx="6" fill="#fff" stroke="#E2E8F0"/>
+    <rect x="252" y="50" width="188" height="3" fill="#8758C9"/>
+    <text x="268" y="80" font-size="14" letter-spacing="1.5" fill="#64748b">02 CONFIGURE</text>
+    <text x="268" y="108" font-size="18" font-weight="600" fill="#0F172A">Configure</text>
+    <text x="268" y="136" font-size="16" fill="#475569">Properties, rules</text>
+    <text x="268" y="160" font-size="16" fill="#475569">and automation</text>
+    <line x1="442" y1="98" x2="462" y2="98" stroke="#0F172A" stroke-width="2" marker-end="url(#en-hs-arr)"/>
+    <rect x="464" y="50" width="188" height="136" rx="6" fill="#fff" stroke="#E2E8F0"/>
+    <rect x="464" y="50" width="188" height="3" fill="#8758C9"/>
+    <text x="480" y="80" font-size="14" letter-spacing="1.5" fill="#64748b">03 MIGRATE</text>
+    <text x="480" y="108" font-size="18" font-weight="600" fill="#0F172A">Migrate</text>
+    <text x="480" y="136" font-size="16" fill="#475569">Clean and move</text>
+    <text x="480" y="160" font-size="16" fill="#475569">existing data</text>
+    <line x1="654" y1="98" x2="674" y2="98" stroke="#0F172A" stroke-width="2" marker-end="url(#en-hs-arr)"/>
+    <rect x="676" y="50" width="188" height="136" rx="6" fill="#fff" stroke="#E2E8F0"/>
+    <rect x="676" y="50" width="188" height="3" fill="#8758C9"/>
+    <text x="692" y="80" font-size="14" letter-spacing="1.5" fill="#64748b">04 TRAIN</text>
+    <text x="692" y="108" font-size="18" font-weight="600" fill="#0F172A">Train</text>
+    <text x="692" y="136" font-size="16" fill="#475569">Role-based sessions</text>
+    <text x="692" y="160" font-size="16" fill="#475569">on real tasks</text>
+    <line x1="866" y1="98" x2="886" y2="98" stroke="#0F172A" stroke-width="2" marker-end="url(#en-hs-arr)"/>
+    <rect x="888" y="50" width="188" height="136" rx="6" fill="#0F172A" stroke="#E2E8F0"/>
+    <rect x="888" y="50" width="188" height="3" fill="#8758C9"/>
+    <text x="904" y="80" font-size="14" letter-spacing="1.5" fill="rgba(255,255,255,0.7)">05 OPERATE</text>
+    <text x="904" y="108" font-size="18" font-weight="600" fill="#fff">Operate</text>
+    <text x="904" y="136" font-size="16" fill="rgba(255,255,255,0.85)">Review cadence</text>
+    <text x="904" y="160" font-size="16" fill="rgba(255,255,255,0.85)">and fixes</text>
+    	</svg>
+    	<figcaption id="en-hs-caption">Five steps from design to day-to-day operation. Training and the review cadence are part of the scope, not an add-on.</figcaption>
+    </figure>
+  </Fragment>
+</EnServicePage>

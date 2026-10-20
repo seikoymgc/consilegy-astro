@@ -1,197 +1,270 @@
 ---
 import { featureCount } from '../../../data/crm-features';
-import CrmMobile from '../../../components/CrmMobile.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CrmSubnav from '../../../components/CrmSubnav.astro';
 
 const DEMO_URL = 'https://crm.consilegy.com/demos';
 const SIGNUP_URL = 'https://crm.consilegy.com/signup';
 
-// Same eight-section structure as /crm/. Feature detail lives on /en/crm/features/,
+// Mirrors /crm/ section for section (hero split, assurance, problems, after + pricing, editions,
+// mobile, support + security, FAQ, final CTA). Feature detail lives on /en/crm/features/,
 // pricing detail and terms on /en/crm/pricing/, the school edition on /en/crm/school/.
+// There is no English download page yet, so the PDF links on /crm/ are left out here.
 
-const proofStats = [
-	{ figure: '40+', label: 'CRM / MA / SFA rollouts and adoption supported' },
-	{ figure: '175', label: 'Automations in the B2B, agency, and reseller editions' },
-	{ figure: '3', label: 'Languages: 日本語 / English / 繁體中文, UI and all' },
-	{ figure: 'Press', label: 'See News (花蓮視新聞), 25 June 2026' },
+const supports = [
+	{ tier: 'Videos & help articles', figure: 'Free', text: 'Free on every plan. Where teams that set it up themselves start.' },
+	{ tier: 'Initial setup', figure: '¥120,000 and up', text: 'Fields, deal stages, and automations set to how your team works. 3 walkthrough sessions.' },
+	{ tier: 'Adoption support (3 months)', figure: '¥300,000 and up', text: 'A weekly meeting, review of settings, and one-on-one help with how to use it.' },
+	{ tier: 'Operations support', figure: '¥30,000 / month and up', text: 'We make settings changes for you and answer your questions (up to 2 hours a month).' },
+	{ tier: 'Custom development', figure: 'Quoted', text: 'We add features to fit the way your company runs.' },
 ];
 
-const outcomes = [
-	{
-		problem: 'Typing: card, note, and recording details stay with one person',
-		answer: 'AI reads and transcribes them into draft contact and deal records.',
-	},
-	{
-		problem: 'Setup: a new CRM starts with designing fields and pipelines',
-		answer: 'Pick your use case and you start with deal stages and the automations that use case relies on already switched on.',
-	},
-	{
-		problem: 'Upkeep: someone has to watch for missed follow-ups and renewals',
-		answer: '175 automations catch stalled deals and due dates, and tell the owner.',
-	},
+const mobilePoints = [
+	{ title: 'No app to install', text: 'Open it in the browser. The screens switch to fit the width of your phone.' },
+	{ title: 'Scan cards on the spot', text: 'Photograph a business card and AI reads it, so you can add contacts at a client site or a trade show.' },
+	{ title: 'Check deals on the go', text: 'Amount, stage, and the next appointment, all checkable between meetings.' },
+	{ title: 'Same data as your PC', text: 'What you change on your phone shows up on your computer straight away.' },
+];
+
+// Left: how a rollout usually slides back. Right: what Revenue CRM does about it.
+const problems = [
+	{ topic: 'Data entry', problem: 'Typing it all in<br />is painful.', answer: 'Speak and it becomes a record. Photograph a card and the contact is in. Paste meeting notes and you get tasks and contacts. People only check and save.' },
+	{ topic: 'Getting started', problem: 'Learning the system<br />takes too long.', answer: "We don't hand you an empty system. Pick your use case and you start with deal stages and the automations teams use most already in place." },
+	{ topic: 'Knowledge silos', problem: 'The one person who ran it<br />leaves.', answer: 'Settings stay visible in the screens, and automations are picked from a library of 175. How-to videos and help articles are free on every plan.' },
+];
+
+const afters = [
+	{ title: 'Revenue grows', figure: '175', unit: 'automations', note: 'Watching for stalled deals and due dates', text: 'AI suggests the next action for each customer. Leads no longer get handed over and forgotten.' },
+	{ title: 'Time comes back', figure: '3', unit: 'ways in', note: 'Snap, speak, paste. AI drafts the record', text: "No more chasing people with “Did anyone call them?” or “Who owns this account?”" },
+	{ title: 'Friction between teams fades', figure: '1', unit: 'record', note: 'Marketing, sales, and success on one customer record', text: 'Everyone sees the same customer, so teams work together instead of passing the blame.' },
 ];
 
 const editions = [
-	{
-		noun: 'Deals',
-		title: 'B2B sales',
-		text: 'Manage prospects as deals. Pipeline, quotes, forecast, and stalled-deal alerts.',
-		href: '/en/crm/features/',
-		linkLabel: `See all ${featureCount()} features`,
-	},
-	{
-		noun: 'Projects',
-		title: 'Agencies & contract work',
-		text: 'Quote, win, deliver, invoice, and renew maintenance, tracked per project.',
-		href: '/en/crm/contractor/',
-		linkLabel: 'See the agency edition',
-	},
-	{
-		noun: 'Contracts',
-		title: 'SaaS resellers',
-		text: 'Track renewals, churn risk, renewal deals, and cross-sell candidates.',
-		href: '/en/crm/reseller/',
-		linkLabel: 'See the reseller edition',
-	},
-	{
-		noun: 'Enrollment',
-		title: 'Schools',
-		text: 'Manage enrollment, retention, holds, and withdrawals.',
-		href: '/en/crm/school/',
-		linkLabel: 'See the school edition',
-	},
+	{ noun: 'Deals', title: 'B2B sales', href: '/en/crm/features/' },
+	{ noun: 'Projects', title: 'Agencies & contract work', href: '/en/crm/contractor/' },
+	{ noun: 'Contracts', title: 'SaaS resellers', href: '/en/crm/reseller/' },
+	{ noun: 'Enrollment', title: 'Schools', href: '/en/crm/school/' },
 ];
 
 const plans = [
-	{ tier: 'User plan', for: 'B2B, agency, and reseller editions. For companies that use the CRM every day.', figure: '3,000', unit: '/ user / month' },
-	{ tier: 'Student plan', for: 'School edition (B2C). For schools that run on it every day.', figure: '9,800', unit: '/ month and up' },
-	{
-		tier: 'Prepaid plan',
-		for: 'All editions. For companies and schools that use it rarely, or more in some months than others.',
-		figure: '3,000',
-		unit: '/ month',
-	},
+	{ tier: 'User plan', figure: '¥3,000', unit: '/ user / month', for: 'B2B, agency, and reseller editions. For teams that use it every day' },
+	{ tier: 'Student plan', figure: '¥9,800', unit: '/ month and up', for: 'School edition. Up to 50 enrolled students' },
+	{ tier: 'Prepaid plan', figure: '¥3,000', unit: '/ month', for: 'All editions. For teams that use it less often' },
 ];
 
+// Same family as the safeguards on /en/crm/school/. Only the three asked about before buying.
 const safeguards = [
-	{
-		label: 'Never trained on',
-		text: 'The outside AI services behind card scanning, handwriting, and transcription are used under terms that exclude what you send from training.',
-	},
-	{
-		label: 'Invisible to other tenants',
-		text: 'Companies are separated by row-level access control in the database, not by filtering in the application.',
-	},
-	{
-		label: 'Held in Tokyo',
-		text: 'Data is stored in the Tokyo region. AI processing goes through Anthropic, OpenAI, and Google (US), under terms that exclude what you send from training.',
-	},
+	{ label: 'Never trained on', text: 'Card scanning, handwriting recognition, and transcription run on services under terms that exclude what you send from training.' },
+	{ label: 'Invisible to other companies', text: 'Each company is isolated by row-level access control in the database, not by filtering in the application.' },
+	{ label: 'Held in Tokyo', text: 'Data is stored in the Tokyo region. AI processing goes through Anthropic, OpenAI, and Google (US), under contracts that exclude what you send from training.' },
 ];
 
 const faqs = [
-	{
-		q: 'What does it cost?',
-		a: 'There are three plans. The User plan is ¥3,000 per user per month. The Student plan for schools starts at ¥9,800 per month for up to 50 enrolled students. The Prepaid plan is ¥3,000 per month with 100 Fuel, topped up as needed. No setup fee, and every plan comes with a 30-day free trial, no card required. All prices exclude tax.',
-	},
-	{
-		q: 'How are users counted?',
-		a: 'By the members who have joined the workspace, including accounts that were invited but are not in use. Changes apply from the next invoice.',
-	},
-	{
-		q: 'How do we cancel?',
-		a: 'The User and Student plans run for 1 year from the start of the paid contract and renew yearly; they cannot be cancelled mid-term. To end one, let us know at least 1 month before the term ends. The Prepaid plan renews monthly and ends if you tell us at least 14 days before the next renewal date. Payment is monthly in advance on every plan, and paid fees are not refunded.',
-	},
-	{
-		q: 'Can we take our data out?',
-		a: 'Export contacts, companies, and deals to CSV at any time, and for 30 days after the contract ends. It is your data.',
-	},
-	{
-		q: 'Can we migrate from the CRM we use today?',
-		a: 'Revenue CRM is built for teams that cannot dedicate someone to running a CRM. If a dedicated admin already runs Salesforce or HubSpot, we do not recommend switching; we support implementation and operations on the tool you have. HubSpot data can be read in without replacing it.',
-	},
+	{ q: 'What does it cost?', a: 'There are three plans. The User plan is ¥3,000 per user per month. The Student plan for schools starts at ¥9,800 per month for up to 50 enrolled students. For teams that use it less often, the Prepaid plan is ¥3,000 per month with 100 Fuel, topped up as needed. No setup fee. Every plan comes with a 30-day free trial, no card required. All prices exclude tax.' },
+	{ q: 'How are users counted?', a: 'By the members who have joined the workspace, including accounts that were invited but are not in use. Changes apply from the next invoice.' },
+	{ q: 'How do we cancel?', a: 'The User and Student plans run for 1 year and renew automatically each year. They cannot be cancelled mid-term; to end one, let us know at least 1 month before the term ends. The Prepaid plan renews monthly and ends if you tell us at least 14 days before the next renewal date. Payment is monthly in advance, and fees already paid are not refunded.' },
+	{ q: 'Can we take our data out?', a: 'Export contacts, companies, and deals to CSV at any time, and for 30 days after the contract ends. Your data is yours.' },
+	{ q: 'Can we migrate from the system we use today?', a: 'Revenue CRM is built for teams that cannot dedicate someone to running a CRM. If a dedicated admin already runs Salesforce or HubSpot, we suggest keeping it and support implementation and operations on that tool instead. HubSpot data can be read in without replacing it.' },
+];
+
+const readings = [
+	{ href: '/en/insights/why-crm-implementation-fails-without-revenue-architecture/', title: 'Why CRM implementation fails without revenue architecture' },
+	{ href: '/en/insights/where-japan-gtm-breaks-after-lead-generation/', title: 'Where Japan GTM breaks after lead generation' },
+	{ href: '/en/insights/lead-handoff-rules-for-japan-gtm-teams/', title: 'Lead handoff rules for Japan GTM teams' },
 ];
 ---
 
 <BaseLayout
-	title="Revenue CRM | A CRM for people who don't like opening their CRM. For B2B sales, agencies, SaaS resellers, and schools"
-	description="A CRM for people who don't like opening their CRM. Photograph a business card, paste your notes, and meeting transcripts come in on their own. AI drafts the record. Built for small and mid-sized companies, with editions for B2B sales, agencies and contract work, SaaS resellers, and schools. The B2B, agency, and reseller editions ship with 175 automations. From ¥3,000 per user per month, with a 30-day free trial."
-	ogImage="/images/og/crm-en-2026b.png"
+	title="AI and automation do the work. A CRM your team won't hate updating | Revenue CRM"
+	description="AI and automation do the work: Revenue CRM is a CRM your team won't hate updating. Photograph a business card, or speak or paste your meeting notes, and AI drafts the record for a person to check. One customer record across marketing, sales, and customer success, for small and mid-sized companies. Editions for B2B sales, agencies and contract work, SaaS resellers, and schools. From ¥3,000 per user per month, with a 30-day free trial."
+	ogImage="/images/og/crm-en-2026c.png"
 	lang="en"
 	alternateUrl="/crm/"
 >
+<script type="application/ld+json" slot="head" set:html={JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "SoftwareApplication",
+	"name": "Revenue CRM",
+	"applicationCategory": "BusinessApplication",
+	"applicationSubCategory": "CRM / SFA (customer relationship management and sales force automation)",
+	"keywords": "CRM, SFA, sales CRM, small business CRM, AI CRM, business card scanning, meeting notes",
+	"operatingSystem": "Web",
+	"url": "https://consilegy.com/en/crm/",
+	"description": "Revenue CRM: AI and automation do the work, in a CRM your team won't hate updating. Photograph a business card, or speak or paste meeting notes, and AI drafts the record for a person to check. Marketing, sales, and customer success share one customer record. Built for small and mid-sized companies, with editions for B2B sales, agencies and contract work, SaaS resellers, and schools (B2C). The B2B, agency, and reseller editions ship with 175 automations and use-case defaults. Generally available since 28 September 2026.",
+	"inLanguage": ["ja", "en", "zh-Hant"],
+	"offers": {
+		"@type": "Offer",
+		"price": "3000",
+		"priceCurrency": "JPY",
+		"description": "User plan ¥3,000 per user per month (excl. tax). Student plan from ¥9,800 per month; Prepaid plan ¥3,000 per month with 100 Fuel. No setup fee. 30-day free trial, no card required."
+	},
+	"author": { "@type": "Organization", "name": "Consilegy LLC", "url": "https://consilegy.com/en/" }
+})} />
 
 <CrmSubnav lang="en" />
 
-<!-- ===================== 1. HERO ===================== -->
-<section class="crm-hero">
-	<div class="container hero-grid">
-		<div class="hero-copy">
-			<p class="eyebrow">
-				<img class="eyebrow-mark" src="/images/crm/logo/revenue-crm-logo-v3.svg" alt="" width="26" height="26" decoding="async" />
-				Revenue CRM
-			</p>
-			<h1>A CRM for people who don't like<br class="br-wide" /> opening their CRM.</h1>
-			<p class="hero-lead">
-				Photograph the card. Paste the notes. Meeting transcripts come in on their own. AI drafts the record, and a person checks it before it is saved.
-				One customer record across marketing, sales, and customer success, for B2B sales, agencies, SaaS resellers, and schools.
-			</p>
-			<div class="hero-actions">
-				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">See the demo</a>
-				<a href={SIGNUP_URL} class="btn btn--secondary" target="_blank" rel="noopener noreferrer">Start free</a>
+<!-- ===================== HERO (same pattern as /crm/: left = B2B sales, right = schools; headline and CTA below) ===================== -->
+<section class="hero">
+	<div class="hero-split">
+		<div class="hero-half hero-half--b2b">
+			<div class="hero-half__inner">
+				<p class="hero-half__tag">B2B sales</p>
+				<p class="hero-half__title">For teams losing hours<br />to sales notes and reports.</p>
+				<p class="hero-half__text">Paste the meeting notes, and transcripts come in on their own. AI drafts the record; a person checks it and saves.</p>
+				<a class="btn hero-half__btn" href="/en/crm/features/">See the B2B edition →</a>
+				<img
+					class="hero-half__shot"
+					src="/images/crm/screen-dashboard-2026-10c-en.webp"
+					alt="The Revenue CRM dashboard: open pipeline, weighted forecast, win rate, overdue tasks, pipeline by stage, and deals to watch, on one screen."
+					width="1600"
+					height="1000"
+					decoding="async"
+					fetchpriority="high"
+				/>
 			</div>
-			<p class="hero-note">An email address opens the real product. No password to set, no sales call.</p>
 		</div>
-		<figure class="hero-media">
-			<img
-				src="/images/crm/screen-dashboard-2026-10c-en.webp"
-				alt="The Revenue CRM dashboard: open pipeline, weighted forecast, win rate, overdue tasks, and an insights list with suggested next actions, on one screen."
-				width="1600"
-				height="1000"
-				decoding="async"
-				fetchpriority="high"
-			/>
-			<figcaption>Dashboard: the number you read first and the person you move on next, together</figcaption>
+		<div class="hero-half hero-half--school">
+			<div class="hero-half__inner">
+				<p class="hero-half__tag">Schools</p>
+				<p class="hero-half__title">For schools running students<br />on LINE and spreadsheets.</p>
+				<p class="hero-half__text">Students keep messaging you on your LINE official account. Assignments arrive on LINE and are filed to each student automatically.</p>
+				<a class="btn hero-half__btn" href="/en/crm/school/">See the school edition →</a>
+				<img
+					class="hero-half__shot"
+					src="/images/common/school-student-detail-en.jpg"
+					alt="Revenue CRM school edition: a student's record with assignment submissions and LINE messages in one place."
+					width="1100"
+					height="744"
+					decoding="async"
+				/>
+			</div>
+		</div>
+	</div>
+	<div class="container hero-base">
+		<div class="hero-copy">
+			<p class="hero-eyebrow"><img src="/images/crm/logo/revenue-crm-logo-v3.svg" alt="" width="22" height="22" decoding="async" />Revenue CRM</p>
+			<h1><span class="hero-h1__lead">AI and automation do the work.</span><br />A CRM your team won't hate updating.</h1>
+			<p class="hero-lead">Snap a business card, speak, or paste the meeting notes. AI writes the record.</p>
+		</div>
+		<div class="hero-cta">
+			<div class="hero-actions">
+				<a href={SIGNUP_URL} class="btn btn--cta btn--lg" target="_blank" rel="noopener noreferrer">Start free</a>
+				<a href={DEMO_URL} class="btn btn--outline-dark btn--lg" target="_blank" rel="noopener noreferrer">See the demo</a>
+			</div>
+			<p class="hero-proof">From <strong>¥3,000</strong> per user / month<span class="hero-proof__sep">·</span>30-day free trial<span class="hero-proof__sep">·</span>No card required</p>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== ASSURANCE (the system works for people) ===================== -->
+<section class="assurance">
+	<div class="container">
+		<div class="assurance-inner">
+			<p class="section-eyebrow">Why It Works</p>
+			<h2>People shouldn't work for the system.<br />AI works for the people.</h2>
+			<p class="assurance-body">
+A CRM for people who don't like opening their CRM. AI writes the records; people check them and save.
+Marketing, sales, and customer success share one customer record, in a CRM and sales system (CRM / SFA) built for small and mid-sized companies.
+			</p>
+			<ul class="assurance-ways" aria-label="Ways to add a record">
+				<li><span class="assurance-ways__k">Snap</span>Business cards, by camera</li>
+				<li><span class="assurance-ways__k">Speak</span>Meeting notes, by voice</li>
+				<li><span class="assurance-ways__k">Paste</span>Meeting transcripts, as they are</li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== PROBLEMS (three months in, back to spreadsheets) ===================== -->
+<section class="why" id="problems">
+	<div class="container">
+		<p class="section-eyebrow">How a Record Gets Made</p>
+		<figure class="input-figure" aria-labelledby="input-figure-caption">
+			<svg viewBox="0 0 1120 256" role="img" aria-label="How a record gets made: snap, speak, or paste; AI drafts it; a person checks it; the next step is suggested">
+				<defs><marker id="in-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
+				<g font-family="inherit">
+<rect x="40" y="20" width="236" height="140" rx="6" fill="#fff" stroke="#E2E8F0"/><rect x="40" y="20" width="236" height="4" rx="2" fill="#8758C9"/><text x="58" y="56" font-size="14" fill="#64748b" letter-spacing="1">INPUT</text><text x="58" y="90" font-size="18" font-weight="600" fill="#0F172A">Snap, speak, paste</text>
+<text x="58" y="130" font-size="16" fill="#475569">Cards, voice, notes</text>
+<line x1="276" y1="90" x2="308" y2="90" stroke="#0F172A" stroke-width="2" marker-end="url(#in-arr)"/>
+<rect x="312" y="20" width="236" height="140" rx="6" fill="#fff" stroke="#E2E8F0"/><rect x="312" y="20" width="236" height="4" rx="2" fill="#8758C9"/><text x="330" y="56" font-size="14" fill="#64748b" letter-spacing="1">AI</text><text x="330" y="90" font-size="18" font-weight="600" fill="#0F172A">AI drafts the record</text>
+<text x="330" y="130" font-size="16" fill="#475569">Contacts, deals, tasks</text>
+<line x1="548" y1="90" x2="580" y2="90" stroke="#0F172A" stroke-width="2" marker-end="url(#in-arr)"/>
+<rect x="584" y="20" width="236" height="140" rx="6" fill="#fff" stroke="#E2E8F0"/><rect x="584" y="20" width="236" height="4" rx="2" fill="#8758C9"/><text x="602" y="56" font-size="14" fill="#64748b" letter-spacing="1">CHECK</text><text x="602" y="90" font-size="18" font-weight="600" fill="#0F172A">A person checks it</text>
+<text x="602" y="130" font-size="16" fill="#475569">Fix only what's off</text>
+<line x1="820" y1="90" x2="852" y2="90" stroke="#0F172A" stroke-width="2" marker-end="url(#in-arr)"/>
+<rect x="856" y="20" width="236" height="140" rx="6" fill="#fff" stroke="#E2E8F0"/><rect x="856" y="20" width="236" height="4" rx="2" fill="#8758C9"/><text x="874" y="56" font-size="14" fill="#64748b" letter-spacing="1">NEXT</text><text x="874" y="90" font-size="18" font-weight="600" fill="#0F172A">Next step suggested</text>
+<text x="874" y="130" font-size="16" fill="#475569">175 automations watch</text>
+				<rect x="40" y="190" width="1052" height="50" rx="6" fill="#0F172A"/>
+				<text x="566" y="221" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">AI takes on the typing. People make the calls.</text>
+				</g>
+			</svg>
+			<figcaption id="input-figure-caption">AI writes the record and a person only checks it. From each saved record, the next step comes up on its own.</figcaption>
 		</figure>
-	</div>
-</section>
-
-<!-- ===================== 2. WHAT IT SOLVES ===================== -->
-<section class="outcomes" id="problems">
-	<div class="container">
-		<div class="section-head">
-			<p class="kicker">What it does</p>
-			<h2>Less typing, less setup, less upkeep.</h2>
-		</div>
-		<ul class="outcome-grid">
-			{outcomes.map((item) => (
-				<li class="outcome-card">
-					<p class="outcome-problem">{item.problem}</p>
-					<p class="outcome-answer">{item.answer}</p>
-				</li>
-			))}
-		</ul>
-	</div>
-</section>
-
-<!-- ===================== 3. USE CASES ===================== -->
-<section class="editions" id="use-cases">
-	<div class="container">
-		<div class="section-head">
-			<p class="kicker">Use cases</p>
-			<h2>Pick the edition that fits your business.</h2>
-		</div>
-		<div class="edition-grid">
-			{editions.map((item) => (
-				<article class="edition-card">
-					<span class="edition-noun">{item.noun}</span>
-					<h3>{item.title}</h3>
-					<p>{item.text}</p>
-					{item.href && <a href={item.href}>{item.linkLabel}</a>}
+		<header class="problems-overview">
+			<div class="why-head">
+				<p class="section-eyebrow">Common Problems</p>
+				<h2>Three months after rollout,<br /><span class="text-emph">the team is back in spreadsheets.</span></h2>
+				<p class="section-lead">Launching a system is easy. Getting people to keep using it is the hard part.</p>
+			</div>
+			<blockquote class="problem-example">
+				<p>A CRM is not cheap.<br />Paying for a system nobody uses is <strong>money thrown away</strong>.</p>
+			</blockquote>
+		</header>
+		<div class="problem-rows">
+			{problems.map((item, i) => (
+				<article class="problem-row">
+					<div><p class="problem-topic"><span class="problem-num">0{i + 1}</span>{item.topic}</p><h3 set:html={item.problem} /></div>
+					<div class="problem-response"><p class="problem-topic">With Revenue CRM</p><p>{item.answer}</p></div>
 				</article>
 			))}
 		</div>
-		<figure class="view-demo">
+		<p class="problems-more"><a href="/en/crm/features/" class="btn btn--outline-primary">See all {featureCount()} features →</a></p>
+	</div>
+</section>
+
+<!-- ===================== AFTER (what changes once it's used) + pricing at a glance ===================== -->
+<section class="how" id="benefits">
+	<div class="container">
+		<header class="sub-head">
+			<p class="section-eyebrow">After</p>
+			<h2>What changes once it's actually used.</h2>
+		</header>
+		<div class="after-list">
+			{afters.map((item) => (
+				<article class="after-item">
+					<h3>{item.title}</h3>
+					<p class="result-metric"><strong>{item.figure}<span>{item.unit}</span></strong><span class="result-metric__note">{item.note}</span></p>
+					<p>{item.text}</p>
+				</article>
+			))}
+		</div>
+		<div class="service-summary" id="pricing">
+			<h3>Pricing at a glance</h3>
+			<dl>
+				{plans.map((plan) => (
+					<div><dt>{plan.tier}</dt><dd><strong>{plan.figure}</strong> {plan.unit}<br />{plan.for}</dd></div>
+				))}
+			</dl>
+			<p>No setup fee. Every plan comes with a 30-day free trial, no card required. All prices exclude tax.</p>
+			<p class="service-summary__links"><a href="/en/crm/pricing/">Pricing details →</a></p>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== EDITIONS (no empty system) + API + numbers ===================== -->
+<section class="track" id="use-cases">
+	<div class="container">
+		<header class="section-head track-head">
+			<p class="section-eyebrow">Editions</p>
+			<h2>We don't hand you an empty system.</h2>
+			<p class="section-lead">Pick your use case and you start with deal stages and the automations teams use most already in place. The school edition connects to LINE, so students can book a lesson in one tap.</p>
+		</header>
+		<ul class="track-list">
+			{editions.map((item) => (
+				<li class="track-item"><a href={item.href} class="track-who"><span class="track-noun">{item.noun}</span><span class="track-title">{item.title}</span><span class="track-size">Manage {item.noun.toLowerCase()} →</span></a></li>
+			))}
+		</ul>
+		<figure class="demo-media">
 			<img
 				src="/videos/revenue-crm-demo-2026-09-en.gif"
 				alt="A walkthrough of Revenue CRM, moving through the dashboard, the deal kanban, the automation library, the AI agent, and the three-language switch."
@@ -202,158 +275,103 @@ const faqs = [
 			/>
 			<figcaption>Walkthrough: dashboard, deal kanban, automation library, AI agent, language switch</figcaption>
 		</figure>
-	</div>
-</section>
-
-<!-- ===================== 4. LESS TYPING ===================== -->
-<section class="ai" id="ai">
-	<div class="container">
-		<div class="section-head">
-			<p class="kicker">AI agent</p>
-			<h2>Add a CRM. Not more work.</h2>
-		</div>
-		<p class="ai-lead">
-			CRMs stop being used for one reason. Entering data is always the last thing on the list.
-			So the AI drafts the records. The AI agent inside answers when you ask in plain language.
-			Cards get photographed, threads get pasted, meeting transcripts come in on their own.
-			And the 175 workflows are there from day one, with the ones your use case needs already switched on.
-		</p>
-		<p class="ai-note">
-			What the AI drafts is reviewed by a person before it is saved or sent.
-			You can bring your own API key (Anthropic / OpenAI / Gemini / Azure OpenAI).
-		</p>
-		<ul class="proof-grid">
-			{proofStats.map((item) => (
-				<li>
-					<strong>{item.figure}</strong>
-					<span>{item.label}</span>
-				</li>
-			))}
-		</ul>
-		<p class="proof-note">
-			"40+" is the number of companies our founder, Seiko Yamaguchi, has supported on CRM, MA, and SFA
-			implementation, including her years as an independent consultant. Customer names are published only with each customer's permission.
-		</p>
-	</div>
-</section>
-
-<CrmMobile lang="en" />
-
-<!-- ===================== ORIGIN ===================== -->
-<section class="crm-origin" id="origin">
-	<div class="container origin-inner">
-		<div class="origin-copy">
-			<p class="kicker">Where it came from</p>
-			<h2>Built in Hualien, Taiwan.</h2>
+		<div class="track-founder">
 			<p>
-				The product took shape at Hualien Cloud Hub (花蓮雲基地), run by Hualien County.
-				Our founder, Seiko Yamaguchi, stayed there with the first cohort, and the shape of this product,
-				CRM and AI together, came out of working alongside founders and remote workers from several countries.
+				<strong>An API that connects to almost anything.</strong>
+				Many business tools are closed boxes that don't talk to anything else. Revenue CRM has an API, so you can work with it directly from Claude Code and other tools. Bring your own API key for the AI (Anthropic / OpenAI / Gemini / Azure OpenAI).
 			</p>
-			<p>See News (花蓮視新聞) covered the stay and the build in its 25 June 2026 edition.</p>
-			<a
-				href="https://www.seenews.com.tw/news_data.php?news_id=2325&amp;k_code=A"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="origin-link"
-			>Read the article (Traditional Chinese)</a>
 		</div>
-		<figure class="origin-press">
-			<img
-				src="/images/common/seenews-hualien-2026-photo.jpg"
-				alt="See News (花蓮視新聞) article of 25 June 2026, with a photo of founder Seiko Yamaguchi in front of the Hualien Cloud Hub sign and text on the CRM and AI product she built there."
-				width="1000"
-				height="1760"
-				loading="lazy"
-				decoding="async"
-			/>
-			<figcaption>See News (花蓮視新聞), 25 June 2026</figcaption>
-		</figure>
+		<p class="supported-tools"><span>By the numbers</span>40+ CRM, MA, and SFA rollouts supported by our founder (including her years as an independent consultant) · 175 automations · 3 languages (日本語 / English / 繁體中文) · <a href="https://www.seenews.com.tw/news_data.php?news_id=2325&amp;k_code=A" target="_blank" rel="noopener noreferrer">Covered by See News (花蓮視新聞)</a></p>
 	</div>
 </section>
 
-<!-- ===================== 5. PRICING ===================== -->
-<section class="pricing" id="pricing">
-	<div class="container">
-		<div class="section-head">
-			<p class="kicker">Pricing</p>
-			<h2>Three plans. Pick the one that fits how you work.</h2>
+<!-- ===================== MOBILE ===================== -->
+<section class="mobile" id="mobile">
+	<div class="container mobile-inner">
+		<div>
+			<header class="sub-head">
+				<p class="section-eyebrow">Mobile</p>
+				<h2>Works on your phone,<br />just as it is.</h2>
+			</header>
+			<dl class="row-list">
+				{mobilePoints.map((item) => (
+					<div><dt>{item.title}</dt><dd>{item.text}</dd></div>
+				))}
+			</dl>
 		</div>
-		<div class="price-grid">
-			{plans.map((plan) => (
-				<div class="price-card">
-					<p class="price-tier">{plan.tier}{plan.status && <span class="price-status">{plan.status}</span>}</p>
-					<p class="plan-for">{plan.for}</p>
-					<p class="price-figure"><span class="price-yen">&yen;</span>{plan.figure}<span class="price-unit">{plan.unit}</span></p>
-				</div>
-			))}
-			<div class="price-note">
-				<p>No setup fee. Every plan comes with a 30-day free trial, no card required.</p>
-			</div>
+		<div class="mobile-shots">
+			<img src="/images/crm/screen-mobile-dashboard-2026-10c-en.webp" alt="The Revenue CRM dashboard opened on a smartphone" width="390" height="844" loading="lazy" decoding="async" />
+			<img src="/images/crm/screen-mobile-contacts-2026-10c-en.webp" alt="The Revenue CRM contact list opened on a smartphone" width="390" height="844" loading="lazy" decoding="async" />
 		</div>
-		<div class="hero-actions">
-			<a href="/en/crm/pricing/" class="btn btn--secondary">Pricing details</a>
-		</div>
-		<p class="proof-note">All prices exclude consumption tax.</p>
 	</div>
 </section>
 
-<!-- ===================== 6. SECURITY ===================== -->
-<section class="safeguards" id="security">
-	<div class="container">
-		<div class="section-head">
-			<p class="kicker">Your data</p>
-			<h2>Read by AI, still yours alone.</h2>
+<!-- ===================== SUPPORT (setup to adoption) + SECURITY ===================== -->
+<section class="why" id="support">
+	<div class="container two-col">
+		<div>
+			<header class="sub-head">
+				<p class="section-eyebrow">Support</p>
+				<h2>From setup to adoption,<br />we run it with you.</h2>
+				<p class="section-lead">We bring the approach that has made CRM stick at 40+ companies. If you'd rather set it up yourself, the how-to videos and help articles are free.</p>
+			</header>
+			<dl class="row-list row-list--figure">
+				{supports.map((item) => (
+					<div><dt>{item.tier}<span>{item.figure}</span></dt><dd>{item.text}</dd></div>
+				))}
+			</dl>
+			<p class="row-list__foot">Data migration and integrations with outside services are quoted separately. All prices exclude tax.<a href="/en/crm/pricing/#support">Support details →</a></p>
 		</div>
-		<dl class="safe-list">
-			{safeguards.map((item) => (
-				<div class="safe-row">
-					<dt>{item.label}</dt>
-					<dd>{item.text}</dd>
-				</div>
-			))}
-		</dl>
-		<p class="safe-note">
-			Sign in with your email address or your Google account, and multi-factor authentication (6-digit authenticator codes) is available. SAML and OIDC single sign-on are not offered at this stage.
-		</p>
+		<div id="security">
+			<header class="sub-head">
+				<p class="section-eyebrow">Security</p>
+				<h2>Every company's data<br />is kept separate.</h2>
+			</header>
+			<dl class="row-list">
+				{safeguards.map((item) => (
+					<div><dt>{item.label}</dt><dd>{item.text}</dd></div>
+				))}
+			</dl>
+			<p class="row-list__foot">Sign in with your email address or Google account. Multi-factor authentication (6-digit authenticator codes) is supported. SAML and OIDC single sign-on are not offered yet.</p>
+		</div>
 	</div>
 </section>
 
-<!-- ===================== 7. FAQ ===================== -->
+<!-- ===================== FAQ ===================== -->
 <section class="faq" id="faq">
 	<div class="container">
-		<div class="section-head">
-			<p class="kicker">Questions</p>
+		<header class="sub-head">
+			<p class="section-eyebrow">FAQ</p>
 			<h2>What people ask before they start.</h2>
-		</div>
+		</header>
 		<dl class="faq-list">
 			{faqs.map((item) => (
-				<div class="faq-item">
-					<dt>{item.q}</dt>
-					<dd>{item.a}</dd>
-				</div>
+				<div class="faq-item"><dt>{item.q}</dt><dd>{item.a}</dd></div>
 			))}
 		</dl>
+		<p class="faq-more"><a href="/en/crm/pricing/" class="btn btn--outline-primary">See pricing and contract terms →</a></p>
+		<p class="readings"><span>Know how rollouts fail before you start</span>{readings.map((item) => (<a href={item.href}>{item.title}</a>))}</p>
 	</div>
 </section>
 
-<!-- ===================== 8. START ===================== -->
-<section class="beta" id="start">
-	<div class="container">
-		<div class="section-head">
-			<p class="kicker">Start free</p>
+<!-- ===================== FINAL CTA ===================== -->
+<section class="final-cta" id="start">
+	<div class="container cta-inner">
+		<div class="cta-copy">
+			<p class="cta-eyebrow">Get Started</p>
 			<h2>Try the product first.</h2>
-		</div>
-		<div class="cta-head">
-			<p>An email address opens a demo workspace with sample data. No password to set.</p>
-			<p>
-				If a dedicated admin already runs Salesforce or HubSpot, don't switch.
-				<a href="/en/services/">See how we redesign an existing CRM</a>.
+			<p class="cta-lead">
+				Enter an email address and a demo workspace opens, with no password to set. See the records, the automations, and the defaults it starts with, on the real screens.
 			</p>
-		</div>
-		<div class="hero-actions">
-			<a href={SIGNUP_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">Start free</a>
-			<a href={DEMO_URL} class="btn btn--secondary" target="_blank" rel="noopener noreferrer">See the demo</a>
+			<p class="cta-lead cta-lead--close">
+				If a dedicated admin already runs Salesforce or HubSpot, don't switch.<br />
+				Instead, see <a href="/en/services/">how we redesign the system you already have</a>.
+			</p>
+			<div class="cta-actions">
+				<a href={SIGNUP_URL} class="btn btn--cta-primary btn--lg" target="_blank" rel="noopener noreferrer">Start free</a>
+				<a href={DEMO_URL} class="btn btn--cta-outline btn--lg" target="_blank" rel="noopener noreferrer">See the demo</a>
+			</div>
+			<p class="cta-note">Revenue CRM was built at Hualien Cloud Hub (花蓮雲基地) in Hualien, Taiwan, alongside digital nomads from around the world.</p>
 		</div>
 	</div>
 </section>
@@ -361,680 +379,200 @@ const faqs = [
 </BaseLayout>
 
 <style>
-	/* html[lang="en"] の --container は 72ch（記事の読み物幅）。このページは
-	   カードを並べるLPなので、そのままだと英文が単語単位で折り返して壊れる。
-	   ページ内だけ 1120px に戻す。global.css には触らない。 */
-	.container {
-		max-width: 1120px;
-	}
-
-	.kicker,
-	.eyebrow {
-		margin: 0;
-		color: var(--color-text-muted);
-		font-size: 0.75rem;
-		font-weight: 600;
-		letter-spacing: 0.12em;
-		line-height: 1.4;
-		text-transform: none;
-	}
-
-	h2,
-	h3 {
-		letter-spacing: 0;
-	}
-
-	h2 {
-		margin: 0;
-		color: var(--color-text);
-		font-size: 2rem;
-		font-weight: 500;
-		line-height: 1.4;
-		text-wrap: balance;
-	}
-
-	.btn {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		min-height: 46px;
-		padding: 0.8rem 1.35rem;
-		border: 1px solid var(--color-border);
-		border-radius: 4px;
-		font-size: 0.9375rem;
-		font-weight: 600;
-		line-height: 1.25;
-		text-decoration: none;
-		transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
-	}
-
-	.btn--primary {
-		background: var(--color-primary);
-		border-color: var(--color-primary);
-		color: #fff;
-	}
-
-	.btn--primary:hover {
-		background: var(--color-primary-dark);
-		border-color: var(--color-primary-dark);
-		color: #fff;
-	}
-
-	.btn--secondary {
-		background: transparent;
-		color: var(--color-text);
-	}
-
-	.btn--secondary:hover {
-		border-color: var(--color-primary);
-		color: var(--color-primary);
-	}
-
-	.hero-actions {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.75rem;
-		margin-top: var(--space-lg);
-	}
-
-	.crm-hero {
-		padding: calc(var(--space-2xl) + 0.5rem) 0 var(--space-xl);
-		background: var(--color-bg);
-		border-bottom: 1px solid var(--color-border);
-	}
-
-	.hero-grid {
-		display: grid;
-		grid-template-columns: minmax(0, 1.25fr) minmax(330px, 0.8fr);
-		gap: var(--space-xl);
-		align-items: end;
-	}
-
-	.hero-copy {
-		max-width: 720px;
-	}
-
-	.eyebrow {
-		display: flex;
-		align-items: center;
-		gap: 0.55rem;
-		margin-bottom: var(--space-md);
-		padding-top: 0.875rem;
-		border-top: 1px solid var(--color-border);
-	}
-
-	.eyebrow-mark {
-		width: 26px;
-		height: 26px;
-		border-radius: 6px;
-		flex-shrink: 0;
-	}
-
-	.crm-hero h1 {
-		max-width: 100%;
-		margin: 0;
-		color: var(--color-text);
-		font-size: clamp(2rem, 3vw, 2.625rem);
-		font-weight: 500;
-		line-height: 1.24;
-		letter-spacing: -0.01em;
-	}
-
-	.hero-lead {
-		max-width: 43em;
-		margin: var(--space-md) 0 0;
-		color: var(--color-text);
-		font-size: 1.0625rem;
-		line-height: 2;
-	}
-
-	.hero-media {
-		margin: 0;
-		min-width: 0;
-	}
-
-	.hero-media img {
-		width: 100%;
-		height: auto;
-		border: 1px solid var(--color-border);
-		border-radius: 0;
-		background: #fff;
-		box-shadow: none;
-	}
-
-	.hero-media figcaption {
-		margin-top: 0.65rem;
-		color: var(--color-text-muted);
-		font-size: 0.75rem;
-		line-height: 1.6;
-	}
-
-	.ai,
-	.safeguards,
-	.editions,
-	.beta {
-		padding: var(--space-2xl) 0;
-		background: var(--color-bg);
-	}
-
-	.ai,
-	.beta {
-		background: var(--color-bg-subtle);
-		border-top: 1px solid var(--color-border);
-		border-bottom: 1px solid var(--color-border);
-	}
-
-	.section-head {
-		display: grid;
-		grid-template-columns: 10rem minmax(0, 1fr);
-		gap: var(--space-lg);
-		align-items: start;
-		margin-bottom: var(--space-lg);
-		padding-top: var(--space-sm);
-		border-top: 1px solid var(--color-border);
-	}
-
-	.edition-grid {
-		display: grid;
-		gap: 0;
-		border-top: 1px solid var(--color-border);
-	}
-
-	.edition-grid {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-	}
-
-	.edition-card {
-		min-width: 0;
-		padding: 1.35rem 1.5rem 1.35rem 0;
-		background: transparent;
-		border: 0;
-		border-bottom: 1px solid var(--color-border);
-		border-radius: 0;
-	}
-
-	.edition-card {
-		padding-right: var(--space-lg);
-	}
-
-	.edition-card:nth-child(even) {
-		padding-right: 0;
-		padding-left: var(--space-lg);
-		border-left: 1px solid var(--color-border);
-	}
-
-	.edition-card h3 {
-		margin: 0;
-		color: var(--color-text);
-		font-size: 1rem;
-		font-weight: 600;
-		line-height: 1.55;
-	}
-
-	.edition-card p {
-		margin: 0.6rem 0 0;
-		color: var(--color-text-muted);
-		font-size: 0.9375rem;
-		line-height: 1.85;
-	}
-
-	.beta .kicker {
-		margin-bottom: var(--space-sm);
-	}
-
-	.view-demo {
-		margin: var(--space-xl) auto 0;
-		max-width: 800px;
-	}
-
-	.view-demo img {
-		display: block;
-		width: 100%;
-		height: auto;
-		border: 1px solid var(--color-border);
-		border-radius: 10px;
-		background: #fff;
-	}
-
-	.view-demo figcaption {
-		margin-top: 0.6rem;
-		color: var(--color-text-muted);
-		font-size: 0.8125rem;
-		line-height: 1.7;
-		text-align: center;
-	}
-
-	.edition-noun {
-		display: block;
-		margin: 0 0 0.7rem;
-		color: var(--color-primary);
-		font-size: 0.75rem;
-		font-weight: 700;
-		letter-spacing: 0.08em;
-	}
-
-	.edition-card a {
-		display: inline-flex;
-		margin-top: 0.85rem;
-		color: var(--color-primary);
-		font-size: 0.875rem;
-		font-weight: 600;
-		text-decoration: none;
-		border-bottom: 1px solid currentColor;
-	}
-
-	.beta p {
-		margin: 1rem 0 0;
-		color: var(--color-text-muted);
-		font-size: 0.9375rem;
-		line-height: 1.85;
-	}
-
-	@media (max-width: 980px) {
-		.hero-grid {
-			grid-template-columns: 1fr;
-		}
-
-		.crm-hero h1 {
-			font-size: 2.75rem;
-		}
-
-		.hero-media {
-			justify-self: start;
-			max-width: 680px;
-		}
-	}
-
-	@media (max-width: 760px) {
-		.crm-hero,
-		.editions,
-		.beta {
-			padding-block: var(--space-xl);
-		}
-
-		.section-head,
-		.edition-grid {
-			grid-template-columns: 1fr;
-		}
-
-		.section-head {
-			gap: 0.75rem;
-		}
-
-		h2 {
-			font-size: 1.625rem;
-		}
-
-		.crm-hero h1 {
-			font-size: 2.25rem;
-		}
-
-		.hero-lead {
-			font-size: 1rem;
-		}
-
-		.edition-card,
-		.edition-card:nth-child(even) {
-			padding-left: 0;
-			padding-right: 0;
-			border-left: 0;
-		}
-
-		.hero-actions {
-			flex-direction: column;
-		}
-
-		.btn {
-			width: 100%;
-		}
-	}
-
-	/* ── 2. PROOF band ───────────────────────────────────── */
-	.proof-grid {
-		display: grid;
-		grid-template-columns: repeat(4, minmax(0, 1fr));
-		gap: var(--space-md);
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
-	.proof-grid li {
-		display: flex;
-		flex-direction: column;
-		gap: 0.35rem;
-		padding-left: var(--space-md);
-		border-left: 2px solid var(--color-border);
-	}
-	.proof-grid li:first-child { border-left-color: var(--color-primary); }
-	.proof-grid strong {
-		font-size: clamp(1.35rem, 2.2vw, 1.75rem);
-		line-height: 1.2;
-		letter-spacing: -0.01em;
-		color: var(--color-text);
-	}
-	.proof-grid span {
-		font-size: 0.85rem;
-		line-height: 1.6;
-		color: var(--color-text-muted);
-	}
-	.proof-note {
-		margin: var(--space-md) 0 0;
-		font-size: 0.78rem;
-		line-height: 1.7;
-		color: var(--color-text-muted);
-	}
-	@media (max-width: 860px) {
-		.proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-	}
-	@media (max-width: 480px) {
-		.proof-grid { grid-template-columns: 1fr; }
-	}
-
-	/* ── 3. PROBLEM to OUTCOME ───────────────────────────── */
-	.outcomes { padding: var(--space-2xl) 0; }
-	.outcome-grid {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: var(--space-md);
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
-	.outcome-card {
-		padding: var(--space-md);
-		background: #fff;
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-card);
-	}
-	.outcome-problem {
-		position: relative;
-		margin: 0 0 0.75rem;
-		padding-left: 1.6rem;
-		font-size: 0.92rem;
-		line-height: 1.7;
-		color: var(--color-text-muted);
-	}
-	.outcome-problem::before {
-		content: '';
-		position: absolute;
-		left: 0;
-		top: 0.55em;
-		width: 0.9rem;
-		height: 1px;
-		background: var(--color-text-muted);
-	}
-	.outcome-answer {
-		position: relative;
-		margin: 0;
-		padding-left: 1.6rem;
-		font-size: 1rem;
-		font-weight: 600;
-		line-height: 1.75;
-		color: var(--color-text);
-	}
-	.outcome-answer::before {
-		content: '\2192';
-		position: absolute;
-		left: 0;
-		top: 0;
-		color: var(--color-primary);
-		font-weight: 700;
-	}
-	@media (max-width: 720px) {
-		.outcome-grid { grid-template-columns: 1fr; }
-	}
-
-	/* ── 3b. AI ──────────────────────────────────────────── */
-	.ai-lead {
-		max-width: 46rem;
-		margin: 0 0 var(--space-lg);
-		font-size: 1.05rem;
-		line-height: 1.95;
-		color: var(--color-text);
-	}
-	.ai-note {
-		margin: var(--space-lg) 0 0;
-		font-size: 0.82rem;
-		line-height: 1.9;
-		color: var(--color-text-muted);
-	}
-
-	/* ── 3c. SECURITY ────────────────────────────────────── */
-	.safe-list {
-		margin: 0;
-		border-top: 1px solid var(--color-border);
-	}
-	.safe-row {
-		display: grid;
-		grid-template-columns: 14rem minmax(0, 1fr);
-		gap: var(--space-md);
-		padding: 1.15rem 0;
-		border-bottom: 1px solid var(--color-border);
-		align-items: baseline;
-	}
-	.safe-row dt {
-		margin: 0;
-		font-size: 0.975rem;
-		font-weight: 700;
-		color: var(--color-text);
-	}
-	.safe-row dd {
-		margin: 0;
-		font-size: 0.925rem;
-		line-height: 1.85;
-		color: var(--color-text-muted);
-	}
-	.safe-note {
-		margin: var(--space-lg) 0 0;
-		font-size: 0.82rem;
-		line-height: 1.9;
-		color: var(--color-text-muted);
-	}
-	.safe-note a {
-		color: var(--color-primary);
-		text-decoration: none;
-		font-weight: 600;
-	}
-	.safe-note a:hover { text-decoration: underline; }
-	@media (max-width: 720px) {
-		.safe-row { grid-template-columns: 1fr; gap: 0.4rem; }
-	}
-
-	/* ── 7. PRICING ──────────────────────────────────────── */
-	.pricing {
-		padding: var(--space-2xl) 0;
-		background: #fff;
-		border-top: 1px solid var(--color-border);
-	}
-	.price-grid {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: var(--space-md);
-		align-items: stretch;
-	}
-	.price-card {
-		min-width: 0;
-		padding: var(--space-md);
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-card);
-		background: var(--color-bg);
-	}
-	.price-tier {
-		margin: 0 0 0.5rem;
-		font-size: 0.85rem;
-		font-weight: 700;
-		color: var(--color-primary);
-	}
-	.price-figure {
-		margin: 0;
-		font-size: clamp(1.8rem, 3.2vw, 2.4rem);
-		font-weight: 700;
-		line-height: 1.1;
-		letter-spacing: -0.02em;
-	}
-	.price-yen { font-size: 0.6em; margin-right: 0.1em; }
-	.price-unit {
-		margin-left: 0.4em;
-		font-size: 0.42em;
-		font-weight: 500;
-		color: var(--color-text-muted);
-	}
-	.price-note {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		gap: 0.75rem;
-		grid-column: 1 / -1;
-		padding: var(--space-md) 0 0;
-		border-top: 1px solid var(--color-border);
-	}
-	.plan-for {
-		margin: 0 0 0.75rem;
-		font-size: 0.85rem;
-		line-height: 1.6;
-		color: var(--color-text-muted);
-	}
-	.price-status {
-		display: inline-block;
-		margin-left: 0.5em;
-		font-size: 0.75rem;
-		font-weight: 500;
-		color: var(--color-text-muted);
-	}
-	.price-note p {
-		margin: 0;
-		font-size: 0.9rem;
-		line-height: 1.8;
-		color: var(--color-text-muted);
-	}
-	/* The EN page runs at a 72ch container: 4 cards across and side-by-side labels do not fit. */
-	.price-unit { display: block; margin: 0.35em 0 0; }
-	@media (max-width: 960px) {
-		.price-grid { grid-template-columns: 1fr; }
-	}
-
-	/* ── 10. FAQ ─────────────────────────────────────────── */
-	.faq { padding: var(--space-2xl) 0; }
-	.faq-list { margin: 0; }
-	.faq-item {
-		padding: var(--space-md) 0;
-		border-top: 1px solid var(--color-border);
-	}
-	.faq-item:last-child { border-bottom: 1px solid var(--color-border); }
-	.faq-item dt {
-		margin: 0 0 0.5rem;
-		font-size: 1rem;
-		font-weight: 700;
-		line-height: 1.7;
-	}
-	.faq-item dd {
-		margin: 0;
-		max-width: 60em;
-		font-size: 0.95rem;
-		line-height: 1.9;
-		color: var(--color-text-muted);
-	}
-
-	/* ── 11. FINAL CTA ───────────────────────────────────── */
-	.cta-head { max-width: 44em; margin-bottom: var(--space-lg); }
-	.cta-head p {
-		margin: 0;
-		line-height: 1.9;
-		color: var(--color-text-muted);
-	}
-
-	/* ── hero note ───────────────────────────────────────── */
-	.hero-note {
-		margin: var(--space-sm) 0 0;
-		font-size: 0.85rem;
-		line-height: 1.7;
-		color: var(--color-text-muted);
-	}
-
-	/* ── Japanese line breaking ──────────────────────────── */
-	h1,
-	h2,
-	h3 {
-		line-break: strict;
-	}
-	.br-wide { display: none; }
-	@media (min-width: 900px) {
-		.br-wide { display: inline; }
-	}
-
-	/* ── Eight-section layout (2026-09 restructure) ───────────── */
-	section[id] {
-		/* keep headings clear of the header and the sticky subnav */
-		scroll-margin-top: 7.5rem;
-	}
-
-	/* three outcomes on a two-column grid: let the last one take the full row */
-	.outcome-card:last-child:nth-child(odd) {
-		grid-column: 1 / -1;
-	}
-
-	.ai .proof-grid {
-		margin-top: var(--space-lg);
-	}
-
-	.pricing .hero-actions {
-		margin-top: var(--space-md);
-	}
-
-	.cta-head a {
-		color: var(--color-primary);
-	}
-
-	/* Origin (press coverage) */
-	.crm-origin {
-		padding: clamp(4rem, 7vw, 6rem) 0;
-	}
-
-	.origin-inner {
-		display: grid;
-		grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-		gap: clamp(2rem, 5vw, 4rem);
-		align-items: start;
-	}
-
-	.origin-copy p:not(.kicker) {
-		margin: 1rem 0 0;
-		color: var(--color-text-muted);
-		font-size: 0.9375rem;
-		line-height: 1.85;
-	}
-
-	.origin-link {
-		display: inline-block;
-		margin-top: 1.25rem;
-		color: var(--color-primary);
-		font-size: 0.875rem;
-		text-decoration: underline;
-		text-underline-offset: 3px;
-	}
-
-	.origin-press {
-		margin: 0;
-	}
-
-	.origin-press img {
-		display: block;
-		width: 100%;
-		height: auto;
-		border: 1px solid var(--color-border);
-		background: #fff;
-	}
-
-	.origin-press figcaption {
-		margin-top: 0.65rem;
-		color: var(--color-text-muted);
-		font-size: 0.75rem;
-		line-height: 1.6;
-	}
-
-	@media (max-width: 760px) {
-		.origin-inner {
-			grid-template-columns: 1fr;
-		}
-	}
+/* トップ（src/pages/index.astro）と同じ型。色・余白・角丸（4px/6px）・紫のCTAを揃える。 */
+.container { max-width: 1160px; margin-inline: auto; padding-inline: 2rem; }
+section { padding-block: var(--space-2xl); }
+h2 { font-size: clamp(1.625rem, 2.4vw, 2.125rem); font-weight: 500; line-height: 1.3; letter-spacing: -0.02em; color: var(--color-text); margin: 0 0 1rem; }
+h3 { font-weight: 500; }
+.section-eyebrow { display: block; font-size: 0.625rem; font-weight: 500; color: var(--color-text-muted); letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 0.75rem; }
+.section-lead { font-size: 1rem; color: var(--color-text-muted); line-height: 1.8; margin: 0; }
+.section-head { max-width: 680px; margin-bottom: var(--space-lg); }
+.sub-head { margin-bottom: var(--space-lg); }
+.text-emph { color: var(--color-text); }
+.btn { border-radius: 4px; }
+.btn--lg { padding: 0.875rem 1.75rem; font-size: 0.9375rem; }
+.btn--cta { background: #8758C9; color: #fff; border: 1px solid #8758C9; font-weight: 600; font-size: 0.95rem; transition: background 0.15s, border-color 0.15s; }
+.btn--cta:hover { background: #6f45ad; border-color: #6f45ad; color: #fff; }
+.btn--hero-outline { background: transparent; color: rgba(255,255,255,0.92); font-weight: 400; font-size: 0.9375rem; border: 1px solid rgba(255,255,255,0.78); white-space: nowrap; }
+.btn--hero-outline:hover { background: rgba(255,255,255,0.07); border-color: #fff; color: #fff; }
+.btn--outline-primary { background: transparent; color: var(--color-primary); padding: 0.75rem 1.25rem; font-weight: 500; font-size: 0.875rem; border: 1px solid var(--color-primary); }
+.btn--outline-primary:hover { background: rgba(112,66,172,0.05); color: var(--color-primary); }
+
+/* ── Hero（紹介パートナーページ /crm/referral/ の rf-split と同じ配色・構造） ── */
+.hero { padding: 0; background: #fff; }
+.hero-split { display: grid; grid-template-columns: 1fr 1fr; }
+.hero-half { display: flex; padding: var(--space-lg) var(--space-lg) 0; }
+.hero-half--b2b { justify-content: flex-end; background: #0B1F44; }
+.hero-half--school { justify-content: flex-start; background: #fff; }
+.hero-half__inner { display: flex; flex-direction: column; width: 100%; max-width: 560px; }
+.hero-half__tag { align-self: flex-start; margin: 0 0 0.75rem; padding: 0.25rem 0.8rem; border-radius: 999px; font-size: 0.85rem; font-weight: 700; background: #fff; color: var(--color-primary); }
+.hero-half--school .hero-half__tag { background: #FF5C3E; color: #fff; }
+.hero-half__title { margin: 0; font-size: clamp(1.3rem, 2vw, 1.75rem); font-weight: 800; line-height: 1.45; color: #fff; }
+.hero-half--school .hero-half__title { color: #10212F; }
+.hero-half__text { margin: 0.6rem 0 0; font-size: 0.9375rem; line-height: 1.85; color: rgba(255,255,255,0.9); }
+.hero-half--school .hero-half__text { color: #4A5965; }
+.hero-half__btn { align-self: flex-start; margin-top: 1rem; padding: 0.7rem 1.25rem; font-size: 0.9rem; font-weight: 600; background: #fff; color: #0B1F44; border: 1px solid #fff; }
+.hero-half__btn:hover { background: #E8EDF7; color: #0B1F44; }
+.hero-half--school .hero-half__btn { background: #FF5C3E; color: #fff; border-color: #FF5C3E; }
+.hero-half--school .hero-half__btn:hover { background: #E4482C; color: #fff; }
+.hero-half__shot { display: block; width: 100%; height: auto; margin-top: var(--space-md); border-radius: 10px 10px 0 0; box-shadow: 0 -8px 40px rgba(0,0,0,0.22); }
+.hero-half--school .hero-half__shot { box-shadow: 0 -8px 40px rgba(14,36,56,0.16); }
+.hero-base { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-md) var(--space-lg); padding-top: var(--space-lg); padding-bottom: var(--space-lg); border-bottom: 1px solid var(--color-border); }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; margin: 0 0 0.75rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; color: var(--color-text-muted); }
+.hero-eyebrow img { width: 22px; height: 22px; border-radius: 4px; }
+.hero-h1__lead { display: inline-block; margin-bottom: 0.2rem; font-size: 0.78em; font-weight: 500; color: #7042ac; }
+.hero-copy h1 { font-size: clamp(1.5rem, 2.4vw, 2.1rem); font-weight: 500; line-height: 1.35; letter-spacing: -0.01em; color: var(--color-text); margin: 0 0 0.6rem; }
+.hero-lead { margin: 0; font-size: 1rem; line-height: 1.78; color: var(--color-text-muted); }
+.hero-cta { flex: 0 0 auto; }
+.hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.hero-actions .btn--cta { padding: 0.95rem 1.6rem; font-size: 1rem; }
+.btn--outline-dark { background: transparent; color: #0B1F44; border: 1px solid #0B1F44; font-weight: 500; font-size: 0.9375rem; white-space: nowrap; }
+.btn--outline-dark:hover { background: #0B1F44; color: #fff; }
+.hero-proof { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem; margin: 0.9rem 0 0; font-size: 0.75rem; letter-spacing: 0.06em; color: var(--color-text-muted); }
+.hero-proof strong { font-size: 0.9375rem; font-weight: 600; color: var(--color-text); letter-spacing: 0; }
+.hero-proof__sep { color: var(--color-border); }
+
+/* ── Assurance（紺の帯） ── */
+.assurance { background: #0F172A; color: #fff; padding-block: var(--space-xl); }
+.assurance-inner { max-width: 44rem; margin: 0 auto; }
+.assurance .section-eyebrow { color: rgba(255,255,255,0.65) !important; }
+.assurance h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; line-height: 1.4; margin: 0; color: #fff; }
+.assurance-body { margin: var(--space-md) 0 0; line-height: 1.9; color: rgba(255,255,255,0.85); }
+.assurance-ways { list-style: none; padding: 0; margin: var(--space-lg) 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+.assurance-ways li { display: grid; gap: 0.2rem; padding: 1rem 1.1rem; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px; background: rgba(255,255,255,0.06); font-size: 0.85rem; color: rgba(255,255,255,0.8); }
+.assurance-ways__k { font-size: 1.25rem; font-weight: 700; color: #fff; }
+
+/* ── Problems（薄いグレー帯＋白カードの対応表） ── */
+.why { background: #F1F5F9; }
+.problems-overview { display: grid; grid-template-columns: 1.3fr 0.9fr; gap: 3rem; align-items: center; margin-bottom: 2.5rem; }
+.problem-example { margin: 0; padding: 1.25rem 1.5rem; border-left: 3px solid #8758C9; background: #fff; border-radius: 0 6px 6px 0; }
+.problem-example p { margin: 0; color: var(--color-text-muted); font-size: 0.9375rem; line-height: 1.9; }
+.problem-example strong { color: var(--color-text); font-weight: 600; }
+.problem-rows { display: grid; gap: 1rem; margin-top: 2rem; }
+.problem-row { display: grid; grid-template-columns: 1fr 1.2fr; gap: 2.5rem; padding: 1.5rem 1.75rem; background: #fff; border-radius: 6px; box-shadow: 0 1px 2px rgba(15,23,42,0.06); }
+.problem-topic { margin: 0 0 0.6rem; font-size: 0.75rem; color: var(--color-text-muted); display: flex; align-items: center; gap: 0.5rem; }
+.problem-num { font-weight: 700; color: #8758C9; letter-spacing: 0.05em; }
+.problem-row h3 { margin: 0; font-size: clamp(1.125rem, 1.7vw, 1.35rem); line-height: 1.6; }
+.problem-response { padding-left: 1.5rem; border-left: 2px solid #E9E0F5; }
+.problem-response .problem-topic { color: #7042ac; font-weight: 600; }
+.problem-response > p:last-child { margin: 0; font-size: 0.9375rem; line-height: 1.9; color: var(--color-text); }
+.problems-more { margin: var(--space-lg) 0 0; }
+
+/* ── After（白カード、数字は紫） ── */
+.how { background: var(--color-bg); }
+.after-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.after-item { background: #fff; border: 1px solid var(--color-border); border-top: 3px solid #8758C9; border-radius: 6px; padding: 1.875rem; box-shadow: 0 1px 2px rgba(15,23,42,0.05); }
+.after-item h3 { margin: 0 0 0.75rem; font-size: 1.0625rem; line-height: 1.5; letter-spacing: -0.01em; }
+.after-item p { margin: 0; font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.85; }
+.result-metric { display: flex; flex-direction: column; gap: 0.4rem; margin: 1.25rem 0 !important; }
+.result-metric strong { font-size: clamp(2.25rem, 3vw, 2.75rem); font-weight: 600; line-height: 1.2; letter-spacing: -0.035em; font-variant-numeric: tabular-nums; color: #7042ac; }
+.result-metric strong span { font-size: 0.875rem; font-weight: 400; letter-spacing: 0; margin-inline: 0.2rem; color: var(--color-text); }
+.result-metric__note { font-size: 0.8125rem; font-weight: 500; color: var(--color-text-muted); }
+.service-summary { margin-top: 3rem; padding: 2rem; background: #F1F5F9; border-radius: 6px; }
+.service-summary h3 { font-size: 1rem; margin: 0 0 1rem; }
+.service-summary dl { margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.service-summary dl > div { display: grid; gap: 0.35rem; padding: 1.1rem 1.25rem; background: #fff; border-radius: 6px; }
+.service-summary dt, .service-summary dd { margin: 0; font-size: 0.875rem; line-height: 1.7; }
+.service-summary dt { font-weight: 600; }
+.service-summary dd { color: var(--color-text-muted); }
+.service-summary dd strong { font-weight: 700; color: var(--color-text); font-size: 1.15rem; }
+.service-summary > p { font-size: 0.75rem; color: var(--color-text-muted); margin: 1rem 0 0; }
+.service-summary__links { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1rem !important; }
+.service-summary__links a { font-size: 0.875rem !important; font-weight: 600; }
+
+/* ── Editions（4枚のカード＋ブラウザ枠のデモ） ── */
+.track { background: #F1F5F9; }
+.track-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.track-item { display: block; }
+.track-who { display: grid; gap: 0.25rem; height: 100%; padding: 1.25rem 1.35rem; border: 1px solid var(--color-border); border-top: 3px solid #8758C9; border-radius: 6px; background: #fff; color: var(--color-text); text-decoration: none; transition: border-color 0.15s, transform 0.15s; }
+.track-who:hover { border-color: #c7b2e3; transform: translateY(-2px); color: var(--color-text); }
+.track-noun { font-size: 0.7rem; letter-spacing: 0.1em; color: var(--color-text-muted); }
+.track-title { font-size: 1.15rem; font-weight: 700; }
+.track-size { margin-top: 0.4rem; font-size: 0.8rem; font-weight: 600; color: #7042ac; }
+.demo-media { margin: var(--space-lg) 0 0; }
+.demo-media img { display: block; width: 100%; max-width: 820px; height: auto; border: 1px solid var(--color-border); border-top: 10px solid #E2E8F0; border-radius: 8px; background: #fff; box-shadow: 0 20px 50px rgba(15,23,42,0.12); }
+.demo-media figcaption { margin-top: 0.75rem; font-size: 0.75rem; color: var(--color-text-muted); }
+.track-founder { margin-top: var(--space-lg); max-width: 52rem; line-height: 1.9; padding: 1.25rem 1.5rem; background: #fff; border-left: 3px solid #8758C9; border-radius: 0 6px 6px 0; }
+.track-founder p { margin: 0; font-size: 0.9375rem; color: var(--color-text-muted); }
+.track-founder strong { display: block; font-weight: 600; color: var(--color-text); font-size: 1.0625rem; margin-bottom: 0.25rem; }
+.supported-tools { margin: var(--space-lg) 0 0; font-size: 1rem; line-height: 1.9; color: var(--color-text-muted); }
+.supported-tools span { display: block; font-size: 0.875rem; letter-spacing: 0.1em; margin-bottom: 0.25rem; }
+
+/* ── Mobile（紺のパネルに端末） ── */
+.mobile { background: var(--color-bg); }
+.mobile-inner { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 3rem; align-items: center; }
+.mobile-shots { display: flex; gap: 1.25rem; justify-content: center; padding: 2.5rem 1.5rem; background: radial-gradient(400px 260px at 30% 20%, rgba(135,88,201,0.35), transparent 60%), #0F172A; border-radius: 10px; }
+.mobile-shots img { width: 44%; max-width: 210px; height: auto; border-radius: 14px; border: 3px solid #1E293B; background: #fff; box-shadow: 0 20px 40px rgba(0,0,0,0.35); }
+.mobile-shots img:last-child { transform: translateY(1.5rem); }
+
+/* ── Row list（支援・安心・スマホの項目） ── */
+.row-list { margin: 0; border-top: 1px solid var(--color-border); }
+.row-list > div { display: grid; grid-template-columns: 11rem 1fr; gap: 0.25rem 1.5rem; padding-block: 0.9rem; border-bottom: 1px solid var(--color-border); }
+.row-list dt { margin: 0; font-size: 0.9375rem; font-weight: 500; color: var(--color-text); }
+.row-list dt span { display: block; margin-top: 0.15rem; font-size: 0.8125rem; font-weight: 700; color: #7042ac; }
+.row-list dd { margin: 0; font-size: 0.875rem; line-height: 1.8; color: var(--color-text-muted); }
+.row-list__foot { margin: 1rem 0 0; font-size: 0.8125rem; line-height: 1.8; color: var(--color-text-muted); }
+.row-list__foot a { margin-left: 0.5rem; font-weight: 600; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+.two-col > div { padding: 2rem; background: #fff; border-radius: 6px; border: 1px solid var(--color-border); }
+.two-col .sub-head { margin-bottom: var(--space-md); }
+section#support { background: #F1F5F9; }
+
+/* ── FAQ ── */
+.faq { background: #fff; border-top: 1px solid var(--color-border); }
+.faq-list { margin: 0; max-width: 52rem; border-top: 1px solid var(--color-border); }
+.faq-item { padding-block: 1.25rem; border-bottom: 1px solid var(--color-border); }
+.faq-item dt { margin: 0 0 0.4rem; font-size: 1rem; font-weight: 500; color: var(--color-text); }
+.faq-item dd { margin: 0; font-size: 0.875rem; line-height: 1.85; color: var(--color-text-muted); }
+.faq-more { margin: var(--space-lg) 0 0; }
+.readings { margin: var(--space-lg) 0 0; padding-top: 1.25rem; border-top: 1px solid var(--color-border); font-size: 1rem; line-height: 2; color: var(--color-text-muted); display: flex; flex-wrap: wrap; gap: 0 1.25rem; }
+.readings span { display: block; width: 100%; font-size: 0.875rem; letter-spacing: 0.1em; }
+.readings a { white-space: nowrap; }
+
+/* ── Final CTA ── */
+.final-cta { background: #1e3a6f; color: #fff; }
+.cta-inner { max-width: 56rem; }
+.cta-eyebrow { display: block; font-size: 0.625rem; font-weight: 500; color: rgba(255,255,255,0.92); letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 1.25rem; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 0.875rem; }
+.cta-copy h2 { font-size: clamp(2rem, 3.6vw, 3.6rem); line-height: 1.2; color: #fff; margin: 0 0 1.25rem; }
+.cta-lead { color: rgba(255,255,255,0.92); font-size: 1rem; line-height: 1.8; margin: 0 0 1rem; }
+.cta-lead a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.cta-lead--close { margin-bottom: 2rem; }
+.cta-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.btn--cta-primary { background: #fff; color: var(--color-primary); border: none; font-weight: 500; white-space: nowrap; }
+.btn--cta-primary:hover { background: #F5F5F4; color: var(--color-primary); }
+.btn--cta-outline { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.38); font-weight: 400; white-space: nowrap; }
+.btn--cta-outline:hover { border-color: #fff; background: rgba(255,255,255,0.07); color: #fff; }
+.cta-note { margin: 1.5rem 0 0; font-size: 0.75rem; line-height: 1.8; color: rgba(255,255,255,0.7); }
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+	.hero-split { grid-template-columns: 1fr; }
+	.hero-half { justify-content: flex-start; padding: var(--space-md) var(--space-md) 0; }
+	.hero-base { flex-direction: column; align-items: flex-start; }
+	.problems-overview { grid-template-columns: 1fr; gap: 1.5rem; }
+	.problem-row { grid-template-columns: 1fr; gap: 1.25rem; }
+	.after-list { grid-template-columns: 1fr; }
+	.service-summary dl { grid-template-columns: 1fr; }
+	.track-list { grid-template-columns: 1fr 1fr; }
+	.assurance-ways { grid-template-columns: 1fr; }
+	.problem-response { padding-left: 0; border-left: 0; padding-top: 1rem; border-top: 1px solid var(--color-border); }
+	.mobile-inner { grid-template-columns: 1fr; }
+	.two-col { grid-template-columns: 1fr; gap: 3rem; }
+	.row-list > div { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+	.container { padding-inline: 1.25rem; }
+	section { padding-block: var(--space-xl); }
+	.assurance h2 { font-size: 1.25rem; }
+	.hero-half__title { font-size: 1.2rem; }
+	.hero-half__title br { display: none; }
+	.hero-copy h1 { font-size: 1.5rem; }
+	.hero-cta { width: 100%; }
+	.hero-actions, .cta-actions { flex-direction: column; }
+	.hero-actions .btn, .cta-actions .btn { width: 100%; justify-content: center; }
+}
+
+	.input-figure { margin: 0 0 var(--space-xl); }
+	.input-figure svg { display: block; width: 100%; height: auto; }
+	.input-figure figcaption { margin-top: 0.75rem; font-size: 0.875rem; color: var(--color-text-muted); }
 </style>

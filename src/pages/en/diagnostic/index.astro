@@ -21,7 +21,7 @@ const pains = [
 
 <BaseLayout
 	title="Japan GTM Revenue Diagnostic (free · 3 min) | Where is your Japan revenue leaking? | Consilegy"
-	description="For global B2B companies running GTM in Japan. Diagnose the six seams between marketing, sales and CS in about 3 minutes, on the Japan axis. Free."
+	description="For global B2B companies running GTM in Japan. Diagnose the six seams between marketing, sales, and CS in about 3 minutes, with every question framed for how Japan buys. Free."
 	lang="en"
 	ogImage="https://consilegy.com/images/og-diagnostic-en.png"
 >
@@ -31,7 +31,7 @@ const pains = [
 	<div class="container">
 		<p class="dx-eyebrow">Japan GTM Revenue Diagnostic · Free self-check</p>
 		<h1>Where is your Japan<br />revenue leaking?</h1>
-		<p class="dx-sub">For global B2B companies running GTM in Japan. Diagnose the six seams between marketing, sales and CS in about 3 minutes. Free.</p>
+		<p class="dx-sub">For global B2B companies running GTM in Japan. Diagnose the six seams between marketing, sales, and CS in about 3 minutes. Free.</p>
 		<div class="dx-hero-actions">
 			<a href="/en/diagnostic/start/" class="btn dx-btn-primary">Take the free diagnostic (~3 min) →</a>
 		</div>
@@ -62,8 +62,38 @@ const pains = [
 		<p class="dx-what-lead">
 			Revenue leaks not "inside" departments but "at the seams between" them.
 			This diagnostic visualizes the six leak-prone seams with signals (🔴🟡🟢),
-			each one asked on the Japan axis rather than in the abstract.
+			with every question framed for how Japan buys.
 		</p>
+		<div style="margin-bottom:2.5rem">
+			<figure class="en-fig" aria-labelledby="en-dx-caption">
+				<svg viewBox="0 0 1120 278" role="img" aria-label="Diagnostic in three steps: 3-minute check, leak map with signals, 30-minute call" font-family="inherit">
+					<defs><marker id="en-dx-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
+					<text x="40" y="26" font-size="14" letter-spacing="1.5" fill="#64748b">HOW IT WORKS</text>
+					<rect x="40" y="50" width="314" height="136" rx="6" fill="#fff" stroke="#E2E8F0"/>
+			<rect x="40" y="50" width="314" height="3" fill="#8758C9"/>
+			<text x="56" y="80" font-size="14" letter-spacing="1.5" fill="#64748b">STEP 1</text>
+			<text x="56" y="108" font-size="18" font-weight="600" fill="#0F172A">3-minute check</text>
+			<text x="56" y="136" font-size="16" fill="#475569">Every question framed</text>
+			<text x="56" y="160" font-size="16" fill="#475569">for how Japan buys</text>
+			<line x1="356" y1="98" x2="400" y2="98" stroke="#0F172A" stroke-width="2" marker-end="url(#en-dx-arr)"/>
+			<rect x="402" y="50" width="314" height="136" rx="6" fill="#fff" stroke="#E2E8F0"/>
+			<rect x="402" y="50" width="314" height="3" fill="#8758C9"/>
+			<text x="418" y="80" font-size="14" letter-spacing="1.5" fill="#64748b">STEP 2</text>
+			<text x="418" y="108" font-size="18" font-weight="600" fill="#0F172A">Leak map</text>
+			<text x="418" y="136" font-size="16" fill="#475569">A signal on each</text>
+			<text x="418" y="160" font-size="16" fill="#475569">of the six seams</text>
+			<line x1="718" y1="98" x2="762" y2="98" stroke="#0F172A" stroke-width="2" marker-end="url(#en-dx-arr)"/>
+			<rect x="764" y="50" width="314" height="136" rx="6" fill="#0F172A" stroke="#E2E8F0"/>
+			<rect x="764" y="50" width="314" height="3" fill="#8758C9"/>
+			<text x="780" y="80" font-size="14" letter-spacing="1.5" fill="rgba(255,255,255,0.7)">STEP 3</text>
+			<text x="780" y="108" font-size="18" font-weight="600" fill="#fff">30-minute call</text>
+			<text x="780" y="136" font-size="16" fill="rgba(255,255,255,0.85)">Prioritize what</text>
+			<text x="780" y="160" font-size="16" fill="rgba(255,255,255,0.85)">to fix first</text>
+			<rect x="40" y="206" width="1040" height="52" rx="6" fill="#0F172A"/><text x="560" y="238" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">Each seam gets one of three signals: stalled, watch, or flowing</text>
+				</svg>
+				<figcaption id="en-dx-caption">The check and the leak map are free and need no call. Book the 30-minute call only if you want help deciding what to fix first.</figcaption>
+			</figure>
+		</div>
 		<div class="dx-cat-grid">
 			{CATEGORIES.map((c, i) => (
 				<div class="dx-cat-card">
@@ -232,9 +262,7 @@ section { padding-block: var(--space-2xl); }
 
 /* CTA */
 .dx-cta {
-	background:
-		radial-gradient(700px 380px at 85% 0%, rgba(167,139,250,0.28), transparent 60%),
-		linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+	background: #1e3a6f;
 	text-align: center;
 }
 .dx-cta h2 {

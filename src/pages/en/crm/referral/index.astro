@@ -1,0 +1,459 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CrmSubnav from '../../../../components/CrmSubnav.astro';
+
+// English version of /crm/referral/ (the partner program for people who don't use Revenue CRM; rewards by bank transfer).
+// Mirrors the Japanese page section for section. Sign-up and the referral kit live on the partner platform
+// (referral.consilegy.com/en/), which is in English; the Japanese page still uses its own two-step form.
+// The rules are a convenience translation; the Japanese 紹介の決まり prevails (stated on the page).
+const SIGNUP_URL = 'https://referral.consilegy.com/en/#signup';
+const LOGIN_URL = 'https://referral.consilegy.com/en/login/';
+
+// "Know a company or school like this?" Left: the situation the referrer pictures. Right: what changes.
+// Only what the English product pages already say (no new features or promises).
+const fit = [
+	{ who: 'Companies losing hours to sales notes and reports', change: 'Paste the meeting notes, and transcripts come in on their own. AI drafts the record; a person checks it and saves.' },
+	{ who: 'Companies still managing customers in spreadsheets', change: 'Customers, deals, and tasks live on one customer record.' },
+	{ who: 'Contract developers tracking quotes, capacity, and delivery in spreadsheets', change: 'With the agency & contract work edition, projects, quotes, capacity, and delivery sit in one place, so you can check when you can start before the quote goes out.' },
+	{ who: 'Classes and schools running students on LINE and spreadsheets', change: 'With the school edition, students keep messaging you on your LINE official account. Assignments arrive on LINE and are filed to each student automatically.' },
+	{ who: 'Schools that only notice a student is leaving after they leave', change: "Each student's status and failed payments are visible in one list. Students who keep missing assignments can get an automatic nudge." },
+	{ who: 'Schools struggling with handovers whenever a coach changes', change: 'Lesson records stay with each student, so the history carries over when the coach changes. AI drafts the monthly report.' },
+];
+
+const promises = [
+	'No product knowledge needed.',
+	'No selling or closing needed.',
+	'We never contact the people you refer without their consent.',
+	"We never push a hard sell. If it isn't a good fit, we say so honestly.",
+];
+
+// Reward estimate: each company on the User plan with 5 users (¥15,000 a month excl. tax) for 12 months.
+const scale = [1, 3, 5, 10].map((n) => ({ n, monthly: 3000 * n, total: 36000 * n }));
+const yen = (v: number) => v.toLocaleString('en-US');
+
+const steps = [
+	{ title: 'Sign up', text: 'Enter your name and email on the partner site. We email you a login link, and your page has a referral kit with messages and materials ready to send.' },
+	{ title: 'Refer', text: 'Forward a message with your referral link, or register a company that has agreed. Within 3 business days we let you know whether it qualifies. We handle the explanation and the conversation from there.' },
+	{ title: 'Get your reward', text: "When the company starts a paid contract after its 30-day free trial, a reward is confirmed with each monthly payment. We close at month end and pay at the end of the following month." },
+];
+
+const reward = [
+	{ label: 'Reward', text: ["20% of the referred company's base plan monthly fee (excl. tax, the amount actually paid).", 'The reward amount includes consumption tax.'] },
+	{ label: 'Period', text: ['12 months from the start of the paid contract.'] },
+	{ label: 'Eligible plans & services', text: ['Monthly fees of the User plan and the Student plan.', 'Paid setup, adoption, and operations support the company orders from Consilegy is also eligible: we pay 10% of the confirmed amount (excl. tax), once.', 'The Prepaid plan, extra Fuel (the unit used for AI work), and add-ons are not eligible.'] },
+	{ label: 'Payment', text: ['Paid together by bank transfer at the end of the following month (closed at month end). We cover the transfer fee.', 'In months when your confirmed rewards total less than ¥5,000, the amount rolls over and is paid in the month the total reaches ¥5,000.', 'We pay into a bank account in Japan. You register it on your partner page.', "You don't need to issue an invoice. We send you a payment statement."] },
+	{ label: 'How long a referral counts', text: ['You are confirmed as the referrer if a first meeting (or the start of a free trial) happens within 90 days of acceptance.', 'A paid contract that starts within the following 12 months is eligible for rewards.'] },
+	{ label: 'Choosing no reward', text: ['You can also choose not to receive rewards. You can set this on your partner page.'] },
+];
+
+const rules = [
+	'Rewards apply only to referrals we have accepted. A referral is accepted when the contact at the referred company responds to our outreach made through you.',
+	'Companies we are already in contact with are not eligible. We will let you know when we confirm the referral.',
+	'If more than one person refers the same company, the referral we accepted first applies.',
+	'Officers and employees of the referred company, and their family members, are not eligible for rewards.',
+	'You may not share your reward with the referred company, or promise a discount without our consent.',
+	'If the referred company pays you for advice (for example as a licensed professional or consultant), please tell them that you receive a reward. The referral kit includes a disclosure template.',
+	'You have no authority to sign contracts on our behalf.',
+	'When you introduce us on social media or a blog, include a label such as “Ad” or “PR” that shows you receive a reward.',
+	"Register a referred company's details only after they have agreed. We use them only to arrange a conversation about our products.",
+	"If a referred company's contract is cancelled, the reward for the cancelled part is offset against your future rewards.",
+	'We both confirm that we have no ties to anti-social forces, and that we will keep confidential any information learned through referrals.',
+];
+
+const faq = [
+	{
+		q: "Can I apply if I don't use Revenue CRM?",
+		a: "Yes. This program is for people who don't have a Revenue CRM contract. Companies already using it have a separate referral program that takes 20% of the referred company's fee off their own bill (see the pricing page).",
+	},
+	{
+		q: 'What do I tell the company I refer?',
+		a: 'Forwarding the message from your referral kit is enough. We answer questions about the product and pricing.',
+	},
+	{
+		q: "What if they don't sign a contract?",
+		a: 'No reward is paid, and nothing is charged to you.',
+	},
+	{
+		q: 'Do I need a Japanese bank account?',
+		a: 'Rewards are paid by bank transfer to an account in Japan. You can sign up and refer before you register an account; we ask for it when your first reward is confirmed.',
+	},
+	{
+		q: "Can I apply if I'm not registered for Japan's invoice system?",
+		a: 'Yes. If you have a qualified invoice issuer registration number, you can add it on your partner page, and it is shown on your payment statement.',
+	},
+];
+---
+
+<BaseLayout
+	title="Partner Program | Revenue CRM | Consilegy"
+	description="A program for people who refer Revenue CRM. Forward a message, and we handle the explanation and the conversation. When the company starts a paid contract, we pay 20% of its monthly fee for 12 months by bank transfer."
+	lang="en"
+>
+<script type="application/ld+json" slot="head" set:html={JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://consilegy.com/en/"},
+		{"@type": "ListItem", "position": 2, "name": "Revenue CRM", "item": "https://consilegy.com/en/crm/"},
+		{"@type": "ListItem", "position": 3, "name": "Partner Program", "item": "https://consilegy.com/en/crm/referral/"}
+	]
+})} />
+
+<CrmSubnav lang="en" />
+
+<div class="rf-page">
+
+<section class="rf-hero">
+	<h1 class="visually-hidden">Revenue CRM Partner Program</h1>
+	<div class="rf-split">
+		<div class="rf-half rf-half--b2b">
+			<div class="rf-half-inner">
+				<p class="rf-half-tag">B2B</p>
+				<p class="rf-half-title">“I know a company that needs this.”</p>
+				<p class="rf-half-text">For companies losing hours to sales notes and reports. Paste the meeting notes, and AI drafts the record.</p>
+				<a class="rf-half-link" href="/en/crm/">See the B2B edition</a>
+				<img
+					class="rf-half-shot"
+					src="/images/crm/screen-dashboard-2026-10c-en.webp"
+					alt="The Revenue CRM dashboard: open pipeline, weighted forecast, win rate, overdue tasks, pipeline by stage, and deals to watch, on one screen."
+					width="1600"
+					height="1000"
+					decoding="async"
+					fetchpriority="high"
+				/>
+			</div>
+		</div>
+		<div class="rf-half rf-half--school">
+			<div class="rf-half-inner">
+				<p class="rf-half-tag">Schools</p>
+				<p class="rf-half-title">“I know a school that needs this.”</p>
+				<p class="rf-half-text">For schools running students on LINE and spreadsheets. Assignments arrive on LINE and are filed to each student automatically.</p>
+				<a class="rf-half-link" href="/en/crm/school/">See the school edition</a>
+				<img
+					class="rf-half-shot"
+					src="/images/common/school-student-detail-en.jpg"
+					alt="Revenue CRM school edition: a student's record with assignment submissions and LINE messages in one place."
+					width="1100"
+					height="744"
+					decoding="async"
+				/>
+			</div>
+		</div>
+	</div>
+	<div class="container rf-hero-base">
+		<div class="rf-hero-row">
+			<div>
+				<p class="rf-lead">When the company you refer starts a paid contract, we pay you 20% of its monthly fee for 12 months. All you do is forward a message.</p>
+				<p class="rf-hero-note">Joining is free. If the company doesn't sign, nothing is charged to you.</p>
+			</div>
+			<div class="rf-actions">
+				<a href="#apply" class="btn btn--primary">Become a partner</a>
+				<a href="#fit" class="btn btn--secondary">See who it fits</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="rf-section" id="fit">
+	<div class="container">
+		<h2>Know a company or school like this?</h2>
+		<div class="rf-fit">
+			{fit.map((f, i) => (
+				<div class="rf-fit-row">
+					<span class="rf-fit-no">{String(i + 1).padStart(2, '0')}</span>
+					<p class="rf-fit-who">{f.who}</p>
+					<p class="rf-fit-change">{f.change}</p>
+				</div>
+			))}
+		</div>
+		<p class="rf-fit-close">One company or one school is enough. If someone comes to mind, refer them.<a href="/en/crm/">See the B2B edition</a><a href="/en/crm/school/">See the school edition</a></p>
+	</div>
+</section>
+
+<section class="rf-section">
+	<div class="container rf-connect">
+		<div>
+			<h2>All you do is make the connection.</h2>
+			<p class="rf-connect-lead">We have the message ready for you. After you forward it, we handle the explanation, the demo, and the conversation.</p>
+		</div>
+		<div>
+			<ul class="rf-promises">
+				{promises.map((t) => <li>{t}</li>)}
+			</ul>
+			<p class="rf-connect-close">It works this way so you can make an introduction without putting your relationships at risk.</p>
+		</div>
+	</div>
+</section>
+
+<section class="rf-section" id="reward">
+	<div class="container">
+		<h2><span class="nb">Your reward:</span> <span class="nb">20% of the monthly fee,</span> <span class="nb">for 12 months</span></h2>
+		<div class="rf-bars" role="table" aria-label="Number of companies you refer that sign a contract, and the reward">
+			{scale.map((r) => (
+				<div class="rf-bar" role="row">
+					<span class="rf-bar-n" role="cell">{r.n} {r.n === 1 ? 'co.' : 'cos.'}</span>
+					<span class="rf-bar-track" role="cell">
+						<span class="rf-bar-fill" style={`width:${r.n * 10}%`}><span>¥{yen(r.monthly)} / mo</span></span>
+					</span>
+					<strong class="rf-bar-total" role="cell"><small>¥</small>{yen(r.total)}</strong>
+				</div>
+			))}
+		</div>
+		<p class="rf-note">Estimate for companies that each use the User plan with 5 users (¥15,000 a month excl. tax) for 12 months. Rewards include tax and run for 12 months from each company's paid contract start.</p>
+		<table class="rf-table">
+			<tbody>
+				{reward.map((row) => (
+					<tr>
+						<th scope="row">{row.label}</th>
+						<td>{row.text.map((line) => <p>{line}</p>)}</td>
+					</tr>
+				))}
+			</tbody>
+		</table>
+		<p class="rf-note">If a company in the example above also orders setup support (¥120,000 excl. tax), we add ¥12,000. All prices are on the <a href="/en/crm/pricing/">pricing page</a>.</p>
+	</div>
+</section>
+
+<section class="rf-section">
+	<div class="container">
+		<h2>From sign-up to reward, <span class="nb">in 3 steps</span></h2>
+		<figure class="rf-figure" aria-labelledby="rf-figure-caption">
+			<svg viewBox="0 0 1120 300" role="img" aria-label="Three steps: sign up, refer, get your reward. The reward is 20% of the monthly fee for 12 months.">
+				<defs><marker id="rf-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
+				<g font-family="inherit">
+				<rect x="40" y="40" width="300" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/><rect x="40" y="40" width="300" height="4" rx="2" fill="#8758C9"/><text x="58" y="74" font-size="14" fill="#64748b" letter-spacing="1">Step 1</text><text x="58" y="104" font-size="18" font-weight="600" fill="#0F172A">Sign up</text>
+<text x="58" y="164" font-size="16" fill="#475569">Name and email. Free</text>
+<line x1="340" y1="88" x2="388" y2="88" stroke="#0F172A" stroke-width="2" marker-end="url(#rf-arr)"/>
+<rect x="392" y="40" width="300" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/><rect x="392" y="40" width="300" height="4" rx="2" fill="#8758C9"/><text x="410" y="74" font-size="14" fill="#64748b" letter-spacing="1">Step 2</text><text x="410" y="104" font-size="18" font-weight="600" fill="#0F172A">Refer</text>
+<text x="410" y="164" font-size="16" fill="#475569">Forward a message. We do the rest</text>
+<line x1="692" y1="88" x2="740" y2="88" stroke="#0F172A" stroke-width="2" marker-end="url(#rf-arr)"/>
+<rect x="744" y="40" width="300" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/><rect x="744" y="40" width="300" height="4" rx="2" fill="#8758C9"/><text x="762" y="74" font-size="14" fill="#64748b" letter-spacing="1">Step 3</text><text x="762" y="104" font-size="18" font-weight="600" fill="#0F172A">Get your reward</text>
+<text x="762" y="164" font-size="16" fill="#475569">Paid at the end of the next month</text>
+				<rect x="40" y="190" width="1052" height="86" rx="6" fill="#0F172A"/>
+				<text x="80" y="226" font-size="14" fill="rgba(255,255,255,0.6)" letter-spacing="1">REWARD</text>
+				<text x="80" y="258" font-size="22" font-weight="700" fill="#fff"><tspan fill="#C4B5FD">20%</tspan> of the monthly fee × <tspan fill="#C4B5FD">12 months</tspan></text>
+				<text x="1052" y="258" font-size="16" fill="rgba(255,255,255,0.8)" text-anchor="end">Example: one company with 5 users → ¥3,000 a month, ¥36,000 over 12 months</text>
+				</g>
+			</svg>
+			<figcaption id="rf-figure-caption">All you do is sign up and forward a message. When the company starts a paid contract, we pay 20% of its monthly fee for 12 months.</figcaption>
+		</figure>
+		<ol class="rf-steps">
+			{steps.map((s, i) => (
+				<li>
+					<span class="rf-step-no">STEP {i + 1}</span>
+					<h3>{s.title}</h3>
+					<p>{s.text}</p>
+				</li>
+			))}
+		</ol>
+	</div>
+</section>
+
+<section class="rf-cta">
+	<div class="container">
+		<p class="rf-cta-text">A company or a school, if someone comes to mind.</p>
+		<a href="#apply" class="btn rf-cta-btn">Become a partner</a>
+	</div>
+</section>
+
+<section class="rf-section" id="apply">
+	<div class="container rf-narrow">
+		<h2>Become a partner</h2>
+		<p class="rf-sub">Sign up on the partner site with your name and email. We email you a login link, and your referral kit is waiting on your page.</p>
+		<div class="rf-form-panel rf-apply-panel">
+			<ol class="rf-apply-list">
+				<li>Enter your name and email, and agree to the partner rules.</li>
+				<li>Open the login link we email you (valid for 15 minutes).</li>
+				<li>Copy your referral link and a ready-to-send message from your page.</li>
+			</ol>
+			<div class="rf-actions">
+				<a href={SIGNUP_URL} class="btn btn--primary">Sign up on the partner site</a>
+				<a href={LOGIN_URL} class="btn btn--secondary">Already a partner? Log in</a>
+			</div>
+			<p class="rf-note">If you don't hear from us within 3 business days after registering a referral, please email info@consilegy.com.</p>
+		</div>
+	</div>
+</section>
+
+<section class="rf-section">
+	<div class="container rf-narrow">
+		<h2>FAQ</h2>
+		<dl class="rf-faq">
+			{faq.map((item) => (
+				<div>
+					<dt>{item.q}</dt>
+					<dd>{item.a}</dd>
+				</div>
+			))}
+		</dl>
+	</div>
+</section>
+
+<section class="rf-section" id="rules">
+	<div class="container rf-narrow">
+		<h2>Partner rules</h2>
+		<p class="rf-sub">Please read these before you apply.</p>
+		<ol class="rf-rules">
+			{rules.map((r) => <li>{r}</li>)}
+		</ol>
+		<p class="rf-note">This English version is provided for convenience. If it differs from the Japanese version (<a href="/crm/referral/#rules" hreflang="ja" lang="ja">紹介の決まり</a>), the Japanese version prevails.</p>
+	</div>
+</section>
+
+</div>
+
+</BaseLayout>
+
+<style>
+	:global(body:has(.rf-page)) { background: #fff; }
+	.rf-page { background: #fff; }
+	.rf-page h2 { margin: 0 0 var(--space-md); font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; line-height: 1.4; letter-spacing: -0.01em; color: var(--color-text); }
+	.rf-page h3 { margin: 0 0 0.5rem; font-size: 1.1rem; line-height: 1.6; color: var(--color-text); }
+	.rf-page p { color: var(--color-text); }
+
+	/* hero: 青い帯に白文字。製品画面は帯の下へはみ出す */
+	.rf-hero { padding: 0; }
+	.rf-page .nb { display: inline-block; }
+	.rf-lead { margin: var(--space-md) 0 0; font-size: 1.05rem; line-height: 1.95; max-width: 32em; color: var(--color-text) !important; }
+	.rf-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: var(--space-lg); }
+	.rf-hero-note { margin: var(--space-sm) 0 0; font-size: 0.9rem; color: var(--color-text-muted) !important; }
+
+	.rf-hero-base { padding-top: var(--space-lg); padding-bottom: var(--space-lg); border-bottom: 1px solid var(--color-border); }
+	.rf-hero-row { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--space-md) var(--space-lg); margin-top: 0; }
+	.rf-hero-row .rf-lead { margin: 0; }
+	.rf-hero-row .rf-actions { margin-top: 0; }
+	/* 申込ボタンはページで唯一の暖色にする。白文字とのコントラスト比4.8（AA） */
+	.rf-hero-base .btn--primary { background: #CF3F12; border-color: #CF3F12; color: #fff; box-shadow: none; }
+	.rf-hero-base .btn--primary:hover { background: #B4360F; border-color: #B4360F; color: #fff; }
+	.rf-hero-base .btn--secondary { border-color: #0B1F44; color: #0B1F44; }
+	.rf-hero-base .btn--secondary:hover { background: #0B1F44; color: #fff; }
+	.rf-hero + .rf-section { border-top: 0; }
+	/* FVの下半分: 左が法人営業、右がスクール。同じ幅・同じ構成にする */
+	.rf-split { display: grid; grid-template-columns: 1fr 1fr; }
+	.rf-half { display: flex; padding: var(--space-lg) var(--space-lg) 0; }
+	.rf-half--b2b { justify-content: flex-end; background: #0B1F44; }
+	.rf-half--b2b .rf-half-tag { color: #0B1F44; }
+	.rf-half--school { justify-content: flex-start; background: #fff; color: #10212F; }
+	.rf-half-inner { display: flex; flex-direction: column; width: 100%; max-width: 560px; }
+	.rf-half-tag { align-self: flex-start; margin: 0 0 0.75rem; padding: 0.25rem 0.8rem; border-radius: 999px; font-size: 0.85rem; font-weight: 700; background: #fff; color: var(--color-primary); }
+	.rf-half--school .rf-half-tag { background: #FF5C3E; color: #fff; }
+	.rf-half-title { margin: 0; font-size: clamp(1.4rem, 2.2vw, 1.9rem); font-weight: 800; line-height: 1.4; color: #fff !important; }
+	.rf-half--school .rf-half-title { color: #10212F !important; }
+	.rf-half-text { margin: 0.6rem 0 0; line-height: 1.85; color: rgba(255, 255, 255, 0.9) !important; }
+	.rf-half--school .rf-half-text { color: #4A5965 !important; }
+	.rf-half-link { align-self: flex-start; margin-top: 0.6rem; font-weight: 700; font-size: 0.95rem; color: #fff !important; }
+	.rf-half--school .rf-half-link { color: #C2410C !important; }
+	.rf-half-shot { display: block; width: 100%; height: auto; margin-top: var(--space-md); border-radius: 10px 10px 0 0; box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.22); }
+	.rf-half--school .rf-half-shot { box-shadow: 0 -8px 40px rgba(14, 36, 56, 0.16); }
+
+	.rf-section { padding: var(--space-xl) 0; border-top: 1px solid var(--color-border); }
+	.rf-narrow { max-width: 48rem; }
+	.rf-sub { margin: calc(var(--space-md) * -0.6) 0 var(--space-md); color: var(--color-text-muted) !important; line-height: 1.8; }
+
+	/* こんな会社 */
+	.rf-fit { border-top: 2px solid var(--color-text); }
+	.rf-fit-row { display: grid; grid-template-columns: 3.5rem minmax(0, 1fr) minmax(0, 1.2fr); gap: 0.5rem var(--space-md); align-items: start; padding: 1.4rem 0; border-bottom: 1px solid var(--color-border); }
+	.rf-fit-no { font-size: 1.6rem; font-weight: 800; line-height: 1.2; color: var(--color-primary); }
+	.rf-fit-row p { margin: 0; line-height: 1.8; }
+	.rf-fit-who { font-weight: 800; font-size: 1.25rem; line-height: 1.55 !important; }
+	.rf-fit-change { color: var(--color-text-muted) !important; }
+	.rf-fit-close { margin: var(--space-md) 0 0; font-size: 1.25rem; font-weight: 800; }
+	.rf-fit-close a { margin-left: 0.75rem; font-size: 0.95rem; font-weight: 600; color: var(--color-primary); }
+
+	/* つなぐだけ: 濃色の帯 */
+	.rf-section:has(.rf-connect) { background: var(--color-text); border-top: 0; }
+	.rf-connect { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-lg) var(--space-xl); align-items: start; }
+	.rf-connect h2 { margin-bottom: var(--space-sm); color: #fff; }
+	.rf-connect-lead { margin: 0; font-size: 1.05rem; line-height: 1.95; color: rgba(255, 255, 255, 0.92) !important; }
+	.rf-promises { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.9rem; }
+	.rf-promises li { position: relative; padding-left: 2rem; line-height: 1.7; font-weight: 700; font-size: 1.1rem; color: #fff; }
+	.rf-promises li::before { content: ''; position: absolute; left: 0.25rem; top: 0.45em; width: 0.95rem; height: 0.5rem; border-left: 3px solid #fff; border-bottom: 3px solid #fff; transform: rotate(-45deg); }
+	.rf-connect-close { margin: var(--space-md) 0 0; line-height: 1.9; color: rgba(255, 255, 255, 0.78) !important; }
+
+	/* 報酬: 横棒 */
+	.rf-bars { display: grid; gap: 0.75rem; margin-bottom: var(--space-sm); }
+	.rf-bar { display: grid; grid-template-columns: 4.75rem minmax(0, 1fr) 9rem; gap: 0.75rem; align-items: center; }
+	.rf-bar-n { font-weight: 800; font-size: 1.1rem; white-space: nowrap; }
+	.rf-bar-track { display: block; height: 2.6rem; background: #fff; border: 1px solid var(--color-border); border-radius: 6px; overflow: hidden; }
+	.rf-bar-fill { display: flex; align-items: center; height: 100%; min-width: 7.5rem; padding: 0 0.8rem; background: var(--color-primary); color: #fff; font-size: 0.85rem; font-weight: 700; white-space: nowrap; border-radius: 6px 0 0 6px; }
+	.rf-bar-total { text-align: right; font-size: clamp(1.3rem, 2.4vw, 1.75rem); font-weight: 800; color: var(--color-primary); white-space: nowrap; }
+	.rf-bar-total small { font-size: 0.9rem; margin-left: 0.1rem; }
+
+	.rf-table { width: 100%; border-collapse: collapse; margin-top: var(--space-md); }
+	.rf-table th, .rf-table td { padding: 1rem 0; border-bottom: 1px solid var(--color-border); vertical-align: top; text-align: left; line-height: 1.85; }
+	.rf-table th { width: 10rem; padding-right: 1.5rem; font-weight: 700; white-space: nowrap; }
+	.rf-table td p { margin: 0; }
+	.rf-table td p + p { margin-top: 0.35rem; }
+	.rf-note { margin: var(--space-sm) 0 0; font-size: 0.95rem; }
+	.rf-note a { color: var(--color-primary); }
+
+	/* 3ステップ */
+	.rf-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md) var(--space-lg); }
+	.rf-steps li { padding-top: 1rem; border-top: 4px solid var(--color-primary); }
+	.rf-step-no { display: block; margin-bottom: 0.35rem; font-size: 2rem; font-weight: 800; line-height: 1; color: var(--color-primary); }
+	.rf-steps h3 { font-size: 1.25rem; font-weight: 800; }
+	.rf-steps p { margin: 0; line-height: 1.85; }
+
+	/* CTA帯 */
+	.rf-cta { padding: var(--space-lg) 0; background: var(--color-primary); }
+	.rf-cta .container { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-sm) var(--space-lg); }
+	.rf-cta-text { margin: 0; font-size: clamp(1.4rem, 2.6vw, 2rem); font-weight: 800; color: #fff !important; }
+	.rf-cta-btn { background: #fff; color: var(--color-primary); font-weight: 700; padding: 0.9em 1.6em; }
+	.rf-cta-btn:hover { color: var(--color-primary-dark); }
+
+	.rf-rules { margin: 0; padding-left: 1.4rem; display: grid; gap: 0.8rem; }
+	.rf-rules li { line-height: 1.9; }
+	.rf-faq { margin: 0; }
+	.rf-faq > div { padding: 1.1rem 0; border-bottom: 1px solid var(--color-border); }
+	.rf-faq > div:first-child { border-top: 1px solid var(--color-border); }
+	.rf-faq dt { font-weight: 700; line-height: 1.7; }
+	.rf-faq dd { margin: 0.35rem 0 0; line-height: 1.9; }
+
+	.rf-form-panel { padding: var(--space-lg); border: 2px solid var(--color-primary); border-radius: 10px; }
+	.rf-form-panel:has(> .pf[hidden]) { display: none; }
+	.rf-step2 { margin-top: 0; scroll-margin-top: 7rem; }
+	.rf-step2[hidden] { display: none; }
+	.rf-step2-head { margin: 0 0 var(--space-md); font-weight: 700; }
+	.rf-apply-list { margin: 0 0 var(--space-md); padding-left: 1.4rem; display: grid; gap: 0.5rem; }
+	.rf-apply-list li { line-height: 1.8; }
+	.rf-apply-panel .rf-actions { margin-top: 0; }
+	.rf-apply-panel .btn--primary { background: #CF3F12; border-color: #CF3F12; color: #fff; box-shadow: none; }
+	.rf-apply-panel .btn--primary:hover { background: #B4360F; border-color: #B4360F; color: #fff; }
+
+	@media (max-width: 900px) {
+		.rf-split { grid-template-columns: 1fr; }
+		.rf-half { justify-content: center; }
+		.rf-connect { grid-template-columns: 1fr; }
+		.rf-fit-row { grid-template-columns: 3rem minmax(0, 1fr); }
+		.rf-fit-change { grid-column: 2; }
+		.rf-steps { grid-template-columns: 1fr; }
+		.br-wide { display: none; }
+	}
+	@media (max-width: 560px) {
+		/* スマホでも左右に並べ、両方とボタンを最初の画面に入れる。説明文は下の「こんな会社や教室」にある */
+		.rf-split { grid-template-columns: 1fr 1fr; }
+		.rf-half { padding: var(--space-md) 0.75rem 0; }
+		.rf-half-tag { margin-bottom: 0.5rem; padding: 0.15rem 0.6rem; font-size: 0.75rem; }
+		.rf-half-title { font-size: 1.05rem; line-height: 1.5; }
+		.rf-half-text { display: none; }
+		.rf-half-link { margin-top: 0.35rem; font-size: 0.8rem; }
+		.rf-half-shot { margin-top: 0.75rem; border-radius: 6px 6px 0 0; }
+		.rf-hero-base { padding-top: var(--space-md); padding-bottom: var(--space-md); }
+		.rf-hero-row .rf-lead { font-size: 0.95rem; line-height: 1.8; }
+		.rf-actions { flex-direction: column; }
+		.rf-hero-row .rf-actions { width: 100%; }
+		.rf-actions .btn { width: 100%; text-align: center; }
+		.rf-bar { grid-template-columns: 4.25rem minmax(0, 1fr); }
+		.rf-bar-total { grid-column: 2; text-align: left; }
+		.rf-bar-fill { min-width: 6.5rem; font-size: 0.78rem; }
+		.rf-table th, .rf-table td { display: block; width: auto; }
+		.rf-table th { padding-bottom: 0; border-bottom: 0; }
+		.rf-form-panel { padding: var(--space-md); }
+		.rf-cta .container { flex-direction: column; align-items: stretch; }
+		.rf-cta-btn { text-align: center; }
+	}
+
+	.rf-figure { margin: var(--space-md) 0 var(--space-lg); }
+	.rf-figure svg { display: block; width: 100%; height: auto; }
+	.rf-figure figcaption { margin-top: 0.75rem; font-size: 0.875rem; color: var(--color-text-muted); }
+</style>

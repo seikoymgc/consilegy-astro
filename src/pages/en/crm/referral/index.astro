@@ -5,7 +5,6 @@ import CrmSubnav from '../../../../components/CrmSubnav.astro';
 // English version of /crm/referral/ (the partner program for people who don't use Revenue CRM; rewards by bank transfer).
 // Mirrors the Japanese page section for section. Sign-up and the referral kit live on the partner platform
 // (referral.consilegy.com/en/), which is in English; the Japanese page still uses its own two-step form.
-// The rules are a convenience translation; the Japanese 紹介の決まり prevails (stated on the page).
 const SIGNUP_URL = 'https://referral.consilegy.com/en/#signup';
 const LOGIN_URL = 'https://referral.consilegy.com/en/login/';
 
@@ -296,7 +295,6 @@ const faq = [
 		<ol class="rf-rules">
 			{rules.map((r) => <li>{r}</li>)}
 		</ol>
-		<p class="rf-note">This English version is provided for convenience. If it differs from the Japanese version (<a href="/crm/referral/#rules" hreflang="ja" lang="ja">紹介の決まり</a>), the Japanese version prevails.</p>
 	</div>
 </section>
 

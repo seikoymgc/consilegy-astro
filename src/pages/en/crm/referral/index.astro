@@ -2,7 +2,7 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import CrmSubnav from '../../../../components/CrmSubnav.astro';
 
-// English version of /crm/referral/ (the partner program for people who don't use Revenue CRM; rewards by bank transfer).
+// English version of /crm/referral/ (the partner program for people who don't use Revenue CRM; rewards by bank transfer or PayPal).
 // Mirrors the Japanese page section for section. Sign-up and the referral kit live on the partner platform
 // (referral.consilegy.com/en/), which is in English; the Japanese page still uses its own two-step form.
 const SIGNUP_URL = 'https://referral.consilegy.com/en/#signup';
@@ -40,7 +40,7 @@ const reward = [
 	{ label: 'Reward', text: ["20% of the referred company's base plan monthly fee (excl. tax, the amount actually paid).", 'The reward amount includes consumption tax.'] },
 	{ label: 'Period', text: ['12 months from the start of the paid contract.'] },
 	{ label: 'Eligible plans & services', text: ['Monthly fees of the User plan and the Student plan.', 'Paid setup, adoption, and operations support the company orders from Consilegy is also eligible: we pay 10% of the confirmed amount (excl. tax), once.', 'The Prepaid plan, extra Fuel (the unit used for AI work), and add-ons are not eligible.'] },
-	{ label: 'Payment', text: ['Paid together by bank transfer at the end of the following month (closed at month end). We cover the transfer fee.', 'In months when your confirmed rewards total less than ¥5,000, the amount rolls over and is paid in the month the total reaches ¥5,000.', 'We pay into a bank account in Japan. You register it on your partner page.', "You don't need to issue an invoice. We send you a payment statement."] },
+	{ label: 'Payment', text: ['Paid together at the end of the following month (closed at month end).', 'In months when your confirmed rewards total less than ¥5,000, the amount rolls over and is paid in the month the total reaches ¥5,000.', 'You receive it by bank transfer to an account in Japan, or by PayPal (available outside Japan too). We cover the fees. You choose on your partner page.', "You don't need to issue an invoice. We send you a payment statement."] },
 	{ label: 'How long a referral counts', text: ['You are confirmed as the referrer if a first meeting (or the start of a free trial) happens within 90 days of acceptance.', 'A paid contract that starts within the following 12 months is eligible for rewards.'] },
 	{ label: 'Choosing no reward', text: ['You can also choose not to receive rewards. You can set this on your partner page.'] },
 ];
@@ -74,7 +74,7 @@ const faq = [
 	},
 	{
 		q: 'Do I need a Japanese bank account?',
-		a: 'Rewards are paid by bank transfer to an account in Japan. You can sign up and refer before you register an account; we ask for it when your first reward is confirmed.',
+		a: 'No. You can receive rewards by PayPal instead, including from outside Japan, and we cover the PayPal fee. You set how you get paid on your partner page; we also remind you when your first reward is confirmed.',
 	},
 	{
 		q: "Can I apply if I'm not registered for Japan's invoice system?",
@@ -85,7 +85,7 @@ const faq = [
 
 <BaseLayout
 	title="Partner Program | Revenue CRM | Consilegy"
-	description="A program for people who refer Revenue CRM. Forward a message, and we handle the explanation and the conversation. When the company starts a paid contract, we pay 20% of its monthly fee for 12 months by bank transfer."
+	description="A program for people who refer Revenue CRM. Forward a message, and we handle the explanation and the conversation. When the company starts a paid contract, we pay 20% of its monthly fee for 12 months by bank transfer or PayPal."
 	lang="en"
 >
 <script type="application/ld+json" slot="head" set:html={JSON.stringify({

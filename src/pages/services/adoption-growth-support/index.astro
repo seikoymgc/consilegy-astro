@@ -677,10 +677,6 @@ const deliverables = [
 						<div class="case-metric__label">月間集計工数削減</div>
 					</div>
 					<div class="case-metric">
-						<div class="case-metric__val">100%</div>
-						<div class="case-metric__label">改善アクション化率</div>
-					</div>
-					<div class="case-metric">
 						<div class="case-metric__val">自動化</div>
 						<div class="case-metric__label">週次レポート</div>
 					</div>
@@ -1123,7 +1119,7 @@ body { font-family: var(--font-sans); color: var(--color-text); line-height: 1.7
 .case-label { font-size: 0.72rem; font-weight: 700; color: var(--color-text-muted); letter-spacing: 0.06em; }
 .case-card h3 { font-family: var(--font-serif); font-size: 1rem; color: var(--color-navy); margin-bottom: 0.75rem; }
 .case-card p { font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.8; margin-bottom: 1.5rem; flex: 1; }
-.case-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; border-top: 1px solid var(--color-border); padding-top: 1.25rem; }
+.case-metrics { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 0.75rem; border-top: 1px solid var(--color-border); padding-top: 1.25rem; }
 .case-metric { text-align: center; }
 .case-metric__val { font-size: 1.25rem; font-weight: 700; color: var(--color-primary); font-variant-numeric: tabular-nums; line-height: 1.2; }
 .case-metric__label { font-size: 0.6875rem; color: var(--color-text-muted); line-height: 1.5; margin-top: 0.25rem; }

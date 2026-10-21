@@ -90,7 +90,7 @@ result: "運用の属人化を解消し、9ヶ月で運用負荷の低い基盤�
 
 <!-- wp:list -->
 <ul class="wp-block-list"><!-- wp:list-item -->
-<li><strong>統合された収益基盤の完成：</strong>&nbsp;Web・MA・CRMが一本化され、顧客行動の100%可視化を実現。</li>
+<li><strong>統合された収益基盤の完成：</strong>&nbsp;Web・MA・CRMのデータがHubSpotに一本化され、問い合わせ前の行動から商談までを同じ画面で追えるようになりました。</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->

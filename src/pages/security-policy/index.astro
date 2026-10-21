@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const established = '2026年10月21日';
+---
+
+<BaseLayout
+	title="情報セキュリティ基本方針 | Consilegy"
+	description="Consilegy合同会社の情報セキュリティ基本方針。お客様からお預かりした情報と当社の情報資産を守るための取り組みを定めています。"
+	lang="ja"
+>
+	<header class="page-head container">
+		<p class="page-head__eyebrow">Legal</p>
+		<h1 class="page-head__title">情報セキュリティ基本方針</h1>
+		<p class="page-head__meta">制定日：{established}</p>
+	</header>
+
+	<article class="container prose legal-body">
+
+		<p class="intro">
+			Consilegy合同会社（以下「当社」）は、お客様からお預かりした情報と当社の情報資産を守ることを経営の重要な責務と考え、当社の業務に従事する者が扱うすべての情報を対象として、次の方針に基づき情報セキュリティに取り組みます。
+		</p>
+
+		<h2>1. 経営者の責任</h2>
+		<p>代表社員が責任者となり、情報セキュリティへの取り組みを主導します。</p>
+
+		<h2>2. 社内体制</h2>
+		<p>当社の業務に従事する者が守るべきルールを定め、業務に必要な範囲でのみ情報にアクセスできる体制を整えます。業務委託先には、秘密保持などの契約を結び、必要な対策を求めます。</p>
+
+		<h2>3. 対策の実施</h2>
+		<p>不正アクセス、紛失、漏えい、滅失、毀損、改ざんなどのリスクを低減するため、技術的・組織的な安全管理措置を講じます。国外から業務を行う場合も、同じ水準の安全管理を行います。</p>
+
+		<h2>4. お客様の情報の取扱い</h2>
+		<p>お客様が当社サービスに登録した情報は、お客様との契約で定めた範囲でのみ取り扱います。</p>
+
+		<h2>5. 教育</h2>
+		<p>当社の業務に従事する者（アルバイトを含む）に、情報セキュリティの重要性と守るべきルールを周知します。</p>
+
+		<h2>6. 法令の遵守</h2>
+		<p>個人情報保護法その他の関係法令、関係するガイドライン、契約上の義務を守ります。個人情報の取り扱いについては、<a href="/privacy-policy/">プライバシーポリシー</a>に定めています。</p>
+
+		<h2>7. 事故への対応</h2>
+		<p>万一事故が起きた場合は、速やかに原因を調べて被害を最小限に抑え、再発防止に努めます。法令や契約に基づき、お客様、個人情報保護委員会などの関係者、ご本人への報告・通知を行います。</p>
+
+		<h2>8. 継続的な改善</h2>
+		<p>取り組みを定期的に点検し、必要に応じて見直します。</p>
+
+		<p class="signature">
+			制定日：{established}<br />
+			Consilegy合同会社 代表社員 山口 聖子
+		</p>
+
+	</article>
+</BaseLayout>
+
+<style>
+.page-head {
+	padding-block: var(--space-2xl) var(--space-lg);
+	max-width: 800px;
+}
+.page-head__eyebrow {
+	margin: 0 0 var(--space-xs);
+	font-size: 0.85rem; font-weight: 700;
+	letter-spacing: 0.12em; text-transform: uppercase;
+	color: var(--color-primary);
+}
+.page-head__title {
+	margin: 0 0 0.5rem;
+	font-size: clamp(1.75rem, 3vw, 2.25rem);
+	font-weight: 600; letter-spacing: 0.01em;
+}
+.page-head__meta {
+	margin: 0; font-size: 0.875rem; color: var(--color-text-muted);
+}
+
+.legal-body {
+	padding-bottom: var(--space-2xl);
+	max-width: 800px;
+}
+.intro {
+	font-size: 0.9875rem; line-height: 1.85; color: var(--color-text-muted);
+	margin-bottom: 2.5rem;
+}
+.legal-body h2 {
+	font-size: 1.0625rem; font-weight: 600; color: var(--color-text);
+	margin: 2.5rem 0 0.875rem;
+	padding-left: 0.875rem; border-left: 3px solid var(--color-primary);
+	line-height: 1.45;
+}
+.legal-body p, .legal-body address {
+	font-size: 0.9375rem; line-height: 1.85; color: var(--color-text);
+	margin: 0 0 1rem;
+}
+.legal-body ul, .legal-body ol {
+	padding-left: 1.375rem; margin: 0 0 1rem;
+}
+.legal-body li {
+	font-size: 0.9375rem; line-height: 1.8; color: var(--color-text);
+	margin-bottom: 0.375rem;
+}
+.note-inline {
+	display: inline-block; font-size: 0.8375rem;
+	color: var(--color-text-muted); margin-top: 0.25rem; line-height: 1.7;
+}
+.legal-body a { color: var(--color-primary); text-decoration: underline; }
+.legal-body a:hover { opacity: 0.8; }
+.legal-body address { font-style: normal; }
+
+.info-table {
+	width: 100%; border-collapse: collapse;
+	font-size: 0.9rem; margin: 0.75rem 0 1.5rem;
+	border: 1px solid var(--color-border); border-radius: 8px; overflow: hidden;
+}
+.info-table th, .info-table td {
+	padding: 0.75rem 1rem; border-bottom: 1px solid var(--color-border);
+	text-align: left; vertical-align: top; line-height: 1.65;
+}
+.info-table tr:last-child th, .info-table tr:last-child td { border-bottom: none; }
+.info-table th {
+	background: var(--color-bg-subtle); font-weight: 600;
+	color: var(--color-text-muted); white-space: nowrap; width: 160px;
+}
+.info-table thead th {
+	background: var(--color-navy, #0f172a); color: #fff;
+}
+.info-table td { color: var(--color-text); }
+.signature {
+	margin-top: 2.5rem; text-align: right;
+}
+</style>

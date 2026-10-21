@@ -193,7 +193,10 @@ const privacyHref = isEN ? '/en/privacy-policy/' : '/privacy-policy/';
 	<div class="site-footer__bottom">
 		<div class="container site-footer__bottom-inner">
 			<p>(c) 2026 Consilegy LLC.</p>
-			<a href={privacyHref} class="site-footer__privacy">Privacy Policy</a>
+			<span class="site-footer__legal">
+				{!isEN && <a href="/security-policy/" class="site-footer__privacy">Security Policy</a>}
+				<a href={privacyHref} class="site-footer__privacy">Privacy Policy</a>
+			</span>
 		</div>
 	</div>
 </footer>
@@ -333,6 +336,8 @@ const privacyHref = isEN ? '/en/privacy-policy/' : '/privacy-policy/';
 	}
 
 	.site-footer__privacy:hover { color: #fff; }
+
+	.site-footer__legal { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; }
 
 	/* Tablet */
 	@media (max-width: 1080px) {

@@ -25,7 +25,7 @@ const faqItems = [
 	},
 	{
 		q: 'Revenue ArchitectureはThe Modelと対立する考え方ですか？',
-		a: '対立しません。The Modelは獲得工程の分業と予測に強く、Revenue Architectureは獲得から維持・拡大までの全体設計を担います。指標としても包含の関係にあり、The ModelのMQL→SQLはCR1×CR2、案件から受注まではCR3×CR4に分解されます。分業を先に決めると受注後の設計が抜け落ちるため、先に全体構造を定義し、その中で分業を設計する順序を推奨します。',
+		a: '対立しません。The Modelは獲得工程の分業と予測に強く、Revenue Architectureは獲得から維持・拡大までの全体設計を担います。指標としても包含の関係にあり、The ModelのMQL→SQLはCR2（リード→案件）の途中の区間にあたり、案件から受注まではCR3×CR4に分解されます。分業を先に決めると受注後の設計が抜け落ちるため、先に全体構造を定義し、その中で分業を設計する順序を推奨します。',
 	},
 	{
 		q: '日本市場ではRevenue Architectureをそのまま適用できますか？',
@@ -395,7 +395,7 @@ const relatedServices = [
 		</div>
 		<div class="metrics-intro">
 			<p>Revenue Architectureは概念図ではなく、測定の枠組みです。各工程に「転換率（CR）」と「時間（Δt）」の2つの指標を持ちます。</p>
-			<p>従来使われてきた指標は、この体系に分解できます。<strong>MQL→SQLはCR1×CR2、案件から受注まではCR3×CR4</strong>にあたります。既存の指標を捨てる必要はありません。より細かく割るだけです。</p>
+			<p>従来使われてきた指標は、この体系の中に位置づけられます。<strong>MQL→SQLはCR2（リード→案件）の途中の区間、案件から受注まではCR3×CR4</strong>にあたります。既存の指標を捨てる必要はありません。全体の中のどこを測っているかが分かるようになります。</p>
 		</div>
 		<div class="metrics-grid">
 			<div class="metrics-block">

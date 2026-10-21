@@ -15,6 +15,7 @@ export const jaToEn: Record<string, string> = {
   '/company/': '/en/company/',
   '/contact/': '/en/contact/',
   '/privacy-policy/': '/en/privacy-policy/',
+  '/security-policy/': '/en/security-policy/',
   '/crm/': '/en/crm/',
   '/crm/school/': '/en/crm/school/',
   '/crm/pricing/': '/en/crm/pricing/',

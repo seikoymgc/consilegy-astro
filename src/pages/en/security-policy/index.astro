@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+const established = 'October 21, 2026';
+---
+
+<BaseLayout
+	title="Information Security Policy | Consilegy"
+	description="Consilegy LLC's Information Security Policy: how we protect the information our customers entrust to us and our own information assets."
+	lang="en"
+>
+	<header class="page-head container">
+		<p class="page-head__eyebrow">Legal</p>
+		<h1 class="page-head__title">Information Security Policy</h1>
+		<p class="page-head__meta">Established: {established}</p>
+	</header>
+
+	<article class="container prose legal-body">
+
+		<p class="intro">
+			Consilegy LLC (“we” or “the Company”) regards protecting the information our customers entrust to us, and our own information assets, as a core management responsibility. This policy covers all information handled by anyone who works on our business, and we act on it as follows.
+		</p>
+
+		<h2>1. Management responsibility</h2>
+		<p>Our Representative Member is responsible for information security and leads our efforts.</p>
+
+		<h2>2. Organization</h2>
+		<p>We set rules that everyone working on our business must follow, and limit access to information to what each person needs for their work. We sign confidentiality and other agreements with contractors and require them to take appropriate measures.</p>
+
+		<h2>3. Security measures</h2>
+		<p>We take technical and organizational safeguards to reduce the risk of unauthorized access, loss, leakage, destruction, damage, and alteration. Work carried out from outside Japan is held to the same standard.</p>
+
+		<h2>4. Customer information</h2>
+		<p>Information that customers register in our services is handled only within the scope set out in our agreements with them.</p>
+
+		<h2>5. Training</h2>
+		<p>We make sure everyone working on our business, including part-time staff, understands why information security matters and the rules they must follow.</p>
+
+		<h2>6. Compliance</h2>
+		<p>We comply with the Act on the Protection of Personal Information and other applicable laws, relevant guidelines, and our contractual obligations. How we handle personal information is set out in our <a href="/en/privacy-policy/">Privacy Policy</a>.</p>
+
+		<h2>7. Incident response</h2>
+		<p>If an incident occurs, we promptly investigate the cause, keep the damage to a minimum, and work to prevent it from happening again. As required by law or contract, we report to and notify customers, the Personal Information Protection Commission and other relevant parties, and the individuals concerned.</p>
+
+		<h2>8. Continuous improvement</h2>
+		<p>We review our efforts regularly and revise them as needed.</p>
+
+		<p class="signature">
+			Established: {established}<br />
+			Seiko Yamaguchi, Representative Member, Consilegy LLC
+		</p>
+
+		<p class="translation-note">This is an English translation. If there is any difference between this translation and the <a href="/security-policy/">Japanese original</a>, the Japanese original prevails.</p>
+
+	</article>
+</BaseLayout>
+
+<style>
+.page-head {
+	padding-block: var(--space-2xl) var(--space-lg);
+	max-width: 800px;
+}
+.page-head__eyebrow {
+	margin: 0 0 var(--space-xs);
+	font-size: 0.85rem; font-weight: 700;
+	letter-spacing: 0.12em; text-transform: uppercase;
+	color: var(--color-primary);
+}
+.page-head__title {
+	margin: 0 0 0.5rem;
+	font-size: clamp(1.75rem, 3vw, 2.25rem);
+	font-weight: 600; letter-spacing: 0.01em;
+}
+.page-head__meta {
+	margin: 0; font-size: 0.875rem; color: var(--color-text-muted);
+}
+
+.legal-body {
+	padding-bottom: var(--space-2xl);
+	max-width: 800px;
+}
+.intro {
+	font-size: 0.9875rem; line-height: 1.85; color: var(--color-text-muted);
+	margin-bottom: 2.5rem;
+}
+.legal-body h2 {
+	font-size: 1.0625rem; font-weight: 600; color: var(--color-text);
+	margin: 2.5rem 0 0.875rem;
+	padding-left: 0.875rem; border-left: 3px solid var(--color-primary);
+	line-height: 1.45;
+}
+.legal-body p, .legal-body address {
+	font-size: 0.9375rem; line-height: 1.85; color: var(--color-text);
+	margin: 0 0 1rem;
+}
+.legal-body ul, .legal-body ol {
+	padding-left: 1.375rem; margin: 0 0 1rem;
+}
+.legal-body li {
+	font-size: 0.9375rem; line-height: 1.8; color: var(--color-text);
+	margin-bottom: 0.375rem;
+}
+.note-inline {
+	display: inline-block; font-size: 0.8375rem;
+	color: var(--color-text-muted); margin-top: 0.25rem; line-height: 1.7;
+}
+.legal-body a { color: var(--color-primary); text-decoration: underline; }
+.legal-body a:hover { opacity: 0.8; }
+.legal-body address { font-style: normal; }
+
+.info-table {
+	width: 100%; border-collapse: collapse;
+	font-size: 0.9rem; margin: 0.75rem 0 1.5rem;
+	border: 1px solid var(--color-border); border-radius: 8px; overflow: hidden;
+}
+.info-table th, .info-table td {
+	padding: 0.75rem 1rem; border-bottom: 1px solid var(--color-border);
+	text-align: left; vertical-align: top; line-height: 1.65;
+}
+.info-table tr:last-child th, .info-table tr:last-child td { border-bottom: none; }
+.info-table th {
+	background: var(--color-bg-subtle); font-weight: 600;
+	color: var(--color-text-muted); white-space: nowrap; width: 160px;
+}
+.info-table thead th {
+	background: var(--color-navy, #0f172a); color: #fff;
+}
+.info-table td { color: var(--color-text); }
+.legal-body .translation-note {
+	margin-top: 2rem; font-size: 0.875rem; color: var(--color-text-muted);
+}
+.signature {
+	margin-top: 2.5rem; text-align: right;
+}
+</style>

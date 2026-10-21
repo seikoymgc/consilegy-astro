@@ -243,6 +243,7 @@ import CTA from '../../components/CTA.astro';
         <dt>Founded</dt><dd>May 2025</dd>
         <dt>Location</dt><dd>R-Cube Aoyama 3F, 1-3-1 Kita-Aoyama, Minato-ku, Tokyo 107-0061, Japan</dd>
         <dt>Corporate number</dt><dd>2010403035111</dd>
+        <dt>Information security</dt><dd class="company-security"><img src="/images/common/security-action-hitotsuboshi-2026.png" alt="SECURITY ACTION: Self-declared information security (one star)" width="64" height="64" loading="lazy" /><span>Declared SECURITY ACTION one star with IPA (October 2026)</span></dd>
         <dt>Publications</dt><dd><a href="https://media.consilegy.com/en/">B2B Revenue Strategy Journal</a> (by the <a href="https://media.consilegy.com/en/about/">Consilegy Media Editorial Team</a>) / <a href="/en/crm/media/">Revenue CRM Guides</a></dd>
       </dl>
       <p class="ab-profile">
@@ -648,6 +649,9 @@ import CTA from '../../components/CTA.astro';
     margin: 0;
     color: var(--color-text-muted);
   }
+
+  .company-security { display: flex; align-items: center; gap: 1rem; }
+  .company-security img { width: 64px; height: 64px; flex-shrink: 0; }
 
   /* ── Responsive ────────────────────────────────── */
   @media (max-width: 640px) {

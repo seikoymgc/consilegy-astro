@@ -14,6 +14,12 @@ export interface NewsItem {
 
 export const news: NewsItem[] = [
 	{
+		date: '2026-10-21',
+		category: 'お知らせ',
+		title: 'IPAの「SECURITY ACTION」で、一つ星を宣言しました',
+		summary: '独立行政法人情報処理推進機構（IPA）が運営するSECURITY ACTION制度で、情報セキュリティ5か条に取り組む「一つ星」を宣言しました。顧客管理システム「Revenue CRM」を提供する会社として、お客様からお預かりする情報を守る取り組みを続けます。あわせて「情報セキュリティ基本方針」を公開しました。',
+	},
+	{
 		slug: 'revenue-crm-release',
 		date: '2026-09-28',
 		category: 'プレスリリース',

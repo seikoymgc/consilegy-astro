@@ -436,6 +436,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 					<dd><a href="https://media.consilegy.com/">B2Bレベニュー戦略ジャーナル</a>（執筆・編集：<a href="https://media.consilegy.com/about/">Consilegy メディア編集部</a>）／<a href="/crm/media/">Revenue CRMの使い方</a></dd>
 				</div>
 				<div class="company-row">
+					<dt>情報セキュリティ</dt>
+					<dd class="company-security">
+						<img src="/images/common/security-action-hitotsuboshi-2026.png" alt="SECURITY ACTION セキュリティ対策自己宣言 一つ星" width="64" height="64" loading="lazy" />
+						<span>IPA「SECURITY ACTION」一つ星を宣言（2026年10月）／<a href="/security-policy/">情報セキュリティ基本方針</a></span>
+					</dd>
+				</div>
+				<div class="company-row">
 					<dt>連絡先</dt>
 					<dd><a href="mailto:info@consilegy.com">info@consilegy.com</a></dd>
 				</div>
@@ -783,6 +790,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	font-size: 0.9875rem; color: var(--color-text); line-height: 1.7;
 }
 .company-row dd a { color: var(--color-primary); }
+.company-security { display: flex; align-items: center; gap: 1rem; }
+.company-security img { width: 64px; height: 64px; flex-shrink: 0; }
 
 /* ── Final CTA ───────────────────────────────────────── */
 .final-cta {

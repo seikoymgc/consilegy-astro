@@ -41,6 +41,7 @@ const total = featureCount();
       </section>
     ))}
 
+    {CRM_ROADMAP.length > 0 && (
     <section class="feat-group" id="roadmap">
       <h2>追加予定</h2>
       <p class="group-lead">開発を予定している機能です。上の一覧とは違い、まだ使えません。</p>
@@ -53,6 +54,7 @@ const total = featureCount();
         ))}
       </ul>
     </section>
+    )}
 
     <section class="feat-cta">
       <p>実際の画面は、メールアドレスだけでご覧いただけます。</p>

@@ -30,6 +30,162 @@ export const EDITION_LABEL: Record<UpdateEdition, { ja: string; en: string }> = 
 
 export const CRM_UPDATES: CrmUpdate[] = [
   {
+    date: '2026-10-21',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: 'Slackとボタン1つでつなげます',
+      en: 'Connect Slack with one button',
+    },
+    body: {
+      ja: '設定 → 通知の「Slackとつなぐ」を押し、Slackでワークスペースと送り先のチャンネルを選ぶだけです。WebhookのURLを用意する必要はありません。アプリの追加に管理者の承認が要るSlackでは、承認されたあとにもう一度押します。',
+      en: 'In Settings → Notifications, click “Connect Slack” and pick the workspace and channel in Slack. No webhook URL to set up. If your Slack requires admin approval for new apps, click it again once approved.',
+    },
+    prs: [335, 336],
+  },
+  {
+    date: '2026-10-21',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: '夜間のAIの報告を、Slackでも受け取れます',
+      en: 'Overnight AI reports, now in Slack too',
+    },
+    body: {
+      ja: '停滞商談の報告と、狙っている会社のニュースを、担当者のタスクに加えて、通知先のSlackチャンネルにも流します。',
+      en: 'Stalled-deal reports and target-account news go to your notification Slack channel as well as to the owner’s tasks.',
+    },
+    prs: [334],
+  },
+  {
+    date: '2026-10-21',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: '狙っている会社のニュースに、次の一手とお祝いメールの下書き',
+      en: 'Target-account news now comes with a next step and a congratulations draft',
+    },
+    body: {
+      ja: 'ニュースを届けるタスクの先頭に、AIが考えた次の一手が付きます。前向きなニュースなら、先方へのお祝いメールを下書きしておきます。送るのは担当者で、自動では送りません。',
+      en: 'Each news task opens with a next step suggested by AI. For good news, a congratulations email to your contact is drafted for you. You send it; nothing goes out automatically.',
+    },
+    prs: [332],
+  },
+  {
+    date: '2026-10-20',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: '活動・メモ・タスク・メール・添付まで、CSVで書き出せます',
+      en: 'Export activities, notes, tasks, emails, and attachments to CSV',
+    },
+    body: {
+      ja: '設定 →「データの書き出し」から、コンタクト・会社・商談に加えて、活動・メモ・タスク・メール・添付ファイルを種類ごとにCSVで書き出せます。件数の上限はありません。書き出せるのはオーナーと管理者です。',
+      en: 'From Settings → Data export, download contacts, companies, and deals, plus activities, notes, tasks, emails, and attachments, as one CSV per type. No row limit. Owners and admins only.',
+    },
+    prs: [319],
+  },
+  {
+    date: '2026-10-19',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: '狙っている会社のニュースを、担当者に届けます',
+      en: 'News on your target accounts, delivered to the owner',
+    },
+    body: {
+      ja: '狙っている会社の資金調達・新サービス・人事異動などの公開ニュースを週1回調べ、出典つきで担当者のタスクに届けます。会社の画面に「ニュース」タブが加わります。設定 → 通知で有効にします。',
+      en: 'Once a week, public news on your target accounts, such as funding, launches, and leadership changes, is checked and delivered to the owner as a task, with sources. Companies get a News tab. Turn it on in Settings → Notifications.',
+    },
+    prs: [318],
+  },
+  {
+    date: '2026-10-19',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: '止まっている商談を、AIが調べて報告します',
+      en: 'AI looks into stalled deals and reports back',
+    },
+    body: {
+      ja: '設定で有効にすると、14日以上動きのない商談をAIが毎朝10時に調べ、状況と次の打ち手を担当者のタスクに書きます。AIは記録を読むだけで、書き換えません。',
+      en: 'Once enabled in Settings, AI reviews deals with no movement for 14+ days every morning at 10 a.m. JST and writes the situation and next steps into the owner’s tasks. It only reads your records; it never changes them.',
+    },
+    prs: [317],
+  },
+  {
+    date: '2026-10-19',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: 'メールの署名を設定できます',
+      en: 'Set your email signature',
+    },
+    body: {
+      ja: '設定 → アカウントで、自分の署名を登録できます。1対1のメールを書き始めると、本文の末尾に入っています。',
+      en: 'Add your own signature in Settings → Account. It’s already at the end of the body when you start a one-to-one email.',
+    },
+    prs: [322],
+  },
+  {
+    date: '2026-10-19',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: '名刺の読み取り結果は、画面を離れても続きから確認できます',
+      en: 'Scanned business cards wait for you if you leave the screen',
+    },
+    body: {
+      ja: '登録前に別の画面へ移っても、戻れば続きから確認できます。結果はお使いの端末の中にだけ残します。ブラウザにカメラを許可していないときは、端末のカメラアプリで撮れます。',
+      en: 'Move to another screen before saving, and the scans are still there when you come back. They stay on your device only. If the browser has no camera permission, you can shoot with your device’s camera app instead.',
+    },
+    prs: [315, 320],
+  },
+  {
+    date: '2026-10-19',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: '画面の中で、新機能のお知らせを見られます',
+      en: 'What’s new, right inside the app',
+    },
+    body: {
+      ja: '上部バーのボタンから、最近の更新を10件まで見られます。新しいお知らせがあると印が付きます。',
+      en: 'The button in the top bar shows the latest 10 updates, with a dot when there’s something new.',
+    },
+    prs: [314],
+  },
+  {
+    date: '2026-10-17',
+    editions: ['b2b'],
+    title: {
+      ja: 'ホームが、選んだ部署に合わせて切り替わります',
+      en: 'The home screen follows the team you pick',
+    },
+    body: {
+      ja: '営業・マーケ・CS・経営・管理のどれを選ぶかで、ホームの見出し、先に出す情報、業務への入口、AIへの質問候補が変わります。',
+      en: 'Pick Sales, Marketing, CS, Leadership, or Admin, and the home screen’s headings, top information, shortcuts, and suggested AI questions change to match.',
+    },
+    prs: [309],
+  },
+  {
+    date: '2026-10-16',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: 'AIエージェントに、契約・MRR・解約リスクを聞けます',
+      en: 'Ask the AI agent about contracts, MRR, and churn risk',
+    },
+    body: {
+      ja: '今月更新の契約、MRRの内訳、解約リスクの高い顧客、止まっている商談、今週の空き人日に答えます。数字は画面と同じ計算で出します。',
+      en: 'It answers which contracts renew this month, how MRR breaks down, which customers are at risk, which deals are stuck, and how many person-days are free this week, using the same math as the screens.',
+    },
+    prs: [302, 304],
+  },
+  {
+    date: '2026-10-16',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: 'フォームの送り主を、返信したときに連絡先にできます',
+      en: 'Form senders can become contacts only when you reply',
+    },
+    body: {
+      ja: 'フォームごとに設定すると、送信の時点では受信箱の会話だけを作り、返信したときに連絡先を作ります。営業のご連絡がリードとして数えられません。',
+      en: 'Turn it on per form, and a submission only opens an inbox conversation. The contact is created when you reply, so sales pitches don’t count as leads.',
+    },
+    prs: [300],
+  },
+  {
     date: '2026-10-16',
     editions: ['b2b', 'contractor', 'reseller'],
     title: {

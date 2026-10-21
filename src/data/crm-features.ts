@@ -201,6 +201,13 @@ export const CRM_FEATURES: FeatureGroup[] = [
         },
       },
       {
+        name: { ja: '狙っている会社のニュース', en: 'News on your target accounts' },
+        desc: {
+          ja: '資金調達、新サービス、人事異動など、狙っている会社の公開情報を週1回調べ、出典つきで担当者に届ける。前向きなニュースには、お祝いメールの下書きを添える。',
+          en: 'Public news on your target accounts, such as funding, launches, and leadership changes, checked weekly and delivered to the owner with sources. Good news comes with a congratulations draft.',
+        },
+      },
+      {
         name: { ja: 'AI学習・チューニング', en: 'AI learning & tuning' },
         desc: {
           ja: '人が直した結果を次の指示文へ反映する。採用の判断は数字で、停止の判断は人が行う。',
@@ -769,15 +776,8 @@ export const CRM_FEATURES: FeatureGroup[] = [
 
 // 追加予定。CRM_FEATURES は「すべて動いている」と書いて出しているので、ここは別に持ち、
 // 件数（featureCount）にも数えない。時期は書かない（書くと約束になる）。
-export const CRM_ROADMAP: FeatureItem[] = [
-  {
-    name: { ja: '狙っている会社のニュース', en: 'News on your target accounts' },
-    desc: {
-      ja: '資金調達、新サービス、人事異動など、狙っている会社の公開情報を担当者に届ける。',
-      en: 'Public news on your target accounts, such as funding, launches, and leadership changes, delivered to the account owner.',
-    },
-  },
-];
+// 空のあいだは機能一覧に「追加予定」の節を出さない。
+export const CRM_ROADMAP: FeatureItem[] = [];
 
 export function featureCount(): number {
   return CRM_FEATURES.reduce((n, g) => n + g.items.length, 0);

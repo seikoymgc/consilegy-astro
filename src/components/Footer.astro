@@ -105,6 +105,21 @@ const privacyHref = isEN ? '/en/privacy-policy/' : '/privacy-policy/';
 					? 'We help global B2B teams design revenue operations that actually work in Japan.'
 					: 'マーケ・営業・CSをつなぐ収益構造の設計と実装を支援します。'}
 			</p>
+			<!-- IPA の規約で、ロゴは背景色の上に直接置かない（視認性）。白い台に載せる -->
+			<a
+				class="site-footer__security"
+				href="https://www.ipa.go.jp/security/security-action/"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<img
+					src="/images/common/security-action-hitotsuboshi-2026.png"
+					alt={isEN ? 'SECURITY ACTION: Self-declared information security (one star)' : 'SECURITY ACTION セキュリティ対策自己宣言 一つ星'}
+					width="72"
+					height="72"
+					loading="lazy"
+				/>
+			</a>
 		</div>
 
 		<!-- Services -->
@@ -240,6 +255,21 @@ const privacyHref = isEN ? '/en/privacy-policy/' : '/privacy-policy/';
 		line-height: 1.7;
 		color: #CBD5E1;
 		max-width: 30ch;
+	}
+
+	.site-footer__security {
+		display: inline-block;
+		margin-top: 1.25rem;
+		padding: 6px;
+		background: #fff;
+		border-radius: 6px;
+		line-height: 0;
+	}
+
+	.site-footer__security img {
+		width: 72px;
+		height: 72px;
+		display: block;
 	}
 
 	/* Column headings */

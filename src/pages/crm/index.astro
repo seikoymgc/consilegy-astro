@@ -2,11 +2,12 @@
 import { featureCount } from '../../data/crm-features';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CrmSubnav from '../../components/CrmSubnav.astro';
+import CrmLanguages from '../../components/CrmLanguages.astro';
 
 const DEMO_URL = 'https://crm.consilegy.com/demos';
 const SIGNUP_URL = 'https://crm.consilegy.com/signup';
 
-// 概要ページは9セクション（スマートフォンを2026-09-29に追加）。機能の詳細は /crm/features/、料金の詳細と契約条件は /crm/pricing/、
+// 概要ページは10セクション（スマートフォンを2026-09-29、言語の切り替えを2026-10-20に追加）。機能の詳細は /crm/features/、料金の詳細と契約条件は /crm/pricing/、
 // 質問の全件は /crm/faq/、事業タイプ別の説明は各エディションのページに任せる。
 
 const supports = [
@@ -308,6 +309,9 @@ const readings = [
 	</div>
 </section>
 
+<!-- ===================== LANGUAGES（同じ画面で言語を切り替え。/en/crm/ と共通の components/CrmLanguages.astro） ===================== -->
+<CrmLanguages />
+
 <!-- ===================== SUPPORT（設定から定着まで）＋SECURITY ===================== -->
 <section class="why" id="support">
 	<div class="container two-col">
@@ -519,7 +523,8 @@ h3 { font-weight: 500; }
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
 .two-col > div { padding: 2rem; background: #fff; border-radius: 6px; border: 1px solid var(--color-border); }
 .two-col .sub-head { margin-bottom: var(--space-md); }
-section#support { background: #F1F5F9; }
+/* 直前の LANGUAGES（CrmLanguages）がグレーの帯なので、SUPPORT は白の帯にして交互を保つ。カードは枠線で区切る（After と同じ組み方）。 */
+section#support { background: #fff; }
 
 /* ── FAQ ── */
 .faq { background: #fff; border-top: 1px solid var(--color-border); }

@@ -1,0 +1,385 @@
+---
+// 表示言語を同じ画面のまま切り替えられることを伝えるセクション。/crm/ と /en/crm/ で使う。
+// 画面の言葉は CRM 本体の src/lib/i18n/translations.ts（nav・deals）と app-topbar.tsx に合わせている。
+// 本体の訳語を変えたら、ここの screens も直す。
+// 図の中は p/li/dd を使わない（global.css の本文16pxルールが画面の模型にまで掛かるため）。
+interface Props {
+	lang?: 'ja' | 'en';
+}
+
+const { lang = 'ja' } = Astro.props;
+
+// 3言語で変わらない「入力したデータ」。切り替えても翻訳されないことを見せる。
+const record = { company: '株式会社サンプル商事', deal: '年間契約の更新', amount: '1,200,000', date: '2026/11/30' };
+
+const screens = [
+	{ key: 'ja', label: 'JA', html: 'ja', search: '検索', nav: ['ダッシュボード', 'コンタクト', '会社', '商談', 'タスク'], fields: { company: '会社', deal: '商談名', amount: '金額（円）', date: 'クローズ予定日' } },
+	{ key: 'en', label: 'EN', html: 'en', search: 'Search', nav: ['Dashboard', 'Contacts', 'Companies', 'Deals', 'Tasks'], fields: { company: 'Company', deal: 'Deal name', amount: 'Amount (¥)', date: 'Close date' } },
+	{ key: 'zh-TW', label: '繁中', html: 'zh-Hant', search: '搜尋', nav: ['儀表板', '聯絡人', '公司', '交易', '任務'], fields: { company: '公司', deal: '交易名稱', amount: '金額（日圓）', date: '預計成交日' } },
+];
+
+const copy = lang === 'en'
+	? {
+		kicker: 'Languages',
+		title: 'Switch languages on the same screen.',
+		points: [
+			{ title: 'One button, top right', text: 'Japanese, English, Traditional Chinese. Press it and the screen you are on changes language right there. No settings page, no reloading. On a phone, it is in the My account menu.' },
+			{ title: 'Each person picks their own', text: 'Only your screen changes. In the same workspace, the sales team in Tokyo can work in Japanese while the team in Taipei works in Traditional Chinese. The choice stays the next time you open it.' },
+			{ title: 'The data stays as one', text: 'What changes is the words on the screen. Customer names and deal notes stay as they were entered, so everyone looks at the same record.' },
+		],
+		figureLabel: 'Revenue CRM screen. Press JA, EN, or 繁中 to switch the language.',
+		caption: 'Only the screen labels change. The company and deal name stay as entered.',
+		groupLabel: 'Language',
+	}
+	: {
+		kicker: 'Languages',
+		title: '言語は、同じ画面のまま切り替わります。',
+		points: [
+			{ title: '右上のボタンを押すだけ', text: '日本語・English・繁體中文。押したその場で、いま開いている画面の言葉が変わります。設定画面を探す必要も、開き直す必要もありません。スマートフォンでは「マイアカウント」のメニューから切り替えます。' },
+			{ title: '一人ずつ、自分の言語で', text: '変わるのは自分の画面だけです。同じワークスペースで、東京の営業は日本語、台北のメンバーは繁體中文で使えます。選んだ言語は、次に開いたときもそのままです。' },
+			{ title: 'データはひとつのまま', text: '変わるのは画面の言葉です。顧客名や商談メモは入力したまま残るので、全員が同じ記録を見ます。' },
+		],
+		figureLabel: 'Revenue CRMの画面。JA・EN・繁中のボタンで言語を切り替えられます。',
+		caption: '変わるのは画面の言葉だけ。会社名や商談名は、入力したまま残ります。',
+		groupLabel: '表示言語',
+	};
+
+const initial = lang === 'en' ? 'en' : 'ja';
+---
+
+<section class="crm-languages" id="languages">
+	<div class="container">
+		<div class="lang-head">
+			<p class="kicker">{copy.kicker}</p>
+			<h2>{copy.title}</h2>
+		</div>
+		<div class="lang-inner">
+			<ul class="lang-points">
+				{copy.points.map((item) => (
+					<li>
+						<strong>{item.title}</strong>
+						<span>{item.text}</span>
+					</li>
+				))}
+			</ul>
+			<figure class="lang-figure" data-lang-demo>
+				<div class="mock" role="group" aria-label={copy.figureLabel}>
+					{screens.map((s) => (
+						<div class="mock-screen" data-screen={s.key} lang={s.html} hidden={s.key !== initial}>
+							<div class="mock-top">
+								<span class="mock-logo" aria-hidden="true"></span>
+								<span class="mock-search">{s.search}</span>
+							</div>
+							<div class="mock-body">
+								<div class="mock-nav">
+									{s.nav.map((item, i) => <span class:list={['mock-nav__item', { 'is-current': i === 3 }]}>{item}</span>)}
+								</div>
+								<div class="mock-card">
+									<div class="mock-row"><span class="mock-k">{s.fields.deal}</span><span class="mock-v mock-v--strong" lang="ja">{record.deal}</span></div>
+									<div class="mock-row"><span class="mock-k">{s.fields.company}</span><span class="mock-v" lang="ja">{record.company}</span></div>
+									<div class="mock-row"><span class="mock-k">{s.fields.amount}</span><span class="mock-v">{record.amount}</span></div>
+									<div class="mock-row"><span class="mock-k">{s.fields.date}</span><span class="mock-v">{record.date}</span></div>
+								</div>
+							</div>
+						</div>
+					))}
+					<div class="mock-switch" role="group" aria-label={copy.groupLabel}>
+						{screens.map((s) => (
+							<button type="button" data-set={s.key} aria-pressed={s.key === initial ? 'true' : 'false'}>{s.label}</button>
+						))}
+					</div>
+				</div>
+				<figcaption>{copy.caption}</figcaption>
+			</figure>
+		</div>
+	</div>
+</section>
+
+<script>
+	// 見えている間だけ JA → EN → 繁中 と自動で回す。押されたら止めて、押された言語に固定する。
+	for (const root of document.querySelectorAll<HTMLElement>('[data-lang-demo]')) {
+		const buttons = [...root.querySelectorAll<HTMLButtonElement>('[data-set]')];
+		const screens = [...root.querySelectorAll<HTMLElement>('[data-screen]')];
+		const order = buttons.map((b) => b.dataset.set!);
+		let current = buttons.find((b) => b.getAttribute('aria-pressed') === 'true')?.dataset.set ?? order[0];
+		let timer: number | undefined;
+		let interacted = false;
+
+		const show = (key: string) => {
+			current = key;
+			for (const s of screens) s.hidden = s.dataset.screen !== key;
+			for (const b of buttons) b.setAttribute('aria-pressed', String(b.dataset.set === key));
+		};
+		const stop = () => { if (timer) window.clearInterval(timer); timer = undefined; };
+		const start = () => {
+			if (timer) return;
+			timer = window.setInterval(() => show(order[(order.indexOf(current) + 1) % order.length]), 2600);
+		};
+
+		for (const b of buttons) {
+			b.addEventListener('click', () => { stop(); interacted = true; show(b.dataset.set!); });
+		}
+
+		const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		if (!reduce && 'IntersectionObserver' in window) {
+			new IntersectionObserver(([entry]) => {
+				if (interacted) return;
+				if (entry.isIntersecting) start(); else stop();
+			}, { threshold: 0.5 }).observe(root);
+		}
+	}
+</script>
+
+<style>
+	.crm-languages {
+		padding: clamp(4rem, 7vw, 6rem) 0;
+		background: #F1F5F9;
+	}
+
+	/* 英語ページは --container が 72ch（読み物幅）。LPのカード並びと揃えて 1120px に戻す。 */
+	.container {
+		max-width: 1120px;
+	}
+
+	.lang-head {
+		margin-bottom: clamp(1.6rem, 3vw, 2.4rem);
+	}
+
+	.kicker {
+		margin: 0 0 0.6rem;
+		color: var(--color-primary);
+		font-size: 0.8rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+	}
+
+	.lang-head h2 {
+		margin: 0;
+		font-size: clamp(1.7rem, 3vw, 2.4rem);
+		font-weight: 700;
+		line-height: 1.42;
+	}
+
+	.lang-inner {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		gap: clamp(2rem, 5vw, 4rem);
+		align-items: center;
+	}
+
+	.lang-points {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.lang-points li {
+		display: grid;
+		gap: 0.3rem;
+		padding: 1.05rem 0;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.lang-points strong {
+		color: var(--color-text);
+		font-size: 1.05rem;
+		font-weight: 700;
+	}
+
+	.lang-points span {
+		color: var(--color-text-muted);
+		font-size: 1rem;
+		line-height: 1.75;
+	}
+
+	.lang-figure {
+		margin: 0;
+	}
+
+	/* 画面の模型。CRM本体のトップバー（右上にJA/EN/繁中）とサイドバーをなぞる。 */
+	.mock {
+		position: relative;
+		overflow: hidden;
+		border: 1px solid var(--color-border);
+		border-top: 3px solid #8758C9;
+		border-radius: 6px;
+		background: #fff;
+		box-shadow: 0 12px 28px rgba(15, 23, 42, 0.1);
+		font-size: 0.875rem;
+		color: #0F172A;
+	}
+
+	.mock-top {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		height: 52px;
+		padding: 0 9.5rem 0 1rem;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.mock-logo {
+		flex: none;
+		width: 22px;
+		height: 22px;
+		border-radius: 5px;
+		background: #8758C9;
+	}
+
+	.mock-search {
+		flex: 1;
+		min-width: 0;
+		padding: 0.35rem 0.75rem;
+		border: 1px solid var(--color-border);
+		border-radius: 4px;
+		color: #64748B;
+		white-space: nowrap;
+	}
+
+	.mock-switch {
+		position: absolute;
+		top: 11px;
+		right: 1rem;
+		display: inline-flex;
+		padding: 2px;
+		border: 1px solid var(--color-border);
+		border-radius: 6px;
+		background: #fff;
+	}
+
+	.mock-switch button {
+		min-width: 2.6rem;
+		padding: 0.3rem 0.5rem;
+		border: 0;
+		border-radius: 4px;
+		background: transparent;
+		color: #475569;
+		font: inherit;
+		font-size: 0.8125rem;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		cursor: pointer;
+		transition: background 0.15s, color 0.15s;
+	}
+
+	.mock-switch button:hover {
+		background: #F1F5F9;
+		color: #0F172A;
+	}
+
+	.mock-switch button[aria-pressed='true'] {
+		background: #8758C9;
+		color: #fff;
+	}
+
+	.mock-switch button:focus-visible {
+		outline: 2px solid #7042ac;
+		outline-offset: 2px;
+	}
+
+	.mock-body {
+		display: grid;
+		grid-template-columns: 9rem 1fr;
+		min-height: 15rem;
+	}
+
+	.mock-nav {
+		display: grid;
+		align-content: start;
+		gap: 0.15rem;
+		padding: 0.75rem 0.5rem;
+		border-right: 1px solid var(--color-border);
+		background: #F8FAFC;
+	}
+
+	.mock-nav__item {
+		padding: 0.4rem 0.6rem;
+		border-radius: 4px;
+		color: #475569;
+		white-space: nowrap;
+	}
+
+	.mock-nav__item.is-current {
+		background: rgba(135, 88, 201, 0.12);
+		color: #5b3a8f;
+		font-weight: 600;
+	}
+
+	.mock-card {
+		align-self: start;
+		display: grid;
+		margin: 1rem;
+		border: 1px solid var(--color-border);
+		border-radius: 6px;
+	}
+
+	.mock-row {
+		display: grid;
+		grid-template-columns: 8.5rem 1fr;
+		gap: 0.75rem;
+		padding: 0.6rem 0.85rem;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.mock-row:last-child {
+		border-bottom: 0;
+	}
+
+	.mock-k {
+		color: #64748B;
+	}
+
+	.mock-v--strong {
+		font-weight: 700;
+	}
+
+	.lang-figure figcaption {
+		margin-top: 0.75rem;
+		font-size: 0.875rem;
+		color: var(--color-text-muted);
+	}
+
+	@media (max-width: 960px) {
+		.lang-inner {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 760px) {
+		.crm-languages {
+			padding-block: var(--space-xl);
+		}
+	}
+
+	@media (max-width: 520px) {
+		.mock-top {
+			padding-right: 0.75rem;
+		}
+
+		.mock-search {
+			display: none;
+		}
+
+		.mock-switch {
+			right: 0.75rem;
+		}
+
+		.mock-body {
+			grid-template-columns: 1fr;
+		}
+
+		.mock-nav {
+			display: flex;
+			overflow: hidden;
+			padding: 0.5rem;
+			border-right: 0;
+			border-bottom: 1px solid var(--color-border);
+		}
+
+		.mock-row {
+			grid-template-columns: 1fr;
+			gap: 0.1rem;
+		}
+	}
+</style>

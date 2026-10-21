@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// 公開している内容の時点。チェックシートの版と揃える。変えたらファイル名の接尾辞も上げる
+// （同名で差し替えると Cloudflare が旧ファイルを返す）。
+const asOf = '2026年10月';
+const checklistHref = '/downloads/consilegy-security-checklist-2026-10.xlsx';
+
+// Revenue CRM の対策。どれも本番の設定かコードで確かめたことだけを書く（2026-10-22）。
+// 対応していないこと（SAML、SLA、第三者の脆弱性診断）はページに置かず、チェックシートの回答で正直に答える（2026-10-22 代表の判断）。
+const crmMeasures = [
+	{ title: 'データの保管場所', text: 'データベース、ファイル、アプリケーションの実行環境は、いずれも日本（東京リージョン）にあります。' },
+	{ title: '通信と保存の暗号化', text: '通信はすべてTLSで暗号化し、暗号化されていない接続は受け付けません。保存したデータは、基盤（Supabase）の機能で暗号化されています。' },
+	{ title: '会社ごとのデータの隔離', text: 'データベースの行単位のアクセス制御で、会社ごとにデータを隔離しています。アプリに不具合があっても、他社のデータは返りません。' },
+	{ title: '権限', text: '役割（オーナー・管理者・メンバー）と、データの種類ごとの閲覧・作成・編集・削除・書き出しの権限、見える範囲（全体・チーム・自分）を設定できます。' },
+	{ title: 'ログイン', text: 'Googleアカウントでのログインと、認証アプリを使った多要素認証に対応しています。' },
+	{ title: '操作の記録', text: 'コンタクト・会社・商談の登録・変更・削除と、データの書き出しを、操作した人と日時つきで記録しています。' },
+	{ title: 'バックアップ', text: 'データベースは毎日自動でバックアップを取得し、直近7日分を保持しています。添付ファイルも毎日複製しています。' },
+	{ title: 'AIとデータ', text: '入力されたデータをAIの学習に使うことはありません。利用規約で、外部のAI事業者にモデルの学習に使わせないことを定めています。' },
+	{ title: '契約終了後のデータ', text: '契約終了日から30日間は、設定画面からデータをCSVで書き出せます。その後、データを消去します。' },
+];
+
+---
+
+<BaseLayout
+	title="セキュリティ | Consilegy"
+	description="Consilegy合同会社と顧客管理システム「Revenue CRM」のセキュリティへの取り組み。データの保管場所、暗号化、権限、バックアップ、AIの扱いと、セキュリティチェックシートの回答をまとめています。"
+	lang="ja"
+>
+	<header class="page-head container">
+		<p class="page-head__eyebrow">Security</p>
+		<h1 class="page-head__title">セキュリティへの取り組み</h1>
+		<p class="page-head__lead">お客様からお預かりする情報をどう守っているかを、{asOf}時点の内容でまとめています。取引先の審査でよく聞かれる質問への回答も、登録なしでダウンロードできます。</p>
+		<p class="page-head__actions">
+			<a class="btn btn--primary" href={checklistHref} download>チェックシートの回答をダウンロード（Excel）</a>
+		</p>
+	</header>
+
+	<section class="band band--subtle">
+		<div class="container">
+			<p class="section-eyebrow">Company</p>
+			<h2 class="section-title">会社としての取り組み</h2>
+			<div class="cards cards--2">
+				<div class="card">
+					<h3>情報セキュリティ基本方針</h3>
+					<p>経営者の責任、社内体制、対策、お客様の情報の取扱い、教育、法令の遵守、事故への対応、継続的な改善を定めています。</p>
+					<p><a href="/security-policy/">情報セキュリティ基本方針を読む</a></p>
+				</div>
+				<div class="card card--badge">
+					<img src="/images/common/security-action-hitotsuboshi-2026.png" alt="SECURITY ACTION セキュリティ対策自己宣言 一つ星" width="72" height="72" loading="lazy" />
+					<div>
+						<h3>SECURITY ACTION 一つ星</h3>
+						<p>独立行政法人情報処理推進機構（IPA）の制度で、情報セキュリティ5か条に取り組むことを宣言しています（2026年10月）。</p>
+					</div>
+				</div>
+				<div class="card">
+					<h3>社内の運用</h3>
+					<p>業務で使うクラウドサービスの2段階認証、パスワード管理ツールの利用、必要最小限の権限、端末のディスク暗号化とウイルス対策、スタッフ・業務委託先との秘密保持と定期的な教育を行っています。</p>
+				</div>
+				<div class="card">
+					<h3>事故が起きたとき</h3>
+					<p>対応手順を定め、報告・初動・影響の確認・通知・再発防止の順に動きます。Revenue CRMでお預かりした個人情報の漏えい等を知ったときは、遅くとも3営業日以内に契約者へ通知します。</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="band" id="revenue-crm">
+		<div class="container">
+			<p class="section-eyebrow">Revenue CRM</p>
+			<h2 class="section-title">Revenue CRMの対策</h2>
+			<div class="cards cards--3">
+				{crmMeasures.map(m => (
+					<div class="card">
+						<h3>{m.title}</h3>
+						<p>{m.text}</p>
+					</div>
+				))}
+			</div>
+			<p class="note">外部委託先（データベース、実行環境、AI機能、メール送信など）は、<a href="https://crm.consilegy.com/terms">Revenue CRM利用規約</a>の外部委託先一覧に載せています。</p>
+		</div>
+	</section>
+
+
+	<section class="band band--subtle">
+		<div class="container narrow">
+			<p class="section-eyebrow">Download</p>
+			<h2 class="section-title">セキュリティチェックシートの回答</h2>
+			<p>組織、人、アクセス管理、端末、データ、Revenue CRMの6分類・28問に、そのまま貼れる文章で答えています（{asOf}時点）。取引先のチェックシートへの記入にお使いください。登録は要りません。</p>
+			<p><a class="btn btn--primary" href={checklistHref} download>回答をダウンロード（Excel）</a></p>
+			<p class="note">ここにない質問や、貴社の様式での回答が必要な場合は、<a href="mailto:info@consilegy.com">info@consilegy.com</a> までご連絡ください。</p>
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+.page-head {
+	padding-block: var(--space-2xl) var(--space-lg);
+}
+.page-head__eyebrow, .section-eyebrow {
+	margin: 0 0 var(--space-xs);
+	font-size: 0.875rem; font-weight: 700;
+	letter-spacing: 0.12em; text-transform: uppercase;
+	color: var(--color-primary);
+}
+.page-head__title {
+	margin: 0 0 1rem;
+	font-size: clamp(1.75rem, 3vw, 2.25rem);
+	font-weight: 600; letter-spacing: 0.01em;
+}
+.page-head__lead { max-width: 720px; margin: 0 0 1.5rem; font-size: 1rem; line-height: 1.85; color: var(--color-text-muted); }
+.page-head__actions { margin: 0; }
+
+.band { padding-block: var(--space-xl); }
+.band--subtle { background: var(--color-bg-subtle); }
+.narrow > p, .narrow > ul { max-width: 720px; }
+.section-title { margin: 0 0 1.5rem; font-size: 1.5rem; font-weight: 600; }
+
+.cards { display: grid; gap: 1rem; }
+.cards--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cards--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 900px) { .cards--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .cards--2, .cards--3 { grid-template-columns: 1fr; } }
+.card {
+	background: #fff;
+	border: 1px solid var(--color-border);
+	border-top: 3px solid var(--color-primary);
+	border-radius: 6px;
+	box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+	padding: 1.25rem 1.5rem;
+}
+.card h3 { margin: 0 0 0.5rem; font-size: 1.0625rem; font-weight: 600; }
+.card p { margin: 0 0 0.5rem; font-size: 1rem; line-height: 1.8; color: var(--color-text); }
+.card p:last-child { margin-bottom: 0; }
+.card a { color: var(--color-primary); }
+.card--badge { display: flex; gap: 1rem; align-items: flex-start; }
+.card--badge img { width: 72px; height: 72px; flex-shrink: 0; }
+
+.band p { font-size: 1rem; line-height: 1.85; }
+.band .note { margin-top: 1.25rem; font-size: 0.875rem; color: var(--color-text-muted); }
+.band .note a { color: var(--color-primary); }
+</style>

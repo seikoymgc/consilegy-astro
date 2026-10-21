@@ -1,19 +1,13 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CrmSubnav from '../../../components/CrmSubnav.astro';
-import PartnerForm, { type PartnerField } from '../../../components/PartnerForm.astro';
 
 // 紹介パートナー制度（Revenue CRMを契約していない紹介者向け・報酬は銀行振込）。
 // 契約中のお客さま向けの「紹介プログラム」（利用料金から差し引く）とは別の制度。
 // あちらは /crm/pricing/ と src/data/crm-faq.ts に書いてある。率と期間（20%・12ヶ月）は揃えている。
-// 受け口は Revenue CRM の Consilegy合同会社の組織に作ったフォーム「紹介パートナー申込」。
-const FORM_ID = '5cb8761e-094f-4ead-962d-d34fd4c6f26b';
-// 1段目はメールアドレスだけ。フォーム「紹介パートナー登録（メールのみ）」。送信を配信同意として記録し、
-// ワークフローがリスト「紹介パートナー」に入れる（制度のお知らせはこのリストに送る）。
-const SIGNUP_FORM_ID = '92a9d771-1196-4fb1-a839-7d769bca43cf';
-const signupFields: PartnerField[] = [
-	{ key: 'email', label: 'メールアドレス', type: 'email', required: true, auto: 'email' },
-];
+// 申込・紹介先の登録・報酬の受け取りは、紹介パートナーサイト（referral.consilegy.com）で行う（2026-10 に移した）。
+const SIGNUP_URL = 'https://referral.consilegy.com/#signup';
+const LOGIN_URL = 'https://referral.consilegy.com/login/';
 
 // 「こんな会社や教室、身近にありませんか」。左は紹介する人が思い浮かべる状況、右はそこで変わること。
 // 法人営業（B2B）とスクール（B2C）を3行ずつにする。ファーストビューも両方を同じ重さで見せている。
@@ -39,18 +33,18 @@ const scale = [1, 3, 5, 10].map((n) => ({ n, monthly: 3000 * n, total: 36000 * n
 const yen = (v: number) => v.toLocaleString('ja-JP');
 
 const steps = [
-	{ title: '登録する', text: 'メールアドレスを登録し、続けてお名前と報酬の受け取り方を入力します。紹介文や資料をまとめた紹介キットをご案内します。' },
-	{ title: '紹介する', text: '紹介文を転送し、紹介先の同意を得たうえで紹介フォームに登録します。3営業日以内に、対象になるかどうかをお知らせします。その後の説明と商談は当社が行います。' },
-	{ title: '報酬を受け取る', text: '紹介先が30日間の無料期間を経て有料契約を始めたら、毎月の入金ごとに報酬を確定し、月末締め・翌月末に振り込みます。' },
+	{ title: '登録する', text: 'お名前とメールアドレスを登録すると、ログインリンクがメールで届きます。マイページに、紹介文や資料をまとめた紹介キットがあります。' },
+	{ title: '紹介する', text: 'あなた専用の紹介リンクつきの紹介文を転送するか、紹介先の同意を得たうえでマイページから登録します。3営業日以内に、対象になるかどうかをお知らせします。その後の説明と商談は当社が行います。' },
+	{ title: '報酬を受け取る', text: '紹介先が30日間の無料期間を経て有料契約を始めたら、毎月の入金ごとに報酬を確定し、月末締め・翌月末にお支払いします（銀行振込かPayPal）。' },
 ];
 
 const reward = [
 	{ label: '報酬', text: ['紹介先の基本プランの月額利用料金（税抜・実際にお支払いいただいた額）の20%です。', '報酬額は消費税を含みます。'] },
 	{ label: '期間', text: ['紹介先が有料契約を始めてから12ヶ月間です。'] },
 	{ label: '対象のプラン・サービス', text: ['ユーザープランと生徒数プランの月額利用料金です。', '紹介先がConsilegyに依頼した導入・定着・運用の支援（有償）も対象で、お支払いを確認した額（税抜）の10%を一度お支払いします。', 'プリペイドプラン、追加の燃料（AIの処理に使う単位）、オプションは対象外です。'] },
-	{ label: 'お支払い', text: ['月末締め・翌月末に、銀行振込でまとめてお支払いします。振込手数料は当社が負担します。', '確定した報酬の合計が5,000円に満たない月は、翌月以降に繰り越し、5,000円以上になった月にまとめてお支払いします。', '振込先は、最初の報酬が確定したときにメールで伺います。', '請求書を作っていただく必要はありません。当社から支払通知書をお送りします。'] },
+	{ label: 'お支払い', text: ['月末締め・翌月末に、まとめてお支払いします。受け取りは日本の銀行振込かPayPal（海外の方も可）で、手数料は当社が負担します。', '確定した報酬の合計が5,000円に満たない月は、翌月以降に繰り越し、5,000円以上になった月にまとめてお支払いします。', '受け取り先（銀行口座かPayPal）は、マイページで登録します。最初の報酬が確定したときにも、メールでお知らせします。', '請求書を作っていただく必要はありません。当社から支払通知書をお送りします。'] },
 	{ label: '紹介の有効期間', text: ['受理から90日以内に初回の商談（または無料期間の開始）に至った場合に、紹介した方を確定します。', 'その後12ヶ月以内に有料契約が始まれば、報酬の対象です。'] },
-	{ label: '受け取らない選択', text: ['報酬を受け取らない、という選択もできます。申込時にお選びください。'] },
+	{ label: '受け取らない選択', text: ['報酬を受け取らない、という選択もできます。マイページの登録情報で選べます。'] },
 ];
 
 const rules = [
@@ -82,27 +76,15 @@ const faq = [
 	},
 	{
 		q: 'インボイスの登録をしていなくても申し込めますか。',
-		a: 'はい。登録の有無は申込時に伺い、支払通知書の記載に使います。',
+		a: 'はい。登録している方は、マイページで登録番号を入れると、支払通知書に記載します。',
 	},
 ];
 
-const fields: PartnerField[] = [
-	{ key: 'last_name', label: '姓', type: 'text', required: true, auto: 'family-name', half: true },
-	{ key: 'first_name', label: '名', type: 'text', required: true, auto: 'given-name', half: true },
-	{ key: 'company_name', label: '会社名・屋号', type: 'text', required: false, auto: 'organization', help: '個人の方は空欄で構いません。' },
-	{ key: 'email', label: 'メールアドレス', type: 'email', required: true, auto: 'email' },
-	{ key: 'phone', label: '電話番号', type: 'tel', required: false, auto: 'tel' },
-	{ key: 'partner_audience', label: '紹介できそうな業界・相手', type: 'textarea', required: false, help: '例：顧問先の製造業、知り合いのスクール経営者など。' },
-	{ key: 'partner_payout', label: '報酬の受け取り', type: 'select', required: true, options: ['受け取る', '受け取らない'] },
-	{ key: 'partner_invoice', label: 'インボイス（適格請求書発行事業者）の登録', type: 'select', required: true, options: ['登録している', '登録していない'] },
-	{ key: 'partner_invoice_number', label: '登録番号', type: 'text', required: false, help: '登録している方だけご記入ください（T＋13桁）。', half: true },
-	{ key: 'partner_terms', label: 'このページの「紹介の決まり」に同意します。', type: 'checkbox', required: true },
-];
 ---
 
 <BaseLayout
 	title="紹介パートナー制度 | Revenue CRM | Consilegy"
-	description="Revenue CRMを紹介してくださる方のための制度です。紹介文を転送していただければ、その後の説明と商談は当社が行います。紹介先が有料契約を始めてから12ヶ月間、月額利用料金の20%を銀行振込でお支払いします。"
+	description="Revenue CRMを紹介してくださる方のための制度です。紹介文を転送していただければ、その後の説明と商談は当社が行います。紹介先が有料契約を始めてから12ヶ月間、月額利用料金の20%を銀行振込かPayPalでお支払いします。"
 	lang="ja"
 >
 <script type="application/ld+json" slot="head" set:html={JSON.stringify({
@@ -238,7 +220,7 @@ const fields: PartnerField[] = [
 				<defs><marker id="rf-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
 				<g font-family="inherit">
 				<rect x="40" y="40" width="300" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/><rect x="40" y="40" width="300" height="4" rx="2" fill="#8758C9"/><text x="58" y="74" font-size="14" fill="#64748b" letter-spacing="1">Step 1</text><text x="58" y="104" font-size="18" font-weight="600" fill="#0F172A">登録する</text>
-<text x="58" y="164" font-size="16" fill="#475569">メールアドレスだけ。無料</text>
+<text x="58" y="164" font-size="16" fill="#475569">お名前とメールアドレス。無料</text>
 <line x1="340" y1="88" x2="388" y2="88" stroke="#0F172A" stroke-width="2" marker-end="url(#rf-arr)"/>
 <rect x="392" y="40" width="300" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/><rect x="392" y="40" width="300" height="4" rx="2" fill="#8758C9"/><text x="410" y="74" font-size="14" fill="#64748b" letter-spacing="1">Step 2</text><text x="410" y="104" font-size="18" font-weight="600" fill="#0F172A">紹介する</text>
 <text x="410" y="164" font-size="16" fill="#475569">紹介文を転送。説明と商談は当社</text>
@@ -275,27 +257,18 @@ const fields: PartnerField[] = [
 <section class="rf-section" id="apply">
 	<div class="container rf-narrow">
 		<h2>紹介パートナーになる</h2>
-		<p class="rf-sub">まずはメールアドレスだけ登録してください。続けて、お名前と報酬の受け取り方を伺います。</p>
-		<div class="rf-form-panel">
-			<PartnerForm
-				formId={SIGNUP_FORM_ID}
-				fields={signupFields}
-				button="登録する"
-				done="ご登録ありがとうございます。"
-				consent
-				notice="登録すると、紹介パートナー向けのお知らせ（制度の変更や、紹介に使える新しい資料など）をメールでお送りします。配信はいつでも停止できます。"
-				next="apply-step2"
-			/>
-		</div>
-		<div class="rf-form-panel rf-step2" id="apply-step2" hidden>
-			<p class="rf-step2-head">登録しました。続けて、申込の内容を入力してください。</p>
-			<PartnerForm
-				formId={FORM_ID}
-				fields={fields}
-				button="申し込む"
-				done="お申し込みありがとうございます。当社から確認のご連絡をします。3営業日たっても連絡がない場合は、info@consilegy.comへお知らせください。紹介キットは次のページからお使いいただけます。"
-				doneLink={{ href: '/crm/referral/kit/', label: '紹介キットを開く' }}
-			/>
+		<p class="rf-sub">紹介パートナーサイトで、お名前とメールアドレスを登録してください。ログインリンクがメールで届き、マイページから紹介を始められます。</p>
+		<div class="rf-form-panel rf-apply-panel">
+			<ol class="rf-apply-list">
+				<li>お名前とメールアドレスを入れて、紹介の決まりに同意します。</li>
+				<li>メールで届くログインリンクを開きます（有効期限15分）。</li>
+				<li>マイページから、あなた専用の紹介リンクと紹介文をコピーして送ります。</li>
+			</ol>
+			<div class="rf-actions">
+				<a href={SIGNUP_URL} class="btn btn--primary">紹介パートナーサイトで登録する</a>
+				<a href={LOGIN_URL} class="btn btn--secondary">登録済みの方はログイン</a>
+			</div>
+			<p class="rf-note">紹介先を登録してから3営業日たっても連絡がない場合は、info@consilegy.comへお知らせください。</p>
 		</div>
 	</div>
 </section>
@@ -438,6 +411,11 @@ const fields: PartnerField[] = [
 	.rf-step2 { margin-top: 0; scroll-margin-top: 7rem; }
 	.rf-step2[hidden] { display: none; }
 	.rf-step2-head { margin: 0 0 var(--space-md); font-weight: 700; }
+	.rf-apply-list { margin: 0 0 var(--space-md); padding-left: 1.4rem; display: grid; gap: 0.5rem; }
+	.rf-apply-list li { line-height: 1.8; }
+	.rf-apply-panel .rf-actions { margin-top: 0; }
+	.rf-apply-panel .btn--primary { background: #CF3F12; border-color: #CF3F12; color: #fff; box-shadow: none; }
+	.rf-apply-panel .btn--primary:hover { background: #B4360F; border-color: #B4360F; color: #fff; }
 
 	@media (max-width: 900px) {
 		.rf-split { grid-template-columns: 1fr; }

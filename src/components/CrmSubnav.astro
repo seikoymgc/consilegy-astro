@@ -10,7 +10,8 @@ const lang = Astro.props.lang ?? 'ja';
 const path = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
 
 // crm.consilegy.com の公開申込み入口。/login?mode=signup へ転送され、登録後にオンボーディングへ進む。
-const SIGNUP_URL = 'https://crm.consilegy.com/signup';
+// 英語のページからは ?lang=en を付けて、新規登録の画面を英語で開く
+const SIGNUP_URL = lang === 'en' ? 'https://crm.consilegy.com/signup?lang=en' : 'https://crm.consilegy.com/signup';
 
 type Item = { label: string; href: string };
 

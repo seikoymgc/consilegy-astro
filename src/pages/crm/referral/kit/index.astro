@@ -1,13 +1,11 @@
 ---
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import CrmSubnav from '../../../../components/CrmSubnav.astro';
-import PartnerForm, { type PartnerField } from '../../../../components/PartnerForm.astro';
 
-// 紹介キット＋紹介フォーム。申込後にだけ案内するページなので noindex にし、ナビゲーションからも張らない。
+// 紹介キット。申込後にだけ案内するページなので noindex にし、ナビゲーションからも張らない。
+// 紹介先の登録と紹介リンクは、紹介パートナーのマイページ（referral.consilegy.com）に移した（2026-10）。
+// ここの紹介フォームは外し、マイページへ案内する。
 // URL を知っていれば誰でも開ける（ログインはない）。中身は公開しても困らないものだけを置く。
-// 受け口は Revenue CRM の Consilegy合同会社の組織に作ったフォーム「紹介先の登録」。
-// 紹介先のメールアドレスは text 型で受ける（PartnerForm.astro の冒頭を参照）。
-const FORM_ID = '12ff624d-6904-4511-8bcc-7bd53b03ef96';
 const DEMO_URL = 'https://crm.consilegy.com/demos';
 
 const oneLiner = 'Revenue CRMは、入力がめんどくさくない中小企業向けのCRMです。名刺は撮るだけ、商談メモは貼るだけで、記録の下書きはAIが作ります。CRM・MA・SFAの導入を40社以上支援してきた山口聖子さんが作っています。';
@@ -94,18 +92,6 @@ const answers = [
 	},
 ];
 
-const fields: PartnerField[] = [
-	{ key: 'last_name', label: 'あなたの姓', type: 'text', required: true, auto: 'family-name', half: true },
-	{ key: 'first_name', label: 'あなたの名', type: 'text', required: true, auto: 'given-name', half: true },
-	{ key: 'email', label: 'あなたのメールアドレス', type: 'email', required: true, auto: 'email', help: 'パートナーの申し込みに使ったアドレスをご記入ください。' },
-	{ key: 'referral_company', label: '紹介先の会社名', type: 'text', required: true },
-	{ key: 'referral_person', label: '紹介先のご担当者名', type: 'text', required: true, half: true },
-	{ key: 'referral_role', label: 'ご担当者の役職', type: 'text', required: false, half: true },
-	{ key: 'referral_contact', label: '紹介先の連絡先（メールアドレスまたは電話番号）', type: 'text', required: false, help: '「山口から直接連絡」を選ぶ場合だけ必要です。それ以外は空欄で構いません。' },
-	{ key: 'referral_route', label: 'つなぎ方', type: 'select', required: true, options: ['私からメール・チャットでつなぐ', '三者で会う・オンラインで話す', '山口から直接連絡してよいと、紹介先の了承を得ている'] },
-	{ key: 'referral_note', label: '紹介先の状況・お困りごと', type: 'textarea', required: false, help: '例：営業5名、顧客管理はスプレッドシート、入力が続かない。' },
-	{ key: 'referral_consent', label: '紹介先から、Consilegy合同会社に会社名と連絡先を伝えることの了承を得ています。', type: 'checkbox', required: true },
-];
 ---
 
 <BaseLayout
@@ -227,14 +213,12 @@ const fields: PartnerField[] = [
 	<div class="container rf-apply">
 		<div class="section-head">
 			<h2>紹介先を登録する</h2>
-			<p class="rf-apply-lead">送信後3営業日以内に、当社との既存の接点の有無と、対象になるかどうかをお知らせします。報酬の決まりは<a href="/crm/referral/#rules">紹介の決まり</a>をご覧ください。</p>
+			<p class="rf-apply-lead">紹介先の登録は、紹介パートナーのマイページから行います。マイページには、あなた専用の紹介リンクつきの紹介文もあります。登録から3営業日以内に、対象になるかどうかをメールでお知らせします。報酬の決まりは<a href="/crm/referral/#rules">紹介の決まり</a>をご覧ください。</p>
 		</div>
-		<PartnerForm
-			formId={FORM_ID}
-			fields={fields}
-			button="紹介先を登録する"
-			done="ご紹介ありがとうございます。3営業日以内に、山口からご連絡します。"
-		/>
+		<p class="rf-apply-actions">
+			<a class="btn btn--primary" href="https://referral.consilegy.com/login/">マイページにログインする</a>
+			<a class="btn btn--secondary" href="https://referral.consilegy.com/#signup">まだ登録していない方はこちら</a>
+		</p>
 	</div>
 </section>
 
@@ -255,6 +239,7 @@ const fields: PartnerField[] = [
 </script>
 
 <style>
+	.rf-apply-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 0; }
 	.kicker {
 		margin: 0;
 		color: var(--color-text-muted);

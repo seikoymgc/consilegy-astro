@@ -74,7 +74,7 @@ const jsonLd = {
     <section class="cta">
       <p>{t.ctaText}</p>
       <div class="cta-links">
-        <a class="btn" href="https://crm.consilegy.com/demos" target="_blank" rel="noopener noreferrer">{t.demo}</a>
+        <a class="btn" href={lang === 'en' ? 'https://crm.consilegy.com/demos?lang=en' : 'https://crm.consilegy.com/demos'} target="_blank" rel="noopener noreferrer">{t.demo}</a>
         <a class="btn ghost" href={lang === 'ja' ? '/free-consultation/' : '/en/contact/'}>{t.consult}</a>
       </div>
     </section>

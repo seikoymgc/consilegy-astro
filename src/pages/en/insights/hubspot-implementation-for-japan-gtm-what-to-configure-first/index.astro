@@ -113,7 +113,8 @@ const breadcrumbSchema = {
           <div class="article-breakdown__num">02</div>
           <div class="article-breakdown__body">
             <strong>Using country-of-company as a Japan filter instead of a dedicated market property</strong>
-            <p>Country = Japan seems like an obvious way to filter Japan contacts. The problem is that company address data in HubSpot is often incomplete, inconsistently populated, or reflects a global company's headquarters rather than the Japan entity the team is engaging with. A global enterprise with Japan offices might have country = United States on the parent company record, making their Japan contacts invisible to a Japan filter.</p>
+            <p>Country = Japan seems like an obvious way to filter Japan contacts.</p>
+            <p>The problem is that company address data in HubSpot is often incomplete, inconsistently populated, or reflects a global company's headquarters rather than the Japan entity the team is engaging with. A global enterprise with Japan offices might have country = United States on the parent company record, making their Japan contacts invisible to a Japan filter.</p>
             <p>A dedicated "Target Market" or "GTM Region" property, set explicitly when contacts enter the Japan pipeline, is the reliable foundation for Japan reporting. It doesn't depend on data quality in other fields, it's intentionally set, and it applies consistently regardless of company structure.</p>
             <p><strong>Judgment criterion:</strong> Do your Japan pipeline reports depend on country = Japan filters, or on a dedicated market property that was explicitly set for each Japan contact?</p>
           </div>
@@ -122,7 +123,8 @@ const breadcrumbSchema = {
           <div class="article-breakdown__num">03</div>
           <div class="article-breakdown__body">
             <strong>Using global deal stages that hide Japan's specific pipeline bottlenecks</strong>
-            <p>Standard deal stages (Discovery, Proposal Sent, Negotiation, Closed Won/Lost) were not designed to show where Japan enterprise deals actually stall. Japan deals typically stall at Internal Review (the buyer is building internal consensus), Legal Review (contract terms are being evaluated), or Approval Process (formal sign-off is being routed). None of these appear in global stage templates.</p>
+            <p>Standard deal stages (Discovery, Proposal Sent, Negotiation, Closed Won/Lost) were not designed to show where Japan enterprise deals actually stall.</p>
+            <p>Japan deals typically stall at Internal Review (the buyer is building internal consensus), Legal Review (contract terms are being evaluated), or Approval Process (formal sign-off is being routed). None of these appear in global stage templates.</p>
             <p>Without Japan-specific deal stages, pipeline reports will consistently show deals stuck in "Proposal Sent" for months, with no visibility into whether the buyer is actively progressing internally or whether the deal has genuinely stalled. Management cannot distinguish between a deal in active internal review and one that has gone cold, and cannot calibrate follow-up timing appropriately.</p>
             <p><strong>Judgment criterion:</strong> Do your HubSpot deal stages include Japan-specific milestones that reflect where Japan enterprise deals actually move and stall, or do they use global template stages that produce a generic pipeline view?</p>
           </div>
@@ -134,7 +136,8 @@ const breadcrumbSchema = {
 
     <section class="article-section">
       <h2>What configuring in the right order changed</h2>
-      <p>An IT back-office SaaS company had HubSpot deployed with global-default configurations. Lead volume grew steadily but SQL conversion fluctuated. Sales reported lead quality issues. Marketing had no visibility into why MQLs weren't converting. The underlying problem was that the CRM architecture had never been designed for Japan's pipeline requirements.</p>
+      <p>An IT back-office SaaS company had HubSpot deployed with global-default configurations. Lead volume grew steadily but SQL conversion fluctuated. Sales reported lead quality issues. Marketing had no visibility into why MQLs weren't converting.</p>
+      <p>The underlying problem was that the CRM architecture had never been designed for Japan's pipeline requirements.</p>
       <p>Over a 4-month engagement, the foundation was rebuilt in the correct order: Japan market property configured first, lifecycle stage definitions documented and agreed, Japan-specific deal stages added, then handoff workflow rebuilt on the stable foundation, then reporting dashboards constructed on top. Each layer depended on the one before it being stable.</p>
 
       <div class="article-callout">

@@ -62,7 +62,8 @@ const breadcrumbSchema = {
 
     <section class="article-section">
       <p>Most global revenue dashboards show aggregate data. Japan-facing pipeline gets folded into APAC or global numbers that mask how Japan is actually performing. Management makes decisions about Japan allocation, staffing, and strategy on totals driven entirely by other markets.</p>
-      <p>Revenue visibility for Japan is not just a reporting preference. It is the prerequisite for making any investment decision about Japan that is grounded in what Japan is actually doing. Without it, the team cannot tell whether Japan is performing above or below expectations, where the primary constraint in the pipeline is, or whether trends are improving or worsening.</p>
+      <p>Revenue visibility for Japan is not just a reporting preference. It is the prerequisite for making any investment decision about Japan that is grounded in what Japan is actually doing.</p>
+      <p>Without it, the team cannot tell whether Japan is performing above or below expectations, where the primary constraint in the pipeline is, or whether trends are improving or worsening.</p>
     </section>
 
     <hr class="article-hr" />
@@ -105,7 +106,8 @@ const breadcrumbSchema = {
           <div class="article-breakdown__body">
             <strong>Japan data is not separated in the CRM from the start</strong>
             <p>If Japan contacts are not tagged at the point of entry with a market, region, or target-country property, every downstream report requires manual filtering that is inconsistent, error-prone, and often skipped. The result is that Japan reporting depends on someone remembering to exclude non-Japan data, which eventually stops happening.</p>
-            <p>This is an architecture decision, not a reporting decision. It has to be made when the CRM is first configured for Japan. Retrofitting it after the data is mixed is one of the most time-consuming cleanup projects in revenue operations.</p>
+            <p>This is an architecture decision, not a reporting decision.</p>
+            <p>It has to be made when the CRM is first configured for Japan. Retrofitting it after the data is mixed is one of the most time-consuming cleanup projects in revenue operations.</p>
             <p><strong>Judgment criterion:</strong> Can you filter every contact, deal, and campaign in your CRM to Japan only, with a single property filter? If not, the data architecture needs to be fixed before reporting can be meaningful.</p>
           </div>
         </div>
@@ -113,7 +115,8 @@ const breadcrumbSchema = {
           <div class="article-breakdown__num">02</div>
           <div class="article-breakdown__body">
             <strong>Metrics are measured by acquisition volume, not downstream revenue contribution</strong>
-            <p>The natural default for marketing measurement is acquisition metrics: lead volume, cost per lead, campaign MQL count. These metrics are easy to track and feel like progress. The problem is that in Japan, the channels and campaigns that generate the most leads are often not the ones that generate the most revenue. Channels with lower lead volume but higher-intent contacts close at meaningfully higher rates.</p>
+            <p>The natural default for marketing measurement is acquisition metrics: lead volume, cost per lead, campaign MQL count. These metrics are easy to track and feel like progress.</p>
+            <p>The problem is that in Japan, the channels and campaigns that generate the most leads are often not the ones that generate the most revenue. Channels with lower lead volume but higher-intent contacts close at meaningfully higher rates.</p>
             <p>Without LTV-connected or at minimum win-rate-connected channel measurement, marketing investment accumulates in channels that look productive by acquisition metrics but are producing pipeline that doesn't close. This mismatch between marketing activity and revenue outcomes is one of the most consistent patterns in Japan GTM underperformance.</p>
             <p><strong>Judgment criterion:</strong> Do you know the closed-won rate and average deal value, by channel, for Japan leads specifically? If measurement stops at MQL count, investment decisions are being made without the information that matters.</p>
           </div>
@@ -122,7 +125,8 @@ const breadcrumbSchema = {
           <div class="article-breakdown__num">03</div>
           <div class="article-breakdown__body">
             <strong>Reporting is produced manually, not from a connected data foundation</strong>
-            <p>Japan revenue reporting that requires manual data aggregation (exporting from CRM, combining with ad platform data, preparing in a spreadsheet) is reporting that happens inconsistently, with a lag, and with accumulating data quality issues. Teams spend time producing the report instead of using it. The report reflects data from two weeks ago by the time it's reviewed.</p>
+            <p>Japan revenue reporting that requires manual data aggregation (exporting from CRM, combining with ad platform data, preparing in a spreadsheet) is reporting that happens inconsistently, with a lag, and with accumulating data quality issues.</p>
+            <p>Teams spend time producing the report instead of using it. The report reflects data from two weeks ago by the time it's reviewed.</p>
             <p>A connected data foundation (CRM with Japan properties properly configured, website tracking linked to contact records, pipeline reporting built on real-time data) eliminates the aggregation work and makes Japan visibility something the team actually uses rather than something that gets produced monthly.</p>
             <p><strong>Judgment criterion:</strong> How long does it take to answer the question "what is Japan's MQL-to-SQL conversion rate this quarter?" If the answer is "I need to pull a report," the foundation isn't connected yet.</p>
           </div>
@@ -134,8 +138,11 @@ const breadcrumbSchema = {
 
     <section class="article-section">
       <h2>What Japan-specific visibility changed</h2>
-      <p>A major enterprise launched a new subscription e-commerce business with a custom system architecture. Close to launch, the team had no visibility into which acquisition activities were driving revenue, which users were likely to retain, or how to evaluate channel performance in terms of long-term value. Metrics weren't designed around recurring revenue dynamics. Data aggregation was manual and slow.</p>
-      <p>Over a 9-month engagement, a data architecture was built that connected user behavior to revenue outcomes, specifically for subscription dynamics. GA4, Amplitude, and Looker Studio were unified into a structure that gave the team real-time visibility into business performance without manual aggregation. Shared subscription metrics (LTV, retention rate, churn) were established across marketing, product, and management.</p>
+      <p>A major enterprise launched a new subscription e-commerce business with a custom system architecture.</p>
+      <p>Close to launch, the team had no visibility into which acquisition activities were driving revenue, which users were likely to retain, or how to evaluate channel performance in terms of long-term value.</p>
+      <p>Metrics weren't designed around recurring revenue dynamics. Data aggregation was manual and slow.</p>
+      <p>Over a 9-month engagement, a data architecture was built that connected user behavior to revenue outcomes, specifically for subscription dynamics.</p>
+      <p>GA4, Amplitude, and Looker Studio were unified into a structure that gave the team real-time visibility into business performance without manual aggregation. Shared subscription metrics (LTV, retention rate, churn) were established across marketing, product, and management.</p>
 
       <div class="article-callout">
         <p><strong>Marketing investment shifted to LTV-based channel allocation. High-retention acquisition channels were identified by downstream revenue contribution, not volume. Product iteration accelerated because behavioral insights were connected to retention data, not just pageviews.</strong></p>

@@ -61,8 +61,10 @@ const breadcrumbSchema = {
   <article class="article-body container" id="article">
 
     <section class="article-section">
-      <p>CRM implementation projects fail at a consistently high rate. The failure is rarely caused by the tool. HubSpot, Salesforce, and comparable platforms are capable of supporting sophisticated revenue operations. The failure is almost always caused by the same missing layer: the revenue architecture that the CRM is supposed to implement was never designed first.</p>
-      <p>Revenue architecture is the operating model that defines what the CRM is supposed to do: how leads are classified, who owns them at each stage, what the handoff criteria are, what the pipeline stages mean, and what the reporting is supposed to show. When this model is missing, the CRM has no structure to implement. It becomes a contact database with inconsistent usage, logging activity without generating the pipeline visibility that justified the investment.</p>
+      <p>CRM implementation projects fail at a consistently high rate. The failure is rarely caused by the tool.</p>
+      <p>HubSpot, Salesforce, and comparable platforms are capable of supporting sophisticated revenue operations. The failure is almost always caused by the same missing layer: the revenue architecture that the CRM is supposed to implement was never designed first.</p>
+      <p>Revenue architecture is the operating model that defines what the CRM is supposed to do: how leads are classified, who owns them at each stage, what the handoff criteria are, what the pipeline stages mean, and what the reporting is supposed to show.</p>
+      <p>When this model is missing, the CRM has no structure to implement. It becomes a contact database with inconsistent usage, logging activity without generating the pipeline visibility that justified the investment.</p>
     </section>
 
     <hr class="article-hr" />
@@ -104,8 +106,10 @@ const breadcrumbSchema = {
           <div class="article-breakdown__num">01</div>
           <div class="article-breakdown__body">
             <strong>CRM configured before lifecycle stages and qualification criteria were defined</strong>
-            <p>The healthtech company had implemented HubSpot with six pipeline stages: New Lead, Contacted, Qualified, Demo Completed, Proposal Sent, Closed. These stages were adopted directly from HubSpot's default sales pipeline template. Nobody had defined what "Qualified" meant in the company's specific context, which customers qualified, what signals indicated qualification, or who made the qualification decision. Each team member interpreted it differently.</p>
-            <p>When the architecture layer was added (defining qualification criteria specifically for the company's customer base, documenting who owns each stage transition, and reconfiguring the pipeline to reflect actual deal progression), the pipeline stage distribution changed significantly. Several contacts that had been marked "Qualified" for months were reclassified as early-stage. The pipeline looked smaller, but it was accurate. Management could make decisions from it for the first time.</p>
+            <p>The healthtech company had implemented HubSpot with six pipeline stages: New Lead, Contacted, Qualified, Demo Completed, Proposal Sent, Closed. These stages were adopted directly from HubSpot's default sales pipeline template.</p>
+            <p>Nobody had defined what "Qualified" meant in the company's specific context, which customers qualified, what signals indicated qualification, or who made the qualification decision. Each team member interpreted it differently.</p>
+            <p>When the architecture layer was added (defining qualification criteria specifically for the company's customer base, documenting who owns each stage transition, and reconfiguring the pipeline to reflect actual deal progression), the pipeline stage distribution changed significantly.</p>
+            <p>Several contacts that had been marked "Qualified" for months were reclassified as early-stage. The pipeline looked smaller, but it was accurate. Management could make decisions from it for the first time.</p>
             <p><strong>Judgment criterion:</strong> Were lifecycle stage definitions, qualification criteria, and handoff rules documented and agreed on before the CRM was configured, or was the CRM configured first and the definitions interpreted afterward?</p>
           </div>
         </div>
@@ -113,8 +117,11 @@ const breadcrumbSchema = {
           <div class="article-breakdown__num">02</div>
           <div class="article-breakdown__body">
             <strong>No ownership rules: contacts logged but not worked</strong>
-            <p>The healthtech company's HubSpot had a contact ownership field, but ownership assignment was informal. When a new contact entered, whoever noticed it first either took ownership or left it for someone else. No rule defined what happened at which trigger. No task was created at ownership assignment. No SLA specified when the first action needed to happen.</p>
-            <p>The result: contacts that had been assigned for weeks with no activity. The CRM showed ownership, it didn't show inaction. A simple configuration change, creating a task automatically at ownership assignment, with a 48-hour completion window, made the gap visible immediately. The number of contacts with overdue tasks was the first honest picture management had seen of how the team was actually handling inbound leads.</p>
+            <p>The healthtech company's HubSpot had a contact ownership field, but ownership assignment was informal. When a new contact entered, whoever noticed it first either took ownership or left it for someone else.</p>
+            <p>No rule defined what happened at which trigger. No task was created at ownership assignment. No SLA specified when the first action needed to happen.</p>
+            <p>The result: contacts that had been assigned for weeks with no activity. The CRM showed ownership, it didn't show inaction.</p>
+            <p>A simple configuration change, creating a task automatically at ownership assignment, with a 48-hour completion window, made the gap visible immediately.</p>
+            <p>The number of contacts with overdue tasks was the first honest picture management had seen of how the team was actually handling inbound leads.</p>
             <p><strong>Judgment criterion:</strong> When a lead enters the CRM and is assigned, does a task automatically appear for the owner, with a defined deadline that makes inaction visible to management?</p>
           </div>
         </div>
@@ -123,7 +130,9 @@ const breadcrumbSchema = {
           <div class="article-breakdown__body">
             <strong>Data management treated as a CRM maintenance task, not as a structural design problem</strong>
             <p>The healthtech company had a team member spending approximately 100 hours per month on HubSpot data management: merging duplicate contacts, correcting stage assignments, updating ownership records, and cleaning contact properties that had been filled in inconsistently. This was treated as a maintenance necessity, the cost of keeping the CRM usable.</p>
-            <p>The root cause was structural: the CRM was configured with optional fields that became inconsistently filled, default settings that allowed duplicate creation, and no validation rules that prevented common data quality errors at the point of entry. Adding required fields for key properties, configuring duplicate detection, and building validation into the CRM's intake flows reduced data management time by approximately 65% within 3 months. The maintenance task had been treated as inevitable. It was actually a solvable design problem.</p>
+            <p>The root cause was structural: the CRM was configured with optional fields that became inconsistently filled, default settings that allowed duplicate creation, and no validation rules that prevented common data quality errors at the point of entry.</p>
+            <p>Adding required fields for key properties, configuring duplicate detection, and building validation into the CRM's intake flows reduced data management time by approximately 65% within 3 months.</p>
+            <p>The maintenance task had been treated as inevitable. It was actually a solvable design problem.</p>
             <p><strong>Judgment criterion:</strong> Are your CRM's most common data quality problems caused by inconsistent data entry, which configuration changes could prevent, or by deliberate decisions to ignore data standards?</p>
           </div>
         </div>
@@ -151,21 +160,24 @@ const breadcrumbSchema = {
           <div class="article-breakdown__num">01</div>
           <div class="article-breakdown__body">
             <strong>Audit your current CRM pipeline stages against your actual deal progression</strong>
-            <p>Pull every deal currently in the pipeline. For each one, check: does the stage this deal is in actually reflect where it is in the buying process? If more than 20% of active deals feel misclassified against their current stage, the stage definitions aren't working. Document what each stage should require before a deal advances, and rebuild the definitions around those requirements, not around HubSpot's defaults.</p>
+            <p>Pull every deal currently in the pipeline. For each one, check: does the stage this deal is in actually reflect where it is in the buying process?</p>
+            <p>If more than 20% of active deals feel misclassified against their current stage, the stage definitions aren't working. Document what each stage should require before a deal advances, and rebuild the definitions around those requirements, not around HubSpot's defaults.</p>
           </div>
         </div>
         <div class="article-breakdown__item">
           <div class="article-breakdown__num">02</div>
           <div class="article-breakdown__body">
             <strong>Add required fields and duplicate detection to prevent the most common data quality errors</strong>
-            <p>Identify the top 3 data quality problems in your CRM (typically: duplicates, missing company association, inconsistently filled qualification fields). Configure HubSpot to prevent each one at the point of entry: required fields for key properties, duplicate detection on contact creation, and validation rules that flag likely errors before they get saved. This reduces maintenance burden faster than any other single change.</p>
+            <p>Identify the top 3 data quality problems in your CRM (typically: duplicates, missing company association, inconsistently filled qualification fields).</p>
+            <p>Configure HubSpot to prevent each one at the point of entry: required fields for key properties, duplicate detection on contact creation, and validation rules that flag likely errors before they get saved. This reduces maintenance burden faster than any other single change.</p>
           </div>
         </div>
         <div class="article-breakdown__item">
           <div class="article-breakdown__num">03</div>
           <div class="article-breakdown__body">
             <strong>Configure task creation at ownership assignment with a defined completion window</strong>
-            <p>Set up a HubSpot workflow that creates a task automatically when a contact is assigned to an owner, with a completion deadline (start with 48 hours for inbound leads). This makes inaction visible immediately, owners see overdue tasks, managers see which assignments are not being worked. It costs one hour to configure and produces more operational accountability than any management process intervention.</p>
+            <p>Set up a HubSpot workflow that creates a task automatically when a contact is assigned to an owner, with a completion deadline (start with 48 hours for inbound leads). This makes inaction visible immediately, owners see overdue tasks, managers see which assignments are not being worked.</p>
+            <p>It costs one hour to configure and produces more operational accountability than any management process intervention.</p>
           </div>
         </div>
       </div>

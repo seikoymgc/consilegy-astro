@@ -61,7 +61,8 @@ const breadcrumbSchema = {
   <article class="article-body container" id="article">
 
     <section class="article-section">
-      <p>HubSpot has two separate systems for tracking where a contact is: lifecycle stage and lead status. Many Japan GTM teams use only one, or use both interchangeably. The result is pipeline reports that don't accurately reflect where contacts actually are, handoff logic that fires at the wrong moments, and sales activity that isn't tracked in a way that connects back to revenue outcomes.</p>
+      <p>HubSpot has two separate systems for tracking where a contact is: lifecycle stage and lead status. Many Japan GTM teams use only one, or use both interchangeably.</p>
+      <p>The result is pipeline reports that don't accurately reflect where contacts actually are, handoff logic that fires at the wrong moments, and sales activity that isn't tracked in a way that connects back to revenue outcomes.</p>
       <p>Understanding the distinction between the two systems, and configuring each for Japan's specific buying context, is the foundational step that makes everything else in HubSpot's pipeline reporting work correctly.</p>
     </section>
 
@@ -104,8 +105,11 @@ const breadcrumbSchema = {
           <div class="article-breakdown__num">01</div>
           <div class="article-breakdown__body">
             <strong>Lifecycle stages advance based on sales activity rather than buyer position</strong>
-            <p>Lifecycle stage should reflect where the buyer is in the evaluation process, a state that is defined by what the buyer has done and confirmed, not what the sales team has done. When lifecycle stages advance because a sales rep marked a contact as "contacted" or "responded," the stage data reflects sales effort rather than buyer readiness. This makes pipeline reports unreliable: a large MQL count might mean many buyers are genuinely ready, or it might mean many contacts have simply received an email.</p>
-            <p>For Japan specifically, this creates a second-order problem. Japan buyers engage slowly and their engagement signals are often subtle. A contact who opened one email and visited the pricing page once may be a strong Japan MQL by behavioral intent, or may be noise. Without clean lifecycle stage definitions tied to buyer behavior rather than sales activity, these cannot be distinguished.</p>
+            <p>Lifecycle stage should reflect where the buyer is in the evaluation process, a state that is defined by what the buyer has done and confirmed, not what the sales team has done.</p>
+            <p>When lifecycle stages advance because a sales rep marked a contact as "contacted" or "responded," the stage data reflects sales effort rather than buyer readiness.</p>
+            <p>This makes pipeline reports unreliable: a large MQL count might mean many buyers are genuinely ready, or it might mean many contacts have simply received an email.</p>
+            <p>For Japan specifically, this creates a second-order problem. Japan buyers engage slowly and their engagement signals are often subtle.</p>
+            <p>A contact who opened one email and visited the pricing page once may be a strong Japan MQL by behavioral intent, or may be noise. Without clean lifecycle stage definitions tied to buyer behavior rather than sales activity, these cannot be distinguished.</p>
             <p><strong>Judgment criterion:</strong> Can you explain the criteria that move a contact from Lead to MQL, and from MQL to SQL, in terms of what the buyer did, not what the sales team did?</p>
           </div>
         </div>
@@ -113,8 +117,10 @@ const breadcrumbSchema = {
           <div class="article-breakdown__num">02</div>
           <div class="article-breakdown__body">
             <strong>Lead status values don't reflect Japan's follow-up reality</strong>
-            <p>HubSpot's default lead status values (New, Open, In Progress, Open Deal, Unqualified, Attempted to Contact, Connected, Bad Timing) were designed for markets with shorter follow-up cycles. In Japan, the "Attempting" phase can last weeks without being a sign of a bad lead: Japan enterprise buyers respond to initial outreach more slowly and often need multiple touches spread over a longer timeline before engaging.</p>
-            <p>Teams that use global lead status values for Japan will routinely mark Japan contacts as "Attempted to Contact" and deprioritize them after two or three touches, missing leads that were genuinely interested but moving at Japan's pace. Lead status values for Japan should include explicit states for extended follow-up windows and a clear process for how long to wait before changing status to Unqualified.</p>
+            <p>HubSpot's default lead status values (New, Open, In Progress, Open Deal, Unqualified, Attempted to Contact, Connected, Bad Timing) were designed for markets with shorter follow-up cycles.</p>
+            <p>In Japan, the "Attempting" phase can last weeks without being a sign of a bad lead: Japan enterprise buyers respond to initial outreach more slowly and often need multiple touches spread over a longer timeline before engaging.</p>
+            <p>Teams that use global lead status values for Japan will routinely mark Japan contacts as "Attempted to Contact" and deprioritize them after two or three touches, missing leads that were genuinely interested but moving at Japan's pace.</p>
+            <p>Lead status values for Japan should include explicit states for extended follow-up windows and a clear process for how long to wait before changing status to Unqualified.</p>
             <p><strong>Judgment criterion:</strong> Does your Japan lead status workflow include an explicit "Extended Follow-Up" or equivalent state that accounts for Japan's slower response timeline, distinguishing cold from slow?</p>
           </div>
         </div>
@@ -123,7 +129,8 @@ const breadcrumbSchema = {
           <div class="article-breakdown__body">
             <strong>Handoff triggers conflate lifecycle stage change with lead status change</strong>
             <p>The handoff from marketing to sales should trigger when a contact reaches MQL, a lifecycle stage change that should fire automatically when the defined qualification criteria are met. Sales follow-up reminders and escalations should trigger based on lead status changes: no response after X days in "New," task created when status moves to "Attempting."</p>
-            <p>When these two trigger types are mixed (when a lifecycle stage change creates a follow-up task, or when a lead status change advances the lifecycle stage), the result is either duplicate notifications that sales learns to ignore, or missed handoffs because the trigger was configured on the wrong property. For Japan, where the timing of sales outreach affects relationship quality, getting this wiring right matters.</p>
+            <p>When these two trigger types are mixed (when a lifecycle stage change creates a follow-up task, or when a lead status change advances the lifecycle stage), the result is either duplicate notifications that sales learns to ignore, or missed handoffs because the trigger was configured on the wrong property.</p>
+            <p>For Japan, where the timing of sales outreach affects relationship quality, getting this wiring right matters.</p>
             <p><strong>Judgment criterion:</strong> Are your HubSpot enrollment triggers for handoff workflows set on lifecycle stage change, and your follow-up task reminders set on lead status change, as separate, distinct automations?</p>
           </div>
         </div>
@@ -134,8 +141,10 @@ const breadcrumbSchema = {
 
     <section class="article-section">
       <h2>What separating the two systems changed</h2>
-      <p>An IT back-office SaaS company had MQL volume growing but sales couldn't see which leads were worth pursuing. There was no quantitative model for prioritizing leads by conversion likelihood. SQL conversion rates fluctuated, making forecasting unreliable. Marketing had no visibility into what happened to leads after handoff.</p>
-      <p>After separating lifecycle stages and lead status into distinct systems (each with clear definitions, documented ownership rules, and proper automation triggers), the team could see where each contact was in the buyer journey independently of where sales was in the follow-up process. Behavior-based lead scoring was added to prioritize within the MQL pool. Stage-specific nurturing was aligned to lifecycle stage, not lead status.</p>
+      <p>An IT back-office SaaS company had MQL volume growing but sales couldn't see which leads were worth pursuing.</p>
+      <p>There was no quantitative model for prioritizing leads by conversion likelihood. SQL conversion rates fluctuated, making forecasting unreliable. Marketing had no visibility into what happened to leads after handoff.</p>
+      <p>After separating lifecycle stages and lead status into distinct systems (each with clear definitions, documented ownership rules, and proper automation triggers), the team could see where each contact was in the buyer journey independently of where sales was in the follow-up process.</p>
+      <p>Behavior-based lead scoring was added to prioritize within the MQL pool. Stage-specific nurturing was aligned to lifecycle stage, not lead status.</p>
 
       <div class="article-callout">
         <p><strong>MQL-to-SQL conversion increased by up to 20%. Sales reduced time on low-quality leads and focused on high-intent prospects. Forecasting became reliable because pipeline stages reflected actual buyer position rather than sales activity.</strong></p>
@@ -152,7 +161,8 @@ const breadcrumbSchema = {
           <div class="article-breakdown__num">01</div>
           <div class="article-breakdown__body">
             <strong>Audit your current lifecycle stage and lead status values and document what each one means</strong>
-            <p>Write down what criteria must be true for a contact to be in each lifecycle stage. Then write down what each lead status value means in terms of sales activity. If the two systems overlap (if stage definitions include sales actions, or if status values describe buyer position), that is the configuration problem to fix first.</p>
+            <p>Write down what criteria must be true for a contact to be in each lifecycle stage. Then write down what each lead status value means in terms of sales activity.</p>
+            <p>If the two systems overlap (if stage definitions include sales actions, or if status values describe buyer position), that is the configuration problem to fix first.</p>
           </div>
         </div>
         <div class="article-breakdown__item">
@@ -166,7 +176,8 @@ const breadcrumbSchema = {
           <div class="article-breakdown__num">03</div>
           <div class="article-breakdown__body">
             <strong>Separate handoff workflow triggers from follow-up task triggers</strong>
-            <p>Configure your MQL → Sales handoff workflow to enroll based on lifecycle stage change to MQL. Configure your follow-up reminder and escalation workflows to enroll based on lead status changes. Keep the two automation systems separate so lifecycle stage reports reflect buyer position and lead status reports reflect sales activity, and neither contaminates the other.</p>
+            <p>Configure your MQL → Sales handoff workflow to enroll based on lifecycle stage change to MQL. Configure your follow-up reminder and escalation workflows to enroll based on lead status changes.</p>
+            <p>Keep the two automation systems separate so lifecycle stage reports reflect buyer position and lead status reports reflect sales activity, and neither contaminates the other.</p>
           </div>
         </div>
       </div>

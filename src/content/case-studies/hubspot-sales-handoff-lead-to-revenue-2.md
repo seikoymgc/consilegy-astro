@@ -41,7 +41,7 @@ draft: false
 <section class="cs-section">
   <h2 class="cs-label">Result</h2>
   <ul>
-    <li>The number of opportunities grew and MQL-to-opportunity conversion reached 20%</li>
+    <li>MQL-to-opportunity conversion rose 20% without adding MQLs, and the number of opportunities grew</li>
     <li>Sales time on low-quality leads reduced: teams focused on high-intent prospects</li>
     <li>Pipeline visibility gave marketing a clear line-of-sight to revenue outcomes</li>
     <li>Reduced CAC through more effective nurturing rather than increased paid acquisition</li>

@@ -1,0 +1,161 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+const decided = '2026年10月21日';
+---
+
+<BaseLayout
+	title="DX推進の取り組み | Consilegy"
+	description="Consilegy合同会社のDX推進の取り組み。経営ビジョン、DX戦略、推進体制、IT環境の整備、成果指標、代表メッセージ、サイバーセキュリティ対策を公表しています。"
+	lang="ja"
+>
+	<header class="page-head container">
+		<p class="page-head__eyebrow">Digital Transformation</p>
+		<h1 class="page-head__title">DX推進の取り組み</h1>
+		<p class="page-head__meta">決定日：{decided}</p>
+	</header>
+
+	<article class="container prose legal-body">
+
+		<p class="intro">
+			本ページの方針は、{decided}、当社の意思決定機関である代表社員の決定により定めたものです。当社は取締役会を置かない合同会社のため、取締役会に準ずる機関として、業務を執行する代表社員が決定しています。
+		</p>
+
+		<h2>1. 経営ビジョンと、データ・デジタル技術の活用の方向性</h2>
+		<p>Consilegyは「社会に選択肢を増やす」ことを使命とする、B2Bの売上設計（Revenue Architecture）の会社です。人がシステムに合わせるのではなく、システムが人に合わせる働き方を、まず自社で実現します。</p>
+		<p>そのために、商談・顧客・支援の記録といった自社のデータを、自社開発の顧客管理システム「Revenue CRM」に集め、AIで入力と判断の手間を減らします。少人数でも、時間や場所を選んで働きながら顧客との関係を切らさずに育て、そこで得た知見を製品と支援に戻すことを目指します。</p>
+
+		<h2>2. DX戦略</h2>
+		<h3>戦略1　自社の営業データを一元化し、AIで次の行動を決める</h3>
+		<p>当社自身の営業・顧客管理はRevenue CRMで行っています。名刺、メール、会議の議事録、問い合わせ、紹介経由の案件を集め、AIが議事録から連絡先とタスクを作り、顧客ごとに次の行動を提案します。止まっている商談はメールとSlackで知らせ、取りこぼしを防ぎます。経路別の商談化・成約のデータを分析し、営業に使う時間の配分を決めます。</p>
+		<h3>戦略2　導入・定着支援の知見をデータ化し、製品と支援に戻す</h3>
+		<p>支援で聞き取った業務フロー、設定内容、つまずきやすい点を、案件ごとに社内wikiと顧客管理システムに記録します。蓄積したデータを業種・規模別に分析し、初期設定の型や操作動画・ヘルプ記事として再利用します。一件ごとの立ち上げ工数を減らし、少人数で支援できる社数を増やします。</p>
+		<h3>戦略3　製品の利用データで、改善と定着支援の優先順位を決める</h3>
+		<p>Revenue CRMの利用状況（ログイン、使われている機能、入力の量）を分析し、使われていない機能の改善や、利用が減っている導入先への早めの支援につなげます。</p>
+
+		<h2>3. 推進体制と人材</h2>
+		<p>DX戦略は代表社員が責任者として自ら推進し、データの設計、戦略1〜3の進捗管理、指標の確認を担います。スタッフと業務委託のパートナーが、日々のデータ入力とナレッジ化を担います。</p>
+		<p>人材については、スタッフが顧客管理システムの操作とデータの確認を自分でできるよう、製品の操作動画とヘルプ記事を社内教育にも使います。専門的な開発・デザインは外部のパートナーと組み、必要なスキルを確保します。</p>
+
+		<h2>4. IT環境の整備</h2>
+		<ul>
+			<li>自社のデータ基盤としてRevenue CRMを使い、顧客・商談・支援記録を一か所に置く</li>
+			<li>APIなどでメール、Googleカレンダー、Slack、問い合わせフォームなどとつなぎ、手入力をなくす</li>
+			<li>業務はクラウドで行い、国内外どこからでも同じデータで働けるようにする</li>
+			<li>AIエージェントを議事録・名刺の取り込みや定型作業に組み込む</li>
+		</ul>
+
+		<h2>5. 成果指標</h2>
+		<table class="info-table">
+			<thead><tr><th>対応する戦略</th><th>指標</th></tr></thead>
+			<tbody>
+				<tr><td>戦略1</td><td>新規接点から商談化した割合、接点から商談までの日数</td></tr>
+				<tr><td>戦略1</td><td>顧客情報の記録にかかる時間</td></tr>
+				<tr><td>戦略2</td><td>ナレッジ化した支援案件の件数、1社あたりの立ち上げ工数</td></tr>
+				<tr><td>戦略3</td><td>導入先の継続利用率、利用データから実施した改善の件数</td></tr>
+			</tbody>
+		</table>
+
+		<h2>6. 代表メッセージ</h2>
+		<div class="message">
+			<img class="message__photo" src="/images/common/seiko-yamaguchi-2026b.jpg" alt="Consilegy合同会社 代表社員 山口 聖子" width="160" height="160" loading="lazy" />
+			<div>
+				<p>当社は、顧客との関係を部署や担当者、ツールの境界で切らない仕組みをつくってきました。その仕組みを、まず自分たちの働き方で確かめています。</p>
+				<p>少人数で、時間や場所を選んで働く。それを支えるのは、人の頭の中ではなくデータに残った記録です。商談も支援もRevenue CRMに集め、AIに任せられることは任せ、人は顧客と向き合う時間に使います。そこで得た学びは、製品と支援に戻していきます。</p>
+				<p>人がシステムに合わせるのではなく、システムが人に合わせる。その働き方を、自社から実現していきます。</p>
+				<p class="signature">{decided}<br />Consilegy合同会社 代表社員 山口 聖子</p>
+			</div>
+		</div>
+
+		<h2>7. サイバーセキュリティ対策</h2>
+		<p>当社は顧客データを扱う事業者として、<a href="/security-policy/">情報セキュリティ基本方針</a>に基づき、次の対策を実施しています。</p>
+		<ul>
+			<li>業務で使うクラウドサービス（Google Workspace、Revenue CRMなど）に2段階認証を設定</li>
+			<li>パスワード管理ツールを使い、パスワードを使い回さない</li>
+			<li>スタッフ・業務委託先には業務に必要な範囲だけ権限を付与し、契約終了時はすぐにアカウントを停止</li>
+			<li>端末のOS・ソフトウェアを最新に保ち、ログインパスワードとディスク暗号化を設定</li>
+			<li>顧客データはクラウドに保管して個人端末に残さず、バックアップを取得</li>
+			<li>スタッフ・業務委託先と秘密保持を取り決め、不審なメールや公共Wi-Fiの扱いを周知</li>
+			<li>自社製品Revenue CRMでは通信の暗号化、アクセスログの記録、ユーザーごとの権限設定を実施</li>
+			<li>代表社員が実施状況を定期的に点検する</li>
+		</ul>
+
+	</article>
+</BaseLayout>
+
+<style>
+.page-head {
+	padding-block: var(--space-2xl) var(--space-lg);
+	max-width: 800px;
+}
+.page-head__eyebrow {
+	margin: 0 0 var(--space-xs);
+	font-size: 0.85rem; font-weight: 700;
+	letter-spacing: 0.12em; text-transform: uppercase;
+	color: var(--color-primary);
+}
+.page-head__title {
+	margin: 0 0 0.5rem;
+	font-size: clamp(1.75rem, 3vw, 2.25rem);
+	font-weight: 600; letter-spacing: 0.01em;
+}
+.page-head__meta {
+	margin: 0; font-size: 0.875rem; color: var(--color-text-muted);
+}
+
+.legal-body {
+	padding-bottom: var(--space-2xl);
+	max-width: 800px;
+}
+.intro {
+	font-size: 0.9875rem; line-height: 1.85; color: var(--color-text-muted);
+	margin-bottom: 2.5rem;
+}
+.legal-body h2 {
+	font-size: 1.0625rem; font-weight: 600; color: var(--color-text);
+	margin: 2.5rem 0 0.875rem;
+	padding-left: 0.875rem; border-left: 3px solid var(--color-primary);
+	line-height: 1.45;
+}
+.legal-body p, .legal-body address {
+	font-size: 0.9375rem; line-height: 1.85; color: var(--color-text);
+	margin: 0 0 1rem;
+}
+.legal-body ul, .legal-body ol {
+	padding-left: 1.375rem; margin: 0 0 1rem;
+}
+.legal-body li {
+	font-size: 0.9375rem; line-height: 1.8; color: var(--color-text);
+	margin-bottom: 0.375rem;
+}
+.note-inline {
+	display: inline-block; font-size: 0.8375rem;
+	color: var(--color-text-muted); margin-top: 0.25rem; line-height: 1.7;
+}
+.legal-body a { color: var(--color-primary); text-decoration: underline; }
+.legal-body a:hover { opacity: 0.8; }
+.legal-body address { font-style: normal; }
+
+.info-table {
+	width: 100%; border-collapse: collapse;
+	font-size: 0.9rem; margin: 0.75rem 0 1.5rem;
+	border: 1px solid var(--color-border); border-radius: 8px; overflow: hidden;
+}
+.info-table th, .info-table td {
+	padding: 0.75rem 1rem; border-bottom: 1px solid var(--color-border);
+	text-align: left; vertical-align: top; line-height: 1.65;
+}
+.info-table tr:last-child th, .info-table tr:last-child td { border-bottom: none; }
+.info-table th {
+	background: var(--color-bg-subtle); font-weight: 600;
+	color: var(--color-text-muted); white-space: nowrap; width: 160px;
+}
+.info-table thead th {
+	background: var(--color-navy, #0f172a); color: #fff;
+}
+.info-table td { color: var(--color-text); }
+.legal-body h3 { font-size: 1rem; font-weight: 600; margin: 1.5rem 0 0.5rem; color: var(--color-text); }
+.message { display: flex; gap: 1.5rem; align-items: flex-start; }
+.message__photo { width: 160px; height: 160px; object-fit: cover; border-radius: 6px; flex-shrink: 0; }
+.signature { margin-top: 1.5rem; text-align: right; }
+@media (max-width: 640px) { .message { flex-direction: column; } }
+</style>

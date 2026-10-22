@@ -1,0 +1,42 @@
+---
+// トップページのヒーロー直下に、最新のニュースを1件だけ出す細い帯。
+// ニュースは src/data/news.ts（日本語）/ news-en.ts（英語）の先頭が自動で出る。
+import { news, formatNewsDate } from '../data/news';
+import { newsEn, formatNewsDateEn } from '../data/news-en';
+
+interface Props { lang?: 'ja' | 'en' }
+const { lang = 'ja' } = Astro.props;
+const en = lang === 'en';
+const item = (en ? newsEn : news)[0];
+const base = en ? '/en/news/' : '/news/';
+const href = item.slug ? `${base}${item.slug}/` : base;
+const date = en ? formatNewsDateEn(item.date) : formatNewsDate(item.date);
+---
+{item && (
+	<section class="news-latest" aria-label={en ? 'Latest news' : '最新のニュース'}>
+		<div class="news-latest__inner">
+			<span class="news-latest__label">News</span>
+			<time class="news-latest__date" datetime={item.date}>{date}</time>
+			<a class="news-latest__title" href={href}>{item.title}</a>
+			<a class="news-latest__all" href={base}>{en ? 'All news →' : '一覧を見る →'}</a>
+		</div>
+	</section>
+)}
+
+<style>
+	.news-latest { background: #fff; border-block: 1px solid var(--color-border); padding-block: 0 !important; }
+	.news-latest__inner {
+		max-width: 1160px; margin-inline: auto; padding: 1rem 2rem;
+		display: flex; align-items: baseline; gap: 1rem 1.25rem; flex-wrap: wrap;
+	}
+	.news-latest__label { font-size: 0.875rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-navy); }
+	.news-latest__date { font-size: 0.875rem; color: var(--color-text-muted); }
+	.news-latest__title { flex: 1 1 20rem; font-size: 1rem; color: var(--color-text); text-decoration: none; }
+	.news-latest__title:hover { color: var(--color-primary); text-decoration: underline; }
+	.news-latest__all { font-size: 0.875rem; font-weight: 600; color: var(--color-primary); text-decoration: none; white-space: nowrap; }
+	.news-latest__all:hover { text-decoration: underline; }
+	@media (max-width: 640px) {
+		.news-latest__inner { padding: 0.875rem 1.25rem; gap: 0.25rem 0.75rem; }
+		.news-latest__title { flex-basis: 100%; }
+	}
+</style>

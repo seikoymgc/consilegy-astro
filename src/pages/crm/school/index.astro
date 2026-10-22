@@ -294,7 +294,7 @@ const roles = [
 <section class="support">
 	<div class="container">
 		<figure class="flow-figure" aria-labelledby="flow-figure-caption">
-			<svg viewBox="0 0 1120 316" role="img" aria-label="生徒の流れ：体験、入会、受講、継続か休会。LINEで予約・課題・催促が届く">
+			<svg class="fig-pc" viewBox="0 0 1120 316" role="img" aria-label="生徒の流れ：体験、入会、受講、継続か休会。LINEで予約・課題・催促が届く">
 				<defs><marker id="sc-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
 				<g font-family="inherit">
 				<rect x="40" y="100" width="236" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/><rect x="40" y="100" width="236" height="4" rx="2" fill="#FF5C3E"/><text x="58" y="134" font-size="14" fill="#64748b" letter-spacing="1">Trial</text><text x="58" y="164" font-size="18" font-weight="600" fill="#0F172A">体験</text>
@@ -316,6 +316,46 @@ const roles = [
 				</g>
 				<rect x="40" y="252" width="1052" height="48" rx="6" fill="#0F172A"/>
 				<text x="566" y="282" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">講師は画面を開けば今日やることが分かる。探す・まとめる・催促するはシステムが持つ</text>
+				</g>
+			</svg>
+			<svg class="fig-sp" viewBox="0 0 360 830" role="img" aria-label="生徒の流れ：体験、入会、受講、継続か休会。LINEで予約・課題・催促が届く">
+				<defs><marker id="sc-sp-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
+				<g font-family="inherit">
+				<rect x="16" y="16" width="328" height="142" rx="6" fill="#FF5C3E"/>
+				<text x="32" y="42" font-size="14" font-weight="700" letter-spacing="1" fill="#fff">LINE</text>
+				<text x="32" y="68" font-size="16" fill="#fff">生徒とのやりとりは、</text>
+				<text x="32" y="92" font-size="16" fill="#fff">ずっと公式LINEのまま。</text>
+				<text x="32" y="116" font-size="16" fill="#fff">予約・課題・催促・月謝の案内が</text>
+				<text x="32" y="140" font-size="16" fill="#fff">ここに届く</text>
+				<path d="M180 158 L180 182" stroke="#FF5C3E" stroke-width="2" marker-end="url(#sc-sp-arr)"/>
+				<rect x="16" y="186" width="328" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<rect x="16" y="186" width="328" height="3" fill="#FF5C3E"/>
+				<text x="32" y="214" font-size="14" letter-spacing="1.5" fill="#64748b">Trial</text>
+				<text x="32" y="242" font-size="18" font-weight="600" fill="#0F172A">体験</text>
+				<text x="32" y="270" font-size="16" fill="#475569">LINEから予約</text>
+				<line x1="180" y1="288" x2="180" y2="310" stroke="#0F172A" stroke-width="2" marker-end="url(#sc-sp-arr)"/>
+				<rect x="16" y="314" width="328" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<rect x="16" y="314" width="328" height="3" fill="#FF5C3E"/>
+				<text x="32" y="342" font-size="14" letter-spacing="1.5" fill="#64748b">Join</text>
+				<text x="32" y="370" font-size="18" font-weight="600" fill="#0F172A">入会</text>
+				<text x="32" y="398" font-size="16" fill="#475569">生徒ページができる</text>
+				<line x1="180" y1="416" x2="180" y2="438" stroke="#0F172A" stroke-width="2" marker-end="url(#sc-sp-arr)"/>
+				<rect x="16" y="442" width="328" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<rect x="16" y="442" width="328" height="3" fill="#FF5C3E"/>
+				<text x="32" y="470" font-size="14" letter-spacing="1.5" fill="#64748b">Lessons</text>
+				<text x="32" y="498" font-size="18" font-weight="600" fill="#0F172A">受講</text>
+				<text x="32" y="526" font-size="16" fill="#475569">課題はLINEで届く・自動で残る</text>
+				<line x1="180" y1="544" x2="180" y2="566" stroke="#0F172A" stroke-width="2" marker-end="url(#sc-sp-arr)"/>
+				<rect x="16" y="570" width="328" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<rect x="16" y="570" width="328" height="3" fill="#FF5C3E"/>
+				<text x="32" y="598" font-size="14" letter-spacing="1.5" fill="#64748b">Continue</text>
+				<text x="32" y="626" font-size="18" font-weight="600" fill="#0F172A">継続／休会</text>
+				<text x="32" y="654" font-size="16" fill="#475569">未提出・未入金を自動で催促</text>
+				<rect x="16" y="690" width="328" height="124" rx="6" fill="#0F172A"/>
+				<text x="180" y="720" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">講師は画面を開けば、</text>
+				<text x="180" y="744" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">今日やることが分かる。</text>
+				<text x="180" y="768" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">探す・まとめる・催促するは</text>
+				<text x="180" y="792" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">システムが持つ</text>
 				</g>
 			</svg>
 			<figcaption id="flow-figure-caption">体験から継続までを生徒ごとに1本で追い、LINEの接点はそのまま。手作業と既読確認で回していた部分をシステムが引き受けます。</figcaption>
@@ -889,7 +929,7 @@ const roles = [
 		align-items: flex-end;
 		gap: 0.85rem;
 		margin-bottom: 0.9rem;
-		color: var(--color-primary);
+		color: var(--color-navy);
 	}
 
 	.issue-label::after {
@@ -1069,12 +1109,12 @@ const roles = [
 
 	.ai-examples li::before {
 		content: '\201C';
-		color: var(--color-primary);
+		color: var(--color-navy);
 	}
 
 	.ai-examples li::after {
 		content: '\201D';
-		color: var(--color-primary);
+		color: var(--color-navy);
 	}
 
 	.ro-lead {
@@ -1548,7 +1588,7 @@ const roles = [
 
 	.resource-list strong {
 		display: block;
-		color: var(--color-primary);
+		color: var(--color-navy);
 		font-size: 0.9375rem;
 		font-weight: 700;
 		line-height: 1.5;

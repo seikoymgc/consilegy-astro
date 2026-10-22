@@ -121,7 +121,7 @@
 }
 
 /* Keep calls to action visible, using a solid surface instead of a glow. */
-#main-content.editorial .cta-band { background: #1e3a6f; }
+#main-content.editorial .cta-band { background: #0F172A; }
 #main-content.editorial .hero__grid:has(> .hero__visual) {
 	grid-template-columns: minmax(0, 1fr);
 	max-width: 52rem;

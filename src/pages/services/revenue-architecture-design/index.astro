@@ -706,7 +706,7 @@ const breadcrumbSchema = {
 /* ── Shared ──────────────────────────────────────────── */
 .eyebrow-label {
 	font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em;
-	text-transform: uppercase; color: var(--color-primary);
+	text-transform: uppercase; color: var(--color-navy);
 	margin: 0 0 0.75rem; display: block;
 }
 .section-header { margin-bottom: 2.75rem; }
@@ -715,7 +715,7 @@ const breadcrumbSchema = {
 	color: var(--color-text); margin: 0; line-height: 1.35; letter-spacing: 0.01em;
 }
 .section-note { font-size: 0.9375rem; color: var(--color-text-muted); margin: 0.75rem 0 0; }
-.accent { color: var(--color-primary); }
+.accent { color: var(--color-navy); }
 
 .btn--primary {
 	display: inline-flex; align-items: center; justify-content: center;
@@ -766,8 +766,8 @@ const breadcrumbSchema = {
 .back-link:hover { color: var(--color-primary); }
 .hero-tag {
 	font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em;
-	text-transform: uppercase; color: var(--color-primary);
-	background: rgba(112,66,172,0.07); padding: 0.3rem 0.75rem; border-radius: 4px;
+	text-transform: uppercase; color: var(--color-navy);
+	background: rgba(15, 23, 42, 0.07); padding: 0.3rem 0.75rem; border-radius: 4px;
 }
 .hero h1 {
 	font-size: clamp(2rem, 4vw, 3rem); font-weight: 600;
@@ -805,7 +805,7 @@ const breadcrumbSchema = {
 	display: flex; flex-direction: column; gap: 0.75rem;
 }
 .issue-card__num {
-	font-size: 0.75rem; font-weight: 700; color: var(--color-primary);
+	font-size: 0.75rem; font-weight: 700; color: var(--color-navy);
 	letter-spacing: 0.08em;
 }
 .issue-card p { font-size: 0.9375rem; color: var(--color-text); line-height: 1.7; margin: 0; }
@@ -830,8 +830,8 @@ const breadcrumbSchema = {
 .bottleneck-sep { color: var(--color-text-muted); font-size: 1rem; }
 .root-cause__resolution {
 	padding: 1.5rem 1.75rem;
-	border-left: 3px solid var(--color-primary); border-radius: 0 8px 8px 0;
-	background: rgba(112,66,172,0.04);
+	border-left: 3px solid var(--color-border-strong); border-radius: 0 8px 8px 0;
+	background: rgba(15, 23, 42, 0.04);
 }
 .root-cause__resolution p {
 	font-size: 1rem; color: var(--color-text); line-height: 1.8; margin: 0;
@@ -874,7 +874,7 @@ const breadcrumbSchema = {
 	background: var(--color-bg-subtle);
 }
 .scope-card__num {
-	font-size: 0.75rem; font-weight: 700; color: var(--color-primary);
+	font-size: 0.75rem; font-weight: 700; color: var(--color-navy);
 	letter-spacing: 0.1em; display: block; margin-bottom: 0.75rem;
 }
 .scope-card h3 { font-size: 0.9375rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.625rem; line-height: 1.45; }
@@ -895,10 +895,10 @@ const breadcrumbSchema = {
 	border-radius: 8px; padding: 1.375rem 1.25rem;
 	display: flex; flex-direction: column; gap: 0.625rem;
 }
-.pstep--last { border-color: var(--color-primary); }
+.pstep--last { border-color: var(--color-navy); }
 .pstep__num {
 	width: 28px; height: 28px; border-radius: 50%;
-	background: var(--color-primary); color: #fff;
+	background: var(--color-navy); color: #fff;
 	font-size: 0.8125rem; font-weight: 700;
 	display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
@@ -929,7 +929,7 @@ const breadcrumbSchema = {
 .deliv-num {
 	font-size: 0.6875rem;
 	font-weight: 700;
-	color: var(--color-primary);
+	color: var(--color-navy);
 	letter-spacing: 0.04em;
 	flex-shrink: 0;
 	width: 2rem;
@@ -953,9 +953,9 @@ const breadcrumbSchema = {
 }
 .why-card__icon {
 	width: 44px; height: 44px; border-radius: 8px;
-	background: rgba(112,66,172,0.07); border: 1px solid rgba(112,66,172,0.15);
+	background: rgba(15, 23, 42, 0.07); border: 1px solid rgba(112,66,172,0.15);
 	display: flex; align-items: center; justify-content: center;
-	color: var(--color-primary); margin-bottom: 1rem;
+	color: var(--color-navy); margin-bottom: 1rem;
 }
 .why-card h3 { font-size: 1.0625rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.625rem; }
 .why-card p { font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.75; margin: 0; }
@@ -1003,7 +1003,7 @@ const breadcrumbSchema = {
 
 .ba-after-center { display: flex; flex-direction: column; align-items: center; gap: 0.875rem; }
 .ba-ra-box {
-	background: var(--color-primary); color: #fff;
+	background: var(--color-navy); color: #fff;
 	font-size: 0.9375rem; font-weight: 700; padding: 0.75rem 1.5rem;
 	border-radius: 8px; text-align: center;
 }
@@ -1011,8 +1011,8 @@ const breadcrumbSchema = {
 	display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center;
 }
 .ba-after-nodes span {
-	font-size: 0.8125rem; font-weight: 600; color: var(--color-primary);
-	background: rgba(112,66,172,0.07); border: 1px solid rgba(112,66,172,0.2);
+	font-size: 0.8125rem; font-weight: 600; color: var(--color-navy);
+	background: rgba(15, 23, 42, 0.07); border: 1px solid rgba(112,66,172,0.2);
 	padding: 0.3rem 0.7rem; border-radius: 6px;
 }
 
@@ -1028,7 +1028,7 @@ const breadcrumbSchema = {
 	border-radius: 8px; padding: 1.375rem 1.5rem;
 }
 .tools-cat__label {
-	font-size: 0.75rem; font-weight: 700; color: var(--color-primary);
+	font-size: 0.75rem; font-weight: 700; color: var(--color-navy);
 	letter-spacing: 0.08em; text-transform: uppercase;
 	margin-bottom: 0.75rem; display: block;
 }
@@ -1039,8 +1039,8 @@ const breadcrumbSchema = {
 	padding: 0.35rem 0.8rem; border-radius: 4px;
 }
 .tpill--main {
-	color: var(--color-primary); font-weight: 600;
-	background: rgba(112,66,172,0.05); border-color: rgba(112,66,172,0.2);
+	color: var(--color-navy); font-weight: 600;
+	background: rgba(15, 23, 42, 0.05); border-color: rgba(112,66,172,0.2);
 }
 .tools-note {
 	background: #fff; border: 1px solid var(--color-border);
@@ -1068,8 +1068,8 @@ const breadcrumbSchema = {
 .case-tag {
 	font-size: 0.75rem;
 	font-weight: 600;
-	color: var(--color-primary);
-	background: rgba(112,66,172,0.07);
+	color: var(--color-navy);
+	background: rgba(15, 23, 42, 0.07);
 	padding: 0.2rem 0.6rem;
 	border-radius: 4px;
 }
@@ -1135,7 +1135,7 @@ const breadcrumbSchema = {
 	content: "";
 	position: absolute; left: 0; top: 50%;
 	transform: translateY(-50%);
-	width: 6px; height: 6px; border-radius: 50%; background: var(--color-primary);
+	width: 6px; height: 6px; border-radius: 50%; background: var(--color-navy);
 }
 
 /* ── Approach ────────────────────────────────────────── */
@@ -1155,7 +1155,7 @@ const breadcrumbSchema = {
 	border-radius: 8px; padding: 1.75rem;
 }
 .approach-list__label {
-	font-size: 0.75rem; font-weight: 700; color: var(--color-primary);
+	font-size: 0.75rem; font-weight: 700; color: var(--color-navy);
 	letter-spacing: 0.08em; text-transform: uppercase; display: block; margin-bottom: 1rem;
 }
 .approach-list ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0; }
@@ -1168,7 +1168,7 @@ const breadcrumbSchema = {
 .approach-list li::before {
 	content: ""; position: absolute; left: 0; top: 50%;
 	transform: translateY(-50%);
-	width: 5px; height: 5px; border-radius: 50%; background: var(--color-primary);
+	width: 5px; height: 5px; border-radius: 50%; background: var(--color-navy);
 }
 
 /* ── Pricing ─────────────────────────────────────────── */
@@ -1204,7 +1204,7 @@ const breadcrumbSchema = {
 }
 .pricing-type:last-child { border-right: none; }
 .pricing-type__label {
-	font-size: 0.8125rem; font-weight: 700; color: var(--color-primary);
+	font-size: 0.8125rem; font-weight: 700; color: var(--color-navy);
 	margin-bottom: 0.5rem; display: block;
 }
 .pricing-type p { font-size: 0.875rem; color: var(--color-text-muted); margin: 0; line-height: 1.65; }
@@ -1228,7 +1228,7 @@ const breadcrumbSchema = {
 }
 .related-card:hover { box-shadow: var(--shadow-sm); border-color: var(--color-primary); }
 .related-card__num {
-	font-size: 0.75rem; font-weight: 700; color: var(--color-primary);
+	font-size: 0.75rem; font-weight: 700; color: var(--color-navy);
 	letter-spacing: 0.1em; display: block; margin-bottom: 0.625rem;
 }
 .related-card h3 { font-size: 0.9375rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.375rem; line-height: 1.45; }
@@ -1254,7 +1254,7 @@ const breadcrumbSchema = {
 .faq-q::-webkit-details-marker { display: none; }
 .faq-q::after {
 	content: "+"; flex-shrink: 0; font-size: 1.25rem; font-weight: 400;
-	color: var(--color-primary); line-height: 1; width: 20px; text-align: center;
+	color: var(--color-navy); line-height: 1; width: 20px; text-align: center;
 	transition: transform 0.2s ease;
 }
 details[open] .faq-q::after { content: "−"; }

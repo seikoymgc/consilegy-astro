@@ -98,7 +98,7 @@ const alternateUrl = getAlternateUrl(Astro.url.pathname, 'ja', enSlug ?? null);
 		padding: 1.5rem 1.75rem;
 		background: var(--color-bg-subtle);
 		border: 1px solid var(--color-border);
-		border-left: 3px solid var(--color-primary);
+		border-left: 3px solid var(--color-border-strong);
 		border-radius: 0 8px 8px 0;
 	}
 	.cs-summary__meta {
@@ -107,7 +107,7 @@ const alternateUrl = getAlternateUrl(Astro.url.pathname, 'ja', enSlug ?? null);
 	}
 	.cs-industry {
 		font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em;
-		color: var(--color-primary); background: rgba(112,66,172,0.08);
+		color: var(--color-navy); background: rgba(15, 23, 42, 0.08);
 		padding: 0.2rem 0.6rem; border-radius: 4px;
 	}
 	.cs-size { font-size: 0.75rem; color: var(--color-text-muted); }
@@ -123,7 +123,7 @@ const alternateUrl = getAlternateUrl(Astro.url.pathname, 'ja', enSlug ?? null);
 	}
 	.cs-stage dd { margin: 0; font-size: 0.9375rem; line-height: 1.75; color: var(--color-text-muted); }
 	.cs-stage--symptom dd { color: var(--color-text); font-weight: 600; }
-	.cs-stage--result dd { color: var(--color-primary); font-weight: 600; }
+	.cs-stage--result dd { color: var(--color-navy); font-weight: 600; }
 
 	@media (max-width: 640px) {
 		.cs-summary { padding: 1.25rem 1.25rem; }

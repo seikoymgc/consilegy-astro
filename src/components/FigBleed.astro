@@ -1,0 +1,27 @@
+---
+// スマホ（767px以下）で、図のスマホ版（svg.fig-sp）を画面の端から端まで広げる。
+// 図は本文の列（左右に余白あり）に置かれているので、そのままだと viewBox 360 が 326〜350px に縮み、
+// 16 で描いた文字が16px未満になる。列の位置はページごとに違うため、CSSでは決められず、ここで実測して合わせる。
+---
+<script is:inline>
+(function () {
+	var mq = window.matchMedia('(max-width: 767px)');
+	function fit() {
+		var figs = document.querySelectorAll('figure');
+		for (var i = 0; i < figs.length; i++) {
+			var fig = figs[i];
+			if (!fig.querySelector(':scope > svg.fig-sp')) continue;
+			fig.style.marginLeft = ''; fig.style.width = ''; fig.style.maxWidth = '';
+			if (!mq.matches) continue;
+			var left = fig.getBoundingClientRect().left;
+			fig.style.maxWidth = 'none';
+			fig.style.width = document.documentElement.clientWidth + 'px';
+			fig.style.marginLeft = (-left) + 'px';
+		}
+	}
+	var t;
+	function later() { clearTimeout(t); t = setTimeout(fit, 100); }
+	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fit); else fit();
+	window.addEventListener('resize', later);
+})();
+</script>

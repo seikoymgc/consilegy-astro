@@ -178,10 +178,10 @@ const scopeItems = [
 	</div>
 	<div class="container">
 		<figure class="ba-figure" aria-labelledby="ba-figure-caption">
-			<svg viewBox="0 0 1120 320" role="img" aria-label="再設計の前と後。前はMA・SFA・CRMが分断され、後は一つの流れと共有データになる" font-family="inherit">
+			<svg class="fig-pc" viewBox="0 0 1120 320" role="img" aria-label="再設計の前と後。前はMA・SFA・CRMが分断され、後は一つの流れと共有データになる" font-family="inherit">
 				<defs>
 					<marker id="ba-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker>
-					<marker id="ba-arrp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8758C9"/></marker>
+					<marker id="ba-arrp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2563EB"/></marker>
 				</defs>
 				<text x="40" y="30" font-size="14" fill="#64748b" letter-spacing="2">BEFORE</text>
 				<text x="40" y="60" font-size="20" font-weight="600" fill="#0F172A">ツールごとに分断</text>
@@ -196,7 +196,7 @@ const scopeItems = [
 				<rect x="40" y="190" width="498" height="52" rx="6" fill="#F1F5F9" stroke="#E2E8F0"/>
 				<text x="289" y="223" font-size="16" fill="#475569" text-anchor="middle">間をつなぐのは、スプレッドシートと人の記憶</text>
 				<text x="289" y="286" font-size="16" fill="#64748b" text-anchor="middle">同じ顧客が3か所にいて、数字が合わない</text>
-				<line x1="552" y1="160" x2="572" y2="160" stroke="#8758C9" stroke-width="3" marker-end="url(#ba-arrp)"/>
+				<line x1="552" y1="160" x2="572" y2="160" stroke="#3B82F6" stroke-width="3" marker-end="url(#ba-arrp)"/>
 				<text x="582" y="30" font-size="14" fill="#64748b" letter-spacing="2">AFTER</text>
 				<text x="582" y="60" font-size="20" font-weight="600" fill="#0F172A">一つの流れに</text>
 				<rect x="582" y="84" width="150" height="84" rx="6" fill="#fff" stroke="#E2E8F0"/>
@@ -211,6 +211,46 @@ const scopeItems = [
 				<text x="831" y="223" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">全部門で共有する顧客データと運用ルール</text>
 				<text x="831" y="286" font-size="16" fill="#64748b" text-anchor="middle">誰が・いつ・何を入れるか、どの数字で判断するかが決まっている</text>
 			</svg>
+<svg class="fig-sp" viewBox="0 0 360 1066" role="img" aria-label="再設計の前と後。前はMA・SFA・CRMが分断され、後は一つの流れと共有データになる" font-family="inherit"><defs><marker id="ba-sp-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker><marker id="ba-sp-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2563EB"/></marker><marker id="ba-sp-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#94A3B8"/></marker></defs>
+<text x="8" y="20" font-size="14" fill="#64748b" letter-spacing="1.5">BEFORE</text>
+<text x="8" y="50" font-size="20" font-weight="600" fill="#0F172A">ツールごとに分断</text>
+<rect x="8" y="64" width="344" height="78" rx="6" fill="#fff" stroke="#E2E8F0"/>
+<text x="24" y="94" font-size="14" fill="#64748b" letter-spacing="1.5">マーケティング</text>
+<text x="24" y="124" font-size="22" font-weight="600" fill="#0F172A">MA</text>
+<line x1="180.0" y1="146" x2="180.0" y2="162" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="3 4"/>
+<rect x="8" y="166" width="344" height="78" rx="6" fill="#fff" stroke="#E2E8F0"/>
+<text x="24" y="196" font-size="14" fill="#64748b" letter-spacing="1.5">営業</text>
+<text x="24" y="226" font-size="22" font-weight="600" fill="#0F172A">SFA</text>
+<line x1="180.0" y1="248" x2="180.0" y2="264" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="3 4"/>
+<rect x="8" y="268" width="344" height="78" rx="6" fill="#fff" stroke="#E2E8F0"/>
+<text x="24" y="298" font-size="14" fill="#64748b" letter-spacing="1.5">CS</text>
+<text x="24" y="328" font-size="22" font-weight="600" fill="#0F172A">CRM</text>
+<rect x="8" y="356" width="344" height="68" rx="6" fill="#F1F5F9" stroke="#E2E8F0"/>
+<text x="180.0" y="389" font-size="16" fill="#475569" text-anchor="middle">間をつなぐのは、</text>
+<text x="180.0" y="413" font-size="16" fill="#475569" text-anchor="middle">スプレッドシートと人の記憶</text>
+<text x="180.0" y="454" font-size="16" fill="#64748b" text-anchor="middle">同じ顧客が3か所にいて、</text>
+<text x="180.0" y="478" font-size="16" fill="#64748b" text-anchor="middle">数字が合わない</text>
+<line x1="180.0" y1="490" x2="180.0" y2="518" stroke="#3B82F6" stroke-width="3" marker-end="url(#ba-sp-b)"/>
+<text x="8" y="544" font-size="14" fill="#64748b" letter-spacing="1.5">AFTER</text>
+<text x="8" y="574" font-size="20" font-weight="600" fill="#0F172A">一つの流れに</text>
+<rect x="8" y="588" width="344" height="78" rx="6" fill="#fff" stroke="#E2E8F0"/>
+<text x="24" y="618" font-size="14" fill="#64748b" letter-spacing="1.5">マーケティング</text>
+<text x="24" y="648" font-size="18" font-weight="600" fill="#0F172A">見込み客→営業</text>
+<line x1="180.0" y1="670" x2="180.0" y2="698" stroke="#0F172A" stroke-width="2" marker-end="url(#ba-sp-a)"/>
+<rect x="8" y="704" width="344" height="78" rx="6" fill="#fff" stroke="#E2E8F0"/>
+<text x="24" y="734" font-size="14" fill="#64748b" letter-spacing="1.5">営業</text>
+<text x="24" y="764" font-size="18" font-weight="600" fill="#0F172A">商談→受注</text>
+<line x1="180.0" y1="786" x2="180.0" y2="814" stroke="#0F172A" stroke-width="2" marker-end="url(#ba-sp-a)"/>
+<rect x="8" y="820" width="344" height="78" rx="6" fill="#fff" stroke="#E2E8F0"/>
+<text x="24" y="850" font-size="14" fill="#64748b" letter-spacing="1.5">CS</text>
+<text x="24" y="880" font-size="18" font-weight="600" fill="#0F172A">受注→次の取引</text>
+<rect x="8" y="908" width="344" height="68" rx="6" fill="#0F172A"/>
+<text x="180.0" y="941" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">全部門で共有する</text>
+<text x="180.0" y="965" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">顧客データと運用ルール</text>
+<text x="180.0" y="1006" font-size="16" fill="#64748b" text-anchor="middle">誰が・いつ・何を入れるか、</text>
+<text x="180.0" y="1030" font-size="16" fill="#64748b" text-anchor="middle">どの数字で判断するかが</text>
+<text x="180.0" y="1054" font-size="16" fill="#64748b" text-anchor="middle">決まっている</text>
+</svg>
 			<figcaption id="ba-figure-caption">再設計で変わるのは、ツールではなく「つながり方」。部門ごとの箱を、共有データの上の一つの流れに作り直します。</figcaption>
 		</figure>
 	</div>
@@ -900,7 +940,7 @@ p { font-family: var(--font-sans); line-height: 1.8; color: var(--color-text-mut
 .btn--primary { background: var(--color-primary); color: #fff; }
 .btn--primary:hover { background: var(--color-primary-dark); }
 .btn--outline { background: transparent; color: var(--color-primary); border: 1.5px solid var(--color-primary); }
-.btn--outline:hover { background: rgba(112,66,172,.06); }
+.btn--outline:hover { background: rgba(15, 23, 42, .06); }
 .btn--ghost { background: transparent; color: var(--color-text-muted); border: 1.5px solid var(--color-border-strong); font-weight: 500; }
 .btn--ghost:hover { border-color: var(--color-primary); color: var(--color-primary); }
 .btn--white { background: #fff; color: var(--color-primary); }
@@ -911,7 +951,7 @@ p { font-family: var(--font-sans); line-height: 1.8; color: var(--color-text-mut
 .section-header { margin-bottom: 3rem; }
 .eyebrow-label {
 	font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.14em;
-	text-transform: uppercase; color: var(--color-primary);
+	text-transform: uppercase; color: var(--color-navy);
 	font-family: var(--font-sans); margin-bottom: 0.625rem;
 }
 .section-header h2 { font-size: 1.875rem; color: var(--color-text); margin-bottom: 0.75rem; }
@@ -924,14 +964,14 @@ p { font-family: var(--font-sans); line-height: 1.8; color: var(--color-text-mut
 .back-link:hover { color: var(--color-primary); }
 .hero-tag {
 	font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
-	color: var(--color-primary); background: rgba(112,66,172,.07);
+	color: var(--color-navy); background: rgba(15, 23, 42, .07);
 	padding: 0.2rem 0.7rem; border-radius: 4px; font-family: var(--font-sans);
 }
 .hero-service-name { display: flex; flex-direction: column; gap: 0.125rem; margin-bottom: 1.5rem; }
 .hero-service-ja { font-size: 0.9375rem; font-weight: 700; color: var(--color-text-muted); font-family: var(--font-sans); }
 .hero-service-en { font-size: 0.75rem; letter-spacing: 0.08em; color: var(--color-text-subtle); font-family: var(--font-sans); }
 .hero h1 { font-size: 2.5rem; color: var(--color-text); margin-bottom: 1.5rem; line-height: 1.35; }
-.hero h1 .accent { color: var(--color-primary); }
+.hero h1 .accent { color: var(--color-navy); }
 .hero-sub { font-size: 1.0625rem; color: var(--color-text-muted); margin-bottom: 1rem; line-height: 1.9; }
 .hero-lead { font-size: 0.9375rem; color: var(--color-text-muted); margin-bottom: 2.5rem; line-height: 1.9; }
 .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
@@ -983,7 +1023,7 @@ p { font-family: var(--font-sans); line-height: 1.8; color: var(--color-text-mut
 }
 .root-cause-closing {
 	font-family: var(--font-serif) !important; font-size: 1.0625rem !important;
-	color: var(--color-text) !important; border-left: 3px solid var(--color-primary);
+	color: var(--color-text) !important; border-left: 3px solid var(--color-border-strong);
 	padding-left: 1.25rem; margin-top: 0.5rem !important;
 }
 
@@ -994,7 +1034,7 @@ p { font-family: var(--font-sans); line-height: 1.8; color: var(--color-text-mut
 .definition-body { font-size: 1.0625rem; color: var(--color-text-muted); line-height: 1.9; margin-bottom: 2rem; }
 .definition-oneliner {
 	font-family: var(--font-serif); font-size: 1.25rem; color: var(--color-text);
-	line-height: 1.7; border-left: 3px solid var(--color-primary); padding-left: 1.25rem;
+	line-height: 1.7; border-left: 3px solid var(--color-border-strong); padding-left: 1.25rem;
 }
 
 /* ── Problems ──────────────────────────────────────────── */
@@ -1006,7 +1046,7 @@ p { font-family: var(--font-sans); line-height: 1.8; color: var(--color-text-mut
 }
 .problem-card__en {
 	font-size: 0.625rem; font-weight: 700; letter-spacing: 0.1em;
-	color: var(--color-primary); font-family: var(--font-sans);
+	color: var(--color-navy); font-family: var(--font-sans);
 	text-transform: uppercase; margin-bottom: 0.5rem;
 }
 .problem-card h3 { font-size: 1rem; color: var(--color-text); margin-bottom: 0.5rem; font-family: var(--font-serif); }
@@ -1020,7 +1060,7 @@ p { font-family: var(--font-sans); line-height: 1.8; color: var(--color-text-mut
 	border-radius: 8px; padding: 1.5rem 1.25rem;
 }
 .scope-card__label {
-	font-size: 0.6875rem; font-weight: 700; color: var(--color-primary);
+	font-size: 0.6875rem; font-weight: 700; color: var(--color-navy);
 	font-family: var(--font-sans); margin-bottom: 0.25rem; letter-spacing: 0.02em;
 }
 .scope-card__ja {
@@ -1037,8 +1077,8 @@ p { font-family: var(--font-sans); line-height: 1.8; color: var(--color-text-mut
 	border: 1px solid var(--color-border); border-radius: 8px;
 	padding: 1.25rem 1rem; display: flex; flex-direction: column; gap: 0.5rem;
 }
-.pstep--last { border-color: var(--color-primary); }
-.pstep__num { font-size: 1.25rem; font-weight: 700; color: var(--color-primary); font-family: var(--font-sans); line-height: 1; }
+.pstep--last { border-color: var(--color-navy); }
+.pstep__num { font-size: 1.25rem; font-weight: 700; color: var(--color-navy); font-family: var(--font-sans); line-height: 1; }
 .pstep__body strong { font-size: 0.875rem; color: var(--color-text); display: block; margin-bottom: 0.25rem; font-family: var(--font-sans); }
 .pstep__body p { font-size: 0.75rem; color: var(--color-text-muted); line-height: 1.65; margin: 0; }
 .pstep-arrow { display: flex; align-items: center; padding: 0 0.25rem; color: var(--color-text-subtle); font-size: 1.125rem; flex-shrink: 0; margin-top: 1.25rem; }
@@ -1076,15 +1116,15 @@ p { font-family: var(--font-sans); line-height: 1.8; color: var(--color-text-mut
 }
 .ba-ra-node {
 	font-size: 0.9375rem; font-weight: 700; color: #fff;
-	background: var(--color-primary); border-radius: 8px;
+	background: var(--color-navy); border-radius: 8px;
 	padding: 0.5rem 1rem; text-align: center; font-family: var(--font-sans);
 	margin-bottom: 0.75rem;
 }
 .ba-results { display: flex; flex-wrap: wrap; gap: 0.375rem; }
 .ba-result {
 	font-size: 0.75rem; font-weight: 600; font-family: var(--font-sans);
-	background: rgba(112,66,172,.08); border: 1px solid rgba(112,66,172,.25);
-	color: var(--color-primary); padding: 0.25rem 0.75rem; border-radius: 4px;
+	background: rgba(15, 23, 42, .08); border: 1px solid rgba(112,66,172,.25);
+	color: var(--color-navy); padding: 0.25rem 0.75rem; border-radius: 4px;
 }
 .ba-status {
 	font-size: 0.75rem; font-weight: 600; font-family: var(--font-sans);
@@ -1110,7 +1150,7 @@ p { font-family: var(--font-sans); line-height: 1.8; color: var(--color-text-mut
 }
 .ba-notes { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
 .ba-note {
-	font-size: 0.875rem; font-weight: 700; color: var(--color-primary);
+	font-size: 0.875rem; font-weight: 700; color: var(--color-navy);
 	font-family: var(--font-sans);
 }
 
@@ -1124,7 +1164,7 @@ p { font-family: var(--font-sans); line-height: 1.8; color: var(--color-text-mut
 }
 .deliverables-list li:last-child { border-bottom: none; }
 .deliv-num {
-	font-size: 0.6875rem; font-weight: 700; color: var(--color-primary);
+	font-size: 0.6875rem; font-weight: 700; color: var(--color-navy);
 	letter-spacing: 0.04em; flex-shrink: 0; width: 2rem;
 	text-align: right; margin-top: 0.2rem; font-family: var(--font-sans);
 }
@@ -1142,11 +1182,11 @@ p { font-family: var(--font-sans); line-height: 1.8; color: var(--color-text-mut
 	padding: 0.75rem 1rem; display: flex; flex-direction: column; gap: 0.25rem;
 }
 .doc-mock__logo-bar {
-	width: 3rem; height: 4px; background: var(--color-primary);
+	width: 3rem; height: 4px; background: var(--color-navy);
 	border-radius: 2px; margin-bottom: 0.375rem;
 }
 .doc-mock__label {
-	font-size: 0.6875rem; font-weight: 700; color: var(--color-primary);
+	font-size: 0.6875rem; font-weight: 700; color: var(--color-navy);
 	font-family: var(--font-sans); letter-spacing: 0.06em; text-transform: uppercase;
 }
 .doc-mock__subtitle { font-size: 0.625rem; color: var(--color-text-subtle); font-family: var(--font-sans); }
@@ -1174,7 +1214,7 @@ p { font-family: var(--font-sans); line-height: 1.8; color: var(--color-text-mut
 	border: 1px solid var(--color-border); border-radius: 3px;
 	padding: 5px 2px; white-space: nowrap;
 }
-.pipeline-stage--accent { background: rgba(112,66,172,.1); border-color: rgba(112,66,172,.3); color: var(--color-primary); font-weight: 700; }
+.pipeline-stage--accent { background: rgba(15, 23, 42, .1); border-color: rgba(112,66,172,.3); color: var(--color-navy); font-weight: 700; }
 .pipeline-arrow { font-size: 0.5rem; color: var(--color-text-subtle); flex-shrink: 0; }
 
 /* ── Metrics ──────────────────────────────────────────── */
@@ -1185,7 +1225,7 @@ p { font-family: var(--font-sans); line-height: 1.8; color: var(--color-text-mut
 }
 .metric-card__en {
 	font-size: 0.625rem; font-weight: 700; letter-spacing: 0.1em;
-	color: var(--color-primary); font-family: var(--font-sans);
+	color: var(--color-navy); font-family: var(--font-sans);
 	text-transform: uppercase; margin-bottom: 0.5rem;
 }
 .metric-card h3 { font-size: 0.9375rem; color: var(--color-text); margin-bottom: 0.5rem; font-family: var(--font-serif); }
@@ -1199,7 +1239,7 @@ p { font-family: var(--font-sans); line-height: 1.8; color: var(--color-text-mut
 .why-card p { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.8; margin-bottom: 1rem; }
 .why-card__notes { display: flex; flex-direction: column; gap: 0.25rem; }
 .why-card__notes span {
-	font-size: 0.75rem; font-weight: 600; color: var(--color-primary);
+	font-size: 0.75rem; font-weight: 600; color: var(--color-navy);
 	font-family: var(--font-sans);
 }
 .why-card__notes span::before { content: '✓ '; }
@@ -1215,8 +1255,8 @@ p { font-family: var(--font-sans); line-height: 1.8; color: var(--color-text-mut
 .case-card:hover { box-shadow: var(--shadow-sm); border-color: var(--color-primary); }
 .case-card__meta { display: flex; align-items: center; gap: 0.625rem; flex-wrap: wrap; }
 .case-tag {
-	font-size: 0.75rem; font-weight: 600; color: var(--color-primary);
-	background: rgba(112,66,172,.07); padding: 0.2rem 0.6rem;
+	font-size: 0.75rem; font-weight: 600; color: var(--color-navy);
+	background: rgba(15, 23, 42, .07); padding: 0.2rem 0.6rem;
 	border-radius: 4px; font-family: var(--font-sans);
 }
 .case-size { font-size: 0.75rem; color: var(--color-text-muted); font-family: var(--font-sans); }
@@ -1245,7 +1285,7 @@ p { font-family: var(--font-sans); line-height: 1.8; color: var(--color-text-mut
 .fit-list li:last-child { border-bottom: none; }
 .fit-list li::before {
 	content: ''; display: block; width: 6px; height: 6px;
-	background: var(--color-primary); border-radius: 50%;
+	background: var(--color-navy); border-radius: 50%;
 	flex-shrink: 0; margin-top: 0.45rem;
 }
 
@@ -1282,7 +1322,7 @@ p { font-family: var(--font-sans); line-height: 1.8; color: var(--color-text-mut
 	font-family: var(--font-sans); line-height: 1.6;
 }
 .approach-checklist li:last-child { border-bottom: none; }
-.approach-checklist li::before { content: '✓'; color: var(--color-primary); font-weight: 700; flex-shrink: 0; font-size: 0.875rem; }
+.approach-checklist li::before { content: '✓'; color: var(--color-navy); font-weight: 700; flex-shrink: 0; font-size: 0.875rem; }
 
 /* ── Pricing ──────────────────────────────────────────── */
 .pricing { background: #fff; padding: 5rem 0; }
@@ -1313,7 +1353,7 @@ p { font-family: var(--font-sans); line-height: 1.8; color: var(--color-text-mut
 	padding: 1.25rem; text-decoration: none; display: block; transition: all 0.2s;
 }
 .related-card:hover { box-shadow: var(--shadow-sm); border-color: var(--color-primary); }
-.related-card__num { font-size: 0.6875rem; font-weight: 700; color: var(--color-primary); font-family: var(--font-sans); margin-bottom: 0.5rem; }
+.related-card__num { font-size: 0.6875rem; font-weight: 700; color: var(--color-navy); font-family: var(--font-sans); margin-bottom: 0.5rem; }
 .related-card h3 { font-size: 0.9375rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.375rem; line-height: 1.45; font-family: var(--font-serif); }
 .related-card p { font-size: 0.8125rem; color: var(--color-text-muted); margin: 0; }
 
@@ -1327,7 +1367,7 @@ p { font-family: var(--font-sans); line-height: 1.8; color: var(--color-text-mut
 	font-family: var(--font-sans); padding: 1.25rem 0; cursor: pointer;
 	list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem;
 }
-.faq-q::after { content: '+'; font-size: 1.25rem; color: var(--color-primary); flex-shrink: 0; }
+.faq-q::after { content: '+'; font-size: 1.25rem; color: var(--color-navy); flex-shrink: 0; }
 details[open] .faq-q::after { content: '−'; }
 .faq-a { padding: 0 0 1.25rem; }
 .faq-a p { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.85; margin: 0; }

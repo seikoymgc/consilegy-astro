@@ -34,6 +34,7 @@ const alternateHref = alternateUrl.startsWith('http')
 	: new URL(alternateUrl, site).href;
 const alternateLang = htmlLang === 'ja' ? 'en' : 'ja';
 const xDefaultHref = new URL('/en/', site).href;
+import FigBleed from '../components/FigBleed.astro';
 ---
 
 <!doctype html>
@@ -128,5 +129,6 @@ const xDefaultHref = new URL('/en/', site).href;
 		</main>
 		<Footer />
 		<Analytics />
+		<FigBleed />
 	</body>
 </html>

@@ -4,6 +4,7 @@ import RevenueFlowFigure from '../../components/figures/RevenueFlowFigure.astro'
 
 // 2026-10-20: 日本語トップ（src/pages/index.astro）と同じ見た目に揃えた。
 // 読者は日本で売上をつくる海外企業の担当者なので、メッセージは Japan GTM が主、Revenue CRM は2本目の入口。
+import NewsLatest from '../../components/NewsLatest.astro';
 ---
 
 <BaseLayout
@@ -59,6 +60,8 @@ import RevenueFlowFigure from '../../components/figures/RevenueFlowFigure.astro'
   </div>
 </section>
 
+<NewsLatest lang="en" />
+
 <!-- ===================== PROBLEM（紺の帯：構造的な死角） ===================== -->
 <section class="statement">
   <div class="container">
@@ -83,15 +86,15 @@ import RevenueFlowFigure from '../../components/figures/RevenueFlowFigure.astro'
       <p class="section-lead">Ringi, consensus, long waits. A pipeline built for a faster, single-decision-maker motion reads these weeks as "stalled". We design stages and metrics around them.</p>
     </header>
     <figure class="buy-figure" aria-labelledby="buy-figure-caption">
-      <svg viewBox="0 0 1120 260" role="img" aria-label="How a Japanese B2B purchase moves: interest, internal consensus (ringi), approval, contract. Most time is spent in internal consensus." font-family="inherit">
+      <svg class="fig-pc" viewBox="0 0 1120 260" role="img" aria-label="How a Japanese B2B purchase moves: interest, internal consensus (ringi), approval, contract. Most time is spent in internal consensus." font-family="inherit">
         <defs><marker id="buy-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
         <text x="40" y="24" font-size="14" letter-spacing="1.5" fill="#64748b">BUYING PROCESS (EXAMPLE)</text>
         <!-- bracket over consensus -->
-        <path d="M296 54 L296 44 L716 44 L716 54" fill="none" stroke="#8758C9" stroke-width="2"/>
-        <text x="506" y="36" font-size="16" font-weight="600" fill="#7042ac" text-anchor="middle">Most time is spent here</text>
+        <path d="M296 54 L296 44 L716 44 L716 54" fill="none" stroke="#3B82F6" stroke-width="2"/>
+        <text x="506" y="36" font-size="16" font-weight="600" fill="#2563EB" text-anchor="middle">Most time is spent here</text>
         <!-- stages -->
         <rect x="40" y="70" width="230" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
-        <rect x="40" y="70" width="230" height="3" fill="#8758C9"/>
+        
         <text x="60" y="100" font-size="14" letter-spacing="1.2" fill="#64748b">STAGE 1</text>
         <text x="60" y="132" font-size="20" font-weight="600" fill="#0F172A">Interest</text>
         <text x="60" y="156" font-size="16" fill="#475569">A champion engages</text>
@@ -102,13 +105,13 @@ import RevenueFlowFigure from '../../components/figures/RevenueFlowFigure.astro'
         <text x="316" y="156" font-size="16" fill="#E2E8F0">Stakeholders align, documents circulate</text>
 
         <rect x="742" y="70" width="160" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
-        <rect x="742" y="70" width="160" height="3" fill="#8758C9"/>
+        
         <text x="760" y="100" font-size="14" letter-spacing="1.2" fill="#64748b">STAGE 3</text>
         <text x="760" y="132" font-size="20" font-weight="600" fill="#0F172A">Approval</text>
         <text x="760" y="156" font-size="16" fill="#475569">Sign-off</text>
 
         <rect x="928" y="70" width="152" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
-        <rect x="928" y="70" width="152" height="3" fill="#8758C9"/>
+        
         <text x="946" y="100" font-size="14" letter-spacing="1.2" fill="#64748b">STAGE 4</text>
         <text x="946" y="132" font-size="20" font-weight="600" fill="#0F172A">Contract</text>
         <text x="946" y="156" font-size="16" fill="#475569">Start</text>
@@ -120,10 +123,42 @@ import RevenueFlowFigure from '../../components/figures/RevenueFlowFigure.astro'
         <!-- time bar -->
         <text x="40" y="214" font-size="14" letter-spacing="1.2" fill="#64748b">TIME</text>
         <rect x="100" y="202" width="170" height="16" rx="3" fill="#E2E8F0"/>
-        <rect x="296" y="202" width="420" height="16" rx="3" fill="#8758C9"/>
+        <rect x="296" y="202" width="420" height="16" rx="3" fill="#2563EB"/>
         <rect x="742" y="202" width="160" height="16" rx="3" fill="#E2E8F0"/>
         <rect x="928" y="202" width="152" height="16" rx="3" fill="#E2E8F0"/>
         <text x="40" y="248" font-size="16" fill="#475569">Bar lengths are illustrative. Measure the wait, not only the conversion rate.</text>
+      </svg>
+<svg class="fig-sp" viewBox="0 0 360 634" role="img" aria-label="How a Japanese B2B purchase moves: interest, internal consensus (ringi), approval, contract. Most time is spent in internal consensus." font-family="inherit">
+        <defs><marker id="buy-arr-sp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
+        <text x="0" y="22" font-size="14" letter-spacing="1.5" fill="#64748b">BUYING PROCESS (EXAMPLE)</text>
+        <text x="0" y="50" font-size="14" letter-spacing="1.2" fill="#64748b">TIME</text>
+        <rect x="0" y="64" width="12" height="94" rx="3" fill="#E2E8F0"/>
+        <rect x="28" y="64" width="316" height="94" rx="6" fill="#fff" stroke="#E2E8F0"/>
+        <text x="46" y="92" font-size="14" letter-spacing="1.2" fill="#64748b">STAGE 1</text>
+        <text x="46" y="120" font-size="20" font-weight="600" fill="#0F172A">Interest</text>
+        <text x="46" y="144" font-size="16" fill="#475569">A champion engages</text>
+        <line x1="186" y1="162" x2="186" y2="180" stroke="#0F172A" stroke-width="2" marker-end="url(#buy-arr-sp)"/>
+        <text x="28" y="204" font-size="16" font-weight="600" fill="#2563EB">Most time is spent here</text>
+        <rect x="0" y="214" width="12" height="116" rx="3" fill="#2563EB"/>
+        <rect x="28" y="214" width="316" height="116" rx="6" fill="#0F172A"/>
+        <text x="46" y="242" font-size="14" letter-spacing="1.2" fill="#CBD5E1">STAGE 2</text>
+        <text x="46" y="270" font-size="20" font-weight="600" fill="#fff">Internal consensus (ringi)</text>
+        <text x="46" y="294" font-size="16" fill="#E2E8F0">Stakeholders align,</text>
+        <text x="46" y="316" font-size="16" fill="#E2E8F0">documents circulate</text>
+        <line x1="186" y1="334" x2="186" y2="352" stroke="#0F172A" stroke-width="2" marker-end="url(#buy-arr-sp)"/>
+        <rect x="0" y="358" width="12" height="94" rx="3" fill="#E2E8F0"/>
+        <rect x="28" y="358" width="316" height="94" rx="6" fill="#fff" stroke="#E2E8F0"/>
+        <text x="46" y="386" font-size="14" letter-spacing="1.2" fill="#64748b">STAGE 3</text>
+        <text x="46" y="414" font-size="20" font-weight="600" fill="#0F172A">Approval</text>
+        <text x="46" y="438" font-size="16" fill="#475569">Sign-off</text>
+        <line x1="186" y1="456" x2="186" y2="474" stroke="#0F172A" stroke-width="2" marker-end="url(#buy-arr-sp)"/>
+        <rect x="0" y="480" width="12" height="94" rx="3" fill="#E2E8F0"/>
+        <rect x="28" y="480" width="316" height="94" rx="6" fill="#fff" stroke="#E2E8F0"/>
+        <text x="46" y="508" font-size="14" letter-spacing="1.2" fill="#64748b">STAGE 4</text>
+        <text x="46" y="536" font-size="20" font-weight="600" fill="#0F172A">Contract</text>
+        <text x="46" y="560" font-size="16" fill="#475569">Start</text>
+        <text x="0" y="604" font-size="16" fill="#475569">Bar lengths are illustrative. Measure</text>
+        <text x="0" y="626" font-size="16" fill="#475569">the wait, not only the conversion rate.</text>
       </svg>
       <figcaption id="buy-figure-caption">In Japan, the longest stage often has no visible activity in your CRM. We add the wait time to the metrics so leadership can see it.</figcaption>
     </figure>
@@ -346,7 +381,7 @@ h3 { font-weight: 600; }
 .btn--cta { display: inline-flex; align-items: center; background: #8758C9; color: #fff; border: 1px solid #8758C9; padding: 0.85rem 1.5rem; font-weight: 600; transition: background 0.15s, border-color 0.15s; }
 .btn--cta:hover { background: #6f45ad; border-color: #6f45ad; color: #fff; }
 .btn--outline { display: inline-flex; align-items: center; background: transparent; color: var(--color-primary); border: 1px solid var(--color-primary); padding: 0.85rem 1.5rem; font-weight: 500; }
-.btn--outline:hover { background: rgba(112, 66, 172, 0.06); color: var(--color-primary); }
+.btn--outline:hover { background: rgba(15, 23, 42, 0.06); color: var(--color-primary); }
 .btn--hero-outline { display: inline-flex; align-items: center; background: transparent; color: rgba(255,255,255,0.92); border: 1px solid rgba(255,255,255,0.78); font-weight: 500; white-space: nowrap; }
 .btn--hero-outline:hover { background: rgba(255,255,255,0.07); border-color: #fff; color: #fff; }
 
@@ -388,10 +423,10 @@ h3 { font-weight: 600; }
 .card-grid { display: grid; gap: 1.25rem; }
 .card-grid--three { grid-template-columns: repeat(3, 1fr); }
 .card-grid--four { grid-template-columns: repeat(4, 1fr); margin-top: var(--space-lg); }
-.card { display: flex; flex-direction: column; gap: 0.6rem; background: #fff; border: 1px solid #E2E8F0; border-top: 3px solid #8758C9; border-radius: 6px; padding: 1.6rem 1.6rem 1.75rem; box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05); color: var(--color-text); text-decoration: none; }
+.card { display: flex; flex-direction: column; gap: 0.6rem; background: #fff; border: 1px solid #E2E8F0;  border-radius: 6px; padding: 1.6rem 1.6rem 1.75rem; box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05); color: var(--color-text); text-decoration: none; }
 .card h3 { margin: 0; font-size: 1.125rem; line-height: 1.45; }
 .card p { margin: 0; font-size: 1rem; line-height: 1.75; color: var(--color-text-muted); }
-.card .card-num { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; color: #7042ac; }
+.card .card-num { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; color: var(--color-navy); }
 .card--link { transition: transform 0.15s, border-color 0.15s; }
 .card--link:hover { transform: translateY(-2px); color: var(--color-text); }
 .card-cta { margin-top: auto; padding-top: 0.5rem; font-size: 0.9375rem; font-weight: 600; color: #7042ac; }
@@ -408,7 +443,7 @@ h3 { font-weight: 600; }
 .price-summary dl { margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
 .price-summary dl > div { display: grid; gap: 0.25rem; padding: 1rem 1.25rem; background: #F1F5F9; border-radius: 6px; }
 .price-summary dt { margin: 0; font-size: 1rem; font-weight: 600; }
-.price-summary dd { margin: 0; font-size: 1.15rem; font-weight: 700; color: #7042ac; }
+.price-summary dd { margin: 0; font-size: 1.15rem; font-weight: 700; color: var(--color-navy); }
 .price-summary__note { margin: 0.75rem 0 0; font-size: 0.875rem; color: var(--color-text-muted); }
 .price-summary__links { display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 1.25rem 0 0; font-size: 0.9375rem; font-weight: 600; }
 
@@ -424,12 +459,12 @@ h3 { font-weight: 600; }
 
 /* ── Why ── */
 .why-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-.why-list li { padding: 1.5rem 1.6rem; background: #fff; border: 1px solid #E2E8F0; border-top: 3px solid #8758C9; border-radius: 6px; box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05); font-size: 1rem; line-height: 1.75; color: var(--color-text-muted); }
+.why-list li { padding: 1.5rem 1.6rem; background: #fff; border: 1px solid #E2E8F0;  border-radius: 6px; box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05); font-size: 1rem; line-height: 1.75; color: var(--color-text-muted); }
 .why-list strong { display: block; margin-bottom: 0.25rem; color: var(--color-text); font-size: 1.0625rem; }
 .more-link { margin: var(--space-lg) 0 0; }
 
 /* ── Final CTA ── */
-.final-cta { background: #1e3a6f; color: #fff; }
+.final-cta { background: #0F172A; color: #fff; }
 .cta-inner { max-width: 56rem; }
 .cta-eyebrow { display: block; font-size: 0.75rem; font-weight: 500; color: rgba(255,255,255,0.85); letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 1.25rem; }
 .final-cta h2 { color: #fff; font-size: clamp(1.9rem, 3.4vw, 3rem); line-height: 1.2; margin-bottom: 1.25rem; }

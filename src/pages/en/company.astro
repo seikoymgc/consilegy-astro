@@ -117,7 +117,7 @@ import CTA from '../../components/CTA.astro';
     </div>
     <div class="container ab-fig-wide" style="margin-block:2rem 2.5rem">
       <figure class="en-fig" aria-labelledby="en-tl-caption">
-      	<svg viewBox="0 0 1120 205" role="img" aria-label="Founder timeline from age 9 to 36" font-family="inherit">
+      	<svg class="fig-pc" viewBox="0 0 1120 205" role="img" aria-label="Founder timeline from age 9 to 36" font-family="inherit">
       		<defs><marker id="en-tl-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
       		<text x="40" y="26" font-size="14" letter-spacing="1.5" fill="#64748b">TIMELINE</text>
       		<line x1="130" y1="120" x2="990" y2="120" stroke="#0F172A" stroke-width="3"/>
@@ -136,10 +136,38 @@ import CTA from '../../components/CTA.astro';
       <circle cx="818" cy="120" r="9" fill="#0F172A"/>
       <text x="818" y="80" text-anchor="middle" fill="#0F172A"><tspan font-size="14" fill="#64748b">Age </tspan><tspan font-size="22" font-weight="700">35</tspan></text>
       <text x="818" y="160" font-size="16" fill="#334155" text-anchor="middle">Founded</text><text x="818" y="182" font-size="16" fill="#334155" text-anchor="middle">Consilegy</text>
-      <circle cx="990" cy="120" r="12" fill="#8758C9"/>
-      <text x="990" y="80" text-anchor="middle" fill="#7042ac"><tspan font-size="14" fill="#64748b">Age </tspan><tspan font-size="22" font-weight="700">36</tspan></text>
+      <circle cx="990" cy="120" r="12" fill="#2563EB"/>
+      <text x="990" y="80" text-anchor="middle" fill="#2563EB"><tspan font-size="14" fill="#64748b">Age </tspan><tspan font-size="22" font-weight="700">36</tspan></text>
       <text x="990" y="160" font-size="16" fill="#334155" text-anchor="middle">Released</text><text x="990" y="182" font-size="16" fill="#334155" text-anchor="middle">Revenue CRM</text>
       	</svg>
+<svg class="fig-sp" viewBox="0 0 360 416" role="img" aria-label="Founder timeline from age 9 to 36" font-family="inherit">
+			<text x="0" y="22" font-size="14" letter-spacing="1.5" fill="#64748b">TIMELINE</text>
+			<line x1="20" y1="56" x2="20" y2="376" stroke="#0F172A" stroke-width="3"/>
+			<circle cx="20" cy="56" r="8" fill="#0F172A"/>
+			<text x="44" y="63" fill="#0F172A"><tspan font-size="14" fill="#64748b">Age </tspan><tspan font-size="20" font-weight="700">9</tspan></text>
+			<text x="124" y="53" font-size="16" fill="#334155">First PC</text>
+			<text x="124" y="74" font-size="16" fill="#334155">from her brother</text>
+			<circle cx="20" cy="120" r="8" fill="#0F172A"/>
+			<text x="44" y="127" fill="#0F172A"><tspan font-size="14" fill="#64748b">Age </tspan><tspan font-size="20" font-weight="700">16</tspan></text>
+			<text x="124" y="117" font-size="16" fill="#334155">Left home,</text>
+			<text x="124" y="138" font-size="16" fill="#334155">supported herself</text>
+			<circle cx="20" cy="184" r="8" fill="#0F172A"/>
+			<text x="44" y="191" fill="#0F172A"><tspan font-size="14" fill="#64748b">Age </tspan><tspan font-size="20" font-weight="700">25</tspan></text>
+			<text x="124" y="181" font-size="16" fill="#334155">Went</text>
+			<text x="124" y="202" font-size="16" fill="#334155">independent</text>
+			<circle cx="20" cy="248" r="8" fill="#0F172A"/>
+			<text x="44" y="255" fill="#0F172A"><tspan font-size="14" fill="#64748b">Age </tspan><tspan font-size="20" font-weight="700">30</tspan></text>
+			<text x="124" y="245" font-size="16" fill="#334155">Moved to</text>
+			<text x="124" y="266" font-size="16" fill="#334155">Taiwan</text>
+			<circle cx="20" cy="312" r="8" fill="#0F172A"/>
+			<text x="44" y="319" fill="#0F172A"><tspan font-size="14" fill="#64748b">Age </tspan><tspan font-size="20" font-weight="700">35</tspan></text>
+			<text x="124" y="309" font-size="16" fill="#334155">Founded</text>
+			<text x="124" y="330" font-size="16" fill="#334155">Consilegy</text>
+			<circle cx="20" cy="376" r="11" fill="#2563EB"/>
+			<text x="44" y="383" fill="#2563EB"><tspan font-size="14" fill="#64748b">Age </tspan><tspan font-size="20" font-weight="700">36</tspan></text>
+			<text x="124" y="373" font-size="16" fill="#334155">Released</text>
+			<text x="124" y="394" font-size="16" fill="#334155">Revenue CRM</text>
+			</svg>
       	<figcaption id="en-tl-caption">She didn’t fit the environment she was given, so she built the next one herself. Revenue CRM is where that has led so far.</figcaption>
       </figure>
     </div>
@@ -281,7 +309,7 @@ import CTA from '../../components/CTA.astro';
     font-weight: 800;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--color-primary);
+    color: var(--color-navy);
     margin: 0 0 var(--space-xl);
   }
 
@@ -297,7 +325,7 @@ import CTA from '../../components/CTA.astro';
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--color-primary);
+    color: var(--color-navy);
     margin: 0 0 var(--space-md);
   }
 
@@ -355,7 +383,7 @@ import CTA from '../../components/CTA.astro';
   }
 
   .ab-mission__accent {
-    color: var(--color-primary);
+    color: var(--color-navy);
     display: inline-block;
   }
 
@@ -521,7 +549,7 @@ import CTA from '../../components/CTA.astro';
 
   .ab-why__item {
     padding: var(--space-lg);
-    background:#fff;border:1px solid var(--color-border);border-top:3px solid #8758C9;border-radius:6px;box-shadow:0 1px 3px rgba(15,23,42,.06);
+    background:#fff;border:1px solid var(--color-border);border-radius:6px;box-shadow:0 1px 3px rgba(15,23,42,.06);
   }
 
   .ab-why__item strong {
@@ -559,12 +587,12 @@ import CTA from '../../components/CTA.astro';
   }
   .ab-track__card {
     padding: 1.25rem 1.5rem;
-    background:#fff;border:1px solid var(--color-border);border-top:3px solid #8758C9;border-radius:6px;box-shadow:0 1px 3px rgba(15,23,42,.06);
+    background:#fff;border:1px solid var(--color-border);border-radius:6px;box-shadow:0 1px 3px rgba(15,23,42,.06);
   }
   .ab-track__cat {
     font-size: 0.75rem;
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-navy);
     text-transform: uppercase;
     letter-spacing: 0.06em;
     margin: 0 0 0.875rem;
@@ -605,7 +633,7 @@ import CTA from '../../components/CTA.astro';
 
   .ab-belief {
     padding: var(--space-lg);
-    background:#fff;border:1px solid var(--color-border);border-top:3px solid #8758C9;border-radius:6px;box-shadow:0 1px 3px rgba(15,23,42,.06);
+    background:#fff;border:1px solid var(--color-border);border-radius:6px;box-shadow:0 1px 3px rgba(15,23,42,.06);
   }
 
   .ab-belief strong {
@@ -665,7 +693,8 @@ import CTA from '../../components/CTA.astro';
       height: 140px;
     }
 
-    .ab-beliefs__grid {
+    .ab-beliefs__grid,
+    .ab-track__grid {
       grid-template-columns: 1fr;
     }
   }

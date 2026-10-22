@@ -204,29 +204,66 @@ const roles = [
 <section class="support">
 		<div class="container">
 		<figure class="flow-figure" aria-labelledby="flow-figure-caption">
-			<svg viewBox="0 0 1120 330" role="img" aria-label="案件の流れ：見積、受注、納品、請求、保守更新。空き枠カレンダーが見積の前に効く">
+			<svg class="fig-pc" viewBox="0 0 1120 330" role="img" aria-label="案件の流れ：見積、受注、納品、請求、保守更新。空き枠カレンダーが見積の前に効く">
 				<defs><marker id="ct-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
 				<g font-family="inherit">
-				<rect x="40" y="110" width="188" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/><rect x="40" y="110" width="188" height="4" rx="2" fill="#8758C9"/><text x="58" y="144" font-size="14" fill="#64748b" letter-spacing="1">Quote</text><text x="58" y="174" font-size="18" font-weight="600" fill="#0F172A">見積</text>
+				<rect x="40" y="110" width="188" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/><text x="58" y="144" font-size="14" fill="#64748b" letter-spacing="1">Quote</text><text x="58" y="174" font-size="18" font-weight="600" fill="#0F172A">見積</text>
 <text x="58" y="234" font-size="16" fill="#475569">空きから逆算して出す</text>
 <line x1="228" y1="158" x2="252" y2="158" stroke="#0F172A" stroke-width="2" marker-end="url(#ct-arr)"/>
-<rect x="256" y="110" width="188" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/><rect x="256" y="110" width="188" height="4" rx="2" fill="#8758C9"/><text x="274" y="144" font-size="14" fill="#64748b" letter-spacing="1">Order</text><text x="274" y="174" font-size="18" font-weight="600" fill="#0F172A">受注</text>
+<rect x="256" y="110" width="188" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/><text x="274" y="144" font-size="14" fill="#64748b" letter-spacing="1">Order</text><text x="274" y="174" font-size="18" font-weight="600" fill="#0F172A">受注</text>
 <text x="274" y="234" font-size="16" fill="#475569">契約書・発注書の回収</text>
 <line x1="444" y1="158" x2="468" y2="158" stroke="#0F172A" stroke-width="2" marker-end="url(#ct-arr)"/>
-<rect x="472" y="110" width="188" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/><rect x="472" y="110" width="188" height="4" rx="2" fill="#8758C9"/><text x="490" y="144" font-size="14" fill="#64748b" letter-spacing="1">Delivery</text><text x="490" y="174" font-size="18" font-weight="600" fill="#0F172A">納品</text>
+<rect x="472" y="110" width="188" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/><text x="490" y="144" font-size="14" fill="#64748b" letter-spacing="1">Delivery</text><text x="490" y="174" font-size="18" font-weight="600" fill="#0F172A">納品</text>
 <text x="490" y="234" font-size="16" fill="#475569">工程ごとのタスク</text>
 <line x1="660" y1="158" x2="684" y2="158" stroke="#0F172A" stroke-width="2" marker-end="url(#ct-arr)"/>
-<rect x="688" y="110" width="188" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/><rect x="688" y="110" width="188" height="4" rx="2" fill="#8758C9"/><text x="706" y="144" font-size="14" fill="#64748b" letter-spacing="1">Invoice</text><text x="706" y="174" font-size="18" font-weight="600" fill="#0F172A">請求</text>
+<rect x="688" y="110" width="188" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/><text x="706" y="144" font-size="14" fill="#64748b" letter-spacing="1">Invoice</text><text x="706" y="174" font-size="18" font-weight="600" fill="#0F172A">請求</text>
 <text x="706" y="234" font-size="16" fill="#475569">納品と同時に下書き</text>
 <line x1="876" y1="158" x2="900" y2="158" stroke="#0F172A" stroke-width="2" marker-end="url(#ct-arr)"/>
-<rect x="904" y="110" width="188" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/><rect x="904" y="110" width="188" height="4" rx="2" fill="#8758C9"/><text x="922" y="144" font-size="14" fill="#64748b" letter-spacing="1">Renewal</text><text x="922" y="174" font-size="18" font-weight="600" fill="#0F172A">保守更新</text>
+<rect x="904" y="110" width="188" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/><text x="922" y="144" font-size="14" fill="#64748b" letter-spacing="1">Renewal</text><text x="922" y="174" font-size="18" font-weight="600" fill="#0F172A">保守更新</text>
 <text x="922" y="234" font-size="16" fill="#475569">終了60日前に準備</text>
 				<rect x="40" y="24" width="580" height="56" rx="6" fill="#F1F5F9"/>
-				<text x="60" y="47" font-size="14" fill="#7042ac" font-weight="600" letter-spacing="1">AVAILABILITY</text>
+				<text x="60" y="47" font-size="14" fill="#2563EB" font-weight="600" letter-spacing="1">AVAILABILITY</text>
 				<text x="60" y="70" font-size="16" fill="#0F172A">空き枠カレンダー：メンバー×週の空きを見てから見積を出す</text>
-				<path d="M134 80 L134 106" stroke="#8758C9" stroke-width="2" marker-end="url(#ct-arr)"/>
+				<path d="M134 80 L134 106" stroke="#3B82F6" stroke-width="2" marker-end="url(#ct-arr)"/>
 				<rect x="40" y="276" width="1052" height="40" rx="6" fill="#0F172A"/>
 				<text x="566" y="302" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">止まった案件・期限・更新は、1日1回の自動処理が拾って知らせる</text>
+				</g>
+			</svg>
+			<svg class="fig-sp" viewBox="0 0 360 862" role="img" aria-label="案件の流れ：見積、受注、納品、請求、保守更新。空き枠カレンダーが見積の前に効く">
+				<defs><marker id="ct-sp-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
+				<g font-family="inherit">
+				<rect x="16" y="16" width="328" height="94" rx="6" fill="#F1F5F9"/>
+				<text x="32" y="42" font-size="14" font-weight="700" letter-spacing="1" fill="#2563EB">AVAILABILITY</text>
+				<text x="32" y="68" font-size="16" fill="#0F172A">空き枠カレンダー：メンバー×週の</text>
+				<text x="32" y="92" font-size="16" fill="#0F172A">空きを見てから見積を出す</text>
+				<path d="M180 110 L180 134" stroke="#3B82F6" stroke-width="2" marker-end="url(#ct-sp-arr)"/>
+				<rect x="16" y="138" width="328" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<text x="32" y="166" font-size="14" letter-spacing="1.5" fill="#64748b">Quote</text>
+				<text x="32" y="194" font-size="18" font-weight="600" fill="#0F172A">見積</text>
+				<text x="32" y="222" font-size="16" fill="#475569">空きから逆算して出す</text>
+				<line x1="180" y1="240" x2="180" y2="262" stroke="#0F172A" stroke-width="2" marker-end="url(#ct-sp-arr)"/>
+				<rect x="16" y="266" width="328" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<text x="32" y="294" font-size="14" letter-spacing="1.5" fill="#64748b">Order</text>
+				<text x="32" y="322" font-size="18" font-weight="600" fill="#0F172A">受注</text>
+				<text x="32" y="350" font-size="16" fill="#475569">契約書・発注書の回収</text>
+				<line x1="180" y1="368" x2="180" y2="390" stroke="#0F172A" stroke-width="2" marker-end="url(#ct-sp-arr)"/>
+				<rect x="16" y="394" width="328" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<text x="32" y="422" font-size="14" letter-spacing="1.5" fill="#64748b">Delivery</text>
+				<text x="32" y="450" font-size="18" font-weight="600" fill="#0F172A">納品</text>
+				<text x="32" y="478" font-size="16" fill="#475569">工程ごとのタスク</text>
+				<line x1="180" y1="496" x2="180" y2="518" stroke="#0F172A" stroke-width="2" marker-end="url(#ct-sp-arr)"/>
+				<rect x="16" y="522" width="328" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<text x="32" y="550" font-size="14" letter-spacing="1.5" fill="#64748b">Invoice</text>
+				<text x="32" y="578" font-size="18" font-weight="600" fill="#0F172A">請求</text>
+				<text x="32" y="606" font-size="16" fill="#475569">納品と同時に下書き</text>
+				<line x1="180" y1="624" x2="180" y2="646" stroke="#0F172A" stroke-width="2" marker-end="url(#ct-sp-arr)"/>
+				<rect x="16" y="650" width="328" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<text x="32" y="678" font-size="14" letter-spacing="1.5" fill="#64748b">Renewal</text>
+				<text x="32" y="706" font-size="18" font-weight="600" fill="#0F172A">保守更新</text>
+				<text x="32" y="734" font-size="16" fill="#475569">終了60日前に準備</text>
+				<rect x="16" y="770" width="328" height="76" rx="6" fill="#0F172A"/>
+				<text x="180" y="800" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">止まった案件・期限・更新は、</text>
+				<text x="180" y="824" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">1日1回の自動処理が拾って知らせる</text>
 				</g>
 			</svg>
 			<figcaption id="flow-figure-caption">商談ではなく「案件」を単位に、見積から保守更新までを1本で追います。見積の前に空き枠を見るのが、受託開発版の起点です。</figcaption>
@@ -632,7 +669,7 @@ const roles = [
 		align-items: flex-end;
 		gap: 0.85rem;
 		margin-bottom: 0.9rem;
-		color: var(--color-primary);
+		color: var(--color-navy);
 	}
 
 	.issue-label::after {
@@ -814,12 +851,12 @@ const roles = [
 
 	.ai-examples li::before {
 		content: '\201C';
-		color: var(--color-primary);
+		color: var(--color-navy);
 	}
 
 	.ai-examples li::after {
 		content: '\201D';
-		color: var(--color-primary);
+		color: var(--color-navy);
 	}
 
 	.ro-lead {

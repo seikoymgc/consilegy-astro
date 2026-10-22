@@ -276,7 +276,7 @@ const roles = [
 	</div>
 	<div class="container engine-fig">
 		<figure class="en-fig" aria-labelledby="en-sc-caption">
-			<svg viewBox="40 0 1040 278" role="img" aria-label="Student flow: trial lesson, enrolled, lessons, continue or pause, all through LINE" font-family="inherit">
+			<svg class="fig-pc" viewBox="40 0 1040 278" role="img" aria-label="Student flow: trial lesson, enrolled, lessons, continue or pause, all through LINE" font-family="inherit">
 				<defs><marker id="en-sc-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
 				<text x="40" y="26" font-size="14" letter-spacing="1.5" fill="#64748b">STUDENT FLOW</text>
 				<rect x="40" y="50" width="240" height="136" rx="6" fill="#fff" stroke="#E2E8F0"/>
@@ -307,6 +307,39 @@ const roles = [
 		<text x="854" y="136" font-size="16" fill="rgba(255,255,255,0.85)">Reminders for</text>
 		<text x="854" y="160" font-size="16" fill="rgba(255,255,255,0.85)">missed homework</text>
 		<rect x="40" y="206" width="1040" height="52" rx="6" fill="#0F172A"/><text x="560" y="238" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">Students keep using the official LINE account; everything is recorded per student</text>
+			</svg>
+			<svg class="fig-sp" viewBox="0 0 360 668" role="img" aria-label="Student flow: trial lesson, enrolled, lessons, continue or pause, all through LINE">
+				<defs><marker id="en-sc-sp-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
+				<g font-family="inherit">
+				<text x="16" y="30" font-size="14" letter-spacing="1.5" fill="#64748b">STUDENT FLOW</text>
+				<rect x="16" y="48" width="328" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<rect x="16" y="48" width="328" height="3" fill="#FF5C3E"/>
+				<text x="32" y="76" font-size="14" letter-spacing="1.5" fill="#64748b">TRIAL</text>
+				<text x="32" y="104" font-size="18" font-weight="600" fill="#0F172A">Trial lesson</text>
+				<text x="32" y="132" font-size="16" fill="#475569">Booked from LINE</text>
+				<line x1="180" y1="150" x2="180" y2="172" stroke="#0F172A" stroke-width="2" marker-end="url(#en-sc-sp-arr)"/>
+				<rect x="16" y="176" width="328" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<rect x="16" y="176" width="328" height="3" fill="#FF5C3E"/>
+				<text x="32" y="204" font-size="14" letter-spacing="1.5" fill="#64748b">JOIN</text>
+				<text x="32" y="232" font-size="18" font-weight="600" fill="#0F172A">Enrolled</text>
+				<text x="32" y="260" font-size="16" fill="#475569">Student record created</text>
+				<line x1="180" y1="278" x2="180" y2="300" stroke="#0F172A" stroke-width="2" marker-end="url(#en-sc-sp-arr)"/>
+				<rect x="16" y="304" width="328" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<rect x="16" y="304" width="328" height="3" fill="#FF5C3E"/>
+				<text x="32" y="332" font-size="14" letter-spacing="1.5" fill="#64748b">LEARN</text>
+				<text x="32" y="360" font-size="18" font-weight="600" fill="#0F172A">Lessons</text>
+				<text x="32" y="388" font-size="16" fill="#475569">Homework arrives via LINE</text>
+				<line x1="180" y1="406" x2="180" y2="428" stroke="#0F172A" stroke-width="2" marker-end="url(#en-sc-sp-arr)"/>
+				<rect x="16" y="432" width="328" height="100" rx="6" fill="#0F172A" stroke="#0F172A"/>
+				<rect x="16" y="432" width="328" height="3" fill="#FF5C3E"/>
+				<text x="32" y="460" font-size="14" letter-spacing="1.5" fill="rgba(255,255,255,0.7)">STAY</text>
+				<text x="32" y="488" font-size="18" font-weight="600" fill="#fff">Continue / pause</text>
+				<text x="32" y="516" font-size="16" fill="rgba(255,255,255,0.85)">Reminders for missed homework</text>
+				<rect x="16" y="552" width="328" height="100" rx="6" fill="#0F172A"/>
+				<text x="180" y="582" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">Students keep using the official</text>
+				<text x="180" y="606" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">LINE account; everything is</text>
+				<text x="180" y="630" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">recorded per student</text>
+				</g>
 			</svg>
 			<figcaption id="en-sc-caption">Students never install an app. Bookings, homework, and reminders run through LINE and land on each student record.</figcaption>
 		</figure>
@@ -688,7 +721,7 @@ const roles = [
 		align-items: flex-end;
 		gap: 0.85rem;
 		margin-bottom: 0.9rem;
-		color: var(--color-primary);
+		color: var(--color-navy);
 	}
 
 	.issue-label::after {
@@ -870,12 +903,12 @@ const roles = [
 
 	.ai-examples li::before {
 		content: '\201C';
-		color: var(--color-primary);
+		color: var(--color-navy);
 	}
 
 	.ai-examples li::after {
 		content: '\201D';
-		color: var(--color-primary);
+		color: var(--color-navy);
 	}
 
 	.ro-lead {

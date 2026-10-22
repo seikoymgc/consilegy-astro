@@ -153,15 +153,15 @@ const dontItems = [
 
 		</div>
 		<figure class="fc-figure" aria-labelledby="fc-figure-caption">
-			<svg viewBox="0 0 1120 250" role="img" aria-label="30分の相談の流れ。状況5分、境目の特定15分、次の一手10分">
+			<svg class="fig-pc" viewBox="0 0 1120 250" role="img" aria-label="30分の相談の流れ。状況5分、境目の特定15分、次の一手10分">
 				<g font-family="inherit">
 					<text x="40" y="34" font-size="14" fill="#64748b" letter-spacing="1">30 MIN</text>
 					<rect x="40" y="52" width="260" height="68" rx="6" fill="#F1F5F9"/>
-					<rect x="306" y="52" width="494" height="68" rx="6" fill="#8758C9"/>
+					<rect x="306" y="52" width="494" height="68" rx="6" fill="#2563EB"/>
 					<rect x="806" y="52" width="274" height="68" rx="6" fill="#0F172A"/>
 					<text x="56" y="78" font-size="14" fill="#64748b">0–5 MIN</text>
 					<text x="56" y="104" font-size="18" font-weight="600" fill="#0F172A">状況を聞く</text>
-					<text x="322" y="78" font-size="14" fill="#E9E0F5">5–20 MIN</text>
+					<text x="322" y="78" font-size="14" fill="#DBEAFE">5–20 MIN</text>
 					<text x="322" y="104" font-size="18" font-weight="600" fill="#fff">止まっている境目を特定する</text>
 					<text x="822" y="78" font-size="14" fill="#94A3B8">20–30 MIN</text>
 					<text x="822" y="104" font-size="18" font-weight="600" fill="#fff">次の一手を決める</text>
@@ -174,6 +174,25 @@ const dontItems = [
 					</g>
 					<line x1="40" y1="200" x2="1080" y2="200" stroke="#E2E8F0"/>
 					<text x="40" y="232" font-size="16" fill="#475569">オンライン（Google Meet）。資料の準備は不要。売り込みはしません。</text>
+				</g>
+			</svg>
+			<svg class="fig-sp" viewBox="0 0 360 460" role="img" aria-label="30分の相談の流れ。状況5分、境目の特定15分、次の一手10分">
+				<g font-family="inherit">
+					<text x="16" y="20" font-size="14" fill="#64748b" letter-spacing="1">30 MIN</text>
+					<rect x="16" y="34" width="328" height="64" rx="6" fill="#F1F5F9"/>
+					<text x="32" y="58" font-size="14" fill="#64748b">0–5 MIN</text>
+					<text x="32" y="84" font-size="18" font-weight="600" fill="#0F172A">状況を聞く</text>
+					<text x="16" y="124" font-size="16" fill="#475569">いまのシステム・体制・困りごと</text>
+					<rect x="16" y="146" width="328" height="64" rx="6" fill="#2563EB"/>
+					<text x="32" y="170" font-size="14" fill="#DBEAFE">5–20 MIN</text>
+					<text x="32" y="196" font-size="18" font-weight="600" fill="#fff">止まっている境目を特定する</text>
+					<g font-size="16" fill="#475569"><text x="16" y="236">診断結果があればそこから。</text><text x="16" y="260">なければ会話で6つの境目を当てる</text></g>
+					<rect x="16" y="282" width="328" height="64" rx="6" fill="#0F172A"/>
+					<text x="32" y="306" font-size="14" fill="#94A3B8">20–30 MIN</text>
+					<text x="32" y="332" font-size="18" font-weight="600" fill="#fff">次の一手を決める</text>
+					<text x="16" y="372" font-size="16" fill="#475569">自社でできること／支援が要ること</text>
+					<line x1="16" y1="392" x2="344" y2="392" stroke="#E2E8F0"/>
+					<g font-size="16" fill="#475569"><text x="16" y="420">オンライン（Google Meet）。</text><text x="16" y="444">資料の準備は不要。売り込みはしません。</text></g>
 				</g>
 			</svg>
 			<figcaption id="fc-figure-caption">30分の使い方。真ん中の15分で、どの境目で止まっているかを一緒に特定します。</figcaption>
@@ -293,7 +312,7 @@ body { font-family: var(--font-sans); color: var(--color-navy); line-height: 1.7
 	font-weight: 700;
 	letter-spacing: 0.16em;
 	text-transform: uppercase;
-	color: var(--color-primary);
+	color: var(--color-navy);
 	display: block;
 	margin-bottom: 0.625rem;
 }
@@ -406,7 +425,7 @@ body { font-family: var(--font-sans); color: var(--color-navy); line-height: 1.7
 	font-weight: 700;
 	letter-spacing: 0.16em;
 	text-transform: uppercase;
-	color: var(--color-primary);
+	color: var(--color-navy);
 	margin-bottom: 0.375rem;
 	display: block;
 }
@@ -447,7 +466,7 @@ body { font-family: var(--font-sans); color: var(--color-navy); line-height: 1.7
 	margin-top: 1px;
 }
 .info-icon--check {
-	background: var(--color-primary);
+	background: var(--color-navy);
 	color: #fff;
 }
 .info-icon--do {
@@ -495,7 +514,7 @@ body { font-family: var(--font-sans); color: var(--color-navy); line-height: 1.7
 	font-size: 0.65rem;
 	font-weight: 700;
 	letter-spacing: 0.08em;
-	color: var(--color-primary);
+	color: var(--color-navy);
 	background: #eff6ff;
 	border: 1px solid #bfdbfe;
 	padding: 0.2rem 0.625rem;
@@ -603,7 +622,7 @@ body { font-family: var(--font-sans); color: var(--color-navy); line-height: 1.7
 	top: 50%;
 	transform: translateY(-50%);
 	font-size: 1.25rem;
-	color: var(--color-primary);
+	color: var(--color-navy);
 	font-weight: 300;
 	line-height: 1;
 }

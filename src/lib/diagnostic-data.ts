@@ -153,7 +153,7 @@ export const CATEGORIES: DiagnosticCategory[] = [
 	},
 	{
 		id: 'adoption',
-		name: 'ツールの非定着',
+		name: 'システムの非定着',
 		shortName: '非定着',
 		questions: [
 			{

@@ -12,9 +12,33 @@ const X0 = 40, X1 = 1080, W = X1 - X0;
 const wx = (w: number) => X0 + (W * w) / weeks;
 const rowH = 66;
 const H = 100 + phases.length * rowH + 10;
+
+// ── スマホ用（幅360）：1行1工程。上に週の範囲のミニバー、下に名前と説明（折り返し） ──
+const cw = (c: string, fs: number) => (c.charCodeAt(0) > 0x2e80 ? fs : fs * 0.56);
+function wrap(t: string, max: number, fs: number): string[] {
+	const out: string[] = []; let line = '', w = 0;
+	const tokens = /[\u2e80-\uffff]/.test(t) ? [...t] : t.split(/(?<= )/);
+	for (const tok of tokens) {
+		const tw = [...tok].reduce((a, c) => a + cw(c, fs), 0);
+		if (w + tw > max && line) { out.push(line.trimEnd()); line = ''; w = 0; }
+		line += tok; w += tw;
+	}
+	if (line) out.push(line.trimEnd());
+	return out;
+}
+const SX0 = 16, SW = 328;
+let sy = 40;
+const spRows = phases.map((p) => {
+	const notes = wrap(p.note, 320, 16);
+	const r = { p, y: sy, notes };
+	sy += 30 + 26 + notes.length * 22 + 18;
+	return r;
+});
+const HSP = sy;
+const wk = (p: { start: number; end: number }) => p.end - p.start > 1 ? `Week ${p.start + 1}–${p.end}` : `Week ${p.start + 1}`;
 ---
 <figure class="gantt-fig" aria-labelledby={`${id}-caption`}>
-	<svg viewBox={`0 0 1120 ${H}`} role="img" aria-label={label + ": week-by-week plan"} font-family="inherit">
+	<svg class="fig-pc" viewBox={`0 0 1120 ${H}`} role="img" aria-label={label + ": week-by-week plan"} font-family="inherit">
 		<text x="40" y="24" font-size="14" letter-spacing="1.5" fill="#64748b">{label.toUpperCase()}</text>
 		<rect x={X0} y="60" width={W} height="6" rx="3" fill="#E2E8F0"/>
 		{Array.from({ length: weeks + 1 }, (_, i) => (
@@ -28,12 +52,24 @@ const H = 100 + phases.length * rowH + 10;
 			const x = wx(p.start), w = wx(p.end) - wx(p.start);
 			return (
 				<>
-					<rect x={x} y={y} width={w} height="40" rx="6" fill={p.accent ? '#8758C9' : '#0F172A'}/>
+					<rect x={x} y={y} width={w} height="40" rx="6" fill={p.accent ? '#2563EB' : '#0F172A'}/>
 					<text x={x + 16} y={y + 26} font-size="17" font-weight="600" fill="#fff">{p.name}</text>
 					<text x={x} y={y + 58} font-size="16" fill="#475569">{p.note}</text>
 				</>
 			);
 		})}
+	</svg>
+	<svg class="fig-sp" viewBox={`0 0 360 ${HSP}`} role="img" aria-label={label + ": week-by-week plan"} font-family="inherit">
+		<text x="16" y="20" font-size="14" letter-spacing="1.5" fill="#64748b">{label.toUpperCase()}</text>
+		{spRows.map(({ p, y, notes }) => (
+			<>
+				<rect x={SX0} y={y} width={SW} height="6" rx="3" fill="#E2E8F0"/>
+				<rect x={SX0 + (SW * p.start) / weeks} y={y} width={(SW * (p.end - p.start)) / weeks} height="6" rx="3" fill={p.accent ? '#2563EB' : '#0F172A'}/>
+				<text x={SX0} y={y + 28} font-size="14" fill="#64748b">{wk(p)}</text>
+				<text x={SX0} y={y + 54} font-size="17" font-weight="600" fill={p.accent ? '#2563EB' : '#0F172A'}>{p.name}</text>
+				{notes.map((n, i) => <text x={SX0} y={y + 78 + i * 22} font-size="16" fill="#475569">{n}</text>)}
+			</>
+		))}
 	</svg>
 	<figcaption id={`${id}-caption`}>{caption}</figcaption>
 </figure>

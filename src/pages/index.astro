@@ -5,6 +5,7 @@ import { articles } from '../data/insights';
 // 最新コラムはコラム一覧の先頭5件。一覧に足せばトップも追従する。
 // PCは先頭が2列幅なので、5件で2行がちょうど埋まる（3件だと2行目に1枚だけ残る）。スマホは3件まで。
 const insightsPosts = articles.slice(0, 5);
+import NewsLatest from '../components/NewsLatest.astro';
 ---
 
 <BaseLayout
@@ -73,6 +74,8 @@ const insightsPosts = articles.slice(0, 5);
 	</div>
 </section>
 
+<NewsLatest lang="ja" />
+
 <!-- ===================== ASSURANCE（一文：使われるまでが、仕事です） ===================== -->
 <section class="founder founder--slim">
 	<div class="container">
@@ -86,33 +89,17 @@ const insightsPosts = articles.slice(0, 5);
 ダッシュボードの読み方、営業会議での使い方、1on1での問いの立て方まで一緒に設計し、「これがないと仕事が回らない」と現場が言う状態まで並走します。
 			</p>
 		</div>
-			<figure class="assurance-figure" aria-labelledby="assurance-figure-caption">
-			<svg viewBox="0 0 1120 230" role="img" aria-label="設計、導入、定着の3段階。多くの支援は導入で終わるが、Consilegyは定着までを支援の範囲にする">
-				<defs><marker id="asr-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
-				<g font-family="inherit">
-					<path d="M40 24 L40 34 L720 34 L720 24" fill="none" stroke="#94A3B8" stroke-width="1.5"/>
-					<text x="380" y="18" font-size="16" fill="#475569" text-anchor="middle">多くの支援はここまで</text>
-					<path d="M40 60 L40 70 L1080 70 L1080 60" fill="none" stroke="#8758C9" stroke-width="2"/>
-					<text x="560" y="54" font-size="16" font-weight="700" fill="#7042ac" text-anchor="middle">Consilegy はここまでが、仕事です</text>
-					<rect x="40" y="90" width="320" height="90" rx="6" fill="#fff" stroke="#E2E8F0"/>
-					<text x="60" y="119" font-size="14" fill="#64748b" letter-spacing="1">DESIGN</text>
-					<text x="60" y="154" font-size="20" font-weight="600" fill="#0F172A">設計</text>
-					<text x="120" y="154" font-size="16" fill="#475569">流れとデータを決める</text>
-					<line x1="360" y1="135" x2="396" y2="135" stroke="#0F172A" stroke-width="2" marker-end="url(#asr-arr)"/>
-					<rect x="400" y="90" width="320" height="90" rx="6" fill="#fff" stroke="#E2E8F0"/>
-					<text x="420" y="119" font-size="14" fill="#64748b" letter-spacing="1">IMPLEMENT</text>
-					<text x="420" y="154" font-size="20" font-weight="600" fill="#0F172A">導入</text>
-					<text x="480" y="154" font-size="16" fill="#475569">設定して、現場に渡す</text>
-					<line x1="720" y1="135" x2="756" y2="135" stroke="#0F172A" stroke-width="2" marker-end="url(#asr-arr)"/>
-					<rect x="760" y="90" width="320" height="90" rx="6" fill="#0F172A"/>
-					<text x="780" y="119" font-size="14" fill="#94A3B8" letter-spacing="1">ADOPTION</text>
-					<text x="780" y="154" font-size="20" font-weight="600" fill="#fff">定着</text>
-					<text x="840" y="154" font-size="16" fill="#CBD5E1">使われるまで並走する</text>
-					<text x="40" y="214" font-size="16" fill="#475569">数字が動くのは、導入の先。使われて初めて、売上が動きます。</text>
-				</g>
-			</svg>
-			<figcaption id="assurance-figure-caption">設計図を渡して終わりではなく、導入から定着までを支援の範囲にしています。</figcaption>
-		</figure>
+			<figure class="assurance-figure sflow" aria-labelledby="assurance-figure-caption">
+				<div class="sflow__grid" role="img" aria-label="設計、導入、定着の3段階。多くの支援は導入で終わるが、Consilegyは定着までを支援の範囲にする">
+					<p class="sflow__scope sflow__scope--others"><span>多くの支援はここまで</span></p>
+					<p class="sflow__scope sflow__scope--ours"><span>Consilegy はここまでが、仕事です</span></p>
+					<div class="sflow__step sflow__step--1"><p class="sflow__en">Design</p><p class="sflow__name">設計</p><p class="sflow__desc">流れとデータを決める</p></div>
+					<div class="sflow__step sflow__step--2"><p class="sflow__en">Implement</p><p class="sflow__name">導入</p><p class="sflow__desc">設定して、現場に渡す</p></div>
+					<div class="sflow__step sflow__step--3 sflow__step--dark"><p class="sflow__en">Adoption</p><p class="sflow__name">定着</p><p class="sflow__desc">使われるまで並走する</p></div>
+				</div>
+				<p class="sflow__note">数字が動くのは、導入の先。使われて初めて、売上が動きます。</p>
+				<figcaption id="assurance-figure-caption">設計図を渡して終わりではなく、導入から定着までを支援の範囲にしています。</figcaption>
+			</figure>
 	</div>
 </section>
 
@@ -122,7 +109,7 @@ const insightsPosts = articles.slice(0, 5);
 		<header class="problems-overview">
 			<div class="why-head">
 				<p class="section-eyebrow">Common Problems</p>
-				<h2>マーケと営業の間で、<br /><span class="text-emph">止まっていませんか。</span></h2>
+				<h2>リードが、<br /><span class="text-emph">商談にならない。</span></h2>
 				<p class="section-lead">部門をまたぐルールとデータを、一緒に整えます。</p>
 			</div>
 			<blockquote class="problem-example">
@@ -253,7 +240,7 @@ const insightsPosts = articles.slice(0, 5);
 			</ol>
 			<div class="revenue-map__foundation">
 				<p>全部門で共有する顧客データと運用</p>
-				<ul class="revenue-flow__issues"><li>データの分断</li><li>ツールの非定着</li></ul>
+				<ul class="revenue-flow__issues"><li>データの分断</li><li>システムの非定着</li></ul>
 			</div>
 			<p class="revenue-map__feedback">↶ 営業・顧客対応の結果を、マーケティングへ返す</p>
 			<figcaption id="revenue-map-caption">引き継ぎ、商談、継続、データと運用。上の6つの課題を、一つの流れとして見直します。</figcaption>
@@ -465,9 +452,9 @@ section { padding-block: var(--space-2xl); }
 	background: var(--color-bg); border: 1px solid var(--color-border);
 	padding: 1.5rem 1.75rem;
 }
-.stat-card--accent { border-color: var(--color-primary); }
+.stat-card--accent { border-color: var(--color-navy); }
 .stat-num {
-	font-size: 2rem; font-weight: 500; color: var(--color-primary);
+	font-size: 2rem; font-weight: 500; color: var(--color-navy);
 	letter-spacing: -0.03em; line-height: 1; margin-bottom: 0.5rem;
 }
 .stat-unit { font-size: 1rem; font-weight: 400; margin-left: 0.25rem; }
@@ -510,12 +497,12 @@ section { padding-block: var(--space-2xl); }
 	backdrop-filter: var(--glass-blur);
 	-webkit-backdrop-filter: var(--glass-blur);
 	border: 1px solid var(--glass-border);
-	border-top: 3px solid var(--color-border);
+	
 	border-radius: var(--radius-card);
 	box-shadow: var(--glass-shadow);
 	padding: 2.25rem;
 }
-.fork-card--consulting { border-top-color: var(--color-primary); }
+.fork-card--consulting { border-top-color: var(--color-border-strong); }
 .fork-tag {
 	display: block; font-size: 0.6875rem; font-weight: 600;
 	color: var(--color-text); letter-spacing: 0.08em;
@@ -534,7 +521,7 @@ section { padding-block: var(--space-2xl); }
 }
 .fork-answer span {
 	font-size: 0.625rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
-	color: var(--color-primary);
+	color: var(--color-navy);
 }
 .fork-shot {
 	display: block; position: relative; overflow: hidden; margin: 0 0 1rem;
@@ -579,7 +566,7 @@ section { padding-block: var(--space-2xl); }
 
 .fork-third {
 	margin-top: 1.5rem; padding: 1.5rem 2rem;
-	background: rgba(112,66,172,0.04); border: 1px solid var(--color-border);
+	background: rgba(15, 23, 42, 0.04); border: 1px solid var(--color-border);
 	border-radius: var(--radius-card);
 	display: flex; align-items: center; justify-content: space-between;
 	gap: 1.5rem; flex-wrap: wrap;
@@ -617,7 +604,7 @@ section { padding-block: var(--space-2xl); }
 }
 .why-anecdote {
 	margin: 0 0 1.75rem; padding: 1.25rem 1.5rem;
-	background: rgba(112,66,172,0.05); border-left: 3px solid var(--color-primary);
+	background: rgba(15, 23, 42, 0.05); border-left: 3px solid var(--color-border-strong);
 }
 .why-anecdote p { margin: 0; font-size: 0.9375rem; line-height: 1.8; color: var(--color-text); }
 .why-anecdote strong { font-weight: 600; color: var(--color-text); }
@@ -671,7 +658,7 @@ section { padding-block: var(--space-2xl); }
 }
 .layer-items li::before {
 	content: ""; position: absolute; left: 0; top: 0.6em;
-	width: 5px; height: 5px; background: var(--color-primary); opacity: 0.4;
+	width: 5px; height: 5px; background: var(--color-navy); opacity: 0.4;
 }
 .layer-cause {
 	margin: 0; padding-top: 0.75rem; border-top: 1px solid var(--color-border);
@@ -680,7 +667,7 @@ section { padding-block: var(--space-2xl); }
 .layer-cause span {
 	display: inline-block; margin-right: 0.625rem;
 	font-size: 0.625rem; font-weight: 500; letter-spacing: 0.08em;
-	color: var(--color-primary); background: rgba(112,66,172,0.08);
+	color: var(--color-navy); background: rgba(15, 23, 42, 0.08);
 	padding: 0.15rem 0.5rem; vertical-align: 0.1em;
 }
 
@@ -749,7 +736,7 @@ section { padding-block: var(--space-2xl); }
 /* Editorial: ghosted large number as visual anchor */
 .how-num {
 	flex-shrink: 0; min-width: 3rem;
-	color: var(--color-primary); opacity: 0.18;
+	color: var(--color-navy); opacity: 0.18;
 	display: inline-flex; align-items: flex-start; justify-content: flex-end;
 	font-size: 3rem; font-weight: 500; letter-spacing: -0.05em;
 	line-height: 0.85; margin-top: 0.125rem; border: none;
@@ -766,7 +753,7 @@ section { padding-block: var(--space-2xl); }
 	border: 1px solid var(--color-primary);
 	transition: all 0.15s ease;
 }
-.btn--outline-primary:hover { background: rgba(112,66,172,0.05); }
+.btn--outline-primary:hover { background: rgba(15, 23, 42, 0.05); }
 
 /* ── After（動き出したあと） ─────────────────────────── */
 .after {
@@ -814,7 +801,7 @@ section { padding-block: var(--space-2xl); }
 .assurance-tagline {
 	font-size: clamp(1.75rem, 3.2vw, 3rem) !important;
 	font-weight: 500; line-height: 1.15; letter-spacing: -0.02em;
-	color: var(--color-primary); margin: 0 0 0.75rem !important;
+	color: var(--color-navy); margin: 0 0 0.75rem !important;
 }
 .assurance-ja {
 	margin: 0 0 1.5rem; font-size: 1rem; font-weight: 500;
@@ -838,7 +825,7 @@ section { padding-block: var(--space-2xl); }
 }
 .as-num {
 	display: block; font-size: 2.5rem; font-weight: 500;
-	color: var(--color-primary); opacity: 0.18;
+	color: var(--color-navy); opacity: 0.18;
 	letter-spacing: -0.05em; line-height: 0.9; margin-bottom: 0.875rem;
 }
 .as-card h3 {
@@ -888,7 +875,7 @@ section { padding-block: var(--space-2xl); }
 .founder-bio { margin: 0 0 1rem; font-size: 0.9375rem; color: var(--color-text-muted); line-height: 1.9; }
 .founder-quote {
 	margin: 1.75rem 0; padding: 1.25rem 1.5rem;
-	background: rgba(255,255,255,0.55); border-left: 3px solid var(--color-primary);
+	background: rgba(255,255,255,0.55); border-left: 3px solid var(--color-border-strong);
 	font-size: 1rem; font-weight: 500; color: var(--color-text); line-height: 1.75;
 }
 
@@ -923,7 +910,7 @@ section { padding-block: var(--space-2xl); }
 .price-row--single { grid-template-columns: 1fr auto; padding-top: 0; }
 .price-step {
 	font-size: 0.625rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
-	color: var(--color-primary);
+	color: var(--color-navy);
 }
 .price-name { font-size: 0.9375rem; color: var(--color-text); }
 .price-amount { font-size: 1rem; font-weight: 500; color: var(--color-text); white-space: nowrap; }
@@ -936,14 +923,14 @@ section { padding-block: var(--space-2xl); }
 	display: flex; align-items: baseline; gap: 0.875rem; flex-wrap: wrap;
 	font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.6;
 }
-.pricing-guide li::before { content: "→"; color: var(--color-primary); opacity: 0.5; }
+.pricing-guide li::before { content: "→"; color: var(--color-navy); opacity: 0.5; }
 .pricing-guide em {
-	font-style: normal; font-size: 0.75rem; font-weight: 500; color: var(--color-primary);
-	background: rgba(112,66,172,0.08); padding: 0.15rem 0.5rem;
+	font-style: normal; font-size: 0.75rem; font-weight: 500; color: var(--color-navy);
+	background: rgba(15, 23, 42, 0.08); padding: 0.15rem 0.5rem;
 }
 .pricing-diag {
 	margin: 1.25rem 0 0; padding: 0.875rem 1.125rem;
-	background: rgba(112,66,172,0.05); border-left: 3px solid var(--color-primary);
+	background: rgba(15, 23, 42, 0.05); border-left: 3px solid var(--color-border-strong);
 	font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.75;
 }
 .pricing-diag strong { color: var(--color-text); font-weight: 500; }
@@ -984,7 +971,7 @@ section { padding-block: var(--space-2xl); }
 .fork-body strong, .ind-stat strong { color: var(--color-text); font-weight: 600; }
 .ind-stat {
 	margin: 0 0 0.875rem; padding: 0.875rem 1rem;
-	background: rgba(112,66,172,0.05); border-left: 3px solid var(--color-primary);
+	background: rgba(15, 23, 42, 0.05); border-left: 3px solid var(--color-border-strong);
 	font-size: 0.875rem !important; color: var(--color-text) !important; line-height: 1.75;
 }
 
@@ -1003,7 +990,7 @@ section { padding-block: var(--space-2xl); }
 .flag-claim {
 	font-size: 1.125rem !important; font-weight: 500; color: var(--color-text) !important;
 	letter-spacing: -0.01em; margin: 1.5rem 0 !important;
-	padding-left: 1rem; border-left: 3px solid var(--color-primary);
+	padding-left: 1rem; border-left: 3px solid var(--color-border-strong);
 }
 .flag-body .btn--outline-primary { margin-top: 0.75rem; }
 
@@ -1064,13 +1051,13 @@ section { padding-block: var(--space-2xl); }
 .blog-new {
 	position: absolute; top: 10px; right: 10px;
 	font-size: .5625rem; font-weight: 500; letter-spacing: .08em;
-	background: var(--color-primary); color: #fff; padding: 3px 8px;
+	background: var(--color-navy); color: #fff; padding: 3px 8px;
 }
 .blog-cat {
 	display: inline-block; align-self: flex-start;
 	margin-bottom: 0.5rem;
 	font-size: .625rem; font-weight: 500; letter-spacing: .1em;
-	color: var(--color-primary); background: rgba(112,66,172,0.08);
+	color: var(--color-navy); background: rgba(15, 23, 42, 0.08);
 	padding: 0.2rem 0.6rem;
 }
 .blog-body {
@@ -1103,7 +1090,7 @@ section { padding-block: var(--space-2xl); }
 	background:
 		radial-gradient(600px 300px at 80% 50%, rgba(96,165,250,0.12), transparent 65%),
 		linear-gradient(135deg, #F5F7FD 0%, #EDF2FB 100%);
-	border-top: 3px solid var(--color-primary);
+	
 	border-bottom: 1px solid var(--color-border);
 	padding-block: 3rem;
 }
@@ -1347,7 +1334,7 @@ section { padding-block: var(--space-2xl); }
 	box-shadow: none;
 }
 .fork-card { border-top: 2px solid var(--color-border); }
-.fork-card--consulting { border-top-color: var(--color-primary); }
+.fork-card--consulting { border-top-color: var(--color-border-strong); }
 .layer-card:hover,
 .as-card:hover,
 .blog-card:hover {
@@ -1356,7 +1343,7 @@ section { padding-block: var(--space-2xl); }
 	background: #fff;
 }
 .flow-center {
-	background: var(--color-primary);
+	background: var(--color-navy);
 	backdrop-filter: none;
 	-webkit-backdrop-filter: none;
 	box-shadow: none;
@@ -1366,7 +1353,7 @@ section { padding-block: var(--space-2xl); }
 	background: var(--color-bg-subtle);
 }
 .final-cta {
-	background: #1e3a6f;
+	background: #0F172A;
 }
 .cta-copy h2 { letter-spacing: 0; }
 .cta-checklist {
@@ -1447,7 +1434,7 @@ section { padding-block: var(--space-2xl); }
 .result-metric strong { font-size: clamp(2.25rem, 3vw, 2.75rem); font-weight: 500; line-height: 1.2; letter-spacing: -0.035em; font-variant-numeric: tabular-nums; color: var(--color-text); }
 .result-metric strong span { font-size: 0.875rem; font-weight: 400; letter-spacing: 0; margin-inline: 0.2rem; }
 .result-metric__note { font-size: 0.8125rem; font-weight: 500; color: var(--color-text-muted); }
-.layer-fix { margin-top: 0.5rem; font-size: 0.95rem; font-weight: 600; color: var(--color-primary); }
+.layer-fix { margin-top: 0.5rem; font-size: 0.95rem; font-weight: 600; color: var(--color-navy); }
 .track-list--tags { display: flex; flex-wrap: wrap; gap: 0.6rem; border: 0; }
 .track-list--tags .track-item { display: block; border-bottom: 1px solid var(--color-border, #e2e8f0); border: 1px solid var(--color-border, #e2e8f0); border-radius: 999px; padding: 0.5rem 1rem; background: #fff; }
 .track-list--tags .track-who { display: inline-flex; align-items: baseline; gap: 0.5rem; font-size: 0.95rem; }
@@ -1506,9 +1493,9 @@ section { padding-block: var(--space-2xl); }
 }
 .btn--cta:hover { background: #6f45ad; border-color: #6f45ad; color: #fff; }
 .fork-third__btn { background: transparent; color: var(--color-primary); border: 1px solid var(--color-primary); }
-.fork-third__btn:hover { background: rgba(112,66,172,0.05); }
+.fork-third__btn:hover { background: rgba(15, 23, 42, 0.05); }
 .nl-cta-strip__btn { background: transparent; color: var(--color-primary); border: 1px solid var(--color-primary); }
-.nl-cta-strip__btn:hover { background: rgba(112,66,172,0.05); }
+.nl-cta-strip__btn:hover { background: rgba(15, 23, 42, 0.05); }
 /* 課題は左右に対応させ、段落を追わず比較できる行にする。 */
 .problems-overview { display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; align-items: center; margin-bottom: 2.5rem; }
 .problems-overview .section-eyebrow { border: 0; padding-top: 0; }
@@ -1551,4 +1538,44 @@ section { padding-block: var(--space-2xl); }
 .assurance-figure { margin: var(--space-lg) 0 0; }
 .assurance-figure svg { display: block; width: 100%; height: auto; }
 .assurance-figure figcaption { margin-top: 0.75rem; font-size: 0.875rem; color: var(--color-text-muted); }
+/* 設計→導入→定着の図（HTMLで組む。PCは横3列、スマホは縦1列で左に範囲の線） */
+.sflow__grid {
+	display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 40px; row-gap: 10px;
+	grid-template-areas: "others others ." "ours ours ours" "s1 s2 s3";
+}
+.sflow__scope { margin: 0; font-size: 1rem; text-align: center; padding-bottom: 10px; border: 0 solid; border-width: 0 1.5px 1.5px; height: auto; }
+.sflow__scope span { position: relative; top: -2px; }
+.sflow__scope--others { grid-area: others; border-color: #94A3B8; color: #475569; }
+.sflow__scope--ours { grid-area: ours; border-color: var(--color-navy); border-width: 0 2px 2px; color: var(--color-navy); font-weight: 700; margin-bottom: 10px; }
+.sflow__step { position: relative; background: #fff; border: 1px solid #E2E8F0; border-radius: 6px; padding: 1rem 1.25rem; }
+.sflow__step--1 { grid-area: s1; } .sflow__step--2 { grid-area: s2; } .sflow__step--3 { grid-area: s3; }
+.sflow__step--dark { background: #0F172A; border-color: #0F172A; }
+.sflow__step:not(.sflow__step--3)::after {
+	content: ""; position: absolute; right: -32px; top: 50%; width: 24px; height: 2px; background: #0F172A;
+}
+.sflow__step:not(.sflow__step--3)::before {
+	content: ""; position: absolute; right: -34px; top: calc(50% - 5px); border: 6px solid transparent; border-left: 8px solid #0F172A; border-right: 0;
+}
+.sflow__en { margin: 0; font-size: 0.875rem; letter-spacing: 0.08em; text-transform: uppercase; color: #64748b; }
+.sflow__name { margin: 0.25rem 0 0; font-size: 1.25rem; font-weight: 600; color: #0F172A; }
+.sflow__desc { margin: 0.125rem 0 0; font-size: 1rem; color: #475569; }
+.sflow__step--dark .sflow__en { color: #94A3B8; }
+.sflow__step--dark .sflow__name { color: #fff; }
+.sflow__step--dark .sflow__desc { color: #CBD5E1; }
+.sflow__note { margin: 1rem 0 0; font-size: 1rem; color: #475569; }
+@media (max-width: 767px) {
+	.sflow__grid {
+		grid-template-columns: 1fr; row-gap: 24px; border-left: 3px solid var(--color-navy); padding-left: 16px;
+		grid-template-areas: "ours" "s1" "s2" "others" "s3";
+	}
+	.sflow__scope { border: 0; padding: 0; text-align: left; font-size: 1rem; }
+	.sflow__scope--ours { margin: 0; }
+	.sflow__scope--others { border-top: 1.5px dashed #94A3B8; padding-top: 8px; margin-top: -8px; font-size: 0.875rem; }
+	.sflow__scope--others span::before { content: "↑ "; }
+	.sflow__scope span { top: 0; }
+	.sflow__step:not(.sflow__step--3)::after { right: auto; left: 50%; top: auto; bottom: -18px; width: 2px; height: 10px; }
+	.sflow__step:not(.sflow__step--3)::before { right: auto; left: calc(50% - 6px); top: auto; bottom: -22px; border: 6px solid transparent; border-top: 8px solid #0F172A; border-bottom: 0; }
+	.sflow__step--2::after, .sflow__step--2::before { display: none; }
+}
+
 </style>

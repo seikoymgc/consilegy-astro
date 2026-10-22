@@ -17,6 +17,7 @@ interface Props {
 
 const seo = Astro.props;
 const htmlLang = seo.lang ?? 'ja';
+import FigBleed from '../components/FigBleed.astro';
 ---
 
 <!doctype html>
@@ -47,5 +48,6 @@ const htmlLang = seo.lang ?? 'ja';
 		</main>
 		<Footer />
 		<Analytics />
+		<FigBleed />
 	</body>
 </html>

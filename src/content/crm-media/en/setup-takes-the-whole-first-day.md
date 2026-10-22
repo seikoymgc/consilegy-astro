@@ -4,12 +4,12 @@ slug: "setup-takes-the-whole-first-day"
 lang: "en"
 category: "setup"
 pain: "The first day with a new school management tool goes on entering courses, fee tables and closure dates, and not one student is in it by the following week"
-feature: "School edition initial setup (Coaches, Lesson types, Closure calendar)"
-screens: "\"More\" → \"Coaches\" \"Add a coach\" \"Pay type\" / \"Lesson types\" \"Has homework\" \"No homework\" \"Add coach\" / \"Closure calendar\" \"Add\" / Home \"Needs action now\""
+feature: "School edition initial setup (lesson types already in place, teachers by lesson type, user invites)"
+screens: "Lessons \"Teachers by lesson type\" \"+ Add lesson type\" \"☐ Homework\" / More → user management, invite link, \"🔗 Issue URL\" / Students \"+ New student\" \"CSV import\" / \"Breaks & holidays\""
 segment: "b2c"
 edition: "school"
-sources: "src/app/school-v1/more/page.tsx / src/app/school-v1/coaches/page.tsx / src/components/school/coach-pay-list.tsx / src/app/school-v1/lesson-types/page.tsx / src/components/school/lesson-types-editor.tsx / src/app/school-v1/holidays/page.tsx / src/components/school/holiday-manager.tsx / src/lib/school-homework.ts / src/lib/school/homework-reminder.ts / src/app/school-v1/home/page.tsx"
-date: 2026-10-01
+sources: "crm d6892f0: src/lib/school/provision.ts / src/school-app/lib/render.ts (lessonTypeCoaches, users, holidays, students) / src/app/api/school-app/lesson-types/route.ts / src/school-app/lib/homework.ts / src/app/api/school-app/automation/run/route.ts / src/school-app/lib/booking-slots.ts"
+date: 2026-10-22
 author: "Seiko Yamaguchi"
 draft: true
 ---
@@ -25,26 +25,28 @@ Say five trial-lesson inquiries arrive in those seven days. The new tool has no 
 
 Finishing the configuration before you start is the wrong order. The shape of a school only becomes clear while you are running it. What you need on day one is the minimum that lets records start accumulating tomorrow.
 
-## In the school edition of Revenue CRM, there are three things to enter first
+## The school edition does not start empty
 
-Initial setup in the school edition is three screens under "More" in the bottom menu: "Coaches", "Lesson types" and "Closure calendar". Each one is a list you add to a line at a time. None of them starts with building a fee table.
+When you create a school in the school edition, four lesson types are already there: Grammar correction, Shadowing, Free talk and Counselling. You are listed as the teacher for each. Grammar correction and Shadowing are marked as having homework.
 
-Do them in that order.
+That is a draft, not a finished setup. Editing something that is already on the page is far quicker than writing it from nothing. The job on day one is to bend these four into the shape of your own school.
 
-On "Coaches", press "Add a coach", type the name and save. The title is optional. Pay type (per lesson, hourly, monthly, or not paid) and rate live here too, but on day one you can leave it as not paid. Monthly totals are calculated on the "Coach pay" screen, so fill this in when you decide to use it. Only owners and admins can see pay settings.
+You will find them on "Lessons" in the bottom menu, under "Teachers by lesson type" further down the screen.
 
-On "Lesson types", type a name and press "Add". Each type carries two decisions: who reviews it, set with "Add coach", and whether it is "Has homework" or "No homework". This is where it gets decided who looks at the work students send in.
+Remove any type your school does not run with the "✕" next to the teacher's name. A type with no teacher left disappears from the list. Add the ones you need with "+ Add lesson type": enter the name, choose a teacher, and press "Add". There is no rename, so add the new name first and then remove the old one.
 
-One thing to watch. Only types with homework count toward the overdue alert. Mark a counselling session as "Has homework" and every student who has not submitted gets flagged. When in doubt, start with "No homework".
+One thing to watch. Only types ticked "☐ Homework" appear as choices when a student taps "submit homework" on LINE, and only those go to "Needs action" when nothing has come in for three business days (weekends are not counted). Tick it on counselling or a check-in session and every student with nothing to submit lines up under "Needs action". When in doubt, leave it unticked.
 
-On "Closure calendar", enter a date and a label and press "Add". You do not need the whole year. The next break is enough. On a closure day, missing homework is not assessed and no reminder goes out. A reminder arriving on a day the school is closed is about the fastest way to lose a family's goodwill, which is the one reason this is worth entering early.
+## Teachers only need an invite
 
-With those three in, "Needs action now" on Home starts working. When an enrolled student has gone three business days without submitting homework (weekends are not counted), that student appears there as one line. What you set up comes back to you on the next morning's screen.
+Adding a teacher is not a matter of typing their details in yourself. Open user management from the "More" menu, enter the teacher's email address and role, and issue an invite link. Teachers set their own name and password. If the email does not reach them, "🔗 Issue URL" gives you a link to pass on directly, over LINE or anything else.
+
+Once a teacher has joined, add them to a type with the "+" in "Teachers by lesson type" and remove yourself with "✕". That is what decides who reviews the homework students send in.
 
 ## The first step
 
-This week: all your coaches, two lesson types, the next closure day. Then stop. That is a short sitting, not an evening.
+Tonight there are only two things to do: make the lesson types your own, and send the teacher invites. That is a short sitting, not an evening.
 
-Spend the rest of the time getting this month's active students in, with "Add a student" or "CSV import" under "More". Lesson types and closure days can be added one line at a time, on the day you notice one is missing.
+Spend the rest of the time getting this month's active students in, with "+ New student" or "CSV import" on the Students screen. Breaks ("Breaks & holidays" in the menu), fees and booking hours can be added on the day you notice you need them. The one exception: before a long break, enter it as a single line. While a break is running, students with missing homework are not sent to "Needs action".
 
 If you would rather see the screens first, the [demo](https://crm.consilegy.com/demos) opens with just an email address.

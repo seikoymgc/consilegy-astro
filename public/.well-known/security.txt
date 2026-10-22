@@ -1,0 +1,5 @@
+Contact: mailto:info@consilegy.com
+Expires: 2027-10-22T00:00:00.000Z
+Preferred-Languages: en, ja
+Canonical: https://consilegy.com/.well-known/security.txt
+Policy: https://consilegy.com/en/security/#report

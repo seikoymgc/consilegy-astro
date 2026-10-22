@@ -12,12 +12,9 @@ export const newsEn: NewsItemEn[] = [
 		category: 'Announcement',
 		title: 'Consilegy declares SECURITY ACTION two stars with IPA',
 		summary: 'Following its one-star declaration, Consilegy has declared the two-star level of SECURITY ACTION, a self-declaration program run by the Information-technology Promotion Agency, Japan (IPA). We assessed our own practices with the program’s self-check and have set and published an Information Security Policy.',
-	},
-	{
-		date: '2026-10-21',
-		category: 'Announcement',
-		title: 'Consilegy declares SECURITY ACTION one star with IPA',
-		summary: 'Under SECURITY ACTION, a self-declaration program run by the Information-technology Promotion Agency, Japan (IPA), Consilegy has declared the one-star level: a commitment to the program’s five basic information security practices. As the company behind Revenue CRM, we keep working to protect the information our customers trust us with.',
+		image: '/images/news/security-action-futatsuboshi-2026-10-22.png',
+		imageAlt: 'SECURITY ACTION two-star self-declaration logo',
+		imageFit: 'logo',
 	},
 	{
 		slug: 'revenue-crm-release',

@@ -21,7 +21,7 @@ import { newsEn as news, formatNewsDateEn as formatNewsDate } from '../../../dat
 				return (
 					<li class="news-item">
 						<Tag class="news-item__inner" href={href} {...(item.url && !item.slug ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
-							{item.image && <img class="news-item__photo" src={item.image} alt={item.imageAlt ?? ''} width="240" height="160" loading="lazy" />}
+							{item.image && <img class:list={['news-item__photo', item.imageFit === 'logo' && 'news-item__photo--logo']} src={item.image} alt={item.imageAlt ?? ''} width="240" height="160" loading="lazy" />}
 							<p class="news-item__meta">
 								<time datetime={item.date}>{formatNewsDate(item.date)}</time>
 								<span class="news-item__cat">{item.category}</span>
@@ -90,9 +90,11 @@ import { newsEn as news, formatNewsDateEn as formatNewsDate } from '../../../dat
 	object-fit: cover; object-position: top; border-radius: var(--radius);
 	border: 1px solid var(--color-border);
 }
+.news-item__photo--logo { width: 120px; height: 120px; object-fit: contain; border: 0; border-radius: 0; }
 .news-item__inner::after { content: ''; display: block; clear: both; }
 @media (max-width: 560px) {
 	.news-item__photo { float: none; width: 100%; height: auto; aspect-ratio: 3 / 2; margin: 0 0 0.75rem; }
+	.news-item__photo--logo { width: 96px; height: 96px; aspect-ratio: auto; }
 }
 .news-item__ext {
 	margin: 0.5rem 0 0;

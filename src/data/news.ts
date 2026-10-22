@@ -9,6 +9,7 @@ export interface NewsItem {
 	host?: string; // 主催
 	image?: string; // 登壇写真など。/images/news/ 配下
 	imageAlt?: string;
+	imageFit?: 'logo'; // ロゴは切り抜かず、縮小だけして全体を見せる（SECURITY ACTION の使用規定）
 	url?: string; // 外部の掲載記事など。slug より後に見る
 }
 
@@ -18,12 +19,9 @@ export const news: NewsItem[] = [
 		category: 'お知らせ',
 		title: 'IPAの「SECURITY ACTION」で、二つ星を宣言しました',
 		summary: '独立行政法人情報処理推進機構（IPA）が運営するSECURITY ACTION制度で、一つ星に続き「二つ星」を宣言しました。情報セキュリティ自社診断で自社の状況を確かめ、情報セキュリティ基本方針を定めて公開しています。取り組みの内容は「セキュリティへの取り組み」のページにまとめています。',
-	},
-	{
-		date: '2026-10-21',
-		category: 'お知らせ',
-		title: 'IPAの「SECURITY ACTION」で、一つ星を宣言しました',
-		summary: '独立行政法人情報処理推進機構（IPA）が運営するSECURITY ACTION制度で、情報セキュリティ5か条に取り組む「一つ星」を宣言しました。顧客管理システム「Revenue CRM」を提供する会社として、お客様からお預かりする情報を守る取り組みを続けます。あわせて「情報セキュリティ基本方針」を公開しました。',
+		image: '/images/news/security-action-futatsuboshi-2026-10-22.png',
+		imageAlt: 'SECURITY ACTION セキュリティ対策自己宣言 二つ星のロゴマーク',
+		imageFit: 'logo',
 	},
 	{
 		slug: 'revenue-crm-release',

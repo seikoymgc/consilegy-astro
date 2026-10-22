@@ -279,6 +279,23 @@ Marketing, sales, and customer success share one customer record, in a CRM and s
 	</div>
 </section>
 
+<!-- ===================== LEARNING (approvals and corrections build up as judgment. See crm src/lib/ai-feedback.ts. Do not claim accuracy gains until measured on real customers) ===================== -->
+<section class="learning" id="learning">
+	<div class="container learning-inner">
+		<header class="sub-head">
+			<p class="section-eyebrow">AI Learning</p>
+			<h2>The more you correct it,<br />the closer it gets to your judgment.</h2>
+		</header>
+		<p class="learning-body">When someone approves or corrects an AI judgment or summary, that decision is kept as your company's own reference. The next time the AI makes the same call, it follows your most recent decisions. Each company's decisions are kept separately and never mixed with another's. Nothing is used to train an AI model, so your data is not used anywhere else.</p>
+		<ul class="learning-list" aria-label="Where decisions build up">
+			<li>Lead priority (tier)</li>
+			<li>Field classification</li>
+			<li>Summaries</li>
+			<li>Next best action</li>
+		</ul>
+	</div>
+</section>
+
 <!-- ===================== EDITIONS (no empty system) + API + numbers ===================== -->
 <section class="track" id="use-cases">
 	<div class="container">
@@ -512,6 +529,12 @@ h3 { font-weight: 500; }
 .service-summary__links a { font-size: 0.875rem !important; font-weight: 600; }
 
 /* ── Editions（4枚のカード＋ブラウザ枠のデモ） ── */
+/* ── Learning（判断材料が貯まる） ── */
+.learning { background: var(--color-bg); border-top: 1px solid var(--color-border); }
+.learning-inner { max-width: 52rem; }
+.learning-body { margin: 0; line-height: 1.9; color: var(--color-text); }
+.learning-list { list-style: none; padding: 0; margin: var(--space-lg) 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
+.learning-list li { padding: 0.9rem 1rem; border: 1px solid var(--color-border); border-radius: 6px; background: #fff; font-size: 0.9rem; font-weight: 600; color: var(--color-text); }
 .track { background: #F1F5F9; }
 .track-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
 .track-item { display: block; }
@@ -587,6 +610,7 @@ section#support { background: #fff; }
 	.service-summary dl { grid-template-columns: 1fr; }
 	.track-list { grid-template-columns: 1fr 1fr; }
 	.assurance-ways { grid-template-columns: 1fr; }
+	.learning-list { grid-template-columns: repeat(2, 1fr); }
 	.problem-response { padding-left: 0; border-left: 0; padding-top: 1rem; border-top: 1px solid var(--color-border); }
 	.mobile-inner { grid-template-columns: 1fr; }
 	.two-col { grid-template-columns: 1fr; gap: 3rem; }

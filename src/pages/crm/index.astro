@@ -281,6 +281,23 @@ const readings = [
 	</div>
 </section>
 
+<!-- ===================== LEARNING（人の承認・訂正が判断材料として貯まる。crm の src/lib/ai-feedback.ts。「精度が上がる」は実顧客の測定値が出るまで書かない） ===================== -->
+<section class="learning" id="learning">
+	<div class="container learning-inner">
+		<header class="sub-head">
+			<p class="section-eyebrow">AI Learning</p>
+			<h2>直すほど、<br />自社の判断に近づく。</h2>
+		</header>
+		<p class="learning-body">AIの判定や要約を、人が承認したり直したりすると、その結果が自社の判断材料として貯まっていきます。次にAIが判断するときは、貯まった直近の判断を手本にします。判断材料は会社ごとに分けて持ち、他社には混ざりません。AIのモデルに学習させる仕組みではないので、データが外で使われることもありません。</p>
+		<ul class="learning-list" aria-label="判断材料が貯まる機能">
+			<li>見込み客の優先度</li>
+			<li>項目の分類</li>
+			<li>要約</li>
+			<li>次の一手</li>
+		</ul>
+	</div>
+</section>
+
 <!-- ===================== EDITIONS（空のCRMは渡さない）＋API＋数字 ===================== -->
 <section class="track" id="use-cases">
 	<div class="container">
@@ -515,6 +532,12 @@ h3 { font-weight: 500; }
 .service-summary__links a { font-size: 0.875rem !important; font-weight: 600; }
 
 /* ── Editions（4枚のカード＋ブラウザ枠のデモ） ── */
+/* ── Learning（判断材料が貯まる） ── */
+.learning { background: var(--color-bg); border-top: 1px solid var(--color-border); }
+.learning-inner { max-width: 52rem; }
+.learning-body { margin: 0; line-height: 1.9; color: var(--color-text); }
+.learning-list { list-style: none; padding: 0; margin: var(--space-lg) 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
+.learning-list li { padding: 0.9rem 1rem; border: 1px solid var(--color-border); border-radius: 6px; background: #fff; font-size: 0.9rem; font-weight: 600; color: var(--color-text); }
 .track { background: #F1F5F9; }
 .track-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
 .track-item { display: block; }
@@ -590,6 +613,7 @@ section#support { background: #fff; }
 	.service-summary dl { grid-template-columns: 1fr; }
 	.track-list { grid-template-columns: 1fr 1fr; }
 	.assurance-ways { grid-template-columns: 1fr; }
+	.learning-list { grid-template-columns: repeat(2, 1fr); }
 	.problem-response { padding-left: 0; border-left: 0; padding-top: 1rem; border-top: 1px solid var(--color-border); }
 	.mobile-inner { grid-template-columns: 1fr; }
 	.two-col { grid-template-columns: 1fr; gap: 3rem; }

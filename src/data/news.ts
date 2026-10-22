@@ -10,7 +10,7 @@ export interface NewsItem {
 	image?: string; // 登壇写真など。/images/news/ 配下
 	imageAlt?: string;
 	imageFit?: 'logo'; // ロゴは切り抜かず、縮小だけして全体を見せる（SECURITY ACTION の使用規定）
-	url?: string; // 外部の掲載記事など。slug より後に見る
+	url?: string; // 外部の掲載記事、またはサイト内のページ（/ で始まるものは同じタブで開く）。slug より後に見る
 }
 
 export const news: NewsItem[] = [
@@ -22,6 +22,13 @@ export const news: NewsItem[] = [
 		image: '/images/news/security-action-futatsuboshi-2026-10-22.png',
 		imageAlt: 'SECURITY ACTION セキュリティ対策自己宣言 二つ星のロゴマーク',
 		imageFit: 'logo',
+	},
+	{
+		date: '2026-10-22',
+		category: 'お知らせ',
+		title: '「セキュリティへの取り組み」のページを公開しました',
+		summary: '当社と顧客管理システム「Revenue CRM」が、お客様からお預かりする情報をどう守っているかを1ページにまとめました。データの保管場所（日本・東京リージョン）、会社ごとのデータの隔離、権限、バックアップ、AIの扱いなどを載せています。取引先の審査でよく聞かれる28問への回答も、登録なしでダウンロードできます。',
+		url: '/security/',
 	},
 	{
 		slug: 'revenue-crm-release',

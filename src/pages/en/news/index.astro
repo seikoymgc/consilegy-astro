@@ -17,10 +17,11 @@ import { newsEn as news, formatNewsDateEn as formatNewsDate } from '../../../dat
 		<ul>
 			{news.map((item) => {
 				const href = item.slug ? `/en/news/${item.slug}/` : item.url;
+				const external = !!item.url && !item.slug && !item.url.startsWith('/');
 				const Tag = href ? 'a' : 'div';
 				return (
 					<li class="news-item">
-						<Tag class="news-item__inner" href={href} {...(item.url && !item.slug ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
+						<Tag class="news-item__inner" href={href} {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
 							{item.image && <img class:list={['news-item__photo', item.imageFit === 'logo' && 'news-item__photo--logo']} src={item.image} alt={item.imageAlt ?? ''} width="240" height="160" loading="lazy" />}
 							<p class="news-item__meta">
 								<time datetime={item.date}>{formatNewsDate(item.date)}</time>
@@ -28,7 +29,7 @@ import { newsEn as news, formatNewsDateEn as formatNewsDate } from '../../../dat
 							</p>
 							<p class="news-item__title">{item.title}</p>
 							<p class="news-item__summary">{item.summary}</p>
-							{item.url && !item.slug && <p class="news-item__ext">Read the article ↗</p>}
+							{item.url && !item.slug && <p class="news-item__ext">{external ? 'Read the article ↗' : 'View the page →'}</p>}
 							{item.host && <p class="news-item__host">{item.category === 'Media' ? 'Published by' : 'Hosted by'} {item.host}</p>}
 						</Tag>
 					</li>

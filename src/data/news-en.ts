@@ -17,6 +17,13 @@ export const newsEn: NewsItemEn[] = [
 		imageFit: 'logo',
 	},
 	{
+		date: '2026-10-22',
+		category: 'Announcement',
+		title: 'We have published our Security page',
+		summary: 'One page now explains how Consilegy and Revenue CRM protect the information our customers trust us with: where data is stored (Tokyo, Japan), how each company’s data is isolated, permissions, backups, and how we handle AI. Our answers to 28 common security review questions can be downloaded without registration.',
+		url: '/security/',
+	},
+	{
 		slug: 'revenue-crm-release',
 		date: '2026-09-28',
 		category: 'Press release',

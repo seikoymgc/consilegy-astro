@@ -198,6 +198,7 @@ const privacyHref = isEN ? '/en/privacy-policy/' : '/privacy-policy/';
 		<div class="container site-footer__bottom-inner">
 			<p>(c) 2026 Consilegy LLC.</p>
 			<span class="site-footer__legal">
+				{isEN && <a href="/en/security/" class="site-footer__privacy">Security</a>}
 				<a href={isEN ? '/en/security-policy/' : '/security-policy/'} class="site-footer__privacy">Security Policy</a>
 				<a href={privacyHref} class="site-footer__privacy">Privacy Policy</a>
 			</span>

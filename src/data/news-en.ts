@@ -8,6 +8,12 @@ export type NewsItemEn = Omit<NewsItem, 'category'> & {
 
 export const newsEn: NewsItemEn[] = [
 	{
+		date: '2026-10-22',
+		category: 'Announcement',
+		title: 'Consilegy declares SECURITY ACTION two stars with IPA',
+		summary: 'Following its one-star declaration, Consilegy has declared the two-star level of SECURITY ACTION, a self-declaration program run by the Information-technology Promotion Agency, Japan (IPA). We assessed our own practices with the program’s self-check and have set and published an Information Security Policy.',
+	},
+	{
 		date: '2026-10-21',
 		category: 'Announcement',
 		title: 'Consilegy declares SECURITY ACTION one star with IPA',

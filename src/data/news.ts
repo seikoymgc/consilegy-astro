@@ -14,6 +14,12 @@ export interface NewsItem {
 
 export const news: NewsItem[] = [
 	{
+		date: '2026-10-22',
+		category: 'お知らせ',
+		title: 'IPAの「SECURITY ACTION」で、二つ星を宣言しました',
+		summary: '独立行政法人情報処理推進機構（IPA）が運営するSECURITY ACTION制度で、一つ星に続き「二つ星」を宣言しました。情報セキュリティ自社診断で自社の状況を確かめ、情報セキュリティ基本方針を定めて公開しています。取り組みの内容は「セキュリティへの取り組み」のページにまとめています。',
+	},
+	{
 		date: '2026-10-21',
 		category: 'お知らせ',
 		title: 'IPAの「SECURITY ACTION」で、一つ星を宣言しました',

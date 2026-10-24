@@ -1,0 +1,58 @@
+---
+// 2026-04-16 配信号。元は HubSpot のページ（lp.consilegy.com/nl_jp_20260416）にあったものを、
+// HubSpot をやめるにあたって本文をそのまま自社サイトに移した（2026-10-24）。
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = '部門最適の積み重ねで、なぜ収益は漏れるのか';
+const description = 'マーケはリード数、営業は受注、CSは定着を追う。それぞれが合理的に動いていても、全体では収益が漏れていく。見込み客の定義・引き継ぎ条件・部門横断の収益KPIの3つで、漏れ口を確かめます。';
+const schema = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: title,
+	description,
+	datePublished: '2026-04-16',
+	inLanguage: 'ja',
+	author: { '@type': 'Person', name: '山口聖子' },
+	publisher: { '@type': 'Organization', name: 'Consilegy合同会社' },
+	mainEntityOfPage: 'https://consilegy.com/newsletter/departmental-kpi-revenue-leak/',
+};
+---
+
+<BaseLayout title={`${title} | 次世代B2Bレベニュー戦略バイブル`} description={description} lang="ja" ogType="article">
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+	</Fragment>
+	<article class="nl-issue">
+		<p class="nl-issue__label">次世代B2Bレベニュー戦略バイブル　2026年4月16日</p>
+		<h1>{title}</h1>
+		<p>いつもお読みいただきありがとうございます。<br />Consilegyの山口聖子です。</p>
+		<p>新年度が始まり、組織体制や目標数字があらためて動き出す時期になりました。</p>
+		<p>このタイミングで、部門間の連携や収益の流れを見直したいとお考えの方もいらっしゃるかもしれません。</p>
+		<p>Forresterの2024年の調査では、「自社のマーケと営業は連携できている」と答えた経営者は82%でした。<br />一方で、現場では65%が「連携は不十分」と感じています。</p>
+		<p>このズレは、誰かが怠けているからでも、嘘をついているからでもありません。</p>
+		<p>多くの場合、部門ごとのKPIはあっても、収益全体をつなぐ設計がないからです。</p>
+		<p>マーケはリード数を追う。<br />営業は受注を追う。<br />CSは定着を追う。</p>
+		<p>それぞれが合理的に動いていても、全体では収益が漏れていく。</p>
+		<p>こうした状態を捉える考え方のひとつが、Revenue Architectureです。</p>
+		<p>確認すべきポイントは、次の3つです。</p>
+		<ul>
+			<li>見込み客の定義は、全部門で揃っているか</li>
+			<li>引き継ぎ条件は、曖昧さなく決まっているか</li>
+			<li>部門横断で追う収益KPIがあるか</li>
+		</ul>
+		<p>この3つのどれかに即答できないなら、そこが収益の漏れ口かもしれません。</p>
+		<p>収益が伸びない理由は、努力不足ではなく、設計不足であることが少なくありません。</p>
+		<p>次号では、どこで・どれだけ収益が漏れているかを確認する手順をお届けします。</p>
+	</article>
+	<p class="nl-back"><a href="/newsletter/">&larr; バックナンバー一覧へ</a></p>
+</BaseLayout>
+
+<style>
+	.nl-issue { max-width: 600px; margin: 0 auto; padding: 40px 24px 32px; }
+	.nl-issue__label { margin: 0 0 24px; font-size: 0.875rem; font-weight: 700; letter-spacing: 0.08em; color: var(--color-navy); }
+	.nl-issue h1 { margin: 0 0 28px; font-size: 1.625rem; line-height: 1.55; color: var(--color-navy); }
+	.nl-issue p, .nl-issue li { font-size: 1rem; line-height: 2; color: var(--color-text); }
+	.nl-issue p { margin: 0 0 20px; }
+	.nl-issue ul { margin: 0 0 20px; padding-left: 1.25rem; }
+	.nl-back { text-align: center; margin: 0 0 64px; font-size: 0.875rem; }
+</style>

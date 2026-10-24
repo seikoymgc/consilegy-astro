@@ -249,8 +249,8 @@ const dontItems = [
 			<p class="section-sub">カレンダーから空き時間を選んでそのまま予約できます。確認メールが自動送信されます。</p>
 		</div>
 		<div class="booking-wrapper">
-			<div class="meetings-iframe-container" data-src="https://lp.consilegy.com/meetings/seiko/free-consultation?embed=true"></div>
-			<script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js" is:inline></script>
+			<!-- Google カレンダーの予約ページ（30分のご相談）。2026-10-24 に HubSpot の予約から切り替え -->
+			<iframe class="booking-iframe" src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0Lny-49AzvhE7Vv9eQU22cURIlkrmljyjgW2mikct8i3XYptck3-xewAnla7MPHThuH9P8FYwD?gv=true" title="30分の無料相談の予約カレンダー" loading="lazy"></iframe>
 		</div>
 	</div>
 </section>
@@ -588,9 +588,11 @@ body { font-family: var(--font-sans); color: var(--color-navy); line-height: 1.7
 	overflow: hidden;
 	min-height: 680px;
 }
-.meetings-iframe-container {
+.booking-iframe {
+	display: block;
 	width: 100%;
-	min-height: 680px;
+	height: 720px;
+	border: 0;
 }
 
 /* ===== FAQ ===== */

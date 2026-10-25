@@ -1,0 +1,966 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CrmMobile from '../../../components/CrmMobile.astro';
+import CrmSubnav from '../../../components/CrmSubnav.astro';
+
+const DEMO_URL = 'https://crm.consilegy.com/demos';
+const SIGNUP_URL = 'https://crm.consilegy.com/signup';
+
+// プロダクトの services エディション（crm リポジトリ src/lib/editions/index.ts、PR #368）に
+// 実装済みのものだけ記載。用語は商談→案件。coreNav は /deals・/companies・/resources・
+// /delivery・/subscriptions、既定の自動化は sal-37/41 と cs-23/25/26/30/32/33/54。
+// 支援会社版の画面写真は、デモ組織（demo-services）ができてから撮って足す。
+// 受託版や代理店版の写真は、別の業態のデータが写っているので流用しない
+// （空き枠カレンダーだけは画面が同じなのでヒーローに使う）。
+
+const problems = [
+	{
+		title: '受けすぎて、支援が薄くなる',
+		text: '誰がどれだけ埋まっているかを見ずに受ける。始まってから、定例会の準備もレポートも回らなくなる。',
+	},
+	{
+		title: '断りすぎて、売上を逃す',
+		text: '来月には手が空くのに「今は手一杯」と断っている。空きが数字で見えていないから、判断がいつも安全側に寄る。',
+	},
+	{
+		title: '更新の話が、終了間際に始まる',
+		text: '契約の終了日が担当者の記憶にしかない。更新の相談も、追加の提案も、気づいたときには遅い。',
+	},
+];
+
+// 既定でONになる9本。text は crm リポジトリ src/lib/revops/outcomes.ts と
+// execution.ts・config.ts の既定値から。商談はこのエディションでは「案件」。
+const engine = [
+	{ label: '停滞', text: '止まっている案件を自動で見つけて知らせる' },
+	{ label: '受注後', text: '受注したら、受注処理のタスクを自動で作成' },
+	{ label: '健康度', text: '最後に連絡した日と未対応の問い合わせから、顧客ごとに続きそうかを毎晩点数化' },
+	{ label: '定例会', text: '60日連絡のない顧客に、定例会を設定するタスクを作成（日数は変更可）' },
+	{ label: '成果レポート', text: '顧客になって80日を過ぎ、健康度が良い・普通の相手に、成果レポートの骨子をAIが下書き' },
+	{ label: '更新準備', text: '契約終了日の60日前に、更新準備のタスクを作成' },
+	{ label: '更新アプローチ', text: '契約終了日の90日前に、更新アプローチのタスクを作成' },
+	{ label: '更新案件', text: '契約終了日の90日前に、更新の案件を自動で作成' },
+	{ label: '追加提案', text: '更新まで90日以内で健康度が良い顧客に、追加提案を「今すぐ・更新と同時・見送り」のどれにするか、AIが理由と最初の一手をメモ' },
+];
+
+const roles = [
+	{ name: 'オーナー', scope: '全案件・稼働・契約・権限設定' },
+	{ name: '管理者', scope: '運用全般と権限設定' },
+	{ name: 'マネージャー', scope: '担当チームの顧客と案件を閲覧・編集' },
+	{ name: 'メンバー', scope: '自分が担当の顧客と案件のみ' },
+];
+---
+
+<BaseLayout
+	title="Revenue CRM支援会社版 | 受けすぎず、断りすぎず、更新を落とさない"
+	description="コンサル・マーケ支援など、継続支援の会社向けの画面構成。メンバー×週の空き枠カレンダーで受けられるかを数字で判断し、月額の継続契約と更新を90日前から追えます。定例会・成果レポート・追加提案のタイミングも自動で知らせます。どのプランも30日間無料で試せます。"
+	lang="ja"
+	alternateUrl="/en/crm/services/"
+>
+<script type="application/ld+json" slot="head" set:html={JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://consilegy.com/"},
+		{"@type": "ListItem", "position": 2, "name": "Revenue CRM", "item": "https://consilegy.com/crm/"},
+		{"@type": "ListItem", "position": 3, "name": "支援会社版", "item": "https://consilegy.com/crm/services/"}
+	]
+})} />
+
+<CrmSubnav lang="ja" />
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+	<div class="container hero-grid">
+		<div class="hero-copy">
+			<p class="eyebrow">Revenue CRM · Services edition</p>
+			<h1>受けすぎず、断りすぎず、<br />更新を落とさない。</h1>
+			<p class="hero-lead">
+				稼働はマネージャーの感覚。契約の終了日はスプレッドシート。定例会は担当者の記憶。支援会社版は、<strong>稼働・空き・継続契約・更新を1か所で見て、受けられるかを数字で決め、更新の90日前から動ける</strong>構成です。
+			</p>
+			<div class="hero-actions">
+				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">デモを見る</a>
+				<a href={SIGNUP_URL} class="btn btn--secondary" target="_blank" rel="noopener noreferrer">無料で始める</a>
+			</div>
+			<p class="hero-download"><a href="/crm/download/" class="btn btn--secondary">資料をダウンロード</a></p>
+			<ul class="hero-points" aria-label="支援会社版の特徴">
+				<li>メンバー×週で空きが見える</li>
+				<li>更新は90日前から動き出す</li>
+				<li>30日間無料で試せる</li>
+			</ul>
+		</div>
+		<figure class="hero-media">
+			<img
+				src="/images/crm/contractor/screen-resources-2026-10c.webp"
+				alt="空き枠カレンダーの画面。今週の稼働率62%・空き人日6.4・逼迫週0・余剰週11のカードと、メンバー4名×12週の割当表。"
+				width="1432"
+				height="840"
+				decoding="async"
+			/>
+			<figcaption>空き枠カレンダー：メンバー×週で、割り当てと空きを同じ画面で</figcaption>
+		</figure>
+	</div>
+</section>
+
+<!-- ===================== POSITIONING ===================== -->
+<section class="positioning">
+	<div class="container">
+		<div class="pos-body">
+			<p class="pos-lead">
+				追いかけるのは「取れるか」ではなく、<br />
+				「続くか」です。
+			</p>
+			<div class="pos-copy">
+				<p>
+					月額の支援は、取った1件より、続いた1社が売上を積み上げます。だから支援会社版では、受注のあとを中心に置きました。案件に契約終了日を入れておけば、90日前に更新アプローチのタスクと更新の案件ができ、60日前に更新準備のタスクができます。
+				</p>
+				<p>
+					続けてもらうには、支援の手が薄くならないことが前提です。稼働をメンバー×週の表で持っているので、新しい相談を受ける前に、<strong>誰がいつ空くか</strong>を確かめられます。受けすぎも、断りすぎも、感覚ではなく空き人日で判断できます。
+				</p>
+				<p>
+					月額の契約はサブスクの画面でも持てます。MRR・ARR・解約率が、契約から自動で集計されます。
+				</p>
+				<a href="/revenue-architecture/" class="pos-link">この考え方について読む →</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== PROBLEM ===================== -->
+<section class="problem">
+	<div class="container">
+		<div class="section-head">
+			<p class="section-eyebrow">Problems</p>
+			<h2 class="prob-title">忙しいのに、売上が積み上がっていませんか。</h2>
+		</div>
+		<div class="prob-grid">
+			{problems.map((item, index) => (
+				<article class="prob-item">
+					<span class="issue-label" aria-label={`項目 ${index + 1}`}>
+						<span class="issue-label__number">{String(index + 1).padStart(2, '0')}</span>
+					</span>
+					<h3>{item.title}</h3>
+					<p>{item.text}</p>
+				</article>
+			))}
+		</div>
+	</div>
+</section>
+
+<!-- ===================== 継続エンジン ===================== -->
+<section class="support">
+	<div class="container">
+		<figure class="flow-figure" aria-labelledby="flow-figure-caption">
+			<svg class="fig-pc" viewBox="0 0 1120 330" role="img" aria-label="継続支援の流れ：受注、支援、定例会、成果レポート、更新。空き枠カレンダーが受注の前に効く">
+				<defs><marker id="sv-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
+				<g font-family="inherit">
+				<rect x="40" y="110" width="188" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/><text x="58" y="144" font-size="14" fill="#64748b" letter-spacing="1">Win</text><text x="58" y="174" font-size="18" font-weight="600" fill="#0F172A">受注</text>
+				<text x="58" y="234" font-size="16" fill="#475569">空きを見てから受ける</text>
+				<line x1="228" y1="158" x2="252" y2="158" stroke="#0F172A" stroke-width="2" marker-end="url(#sv-arr)"/>
+				<rect x="256" y="110" width="188" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/><text x="274" y="144" font-size="14" fill="#64748b" letter-spacing="1">Delivery</text><text x="274" y="174" font-size="18" font-weight="600" fill="#0F172A">支援</text>
+				<text x="274" y="234" font-size="16" fill="#475569">稼働を週ごとに割当</text>
+				<line x1="444" y1="158" x2="468" y2="158" stroke="#0F172A" stroke-width="2" marker-end="url(#sv-arr)"/>
+				<rect x="472" y="110" width="188" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/><text x="490" y="144" font-size="14" fill="#64748b" letter-spacing="1">Review</text><text x="490" y="174" font-size="18" font-weight="600" fill="#0F172A">定例会</text>
+				<text x="490" y="234" font-size="16" fill="#475569">連絡の空白を知らせる</text>
+				<line x1="660" y1="158" x2="684" y2="158" stroke="#0F172A" stroke-width="2" marker-end="url(#sv-arr)"/>
+				<rect x="688" y="110" width="188" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/><text x="706" y="144" font-size="14" fill="#64748b" letter-spacing="1">Report</text><text x="706" y="174" font-size="18" font-weight="600" fill="#0F172A">成果レポート</text>
+				<text x="706" y="234" font-size="16" fill="#475569">骨子をAIが下書き</text>
+				<line x1="876" y1="158" x2="900" y2="158" stroke="#0F172A" stroke-width="2" marker-end="url(#sv-arr)"/>
+				<rect x="904" y="110" width="188" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/><text x="922" y="144" font-size="14" fill="#64748b" letter-spacing="1">Renewal</text><text x="922" y="174" font-size="18" font-weight="600" fill="#0F172A">更新</text>
+				<text x="922" y="234" font-size="16" fill="#475569">90日前から動く</text>
+				<rect x="40" y="24" width="580" height="56" rx="6" fill="#F1F5F9"/>
+				<text x="60" y="47" font-size="14" fill="#2563EB" font-weight="600" letter-spacing="1">AVAILABILITY</text>
+				<text x="60" y="70" font-size="16" fill="#0F172A">空き枠カレンダー：メンバー×週の空きを見てから受ける</text>
+				<path d="M134 80 L134 106" stroke="#3B82F6" stroke-width="2" marker-end="url(#sv-arr)"/>
+				<rect x="40" y="276" width="1052" height="40" rx="6" fill="#0F172A"/>
+				<text x="566" y="302" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">健康度・更新・追加提案のタイミングは、1日1回の自動処理が拾って知らせる</text>
+				</g>
+			</svg>
+			<svg class="fig-sp" viewBox="0 0 360 862" role="img" aria-label="継続支援の流れ：受注、支援、定例会、成果レポート、更新。空き枠カレンダーが受注の前に効く">
+				<defs><marker id="sv-sp-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
+				<g font-family="inherit">
+				<rect x="16" y="16" width="328" height="94" rx="6" fill="#F1F5F9"/>
+				<text x="32" y="42" font-size="14" font-weight="700" letter-spacing="1" fill="#2563EB">AVAILABILITY</text>
+				<text x="32" y="68" font-size="16" fill="#0F172A">空き枠カレンダー：メンバー×週の</text>
+				<text x="32" y="92" font-size="16" fill="#0F172A">空きを見てから受ける</text>
+				<path d="M180 110 L180 134" stroke="#3B82F6" stroke-width="2" marker-end="url(#sv-sp-arr)"/>
+				<rect x="16" y="138" width="328" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<text x="32" y="166" font-size="14" letter-spacing="1.5" fill="#64748b">Win</text>
+				<text x="32" y="194" font-size="18" font-weight="600" fill="#0F172A">受注</text>
+				<text x="32" y="222" font-size="16" fill="#475569">空きを見てから受ける</text>
+				<line x1="180" y1="240" x2="180" y2="262" stroke="#0F172A" stroke-width="2" marker-end="url(#sv-sp-arr)"/>
+				<rect x="16" y="266" width="328" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<text x="32" y="294" font-size="14" letter-spacing="1.5" fill="#64748b">Delivery</text>
+				<text x="32" y="322" font-size="18" font-weight="600" fill="#0F172A">支援</text>
+				<text x="32" y="350" font-size="16" fill="#475569">稼働を週ごとに割当</text>
+				<line x1="180" y1="368" x2="180" y2="390" stroke="#0F172A" stroke-width="2" marker-end="url(#sv-sp-arr)"/>
+				<rect x="16" y="394" width="328" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<text x="32" y="422" font-size="14" letter-spacing="1.5" fill="#64748b">Review</text>
+				<text x="32" y="450" font-size="18" font-weight="600" fill="#0F172A">定例会</text>
+				<text x="32" y="478" font-size="16" fill="#475569">連絡の空白を知らせる</text>
+				<line x1="180" y1="496" x2="180" y2="518" stroke="#0F172A" stroke-width="2" marker-end="url(#sv-sp-arr)"/>
+				<rect x="16" y="522" width="328" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<text x="32" y="550" font-size="14" letter-spacing="1.5" fill="#64748b">Report</text>
+				<text x="32" y="578" font-size="18" font-weight="600" fill="#0F172A">成果レポート</text>
+				<text x="32" y="606" font-size="16" fill="#475569">骨子をAIが下書き</text>
+				<line x1="180" y1="624" x2="180" y2="646" stroke="#0F172A" stroke-width="2" marker-end="url(#sv-sp-arr)"/>
+				<rect x="16" y="650" width="328" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<text x="32" y="678" font-size="14" letter-spacing="1.5" fill="#64748b">Renewal</text>
+				<text x="32" y="706" font-size="18" font-weight="600" fill="#0F172A">更新</text>
+				<text x="32" y="734" font-size="16" fill="#475569">90日前から動く</text>
+				<rect x="16" y="770" width="328" height="76" rx="6" fill="#0F172A"/>
+				<text x="180" y="800" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">健康度・更新・追加提案は、</text>
+				<text x="180" y="824" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">1日1回の自動処理が拾って知らせる</text>
+				</g>
+			</svg>
+			<figcaption id="flow-figure-caption">受注から更新までを、1本の案件で追います。受ける前に空き枠を見るのと、終わる前に更新を始めるのが、支援会社版の起点です。</figcaption>
+		</figure>
+	</div>
+	<div class="container support-inner">
+		<div>
+			<p class="section-eyebrow">Retention engine</p>
+			<h2>更新の取りこぼしを、人の記憶から外します。</h2>
+			<p class="support-lead">
+				支援会社版を作ると、継続まわりの自動化が最初からONになっています。止まった案件を拾い、しばらく連絡していない顧客に定例会のタスクを作り、契約終了日の90日前から更新に向けたタスクと案件を用意します。どれも1日1回の処理として走ります。
+			</p>
+			<p class="support-lead">
+				自動化が作るのはタスク・通知・下書きです。顧客へのメールは、送る相手と文面を自分で決めてONにした自動化だけが送ります。AIの下書きも、担当者が中身を見て、直してから使います。
+			</p>
+		</div>
+		<div class="support-list">
+			<h3>既定でONになるもの</h3>
+			<ul>
+				{engine.map((r) => (
+					<li><span>{r.label}</span><strong>{r.text}</strong></li>
+				))}
+			</ul>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== AI ===================== -->
+<section class="ai">
+	<div class="container ai-inner">
+		<div>
+			<p class="section-eyebrow">AI</p>
+			<h2>日本語で聞けば、<br />その場で返ってきます。</h2>
+			<p class="ai-lead">
+				知りたいことのために、集計を組み立てる必要はありません。話すとおりに聞けば、稼働・契約・顧客と、添付した資料を探して答えます。
+			</p>
+			<p class="ai-lead">
+				今週の空き、今月更新の契約、注意が要る顧客。どれも表を作らずに、その場で確認できます。
+			</p>
+			<p class="ai-lead">
+				頼めば、コンタクトやタスクの登録もします。AIが顧客にメールを送ることはありません。
+			</p>
+		</div>
+		<ul class="ai-examples">
+			<li>今週の空き人日は？</li>
+			<li>今月更新の契約は？</li>
+			<li>解約リスクの高い顧客は？</li>
+			<li>MRRの内訳は？</li>
+		</ul>
+	</div>
+</section>
+
+<CrmMobile />
+
+<!-- ===================== ROLES ===================== -->
+<section class="roles">
+	<div class="container">
+		<div class="section-head">
+			<p class="section-eyebrow">Permissions</p>
+			<h2 class="ro-title">担当外の顧客は、見えないようにできます。</h2>
+		</div>
+		<p class="ro-lead">
+				顧客・会社・案件のそれぞれについて、見える範囲を「全体・チーム・自分」から選べます。業務委託のメンバーを入れる場合も、担当している顧客と案件だけに絞れます。エクスポートの可否は別に設定できます。下は設定例です。
+			</p>
+		<dl class="ro-list">
+			{roles.map((r) => (
+				<div class="ro-row">
+					<dt>{r.name}</dt>
+					<dd>{r.scope}</dd>
+				</div>
+			))}
+		</dl>
+		<p class="ro-note">顧客・会社・案件は変更履歴が残るので、誰がいつ何を変更したかを後から追えます。</p>
+	</div>
+</section>
+
+<!-- ===================== FINAL CTA ===================== -->
+<section class="final-cta">
+	<div class="container cta-inner">
+		<div>
+			<p class="cta-eyebrow">30 days free</p>
+			<h2>今の業務に合うかは、<br />実際の画面で確かめてください。</h2>
+			<p class="cta-lead">
+				初期費用はなく、どのプランも30日間の無料トライアル付きで、カード登録なしで始められます。デモはメールアドレスだけで、その場でご覧いただけます。
+			</p>
+			<div class="cta-actions">
+				<a href={SIGNUP_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">無料で始める</a>
+				<a href={DEMO_URL} class="btn btn--secondary" target="_blank" rel="noopener noreferrer">デモを見る</a>
+				<a href="/crm/download/" class="btn btn--secondary">資料をダウンロード</a>
+			</div>
+		</div>
+		<div class="cta-card">
+			<h4>デモでお見せする内容</h4>
+			<ul class="cta-list">
+				<li>空き枠カレンダーと稼働率の見え方</li>
+				<li>契約終了日から自動で作られる更新のタスクと案件</li>
+				<li>月額契約のMRR・解約率の集計</li>
+				<li>顧客ごとの健康度と、定例会のタスク</li>
+				<li>メンバー向けの権限設定と変更履歴</li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+</BaseLayout>
+
+<style>
+	.section-eyebrow,
+	.eyebrow,
+	.cta-eyebrow {
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.12em;
+		line-height: 1.4;
+		text-transform: uppercase;
+	}
+
+	/* uppercase はギリシャ文字も変えるので β が B になる。
+	   ラテン文字だけ大文字にしたいので、日本語まじりの語は除外する。 */
+	.section-eyebrow .no-upper,
+	.eyebrow .no-upper,
+	.cta-eyebrow .no-upper {
+		text-transform: none;
+	}
+
+	h2,
+	h3 {
+		letter-spacing: 0;
+	}
+
+	h2 {
+		margin: 0;
+		color: var(--color-text);
+		font-size: 2rem;
+		font-weight: 500;
+		line-height: 1.4;
+		text-wrap: balance;
+	}
+
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 46px;
+		padding: 0.8rem 1.35rem;
+		border: 1px solid var(--color-border);
+		border-radius: 4px;
+		font-size: 0.9375rem;
+		font-weight: 600;
+		line-height: 1.25;
+		text-decoration: none;
+		transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+	}
+
+	.btn--primary {
+		background: var(--color-primary);
+		border-color: var(--color-primary);
+		color: #fff;
+	}
+
+	.btn--primary:hover {
+		background: var(--color-primary-dark);
+		border-color: var(--color-primary-dark);
+		color: #fff;
+	}
+
+	.btn--secondary {
+		background: transparent;
+		color: var(--color-text);
+	}
+
+	.btn--secondary:hover {
+		border-color: var(--color-primary);
+		color: var(--color-primary);
+	}
+
+	.hero-actions,
+	.cta-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: var(--space-md);
+	}
+
+	.hero {
+		padding: var(--space-lg) 0 var(--space-md);
+		background: var(--color-bg);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.hero-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.78fr);
+		gap: var(--space-xl);
+		align-items: start;
+	}
+
+	.hero-copy {
+		max-width: 720px;
+	}
+
+	.eyebrow {
+		display: block;
+		margin-bottom: var(--space-md);
+		padding-top: 0.875rem;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.hero h1 {
+		max-width: 13em;
+		margin: 0;
+		color: var(--color-text);
+		font-size: 3.125rem;
+		font-weight: 500;
+		line-height: 1.2;
+		letter-spacing: 0;
+		text-wrap: balance;
+	}
+
+	.hero-lead {
+		max-width: 43em;
+		margin: var(--space-md) 0 0;
+		color: var(--color-text);
+		font-size: 1.0625rem;
+		line-height: 2;
+	}
+
+	.hero-lead strong {
+		font-weight: 700;
+	}
+
+	.hero-points {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 0;
+		margin: var(--space-md) 0 0;
+		padding: 0;
+		list-style: none;
+		border-top: 1px solid var(--color-border);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.hero-points li {
+		min-width: 0;
+		padding: 0.85rem 1rem;
+		color: var(--color-text-muted);
+		font-size: 0.8125rem;
+		line-height: 1.6;
+	}
+
+	.hero-points li + li {
+		border-left: 1px solid var(--color-border);
+	}
+
+	.pos-link {
+		color: var(--color-primary);
+		font-weight: 600;
+		text-decoration: none;
+		border-bottom: 1px solid currentColor;
+	}
+
+	.hero-media {
+		margin: 0;
+		min-width: 0;
+	}
+
+	.hero-media img,
+	.prob-shot img {
+		width: 100%;
+		height: auto;
+		display: block;
+		border: 1px solid var(--color-border);
+		border-radius: 0;
+		background: #fff;
+		box-shadow: none;
+	}
+
+	.hero-media figcaption,
+	.prob-shot figcaption {
+		margin-top: 0.65rem;
+		color: var(--color-text-muted);
+		font-size: 0.75rem;
+		line-height: 1.6;
+	}
+
+	.positioning,
+	.problem,
+	.screens,
+	.support,
+	.ai,
+	.roles,
+	.final-cta {
+		padding: var(--space-2xl) 0;
+		background: var(--color-bg);
+	}
+
+	.screens,
+	.roles {
+		background: var(--color-bg-subtle);
+		border-top: 1px solid var(--color-border);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.prob-shot {
+		max-width: 900px;
+		margin: 0;
+		background: transparent;
+		border: 0;
+		border-radius: 0;
+		box-shadow: none;
+	}
+
+	.positioning {
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.pos-body {
+		display: grid;
+		grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+		gap: var(--space-xl);
+		align-items: start;
+		padding-top: var(--space-sm);
+		border-top: 1px solid var(--color-border);
+	}
+
+	.pos-lead {
+		margin: 0;
+		color: var(--color-text);
+		font-size: 1.375rem;
+		font-weight: 500;
+		line-height: 1.7;
+		text-wrap: balance;
+	}
+
+	.pos-copy p {
+		margin: 0 0 1rem;
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+		line-height: 1.9;
+	}
+
+	.pos-body strong {
+		color: var(--color-text);
+		font-weight: 700;
+	}
+
+	.pos-link {
+		display: inline-flex;
+		margin-top: 0.25rem;
+		font-size: 0.9375rem;
+	}
+
+	.section-head {
+		display: grid;
+		grid-template-columns: 10rem minmax(0, 1fr);
+		gap: var(--space-lg);
+		align-items: start;
+		margin-bottom: var(--space-lg);
+		padding-top: var(--space-sm);
+		border-top: 1px solid var(--color-border);
+	}
+
+	.prob-grid,
+	.sc-grid {
+		display: grid;
+		gap: 0;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.prob-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	.prob-item,
+	.sc-card {
+		min-width: 0;
+		padding: 1.35rem 1.5rem 1.35rem 0;
+		background: transparent;
+		border: 0;
+		border-bottom: 1px solid var(--color-border);
+		border-radius: 0;
+	}
+
+	.prob-item:nth-child(2),
+	.prob-item:nth-child(3) {
+		padding-left: var(--space-md);
+		border-left: 1px solid var(--color-border);
+	}
+
+	.issue-label {
+		display: flex;
+		align-items: flex-end;
+		gap: 0.85rem;
+		margin-bottom: 0.9rem;
+		color: var(--color-navy);
+	}
+
+	.issue-label::after {
+		content: "";
+		flex: 1;
+		height: 1px;
+		margin-bottom: 0.34rem;
+		background: var(--color-border);
+	}
+
+	.issue-label__number {
+		color: rgba(112, 66, 172, 0.24);
+		font-size: 2.45rem;
+		font-weight: 500;
+		font-variant-numeric: tabular-nums;
+		line-height: 0.82;
+		letter-spacing: 0;
+	}
+
+	.prob-item h3,
+	.sc-card h3 {
+		margin: 0;
+		color: var(--color-text);
+		font-size: 1rem;
+		font-weight: 600;
+		line-height: 1.55;
+	}
+
+	.prob-item p,
+	.sc-card p {
+		margin: 0.6rem 0 0;
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+		line-height: 1.85;
+	}
+
+	.prob-shot {
+		margin-top: var(--space-xl);
+	}
+
+	.prob-shot strong {
+		color: var(--color-text);
+		font-weight: 700;
+	}
+
+	.screens {
+		scroll-margin-top: 120px;
+	}
+
+	.sc-grid {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+
+	.sc-card {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: 0.9rem;
+		align-content: start;
+		padding-right: var(--space-md);
+	}
+
+	.sc-shot {
+		margin: 0;
+		overflow: hidden;
+		border: 1px solid var(--color-border);
+		border-radius: 8px;
+		background: #fff;
+		box-shadow: 0 8px 22px rgba(15, 23, 42, 0.07);
+	}
+
+	.sc-shot img {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+
+	.sc-card:nth-child(4n + 2),
+	.sc-card:nth-child(4n + 3),
+	.sc-card:nth-child(4n + 4) {
+		padding-left: var(--space-md);
+		border-left: 1px solid var(--color-border);
+	}
+
+	.support {
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.support-inner,
+	.ai-inner,
+	.cta-inner {
+		display: grid;
+		grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+		gap: var(--space-xl);
+		align-items: start;
+	}
+
+	.support-inner > div:first-child,
+	.ai-inner > div:first-child,
+	.cta-inner > div:first-child {
+		padding-top: var(--space-sm);
+		border-top: 1px solid var(--color-border);
+	}
+
+	.support .section-eyebrow,
+	.ai .section-eyebrow,
+	.cta-eyebrow {
+		margin-bottom: var(--space-sm);
+	}
+
+	.support-lead,
+	.ai-lead,
+	.ro-lead,
+	.cta-lead {
+		margin: 1rem 0 0;
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+		line-height: 1.85;
+	}
+
+	.support-list {
+		border-top: 1px solid var(--color-border);
+	}
+
+	.support-list h3,
+	.cta-card h4 {
+		margin: 0;
+		padding: 0.95rem 0;
+		border-bottom: 1px solid var(--color-border);
+		color: var(--color-primary);
+		font-size: 0.8125rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		line-height: 1.5;
+	}
+
+	.support-list ul,
+	.cta-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.support-list li {
+		display: grid;
+		grid-template-columns: 6rem minmax(0, 1fr);
+		gap: var(--space-md);
+		padding: 0.9rem 0;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.support-list span {
+		color: var(--color-text-muted);
+		font-size: 0.8125rem;
+		font-weight: 600;
+		line-height: 1.7;
+	}
+
+	.support-list strong {
+		color: var(--color-text);
+		font-size: 0.9375rem;
+		font-weight: 600;
+		line-height: 1.7;
+	}
+
+	.ai-examples {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.ai-examples li {
+		padding: 0.9rem 0;
+		border-bottom: 1px solid var(--color-border);
+		color: var(--color-text);
+		font-size: 0.9375rem;
+		line-height: 1.7;
+	}
+
+	.ai-examples li::before {
+		content: '\201C';
+		color: var(--color-navy);
+	}
+
+	.ai-examples li::after {
+		content: '\201D';
+		color: var(--color-navy);
+	}
+
+	.ro-lead {
+		max-width: 720px;
+		margin-top: 0;
+		margin-bottom: var(--space-lg);
+	}
+
+	.ro-list {
+		max-width: 720px;
+		margin: 0;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.ro-row {
+		display: grid;
+		grid-template-columns: 14rem minmax(0, 1fr);
+		gap: var(--space-md);
+		padding: 1rem 0;
+		align-items: baseline;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.ro-row dt {
+		color: var(--color-text);
+		font-size: 0.9375rem;
+		font-weight: 600;
+		line-height: 1.7;
+	}
+
+	.ro-row dd {
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+		line-height: 1.7;
+	}
+
+	.ro-note {
+		margin: 1.25rem 0 0;
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+		line-height: 1.7;
+	}
+
+	.final-cta {
+		color: var(--color-text);
+	}
+
+	.cta-card {
+		background: transparent;
+		border: 0;
+		border-top: 1px solid var(--color-border);
+		border-radius: 0;
+		padding: 0;
+	}
+
+	.cta-list li {
+		padding: 0.75rem 0;
+		border-bottom: 1px solid var(--color-border);
+		color: var(--color-text);
+		font-size: 0.9375rem;
+		line-height: 1.75;
+	}
+
+	@media (max-width: 1020px) {
+		.hero-grid,
+		.pos-body,
+		.support-inner,
+		.ai-inner,
+		.cta-inner {
+			grid-template-columns: 1fr;
+		}
+
+		.hero h1 {
+			font-size: 2.75rem;
+		}
+
+		.hero-media,
+		.prob-shot {
+			max-width: 680px;
+		}
+
+		.sc-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.sc-card:nth-child(odd) {
+			padding-left: 0;
+			border-left: 0;
+		}
+
+		.sc-card:nth-child(even) {
+			padding-left: var(--space-md);
+			border-left: 1px solid var(--color-border);
+		}
+	}
+
+	@media (max-width: 760px) {
+		.hero,
+		.positioning,
+		.problem,
+		.screens,
+		.support,
+		.roles,
+		.final-cta {
+			padding-block: var(--space-xl);
+		}
+
+		.hero {
+			padding-block: var(--space-lg) var(--space-md);
+		}
+
+		.section-head,
+		.prob-grid,
+		.sc-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.section-head {
+			gap: 0.75rem;
+		}
+
+		.hero-grid {
+			gap: var(--space-md);
+		}
+
+		h2 {
+			font-size: 1.625rem;
+		}
+
+		.hero h1 {
+			font-size: 2.25rem;
+		}
+
+		.hero-lead {
+			font-size: 1rem;
+			line-height: 1.85;
+		}
+
+		.hero-points {
+			display: none;
+		}
+
+		.prob-item,
+		.prob-item:nth-child(2),
+		.prob-item:nth-child(3),
+		.sc-card,
+		.sc-card:nth-child(even) {
+			padding-left: 0;
+			padding-right: 0;
+			border-left: 0;
+		}
+
+		.support-list li,
+		.ro-row {
+			grid-template-columns: 1fr;
+			gap: 0.25rem;
+		}
+
+		.hero-actions,
+		.cta-actions {
+			flex-direction: column;
+			align-items: stretch;
+		}
+	}
+
+	.flow-figure { margin: 0 0 var(--space-lg); }
+	.flow-figure svg { display: block; width: 100%; height: auto; }
+	.flow-figure figcaption { margin-top: 0.75rem; font-size: 0.875rem; color: var(--color-text-muted); }
+</style>

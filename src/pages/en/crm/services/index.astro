@@ -1,0 +1,959 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CrmSubnav from '../../../../components/CrmSubnav.astro';
+
+const DEMO_URL = 'https://crm.consilegy.com/demos';
+const SIGNUP_URL = 'https://crm.consilegy.com/signup';
+
+// Mirrors /crm/services/. Only what the services edition actually ships
+// (src/lib/editions/index.ts in the product, PR #368). Deals are called engagements here.
+// Screenshots for this edition get added once the demo-services workspace exists;
+// other editions' screenshots show other businesses' data, so they are not reused
+// (the capacity calendar is the same screen, so the hero uses it).
+
+const problems = [
+	{ title: 'Taking on too much, and the work gets thin', text: 'New work gets accepted without checking who is already full. Once it starts, the review prep and the reports stop keeping up.' },
+	{ title: 'Turning work down, and leaving revenue behind', text: 'Someone frees up next month, yet the answer today is “we are full.” When free time is not visible in numbers, the call always errs on the safe side.' },
+	{ title: 'The renewal talk starts at the last minute', text: 'Contract end dates live in someone’s memory. By the time anyone notices, it is too late for the renewal conversation and for the upsell.' },
+];
+
+// The nine automations on by default. Wording from outcomes.ts, execution.ts,
+// and the defaults in config.ts in the product. Deals are engagements here.
+const engine = [
+	{ label: 'Stalled', text: 'Find stalled engagements and flag them' },
+	{ label: 'Won', text: 'When an engagement is won, create an order-processing task' },
+	{ label: 'Health', text: 'Score every customer nightly from the last contact date and open support requests' },
+	{ label: 'Review', text: 'Create a task to schedule a review meeting for customers not contacted in 60 days (adjustable)' },
+	{ label: 'Report', text: 'For customers past 80 days with good or fair health, AI drafts an outcome report outline' },
+	{ label: 'Renewal prep', text: 'Create a renewal prep task 60 days before the contract end date' },
+	{ label: 'Renewal outreach', text: 'Create a renewal outreach task 90 days before the contract end date' },
+	{ label: 'Renewal engagement', text: 'Create the renewal engagement 90 days before the contract end date' },
+	{ label: 'Upsell timing', text: 'For healthy customers renewing within 90 days, AI notes whether to propose more now, with the renewal, or hold, with the reason and first move' },
+];
+
+const roles = [
+	{ name: 'Owner', scope: 'Every engagement, capacity, contract, and permission' },
+	{ name: 'Admin', scope: 'Day-to-day operations and permissions' },
+	{ name: 'Manager', scope: 'View and edit customers and engagements for their team' },
+	{ name: 'Member', scope: 'Only the customers and engagements they own' },
+];
+---
+
+<BaseLayout
+	title="Revenue CRM | CRM for consulting and agencies on retainers"
+	description="CRM for consulting firms and marketing agencies on monthly retainers. A person-by-week capacity calendar shows whether you can take on new work, and renewals start 90 days before the contract ends. Review meetings, outcome reports, and upsell timing get flagged automatically. 30-day free trial."
+	lang="en"
+	alternateUrl="/crm/services/"
+>
+<script type="application/ld+json" slot="head" set:html={JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://consilegy.com/en/"},
+		{"@type": "ListItem", "position": 2, "name": "Revenue CRM", "item": "https://consilegy.com/en/crm/"},
+		{"@type": "ListItem", "position": 3, "name": "Consulting and agencies", "item": "https://consilegy.com/en/crm/services/"}
+	]
+})} />
+
+<CrmSubnav lang="en" />
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+	<div class="container hero-grid">
+		<div class="hero-copy">
+			<p class="eyebrow">Revenue CRM for consulting &amp; agencies</p>
+			<h1>Take on the right amount.<br />Keep every renewal.</h1>
+			<p class="hero-lead">
+				Capacity in the manager’s head, contract end dates in a spreadsheet, review meetings in someone’s memory. This edition <strong>puts capacity, free time, retainers, and renewals in one place, so you decide on new work with numbers and start renewals 90 days ahead</strong>.
+			</p>
+			<div class="hero-actions">
+				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">See the demo</a>
+				<a href={SIGNUP_URL} class="btn btn--secondary" target="_blank" rel="noopener noreferrer">Start free</a>
+			</div>
+			<ul class="hero-points" aria-label="What this edition does">
+				<li>Free capacity by person and week</li>
+				<li>Renewals start 90 days ahead</li>
+				<li>Starts set up for retainer work</li>
+			</ul>
+		</div>
+		<figure class="hero-media">
+			<img
+				src="/images/crm/contractor/screen-resources-2026-10c.webp"
+				alt="The capacity calendar: utilization, free person-days, and a 12-week grid of assignments for four team members."
+				width="1432"
+				height="840"
+				decoding="async"
+			/>
+			<figcaption>Capacity calendar: assignments and free time on one screen</figcaption>
+		</figure>
+	</div>
+</section>
+
+<!-- ===================== POSITIONING ===================== -->
+<section class="positioning">
+	<div class="container">
+		<div class="pos-body">
+			<p class="pos-lead">
+				The question is not “can we win it.”<br />It is “will it continue.”
+			</p>
+			<div class="pos-copy">
+				<p>
+					On monthly retainers, revenue builds from the clients who stay, more than from the next win. So this edition centers on what happens after the win. Put a contract end date on the engagement, and 90 days before it you get a renewal outreach task and a renewal engagement, then a renewal prep task at 60 days.
+				</p>
+				<p>
+					Clients stay when the work does not get thin. With capacity held per person and per week, you check <strong>who frees up when</strong> before you take on something new. Taking on too much and turning work down both become a call made on free person-days, not a feeling.
+				</p>
+				<p>
+					Retainers can also live on the subscriptions screen, where MRR, ARR, and churn are calculated from the contracts.
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== PROBLEM ===================== -->
+<section class="problem">
+	<div class="container">
+		<div class="section-head">
+			<p class="section-eyebrow">The problem</p>
+			<h2 class="prob-title">Busy all month, but revenue is not building?</h2>
+		</div>
+		<div class="prob-grid">
+			{problems.map((item, index) => (
+				<article class="prob-item">
+					<span class="issue-label" aria-label={`Item ${index + 1}`}>
+						<span class="issue-label__number">{String(index + 1).padStart(2, '0')}</span>
+					</span>
+					<h3>{item.title}</h3>
+					<p>{item.text}</p>
+				</article>
+			))}
+		</div>
+	</div>
+</section>
+
+<!-- ===================== ENGINE ===================== -->
+<section class="support">
+	<div class="container support-inner">
+		<div>
+			<p class="section-eyebrow">Retention engine</p>
+			<h2>Take missed renewals out of people’s memory.</h2>
+				<p class="support-lead">
+					When you create this edition, the retention automations are already on. They catch stalled engagements, create a review task for customers you have not contacted in a while, and line up renewal tasks and the renewal engagement 90 days before the contract ends, once a day.
+				</p>
+				<p class="support-lead">
+					Automations create tasks, notifications, and drafts. Customer emails go out only from automations you have turned on yourself, with the recipients and wording you chose. AI drafts are checked and edited by a person before use.
+				</p>
+		</div>
+		<div class="support-list">
+			<h3>On by default</h3>
+			<ul>
+				{engine.map((r) => (
+					<li><span>{r.label}</span><strong>{r.text}</strong></li>
+				))}
+			</ul>
+		</div>
+	</div>
+	<div class="container engine-fig">
+		<figure class="en-fig" aria-labelledby="en-sv-caption">
+			<svg class="fig-pc" viewBox="40 0 1040 278" role="img" aria-label="Retainer flow: win, delivery, review, report, renewal" font-family="inherit">
+				<defs><marker id="en-sv-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
+				<text x="40" y="26" font-size="14" letter-spacing="1.5" fill="#64748b">RETAINER FLOW</text>
+				<rect x="40" y="50" width="188" height="136" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<text x="56" y="80" font-size="14" letter-spacing="1.5" fill="#64748b">WIN</text>
+				<text x="56" y="108" font-size="18" font-weight="600" fill="#0F172A">Won</text>
+				<text x="56" y="136" font-size="16" fill="#475569">Check capacity</text>
+				<text x="56" y="160" font-size="16" fill="#475569">before saying yes</text>
+				<line x1="230" y1="98" x2="250" y2="98" stroke="#0F172A" stroke-width="2" marker-end="url(#en-sv-arr)"/>
+				<rect x="252" y="50" width="188" height="136" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<text x="268" y="80" font-size="14" letter-spacing="1.5" fill="#64748b">DELIVER</text>
+				<text x="268" y="108" font-size="18" font-weight="600" fill="#0F172A">Delivery</text>
+				<text x="268" y="136" font-size="16" fill="#475569">Capacity assigned</text>
+				<text x="268" y="160" font-size="16" fill="#475569">week by week</text>
+				<line x1="442" y1="98" x2="462" y2="98" stroke="#0F172A" stroke-width="2" marker-end="url(#en-sv-arr)"/>
+				<rect x="464" y="50" width="188" height="136" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<text x="480" y="80" font-size="14" letter-spacing="1.5" fill="#64748b">REVIEW</text>
+				<text x="480" y="108" font-size="18" font-weight="600" fill="#0F172A">Review</text>
+				<text x="480" y="136" font-size="16" fill="#475569">Flagged when contact</text>
+				<text x="480" y="160" font-size="16" fill="#475569">goes quiet</text>
+				<line x1="654" y1="98" x2="674" y2="98" stroke="#0F172A" stroke-width="2" marker-end="url(#en-sv-arr)"/>
+				<rect x="676" y="50" width="188" height="136" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<text x="692" y="80" font-size="14" letter-spacing="1.5" fill="#64748b">REPORT</text>
+				<text x="692" y="108" font-size="18" font-weight="600" fill="#0F172A">Report</text>
+				<text x="692" y="136" font-size="16" fill="#475569">Outline drafted</text>
+				<text x="692" y="160" font-size="16" fill="#475569">by AI</text>
+				<line x1="866" y1="98" x2="886" y2="98" stroke="#0F172A" stroke-width="2" marker-end="url(#en-sv-arr)"/>
+				<rect x="888" y="50" width="188" height="136" rx="6" fill="#0F172A" stroke="#E2E8F0"/>
+				<text x="904" y="80" font-size="14" letter-spacing="1.5" fill="rgba(255,255,255,0.7)">RENEW</text>
+				<text x="904" y="108" font-size="18" font-weight="600" fill="#fff">Renewal</text>
+				<text x="904" y="136" font-size="16" fill="rgba(255,255,255,0.85)">Starts 90 days</text>
+				<text x="904" y="160" font-size="16" fill="rgba(255,255,255,0.85)">before the end</text>
+				<rect x="40" y="206" width="1040" height="52" rx="6" fill="#0F172A"/><text x="560" y="238" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">Health, renewals, and upsell timing are checked once a day</text>
+			</svg>
+			<svg class="fig-sp" viewBox="0 0 360 772" role="img" aria-label="Retainer flow: win, delivery, review, report, renewal">
+				<defs><marker id="en-sv-sp-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
+				<g font-family="inherit">
+				<text x="16" y="30" font-size="14" letter-spacing="1.5" fill="#64748b">RETAINER FLOW</text>
+				<rect x="16" y="48" width="328" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<text x="32" y="76" font-size="14" letter-spacing="1.5" fill="#64748b">WIN</text>
+				<text x="32" y="104" font-size="18" font-weight="600" fill="#0F172A">Won</text>
+				<text x="32" y="132" font-size="16" fill="#475569">Check capacity before saying yes</text>
+				<line x1="180" y1="150" x2="180" y2="172" stroke="#0F172A" stroke-width="2" marker-end="url(#en-sv-sp-arr)"/>
+				<rect x="16" y="176" width="328" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<text x="32" y="204" font-size="14" letter-spacing="1.5" fill="#64748b">DELIVER</text>
+				<text x="32" y="232" font-size="18" font-weight="600" fill="#0F172A">Delivery</text>
+				<text x="32" y="260" font-size="16" fill="#475569">Capacity assigned week by week</text>
+				<line x1="180" y1="278" x2="180" y2="300" stroke="#0F172A" stroke-width="2" marker-end="url(#en-sv-sp-arr)"/>
+				<rect x="16" y="304" width="328" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<text x="32" y="332" font-size="14" letter-spacing="1.5" fill="#64748b">REVIEW</text>
+				<text x="32" y="360" font-size="18" font-weight="600" fill="#0F172A">Review</text>
+				<text x="32" y="388" font-size="16" fill="#475569">Flagged when contact goes quiet</text>
+				<line x1="180" y1="406" x2="180" y2="428" stroke="#0F172A" stroke-width="2" marker-end="url(#en-sv-sp-arr)"/>
+				<rect x="16" y="432" width="328" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<text x="32" y="460" font-size="14" letter-spacing="1.5" fill="#64748b">REPORT</text>
+				<text x="32" y="488" font-size="18" font-weight="600" fill="#0F172A">Report</text>
+				<text x="32" y="516" font-size="16" fill="#475569">Outline drafted by AI</text>
+				<line x1="180" y1="534" x2="180" y2="556" stroke="#0F172A" stroke-width="2" marker-end="url(#en-sv-sp-arr)"/>
+				<rect x="16" y="560" width="328" height="100" rx="6" fill="#0F172A" stroke="#0F172A"/>
+				<text x="32" y="588" font-size="14" letter-spacing="1.5" fill="rgba(255,255,255,0.7)">RENEW</text>
+				<text x="32" y="616" font-size="18" font-weight="600" fill="#fff">Renewal</text>
+				<text x="32" y="644" font-size="16" fill="rgba(255,255,255,0.85)">Starts 90 days before the end</text>
+				<rect x="16" y="680" width="328" height="76" rx="6" fill="#0F172A"/>
+				<text x="180" y="710" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">Health, renewals, and upsell</text>
+				<text x="180" y="734" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">timing are checked once a day</text>
+				</g>
+			</svg>
+			<figcaption id="en-sv-caption">One engagement record from the win to the renewal. Capacity is checked before you say yes, and renewals start before the contract ends.</figcaption>
+		</figure>
+	</div>
+</section>
+
+<!-- ===================== AI ===================== -->
+<section class="ai">
+	<div class="container ai-inner">
+		<div>
+			<p class="section-eyebrow">AI</p>
+			<h2>Ask in plain language,<br />get the answer back.</h2>
+				<p class="ai-lead">
+					You do not have to build a report to find something out. Ask it the way you would say it, and it searches capacity, contracts, customers, and attached documents.
+				</p>
+				<p class="ai-lead">
+					Free capacity this week, contracts renewing this month, customers who need attention. All checked on the spot.
+				</p>
+				<p class="ai-lead">
+					Ask and it will also add contacts or tasks for you. The AI never emails a customer.
+				</p>
+		</div>
+		<ul class="ai-examples">
+				<li>How many free person-days this week?</li>
+				<li>Which contracts renew this month?</li>
+				<li>Which customers are at risk of churning?</li>
+				<li>What makes up our MRR?</li>
+		</ul>
+	</div>
+</section>
+
+<!-- ===================== ROLES ===================== -->
+<section class="roles">
+	<div class="container">
+		<div class="section-head">
+			<p class="section-eyebrow">Permissions</p>
+			<h2 class="ro-title">Keep people out of accounts that are not theirs.</h2>
+		</div>
+		<p class="ro-lead">
+			For contacts, companies, and engagements, choose what each role can see: everything, the team, or only their own. Freelancers can be limited to the customers and engagements they own, and export rights are set separately. An example setup:
+		</p>
+		<dl class="ro-list">
+			{roles.map((r) => (
+				<div class="ro-row">
+					<dt>{r.name}</dt>
+					<dd>{r.scope}</dd>
+				</div>
+			))}
+		</dl>
+		<p class="ro-note">Contacts, companies, and engagements keep a change history, so you can trace who changed what, and when.</p>
+	</div>
+</section>
+
+<!-- ===================== FINAL CTA ===================== -->
+<section class="final-cta">
+	<div class="container cta-inner">
+		<div>
+			<p class="cta-eyebrow">30 days free</p>
+			<h2>Try the product first.</h2>
+			<p class="cta-lead">
+				An email address opens a demo workspace with sample data. No password to set.
+				This edition starts with capacity, retainers, and renewals already set up.
+				Every plan comes with a 30-day free trial, no card required.
+			</p>
+			<div class="cta-actions">
+				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">See the demo</a>
+				<a href={SIGNUP_URL} class="btn btn--secondary" target="_blank" rel="noopener noreferrer">Start free</a>
+			</div>
+		</div>
+		<div class="cta-card">
+			<h4>What we show you</h4>
+			<ul class="cta-list">
+				<li>The capacity calendar and how utilization reads</li>
+				<li>Renewal tasks and engagements created from the contract end date</li>
+				<li>MRR and churn calculated from retainers</li>
+				<li>Customer health scores and review tasks</li>
+				<li>Member permissions and change history</li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+</BaseLayout>
+
+<style>
+	/* html[lang="en"] の --container は 72ch（記事の読み物幅）。LPなのでページ内だけ 1120px に戻す。 */
+	.container {
+		max-width: 1120px;
+	}
+	.section-eyebrow,
+	.eyebrow,
+	.cta-eyebrow {
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.12em;
+		line-height: 1.4;
+		text-transform: uppercase;
+	}
+
+	/* uppercase はギリシャ文字も変えるので β が B になる。
+	   ラテン文字だけ大文字にしたいので、日本語まじりの語は除外する。 */
+	.section-eyebrow .no-upper,
+	.eyebrow .no-upper,
+	.cta-eyebrow .no-upper {
+		text-transform: none;
+	}
+
+	h2,
+	h3 {
+		letter-spacing: 0;
+	}
+
+	h2 {
+		margin: 0;
+		color: var(--color-text);
+		font-size: 2rem;
+		font-weight: 500;
+		line-height: 1.4;
+		text-wrap: balance;
+	}
+
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 46px;
+		padding: 0.8rem 1.35rem;
+		border: 1px solid var(--color-border);
+		border-radius: 4px;
+		font-size: 0.9375rem;
+		font-weight: 600;
+		line-height: 1.25;
+		text-decoration: none;
+		transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+	}
+
+	.btn--primary {
+		background: var(--color-primary);
+		border-color: var(--color-primary);
+		color: #fff;
+	}
+
+	.btn--primary:hover {
+		background: var(--color-primary-dark);
+		border-color: var(--color-primary-dark);
+		color: #fff;
+	}
+
+	.btn--secondary {
+		background: transparent;
+		color: var(--color-text);
+	}
+
+	.btn--secondary:hover {
+		border-color: var(--color-primary);
+		color: var(--color-primary);
+	}
+
+	.hero-actions,
+	.cta-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: var(--space-md);
+	}
+
+	.hero {
+		padding: var(--space-lg) 0 var(--space-md);
+		background: var(--color-bg);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.hero-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.78fr);
+		gap: var(--space-xl);
+		align-items: start;
+	}
+
+	.hero-copy {
+		max-width: 720px;
+	}
+
+	.eyebrow {
+		display: block;
+		margin-bottom: var(--space-md);
+		padding-top: 0.875rem;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.hero h1 {
+		max-width: 13em;
+		margin: 0;
+		color: var(--color-text);
+		font-size: 3.125rem;
+		font-weight: 500;
+		line-height: 1.2;
+		letter-spacing: 0;
+		text-wrap: balance;
+	}
+
+	.hero-lead {
+		max-width: 43em;
+		margin: var(--space-md) 0 0;
+		color: var(--color-text);
+		font-size: 1.0625rem;
+		line-height: 2;
+	}
+
+	.hero-lead strong {
+		font-weight: 700;
+	}
+
+	.hero-points {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 0;
+		margin: var(--space-md) 0 0;
+		padding: 0;
+		list-style: none;
+		border-top: 1px solid var(--color-border);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.hero-points li {
+		min-width: 0;
+		padding: 0.85rem 1rem;
+		color: var(--color-text-muted);
+		font-size: 0.8125rem;
+		line-height: 1.6;
+	}
+
+	.hero-points li + li {
+		border-left: 1px solid var(--color-border);
+	}
+
+	.pos-link {
+		color: var(--color-primary);
+		font-weight: 600;
+		text-decoration: none;
+		border-bottom: 1px solid currentColor;
+	}
+
+	.hero-media {
+		margin: 0;
+		min-width: 0;
+	}
+
+	.hero-media img,
+	.prob-shot img {
+		width: 100%;
+		height: auto;
+		display: block;
+		border: 1px solid var(--color-border);
+		border-radius: 0;
+		background: #fff;
+		box-shadow: none;
+	}
+
+	.hero-media figcaption,
+	.prob-shot figcaption {
+		margin-top: 0.65rem;
+		color: var(--color-text-muted);
+		font-size: 0.75rem;
+		line-height: 1.6;
+	}
+
+	.positioning,
+	.problem,
+	.screens,
+	.support,
+	.ai,
+	.roles,
+	.final-cta {
+		padding: var(--space-2xl) 0;
+		background: var(--color-bg);
+	}
+
+	.screens,
+	.roles {
+		background: var(--color-bg-subtle);
+		border-top: 1px solid var(--color-border);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.prob-shot {
+		max-width: 900px;
+		margin: 0;
+		background: transparent;
+		border: 0;
+		border-radius: 0;
+		box-shadow: none;
+	}
+
+	.positioning {
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.pos-body {
+		display: grid;
+		grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+		gap: var(--space-xl);
+		align-items: start;
+		padding-top: var(--space-sm);
+		border-top: 1px solid var(--color-border);
+	}
+
+	.pos-lead {
+		margin: 0;
+		color: var(--color-text);
+		font-size: 1.375rem;
+		font-weight: 500;
+		line-height: 1.7;
+		text-wrap: balance;
+	}
+
+	.pos-copy p {
+		margin: 0 0 1rem;
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+		line-height: 1.9;
+	}
+
+	.pos-body strong {
+		color: var(--color-text);
+		font-weight: 700;
+	}
+
+	.pos-link {
+		display: inline-flex;
+		margin-top: 0.25rem;
+		font-size: 0.9375rem;
+	}
+
+	.section-head {
+		display: grid;
+		grid-template-columns: 10rem minmax(0, 1fr);
+		gap: var(--space-lg);
+		align-items: start;
+		margin-bottom: var(--space-lg);
+		padding-top: var(--space-sm);
+		border-top: 1px solid var(--color-border);
+	}
+
+	.prob-grid,
+	.sc-grid {
+		display: grid;
+		gap: 0;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.prob-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	.prob-item,
+	.sc-card {
+		min-width: 0;
+		padding: 1.35rem 1.5rem 1.35rem 0;
+		background: transparent;
+		border: 0;
+		border-bottom: 1px solid var(--color-border);
+		border-radius: 0;
+	}
+
+	.prob-item:nth-child(2),
+	.prob-item:nth-child(3) {
+		padding-left: var(--space-md);
+		border-left: 1px solid var(--color-border);
+	}
+
+	.issue-label {
+		display: flex;
+		align-items: flex-end;
+		gap: 0.85rem;
+		margin-bottom: 0.9rem;
+		color: var(--color-navy);
+	}
+
+	.issue-label::after {
+		content: "";
+		flex: 1;
+		height: 1px;
+		margin-bottom: 0.34rem;
+		background: var(--color-border);
+	}
+
+	.issue-label__number {
+		color: rgba(112, 66, 172, 0.24);
+		font-size: 2.45rem;
+		font-weight: 500;
+		font-variant-numeric: tabular-nums;
+		line-height: 0.82;
+		letter-spacing: 0;
+	}
+
+	.prob-item h3,
+	.sc-card h3 {
+		margin: 0;
+		color: var(--color-text);
+		font-size: 1rem;
+		font-weight: 600;
+		line-height: 1.55;
+	}
+
+	.prob-item p,
+	.sc-card p {
+		margin: 0.6rem 0 0;
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+		line-height: 1.85;
+	}
+
+	.prob-shot {
+		margin-top: var(--space-xl);
+	}
+
+	.prob-shot strong {
+		color: var(--color-text);
+		font-weight: 700;
+	}
+
+	.screens {
+		scroll-margin-top: 120px;
+	}
+
+	.sc-grid {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+
+	.sc-card {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: 0.9rem;
+		align-content: start;
+		padding-right: var(--space-md);
+	}
+
+	.sc-shot {
+		margin: 0;
+		overflow: hidden;
+		border: 1px solid var(--color-border);
+		border-radius: 8px;
+		background: #fff;
+		box-shadow: 0 8px 22px rgba(15, 23, 42, 0.07);
+	}
+
+	.sc-shot img {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+
+	.sc-card:nth-child(4n + 2),
+	.sc-card:nth-child(4n + 3),
+	.sc-card:nth-child(4n + 4) {
+		padding-left: var(--space-md);
+		border-left: 1px solid var(--color-border);
+	}
+
+	.support {
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.support-inner,
+	.ai-inner,
+	.cta-inner {
+		display: grid;
+		grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+		gap: var(--space-xl);
+		align-items: start;
+	}
+
+	.support-inner > div:first-child,
+	.ai-inner > div:first-child,
+	.cta-inner > div:first-child {
+		padding-top: var(--space-sm);
+		border-top: 1px solid var(--color-border);
+	}
+
+	.support .section-eyebrow,
+	.ai .section-eyebrow,
+	.cta-eyebrow {
+		margin-bottom: var(--space-sm);
+	}
+
+	.support-lead,
+	.ai-lead,
+	.ro-lead,
+	.cta-lead {
+		margin: 1rem 0 0;
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+		line-height: 1.85;
+	}
+
+	.support-list {
+		border-top: 1px solid var(--color-border);
+	}
+
+	.support-list h3,
+	.cta-card h4 {
+		margin: 0;
+		padding: 0.95rem 0;
+		border-bottom: 1px solid var(--color-border);
+		color: var(--color-primary);
+		font-size: 0.8125rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		line-height: 1.5;
+	}
+
+	.support-list ul,
+	.cta-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.support-list li {
+		display: grid;
+		grid-template-columns: 6rem minmax(0, 1fr);
+		gap: var(--space-md);
+		padding: 0.9rem 0;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.support-list span {
+		color: var(--color-text-muted);
+		font-size: 0.8125rem;
+		font-weight: 600;
+		line-height: 1.7;
+	}
+
+	.support-list strong {
+		color: var(--color-text);
+		font-size: 0.9375rem;
+		font-weight: 600;
+		line-height: 1.7;
+	}
+
+	.ai-examples {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.ai-examples li {
+		padding: 0.9rem 0;
+		border-bottom: 1px solid var(--color-border);
+		color: var(--color-text);
+		font-size: 0.9375rem;
+		line-height: 1.7;
+	}
+
+	.ai-examples li::before {
+		content: '\201C';
+		color: var(--color-navy);
+	}
+
+	.ai-examples li::after {
+		content: '\201D';
+		color: var(--color-navy);
+	}
+
+	.ro-lead {
+		max-width: 720px;
+		margin-top: 0;
+		margin-bottom: var(--space-lg);
+	}
+
+	.ro-list {
+		max-width: 720px;
+		margin: 0;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.ro-row {
+		display: grid;
+		grid-template-columns: 14rem minmax(0, 1fr);
+		gap: var(--space-md);
+		padding: 1rem 0;
+		align-items: baseline;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.ro-row dt {
+		color: var(--color-text);
+		font-size: 0.9375rem;
+		font-weight: 600;
+		line-height: 1.7;
+	}
+
+	.ro-row dd {
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+		line-height: 1.7;
+	}
+
+	.ro-note {
+		margin: 1.25rem 0 0;
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+		line-height: 1.7;
+	}
+
+	.final-cta {
+		color: var(--color-text);
+	}
+
+	.cta-card {
+		background: transparent;
+		border: 0;
+		border-top: 1px solid var(--color-border);
+		border-radius: 0;
+		padding: 0;
+	}
+
+	.cta-list li {
+		padding: 0.75rem 0;
+		border-bottom: 1px solid var(--color-border);
+		color: var(--color-text);
+		font-size: 0.9375rem;
+		line-height: 1.75;
+	}
+
+	@media (max-width: 1020px) {
+		.hero-grid,
+		.pos-body,
+		.support-inner,
+		.ai-inner,
+		.cta-inner {
+			grid-template-columns: 1fr;
+		}
+
+		.hero h1 {
+			font-size: 2.75rem;
+		}
+
+		.hero-media,
+		.prob-shot {
+			max-width: 680px;
+		}
+
+		.sc-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.sc-card:nth-child(odd) {
+			padding-left: 0;
+			border-left: 0;
+		}
+
+		.sc-card:nth-child(even) {
+			padding-left: var(--space-md);
+			border-left: 1px solid var(--color-border);
+		}
+	}
+
+	@media (max-width: 760px) {
+		.hero,
+		.positioning,
+		.problem,
+		.screens,
+		.support,
+		.roles,
+		.final-cta {
+			padding-block: var(--space-xl);
+		}
+
+		.hero {
+			padding-block: var(--space-lg) var(--space-md);
+		}
+
+		.section-head,
+		.prob-grid,
+		.sc-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.section-head {
+			gap: 0.75rem;
+		}
+
+		.hero-grid {
+			gap: var(--space-md);
+		}
+
+		h2 {
+			font-size: 1.625rem;
+		}
+
+		.hero h1 {
+			font-size: 2.25rem;
+		}
+
+		.hero-lead {
+			font-size: 1rem;
+			line-height: 1.85;
+		}
+
+		.hero-points {
+			display: none;
+		}
+
+		.prob-item,
+		.prob-item:nth-child(2),
+		.prob-item:nth-child(3),
+		.sc-card,
+		.sc-card:nth-child(even) {
+			padding-left: 0;
+			padding-right: 0;
+			border-left: 0;
+		}
+
+		.support-list li,
+		.ro-row {
+			grid-template-columns: 1fr;
+			gap: 0.25rem;
+		}
+
+		.hero-actions,
+		.cta-actions {
+			flex-direction: column;
+			align-items: stretch;
+		}
+	}
+
+	.sc-note { margin: -0.5rem 0 1.5rem; color: var(--color-text-muted); font-size: 0.85rem; }
+	.engine-fig { margin-top: var(--space-lg); }
+</style>

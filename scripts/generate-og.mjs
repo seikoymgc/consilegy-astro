@@ -27,10 +27,10 @@ const BRAND = { mark: 'public/favicon-2026b.svg', color: '#8758C9', glow: '#8758
 const PAGES = [
 	{ name: 'default-ja', lang: 'ja', theme: BRAND, label: 'Consilegy合同会社', lines: ['使われていない', '顧客データを、', '売上が動く仕組みへ。'], size: 58, sub: 'CRM・SFA・MAとAIで収益の仕組みを設計し、現場で回るまで伴走します。', subSize: 23, url: 'consilegy.com' },
 	{ name: 'default-en', lang: 'en', theme: BRAND, label: 'Consilegy LLC', lines: ['Make Japan revenue', 'execution visible,', 'manageable, and', 'repeatable.'], size: 54, url: 'consilegy.com/en' },
-	// crm-ja は 2026-10-19 に文言を変えたので接尾辞を -2026e に（他は -2026b のまま。同名で差し替えると Cloudflare が旧画像を返す）
-	{ name: 'crm-ja', suffix: '-2026e', rule: false, lang: 'ja', theme: CRM, label: 'Revenue CRM', lines: ['AIと仕組みが代わりに働く。', '入力がめんどくさくない', '顧客管理システム。'], size: 54, sub: '中小企業向けの顧客管理・営業支援システム（CRM／SFA）', subSize: 24, url: 'consilegy.com/crm' },
+	// crm-ja は 2026-10-25 にキャッチを「AIが代わりに働く、Revenue CRM。」に変えたので接尾辞を -2026f に（同名で差し替えると Cloudflare が旧画像を返す）
+	{ name: 'crm-ja', suffix: '-2026f', rule: false, lang: 'ja', theme: CRM, label: 'システムが、人に合わせる。', lines: ['AIが代わりに働く、', 'Revenue CRM。'], size: 60, sub: '入力がめんどくさくない顧客管理システム（CRM／SFA）', subSize: 24, url: 'consilegy.com/crm' },
 	{ name: 'crm-en', suffix: '-2026c', rule: false, lang: 'en', theme: CRM, label: 'Revenue CRM', lines: ['AI and automation', 'do the work.', "A CRM your team won't", 'hate updating.'], size: 50, url: 'consilegy.com/en/crm' },
-	{ name: 'crm-school-ja', lang: 'ja', theme: SCHOOL, label: 'Revenue CRM スクール版', lines: ['1日を、', '48時間にしよう。'], size: 66, sub: '教室のためのCRM', url: 'consilegy.com/crm/school' },
+	{ name: 'crm-school-ja', suffix: '-2026c', rule: false, lang: 'ja', theme: SCHOOL, label: 'Revenue CRM スクール版', lines: ['LINEのやり取りはそのままに、', '運営の手間を減らす。'], size: 52, sub: 'オンラインスクールのための顧客管理システム', url: 'consilegy.com/crm/school' },
 	{ name: 'crm-school-en', lang: 'en', theme: SCHOOL, label: 'Revenue CRM for schools', lines: ['Make your day', '48 hours long.'], size: 62, url: 'consilegy.com/en/crm/school' },
 	// 受託開発版は 2026-10-25 に「受託開発・制作版」へ改名したので -2026c に（支援会社版を分けたため）
 	{ name: 'crm-contractor-ja', suffix: '-2026c', lang: 'ja', theme: CRM, label: 'Revenue CRM 受託開発・制作版', lines: ['見積を出す前に、', '空きが見えている。'], size: 62, url: 'consilegy.com/crm/contractor' },

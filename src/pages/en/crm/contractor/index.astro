@@ -24,7 +24,7 @@ const engine = [
 	{ label: 'Quote', text: 'Create a task automatically when a project reaches the quote stage' },
 	{ label: 'Stalled', text: 'Find stalled projects and flag them' },
 	{ label: 'Forecast', text: 'Reflect project changes in the revenue forecast' },
-	{ label: 'Won', text: 'When a project is won, create a task to collect the contract and PO' },
+	{ label: 'Won', text: 'When a project is won, create an order-processing task' },
 	{ label: 'Renewal', text: 'Create a renewal prep task 60 days before the contract end date' },
 ];
 
@@ -70,7 +70,7 @@ const roles = [
 			<ul class="hero-points" aria-label="What this edition does">
 				<li>Managed as projects, not deals</li>
 				<li>Free capacity by person and week</li>
-				<li>Starts set up for contract work</li>
+				<li>Projects instead of deals</li>
 			</ul>
 		</div>
 		<figure class="hero-media">
@@ -167,7 +167,7 @@ const roles = [
 			<p class="section-eyebrow">Project engine</p>
 			<h2>Take missed steps out of people’s memory.</h2>
 				<p class="support-lead">
-					When you create this edition, the project automations are already on. They create a task when a project reaches the quote stage, catch stalled projects, create a contract and PO collection task after a win, and prepare maintenance renewals, once a day.
+					When you create this edition, the project automations are already on. They create a task when a project reaches the quote stage, catch stalled projects, create an order-processing task after a win, and prepare maintenance renewals, once a day.
 				</p>
 				<p class="support-lead">
 					Automations create tasks, notifications, and drafts, and update the forecast. Customer emails go out only from automations you have turned on yourself, with the recipients and wording you chose.
@@ -198,8 +198,8 @@ const roles = [
 		
 		<text x="268" y="80" font-size="14" letter-spacing="1.5" fill="#64748b">WIN</text>
 		<text x="268" y="108" font-size="18" font-weight="600" fill="#0F172A">Won</text>
-		<text x="268" y="136" font-size="16" fill="#475569">Contract and PO</text>
-		<text x="268" y="160" font-size="16" fill="#475569">tasks created</text>
+		<text x="268" y="136" font-size="16" fill="#475569">Order-processing</text>
+		<text x="268" y="160" font-size="16" fill="#475569">task created</text>
 		<line x1="442" y1="98" x2="462" y2="98" stroke="#0F172A" stroke-width="2" marker-end="url(#en-ct-arr)"/>
 		<rect x="464" y="50" width="188" height="136" rx="6" fill="#fff" stroke="#E2E8F0"/>
 		
@@ -212,8 +212,8 @@ const roles = [
 		
 		<text x="692" y="80" font-size="14" letter-spacing="1.5" fill="#64748b">INVOICE</text>
 		<text x="692" y="108" font-size="18" font-weight="600" fill="#0F172A">Invoice</text>
-		<text x="692" y="136" font-size="16" fill="#475569">Billing tracked</text>
-		<text x="692" y="160" font-size="16" fill="#475569">per project</text>
+		<text x="692" y="136" font-size="16" fill="#475569">Send invoices</text>
+		<text x="692" y="160" font-size="16" fill="#475569">via Stripe</text>
 		<line x1="866" y1="98" x2="886" y2="98" stroke="#0F172A" stroke-width="2" marker-end="url(#en-ct-arr)"/>
 		<rect x="888" y="50" width="188" height="136" rx="6" fill="#0F172A" stroke="#E2E8F0"/>
 		
@@ -235,7 +235,7 @@ const roles = [
 				<rect x="16" y="176" width="328" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
 				<text x="32" y="204" font-size="14" letter-spacing="1.5" fill="#64748b">WIN</text>
 				<text x="32" y="232" font-size="18" font-weight="600" fill="#0F172A">Won</text>
-				<text x="32" y="260" font-size="16" fill="#475569">Contract and PO tasks created</text>
+				<text x="32" y="260" font-size="16" fill="#475569">Order-processing task created</text>
 				<line x1="180" y1="278" x2="180" y2="300" stroke="#0F172A" stroke-width="2" marker-end="url(#en-ct-sp-arr)"/>
 				<rect x="16" y="304" width="328" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
 				<text x="32" y="332" font-size="14" letter-spacing="1.5" fill="#64748b">DELIVER</text>
@@ -245,7 +245,7 @@ const roles = [
 				<rect x="16" y="432" width="328" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
 				<text x="32" y="460" font-size="14" letter-spacing="1.5" fill="#64748b">INVOICE</text>
 				<text x="32" y="488" font-size="18" font-weight="600" fill="#0F172A">Invoice</text>
-				<text x="32" y="516" font-size="16" fill="#475569">Billing tracked per project</text>
+				<text x="32" y="516" font-size="16" fill="#475569">Send invoices via Stripe</text>
 				<line x1="180" y1="534" x2="180" y2="556" stroke="#0F172A" stroke-width="2" marker-end="url(#en-ct-sp-arr)"/>
 				<rect x="16" y="560" width="328" height="100" rx="6" fill="#0F172A" stroke="#0F172A"/>
 				<text x="32" y="588" font-size="14" letter-spacing="1.5" fill="rgba(255,255,255,0.7)">RENEW</text>
@@ -316,7 +316,7 @@ const roles = [
 			<h2>Try the product first.</h2>
 			<p class="cta-lead">
 				An email address opens a demo workspace with sample data. No password to set.
-				This edition starts with projects, quotes, capacity, and delivery already set up.
+				This edition puts projects, quotes, capacity, and delivery on its main screens.
 				Every plan comes with a 30-day free trial, no card required.
 			</p>
 			<div class="cta-actions">
@@ -593,8 +593,8 @@ const roles = [
 
 	.section-head {
 		display: grid;
-		grid-template-columns: 10rem minmax(0, 1fr);
-		gap: var(--space-lg);
+		grid-template-columns: minmax(0, 1fr);
+		gap: 0.5rem;
 		align-items: start;
 		margin-bottom: var(--space-lg);
 		padding-top: var(--space-sm);

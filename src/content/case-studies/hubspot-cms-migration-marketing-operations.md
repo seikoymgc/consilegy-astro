@@ -1,6 +1,6 @@
 ---
 wpId: 28103
-title: "1ヶ月で実現する自走型Web基盤。HubSpot CMS移行によるマーケティング運用の高速化"
+title: "1か月で実現する自走型Web基盤。HubSpot CMS移行によるマーケティング運用の高速化"
 slug: "hubspot-cms-migration-marketing-operations"
 sourceUrl: "https://consilegy.com/case-studies/hubspot-cms-migration-marketing-operations/"
 lang: "ja"
@@ -14,10 +14,10 @@ industry: "小売（グローバルDTCブランド）"
 size: "約20,000名"
 symptom: "Web施策のたびに開発待ちが発生し、打ち手のスピードが落ちていた"
 action: "HubSpot CMSへ移行し、マーケター自身が更新できるモジュール構成に再設計"
-result: "企画から公開までのリードタイムを約70〜80%短縮。移行は1ヶ月で完遂"
+result: "企画から公開までのリードタイムを約70〜80%短縮。移行は1か月で完遂"
 ---
 <!-- wp:table {"fontSize":"small"} -->
-<figure class="wp-block-table has-small-font-size"><table class="has-fixed-layout"><thead><tr><td><strong>項目</strong></td><td><strong>内容</strong></td></tr></thead><tbody><tr><td><strong>導入ツール</strong></td><td>HubSpot (Content Hub / Marketing Hub)</td></tr><tr><td><strong>主な課題</strong></td><td>運用の硬直化、施策実行の遅延、開発依存</td></tr><tr><td><strong>業界</strong></td><td>小売（グローバルDTCブランド）</td></tr><tr><td><strong>導入時期 / 期間</strong></td><td>2025年 Q2 / 1ヶ月</td></tr><tr><td><strong>従業員数</strong></td><td>約20,000名</td></tr><tr><td><strong>支援内容</strong></td><td>CMS移行・マーケティング自動化基盤の構築・内製化支援</td></tr></tbody></table></figure>
+<figure class="wp-block-table has-small-font-size"><table class="has-fixed-layout"><thead><tr><td><strong>項目</strong></td><td><strong>内容</strong></td></tr></thead><tbody><tr><td><strong>導入ツール</strong></td><td>HubSpot (Content Hub / Marketing Hub)</td></tr><tr><td><strong>主な課題</strong></td><td>運用の硬直化、施策実行の遅延、開発依存</td></tr><tr><td><strong>業界</strong></td><td>小売（グローバルDTCブランド）</td></tr><tr><td><strong>導入時期 / 期間</strong></td><td>2025年 Q2 / 1か月</td></tr><tr><td><strong>従業員数</strong></td><td>約20,000名</td></tr><tr><td><strong>支援内容</strong></td><td>CMS移行・マーケティング自動化基盤の構築・内製化支援</td></tr></tbody></table></figure>
 <!-- /wp:table -->
 
 <!-- wp:heading -->
@@ -38,7 +38,7 @@ result: "企画から公開までのリードタイムを約70〜80%短縮。移
 
 <!-- wp:list {"ordered":true,"start":1} -->
 <ol start="1" class="wp-block-list"><!-- wp:list-item -->
-<li>既存WebサイトのHubSpot CMSへの完全移行（1ヶ月以内）</li>
+<li>既存WebサイトのHubSpot CMSへの完全移行（1か月以内）</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
@@ -68,7 +68,7 @@ result: "企画から公開までのリードタイムを約70〜80%短縮。移
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><strong>短期間での移行制約</strong>：既存施策への影響を最小限に抑えつつ、1ヶ月での移行完了が必須</li>
+<li><strong>短期間での移行制約</strong>：既存施策への影響を最小限に抑えつつ、1か月での移行完了が必須</li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list -->
 
@@ -94,7 +94,7 @@ result: "企画から公開までのリードタイムを約70〜80%短縮。移
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><strong>短期移行の実行管理</strong>：1ヶ月という制約の中で、設計から公開までを段階的に実行</li>
+<li><strong>短期移行の実行管理</strong>：1か月という制約の中で、設計から公開までを段階的に実行</li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list -->
 
@@ -104,7 +104,7 @@ result: "企画から公開までのリードタイムを約70〜80%短縮。移
 
 <!-- wp:list -->
 <ul class="wp-block-list"><!-- wp:list-item -->
-<li><strong>1ヶ月での移行完遂</strong>：サイト停止リスクを回避しながら、短期間での移行を実現</li>
+<li><strong>1か月での移行完遂</strong>：サイト停止リスクを回避しながら、短期間での移行を実現</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->

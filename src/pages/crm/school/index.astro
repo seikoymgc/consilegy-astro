@@ -11,7 +11,7 @@ const screens = [
 	{ src: 'students', title: '生徒管理', desc: '体験・受講中・休止・卒業・退会を一覧で確認。現在の状態がすぐ分かります。', alt: '生徒管理の画面。受講中・体験予定・卒業間近・課題が滞り・未確認・休止・卒業生・退会のフィルタと、生徒ごとの状態バッジが並ぶ。' },
 	{ src: 'schedule', title: '週間スケジュール', desc: 'レッスン予定を週単位で管理。休校日カレンダーとも連動し、Googleアカウントをつなげば講師ごとのGoogleカレンダーにも自動で入ります。', alt: 'スケジュールの画面。予定数と未記録レッスン数、日付ごとの時刻・生徒・担当講師の一覧。' },
 	{ src: 'lessons', title: 'レッスン記録', desc: '実施内容を生徒ごとに蓄積。担当が替わっても経緯が残ります。', alt: 'レッスン履歴の画面。レッスン種別ごとの担当講師と、生徒名・担当講師・実施日の履歴が並ぶ。' },
-	{ src: 'hearing-ai', title: 'ヒアリング', desc: '体験の文字起こしを貼ると、AIが項目に振り分けてカルテに入れます。あとから講師が直せます。', alt: '生徒詳細の初回ヒアリング欄。きっかけ・基本情報・英語レベル・テスト会話の所見・3ヶ月後の目標が並び、右上に「テスト会話から自動入力」ボタンがある。' },
+	{ src: 'hearing-ai', title: 'ヒアリング', desc: '体験の文字起こしを貼ると、AIが項目に振り分けてカルテに入れます。あとから講師が直せます。', alt: '生徒詳細の初回ヒアリング欄。きっかけ・基本情報・英語レベル・テスト会話の所見・3か月後の目標が並び、右上に「テスト会話から自動入力」ボタンがある。' },
 	{ src: 'report', ver: 'v5', title: '月次レポート', desc: '直近30日のレッスン記録から、AIが月次レポートの下書きを書きます。講師は読み直して、LINEで送るだけです。', alt: '進捗レポートの画面。直近30日のレッスン記録からAIが下書きした生徒のコメントに、再生成・コピー・LINEで送るのボタンが付いている。' },
 	{ src: 'knowledge', title: 'ナレッジベース', desc: 'Googleドライブの講師マニュアルや運用ルールを同期して、講師がすぐ引けるようにします。AIに質問したときの根拠にも使います。', alt: 'ナレッジベースの画面。週1レッスンの進め方、文法添削の返し方、休講・振替のルールなどの記事一覧。' },
 	{ src: 'billing', title: '請求管理', desc: '支払中・支払失敗を確認。振込や現金で受け取る月謝も、入金を確認したら記録できます。月謝の未入金を知らせ、LINEで催促できます。', alt: '請求の画面。MRR・決済失敗・未入金の件数と、生徒ごとの課金ステータス一覧に課金中・未入金・決済失敗のバッジ。' },
@@ -20,11 +20,11 @@ const screens = [
 const highlights = [
 	{
 		title: '課題も予約も、LINEから',
-		text: '生徒はアプリを入れず、いつものLINEで課題を出し、メニューからレッスンを予約できます。予約はGoogleカレンダーに入り、届いた課題は生徒ごとに記録されます（文章はCRMで読め、写真や音声はLINEで確認します）。課題を出していない生徒に、自動で声をかけることもできます。',
+		text: '生徒はアプリを入れず、いつものLINEで課題を出し、メニューからレッスンを予約できます。予約はGoogleカレンダーに入り、届いた課題は生徒ごとに記録されます（文章はRevenue CRMの画面で読め、写真や音声はLINEで確認します）。課題を出していない生徒に、自動で声をかけることもできます。',
 	},
 	{
 		title: '月謝の未入金は、LINEで催促',
-		text: '在籍・休会・退会を一覧で見られます。月謝の未入金はCRMが知らせ、催促はLINEで送れます。',
+		text: '在籍・休会・退会を一覧で見られます。月謝の未入金はシステムが知らせ、催促はLINEで送れます。',
 	},
 	{
 		title: 'レポートはAIが書く',
@@ -32,18 +32,19 @@ const highlights = [
 	},
 ];
 
+// 痛みは J300 PRシート（2026-10）の「導入前」の記述から。
 const problems = [
 	{
-		title: '予約の受付が手作業',
-		text: 'レッスンの予約をLINEでやり取りし、1件ずつ手で受けている。',
+		title: '生徒ごとのLINEグループで回している',
+		text: '生徒ひとりにつき1つのLINEグループをつくり、やり取りも課題の確認も予約も、すべて手作業。',
 	},
 	{
-		title: '課題の確認が既読頼み',
-		text: '講師が課題を確認したかを、LINEグループの既読・未読で追っている。',
+		title: '連絡・予約・課題確認が、バラバラ',
+		text: '連絡はLINE、予約はカレンダー、課題の確認は既読頼み。どこまで対応したかを、毎回たどり直している。',
 	},
 	{
-		title: '前のソフトが続かない',
-		text: '管理ソフトを試したが、入力が続かず定着しなかった。',
+		title: '新しい生徒の募集を、止めている',
+		text: '運営に手が回らず、新規生徒の獲得を止めている。',
 	},
 ];
 
@@ -102,8 +103,8 @@ const roles = [
 ---
 
 <BaseLayout
-	title="Revenue CRMスクール版 | 1日を、48時間にしよう。教室のためのCRM"
-	description="ホーム画面を開けば、今日やることが分かる。スクール・教室向けのCRMです。公式LINEとつながり、生徒はLINEから課題を出し、レッスンを予約できます。届いた課題は生徒ごとに残り、予約はGoogleカレンダーへ。月次レポートはAIが下書き。スマホ前提で、講師が移動中でも使えます。2026年9月28日に正式リリース。どのプランも30日間無料で試せます。"
+	title="Revenue CRMスクール版 | LINEのやり取りはそのままに、運営の手間を減らす。オンラインスクールの顧客管理システム"
+	description="ホーム画面を開けば、今日やることが分かる。オンラインスクール向けの顧客管理システムです。LINE公式アカウントとつながり、生徒はLINEから課題を出し、レッスンを予約できます。届いた課題は生徒ごとに残り、予約はGoogleカレンダーへ。月次レポートはAIが下書き。スマホ前提で、講師が移動中でも使えます。2026年9月28日に正式リリース。どのプランも30日間無料で試せます。"
 	lang="ja"
 	alternateUrl="/en/crm/school/"
 >
@@ -131,9 +132,9 @@ const roles = [
 				<img class="eyebrow-mark" src="/images/crm/logo/revenue-crm-school-logo-orange.svg" alt="" width="26" height="26" decoding="async" />
 				Revenue CRMスクール版
 			</p>
-			<h1>1日を、<br />48時間にしよう。</h1>
+			<h1><span class="nw">LINEのやり取りは</span><span class="nw">そのままに、</span><br /><span class="nw">運営の手間を</span><span class="nw">減らす。</span></h1>
 			<p class="hero-lead">
-				ホーム画面を開けば、今日やることが分かる。生徒とのやりとりはいつもの公式LINEのまま。<strong>課題も予約もLINEから届き、課題は生徒ごとにCRMへ自動で残ります</strong>。
+				LINEやZoomで生徒とやり取りする、オンラインスクールのための顧客管理システムです。<strong>LINE公式アカウントとつながり、課題の確認も予約も、手作業だった業務が自動になります</strong>。ホーム画面を開けば、未対応のタスクがひと目で分かります。
 			</p>
 			<div class="hero-actions">
 				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">デモを見る</a>
@@ -141,9 +142,9 @@ const roles = [
 			</div>
 			<p class="hero-download"><a href="/crm/school/download/" class="btn btn--secondary">資料をダウンロード</a></p>
 			<ul class="hero-points" aria-label="スクール版の特徴">
-				<li>公式LINEとそのままつながる</li>
-				<li>レッスン予定はGoogleカレンダーに自動で入る</li>
-				<li>30日間無料で試せる</li>
+				<li>LINE公式アカウントとそのままつながる</li>
+				<li>予約はGoogleカレンダーに自動で入る</li>
+				<li>少人数のスクールでも続けられる価格・30日間無料</li>
 			</ul>
 		</div>
 		<figure class="hero-media">
@@ -177,10 +178,10 @@ const roles = [
 <section class="positioning">
 	<div class="container">
 		<div class="pos-body">
-			<p class="pos-lead">チームで回す教室の管理を、ひとつに。</p>
+			<p class="pos-lead">生徒とのやり取りも、<br />スクール運営も、ひとつに。</p>
 			<div class="pos-copy">
 				<p><strong>予約・課題・レッスン記録・月謝</strong>を、ひとつの画面に。講師みんなで同じ状況を見られて、ホームを開けば今日やることが分かります。今日のレッスン、連絡すべき生徒、確認待ちの課題がホーム画面に並びます。</p>
-				<p>画面は<strong>スマホを前提</strong>に作ってあります。講師が教室と移動の合間に開いて、その場で記録し、その場で次の生徒を確認できることを優先しました。</p>
+				<p>画面は<strong>スマホを前提</strong>に作ってあります。講師がレッスンと移動の合間に開いて、その場で記録し、その場で次の生徒を確認できることを優先しました。</p>
 				<p>定期課金で成り立つ事業（サブスク・定期購入など）にも、同じ土台が使えます。生徒・レッスン・講師の部分を外し、契約と継続率だけを見る構成にできます。ご相談ください。</p>
 				<a href="/revenue-architecture/" class="pos-link">この考え方について読む →</a>
 			</div>
@@ -193,7 +194,7 @@ const roles = [
 	<div class="container">
 		<div class="section-head">
 			<p class="section-eyebrow">Common Problems</p>
-			<h2 class="prob-title">予約も課題の確認も、手作業とLINEの既読で回している。</h2>
+			<h2 class="prob-title">生徒ごとのLINEグループを、手作業で回している。</h2>
 		</div>
 		<div class="prob-grid">
 			{problems.map((item, index) => (
@@ -224,30 +225,12 @@ const roles = [
 	</div>
 </section>
 
-<!-- ===================== WHY ===================== -->
-<section class="positioning">
-	<div class="container">
-		<div class="pos-body">
-			<p class="pos-lead">なぜ、スクール版をつくったのか。<br />社会に、選択肢を増やす。</p>
-			<div class="pos-copy">
-				<p>顧客管理の仕組みづくりを8年、40社以上の導入を支援してきました。現場で何度も見たのは、入力の負担でツールが使われなくなる姿です。機能を増やすのではなく、頑張って入力しなくても回る仕組みが要る。そう考えてつくりました。</p>
-				<p>スクール版のもとになったのは、知人の英会話スクールの運営です。知人は子育てをしながら生徒約40人を教え、管理に追われて新しい生徒の募集を止めていました。使い始めてから、募集を再開できるようになりました。</p>
-				<p>管理の仕事をCRMが引き受けて、教室の1日を48時間に。</p>
-				<p class="proof-note">
-					※「40社以上」は、代表 山口聖子が個人事業時代を含めてCRM / MA / SFAの導入を支援した累計社数です。
-					Revenue CRMスクール版は2026年9月28日に正式提供を始めたばかりのため、導入教室数は公開していません。
-				</p>
-			</div>
-		</div>
-	</div>
-</section>
-
 <!-- ===================== HIGHLIGHTS ===================== -->
 <section class="problem highlights">
 	<div class="container">
 		<div class="section-head">
 			<p class="section-eyebrow">Features</p>
-			<h2 class="prob-title">探す・まとめる・催促するを、CRMに任せる。</h2>
+			<h2 class="prob-title">探す・まとめる・催促するを、システムに任せる。</h2>
 		</div>
 		<div class="prob-grid">
 			{highlights.map((item) => (
@@ -386,6 +369,25 @@ const roles = [
 	</div>
 </section>
 
+<!-- ===================== WHY ===================== -->
+<section class="positioning">
+	<div class="container">
+		<div class="pos-body">
+			<p class="pos-lead">なぜ、スクール版をつくったのか。<br />社会に、選択肢を増やす。</p>
+			<div class="pos-copy">
+				<p>顧客管理の仕組みづくりを8年、40社以上の導入を支援してきました。現場で何度も見たのは、入力の負担でシステムが使われなくなる姿です。</p>
+				<p>スクール版のもとになったのは、知人のオンライン英会話スクールの運営です。知人は子育てをしながら生徒約40人を教え、生徒ひとりにつき1つのLINEグループで、課題の確認も予約も手作業で回していました。管理に追われて、新しい生徒の募集を止めていました。</p>
+				<p>LINE公式アカウントとGoogleカレンダーをつなぎ、手作業だった確認と予約を自動にしました。</p>
+				<blockquote class="school-voice"><p>「便利になった。新規生徒の獲得を止めていたが、再開できるようになった」</p><cite>オンライン英会話スクールの経営者</cite></blockquote>
+				<p class="proof-note">
+					※「40社以上」は、代表 山口聖子が個人事業時代を含めてCRM / MA / SFAの導入を支援した累計社数です。
+					Revenue CRMスクール版は2026年9月28日に正式提供を始めたばかりのため、導入教室数は公開していません。
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+
 <!-- ===================== AI ===================== -->
 <section class="ai">
 	<div class="container ai-inner">
@@ -487,7 +489,7 @@ const roles = [
 				<p>数えるのは<strong>在籍中の生徒</strong>だけです。体験中・休会中・卒業した生徒・問い合わせ段階の見込み客は、何人いても無料で管理できます。</p>
 				<p>初期費用はありません。30日間の無料トライアル付きで、カード登録なしで始められます。</p>
 				<p>使い方の動画とヘルプは、どなたでも無料です。設定から運用に乗せるまで任せたい場合は、個別の導入支援（12万円〜）もご用意しています。</p>
-				<p>紹介プログラムもあります。ご紹介いただいた教室が有料契約を始めてから12ヶ月間、その教室の基本プランの月額利用料金（税抜）の20%を、紹介した側の利用料金からお引きします。</p>
+				<p>紹介プログラムもあります。ご紹介いただいた教室が有料契約を始めてから12か月間、その教室の基本プランの月額利用料金（税抜）の20%を、紹介した側の利用料金からお引きします。</p>
 			</div>
 		</div>
 		<div class="price-more">
@@ -502,7 +504,7 @@ const roles = [
 	<div class="container fit-grid">
 		<div class="fit-box">
 			<p class="section-eyebrow">Good fit</p>
-			<h2>LINEとスプレッドシートで回している教室</h2>
+			<h2>LINEとスプレッドシートで回しているスクール</h2>
 			<ul>
 				<li>レッスンの予約も、生徒の課題も、LINEに流れてくる</li>
 				<li>講師が課題を確認したかを、LINEの既読で追っている</li>
@@ -511,13 +513,13 @@ const roles = [
 			</ul>
 		</div>
 		<div class="fit-box fit-box--subtle">
-			<p class="section-eyebrow">Not a fit</p>
-			<h2>すでに教室管理システムが動いている教室</h2>
+			<p class="section-eyebrow">Switching</p>
+			<h2>ほかのシステムからの乗り換えもしやすい設計です。</h2>
 			<p>
-				いま使っているシステムで在籍と請求が回っているなら、入れ替えないほうがいいです。
-				払った分は活かせます。乗り換えを売るより、いまの仕組みの上で継続率の見方を組み直すご提案をします。
+				いまのシステムが使いにくい、入力が続かない。そう感じているなら、乗り換えを歓迎します。
+				いまの管理項目と運用を伺い、スクール版でできることをご案内します。データの移行は件数によって工数が変わるため、別途お見積りします。
 			</p>
-			<a href="/services/" class="text-link">既存システムの再設計を見る</a>
+			<a href="/crm/school/faq/" class="text-link">よくある質問を見る</a>
 		</div>
 	</div>
 </section>
@@ -743,17 +745,24 @@ const roles = [
 		border-top: 1px solid var(--color-border);
 	}
 
+	.hero h1 .nw {
+		display: inline-block;
+	}
+
 	.hero h1 {
-		max-width: 13em;
+		max-width: 16em;
 		margin: 0;
 		color: var(--color-text);
-		font-size: 3.125rem;
+		font-size: 2.375rem;
 		font-weight: 500;
 		line-height: 1.2;
 		letter-spacing: 0;
 		text-wrap: balance;
 	}
 
+	.school-voice { margin: 1.5rem 0; padding: 1.25rem 1.5rem; background: #fff; border: 1px solid var(--color-border); border-radius: 6px; }
+	.school-voice p { margin: 0; font-size: 1.125rem; font-weight: 700; line-height: 1.7; color: var(--color-navy); }
+	.school-voice cite { display: block; margin-top: 0.5rem; font-size: 0.875rem; font-style: normal; color: var(--color-text-muted); }
 	.hero-lead {
 		max-width: 43em;
 		margin: var(--space-md) 0 0;
@@ -889,8 +898,8 @@ const roles = [
 
 	.section-head {
 		display: grid;
-		grid-template-columns: 10rem minmax(0, 1fr);
-		gap: var(--space-lg);
+		grid-template-columns: minmax(0, 1fr);
+		gap: 0.5rem;
 		align-items: start;
 		margin-bottom: var(--space-lg);
 		padding-top: var(--space-sm);
@@ -1189,7 +1198,7 @@ const roles = [
 		}
 
 		.hero h1 {
-			font-size: 2.75rem;
+			font-size: 2.125rem;
 		}
 
 		.hero-media,
@@ -1246,7 +1255,7 @@ const roles = [
 		}
 
 		.hero h1 {
-			font-size: 2.25rem;
+			font-size: 1.75rem;
 		}
 
 		.hero-lead {

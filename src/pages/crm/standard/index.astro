@@ -1,0 +1,1093 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CrmMobile from '../../../components/CrmMobile.astro';
+import CrmSubnav from '../../../components/CrmSubnav.astro';
+
+const DEMO_URL = 'https://crm.consilegy.com/demos';
+const SIGNUP_URL = 'https://crm.consilegy.com/signup';
+
+// 標準版（スタートアップ・中小企業）。機能は src/data/crm-features.ts に載っているものだけ書く。
+// 施策と商談のつながりの分析は、2026-10-26 に代表が「できる」と確認。
+// 使わない表現（AGENTS.md）：フルAI機能・全部入り・追加料金なし・使い放題・設定済み・AIが学習。
+const screens = [
+	{
+		src: '/images/crm/screen-dashboard-2026-10c.webp', w: 2000, h: 1250,
+		title: 'ダッシュボード',
+		desc: 'パイプライン、売上予測、受注率を1画面に。前回から何が動いたかを、AIが文章で先に伝えます。',
+		alt: 'ダッシュボードの画面。進行中パイプライン・加重フォーキャスト・今月の受注・勝率のカードと、ステージ別の金額、担当者別の商談一覧が並ぶ。',
+	},
+	{
+		src: '/images/crm/media/screens/business-cards-stay-in-the-drawer-2-2026-10.webp', w: 1456, h: 430,
+		title: '名刺の読み取り',
+		desc: '名刺をカメラで撮るか画像を選ぶと、読み取った内容が連絡先の下書きになります。確かめてから登録します。',
+		alt: '名刺を読み取る画面。どこで会ったかの入力欄と、カメラで撮る・画像を選ぶのボタン。',
+	},
+	{
+		src: '/images/crm/media/screens/waiting-on-the-customer-for-three-months-1-2026-10.webp', w: 1456, h: 822,
+		title: '商談',
+		desc: 'ステージ、金額、クローズ予定日と、その商談のやり取りを同じ画面に。止まっている商談は知らせが届きます。',
+		alt: '商談詳細の画面。アプローチから受注までのステージ表示、金額とクローズ予定日、アクティビティの履歴が並ぶ。',
+	},
+	{
+		src: '/images/crm/media/screens/which-automations-to-turn-on-first-1-2026-10.webp', w: 1456, h: 822,
+		title: '自動化ライブラリ',
+		desc: 'マーケティング、営業、カスタマーサクセスの自動化を、必要なものだけONにします。自分で組む必要はありません。',
+		alt: '自動化ライブラリの画面。商談の抜け漏れ防止・更新リスク管理・メールフォロー自動化などのセットと、ONにできる自動化の件数。',
+	},
+];
+
+// 4つの痛み（2026-10-26 代表の整理）
+const problems = [
+	{ title: '交換した名刺が、机に貯まっている。', text: '登録はあとでまとめて。その「あとで」が来ないまま、誰と会ったかが分からなくなる。', href: '/crm/media/b2b/business-cards-stay-in-the-drawer/' },
+	{ title: '見込み客はいる。でも、誰から声をかければいい？', text: 'どの見込み客に声をかけるか、どの商談を先に進めるか。判断の材料が手元にない。' },
+	{ title: '操作を覚えきれず、結局スプレッドシートに戻る。', text: 'メニューも項目も多く、使い方を覚える前に元のやり方に戻ってしまう。' },
+	{ title: 'うまくいった提案が、担当者の頭の中にしかない。', text: '顧客とのやり取りも、決まった提案の中身も、ほかのメンバーが見られない。' },
+];
+
+const values = [
+	{
+		title: '記録は、AIに任せる',
+		text: '名刺は撮るだけ。手書きのメモやホワイトボードも読み取ります。会議の文字起こしやチャットを取り込めば、AIが顧客ごとに整理して残します。',
+	},
+	{
+		title: '次の一手が、見える',
+		text: 'マーケティングでは、見込み客をスコアで格付けし、開封やクリックの反応から声をかける相手が分かります。見込み客が商談の候補になった時点で、AIが次の一手と最初のメッセージ案を用意します。営業では、止まっている商談を知らせます。',
+	},
+	{
+		title: '話しかけて、操作する',
+		text: '検索も集計も、連絡先やタスクの登録も、ふだんの言葉で頼めます。項目名やメニューの場所を覚えなくて大丈夫です。',
+	},
+	{
+		title: '知識を、チームのものに',
+		text: '顧客情報と活動の履歴は、チームで同じものを見られます。社内のマニュアルや提案のノウハウは社内Wikiに置き、AIに質問したときの根拠にも使います。',
+	},
+];
+
+const marketing = [
+	{ label: '集める', text: 'フォーム・名刺・問い合わせが、同じ連絡先に入る' },
+	{ label: '見極める', text: 'スコアと反応で、声をかける相手が分かる' },
+	{ label: '育てる', text: '課題ごとの配信と、休眠した見込み客の掘り起こし' },
+	{ label: '振り返る', text: 'どの施策が商談につながったかを見られる' },
+];
+const sales = [
+	{ label: '渡す', text: '担当者を決めて、次の一手と最初のメッセージ案を用意' },
+	{ label: '進める', text: '止まっている商談と、対応期限の超過を知らせる' },
+	{ label: '見通す', text: '売上予測と、その精度を数字で確認できる' },
+];
+
+const roles = [
+	{ name: 'オーナー', scope: '全データ・請求・権限の設定' },
+	{ name: '管理者', scope: '運用全般と権限の設定' },
+	{ name: 'マネージャー', scope: '担当チームの顧客と商談を閲覧・編集' },
+	{ name: 'メンバー', scope: '自分が担当の顧客と商談' },
+];
+---
+
+<BaseLayout
+	title="Revenue CRM標準版 | 記録で終わらない顧客管理。マーケティングから営業まで、次の一手をAIと。"
+	description="スタートアップ・中小企業のための顧客管理システム。名刺や会議の内容はAIが記録し、見込み客のスコアから止まっている商談まで、マーケティングと営業の次の一手を示します。日本語・英語・繁體中文に対応し、使い慣れた言語で話しかけて操作できます。どのプランも30日間無料で試せます。"
+	lang="ja"
+	alternateUrl="/en/crm/"
+>
+<script type="application/ld+json" slot="head" set:html={JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://consilegy.com/"},
+		{"@type": "ListItem", "position": 2, "name": "Revenue CRM", "item": "https://consilegy.com/crm/"},
+		{"@type": "ListItem", "position": 3, "name": "標準版", "item": "https://consilegy.com/crm/standard/"}
+	]
+})} />
+
+<CrmSubnav lang="ja" />
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+	<div class="container hero-grid">
+		<div class="hero-copy">
+			<p class="eyebrow">Revenue CRM · Standard edition</p>
+			<h1><span class="nw">記録で終わらない</span><span class="nw">顧客管理。</span><br /><span class="nw">マーケティングから</span><span class="nw">営業まで、</span><br /><span class="nw">次の一手をAIと。</span></h1>
+			<p class="hero-lead">
+				<strong>声をかけるべき見込み客も、止まっている商談も、システムが見つけて知らせます。</strong>
+				名刺や会議の内容はAIが記録。スタートアップ・中小企業のための顧客管理システムです。
+			</p>
+			<div class="hero-actions">
+				<a href={SIGNUP_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">無料で始める</a>
+				<a href={DEMO_URL} class="btn btn--secondary" target="_blank" rel="noopener noreferrer">デモを見る</a>
+			</div>
+			<p class="hero-download"><a href="/crm/download/" class="btn btn--secondary">資料をダウンロード</a></p>
+			<ul class="hero-points" aria-label="標準版の特徴">
+				<li>マーケティングと営業が同じデータ</li>
+				<li>日本語・英語・繁體中文の画面</li>
+				<li>30日間無料で試せる</li>
+			</ul>
+		</div>
+		<figure class="hero-media">
+			<img
+				src="/images/crm/media/screens/business-cards-stay-in-the-drawer-1-2026-10.webp"
+				alt="ホーム画面「今日の営業状況」。進行中パイプライン・加重フォーキャスト・今月の受注・勝率のカードと、「今やること」のタスク一覧。"
+				width="1456"
+				height="822"
+				decoding="async"
+			/>
+			<figcaption>ホーム：開けば、今日やることが並んでいる</figcaption>
+		</figure>
+	</div>
+</section>
+
+<!-- ===================== POSITIONING ===================== -->
+<section class="positioning">
+	<div class="container">
+		<div class="pos-body">
+			<p class="pos-lead">
+				顧客管理は、入れて終わりではなく、<br />
+				次に動くための仕組みです。
+			</p>
+			<div class="pos-copy">
+				<p>
+					顧客管理システムが使われなくなる理由は、たいてい<strong>入力の負担</strong>と、<strong>入れたあとに何も返ってこない</strong>ことです。
+					標準版は、記録をAIに任せ、入った情報から次にやることを示すことを中心に置きました。
+				</p>
+				<p>
+					マーケティングと営業は、同じ連絡先と同じ履歴の上で動きます。
+					フォームから入った見込み客が商談になり、受注するまでを1本の流れで追えるので、<strong>どの施策が商談につながったか</strong>も同じ画面で確かめられます。
+				</p>
+				<a href="/revenue-architecture/" class="pos-link">この考え方について読む →</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== PROBLEM ===================== -->
+<section class="problem">
+	<div class="container">
+		<div class="section-head">
+			<p class="section-eyebrow">Common Problems</p>
+			<h2 class="prob-title">顧客情報はあるのに、次の行動につながっていない。</h2>
+		</div>
+		<div class="prob-grid prob-grid--4">
+			{problems.map((item, index) => (
+				<article class="prob-item">
+					<span class="issue-label" aria-label={`項目 ${index + 1}`}>
+						<span class="issue-label__number">{String(index + 1).padStart(2, '0')}</span>
+					</span>
+					<h3>{item.title}</h3>
+					<p>{item.text}</p>
+					{item.href && <a class="prob-link" href={item.href}>記事を読む →</a>}
+				</article>
+			))}
+		</div>
+	</div>
+</section>
+
+<!-- ===================== VALUES ===================== -->
+<section class="problem values">
+	<div class="container">
+		<div class="section-head">
+			<p class="section-eyebrow">Features</p>
+			<h2 class="prob-title">マーケティングから営業まで、次の一手が見える。</h2>
+		</div>
+		<div class="prob-grid prob-grid--4">
+			{values.map((item, index) => (
+				<article class="prob-item">
+					<span class="issue-label" aria-label={`項目 ${index + 1}`}>
+						<span class="issue-label__number">{String(index + 1).padStart(2, '0')}</span>
+					</span>
+					<h3>{item.title}</h3>
+					<p>{item.text}</p>
+				</article>
+			))}
+		</div>
+	</div>
+</section>
+
+<!-- ===================== FLOW ===================== -->
+<section class="support">
+	<div class="container">
+		<figure class="flow-figure" aria-labelledby="flow-figure-caption">
+			<svg class="fig-pc" viewBox="0 0 1120 236" role="img" aria-label="導入後の仕事の流れ：名刺を撮る、AIが記録、見込み客を評価、次の一手、チームで共有">
+				<defs><marker id="st-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
+				<g font-family="inherit">
+				<rect x="40" y="20" width="188" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/><text x="58" y="54" font-size="14" fill="#64748b" letter-spacing="1">Capture</text><text x="58" y="84" font-size="18" font-weight="600" fill="#0F172A">名刺を撮る</text>
+				<text x="58" y="144" font-size="16" fill="#475569">カメラで撮るだけ</text>
+				<line x1="228" y1="68" x2="252" y2="68" stroke="#0F172A" stroke-width="2" marker-end="url(#st-arr)"/>
+				<rect x="256" y="20" width="188" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/><text x="274" y="54" font-size="14" fill="#64748b" letter-spacing="1">Record</text><text x="274" y="84" font-size="18" font-weight="600" fill="#0F172A">AIが記録</text>
+				<text x="274" y="144" font-size="16" fill="#475569">顧客ごとに整理</text>
+				<line x1="444" y1="68" x2="468" y2="68" stroke="#0F172A" stroke-width="2" marker-end="url(#st-arr)"/>
+				<rect x="472" y="20" width="188" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/><text x="490" y="54" font-size="14" fill="#64748b" letter-spacing="1">Score</text><text x="490" y="84" font-size="18" font-weight="600" fill="#0F172A">見込み客を評価</text>
+				<text x="490" y="144" font-size="16" fill="#475569">スコアと反応で</text>
+				<line x1="660" y1="68" x2="684" y2="68" stroke="#0F172A" stroke-width="2" marker-end="url(#st-arr)"/>
+				<rect x="688" y="20" width="188" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/><text x="706" y="54" font-size="14" fill="#64748b" letter-spacing="1">Next</text><text x="706" y="84" font-size="18" font-weight="600" fill="#0F172A">次の一手</text>
+				<text x="706" y="144" font-size="16" fill="#475569">AIが提案と下書き</text>
+				<line x1="876" y1="68" x2="900" y2="68" stroke="#0F172A" stroke-width="2" marker-end="url(#st-arr)"/>
+				<rect x="904" y="20" width="188" height="96" rx="6" fill="#fff" stroke="#E2E8F0"/><text x="922" y="54" font-size="14" fill="#64748b" letter-spacing="1">Share</text><text x="922" y="84" font-size="18" font-weight="600" fill="#0F172A">チームで共有</text>
+				<text x="922" y="144" font-size="16" fill="#475569">同じ商談状況を見る</text>
+				<rect x="40" y="180" width="1052" height="40" rx="6" fill="#0F172A"/>
+				<text x="566" y="206" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">マーケティングと営業が、同じ連絡先とやり取りの記録の上で動く</text>
+				</g>
+			</svg>
+			<svg class="fig-sp" viewBox="0 0 360 728" role="img" aria-label="導入後の仕事の流れ：名刺を撮る、AIが記録、見込み客を評価、次の一手、チームで共有">
+				<defs><marker id="st-sp-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
+				<g font-family="inherit">
+				<rect x="16" y="16" width="328" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<text x="32" y="44" font-size="14" letter-spacing="1.5" fill="#64748b">Capture</text>
+				<text x="32" y="72" font-size="18" font-weight="600" fill="#0F172A">名刺を撮る</text>
+				<text x="32" y="100" font-size="16" fill="#475569">カメラで撮るだけ</text>
+				<line x1="180" y1="118" x2="180" y2="140" stroke="#0F172A" stroke-width="2" marker-end="url(#st-sp-arr)"/>
+				<rect x="16" y="144" width="328" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<text x="32" y="172" font-size="14" letter-spacing="1.5" fill="#64748b">Record</text>
+				<text x="32" y="200" font-size="18" font-weight="600" fill="#0F172A">AIが記録</text>
+				<text x="32" y="228" font-size="16" fill="#475569">顧客ごとに整理</text>
+				<line x1="180" y1="246" x2="180" y2="268" stroke="#0F172A" stroke-width="2" marker-end="url(#st-sp-arr)"/>
+				<rect x="16" y="272" width="328" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<text x="32" y="300" font-size="14" letter-spacing="1.5" fill="#64748b">Score</text>
+				<text x="32" y="328" font-size="18" font-weight="600" fill="#0F172A">見込み客を評価</text>
+				<text x="32" y="356" font-size="16" fill="#475569">スコアと反応で</text>
+				<line x1="180" y1="374" x2="180" y2="396" stroke="#0F172A" stroke-width="2" marker-end="url(#st-sp-arr)"/>
+				<rect x="16" y="400" width="328" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<text x="32" y="428" font-size="14" letter-spacing="1.5" fill="#64748b">Next</text>
+				<text x="32" y="456" font-size="18" font-weight="600" fill="#0F172A">次の一手</text>
+				<text x="32" y="484" font-size="16" fill="#475569">AIが提案と下書き</text>
+				<line x1="180" y1="502" x2="180" y2="524" stroke="#0F172A" stroke-width="2" marker-end="url(#st-sp-arr)"/>
+				<rect x="16" y="528" width="328" height="100" rx="6" fill="#fff" stroke="#E2E8F0"/>
+				<text x="32" y="556" font-size="14" letter-spacing="1.5" fill="#64748b">Share</text>
+				<text x="32" y="584" font-size="18" font-weight="600" fill="#0F172A">チームで共有</text>
+				<text x="32" y="612" font-size="16" fill="#475569">同じ商談状況を見る</text>
+				<rect x="16" y="636" width="328" height="76" rx="6" fill="#0F172A"/>
+				<text x="180" y="666" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">マーケティングと営業が、同じ</text>
+				<text x="180" y="690" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">連絡先と記録の上で動く</text>
+				</g>
+			</svg>
+			<figcaption id="flow-figure-caption">名刺を撮ってから商談をチームで共有するまで、記録はAIに、次の一手の候補はシステムに任せます。マーケティングが育てた見込み客を、営業がそのまま引き継げます。</figcaption>
+		</figure>
+	</div>
+	<div class="container support-inner">
+		<div class="support-list">
+			<h3>マーケティング</h3>
+			<ul>
+				{marketing.map((r) => (
+					<li><span>{r.label}</span><strong>{r.text}</strong></li>
+				))}
+			</ul>
+		</div>
+		<div class="support-list">
+			<h3>営業</h3>
+			<ul>
+				{sales.map((r) => (
+					<li><span>{r.label}</span><strong>{r.text}</strong></li>
+				))}
+			</ul>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== SCREENS ===================== -->
+<section class="screens" id="screens">
+	<div class="container">
+		<div class="section-head">
+			<p class="section-eyebrow">The screens</p>
+			<h2 class="sc-title">日々見る画面は、これだけです。</h2>
+		</div>
+		<div class="sc-grid">
+			{screens.map((s) => (
+				<article class="sc-card">
+					<figure class="sc-shot">
+						<img src={s.src} alt={s.alt} width={s.w} height={s.h} loading="lazy" decoding="async" />
+					</figure>
+					<div>
+						<h3>{s.title}</h3>
+						<p>{s.desc}</p>
+					</div>
+				</article>
+			))}
+		</div>
+	</div>
+</section>
+
+<!-- ===================== INTERNATIONAL ===================== -->
+<section class="intl">
+	<div class="container">
+		<div class="section-head">
+			<p class="section-eyebrow">International Teams</p>
+			<h2 class="prob-title">言語も商習慣も違うメンバーが、同じ顧客情報で働ける。</h2>
+		</div>
+		<p class="intl-lead">
+			画面は日本語・English・繁體中文を、使う人ごとに切り替えられます。データは同じものなので、使う言語が違うメンバーも、同じ顧客情報と商談の状況を見て動けます。
+			AIの要約や提案も、見る人の言語で表示されます。稟議待ちの商談も、決まったのに計上は来期の商談も、そのまま扱えます。
+		</p>
+		<div class="intl-grid">
+			<figure>
+				<img src="/images/crm/screen-dashboard-2026-10c.webp" alt="日本語で表示したダッシュボード。" width="2000" height="1250" loading="lazy" decoding="async" />
+				<figcaption>日本語</figcaption>
+			</figure>
+			<figure>
+				<img src="/images/crm/screen-dashboard-2026-10c-en.webp" alt="同じダッシュボードを英語で表示した画面。" width="2000" height="1250" loading="lazy" decoding="async" />
+				<figcaption>English</figcaption>
+			</figure>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== AI ===================== -->
+<section class="ai">
+	<div class="container ai-inner">
+		<div>
+			<p class="section-eyebrow">AI</p>
+			<h2>使い慣れた言語で聞けば、<br />その場で返ってきます。</h2>
+			<p class="ai-lead">
+				知りたいことのために、集計を組み立てる必要はありません。
+				日本語でも、英語でも、中国語でも。話すとおりに聞けば、顧客・商談・活動の記録と、添付した資料を探して答えます。
+			</p>
+			<p class="ai-lead">
+				頼めば、連絡先やタスクの登録もします。
+				AIが提案できる行動の種類はあらかじめ決めてあり、提案には必ず理由が付きます。
+			</p>
+		</div>
+		<ul class="ai-examples">
+			<li>今週、声をかけるべき見込み客は？</li>
+			<li>止まっている商談は？</li>
+			<li>先月の商談は、どの施策から？</li>
+			<li>この名刺の人を登録して</li>
+			<li>Which deals are stalled this week?</li>
+		</ul>
+	</div>
+</section>
+
+<CrmMobile />
+
+<!-- ===================== ROLES ===================== -->
+<section class="roles">
+	<div class="container">
+		<div class="section-head">
+			<p class="section-eyebrow">Permissions</p>
+			<h2 class="ro-title">見せる範囲は、役割ごとに決められます。</h2>
+		</div>
+		<p class="ro-lead">
+			顧客・会社・商談のそれぞれについて、見える範囲を「全体・チーム・自分」から選べます。エクスポートの可否は別に設定できます。
+			下は設定例です。
+		</p>
+		<dl class="ro-list">
+			{roles.map((r) => (
+				<div class="ro-row">
+					<dt>{r.name}</dt>
+					<dd>{r.scope}</dd>
+				</div>
+			))}
+		</dl>
+		<p class="ro-note">誰がいつ何を変更したかは、監査ログで後から追えます。</p>
+	</div>
+</section>
+
+<!-- ===================== FINAL CTA ===================== -->
+<section class="final-cta">
+	<div class="container cta-inner">
+		<div>
+			<p class="cta-eyebrow">30 days free</p>
+			<h2>今の業務に合うかは、<br />実際の画面で確かめてください。</h2>
+			<p class="cta-lead">
+				初期費用はなく、どのプランも30日間の無料トライアル付きで、カード登録なしで始められます。
+				デモはメールアドレスだけで、その場でご覧いただけます。
+			</p>
+			<div class="cta-actions">
+				<a href={SIGNUP_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">無料で始める</a>
+				<a href={DEMO_URL} class="btn btn--secondary" target="_blank" rel="noopener noreferrer">デモを見る</a>
+				<a href="/crm/pricing/" class="btn btn--secondary">料金を見る</a>
+			</div>
+		</div>
+		<div class="cta-card">
+			<h4>デモでお見せする内容</h4>
+			<ul class="cta-list">
+				<li>名刺や会議の内容から、AIが記録する流れ</li>
+				<li>見込み客のスコアと、次の一手の提案</li>
+				<li>止まっている商談の知らせ方</li>
+				<li>施策ごとの商談のつながり</li>
+				<li>使い慣れた言語で話しかけて操作するAIエージェント</li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+</BaseLayout>
+
+
+<style>
+	.section-eyebrow,
+	.eyebrow,
+	.cta-eyebrow {
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.12em;
+		line-height: 1.4;
+		text-transform: uppercase;
+	}
+
+	/* uppercase はギリシャ文字も変えるので β が B になる。
+	   ラテン文字だけ大文字にしたいので、日本語まじりの語は除外する。 */
+	.section-eyebrow .no-upper,
+	.eyebrow .no-upper,
+	.cta-eyebrow .no-upper {
+		text-transform: none;
+	}
+
+	h2,
+	h3 {
+		letter-spacing: 0;
+	}
+
+	h2 {
+		margin: 0;
+		color: var(--color-text);
+		font-size: 2rem;
+		font-weight: 500;
+		line-height: 1.4;
+		text-wrap: balance;
+	}
+
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 46px;
+		padding: 0.8rem 1.35rem;
+		border: 1px solid var(--color-border);
+		border-radius: 4px;
+		font-size: 0.9375rem;
+		font-weight: 600;
+		line-height: 1.25;
+		text-decoration: none;
+		transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+	}
+
+	.btn--primary {
+		background: var(--color-primary);
+		border-color: var(--color-primary);
+		color: #fff;
+	}
+
+	.btn--primary:hover {
+		background: var(--color-primary-dark);
+		border-color: var(--color-primary-dark);
+		color: #fff;
+	}
+
+	.btn--secondary {
+		background: transparent;
+		color: var(--color-text);
+	}
+
+	.btn--secondary:hover {
+		border-color: var(--color-primary);
+		color: var(--color-primary);
+	}
+
+	.hero-actions,
+	.cta-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: var(--space-md);
+	}
+
+	.hero {
+		padding: var(--space-lg) 0 var(--space-md);
+		background: var(--color-bg);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.hero-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.78fr);
+		gap: var(--space-xl);
+		align-items: start;
+	}
+
+	.hero-copy {
+		max-width: 720px;
+	}
+
+	.eyebrow {
+		display: block;
+		margin-bottom: var(--space-md);
+		padding-top: 0.875rem;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.hero h1 {
+		max-width: 13em;
+		margin: 0;
+		color: var(--color-text);
+		font-size: 3.125rem;
+		font-weight: 500;
+		line-height: 1.2;
+		letter-spacing: 0;
+		text-wrap: balance;
+	}
+
+	.hero-lead {
+		max-width: 43em;
+		margin: var(--space-md) 0 0;
+		color: var(--color-text);
+		font-size: 1.0625rem;
+		line-height: 2;
+	}
+
+	.hero-lead strong {
+		font-weight: 700;
+	}
+
+	.hero-points {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 0;
+		margin: var(--space-md) 0 0;
+		padding: 0;
+		list-style: none;
+		border-top: 1px solid var(--color-border);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.hero-points li {
+		min-width: 0;
+		padding: 0.85rem 1rem;
+		color: var(--color-text-muted);
+		font-size: 0.8125rem;
+		line-height: 1.6;
+	}
+
+	.hero-points li + li {
+		border-left: 1px solid var(--color-border);
+	}
+
+	.pos-link {
+		color: var(--color-primary);
+		font-weight: 600;
+		text-decoration: none;
+		border-bottom: 1px solid currentColor;
+	}
+
+	.hero-media {
+		margin: 0;
+		min-width: 0;
+	}
+
+	.hero-media img,
+	.prob-shot img {
+		width: 100%;
+		height: auto;
+		display: block;
+		border: 1px solid var(--color-border);
+		border-radius: 0;
+		background: #fff;
+		box-shadow: none;
+	}
+
+	.hero-media figcaption,
+	.prob-shot figcaption {
+		margin-top: 0.65rem;
+		color: var(--color-text-muted);
+		font-size: 0.75rem;
+		line-height: 1.6;
+	}
+
+	.positioning,
+	.problem,
+	.screens,
+	.support,
+	.ai,
+	.roles,
+	.final-cta {
+		padding: var(--space-2xl) 0;
+		background: var(--color-bg);
+	}
+
+	.screens,
+	.roles {
+		background: var(--color-bg-subtle);
+		border-top: 1px solid var(--color-border);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.prob-shot {
+		max-width: 900px;
+		margin: 0;
+		background: transparent;
+		border: 0;
+		border-radius: 0;
+		box-shadow: none;
+	}
+
+	.positioning {
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.pos-body {
+		display: grid;
+		grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+		gap: var(--space-xl);
+		align-items: start;
+		padding-top: var(--space-sm);
+		border-top: 1px solid var(--color-border);
+	}
+
+	.pos-lead {
+		margin: 0;
+		color: var(--color-text);
+		font-size: 1.375rem;
+		font-weight: 500;
+		line-height: 1.7;
+		text-wrap: balance;
+	}
+
+	.pos-copy p {
+		margin: 0 0 1rem;
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+		line-height: 1.9;
+	}
+
+	.pos-body strong {
+		color: var(--color-text);
+		font-weight: 700;
+	}
+
+	.pos-link {
+		display: inline-flex;
+		margin-top: 0.25rem;
+		font-size: 0.9375rem;
+	}
+
+	.section-head {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: 0.5rem;
+		align-items: start;
+		margin-bottom: var(--space-lg);
+		padding-top: var(--space-sm);
+		border-top: 1px solid var(--color-border);
+	}
+
+	.prob-grid,
+	.sc-grid {
+		display: grid;
+		gap: 0;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.prob-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	.prob-item,
+	.sc-card {
+		min-width: 0;
+		padding: 1.35rem 1.5rem 1.35rem 0;
+		background: transparent;
+		border: 0;
+		border-bottom: 1px solid var(--color-border);
+		border-radius: 0;
+	}
+
+	.prob-item:nth-child(2),
+	.prob-item:nth-child(3) {
+		padding-left: var(--space-md);
+		border-left: 1px solid var(--color-border);
+	}
+
+	.issue-label {
+		display: flex;
+		align-items: flex-end;
+		gap: 0.85rem;
+		margin-bottom: 0.9rem;
+		color: var(--color-navy);
+	}
+
+	.issue-label::after {
+		content: "";
+		flex: 1;
+		height: 1px;
+		margin-bottom: 0.34rem;
+		background: var(--color-border);
+	}
+
+	.issue-label__number {
+		color: rgba(112, 66, 172, 0.24);
+		font-size: 2.45rem;
+		font-weight: 500;
+		font-variant-numeric: tabular-nums;
+		line-height: 0.82;
+		letter-spacing: 0;
+	}
+
+	.prob-item h3,
+	.sc-card h3 {
+		margin: 0;
+		color: var(--color-text);
+		font-size: 1rem;
+		font-weight: 600;
+		line-height: 1.55;
+	}
+
+	.prob-item p,
+	.sc-card p {
+		margin: 0.6rem 0 0;
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+		line-height: 1.85;
+	}
+
+	.prob-shot {
+		margin-top: var(--space-xl);
+	}
+
+	.prob-shot strong {
+		color: var(--color-text);
+		font-weight: 700;
+	}
+
+	.screens {
+		scroll-margin-top: 120px;
+	}
+
+	.sc-grid {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+
+	.sc-card {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: 0.9rem;
+		align-content: start;
+		padding-right: var(--space-md);
+	}
+
+	.sc-shot {
+		margin: 0;
+		overflow: hidden;
+		border: 1px solid var(--color-border);
+		border-radius: 8px;
+		background: #fff;
+		box-shadow: 0 8px 22px rgba(15, 23, 42, 0.07);
+	}
+
+	.sc-shot img {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+
+	.sc-card:nth-child(4n + 2),
+	.sc-card:nth-child(4n + 3),
+	.sc-card:nth-child(4n + 4) {
+		padding-left: var(--space-md);
+		border-left: 1px solid var(--color-border);
+	}
+
+	.support {
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.support-inner,
+	.ai-inner,
+	.cta-inner {
+		display: grid;
+		grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+		gap: var(--space-xl);
+		align-items: start;
+	}
+
+	.support-inner > div:first-child,
+	.ai-inner > div:first-child,
+	.cta-inner > div:first-child {
+		padding-top: var(--space-sm);
+		border-top: 1px solid var(--color-border);
+	}
+
+	.support .section-eyebrow,
+	.ai .section-eyebrow,
+	.cta-eyebrow {
+		margin-bottom: var(--space-sm);
+	}
+
+	.support-lead,
+	.ai-lead,
+	.ro-lead,
+	.cta-lead {
+		margin: 1rem 0 0;
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+		line-height: 1.85;
+	}
+
+	.support-list {
+		border-top: 1px solid var(--color-border);
+	}
+
+	.support-list h3,
+	.cta-card h4 {
+		margin: 0;
+		padding: 0.95rem 0;
+		border-bottom: 1px solid var(--color-border);
+		color: var(--color-primary);
+		font-size: 0.8125rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		line-height: 1.5;
+	}
+
+	.support-list ul,
+	.cta-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.support-list li {
+		display: grid;
+		grid-template-columns: 6rem minmax(0, 1fr);
+		gap: var(--space-md);
+		padding: 0.9rem 0;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.support-list span {
+		color: var(--color-text-muted);
+		font-size: 0.8125rem;
+		font-weight: 600;
+		line-height: 1.7;
+	}
+
+	.support-list strong {
+		color: var(--color-text);
+		font-size: 0.9375rem;
+		font-weight: 600;
+		line-height: 1.7;
+	}
+
+	.ai-examples {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.ai-examples li {
+		padding: 0.9rem 0;
+		border-bottom: 1px solid var(--color-border);
+		color: var(--color-text);
+		font-size: 0.9375rem;
+		line-height: 1.7;
+	}
+
+	.ai-examples li::before {
+		content: '\201C';
+		color: var(--color-navy);
+	}
+
+	.ai-examples li::after {
+		content: '\201D';
+		color: var(--color-navy);
+	}
+
+	.ro-lead {
+		max-width: 720px;
+		margin-top: 0;
+		margin-bottom: var(--space-lg);
+	}
+
+	.ro-list {
+		max-width: 720px;
+		margin: 0;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.ro-row {
+		display: grid;
+		grid-template-columns: 14rem minmax(0, 1fr);
+		gap: var(--space-md);
+		padding: 1rem 0;
+		align-items: baseline;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.ro-row dt {
+		color: var(--color-text);
+		font-size: 0.9375rem;
+		font-weight: 600;
+		line-height: 1.7;
+	}
+
+	.ro-row dd {
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+		line-height: 1.7;
+	}
+
+	.ro-note {
+		margin: 1.25rem 0 0;
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+		line-height: 1.7;
+	}
+
+	.final-cta {
+		color: var(--color-text);
+	}
+
+	.cta-card {
+		background: transparent;
+		border: 0;
+		border-top: 1px solid var(--color-border);
+		border-radius: 0;
+		padding: 0;
+	}
+
+	.cta-list li {
+		padding: 0.75rem 0;
+		border-bottom: 1px solid var(--color-border);
+		color: var(--color-text);
+		font-size: 0.9375rem;
+		line-height: 1.75;
+	}
+
+	@media (max-width: 1020px) {
+		.hero-grid,
+		.pos-body,
+		.support-inner,
+		.ai-inner,
+		.cta-inner {
+			grid-template-columns: 1fr;
+		}
+
+		.hero h1 {
+			font-size: 2.75rem;
+		}
+
+		.hero-media,
+		.prob-shot {
+			max-width: 680px;
+		}
+
+		.sc-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.sc-card:nth-child(odd) {
+			padding-left: 0;
+			border-left: 0;
+		}
+
+		.sc-card:nth-child(even) {
+			padding-left: var(--space-md);
+			border-left: 1px solid var(--color-border);
+		}
+	}
+
+	@media (max-width: 760px) {
+		.hero,
+		.positioning,
+		.problem,
+		.screens,
+		.support,
+		.roles,
+		.final-cta {
+			padding-block: var(--space-xl);
+		}
+
+		.hero {
+			padding-block: var(--space-lg) var(--space-md);
+		}
+
+		.section-head,
+		.prob-grid,
+		.sc-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.section-head {
+			gap: 0.75rem;
+		}
+
+		.hero-grid {
+			gap: var(--space-md);
+		}
+
+		h2 {
+			font-size: 1.625rem;
+		}
+
+		.hero h1 {
+			font-size: 2.25rem;
+		}
+
+		.hero-lead {
+			font-size: 1rem;
+			line-height: 1.85;
+		}
+
+		.hero-points {
+			display: none;
+		}
+
+		.prob-item,
+		.prob-item:nth-child(2),
+		.prob-item:nth-child(3),
+		.sc-card,
+		.sc-card:nth-child(even) {
+			padding-left: 0;
+			padding-right: 0;
+			border-left: 0;
+		}
+
+		.support-list li,
+		.ro-row {
+			grid-template-columns: 1fr;
+			gap: 0.25rem;
+		}
+
+		.hero-actions,
+		.cta-actions {
+			flex-direction: column;
+			align-items: stretch;
+		}
+	}
+
+	.flow-figure { margin: 0 0 var(--space-lg); }
+	.flow-figure svg { display: block; width: 100%; height: auto; }
+	.flow-figure figcaption { margin-top: 0.75rem; font-size: 0.875rem; color: var(--color-text-muted); }
+
+	.hero h1 { font-size: 2.125rem; max-width: none; }
+	.hero h1 .nw { display: inline-block; }
+	.prob-grid.prob-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+	:global(#main-content.crm-editorial) .values { background: #fff; }
+	:global(#main-content.crm-editorial) .intl { background: #F1F5F9; }
+	.intl { padding: var(--space-2xl) 0; border-block: 1px solid var(--color-border); }
+	.intl-lead { max-width: 46rem; margin: var(--space-md) 0 var(--space-lg); color: var(--color-text-muted); font-size: 1rem; line-height: 1.85; }
+	.intl-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+	.intl-grid figure { margin: 0; }
+	.intl-grid img { display: block; width: 100%; height: auto; border: 1px solid var(--color-border); border-radius: 8px; background: #fff; box-shadow: 0 8px 22px rgba(15, 23, 42, 0.07); }
+	.intl-grid figcaption { margin-top: 0.6rem; font-size: 0.875rem; font-weight: 600; color: var(--color-navy); letter-spacing: 0.04em; }
+	.values .prob-grid.prob-grid--4 { grid-template-columns: 1fr; gap: 0.75rem; border-top: 0; }
+	.values .prob-item { display: grid; grid-template-columns: 3.5rem 15rem minmax(0, 1fr); gap: 0 1.5rem; align-items: baseline; }
+	.values .prob-item h3 { margin: 0; }
+	.values .prob-item p { margin: 0; }
+	.sc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 1.5rem; border-top: 0; }
+	.sc-card, .sc-card:nth-child(n) { padding-left: 1.6rem; border-left: 1px solid var(--color-border); }
+	@media (max-width: 760px) {
+		.intl-grid, .sc-grid { grid-template-columns: 1fr !important; }
+		.values .prob-item { grid-template-columns: 1fr; gap: 0.5rem; }
+		.intl { padding: var(--space-xl) 0; }
+	}
+
+	.prob-link { display: inline-block; margin-top: 0.75rem; color: var(--color-primary); font-weight: 600; text-decoration: none; }
+	.prob-link:hover { text-decoration: underline; }
+	.support-inner .support-list + .support-list { margin-top: 0; }
+	@media (max-width: 1080px) { .hero h1 { font-size: 2rem; } }
+	@media (max-width: 760px) {
+		.hero h1 { font-size: 1.75rem; }
+		.prob-grid.prob-grid--4 { grid-template-columns: 1fr; }
+	}
+</style>

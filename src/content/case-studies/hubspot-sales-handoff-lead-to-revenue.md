@@ -6,7 +6,7 @@ sourceUrl: "https://consilegy.com/case-studies/hubspot-sales-handoff-lead-to-rev
 lang: "ja"
 translationKey: "hubspot-sales-handoff"
 modified: "2026-03-18T02:17:45"
-description: " 項目内容ツールHubSpot (Marketing Hub / Sales Hub)主な課題リード評価の標準化, 部門間連携, 収益可視化業界IT（バックオフィスSaaS）導入時期 / 期間2024年 / 4ヶ月従業員数約200名支援内容Revenue Architecture（レベニューアーキテ"
+description: " 項目内容ツールHubSpot (Marketing Hub / Sales Hub)主な課題リード評価の標準化, 部門間連携, 収益可視化業界IT（バックオフィスSaaS）導入時期 / 期間2024年 / 4か月従業員数約200名支援内容Revenue Architecture（レベニューアーキテ"
 featuredImage: "/images/media/2026/02/dx.png"
 featuredImageAlt: ""
 draft: false
@@ -17,7 +17,7 @@ action: "リード評価基準と引き渡しルールを統一し、商談創�
 result: "MQLを増やさずに転換率が20%向上。商談の件数も増加"
 ---
 <!-- wp:table {"fontSize":"small"} -->
-<figure class="wp-block-table has-small-font-size"><table class="has-fixed-layout"><thead><tr><td><strong>項目</strong></td><td><strong>内容</strong></td></tr></thead><tbody><tr><td><strong>ツール</strong></td><td>HubSpot (Marketing Hub / Sales Hub)</td></tr><tr><td><strong>主な課題</strong></td><td>リード評価の標準化, 部門間連携, 収益可視化</td></tr><tr><td><strong>業界</strong></td><td>IT（バックオフィスSaaS）</td></tr><tr><td><strong>導入時期 / 期間</strong></td><td>2024年 / 4ヶ月</td></tr><tr><td><strong>従業員数</strong></td><td>約200名</td></tr><tr><td><strong>支援内容</strong></td><td>Revenue Architecture（レベニューアーキテクチャ）設計・RevOps基盤構築</td></tr></tbody></table></figure>
+<figure class="wp-block-table has-small-font-size"><table class="has-fixed-layout"><thead><tr><td><strong>項目</strong></td><td><strong>内容</strong></td></tr></thead><tbody><tr><td><strong>ツール</strong></td><td>HubSpot (Marketing Hub / Sales Hub)</td></tr><tr><td><strong>主な課題</strong></td><td>リード評価の標準化, 部門間連携, 収益可視化</td></tr><tr><td><strong>業界</strong></td><td>IT（バックオフィスSaaS）</td></tr><tr><td><strong>導入時期 / 期間</strong></td><td>2024年 / 4か月</td></tr><tr><td><strong>従業員数</strong></td><td>約200名</td></tr><tr><td><strong>支援内容</strong></td><td>Revenue Architecture（レベニューアーキテクチャ）設計・RevOps基盤構築</td></tr></tbody></table></figure>
 <!-- /wp:table -->
 
 <!-- wp:heading -->

@@ -17,7 +17,7 @@ action: "4種類の分散データをHubSpotへ統合し、入力ルールと運
 result: "データ管理・抽出業務を約65%削減。4名のチームで月約100時間を創出"
 ---
 <!-- wp:table {"fontSize":"small"} -->
-<figure class="wp-block-table has-small-font-size"><table class="has-fixed-layout"><thead><tr><td><strong>項目</strong></td><td><strong>内容</strong></td></tr></thead><tbody><tr><td><strong>ツール</strong></td><td>HubSpot (Marketing Hub / Sales Hub / Operations Hub)</td></tr><tr><td><strong>主な課題</strong></td><td>データ分散、属人化、業務負荷、情報共有の断絶</td></tr><tr><td><strong>業界</strong></td><td>医療（医療テック）</td></tr><tr><td><strong>導入時期 / 期間</strong></td><td>2023年秋 / 6ヶ月</td></tr><tr><td><strong>従業員数</strong></td><td>約150名</td></tr><tr><td><strong>支援内容</strong></td><td>データ統合基盤の構築・運用定着支援</td></tr></tbody></table></figure>
+<figure class="wp-block-table has-small-font-size"><table class="has-fixed-layout"><thead><tr><td><strong>項目</strong></td><td><strong>内容</strong></td></tr></thead><tbody><tr><td><strong>ツール</strong></td><td>HubSpot (Marketing Hub / Sales Hub / Operations Hub)</td></tr><tr><td><strong>主な課題</strong></td><td>データ分散、属人化、業務負荷、情報共有の断絶</td></tr><tr><td><strong>業界</strong></td><td>医療（医療テック）</td></tr><tr><td><strong>導入時期 / 期間</strong></td><td>2023年秋 / 6か月</td></tr><tr><td><strong>従業員数</strong></td><td>約150名</td></tr><tr><td><strong>支援内容</strong></td><td>データ統合基盤の構築・運用定着支援</td></tr></tbody></table></figure>
 <!-- /wp:table -->
 
 <!-- wp:heading -->

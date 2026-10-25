@@ -13,6 +13,8 @@ const SIGNUP_URL = 'https://crm.consilegy.com/signup';
 // 受託版や代理店版の写真は、別の業態のデータが写っているので流用しない
 // （空き枠カレンダーだけは画面が同じなのでヒーローに使う）。
 
+// 痛みは 2026-10-26 の公開調査・導入事例の確認をもとに選んだ（市場で最も強い痛みとは確定していない）。
+// 契約更新を中心の痛みにするのは裏付けが弱いため、稼働と案件の管理を軸にした。
 const problems = [
 	{
 		title: '受けすぎて、支援が薄くなる',
@@ -23,8 +25,8 @@ const problems = [
 		text: '来月には手が空くのに「今は手一杯」と断っている。空きが数字で見えていないから、判断がいつも安全側に寄る。',
 	},
 	{
-		title: '更新の話が、終了間際に始まる',
-		text: '契約の終了日が担当者の記憶にしかない。更新の相談も、追加の提案も、気づいたときには遅い。',
+		title: '対応の履歴と契約の状況が、担当者の手元にある',
+		text: '顧客ごとに何を支援してきたか、契約がどうなっているかを、まとめて確かめられない。',
 	},
 ];
 
@@ -130,7 +132,7 @@ const roles = [
 	<div class="container">
 		<div class="section-head">
 			<p class="section-eyebrow">Problems</p>
-			<h2 class="prob-title">忙しいのに、売上が積み上がっていませんか。</h2>
+			<h2 class="prob-title">営業中の案件と、担当者の稼働を別々に管理している。</h2>
 		</div>
 		<div class="prob-grid">
 			{problems.map((item, index) => (
@@ -566,8 +568,8 @@ const roles = [
 
 	.section-head {
 		display: grid;
-		grid-template-columns: 10rem minmax(0, 1fr);
-		gap: var(--space-lg);
+		grid-template-columns: minmax(0, 1fr);
+		gap: 0.5rem;
 		align-items: start;
 		margin-bottom: var(--space-lg);
 		padding-top: var(--space-sm);

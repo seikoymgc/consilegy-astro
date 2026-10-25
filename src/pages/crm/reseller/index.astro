@@ -30,18 +30,19 @@ const screens = [
 	},
 ];
 
+// 痛みは 2026-10-26 の公開調査・導入事例の確認をもとに選んだ（市場で最も強い痛みとは確定していない）。
 const problems = [
 	{
+		title: '顧客ごとの契約内容が、ばらばら',
+		text: '契約の中身、数量、更新時期が、契約書とスプレッドシートに分かれている。',
+	},
+	{
 		title: '更新月が直前に分かる',
-		text: '契約書とスプレッドシートにしか無いので、更新の話を切り出すのが1か月前になる。条件を詰める時間が残っていない。',
+		text: '更新の話を切り出すのが1か月前になる。条件を詰める時間が残っていない。',
 	},
 	{
-		title: '解約の兆候が見えない',
-		text: '使われていない、問い合わせが減った、担当者が替わった。気づくのは解約の連絡が来てからになっている。',
-	},
-	{
-		title: '継続収益を数える場所がない',
-		text: '今いくら積み上がっているのか、どの商材のマージンが厚いのか。毎月あらためて集計し直している。',
+		title: '継続売上を数える場所がない',
+		text: '複数のサービスを売っていると、今いくら積み上がっているかを毎月あらためて集計し直している。',
 	},
 ];
 
@@ -153,7 +154,7 @@ const roles = [
 	<div class="container">
 		<div class="section-head">
 			<p class="section-eyebrow">Problems</p>
-			<h2 class="prob-title">売った後の情報が、契約書とスプレッドシートに閉じていませんか。</h2>
+			<h2 class="prob-title">顧客ごとの契約・更新時期・継続売上を、まとめて把握できない。</h2>
 		</div>
 		<div class="prob-grid">
 			{problems.map((item, index) => (
@@ -620,8 +621,8 @@ const roles = [
 
 	.section-head {
 		display: grid;
-		grid-template-columns: 10rem minmax(0, 1fr);
-		gap: var(--space-lg);
+		grid-template-columns: minmax(0, 1fr);
+		gap: 0.5rem;
 		align-items: start;
 		margin-bottom: var(--space-lg);
 		padding-top: var(--space-sm);

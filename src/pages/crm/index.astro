@@ -13,7 +13,7 @@ const SIGNUP_URL = 'https://crm.consilegy.com/signup';
 const supports = [
 	{ tier: '操作動画・ヘルプ記事', figure: '無料', text: 'すべてのプランで無料。自分で進める会社はここから。' },
 	{ tier: '初期設定', figure: '120,000円〜', text: '項目・商談の段階・自動化を自社の業務に合わせて設定。操作説明会3回。' },
-	{ tier: '定着支援（3ヶ月）', figure: '300,000円〜', text: '週1回の定例、設定の見直し、使い方の個別相談。' },
+	{ tier: '定着支援（3か月）', figure: '300,000円〜', text: '週1回の定例、設定の見直し、使い方の個別相談。' },
 	{ tier: '運用支援', figure: '月額30,000円〜', text: '設定変更の代行と、ご質問への対応（月2時間まで）。' },
 	{ tier: '追加開発', figure: '要見積', text: 'その会社の運用に合わせて、機能を足します。' },
 ];
@@ -28,7 +28,7 @@ const mobilePoints = [
 // 課題は左右で対応させる。左＝よくある戻り方、右＝Revenue CRMではどうなるか。
 const problems = [
 	{ topic: '入力', problem: '入力が、辛い。', answer: '声で話せば記録になる。名刺を撮れば入る。議事録を貼れば、タスクと連絡先ができる。人は確かめて保存するだけです。' },
-	{ topic: '立ち上げ', problem: 'システムを覚えるのに、<br />時間がかかる。', answer: '空のシステムは渡しません。用途を選ぶと、商談の段階と、よく使う自動化が入った状態から始まります。' },
+	{ topic: '立ち上げ', problem: 'システムを覚えるのに、<br />時間がかかる。', answer: '業態に合った画面と自動化を、最初から。業態ごとのエディションを選べば、扱うもの（案件・稼働・契約・在籍など）に合わせた画面から始められます。' },
 	{ topic: '属人化', problem: '運用していた一人が、<br />辞める。', answer: '設定は画面に残り、自動化は175本の中から選ぶだけ。操作動画とヘルプ記事は、すべてのプランで無料です。' },
 ];
 
@@ -38,14 +38,56 @@ const afters = [
 	{ title: '部門の摩擦が消える', figure: '1', unit: 'つ', note: 'マーケ・営業・顧客管理を一つの顧客データに', text: '全員が同じ顧客の情報を見るので、押し付け合いではなく、一緒に動けます。' },
 ];
 
+
+// 手作業が減る時間の試算（2026-10-24 の試算。数字は仮置きで、実測値ではない）。
+// Gmailの同期は動いていることを 2026-10-26 に代表が確認。
+const timeSales = [
+	{ task: '名刺の登録・会社の調べもの・1通目のメール', feature: '名刺の読み取り', per: '9分', count: '20枚', saved: '3.0時間' },
+	{ task: '商談後の議事録・入力・タスク登録', feature: '会議の取り込み', per: '17分', count: '30件', saved: '8.5時間' },
+	{ task: '電話・訪問後の活動記録', feature: '音声入力', per: '3.5分', count: '40件', saved: '2.3時間' },
+	{ task: 'チャットのやり取りの要約と記録', feature: '会話の取り込み', per: '8分', count: '10件', saved: '1.3時間' },
+	{ task: '次の行動を考えて、文面を書く', feature: '次の一手の提案', per: '7分', count: '20件', saved: '2.3時間' },
+	{ task: '止まっている商談を探す', feature: '停滞の知らせ', per: '週30分', count: '4週', saved: '2.0時間' },
+	{ task: '連絡先の作成・タスク登録・検索', feature: 'AIエージェント', per: '1.5分', count: '40件', saved: '1.0時間' },
+	{ task: 'メールのやり取りを記録に残す', feature: 'Gmailの同期', per: '2分', count: '60通', saved: '2.0時間' },
+];
+const timeMarketing = [
+	{ task: '展示会やイベントで集めた名刺の登録', feature: '名刺の一括読み取り', per: '2.5分', count: '60枚', saved: '2.5時間' },
+	{ task: '問い合わせの登録（重複の確認・会社とのひも付け）', feature: 'フォームからの自動登録', per: '4分', count: '30件', saved: '2.0時間' },
+	{ task: '会社情報の調べもの', feature: '会社情報の補完', per: '4.5分', count: '50社', saved: '3.8時間' },
+	{ task: '見込み客の振り分け', feature: '分類とスコアリング', per: '1.5分', count: '80件', saved: '2.0時間' },
+	{ task: '商談の候補を営業に渡す', feature: '自動の引き渡し', per: '5分', count: '15件', saved: '1.3時間' },
+	{ task: '見込み客への初回メールを書く', feature: '初回メールの下書き', per: '4分', count: '30件', saved: '2.0時間' },
+	{ task: '追いかけのメールを送る', feature: 'シーケンス', per: '3分', count: '60通', saved: '3.0時間' },
+];
+const timeTables = [
+	{ role: '営業', total: '約22', rows: timeSales },
+	{ role: 'マーケティング', total: '約16', rows: timeMarketing },
+];
+
 const editions = [
-	{ noun: '商談', title: 'B2B', href: '/crm/features/' },
+	{ noun: '商談', title: '法人営業', href: '/crm/standard/' },
 	{ noun: '案件', title: '受託開発・制作', href: '/crm/contractor/' },
 	{ noun: '稼働', title: '支援会社', href: '/crm/services/' },
 	{ noun: '契約', title: '代理店', href: '/crm/reseller/' },
 	{ noun: '在籍', title: 'スクール', href: '/crm/school/' },
 ];
 
+// ファーストビュー直下の業態選択。説明文は各エディションのLPの説明（description）から取る。
+const editionCards = [
+	{ who: 'スタートアップ・中小企業', tag: '標準版', text: '名刺や議事録から、AIが顧客情報を記録。商談管理もシンプルに。', href: '/crm/standard/' },
+	{ who: 'システム開発・Web制作', text: '案件・見積・納品をまとめて管理。メンバーの空き状況もひと目で。', href: '/crm/contractor/' },
+	{ who: 'コンサル・マーケティング支援', text: '案件・契約・稼働をまとめて管理。継続契約の更新も見逃さない。', href: '/crm/services/' },
+	{ who: 'SaaS販売代理店', text: '契約・売上・更新をまとめて管理。MRRやARRもひと目で把握。', href: '/crm/reseller/' },
+	{ who: 'オンラインスクール', text: 'LINEで予約、カレンダーに自動登録。レッスン記録もAIにお任せ。', href: '/crm/school/' },
+];
+// 特長の4点（見出しは 2026-10-25 代表決定）。説明文は LP に既にある事実だけで書く。「使い放題」「追加料金なし」「設定済み」「AIが学習」は使わない。
+const features = [
+	{ title: '高機能もAIも、手の届く価格で。', text: 'AIエージェントと175本の自動化を、1人あたり月額3,000円から。AIの処理に使う「燃料」も毎月付きます。初期費用はなく、30日間無料で試せます。' },
+	{ title: '言語も商習慣も、使う人に合わせて。', text: '日本語・English・繁體中文を、使う人ごとに切り替えられます。稟議待ちの商談も、決まったのに計上は来期の商談も、そのまま扱えます。' },
+	{ title: '業態に合った画面と自動化を、最初から。', text: '法人営業・受託開発・制作・支援会社・代理店・スクール。エディションごとに、扱うもの（商談・案件・稼働・契約・在籍）に合わせた画面と自動化を用意しています。' },
+	{ title: '社内の知識と営業の経験を、AIで次の一手に。', text: '顧客とのやり取りをもとに、AIが顧客ごとに次の行動を提案します。人が直した判断は、次の提案の手本になります。' },
+];
 const plans = [
 	{ tier: 'ユーザープラン', figure: '3,000円', unit: '/ 人 / 月', for: 'B2B・受託開発・制作・支援会社・代理店版。毎日使う会社に' },
 	{ tier: '生徒数プラン', figure: '9,800円', unit: '/ 月〜', for: 'スクール版。在籍生徒50人まで' },
@@ -63,9 +105,9 @@ const safeguards = [
 const faqs = [
 	{ q: '料金はいくらですか。', a: 'プランは3つです。ユーザープランは1人あたり月額3,000円、スクール向けの生徒数プランは在籍生徒50人まで月額9,800円からです。使う頻度が低い会社には、月額3,000円（燃料100付き）に必要な分だけ追加するプリペイドプランがあります。初期費用はありません。どのプランも30日間の無料トライアル付きで、カード登録なしで始められます。価格はすべて税抜です。' },
 	{ q: 'ユーザー数はどう数えますか。', a: 'ワークスペースに参加しているメンバーの数です。招待したまま使っていないアカウントも含みます。人数の増減は、次回の請求から反映されます。' },
-	{ q: '解約はどうすればいいですか。', a: 'ユーザープランと生徒数プランの契約期間は1年で、以後1年ごとに自動更新します。契約期間の途中で解約することはできません。終了する場合は、契約期間の満了日の1ヶ月前までにご連絡ください。プリペイドプランは1ヶ月ごとの自動更新で、次の契約更新日の14日前までのご連絡で終了できます。お支払いは毎月の前払いで、お支払い済みの料金は返金しません。' },
+	{ q: '解約はどうすればいいですか。', a: 'ユーザープランと生徒数プランの契約期間は1年で、以後1年ごとに自動更新します。契約期間の途中で解約することはできません。終了する場合は、契約期間の満了日の1か月前までにご連絡ください。プリペイドプランは1か月ごとの自動更新で、次の契約更新日の14日前までのご連絡で終了できます。お支払いは毎月の前払いで、お支払い済みの料金は返金しません。' },
 	{ q: 'データを取り出せますか。', a: 'コンタクト、会社、商談に加えて、活動・メモ・タスク・メール・添付ファイルまで、設定画面からCSVで書き出せます。ご契約終了日から30日間も書き出せます。自社のデータは自社のものです。' },
-	{ q: 'いま使っているシステムからデータを移行できますか。', a: 'Revenue CRMは、顧客管理の運用に専任の担当者を置きにくい組織のために作っています。Salesforce・HubSpotなどを専任の担当者が運用している場合は、乗り換えではなく、そのツールを活かした導入・運用支援をご提案します。HubSpotのデータは、置き換えずに読み取って取り込めます。' },
+	{ q: 'HubSpot・Salesforceから乗り換えられますか。', a: 'はい。HubSpotやSalesforceなど、いまお使いのシステムからの乗り換えもご検討いただけます。現在の管理項目や業務フローを確認し、Revenue CRMで実現できることをご案内します。表計算で管理している顧客リストはCSVで取り込めます。HubSpotのデータは読み取って取り込めます。データ移行や外部サービスとの連携設定は、件数や連携先によって工数が変わるため、別途お見積りします。' },
 ];
 
 const readings = [
@@ -78,9 +120,9 @@ const readings = [
 ---
 
 <BaseLayout
-	title="AIと仕組みが代わりに働く。入力がめんどくさくない顧客管理システム（CRM・SFA）| Revenue CRM"
-	description="AIと仕組みが代わりに働く、入力がめんどくさくない顧客管理システム「Revenue CRM」。名刺は撮るだけ、商談メモは貼るだけ、議事録は自動で入る。AIが記録の下書きを作ります。マーケティング・営業・顧客管理を一つの顧客データでつなぐ中小企業向けのCRM/SFA（顧客管理・営業支援システム）。B2B・受託開発・制作・支援会社・代理店・スクールの5エディション。1アカウント月額3,000円（税抜）、30日間無料。"
-	ogImage="/images/og/crm-ja-2026e.png"
+	title="AIが代わりに働く、Revenue CRM。入力がめんどくさくない顧客管理システム（CRM・SFA）"
+	description="AIが代わりに働く、Revenue CRM。入力がめんどくさくない顧客管理システムです。会議やチャットの内容はAIが記録します。名刺は撮るだけ、商談メモは貼るだけ、議事録は自動で入る。AIが記録の下書きを作ります。マーケティング・営業・顧客管理を一つの顧客データでつなぐ中小企業向けのCRM/SFA（顧客管理・営業支援システム）。スタートアップ・中小企業（標準版）、システム開発・Web制作、コンサル・マーケティング支援、SaaS販売代理店、オンラインスクールの5エディション。1アカウント月額3,000円（税抜）、30日間無料。"
+	ogImage="/images/og/crm-ja-2026f.png"
 	lang="ja"
 	alternateUrl="/en/crm/"
 >
@@ -108,7 +150,7 @@ const readings = [
 		"datePublished": "2026-09-28",
 		"publisher": { "@type": "Organization", "name": "PR TIMES" }
 	},
-	"description": "入力がめんどくさくない顧客管理システム「Revenue CRM」。名刺は撮るだけ、商談メモは貼るだけ、議事録は自動で入る。AIが記録の下書きを作る。マーケティング（MA）・営業（SFA）・顧客管理（CRM）を一つの顧客データでつなぐ中小企業向けのCRM/SFA（顧客管理・営業支援システム）。B2B、受託開発・制作、支援会社、代理店（SaaSリセラー）とスクール（B2C）の5エディション。B2B・受託開発・代理店には175本の自動化と用途別の初期設定付き。2026年9月28日正式提供開始。",
+	"description": "入力がめんどくさくない顧客管理システム「Revenue CRM」。名刺は撮るだけ、商談メモは貼るだけ、議事録は自動で入る。AIが記録の下書きを作る。マーケティング（MA）・営業（SFA）・顧客管理（CRM）を一つの顧客データでつなぐ中小企業向けのCRM/SFA（顧客管理・営業支援システム）。スタートアップ・中小企業（標準版）、システム開発・Web制作、コンサル・マーケティング支援、SaaS販売代理店、オンラインスクールの5エディション。175本の自動化付き。2026年9月28日正式提供開始。",
 	"inLanguage": ["ja", "en", "zh-Hant"],
 	"offers": {
 		"@type": "Offer",
@@ -121,17 +163,23 @@ const readings = [
 
 <CrmSubnav lang="ja" />
 
-<!-- ===================== HERO（紹介パートナーページと同じ型：左＝法人営業、右＝教室・スクール。下に見出しとCTA） ===================== -->
-<section class="hero">
-	<div class="hero-split">
-		<div class="hero-half hero-half--b2b">
-			<div class="hero-half__inner">
-				<p class="hero-half__tag">法人営業</p>
-				<p class="hero-half__title">営業の記録や報告に、<br />時間を取られている会社に。</p>
-				<p class="hero-half__text">商談メモは貼るだけ、議事録は自動で入る。記録の下書きはAIが作り、人は確かめて保存します。</p>
-				<a class="btn hero-half__btn" href="/crm/features/">法人営業版を見る →</a>
+<!-- ===================== HERO（2026-10-25 代表決定のコピー。法人営業とスクールの画面を1つのファーストビューに） ===================== -->
+<section class="hero hero--unified">
+	<div class="container hero-grid">
+		<div class="hero-copy">
+			<p class="hero-kicker">システムが、人に合わせる。</p>
+			<h1>AIが代わりに働く、<br />Revenue CRM。</h1>
+			<p class="hero-lead">入力がめんどくさくない。<br />会議やチャットの内容は、AIが記録します。</p>
+			<div class="hero-actions">
+				<a href={SIGNUP_URL} class="btn btn--cta btn--lg" target="_blank" rel="noopener noreferrer">無料で始める</a>
+				<a href={DEMO_URL} class="btn btn--outline-light btn--lg" target="_blank" rel="noopener noreferrer">デモを見る</a>
+			</div>
+			<p class="hero-download"><a href="/crm/download/">資料をダウンロード →</a></p>
+			<p class="hero-proof">1人あたり月額<strong>3,000円〜</strong><span class="hero-proof__sep">・</span>30日間無料<span class="hero-proof__sep">・</span>カード登録不要</p>
+		</div>
+		<div class="hero-shots">
+			<figure class="hero-shot hero-shot--b2b">
 				<img
-					class="hero-half__shot"
 					src="/images/crm/screen-dashboard-2026-10c.webp"
 					alt="Revenue CRMのダッシュボード。パイプライン総額・加重フォーキャスト・勝率・期限切れタスク・ステージ別パイプライン・注目の商談を一画面に表示。"
 					width="1600"
@@ -139,57 +187,75 @@ const readings = [
 					decoding="async"
 					fetchpriority="high"
 				/>
-			</div>
-		</div>
-		<div class="hero-half hero-half--school">
-			<div class="hero-half__inner">
-				<p class="hero-half__tag">教室・スクール</p>
-				<p class="hero-half__title">生徒の管理を、LINEと<br />スプレッドシートで回している教室に。</p>
-				<p class="hero-half__text">生徒とのやりとりは公式LINEのまま。課題はLINEで届き、生徒ごとに自動で残ります。</p>
-				<a class="btn hero-half__btn" href="/crm/school/">スクール版を見る →</a>
+				<figcaption>法人営業</figcaption>
+			</figure>
+			<figure class="hero-shot hero-shot--school">
 				<img
-					class="hero-half__shot"
 					src="/images/crm/school/screen-students-v3.webp"
 					alt="Revenue CRMスクール版の生徒管理。生徒ごとの課題の提出状況とLINEの返信状況を一覧で表示。"
 					width="1200"
 					height="750"
 					decoding="async"
 				/>
-			</div>
-		</div>
-	</div>
-	<div class="container hero-base">
-		<div class="hero-copy">
-			<p class="hero-eyebrow"><img src="/images/crm/logo/revenue-crm-logo-v3.svg" alt="" width="22" height="22" decoding="async" />Revenue CRM<span class="hero-eyebrow__kana">（レベニューシーアールエム）</span></p>
-			<h1><span class="hero-h1__lead">AIと仕組みが代わりに働く。</span><br />入力がめんどくさくない顧客管理システム。</h1>
-			<p class="hero-lead"><strong>かゆいところに手が届く。</strong></p>
-		</div>
-		<div class="hero-cta">
-			<div class="hero-actions">
-				<a href={SIGNUP_URL} class="btn btn--cta btn--lg" target="_blank" rel="noopener noreferrer">無料で始める</a>
-				<a href={DEMO_URL} class="btn btn--outline-dark btn--lg" target="_blank" rel="noopener noreferrer">デモを見る</a>
-			</div>
-			<p class="hero-download"><a href="/crm/download/" class="btn btn--outline-dark btn--lg">資料をダウンロード</a></p>
-			<p class="hero-proof">1人あたり月額<strong>3,000円〜</strong><span class="hero-proof__sep">・</span>30日間無料<span class="hero-proof__sep">・</span>カード登録不要</p>
+				<figcaption>スクール</figcaption>
+			</figure>
+			<figure class="hero-shot hero-shot--mobile">
+				<img
+					src="/images/crm/screen-mobile-dashboard-2026-10c.webp"
+					alt="スマートフォンで開いたRevenue CRMのダッシュボード。"
+					width="780"
+					height="1688"
+					decoding="async"
+				/>
+				<figcaption>スマートフォン</figcaption>
+			</figure>
 		</div>
 	</div>
 </section>
 
-<!-- ===================== ASSURANCE（一文：CRMが人のために働く） ===================== -->
-<section class="assurance">
+<!-- ===================== EDITIONS（ファーストビューの直下。業態を選ぶ入口。受託開発・制作と支援会社は別のLP） ===================== -->
+<section class="edition-strip" aria-labelledby="edition-strip-title">
 	<div class="container">
-		<div class="assurance-inner">
-			<p class="section-eyebrow">Why It Works</p>
-			<h2>人がシステムのために働くのではなく、<br />AIが人のために働く。</h2>
-			<p class="assurance-body">
-顧客管理システムを開きたくない人のための、顧客管理システムです。記録はAIが作り、人は確かめて保存するだけ。
-マーケティング・営業・顧客管理を一つの顧客データでつなぐ、中小企業向けの顧客管理・営業支援システム（CRM／SFA）です。
-			</p>
-			<ul class="assurance-ways" aria-label="記録の入れ方">
-				<li><span class="assurance-ways__k">撮る</span>名刺をカメラで</li>
-				<li><span class="assurance-ways__k">話す</span>声で商談メモを</li>
-				<li><span class="assurance-ways__k">貼る</span>議事録をそのまま</li>
-			</ul>
+		<header class="section-head">
+			<p class="section-eyebrow">Editions</p>
+			<h2 id="edition-strip-title">あなたのビジネスに合った、<br class="br-sp" />Revenue CRMを。</h2>
+		</header>
+		<ul class="edition-list">
+			{editionCards.map((e) => (
+				<li><a href={e.href} class="edition-card"><span class="edition-card__who">{e.who}{e.tag && <span class="edition-card__tag">{e.tag}</span>}</span><span class="edition-card__text">{e.text}</span><span class="edition-card__go btn">詳しく見る</span></a></li>
+			))}
+		</ul>
+	</div>
+</section>
+
+<!-- ===================== FEATURES（特長の4点。見出しは 2026-10-25 代表決定。説明文は事実だけ） ===================== -->
+<section class="features" aria-labelledby="features-title">
+	<div class="container">
+		<header class="section-head">
+			<p class="section-eyebrow">Why Revenue CRM</p>
+			<h2 id="features-title">Revenue CRMの、4つの特長。</h2>
+		</header>
+		<ol class="feature-list">
+			{features.map((f, i) => (
+				<li class="feature-card"><span class="feature-card__num">{String(i + 1).padStart(2, '0')}</span><h3>{f.title}</h3><p>{f.text}</p></li>
+			))}
+		</ol>
+	</div>
+</section>
+
+<!-- ===================== PRICING（料金の目安。特長「高機能もAIも、手の届く価格で。」の受け皿。詳細は /crm/pricing/） ===================== -->
+<section class="pricing-band" aria-label="料金の目安">
+	<div class="container">
+		<div class="service-summary" id="pricing">
+			<p class="section-eyebrow">Pricing</p>
+			<h3>料金の目安</h3>
+			<dl>
+				{plans.map((plan) => (
+					<div><dt>{plan.tier}</dt><dd><strong>{plan.figure}</strong> {plan.unit}<br />{plan.for}</dd></div>
+				))}
+			</dl>
+			<p>初期費用なし。どのプランも30日間の無料トライアル付きで、カード登録なしで始められます。価格は税抜です。</p>
+			<p class="service-summary__links"><a href="/crm/pricing/">料金の詳細 →</a><a href="/crm/download/">サービス紹介資料（PDF）</a></p>
 		</div>
 	</div>
 </section>
@@ -283,16 +349,32 @@ const readings = [
 				</article>
 			))}
 		</div>
-		<div class="service-summary" id="pricing">
-			<h3>費用の目安</h3>
-			<dl>
-				{plans.map((plan) => (
-					<div><dt>{plan.tier}</dt><dd><strong>{plan.figure}</strong> {plan.unit}<br />{plan.for}</dd></div>
-				))}
-			</dl>
-			<p>初期費用なし。どのプランも30日間の無料トライアル付きで、カード登録なしで始められます。価格は税抜です。</p>
-			<p class="service-summary__links"><a href="/crm/pricing/">料金の詳細 →</a><a href="/crm/download/">サービス紹介資料（PDF）</a></p>
+	</div>
+</section>
+
+<!-- ===================== TIME SAVED（試算。実測値ではないことを必ず併記する） ===================== -->
+<section class="time-saved" id="time-saved" aria-labelledby="time-saved-title">
+	<div class="container">
+		<header class="section-head">
+			<p class="section-eyebrow">Time Saved</p>
+			<h2 id="time-saved-title">営業もマーケティングも、<br class="br-sp" />手作業が月に十数時間減る。</h2>
+		</header>
+		<div class="time-grid">
+			{timeTables.map((t) => (
+				<div class="time-card">
+					<p class="time-card__head"><span>{t.role}（1人・1か月）</span><strong>{t.total}<small>時間</small></strong></p>
+					<table class="time-table">
+						<thead><tr><th scope="col">作業と使う機能</th><th scope="col" class="time-per">1件で減る時間</th><th scope="col">月の件数</th><th scope="col">月に減る時間</th></tr></thead>
+						<tbody>
+							{t.rows.map((r) => (
+								<tr><td>{r.task}<span class="time-feature">{r.feature}</span></td><td class="time-per">{r.per}</td><td>{r.count}</td><td><strong>{r.saved}</strong></td></tr>
+							))}
+						</tbody>
+					</table>
+				</div>
+			))}
 		</div>
+		<p class="time-note">営業1人・マーケティング担当1人の1か月を想定した、当社の試算です。作業ごとの時間と件数は仮に置いた値で、導入企業での実測値ではありません。実際の時間は、業務の量や進め方によって変わります。</p>
 	</div>
 </section>
 
@@ -313,19 +395,14 @@ const readings = [
 	</div>
 </section>
 
-<!-- ===================== EDITIONS（空のCRMは渡さない）＋API＋数字 ===================== -->
+<!-- ===================== DEMO（操作デモ）＋API＋数字 ===================== -->
 <section class="track" id="use-cases">
 	<div class="container">
 		<header class="section-head track-head">
-			<p class="section-eyebrow">Editions</p>
-			<h2>空のシステムは渡しません。</h2>
-			<p class="section-lead">用途を選ぶと、商談の段階と、よく使う自動化が入った状態から始まります。スクール版はLINEとつながり、生徒はワンタップでレッスンを予約できます。</p>
+			<p class="section-eyebrow">Demo</p>
+			<h2>実際の画面で、確かめてください。</h2>
+			<p class="section-lead">ダッシュボード、商談の管理、自動化、AIエージェント、言語の切り替えまで。デモ環境は、メールアドレスだけで開けます。</p>
 		</header>
-		<ul class="track-list">
-			{editions.map((item) => (
-				<li class="track-item"><a href={item.href} class="track-who"><span class="track-noun">{item.noun}</span><span class="track-title">{item.title}</span><span class="track-size">{item.noun}を管理 →</span></a></li>
-			))}
-		</ul>
 		<figure class="demo-media">
 			<img
 				src="/videos/revenue-crm-demo-2026-09.gif"
@@ -429,8 +506,8 @@ const readings = [
 				メールアドレスを入れるだけで、パスワード登録なしにデモ環境を開けます。記録・自動化・最初に入っている設定を、実際の画面で確かめられます。
 			</p>
 			<p class="cta-lead cta-lead--close">
-				専任の担当者がいて、Salesforce・HubSpotが既に動いているなら、乗り換えないほうがいい。<br />
-				その場合は<a href="/services/">今お使いのシステムの再設計</a>をご覧ください。
+				今のシステムが使いにくい。入力が続かない。もっと自社の業務に合う仕組みにしたい。<br />
+				そんな企業のためのRevenue CRMです。
 			</p>
 			<div class="cta-actions">
 				<a href={SIGNUP_URL} class="btn btn--cta-primary btn--lg" target="_blank" rel="noopener noreferrer">無料で始める</a>
@@ -555,14 +632,72 @@ h3 { font-weight: 500; }
 .learning-body { margin: 0; line-height: 1.9; color: var(--color-text); }
 .learning-list { list-style: none; padding: 0; margin: var(--space-lg) 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
 .learning-list li { padding: 0.9rem 1rem; border: 1px solid var(--color-border); border-radius: 6px; background: #fff; font-size: 0.9rem; font-weight: 600; color: var(--color-text); }
+.hero--unified { padding: var(--space-2xl) 0; background: #0F172A; color: #fff; overflow: hidden; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 3rem; align-items: center; }
+.hero--unified .hero-kicker { margin: 0 0 0.75rem; font-size: 1.0625rem; font-weight: 600; letter-spacing: 0.04em; color: #E2E8F0 !important; opacity: 1; }
+.hero--unified h1 { margin: 0 0 1rem; font-size: clamp(2rem, 3.6vw, 3.1rem); font-weight: 700; line-height: 1.3; letter-spacing: -0.01em; color: #fff; }
+.hero--unified .hero-lead { margin: 0 0 1.75rem; font-size: 1.0625rem; line-height: 1.85; color: #E2E8F0; }
+.hero--unified .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.hero--unified .hero-actions .btn--cta { padding: 0.95rem 1.6rem; font-size: 1rem; }
+.btn--outline-light { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.7); border-radius: 4px; }
+.btn--outline-light:hover { background: rgba(255,255,255,0.08); color: #fff; }
+.hero--unified .hero-download { margin: 1rem 0 0; font-size: 1rem; }
+.hero--unified .hero-download a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.hero--unified .hero-proof { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem; margin: 0.9rem 0 0; font-size: 0.875rem; color: #CBD5E1; }
+.hero--unified .hero-proof strong { font-size: 1rem; font-weight: 600; color: #fff; }
+.hero--unified .hero-proof__sep { color: #475569; }
+.hero-shots { position: relative; padding-bottom: 18%; }
+.hero-shot { margin: 0; }
+.hero-shot img { display: block; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 20px 50px rgba(0,0,0,0.35); }
+.hero-shot figcaption { margin-top: 0.4rem; font-size: 0.875rem; color: #CBD5E1; }
+.hero-shot--b2b { width: 88%; margin-left: auto; display: flex; flex-direction: column-reverse; }
+.hero-shot--b2b figcaption { margin: 0 0 0.4rem; text-align: right; }
+.hero-shot--school { position: absolute; left: 0; bottom: 0; width: 56%; }
+.hero-shot--school img { border: 1px solid rgba(255,255,255,0.15); }
+.hero-shot--mobile { position: absolute; right: 2%; bottom: -4%; width: 20%; }
+.hero-shot--mobile img { border-radius: 18px; border: 4px solid #1E293B; box-shadow: 0 24px 50px rgba(0,0,0,0.45); }
+.hero-shot--mobile figcaption { text-align: center; white-space: nowrap; }
+.edition-strip { padding: var(--space-lg) 0; background: #F1F5F9; }
+.edition-strip { padding: var(--space-xl) 0; }
+.edition-strip .section-head { max-width: none; }
+.edition-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; }
+.edition-list > li { grid-column: span 2; }
+.edition-list > li:nth-child(n+4) { grid-column: span 3; }
+.edition-list > li:nth-child(n+4) .edition-card__text { min-height: 0; }
+.edition-card { display: flex; flex-direction: column; gap: 0.6rem; height: 100%; padding: 1.5rem 1.35rem; background: #fff; border: 1px solid var(--color-border); border-radius: 6px; box-shadow: 0 1px 3px rgba(15,23,42,0.06); color: var(--color-text); text-decoration: none; transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s; }
+.edition-card:hover { border-color: var(--color-primary); box-shadow: 0 6px 18px rgba(15,23,42,0.10); transform: translateY(-2px); color: var(--color-text); }
+.edition-card__who { font-size: 1.125rem; font-weight: 700; line-height: 1.45; color: var(--color-navy); }
+.edition-card__tag { display: inline-block; margin-left: 0.5rem; padding: 0.1rem 0.5rem; vertical-align: 0.15em; font-size: 0.875rem; font-weight: 600; color: var(--color-navy); background: #F1F5F9; border-radius: 4px; }
+.edition-card__text { flex: 1; min-height: 3.5em; font-size: 1rem; line-height: 1.75; color: var(--color-text-muted); }
+.edition-card__go { display: block; margin-top: 0.4rem; padding: 0.65rem 1rem; text-align: center; font-size: 1rem; font-weight: 700; color: var(--color-primary); background: #fff; border: 1px solid var(--color-primary); border-radius: 4px; transition: background 0.15s, color 0.15s; }
+.edition-card:hover .edition-card__go { background: var(--color-primary); color: #fff; }
+
+@media (max-width: 760px) { .edition-list { grid-template-columns: 1fr; } .edition-list > li, .edition-list > li:nth-child(n+4) { grid-column: auto; } }
+.features { padding: var(--space-2xl) 0; background: #fff; }
+.pricing-band { padding: 0 0 var(--space-2xl); background: #fff; }
+.feature-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.feature-card { padding: 1.5rem 1.35rem; background: #fff; border: 1px solid var(--color-border); border-radius: 6px; box-shadow: 0 1px 3px rgba(15,23,42,0.06); }
+.feature-card__num { display: block; font-size: 0.875rem; font-weight: 700; letter-spacing: 0.08em; color: var(--color-navy); }
+.feature-card h3 { margin: 0.5rem 0 0.75rem; font-size: 1.125rem; line-height: 1.5; color: var(--color-navy); }
+.feature-card p { margin: 0; font-size: 1rem; line-height: 1.8; color: var(--color-text-muted); }
+@media (max-width: 1024px) { .feature-list { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 860px) {
+	.hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+	.hero-shots { padding-bottom: 24%; }
+}
+@media (max-width: 640px) {
+	.hero--unified { padding: var(--space-xl) 0; }
+	.hero--unified .hero-actions { flex-direction: column; }
+	.feature-list { grid-template-columns: 1fr; }
+}
 .track { background: #F1F5F9; }
 .track-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
 .track-item { display: block; }
 .track-who { display: grid; gap: 0.25rem; height: 100%; padding: 1.25rem 1.35rem; border: 1px solid var(--color-border);  border-radius: 6px; background: #fff; color: var(--color-text); text-decoration: none; transition: border-color 0.15s, transform 0.15s; }
 .track-who:hover { border-color: #c7b2e3; transform: translateY(-2px); color: var(--color-text); }
-.track-noun { font-size: 0.7rem; letter-spacing: 0.1em; color: var(--color-text-muted); }
+.track-noun { font-size: 0.875rem; letter-spacing: 0.1em; color: var(--color-text-muted); }
 .track-title { font-size: 1.15rem; font-weight: 700; }
-.track-size { margin-top: 0.4rem; font-size: 0.8rem; font-weight: 600; color: var(--color-navy); }
+.track-size { margin-top: 0.4rem; font-size: 0.875rem; font-weight: 600; color: var(--color-navy); }
 .demo-media { margin: var(--space-lg) 0 0; }
 .demo-media img { display: block; width: 100%; max-width: 820px; height: auto; border: 1px solid var(--color-border); border-top: 10px solid #E2E8F0; border-radius: 8px; background: #fff; box-shadow: 0 20px 50px rgba(15,23,42,0.12); }
 .demo-media figcaption { margin-top: 0.75rem; font-size: 0.75rem; color: var(--color-text-muted); }
@@ -651,4 +786,24 @@ section#support { background: #fff; }
 	.input-figure { margin: 0 0 var(--space-xl); }
 	.input-figure svg { display: block; width: 100%; height: auto; }
 	.input-figure figcaption { margin-top: 0.75rem; font-size: 0.875rem; color: var(--color-text-muted); }
+
+.time-saved { padding: var(--space-2xl) 0; background: #fff; }
+.time-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+.time-card { background: #fff; border: 1px solid var(--color-border); border-radius: 6px; padding: 1.5rem; box-shadow: 0 1px 3px rgba(15,23,42,0.06); }
+.time-card__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.25rem 1rem; margin: 0 0 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--color-border-strong); }
+.time-card__head span { font-size: 1.0625rem; font-weight: 700; color: var(--color-navy); }
+.time-card__head strong { white-space: nowrap; font-size: 2.25rem; font-weight: 600; line-height: 1; letter-spacing: -0.03em; color: var(--color-navy); font-variant-numeric: tabular-nums; }
+.time-card__head small { margin-left: 0.2rem; font-size: 1rem; font-weight: 500; color: var(--color-text); }
+.time-table { width: 100%; border-collapse: collapse; font-size: 1rem; }
+.time-table th { padding: 0 0.5rem 0.5rem 0; font-size: 0.875rem; font-weight: 600; color: var(--color-text-muted); text-align: left; white-space: nowrap; }
+.time-table td { padding: 0.7rem 0.5rem 0.7rem 0; border-top: 1px solid var(--color-border); vertical-align: top; color: var(--color-text); line-height: 1.6; }
+.time-table td:not(:first-child), .time-table th:not(:first-child) { text-align: right; white-space: nowrap; }
+.time-table td strong { color: var(--color-navy); }
+.time-feature { display: block; font-size: 0.875rem; color: var(--color-text-muted); }
+.time-note { margin: 1.25rem 0 0; font-size: 0.875rem; line-height: 1.8; color: var(--color-text-muted); }
+@media (max-width: 1080px) { .time-grid { grid-template-columns: 1fr; } }
+@media (max-width: 760px) {
+	.time-per { display: none; }
+	.time-card { padding: 1.25rem 1rem; }
+}
 </style>

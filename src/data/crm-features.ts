@@ -759,7 +759,7 @@ export const CRM_FEATURES: FeatureGroup[] = [
       {
         name: { ja: '紹介プログラム', en: 'Referral program' },
         desc: {
-          ja: '紹介先が有料契約を始めてから12ヶ月間、その会社の基本プランの月額利用料金の20%が自社の利用料金から引かれる。',
+          ja: '紹介先が有料契約を始めてから12か月間、その会社の基本プランの月額利用料金の20%が自社の利用料金から引かれる。',
           en: 'For 12 months after a referred company starts paying, 20% of its base plan fee comes off your own bill.',
         },
       },

@@ -26,9 +26,15 @@ The second loss is balance. One teacher is booked solid while another's evenings
 
 Open More → 📅 Calendar from the bottom navigation (or Calendar in the desktop sidebar). This month's grid fills with entries like "19:00 Hanako Yamada", with a colored dot for each teacher.
 
+![The Calendar month view. Chips for All and three teachers at the top, and bookings such as "19:00 Hanako Yamada" in the grid, each with a teacher-colored dot](/images/crm/media/screens/owner-cannot-see-how-full-next-month-is-1-en-2026-10.webp)
+*On desktop it's Calendar in the sidebar. Each booking shows the time and student, and the dot color tells you the teacher.*
+
 - Use ‹ Previous and Next › to move across four months: last month through two months ahead
 - Tap a teacher's chip at the top to show only their bookings. All brings everyone back
 - Tap a booking to open that student's profile. On desktop, hovering shows the lesson type and teacher too
+
+![The Aya Nakamura chip selected, leaving only her bookings](/images/crm/media/screens/owner-cannot-see-how-full-next-month-is-2-en-2026-10.webp)
+*Tap one chip and only that teacher's bookings remain. This is how you spot an uneven load.*
 
 What appears here is every booking made with 📅 Book next lesson on a student profile, every booking a student makes with the 予約する (Book) button in your school's LINE menu, and every booking added with 振替 (make-up) on the Lessons screen. Anyone on the team, whatever their role, sees the whole school's bookings.
 

@@ -40,13 +40,14 @@ const afters = [
 
 const editions = [
 	{ noun: '商談', title: 'B2B', href: '/crm/features/' },
-	{ noun: '案件', title: '受託開発', href: '/crm/contractor/' },
+	{ noun: '案件', title: '受託開発・制作', href: '/crm/contractor/' },
+	{ noun: '稼働', title: '支援会社', href: '/crm/services/' },
 	{ noun: '契約', title: '代理店', href: '/crm/reseller/' },
 	{ noun: '在籍', title: 'スクール', href: '/crm/school/' },
 ];
 
 const plans = [
-	{ tier: 'ユーザープラン', figure: '3,000円', unit: '/ 人 / 月', for: 'B2B・受託開発・代理店版。毎日使う会社に' },
+	{ tier: 'ユーザープラン', figure: '3,000円', unit: '/ 人 / 月', for: 'B2B・受託開発・制作・支援会社・代理店版。毎日使う会社に' },
 	{ tier: '生徒数プラン', figure: '9,800円', unit: '/ 月〜', for: 'スクール版。在籍生徒50人まで' },
 	{ tier: 'プリペイドプラン', figure: '3,000円', unit: '/ 月', for: '全エディション。使う頻度が低い会社に' },
 ];
@@ -78,7 +79,7 @@ const readings = [
 
 <BaseLayout
 	title="AIと仕組みが代わりに働く。入力がめんどくさくない顧客管理システム（CRM・SFA）| Revenue CRM"
-	description="AIと仕組みが代わりに働く、入力がめんどくさくない顧客管理システム「Revenue CRM」。名刺は撮るだけ、商談メモは貼るだけ、議事録は自動で入る。AIが記録の下書きを作ります。マーケティング・営業・顧客管理を一つの顧客データでつなぐ中小企業向けのCRM/SFA（顧客管理・営業支援システム）。B2B・支援会社／受託開発・代理店・スクールの4エディション。1アカウント月額3,000円（税抜）、30日間無料。"
+	description="AIと仕組みが代わりに働く、入力がめんどくさくない顧客管理システム「Revenue CRM」。名刺は撮るだけ、商談メモは貼るだけ、議事録は自動で入る。AIが記録の下書きを作ります。マーケティング・営業・顧客管理を一つの顧客データでつなぐ中小企業向けのCRM/SFA（顧客管理・営業支援システム）。B2B・受託開発・制作・支援会社・代理店・スクールの5エディション。1アカウント月額3,000円（税抜）、30日間無料。"
 	ogImage="/images/og/crm-ja-2026e.png"
 	lang="ja"
 	alternateUrl="/en/crm/"
@@ -107,7 +108,7 @@ const readings = [
 		"datePublished": "2026-09-28",
 		"publisher": { "@type": "Organization", "name": "PR TIMES" }
 	},
-	"description": "入力がめんどくさくない顧客管理システム「Revenue CRM」。名刺は撮るだけ、商談メモは貼るだけ、議事録は自動で入る。AIが記録の下書きを作る。マーケティング（MA）・営業（SFA）・顧客管理（CRM）を一つの顧客データでつなぐ中小企業向けのCRM/SFA（顧客管理・営業支援システム）。B2B、支援会社・受託開発、代理店（SaaSリセラー）とスクール（B2C）の4エディション。B2B・受託開発・代理店には175本の自動化と用途別の初期設定付き。2026年9月28日正式提供開始。",
+	"description": "入力がめんどくさくない顧客管理システム「Revenue CRM」。名刺は撮るだけ、商談メモは貼るだけ、議事録は自動で入る。AIが記録の下書きを作る。マーケティング（MA）・営業（SFA）・顧客管理（CRM）を一つの顧客データでつなぐ中小企業向けのCRM/SFA（顧客管理・営業支援システム）。B2B、受託開発・制作、支援会社、代理店（SaaSリセラー）とスクール（B2C）の5エディション。B2B・受託開発・代理店には175本の自動化と用途別の初期設定付き。2026年9月28日正式提供開始。",
 	"inLanguage": ["ja", "en", "zh-Hant"],
 	"offers": {
 		"@type": "Offer",
@@ -555,7 +556,7 @@ h3 { font-weight: 500; }
 .learning-list { list-style: none; padding: 0; margin: var(--space-lg) 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
 .learning-list li { padding: 0.9rem 1rem; border: 1px solid var(--color-border); border-radius: 6px; background: #fff; font-size: 0.9rem; font-weight: 600; color: var(--color-text); }
 .track { background: #F1F5F9; }
-.track-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.track-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
 .track-item { display: block; }
 .track-who { display: grid; gap: 0.25rem; height: 100%; padding: 1.25rem 1.35rem; border: 1px solid var(--color-border);  border-radius: 6px; background: #fff; color: var(--color-text); text-decoration: none; transition: border-color 0.15s, transform 0.15s; }
 .track-who:hover { border-color: #c7b2e3; transform: translateY(-2px); color: var(--color-text); }

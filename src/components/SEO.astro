@@ -20,6 +20,8 @@ const ogKey = /^\/(en\/)?crm\/school(\/|$)/.test(path)
 	? 'crm-school'
 	: /^\/(en\/)?crm\/contractor(\/|$)/.test(path)
 		? 'crm-contractor'
+		: /^\/(en\/)?crm\/services(\/|$)/.test(path)
+			? 'crm-services'
 		: /^\/(en\/)?crm\/reseller(\/|$)/.test(path)
 			? 'crm-reseller'
 			: /^\/(en\/)?crm(\/|$)/.test(path)
@@ -30,7 +32,7 @@ const og =
 		? ogImage.startsWith('http')
 			? ogImage
 			: new URL(ogImage, site).href
-		: new URL(`/images/og/${ogKey}-${ogLang}-${ogKey === 'crm' ? (ogLang === 'ja' ? '2026e' : '2026c') : '2026b'}.png`, site).href;
+		: new URL(`/images/og/${ogKey}-${ogLang}-${ogKey === 'crm' ? (ogLang === 'ja' ? '2026e' : '2026c') : ogKey === 'crm-contractor' ? '2026c' : '2026b'}.png`, site).href;
 const fullTitle = title.includes('Consilegy') ? title : `${title} | Consilegy`;
 const ogLocale = lang === 'en' ? 'en_US' : 'ja_JP';
 ---

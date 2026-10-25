@@ -25,15 +25,15 @@ export const CRM_FEATURES: FeatureGroup[] = [
     id: 'crm-core',
     title: { ja: 'CRMコア', en: 'CRM core' },
     lead: {
-      ja: '顧客、案件、対応履歴を1か所に置く。B2B・受託開発・代理店で共通の土台。',
-      en: 'Customers, deals, and history in one place. The shared base under the B2B, agency, and reseller editions.',
+      ja: '顧客、案件、対応履歴を1か所に置く。B2B・受託開発・制作・支援会社・代理店で共通の土台。',
+      en: 'Customers, deals, and history in one place. The shared base under the B2B, development, consulting, and reseller editions.',
     },
     items: [
       {
         name: { ja: 'コンタクト / 会社 / 商談', en: 'Contacts / Companies / Deals' },
         desc: {
-          ja: '人と会社と案件を関連づけて持つ。事業タイプに応じて呼び名が変わる（受託開発では商談が案件）。',
-          en: 'People, companies, and deals, linked. Nouns follow your edition: deals become projects for contractors.',
+          ja: '人と会社と案件を関連づけて持つ。事業タイプに応じて呼び名が変わる（受託開発・制作と支援会社では商談が案件）。',
+          en: 'People, companies, and deals, linked. Nouns follow your edition: deals become projects for development shops and engagements for consulting firms.',
         },
       },
       {
@@ -255,8 +255,8 @@ export const CRM_FEATURES: FeatureGroup[] = [
       {
         name: { ja: '事業タイプ別の初期ON', en: 'Defaults per edition' },
         desc: {
-          ja: '受託開発、代理店、B2Bそれぞれの中心となるループが最初からONになっている。',
-          en: 'Contractor, reseller, and B2B each start with their core loop already on.',
+          ja: '受託開発・制作、支援会社、代理店、B2Bそれぞれの中心となるループが最初からONになっている。',
+          en: 'Development, consulting, reseller, and B2B each start with their core loop already on.',
         },
       },
       {
@@ -467,8 +467,8 @@ export const CRM_FEATURES: FeatureGroup[] = [
     id: 'delivery',
     title: { ja: 'デリバリー', en: 'Delivery' },
     lead: {
-      ja: '受注のあとを見る。受託開発やプロジェクト型の商売で使う。',
-      en: 'What happens after the win. For contractors and project-based businesses.',
+      ja: '受注のあとを見る。受託開発・制作や支援会社のように、受注後に人が動く商売で使う。',
+      en: 'What happens after the win. For development shops, consulting firms, and other businesses where people deliver the work.',
     },
     items: [
       {
@@ -578,8 +578,8 @@ export const CRM_FEATURES: FeatureGroup[] = [
       {
         name: { ja: 'エディション切り替え', en: 'Edition switch' },
         desc: {
-          ja: 'B2B / 受託開発 / 代理店で、出る画面と呼び名と初期の自動化が変わる。コードは分岐しない。スクール版は教室専用の画面で動く。',
-          en: 'B2B, contractor, or reseller changes the nav, the nouns, and the default automations. Not the code base. The school edition runs on its own screens built for classrooms.',
+          ja: 'B2B / 受託開発・制作 / 支援会社 / 代理店で、出る画面と呼び名と初期の自動化が変わる。コードは分岐しない。スクール版は教室専用の画面で動く。',
+          en: 'B2B, development, consulting, or reseller changes the nav, the nouns, and the default automations. Not the code base. The school edition runs on its own screens built for classrooms.',
         },
       },
       {

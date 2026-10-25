@@ -32,8 +32,11 @@ const PAGES = [
 	{ name: 'crm-en', suffix: '-2026c', rule: false, lang: 'en', theme: CRM, label: 'Revenue CRM', lines: ['AI and automation', 'do the work.', "A CRM your team won't", 'hate updating.'], size: 50, url: 'consilegy.com/en/crm' },
 	{ name: 'crm-school-ja', lang: 'ja', theme: SCHOOL, label: 'Revenue CRM スクール版', lines: ['1日を、', '48時間にしよう。'], size: 66, sub: '教室のためのCRM', url: 'consilegy.com/crm/school' },
 	{ name: 'crm-school-en', lang: 'en', theme: SCHOOL, label: 'Revenue CRM for schools', lines: ['Make your day', '48 hours long.'], size: 62, url: 'consilegy.com/en/crm/school' },
-	{ name: 'crm-contractor-ja', lang: 'ja', theme: CRM, label: 'Revenue CRM 受託開発版', lines: ['見積を出す前に、', '空きが見えている。'], size: 62, url: 'consilegy.com/crm/contractor' },
-	{ name: 'crm-contractor-en', lang: 'en', theme: CRM, label: 'Revenue CRM', lines: ['CRM for agencies', 'and contract work.'], size: 60, url: 'consilegy.com/en/crm/contractor' },
+	// 受託開発版は 2026-10-25 に「受託開発・制作版」へ改名したので -2026c に（支援会社版を分けたため）
+	{ name: 'crm-contractor-ja', suffix: '-2026c', lang: 'ja', theme: CRM, label: 'Revenue CRM 受託開発・制作版', lines: ['見積を出す前に、', '空きが見えている。'], size: 62, url: 'consilegy.com/crm/contractor' },
+	{ name: 'crm-contractor-en', suffix: '-2026c', lang: 'en', theme: CRM, label: 'Revenue CRM', lines: ['CRM for development', 'and production.'], size: 60, url: 'consilegy.com/en/crm/contractor' },
+	{ name: 'crm-services-ja', lang: 'ja', theme: CRM, label: 'Revenue CRM 支援会社版', lines: ['受けすぎず、断りすぎず、', '更新を落とさない。'], size: 58, url: 'consilegy.com/crm/services' },
+	{ name: 'crm-services-en', lang: 'en', theme: CRM, label: 'Revenue CRM', lines: ['Take on the right amount.', 'Keep every renewal.'], size: 54, url: 'consilegy.com/en/crm/services' },
 	{ name: 'crm-reseller-ja', lang: 'ja', theme: CRM, label: 'Revenue CRM 代理店版', lines: ['次の更新が、', 'いつも先に', '見えている。'], size: 62, url: 'consilegy.com/crm/reseller' },
 	{ name: 'crm-reseller-en', lang: 'en', theme: CRM, label: 'Revenue CRM', lines: ['CRM for', 'SaaS resellers.'], size: 62, url: 'consilegy.com/en/crm/reseller' },
 ];

@@ -23,7 +23,7 @@ export interface CrmUpdate {
 export const EDITION_LABEL: Record<UpdateEdition, { ja: string; en: string }> = {
   all: { ja: '全エディション', en: 'All editions' },
   b2b: { ja: '法人営業', en: 'B2B sales' },
-  contractor: { ja: '受託開発', en: 'Agencies' },
+  contractor: { ja: '受託開発・制作', en: 'Development' },
   reseller: { ja: '代理店', en: 'Resellers' },
   school: { ja: 'スクール', en: 'Schools' },
 };

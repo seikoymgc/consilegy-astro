@@ -42,13 +42,14 @@ const afters = [
 
 const editions = [
 	{ noun: 'Deals', title: 'B2B sales', href: '/en/crm/features/' },
-	{ noun: 'Projects', title: 'Agencies & contract work', href: '/en/crm/contractor/' },
+	{ noun: 'Projects', title: 'Development & production', href: '/en/crm/contractor/' },
+	{ noun: 'Engagements', title: 'Consulting & agencies', href: '/en/crm/services/' },
 	{ noun: 'Contracts', title: 'SaaS resellers', href: '/en/crm/reseller/' },
 	{ noun: 'Enrollment', title: 'Schools', href: '/en/crm/school/' },
 ];
 
 const plans = [
-	{ tier: 'User plan', figure: '¥3,000', unit: '/ user / month', for: 'B2B, agency, and reseller editions. For teams that use it every day' },
+	{ tier: 'User plan', figure: '¥3,000', unit: '/ user / month', for: 'B2B, development, consulting, and reseller editions. For teams that use it every day' },
 	{ tier: 'Student plan', figure: '¥9,800', unit: '/ month and up', for: 'School edition. Up to 50 enrolled students' },
 	{ tier: 'Prepaid plan', figure: '¥3,000', unit: '/ month', for: 'All editions. For teams that use it less often' },
 ];
@@ -551,7 +552,7 @@ h3 { font-weight: 500; }
 .learning-list { list-style: none; padding: 0; margin: var(--space-lg) 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
 .learning-list li { padding: 0.9rem 1rem; border: 1px solid var(--color-border); border-radius: 6px; background: #fff; font-size: 0.9rem; font-weight: 600; color: var(--color-text); }
 .track { background: #F1F5F9; }
-.track-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.track-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
 .track-item { display: block; }
 .track-who { display: grid; gap: 0.25rem; height: 100%; padding: 1.25rem 1.35rem; border: 1px solid var(--color-border);  border-radius: 6px; background: #fff; color: var(--color-text); text-decoration: none; transition: border-color 0.15s, transform 0.15s; }
 .track-who:hover { border-color: #c7b2e3; transform: translateY(-2px); color: var(--color-text); }

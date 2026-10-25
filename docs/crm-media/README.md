@@ -63,7 +63,7 @@ featured:     サイドバー「よく読まれている記事」の順位（1�
 ## 画像
 
 - アイキャッチは `node scripts/generate-eyecatches.mjs <slug>` で `public/images/crm/media/<slug>-2026b.svg` と `en/<slug>-2026b.svg`（接尾辞はスクリプトの SUFFIX） を生成する
-- 本文の画面スクリーンショットは `public/images/crm/media/screens/` にあるものだけ使う（`![alt](/images/crm/media/screens/<file>.webp)` と直後の斜体キャプション）。無ければ画像なしで公開してよい。撮影は山口が撮影用ワークスペースで行う
+- 本文の画面スクリーンショットは `public/images/crm/media/screens/` にあるものだけ使う（`![alt](/images/crm/media/screens/<file>.webp)` と直後の斜体キャプション）。無ければ画像なしで公開してよい。撮影は Claude が行う（2026-10-25 山口の指示）。`scripts/shoot-crm-demo.mjs`（crm の .env.local でデモアカウントの magiclink セッションを作り、手元の Chrome をヘッドレス・一時プロフィールで開いて `crm_ws`＝デモ組織の slug、`school_lang` で撮る）を記事ごとに書き換えて使う。`/demos` は使わない（メールを入れるとウェルカムメールが飛び、リードに残る）。1456px幅、`<slug>-<n>-2026-10.webp`、英語版は `<slug>-<n>-en-2026-10.webp`。開発者向けの案内（環境変数など）が写る部分は切り落とす。スクール版の英語デモで予約→カルテは開かない（/api/school-app/ が crm_ws を見ない。crm 側の要修正）
 
 ## 予定: 法人営業（segment: b2b）12本
 
@@ -184,5 +184,5 @@ crm origin/main（db20fc1）では、`src/app/school/` にあるのは `page.tsx
 
 ## 未決
 
-- 記事内スクリーンショットの撮影（撮影用ワークスペース）。スクール版の画面は未撮影
+- 既刊記事のスクリーンショット（2026-10-25 時点で入っているのは b2b 3本と b2c #29 だけ）
 - 製品内ヘルプへの流し込み（同じ原稿を `product_help_articles` に入れるか、リンクだけにするか）

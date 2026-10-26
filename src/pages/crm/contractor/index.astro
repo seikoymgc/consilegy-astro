@@ -13,25 +13,25 @@ const screens = [
 	{
 		src: 'resources',
 		title: '空き枠カレンダー',
-		desc: 'メンバー×週で、割り当て人日とキャパを並べます。いつ誰が空くかを、感覚ではなく数字で見られます。',
+		desc: 'メンバーごとに、週単位でアサイン済みの人日とキャパを表示します。来月どのメンバーに何人日の空きがあるかを確認できます。',
 		alt: '空き枠カレンダーの画面。今週の稼働率62%・今週の空き人日6.4・逼迫週0・余剰週11のカード。その下にメンバー4名×12週の表があり、各セルに割当人日／キャパが入っている。',
 	},
 	{
 		src: 'delivery',
 		title: 'デリバリー',
-		desc: 'キックオフ・制作・レビュー・納品の工程を案件ごとに持ちます。滞留日数と期限、想定と実績の人日が同じ行に出ます。',
+		desc: 'キックオフから検収まで、案件ごとの工程を一覧で確認できます。滞留日数、納期、想定工数と実績工数も同じ行に表示します。',
 		alt: 'デリバリーの画面。案件・会社・金額・デリバリー工程・滞留・期限・想定/実績（人日）の列が並び、6件の受注案件が工程ごとに表示されている。',
 	},
 	{
 		src: 'quotes',
 		title: '見積書',
-		desc: '下書き、送付済み、承認のステータスで管理します。明細は数量×単価で積み上げ、数量に人日を入れれば人日×単価の見積になります。',
+		desc: '見積書を下書き・送付済み・承認のステータスで管理できます。明細の数量に人日を入れると、人日×単価で見積額を計算します。',
 		alt: '見積書の一覧画面。4件の見積が、承認・下書き・送付済みのステータスバッジとコンタクト・会社・合計金額・有効期限つきで並んでいる。',
 	},
 	{
 		src: 'deals',
 		title: '案件',
-		desc: '商談ではなく「案件」で呼びます。アプローチから見積までのステージごとに、金額と件数が出ます。',
+		desc: '受託開発・制作版では、商談を「案件」と呼びます。アプローチから見積提出まで、ステージごとの金額と件数を確認できます。',
 		alt: '案件のカンバン画面。アプローチ・ヒアリング・提案・見積のステージに案件カードが並び、各ステージの合計金額と確度、案件ごとの金額とクローズ予定日が出ている。',
 	},
 ];
@@ -57,11 +57,11 @@ const problems = [
 // text は src/lib/revops/outcomes.ts の日本語。ただしこのエディションでは
 // 商談を「案件」と呼ぶので、そこだけ用語を合わせている。
 const projectEngine = [
-	{ label: '見積', text: '案件が見積の段階に入ったら、作成タスクを自動で作成' },
-	{ label: '停滞', text: '止まっている案件を自動で見つけて知らせる' },
-	{ label: '予測', text: '案件の変更を、売上予測に自動で反映' },
-	{ label: '受注後', text: '受注したら、受注処理のタスクを自動で作成' },
-	{ label: '保守更新', text: '契約終了日の60日前に、更新準備のタスクを自動で作成' },
+	{ label: '見積', text: '案件が見積のステージに入ると、見積作成のタスクを作成' },
+	{ label: '停滞', text: '動きが止まっている案件を検出して通知' },
+	{ label: '予測', text: '案件の金額や時期を変更すると、売上予測に反映' },
+	{ label: '受注後', text: '受注すると、受注処理のタスクを作成' },
+	{ label: '保守更新', text: '保守契約の終了60日前に、更新準備のタスクを作成' },
 ];
 
 const roles = [
@@ -97,19 +97,13 @@ const roles = [
 			<p class="eyebrow">Revenue CRM · Contractor edition</p>
 			<h1>見積を出す前に、<br />空きが見えている。</h1>
 			<p class="hero-lead">
-				案件はスプレッドシート。稼働はPMの感覚。見積はその都度Excel。
-				受託開発・制作版は、<strong>案件・見積・稼働・納品を1か所で見て、見積を出す前に着手できる時期を確かめられる</strong>構成です。
+				受託開発・Web制作会社向けの顧客管理システムです。案件・見積・メンバーのアサイン・納品を1つの画面で管理でき、見積を出す前に着手できる時期を確認できます。
 			</p>
 			<div class="hero-actions">
 				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">デモを見る</a>
 				<a href={SIGNUP_URL} class="btn btn--secondary" target="_blank" rel="noopener noreferrer">無料で始める</a>
 			</div>
-			<p class="hero-download"><a href="/crm/download/" class="btn btn--secondary">資料をダウンロード</a></p>
-			<ul class="hero-points" aria-label="受託開発・制作版の特徴">
-				<li>商談ではなく「案件」で管理</li>
-				<li>メンバー×週で空きを可視化</li>
-				<li>30日間無料で試せる</li>
-			</ul>
+			<p class="hero-download"><a href="/crm/download/">資料をダウンロード</a></p>
 		</div>
 		<figure class="hero-media">
 			<img
@@ -119,7 +113,7 @@ const roles = [
 				height="840"
 				decoding="async"
 			/>
-			<figcaption>空き枠カレンダー：メンバー×週で、割り当てと空きを同じ画面で</figcaption>
+			<figcaption>空き枠カレンダー：誰がどれだけ埋まっていて、どこが空いているか</figcaption>
 		</figure>
 	</div>
 </section>
@@ -129,21 +123,18 @@ const roles = [
 	<div class="container">
 		<div class="pos-body">
 			<p class="pos-lead">
-				追いかけるのは「受注できるか」ではなく、<br />
-				「受けて回せるか」です。
+				受託の案件は、受注したあとの<br />
+				アサインで粗利が決まります。
 			</p>
 			<div class="pos-copy">
 				<p>
-					だから中心に置いたのは<strong>案件</strong>です。このエディションでは商談を案件と呼びます。
-					画面の言葉が変わるだけでなく、見積・受注・納品・保守更新までを1本の案件で追えます。
+					受託開発・制作版の中心は案件です。見積、受注、納品、検収、保守契約の更新までを、1つの案件の記録として管理できます。
 				</p>
 				<p>
-					受託の粗利は、取れたかどうかより<strong>誰をいつ入れたか</strong>で決まります。
-					稼働をメンバー×週の表で持っているので、見積を出す前に着手できる時期を確かめられます。
-					前倒しできる案件と、断るべき案件が分かります。
+					メンバーの稼働は、週単位の表で確認できます。PMは見積を出す前に、どのメンバーをいつからアサインできるかを確かめられます。前倒しで受けられる案件や、納期を相談すべき案件の判断にも使えます。
 				</p>
 				<p>
-					保守契約は受注のあとに続く売上です。案件に契約終了日を入れておけば、その60日前に更新準備のタスクを作ります。
+					保守契約は、納品後も続く売上です。案件に契約終了日を入れておくと、終了60日前に更新準備のタスクを作成します。
 				</p>
 				<a href="/revenue-architecture/" class="pos-link">この考え方について読む →</a>
 			</div>
@@ -177,7 +168,7 @@ const roles = [
 	<div class="container">
 		<div class="section-head">
 			<p class="section-eyebrow">The screens</p>
-			<h2 class="sc-title">案件を軸に、日々見る画面を揃えています。</h2>
+			<h2 class="sc-title">毎日開くのは、この4つの画面です。</h2>
 		</div>
 		<div class="sc-grid">
 			{screens.map((s) => (
@@ -268,21 +259,18 @@ const roles = [
 				<text x="180" y="824" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">1日1回の自動処理が拾って知らせる</text>
 				</g>
 			</svg>
-			<figcaption id="flow-figure-caption">商談ではなく「案件」を単位に、見積から保守更新までを1本で追います。見積の前に空き枠を見るのが、受託開発・制作版の起点です。</figcaption>
+			<figcaption id="flow-figure-caption">見積から保守契約の更新まで、1つの案件として管理します。見積を出す前に、空き枠カレンダーでメンバーの空きを確認できます。</figcaption>
 		</figure>
 	</div>
 	<div class="container support-inner">
 		<div>
 			<p class="section-eyebrow">Project engine</p>
-			<h2>取りこぼしを、人の記憶から外します。</h2>
+			<h2>見積・受注・保守更新のタスクを、自動で作成します。</h2>
 			<p class="support-lead">
-				受託開発・制作版を作ると、案件まわりの自動化が最初からONになっています。
-				見積の段階に入った案件にタスクを作り、止まった案件を拾い、受注したら受注処理のタスクを作ります。
-				保守契約の更新準備まで含めて、1日1回の処理として走ります。
+				受託開発・制作版では、案件まわりの自動化がONの状態で使い始められます。見積のステージに入った案件、動きが止まっている案件、受注した案件、保守契約の更新が近い案件を、1日1回確認してタスクと通知を作ります。
 			</p>
 			<p class="support-lead">
-				自動化が作るのはタスク・通知・下書きと、売上予測の更新です。顧客へのメールは、送る相手と文面を自分で決めてONにした自動化だけが送ります。
-				担当者が中身を見て、直してから動かします。
+				自動化が作るのは、タスク・通知・下書きと、売上予測の更新です。顧客へのメールは、送る相手と文面を担当者が決めてONにした自動化だけが送ります。
 			</p>
 		</div>
 		<div class="support-list">
@@ -303,21 +291,18 @@ const roles = [
 			<p class="section-eyebrow">AI</p>
 			<h2>日本語で聞けば、<br />その場で返ってきます。</h2>
 			<p class="ai-lead">
-				知りたいことのために、集計を組み立てる必要はありません。
-				話すとおりに聞けば、案件・稼働・顧客と、添付した資料を探して答えます。
+				AIに質問すると、案件・稼働・顧客の記録と、添付した資料から探して答えます。集計表を作る必要はありません。
 			</p>
 			<p class="ai-lead">
-				今週の空き、期限が近い案件、止まっている案件。
-				どれも表を作らずに、その場で確認できます。
+				今週の空き人日や、納期が近い案件も、質問するだけで確認できます。
 			</p>
 			<p class="ai-lead">
-				頼めば、コンタクトやタスクの登録もします。
-				AIが顧客にメールを送ることはありません。
+				コンタクトやタスクの登録もAIに頼めます。AIが顧客へメールを送ることはありません。
 			</p>
 		</div>
 		<ul class="ai-examples">
 			<li>今週の空き人日は？</li>
-			<li>期限が近い案件は？</li>
+			<li>納期が近い案件は？</li>
 			<li>止まっている案件は？</li>
 			<li>金額の大きい案件は？</li>
 		</ul>
@@ -334,9 +319,7 @@ const roles = [
 			<h2 class="ro-title">担当案件の外は、見えないようにできます。</h2>
 		</div>
 		<p class="ro-lead">
-			顧客・会社・案件のそれぞれについて、見える範囲を「全体・チーム・自分」から選べます。
-			協力会社のメンバーを入れる場合も、担当者になっている案件と、その見積だけに絞れます。エクスポートの可否は別に設定できます。
-			下は設定例です。
+			顧客・会社・案件ごとに、見える範囲を「全体・チーム・自分」から選べます。外注先や協力会社のメンバーには、担当する案件とその見積だけを見せられます。エクスポートの可否は別に設定できます。下の表は設定の一例です。
 		</p>
 		<dl class="ro-list">
 			{roles.map((r) => (
@@ -346,7 +329,7 @@ const roles = [
 				</div>
 			))}
 		</dl>
-		<p class="ro-note">顧客・会社・案件は変更履歴が残るので、誰がいつ何を変更したかを後から追えます。</p>
+		<p class="ro-note">顧客・会社・案件の変更履歴が残るので、誰がいつ何を変更したかを確認できます。</p>
 	</div>
 </section>
 
@@ -357,8 +340,7 @@ const roles = [
 			<p class="cta-eyebrow">30 days free</p>
 			<h2>今の業務に合うかは、<br />実際の画面で確かめてください。</h2>
 			<p class="cta-lead">
-				初期費用はなく、どのプランも30日間の無料トライアル付きで、カード登録なしで始められます。
-				デモはメールアドレスだけで、その場でご覧いただけます。
+				30日間無料・カード登録不要・初期費用なしで始められます。デモはメールアドレスを入力すると、すぐに開けます。
 			</p>
 			<div class="cta-actions">
 				<a href={SIGNUP_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">無料で始める</a>
@@ -387,15 +369,14 @@ const roles = [
 	.cta-eyebrow {
 		margin: 0;
 		color: var(--color-text-muted);
-		font-size: 0.75rem;
+		font-size: var(--fs-small);
 		font-weight: 600;
 		letter-spacing: 0.12em;
 		line-height: 1.4;
 		text-transform: uppercase;
 	}
 
-	/* uppercase はギリシャ文字も変えるので β が B になる。
-	   ラテン文字だけ大文字にしたいので、日本語まじりの語は除外する。 */
+	/* uppercase はギリシャ文字も変えるので β が B になる。ラテン文字だけ大文字にしたいので、日本語まじりの語は除外する。 */
 	.section-eyebrow .no-upper,
 	.eyebrow .no-upper,
 	.cta-eyebrow .no-upper {
@@ -410,7 +391,7 @@ const roles = [
 	h2 {
 		margin: 0;
 		color: var(--color-text);
-		font-size: 2rem;
+		font-size: var(--fs-h2);
 		font-weight: 500;
 		line-height: 1.4;
 		text-wrap: balance;
@@ -424,7 +405,7 @@ const roles = [
 		padding: 0.8rem 1.35rem;
 		border: 1px solid var(--color-border);
 		border-radius: 4px;
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		font-weight: 600;
 		line-height: 1.25;
 		text-decoration: none;
@@ -469,9 +450,9 @@ const roles = [
 
 	.hero-grid {
 		display: grid;
-		grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.78fr);
-		gap: var(--space-xl);
-		align-items: start;
+		grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+		gap: var(--space-lg);
+		align-items: center;
 	}
 
 	.hero-copy {
@@ -489,7 +470,7 @@ const roles = [
 		max-width: 13em;
 		margin: 0;
 		color: var(--color-text);
-		font-size: 3.125rem;
+		font-size: var(--fs-h1);
 		font-weight: 500;
 		line-height: 1.2;
 		letter-spacing: 0;
@@ -500,7 +481,7 @@ const roles = [
 		max-width: 43em;
 		margin: var(--space-md) 0 0;
 		color: var(--color-text);
-		font-size: 1.0625rem;
+		font-size: var(--fs-lead);
 		line-height: 2;
 	}
 
@@ -523,7 +504,7 @@ const roles = [
 		min-width: 0;
 		padding: 0.85rem 1rem;
 		color: var(--color-text-muted);
-		font-size: 0.8125rem;
+		font-size: var(--fs-small);
 		line-height: 1.6;
 	}
 
@@ -558,7 +539,7 @@ const roles = [
 	.prob-shot figcaption {
 		margin-top: 0.65rem;
 		color: var(--color-text-muted);
-		font-size: 0.75rem;
+		font-size: var(--fs-small);
 		line-height: 1.6;
 	}
 
@@ -605,7 +586,7 @@ const roles = [
 	.pos-lead {
 		margin: 0;
 		color: var(--color-text);
-		font-size: 1.375rem;
+		font-size: var(--fs-h3);
 		font-weight: 500;
 		line-height: 1.7;
 		text-wrap: balance;
@@ -614,7 +595,7 @@ const roles = [
 	.pos-copy p {
 		margin: 0 0 1rem;
 		color: var(--color-text-muted);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.9;
 	}
 
@@ -626,7 +607,7 @@ const roles = [
 	.pos-link {
 		display: inline-flex;
 		margin-top: 0.25rem;
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 	}
 
 	.section-head {
@@ -684,7 +665,7 @@ const roles = [
 
 	.issue-label__number {
 		color: rgba(112, 66, 172, 0.24);
-		font-size: 2.45rem;
+		font-size: var(--fs-figure);
 		font-weight: 500;
 		font-variant-numeric: tabular-nums;
 		line-height: 0.82;
@@ -695,7 +676,7 @@ const roles = [
 	.sc-card h3 {
 		margin: 0;
 		color: var(--color-text);
-		font-size: 1rem;
+		font-size: var(--fs-body);
 		font-weight: 600;
 		line-height: 1.55;
 	}
@@ -704,7 +685,7 @@ const roles = [
 	.sc-card p {
 		margin: 0.6rem 0 0;
 		color: var(--color-text-muted);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.85;
 	}
 
@@ -787,7 +768,7 @@ const roles = [
 	.cta-lead {
 		margin: 1rem 0 0;
 		color: var(--color-text-muted);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.85;
 	}
 
@@ -801,7 +782,7 @@ const roles = [
 		padding: 0.95rem 0;
 		border-bottom: 1px solid var(--color-border);
 		color: var(--color-primary);
-		font-size: 0.8125rem;
+		font-size: var(--fs-small);
 		font-weight: 700;
 		letter-spacing: 0.08em;
 		line-height: 1.5;
@@ -824,14 +805,14 @@ const roles = [
 
 	.support-list span {
 		color: var(--color-text-muted);
-		font-size: 0.8125rem;
+		font-size: var(--fs-small);
 		font-weight: 600;
 		line-height: 1.7;
 	}
 
 	.support-list strong {
 		color: var(--color-text);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		font-weight: 600;
 		line-height: 1.7;
 	}
@@ -847,7 +828,7 @@ const roles = [
 		padding: 0.9rem 0;
 		border-bottom: 1px solid var(--color-border);
 		color: var(--color-text);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.7;
 	}
 
@@ -884,7 +865,7 @@ const roles = [
 
 	.ro-row dt {
 		color: var(--color-text);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		font-weight: 600;
 		line-height: 1.7;
 	}
@@ -892,14 +873,14 @@ const roles = [
 	.ro-row dd {
 		margin: 0;
 		color: var(--color-text-muted);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.7;
 	}
 
 	.ro-note {
 		margin: 1.25rem 0 0;
 		color: var(--color-text-muted);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.7;
 	}
 
@@ -919,7 +900,7 @@ const roles = [
 		padding: 0.75rem 0;
 		border-bottom: 1px solid var(--color-border);
 		color: var(--color-text);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.75;
 	}
 
@@ -933,7 +914,7 @@ const roles = [
 		}
 
 		.hero h1 {
-			font-size: 2.75rem;
+			font-size: var(--fs-h1);
 		}
 
 		.hero-media,
@@ -986,15 +967,15 @@ const roles = [
 		}
 
 		h2 {
-			font-size: 1.625rem;
+			font-size: var(--fs-h3);
 		}
 
 		.hero h1 {
-			font-size: 2.25rem;
+			font-size: var(--fs-h2);
 		}
 
 		.hero-lead {
-			font-size: 1rem;
+			font-size: var(--fs-body);
 			line-height: 1.85;
 		}
 
@@ -1027,5 +1008,15 @@ const roles = [
 
 	.flow-figure { margin: 0 0 var(--space-lg); }
 	.flow-figure svg { display: block; width: 100%; height: auto; }
-	.flow-figure figcaption { margin-top: 0.75rem; font-size: 0.875rem; color: var(--color-text-muted); }
+	.flow-figure figcaption { margin-top: 0.75rem; font-size: var(--fs-small); color: var(--color-text-muted); }
+
+
+	.sc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 1.5rem; border-top: 0; }
+	.sc-card, .sc-card:nth-child(n) { padding-left: 1.6rem; border-left: 1px solid var(--color-border); }
+	@media (max-width: 760px) { .sc-grid { grid-template-columns: 1fr !important; } }
+
+	.hero-download { margin: 0.9rem 0 0; font-size: var(--fs-small); }
+	.hero-download a { color: var(--color-primary); text-decoration: underline; text-underline-offset: 3px; }
+	.hero-lead { line-height: 1.85; text-wrap: pretty; }
+	.nw { display: inline-block; }
 </style>

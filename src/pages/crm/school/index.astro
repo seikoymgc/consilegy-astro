@@ -8,27 +8,27 @@ const SIGNUP_URL = 'https://crm.consilegy.com/signup';
 
 // プロダクトの school shell（edition=b2c + shell='school'）に実装済みの機能のみ記載。
 const screens = [
-	{ src: 'students', title: '生徒管理', desc: '体験・受講中・休止・卒業・退会を一覧で確認。現在の状態がすぐ分かります。', alt: '生徒管理の画面。受講中・体験予定・卒業間近・課題が滞り・未確認・休止・卒業生・退会のフィルタと、生徒ごとの状態バッジが並ぶ。' },
-	{ src: 'schedule', title: '週間スケジュール', desc: 'レッスン予定を週単位で管理。休校日カレンダーとも連動し、Googleアカウントをつなげば講師ごとのGoogleカレンダーにも自動で入ります。', alt: 'スケジュールの画面。予定数と未記録レッスン数、日付ごとの時刻・生徒・担当講師の一覧。' },
-	{ src: 'lessons', title: 'レッスン記録', desc: '実施内容を生徒ごとに蓄積。担当が替わっても経緯が残ります。', alt: 'レッスン履歴の画面。レッスン種別ごとの担当講師と、生徒名・担当講師・実施日の履歴が並ぶ。' },
-	{ src: 'hearing-ai', title: 'ヒアリング', desc: '体験の文字起こしを貼ると、AIが項目に振り分けてカルテに入れます。あとから講師が直せます。', alt: '生徒詳細の初回ヒアリング欄。きっかけ・基本情報・英語レベル・テスト会話の所見・3か月後の目標が並び、右上に「テスト会話から自動入力」ボタンがある。' },
-	{ src: 'report', ver: 'v5', title: '月次レポート', desc: '直近30日のレッスン記録から、AIが月次レポートの下書きを書きます。講師は読み直して、LINEで送るだけです。', alt: '進捗レポートの画面。直近30日のレッスン記録からAIが下書きした生徒のコメントに、再生成・コピー・LINEで送るのボタンが付いている。' },
-	{ src: 'knowledge', title: 'ナレッジベース', desc: 'Googleドライブの講師マニュアルや運用ルールを同期して、講師がすぐ引けるようにします。AIに質問したときの根拠にも使います。', alt: 'ナレッジベースの画面。週1レッスンの進め方、文法添削の返し方、休講・振替のルールなどの記事一覧。' },
-	{ src: 'billing', title: '請求管理', desc: '支払中・支払失敗を確認。振込や現金で受け取る月謝も、入金を確認したら記録できます。月謝の未入金を知らせ、LINEで催促できます。', alt: '請求の画面。MRR・決済失敗・未入金の件数と、生徒ごとの課金ステータス一覧に課金中・未入金・決済失敗のバッジ。' },
+	{ src: 'students', title: '生徒管理', desc: '体験・受講中・休止・卒業・退会を、生徒ごとの状態で一覧にします。', alt: '生徒管理の画面。受講中・体験予定・卒業間近・課題が滞り・未確認・休止・卒業生・退会のフィルタと、生徒ごとの状態バッジが並ぶ。' },
+	{ src: 'schedule', title: '週間スケジュール', desc: '1週間のレッスンを、休校日と合わせて確認できます。予約は講師ごとのGoogleカレンダーにも入ります。', alt: 'スケジュールの画面。予定数と未記録レッスン数、日付ごとの時刻・生徒・担当講師の一覧。' },
+	{ src: 'lessons', title: 'レッスン記録', desc: 'レッスンの内容を生徒ごとに残せます。講師が替わっても、前回の内容から始められます。', alt: 'レッスン履歴の画面。レッスン種別ごとの担当講師と、生徒名・担当講師・実施日の履歴が並ぶ。' },
+	{ src: 'hearing-ai', title: 'ヒアリング', desc: '体験レッスンの文字起こしを貼ると、AIがカルテの項目に振り分けます。講師はあとから直せます。', alt: '生徒詳細の初回ヒアリング欄。きっかけ・基本情報・英語レベル・テスト会話の所見・3か月後の目標が並び、右上に「テスト会話から自動入力」ボタンがある。' },
+	{ src: 'report', ver: 'v5', title: '月次レポート', desc: '直近30日のレッスン記録から、AIが月次レポートを下書きします。講師が確認して、LINEで送れます。', alt: '進捗レポートの画面。直近30日のレッスン記録からAIが下書きした生徒のコメントに、再生成・コピー・LINEで送るのボタンが付いている。' },
+	{ src: 'knowledge', title: 'ナレッジベース', desc: 'Googleドライブの講師マニュアルや振替のルールを取り込めます。AIが答えるときの根拠にも使います。', alt: 'ナレッジベースの画面。週1レッスンの進め方、文法添削の返し方、休講・振替のルールなどの記事一覧。' },
+	{ src: 'billing', title: '請求管理', desc: '月謝の支払い状況を生徒ごとに確認できます。振込や現金の入金も記録でき、未入金の生徒にはLINEで催促できます。', alt: '請求の画面。MRR・決済失敗・未入金の件数と、生徒ごとの課金ステータス一覧に課金中・未入金・決済失敗のバッジ。' },
 ];
 
 const highlights = [
 	{
-		title: '課題も予約も、LINEから',
-		text: '生徒はアプリを入れず、いつものLINEで課題を出し、メニューからレッスンを予約できます。予約はGoogleカレンダーに入り、届いた課題は生徒ごとに記録されます（文章はRevenue CRMの画面で読め、写真や音声はLINEで確認します）。課題を出していない生徒に、自動で声をかけることもできます。',
+		title: '課題の提出も予約も、生徒のLINEから届く',
+		text: '生徒はアプリを入れずに、LINEのメニューから課題を出し、レッスンを予約します。課題は文字・写真・動画・音声で出せて、生徒ごとに残ります。予約はGoogleカレンダーに入ります。3営業日出ていない生徒がいると事務局にタスクができ、生徒への声かけも自動で送れます（送るかどうかは生徒ごとに決められます）。',
 	},
 	{
-		title: '月謝の未入金は、LINEで催促',
-		text: '在籍・休会・退会を一覧で見られます。月謝の未入金はシステムが知らせ、催促はLINEで送れます。',
+		title: '月謝の未入金が、一覧で分かる',
+		text: '未入金の生徒がいると、システムが知らせます。講師はLINEで催促を送れます。',
 	},
 	{
-		title: 'レポートはAIが書く',
-		text: 'レッスン記録から、月次レポートの下書きを作ります。講師が読み直して、そのままLINEで送れます。',
+		title: '月末のレポートと講師報酬を、まとめて出せる',
+		text: 'AIが直近30日のレッスン記録から月次レポートを下書きし、講師が確認してLINEで送れます。講師の報酬も、実施済みのレッスンから月次で集計します。',
 	},
 ];
 
@@ -36,23 +36,23 @@ const highlights = [
 const problems = [
 	{
 		title: '生徒ごとのLINEグループで回している',
-		text: '生徒ひとりにつき1つのLINEグループをつくり、やり取りも課題の確認も予約も、すべて手作業。',
+		text: '生徒40人なら、LINEグループも40個。課題の確認も予約の調整も、講師が1つずつ開いて対応している。',
 	},
 	{
 		title: '連絡・予約・課題確認が、バラバラ',
-		text: '連絡はLINE、予約はカレンダー、課題の確認は既読頼み。どこまで対応したかを、毎回たどり直している。',
+		text: '連絡はLINE、予約はカレンダー、課題は既読で確認。レッスン前に、どこまで返したかをさかのぼって探している。',
 	},
 	{
 		title: '新しい生徒の募集を、止めている',
-		text: '運営に手が回らず、新規生徒の獲得を止めている。',
+		text: '体験の申し込みが来ても、受けきれない。運営だけで手一杯で、募集を止めている。',
 	},
 ];
 
 const proofStats = [
 	{ figure: 'LINE連携', label: '課題も予約も、生徒のいつものLINEから届く' },
 	{ figure: 'Googleカレンダー', label: '予約が講師ごとのカレンダーに自動で入る' },
-	{ figure: 'ホーム', label: '開けば、今日やることが並んでいる' },
-	{ figure: 'チームで', label: '講師が何人増えても料金は同じ。見える範囲は役割ごとに' },
+	{ figure: 'ホーム', label: '今日のレッスンと要対応の生徒が並ぶ' },
+	{ figure: '講師の人数', label: '何人増えても料金は同じ' },
 ];
 
 // /crm/ の safeguards をもとに、スクール版の実装（src/school-app）に合わせて変えている。
@@ -60,27 +60,27 @@ const proofStats = [
 const safeguards = [
 	{
 		label: '学習に使われない',
-		text: 'レポートの下書き、ヒアリングの振り分け、AIへの質問に使う外部AI（Anthropic）は、送信した内容を学習に使わない条件で利用しています。',
+		text: 'レポートの下書きやAIへの質問には、Anthropic社のAIを使っています。送った内容を学習に使わない条件で利用しています。',
 	},
 	{
 		label: '他社に見えない',
-		text: '教室ごとのデータの隔離は、すべての読み書きに自分の教室の絞り込みを必ずかける作りで行っています。',
+		text: 'データはスクールごとに分けて保存しています。ほかのスクールのデータは表示されません。',
 	},
 	{
 		label: '見せる範囲を決められる',
-		text: '役割ごとに、誰がどのデータを見て操作できるかを設定できます。誰がいつ何を変更したかは監査ログに残ります。',
+		text: '見られるデータと操作できる範囲を、役割ごとに決められます。変更の記録は監査ログに残ります。',
 	},
 	{
 		label: '記録が消えない',
-		text: '生徒・レッスン・タスクは、消す操作をそもそも用意していません。生徒は「退会」、タスクは「対応済み」にして畳むので、あとから見返せます。データベースは日次でバックアップを取得しています。',
+		text: '生徒・レッスン・タスクには削除の操作がありません。生徒は「退会」、タスクは「対応済み」にして残します。データは毎日バックアップしています。',
 	},
 	{
 		label: '東京に置いてある',
-		text: 'データは東京リージョンに保存しています。作っているのは日本の会社です。AIの処理はAnthropic（米国）を経由しますが、送った内容を学習に使わせない契約です。',
+		text: 'データは東京リージョンに保存しています。AIの処理のみ、Anthropic（米国）を経由します。',
 	},
 	{
 		label: '持ち出しは自由',
-		text: '生徒、レッスンの記録、課題の提出、請求を、マネージャーがCSVで書き出せます。ご契約終了日から30日間も書き出せます。自社のデータは自社のものです。',
+		text: '生徒・レッスンの記録・課題の提出・請求は、マネージャーがCSVで書き出せます。契約終了後も30日間は書き出せます。',
 	},
 ];
 
@@ -89,7 +89,7 @@ const safeguards = [
 const faqs = [
 	{ q: '料金はいくらですか', a: '在籍中の生徒の人数で決まります。50人までが月額9,800円、100人までが19,800円、300人までが39,800円です。301人以上は個別にお見積りします。講師やスタッフは何人増えても料金は変わりません。どのプランも30日間の無料トライアル付きで、カード登録なしで始められます。' },
 	{ q: '生徒の人数はどう数えますか', a: '在籍中の生徒だけを数えます。体験中・休会中・卒業した生徒・問い合わせ段階の見込み客は数に入りません。何人いても無料で管理していただけます。' },
-	{ q: 'スマートフォンで使えますか', a: '使えます。画面はスマートフォンを前提に作ってあり、ブラウザから開きます。アプリのインストールは要りません。' },
+	{ q: 'スマートフォンで使えますか', a: '使えます。スマートフォンで使う前提で作っています。ブラウザから開くので、アプリは不要です。' },
 	{ q: 'AIに読ませたデータは学習に使われますか', a: '使われません。レポートの下書きやヒアリングの振り分けに使う外部のAI（Anthropic）は、学習に利用しない条件で使っています。' },
 	{ q: 'デモを見るのに登録は必要ですか', a: 'メールアドレスだけです。パスワードの登録も審査もありません。' },
 	{ q: '導入にどれくらいかかりますか', a: '申し込みから使い始めるまでは即日です。データを入れて運用に乗せるまでが本番です。' },
@@ -104,7 +104,7 @@ const roles = [
 
 <BaseLayout
 	title="Revenue CRMスクール版 | LINEのやり取りはそのままに、運営の手間を減らす。オンラインスクールの顧客管理システム"
-	description="ホーム画面を開けば、今日やることが分かる。オンラインスクール向けの顧客管理システムです。LINE公式アカウントとつながり、生徒はLINEから課題を出し、レッスンを予約できます。届いた課題は生徒ごとに残り、予約はGoogleカレンダーへ。月次レポートはAIが下書き。スマホ前提で、講師が移動中でも使えます。2026年9月28日に正式リリース。どのプランも30日間無料で試せます。"
+	description="LINE公式アカウントとつながる、オンラインスクールの顧客管理システム。生徒はLINEから課題を出し、レッスンを予約できます。予約はGoogleカレンダーに入り、月次レポートはAIが下書きします。2026年9月28日に正式リリース。どのプランも30日間無料で試せます。"
 	lang="ja"
 	alternateUrl="/en/crm/school/"
 >
@@ -134,18 +134,13 @@ const roles = [
 			</p>
 			<h1><span class="nw">LINEのやり取りは</span><span class="nw">そのままに、</span><br /><span class="nw">運営の手間を</span><span class="nw">減らす。</span></h1>
 			<p class="hero-lead">
-				LINEやZoomで生徒とやり取りする、オンラインスクールのための顧客管理システムです。<strong>LINE公式アカウントとつながり、課題の確認も予約も、手作業だった業務が自動になります</strong>。ホーム画面を開けば、未対応のタスクがひと目で分かります。
+				オンラインスクールのための顧客管理システムです。LINE公式アカウントとつなぐと、課題の確認と予約の受付が自動になります。
 			</p>
 			<div class="hero-actions">
 				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">デモを見る</a>
 				<a href={SIGNUP_URL} class="btn btn--secondary" target="_blank" rel="noopener noreferrer">無料で始める</a>
 			</div>
-			<p class="hero-download"><a href="/crm/school/download/" class="btn btn--secondary">資料をダウンロード</a></p>
-			<ul class="hero-points" aria-label="スクール版の特徴">
-				<li>LINE公式アカウントとそのままつながる</li>
-				<li>予約はGoogleカレンダーに自動で入る</li>
-				<li>少人数のスクールでも続けられる価格・30日間無料</li>
-			</ul>
+			<p class="hero-download"><a href="/crm/school/download/">資料をダウンロード</a></p>
 		</div>
 		<figure class="hero-media">
 			<img
@@ -180,9 +175,8 @@ const roles = [
 		<div class="pos-body">
 			<p class="pos-lead">生徒とのやり取りも、<br />スクール運営も、ひとつに。</p>
 			<div class="pos-copy">
-				<p><strong>予約・課題・レッスン記録・月謝</strong>を、ひとつの画面に。講師みんなで同じ状況を見られて、ホームを開けば今日やることが分かります。今日のレッスン、連絡すべき生徒、確認待ちの課題がホーム画面に並びます。</p>
-				<p>画面は<strong>スマホを前提</strong>に作ってあります。講師がレッスンと移動の合間に開いて、その場で記録し、その場で次の生徒を確認できることを優先しました。</p>
-				<p>定期課金で成り立つ事業（サブスク・定期購入など）にも、同じ土台が使えます。生徒・レッスン・講師の部分を外し、契約と継続率だけを見る構成にできます。ご相談ください。</p>
+				<p>予約・課題・レッスン記録・月謝を、講師全員が同じ画面で確認できます。ホームには、今日のレッスン、連絡が必要な生徒、確認待ちの課題が並びます。</p>
+				<p>画面はスマートフォンで使う前提です。講師はレッスンの合間に、その場で記録を残せます。</p>
 				<a href="/revenue-architecture/" class="pos-link">この考え方について読む →</a>
 			</div>
 		</div>
@@ -218,8 +212,7 @@ const roles = [
 				decoding="async"
 			/>
 			<figcaption>
-				生徒1人ぶんの画面。<strong>状態・デイリーコールの進み具合・初回ヒアリング・Zoomの記録</strong>が1枚に載ります。
-				講師が替わっても、この画面を開けば経緯が分かります。
+				生徒1人ぶんの画面です。状態、デイリーコールの進み具合、初回ヒアリング、Zoomの記録を1画面で確認できます。
 			</figcaption>
 		</figure>
 	</div>
@@ -230,7 +223,7 @@ const roles = [
 	<div class="container">
 		<div class="section-head">
 			<p class="section-eyebrow">Features</p>
-			<h2 class="prob-title">探す・まとめる・催促するを、システムに任せる。</h2>
+			<h2 class="prob-title">課題の確認、月謝の催促、月末のレポートをシステムで。</h2>
 		</div>
 		<div class="prob-grid">
 			{highlights.map((item) => (
@@ -248,7 +241,7 @@ const roles = [
 	<div class="container">
 		<div class="section-head">
 			<p class="section-eyebrow">The screens</p>
-			<h2 class="sc-title">生徒を軸に、日々見る画面を揃えています。</h2>
+			<h2 class="sc-title">講師が毎日開く画面</h2>
 		</div>
 		<div class="sc-grid">
 			{screens.map((s) => (
@@ -341,20 +334,15 @@ const roles = [
 				<text x="180" y="792" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">システムが持つ</text>
 				</g>
 			</svg>
-			<figcaption id="flow-figure-caption">体験から継続までを生徒ごとに1本で追い、LINEの接点はそのまま。手作業と既読確認で回していた部分をシステムが引き受けます。</figcaption>
+			<figcaption id="flow-figure-caption">体験から入会、受講、継続まで、生徒ごとに記録が続きます。生徒とのやり取りは、これまでどおりLINEです。</figcaption>
 		</figure>
 	</div>
 	<div class="container support-inner">
 		<div>
 			<p class="section-eyebrow">Support</p>
-			<h2>月次報告と確認作業を、画面の中で進められます。</h2>
+			<h2>月末の報告と、要対応の生徒の確認</h2>
 			<p class="support-lead">
-				月末の報告・未対応者の確認・今週の予定確認を、生徒データからそのまま進められます。
-				文章作成だけを目的にせず、次の対応に使える状態で残すことを優先しています。
-			</p>
-			<p class="support-lead">
-				月次の進捗レポートは、生徒ごとのレッスン記録からAIが下書きします。
-				講師が読み直して手を入れ、生徒のLINEへ送ります。送る前に、宛先と本文の確認が出ます。
+				月次の進捗レポートは、AIがレッスン記録から下書きします。講師が確認してから、生徒のLINEに送ります。送る前には、宛先と本文の確認画面が出ます。
 			</p>
 		</div>
 		<div class="support-list">
@@ -375,13 +363,11 @@ const roles = [
 		<div class="pos-body">
 			<p class="pos-lead">なぜ、スクール版をつくったのか。<br />社会に、選択肢を増やす。</p>
 			<div class="pos-copy">
-				<p>顧客管理の仕組みづくりを8年、40社以上の導入を支援してきました。現場で何度も見たのは、入力の負担でシステムが使われなくなる姿です。</p>
-				<p>スクール版のもとになったのは、知人のオンライン英会話スクールの運営です。知人は子育てをしながら生徒約40人を教え、生徒ひとりにつき1つのLINEグループで、課題の確認も予約も手作業で回していました。管理に追われて、新しい生徒の募集を止めていました。</p>
-				<p>LINE公式アカウントとGoogleカレンダーをつなぎ、手作業だった確認と予約を自動にしました。</p>
+				<p>代表の山口聖子は、8年間で40社以上の顧客管理システムの導入を支援してきました。使われなくなる理由の多くは、入力の手間でした。</p>
+				<p>スクール版のもとになったのは、知人のオンライン英会話スクールです。子育てをしながら生徒約40人を教え、生徒ごとのLINEグループで課題の確認と予約を手作業で回していました。管理に追われ、新しい生徒の募集は止めていました。LINE公式アカウントとGoogleカレンダーをつなぎ、確認と予約を自動にしました。</p>
 				<blockquote class="school-voice"><p>「便利になった。新規生徒の獲得を止めていたが、再開できるようになった」</p><cite>オンライン英会話スクールの経営者</cite></blockquote>
 				<p class="proof-note">
-					※「40社以上」は、代表 山口聖子が個人事業時代を含めてCRM / MA / SFAの導入を支援した累計社数です。
-					Revenue CRMスクール版は2026年9月28日に正式提供を始めたばかりのため、導入教室数は公開していません。
+					※「40社以上」は、代表の山口聖子が個人事業の時代も含めて、CRM / MA / SFAの導入を支援した累計の社数です。スクール版は2026年9月28日に正式に提供を始めたばかりなので、導入スクール数はまだ公開していません。
 				</p>
 			</div>
 		</div>
@@ -395,16 +381,11 @@ const roles = [
 			<p class="section-eyebrow">AI</p>
 			<h2>日本語で聞けば、<br />その場で返ってきます。</h2>
 			<p class="ai-lead">
-				知りたいことのために、レポートを組み立てる必要はありません。
-				話すとおりに聞けば、生徒のデータを探して答えます。
-			</p>
-			<p class="ai-lead">
-				体験レッスンの文字起こしを貼れば、知ったきっかけ・レベル・目的・体験で見えた課題を
-				項目に振り分けます。聞いた話を清書し直す時間がなくなります。
-			</p>
-			<p class="ai-lead">
-				AIが書いた文章が、講師の確認なしに保護者や生徒へ送られることはありません。
-			</p>
+					「未入金の生徒は？」と聞くと、AIが生徒のデータを探して答えます。体験レッスンの文字起こしを貼れば、内容をカルテの項目に振り分けます。
+				</p>
+				<p class="ai-lead">
+					AIが書いた文章は、講師が確認するまで生徒や保護者に送られません。
+				</p>
 		</div>
 		<ul class="ai-examples">
 			<li>今日、要対応の生徒は？</li>
@@ -423,7 +404,7 @@ const roles = [
 			<h2 class="ro-title">講師ごとに、必要なものだけ届く。</h2>
 		</div>
 		<p class="ro-lead">
-			生徒の情報は講師みんなで見られます。担当の講師には、その生徒のタスクと課題だけが届きます。金額などを誰に見せるかは、役割ごとに設定で選べます。
+			生徒の情報は講師全員で共有できます。担当講師には、受け持ちの生徒のタスクと課題が届きます。月謝などの金額を見せる範囲は、役割ごとに決められます。
 		</p>
 		<dl class="ro-list">
 			{roles.map((r) => (
@@ -433,7 +414,7 @@ const roles = [
 				</div>
 			))}
 		</dl>
-		<p class="ro-note">操作の記録が残るので、誰がいつ何を変えたかを後から追えます。</p>
+		<p class="ro-note">誰がいつ何を変えたかは、操作の記録で確認できます。</p>
 	</div>
 </section>
 
@@ -453,7 +434,7 @@ const roles = [
 			))}
 		</dl>
 		<p class="safe-note">
-			ログインはメールアドレスかGoogleアカウントで行います。多要素認証とSAML・OIDCによるシングルサインオンは、スクール版では現時点で提供していません。
+			ログインはメールアドレスかGoogleアカウントです。多要素認証と、SAML・OIDCによるシングルサインオンは、スクール版ではまだ提供していません。
 		</p>
 	</div>
 </section>
@@ -486,10 +467,10 @@ const roles = [
 				<p class="price-figure">個別見積</p>
 			</div>
 			<div class="price-note">
-				<p>数えるのは<strong>在籍中の生徒</strong>だけです。体験中・休会中・卒業した生徒・問い合わせ段階の見込み客は、何人いても無料で管理できます。</p>
-				<p>初期費用はありません。30日間の無料トライアル付きで、カード登録なしで始められます。</p>
-				<p>使い方の動画とヘルプは、どなたでも無料です。設定から運用に乗せるまで任せたい場合は、個別の導入支援（12万円〜）もご用意しています。</p>
-				<p>紹介プログラムもあります。ご紹介いただいた教室が有料契約を始めてから12か月間、その教室の基本プランの月額利用料金（税抜）の20%を、紹介した側の利用料金からお引きします。</p>
+				<p>数えるのは在籍中の生徒だけです。体験中・休会中・卒業生・問い合わせ中の見込み客は、何人でも無料で管理できます。</p>
+				<p>初期費用はかかりません。30日間の無料トライアルがあり、カード登録なしで始められます。</p>
+				<p>使い方の動画とヘルプは無料です。設定から運用までを任せたい場合は、導入支援（12万円〜）があります。</p>
+				<p>紹介プログラムでは、紹介したスクールが有料契約を始めてから12か月間、その基本プランの月額利用料金（税抜）の20%を、紹介した側の利用料金から差し引きます。</p>
 			</div>
 		</div>
 		<div class="price-more">
@@ -508,16 +489,15 @@ const roles = [
 			<ul>
 				<li>レッスンの予約も、生徒の課題も、LINEに流れてくる</li>
 				<li>講師が課題を確認したかを、LINEの既読で追っている</li>
-				<li>名簿や月謝を、表計算で毎月数え直している</li>
-				<li>管理ソフトを試したが、入力が続かなかった</li>
+				<li>名簿や月謝を、スプレッドシートで毎月数え直している</li>
+				<li>管理システムを試したが、入力が続かなかった</li>
 			</ul>
 		</div>
 		<div class="fit-box fit-box--subtle">
 			<p class="section-eyebrow">Switching</p>
 			<h2>ほかのシステムからの乗り換えもしやすい設計です。</h2>
 			<p>
-				いまのシステムが使いにくい、入力が続かない。そう感じているなら、乗り換えを歓迎します。
-				いまの管理項目と運用を伺い、スクール版でできることをご案内します。データの移行は件数によって工数が変わるため、別途お見積りします。
+				今の管理項目と運用を伺い、スクール版でできることをご案内します。データの移行は件数によって工数が変わるため、別途お見積りします。
 			</p>
 			<a href="/crm/school/faq/" class="text-link">よくある質問を見る</a>
 		</div>
@@ -531,12 +511,7 @@ const roles = [
 			<p class="section-eyebrow">Background</p>
 			<h2 class="md-title">台湾・花蓮の拠点から生まれました。</h2>
 			<p class="md-lead">
-				構想が形になったのは、台湾・花蓮県が運営する「花蓮雲基地 Hualien Cloud Hub」です。
-				代表の山口聖子が第1期メンバーとして滞在し、各国の起業家やリモートワーカーとの協働から
-				CRMとAIを組み合わせたこのプロダクトの形が固まりました。
-			</p>
-			<p class="md-lead">
-				この経緯は、See News（花蓮視新聞）2026年6月25日の記事で紹介されています。
+				台湾・花蓮県が運営する「花蓮雲基地 Hualien Cloud Hub」に、代表の山口聖子が第1期メンバーとして滞在し、顧客管理とAIを組み合わせたこの製品の形を固めました。See News（花蓮視新聞）2026年6月25日の記事で紹介されています。
 			</p>
 			<a
 				href="https://www.seenews.com.tw/news_data.php?news_id=2325&amp;k_code=A"
@@ -584,8 +559,7 @@ const roles = [
 		<div>
 			<p class="section-eyebrow">Resources</p>
 			<h2 class="rs-title">詳しく見たい方へ。</h2>
-			<p class="md-lead">実際の画面と全機能を、目的に合わせて確認できます。</p>
-		</div>
+					</div>
 		<ul class="resource-list">
 			<li>
 				<a href={DEMO_URL} target="_blank" rel="noopener noreferrer">
@@ -596,13 +570,13 @@ const roles = [
 			<li>
 				<a href="/crm/features/">
 					<strong>機能一覧</strong>
-					<span>CRMコアから権限・運用まで一覧で確認</span>
+					<span>基本の機能から権限・運用まで、まとめて確認</span>
 				</a>
 			</li>
 			<li>
 				<a href="/crm/">
 					<strong>法人向けRevenue CRM</strong>
-					<span>商談を軸にした標準構成を確認</span>
+					<span>商談を軸にした、法人向けの構成</span>
 				</a>
 			</li>
 		</ul>
@@ -616,8 +590,7 @@ const roles = [
 			<p class="cta-eyebrow">30 days free</p>
 			<h2>今の業務に合うかは、<br />実際の画面で確かめてください。</h2>
 			<p class="cta-lead">
-				初期費用はなく、どのプランも30日間の無料トライアル付きで、カード登録なしで始められます。
-				デモはメールアドレスだけで、その場でご覧いただけます。
+				30日間無料・カード登録不要・初期費用なし。デモはメールアドレスだけで見られます。
 			</p>
 			<div class="cta-actions">
 				<a href={SIGNUP_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">無料で始める</a>
@@ -647,15 +620,14 @@ const roles = [
 	.cta-eyebrow {
 		margin: 0;
 		color: var(--color-text-muted);
-		font-size: 0.75rem;
+		font-size: var(--fs-small);
 		font-weight: 600;
 		letter-spacing: 0.12em;
 		line-height: 1.4;
 		text-transform: uppercase;
 	}
 
-	/* uppercase はギリシャ文字も変えるので β が B になる。
-	   ラテン文字だけ大文字にしたいので、日本語まじりの語は除外する。 */
+	/* uppercase はギリシャ文字も変えるので β が B になる。ラテン文字だけ大文字にしたいので、日本語まじりの語は除外する。 */
 	.section-eyebrow .no-upper,
 	.eyebrow .no-upper,
 	.cta-eyebrow .no-upper {
@@ -670,7 +642,7 @@ const roles = [
 	h2 {
 		margin: 0;
 		color: var(--color-text);
-		font-size: 2rem;
+		font-size: var(--fs-h2);
 		font-weight: 500;
 		line-height: 1.4;
 		text-wrap: balance;
@@ -684,7 +656,7 @@ const roles = [
 		padding: 0.8rem 1.35rem;
 		border: 1px solid var(--color-border);
 		border-radius: 4px;
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		font-weight: 600;
 		line-height: 1.25;
 		text-decoration: none;
@@ -729,9 +701,9 @@ const roles = [
 
 	.hero-grid {
 		display: grid;
-		grid-template-columns: minmax(0, 0.8fr) minmax(360px, 1fr);
-		gap: var(--space-xl);
-		align-items: start;
+		grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+		gap: var(--space-lg);
+		align-items: center;
 	}
 
 	.hero-copy {
@@ -753,7 +725,7 @@ const roles = [
 		max-width: 16em;
 		margin: 0;
 		color: var(--color-text);
-		font-size: 2.375rem;
+		font-size: var(--fs-h2);
 		font-weight: 500;
 		line-height: 1.2;
 		letter-spacing: 0;
@@ -761,13 +733,13 @@ const roles = [
 	}
 
 	.school-voice { margin: 1.5rem 0; padding: 1.25rem 1.5rem; background: #fff; border: 1px solid var(--color-border); border-radius: 6px; }
-	.school-voice p { margin: 0; font-size: 1.125rem; font-weight: 700; line-height: 1.7; color: var(--color-navy); }
-	.school-voice cite { display: block; margin-top: 0.5rem; font-size: 0.875rem; font-style: normal; color: var(--color-text-muted); }
+	.school-voice p { margin: 0; font-size: var(--fs-lead); font-weight: 700; line-height: 1.7; color: var(--color-navy); }
+	.school-voice cite { display: block; margin-top: 0.5rem; font-size: var(--fs-small); font-style: normal; color: var(--color-text-muted); }
 	.hero-lead {
 		max-width: 43em;
 		margin: var(--space-md) 0 0;
 		color: var(--color-text);
-		font-size: 1.0625rem;
+		font-size: var(--fs-lead);
 		line-height: 2;
 	}
 
@@ -790,7 +762,7 @@ const roles = [
 		min-width: 0;
 		padding: 0.85rem 1rem;
 		color: var(--color-text-muted);
-		font-size: 0.8125rem;
+		font-size: var(--fs-small);
 		line-height: 1.6;
 	}
 
@@ -825,7 +797,7 @@ const roles = [
 	.prob-shot figcaption {
 		margin-top: 0.65rem;
 		color: var(--color-text-muted);
-		font-size: 0.75rem;
+		font-size: var(--fs-small);
 		line-height: 1.6;
 	}
 
@@ -872,7 +844,7 @@ const roles = [
 	.pos-lead {
 		margin: 0;
 		color: var(--color-text);
-		font-size: 1.375rem;
+		font-size: var(--fs-h3);
 		font-weight: 500;
 		line-height: 1.7;
 		text-wrap: balance;
@@ -881,7 +853,7 @@ const roles = [
 	.pos-copy p {
 		margin: 0 0 1rem;
 		color: var(--color-text-muted);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.9;
 	}
 
@@ -893,7 +865,7 @@ const roles = [
 	.pos-link {
 		display: inline-flex;
 		margin-top: 0.25rem;
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 	}
 
 	.section-head {
@@ -951,7 +923,7 @@ const roles = [
 
 	.issue-label__number {
 		color: rgba(112, 66, 172, 0.24);
-		font-size: 2.45rem;
+		font-size: var(--fs-figure);
 		font-weight: 500;
 		font-variant-numeric: tabular-nums;
 		line-height: 0.82;
@@ -962,7 +934,7 @@ const roles = [
 	.sc-card h3 {
 		margin: 0;
 		color: var(--color-text);
-		font-size: 1rem;
+		font-size: var(--fs-body);
 		font-weight: 600;
 		line-height: 1.55;
 	}
@@ -971,7 +943,7 @@ const roles = [
 	.sc-card p {
 		margin: 0.6rem 0 0;
 		color: var(--color-text-muted);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.85;
 	}
 
@@ -1052,7 +1024,7 @@ const roles = [
 	.cta-lead {
 		margin: 1rem 0 0;
 		color: var(--color-text-muted);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.85;
 	}
 
@@ -1066,7 +1038,7 @@ const roles = [
 		padding: 0.95rem 0;
 		border-bottom: 1px solid var(--color-border);
 		color: var(--color-primary);
-		font-size: 0.8125rem;
+		font-size: var(--fs-small);
 		font-weight: 700;
 		letter-spacing: 0.08em;
 		line-height: 1.5;
@@ -1089,14 +1061,14 @@ const roles = [
 
 	.support-list span {
 		color: var(--color-text-muted);
-		font-size: 0.8125rem;
+		font-size: var(--fs-small);
 		font-weight: 600;
 		line-height: 1.7;
 	}
 
 	.support-list strong {
 		color: var(--color-text);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		font-weight: 600;
 		line-height: 1.7;
 	}
@@ -1112,7 +1084,7 @@ const roles = [
 		padding: 0.9rem 0;
 		border-bottom: 1px solid var(--color-border);
 		color: var(--color-text);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.7;
 	}
 
@@ -1149,7 +1121,7 @@ const roles = [
 
 	.ro-row dt {
 		color: var(--color-text);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		font-weight: 600;
 		line-height: 1.7;
 	}
@@ -1157,14 +1129,14 @@ const roles = [
 	.ro-row dd {
 		margin: 0;
 		color: var(--color-text-muted);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.7;
 	}
 
 	.ro-note {
 		margin: 1.25rem 0 0;
 		color: var(--color-text-muted);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.7;
 	}
 
@@ -1184,7 +1156,7 @@ const roles = [
 		padding: 0.75rem 0;
 		border-bottom: 1px solid var(--color-border);
 		color: var(--color-text);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.75;
 	}
 
@@ -1198,7 +1170,7 @@ const roles = [
 		}
 
 		.hero h1 {
-			font-size: 2.125rem;
+			font-size: var(--fs-h2);
 		}
 
 		.hero-media,
@@ -1251,15 +1223,15 @@ const roles = [
 		}
 
 		h2 {
-			font-size: 1.625rem;
+			font-size: var(--fs-h3);
 		}
 
 		.hero h1 {
-			font-size: 1.75rem;
+			font-size: var(--fs-h2);
 		}
 
 		.hero-lead {
-			font-size: 1rem;
+			font-size: var(--fs-body);
 			line-height: 1.85;
 		}
 
@@ -1290,9 +1262,7 @@ const roles = [
 		}
 	}
 	/* ===================================================================
-	   /crm/ と厚みを揃えるために足したセクション（2026-09-03）。
-	   既存ルールは触らず、ここに閉じて書く。トークンと余白は上の作法に合わせる。
-	   =================================================================== */
+	   /crm/ と厚みを揃えるために足したセクション（2026-09-03）。既存ルールは触らず、ここに閉じて書く。トークンと余白は上の作法に合わせる。=================================================================== */
 
 	.proof,
 	.safeguards,
@@ -1331,7 +1301,7 @@ const roles = [
 	.proof-grid strong {
 		display: block;
 		color: var(--color-text);
-		font-size: 1.5rem;
+		font-size: var(--fs-figure);
 		font-weight: 500;
 		line-height: 1.3;
 	}
@@ -1340,14 +1310,14 @@ const roles = [
 		display: block;
 		margin-top: 0.35rem;
 		color: var(--color-text-muted);
-		font-size: 0.8125rem;
+		font-size: var(--fs-small);
 		line-height: 1.6;
 	}
 
 	.proof-note {
 		margin: var(--space-md) 0 0;
 		color: var(--color-text-muted);
-		font-size: 0.75rem;
+		font-size: var(--fs-small);
 		line-height: 1.7;
 	}
 
@@ -1370,7 +1340,7 @@ const roles = [
 	.safe-row dt {
 		margin: 0;
 		color: var(--color-text);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		font-weight: 700;
 		line-height: 1.6;
 	}
@@ -1378,7 +1348,7 @@ const roles = [
 	.safe-row dd {
 		margin: 0;
 		color: var(--color-text-muted);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.85;
 	}
 
@@ -1386,7 +1356,7 @@ const roles = [
 		max-width: 860px;
 		margin: var(--space-md) 0 0;
 		color: var(--color-text-muted);
-		font-size: 0.875rem;
+		font-size: var(--fs-small);
 		line-height: 1.8;
 	}
 
@@ -1419,7 +1389,7 @@ const roles = [
 	.price-tier {
 		margin: 0;
 		color: var(--color-text-muted);
-		font-size: 0.8125rem;
+		font-size: var(--fs-small);
 		font-weight: 600;
 		letter-spacing: 0.08em;
 	}
@@ -1427,27 +1397,27 @@ const roles = [
 	.price-figure {
 		margin: 0.5rem 0 0;
 		color: var(--color-text);
-		font-size: 2rem;
+		font-size: var(--fs-figure);
 		font-weight: 500;
 		line-height: 1.2;
 	}
 
 	.price-yen {
 		margin-right: 0.1em;
-		font-size: 1.25rem;
+		font-size: var(--fs-h3);
 	}
 
 	.price-unit {
 		margin-left: 0.4em;
 		color: var(--color-text-muted);
-		font-size: 0.8125rem;
+		font-size: var(--fs-small);
 		font-weight: 400;
 	}
 
 	.price-fuel {
 		margin: 0.35rem 0 0;
 		color: var(--color-text-muted);
-		font-size: 0.8125rem;
+		font-size: var(--fs-small);
 	}
 
 	.price-note a {
@@ -1466,7 +1436,7 @@ const roles = [
 	.price-note p {
 		margin: 0 0 0.7rem;
 		color: var(--color-text-muted);
-		font-size: 0.875rem;
+		font-size: var(--fs-small);
 		line-height: 1.85;
 	}
 
@@ -1499,7 +1469,7 @@ const roles = [
 
 	.fit-box h2 {
 		margin-top: 0.6rem;
-		font-size: 1.5rem;
+		font-size: var(--fs-h3);
 	}
 
 	.fit-box ul {
@@ -1511,7 +1481,7 @@ const roles = [
 	.fit-box li {
 		padding: 0.75rem 0;
 		color: var(--color-text-muted);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.8;
 		border-bottom: 1px solid var(--color-border);
 	}
@@ -1519,7 +1489,7 @@ const roles = [
 	.fit-box p {
 		margin: var(--space-md) 0 0;
 		color: var(--color-text-muted);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.85;
 	}
 
@@ -1539,7 +1509,7 @@ const roles = [
 	.md-lead {
 		margin: 1rem 0 0;
 		color: var(--color-text-muted);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.85;
 	}
 
@@ -1547,7 +1517,7 @@ const roles = [
 		display: inline-block;
 		margin-top: var(--space-md);
 		color: var(--color-primary);
-		font-size: 0.875rem;
+		font-size: var(--fs-small);
 		text-decoration: underline;
 		text-underline-offset: 3px;
 	}
@@ -1567,7 +1537,7 @@ const roles = [
 	.press-image figcaption {
 		margin-top: 0.65rem;
 		color: var(--color-text-muted);
-		font-size: 0.75rem;
+		font-size: var(--fs-small);
 		line-height: 1.6;
 	}
 
@@ -1598,7 +1568,7 @@ const roles = [
 	.resource-list strong {
 		display: block;
 		color: var(--color-navy);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		font-weight: 700;
 		line-height: 1.5;
 	}
@@ -1607,7 +1577,7 @@ const roles = [
 		display: block;
 		margin-top: 0.3rem;
 		color: var(--color-text-muted);
-		font-size: 0.875rem;
+		font-size: var(--fs-small);
 		line-height: 1.7;
 	}
 
@@ -1649,7 +1619,7 @@ const roles = [
 		}
 
 		.proof-grid strong {
-			font-size: 1.125rem;
+			font-size: var(--fs-lead);
 		}
 
 		.safe-row {
@@ -1682,5 +1652,11 @@ const roles = [
 
 	.flow-figure { margin: 0 0 var(--space-lg); }
 	.flow-figure svg { display: block; width: 100%; height: auto; }
-	.flow-figure figcaption { margin-top: 0.75rem; font-size: 0.875rem; color: var(--color-text-muted); }
+	.flow-figure figcaption { margin-top: 0.75rem; font-size: var(--fs-small); color: var(--color-text-muted); }
+
+
+	.hero-download { margin: 0.9rem 0 0; font-size: var(--fs-small); }
+	.hero-download a { color: var(--color-primary); text-decoration: underline; text-underline-offset: 3px; }
+	.hero-lead { line-height: 1.85; text-wrap: pretty; }
+	.proof-grid strong { font-size: var(--fs-h3) !important; }
 </style>

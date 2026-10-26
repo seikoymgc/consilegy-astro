@@ -13,19 +13,19 @@ const screens = [
 	{
 		src: 'subscriptions',
 		title: '契約と継続収益',
-		desc: '契約ごとの利益率、稼働中と解約、MRR・ARR・LTVが1画面に出ます。月末に表計算で作り直す必要がありません。',
+		desc: '契約ごとのマージン率、継続中と解約の件数、MRR・ARR・LTVを1つの画面に表示します。月末にスプレッドシートで集計し直す必要はありません。',
 		alt: 'サブスクの画面。MRR ¥765,000・ARR ¥9,180,000・稼働中6件・解約率0.0%・LTV ¥3,060,000のカードが並び、その下にプラン（マージン率つき）・お客様・ステータス・金額・MRRの契約一覧が出ている。',
 	},
 	{
 		src: 'automations',
 		title: '更新・解約リスク監視',
-		desc: '更新日・ヘルス低下・解約予兆・追加提案の候補を早めに知らせます。セット単位でONにできます。',
+		desc: '更新月、健康度の低下、解約の予兆、追加提案の候補を通知します。自動化はセット単位でONにできます。',
 		alt: '自動化ライブラリの画面。「更新・解約リスク監視」のセットが4/7 ONで、ONの自動化29件・今すぐON可能138件・設定待ち8件のカード。ライブラリ全体は175件。',
 	},
 	{
 		src: 'deals',
 		title: '新規も増席も同じ場所で',
-		desc: '新規導入と増席・追加ライセンスを同じパイプラインで扱います。ステージごとに金額と件数が出ます。',
+		desc: '新規導入と、増席・追加ライセンスの商談を同じパイプラインで管理できます。ステージごとの金額と件数も確認できます。',
 		alt: '商談のカンバン画面。アプローチ・ヒアリング・提案・見積のステージに、トウカイ精機 GuardX 新規導入 ¥1,140,000・ヒカリ食品 DataLens 新規導入 ¥1,680,000・マルヰ商事 WorkCloud 増席（+10席）¥320,000のカードが確度とクローズ予定日つきで並ぶ。',
 	},
 ];
@@ -34,15 +34,15 @@ const screens = [
 const problems = [
 	{
 		title: '顧客ごとの契約内容が、ばらばら',
-		text: '契約の中身、数量、更新時期が、契約書とスプレッドシートに分かれている。',
+		text: '顧客ごとの契約プラン、ライセンス数、更新月が、契約書とスプレッドシートに分かれている。',
 	},
 	{
 		title: '更新月が直前に分かる',
-		text: '更新の話を切り出すのが1か月前になる。条件を詰める時間が残っていない。',
+		text: '更新月の1か月前に気づき、席数や条件を相談する時間が残っていない。',
 	},
 	{
 		title: '継続売上を数える場所がない',
-		text: '複数のサービスを売っていると、今いくら積み上がっているかを毎月あらためて集計し直している。',
+		text: '複数のSaaSを扱っていて、継続売上とマージンの合計を毎月手で集計し直している。',
 	},
 ];
 
@@ -54,11 +54,11 @@ const problems = [
 // text は src/lib/revops/outcomes.ts の日本語をそのまま使う。label は表示用で、
 // 内部キーは出さない。
 const renewalEngine = [
-	{ label: '更新日', text: '契約更新日を自動で管理してリマインド' },
-	{ label: '90日前', text: '更新90日前に、アプローチを自動で開始' },
-	{ label: 'リスク', text: '更新できなそうな顧客を自動で判定' },
-	{ label: '更新商談', text: '更新の時期が来たら、更新商談を自動で作成' },
-	{ label: '解約予兆', text: '解約の予兆を自動で検知' },
+	{ label: '更新日', text: '契約の更新日を管理し、近づいたら通知' },
+	{ label: '90日前', text: '更新の90日前に、更新アプローチを開始' },
+	{ label: 'リスク', text: '更新されない可能性が高い顧客を判定' },
+	{ label: '更新商談', text: '更新の時期が来たら、更新の商談を作成' },
+	{ label: '解約予兆', text: '解約の予兆を検知して通知' },
 ];
 
 const roles = [
@@ -92,21 +92,15 @@ const roles = [
 	<div class="container hero-grid">
 		<div class="hero-copy">
 			<p class="eyebrow">Revenue CRM · Reseller edition</p>
-			<h1>次の更新が、<br />いつも先に見えている。</h1>
+			<h1>次の更新が、<br /><span class="nw">いつも先に</span><span class="nw">見えている。</span></h1>
 			<p class="hero-lead">
-				販売した契約はスプレッドシート。更新月は担当者の記憶。マージンは別表。
-				代理店版は、<strong>契約・更新・継続収益を1か所で見て、更新の90日前から自動で動く</strong>構成です。
+				SaaSの販売代理店・リセラー向けの顧客管理システムです。顧客ごとの契約・ライセンス数・更新月・マージンを1つの画面で管理でき、更新の90日前から更新アプローチを自動で始めます。
 			</p>
 			<div class="hero-actions">
 				<a href={DEMO_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">デモを見る</a>
 				<a href={SIGNUP_URL} class="btn btn--secondary" target="_blank" rel="noopener noreferrer">無料で始める</a>
 			</div>
-			<p class="hero-download"><a href="/crm/download/" class="btn btn--secondary">資料をダウンロード</a></p>
-			<ul class="hero-points" aria-label="代理店版の特徴">
-				<li>契約・更新・マージンを一元管理</li>
-				<li>更新90日前から自動で追跡</li>
-				<li>30日間無料で試せる</li>
-			</ul>
+			<p class="hero-download"><a href="/crm/download/">資料をダウンロード</a></p>
 		</div>
 		<figure class="hero-media">
 			<img
@@ -126,22 +120,18 @@ const roles = [
 	<div class="container">
 		<div class="pos-body">
 			<p class="pos-lead">
-				追いかけるのは「今月いくら売ったか」ではなく、<br />
-				「来月も残っているか」です。
+				代理店の売上は、<br />
+				契約の更新で積み上がります。
 			</p>
 			<div class="pos-copy">
 				<p>
-					だから中心に置いたのは<strong>契約</strong>です。商談は受注した時点で終わりますが、
-					代理店の売上はそこから始まります。契約が生きているか、いつ更新か、いくらのマージンか。
-					その3つを契約の画面で見られます。
+					代理店版の中心は契約です。契約の画面で、契約が継続中か、更新月はいつか、マージンはいくらかを確認できます。
 				</p>
 				<p>
-					新規導入も増席・追加ライセンスも、同じパイプラインで扱います。
-					既存顧客からの追加が売上の大半を占める事業では、この2つを分けて管理する意味がありません。
+					新規導入と、増席・追加ライセンスの商談は、同じパイプラインで管理します。既存顧客への追加販売も、新規と同じ一覧で進み具合を確認できます。
 				</p>
 				<p>
-					複数の商材を扱う場合、商材ごとにマージン率が違います。
-					契約ごとに仕入れを入れておけば、売上ではなく<strong>手元に残る額</strong>が契約ごとに出ます。
+					扱うSaaSごとに、マージン率は異なります。契約ごとに仕入れ額を登録すると、契約ごとのマージン額を確認できます。
 				</p>
 				<a href="/revenue-architecture/" class="pos-link">この考え方について読む →</a>
 			</div>
@@ -175,7 +165,7 @@ const roles = [
 	<div class="container">
 		<div class="section-head">
 			<p class="section-eyebrow">The screens</p>
-			<h2 class="sc-title">契約を軸に、日々見る画面を揃えています。</h2>
+			<h2 class="sc-title">毎日開くのは、この3つの画面です。</h2>
 		</div>
 		<div class="sc-grid">
 			{screens.map((s) => (
@@ -257,22 +247,18 @@ const roles = [
 				<text x="180" y="702" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">1日1回の自動処理が走る</text>
 				</g>
 			</svg>
-			<figcaption id="flow-figure-caption">契約を軸に、利用中の解約予兆、90日前のアプローチ、更新商談、クロスセルまでを1本で追います。</figcaption>
+			<figcaption id="flow-figure-caption">契約を起点に、利用中の解約の予兆、更新90日前のアプローチ、更新の商談、クロスセルまでを1つの流れで管理します。</figcaption>
 		</figure>
 	</div>
 	<div class="container support-inner">
 		<div>
 			<p class="section-eyebrow">Renewal engine</p>
-			<h2>更新の準備を、人の記憶から外します。</h2>
+			<h2>更新のアプローチと商談を、自動で作成します。</h2>
 			<p class="support-lead">
-				代理店版を作ると、更新まわりの自動化が最初からONになっています。
-				更新日の管理・90日前のアプローチ開始・更新商談の作成・解約予兆の検知まで、
-				1日1回の処理として走ります。
-				契約に顧客を選んでおけば、更新リスクの判定と更新商談の作成まで動きます。
+				代理店版では、更新まわりの自動化がONの状態で使い始められます。更新日の管理、90日前のアプローチ、更新の商談の作成、解約の予兆の検知を、1日1回実行します。更新リスクの判定と更新の商談の作成は、契約に顧客をひも付けると動きます。
 			</p>
 			<p class="support-lead">
-				自動化が作るのはタスク・通知・下書きと、更新商談です。顧客へのメールは、送る相手と文面を自分で決めてONにした自動化だけが送ります。
-				担当者が中身を見て、直してから動かします。
+				自動化が作るのは、タスク・通知・下書きと、更新の商談です。顧客へのメールは、送る相手と文面を担当者が決めてONにした自動化だけが送ります。
 			</p>
 		</div>
 		<div class="support-list">
@@ -293,16 +279,13 @@ const roles = [
 			<p class="section-eyebrow">AI</p>
 			<h2>日本語で聞けば、<br />その場で返ってきます。</h2>
 			<p class="ai-lead">
-				知りたいことのために、レポートを組み立てる必要はありません。
-				話すとおりに聞けば、契約・顧客・商談と、添付した資料を探して答えます。
+				AIに質問すると、契約・顧客・商談の記録と、添付した資料から探して答えます。レポートを作る必要はありません。
 			</p>
 			<p class="ai-lead">
-				更新の近い契約、利益率の低い契約、解約リスクの高い顧客。
-				どれも集計を作らずに、その場で確認できます。
+				更新月が近い契約や、マージン率の低い契約も、質問するだけで確認できます。
 			</p>
 			<p class="ai-lead">
-				頼めば、コンタクトやタスクの登録もします。
-				AIが顧客にメールを送ることはありません。
+				コンタクトやタスクの登録もAIに頼めます。AIが顧客へメールを送ることはありません。
 			</p>
 		</div>
 		<ul class="ai-examples">
@@ -324,9 +307,7 @@ const roles = [
 			<h2 class="ro-title">担当顧客の外は、見えないようにできます。</h2>
 		</div>
 		<p class="ro-lead">
-			顧客・会社・商談のそれぞれについて、見える範囲を「全体・チーム・自分」から選べます。
-			エクスポートの可否も別に設定できるので、顧客リストの持ち出しを閲覧と切り離して止められます。
-			下は設定例です。
+			顧客・会社・商談ごとに、見える範囲を「全体・チーム・自分」から選べます。エクスポートの可否は別に設定できるので、閲覧だけを許可することもできます。下の表は設定の一例です。
 		</p>
 		<dl class="ro-list">
 			{roles.map((r) => (
@@ -336,7 +317,7 @@ const roles = [
 				</div>
 			))}
 		</dl>
-		<p class="ro-note">契約の一覧は、範囲の設定によらず全員に見えます。顧客・会社・商談は変更履歴が残るので、誰がいつ何を変更したかを後から追えます。</p>
+		<p class="ro-note">契約の一覧は、範囲の設定に関係なく全員に見えます。顧客・会社・商談の変更履歴が残るので、誰がいつ何を変更したかを確認できます。</p>
 	</div>
 </section>
 
@@ -347,8 +328,7 @@ const roles = [
 			<p class="cta-eyebrow">30 days free</p>
 			<h2>今の業務に合うかは、<br />実際の画面で確かめてください。</h2>
 			<p class="cta-lead">
-				初期費用はなく、どのプランも30日間の無料トライアル付きで、カード登録なしで始められます。
-				デモはメールアドレスだけで、その場でご覧いただけます。
+				30日間無料・カード登録不要・初期費用なしで始められます。デモはメールアドレスを入力すると、すぐに開けます。
 			</p>
 			<div class="cta-actions">
 				<a href={SIGNUP_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">無料で始める</a>
@@ -377,15 +357,14 @@ const roles = [
 	.cta-eyebrow {
 		margin: 0;
 		color: var(--color-text-muted);
-		font-size: 0.75rem;
+		font-size: var(--fs-small);
 		font-weight: 600;
 		letter-spacing: 0.12em;
 		line-height: 1.4;
 		text-transform: uppercase;
 	}
 
-	/* uppercase はギリシャ文字も変えるので β が B になる。
-	   ラテン文字だけ大文字にしたいので、日本語まじりの語は除外する。 */
+	/* uppercase はギリシャ文字も変えるので β が B になる。ラテン文字だけ大文字にしたいので、日本語まじりの語は除外する。 */
 	.section-eyebrow .no-upper,
 	.eyebrow .no-upper,
 	.cta-eyebrow .no-upper {
@@ -400,7 +379,7 @@ const roles = [
 	h2 {
 		margin: 0;
 		color: var(--color-text);
-		font-size: 2rem;
+		font-size: var(--fs-h2);
 		font-weight: 500;
 		line-height: 1.4;
 		text-wrap: balance;
@@ -414,7 +393,7 @@ const roles = [
 		padding: 0.8rem 1.35rem;
 		border: 1px solid var(--color-border);
 		border-radius: 4px;
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		font-weight: 600;
 		line-height: 1.25;
 		text-decoration: none;
@@ -459,9 +438,9 @@ const roles = [
 
 	.hero-grid {
 		display: grid;
-		grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.78fr);
-		gap: var(--space-xl);
-		align-items: start;
+		grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+		gap: var(--space-lg);
+		align-items: center;
 	}
 
 	.hero-copy {
@@ -479,7 +458,7 @@ const roles = [
 		max-width: 13em;
 		margin: 0;
 		color: var(--color-text);
-		font-size: 3.125rem;
+		font-size: var(--fs-h1);
 		font-weight: 500;
 		line-height: 1.2;
 		letter-spacing: 0;
@@ -490,7 +469,7 @@ const roles = [
 		max-width: 43em;
 		margin: var(--space-md) 0 0;
 		color: var(--color-text);
-		font-size: 1.0625rem;
+		font-size: var(--fs-lead);
 		line-height: 2;
 	}
 
@@ -513,7 +492,7 @@ const roles = [
 		min-width: 0;
 		padding: 0.85rem 1rem;
 		color: var(--color-text-muted);
-		font-size: 0.8125rem;
+		font-size: var(--fs-small);
 		line-height: 1.6;
 	}
 
@@ -548,7 +527,7 @@ const roles = [
 	.prob-shot figcaption {
 		margin-top: 0.65rem;
 		color: var(--color-text-muted);
-		font-size: 0.75rem;
+		font-size: var(--fs-small);
 		line-height: 1.6;
 	}
 
@@ -595,7 +574,7 @@ const roles = [
 	.pos-lead {
 		margin: 0;
 		color: var(--color-text);
-		font-size: 1.375rem;
+		font-size: var(--fs-h3);
 		font-weight: 500;
 		line-height: 1.7;
 		text-wrap: balance;
@@ -604,7 +583,7 @@ const roles = [
 	.pos-copy p {
 		margin: 0 0 1rem;
 		color: var(--color-text-muted);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.9;
 	}
 
@@ -616,7 +595,7 @@ const roles = [
 	.pos-link {
 		display: inline-flex;
 		margin-top: 0.25rem;
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 	}
 
 	.section-head {
@@ -674,7 +653,7 @@ const roles = [
 
 	.issue-label__number {
 		color: rgba(112, 66, 172, 0.24);
-		font-size: 2.45rem;
+		font-size: var(--fs-figure);
 		font-weight: 500;
 		font-variant-numeric: tabular-nums;
 		line-height: 0.82;
@@ -685,7 +664,7 @@ const roles = [
 	.sc-card h3 {
 		margin: 0;
 		color: var(--color-text);
-		font-size: 1rem;
+		font-size: var(--fs-body);
 		font-weight: 600;
 		line-height: 1.55;
 	}
@@ -694,7 +673,7 @@ const roles = [
 	.sc-card p {
 		margin: 0.6rem 0 0;
 		color: var(--color-text-muted);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.85;
 	}
 
@@ -777,7 +756,7 @@ const roles = [
 	.cta-lead {
 		margin: 1rem 0 0;
 		color: var(--color-text-muted);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.85;
 	}
 
@@ -791,7 +770,7 @@ const roles = [
 		padding: 0.95rem 0;
 		border-bottom: 1px solid var(--color-border);
 		color: var(--color-primary);
-		font-size: 0.8125rem;
+		font-size: var(--fs-small);
 		font-weight: 700;
 		letter-spacing: 0.08em;
 		line-height: 1.5;
@@ -814,14 +793,14 @@ const roles = [
 
 	.support-list span {
 		color: var(--color-text-muted);
-		font-size: 0.8125rem;
+		font-size: var(--fs-small);
 		font-weight: 600;
 		line-height: 1.7;
 	}
 
 	.support-list strong {
 		color: var(--color-text);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		font-weight: 600;
 		line-height: 1.7;
 	}
@@ -837,7 +816,7 @@ const roles = [
 		padding: 0.9rem 0;
 		border-bottom: 1px solid var(--color-border);
 		color: var(--color-text);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.7;
 	}
 
@@ -874,7 +853,7 @@ const roles = [
 
 	.ro-row dt {
 		color: var(--color-text);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		font-weight: 600;
 		line-height: 1.7;
 	}
@@ -882,14 +861,14 @@ const roles = [
 	.ro-row dd {
 		margin: 0;
 		color: var(--color-text-muted);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.7;
 	}
 
 	.ro-note {
 		margin: 1.25rem 0 0;
 		color: var(--color-text-muted);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.7;
 	}
 
@@ -909,7 +888,7 @@ const roles = [
 		padding: 0.75rem 0;
 		border-bottom: 1px solid var(--color-border);
 		color: var(--color-text);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.75;
 	}
 
@@ -923,7 +902,7 @@ const roles = [
 		}
 
 		.hero h1 {
-			font-size: 2.75rem;
+			font-size: var(--fs-h1);
 		}
 
 		.hero-media,
@@ -976,15 +955,15 @@ const roles = [
 		}
 
 		h2 {
-			font-size: 1.625rem;
+			font-size: var(--fs-h3);
 		}
 
 		.hero h1 {
-			font-size: clamp(1.5rem, 7.5vw, 2.25rem);
+			font-size: var(--fs-h2);
 		}
 
 		.hero-lead {
-			font-size: 1rem;
+			font-size: var(--fs-body);
 			line-height: 1.85;
 		}
 
@@ -1017,5 +996,15 @@ const roles = [
 
 	.flow-figure { margin: 0 0 var(--space-lg); }
 	.flow-figure svg { display: block; width: 100%; height: auto; }
-	.flow-figure figcaption { margin-top: 0.75rem; font-size: 0.875rem; color: var(--color-text-muted); }
+	.flow-figure figcaption { margin-top: 0.75rem; font-size: var(--fs-small); color: var(--color-text-muted); }
+
+
+	.sc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 1.5rem; border-top: 0; }
+	.sc-card, .sc-card:nth-child(n) { padding-left: 1.6rem; border-left: 1px solid var(--color-border); }
+	@media (max-width: 760px) { .sc-grid { grid-template-columns: 1fr !important; } }
+
+	.hero-download { margin: 0.9rem 0 0; font-size: var(--fs-small); }
+	.hero-download a { color: var(--color-primary); text-decoration: underline; text-underline-offset: 3px; }
+	.hero-lead { line-height: 1.85; text-wrap: pretty; }
+	.nw { display: inline-block; }
 </style>

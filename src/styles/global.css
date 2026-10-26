@@ -1,4 +1,12 @@
 :root {
+	/* 文字の大きさは6段階＋大きい数字だけ（2026-10-26 代表決定）。LPのCSSはこの変数だけを使う */
+	--fs-h1: 3rem;
+	--fs-h2: 2rem;
+	--fs-h3: 1.25rem;
+	--fs-lead: 1.125rem;
+	--fs-body: 1rem;
+	--fs-small: 0.875rem;
+	--fs-figure: 2.5rem;
 	/* Accent — one color, the brand purple (logo). 2026-10-19: blue → purple so links, buttons and emphasis share the CTA color */
 	--color-primary: #7042ac;
 	--color-primary-dark: #5c3690;
@@ -579,4 +587,9 @@ svg.fig-sp { display: none !important; }
 	figure:has(> svg[viewBox]):not(:has(> svg.fig-sp)) > svg { min-width: 1120px; }
 	figure:has(> svg[viewBox]):not(:has(> svg.fig-sp)) > figcaption::after { content: "（図は横にスクロールできます）"; color: var(--color-text-muted); }
 	:root[lang="en"] figure:has(> svg[viewBox]):not(:has(> svg.fig-sp)) > figcaption::after { content: " (Scroll sideways to see the full diagram.)"; }
+}
+
+/* 文字の6段階：スマホでは見出しだけ下げる */
+@media (max-width: 760px) {
+	:root { --fs-h1: 2rem; --fs-h2: 1.5rem; --fs-h3: 1.125rem; --fs-lead: 1rem; --fs-figure: 2rem; }
 }

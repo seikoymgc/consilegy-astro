@@ -13,25 +13,25 @@ const screens = [
 	{
 		src: '/images/crm/screen-dashboard-2026-10c.webp', w: 2000, h: 1250,
 		title: 'ダッシュボード',
-		desc: 'パイプライン、売上予測、受注率を1画面に。前回から何が動いたかを、AIが文章で先に伝えます。',
+		desc: 'パイプライン、売上予測、受注率を1画面で確かめられます。前回から変わった点は、AIが文章でまとめます。',
 		alt: 'ダッシュボードの画面。進行中パイプライン・加重フォーキャスト・今月の受注・勝率のカードと、ステージ別の金額、担当者別の商談一覧が並ぶ。',
 	},
 	{
 		src: '/images/crm/media/screens/business-cards-stay-in-the-drawer-2-2026-10.webp', w: 1456, h: 430,
 		title: '名刺の読み取り',
-		desc: '名刺をカメラで撮るか画像を選ぶと、読み取った内容が連絡先の下書きになります。確かめてから登録します。',
+		desc: '名刺を撮るか画像を選ぶと、読み取った内容が連絡先の下書きになります。担当者が確かめてから登録します。',
 		alt: '名刺を読み取る画面。どこで会ったかの入力欄と、カメラで撮る・画像を選ぶのボタン。',
 	},
 	{
 		src: '/images/crm/media/screens/waiting-on-the-customer-for-three-months-1-2026-10.webp', w: 1456, h: 822,
 		title: '商談',
-		desc: 'ステージ、金額、クローズ予定日と、その商談のやり取りを同じ画面に。止まっている商談は知らせが届きます。',
+		desc: 'ステージ、金額、クローズ予定日、これまでのやり取りを同じ画面で確かめられます。止まっている商談は通知でお知らせします。',
 		alt: '商談詳細の画面。アプローチから受注までのステージ表示、金額とクローズ予定日、アクティビティの履歴が並ぶ。',
 	},
 	{
 		src: '/images/crm/media/screens/which-automations-to-turn-on-first-1-2026-10.webp', w: 1456, h: 822,
 		title: '自動化ライブラリ',
-		desc: 'マーケティング、営業、カスタマーサクセスの自動化を、必要なものだけONにします。自分で組む必要はありません。',
+		desc: 'マーケティング、営業、カスタマーサクセスの自動化から、必要なものを選んでONにできます。',
 		alt: '自動化ライブラリの画面。商談の抜け漏れ防止・更新リスク管理・メールフォロー自動化などのセットと、ONにできる自動化の件数。',
 	},
 ];
@@ -39,27 +39,27 @@ const screens = [
 // 4つの痛み（2026-10-26 代表の整理）
 const problems = [
 	{ title: '交換した名刺が、机に貯まっている。', text: '登録はあとでまとめて。その「あとで」が来ないまま、誰と会ったかが分からなくなる。', href: '/crm/media/b2b/business-cards-stay-in-the-drawer/' },
-	{ title: '見込み客はいる。でも、誰から声をかければいい？', text: 'どの見込み客に声をかけるか、どの商談を先に進めるか。判断の材料が手元にない。' },
-	{ title: '操作を覚えきれず、結局スプレッドシートに戻る。', text: 'メニューも項目も多く、使い方を覚える前に元のやり方に戻ってしまう。' },
-	{ title: 'うまくいった提案が、担当者の頭の中にしかない。', text: '顧客とのやり取りも、決まった提案の中身も、ほかのメンバーが見られない。' },
+	{ title: '見込み客はいる。でも、誰から声をかければいい？', text: 'どの見込み客に連絡するか。どの商談を先に進めるか。決めたいのに、判断する材料が手元にない。' },
+	{ title: '操作を覚えきれず、結局スプレッドシートに戻る。', text: 'メニューも項目も多すぎて、覚える前に元のやり方に戻ってしまう。' },
+	{ title: 'うまくいった提案が、担当者の頭の中にしかない。', text: '顧客とのやり取りも、決まった提案の中身も、ほかのメンバーからは見えない。' },
 ];
 
 const values = [
 	{
-		title: '記録は、AIに任せる',
-		text: '名刺は撮るだけ。手書きのメモやホワイトボードも読み取ります。会議の文字起こしやチャットを取り込めば、AIが顧客ごとに整理して残します。',
+		title: '名刺や会議の記録を、AIが下書き',
+		text: '名刺は撮るだけで登録できます。手書きのメモやホワイトボード、会議の文字起こし、チャットを貼り付けると、AIが顧客ごとの記録にまとめます。チャットツールとの自動同期は有料オプションです。',
 	},
 	{
-		title: '次の一手が、見える',
-		text: 'マーケティングでは、見込み客をスコアで格付けし、開封やクリックの反応から声をかける相手が分かります。見込み客が商談の候補になった時点で、AIが次の一手と最初のメッセージ案を用意します。営業では、止まっている商談を知らせます。',
+		title: '声をかける相手と止まった商談が分かる',
+		text: '見込み客にはスコアが付き、メールの開封やクリックから声をかける相手が分かります。商談の候補になると、AIが次の一手と最初のメッセージ案を用意します。営業には、止まっている商談を通知します。',
 	},
 	{
-		title: '話しかけて、操作する',
-		text: '検索も集計も、連絡先やタスクの登録も、ふだんの言葉で頼めます。項目名やメニューの場所を覚えなくて大丈夫です。',
+		title: 'ふだんの言葉で話しかけて操作できる',
+		text: '検索や集計、連絡先やタスクの登録を、AIエージェントに文章で頼めます。項目名やメニューの場所を覚える必要はありません。',
 	},
 	{
-		title: '知識を、チームのものに',
-		text: '顧客情報と活動の履歴は、チームで同じものを見られます。社内のマニュアルや提案のノウハウは社内Wikiに置き、AIに質問したときの根拠にも使います。',
+		title: '提案のコツをチームで共有できる',
+		text: '顧客情報と活動の履歴は、チーム全員が同じものを見られます。社内のマニュアルや提案のコツは社内Wikiに置き、AIが答えるときの根拠にも使います。',
 	},
 ];
 
@@ -108,19 +108,13 @@ const roles = [
 			<p class="eyebrow">Revenue CRM · Standard edition</p>
 			<h1><span class="nw">記録で終わらない</span><span class="nw">顧客管理。</span><br /><span class="nw">マーケティングから</span><span class="nw">営業まで、</span><br /><span class="nw">次の一手をAIと。</span></h1>
 			<p class="hero-lead">
-				<strong>声をかけるべき見込み客も、止まっている商談も、システムが見つけて知らせます。</strong>
-				名刺や会議の内容はAIが記録。スタートアップ・中小企業のための顧客管理システムです。
+				声をかけるべき見込み客も、止まっている商談も、システムが見つけて知らせます。名刺や会議の記録はAIが下書きします。スタートアップ・中小企業向けの顧客管理システムです。
 			</p>
 			<div class="hero-actions">
 				<a href={SIGNUP_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">無料で始める</a>
 				<a href={DEMO_URL} class="btn btn--secondary" target="_blank" rel="noopener noreferrer">デモを見る</a>
 			</div>
-			<p class="hero-download"><a href="/crm/download/" class="btn btn--secondary">資料をダウンロード</a></p>
-			<ul class="hero-points" aria-label="標準版の特徴">
-				<li>マーケティングと営業が同じデータ</li>
-				<li>日本語・英語・繁體中文の画面</li>
-				<li>30日間無料で試せる</li>
-			</ul>
+			<p class="hero-download"><a href="/crm/download/">資料をダウンロード</a></p>
 		</div>
 		<figure class="hero-media">
 			<img
@@ -130,7 +124,7 @@ const roles = [
 				height="822"
 				decoding="async"
 			/>
-			<figcaption>ホーム：開けば、今日やることが並んでいる</figcaption>
+			<figcaption>ホーム画面：その日にやることが一覧で表示されます</figcaption>
 		</figure>
 	</div>
 </section>
@@ -140,17 +134,15 @@ const roles = [
 	<div class="container">
 		<div class="pos-body">
 			<p class="pos-lead">
-				顧客管理は、入れて終わりではなく、<br />
-				次に動くための仕組みです。
+				入力の手間を減らし、<br />
+				<span class="nw">次にやることが分かる</span><span class="nw">顧客管理システムです。</span>
 			</p>
 			<div class="pos-copy">
 				<p>
-					顧客管理システムが使われなくなる理由は、たいてい<strong>入力の負担</strong>と、<strong>入れたあとに何も返ってこない</strong>ことです。
-					標準版は、記録をAIに任せ、入った情報から次にやることを示すことを中心に置きました。
+					顧客管理システムが使われなくなる理由は、主に2つあります。入力に手間がかかることと、入力しても次にやることが分からないことです。標準版では、記録をAIが下書きし、入った情報をもとに次にやることを表示します。
 				</p>
 				<p>
-					マーケティングと営業は、同じ連絡先と同じ履歴の上で動きます。
-					フォームから入った見込み客が商談になり、受注するまでを1本の流れで追えるので、<strong>どの施策が商談につながったか</strong>も同じ画面で確かめられます。
+					マーケティングと営業は、同じ連絡先と履歴を使います。フォームから入った見込み客が商談になり、受注するまでを1つの流れで追えるので、どの施策が商談につながったかも同じ画面で確かめられます。
 				</p>
 				<a href="/revenue-architecture/" class="pos-link">この考え方について読む →</a>
 			</div>
@@ -163,7 +155,7 @@ const roles = [
 	<div class="container">
 		<div class="section-head">
 			<p class="section-eyebrow">Common Problems</p>
-			<h2 class="prob-title">顧客情報はあるのに、次の行動につながっていない。</h2>
+			<h2 class="prob-title">こんなことはありませんか？</h2>
 		</div>
 		<div class="prob-grid prob-grid--4">
 			{problems.map((item, index) => (
@@ -258,7 +250,7 @@ const roles = [
 				<text x="180" y="690" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">連絡先と記録の上で動く</text>
 				</g>
 			</svg>
-			<figcaption id="flow-figure-caption">名刺を撮ってから商談をチームで共有するまで、記録はAIに、次の一手の候補はシステムに任せます。マーケティングが育てた見込み客を、営業がそのまま引き継げます。</figcaption>
+			<figcaption id="flow-figure-caption">名刺の撮影から、商談をチームで共有するまでの流れです。記録はAIが下書きし、次の一手の候補はシステムが表示します。マーケティングが育てた見込み客は、そのまま営業へ引き継げます。</figcaption>
 		</figure>
 	</div>
 	<div class="container support-inner">
@@ -286,7 +278,7 @@ const roles = [
 	<div class="container">
 		<div class="section-head">
 			<p class="section-eyebrow">The screens</p>
-			<h2 class="sc-title">日々見る画面は、これだけです。</h2>
+			<h2 class="sc-title">よく使う4つの画面</h2>
 		</div>
 		<div class="sc-grid">
 			{screens.map((s) => (
@@ -312,8 +304,7 @@ const roles = [
 			<h2 class="prob-title">言語も商習慣も違うメンバーが、同じ顧客情報で働ける。</h2>
 		</div>
 		<p class="intl-lead">
-			画面は日本語・English・繁體中文を、使う人ごとに切り替えられます。データは同じものなので、使う言語が違うメンバーも、同じ顧客情報と商談の状況を見て動けます。
-			AIの要約や提案も、見る人の言語で表示されます。稟議待ちの商談も、決まったのに計上は来期の商談も、そのまま扱えます。
+			画面は日本語・English・繁體中文から、使う人ごとに選べます。データは共通なので、言語が違うメンバーも同じ顧客情報と商談の状況を確かめられます。AIの要約や提案も、見る人の言語で表示されます。稟議待ちの商談や、受注後に来期計上になる商談もそのまま管理できます。
 		</p>
 		<div class="intl-grid">
 			<figure>
@@ -335,12 +326,10 @@ const roles = [
 			<p class="section-eyebrow">AI</p>
 			<h2>使い慣れた言語で聞けば、<br />その場で返ってきます。</h2>
 			<p class="ai-lead">
-				知りたいことのために、集計を組み立てる必要はありません。
-				日本語でも、英語でも、中国語でも。話すとおりに聞けば、顧客・商談・活動の記録と、添付した資料を探して答えます。
+				集計表を作らなくても、知りたいことをAIエージェントに聞けます。日本語・英語・中国語のどれでも、顧客・商談・活動の記録と添付した資料から探して答えます。
 			</p>
 			<p class="ai-lead">
-				頼めば、連絡先やタスクの登録もします。
-				AIが提案できる行動の種類はあらかじめ決めてあり、提案には必ず理由が付きます。
+				頼めば、AIエージェントが連絡先やタスクを登録します。AIが提案できる行動の種類はあらかじめ決めてあり、提案には必ず理由を表示します。
 			</p>
 		</div>
 		<ul class="ai-examples">
@@ -363,8 +352,7 @@ const roles = [
 			<h2 class="ro-title">見せる範囲は、役割ごとに決められます。</h2>
 		</div>
 		<p class="ro-lead">
-			顧客・会社・商談のそれぞれについて、見える範囲を「全体・チーム・自分」から選べます。エクスポートの可否は別に設定できます。
-			下は設定例です。
+			顧客・会社・商談のそれぞれについて、見える範囲を「全体・チーム・自分」から選べます。エクスポートの可否は別に設定できます。設定例は次のとおりです。
 		</p>
 		<dl class="ro-list">
 			{roles.map((r) => (
@@ -385,8 +373,7 @@ const roles = [
 			<p class="cta-eyebrow">30 days free</p>
 			<h2>今の業務に合うかは、<br />実際の画面で確かめてください。</h2>
 			<p class="cta-lead">
-				初期費用はなく、どのプランも30日間の無料トライアル付きで、カード登録なしで始められます。
-				デモはメールアドレスだけで、その場でご覧いただけます。
+				初期費用はかかりません。どのプランも30日間無料で、カードの登録は不要です。デモはメールアドレスを入れると、すぐに開けます。
 			</p>
 			<div class="cta-actions">
 				<a href={SIGNUP_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">無料で始める</a>
@@ -416,15 +403,14 @@ const roles = [
 	.cta-eyebrow {
 		margin: 0;
 		color: var(--color-text-muted);
-		font-size: 0.75rem;
+		font-size: var(--fs-small);
 		font-weight: 600;
 		letter-spacing: 0.12em;
 		line-height: 1.4;
 		text-transform: uppercase;
 	}
 
-	/* uppercase はギリシャ文字も変えるので β が B になる。
-	   ラテン文字だけ大文字にしたいので、日本語まじりの語は除外する。 */
+	/* uppercase はギリシャ文字も変えるので β が B になる。ラテン文字だけ大文字にしたいので、日本語まじりの語は除外する。 */
 	.section-eyebrow .no-upper,
 	.eyebrow .no-upper,
 	.cta-eyebrow .no-upper {
@@ -439,7 +425,7 @@ const roles = [
 	h2 {
 		margin: 0;
 		color: var(--color-text);
-		font-size: 2rem;
+		font-size: var(--fs-h2);
 		font-weight: 500;
 		line-height: 1.4;
 		text-wrap: balance;
@@ -453,7 +439,7 @@ const roles = [
 		padding: 0.8rem 1.35rem;
 		border: 1px solid var(--color-border);
 		border-radius: 4px;
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		font-weight: 600;
 		line-height: 1.25;
 		text-decoration: none;
@@ -498,9 +484,9 @@ const roles = [
 
 	.hero-grid {
 		display: grid;
-		grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.78fr);
-		gap: var(--space-xl);
-		align-items: start;
+		grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+		gap: var(--space-lg);
+		align-items: center;
 	}
 
 	.hero-copy {
@@ -518,7 +504,7 @@ const roles = [
 		max-width: 13em;
 		margin: 0;
 		color: var(--color-text);
-		font-size: 3.125rem;
+		font-size: var(--fs-h1);
 		font-weight: 500;
 		line-height: 1.2;
 		letter-spacing: 0;
@@ -529,7 +515,7 @@ const roles = [
 		max-width: 43em;
 		margin: var(--space-md) 0 0;
 		color: var(--color-text);
-		font-size: 1.0625rem;
+		font-size: var(--fs-lead);
 		line-height: 2;
 	}
 
@@ -552,7 +538,7 @@ const roles = [
 		min-width: 0;
 		padding: 0.85rem 1rem;
 		color: var(--color-text-muted);
-		font-size: 0.8125rem;
+		font-size: var(--fs-small);
 		line-height: 1.6;
 	}
 
@@ -587,7 +573,7 @@ const roles = [
 	.prob-shot figcaption {
 		margin-top: 0.65rem;
 		color: var(--color-text-muted);
-		font-size: 0.75rem;
+		font-size: var(--fs-small);
 		line-height: 1.6;
 	}
 
@@ -634,7 +620,7 @@ const roles = [
 	.pos-lead {
 		margin: 0;
 		color: var(--color-text);
-		font-size: 1.375rem;
+		font-size: var(--fs-h3);
 		font-weight: 500;
 		line-height: 1.7;
 		text-wrap: balance;
@@ -643,7 +629,7 @@ const roles = [
 	.pos-copy p {
 		margin: 0 0 1rem;
 		color: var(--color-text-muted);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.9;
 	}
 
@@ -655,7 +641,7 @@ const roles = [
 	.pos-link {
 		display: inline-flex;
 		margin-top: 0.25rem;
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 	}
 
 	.section-head {
@@ -713,7 +699,7 @@ const roles = [
 
 	.issue-label__number {
 		color: rgba(112, 66, 172, 0.24);
-		font-size: 2.45rem;
+		font-size: var(--fs-figure);
 		font-weight: 500;
 		font-variant-numeric: tabular-nums;
 		line-height: 0.82;
@@ -724,7 +710,7 @@ const roles = [
 	.sc-card h3 {
 		margin: 0;
 		color: var(--color-text);
-		font-size: 1rem;
+		font-size: var(--fs-body);
 		font-weight: 600;
 		line-height: 1.55;
 	}
@@ -733,7 +719,7 @@ const roles = [
 	.sc-card p {
 		margin: 0.6rem 0 0;
 		color: var(--color-text-muted);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.85;
 	}
 
@@ -816,7 +802,7 @@ const roles = [
 	.cta-lead {
 		margin: 1rem 0 0;
 		color: var(--color-text-muted);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.85;
 	}
 
@@ -830,7 +816,7 @@ const roles = [
 		padding: 0.95rem 0;
 		border-bottom: 1px solid var(--color-border);
 		color: var(--color-primary);
-		font-size: 0.8125rem;
+		font-size: var(--fs-small);
 		font-weight: 700;
 		letter-spacing: 0.08em;
 		line-height: 1.5;
@@ -853,14 +839,14 @@ const roles = [
 
 	.support-list span {
 		color: var(--color-text-muted);
-		font-size: 0.8125rem;
+		font-size: var(--fs-small);
 		font-weight: 600;
 		line-height: 1.7;
 	}
 
 	.support-list strong {
 		color: var(--color-text);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		font-weight: 600;
 		line-height: 1.7;
 	}
@@ -876,7 +862,7 @@ const roles = [
 		padding: 0.9rem 0;
 		border-bottom: 1px solid var(--color-border);
 		color: var(--color-text);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.7;
 	}
 
@@ -913,7 +899,7 @@ const roles = [
 
 	.ro-row dt {
 		color: var(--color-text);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		font-weight: 600;
 		line-height: 1.7;
 	}
@@ -921,14 +907,14 @@ const roles = [
 	.ro-row dd {
 		margin: 0;
 		color: var(--color-text-muted);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.7;
 	}
 
 	.ro-note {
 		margin: 1.25rem 0 0;
 		color: var(--color-text-muted);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.7;
 	}
 
@@ -948,7 +934,7 @@ const roles = [
 		padding: 0.75rem 0;
 		border-bottom: 1px solid var(--color-border);
 		color: var(--color-text);
-		font-size: 0.9375rem;
+		font-size: var(--fs-small);
 		line-height: 1.75;
 	}
 
@@ -962,7 +948,7 @@ const roles = [
 		}
 
 		.hero h1 {
-			font-size: 2.75rem;
+			font-size: var(--fs-h1);
 		}
 
 		.hero-media,
@@ -1015,15 +1001,15 @@ const roles = [
 		}
 
 		h2 {
-			font-size: 1.625rem;
+			font-size: var(--fs-h3);
 		}
 
 		.hero h1 {
-			font-size: 2.25rem;
+			font-size: var(--fs-h2);
 		}
 
 		.hero-lead {
-			font-size: 1rem;
+			font-size: var(--fs-body);
 			line-height: 1.85;
 		}
 
@@ -1056,20 +1042,20 @@ const roles = [
 
 	.flow-figure { margin: 0 0 var(--space-lg); }
 	.flow-figure svg { display: block; width: 100%; height: auto; }
-	.flow-figure figcaption { margin-top: 0.75rem; font-size: 0.875rem; color: var(--color-text-muted); }
+	.flow-figure figcaption { margin-top: 0.75rem; font-size: var(--fs-small); color: var(--color-text-muted); }
 
-	.hero h1 { font-size: 2.125rem; max-width: none; }
-	.hero h1 .nw { display: inline-block; }
+	.hero h1 { font-size: var(--fs-h2); max-width: none; }
+	.nw { display: inline-block; }
 	.prob-grid.prob-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
 	:global(#main-content.crm-editorial) .values { background: #fff; }
 	:global(#main-content.crm-editorial) .intl { background: #F1F5F9; }
 	.intl { padding: var(--space-2xl) 0; border-block: 1px solid var(--color-border); }
-	.intl-lead { max-width: 46rem; margin: var(--space-md) 0 var(--space-lg); color: var(--color-text-muted); font-size: 1rem; line-height: 1.85; }
+	.intl-lead { max-width: 46rem; margin: var(--space-md) 0 var(--space-lg); color: var(--color-text-muted); font-size: var(--fs-body); line-height: 1.85; }
 	.intl-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
 	.intl-grid figure { margin: 0; }
 	.intl-grid img { display: block; width: 100%; height: auto; border: 1px solid var(--color-border); border-radius: 8px; background: #fff; box-shadow: 0 8px 22px rgba(15, 23, 42, 0.07); }
-	.intl-grid figcaption { margin-top: 0.6rem; font-size: 0.875rem; font-weight: 600; color: var(--color-navy); letter-spacing: 0.04em; }
+	.intl-grid figcaption { margin-top: 0.6rem; font-size: var(--fs-small); font-weight: 600; color: var(--color-navy); letter-spacing: 0.04em; }
 	.values .prob-grid.prob-grid--4 { grid-template-columns: 1fr; gap: 0.75rem; border-top: 0; }
 	.values .prob-item { display: grid; grid-template-columns: 3.5rem 15rem minmax(0, 1fr); gap: 0 1.5rem; align-items: baseline; }
 	.values .prob-item h3 { margin: 0; }
@@ -1085,9 +1071,14 @@ const roles = [
 	.prob-link { display: inline-block; margin-top: 0.75rem; color: var(--color-primary); font-weight: 600; text-decoration: none; }
 	.prob-link:hover { text-decoration: underline; }
 	.support-inner .support-list + .support-list { margin-top: 0; }
-	@media (max-width: 1080px) { .hero h1 { font-size: 2rem; } }
+	@media (max-width: 1080px) { .hero h1 { font-size: var(--fs-h2); } }
 	@media (max-width: 760px) {
-		.hero h1 { font-size: 1.75rem; }
+		.hero h1 { font-size: var(--fs-h2); }
 		.prob-grid.prob-grid--4 { grid-template-columns: 1fr; }
 	}
+
+
+	.hero-download { margin: 0.9rem 0 0; font-size: var(--fs-small); }
+	.hero-download a { color: var(--color-primary); text-decoration: underline; text-underline-offset: 3px; }
+	.hero-lead { line-height: 1.85; text-wrap: pretty; }
 </style>

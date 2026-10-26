@@ -1,7 +1,7 @@
 /* CRM配下の共通の追加スタイル。
    2026-10-19: 以前ここにあった「カード・枠線・背景を外す」指定は削除した（ページが真っ白になり、読みにくくなったため）。
    各ページの装飾は、各ページ自身の <style> が持つ。 */
-#main-content.crm-editorial .hero-download { margin: 1rem 0 0; font-size: 0.9375rem; }
+#main-content.crm-editorial .hero-download { margin: 1rem 0 0; font-size: var(--fs-small); }
 @media (max-width: 760px) {
 	#main-content.crm-editorial .hero-download .btn { width: 100%; justify-content: center; }
 }

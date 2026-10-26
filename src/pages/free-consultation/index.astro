@@ -1,4 +1,5 @@
 ---
+import ConsultationMap from '../../components/ConsultationMap.astro';
 import ConsultationOutcomes from '../../components/ConsultationOutcomes.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
@@ -48,14 +49,15 @@ const faqSchema = {
 
 <!-- ===== HERO ===== -->
 <section class="hero">
-	<div class="container">
+	<div class="container hero-layout">
+		<div class="hero-copy">
 		<p class="eyebrow">Free Consultation</p>
 		<h1>営業に渡した見込み客、<br />その後どうなっていますか？</h1>
 		<p class="hero-sub">
-			営業が追っていない。対応結果が戻ってこない。HubSpotとSalesforceで数字が合わない。<br />いまの設定と仕事の流れを伺い、どこから見直すかを一緒に整理する、30分の無料相談です。
+			営業が追っていない。対応結果が戻ってこない。<br />HubSpot・Salesforceの設定と仕事の流れを伺い、どこから見直すかを30分で一緒に整理します。
 		</p>
 		<a href="#booking" class="btn btn--primary btn--lg">30分無料相談を予約する →</a>
-			<p class="hero-alt">担当者や入力ルール、集計・運用の困りごともご相談ください。課題が整理できていない段階でも大丈夫です。</p>
+			<p class="hero-alt">入力ルールや集計の悩みも、整理できていない段階からご相談いただけます。</p>
 		<div class="hero-meta">
 			<span class="meta-item">
 				<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
@@ -70,6 +72,8 @@ const faqSchema = {
 				完全無料
 			</span>
 		</div>
+		</div>
+		<ConsultationMap />
 	</div>
 </section>
 
@@ -451,4 +455,10 @@ details[open] .faq-q::after { content: '−'; }
 /* Primary consultation actions follow the site's button palette. */
 .btn--primary, .btn--white, .btn--cta, .btn--cta-primary { background: #8758C9; color: #fff; border-radius: 4px; }
 .btn--primary:hover, .btn--white:hover, .btn--cta:hover, .btn--cta-primary:hover { background: #7042ac; color: #fff; }
+
+.hero-layout { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(300px, 1fr); gap: 2.5rem; align-items: center; }
+.hero-copy { min-width: 0; }
+.hero h1 { font-size: clamp(28px, 3.2vw, 38px); line-height: 1.45; }
+@media (max-width: 900px) { .hero-layout { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .hero h1 { font-size: 26px; } }
 </style>

@@ -352,7 +352,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 					メールアドレスをご入力ください。送信後すぐに「取りこぼしマップ」が表示されます。
 				</p>
 			</div>
-			<form data-hs-do-not-collect="true" onsubmit="return false" class="rd-lead-form" id="rd-lead-form" novalidate>
+			<form data-hs-do-not-collect="true" onsubmit="return false" class="rd-lead-form" id="rd-lead-form" data-form-name="revenue_diagnostic" novalidate>
 				<label class="rd-field">
 					<span class="rd-field-label">メールアドレス</span>
 					<input type="email" name="email" inputmode="email" autocomplete="email"
@@ -416,6 +416,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 		form.addEventListener('submit', async (e) => {
 			e.preventDefault();
+			if (btn.disabled) return;
 			const email = input.value.trim();
 			if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
 				showError('メールアドレスの形式をご確認ください。');
@@ -464,15 +465,12 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 				console.error(err);
 				btn.disabled = false;
 				btn.textContent = '結果を見る →';
-				showError('送信に失敗しました。通信環境をご確認のうえ、もう一度お試しください。');
+				showError('受付を確認できませんでした。重複送信を避けるため、再送前に info@consilegy.com へご連絡ください。');
 			}
 		});
 	}
 
-	// Post the lead to Revenue CRM's own form (Consilegy org). The form's workflow
-	// emails the answers to the team. crm.consilegy.com returns no CORS headers, so
-	// this is a text/plain no-cors request: the response can't be read, and the
-	// result is shown without waiting on it (keepalive lets the request finish).
+	// 受付を確認してから結果と送信完了イベントを出す。
 	async function submitLead(email: string, extra: Record<string, string> = {}): Promise<void> {
 		// 要約は診断専用の項目に入れる（message はお問い合わせフォームと共用で、ラベルが混ざる）。
 		const values: Record<string, string> = { email, diagnostic_summary: summaryText() };
@@ -486,14 +484,13 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 			if (v) utm[k] = v;
 		});
 		if (!utm.utm_source) utm.utm_source = 'consilegy.com' + location.pathname;
-		const send = fetch(CRM_SUBMIT_URL, {
+		await (window as any).cslgSubmitForm(CRM_SUBMIT_URL, {
 			method: 'POST',
-			mode: 'no-cors',
+			mode: 'cors',
 			headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
 			body: JSON.stringify({ values, utm, referrer: document.referrer || location.href }),
 			keepalive: true,
-		}).catch((err) => console.error(err));
-		await Promise.race([send, new Promise((r) => setTimeout(r, 1500))]);
+		}, { name: 'revenue_diagnostic', kind: 'primary' });
 	}
 
 	function renderResult() {

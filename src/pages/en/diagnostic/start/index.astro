@@ -352,7 +352,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 					Enter your email and your “revenue leak map” appears right away.
 				</p>
 			</div>
-			<form data-hs-do-not-collect="true" onsubmit="return false" class="rd-lead-form" id="rd-lead-form" novalidate>
+			<form data-hs-do-not-collect="true" onsubmit="return false" class="rd-lead-form" id="rd-lead-form" data-form-name="revenue_diagnostic" novalidate>
 				<label class="rd-field">
 					<span class="rd-field-label">Work email</span>
 					<input type="email" name="email" inputmode="email" autocomplete="email"
@@ -416,6 +416,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 
 		form.addEventListener('submit', async (e) => {
 			e.preventDefault();
+			if (btn.disabled) return;
 			const email = input.value.trim();
 			if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
 				showError('Please check your email address.');
@@ -441,7 +442,10 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 			btn.textContent = 'Sending…';
 			try {
 				await submitLead(email, extra);
-				track('lead_submit', { employee_size: extra.employee_size ?? '', industry: extra.consilegy_industry ?? '', lead_channel: state.channel ?? '', tools_count: tools.length });
+				const attr = (window as any).cslgAttribution ? (window as any).cslgAttribution() : {};
+				const payload = { conversion_kind: 'primary', form_name: 'revenue_diagnostic', employee_size: extra.employee_size ?? '', industry: extra.consilegy_industry ?? '', lead_channel: state.channel ?? '', tools_count: tools.length, ...attr };
+				track('diagnostic_lead_submit', payload);
+				track('lead_submit', payload);
 				state.leadDone = true;
 				state.email = email;
 				state.industry = indSel.value;
@@ -451,15 +455,12 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 				console.error(err);
 				btn.disabled = false;
 				btn.textContent = 'See my results →';
-				showError('Submission failed. Please check your connection and try again.');
+				showError('We could not confirm receipt. Please contact info@consilegy.com before resending.');
 			}
 		});
 	}
 
-	// Post the lead to Revenue CRM's own form (Consilegy org). The form's workflow
-	// emails the answers to the team. crm.consilegy.com returns no CORS headers, so
-	// this is a text/plain no-cors request: the response can't be read, and the
-	// result is shown without waiting on it (keepalive lets the request finish).
+	// 受付を確認してから結果と送信完了イベントを出す。
 	async function submitLead(email: string, extra: Record<string, string> = {}): Promise<void> {
 		// 要約は診断専用の項目に入れる（message はお問い合わせフォームと共用で、ラベルが混ざる）。
 		// English-form keys carry an _en suffix so the notification shows English labels
@@ -479,14 +480,13 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 			if (v) utm[k] = v;
 		});
 		if (!utm.utm_source) utm.utm_source = 'consilegy.com' + location.pathname;
-		const send = fetch(CRM_SUBMIT_URL, {
+		await (window as any).cslgSubmitForm(CRM_SUBMIT_URL, {
 			method: 'POST',
-			mode: 'no-cors',
+			mode: 'cors',
 			headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
 			body: JSON.stringify({ values, utm, referrer: document.referrer || location.href }),
 			keepalive: true,
-		}).catch((err) => console.error(err));
-		await Promise.race([send, new Promise((r) => setTimeout(r, 1500))]);
+		}, { name: 'revenue_diagnostic', kind: 'primary' });
 	}
 
 	function renderResult() {

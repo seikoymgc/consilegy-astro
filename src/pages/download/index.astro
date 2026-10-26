@@ -23,7 +23,7 @@ const previews = [
 const faqItems = [
 	{
 		q: '資料は無料ですか？',
-		a: 'はい、無料でご覧いただけます。フォームにお名前・会社名・メールアドレスをご入力いただくと、その場で資料が開き、同じリンクをメールでもお送りします。',
+		a: 'はい、無料でご覧いただけます。フォームにお名前・会社名・メールアドレスをご入力いただくと、その場で資料を開けます。同じリンクをメールでもお送りします。',
 	},
 	{
 		q: '営業連絡は来ますか？',
@@ -152,7 +152,7 @@ const faqSchema = {
 				<p class="eyebrow">Download</p>
 				<h2>資料を見る</h2>
 				<p class="form-lead">
-					以下のフォームにご入力いただくと、その場で資料が開きます。同じリンクをメールでもお送りします。
+					以下のフォームにご入力いただくと、その場で資料を開けます。同じリンクをメールでもお送りします。
 				</p>
 				<ul class="form-note-list">
 					<li>無料でご覧いただけます</li>
@@ -162,7 +162,7 @@ const faqSchema = {
 			</div>
 			<div class="form-embed">
 				<div id="dl-form-wrap">
-					<form data-hs-do-not-collect="true" onsubmit="return false" id="dl-form" class="dlf" novalidate>
+					<form data-hs-do-not-collect="true" onsubmit="return false" id="dl-form" data-form-name="document_download" class="dlf" novalidate>
 						<label class="dlf-field"><span>会社名<em>必須</em></span><input name="company_name" type="text" autocomplete="organization" required /></label>
 						<div class="dlf-row">
 							<label class="dlf-field"><span>部署</span><input name="department" type="text" /></label>
@@ -191,7 +191,7 @@ const faqSchema = {
 				</div>
 				<div id="dl-done" class="dlf-done" hidden>
 					<h3>ありがとうございます</h3>
-					<p>新しいタブで資料が開きます。開かない場合は、下のボタンから開いてください。</p>
+					<p>受付が完了しました。下のボタンから資料を開いてください。</p>
 					<a class="btn btn--primary" href={PDF_URL} target="_blank" rel="noopener">資料を開く</a>
 				</div>
 			</div>
@@ -261,6 +261,7 @@ const faqSchema = {
 		if (!form) return;
 		form.addEventListener('submit', function (e) {
 			e.preventDefault();
+			if (form.querySelector('button[type=submit]').disabled) return;
 			var fd = new FormData(form);
 			var values = {};
 			['company_name', 'department', 'job_title', 'last_name', 'first_name', 'email', 'phone', 'employee_range', 'message'].forEach(function (k) {
@@ -280,22 +281,26 @@ const faqSchema = {
 			});
 			if (!utm.utm_source) utm.utm_source = 'consilegy.com/download';
 			var button = form.querySelector('button[type="submit"]');
+			var buttonLabel = button.textContent;
 			button.disabled = true;
 			button.textContent = '送信しています…';
-			// 送信ボタンを押した操作の中で開かないと、ポップアップとしてブロックされる。
-			window.open(PDF_URL, '_blank', 'noopener');
+			var fail = function () {
+				button.disabled = false;
+				button.textContent = buttonLabel;
+				errorBox.textContent = '受付を確認できませんでした。重複送信を避けるため、再送前に info@consilegy.com へご連絡ください。';
+				errorBox.hidden = false;
+			};
 			var done = function () {
 				document.getElementById('dl-form-wrap').hidden = true;
 				document.getElementById('dl-done').hidden = false;
 			};
-			fetch(SUBMIT_URL, {
+			window.cslgSubmitForm(SUBMIT_URL, {
 				method: 'POST',
-				mode: 'no-cors',
+				mode: 'cors',
 				headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
 				body: JSON.stringify({ values: values, utm: utm, referrer: document.referrer || location.href, hp: String(fd.get('hp') || '') }),
 				keepalive: true,
-			}).then(done, done);
-			setTimeout(done, 1500);
+			}, { name: 'document_download', kind: 'secondary', event: 'download_submit' }).then(done, fail);
 		});
 	})();
 </script>

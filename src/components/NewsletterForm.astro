@@ -32,7 +32,7 @@ const t =
 				privacyHref: '/en/privacy-policy/',
 				invalid: 'Please enter a valid email address.',
 				done: 'Thanks for subscribing. The next issue will arrive by email.',
-				failed: 'We could not send this. Please try again later, or email info@consilegy.com.',
+				failed: 'We could not confirm receipt. Please contact info@consilegy.com before resending.',
 			}
 		: {
 				email: 'メールアドレス',
@@ -47,12 +47,12 @@ const t =
 				privacyHref: '/privacy-policy/',
 				invalid: 'メールアドレスの形式をご確認ください。',
 				done: 'ご登録ありがとうございます。次の号からメールでお届けします。届かない場合は、info@consilegy.comへお知らせください。',
-				failed: '送信できませんでした。時間をおいてもう一度お試しいただくか、info@consilegy.comへメールでご連絡ください。',
+				failed: '受付を確認できませんでした。重複送信を避けるため、再送前に info@consilegy.com へご連絡ください。',
 			};
 ---
 
 <div class:list={['nlf', { 'nlf--compact': compact }]} data-nl-form data-submit-url={submitUrl} data-sending={t.sending} data-invalid={t.invalid} data-failed={t.failed}>
-	<form data-hs-do-not-collect="true" onsubmit="return false" novalidate>
+	<form data-form-name="newsletter" data-hs-do-not-collect="true" onsubmit="return false" novalidate>
 		<div class="nlf-row">
 			<label class="nlf-field">
 				<span class="nlf-visually-hidden">{t.email}</span>
@@ -79,6 +79,7 @@ const t =
 			var err = root.querySelector('.nlf-error');
 			form.addEventListener('submit', function (e) {
 				e.preventDefault();
+				if (form.querySelector('button').disabled) return;
 				var fd = new FormData(form);
 				var email = String(fd.get('email') || '').trim();
 				if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -113,7 +114,7 @@ const t =
 					form.hidden = true;
 					root.querySelector('.nlf-done').hidden = false;
 				};
-				fetch(root.dataset.submitUrl, {
+				window.cslgSubmitForm(root.dataset.submitUrl, {
 					method: 'POST',
 					mode: 'cors',
 					headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
@@ -129,10 +130,7 @@ const t =
 						hp: String(fd.get('hp') || ''),
 					}),
 					keepalive: true,
-				}).then(function (res) { if (res.ok) done(); else fail(); }, fail);
-				// 受付口は通知メールを送り終えてから応答するので数秒かかる。20秒たっても応答がなければ、
-				// 送信は keepalive で続いているとみなしてお礼を出す（失敗と分かったときだけ止める）。
-				setTimeout(done, 20000);
+				}, { name: 'newsletter', kind: 'secondary', event: 'newsletter_submit' }).then(done, fail);
 			});
 		});
 	})();

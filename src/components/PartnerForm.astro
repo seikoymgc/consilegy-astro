@@ -1,7 +1,7 @@
 ---
 // 紹介パートナー制度のフォーム（パートナー申込・紹介先の登録）。
 // 受け口は ContactForm と同じく Revenue CRM 自身のフォーム（Consilegy合同会社の組織）で、
-// 送信するとワークフローが担当者にメールで知らせる。crm.consilegy.com は CORS を返さないので
+// 送信するとワークフローが担当者にメールで知らせる。
 // text/plain の単純リクエストで送り、応答を読んで受け付けられたかを確かめる（受け口は CORS を返す）。
 // メールアドレス型の項目は、送信した本人（紹介者）の1つだけにする。CRM はその項目でコンタクトを作り、
 // 自動化の対象にするため、紹介先のアドレスを email 型にすると紹介先に自動でメールが届きうる。
@@ -37,7 +37,7 @@ const submitUrl = `https://crm.consilegy.com/api/forms/${formId}/submit`;
 ---
 
 <div class="pf" data-partner-form data-submit-url={submitUrl} data-consent={consent ? '1' : undefined} data-next={next}>
-	<form data-hs-do-not-collect="true" onsubmit="return false" novalidate>
+	<form data-form-name="partner" data-hs-do-not-collect="true" onsubmit="return false" novalidate>
 		<div class="pf-grid">
 			{fields.map((f) =>
 				f.type === 'checkbox' ? (
@@ -103,6 +103,7 @@ const submitUrl = `https://crm.consilegy.com/api/forms/${formId}/submit`;
 			toggle();
 			form.addEventListener('submit', function (e) {
 				e.preventDefault();
+				if (form.querySelector('button').disabled) return;
 				var values = {};
 				var missing = false;
 				var email = '';
@@ -133,7 +134,7 @@ const submitUrl = `https://crm.consilegy.com/api/forms/${formId}/submit`;
 					finished = true;
 					btn.disabled = false;
 					btn.textContent = label;
-					show('送信できませんでした。時間をおいてもう一度お試しいただくか、info@consilegy.comへメールでご連絡ください。');
+					show('受付を確認できませんでした。重複送信を避けるため、再送前に info@consilegy.com へご連絡ください。');
 				};
 				var done = function () {
 					if (finished) return;
@@ -150,16 +151,13 @@ const submitUrl = `https://crm.consilegy.com/api/forms/${formId}/submit`;
 					}
 					root.querySelector('.pf-done').hidden = false;
 				};
-				fetch(root.dataset.submitUrl, {
+				window.cslgSubmitForm(root.dataset.submitUrl, {
 					method: 'POST',
 					mode: 'cors',
 					headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
 					body: JSON.stringify({ values: values, utm: utm, referrer: document.referrer || location.href, consent: root.dataset.consent === '1', hp: String((form.querySelector('[name=hp]') || {}).value || '') }),
 					keepalive: true,
-				}).then(function (res) { if (res.ok) done(); else fail(); }, fail);
-				// 受付口は通知メールを送り終えてから応答するので数秒かかる。20秒たっても応答がなければ、
-				// 送信は keepalive で続いているとみなして先へ進める（失敗と分かったときだけ止める）。
-				setTimeout(done, 20000);
+				}, { name: 'partner', kind: 'reference', event: 'partner_submit' }).then(done, fail);
 			});
 		});
 	})();

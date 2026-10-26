@@ -1,19 +1,29 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CrmSubnav from '../../../components/CrmSubnav.astro';
-import { CRM_FAQ, faqByCategory } from '../../../data/crm-faq';
+import { faqByCategory } from '../../../data/crm-faq';
 
 const groups = faqByCategory();
 
-// 検索結果にFAQとして出るための構造化データ。
-const faqJsonLd = {
+// 一覧には質問と短い説明だけを表示する。回答全文と FAQPage は個別ページに置く。
+const indexJsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: CRM_FAQ.map(item => ({
-    '@type': 'Question',
-    name: item.q,
-    acceptedAnswer: { '@type': 'Answer', text: item.a.join('\n') },
-  })),
+  '@type': 'CollectionPage',
+  name: 'よくあるご質問 | Revenue CRM',
+  url: 'https://consilegy.com/crm/faq/',
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: groups.flatMap(group => group.items).map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'WebPage',
+        name: item.q,
+        description: item.desc,
+        url: `https://consilegy.com/crm/faq/${item.slug}/`,
+      },
+    })),
+  },
 };
 ---
 
@@ -21,7 +31,7 @@ const faqJsonLd = {
   title="よくあるご質問 | Revenue CRM | Consilegy"
   description="Revenue CRMの料金・導入・機能、データとセキュリティについて、導入前によくいただくご質問と回答をまとめました。"
 >
-  <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(indexJsonLd)} />
   <CrmSubnav lang="ja" />
 
   <div class="faq-page">

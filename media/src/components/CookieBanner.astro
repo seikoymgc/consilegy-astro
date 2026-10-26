@@ -1,0 +1,72 @@
+---
+// Cookie の同意バナー（2026-10-26。HubSpot のバナーをやめ、自サイトで出す）。
+// 選んだ結果は localStorage に残し、次からは出さない。
+// 拒否したら GA4 と Clarity に同意なしを伝える（Consent Mode の update と clarity('consent', false)）。
+// 読み込み前の既定値は、各レイアウトの <head> の CONSENT_DEFAULT（GTM より前）で入れている。
+// 本体（src/components/CookieBanner.astro）と同じもの。直すときは両方。
+interface Props { lang?: 'ja' | 'en'; privacyUrl?: string }
+const { lang = 'ja', privacyUrl } = Astro.props;
+const en = lang === 'en';
+const policy = privacyUrl ?? (en ? '/en/privacy-policy/' : '/privacy-policy/');
+const t = en
+	? { text: 'We use cookies to understand how this site is used.', link: 'Privacy Policy', accept: 'Accept', reject: 'Decline', label: 'Cookie notice' }
+	: { text: 'このサイトでは、利用状況を知るためにCookieを使っています。', link: 'プライバシーポリシー', accept: '同意する', reject: '拒否する', label: 'Cookieについてのお知らせ' };
+---
+<div class="cookie-banner" data-cookie-banner hidden role="region" aria-label={t.label}>
+	<p class="cookie-banner__text">{t.text} <a href={policy}>{t.link}</a></p>
+	<div class="cookie-banner__actions">
+		<button type="button" class="cookie-banner__btn cookie-banner__btn--ghost" data-cookie-choice="denied">{t.reject}</button>
+		<button type="button" class="cookie-banner__btn" data-cookie-choice="granted">{t.accept}</button>
+	</div>
+</div>
+
+<script is:inline>
+(function () {
+	var KEY = 'cslg_cookie_consent';
+	var el = document.querySelector('[data-cookie-banner]');
+	if (!el) return;
+	var saved = null;
+	try { saved = localStorage.getItem(KEY); } catch (e) {}
+	if (saved !== 'granted' && saved !== 'denied') el.hidden = false;
+	function apply(v) {
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { window.dataLayer.push(arguments); }
+		var s = v === 'granted' ? 'granted' : 'denied';
+		gtag('consent', 'update', { analytics_storage: s, ad_storage: s, ad_user_data: s, ad_personalization: s });
+		window.dataLayer.push({ event: 'cookie_consent_' + s });
+		try { if (window.clarity) window.clarity('consent', v === 'granted'); } catch (e) {}
+	}
+	el.addEventListener('click', function (e) {
+		var b = e.target && e.target.closest ? e.target.closest('[data-cookie-choice]') : null;
+		if (!b) return;
+		var v = b.getAttribute('data-cookie-choice');
+		try { localStorage.setItem(KEY, v); } catch (e2) {}
+		apply(v);
+		el.hidden = true;
+	});
+})();
+</script>
+
+<style>
+	.cookie-banner {
+		position: fixed; left: 1rem; right: 1rem; bottom: 1rem; z-index: 1000;
+		max-width: 760px; margin-inline: auto;
+		display: flex; align-items: center; gap: 1rem 1.25rem; flex-wrap: wrap;
+		padding: 1rem 1.25rem; background: #fff; color: #1E293B;
+		border: 1px solid #E2E8F0; border-radius: 6px; box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+	}
+	.cookie-banner[hidden] { display: none; }
+	.cookie-banner__text { flex: 1 1 20rem; margin: 0; font-size: 0.9375rem; line-height: 1.7; }
+	.cookie-banner__text a { color: #7042ac; text-decoration: underline; }
+	.cookie-banner__actions { display: flex; gap: 0.5rem; }
+	.cookie-banner__btn {
+		font: inherit; font-size: 0.9375rem; font-weight: 600; cursor: pointer;
+		padding: 0.6rem 1.1rem; border-radius: 4px; border: 1px solid #7042ac; background: #7042ac; color: #fff;
+	}
+	.cookie-banner__btn--ghost { background: #fff; color: #1E293B; border-color: #CBD5E1; }
+	@media (max-width: 640px) {
+		.cookie-banner { left: 0.75rem; right: 0.75rem; bottom: 0.75rem; }
+		.cookie-banner__actions { width: 100%; }
+		.cookie-banner__btn { flex: 1; }
+	}
+</style>

@@ -7,6 +7,7 @@ import Header from '../components/Header.astro';
 import CrmMediaHeader from '../components/CrmMediaHeader.astro';
 import Footer from '../components/Footer.astro';
 import Analytics from '../components/Analytics.astro';
+import CookieBanner from '../components/CookieBanner.astro';
 import { getAlternateUrl } from '../lib/i18n';
 
 interface Props {
@@ -40,6 +41,8 @@ import FigBleed from '../components/FigBleed.astro';
 <!doctype html>
 <html lang={htmlLang}>
 	<head>
+		<!-- Cookie の同意：前回「拒否」なら、GTM より前に同意なしを既定にする（CookieBanner.astro と対） -->
+		<script is:inline>(function(){var v;try{v=localStorage.getItem('cslg_cookie_consent')}catch(e){}if(v!=='denied')return;var w=window;w.dataLayer=w.dataLayer||[];var g=function(){w.dataLayer.push(arguments)};g('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});w.clarity=w.clarity||function(){(w.clarity.q=w.clarity.q||[]).push(arguments)};w.clarity('consent',false);})();</script>
 		<!-- Google Tag Manager -->
 		<script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -129,6 +132,7 @@ import FigBleed from '../components/FigBleed.astro';
 		</main>
 		<Footer />
 		<Analytics />
+		<CookieBanner lang={htmlLang as 'ja' | 'en'} />
 		<FigBleed />
 	</body>
 </html>

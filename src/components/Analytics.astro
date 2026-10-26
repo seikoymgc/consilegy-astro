@@ -52,7 +52,8 @@
 	}
 	window.cslgAttribution = attribution;
 
-	// 共通の受付処理。HTTP成功だけでなく、保存されたコンタクトの存在を確認する。
+	// 共通の受付処理。HTTP成功と、受付APIの ok: true を確認する。
+	// 問い合わせは受信箱で受け付け、コンタクトを作らない場合もある。
 	// タイムアウトは受付不明。成功と数えず、画面も完了に進めない。
 	window.cslgSubmitForm = async function (url, options, meta) {
 		var params = Object.assign({
@@ -67,7 +68,7 @@
 					var res = await fetch(url, Object.assign({}, options, { mode: 'cors' }));
 					if (!res.ok) { reason = 'http_' + res.status; throw new Error(reason); }
 					var data = await res.json();
-					if (data.ok !== true || typeof data.contact_id !== 'string' || !data.contact_id) {
+					if (!data || data.ok !== true) {
 						reason = 'unconfirmed'; throw new Error(reason);
 					}
 					return res;
@@ -76,7 +77,9 @@
 					timer = setTimeout(function () { reason = 'unconfirmed'; reject(new Error('unconfirmed')); }, 30000);
 				})
 			]);
-			if (meta.event) push(meta.event, params);
+			var submitted = {};
+			try { submitted = JSON.parse(options.body || '{}'); } catch (err) {}
+			if (meta.event && !submitted.hp) push(meta.event, params);
 			return response;
 		} catch (error) {
 			push('lead_form_error', Object.assign({}, params, { error_type: reason }));

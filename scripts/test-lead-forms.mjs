@@ -35,7 +35,7 @@ for (const [name, fetchImpl] of [
   ['rate limit', async () => ({ ok: false, status: 429 })],
   ['network failure', async () => { throw new Error('offline'); }],
   ['invalid JSON', async () => ({ ok: true, json: async () => { throw new Error('invalid'); } })],
-  ['missing contact', async () => ({ ok: true, json: async () => ({ ok: true, contact_id: null }) })],
+  ['missing receipt', async () => ({ ok: true, json: async () => ({}) })],
   ['negative receipt', async () => ({ ok: true, json: async () => ({ ok: false, contact_id: 'id' }) })],
 ]) test(name + ' never counts as success', async () => {
   const app = setup(fetchImpl);
@@ -111,4 +111,16 @@ test('telemetry failure cannot block accepted submission', async () => {
   const app = setup();
   app.dataLayer.push = () => { throw new Error('analytics unavailable'); };
   await app.window.cslgSubmitForm('/test', {}, meta);
+});
+
+for (const contactId of [null, undefined]) test('inbox-only receipt succeeds without a contact: ' + contactId, async () => {
+  const app = setup(async () => ({ ok: true, json: async () => ({ ok: true, contact_id: contactId }) }));
+  await app.window.cslgSubmitForm('/test', {}, meta);
+  assert.deepEqual(app.names(), ['lead_form_attempt', 'contact_submit']);
+});
+
+test('honeypot fake receipt is not a conversion', async () => {
+  const app = setup();
+  await app.window.cslgSubmitForm('/test', { body: JSON.stringify({ hp: 'bot' }) }, meta);
+  assert.deepEqual(app.names(), ['lead_form_attempt']);
 });

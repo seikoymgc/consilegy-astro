@@ -1,0 +1,42 @@
+---
+interface Props { lang?: 'ja' | 'en' }
+const lang = Astro.props.lang ?? 'ja';
+const en = lang === 'en';
+const prefix = en ? '/en' : '';
+// 公開中の各紹介ページを2026-10-26に照合。製品のリリース日ではなく情報の確認日。
+const editions = [
+  { path: 'standard', ja: 'スタートアップ・中小企業向け', en: 'Startups and small businesses', jaBody: '顧客・商談・タスクをまとめ、名刺や商談メモからAIが記録の下書きを作ります。', enBody: 'Manage contacts, deals and tasks, with AI-drafted records from business cards and meeting notes.' },
+  { path: 'contractor', ja: '受託開発・制作版', en: 'Development and production', jaBody: '営業案件・見積・納品の進み具合と、メンバー×週の割り当て・空きを確認し、見積前に着手できる時期を判断します。', enBody: 'Review deals, quotes, delivery progress and weekly team capacity to assess a start date before quoting.' },
+  { path: 'services', ja: '支援会社版', en: 'Consulting and marketing agencies', jaBody: '継続支援の案件、担当者の稼働・空き、月額契約と更新を管理します。定例会・成果レポートの骨子・更新準備を自動化で支援します。', enBody: 'Manage ongoing client work, team capacity, monthly contracts and renewals, with automation for review meetings, report outlines and renewal preparation.' },
+  { path: 'reseller', ja: '代理店版', en: 'SaaS resellers', jaBody: '販売先の顧客、契約更新と継続収益を管理します。契約と新規・追加販売の案件を顧客ごとに確認できます。', enBody: 'Manage customers, renewals and recurring revenue, and review contracts alongside new and expansion deals.' },
+  { path: 'school', ja: 'スクール版', en: 'Schools', jaBody: '生徒情報とLINEのやり取り、宿題、レッスン予約を管理します。LINEでの予約はGoogleカレンダーに連携します。', enBody: 'Manage students, LINE conversations, homework and lesson bookings, with LINE bookings linked to Google Calendar.' },
+];
+---
+<section class="current-editions" id="current-editions" aria-labelledby="current-editions-title">
+  <p class="eyebrow">Current editions</p>
+  <h2 id="current-editions-title">{en ? 'Five editions for different types of work' : '現在の5つのエディションと対象業務'}</h2>
+  <p class="checked">{en ? 'Information checked: October 26, 2026' : '情報確認日：2026年10月26日'}</p>
+  <p>{en ? 'Revenue CRM provides the following five editions. Follow each link for the current screens, scope and conditions.' : 'Revenue CRMは、次の5つの業務向けにエディションを用意しています。現在の画面・対応範囲・提供条件は、各紹介ページで確認できます。'}</p>
+  <ul>
+    {editions.map(edition => <li>
+      <h3><a href={en && edition.path === 'standard' ? '/en/crm/#use-cases' : `${prefix}/crm/${edition.path}/`}>{en ? edition.en : edition.ja}</a></h3>
+      <p>{en ? edition.enBody : edition.jaBody}</p>
+    </li>)}
+  </ul>
+  <p>{en ? 'Pricing starts at ¥3,000 per user per month for the user plan, ¥9,800 per month for schools, or ¥3,000 per month for the prepaid plan (all before tax). AI processing uses a usage allowance; additional usage and paid options may incur charges.' : '料金は、ユーザープランが1人あたり月額3,000円、生徒数プランが月額9,800円から、プリペイドプランが月額3,000円です（いずれも税抜）。AIの処理には利用枠があり、追加の燃料や有料オプションには別途費用がかかります。'}</p>
+  <p><a href={`${prefix}/crm/pricing/`}>{en ? 'Pricing and contract conditions' : '料金・燃料・契約条件を確認する'}</a></p>
+  <p class="checked">{en ? 'This is a summary of the current product pages, not a new feature release announcement. Statements in older announcements describe the product at their publication date.' : 'この一覧は現在の製品紹介をまとめたもので、新機能の提供開始を告知するものではありません。過去のお知らせにある仕様・構成は、各記事の発表当時のものです。'}</p>
+</section>
+
+<style>
+  .current-editions { background: #F1F5F9; border: 1px solid #E2E8F0; border-radius: 6px; padding: clamp(1.25rem, 3vw, 2rem); margin: 0 0 3rem; scroll-margin-top: 9rem; color: var(--color-text); }
+  .eyebrow { color: var(--color-navy); font-size: 14px; letter-spacing: .1em; margin: 0 0 .5rem; }
+  h2 { color: var(--color-navy); font-size: clamp(1.3rem, 3vw, 1.7rem); line-height: 1.5; margin: 0 0 .5rem; }
+  .checked { color: var(--color-text-muted); font-size: 14px; }
+  p { font-size: 16px; line-height: 1.9; margin: .75rem 0; }
+  ul { list-style: none; padding: 0; display: grid; gap: .75rem; margin: 1.25rem 0; }
+  li { background: #fff; border: 1px solid #E2E8F0; border-radius: 6px; box-shadow: 0 1px 2px rgb(15 23 42 / 4%); padding: 1rem; }
+  h3 { font-size: 17px; line-height: 1.6; margin: 0; }
+  li p { margin: .5rem 0 0; }
+  a { color: var(--color-primary); text-decoration: underline; text-underline-offset: .2em; }
+</style>

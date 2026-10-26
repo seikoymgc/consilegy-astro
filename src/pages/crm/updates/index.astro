@@ -1,4 +1,5 @@
 ---
+import CrmCurrentEditions from '../../../components/CrmCurrentEditions.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CrmSubnav from '../../../components/CrmSubnav.astro';
 import { CRM_UPDATES, EDITION_LABEL } from '../../../data/crm-updates';
@@ -27,6 +28,8 @@ const fmt = (d: string) => {
       <h1>更新履歴</h1>
       <p class="lead">Revenue CRMの新しい機能と改善のお知らせです。</p>
     </header>
+
+    <CrmCurrentEditions lang={lang} />
 
     {days.map(([date, items]) => (
       <section class="up-day">

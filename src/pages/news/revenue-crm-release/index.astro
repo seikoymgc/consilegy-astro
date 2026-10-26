@@ -36,6 +36,10 @@ const jsonLd = {
 			<time datetime={item.date}>{formatNewsDate(item.date)}</time>　Consilegy合同会社
 		</p>
 
+		<aside class="current-info" aria-label="現在の製品情報">
+			<p><strong>この記事は2026年9月28日の発表内容です。</strong>現在は支援会社版を含む5つのエディションをご案内しています。<a href="/crm/updates/#current-editions">現在のエディションと対象業務</a>、<a href="/crm/pricing/">最新の料金・契約条件</a>をご確認ください（情報確認日：2026年10月26日）。</p>
+		</aside>
+
 		<figure>
 			<img src={`${IMG}-main.webp`} alt="現場に「使わせる」CRMから、現場の代わりに働くCRMへ。Revenue CRM 2026.9.28正式提供開始" width="1600" height="900" loading="eager" />
 		</figure>
@@ -224,4 +228,10 @@ const jsonLd = {
 	.news-body th, .news-body td { padding: 0.6rem 0.65rem; }
 	.news-body tbody td:first-child { white-space: nowrap; }
 }
+</style>
+
+<style>
+.current-info { padding: 1rem 1.25rem; margin: 1.5rem 0; background: #F1F5F9; border: 1px solid #E2E8F0; border-radius: 6px; color: var(--color-text); }
+.current-info p { font-size: 16px; line-height: 1.9; margin: 0; }
+.current-info a { color: var(--color-primary); text-decoration: underline; }
 </style>

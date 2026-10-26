@@ -34,6 +34,10 @@ const jsonLd = {
 		<p class="post-meta">
 			<time datetime={item.date}>{formatNewsDateEn(item.date)}</time> · Consilegy LLC, Tokyo
 		</p>
+		<aside class="current-info" aria-label="Current product information">
+			<p><strong>This article describes the September 28, 2026 announcement.</strong> Revenue CRM now has five editions, including consulting and marketing agencies. See <a href="/en/crm/updates/#current-editions">current editions and use cases</a> and <a href="/en/crm/pricing/">current pricing and contract conditions</a> (information checked October 26, 2026).</p>
+		</aside>
+
 
 		<figure>
 			<img src="/images/crm/screen-dashboard-2026-10c-en.webp" alt="Revenue CRM dashboard" width="1600" height="1000" loading="eager" />
@@ -203,4 +207,10 @@ const jsonLd = {
 	.news-body th, .news-body td { padding: 0.6rem 0.65rem; }
 	.news-body tbody td:first-child { white-space: nowrap; }
 }
+</style>
+
+<style>
+.current-info { padding: 1rem 1.25rem; margin: 1.5rem 0; background: #F1F5F9; border: 1px solid #E2E8F0; border-radius: 6px; color: var(--color-text); }
+.current-info p { font-size: 16px; line-height: 1.9; margin: 0; }
+.current-info a { color: var(--color-primary); text-decoration: underline; }
 </style>

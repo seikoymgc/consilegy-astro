@@ -1,4 +1,5 @@
 ---
+import ConsultationOutcomes from '../../../components/ConsultationOutcomes.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const faqItems = [
@@ -116,13 +117,12 @@ const scopeItems = [
 			リードが商談につながらない。ダッシュボードが信用されない。
 		</p>
 		<p class="hero-lead">
-			その原因は、HubSpotの機能不足ではなく、<br />
-			営業・マーケ・CS・KPI・運用ルールが分断されたままになっていることにあります。<br />
-			ConsilegyはHubSpot単体ではなく、Revenue Operations全体を再設計し、<br />
-			売上につながる運用基盤へ整理します。
-		</p>
+          HubSpotを運用する営業・マーケティングの責任者、システム担当の方へ。<br />
+          見込み客の評価・担当者への割り当て・営業の対応結果が戻る流れを整えます。<br />
+          Salesforceとの連携も含め、業務ルールと設定の見直しから実装・定着まで支援します。
+        </p>
 		<div class="hero-cta">
-			<a href="/diagnostic/" class="btn btn--primary btn--lg">収益を自己診断</a>
+			<a href="/free-consultation/" class="btn btn--primary btn--lg">30分の無料相談を予約する</a>
 			<a href="/download/" class="btn btn--outline btn--lg">サービス資料をダウンロード</a>
 		</div>
 		<div class="hero-tools">
@@ -477,7 +477,7 @@ const scopeItems = [
 					<div class="chaos-item chaos-item--data">重複データ<span>整合性なし</span></div>
 					<div class="chaos-item chaos-item--auto">不明な自動化<span>動いている理由不明</span></div>
 					<div class="chaos-item chaos-item--dept">部門ごとの別管理<span>KPI不一致</span></div>
-					<div class="chaos-item chaos-item--report">信用できないレポート<span>Excel集計が残存</span></div>
+					<div class="chaos-item chaos-item--report">信用できないレポート<span>スプレッドシート集計が残存</span></div>
 				</div>
 				<div class="ba-status ba-status--bad">HubSpotが機能していない状態</div>
 			</div>
@@ -651,7 +651,7 @@ const scopeItems = [
 					<span class="case-size">約150名</span>
 				</div>
 				<h3 class="case-card__title">4種類の分散データをHubSpotへ統合。マーケティングチームを単純作業から戦略実行へ解放</h3>
-				<p class="case-card__body">国内DB・Kintone・Excelなど10箇所以上に分散した顧客データをHubSpotへ統合。データ管理業務を自動化し、マーケティングチームの役割をオペレーションから戦略へ転換。6か月で運用基盤を構築。</p>
+				<p class="case-card__body">国内DB・Kintone・スプレッドシートなど10箇所以上に分散した顧客データをHubSpotへ統合。データ管理業務を自動化し、マーケティングチームの役割をオペレーションから戦略へ転換。6か月で運用基盤を構築。</p>
 				<div class="case-card__footer">
 					<div class="case-tools">
 						<span>HubSpot Marketing Hub</span>
@@ -694,7 +694,7 @@ const scopeItems = [
 			</div>
 			<ul class="fit-list">
 				<li>HubSpotを導入済みだが、現場に定着していない</li>
-				<li>営業がHubSpotを使わず、Excel管理が残っている</li>
+				<li>営業がHubSpotを使わず、スプレッドシート管理が残っている</li>
 				<li>リード獲得はできているが、商談化・受注につながらない</li>
 				<li>MQL / SQL定義が曖昧で、引き渡しが属人的</li>
 				<li>KPIが営業・マーケで統一されていない</li>
@@ -721,7 +721,7 @@ const scopeItems = [
 					どこでRevenue Operationsが崩れているのかを可視化し、
 					優先順位の高い課題から着手する進め方をご提案します。
 				</p>
-				<a href="/diagnostic/" class="btn btn--primary">収益を自己診断</a>
+				<a href="/free-consultation/" class="btn btn--primary">30分の無料相談を予約する</a>
 			</div>
 			<div class="approach-checklist">
 				<p class="checklist-label">現状分析で確認する項目</p>
@@ -783,7 +783,7 @@ const scopeItems = [
 			<p class="tax-note">価格はすべて税抜です。</p>
 		<p class="pricing-note-full">対象Hub数・連携範囲・営業組織規模・定着支援範囲により変動します。プロジェクト型・月額型伴走支援の両方に対応しています。月額型では、設計を担当したメンバーがそのまま定着まで担当します。</p>
 		<div class="pricing-cta">
-			<a href="/diagnostic/" class="btn btn--primary btn--lg">収益を自己診断</a>
+			<a href="/free-consultation/" class="btn btn--primary btn--lg">30分の無料相談を予約する</a>
 			<a href="/services/" class="btn btn--ghost">パッケージ料金を見る</a>
 		</div>
 	</div>
@@ -840,18 +840,16 @@ const scopeItems = [
 </section>
 
 <!-- ===================== 最終CTA ===================== -->
+<ConsultationOutcomes />
 <section class="cta-final">
 	<div class="container">
 		<div class="cta-inner">
 			<div class="cta-copy">
-				<h2>HubSpotを、<br />売上につながる運用基盤へ<br />整理しませんか。</h2>
-				<p>
-					現状のHubSpot環境・営業プロセス・マーケティング運用・KPI・ワークフローを整理し、
-					どこでRevenue Operationsが崩れているのかを可視化します。
-				</p>
-			</div>
+        <h2>設定を変える前に、<br />どこで止まっているかを<br />一緒に整理しませんか。</h2>
+        <p>営業への引き継ぎ、入力・更新ルール、数字の食い違い。30分の無料相談で、いまの状況を伺い、最初に確認することを整理します。</p>
+      </div>
 			<div class="cta-actions">
-				<a href="/diagnostic/" class="btn btn--white btn--lg">収益を自己診断</a>
+				<a href="/free-consultation/" class="btn btn--white btn--lg">30分の無料相談を予約する</a>
 				<a href="/download/" class="btn btn--white-outline btn--lg">サービス資料をダウンロード</a>
 			</div>
 		</div>
@@ -1239,5 +1237,9 @@ details[open] .faq-q::after { content: '−'; }
 	.hs-figure { margin: var(--space-lg) 0; }
 	.hs-figure svg { display: block; width: 100%; height: auto; }
 	.hs-figure figcaption { margin-top: 0.75rem; font-size: 0.875rem; color: var(--color-text-muted); }
+
+/* Primary consultation actions follow the site's button palette. */
+.btn--primary, .btn--white, .btn--cta, .btn--cta-primary { background: #8758C9; color: #fff; border-radius: 4px; }
+.btn--primary:hover, .btn--white:hover, .btn--cta:hover, .btn--cta-primary:hover { background: #7042ac; color: #fff; }
 </style>
 </BaseLayout>

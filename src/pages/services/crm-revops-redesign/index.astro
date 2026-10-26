@@ -1,4 +1,5 @@
 ---
+import ConsultationOutcomes from '../../../components/ConsultationOutcomes.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const faqItems = [
@@ -103,19 +104,19 @@ const scopeItems = [
 			<span class="hero-service-ja">CRM / RevOps再設計支援</span>
 			<span class="hero-service-en">CRM / RevOps Redesign</span>
 		</div>
-		<h1>CRMを入れたのに、<br /><span class="accent">売上管理に使えていない</span></h1>
+		<h1>Salesforce・HubSpotを、<br /><span class="accent">営業が動ける仕組みに。</span></h1>
 		<p class="hero-sub">
 			Salesforce・HubSpot・Kintone・Marketoを導入しても、<br />
 			営業が入力しない。マーケティング施策と商談がつながらない。<br />
 			ダッシュボードの数字が信用されない。
 		</p>
 		<p class="hero-lead">
-			その原因は、CRMの機能不足ではなく、<br />
-			営業・マーケティング・CSを横断した業務プロセス・KPI・データ設計が整っていないことにあります。<br />
-			Consilegyは、既存CRMを入れ替えずに、売上管理に使えるCRM運用基盤へ再設計します。
-		</p>
+          営業・マーケティングの責任者、システム運用担当の方へ。<br />
+          見込み客を渡す条件、担当者と対応期限、商談・受注の記録を一緒に見直します。<br />
+          既存の顧客管理システムを前提に、業務ルールとデータ連携の設計・実装・定着を支援します。
+        </p>
 		<div class="hero-cta">
-			<a href="/diagnostic/" class="btn btn--primary btn--lg">収益を自己診断</a>
+			<a href="/free-consultation/" class="btn btn--primary btn--lg">30分の無料相談を予約する</a>
 			<a href="/download/" class="btn btn--outline btn--lg">サービス資料をダウンロード</a>
 		</div>
 		<div class="hero-keywords">
@@ -140,7 +141,7 @@ const scopeItems = [
 			<div class="symptom-card">SalesforceとHubSpotで<strong>数値が違う</strong></div>
 			<div class="symptom-card">マーケティング施策が<strong>商談・受注につながったか分からない</strong></div>
 			<div class="symptom-card">MQL・SQL、商談、受注の<strong>定義が部門ごとに違う</strong></div>
-			<div class="symptom-card"><strong>Excelでの集計や二重管理</strong>が残っている</div>
+			<div class="symptom-card"><strong>スプレッドシートでの集計や二重管理</strong>が残っている</div>
 			<div class="symptom-card"><strong>商談ステージが形だけ</strong>になっている</div>
 			<div class="symptom-card"><strong>失注理由や受注確度</strong>が記録されていない</div>
 			<div class="symptom-card"><strong>営業会議が数字確認だけ</strong>で終わっている</div>
@@ -461,7 +462,7 @@ const scopeItems = [
 					<div class="ba-tool">Kintone</div>
 					<div class="ba-tool">Marketo</div>
 					<div class="ba-tool">ServiceNow</div>
-					<div class="ba-tool ba-tool--legacy">Excel</div>
+					<div class="ba-tool ba-tool--legacy">スプレッドシート</div>
 					<div class="ba-tool ba-tool--legacy">Slack集計</div>
 				</div>
 				<div class="ba-problems">
@@ -672,7 +673,7 @@ const scopeItems = [
 					<span class="case-size">約150名</span>
 				</div>
 				<h3 class="case-card__title">4種類の分散データをHubSpotへ統合。マーケティングチームを単純作業から戦略実行へ解放</h3>
-				<p class="case-card__body">国内DB・Kintone・Excelなど10箇所以上に分散した顧客データをHubSpotへ統合。データ管理業務を自動化し、マーケティングチームの役割をオペレーションから戦略へ転換。6か月で運用基盤を構築。</p>
+				<p class="case-card__body">国内DB・Kintone・スプレッドシートなど10箇所以上に分散した顧客データをHubSpotへ統合。データ管理業務を自動化し、マーケティングチームの役割をオペレーションから戦略へ転換。6か月で運用基盤を構築。</p>
 				<div class="case-card__footer">
 					<div class="case-tools">
 						<span>HubSpot Marketing Hub</span>
@@ -717,7 +718,7 @@ const scopeItems = [
 				<li>CRM / MA / SFAが複数存在し、データが分断されている</li>
 				<li>営業・マーケ・CSが分断し、KPIが統一されていない</li>
 				<li>ダッシュボードが経営判断に使われていない</li>
-				<li>CRMが現場に定着せず、Excel管理が残っている</li>
+				<li>CRMが現場に定着せず、スプレッドシート管理が残っている</li>
 				<li>MQL / SQL定義が曖昧で、リードの引き渡しが属人的</li>
 				<li>Revenue Operationsを整備し、売上予測精度を改善したい</li>
 				<li>既存CRM環境を活かしたまま、段階的に改善したい</li>
@@ -782,7 +783,7 @@ const scopeItems = [
 					どこでRevenue Operationsが崩れているのかを可視化し、
 					優先順位の高い課題から着手する進め方をご提案します。
 				</p>
-				<a href="/diagnostic/" class="btn btn--primary">収益を自己診断</a>
+				<a href="/free-consultation/" class="btn btn--primary">30分の無料相談を予約する</a>
 			</div>
 			<div class="approach-checklist">
 				<p class="checklist-label">RevOps現状分析で確認する項目</p>
@@ -828,7 +829,7 @@ const scopeItems = [
 				</div>
 			</div>
 			<div class="pricing-card__cta">
-				<a href="/diagnostic/" class="btn btn--primary btn--lg">収益を自己診断</a>
+				<a href="/free-consultation/" class="btn btn--primary btn--lg">30分の無料相談を予約する</a>
 				<a href="/services/" class="btn btn--ghost">パッケージ料金を見る</a>
 			</div>
 		</div>
@@ -887,18 +888,16 @@ const scopeItems = [
 </section>
 
 <!-- ===================== 最終CTA ===================== -->
+<ConsultationOutcomes />
 <section class="cta-final">
 	<div class="container">
 		<div class="cta-inner">
 			<div class="cta-copy">
-				<h2>分断されたCRM環境を、<br />売上につながる運用構造へ<br />整理しませんか。</h2>
-				<p>
-					現状のCRM・営業プロセス・マーケティング運用・KPI・ダッシュボードを整理し、
-					どこでRevenue Operationsが崩れているのかを可視化します。
-				</p>
-			</div>
+        <h2>設定を変える前に、<br />どこで止まっているかを<br />一緒に整理しませんか。</h2>
+        <p>営業への引き継ぎ、入力・更新ルール、数字の食い違い。30分の無料相談で、いまの状況を伺い、最初に確認することを整理します。</p>
+      </div>
 			<div class="cta-actions">
-				<a href="/diagnostic/" class="btn btn--white btn--lg">収益を自己診断</a>
+				<a href="/free-consultation/" class="btn btn--white btn--lg">30分の無料相談を予約する</a>
 				<a href="/download/" class="btn btn--white-outline btn--lg">サービス資料をダウンロード</a>
 			</div>
 		</div>
@@ -1428,5 +1427,9 @@ details[open] .faq-q::after { content: '−'; }
 	.ba-figure { margin: var(--space-lg) 0 0; }
 	.ba-figure svg { display: block; width: 100%; height: auto; }
 	.ba-figure figcaption { margin-top: 0.75rem; font-size: 0.875rem; color: var(--color-text-muted); }
+
+/* Primary consultation actions follow the site's button palette. */
+.btn--primary, .btn--white, .btn--cta, .btn--cta-primary { background: #8758C9; color: #fff; border-radius: 4px; }
+.btn--primary:hover, .btn--white:hover, .btn--cta:hover, .btn--cta-primary:hover { background: #7042ac; color: #fff; }
 </style>
 </BaseLayout>

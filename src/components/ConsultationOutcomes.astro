@@ -1,0 +1,44 @@
+---
+interface Props { booking?: boolean; }
+const { booking = false } = Astro.props;
+const outcomes = [
+  { title: 'どこで止まっているか', text: '見込み客の引き継ぎ、営業の対応、商談・受注の記録。いまの仕事の流れを伺い、確認すべき箇所を絞ります。' },
+  { title: '先に何を直すか', text: '引き継ぎ条件、担当者と期限、システム間のデータ連携。設定と運用の両面から、最初に見直す論点を整理します。' },
+  { title: '誰が、どう進めるか', text: '社内で確認・変更できることと、調査や実装の支援が必要なことを分け、次に取る行動を一緒に考えます。' },
+];
+---
+<section class="consultation-outcomes">
+  <div class="consultation-outcomes__inner">
+    <header>
+      <p class="consultation-outcomes__eyebrow">Your First Step</p>
+      <h2>30分で、次に確認することを整理します。</h2>
+      <p>営業・マーケティングの責任者、システム運用担当の方へ。HubSpot・Salesforceの利用中・併用中はもちろん、導入前のご相談も受け付けています。</p>
+    </header>
+    <div class="consultation-outcomes__grid">
+      {outcomes.map(({title, text}, i) => <article><span class="consultation-outcomes__number">0{i + 1}</span><h3>{title}</h3><p>{text}</p></article>)}
+    </div>
+    <p class="consultation-outcomes__scope">利用中のシステム名と、最近困った場面を一つお聞かせください。資料や管理者権限の準備は不要です。30分では状況の整理を行い、詳細な環境調査・データ分析・設計書の作成は別途ご相談となります。</p>
+    <div class="consultation-outcomes__actions">
+      <a class="consultation-outcomes__button" href={booking ? '#booking' : '/free-consultation/#booking'}>30分の無料相談を予約する →</a>
+      <a href="/case-studies/hubspot-sales-handoff-lead-to-revenue/">HubSpotで営業への引き継ぎを整えた支援事例を見る →</a>
+    </div>
+  </div>
+</section>
+<style>
+.consultation-outcomes { background: #F1F5F9; padding: 4rem 0; color: var(--color-text); }
+.consultation-outcomes__inner { max-width: 1100px; margin: auto; padding: 0 2rem; }
+.consultation-outcomes header { max-width: 800px; }
+.consultation-outcomes__eyebrow { font-size: 14px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--color-navy); margin: 0 0 .75rem; }
+.consultation-outcomes h2 { color: var(--color-navy); font-size: clamp(24px, 3vw, 32px); line-height: 1.5; margin: 0 0 1rem; }
+.consultation-outcomes p { font-size: 16px; line-height: 1.85; color: var(--color-text-muted); }
+.consultation-outcomes__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; margin: 2rem 0 1.5rem; }
+.consultation-outcomes article { background: white; border: 1px solid #E2E8F0; border-radius: 6px; padding: 1.5rem; box-shadow: 0 2px 6px rgb(15 23 42 / .04); }
+.consultation-outcomes__number { color: var(--color-navy); font-size: 14px; font-weight: 700; }
+.consultation-outcomes h3 { color: var(--color-navy); font-size: 20px; line-height: 1.5; margin: .5rem 0 .75rem; }
+.consultation-outcomes__scope { max-width: 850px; }
+.consultation-outcomes__actions { display: flex; align-items: center; flex-wrap: wrap; gap: 1.25rem 2rem; margin-top: 1.5rem; }
+.consultation-outcomes__actions a { color: #7042ac; font-size: 16px; text-underline-offset: 4px; }
+.consultation-outcomes__actions .consultation-outcomes__button { display: inline-flex; justify-content: center; background: #8758C9; color: white; padding: 1rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: 700; }
+.consultation-outcomes__button:hover { background: #7042ac; }
+@media(max-width: 760px) { .consultation-outcomes__inner { padding: 0 1.25rem; } .consultation-outcomes__grid { grid-template-columns: 1fr; } .consultation-outcomes__actions { align-items: stretch; flex-direction: column; } }
+</style>

@@ -1,6 +1,7 @@
 ---
 import RevenueFlowFigure from '../../components/figures/RevenueFlowFigure.astro';
 import GanttFigure from '../../components/figures/GanttFigure.astro';
+import ConsultationOutcomes from '../../components/ConsultationOutcomes.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 // 機能別の個別ページ。ナビからは外し、このハブと記事からの内部リンクで到達させる。
@@ -45,7 +46,7 @@ const topics = [
 		href: '/services/sfa-adoption-support/',
 		en: 'SFA Adoption Support',
 		title: 'SFA定着支援',
-		desc: '入れたSFAが現場で動く状態にする。営業5〜50名向け、Excelからの移行にも対応。',
+		desc: '入れたSFAが現場で動く状態にする。営業5〜50名向け、スプレッドシートからの移行にも対応。',
 		step: 'Step 03',
 	},
 	{
@@ -157,13 +158,13 @@ const topics = [
 <section class="hero">
 	<div class="container">
 		<span class="eyebrow"><span class="eyebrow__dot"></span>Services &amp; Pricing</span>
-		<h1>現状を把握する。作り直す。<br /><span class="accent">現場で回るまで、離れない。</span></h1>
+		<h1>見込み客を、商談へ。<br /><span class="accent">営業とマーケの間で、止めない。</span></h1>
 		<p class="hero-lead">
-			Consilegyの支援は3つのステップに分かれます。どこから始めるかは、いま何が分かっていて何が分かっていないかで決まります。
+			HubSpot・Salesforceなどを使っていても、営業に渡した見込み客が追われない。商談・受注の結果が戻ってこない。営業・マーケティングの責任者や運用担当の方と、引き継ぎルール・データ連携・集計を見直し、現場で運用できるところまで支援します。
 		</p>
 		<div class="hero-actions">
-			<a href="/diagnostic/" class="btn btn--primary btn--lg">収益を自己診断</a>
-			<a href="#guide" class="btn btn--ghost btn--lg">どこから始めるべきか</a>
+			<a href="/free-consultation/" class="btn btn--primary btn--lg">30分の無料相談を予約する</a>
+			<a href="#guide" class="btn btn--ghost btn--lg">支援の進め方・料金を見る</a>
 		</div>
 	</div>
 </section>
@@ -175,7 +176,7 @@ const topics = [
 			<p class="section-eyebrow">Who it is for</p>
 			<h2>CRMの運用に人を割けない場合は、自社プロダクトから始められます。</h2>
 			<p class="section-lead">
-				40社以上のCRM / MA / SFA導入支援で分かった「動くCRMの型」を製品にしたのが「Revenue CRM」です。移行作業なし。Excelの記録がそのまま残るところから始まります。2026年9月28日に正式リリースしました。
+				40社以上のCRM / MA / SFA導入支援で分かった「動くCRMの型」を製品にしたのが「Revenue CRM」です。移行作業なし。スプレッドシートの記録がそのまま残るところから始まります。2026年9月28日に正式リリースしました。
 			</p>
 			<p class="svc-product__custom">
 				貴社の業務に合わせた連携・自動化も、有償の導入支援として対応します。
@@ -362,7 +363,7 @@ const topics = [
 				<li><span class="check" aria-hidden="true">✓</span>足りない連携・自動化は当社で作って渡す。ベンダー選定とPMOも</li>
 			</ul>
 			<p class="plan-more"><a href="/services/crm-revops-redesign/">再設計支援の詳しい内容 →</a></p>
-			<a href="/diagnostic/" class="btn btn--primary plan-cta">収益を自己診断</a>
+			<a href="/free-consultation/" class="btn btn--primary plan-cta">30分の無料相談を予約する</a>
 		</article>
 	</div>
 </section>
@@ -393,7 +394,7 @@ const topics = [
 					<li><span class="check" aria-hidden="true">✓</span>KPIダッシュボードレビュー</li>
 					<li><span class="check" aria-hidden="true">✓</span>課題整理・優先順位づけ</li>
 				</ul>
-				<a href="/diagnostic/" class="btn btn--primary plan-cta">収益を自己診断</a>
+				<a href="/free-consultation/" class="btn btn--primary plan-cta">30分の無料相談を予約する</a>
 			</article>
 
 			<article class="plan-card">
@@ -409,7 +410,7 @@ const topics = [
 					<li><span class="check" aria-hidden="true">✓</span>施策の優先順位付け</li>
 					<li><span class="check" aria-hidden="true">✓</span>Slack等での非同期相談対応</li>
 				</ul>
-				<a href="/diagnostic/" class="btn btn--primary plan-cta">収益を自己診断</a>
+				<a href="/free-consultation/" class="btn btn--primary plan-cta">30分の無料相談を予約する</a>
 			</article>
 
 			<article class="plan-card">
@@ -426,7 +427,7 @@ const topics = [
 					<li><span class="check" aria-hidden="true">✓</span>改善プロジェクトのリード</li>
 					<li><span class="check" aria-hidden="true">✓</span>RevOpsチーム内製化支援</li>
 				</ul>
-				<a href="/diagnostic/" class="btn btn--primary plan-cta">収益を自己診断</a>
+				<a href="/free-consultation/" class="btn btn--primary plan-cta">30分の無料相談を予約する</a>
 			</article>
 
 		</div>
@@ -471,7 +472,7 @@ const topics = [
 			</a>
 		</div>
 		<p class="guide-foot">
-			判断がつかない場合は、<a href="/diagnostic/">無料の収益診断</a>で現在地を確認してください。
+			判断がつかない場合は、<a href="/free-consultation/">30分の無料相談</a>で、いまの状況と次の進め方を一緒に整理します。
 			6つの「境目」のどこが詰まっているかが分かれば、どのステップから入るべきかも決まります。
 		</p>
 	</div>
@@ -613,31 +614,20 @@ const topics = [
 </section>
 
 <!-- ===================== FINAL CTA ===================== -->
+<ConsultationOutcomes />
 <section class="final-cta">
-	<div class="container cta-inner">
-		<div class="cta-copy">
-			<p class="cta-eyebrow">Get Started</p>
-			<h2>まず、どこで<br />取りこぼしているかを見る</h2>
-			<p class="cta-lead">
-				12〜14問・選択式で、マーケ・営業・CSの6つの「境目」のどこが詰まっているかを可視化します。
-				所要3分・無料。メールアドレスを登録すると、結果をその場で表示します。
-			</p>
-			<div class="cta-actions">
-				<a href="/diagnostic/" class="btn btn--cta-primary btn--lg">収益を自己診断</a>
-				<a href="/download/" class="btn btn--cta-outline btn--lg">サービス資料をダウンロード</a>
-			</div>
-		</div>
-		<div class="cta-card">
-			<h4>診断でわかること</h4>
-			<ul class="cta-list">
-				<li>売上成長を止めている最大のボトルネック</li>
-				<li>6つの「境目」それぞれの状態（🔴🟡🟢）</li>
-				<li>漏れの重なりから見える「取りこぼしの型」</li>
-				<li>優先順に並んだ推奨施策</li>
-				<li>今日から着手できる最初の一手</li>
-			</ul>
-		</div>
-	</div>
+  <div class="container cta-inner">
+    <div class="cta-copy">
+      <p class="cta-eyebrow">Get Started</p>
+      <h2>まず、困っている場面を<br />一つお聞かせください。</h2>
+      <p class="cta-lead">30分の無料相談で、いま確認すべき箇所と次の進め方を整理します。依頼するサービスが決まっていなくてもご相談いただけます。</p>
+      <div class="cta-actions">
+        <a href="/free-consultation/" class="btn btn--cta-primary btn--lg">30分の無料相談を予約する</a>
+        <a href="/download/" class="btn btn--cta-outline btn--lg">サービス資料をダウンロード</a>
+      </div>
+    </div>
+    <div class="cta-card"><h4>相談前の準備</h4><ul class="cta-list"><li>利用中のシステム名</li><li>最近困った場面を一つ</li><li>資料の作成や管理者権限は不要</li></ul></div>
+  </div>
 </section>
 
 </BaseLayout>
@@ -1033,4 +1023,8 @@ const topics = [
 }
 	.plan-more { margin: 0.5rem 0 1.25rem; font-size: 0.9375rem; }
 	.plan-more a { font-weight: 600; }
+
+/* Primary consultation actions follow the site's button palette. */
+.btn--primary, .btn--white, .btn--cta, .btn--cta-primary { background: #8758C9; color: #fff; border-radius: 4px; }
+.btn--primary:hover, .btn--white:hover, .btn--cta:hover, .btn--cta-primary:hover { background: #7042ac; color: #fff; }
 </style>

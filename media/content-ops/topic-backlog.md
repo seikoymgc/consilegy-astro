@@ -31,6 +31,7 @@
 | AIで浮いた営業の時間は、行き先（止まっている商談の一覧）を決めないと社内に吸われやすい | Notion LinkedIn投稿 69J「営業の『AIで浮いた時間』が、なぜ売上につながらないのか」(10/29投稿予定) | 公開済み 2026-10-23 (ai-time-saved-needs-a-destination) |
 | システム導入の効果は稼働前の数字で決まる（業務1つ・1件の定義・稼働後も残る記録・比べる日と見直す条件を稟議に） | Notion LinkedIn投稿 65J「10月からの下半期に向けて：システム投資を「買い損」にしないための3つのチェックポイント」(9/17)の3点目 | 公開済み 2026-10-24 (measure-before-go-live) |
 | レビューの属人化は、毎回の指摘を問いの形で書き出して一次判定を手放す（営業の見積・ステージ判定・CRM入力チェックへの当てはめ） | Notion note記事本文「LinkedIn投稿の品質基準を標準化したら、毎回の赤入れが不要になった」(6/19) | 公開済み 2026-10-25 (write-down-the-review-criteria) |
+| 海外製MA/営業支援ツールのメールテンプレートを日本語化するとき、冒頭3行（宛名・挨拶・名乗り）を関係の段階ごとに分ける | Notion LinkedIn投稿「🌐 In Japan, we tell people they are "always taking care of us."」(10/21 EN) | 公開済み 2026-10-26 (email-opening-follows-the-relationship) |
 | （Notionの投稿計画・投稿内容の作成から、未記事化の切り口を追記） | Notion | — |
 
 Seikoさんが現場の話を足したいときは、この表に1行書けば次回から拾う。

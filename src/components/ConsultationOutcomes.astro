@@ -1,11 +1,6 @@
 ---
 interface Props { booking?: boolean; }
 const { booking = false } = Astro.props;
-const outcomes = [
-  { title: 'どこで止まっているか', text: '引き継ぎ・営業の対応・商談の記録。仕事の流れを伺い、確認する箇所を絞ります。' },
-  { title: '先に何を直すか', text: '条件・担当と期限・データ連携。設定と運用の両面から、見直す順番を考えます。' },
-  { title: '誰が、どう進めるか', text: '社内で進めることと、支援が必要なことを分け、次に取る行動を整理します。' },
-];
 ---
 <section class="consultation-outcomes">
   <div class="consultation-outcomes__inner">
@@ -14,39 +9,41 @@ const outcomes = [
       <h2>30分で、次に確認することを整理します。</h2>
       <p>営業・マーケティングの責任者、システム運用担当の方へ。HubSpot・Salesforceの利用中・併用中はもちろん、導入前のご相談も受け付けています。</p>
     </header>
+    <p class="consultation-outcomes__example">たとえば「営業に渡した見込み客が、追われていない」場合。</p>
     <div class="consultation-outcomes__grid">
-      {outcomes.map(({title, text}, i) => <article>
-        <div class="consultation-outcomes__visual">
-          <span class="consultation-outcomes__number">0{i + 1}</span>
-          <svg viewBox="0 0 80 80" width="80" height="80" fill="none" stroke="#0F172A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            {i === 0 && <>
-              <rect x="8" y="18" width="28" height="22" rx="4" fill="#F1F5F9" />
-              <path d="M16 26h12M16 32h8M36 29h10" /><path d="m42 25 4 4-4 4" />
-              <circle cx="48" cy="48" r="17" fill="#fff" /><path d="m61 61 12 12" stroke-width="4" />
-              <path d="M40 48h5l4-7 4 14 4-7" stroke="#2563EB" stroke-width="2.5" />
-            </>}
-            {i === 1 && <>
-              <rect x="12" y="12" width="56" height="56" rx="6" fill="#F1F5F9" />
-              <rect x="20" y="21" width="40" height="12" rx="3" fill="#3B82F6" stroke="#2563EB" />
-              <path d="m25 27 3 3 5-6" stroke="#fff" />
-              <path d="M23 43h8M40 43h17M23 55h8M40 55h12" />
-            </>}
-            {i === 2 && <>
-              <circle cx="20" cy="21" r="8" fill="#F1F5F9" /><path d="M7 43v-4a13 13 0 0 1 26 0v4M10 43h20" />
-              <path d="M40 28h18v15M54 39l4 4 4-4" />
-              <rect x="34" y="49" width="37" height="22" rx="4" fill="#F1F5F9" />
-              <path d="m43 60 6 5 13-12" stroke="#2563EB" stroke-width="3" />
-            </>}
-          </svg>
-        </div>
-        <div><h3>{title}</h3><p>{text}</p></div>
-      </article>)}
+      <article>
+        <h3><span>01</span>どこで止まっているか</h3>
+        <figure class="consultation-example">
+          <div class="handoff" role="img" aria-label="マーケティングから営業に引き継いでも、担当と対応期限が不明だと商談まで進まない例">
+            <div class="handoff__nodes"><span>マーケ</span><b aria-hidden="true">→</b><span>営業</span><i aria-hidden="true">···</i><span class="handoff__pending">商談</span></div>
+            <div class="handoff__gap"><span>担当は？　対応期限は？</span></div>
+          </div>
+          <figcaption>引き継ぎから商談までをたどり、止まっている箇所を絞ります。</figcaption>
+        </figure>
+      </article>
+      <article>
+        <h3><span>02</span>先に何を直すか</h3>
+        <figure class="consultation-example">
+          <ol class="priorities" aria-label="設定を変更する前に確認する順序の例">
+            <li><span class="priorities__first">先に</span><span>担当と期限を決める</span></li>
+            <li class="priorities__connector" aria-hidden="true">↓</li>
+            <li><span>次に</span><span>割り当て・通知の設定</span></li>
+          </ol>
+          <figcaption>この場合は、運用ルールを決めてからシステム設定を見直します。</figcaption>
+        </figure>
+      </article>
+      <article>
+        <h3><span>03</span>誰が、どう進めるか</h3>
+        <figure class="consultation-example">
+          <dl class="responsibilities" aria-label="次に進めることの分担例">
+            <div><dt>社内で確認</dt><dd>担当者・対応期限</dd></div>
+            <div><dt>支援を検討</dt><dd>割り当て・通知の設定</dd></div>
+          </dl>
+          <figcaption>社内で進めることと、調査・実装の支援が要ることを分けます。</figcaption>
+        </figure>
+      </article>
     </div>
-    <ul class="consultation-outcomes__preparation" aria-label="相談の準備">
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>使っているシステム名</li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11a8 8 0 0 1-8 8H6l-4 3V11a9 9 0 0 1 19 0Z"/><path d="M7 10h10M7 14h6"/></svg>最近困った場面を一つ</li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>資料・管理者権限は不要</li>
-    </ul>
+    <p class="consultation-outcomes__preparation">お話しいただくのは、使っているシステム名と、最近困った場面を一つ。資料・管理者権限は不要です。</p>
     <p class="consultation-outcomes__scope">30分では状況を整理します。詳細な環境調査・データ分析・設計書の作成は別途ご相談となります。</p>
     <div class="consultation-outcomes__actions">
       <a class="consultation-outcomes__button" href={booking ? '#booking' : '/free-consultation/#booking'}>30分の無料相談を予約する →</a>
@@ -60,27 +57,38 @@ const outcomes = [
 .consultation-outcomes header { max-width: 800px; }
 .consultation-outcomes__eyebrow { font-size: 14px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--color-navy); margin: 0 0 .75rem; }
 .consultation-outcomes h2 { color: var(--color-navy); font-size: clamp(24px, 3vw, 32px); line-height: 1.5; margin: 0 0 1rem; }
-.consultation-outcomes p { font-size: 16px; line-height: 1.85; color: var(--color-text-muted); }
-.consultation-outcomes__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; margin: 2rem 0 1.5rem; }
-.consultation-outcomes article { position: relative; background: white; border: 1px solid #E2E8F0; border-radius: 6px; padding: 1.5rem; box-shadow: 0 2px 6px rgb(15 23 42 / .04); }
-.consultation-outcomes__visual { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1.25rem; }
-.consultation-outcomes__visual svg { flex: none; }
-.consultation-outcomes article:not(:last-child)::after { content: '→'; position: absolute; right: -1.25rem; top: 3rem; width: 1.25rem; text-align: center; color: #0F172A; font-size: 20px; z-index: 1; }
-.consultation-outcomes__preparation { display: flex; flex-wrap: wrap; gap: 1rem 2rem; list-style: none; padding: 0; margin: 1.75rem 0 1rem; }
-.consultation-outcomes__preparation li { display: flex; align-items: center; gap: .625rem; font-size: 16px; color: var(--color-text); }
-.consultation-outcomes__preparation svg { width: 22px; height: 22px; flex: none; stroke: #0F172A; stroke-width: 1.7; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-.consultation-outcomes__number { color: var(--color-navy); font-size: 14px; font-weight: 700; }
-.consultation-outcomes h3 { color: var(--color-navy); font-size: 20px; line-height: 1.5; margin: .5rem 0 .75rem; }
-.consultation-outcomes__scope { max-width: 850px; }
+.consultation-outcomes p, .consultation-example figcaption { font-size: 16px; line-height: 1.85; color: var(--color-text-muted); }
+.consultation-outcomes .consultation-outcomes__example { margin: 1.75rem 0 1rem; color: var(--color-text); font-weight: 600; }
+.consultation-outcomes__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; margin: 0 0 1.5rem; }
+.consultation-outcomes article { background: white; border: 1px solid #E2E8F0; border-radius: 6px; padding: 1.25rem; box-shadow: 0 2px 6px rgb(15 23 42 / .04); }
+.consultation-outcomes h3 { display: flex; align-items: baseline; gap: .625rem; color: var(--color-navy); font-size: 20px; line-height: 1.5; margin: 0 0 1.25rem; }
+.consultation-outcomes h3 > span { font-size: 14px; font-weight: 700; }
+.consultation-example { margin: 0; }
+.consultation-example figcaption { margin-top: 1rem; }
+.handoff, .priorities, .responsibilities { min-height: 122px; font-size: 16px; line-height: 1.5; color: #0F172A; }
+.handoff { display: flex; flex-direction: column; justify-content: center; }
+.handoff__nodes { display: flex; align-items: center; justify-content: space-between; gap: .25rem; }
+.handoff__nodes > span { padding: .5rem .375rem; border: 1px solid #0F172A; border-radius: 4px; background: #F1F5F9; white-space: nowrap; }
+.handoff__nodes b { font-weight: 400; }
+.handoff__nodes i { color: #2563EB; font-size: 22px; font-style: normal; }
+.handoff__nodes > .handoff__pending { background: #fff; border-style: dashed; color: #475569; }
+.handoff__gap { margin: 1rem 0 0; padding-top: .5rem; border-top: 1px dashed #2563EB; text-align: center; color: #2563EB; }
+.priorities { padding: 0; margin: 0; list-style: none; display: flex; flex-direction: column; justify-content: center; }
+.priorities li:not(.priorities__connector) { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: .5rem; align-items: center; }
+.priorities li > span:first-child { font-size: 14px; text-align: center; }
+.priorities__first { border: 1px solid #2563EB; border-radius: 4px; color: #2563EB; padding: .25rem 0; }
+.priorities li > span:last-child { padding: .5rem; border: 1px solid #0F172A; border-radius: 4px; background: #F1F5F9; }
+.priorities__connector { padding-left: 52px; text-align: center; line-height: 1.25; }
+.responsibilities { display: flex; flex-direction: column; justify-content: center; gap: .75rem; margin: 0; }
+.responsibilities > div { display: grid; grid-template-columns: 1fr; gap: .125rem; padding-left: .75rem; border-left: 1px solid #0F172A; }
+.responsibilities dt { font-size: 14px; color: #475569; }
+.responsibilities dd { margin: 0; }
+.consultation-outcomes__preparation, .consultation-outcomes__scope { max-width: 900px; }
+.consultation-outcomes__preparation { margin: 0 0 .5rem; }
 .consultation-outcomes__actions { display: flex; align-items: center; flex-wrap: wrap; gap: 1.25rem 2rem; margin-top: 1.5rem; }
 .consultation-outcomes__actions a { color: #7042ac; font-size: 16px; text-underline-offset: 4px; }
 .consultation-outcomes__actions .consultation-outcomes__button { display: inline-flex; justify-content: center; background: #8758C9; color: white; padding: 1rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: 700; }
 .consultation-outcomes__button:hover { background: #7042ac; }
-@media(max-width: 760px) { .consultation-outcomes__inner { padding: 0 1.25rem; } .consultation-outcomes__grid { grid-template-columns: 1fr; gap: 1.5rem; }
-.consultation-outcomes article { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 1rem; padding: 1.25rem; }
-.consultation-outcomes__visual { flex-direction: column; justify-content: flex-start; align-self: start; gap: .5rem; margin-bottom: 0; }
-.consultation-outcomes__visual svg { width: 56px; height: 56px; }
-.consultation-outcomes article:not(:last-child)::after { content: '↓'; top: auto; bottom: -1.5rem; left: 50%; height: 1.5rem; line-height: 1.5rem; }
-.consultation-outcomes__preparation { flex-direction: column; }
-.consultation-outcomes h3 { margin-top: 0; } .consultation-outcomes__actions { align-items: stretch; flex-direction: column; } }
+@media(max-width: 900px) { .consultation-outcomes__grid { grid-template-columns: 1fr; } .handoff, .priorities, .responsibilities { min-height: 0; } .consultation-example { display: grid; grid-template-columns: minmax(220px, 1fr) 1fr; align-items: center; gap: 1.5rem; } .consultation-example figcaption { margin-top: 0; } }
+@media(max-width: 600px) { .consultation-outcomes__inner { padding: 0 1.25rem; } .consultation-example { display: block; } .consultation-example figcaption { margin-top: 1rem; } .consultation-outcomes__actions { align-items: stretch; flex-direction: column; } }
 </style>

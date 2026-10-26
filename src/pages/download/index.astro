@@ -27,7 +27,7 @@ const faqItems = [
 	},
 	{
 		q: '営業連絡は来ますか？',
-		a: '資料のリンクをお送りするメール以外に、自動で営業連絡をお送りすることはありません。ご相談をご希望の場合は、30分の無料相談やお問い合わせフォームからご連絡ください。',
+		a: 'お電話での営業はしません。資料のリンクをお送りするメールのほか、ニュースレターやお知らせをお送りすることがあります。配信は各メールのリンクからいつでも停止できます。ご相談をご希望の場合は、30分の無料相談やお問い合わせフォームからご連絡ください。',
 	},
 	{
 		q: '小規模企業でも参考になりますか？',
@@ -156,7 +156,7 @@ const faqSchema = {
 				</p>
 				<ul class="form-note-list">
 					<li>無料でご覧いただけます</li>
-					<li>自動的な営業連絡はありません</li>
+					<li>お電話での営業はしません</li>
 					<li>PDF形式です</li>
 				</ul>
 			</div>
@@ -185,7 +185,7 @@ const faqSchema = {
 						<label class="dlf-field"><span>メッセージ（任意）</span><textarea name="message" rows="3"></textarea></label>
 						<label class="dlf-hp" aria-hidden="true"><span>このフィールドは空のままにしてください</span><input name="hp" type="text" tabindex="-1" autocomplete="off" /></label>
 						<p class="dlf-error" id="dl-error" role="alert" hidden></p>
-						<p class="dlf-privacy">ご入力いただいた情報は、<a href="/privacy-policy/">プライバシーポリシー</a>に沿って取り扱います。</p>
+						<p class="dlf-privacy">ご入力いただいたメールアドレスに、ニュースレターやお知らせをお送りすることがあります（いつでも停止できます）。ご入力いただいた情報は、<a href="/privacy-policy/">プライバシーポリシー</a>に沿って取り扱います。</p>
 						<button type="submit" class="btn btn--primary btn--lg">資料を見る</button>
 					</form>
 				</div>

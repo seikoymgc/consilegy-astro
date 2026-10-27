@@ -30,7 +30,7 @@ const mobilePoints = [
 // Left: how a rollout usually slides back. Right: what Revenue CRM does about it.
 const problems = [
 	{ topic: 'Data entry', problem: 'Typing it all in<br />is painful.', answer: 'Speak and it becomes a record. Photograph a card and the contact is in. Paste meeting notes and you get tasks and contacts. People only check and save.' },
-	{ topic: 'Getting started', problem: 'Learning the system<br />takes too long.', answer: "We don't hand you an empty system. Pick your use case and you start with deal stages and the automations teams use most already in place." },
+	{ topic: 'Getting started', problem: 'Learning the system<br />takes too long.', answer: 'Choose an edition and start with screens and automations for what your team manages: deals, projects, capacity, contracts, or enrollment.' },
 	{ topic: 'Knowledge silos', problem: 'The one person who ran it<br />leaves.', answer: 'Settings stay visible in the screens, and automations are picked from a library of 175. How-to videos and help articles are free on every plan.' },
 ];
 
@@ -66,7 +66,7 @@ const faqs = [
 	{ q: 'How are users counted?', a: 'By the members who have joined the workspace, including accounts that were invited but are not in use. Changes apply from the next invoice.' },
 	{ q: 'How do we cancel?', a: 'The User and Student plans run for 1 year and renew automatically each year. They cannot be cancelled mid-term; to end one, let us know at least 1 month before the term ends. The Prepaid plan renews monthly and ends if you tell us at least 14 days before the next renewal date. Payment is monthly in advance, and fees already paid are not refunded.' },
 	{ q: 'Can we take our data out?', a: 'Export contacts, companies, and deals, plus activities, notes, tasks, emails, and attachments, to CSV from Settings at any time, and for 30 days after the contract ends. Your data is yours.' },
-	{ q: 'Can we migrate from the system we use today?', a: 'Revenue CRM is built for teams that cannot dedicate someone to running a CRM. If a dedicated admin already runs Salesforce or HubSpot, we suggest keeping it and support implementation and operations on that tool instead. HubSpot data can be read in without replacing it.' },
+	{ q: 'Can we migrate from Salesforce, HubSpot, or our current system?', a: 'Yes. We can review your current fields and workflows and explain what Revenue CRM can support. Customer lists kept in spreadsheets can be imported as CSV, and HubSpot data can be read in. Data migration and integrations are quoted separately based on the data volume and services involved.' },
 ];
 
 const readings = [
@@ -78,7 +78,7 @@ const readings = [
 
 <BaseLayout
 	title="AI and automation do the work. A CRM your team won't hate updating | Revenue CRM"
-	description="AI and automation do the work: Revenue CRM is a CRM your team won't hate updating. Photograph a business card, or speak or paste your meeting notes, and AI drafts the record for a person to check. One customer record across marketing, sales, and customer success, for small and mid-sized companies. Editions for B2B sales, agencies and contract work, SaaS resellers, and schools. From ¥3,000 per user per month, with a 30-day free trial."
+	description="Revenue CRM is a customer relationship management and sales system with five editions: B2B sales, development and production, consulting and marketing agencies, SaaS resellers, and schools. AI drafts records for people to check and save. From ¥3,000 per user per month, with a 30-day free trial."
 	ogImage="/images/og/crm-en-2026c.png"
 	lang="en"
 	alternateUrl="/crm/"
@@ -106,7 +106,7 @@ const readings = [
 		"datePublished": "2026-09-28",
 		"publisher": { "@type": "Organization", "name": "PR TIMES" }
 	},
-	"description": "Revenue CRM: AI and automation do the work, in a CRM your team won't hate updating. Photograph a business card, or speak or paste meeting notes, and AI drafts the record for a person to check. Marketing, sales, and customer success share one customer record. Built for small and mid-sized companies, with editions for B2B sales, agencies and contract work, SaaS resellers, and schools (B2C). The B2B, agency, and reseller editions ship with 175 automations and use-case defaults. Generally available since 28 September 2026.",
+	"description": "Revenue CRM is a customer relationship management and sales system with five editions: B2B sales, development and production, consulting and marketing agencies, SaaS resellers, and schools. AI drafts records from business cards, voice notes, and meeting notes for people to check and save. The four business editions share a library of 175 automations; the school edition has dedicated classroom workflows. Generally available since 28 September 2026.",
 	"inLanguage": ["ja", "en", "zh-Hant"],
 	"offers": {
 		"@type": "Offer",
@@ -301,7 +301,7 @@ Marketing, sales, and customer success share one customer record, in a CRM and s
 			<p class="section-eyebrow">AI Learning</p>
 			<h2>The more you correct it,<br />the closer it gets to your judgment.</h2>
 		</header>
-		<p class="learning-body">When someone approves or corrects an AI judgment or summary, that decision is kept as your company's own reference. The next time the AI makes the same call, it follows your most recent decisions. Each company's decisions are kept separately and never mixed with another's. Nothing is used to train an AI model, so your data is not used anywhere else.</p>
+		<p class="learning-body">When someone approves or corrects an AI judgment or summary, that decision is kept as your company's own reference. The next time the AI makes the same call, it uses your recent decisions as examples. Each company's decisions are kept separately and never mixed with another's. This does not train the AI model itself.</p>
 		<ul class="learning-list" aria-label="Where decisions build up">
 			<li>Lead priority (tier)</li>
 			<li>Field classification</li>
@@ -311,13 +311,14 @@ Marketing, sales, and customer success share one customer record, in a CRM and s
 	</div>
 </section>
 
-<!-- ===================== EDITIONS (no empty system) + API + numbers ===================== -->
+<!-- ===================== EDITIONS + API + numbers ===================== -->
 <section class="track" id="use-cases">
 	<div class="container">
 		<header class="section-head track-head">
 			<p class="section-eyebrow">Editions</p>
-			<h2>We don't hand you an empty system.</h2>
-			<p class="section-lead">Pick your use case and you start with deal stages and the automations teams use most already in place. The school edition connects to LINE, so students can book a lesson in one tap.</p>
+			<h2>Five editions, built around the work you do.</h2>
+			<p class="section-lead">Choose screens and automations for B2B sales, development and production projects, consulting and marketing engagements, reseller contracts, or school enrollment. The school edition connects to LINE, so students can book a lesson in one tap.</p>
+			<p class="section-lead"><a href="/en/crm/updates/#current-editions">See the current editions, workflows, and pricing references →</a></p>
 		</header>
 		<ul class="track-list">
 			{editions.map((item) => (
@@ -427,8 +428,7 @@ Marketing, sales, and customer success share one customer record, in a CRM and s
 				Enter an email address and a demo workspace opens, with no password to set. See the records, the automations, and the defaults it starts with, on the real screens.
 			</p>
 			<p class="cta-lead cta-lead--close">
-				If a dedicated admin already runs Salesforce or HubSpot, don't switch.<br />
-				Instead, see <a href="/en/services/">how we redesign the system you already have</a>.
+				If your current system is hard to use, data entry does not stick, or your team needs screens that fit its work, try Revenue CRM and see how it fits your workflow.
 			</p>
 			<div class="cta-actions">
 				<a href={SIGNUP_URL} class="btn btn--cta-primary btn--lg" target="_blank" rel="noopener noreferrer">Start free</a>

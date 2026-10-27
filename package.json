@@ -10,6 +10,7 @@
     "prebuild": "node scripts/assert-no-legacy-content-config.mjs",
     "dev": "astro dev",
     "build": "astro build",
+    "audit:ai-search": "node scripts/audit-ai-search.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },

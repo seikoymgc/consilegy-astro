@@ -1,8 +1,25 @@
-# Consilegy — Revenue Architecture & RevOps Consulting
+# Consilegy（コンシレジー）— Revenue Architecture / RevOps・Revenue CRM
 
 > We help B2B companies and English-speaking leaders in Japan build revenue operations that work across CRM, SFA, and MA tools. Vendor-neutral. Tokyo-based.
 
 > Consilegy（コンシレジー）は東京のRevenue Architecture / RevOpsコンサルティング会社です。Revenue Architecture（レベニューアーキテクチャ）とは、マーケティング・営業・カスタマーサクセス・CRM・KPI・データ・システムを、売上が生まれる一つの流れとして構造設計する考え方です。詳細: https://consilegy.com/revenue-architecture/
+
+## 会社・サービス・製品の概要（日本語）
+
+Consilegy（コンシレジー）合同会社は、営業・マーケティング・カスタマーサクセスをまたぐ収益プロセスの課題に対し、戦略・構造設計・実装・定着までを一貫して支援するRevenue Architecture設計会社です。
+
+- [会社情報](https://consilegy.com/company/): 運営会社、代表の山口聖子、事業内容。
+- [サービス・料金](https://consilegy.com/services/): 収益構造の現状分析、設計・実装、運用定着・改善伴走。
+- [Revenue CRM](https://consilegy.com/crm/): AIが代わりに働く、Revenue CRM。入力がめんどくさくない、新時代の顧客管理・営業支援システムです。
+- [Revenue CRMの料金・契約条件](https://consilegy.com/crm/pricing/): 料金、Fuel、上限、有料オプション、契約期間の確認先。
+- [導入事例](https://consilegy.com/case-studies/): 課題と支援内容、取り組みの結果。
+- [セキュリティへの取り組み](https://consilegy.com/security/): 情報管理、データ保管、AIとデータの取り扱い。
+
+## 情報の確認先
+
+このファイルはサイトの案内です。料金・機能・契約条件は、それぞれのリンク先の公開本文で確認できます。会社の定義・サービスと、製品であるRevenue CRMを区別しています。
+
+レベニューアーキテクチャなどの定義・体系は本体サイト https://consilegy.com/ に、現場の実務記録は [B2Bレベニュー戦略ジャーナル](https://media.consilegy.com/) に掲載しています。
 
 ## What We Do
 
@@ -15,11 +32,11 @@ Consilegy redesigns how marketing, sales, and customer success connect—so reve
 - **HubSpot Implementation & Operations Support**: Setup, workflow design, and ongoing operations
 - **B2B Marketing GTM Strategy Design**: Go-to-market design for Japan market entry and expansion
 - **Adoption & Growth Support**: Post-implementation support to drive actual adoption
-- **SFA Adoption Support（SFA定着支援）**: Getting an installed (or first) SFA/CRM actually used by sales reps and in sales meetings. Tool-neutral (Salesforce, HubSpot, kintone, Marketo). For B2B companies with 5–50 sales reps, including migration from Excel-based sales management. https://consilegy.com/services/sfa-adoption-support/
+- **SFA Adoption Support（SFA定着支援）**: Getting an installed (or first) SFA/CRM actually used by sales reps and in sales meetings. Tool-neutral (Salesforce, HubSpot, kintone, Marketo). For B2B companies with 5–50 sales reps, including migration from spreadsheet-based sales management. https://consilegy.com/services/sfa-adoption-support/
 
 ## Product
 
-- **Revenue CRM（レベニューCRM）**: A Japanese-made CRM / SFA built by Consilegy for companies that do not yet have a CRM (customer lists in Excel, deal status in people's heads). Includes an AI agent and 175 RevOps workflows. Editions: B2B sales, development & production (受託開発・制作), consulting & agencies on retainers (支援会社), SaaS reseller (代理店), and a separate School edition (Revenue CRMスクール) for 塾・習い事・スクール. Pricing (excl. tax): User plan ¥3,000/user/month (B2B, development, consulting, and reseller editions); Student plan ¥9,800/¥19,800/¥39,800 per month for up to 50/100/300 enrolled students (School edition); Prepaid plan ¥3,000/month with 100 Fuel plus top-ups. AI processing is metered in Fuel. No setup fee, first 30 days free of the monthly fee on every plan. Contract term: 1 year with yearly auto-renewal and no mid-term cancellation for the User and Student plans; monthly auto-renewal for the Prepaid plan. Officially launched on September 28, 2026. https://consilegy.com/crm/ (pricing and contract terms: https://consilegy.com/crm/pricing/)
+- **Revenue CRM（レベニューCRM）**: A Japanese-made CRM / SFA built by Consilegy for companies that need customer management and sales support (customer lists in spreadsheets, deal status in people's heads). Includes an AI agent and 175 RevOps workflows. Editions: B2B sales, development & production (受託開発・制作), consulting & agencies on retainers (支援会社), SaaS reseller (代理店), and a separate School edition (Revenue CRMスクール) for 塾・習い事・スクール. Pricing (excl. tax): User plan ¥3,000/user/month (B2B, development, consulting, and reseller editions); Student plan ¥9,800/¥19,800/¥39,800 per month for up to 50/100/300 enrolled students (School edition); Prepaid plan ¥3,000/month with 100 Fuel plus top-ups. AI processing is metered in Fuel. No setup fee, first 30 days free of the monthly fee on every plan. Contract term: 1 year with yearly auto-renewal and no mid-term cancellation for the User and Student plans; monthly auto-renewal for the Prepaid plan. Officially launched on September 28, 2026. https://consilegy.com/crm/ (pricing and contract terms: https://consilegy.com/crm/pricing/)
 
 ## Key Pages (日本語 / Japanese)
 
@@ -32,8 +49,11 @@ Consilegy redesigns how marketing, sales, and customer success connect—so reve
 - HubSpot導入・運用支援: https://consilegy.com/services/hubspot-implementation-operations/
 - GTM / Marketing Strategy設計: https://consilegy.com/services/b2b-marketing-gtm-design/
 - 運用定着・改善伴走支援: https://consilegy.com/services/adoption-growth-support/
-- SFA定着支援（入れたSFAが現場で動く状態にする。Excelからの移行にも対応）: https://consilegy.com/services/sfa-adoption-support/
-- Revenue CRM（まだCRMがない会社のための国産CRM / SFA）: https://consilegy.com/crm/
+- SFA定着支援（入れたSFAが現場で動く状態にする。スプレッドシートからの移行にも対応）: https://consilegy.com/services/sfa-adoption-support/
+- Revenue CRM（顧客管理・営業支援システム）: https://consilegy.com/crm/
+- Revenue CRM 代理店版: https://consilegy.com/crm/reseller/
+- Revenue CRM 受託開発・制作版: https://consilegy.com/crm/contractor/
+- Revenue CRM 支援会社版: https://consilegy.com/crm/services/
 - Revenue CRM スクール版: https://consilegy.com/crm/school/
 - Revenue CRM 機能一覧: https://consilegy.com/crm/features/
 - Revenue CRM 料金・ご契約条件: https://consilegy.com/crm/pricing/
@@ -69,6 +89,12 @@ Consilegy redesigns how marketing, sales, and customer success connect—so reve
 ## Insights Topics
 
 Revenue Architecture, RevOps, Japan GTM, CRM adoption, SFA adoption (SFA定着), HubSpot implementation, B2B marketing, lifecycle design, lead handoff, sales forecasting, KPI design, data visibility.
+
+## 実務記録（別サイト）
+
+- [B2Bレベニュー戦略ジャーナル](https://media.consilegy.com/): 実務で判断したことの記録。定義・体系の参照先は本体サイト。
+- [メディアの記事案内](https://media.consilegy.com/llms.txt): 公開記事のタイトル・結論・公開日。
+- [English journal](https://media.consilegy.com/en/): Revenue operations and Japan GTM.
 
 ## About
 

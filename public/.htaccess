@@ -1,5 +1,8 @@
 # Consilegy static site (Apache). Used when deploying `dist/` — not used by `astro dev`.
 
+# 日本語を含む llms.txt / robots.txt の文字コードを明示する。
+AddCharset UTF-8 .txt
+
 # Custom error pages
 ErrorDocument 404 /404.html
 

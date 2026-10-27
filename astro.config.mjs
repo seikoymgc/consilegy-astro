@@ -18,9 +18,15 @@ export default defineConfig({
 	integrations: [
 		mdx(),
 		sitemap({
-			lastmod: new Date(),
-			// 紹介キットは申込者にだけ案内する noindex のページ。サイトマップにも載せない。
-			filter: (page) => !page.includes('/crm/referral/kit/'),
+			// 更新日が分からないページにビルド日を付けない。
+			// noindex の旧記事・診断フォームと転送先のあるURLも検索への案内から外す。
+			filter: (page) => {
+				const { pathname } = new URL(page);
+				return !/^\/(marketing|marketing-strategy|project-management|my-opinion|others)(\/|$)/.test(pathname)
+					&& !/^\/(en\/)?diagnostic\/start\/$/.test(pathname)
+					&& !/^\/crm\/referral\/kit\/$/.test(pathname)
+					&& !/^\/(en\/)?ga4-utilization-(check|assessment|checklist)\/$/.test(pathname);
+			},
 		}),
 		// 日本語ページの CRM・SFA・MA に、最初の1回だけ説明を添える（ビルド後のHTMLに対して）。
 		explainTerms(),

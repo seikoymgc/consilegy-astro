@@ -12,7 +12,7 @@ interface Props {
 const { title, description, canonical, ogImage, noindex = false, ogType = 'website', lang = 'ja' } = Astro.props;
 
 const site = Astro.site ?? new URL('https://consilegy.com');
-const canonicalURL = canonical ?? new URL(Astro.url.pathname, site).href;
+const canonicalURL = new URL(canonical ?? Astro.url.pathname, site).href;
 // ページ専用の OG 画像が無いときの代わり。Revenue CRM の配下は製品・版ごとの画像、それ以外はサイト共通（scripts/generate-og.mjs）
 const path = Astro.url.pathname;
 const ogLang = lang === 'en' || path.startsWith('/en/') ? 'en' : 'ja';
@@ -42,7 +42,7 @@ const ogLocale = lang === 'en' ? 'en_US' : 'ja_JP';
 <title>{fullTitle}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonicalURL} />
-{noindex && <meta name="robots" content="noindex, nofollow" />}
+<meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'} />
 <meta property="og:type" content={ogType} />
 <meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />

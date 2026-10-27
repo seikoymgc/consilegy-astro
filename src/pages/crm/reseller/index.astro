@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CrmMobile from '../../../components/CrmMobile.astro';
 import CrmSubnav from '../../../components/CrmSubnav.astro';
+import CrmSupport from '../../../components/CrmSupport.astro';
 
 const DEMO_URL = 'https://crm.consilegy.com/demos';
 const SIGNUP_URL = 'https://crm.consilegy.com/signup';
@@ -320,6 +321,9 @@ const roles = [
 		<p class="ro-note">契約の一覧は、範囲の設定に関係なく全員に見えます。顧客・会社・商談の変更履歴が残るので、誰がいつ何を変更したかを確認できます。</p>
 	</div>
 </section>
+
+<!-- ===================== SUPPORT（導入支援。トップと同じ欄） ===================== -->
+<CrmSupport />
 
 <!-- ===================== FINAL CTA ===================== -->
 <section class="final-cta">

@@ -1,5 +1,6 @@
 ---
 import { featureCount } from '../../data/crm-features';
+import { crmSupports } from '../../data/crm-support';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CrmSubnav from '../../components/CrmSubnav.astro';
 import CrmLanguages from '../../components/CrmLanguages.astro';
@@ -10,13 +11,8 @@ const SIGNUP_URL = 'https://crm.consilegy.com/signup';
 // 概要ページは10セクション（スマートフォンを2026-09-29、言語の切り替えを2026-10-20に追加）。機能の詳細は /crm/features/、料金の詳細と契約条件は /crm/pricing/、
 // 質問の全件は /crm/faq/、事業タイプ別の説明は各エディションのページに任せる。
 
-const supports = [
-	{ tier: '操作動画・ヘルプ記事', figure: '無料', text: 'どのプランでも無料で見られます。社内で進める場合は、ここから始められます。' },
-	{ tier: '初期設定', figure: '120,000円〜', text: '項目や商談の段階、自動化を、貴社の業務に合わせて設定します。操作説明会は3回。' },
-	{ tier: '定着支援（3か月）', figure: '300,000円〜', text: '週1回の定例で、設定を見直しながら使い方の相談に乗ります。' },
-	{ tier: '運用支援', figure: '月額30,000円〜', text: '設定の変更を代わりに行い、質問にもお答えします（月2時間まで）。' },
-	{ tier: '追加開発', figure: '要見積', text: '貴社の運用に合わせて、機能を足します。' },
-];
+// メニューは業態別LPと共有（src/data/crm-support.ts）。
+const supports = crmSupports;
 
 const mobilePoints = [
 	{ title: '専用アプリは不要', text: 'ブラウザで開くだけ。画面はスマートフォンの幅に合わせて切り替わります。' },
@@ -479,7 +475,7 @@ const readings = [
 					<div><dt>{item.tier}<span>{item.figure}</span></dt><dd>{item.text}</dd></div>
 				))}
 			</dl>
-			<p class="row-list__foot">データ移行や外部サービスとの連携は別途お見積り。価格は税抜です。<a href="/crm/pricing/#support">支援の詳細 →</a></p>
+			<p class="row-list__foot">データ移行や外部サービスとの連携は別途お見積り。価格は税抜です。<a href="/crm/onboarding/">導入支援の詳細 →</a></p>
 		</div>
 		<div id="security">
 			<header class="sub-head">
@@ -744,7 +740,23 @@ h3 { font-weight: 500; }
 .two-col > div { padding: 2rem; background: #fff; border-radius: 6px; border: 1px solid var(--color-border); }
 .two-col .sub-head { margin-bottom: var(--space-md); }
 /* 直前の LANGUAGES（CrmLanguages）がグレーの帯なので、SUPPORT は白の帯にして交互を保つ。カードは枠線で区切る（After と同じ組み方）。 */
-section#support { background: #fff; }
+/* SUPPORT（2026-10-27 代表指示：差別化なので、位置と文言はそのままで目立たせる）。紺の帯に白カード、料金は大きく。業態別LPは components/CrmSupport.astro で同じ見た目。 */
+section#support { background: #0F172A; }
+section#support .two-col { grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); }
+section#support #security .row-list > div { grid-template-columns: 1fr; gap: 0.25rem; }
+section#support .two-col > div { border: 0; box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+section#support .two-col > div:first-child { padding: 2.5rem; }
+section#support .two-col > div:first-child h2 { font-size: clamp(1.75rem, 2.8vw, 2.375rem); font-weight: 600; color: var(--color-navy); }
+section#support .two-col > div:first-child .section-lead { font-size: 1.0625rem; color: var(--color-text); }
+section#support .row-list--figure { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; border-top: 0; }
+section#support .row-list--figure > div { display: block; padding: 1.25rem; background: #F1F5F9; border: 0; border-radius: 6px; }
+section#support .row-list--figure > div:first-child { grid-column: 1 / -1; }
+section#support .row-list--figure dt { font-size: 1.0625rem; font-weight: 700; color: var(--color-navy); }
+section#support .row-list--figure dt span { margin: 0.35rem 0 0.6rem; font-size: 1.625rem; line-height: 1.25; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+section#support .row-list--figure dd { font-size: 1rem; line-height: 1.75; color: var(--color-text-muted); }
+section#support .row-list__foot { font-size: 0.875rem; }
+@media (max-width: 960px) { section#support .two-col { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { section#support .row-list--figure { grid-template-columns: 1fr; } section#support .two-col > div:first-child { padding: 1.5rem; } }
 
 /* ── FAQ ── */
 .faq { background: #fff; border-top: 1px solid var(--color-border); }

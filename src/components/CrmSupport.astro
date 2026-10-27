@@ -1,0 +1,46 @@
+---
+// 業態別LP（標準版・受託開発・制作・支援会社・代理店・スクール）の導入支援の欄。
+// 2026-10-27 代表指示：導入支援は差別化なので、トップ（/crm/ のSUPPORT欄）と同じ文言・同じ見た目で業態別LPにも出す。
+// 文言はトップと同じ。メニューは src/data/crm-support.ts を共有する。見た目を変えるときは /crm/ の section#support も揃える。
+import { crmSupports } from '../data/crm-support';
+---
+
+<section class="crm-support" id="crm-support" aria-labelledby="crm-support-title">
+	<div class="crm-support__wrap">
+		<div class="crm-support__card">
+			<p class="crm-support__eyebrow">Support</p>
+			<h2 id="crm-support-title">設定から現場への定着まで、<br />担当者が支援します。</h2>
+			<p class="crm-support__lead">代表がこれまで40社以上の導入を支援してきた進め方で、設定と定着を支援します。社内で進める場合、操作動画とヘルプ記事は無料で使えます。</p>
+			<dl class="crm-support__list">
+				{crmSupports.map((item) => (
+					<div><dt>{item.tier}<span>{item.figure}</span></dt><dd>{item.text}</dd></div>
+				))}
+			</dl>
+			<p class="crm-support__foot">データ移行や外部サービスとの連携は別途お見積り。価格は税抜です。<a href="/crm/onboarding/">導入支援の詳細 →</a></p>
+		</div>
+	</div>
+</section>
+
+<style>
+	/* id を付けているのは、editorial.css の #main-content.editorial h2 などより優先させるため。 */
+	#crm-support { padding: var(--space-2xl) 0; background: #0F172A; }
+	#crm-support .crm-support__wrap { max-width: 1160px; margin-inline: auto; padding-inline: 2rem; }
+	#crm-support .crm-support__card { max-width: 52rem; margin-inline: auto; padding: 2.5rem; background: #fff; border-radius: 6px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+	#crm-support .crm-support__eyebrow { margin: 0 0 0.75rem; font-size: 0.625rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-text-muted); }
+	#crm-support h2 { margin: 0 0 1rem; font-size: clamp(1.75rem, 2.8vw, 2.375rem); font-weight: 600; line-height: 1.3; letter-spacing: -0.02em; color: var(--color-navy); }
+	#crm-support .crm-support__lead { margin: 0 0 var(--space-md); font-size: 1.0625rem; line-height: 1.8; color: var(--color-text); }
+	#crm-support .crm-support__list { margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
+	#crm-support .crm-support__list > div { padding: 1.25rem; background: #F1F5F9; border-radius: 6px; }
+	#crm-support .crm-support__list > div:first-child { grid-column: 1 / -1; }
+	#crm-support .crm-support__list dt { margin: 0; font-size: 1.0625rem; font-weight: 700; color: var(--color-navy); }
+	#crm-support .crm-support__list dt span { display: block; margin: 0.35rem 0 0.6rem; font-size: 1.625rem; line-height: 1.25; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; color: var(--color-navy); }
+	#crm-support .crm-support__list dd { margin: 0; font-size: 1rem; line-height: 1.75; color: var(--color-text-muted); }
+	#crm-support .crm-support__foot { margin: 1rem 0 0; font-size: 0.875rem; line-height: 1.8; color: var(--color-text-muted); }
+	#crm-support .crm-support__foot a { margin-left: 0.5rem; font-weight: 600; color: var(--color-primary); }
+	@media (max-width: 640px) {
+		#crm-support { padding: var(--space-xl) 0; }
+		#crm-support .crm-support__wrap { padding-inline: 1.25rem; }
+		#crm-support .crm-support__card { padding: 1.5rem; }
+		#crm-support .crm-support__list { grid-template-columns: 1fr; }
+	}
+</style>

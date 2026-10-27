@@ -6,7 +6,7 @@ const { booking = false } = Astro.props;
   <div class="consultation-outcomes__inner">
     <header>
       <p class="consultation-outcomes__eyebrow">Your First Step</p>
-      <h2>30分で、次に確認することを整理します。</h2>
+      <h2>{booking ? "30分で、次に確認することを整理します。" : "こんな困りごとをご相談いただけます。"}</h2>
       <p>営業・マーケティングの責任者、システム運用担当の方へ。HubSpot・Salesforceの利用中・併用中はもちろん、導入前のご相談も受け付けています。</p>
     </header>
     <p class="consultation-outcomes__example">たとえば「営業に渡した見込み客が、追われていない」場合。</p>
@@ -43,10 +43,10 @@ const { booking = false } = Astro.props;
         </figure>
       </article>
     </div>
-    <p class="consultation-outcomes__preparation">お話しいただくのは、使っているシステム名と、最近困った場面を一つ。資料・管理者権限は不要です。</p>
-    <p class="consultation-outcomes__scope">30分では状況を整理します。詳細な環境調査・データ分析・設計書の作成は別途ご相談となります。</p>
+    <p class="consultation-outcomes__preparation">{booking ? "お話しいただくのは、使っているシステム名と、最近困った場面を一つ。資料・管理者権限は不要です。" : "課題が整理できていなくても大丈夫です。使っているシステム名と、最近困った場面を一つお聞かせください。"}</p>
+    <p class="consultation-outcomes__scope">{booking ? "30分では状況を整理します。詳細な環境調査・データ分析・設計書の作成は別途ご相談となります。" : "お問い合わせ内容を確認し、通常2〜3営業日以内にご返信します。詳細な調査・分析・設計が必要な場合は、進め方をご相談します。"}</p>
     <div class="consultation-outcomes__actions">
-      <a class="consultation-outcomes__button" href={booking ? '#booking' : '/free-consultation/#booking'}>30分の無料相談を予約する →</a>
+      <a class="consultation-outcomes__button" href={booking ? '#booking' : '/contact/'}>{booking ? '30分の無料相談を予約する →' : 'お問い合わせ →'}</a>
       <a href="/case-studies/hubspot-sales-handoff-lead-to-revenue/">HubSpotで営業への引き継ぎを整えた支援事例を見る →</a>
     </div>
   </div>

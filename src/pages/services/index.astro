@@ -7,6 +7,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 // 機能別の個別ページ。ナビからは外し、このハブと記事からの内部リンクで到達させる。
 const topics = [
 	{
+		href: '/services/business-system-development/',
+		en: 'Development & Automation',
+		title: '業務システム開発・連携・自動化',
+		desc: '手作業のシステム化、既存システムの連携、足りない画面・機能の開発。業務整理から設計・開発・運用開始まで支援します。',
+		step: '開発範囲に応じた個別見積もり',
+	},
+	{
 		href: '/services/revenue-architecture-design/',
 		en: 'Revenue Architecture Design',
 		title: 'レベニューアーキテクチャ設計',
@@ -27,13 +34,6 @@ const topics = [
 		desc: 'Salesforce・HubSpot・Kintone・Marketoの連携と実装。ベンダーに縛られない横断設計。',
 		step: 'Step 02',
 		core: true,
-	},
-	{
-		href: '/crm/',
-		en: 'Integrations & Automation',
-		title: '業務に合わせた仕組みづくり',
-		desc: 'いまの仕事の流れを聞いて、足りない連携と自動化を作って渡す。専任担当を置けない会社向け。',
-		step: 'Revenue CRM＋連携・自動化',
 	},
 	{
 		href: '/services/adoption-growth-support/',
@@ -61,7 +61,7 @@ const topics = [
 
 <BaseLayout
 	title="サービス・料金 | Consilegy"
-	description="収益構造の現状分析（10〜50万円）、収益プロセス再設計（300〜800万円）、伴走・顧問支援（月額30〜100万円）。現状把握から再設計、定着まで、フェーズに合わせて選べる3ステップ。"
+	description="収益構造の現状分析（10〜50万円）、収益プロセス再設計（300〜800万円）、伴走・顧問支援（月額30〜100万円）。業務システム開発・連携・自動化は個別見積もり。要件整理から開発・運用開始まで支援します。"
 	lang="ja"
 >
 <script type="application/ld+json" slot="head" set:html={JSON.stringify({
@@ -472,6 +472,7 @@ const topics = [
 			</a>
 		</div>
 		<p class="guide-foot">
+			<strong>手作業のシステム化や既存システムの連携には、<a href="/services/business-system-development/">業務システム開発・連携・自動化</a>をご相談ください。</strong>開発会社が決まっている場合は、<a href="/services/project-management-support/">PM支援のみ</a>のご依頼にも対応します。<br />
 			判断がつかない場合は、<a href="/free-consultation/">30分の無料相談</a>で、いまの状況と次の進め方を一緒に整理します。
 			6つの「境目」のどこが詰まっているかが分かれば、どのステップから入るべきかも決まります。
 		</p>
@@ -486,7 +487,7 @@ const topics = [
 			<h2>個別テーマから探す</h2>
 			<p class="section-lead">
 				「HubSpotの運用を立て直したい」「GTM戦略から整理したい」など、
-				テーマが決まっている場合はこちらから。上記の3ステップのどこに該当するかも併記しています。
+				テーマが決まっている場合はこちらから。開発・連携だけのご相談にも対応します。
 			</p>
 		</div>
 		<div class="topics-grid">

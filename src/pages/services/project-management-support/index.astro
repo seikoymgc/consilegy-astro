@@ -1,0 +1,243 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const title = 'システム開発・CRM導入のPM支援 | Consilegy';
+const description = '新規システム開発、既存システムの改修・刷新から顧客管理システムの導入まで。貴社側の外部PMとして、要件整理、開発チームとの調整、進捗・予算・品質管理、テスト・リリース・運用開始を支援します。社内PMの補強にも対応。個別見積もり。';
+const url = 'https://consilegy.com/services/project-management-support/';
+
+const problems = [
+  { title: '要件や見積もりを判断できない', text: '何をどこまで作るか決まらない。見積もりの前提や作業範囲を評価できず、発注後の追加費用も心配。判断に必要な材料がそろわない。' },
+  { title: '社内と開発会社の調整が進まない', text: '部門ごとに要望が違う。開発会社との認識がそろわない。追加要望と未決事項が積み上がり、会議を重ねても次に進めない。' },
+  { title: '期限は決まっているが、全体を回しきれない', text: '社内PMも開発会社もいるが、部門やシステムをまたぐ課題まで手が回らない。移行や受け入れの準備が遅れ、予定どおりに稼働できるか不安。' },
+];
+const scope = [
+  { title: '目的・業務要件を整理する', text: '現場の業務と困りごとを確認し、実現したい状態、必要な機能、優先順位を整理します。', output: '業務要件・対象範囲・優先順位' },
+  { title: '開発会社・導入先を選ぶ', text: '提案依頼の条件をまとめ、提案内容・見積もり・役割分担を比較。社内で判断するための材料を整えます。', output: '提案依頼書・比較検討資料' },
+  { title: '計画と意思決定の進め方を決める', text: 'スケジュール、担当、承認者、会議体を整理。追加要望や仕様変更を判断するルールも決めます。', output: '実行計画・役割分担・変更管理ルール' },
+  { title: '進捗・予算・課題を管理する', text: '開発会社と社内部門の間に入り、遅れや未決事項を確認。選択肢と影響を整理し、必要な判断を進めます。', output: '進捗報告・課題管理表・決定事項の記録' },
+  { title: '受け入れ・移行を支援する', text: '業務要件に沿った確認項目を整理し、利用部門のテストを調整。データ移行と切り替えの準備を進めます。', output: '受け入れ確認項目・移行計画' },
+  { title: '運用担当へ引き継ぐ', text: '運用ルール、担当者、問い合わせ先を整理し、操作説明と引き継ぎを支援。開始後の課題と改善の優先順位をまとめます。', output: '運用手順・引き継ぎ資料・改善課題一覧' },
+];
+const faqItems = [
+  { q: 'PM支援だけでも依頼できますか？', a: 'はい。収益構造の現状分析や全面的な再設計を申し込む必要はありません。対象のプロジェクトと現在の体制を伺い、PMとして担当する範囲をご提案します。' },
+  { q: '開発会社が決まっていても依頼できますか？', a: 'はい。既存の開発会社や導入パートナーと協働します。進行中の場合は、計画・要件・課題・役割分担を確認し、どの段階から入るかを整理します。' },
+  { q: '社内にPMがいても依頼できますか？', a: 'はい。社内PMの補強として、部門間調整、ベンダーとの折衝、進捗・課題管理、移行準備など、手が回っていない範囲を担います。既存の体制と意思決定の権限を確認し、役割を分担します。' },
+  { q: 'PMとPMOはどう違いますか？', a: 'PMはプロジェクト全体の計画と推進を担う役割、PMOは管理の仕組みや運営を支える役割です。Consilegyは必要な役割に合わせて、発注者側のPMとしての推進、または社内PMを支えるPMOとして参画します。意思決定の権限と責任範囲は開始前に合意します。' },
+  { q: '開発や設定の作業も含まれますか？', a: 'PM支援の基本範囲は、要件整理・調整・管理・受け入れ支援です。開発やシステム設定も必要な場合は、PM支援とは担当範囲と費用を分けてご提案します。既存ベンダーによる実装を前提とした支援も可能です。' },
+  { q: 'どのようなプロジェクトが対象ですか？', a: '新規システムの開発、既存システムの改修・刷新、顧客管理・営業支援システムなどの製品導入、データ連携・業務自動化を対象としています。営業・顧客管理領域に限らずご相談いただけます。専門領域や規模、開発体制を確認したうえで、対応範囲をご案内します。' },
+];
+---
+
+<BaseLayout title={title} description={description} lang="ja">
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify([
+    { '@context': 'https://schema.org', '@type': 'Service', name: 'システム開発・導入のPM支援', description, url, serviceType: '発注者側プロジェクトマネジメント支援', provider: { '@id': 'https://consilegy.com/#organization' } },
+    { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://consilegy.com/' },
+      { '@type': 'ListItem', position: 2, name: 'サービス', item: 'https://consilegy.com/services/' },
+      { '@type': 'ListItem', position: 3, name: 'システム開発・導入のPM支援', item: url },
+    ] },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqItems.map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
+  ])} />
+
+  <section class="pm-hero">
+    <div class="container">
+      <a href="/services/" class="pm-back">← サービス一覧</a>
+      <div class="pm-hero-grid">
+      <div class="pm-hero-intro">
+      <p class="pm-eyebrow">Project Management Support</p>
+      <p class="pm-service">システム開発から顧客管理システム導入まで、PM支援</p>
+      <h1>システム開発・導入を<br />進める、外部PM。</h1>
+      <p class="pm-lead">要件がまとまらない。見積もりを判断できない。社内と開発会社の調整が進まない。<br />新規システムの開発、既存システムの改修・刷新、顧客管理システムの導入まで。貴社側のPMとして、要件整理からリリース・運用開始までを担います。</p>
+      </div>
+      <figure class="pm-hero-visual pm-role" aria-labelledby="pm-role-caption">
+        <div class="pm-role-box">貴社の経営・現場<span>目的・業務・優先順位</span></div>
+        <div class="pm-role-arrow" aria-hidden="true">↕</div>
+        <div class="pm-role-box pm-role-box--main">Consilegy｜発注者側のPM<span>要件整理・判断材料の提示<br />部門間調整・進行管理</span></div>
+        <div class="pm-role-arrow" aria-hidden="true">↕</div>
+        <div class="pm-role-box">開発チーム・導入パートナー<span>設計・開発・設定・テスト</span></div>
+        <figcaption id="pm-role-caption">業務と技術の間に入り、判断と実行をつなぎます。</figcaption>
+      </figure>
+      <div class="pm-hero-conversion">
+      <div class="pm-actions">
+        <a href="/free-consultation/#booking" class="btn btn--primary btn--lg">PM支援について30分無料で相談する</a>
+        <a href="#scope" class="btn btn--outline btn--lg">支援内容を見る</a>
+      </div>
+      <p class="pm-note">PM支援のみのご依頼・社内PMの補強・進行中のプロジェクトもご相談いただけます。</p>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pm-band pm-band--gray">
+    <div class="container">
+      <p class="pm-eyebrow">Common Problems</p>
+      <h2>判断・調整・全体管理で、<br />こんな課題はありませんか。</h2>
+      <div class="pm-grid pm-grid--three">
+        {problems.map(({ title, text }, i) => <article class="pm-card"><span class="pm-number">0{i + 1}</span><h3>{title}</h3><p>{text}</p></article>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="pm-band">
+    <div class="container pm-role-layout">
+      <div>
+        <p class="pm-eyebrow">Our Role</p>
+        <h2>貴社の目的を、<br />開発と運用につなぐ。</h2>
+        <p>現場の要望を整理し、開発会社と実現方法をすり合わせる。経営や部門責任者が判断できるよう、費用・納期・業務への影響をまとめる。この役割を発注者側で担います。</p>
+        <p>新規システム開発から、既存システムの改修・刷新、顧客管理・営業支援システムの導入まで。業務と技術の両面から、要件・開発計画・テスト・リリースの進行を管理します。</p>
+      </div>
+      <div class="pm-card">
+        <h3>判断材料をそろえる</h3>
+        <p>要件・見積もり・技術的な選択肢を整理し、費用と納期への影響を明らかにします。</p>
+        <h3>関係者の認識をそろえる</h3>
+        <p>社内部門と開発会社の要望・制約をすり合わせ、担当と決定事項を明確にします。</p>
+        <h3>稼働まで管理する</h3>
+        <p>進捗・予算・品質に加え、データ移行と受け入れの準備を確認します。</p>
+        <p class="pm-output">社内の承認者と、意思決定の権限・責任範囲を合意して進めます。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pm-band pm-band--gray">
+    <div class="container">
+      <p class="pm-eyebrow">Project Types</p>
+      <h2>システム開発から、製品の導入まで。</h2>
+      <div class="pm-grid pm-grid--three">
+        <article class="pm-card"><h3>新規システムの開発</h3><p>構想を要件と開発計画に落とし込み、開発チームとの仕様調整、進捗・品質管理、テスト・リリースを進めます。</p></article>
+        <article class="pm-card"><h3>既存システムの改修・刷新</h3><p>現行業務とシステムへの影響を整理し、改修範囲・データ連携・移行計画を調整。切り替えまでの工程を管理します。</p></article>
+        <article class="pm-card"><h3>顧客管理システムなどの導入</h3><p>製品選定から、業務に合わせた設定・追加開発・データ移行・受け入れ確認まで、導入パートナーと調整します。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="pm-band" id="scope">
+    <div class="container">
+      <p class="pm-eyebrow">Scope of Support</p>
+      <h2>必要な段階から、必要な役割で。</h2>
+      <p class="pm-intro">企画前からの参画にも、途中からの参画にも対応します。すべてを一括で依頼する必要はありません。</p>
+      <div class="pm-grid pm-grid--two">
+        {scope.map(({ title, text, output }, i) => <article class="pm-card"><span class="pm-number">0{i + 1}</span><h3>{title}</h3><p>{text}</p><p class="pm-output"><strong>整理・作成するもの</strong>{output}</p></article>)}
+      </div>
+      <p class="pm-note">成果物はプロジェクトの状況と担当範囲に応じて合意します。開発・設定作業が必要な場合は、担当範囲と費用を分けてご提案します。</p>
+    </div>
+  </section>
+
+  <section class="pm-band pm-band--gray" id="pricing">
+    <div class="container pm-pricing-layout">
+      <div>
+        <p class="pm-eyebrow">Pricing &amp; Process</p>
+        <h2>料金は、担当範囲と<br />稼働量に合わせて。</h2>
+        <p>対象システム、進行状況、関係する部門・ベンダー、必要な稼働量を確認し、個別にお見積もりします。</p>
+        <p>PM支援は、既存の伴走・顧問プランとは別にお見積もりするサービスです。収益構造の現状分析や全面的な再設計を経由せず、ご相談いただけます。</p>
+        <a href="/contact/">フォームで状況を伝えて相談する →</a>
+      </div>
+      <ol class="pm-process">
+        <li><strong>30分の無料相談</strong><p>目的、進行状況、現在の体制と困りごとを伺います。</p></li>
+        <li><strong>担当範囲・体制・費用をご提案</strong><p>参画する段階、役割、稼働量、期間、成果物を整理します。</p></li>
+        <li><strong>合意した範囲で支援を開始</strong><p>社内の承認者、開発会社との役割分担、報告・判断の進め方を確認します。</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="pm-band">
+    <div class="container pm-faq">
+      <p class="pm-eyebrow">FAQ</p>
+      <h2>よくある質問</h2>
+      {faqItems.map(({ q, a }) => <details><summary>{q}</summary><p>{a}</p></details>)}
+    </div>
+  </section>
+
+  <section class="pm-band pm-band--gray">
+    <div class="container">
+      <p class="pm-eyebrow">Related Services</p>
+      <h2>設計や運用からのご相談も。</h2>
+      <div class="pm-grid pm-grid--two">
+        <article class="pm-card"><h3>開発・実装もまとめて依頼したい</h3><p>業務システムの新規開発、既存システムの連携、追加機能や自動化を設計・開発します。</p><a href="/services/business-system-development/">業務システム開発・連携・自動化を見る →</a></article>
+        <article class="pm-card"><h3>業務やシステム構成から見直したい</h3><p>営業プロセス、データ構造、システム連携を一体で整理する支援です。</p><a href="/services/crm-revops-redesign/">顧客管理システム・収益業務の再設計支援 →</a></article>
+        <article class="pm-card"><h3>導入後の運用を改善したい</h3><p>現場への定着、入力ルール、会議や指標の活用を継続的に支援します。</p><a href="/services/adoption-growth-support/">運用定着・改善支援 →</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="pm-final">
+    <div class="container">
+      <p class="pm-eyebrow">Let's Talk</p>
+      <h2>いまのプロジェクトに、<br />どんな役割が必要かを整理しましょう。</h2>
+      <p>計画が固まる前でも、開発会社が決まった後でも。<br />現在の状況と、社内で手が回っていないことをお聞かせください。</p>
+      <div class="pm-actions"><a href="/free-consultation/#booking" class="btn btn--primary btn--lg">PM支援について30分無料で相談する</a><a href="/contact/" class="btn pm-contact btn--lg">フォームで相談する</a></div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .pm-hero { padding: 3rem 0 4.5rem; background: white; }
+  .pm-hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 1.5rem 2rem; align-items: start; }
+  .pm-hero-intro, .pm-hero-conversion { grid-column: 1; min-width: 0; }
+  .pm-hero-visual { grid-column: 2; grid-row: 1 / 3; align-self: center; margin: 0; }
+  .pm-hero h1 { font-size: clamp(2rem, 3.2vw, 2.75rem); }
+  .pm-hero .pm-lead { margin-bottom: 0; }
+  .pm-back { display: inline-block; margin-bottom: 2.5rem; }
+  .pm-eyebrow { color: var(--color-navy); font-size: 0.875rem; font-weight: 600; letter-spacing: .12em; margin: 0 0 1rem; }
+  .pm-service { font-size: 1rem; color: var(--color-text-muted); margin: 0 0 1rem; }
+  h1, h2, h3 { color: var(--color-navy); }
+  h1 { font-size: clamp(2rem, 4.5vw, 3.4rem); line-height: 1.5; letter-spacing: -.035em; margin: 0 0 1.5rem; font-weight: 600; text-wrap: balance; }
+  h2 { font-size: clamp(1.65rem, 3vw, 2.25rem); line-height: 1.6; margin: 0 0 1.75rem; font-weight: 600; }
+  h3 { font-size: 1.125rem; line-height: 1.6; margin: .75rem 0; font-weight: 600; }
+  p { line-height: 1.9; }
+  .pm-lead { font-size: 1.125rem; max-width: 56rem; margin: 0 0 2rem; }
+  .pm-actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+  .btn { border-radius: 4px; padding: 1rem 1.5rem; }
+  .btn--outline { background: transparent; border: 1px solid var(--color-border-strong); color: var(--color-primary); }
+  .btn--outline:hover { border-color: var(--color-primary); }
+  .pm-note { color: var(--color-text-muted); font-size: .875rem; margin: 1.25rem 0 0; }
+  .pm-band { padding: 4.5rem 0; background: white; scroll-margin-top: 6rem; }
+  .pm-band--gray { background: var(--color-bg-subtle); }
+  .pm-intro { color: var(--color-text-muted); margin: -0.5rem 0 2rem; }
+  .pm-grid { display: grid; gap: 1.25rem; }
+  .pm-grid--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .pm-grid--two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pm-card { padding: 1.75rem; background: white; border: 1px solid var(--color-border); border-radius: 6px; box-shadow: var(--shadow-sm); }
+  .pm-card p { margin: 0; color: var(--color-text-muted); }
+  .pm-card a { display: inline-block; margin-top: 1rem; }
+  .pm-number { color: var(--color-navy); font-size: .875rem; font-weight: 600; letter-spacing: .08em; }
+  .pm-card .pm-output { border-top: 1px solid var(--color-border); margin-top: 1.25rem; padding-top: 1rem; color: var(--color-text); }
+  .pm-output strong { display: block; font-size: .875rem; color: var(--color-text-muted); font-weight: 500; }
+  .pm-role-layout, .pm-pricing-layout { display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; align-items: start; }
+  .pm-role { margin: 0; padding: 1.75rem; background: var(--color-bg-subtle); border: 1px solid var(--color-border); border-radius: 6px; }
+  .pm-role-box { border: 1px solid var(--color-navy); border-radius: 6px; padding: 1rem; text-align: center; color: var(--color-navy); font-weight: 600; background: white; }
+  .pm-role-box span { display: block; font-weight: 400; color: var(--color-text-muted); margin-top: .3rem; font-size: 1rem; }
+  .pm-role-box--main { background: var(--color-navy); color: white; }
+  .pm-role-box--main span { color: white; }
+  .pm-role-arrow { text-align: center; font-size: 1.5rem; color: var(--color-navy); }
+  figcaption { font-size: .875rem; color: var(--color-text-muted); margin-top: 1rem; line-height: 1.8; }
+  .pm-process { list-style: decimal-leading-zero; margin: 0; padding: 0 0 0 2.5rem; }
+  .pm-process li { padding: 0 0 1.25rem 1rem; margin-bottom: 1.25rem; border-bottom: 1px solid var(--color-border); }
+  .pm-process li::marker { color: var(--color-navy); font-weight: 600; }
+  .pm-process strong { color: var(--color-navy); }
+  .pm-process p { color: var(--color-text-muted); margin: .5rem 0 0; }
+  .pm-faq { max-width: 900px; }
+  details { background: white; border: 1px solid var(--color-border); border-radius: 6px; box-shadow: var(--shadow-sm); margin-top: .75rem; padding: 1.25rem 1.5rem; }
+  summary { cursor: pointer; font-weight: 600; color: var(--color-navy); line-height: 1.8; }
+  details p { color: var(--color-text-muted); margin: 1rem 0 0; }
+  .pm-final { padding: 4.5rem 0; background: var(--color-navy); color: white; }
+  .pm-final h2, .pm-final .pm-eyebrow { color: white; }
+  .pm-final p { margin-bottom: 2rem; }
+  .pm-contact { border: 1px solid white; color: white; background: transparent; }
+  .pm-contact:hover { background: white; color: var(--color-navy); }
+  @media (max-width: 900px) {
+    .pm-hero-grid { grid-template-columns: 1fr; }
+    .pm-hero-visual { grid-column: 1; grid-row: auto; width: 100%; max-width: 640px; }
+  }
+  @media (max-width: 800px) {
+    .pm-role-layout, .pm-pricing-layout, .pm-grid--three { grid-template-columns: 1fr; gap: 1.5rem; }
+    .pm-band, .pm-final { padding: 3rem 0; }
+  }
+  @media (max-width: 560px) {
+    .pm-grid--two { grid-template-columns: 1fr; }
+    .pm-hero { padding-bottom: 3rem; }
+    .pm-hero h1 { font-size: 1.75rem; text-wrap: initial; }
+    .pm-actions { flex-direction: column; }
+    .pm-actions .btn { width: 100%; text-align: center; white-space: normal; }
+    .pm-card { padding: 1.5rem; }
+  }
+</style>

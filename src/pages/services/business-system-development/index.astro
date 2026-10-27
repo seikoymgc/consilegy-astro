@@ -1,0 +1,215 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const title = '業務システム開発・連携・自動化 | Consilegy';
+const description = '手作業のシステム化、既存システムの連携、業務に合う画面・機能の開発。業務整理から設計・開発・テスト・運用開始まで支援します。顧客管理システムの導入と組み合わせた開発にも対応。料金は対象範囲に応じた個別見積もり。';
+const url = 'https://consilegy.com/services/business-system-development/';
+const examples = [
+  { title: '業務システムを新しく作る', text: 'スプレッドシートや紙で管理している情報、担当者の記憶に頼る手順を整理。業務に必要な画面と処理を開発します。', output: '案件・予約・申請などの管理画面' },
+  { title: '既存システムをつなぐ', text: '同じ情報を何度も入力する、データを出して取り込むといった作業を見直し、システム間のデータ連携を実装します。', output: '顧客情報・予約・業務データの連携' },
+  { title: '転記・集計・通知を自動化する', text: '受付から担当者への通知、定期的な集計、対応状況の更新など、繰り返し発生する作業を自動化します。', output: '受付処理・リマインド・集計の自動化' },
+  { title: '足りない画面や機能を追加する', text: '既製品の標準機能で対応できない業務を確認し、周辺の画面や追加機能を開発。既存システムとの役割分担も整理します。', output: '入力画面・承認処理・外部向け画面' },
+  { title: '既存システムを改修・刷新する', text: '現在の処理と利用状況を確認し、改修する範囲を整理。データ移行や他システムへの影響を踏まえ、切り替えを進めます。', output: '機能改修・データ移行・段階的な刷新' },
+  { title: 'システム導入と周辺開発をまとめる', text: '顧客管理・営業支援システムの導入に合わせ、データ連携や自動化も構築。現場が使い始めるまでを一つの計画で進めます。', output: '製品の設定・連携・追加開発・運用手順' },
+];
+const faqItems = [
+  { q: '何を作るか決まっていなくても相談できますか？', a: 'はい。「何を転記しているか」「どこで確認待ちになるか」「どの作業に時間がかかるか」から伺います。業務を整理し、既存製品で対応する範囲と開発する範囲をご提案します。' },
+  { q: '顧客管理システムに関係しない開発も依頼できますか？', a: 'はい。日々の業務を支えるシステムの新規開発・改修、データ連携、自動化をご相談いただけます。対象業務、技術要件、規模、現在の環境を確認して、対応範囲をご案内します。' },
+  { q: 'Revenue CRMの契約が必要ですか？', a: 'いいえ。開発・連携・自動化だけでもご相談いただけます。現在お使いのシステムを前提に検討します。Revenue CRMが適する場合は選択肢としてご提案します。' },
+  { q: '既存システムとの連携は必ずできますか？', a: '連携先のAPI、権限、契約プラン、データ形式などを確認して判断します。制約がある場合は、代替案や運用上の対応を含めてご提案します。利用料や連携先の有料オプションが必要な場合も、見積もり時に整理します。' },
+  { q: '料金と期間はどのくらいですか？', a: '対象業務、画面・機能の数、連携先、データ移行、権限・セキュリティ要件、運用支援の範囲に応じて個別にお見積もりします。開発費と、外部サービス利用料・保守運用費を分けてご案内します。' },
+  { q: '開発会社がいる場合、PMだけ依頼できますか？', a: 'はい。既存の開発会社や社内チームが実装する場合は、要件整理・ベンダー調整・進行管理・受け入れ支援を担います。開発を含める場合とPM支援だけの場合で、役割と費用を明確にします。' },
+];
+---
+
+<BaseLayout title={title} description={description} lang="ja">
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify([
+    { '@context': 'https://schema.org', '@type': 'Service', name: '業務システム開発・連携・自動化', description, url, provider: { '@id': 'https://consilegy.com/#organization' } },
+    { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://consilegy.com/' },
+      { '@type': 'ListItem', position: 2, name: 'サービス', item: 'https://consilegy.com/services/' },
+      { '@type': 'ListItem', position: 3, name: '業務システム開発・連携・自動化', item: url },
+    ] },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqItems.map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
+  ])} />
+
+  <section class="dev-hero">
+    <div class="container">
+      <a href="/services/" class="dev-back">← サービス一覧</a>
+      <div class="dev-hero-grid">
+        <div class="dev-hero-intro">
+          <p class="dev-eyebrow">Development &amp; Automation</p>
+          <p class="dev-service">業務システム開発・連携・自動化</p>
+          <h1>業務に必要な仕組みを、<br /><span>作る。</span><span>つなぐ。</span><span>自動化する。</span></h1>
+          <p class="dev-lead">スプレッドシートからの転記。システムごとに分かれた情報。既製品では足りない機能。<br />いまの仕事の流れを整理し、必要なシステムと連携を設計・開発します。</p>
+        </div>
+        <figure class="dev-hero-visual dev-role" aria-labelledby="dev-flow-caption">
+          <div class="dev-role-box">いまの業務・システム<span>手作業・分散したデータ・足りない機能</span></div>
+          <div class="dev-role-arrow" aria-hidden="true">↓</div>
+          <div class="dev-role-box dev-role-box--main">業務整理 → 設計・開発 → テスト<span>新規開発・既存システムの連携・自動化</span></div>
+          <div class="dev-role-arrow" aria-hidden="true">↓</div>
+          <div class="dev-role-box">現場で使える仕組みへ<span>必要な画面・つながるデータ・運用手順</span></div>
+          <figcaption id="dev-flow-caption">要件整理から開発、移行・運用開始までを支援します。</figcaption>
+        </figure>
+        <div class="dev-hero-conversion">
+          <div class="dev-actions"><a href="/free-consultation/#booking" class="btn btn--primary">開発・連携について無料で相談する</a><a href="#scope" class="btn btn--outline">開発できることを見る</a></div>
+          <p class="dev-note">連携一つから、新規システムの開発まで。対象範囲を整理して個別にお見積もりします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dev-band dev-band--gray" id="scope">
+    <div class="container">
+      <p class="dev-eyebrow">What We Build</p>
+      <h2>いまの業務に、何が必要かから。</h2>
+      <p class="dev-intro">以下は開発・連携の相談例です。実現方法と対応範囲は、現在の環境と要件を確認して決めます。</p>
+      <div class="dev-grid dev-grid--two">
+        {examples.map(({ title, text, output }, i) => <article class="dev-card"><span class="dev-number">0{i + 1}</span><h3>{title}</h3><p>{text}</p><p class="dev-output"><strong>相談例</strong>{output}</p></article>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="dev-band">
+    <div class="container">
+      <p class="dev-eyebrow">Design Before Development</p>
+      <h2>既存の仕組みを活かし、<br />必要な部分を開発する。</h2>
+      <div class="dev-grid dev-grid--three">
+        <article class="dev-card"><span class="dev-number">01</span><h3>業務を整理する</h3><p>担当者、入力する情報、判断する条件、例外処理を確認。システム化する範囲と、運用で対応する範囲を整理します。</p></article>
+        <article class="dev-card"><span class="dev-number">02</span><h3>実現方法を選ぶ</h3><p>既存製品の設定、システム間の連携、追加機能の開発、新規構築を比較。費用・運用負荷・制約を踏まえて決めます。</p></article>
+        <article class="dev-card"><span class="dev-number">03</span><h3>使い続ける条件を決める</h3><p>利用権限、データの扱い、エラー時の対応、運用担当を設計。リリース後の保守・改善の範囲も合意します。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="dev-band dev-band--gray">
+    <div class="container">
+      <p class="dev-eyebrow">Case Studies</p>
+      <h2>業務とシステムをつないだ実例。</h2>
+      <div class="dev-grid dev-grid--two">
+        <article class="dev-card"><h3>LINEと予約の手作業をつなぐ</h3><p>生徒約40人のオンライン英会話スクールで、LINE公式アカウントとGoogleカレンダーを連携。手作業だった確認と予約を自動化しました。</p><p class="dev-output">Revenue CRMスクール版の開発背景となった事例です。</p><a href="/crm/school/">Revenue CRMスクール版を見る →</a></article>
+        <article class="dev-card"><h3>分散したデータを統合する</h3><p>医療テック企業で、複数のシステムに分散していた顧客データをHubSpotへ統合。入力ルールの整備と運用定着まで支援しました。</p><a href="/case-studies/healthcare-data-integration-ops-enablement/">データ統合の支援事例を見る →</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="dev-band" id="pricing">
+    <div class="container dev-pricing-layout">
+      <div>
+        <p class="dev-eyebrow">Process &amp; Pricing</p>
+        <h2>開発範囲と費用を、<br />着手前に整理します。</h2>
+        <p>まずは現在の業務、利用中のシステム、困っている作業を伺います。要件と実現方法を整理し、対象範囲・成果物・納期・費用をご提案します。</p>
+        <p>外部サービス利用料、保守・運用費、追加開発の扱いも分けてご案内します。既存の伴走・顧問料金とは別の個別見積もりです。</p>
+        <a href="/contact/">フォームで業務の状況を伝える →</a>
+      </div>
+      <ol class="dev-process">
+        <li><strong>相談・業務整理</strong><p>仕事の流れ、データ、利用環境と、実現したいことを確認します。</p></li>
+        <li><strong>設計・見積もり</strong><p>機能、連携方法、権限、受け入れ条件、工程と費用を整理します。</p></li>
+        <li><strong>開発・テスト・移行</strong><p>合意した範囲を実装し、実際の業務に沿って動作を確認します。</p></li>
+        <li><strong>運用開始・引き継ぎ</strong><p>手順と運用担当を確認。保守・改善は合意した範囲で対応します。</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="dev-band dev-band--gray">
+    <div class="container">
+      <p class="dev-eyebrow">Project Management</p>
+      <h2>開発・導入を進める役割も担います。</h2>
+      <p>開発を含むご依頼では、要件整理・関係者調整・進行管理を担当範囲に含めてご提案します。社内チームや既存の開発会社が実装する場合は、PM支援だけのご依頼にも対応します。</p>
+      <a href="/services/project-management-support/">PM支援の担当範囲を見る →</a>
+    </div>
+  </section>
+
+  <section class="dev-band">
+    <div class="container dev-faq"><p class="dev-eyebrow">FAQ</p><h2>よくある質問</h2>{faqItems.map(({ q, a }) => <details><summary>{q}</summary><p>{a}</p></details>)}</div>
+  </section>
+
+  <section class="dev-band dev-band--gray">
+    <div class="container">
+      <p class="dev-eyebrow">Related Services</p><h2>導入・運用まで、つなげて相談できます。</h2>
+      <div class="dev-grid dev-grid--three">
+        <article class="dev-card"><h3>顧客管理システムの導入・再設計</h3><p>業務プロセス、データ構造、システム連携をまとめて見直します。</p><a href="/services/crm-revops-redesign/">導入・再設計支援を見る →</a></article>
+        <article class="dev-card"><h3>Revenue CRM</h3><p>業務に合う製品を検討したい方へ。機能や利用条件をご案内します。</p><a href="/crm/">製品を見る →</a></article>
+        <article class="dev-card"><h3>運用定着・改善</h3><p>導入後の入力ルールや活用方法を整え、現場で使える状態を支援します。</p><a href="/services/adoption-growth-support/">運用定着・改善支援を見る →</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="dev-final">
+    <div class="container"><p class="dev-eyebrow">Let's Talk</p><h2>その手作業から、<br />仕組みづくりを始めましょう。</h2><p>何を作るかが決まっていなくても大丈夫です。<br />いまの仕事の流れと、手間がかかっている作業をお聞かせください。</p><div class="dev-actions"><a href="/free-consultation/#booking" class="btn btn--primary">開発・連携について無料で相談する</a><a href="/contact/" class="btn dev-contact">フォームで相談する</a></div></div>
+  </section>
+</BaseLayout>
+
+<style>
+  .dev-hero { padding: 3rem 0 4.5rem; background: white; }
+  .dev-hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 1.5rem 2rem; align-items: start; }
+  .dev-hero-intro, .dev-hero-conversion { grid-column: 1; min-width: 0; }
+  .dev-hero-visual { grid-column: 2; grid-row: 1 / 3; align-self: center; margin: 0; }
+  .dev-hero h1 { font-size: clamp(2rem, 2.8vw, 2.5rem); }
+  h1 span { display: inline-block; white-space: nowrap; }
+  .dev-hero .dev-lead { margin-bottom: 0; }
+  .dev-back { display: inline-block; margin-bottom: 2.5rem; }
+  .dev-eyebrow { color: var(--color-navy); font-size: 0.875rem; font-weight: 600; letter-spacing: .12em; margin: 0 0 1rem; }
+  .dev-service { font-size: 1rem; color: var(--color-text-muted); margin: 0 0 1rem; }
+  h1, h2, h3 { color: var(--color-navy); }
+  h1 { font-size: clamp(2rem, 4.5vw, 3.4rem); line-height: 1.5; letter-spacing: -.035em; margin: 0 0 1.5rem; font-weight: 600; text-wrap: balance; }
+  h2 { font-size: clamp(1.65rem, 3vw, 2.25rem); line-height: 1.6; margin: 0 0 1.75rem; font-weight: 600; }
+  h3 { font-size: 1.125rem; line-height: 1.6; margin: .75rem 0; font-weight: 600; }
+  p { line-height: 1.9; }
+  .dev-lead { font-size: 1.125rem; max-width: 56rem; margin: 0 0 2rem; }
+  .dev-actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+  .btn { border-radius: 4px; padding: 1rem 1.5rem; }
+  .btn--outline { background: transparent; border: 1px solid var(--color-border-strong); color: var(--color-primary); }
+  .btn--outline:hover { border-color: var(--color-primary); }
+  .dev-note { color: var(--color-text-muted); font-size: .875rem; margin: 1.25rem 0 0; }
+  .dev-band { padding: 4.5rem 0; background: white; scroll-margin-top: 6rem; }
+  .dev-band--gray { background: var(--color-bg-subtle); }
+  .dev-intro { color: var(--color-text-muted); margin: -0.5rem 0 2rem; }
+  .dev-grid { display: grid; gap: 1.25rem; }
+  .dev-grid--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .dev-grid--two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dev-card { padding: 1.75rem; background: white; border: 1px solid var(--color-border); border-radius: 6px; box-shadow: var(--shadow-sm); }
+  .dev-card p { margin: 0; color: var(--color-text-muted); }
+  .dev-card a { display: inline-block; margin-top: 1rem; }
+  .dev-number { color: var(--color-navy); font-size: .875rem; font-weight: 600; letter-spacing: .08em; }
+  .dev-card .dev-output { border-top: 1px solid var(--color-border); margin-top: 1.25rem; padding-top: 1rem; color: var(--color-text); }
+  .dev-output strong { display: block; font-size: .875rem; color: var(--color-text-muted); font-weight: 500; }
+  .dev-role-layout, .dev-pricing-layout { display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; align-items: start; }
+  .dev-role { margin: 0; padding: 1.75rem; background: var(--color-bg-subtle); border: 1px solid var(--color-border); border-radius: 6px; }
+  .dev-role-box { border: 1px solid var(--color-navy); border-radius: 6px; padding: 1rem; text-align: center; color: var(--color-navy); font-weight: 600; background: white; }
+  .dev-role-box span { display: block; font-weight: 400; color: var(--color-text-muted); margin-top: .3rem; font-size: 1rem; }
+  .dev-role-box--main { background: var(--color-navy); color: white; }
+  .dev-role-box--main span { color: white; }
+  .dev-role-arrow { text-align: center; font-size: 1.5rem; color: var(--color-navy); }
+  figcaption { font-size: .875rem; color: var(--color-text-muted); margin-top: 1rem; line-height: 1.8; }
+  .dev-process { list-style: decimal-leading-zero; margin: 0; padding: 0 0 0 2.5rem; }
+  .dev-process li { padding: 0 0 1.25rem 1rem; margin-bottom: 1.25rem; border-bottom: 1px solid var(--color-border); }
+  .dev-process li::marker { color: var(--color-navy); font-weight: 600; }
+  .dev-process strong { color: var(--color-navy); }
+  .dev-process p { color: var(--color-text-muted); margin: .5rem 0 0; }
+  .dev-faq { max-width: 900px; }
+  details { background: white; border: 1px solid var(--color-border); border-radius: 6px; box-shadow: var(--shadow-sm); margin-top: .75rem; padding: 1.25rem 1.5rem; }
+  summary { cursor: pointer; font-weight: 600; color: var(--color-navy); line-height: 1.8; }
+  details p { color: var(--color-text-muted); margin: 1rem 0 0; }
+  .dev-final { padding: 4.5rem 0; background: var(--color-navy); color: white; }
+  .dev-final h2, .dev-final .dev-eyebrow { color: white; }
+  .dev-final p { margin-bottom: 2rem; }
+  .dev-contact { border: 1px solid white; color: white; background: transparent; }
+  .dev-contact:hover { background: white; color: var(--color-navy); }
+  @media (max-width: 900px) {
+    .dev-hero-grid { grid-template-columns: 1fr; }
+    .dev-hero-visual { grid-column: 1; grid-row: auto; width: 100%; max-width: 640px; }
+  }
+  @media (max-width: 800px) {
+    .dev-role-layout, .dev-pricing-layout, .dev-grid--three { grid-template-columns: 1fr; gap: 1.5rem; }
+    .dev-band, .dev-final { padding: 3rem 0; }
+  }
+  @media (max-width: 560px) {
+    .dev-grid--two { grid-template-columns: 1fr; }
+    .dev-hero { padding-bottom: 3rem; }
+    .dev-hero h1 { font-size: 1.625rem; text-wrap: initial; }
+    .dev-actions { flex-direction: column; }
+    .dev-actions .btn { width: 100%; text-align: center; white-space: normal; }
+    .dev-card { padding: 1.5rem; }
+  }
+</style>

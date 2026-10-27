@@ -38,6 +38,19 @@ const faqSchema = {
 	})),
 };
 
+const articleSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'RevOpsとは｜レベニューオペレーション（Revenue Operations）の定義・導入・CRMとの違い',
+	datePublished: '2026-05-07',
+	dateModified: '2026-10-27',
+	author: { '@type': 'Person', '@id': 'https://consilegy.com/company/#founder', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', sameAs: ['https://seikoyamaguchi.com/', 'https://www.linkedin.com/in/seiko-yamaguchi/'], worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
+	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+	url: 'https://consilegy.com/about-revops/',
+	mainEntityOfPage: 'https://consilegy.com/about-revops/',
+	inLanguage: 'ja',
+};
+
 const breadcrumbSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'BreadcrumbList',
@@ -113,6 +126,7 @@ const relatedServices = [
 	<Fragment slot="head">
 		<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
 	</Fragment>
 
 <!-- ===== HERO ===== -->
@@ -133,9 +147,10 @@ const relatedServices = [
 				<p class="hero-lead">
 					目的は、リード獲得から商談化・受注・継続収益までを一つの流れとして可視化し、売上改善の再現性を高めることです。
 				</p>
+				<p class="page-byline">執筆：<a href="/company/">山口聖子</a>（Consilegy代表）<span>公開 <time datetime="2026-05-07">2026年5月7日</time></span><span>更新 <time datetime="2026-10-27">2026年10月27日</time></span></p>
 				<div class="hero-actions">
 					<a href="/services/crm-revops-redesign/" class="btn btn--primary">CRM / RevOps再設計支援を見る →</a>
-					<a href="/services/revenue-architecture-design/" class="btn btn--ghost">レベニューアーキテクチャとは</a>
+					<a href="/revenue-architecture/" class="btn btn--ghost">レベニューアーキテクチャとは</a>
 				</div>
 			</div>
 			<div class="hero-def-card">
@@ -430,7 +445,7 @@ const relatedServices = [
 			<p>Consilegyでは、RevOpsを<strong>「運用」</strong>、レベニューアーキテクチャを<strong>「その土台となる設計」</strong>として捉えています。</p>
 		</div>
 		<div class="ra-cta">
-			<a href="/services/revenue-architecture-design/" class="btn btn--outline">レベニューアーキテクチャ設計とは →</a>
+			<a href="/revenue-architecture/" class="btn btn--outline">レベニューアーキテクチャとは →</a>
 		</div>
 	</div>
 </section>
@@ -664,6 +679,15 @@ body { font-family: var(--font-sans); color: var(--color-navy); line-height: 1.7
 	line-height: 1.9;
 	margin-bottom: 0.875rem;
 }
+	.page-byline {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.25rem 1rem;
+		margin-top: 1.25rem;
+		font-size: 0.875rem;
+		color: var(--color-text-muted);
+	}
+
 .hero-actions {
 	display: flex;
 	flex-wrap: wrap;

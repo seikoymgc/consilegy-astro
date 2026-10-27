@@ -63,6 +63,19 @@ const definedTermSchema = {
 	},
 };
 
+const articleSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: 'Revenue Architectureとは｜レベニューアーキテクチャの定義・RevOpsとの違い・CRM再設計との関係',
+	datePublished: '2026-05-07',
+	dateModified: '2026-10-27',
+	author: { '@type': 'Person', '@id': 'https://consilegy.com/company/#founder', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', sameAs: ['https://seikoyamaguchi.com/', 'https://www.linkedin.com/in/seiko-yamaguchi/'], worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
+	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+	url: 'https://consilegy.com/revenue-architecture/',
+	mainEntityOfPage: 'https://consilegy.com/revenue-architecture/',
+	inLanguage: 'ja',
+};
+
 const breadcrumbSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'BreadcrumbList',
@@ -255,13 +268,14 @@ const relatedServices = [
 
 <BaseLayout
 	title="Revenue Architectureとは | レベニューアーキテクチャの定義・RevOpsとの違い・CRM再設計との関係 | Consilegy"
-	description="Revenue Architecture（レベニューアーキテクチャ）とは、マーケティング・営業・カスタマーサクセス・CRM・KPI・データを、売上が生まれる一つの流れとして構造設計する考え方です。定義、転換率CR1〜CR8と待ち時間Δtの指標体系、RevOps・The Modelとの違いを出典付きデータとともに解説します。日本市場で必要になる稟議工程の追加まで扱います。"
+	description="Revenue Architecture（レベニューアーキテクチャ）とは、マーケティング・営業・カスタマーサクセス・CRM・KPI・データ・システムを、売上が生まれる一つの流れとして設計する考え方です。定義、転換率CR1〜CR8と待ち時間Δtの指標体系、RevOps・The Modelとの違いを出典付きデータとともに解説します。日本市場で必要になる稟議工程の追加まで扱います。"
 	lang="ja"
 	ogImage="https://consilegy.com/images/og-revenue-architecture.png"
 >
 	<Fragment slot="head">
 		<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
 		<script type="application/ld+json" set:html={JSON.stringify(definedTermSchema)} />
 	</Fragment>
 
@@ -282,6 +296,7 @@ const relatedServices = [
 				<p class="hero-lead">
 					Revenue Architecture（レベニューアーキテクチャ）は、それらを「収益構造」の問題として整理し、マーケティングから受注・継続までを一つの流れとして設計する考え方です。
 				</p>
+				<p class="page-byline">執筆：<a href="/company/">山口聖子</a>（Consilegy代表）<span>公開 <time datetime="2026-05-07">2026年5月7日</time></span><span>更新 <time datetime="2026-10-27">2026年10月27日</time></span></p>
 				<div class="hero-actions">
 					<a href="/diagnostic/" class="btn btn--primary">収益を自己診断</a>
 					<a href="/services/revenue-architecture-design/" class="btn btn--ghost">レベニューアーキテクチャ設計を見る</a>
@@ -289,7 +304,7 @@ const relatedServices = [
 			</div>
 			<div class="hero-def-card">
 				<p class="def-card__label">Revenue Architecture = 収益構造設計</p>
-				<p class="def-card__text">マーケティング・営業・カスタマーサクセス・CRM・KPI・データ・システムを、売上が生まれる一つの流れとして構造設計する考え方。</p>
+				<p class="def-card__text">マーケティング・営業・カスタマーサクセス・CRM・KPI・データ・システムを、売上が生まれる一つの流れとして設計する考え方。</p>
 				<div class="def-card__divider"></div>
 				<ul class="def-card__attrs">
 					<li><span>対象</span>収益に関わる全部門・全システム</li>
@@ -1139,6 +1154,15 @@ const relatedServices = [
 		line-height: 1.8;
 		color: var(--color-charcoal, #334155);
 		margin: 0 0 1rem;
+	}
+
+	.page-byline {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.25rem 1rem;
+		margin-top: 1.25rem;
+		font-size: 0.875rem;
+		color: var(--color-text-muted);
 	}
 
 	.hero-actions {

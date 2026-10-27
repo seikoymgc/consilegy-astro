@@ -44,6 +44,8 @@ const t =
 	lang === 'en'
 		? {
 				required: 'Required',
+				optional: 'Optional',
+				intro: 'Please complete the fields marked Required.',
 				choose: 'Please choose',
 				button: 'Send',
 				sending: 'Sending…',
@@ -55,6 +57,8 @@ const t =
 			}
 		: {
 				required: '必須',
+				optional: '任意',
+				intro: '必須の項目をご入力ください。部署・役職は任意のため、空欄のまま送信できます。',
 				choose: '選択してください',
 				button: '送信する',
 				sending: '送信しています…',
@@ -68,10 +72,11 @@ const t =
 
 <div class="cf" data-contact-form data-submit-url={submitUrl} data-sending={t.sending} data-missing={t.missing} data-invalid={t.invalid} data-failed={t.failed}>
 	<form data-form-name="contact" data-hs-do-not-collect="true" onsubmit="return false" novalidate>
+		<p class="cf-intro">{t.intro}</p>
 		<div class="cf-grid">
 			{fields.map((f) => (
 				<label class:list={['cf-field', { 'cf-field--half': f.half }]}>
-					<span>{f.label}{f.required && <em>{t.required}</em>}</span>
+					<span>{f.label}<em class:list={['cf-status', { 'cf-status--optional': !f.required }]}>{f.required ? t.required : t.optional}</em></span>
 					{f.type === 'textarea' ? (
 						<textarea name={f.key} rows="6" required={f.required} />
 					) : f.type === 'select' ? (
@@ -161,7 +166,9 @@ const t =
 	.cf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 0.9rem; }
 	.cf-field { grid-column: 1 / -1; display: grid; gap: 0.35rem; font-size: 0.9rem; color: #334155; }
 	.cf-field--half { grid-column: auto; }
-	.cf-field em { font-style: normal; font-size: 0.7rem; color: #fff; background: var(--color-navy); border-radius: 0.25rem; padding: 0.05rem 0.35rem; margin-left: 0.5rem; }
+	.cf-intro { margin: 0; font-size: 1rem; line-height: 1.8; color: var(--color-text-muted); }
+	.cf-status { display: inline-block; vertical-align: middle; font-style: normal; font-size: 0.875rem; line-height: 1.4; color: #fff; background: var(--color-navy); border: 1px solid var(--color-navy); border-radius: 4px; padding: 0.05rem 0.35rem; margin-left: 0.5rem; }
+	.cf-status--optional { color: var(--color-text-muted); background: #fff; border-color: var(--color-border-strong, #CBD5E1); }
 	.cf-field input, .cf-field select, .cf-field textarea {
 		width: 100%; padding: 0.7rem 0.8rem; border: 1px solid #cbd5e1; border-radius: 0.45rem;
 		font-size: 1rem; background: #fff; color: #0f172a; font-family: inherit;

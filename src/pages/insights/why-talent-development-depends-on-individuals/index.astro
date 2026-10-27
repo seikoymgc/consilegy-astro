@@ -1,10 +1,12 @@
 ---
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import InsightHead from '../../../components/InsightHead.astro';
+import InsightByline from '../../../components/InsightByline.astro';
+import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const slug = 'why-talent-development-depends-on-individuals';
 const pubDate = '2026-08-21';
-const pubDateDisplay = '2026年8月21日';
 
 const title = '育成が属人化する組織で起きていること｜「教える」を基準に変える';
 const metaTitle = '育成が属人化する組織で起きていること｜「教える」を基準に変える | Consilegy';
@@ -62,15 +64,29 @@ const breadcrumbSchema = {
 		{ '@type': 'ListItem', position: 3, name: title, item: `https://consilegy.com/insights/${slug}/` },
 	],
 };
+
+// 見出しの id と目次を揃える。公開後は既存の id を変更しない。
+const headings = [
+	{"id": "section-1", "text": "育成の属人化とは"},
+	{"id": "section-2", "text": "人を増やしたのに、自分の時間だけ減っていく"},
+	{"id": "section-3", "text": "「教える」を増やしても、限界が先に来る"},
+	{"id": "section-4", "text": "属人化しているときの3つのサイン"},
+	{"id": "section-5", "text": "最初の一手：基準を、頭の外に出す"},
+	{"id": "section-6", "text": "まとめ：教えることをやめるのではなく、教える対象を変える"},
+	{"id": "section-7", "text": "よくある質問"},
+];
+
 ---
 
 <BaseLayout
 	title={metaTitle}
 	description={metaDescription}
+	hasTranslation={false}
+	ogType="article"
 	lang="ja"
 >
 	<Fragment slot="head">
-		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<InsightHead schema={articleSchema} />
 		<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 	</Fragment>
@@ -90,9 +106,12 @@ const breadcrumbSchema = {
 		</div>
 		<h1>育成が属人化する組織で<br class="br-pc" />起きていること</h1>
 		<p class="article-desc">メンバーが増えたのに、レビューの時間だけが増えていく。同じ指摘を毎回書いている。育成が属人化する原因は指導力ではなく、良し悪しを決める基準が誰かの頭の中にしかないことです。</p>
+		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
 	<article class="article-body container" id="article">
+
+		<InsightContents headings={headings} />
 		<div class="article-eyecatch">
 			<img
 				src={`/images/insights/${slug}-2026b.svg`}
@@ -106,14 +125,14 @@ const breadcrumbSchema = {
 		</div>
 
 		<section class="article-section article-def" id="definition">
-			<h2>育成の属人化とは</h2>
+			<h2 id="section-1">育成の属人化とは</h2>
 			<p class="article-def__text"><strong>育成の属人化とは</strong>、成果物の良し悪しを判断できる人が組織内で限られており、その人が確認しないと品質が保てない状態を指します。指導にかかる時間が特定の個人に集中し、その人が休むと品質が下がります。原因は指導力の差ではなく、良し悪しを分ける判断基準が言語化されないまま、個人の経験の中にとどまっていることにあります。</p>
 		</section>
 
 		<hr class="article-hr" />
 
 		<section class="article-section">
-			<h2>人を増やしたのに、自分の時間だけ減っていく</h2>
+			<h2 id="section-2">人を増やしたのに、自分の時間だけ減っていく</h2>
 			<p>チームが3人から6人になりました。仕事は回るはずでした。ところが半年たつと、レビューに使う時間が倍以上になっています。</p>
 			<p>提出物を開き、直し、意図を説明する。その説明は、先月も似た内容を誰かに書いています。</p>
 			<p>「ここは読み手が誰か分かるように」「この数字の出どころを入れて」。同じことを、毎回ちがう人に、毎回ゼロから書いている。</p>
@@ -127,7 +146,7 @@ const breadcrumbSchema = {
 		<hr class="article-hr" />
 
 		<section class="article-section">
-			<h2>「教える」を増やしても、限界が先に来る</h2>
+			<h2 id="section-3">「教える」を増やしても、限界が先に来る</h2>
 			<p>教える時間は、メンバーの人数に比例して増えます。一方で、指導する側の時間は増えません。この2つを並べると、どこかで必ず交差します。</p>
 			<p>交差したあとに起きることは、だいたい決まっています。</p>
 			<p>レビューが浅くなる。返すのが遅くなる。待たされる側は、確認を待つあいだ手が止まります。</p>
@@ -141,7 +160,7 @@ const breadcrumbSchema = {
 		<hr class="article-hr" />
 
 		<section class="article-section">
-			<h2>属人化しているときの3つのサイン</h2>
+			<h2 id="section-4">属人化しているときの3つのサイン</h2>
 			<div class="article-numbered">
 				<div class="article-numbered__item">
 					<p class="article-numbered__num">01</p>
@@ -167,7 +186,7 @@ const breadcrumbSchema = {
 		<hr class="article-hr" />
 
 		<section class="article-section">
-			<h2>最初の一手：基準を、頭の外に出す</h2>
+			<h2 id="section-5">最初の一手：基準を、頭の外に出す</h2>
 			<p>やることは、教える量を増やすことではありません。すでに教えている内容のうち、繰り返し出てくるものを外に出すだけです。1時間で始められます。</p>
 			<div class="article-numbered">
 				<div class="article-numbered__item">
@@ -194,7 +213,7 @@ const breadcrumbSchema = {
 		<hr class="article-hr" />
 
 		<section class="article-section">
-			<h2>まとめ：教えることをやめるのではなく、教える対象を変える</h2>
+			<h2 id="section-6">まとめ：教えることをやめるのではなく、教える対象を変える</h2>
 			<p>育成が属人化するのは、判断基準が個人の経験の中にあるからです。基準を持っている人が確認しないと品質が保てない状態では、人を増やしても、増えるのはレビュー待ちの列だけになります。</p>
 			<p>基準を外に出すと、教える対象が変わります。毎回の直しを教えるのではなく、判断の仕方を教えることになります。</p>
 			<p>前者は相手が増えるほど自分の時間が減り、後者は相手が増えるほど組織が伸びます。</p>
@@ -205,7 +224,7 @@ const breadcrumbSchema = {
 		<hr class="article-hr" />
 
 		<section class="article-section article-faq" id="faq">
-			<h2>よくある質問</h2>
+			<h2 id="section-7">よくある質問</h2>
 			<div class="faq-list">
 				{faqItems.map(({ q, a }) => (
 					<details class="faq-item">
@@ -215,8 +234,6 @@ const breadcrumbSchema = {
 				))}
 			</div>
 		</section>
-
-		<p class="article-pubdate">公開日：{pubDateDisplay}</p>
 	</article>
 
 	<nav class="article-services" aria-label="関連サービス">

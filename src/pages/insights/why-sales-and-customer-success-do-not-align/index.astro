@@ -1,9 +1,11 @@
 ---
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import InsightHead from '../../../components/InsightHead.astro';
+import InsightByline from '../../../components/InsightByline.astro';
+import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
-const pubDateDisplay = '2026年5月7日';
 const readTime = '約10分';
 
 const articleSchema = {
@@ -28,15 +30,31 @@ const breadcrumbSchema = {
 		{ '@type': 'ListItem', position: 3, name: 'なぜ営業とカスタマーサクセスが分断されるのか', item: 'https://consilegy.com/insights/why-sales-and-customer-success-do-not-align/' },
 	],
 };
+
+// 見出しの id と目次を揃える。公開後は既存の id を変更しない。
+const headings = [
+	{"id": "section-1", "text": "はじめに：「受注後」に構造が存在しない"},
+	{"id": "section-2", "text": "多くの会社では、「受注」で構造が切れている"},
+	{"id": "section-3", "text": "営業とCSが噛み合わない、典型的な3つのパターン"},
+	{"id": "section-4", "text": "分断される会社に共通する5つの問題"},
+	{"id": "section-5", "text": "本当に必要なのは「Customer Lifecycle Design」"},
+	{"id": "section-6", "text": "Revenue Architectureという考え方"},
+	{"id": "section-7", "text": "日本企業でこの問題が難しい理由"},
+	{"id": "section-8", "text": "Consilegyの考え方"},
+	{"id": "section-9", "text": "まとめ：営業とCSの分断は、収益構造の問題"},
+];
+
 ---
 
 <BaseLayout
 	title="営業とカスタマーサクセスが連携できない理由｜RevOpsとRevenue Architecture | Consilegy"
 	description="営業とカスタマーサクセスが分断される原因を、KPI設計・CRM・Revenue Architectureの観点から解説します。"
+	hasTranslation={false}
+	ogType="article"
 	lang="ja"
 >
 	<Fragment slot="head">
-		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<InsightHead schema={articleSchema} />
 		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 	</Fragment>
 
@@ -56,10 +74,13 @@ const breadcrumbSchema = {
 		</div>
 		<h1>なぜ営業とカスタマーサクセスが<br class="br-pc" />分断されるのか</h1>
 		<p class="article-desc">受注まではうまくいっている。それなのに解約が増え、オンボーディングが荒れ、アップセルにつながらない。この問題の本質は、CS部門の問題ではなく、受注後の構造が設計されていないことにある。</p>
+		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
 	<article class="article-body container" id="article">
+
+		<InsightContents headings={headings} />
 		<div class="article-eyecatch">
 			<img
 				src="/images/insights/why-sales-and-customer-success-do-not-align-2026b.svg"
@@ -74,7 +95,7 @@ const breadcrumbSchema = {
 
 		<!-- はじめに -->
 		<section class="article-section">
-			<h2>はじめに：「受注後」に構造が存在しない</h2>
+			<h2 id="section-1">はじめに：「受注後」に構造が存在しない</h2>
 			<p>受注まではうまくいっている。営業も頑張り、マーケティングもリードを作れている。</p>
 			<p>それなのに解約が増え、オンボーディングが荒れ、アップセルにつながらない。CSが「そんな話は聞いていない」と言い、契約後の顧客情報が正確に引き継がれていない。</p>
 			<p>こうした問題は、サブスクリプション・継続課金・アップセル型のBtoB企業では特によく起きます。</p>
@@ -87,7 +108,7 @@ const breadcrumbSchema = {
 
 		<!-- 受注で構造が切れている -->
 		<section class="article-section">
-			<h2>多くの会社では、「受注」で構造が切れている</h2>
+			<h2 id="section-2">多くの会社では、「受注」で構造が切れている</h2>
 			<p>営業組織は受注をゴールに設計されています。商談数・Win Rate・ARR・受注件数を追う。</p>
 			<p>一方CSは、オンボーディング・活用率・更新率・NRR・チャーンを見る。つまり、そもそもKPI構造が分断されています。</p>
 			<p>同じ会社の中で、「受注まで」と「受注後」が別の組織として動いており、それをつなぐ設計が存在しない。これが最初の問題です。</p>
@@ -97,7 +118,7 @@ const breadcrumbSchema = {
 
 		<!-- 典型パターン -->
 		<section class="article-section">
-			<h2>営業とCSが噛み合わない、典型的な3つのパターン</h2>
+			<h2 id="section-3">営業とCSが噛み合わない、典型的な3つのパターン</h2>
 
 			<h3>営業は「受注」を優先する</h3>
 			<p>営業は数字を追います。すると、導入条件が曖昧なまま、無理な期待値や過剰提案を含んだ状態で受注するケースが出てきます。営業からすると「まず契約」が重要であり、それ自体は組織の目標に沿った合理的な行動です。</p>
@@ -156,7 +177,7 @@ const breadcrumbSchema = {
 
 		<!-- 5つの問題 -->
 		<section class="article-section">
-			<h2>分断される会社に共通する5つの問題</h2>
+			<h2 id="section-4">分断される会社に共通する5つの問題</h2>
 
 			<div class="article-numbered">
 				<div class="article-numbered__item">
@@ -191,7 +212,7 @@ const breadcrumbSchema = {
 
 		<!-- Customer Lifecycle Design -->
 		<section class="article-section">
-			<h2>本当に必要なのは「Customer Lifecycle Design」</h2>
+			<h2 id="section-5">本当に必要なのは「Customer Lifecycle Design」</h2>
 			<p>引き継ぎの問題を解決するために、多くの会社はSlackのチャンネルやNotion上のドキュメントを整備しようとします。しかしそれは対症療法にすぎません。</p>
 			<p>本当に必要なのは、Customer Lifecycle Design。獲得・商談・契約・オンボーディング・活用・更新・アップセルを一つの流れとして設計する考え方です。</p>
 			<p>営業だけでも、CSだけでもなく、「顧客ライフサイクル全体」を見ることが重要です。</p>
@@ -253,7 +274,7 @@ const breadcrumbSchema = {
 
 		<!-- Revenue Architecture -->
 		<section class="article-section">
-			<h2>Revenue Architectureという考え方</h2>
+			<h2 id="section-6">Revenue Architectureという考え方</h2>
 			<p>営業とCSの問題は、部門間のコミュニケーション不足で起きているのではありません。収益KPI・Customer Lifecycle・CRM設計・Revenue Data Flow・RevOpsという構造の問題です。</p>
 			<p>ここで重要になるのがRevenue Architecture（レベニューアーキテクチャ）。営業・マーケティング・CS・CRM・KPI・データ・会議体を「収益につながる一つの構造」として設計する考え方です。</p>
 
@@ -313,7 +334,7 @@ const breadcrumbSchema = {
 
 		<!-- 日本企業 -->
 		<section class="article-section">
-			<h2>日本企業でこの問題が難しい理由</h2>
+			<h2 id="section-7">日本企業でこの問題が難しい理由</h2>
 			<p>日本企業には、部門分断・属人営業・Excel文化・情報の口頭共有が根強く残っている組織が少なくありません。その結果、営業とCS連携が崩れやすく、顧客情報の引き継ぎが個人の努力に依存します。</p>
 			<p>欧米型のCS組織モデルをそのまま導入しても、日本企業の商習慣や組織文化とのズレで機能しないことが多い。必要なのは、日本企業に合ったRevenue Architectureの設計です。</p>
 		</section>
@@ -322,7 +343,7 @@ const breadcrumbSchema = {
 
 		<!-- Consilegyの考え方 -->
 		<section class="article-section">
-			<h2>Consilegyの考え方</h2>
+			<h2 id="section-8">Consilegyの考え方</h2>
 			<p>Consilegyでは、CS改善を単なるサポート改善として捉えていません。本質はRevenue Architecture・Customer Lifecycle・RevOps・Revenue Data Flow・KPI設計にあります。</p>
 			<p>Salesforce・HubSpot・CSツール・BI・Slackなどを横断しながら、「受注後も収益が成長する構造」を設計します。</p>
 			<p>目的は契約を取ることではなく、継続収益が積み上がる構造を作ることです。</p>
@@ -350,7 +371,7 @@ const breadcrumbSchema = {
 
 		<!-- まとめ -->
 		<section class="article-section">
-			<h2>まとめ：営業とCSの分断は、収益構造の問題</h2>
+			<h2 id="section-9">まとめ：営業とCSの分断は、収益構造の問題</h2>
 			<p>営業とCSが噛み合わない原因は、コミュニケーション不足ではありません。収益KPI分断・Customer Lifecycle未設計・Revenue Architecture不足・RevOps未整備が根本原因です。</p>
 			<p>だからこそ必要なのは部門改善ではなく、受注から継続までの構造を設計することです。収益は営業だけでなく、Customer Lifecycle全体で生まれます。</p>
 		</section>

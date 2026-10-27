@@ -1,9 +1,11 @@
 ---
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import InsightHead from '../../../components/InsightHead.astro';
+import InsightByline from '../../../components/InsightByline.astro';
+import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
-const pubDateDisplay = '2026年5月7日';
 const readTime = '約10分';
 
 const articleSchema = {
@@ -28,15 +30,27 @@ const breadcrumbSchema = {
 		{ '@type': 'ListItem', position: 3, name: 'MAを導入しても商談化率が改善しない理由', item: 'https://consilegy.com/insights/why-marketing-automation-does-not-improve-pipeline/' },
 	],
 };
+
+// 見出しの id と目次を揃える。公開後は既存の id を変更しない。
+const headings = [
+	{"id": "section-1", "text": "あなたの組織は大丈夫か。5つの確認項目"},
+	{"id": "section-2", "text": "MAが商談化率を改善しない3つのパターン"},
+	{"id": "section-3", "text": "設計を変えた後に何が起きたか"},
+	{"id": "section-4", "text": "今週から始められる3つのアクション"},
+	{"id": "section-5", "text": "まとめ：MAの問題は「設定」より「設計」"},
+];
+
 ---
 
 <BaseLayout
 	title="MAを導入しても商談化率が改善しない理由 | Consilegy"
 	description="コンサルティング企業の新規AIプロダクト部門（3名兼務）が、GTM設計とMA自動化を統合し、2か月でGTM方針を合意・3名でも運用できる収益エンジンを構築。MAがメール配信ツールで止まっている組織の構造問題を解説します。"
+	hasTranslation={false}
+	ogType="article"
 	lang="ja"
 >
 	<Fragment slot="head">
-		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<InsightHead schema={articleSchema} />
 		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 	</Fragment>
 
@@ -56,10 +70,13 @@ const breadcrumbSchema = {
 		</div>
 		<h1>MAを導入しても<br class="br-pc" />商談化率が改善しない理由</h1>
 		<p class="article-desc">コンサルティング企業の新規AIプロダクト部門（3名兼務）が、GTM設計とMA自動化を統合し、2か月でGTM方針を合意・3名でも運用できる収益エンジンを構築。MAがメール配信ツールで止まっている組織の構造問題を解説します。</p>
+		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
 	<div class="article-body container">
+
+		<InsightContents headings={headings} />
 		<div class="article-eyecatch">
 			<img
 				src="/images/insights/why-marketing-automation-does-not-improve-pipeline-2026b.svg"
@@ -80,7 +97,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>あなたの組織は大丈夫か。5つの確認項目</h2>
+			<h2 id="section-1">あなたの組織は大丈夫か。5つの確認項目</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>MAで送っているメールのほとんどが「全員への一斉配信」になっている</strong>
@@ -107,7 +124,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>MAが商談化率を改善しない3つのパターン</h2>
+			<h2 id="section-2">MAが商談化率を改善しない3つのパターン</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>MAがコンテンツ配信ツールになっている</strong>
@@ -134,7 +151,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>設計を変えた後に何が起きたか</h2>
+			<h2 id="section-3">設計を変えた後に何が起きたか</h2>
 			<p>前述のAIプロダクト部門では、MAの機能を増やすのではなく、「GTM設計・スコアリング・MA→CRM自動連携」を一体で構築しました。その結果、以下の変化が起きました。</p>
 			<ol class="article-numbered">
 				<li>
@@ -154,7 +171,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>今週から始められる3つのアクション</h2>
+			<h2 id="section-4">今週から始められる3つのアクション</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>直近6か月の受注案件について、「MAでの最後の行動」を書き出す</strong>
@@ -172,7 +189,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>まとめ：MAの問題は「設定」より「設計」</h2>
+			<h2 id="section-5">まとめ：MAの問題は「設定」より「設計」</h2>
 			<p>MAを導入しても商談化率が改善しない原因は、MAの機能不足でも設定の問題でもありません。</p>
 			<p>「MAがコンテンツ配信ツールになっていること」「スコアリングによる優先度設計がないこと」「MAと商談パイプラインが接続されていないこと」が構造的な原因です。</p>
 			<p>AIプロダクト部門の事例が示すように、2か月でのGTM合意・3名での収益エンジン運用を実現したのは、GTM設計とMA自動化を一体で構築したためです。</p>

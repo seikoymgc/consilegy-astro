@@ -1,10 +1,12 @@
 ---
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import InsightHead from '../../../components/InsightHead.astro';
+import InsightByline from '../../../components/InsightByline.astro';
+import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const slug = 'what-changes-in-crm-design-when-ai-writes-records';
 const pubDate = '2026-08-21';
-const pubDateDisplay = '2026年8月21日';
 
 const title = 'AIが入力を代行する時代に、CRM設計は何が変わるか';
 const metaTitle = 'AIが入力を代行する時代に、CRM設計は何が変わるか｜ボトルネックは入力から定義へ | Consilegy';
@@ -62,15 +64,30 @@ const breadcrumbSchema = {
 		{ '@type': 'ListItem', position: 3, name: title, item: `https://consilegy.com/insights/${slug}/` },
 	],
 };
+
+// 見出しの id と目次を揃える。公開後は既存の id を変更しない。
+const headings = [
+	{"id": "section-1", "text": "CRMの入力自動化とは"},
+	{"id": "section-2", "text": "入力率は上がった。会議の質問は変わらなかった"},
+	{"id": "section-3", "text": "AIが埋められるのは事実で、埋められないのは判断"},
+	{"id": "section-4", "text": "自動化を入れる前に決めておく3つのこと"},
+	{"id": "section-5", "text": "入力の負担が消えると、CRMの役割も変わる"},
+	{"id": "section-6", "text": "最初の一手：ステージの意味を、3人に聞いてみる"},
+	{"id": "section-7", "text": "まとめ：AIは入力を消すが、定義は消してくれない"},
+	{"id": "section-8", "text": "よくある質問"},
+];
+
 ---
 
 <BaseLayout
 	title={metaTitle}
 	description={metaDescription}
+	hasTranslation={false}
+	ogType="article"
 	lang="ja"
 >
 	<Fragment slot="head">
-		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<InsightHead schema={articleSchema} />
 		<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 	</Fragment>
@@ -90,9 +107,12 @@ const breadcrumbSchema = {
 		</div>
 		<h1>AIが入力を代行する時代に、<br class="br-pc" />CRM設計は何が変わるか</h1>
 		<p class="article-desc">商談の記録が自動で入るようになり、入力率は9割を超えました。それでも週次のパイプライン会議では、相変わらず同じ質問が出ます。「この案件、本当に今月ですか」。埋まったことと、読めることは別です。</p>
+		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
 	<article class="article-body container" id="article">
+
+		<InsightContents headings={headings} />
 		<div class="article-eyecatch">
 			<img
 				src={`/images/insights/${slug}-2026b.svg`}
@@ -106,14 +126,14 @@ const breadcrumbSchema = {
 		</div>
 
 		<section class="article-section article-def" id="definition">
-			<h2>CRMの入力自動化とは</h2>
+			<h2 id="section-1">CRMの入力自動化とは</h2>
 			<p class="article-def__text"><strong>CRMの入力自動化とは</strong>、商談の音声・会議の文字起こし・メールのやり取りをAIが解析し、商談記録・次回アクション・商談ステージなどをCRMへ自動で書き込む仕組みです。営業担当者が手で入力する時間を大幅に減らせます。ただし、何をどのステージとみなすかという判断基準そのものは自動化されません。定義が曖昧なまま導入すると、項目は埋まっているのに判断には使えないデータが増えます。</p>
 		</section>
 
 		<hr class="article-hr" />
 
 		<section class="article-section">
-			<h2>入力率は上がった。会議の質問は変わらなかった</h2>
+			<h2 id="section-2">入力率は上がった。会議の質問は変わらなかった</h2>
 			<p>商談後の記録が自動で入るようになりました。文字起こしから要約が生成され、次回アクションも提案されます。以前は3割だった入力率が9割を超えました。営業からの評判も良好です。</p>
 			<p>ところが月曜の会議は、以前と同じ場面が続いています。</p>
 			<p>パイプラインを画面に出し、マネージャーが1件ずつ確認していく。「この案件、本当に今月ですか」「先方の決裁者は出てきましたか」。数字を見て判断するのではなく、聞いて確かめる時間です。</p>
@@ -126,7 +146,7 @@ const breadcrumbSchema = {
 		<hr class="article-hr" />
 
 		<section class="article-section">
-			<h2>AIが埋められるのは事実で、埋められないのは判断</h2>
+			<h2 id="section-3">AIが埋められるのは事実で、埋められないのは判断</h2>
 			<p>この2つを分けておくと、設計の議論が早く進みます。</p>
 			<p>AIが得意なのは、起きたことの復元です。誰と話したか、何を聞かれたか、いつまでに返すと約束したか。これらは記録の中に答えがあるので、人が手で書き写す必要はありません。この領域は、任せてしまって構いません。</p>
 			<p>一方で、AIが決められないものがあります。この案件は「提案中」なのか「検討中」なのか。この温度感は追うに値するのか。これらは記録の中に答えがなく、<strong>組織が決めた基準の中にしか答えがありません</strong>。</p>
@@ -138,7 +158,7 @@ const breadcrumbSchema = {
 		<hr class="article-hr" />
 
 		<section class="article-section">
-			<h2>自動化を入れる前に決めておく3つのこと</h2>
+			<h2 id="section-4">自動化を入れる前に決めておく3つのこと</h2>
 			<div class="article-numbered">
 				<div class="article-numbered__item">
 					<p class="article-numbered__num">01</p>
@@ -162,7 +182,7 @@ const breadcrumbSchema = {
 		<hr class="article-hr" />
 
 		<section class="article-section">
-			<h2>入力の負担が消えると、CRMの役割も変わる</h2>
+			<h2 id="section-5">入力の負担が消えると、CRMの役割も変わる</h2>
 			<p>入力が重かった時代、CRMは「記録する場所」でした。負担が大きいぶん、入力してもらうこと自体が目的になり、現場は報告のために書いていました。</p>
 			<p>入力コストが下がると、その前提が崩れます。書く手間で人を動かす必要がなくなるので、CRMは<strong>次に何をするかを決める場所</strong>に寄せられます。</p>
 			<p>どの案件から触るか、どこで止まっているか、誰に渡すか。これらが画面上で決まるなら、営業は報告のためではなく自分のために開きます。</p>
@@ -173,7 +193,7 @@ const breadcrumbSchema = {
 		<hr class="article-hr" />
 
 		<section class="article-section">
-			<h2>最初の一手：ステージの意味を、3人に聞いてみる</h2>
+			<h2 id="section-6">最初の一手：ステージの意味を、3人に聞いてみる</h2>
 			<p>営業・マーケ・マネージャーの3人に、同じ質問をしてください。「提案中とは、何が起きた状態ですか」。</p>
 			<p>3人の答えが揃っていれば、自動化を進めて問題ありません。揃っていなければ、そこが先です。ツールの検討より前に、30分の会話で決められます。</p>
 			<p>揃っていなかったとしても、誰かが間違っているわけではありません。それぞれの立場から見て合理的な定義を持っているだけです。決めるべきなのは、どれが正しいかではなく、どれを共通の言葉にするかです。</p>
@@ -182,7 +202,7 @@ const breadcrumbSchema = {
 		<hr class="article-hr" />
 
 		<section class="article-section">
-			<h2>まとめ：AIは入力を消すが、定義は消してくれない</h2>
+			<h2 id="section-7">まとめ：AIは入力を消すが、定義は消してくれない</h2>
 			<p>AIは仕事を奪うものではなく、仕事の進め方を変えるものです。CRMにおいては、入力という工程を消し、そのぶん定義という工程を前に押し出します。</p>
 			<p>入力率が上がっても会議の質問が変わらないなら、原因は最初から入力ではありませんでした。ステージの意味が揃っていないことが原因で、手間の問題がそれを隠していただけです。</p>
 			<p>最初の一歩は、自動化の検討を止めることではありません。導入の順番を入れ替えて、ステージの定義を先に30分で決めることです。定義が揃っていれば、AIは強力に働きます。揃っていなければ、間違いを速く増やします。</p>
@@ -191,7 +211,7 @@ const breadcrumbSchema = {
 		<hr class="article-hr" />
 
 		<section class="article-section article-faq" id="faq">
-			<h2>よくある質問</h2>
+			<h2 id="section-8">よくある質問</h2>
 			<div class="faq-list">
 				{faqItems.map(({ q, a }) => (
 					<details class="faq-item">
@@ -201,8 +221,6 @@ const breadcrumbSchema = {
 				))}
 			</div>
 		</section>
-
-		<p class="article-pubdate">公開日：{pubDateDisplay}</p>
 	</article>
 
 	<nav class="article-services" aria-label="関連サービス">

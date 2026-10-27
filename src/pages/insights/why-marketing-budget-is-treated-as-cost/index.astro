@@ -1,10 +1,12 @@
 ---
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import InsightHead from '../../../components/InsightHead.astro';
+import InsightByline from '../../../components/InsightByline.astro';
+import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const slug = 'why-marketing-budget-is-treated-as-cost';
 const pubDate = '2026-08-21';
-const pubDateDisplay = '2026年8月21日';
 
 const title = 'マーケ予算が「費用」のまま議論される理由｜回収期間で話すと通る';
 const metaTitle = 'マーケ予算が「費用」のまま議論される理由｜回収期間で話すと通る | Consilegy';
@@ -62,15 +64,29 @@ const breadcrumbSchema = {
 		{ '@type': 'ListItem', position: 3, name: title, item: `https://consilegy.com/insights/${slug}/` },
 	],
 };
+
+// 見出しの id と目次を揃える。公開後は既存の id を変更しない。
+const headings = [
+	{"id": "section-1", "text": "CAC回収期間とは"},
+	{"id": "section-2", "text": "「今年、マーケはいくら削れる？」から始まる会議"},
+	{"id": "section-3", "text": "お金の話を、後ろにずらしてしまう"},
+	{"id": "section-4", "text": "費用のまま議論されている3つのサイン"},
+	{"id": "section-5", "text": "最初の一手：完璧な数字を待たずに、回収期間を1回出す"},
+	{"id": "section-6", "text": "まとめ：予算を守る言語は、成果ではなく回収"},
+	{"id": "section-7", "text": "よくある質問"},
+];
+
 ---
 
 <BaseLayout
 	title={metaTitle}
 	description={metaDescription}
+	hasTranslation={false}
+	ogType="article"
 	lang="ja"
 >
 	<Fragment slot="head">
-		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<InsightHead schema={articleSchema} />
 		<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 	</Fragment>
@@ -90,9 +106,12 @@ const breadcrumbSchema = {
 		</div>
 		<h1>マーケ予算が「費用」のまま<br class="br-pc" />議論される理由</h1>
 		<p class="article-desc">予算会議でマーケティングの話になると、決まって「今年はいくら削れるか」から始まります。担当者の説明が下手だからではありません。その支出が、会計上どうしても費用に見える形で置かれているからです。</p>
+		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
 	<article class="article-body container" id="article">
+
+		<InsightContents headings={headings} />
 		<div class="article-eyecatch">
 			<img
 				src={`/images/insights/${slug}-2026b.svg`}
@@ -106,14 +125,14 @@ const breadcrumbSchema = {
 		</div>
 
 		<section class="article-section article-def" id="definition">
-			<h2>CAC回収期間とは</h2>
+			<h2 id="section-1">CAC回収期間とは</h2>
 			<p class="article-def__text"><strong>CAC回収期間とは</strong>、1件の顧客を獲得するために使った費用を、その顧客から得られる粗利で何か月かけて回収できるかを示す指標です。顧客獲得単価を月あたりの粗利で割って計算します。B2B SaaSでは12か月以内が健全な水準の目安とされています。この数字を出せると、マーケティング支出を「使ったお金」ではなく「返ってくる予定のあるお金」として説明できるようになります。</p>
 		</section>
 
 		<hr class="article-hr" />
 
 		<section class="article-section">
-			<h2>「今年、マーケはいくら削れる？」から始まる会議</h2>
+			<h2 id="section-2">「今年、マーケはいくら削れる？」から始まる会議</h2>
 			<p>期初の予算会議。売上目標の話が終わり、費用の項目に入ります。人件費は削れません。システムの保守費も止められません。</p>
 			<p>そこで残るのが広告宣伝費と外注費です。</p>
 			<p>マーケティング責任者は資料を用意しています。リード数、商談化率、獲得単価。数字はきちんと並んでいます。</p>
@@ -129,7 +148,7 @@ const breadcrumbSchema = {
 		<hr class="article-hr" />
 
 		<section class="article-section">
-			<h2>お金の話を、後ろにずらしてしまう</h2>
+			<h2 id="section-3">お金の話を、後ろにずらしてしまう</h2>
 			<p>もうひとつ、日本の現場でよく見る事情があります。お金の話を切り出すこと自体に、心理的なコストがあることです。</p>
 			<p>見積もりを出すときに一言添えたくなる。値上げの連絡を書くのに時間がかかる。支払う側も「ごめんね」と言ってしまう。金額の話は、なんとなく申し訳ないものとして扱われがちです。</p>
 			<p>この感覚が予算の議論にも入り込みます。マーケティングの資料は、成果の話は詳しいのに、いくら投じていくら返ってきたかの部分だけ薄くなる。触れにくい話題だから、後回しになります。</p>
@@ -139,7 +158,7 @@ const breadcrumbSchema = {
 		<hr class="article-hr" />
 
 		<section class="article-section">
-			<h2>費用のまま議論されている3つのサイン</h2>
+			<h2 id="section-4">費用のまま議論されている3つのサイン</h2>
 			<div class="article-numbered">
 				<div class="article-numbered__item">
 					<p class="article-numbered__num">01</p>
@@ -164,7 +183,7 @@ const breadcrumbSchema = {
 		<hr class="article-hr" />
 
 		<section class="article-section">
-			<h2>最初の一手：完璧な数字を待たずに、回収期間を1回出す</h2>
+			<h2 id="section-5">最初の一手：完璧な数字を待たずに、回収期間を1回出す</h2>
 			<p>正確なLTVを算出しようとすると、継続率・アップセル・解約の予測が必要になり、たいてい途中で止まります。まずは粗い数字で構いません。7割の精度で1回出すほうが、議論の軸を動かせます。</p>
 			<div class="article-numbered">
 				<div class="article-numbered__item">
@@ -191,7 +210,7 @@ const breadcrumbSchema = {
 		<hr class="article-hr" />
 
 		<section class="article-section">
-			<h2>まとめ：予算を守る言語は、成果ではなく回収</h2>
+			<h2 id="section-6">まとめ：予算を守る言語は、成果ではなく回収</h2>
 			<p>マーケティング予算が費用として扱われるのは、会計上そう計上されるからです。仕組みの問題なので、資料を厚くしても解決しません。変えられるのは、報告に使う言語のほうです。</p>
 			<p>リード数と獲得単価は活動の報告です。回収期間は投資の報告です。同じ活動を説明していても、後者は経営の判断材料になります。</p>
 			<p>最初の一歩は、直近1年の獲得コストを受注件数で割ってみることです。</p>
@@ -202,7 +221,7 @@ const breadcrumbSchema = {
 		<hr class="article-hr" />
 
 		<section class="article-section article-faq" id="faq">
-			<h2>よくある質問</h2>
+			<h2 id="section-7">よくある質問</h2>
 			<div class="faq-list">
 				{faqItems.map(({ q, a }) => (
 					<details class="faq-item">
@@ -212,8 +231,6 @@ const breadcrumbSchema = {
 				))}
 			</div>
 		</section>
-
-		<p class="article-pubdate">公開日：{pubDateDisplay}</p>
 	</article>
 
 	<nav class="article-services" aria-label="関連サービス">

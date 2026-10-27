@@ -1,9 +1,11 @@
 ---
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import InsightHead from '../../../components/InsightHead.astro';
+import InsightByline from '../../../components/InsightByline.astro';
+import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
-const pubDateDisplay = '2026年5月7日';
 const readTime = '約10分';
 
 const articleSchema = {
@@ -28,15 +30,27 @@ const breadcrumbSchema = {
 		{ '@type': 'ListItem', position: 3, name: '日本企業でRevOpsが定着しない理由', item: 'https://consilegy.com/insights/why-revops-is-hard-in-japanese-companies/' },
 	],
 };
+
+// 見出しの id と目次を揃える。公開後は既存の id を変更しない。
+const headings = [
+	{"id": "section-1", "text": "RevOpsがツール管理で止まってしまう理由"},
+	{"id": "section-2", "text": "日本企業でRevOpsがズレやすい3つのポイント"},
+	{"id": "section-3", "text": "少人数組織でRevOpsを始めるなら、最初にやること"},
+	{"id": "section-4", "text": "まとめ：RevOpsは大企業だけのものではない"},
+	{"id": "section-5", "text": "参考情報"},
+];
+
 ---
 
 <BaseLayout
 	title="日本企業でRevOpsが定着しない理由｜少人数組織で始める収益設計 | Consilegy"
 	description="日本企業でRevOpsが定着しにくい理由を、国内調査データと少人数の新規AIプロダクト事業の事例から解説。専任部署を作る前に、リード・商談・顧客の定義を揃えることが出発点です。"
+	hasTranslation={false}
+	ogType="article"
 	lang="ja"
 >
 	<Fragment slot="head">
-		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<InsightHead schema={articleSchema} />
 		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 	</Fragment>
 
@@ -56,10 +70,13 @@ const breadcrumbSchema = {
 		</div>
 		<h1>日本企業でRevOpsが定着しない理由<br class="br-pc" />少人数組織で始める収益設計</h1>
 		<p class="article-desc">日本企業でRevOpsが定着しにくい理由を、国内調査データと少人数の新規AIプロダクト事業の事例から解説。専任部署を作る前に、リード・商談・顧客の定義を揃えることが出発点です。</p>
+		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
 	<div class="article-body container">
+
+		<InsightContents headings={headings} />
 		<div class="article-eyecatch">
 			<img
 				src="/images/insights/why-revops-is-hard-in-japanese-companies-2026b.svg"
@@ -90,7 +107,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>RevOpsがツール管理で止まってしまう理由</h2>
+			<h2 id="section-1">RevOpsがツール管理で止まってしまう理由</h2>
 			<p>RevOpsという言葉を導入すると、最初に起きやすいのが「では誰がHubSpotを見るのか」「Salesforceの項目設計を誰が持つのか」という話です。</p>
 			<p>もちろん、CRMやMAの管理者は必要です。ワークフローを整え、レポートを作り、データをきれいに保つ。そうした人がいなければ、収益の流れはすぐに見えなくなります。</p>
 			<p>ただし、それだけではRevOpsにはなりません。</p>
@@ -101,7 +118,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>日本企業でRevOpsがズレやすい3つのポイント</h2>
+			<h2 id="section-2">日本企業でRevOpsがズレやすい3つのポイント</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>営業とマーケティングの境界が曖昧なまま進む</strong>
@@ -127,7 +144,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>少人数組織でRevOpsを始めるなら、最初にやること</h2>
+			<h2 id="section-3">少人数組織でRevOpsを始めるなら、最初にやること</h2>
 			<p>最初にやるべきことは、ツールを増やすことではありません。既存のCRMやスプレッドシートを見ながら、次の3つを決めることです。</p>
 			<ol class="article-numbered">
 				<li>
@@ -147,7 +164,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>まとめ：RevOpsは大企業だけのものではない</h2>
+			<h2 id="section-4">まとめ：RevOpsは大企業だけのものではない</h2>
 			<p>RevOpsは、専任部署や大きな組織だけのものではありません。むしろ、少人数でマーケティング・営業・プロダクト・CSをつなげなければならない組織ほど、早い段階で必要になります。</p>
 			<p>日本企業でRevOpsが定着しにくいのは、概念が難しいからではありません。海外のやり方をそのまま持ち込み、「部門」や「役職」から始めようとするためです。</p>
 			<p>最初に必要なのは、RevOps担当者を置くことではなく、収益につながる活動の定義をそろえることです。</p>
@@ -156,7 +173,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>参考情報</h2>
+			<h2 id="section-5">参考情報</h2>
 			<ul>
 				<li><a href="https://www.virtualex.co.jp/news/2023/05/2023revops-research-1.html" target="_blank" rel="noopener noreferrer">バーチャレクス・コンサルティング「2023年 RevOpsに関する実態調査」</a></li>
 				<li><a href="https://www.itr.co.jp/report-library/r-222064" target="_blank" rel="noopener noreferrer">アイ・ティ・アール「RevOpsとは何か」</a></li>

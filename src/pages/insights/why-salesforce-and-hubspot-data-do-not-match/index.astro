@@ -1,18 +1,26 @@
 ---
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import InsightHead from '../../../components/InsightHead.astro';
+import InsightByline from '../../../components/InsightByline.astro';
+import InsightContents from '../../../components/InsightContents.astro';
+import '../../../styles/insight-evidence.css';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
-const pubDateDisplay = '2026年5月7日';
 const readTime = '約10分';
 
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
 	headline: 'SalesforceとHubSpotで数字が合わない理由｜CRM・RevOps・データ設計の問題',
-	description: 'Salesforce・HubSpot・Sansan・GA4の連携を再設計し、分析工数30%削減・問い合わせ前から商談までの行動を同じ画面で追える状態を実現した事例から。数字ズレはツールではなく設計の問題です。',
+	description: 'SalesforceとHubSpotの数字は、レコードの有無・項目値・集計条件の順に照合します。同期対象、ステージ、日付、金額など6項目の確認表と、HubSpotの公式仕様、データ基盤再設計の支援事例を解説します。',
 	datePublished: pubDate,
-	dateModified: pubDate,
+	dateModified: '2026-10-27',
+	citation: [
+		'https://knowledge.hubspot.com/salesforce/create-a-salesforce-inclusion-list',
+		'https://knowledge.hubspot.com/integrations/sync-deals-between-hubspot-and-salesforce',
+		'https://consilegy.com/case-studies/marketing-data-integration-hubspot-migration/',
+	],
 	author: { '@type': 'Person', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
 	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
 	url: 'https://consilegy.com/insights/why-salesforce-and-hubspot-data-do-not-match/',
@@ -28,15 +36,29 @@ const breadcrumbSchema = {
 		{ '@type': 'ListItem', position: 3, name: 'SalesforceとHubSpotで数字が合わない理由', item: 'https://consilegy.com/insights/why-salesforce-and-hubspot-data-do-not-match/' },
 	],
 };
+
+// 見出しの id と目次を揃える。公開後は既存の id を変更しない。
+const headings = [
+	{"id": "why-totals-differ", "text": "SalesforceとHubSpotで数字が合わないとき、最初に何を確認するか"},
+	{"id": "reconciliation-checklist", "text": "数字の不一致を切り分ける6つの確認項目"},
+	{"id": "section-1", "text": "あなたの組織は大丈夫か。5つの確認項目"},
+	{"id": "section-2", "text": "数字がズレる3つのパターン"},
+	{"id": "section-3", "text": "再設計後に何が変わったか"},
+	{"id": "section-4", "text": "まず3日でできること"},
+	{"id": "section-5", "text": "まとめ：数字ズレは構造の問題"},
+];
+
 ---
 
 <BaseLayout
 	title="SalesforceとHubSpotで数字が合わない理由｜CRM・RevOps・データ設計の問題 | Consilegy"
-	description="Salesforce・HubSpot・Sansan・GA4の連携を再設計し、分析工数30%削減・問い合わせ前から商談までの行動を同じ画面で追える状態を実現した事例から。数字ズレはツールではなく設計の問題です。"
+	description={articleSchema.description}
+	hasTranslation={false}
+	ogType="article"
 	lang="ja"
 >
 	<Fragment slot="head">
-		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<InsightHead schema={articleSchema} />
 		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 	</Fragment>
 
@@ -55,11 +77,14 @@ const breadcrumbSchema = {
 			<span class="article-cat">CRM・MA・SFA</span>
 		</div>
 		<h1>SalesforceとHubSpotを両方使う企業で、<br class="br-pc" />なぜ数字がズレ続けるのか</h1>
-		<p class="article-desc">Salesforce・HubSpot・Sansan・GA4の連携を再設計し、分析工数約30%削減・問い合わせ前から商談までの行動を同じ画面で追える状態を実現。数字ズレはツールではなく、設計の問題です。</p>
+		<p class="article-desc">{articleSchema.description}</p>
+		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
 	<div class="article-body container">
+
+		<InsightContents headings={headings} />
 		<div class="article-eyecatch">
 			<img
 				src="/images/insights/why-salesforce-and-hubspot-data-do-not-match-2026b.svg"
@@ -72,15 +97,42 @@ const breadcrumbSchema = {
 			/>
 		</div>
 
+
+		<section class="article-section insight-answer" id="short-answer">
+			<h2 id="why-totals-differ">SalesforceとHubSpotで数字が合わないとき、最初に何を確認するか</h2>
+			<p><strong>SalesforceとHubSpotの数字が合わないときは、同じ商談が両方に存在するか、同じ項目に同じ値が入っているか、レポートの集計条件が同じか、の順に確認します。</strong>商談自体が片方にないなら同期対象や関連付け、商談はあるが値が違うなら項目対応や更新方向、値まで同じなのに合計だけ違うなら集計条件を調べます。</p>
+			<p>Consilegyが推奨するのは、合計値だけを比べず、両システムで対応する商談を選び、レコード単位の差分と集計条件の差分を分けて記録する方法です。原因を特定する前に一括で上書き同期すると、比較に必要な差分も失われます。</p>
+		</section>
+
+		<section class="article-section" id="reconciliation">
+			<h2 id="reconciliation-checklist">数字の不一致を切り分ける6つの確認項目</h2>
+			<div class="insight-evidence-table" role="region" aria-label="SalesforceとHubSpotの照合表" tabindex="0">
+				<table>
+					<caption>同じ商談を両システムで照合するときの確認順序</caption>
+					<thead><tr><th scope="col">確認するもの</th><th scope="col">照合する内容</th><th scope="col">差分が出たときに調べる場所</th></tr></thead>
+					<tbody>
+						<tr><th scope="row">1. レコードの対応</th><td>同じ案件が、両方でどの商談に対応するか</td><td>対応ID、重複、関連付け。顧客数と担当者数を混ぜない</td></tr>
+						<tr><th scope="row">2. 同期対象</th><td>比較する商談が、同期の対象条件に入っているか</td><td>利用中の同期方式、対象パイプライン、包含・選択同期の条件</td></tr>
+						<tr><th scope="row">3. ステージ</th><td>両方で同じ案件を受注・失注と判定しているか</td><td>ステージ対応と、集計対象のステージ</td></tr>
+						<tr><th scope="row">4. 日付</th><td>作成日・受注日・更新日のどれで月を区切っているか</td><td>レポートの日付項目、期間、タイムゾーン</td></tr>
+						<tr><th scope="row">5. 金額</th><td>同じ金額項目・通貨・換算基準を比べているか</td><td>項目マッピング、通貨、集計方法</td></tr>
+						<tr><th scope="row">6. 更新と集計</th><td>更新元、同期時点、絞り込み条件が揃っているか</td><td>同期エラー、更新方向、担当者や部門のフィルター</td></tr>
+					</tbody>
+				</table>
+			</div>
+			<p>この表はConsilegyによる照合手順の提案です。HubSpotの公式仕様では、<a href="https://knowledge.hubspot.com/salesforce/create-a-salesforce-inclusion-list">包含セグメントと選択同期によって同期対象を制御</a>できます。会社・取引で利用できる条件は、新しい同期方式への移行状況にも依存します。また、<a href="https://knowledge.hubspot.com/integrations/sync-deals-between-hubspot-and-salesforce">新しい取引同期では、項目値による重複排除と同期方向を設定</a>できます。自社の連携がどちらの方式かを確認してから、該当する手順を使ってください（仕様確認：2026年10月27日）。</p>
+			<p>実例として、<a href="/case-studies/marketing-data-integration-hubspot-migration/">約150名のDXコンサルティング企業の基盤刷新</a>では、2025年の9か月の支援でWeb・MA・顧客管理データと運用ロジックを再設計し、分析工数を約30%削減しました。これは基盤刷新全体の結果であり、同期設定だけによる効果や、上表の各確認項目ごとの改善率を測った結果ではありません。</p>
+		</section>
+
 		<div class="article-section">
 			<p><a href="/case-studies/marketing-data-integration-hubspot-migration/">国内トップクラスのDX支援を手がけるコンサルティング企業（従業員約150名）</a>では、HubSpot・Salesforce・Sansan・GA4を並行して使っていました。</p>
-			<p>しかし「今月の受注額」をそれぞれのシステムで確認すると、数字が一致しない。どれを信じるか確認する作業が毎月の会議で発生していました。</p>
-			<p>原因はツールの性能ではありませんでした。<strong>どのシステムを「正」とするか、誰がどのルールで更新するかが設計されていなかった</strong>ことが本質でした。</p>
+			<p>公開事例で確認できる課題は、Webと顧客管理システムの分断、システム間のデータ不整合、複雑化した運用の属人化でした。</p>
+			<p>この事例からConsilegyが重視しているのは、<strong>どのシステムを更新元とし、どのルールでデータをつなぐかを、運用と併せて設計する</strong>ことです。</p>
 			<p>連携を再設計した結果、分析工数を約30%削減し、問い合わせ前から商談までの行動を同じ画面で追える状態を実現しました。</p>
 		</div>
 
 		<div class="article-section">
-			<h2>あなたの組織は大丈夫か。5つの確認項目</h2>
+			<h2 id="section-1">あなたの組織は大丈夫か。5つの確認項目</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>同じ月の受注額がSalesforceとHubSpotで食い違う</strong>
@@ -88,7 +140,7 @@ const breadcrumbSchema = {
 				</li>
 				<li>
 					<strong>同じ顧客が複数のシステムに別々の情報で登録されている</strong>
-					<p>HubSpotはメールアドレス基準、Salesforceは会社名基準で管理していると、同じ会社が複数登録され名寄せされないまま情報が分断されます。</p>
+					<p>会社名の表記や対応IDが揃っていないと、同じ会社の記録を正しく結び付けられません。</p>
 				</li>
 				<li>
 					<strong>「どちらのシステムが更新元か」が担当者によって認識が違う</strong>
@@ -96,23 +148,23 @@ const breadcrumbSchema = {
 				</li>
 				<li>
 					<strong>連携しているのに数字が信用されていない</strong>
-					<p>「連携はしているけどExcelで確認する」という運用が残っている場合、連携ルールの設計に問題があります。</p>
+					<p>「連携はしているけどスプレッドシートで確認する」という運用が残っている場合、連携ルールの設計に問題があります。</p>
 				</li>
 				<li>
 					<strong>施策とSalesforce商談が結びついていない</strong>
 					<p>HubSpotの施策がどの商談・受注に貢献したか分からない場合、マーケティング投資に判断根拠がありません。</p>
 				</li>
 			</ol>
-			<p class="article-callout">3つ以上当てはまる場合、問題はツールではありません。「どのデータを、何の定義で、どのシステムを正として扱うか」が設計されていないことです。</p>
+			<p class="article-callout">当てはまる項目があれば、上の照合表に沿って同期と集計を切り分け、「どのデータを、何の定義で、どのシステムを更新元とするか」を確認してください。</p>
 		</div>
 
 		<div class="article-section">
-			<h2>数字がズレる3つのパターン</h2>
+			<h2 id="section-2">数字がズレる3つのパターン</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>どのシステムを「正」とするか決まっていない</strong>
 					<p>HubSpotはマーケティング視点でリード・MQL・行動データを管理し、Salesforceは営業視点で商談・受注・売上を管理します。</p>
-					<p>この2つが並走するとき、受注額・商談数・顧客数のどれについても「どちらを信じるか」が組織内で合意されていなければ、数字は必ずズレます。</p>
+					<p>この2つが並走するとき、受注額・商談数・顧客数のどれについても「どの項目をどのシステムで更新するか」が合意されていなければ、不一致を見つけても修正元を決められません。</p>
 					<p><strong>判断基準：</strong>「受注額の正システムはどちらですか」と各部門に聞いて、答えが揃わなければ「正」は決まっていません。</p>
 				</li>
 				<li>
@@ -123,7 +175,7 @@ const breadcrumbSchema = {
 				</li>
 				<li>
 					<strong>「顧客」の定義がシステムごとに違う</strong>
-					<p>HubSpotでは担当者個人が「コンタクト」として管理され、Salesforceでは会社が「アカウント」として管理されます。Sansanでは名刺単位で登録されます。</p>
+					<p>HubSpotにもSalesforceにも、会社と担当者を区別するデータがあります。HubSpotのコンタクト数とSalesforceのアカウント数を比べると、そもそも数える単位が違います。名刺の接点を含め、何を同一の会社・担当者とみなすかを揃えます。</p>
 					<p>この3つをつなぐ「同一顧客の判定ルール」がなければ、LTV・顧客数・接点回数はシステムごとに違う値になります。</p>
 					<p><strong>判断基準：</strong>同じ会社の担当者が3人いるとき、HubSpot・Salesforce・Sansanそれぞれで何件として数えられているか、即答できれば設計されています。</p>
 				</li>
@@ -131,7 +183,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>再設計後に何が変わったか</h2>
+			<h2 id="section-3">再設計後に何が変わったか</h2>
 			<p>前述のコンサルティング企業では、Salesforce・Sansan・GA4とHubSpotの連携を再設計したことで、以下の変化が起きました。</p>
 			<ol class="article-numbered">
 				<li>
@@ -151,7 +203,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>まず3日でできること</h2>
+			<h2 id="section-4">まず3日でできること</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>「正システム」を決める表を1枚作る</strong>
@@ -169,8 +221,8 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>まとめ：数字ズレは構造の問題</h2>
-			<p>SalesforceとHubSpotで数字がズレる原因は、ツールの性能ではありません。</p>
+			<h2 id="section-5">まとめ：数字ズレは構造の問題</h2>
+			<p>SalesforceとHubSpotの数字が合わないときは、同期の仕様やエラーに加え、レポートの条件と運用上の定義を確認します。</p>
 			<p>「どのデータを、何の定義で、どのシステムを正として扱うか」が設計されていないことが本質です。</p>
 			<p>新しい連携ツールを追加する前に、まず「正システムの定義」と「同期ルールの文書化」を1枚ずつ作ることから始めてください。</p>
 		</div>

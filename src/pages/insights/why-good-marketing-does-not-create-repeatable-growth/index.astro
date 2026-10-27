@@ -1,9 +1,11 @@
 ---
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import InsightHead from '../../../components/InsightHead.astro';
+import InsightByline from '../../../components/InsightByline.astro';
+import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
-const pubDateDisplay = '2026年5月7日';
 const readTime = '約10分';
 
 const articleSchema = {
@@ -28,15 +30,27 @@ const breadcrumbSchema = {
 		{ '@type': 'ListItem', position: 3, name: 'なぜ良いマーケティングをしていても再現性ある成長につながらないのか', item: 'https://consilegy.com/insights/why-good-marketing-does-not-create-repeatable-growth/' },
 	],
 };
+
+// 見出しの id と目次を揃える。公開後は既存の id を変更しない。
+const headings = [
+	{"id": "section-1", "text": "あなたの組織は大丈夫か。5つの確認項目"},
+	{"id": "section-2", "text": "再現性ある成長が生まれない3つのパターン"},
+	{"id": "section-3", "text": "設計を変えた後に何が起きたか"},
+	{"id": "section-4", "text": "今週から始められる3つのアクション"},
+	{"id": "section-5", "text": "まとめ：再現性は「実行基盤の問題」"},
+];
+
 ---
 
 <BaseLayout
 	title="なぜ良いマーケティングをしていても再現性ある成長につながらないのか | Consilegy"
 	description="グローバルDTCブランド（約20,000名）が施策実行のリードタイムを70〜80%短縮し、外注依存から脱却した事例から。再現性ある成長が生まれない原因はマーケティングの質ではなく、改善サイクルが回せる実行基盤の問題です。"
+	hasTranslation={false}
+	ogType="article"
 	lang="ja"
 >
 	<Fragment slot="head">
-		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<InsightHead schema={articleSchema} />
 		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 	</Fragment>
 
@@ -56,10 +70,13 @@ const breadcrumbSchema = {
 		</div>
 		<h1>なぜ良いマーケティングをしていても<br class="br-pc" />再現性ある成長につながらないのか</h1>
 		<p class="article-desc">グローバルDTCブランド（約20,000名）が施策実行のリードタイムを70〜80%短縮し、外注依存から脱却した事例から。再現性ある成長が生まれない原因はマーケティングの質ではなく、改善サイクルが回せる実行基盤の問題です。</p>
+		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
 	<div class="article-body container">
+
+		<InsightContents headings={headings} />
 		<div class="article-eyecatch">
 			<img
 				src="/images/insights/why-good-marketing-does-not-create-repeatable-growth-2026b.svg"
@@ -81,7 +98,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>あなたの組織は大丈夫か。5つの確認項目</h2>
+			<h2 id="section-1">あなたの組織は大丈夫か。5つの確認項目</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>良い施策アイデアがあっても、実行まで数週間待っている</strong>
@@ -108,7 +125,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>再現性ある成長が生まれない3つのパターン</h2>
+			<h2 id="section-2">再現性ある成長が生まれない3つのパターン</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>施策の実行速度が改善サイクルのボトルネックになっている</strong>
@@ -134,7 +151,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>設計を変えた後に何が起きたか</h2>
+			<h2 id="section-3">設計を変えた後に何が起きたか</h2>
 			<p>前述のグローバルDTCブランドでは、施策の質を変えるのではなく、「実行速度と改善サイクルを変える環境設計」からプロジェクトを進めました。その結果、以下の変化が起きました。</p>
 			<ol class="article-numbered">
 				<li>
@@ -154,7 +171,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>今週から始められる3つのアクション</h2>
+			<h2 id="section-4">今週から始められる3つのアクション</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>直近3か月の施策の「企画から公開まで何日かかったか」を書き出す</strong>
@@ -172,7 +189,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>まとめ：再現性は「実行基盤の問題」</h2>
+			<h2 id="section-5">まとめ：再現性は「実行基盤の問題」</h2>
 			<p>良いマーケティングをしていても再現性ある成長につながらない原因は、施策の質でもマーケターの能力でもありません。</p>
 			<p>「施策実行速度が改善サイクルのボトルネックになっていること」「実行に外部依存があること」「施策・評価・改善が一つのチームに収まっていないこと」が構造的な原因です。</p>
 			<p>グローバルDTCブランドの事例が示すように、リードタイムを70〜80%短縮したことで改善サイクルの頻度が変わりました。</p>

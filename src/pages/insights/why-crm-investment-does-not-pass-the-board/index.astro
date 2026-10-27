@@ -1,10 +1,12 @@
 ---
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import InsightHead from '../../../components/InsightHead.astro';
+import InsightByline from '../../../components/InsightByline.astro';
+import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const slug = 'why-crm-investment-does-not-pass-the-board';
 const pubDate = '2026-08-21';
-const pubDateDisplay = '2026年8月21日';
 
 const title = '経営会議でCRM投資が通らない理由｜「選べる状態」をつくる3つの数字';
 const metaTitle = '経営会議でCRM投資が通らない理由｜「選べる状態」をつくる3つの数字 | Consilegy';
@@ -62,15 +64,29 @@ const breadcrumbSchema = {
 		{ '@type': 'ListItem', position: 3, name: title, item: `https://consilegy.com/insights/${slug}/` },
 	],
 };
+
+// 見出しの id と目次を揃える。公開後は既存の id を変更しない。
+const headings = [
+	{"id": "section-1", "text": "撤退基準とは"},
+	{"id": "section-2", "text": "資料は完璧だった。それでも結論は出なかった"},
+	{"id": "section-3", "text": "経営が見ているのは、上振れではなく引き返せるか"},
+	{"id": "section-4", "text": "「やる・やらない」を、「どこまで試すか」に変える"},
+	{"id": "section-5", "text": "最初の一手：3つの数字を、1枚に書く"},
+	{"id": "section-6", "text": "まとめ：判断してもらうとは、選べる状態にすること"},
+	{"id": "section-7", "text": "よくある質問"},
+];
+
 ---
 
 <BaseLayout
 	title={metaTitle}
 	description={metaDescription}
+	hasTranslation={false}
+	ogType="article"
 	lang="ja"
 >
 	<Fragment slot="head">
-		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<InsightHead schema={articleSchema} />
 		<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 	</Fragment>
@@ -90,9 +106,12 @@ const breadcrumbSchema = {
 		</div>
 		<h1>経営会議でCRM投資が<br class="br-pc" />通らない理由</h1>
 		<p class="article-desc">効果試算も他社比較も用意しました。質問にも答えました。それでも結論は「もう少し様子を見よう」。情報が足りないのではありません。経営に渡っている選択肢が、やるかやらないかの2つしかないからです。</p>
+		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
 	<article class="article-body container" id="article">
+
+		<InsightContents headings={headings} />
 		<div class="article-eyecatch">
 			<img
 				src={`/images/insights/${slug}-2026b.svg`}
@@ -106,14 +125,14 @@ const breadcrumbSchema = {
 		</div>
 
 		<section class="article-section article-def" id="definition">
-			<h2>撤退基準とは</h2>
+			<h2 id="section-1">撤退基準とは</h2>
 			<p class="article-def__text"><strong>撤退基準とは</strong>、投資した施策やシステムについて、どの数字がどの水準を下回ったら縮小または中止するかを着手する前に決めておく取り決めです。着手前に決める点が重要で、実績が出てから判断しようとすると、それまでに使った費用が判断を歪めます。撤退基準があると、経営は「やるかやらないか」ではなく「どこまで試すか」を選べるようになります。</p>
 		</section>
 
 		<hr class="article-hr" />
 
 		<section class="article-section">
-			<h2>資料は完璧だった。それでも結論は出なかった</h2>
+			<h2 id="section-2">資料は完璧だった。それでも結論は出なかった</h2>
 			<p>年間1,200万円のCRM刷新。資料には現状の課題・他社の導入事例・想定される効果・3年間の投資対効果が並んでいます。質疑にも答えました。反対意見も出ませんでした。</p>
 			<p>そして会議の最後に、こう言われます。「方向性は分かった。もう少し様子を見よう」。</p>
 			<p>これを「経営が理解してくれない」と受け取ると、次回は資料が厚くなります。効果試算の根拠を足し、事例を増やし、他社との比較表を作る。そして同じ結論が返ってきます。</p>
@@ -125,7 +144,7 @@ const breadcrumbSchema = {
 		<hr class="article-hr" />
 
 		<section class="article-section">
-			<h2>経営が見ているのは、上振れではなく引き返せるか</h2>
+			<h2 id="section-3">経営が見ているのは、上振れではなく引き返せるか</h2>
 			<p>提案する側は、うまくいった場合の話を厚くします。当然です。良い案だと思っているから提案しています。</p>
 			<p>ただ、決裁する側の関心はそこにありません。経営が意思決定するとき、頭の中で確認しているのは次の3つです。</p>
 			<div class="article-numbered">
@@ -152,7 +171,7 @@ const breadcrumbSchema = {
 		<hr class="article-hr" />
 
 		<section class="article-section">
-			<h2>「やる・やらない」を、「どこまで試すか」に変える</h2>
+			<h2 id="section-4">「やる・やらない」を、「どこまで試すか」に変える</h2>
 			<p>二択で持っていくと、経営は選べません。正確に言えば、選ぶ理由がありません。判断を先送りしても、その期に損失は出ないからです。</p>
 			<p>選べる状態にするには、選択肢を3つ以上にします。たとえば1,200万円の刷新であれば、次のように分けられます。</p>
 			<p>第1段階は、現状のデータ整理と定義の言語化で300万円。ここで得られるのは、どこで取りこぼしているかの特定です。</p>
@@ -166,7 +185,7 @@ const breadcrumbSchema = {
 		<hr class="article-hr" />
 
 		<section class="article-section">
-			<h2>最初の一手：3つの数字を、1枚に書く</h2>
+			<h2 id="section-5">最初の一手：3つの数字を、1枚に書く</h2>
 			<p>次の提案の前に、次の3行を書いてみてください。効果試算より先に、この3行です。</p>
 			<div class="article-numbered">
 				<div class="article-numbered__item">
@@ -190,7 +209,7 @@ const breadcrumbSchema = {
 		<hr class="article-hr" />
 
 		<section class="article-section">
-			<h2>まとめ：判断してもらうとは、選べる状態にすること</h2>
+			<h2 id="section-6">まとめ：判断してもらうとは、選べる状態にすること</h2>
 			<p>経営会議で投資が通らない原因は、提案の質でも経営の理解不足でもありません。選択肢が二択のままで、どちらにも決め手がない状態のまま持ち込まれていることです。</p>
 			<p>人が決められないのは、情報が足りないときではなく、選べる形になっていないときです。段階に分け、止める条件を先に書き、最大損失を明示する。これだけで、同じ提案が判断可能なものに変わります。</p>
 			<p>最初の一歩は、直近で保留になった提案を開いて、そこに撤退の条件が書かれているか確認することです。書かれていなければ、経営は判断できなかったのではなく、判断する材料を渡されていませんでした。</p>
@@ -199,7 +218,7 @@ const breadcrumbSchema = {
 		<hr class="article-hr" />
 
 		<section class="article-section article-faq" id="faq">
-			<h2>よくある質問</h2>
+			<h2 id="section-7">よくある質問</h2>
 			<div class="faq-list">
 				{faqItems.map(({ q, a }) => (
 					<details class="faq-item">
@@ -209,8 +228,6 @@ const breadcrumbSchema = {
 				))}
 			</div>
 		</section>
-
-		<p class="article-pubdate">公開日：{pubDateDisplay}</p>
 	</article>
 
 	<nav class="article-services" aria-label="関連サービス">

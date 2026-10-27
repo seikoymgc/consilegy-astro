@@ -95,7 +95,7 @@ export const articles: InsightArticle[] = [
   {
     slug: 'why-salesforce-and-hubspot-data-do-not-match',
     title: 'SalesforceとHubSpotで数字が合わない理由',
-    desc: 'SalesforceとHubSpotで数字がズレる原因を、データ構造・KPI定義・Revenue Architectureの観点から解説します。',
+    desc: 'SalesforceとHubSpotの数字は、レコードの有無・項目値・集計条件の順に照合します。同期対象、ステージ、日付、金額など6項目の確認表と、HubSpotの公式仕様、データ基盤再設計の支援事例を解説します。',
     cat: 'CRM',
     date: '2026-05-07',
   },
@@ -123,7 +123,7 @@ export const articles: InsightArticle[] = [
   {
     slug: 'why-crm-adoption-fails',
     title: 'CRMが定着しない本当の理由',
-    desc: 'CRMが定着しない原因を、営業現場の意識ではなく、KPI設計・商談ステージ定義・データ構造・Revenue Architectureの観点から解説します。',
+    desc: '顧客管理システムが定着しないときは、入力項目・商談ステージの移行条件・会議での使い方を先に揃えます。入力不足と判断基準のズレを見分ける確認表、運用定着の支援事例から、最初に直す箇所を解説します。',
     cat: 'CRM',
     date: '2026-05-06',
   },
@@ -179,21 +179,21 @@ export const articles: InsightArticle[] = [
   {
     slug: 'why-sql-definitions-break-between-marketing-and-sales',
     title: 'なぜSQL定義がズレるのか',
-    desc: 'MQLやSQLの定義が営業とマーケティングでズレる原因を、Revenue ArchitectureとRevOpsの観点から解説します。',
+    desc: 'MQLはマーケティングが営業に渡せると判断した見込み客、SQLは営業が有望と判断した見込み客です。HubSpotの標準定義との対応、引き渡しで合意する5項目、商談化率を比較する際の集計条件を解説します。',
     cat: 'マーケティング',
     date: '2026-05-07',
   },
   {
     slug: 'what-is-revenue-visibility',
     title: 'Revenue Visibilityとは何か｜売上が見える状態の正体',
-    desc: 'Revenue Visibility（収益可視性）とは何かを、RevOps・CRM・KPI・Revenue Architectureの観点から解説します。',
+    desc: 'Revenue Visibility（収益可視性）とは、活動と収益のつながりを把握し、次の投資や改善を判断できる状態です。売上レポート・ダッシュボードとの違いを比較表で整理し、サブスクEC事業の支援事例から解説します。',
     cat: 'レベニューアーキテクチャ',
     date: '2026-05-07',
   },
   {
     slug: 'what-is-revenue-data-flow',
     title: 'Revenue Data Flowとは何か｜なぜ数字がつながらないのか',
-    desc: 'Salesforce・HubSpot・Kintone・BIなどで数字が一致しない原因を、Revenue Data FlowとRevenue Architectureの観点から解説します。',
+    desc: 'Revenue Data Flowとは、部門やシステムのデータを同じ顧客・商談・収益につなぐ流れです。同一性・定義・更新元・更新時点・運用責任の5つの設計項目と、HubSpot移行・データ基盤再設計の支援事例を解説します。',
     cat: 'レベニューアーキテクチャ',
     date: '2026-05-07',
   },

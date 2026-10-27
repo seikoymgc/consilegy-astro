@@ -1,9 +1,11 @@
 ---
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import InsightHead from '../../../components/InsightHead.astro';
+import InsightByline from '../../../components/InsightByline.astro';
+import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
-const pubDateDisplay = '2026年5月7日';
 const readTime = '約10分';
 
 const articleSchema = {
@@ -28,15 +30,27 @@ const breadcrumbSchema = {
 		{ '@type': 'ListItem', position: 3, name: 'なぜ売上予測（Forecast）は外れ続けるのか', item: 'https://consilegy.com/insights/why-sales-forecasting-fails/' },
 	],
 };
+
+// 見出しの id と目次を揃える。公開後は既存の id を変更しない。
+const headings = [
+	{"id": "section-1", "text": "あなたの組織は大丈夫か。5つの確認項目"},
+	{"id": "section-2", "text": "売上予測が外れ続ける3つのパターン"},
+	{"id": "section-3", "text": "設計を変えた後に何が起きたか"},
+	{"id": "section-4", "text": "今週から始められる3つのアクション"},
+	{"id": "section-5", "text": "まとめ：売上予測は「設計の問題」"},
+];
+
 ---
 
 <BaseLayout
 	title="なぜ売上予測（Forecast）は外れ続けるのか | Consilegy"
 	description="リリース直前まで「どのチャネルが良い顧客を連れてくるか」が分からなかった新規サブスクEC事業が、LTV起点のデータ設計で予測の根拠を構築。売上予測が外れる原因は入力不足ではなく、予測できるデータ設計がないことです。"
+	hasTranslation={false}
+	ogType="article"
 	lang="ja"
 >
 	<Fragment slot="head">
-		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<InsightHead schema={articleSchema} />
 		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 	</Fragment>
 
@@ -56,10 +70,13 @@ const breadcrumbSchema = {
 		</div>
 		<h1>なぜ売上予測（Forecast）は<br class="br-pc" />外れ続けるのか</h1>
 		<p class="article-desc">リリース直前まで「どのチャネルが良い顧客を連れてくるか」が分からなかった新規サブスクEC事業が、LTV起点のデータ設計で予測の根拠を構築。売上予測が外れる原因は入力不足ではなく、予測できるデータ設計がないことです。</p>
+		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
 	<div class="article-body container">
+
+		<InsightContents headings={headings} />
 		<div class="article-eyecatch">
 			<img
 				src="/images/insights/why-sales-forecasting-fails-2026b.svg"
@@ -80,7 +97,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>あなたの組織は大丈夫か。5つの確認項目</h2>
+			<h2 id="section-1">あなたの組織は大丈夫か。5つの確認項目</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>月末に数字の着地がいつも読めない</strong>
@@ -107,7 +124,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>売上予測が外れ続ける3つのパターン</h2>
+			<h2 id="section-2">売上予測が外れ続ける3つのパターン</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>予測の基準が「獲得コスト」で、「継続収益」が見えていない</strong>
@@ -131,7 +148,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>設計を変えた後に何が起きたか</h2>
+			<h2 id="section-3">設計を変えた後に何が起きたか</h2>
 			<p>前述のサブスクEC事業では、「計測を増やす」のではなく「売上と行動を一貫して捉えるデータ構造」を設計しました。その結果、以下の変化が起きました。</p>
 			<ol class="article-numbered">
 				<li>
@@ -151,7 +168,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>今週から始められる3つのアクション</h2>
+			<h2 id="section-4">今週から始められる3つのアクション</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>来月の売上予測を立て、その根拠を書き出す</strong>
@@ -169,7 +186,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>まとめ：売上予測は「設計の問題」</h2>
+			<h2 id="section-5">まとめ：売上予測は「設計の問題」</h2>
 			<p>売上予測が外れ続ける原因は、入力不足でも担当者のコミットメントの問題でもありません。</p>
 			<p>「予測の基準が継続収益を見ていないこと」「売上と行動データが分断していること」「予測に使える指標が設計されていないこと」が構造的な原因です。</p>
 			<p>サブスクEC事業の事例が示すように、LTV起点の予測を可能にしたのはツールではなく「予測できるデータの設計」でした。</p>

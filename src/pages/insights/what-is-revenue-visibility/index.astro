@@ -1,18 +1,24 @@
 ---
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import InsightHead from '../../../components/InsightHead.astro';
+import InsightByline from '../../../components/InsightByline.astro';
+import InsightContents from '../../../components/InsightContents.astro';
+import '../../../styles/insight-evidence.css';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
-const pubDateDisplay = '2026年5月7日';
 const readTime = '約10分';
 
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
 	headline: 'Revenue Visibilityとは何か｜「売上が見える状態」の正体',
-	description: 'リリース直前まで「どの施策が売上に貢献しているか」が分からなかった新規サブスクEC事業が、LTV起点のデータ基盤構築で投資判断の即時化を実現。Revenue Visibilityとは「データがある状態」ではなく、「活動と収益がつながって見える状態」のことです。',
+	description: 'Revenue Visibility（収益可視性）とは、活動と収益のつながりを把握し、次の投資や改善を判断できる状態です。売上レポート・ダッシュボードとの違いを比較表で整理し、サブスクEC事業の支援事例から解説します。',
 	datePublished: pubDate,
-	dateModified: pubDate,
+	dateModified: '2026-10-27',
+	citation: [
+		'https://consilegy.com/case-studies/ec-subscription-ltv-data-architecture/',
+	],
 	author: { '@type': 'Person', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
 	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
 	url: 'https://consilegy.com/insights/what-is-revenue-visibility/',
@@ -28,15 +34,29 @@ const breadcrumbSchema = {
 		{ '@type': 'ListItem', position: 3, name: 'Revenue Visibilityとは何か', item: 'https://consilegy.com/insights/what-is-revenue-visibility/' },
 	],
 };
+
+// 見出しの id と目次を揃える。公開後は既存の id を変更しない。
+const headings = [
+	{"id": "section-1", "text": "Revenue Visibility（収益可視性）とは"},
+	{"id": "visibility-comparison", "text": "Revenue Visibilityと、売上レポート・ダッシュボードはどう違うか"},
+	{"id": "section-2", "text": "あなたの組織は大丈夫か。5つの確認項目"},
+	{"id": "section-3", "text": "Revenue Visibilityが存在しない3つのパターン"},
+	{"id": "section-4", "text": "設計を変えた後に何が起きたか"},
+	{"id": "section-5", "text": "今週から始められる3つのアクション"},
+	{"id": "section-6", "text": "まとめ：Revenue Visibilityは「設計の問題」"},
+];
+
 ---
 
 <BaseLayout
 	title="Revenue Visibilityとは何か｜「売上が見える状態」の正体 | Consilegy"
-	description="リリース直前まで「どの施策が売上に貢献しているか」が分からなかった新規サブスクEC事業が、LTV起点のデータ基盤構築で投資判断の即時化を実現。Revenue Visibilityとは「データがある状態」ではなく、「活動と収益がつながって見える状態」のことです。"
+	description={articleSchema.description}
+	hasTranslation={false}
+	ogType="article"
 	lang="ja"
 >
 	<Fragment slot="head">
-		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<InsightHead schema={articleSchema} />
 		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 	</Fragment>
 
@@ -55,11 +75,14 @@ const breadcrumbSchema = {
 			<span class="article-cat">レベニューアーキテクチャ</span>
 		</div>
 		<h1>Revenue Visibilityとは何か<br class="br-pc" />「売上が見える状態」の正体</h1>
-		<p class="article-desc">リリース直前まで「どの施策が売上に貢献しているか」が分からなかった新規サブスクEC事業が、LTV起点のデータ基盤構築で投資判断の即時化を実現。Revenue Visibilityとは「データがある状態」ではなく、「活動と収益がつながって見える状態」のことです。</p>
+		<p class="article-desc">{articleSchema.description}</p>
+		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
 	<div class="article-body container">
+
+		<InsightContents headings={headings} />
 		<div class="article-eyecatch">
 			<img
 				src="/images/insights/what-is-revenue-visibility-2026b.svg"
@@ -72,6 +95,32 @@ const breadcrumbSchema = {
 			/>
 		</div>
 
+		<section class="article-section" id="definition">
+			<h2 id="section-1">Revenue Visibility（収益可視性）とは</h2>
+			<p><strong>Revenue Visibility（収益可視性）とは、どの活動がどの収益につながるかを一貫して把握し、次の投資や改善を判断できる状態です。</strong>獲得数や売上を別々に表示するだけでなく、施策・商談・受注・継続をつなぎ、共通の定義で追えることが必要です。</p>
+			<p>Consilegyでは、活動と収益をつなぐ設計を<a href="/revenue-architecture/">レベニューアーキテクチャ</a>の一部として扱っています。本記事では、<a href="/case-studies/ec-subscription-ltv-data-architecture/">サブスクリプション型EC事業のデータ基盤構築事例</a>をもとに、判断に使える状態の条件を説明します。事例の成果は個別の支援結果であり、同じ成果を保証するものではありません。</p>
+		</section>
+
+
+		<section class="article-section" id="visibility-vs-reporting">
+			<h2 id="visibility-comparison">Revenue Visibilityと、売上レポート・ダッシュボードはどう違うか</h2>
+			<p>売上レポートは実績を示し、ダッシュボードは複数の指標を一覧できる表示手段です。ConsilegyがRevenue Visibilityで重視するのは、その表示から活動と収益のつながりを説明し、次に変えることを決められるかです。</p>
+			<div class="insight-evidence-table" role="region" aria-label="レポートと収益可視性の比較" tabindex="0">
+				<table>
+					<caption>表示の完成と、判断に使える状態を分けて確認する</caption>
+					<thead><tr><th scope="col">確認する問い</th><th scope="col">表示できている状態</th><th scope="col">判断に使える状態</th></tr></thead>
+					<tbody>
+						<tr><th scope="row">どの施策を増やすか</th><td>チャネルごとの獲得件数が並ぶ</td><td>同じ獲得集団の受注・継続収益まで比較できる</td></tr>
+						<tr><th scope="row">どこを改善するか</th><td>部門ごとの件数が並ぶ</td><td>工程間の転換率と待ち時間から、詰まった場所を特定できる</td></tr>
+						<tr><th scope="row">数字をどう解釈するか</th><td>指標名と合計値が表示される</td><td>期間・母数・計上条件を説明し、同じ定義で比較できる</td></tr>
+						<tr><th scope="row">誰が何をするか</th><td>会議で数値の増減を確認する</td><td>変える施策・担当者・次の確認時点が決まる</td></tr>
+					</tbody>
+				</table>
+			</div>
+			<p>たとえば、獲得単価が低いチャネルでも、継続率が低ければ長期の投資判断は変わります。実際の<a href="/case-studies/ec-subscription-ltv-data-architecture/">サブスクEC事業の支援</a>では、GA4・Amplitude・Looker Studioを統合し、9か月かけてLTVを起点に投資判断できる基盤を構築しました。この事例が裏付けるのは判断基盤の構築であり、特定の売上増加率や予測的中率ではありません。</p>
+			<p>この比較表はConsilegyの実務上の整理です。収益までデータをつなぐ方法は<a href="/insights/what-is-revenue-data-flow/#data-flow-design-sheet">Revenue Data Flowの設計項目</a>、その全体像は<a href="/revenue-architecture/">レベニューアーキテクチャの定義</a>で説明しています。</p>
+		</section>
+
 		<div class="article-section">
 			<p><a href="/case-studies/ec-subscription-ltv-data-architecture/">国内大手ライフスタイル企業（従業員約1,500名）</a>の新規事業部門が、サブスクリプション型EC事業を立ち上げていました。スクラッチ開発で柔軟なシステムを構築していたものの、リリース直前の段階でも「どの施策が売上に貢献しているか」「どのユーザーが継続するか」が分からない状態でした。</p>
 			<p>データはありました。計測ツールもありました。しかし収益が見えていませんでした。</p>
@@ -80,7 +129,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>あなたの組織は大丈夫か。5つの確認項目</h2>
+			<h2 id="section-2">あなたの組織は大丈夫か。5つの確認項目</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>「先月の施策が受注にどう貢献したか」を即答できない</strong>
@@ -103,11 +152,11 @@ const breadcrumbSchema = {
 					<p>週次・月次のレポートを見ても次のアクションが即座に決まらない場合、指標が意思決定に接続されていません。</p>
 				</li>
 			</ol>
-			<p class="article-callout">3つ以上当てはまる場合、問題はデータ不足ではありません。「活動と収益がつながって見える状態」が設計されていないことが本質です。</p>
+			<p class="article-callout">当てはまる項目があれば、必要なデータの有無に加え、活動と収益のつながりを説明できるか、判断に使う指標が定義されているかを確認してください。</p>
 		</div>
 
 		<div class="article-section">
-			<h2>Revenue Visibilityが存在しない3つのパターン</h2>
+			<h2 id="section-3">Revenue Visibilityが存在しない3つのパターン</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>「活動」と「収益」がデータ上でつながっていない</strong>
@@ -131,7 +180,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>設計を変えた後に何が起きたか</h2>
+			<h2 id="section-4">設計を変えた後に何が起きたか</h2>
 			<p>前述のサブスクEC事業では、「計測の実装」ではなく、「売上と行動を一貫して捉えるためのデータ構造と運用設計」としてプロジェクトを進めました。その結果、以下の変化が起きました。</p>
 			<ol class="article-numbered">
 				<li>
@@ -151,7 +200,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>今週から始められる3つのアクション</h2>
+			<h2 id="section-5">今週から始められる3つのアクション</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>直近3か月の受注を10件選び、最初のタッチポイントを追う</strong>
@@ -169,7 +218,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>まとめ：Revenue Visibilityは「設計の問題」</h2>
+			<h2 id="section-6">まとめ：Revenue Visibilityは「設計の問題」</h2>
 			<p>Revenue Visibilityとは「データがある状態」ではありません。「どの活動が、どの収益につながるかを一貫して把握できる状態」のことです。</p>
 			<p>データが増えても、計測ツールを増やしても、活動と収益をつなぐ設計がなければRevenue Visibilityは生まれません。</p>
 			<p>サブスクEC事業の事例が示すように、LTV起点の判断を可能にしたのはツールではなく設計でした。</p>

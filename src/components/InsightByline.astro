@@ -1,0 +1,24 @@
+---
+interface Props {
+  published: string;
+  modified?: string;
+}
+const { published, modified } = Astro.props;
+function formatDate(value: string) {
+  const [y, m, d] = value.split('-');
+  return `${y}年${Number(m)}月${Number(d)}日`;
+}
+---
+<div class="insight-byline">
+  <p>著者：<a href="/company/#founder" rel="author">山口 聖子</a>（Consilegy代表 / Revenue Architect）</p>
+  <p class="insight-byline__dates"><span>公開日：<time datetime={published}>{formatDate(published)}</time></span>
+    {modified && modified !== published && <span>更新日：<time datetime={modified}>{formatDate(modified)}</time></span>}
+  </p>
+</div>
+<style>
+  .insight-byline { margin-top: 1.25rem; color: var(--color-text-muted); }
+  .insight-byline p { margin: .25rem 0; font-size: 1rem; line-height: 1.8; }
+  .insight-byline a { color: var(--color-primary); text-underline-offset: .2em; }
+  .insight-byline__dates { display: flex; flex-wrap: wrap; gap: .25rem 1rem; }
+  .insight-byline__dates span { white-space: nowrap; }
+</style>

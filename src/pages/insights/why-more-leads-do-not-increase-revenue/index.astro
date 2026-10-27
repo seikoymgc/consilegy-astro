@@ -1,9 +1,11 @@
 ---
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import InsightHead from '../../../components/InsightHead.astro';
+import InsightByline from '../../../components/InsightByline.astro';
+import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
-const pubDateDisplay = '2026年5月7日';
 const readTime = '約10分';
 
 const articleSchema = {
@@ -28,15 +30,27 @@ const breadcrumbSchema = {
 		{ '@type': 'ListItem', position: 3, name: 'リードが増えても受注が増えない理由', item: 'https://consilegy.com/insights/why-more-leads-do-not-increase-revenue/' },
 	],
 };
+
+// 見出しの id と目次を揃える。公開後は既存の id を変更しない。
+const headings = [
+	{"id": "section-1", "text": "あなたの組織は大丈夫か。5つの確認項目"},
+	{"id": "section-2", "text": "リードが増えても受注が増えない3つのパターン"},
+	{"id": "section-3", "text": "設計を変えた後に何が起きたか"},
+	{"id": "section-4", "text": "今週から始められる3つのアクション"},
+	{"id": "section-5", "text": "まとめ：「リードが受注に変わる構造」を設計する"},
+];
+
 ---
 
 <BaseLayout
 	title="リードが増えても受注が増えない理由 | Consilegy"
 	description="リード数は増加していたのに受注が増えなかったITバックオフィスSaaS企業（200名）が、引き渡し設計の標準化でMQLを増やさずに商談への転換率が20%上がり、商談の件数も増加。リードが増えても受注が増えない原因は施策の質ではなく、転換構造の設計の問題です。"
+	hasTranslation={false}
+	ogType="article"
 	lang="ja"
 >
 	<Fragment slot="head">
-		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<InsightHead schema={articleSchema} />
 		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 	</Fragment>
 
@@ -56,10 +70,13 @@ const breadcrumbSchema = {
 		</div>
 		<h1>リードが増えても<br class="br-pc" />受注が増えない理由</h1>
 		<p class="article-desc">リード数は増加していたのに受注が増えなかったITバックオフィスSaaS企業（200名）が、引き渡し設計の標準化でMQLを増やさずに商談への転換率が20%上がり、商談の件数も増加。リードが増えても受注が増えない原因は施策の質ではなく、転換構造の設計の問題です。</p>
+		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
 	<div class="article-body container">
+
+		<InsightContents headings={headings} />
 		<div class="article-eyecatch">
 			<img
 				src="/images/insights/why-more-leads-do-not-increase-revenue-2026b.svg"
@@ -81,7 +98,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>あなたの組織は大丈夫か。5つの確認項目</h2>
+			<h2 id="section-1">あなたの組織は大丈夫か。5つの確認項目</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>リード数は増えているが受注数は横ばい</strong>
@@ -108,7 +125,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>リードが増えても受注が増えない3つのパターン</h2>
+			<h2 id="section-2">リードが増えても受注が増えない3つのパターン</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>リードの優先順位が設計されていない</strong>
@@ -132,7 +149,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>設計を変えた後に何が起きたか</h2>
+			<h2 id="section-3">設計を変えた後に何が起きたか</h2>
 			<p>前述のSaaS企業では、リードを増やすのではなく「既存リードの転換プロセスを設計し直す」ことからプロジェクトを進めました。その結果、以下の変化が起きました。</p>
 			<ol class="article-numbered">
 				<li>
@@ -152,7 +169,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>今週から始められる3つのアクション</h2>
+			<h2 id="section-4">今週から始められる3つのアクション</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>直近3か月の受注案件の「引き渡し前の行動」を5件調べる</strong>
@@ -170,7 +187,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>まとめ：「リードが受注に変わる構造」を設計する</h2>
+			<h2 id="section-5">まとめ：「リードが受注に変わる構造」を設計する</h2>
 			<p>リードが増えても受注が増えない原因は、マーケティング施策の質でもリードの量でもありません。</p>
 			<p>「リードの優先順位が設計されていないこと」「検討フェーズを無視したコミュニケーションを送っていること」「引き渡し基準が存在しないこと」が構造的な原因です。</p>
 			<p>SaaS企業の事例が示すように、転換率20%向上と商談件数の増加は新しい施策から生まれたのではなく、「既存リードの転換プロセスの設計」から生まれました。</p>

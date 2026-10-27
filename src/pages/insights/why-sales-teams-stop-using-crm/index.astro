@@ -1,9 +1,11 @@
 ---
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import InsightHead from '../../../components/InsightHead.astro';
+import InsightByline from '../../../components/InsightByline.astro';
+import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
-const pubDateDisplay = '2026年5月7日';
 const readTime = '約10分';
 
 const articleSchema = {
@@ -28,15 +30,27 @@ const breadcrumbSchema = {
 		{ '@type': 'ListItem', position: 3, name: 'なぜCRMを導入しても、現場が入力しなくなるのか', item: 'https://consilegy.com/insights/why-sales-teams-stop-using-crm/' },
 	],
 };
+
+// 見出しの id と目次を揃える。公開後は既存の id を変更しない。
+const headings = [
+	{"id": "section-1", "text": "あなたの組織は大丈夫か。5つの確認項目"},
+	{"id": "section-2", "text": "CRMが使われなくなる3つのパターン"},
+	{"id": "section-3", "text": "設計を変えた後に何が起きたか"},
+	{"id": "section-4", "text": "今週から始められる3つのアクション"},
+	{"id": "section-5", "text": "まとめ：CRMの定着は「設計の問題」"},
+];
+
 ---
 
 <BaseLayout
 	title="CRMを導入しても現場が入力しなくなる理由 | Consilegy"
 	description="データが10箇所以上に分散し、業務時間の約30%を手作業クレンジングに費やしていた医療テック企業が、HubSpot統合・自動化で月約100時間を創出。CRMが使われない問題は意識ではなく、設計の問題です。"
+	hasTranslation={false}
+	ogType="article"
 	lang="ja"
 >
 	<Fragment slot="head">
-		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<InsightHead schema={articleSchema} />
 		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 	</Fragment>
 
@@ -56,10 +70,13 @@ const breadcrumbSchema = {
 		</div>
 		<h1>なぜCRMを導入しても、<br class="br-pc" />現場が入力しなくなるのか</h1>
 		<p class="article-desc">データが10箇所以上に分散し、業務時間の約30%を手作業クレンジングに費やしていた医療テック企業が、HubSpot統合・自動化で月約100時間を創出。CRMが使われない問題は意識ではなく、設計の問題です。</p>
+		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
 	<div class="article-body container">
+
+		<InsightContents headings={headings} />
 		<div class="article-eyecatch">
 			<img
 				src="/images/insights/why-sales-teams-stop-using-crm-2026b.svg"
@@ -81,7 +98,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>あなたの組織は大丈夫か。5つの確認項目</h2>
+			<h2 id="section-1">あなたの組織は大丈夫か。5つの確認項目</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>CRMに入力しても、次に活用される場面を見たことがない</strong>
@@ -108,7 +125,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>CRMが使われなくなる3つのパターン</h2>
+			<h2 id="section-2">CRMが使われなくなる3つのパターン</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>CRMが「管理ツール」として設計されている</strong>
@@ -132,7 +149,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>設計を変えた後に何が起きたか</h2>
+			<h2 id="section-3">設計を変えた後に何が起きたか</h2>
 			<p>前述の医療テック企業では、「入力ルールの強化」ではなく「入力したくなる構造の設計」からプロジェクトを進めました。その結果、以下の変化が起きました。</p>
 			<ol class="article-numbered">
 				<li>
@@ -152,7 +169,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>今週から始められる3つのアクション</h2>
+			<h2 id="section-4">今週から始められる3つのアクション</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>「この顧客の最新情報はどこにあるか」を現場5人に聞く</strong>
@@ -170,7 +187,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>まとめ：CRMの定着は「設計の問題」</h2>
+			<h2 id="section-5">まとめ：CRMの定着は「設計の問題」</h2>
 			<p>CRMを導入しても現場が入力しなくなる原因は、意識の低さでも意欲の問題でもありません。</p>
 			<p>「管理ツールとして設計されていること」「入力コストが利用メリットを上回っていること」「どこが正データか分からないこと」が構造的な原因です。</p>
 			<p>医療テック企業の事例が示すように、月約100時間の工数を創出できた背景には「入力したくなる構造」の設計がありました。</p>

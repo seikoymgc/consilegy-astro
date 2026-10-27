@@ -1,9 +1,11 @@
 ---
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import InsightHead from '../../../components/InsightHead.astro';
+import InsightByline from '../../../components/InsightByline.astro';
+import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
-const pubDateDisplay = '2026年5月7日';
 const readTime = '約10分';
 
 const articleSchema = {
@@ -28,15 +30,27 @@ const breadcrumbSchema = {
 		{ '@type': 'ListItem', position: 3, name: 'SFAがパイプライン管理表になってしまう理由', item: 'https://consilegy.com/insights/why-sfa-becomes-just-a-pipeline-sheet/' },
 	],
 };
+
+// 見出しの id と目次を揃える。公開後は既存の id を変更しない。
+const headings = [
+	{"id": "section-1", "text": "あなたの組織は大丈夫か。5つの確認項目"},
+	{"id": "section-2", "text": "SFAがパイプライン管理表になる3つのパターン"},
+	{"id": "section-3", "text": "設計を変えた後に何が起きたか"},
+	{"id": "section-4", "text": "今週から始められる3つのアクション"},
+	{"id": "section-5", "text": "まとめ：SFAの問題は「データフロー設計の問題」"},
+];
+
 ---
 
 <BaseLayout
 	title="SFAがパイプライン管理表になってしまう理由 | Consilegy"
 	description="DXコンサルティング企業（150名）がHubSpot・Salesforce・Sansan・GA4を統合し、問い合わせ前から商談までの行動を同じ画面で追える状態、分析工数30%削減を実現。SFAが「入力するだけのツール」に止まる組織の構造問題を解説します。"
+	hasTranslation={false}
+	ogType="article"
 	lang="ja"
 >
 	<Fragment slot="head">
-		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<InsightHead schema={articleSchema} />
 		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 	</Fragment>
 
@@ -56,10 +70,13 @@ const breadcrumbSchema = {
 		</div>
 		<h1>SFAがパイプライン<br class="br-pc" />管理表になってしまう理由</h1>
 		<p class="article-desc">DXコンサルティング企業（150名）がHubSpot・Salesforce・Sansan・GA4を統合し、問い合わせ前から商談までの行動を同じ画面で追える状態、分析工数30%削減を実現。SFAが「入力するだけのツール」に止まる組織の構造問題を解説します。</p>
+		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
 	<div class="article-body container">
+
+		<InsightContents headings={headings} />
 		<div class="article-eyecatch">
 			<img
 				src="/images/insights/why-sfa-becomes-just-a-pipeline-sheet-2026b.svg"
@@ -81,7 +98,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>あなたの組織は大丈夫か。5つの確認項目</h2>
+			<h2 id="section-1">あなたの組織は大丈夫か。5つの確認項目</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>SFAのデータと営業担当者の「感覚」が乖離している</strong>
@@ -108,7 +125,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>SFAがパイプライン管理表になる3つのパターン</h2>
+			<h2 id="section-2">SFAがパイプライン管理表になる3つのパターン</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>SFAが「報告のためのシステム」として機能している</strong>
@@ -132,7 +149,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>設計を変えた後に何が起きたか</h2>
+			<h2 id="section-3">設計を変えた後に何が起きたか</h2>
 			<p>前述のコンサルティング企業では、SFAを変えるのではなく、「SFAに流れ込むデータを自動で統合する設計」から始めました。その結果、以下の変化が起きました。</p>
 			<ol class="article-numbered">
 				<li>
@@ -152,7 +169,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>今週から始められる3つのアクション</h2>
+			<h2 id="section-4">今週から始められる3つのアクション</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>SFAの商談レコードで、標準の流入元の項目が埋まっているか確認する</strong>
@@ -171,7 +188,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>まとめ：SFAの問題は「データフロー設計の問題」</h2>
+			<h2 id="section-5">まとめ：SFAの問題は「データフロー設計の問題」</h2>
 			<p>SFAがパイプライン管理表になってしまう原因は、SFAの機能不足でも入力率の問題でもありません。</p>
 			<p>「SFAが報告のためのシステムになっていること」「SFAに流れ込むデータが手入力のみであること」「SFAのデータをレポートするたびに集計が必要なこと」が構造的な原因です。</p>
 			<p>DXコンサルティング企業の事例が示すように、問い合わせ前から商談までの行動を同じ画面で追える状態、分析工数30%削減は、SFAを変えたのではなく「Web・MA・名刺管理のデータがSFAに自動で統合される設計」を整えたことで実現しました。</p>

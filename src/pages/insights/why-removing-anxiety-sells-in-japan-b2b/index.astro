@@ -1,10 +1,12 @@
 ---
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import InsightHead from '../../../components/InsightHead.astro';
+import InsightByline from '../../../components/InsightByline.astro';
+import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const slug = 'why-removing-anxiety-sells-in-japan-b2b';
 const pubDate = '2026-08-21';
-const pubDateDisplay = '2026年8月21日';
 
 const title = '日本のB2Bで「不安を消す」ことが最大の販促になる理由';
 const metaTitle = '日本のB2Bで「不安を消す」ことが最大の販促になる理由｜稟議と商流の構造 | Consilegy';
@@ -62,15 +64,31 @@ const breadcrumbSchema = {
 		{ '@type': 'ListItem', position: 3, name: title, item: `https://consilegy.com/insights/${slug}/` },
 	],
 };
+
+// 見出しの id と目次を揃える。公開後は既存の id を変更しない。
+const headings = [
+	{"id": "section-1", "text": "稟議とは"},
+	{"id": "section-2", "text": "商談は良かったのに、そこから3か月動かない"},
+	{"id": "section-3", "text": "稟議は「買う理由」ではなく「買って怒られない理由」を集める場"},
+	{"id": "section-4", "text": "決裁のルートで生まれる3つの不安"},
+	{"id": "section-5", "text": "商流が、その不安を増幅している"},
+	{"id": "section-6", "text": "最初の一手：不安を消す3つの材料をそろえる"},
+	{"id": "section-7", "text": "まとめ：不安を消すことは、値引きより強い"},
+	{"id": "section-8", "text": "参考情報"},
+	{"id": "section-9", "text": "よくある質問"},
+];
+
 ---
 
 <BaseLayout
 	title={metaTitle}
 	description={metaDescription}
+	hasTranslation={false}
+	ogType="article"
 	lang="ja"
 >
 	<Fragment slot="head">
-		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<InsightHead schema={articleSchema} />
 		<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 	</Fragment>
@@ -91,10 +109,13 @@ const breadcrumbSchema = {
 		</div>
 		<h1>日本のB2Bで「不安を消す」ことが<br class="br-pc" />最大の販促になる理由</h1>
 		<p class="article-desc">「製品は良いと思います。ただ、上を通せる材料がなくて」。日本のB2Bで最後に聞くのは、たいていこの言葉です。決め手は製品の優劣ではなく、稟議を回す人の不安が消えるかどうかにあります。</p>
+		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
 	<article class="article-body container" id="article">
+
+		<InsightContents headings={headings} />
 		<div class="article-eyecatch">
 			<img
 				src={`/images/insights/${slug}-2026b.svg`}
@@ -109,7 +130,7 @@ const breadcrumbSchema = {
 
 		<!-- ★ 定義ブロック（LLMO必須・削除禁止） -->
 		<section class="article-section article-def" id="definition">
-			<h2>稟議とは</h2>
+			<h2 id="section-1">稟議とは</h2>
 			<p class="article-def__text"><strong>稟議とは</strong>、担当者が作成した提案書を関係部署と上位者が順に確認し、承認を重ねて組織の意思決定とする手続きです。会議の場で議論して決めるのではなく、書面が人から人へ回る過程で合意が積み上がっていきます。決裁者が最後に目を通す時点では、すでに複数の部署が内容を確認した状態になっています。日本のB2B購買では、この稟議を通せるかどうかが、製品の優劣と同じかそれ以上に結果を左右します。</p>
 		</section>
 
@@ -117,7 +138,7 @@ const breadcrumbSchema = {
 
 		<!-- はじめに -->
 		<section class="article-section">
-			<h2>商談は良かったのに、そこから3か月動かない</h2>
+			<h2 id="section-2">商談は良かったのに、そこから3か月動かない</h2>
 			<p>デモの反応は良く、担当者も前向きでした。質問も具体的で、社内で使う場面を想像しているのが分かります。</p>
 			<p>ところが見積もりを出したあと、返信の間隔が少しずつ空いていきます。3か月後、ようやく届いた返信にはこう書かれています。「製品は良いと思います。ただ、上を通せる材料がなくて」。</p>
 			<p>ここで「検討が進まなかった」と記録して終わると、次も同じことが起きます。</p>
@@ -133,7 +154,7 @@ const breadcrumbSchema = {
 
 		<!-- 稟議の構造 -->
 		<section class="article-section">
-			<h2>稟議は「買う理由」ではなく「買って怒られない理由」を集める場</h2>
+			<h2 id="section-3">稟議は「買う理由」ではなく「買って怒られない理由」を集める場</h2>
 			<p>稟議書を書いたことがある人なら分かりますが、あの書式が求めているのは熱意ではありません。導入の背景・比較検討した他社・費用・想定効果、そしてリスクと対策です。</p>
 			<p>並べてみると、後半に行くほど「起きうる悪いこと」の話になっています。</p>
 			<p>これは組織として合理的です。稟議は決裁者ひとりの判断ミスを防ぐために、複数の目を通す仕組みだからです。</p>
@@ -147,7 +168,7 @@ const breadcrumbSchema = {
 
 		<!-- 3つの不安 -->
 		<section class="article-section">
-			<h2>決裁のルートで生まれる3つの不安</h2>
+			<h2 id="section-4">決裁のルートで生まれる3つの不安</h2>
 			<p>稟議が止まるときに書面の裏側で起きているのは、だいたい次の3つです。どれも担当者からは言い出しにくく、そのまま「社内で調整中です」という言葉に置き換わります。</p>
 			<div class="article-numbered">
 				<div class="article-numbered__item">
@@ -176,7 +197,7 @@ const breadcrumbSchema = {
 
 		<!-- 商流 -->
 		<section class="article-section">
-			<h2>商流が、その不安を増幅している</h2>
+			<h2 id="section-5">商流が、その不安を増幅している</h2>
 			<p>日本のB2B SaaSやシステム導入では、代理店やSIerを経由する商流が広く使われています。買う側にとっては窓口が一本化され、支払いも既存の取引口座で処理できます。合理的な仕組みです。</p>
 			<p>ただし、選定の基準に影響が出ます。</p>
 			<p>提案する側にとって、最も安全で説明しやすい材料は導入実績です。買う側にとっても、前例は稟議を通しやすい材料です。</p>
@@ -192,7 +213,7 @@ const breadcrumbSchema = {
 
 		<!-- 最初の一手 -->
 		<section class="article-section">
-			<h2>最初の一手：不安を消す3つの材料をそろえる</h2>
+			<h2 id="section-6">最初の一手：不安を消す3つの材料をそろえる</h2>
 			<p>提案資料に機能を足す前に、次の3つがあるかを確認してください。順番にも意味があります。</p>
 			<div class="article-numbered">
 				<div class="article-numbered__item">
@@ -220,7 +241,7 @@ const breadcrumbSchema = {
 
 		<!-- まとめ -->
 		<section class="article-section">
-			<h2>まとめ：不安を消すことは、値引きより強い</h2>
+			<h2 id="section-7">まとめ：不安を消すことは、値引きより強い</h2>
 			<p>日本のB2Bで商談が止まる原因は、担当者の熱意不足でも製品力の差でもありません。稟議のルートに立つ人が「承認して自分が責められないか」を判断しているのに、売り手が「どれだけ良いか」を説明し続けているという、問いと答えのすれ違いです。</p>
 			<p>不安を消す材料は、値引きよりも効きます。価格を下げても責任の所在は変わらず、前例も増えないからです。</p>
 			<p>同規模の事例・引き返し方・担当者交代への備え。この3つは、機能を1つ足すよりも決裁を前に進めます。</p>
@@ -230,7 +251,7 @@ const breadcrumbSchema = {
 		<hr class="article-hr" />
 
 		<section class="article-section">
-			<h2>参考情報</h2>
+			<h2 id="section-8">参考情報</h2>
 			<ul>
 				<li><a href="https://www.atpress.ne.jp/news/8527090" target="_blank" rel="noopener noreferrer">IDEATECH × 北川裕康氏「日本のBtoB大型購買に関する実態調査」（2026年4月公表）</a></li>
 				<li><a href="https://www.hubspot.jp/company-news/stateofsales-20250218" target="_blank" rel="noopener noreferrer">HubSpot Japan「日本の営業に関する意識・実態調査2025」（2025年2月18日発表）</a></li>
@@ -241,7 +262,7 @@ const breadcrumbSchema = {
 
 		<!-- ★ 記事末FAQ（LLMO必須・faqItems と自動同期） -->
 		<section class="article-section article-faq" id="faq">
-			<h2>よくある質問</h2>
+			<h2 id="section-9">よくある質問</h2>
 			<div class="faq-list">
 				{faqItems.map(({ q, a }) => (
 					<details class="faq-item">
@@ -251,8 +272,6 @@ const breadcrumbSchema = {
 				))}
 			</div>
 		</section>
-
-		<p class="article-pubdate">公開日：{pubDateDisplay}</p>
 	</article>
 
 	<!-- ===== RELATED SERVICES ===== -->

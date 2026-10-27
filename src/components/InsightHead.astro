@@ -1,0 +1,25 @@
+---
+interface Props {
+  schema: {
+    url: string;
+    datePublished: string;
+    dateModified: string;
+    author: Record<string, unknown>;
+    publisher: Record<string, unknown>;
+    [key: string]: unknown;
+  };
+}
+const { schema } = Astro.props;
+const article = {
+  ...schema,
+  '@id': `${schema.url}#article`,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': schema.url },
+  isPartOf: { '@id': 'https://consilegy.com/#website' },
+  author: { ...schema.author, '@id': 'https://consilegy.com/company/#founder' },
+  publisher: { ...schema.publisher, '@id': 'https://consilegy.com/#organization' },
+};
+---
+<meta name="author" content="山口 聖子 / Consilegy" />
+<meta property="article:published_time" content={schema.datePublished} />
+<meta property="article:modified_time" content={schema.dateModified} />
+<script type="application/ld+json" set:html={JSON.stringify(article).replace(/</g, '\\u003c')} />

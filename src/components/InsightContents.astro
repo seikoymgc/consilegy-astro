@@ -1,0 +1,27 @@
+---
+interface Props {
+  headings: { id: string; text: string }[];
+}
+const { headings } = Astro.props;
+---
+<nav class="insight-contents" aria-label="この記事の目次">
+  <p class="insight-contents__label">Contents</p>
+  <ol>
+    {headings.map(({ id, text }) => <li><a href={`#${id}`}>{text}</a></li>)}
+  </ol>
+</nav>
+<style>
+  .insight-contents {
+    margin: 0 0 2rem; padding: 1.5rem;
+    background: #fff; border: 1px solid var(--color-border); border-radius: 6px;
+    box-shadow: 0 2px 6px rgb(15 23 42 / 4%);
+  }
+  .insight-contents__label {
+    margin: 0 0 .75rem; font-size: .875rem; font-weight: 700;
+    letter-spacing: .08em; color: var(--color-navy);
+  }
+  ol { margin: 0; padding-left: 1.5rem; display: grid; gap: .5rem; }
+  li { font-size: 1rem; line-height: 1.7; color: var(--color-navy); }
+  a { color: var(--color-primary); text-underline-offset: .2em; overflow-wrap: anywhere; }
+  :global(.article-wrap :is(.article-section[id], h2[id])) { scroll-margin-top: 6rem; }
+</style>

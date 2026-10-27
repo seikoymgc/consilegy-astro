@@ -1,9 +1,11 @@
 ---
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import InsightHead from '../../../components/InsightHead.astro';
+import InsightByline from '../../../components/InsightByline.astro';
+import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
-const pubDateDisplay = '2026年5月7日';
 const readTime = '約10分';
 
 const articleSchema = {
@@ -28,15 +30,30 @@ const breadcrumbSchema = {
 		{ '@type': 'ListItem', position: 3, name: '良いマーケティング施策がスケールしない理由', item: 'https://consilegy.com/insights/why-good-marketing-strategies-fail-to-scale/' },
 	],
 };
+
+// 見出しの id と目次を揃える。公開後は既存の id を変更しない。
+const headings = [
+	{"id": "section-1", "text": "スケールしないとは、成果が増えないことではない"},
+	{"id": "section-2", "text": "週次会議で止まる3つのズレ"},
+	{"id": "section-3", "text": "HubSpotとSalesforceの画面で起きていること"},
+	{"id": "section-4", "text": "Before / After：施策単位から条件単位へ変える"},
+	{"id": "section-5", "text": "生成AI時代ほど、汎用施策は差別化になりにくい"},
+	{"id": "section-6", "text": "施策を増やす前に決める4つのこと"},
+	{"id": "section-7", "text": "まとめ：施策を増やすほど、判断を軽くする"},
+	{"id": "section-8", "text": "参考情報"},
+];
+
 ---
 
 <BaseLayout
 	title="良いマーケティング施策がスケールしない理由｜BtoBの評価基準と引き継ぎ設計 | Consilegy"
 	description="BtoBマーケティングで広告・ウェビナー・メール施策が単発成果で終わる理由を、HubSpotやSalesforceの運用・週次会議・営業フォローの具体シーンから解説します。"
+	hasTranslation={false}
+	ogType="article"
 	lang="ja"
 >
 	<Fragment slot="head">
-		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<InsightHead schema={articleSchema} />
 		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 	</Fragment>
 
@@ -56,10 +73,13 @@ const breadcrumbSchema = {
 		</div>
 		<h1>良いマーケティング施策が<br class="br-pc" />スケールしない理由</h1>
 		<p class="article-desc">BtoBマーケティングで広告・ウェビナー・メール施策が単発成果で終わる理由を、HubSpotやSalesforceの運用・週次会議・営業フォローの具体シーンから解説します。</p>
+		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
 	<div class="article-body container">
+
+		<InsightContents headings={headings} />
 		<div class="article-eyecatch">
 			<img
 				src="/images/insights/why-good-marketing-strategies-fail-to-scale-2026b.svg"
@@ -83,7 +103,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>スケールしないとは、成果が増えないことではない</h2>
+			<h2 id="section-1">スケールしないとは、成果が増えないことではない</h2>
 			<p>「スケールしない」というと、リード数や参加者数が伸びない状態を想像しがちです。しかしBtoBマーケティングでは、数字が増えているのにスケールしていないことがあります。</p>
 			<p>たとえば、ウェビナー参加者が50名から120名に増えた。広告経由の資料請求も増えた。</p>
 			<p>それでも営業が追うべき順番が分からず、インサイドセールスが全件に同じメールを送っているなら、施策は大きくなっていても運用は大きくなっていません。</p>
@@ -93,7 +113,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>週次会議で止まる3つのズレ</h2>
+			<h2 id="section-2">週次会議で止まる3つのズレ</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>施策ごとに見ている相手が違う</strong>
@@ -114,7 +134,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>HubSpotとSalesforceの画面で起きていること</h2>
+			<h2 id="section-3">HubSpotとSalesforceの画面で起きていること</h2>
 			<p>施策が単発で終わる会社では、ツールが入っていても判断がつながっていません。</p>
 			<p>HubSpotにはフォーム送信・メール開封・ウェビナー参加・スコアが残っています。Salesforceには商談・金額・フェーズ・失注理由が残っています。</p>
 			<p>ところが、両方をつなぐ項目が弱い。</p>
@@ -125,7 +145,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>Before / After：施策単位から条件単位へ変える</h2>
+			<h2 id="section-4">Before / After：施策単位から条件単位へ変える</h2>
 			<p>良い施策をスケールさせたいなら、「どの施策が良かったか」だけでなく、「どの条件で良かったか」まで残します。</p>
 			<ol class="article-numbered">
 				<li>
@@ -144,7 +164,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>生成AI時代ほど、汎用施策は差別化になりにくい</h2>
+			<h2 id="section-5">生成AI時代ほど、汎用施策は差別化になりにくい</h2>
 			<p>2026年のHubSpot Japanの営業調査では、購買検討で生成AIを活用した買い手の52.4%が「当初検討していなかった製品・サービスを候補に追加した」、55.3%が「最終的な意思決定に影響を受けた」と報告されています。</p>
 			<p>買い手は、営業やマーケティングに接触する前から、課題整理や比較検討を進めやすくなっています。</p>
 			<p>この環境では、一般的な課題に対する一般的なコンテンツやメールだけでは、購買プロセスの中で選ばれにくくなります。買い手はすでに比較表を作り、候補を調べ、社内説明の材料を集めています。</p>
@@ -153,7 +173,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>施策を増やす前に決める4つのこと</h2>
+			<h2 id="section-6">施策を増やす前に決める4つのこと</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>今回の施策で学びたい顧客条件</strong>
@@ -175,7 +195,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>まとめ：施策を増やすほど、判断を軽くする</h2>
+			<h2 id="section-7">まとめ：施策を増やすほど、判断を軽くする</h2>
 			<p>良いマーケティング施策がスケールしないのは、アイデアが弱いからとは限りません。むしろ、一度うまくいった施策ほど、「なぜ良かったのか」を残さないまま次に進みがちです。</p>
 			<p>HubSpotやSalesforceに残すべきなのは、キャンペーン名とリード数だけではありません。</p>
 			<p>誰に効いたのか、営業がいつ追ったのか、何が商談化の決め手になったのか。そして次回は何を変えるのか。この4つです。</p>
@@ -183,7 +203,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>参考情報</h2>
+			<h2 id="section-8">参考情報</h2>
 			<ul>
 				<li><a href="https://www.hubspot.jp/company-news/state-of-marketing-20241212" target="_blank" rel="noopener noreferrer">HubSpot Japan「日本のマーケティングに関する意識・実態調査」</a></li>
 				<li><a href="https://www.hubspot.jp/company-news/stateofsales-20260227" target="_blank" rel="noopener noreferrer">HubSpot Japan「日本の営業に関する意識・実態調査2026」</a></li>

@@ -1,18 +1,24 @@
 ---
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import InsightHead from '../../../components/InsightHead.astro';
+import InsightByline from '../../../components/InsightByline.astro';
+import InsightContents from '../../../components/InsightContents.astro';
+import '../../../styles/insight-evidence.css';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-06';
-const pubDateDisplay = '2026年5月6日';
 const readTime = '約10分';
 
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
 	headline: 'CRMが定着しない本当の理由｜営業が入力しないのは現場のせいではない',
-	description: 'CRMが定着しない原因を、営業現場の意識ではなく、KPI設計・商談ステージ定義・データ構造・Revenue Architectureの観点から解説します。',
+	description: '顧客管理システムが定着しないときは、入力項目・商談ステージの移行条件・会議での使い方を先に揃えます。入力不足と判断基準のズレを見分ける確認表、運用定着の支援事例から、最初に直す箇所を解説します。',
 	datePublished: pubDate,
-	dateModified: pubDate,
+	dateModified: '2026-10-27',
+	citation: [
+		'https://consilegy.com/case-studies/healthcare-data-integration-ops-enablement/',
+	],
 	author: { '@type': 'Person', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
 	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
 	url: 'https://consilegy.com/insights/why-crm-adoption-fails/',
@@ -28,15 +34,30 @@ const breadcrumbSchema = {
 		{ '@type': 'ListItem', position: 3, name: 'CRMが定着しない本当の理由', item: 'https://consilegy.com/insights/why-crm-adoption-fails/' },
 	],
 };
+
+// 見出しの id と目次を揃える。公開後は既存の id を変更しない。
+const headings = [
+	{"id": "adoption-first-check", "text": "顧客管理システムが定着しないとき、何から見直すか"},
+	{"id": "adoption-diagnosis-table", "text": "入力不足・定義の不一致・会議での未活用を見分ける"},
+	{"id": "section-1", "text": "説明用の仮例：ステージ79段階のうち5段階しか使われない場合"},
+	{"id": "section-2", "text": "まず確認してください：あなたのCRMは「営業ツール」ですか、「報告ツール」ですか"},
+	{"id": "section-3", "text": "定着しない3つの具体的なパターン"},
+	{"id": "section-4", "text": "CRMが機能したとき、何が変わるか"},
+	{"id": "section-5", "text": "最初の一手：何から直せばいいか"},
+	{"id": "section-6", "text": "まとめ：「ちゃんと入力して」が必要な状況は、設計で解決できます"},
+];
+
 ---
 
 <BaseLayout
 	title="CRMが定着しない本当の理由｜営業が入力しない原因と改善策 | Consilegy"
-	description="CRMが定着しない原因を、営業現場の意識ではなく、KPI設計・商談ステージ定義・データ構造・Revenue Architectureの観点から解説します。"
+	description={articleSchema.description}
+	hasTranslation={false}
+	ogType="article"
 	lang="ja"
 >
 	<Fragment slot="head">
-		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<InsightHead schema={articleSchema} />
 		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 	</Fragment>
 
@@ -55,11 +76,14 @@ const breadcrumbSchema = {
 			<span class="article-cat">CRM</span>
 		</div>
 		<h1>CRMが定着しない本当の理由<br class="br-pc" />営業が入力しないのは現場のせいではない</h1>
-		<p class="article-desc">ある会社のCRMには商談ステージが79段階あり、実際に使われていたのは5段階でした。入力項目30個のうち営業が埋めていたのは10個。CRM定着を阻む具体的なパターンと、最初に何から直すべきかを解説します。</p>
+		<p class="article-desc">{articleSchema.description}</p>
+		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
 	<article class="article-body container" id="article">
+
+		<InsightContents headings={headings} />
 		<div class="article-eyecatch">
 			<img
 				src="/images/insights/why-crm-adoption-fails-2026b.svg"
@@ -73,13 +97,39 @@ const breadcrumbSchema = {
 		</div>
 
 		<!-- はじめに -->
+
+		<section class="article-section insight-answer" id="short-answer">
+			<h2 id="adoption-first-check">顧客管理システムが定着しないとき、何から見直すか</h2>
+			<p><strong>顧客管理システムが定着しないときは、「何を入力するか」「どの状態になったら商談を進めるか」「入力した情報をどの会議で使うか」の3点を先に揃えます。</strong>入力を督促するだけでは、項目の必要性や判断基準の違いは解消しません。Consilegyは、操作研修を増やす前に、記録する情報と現場の意思決定のつながりを確認することを勧めています。</p>
+			<p>ここでいう定着は、ログインや入力が増えることに加え、記録を使って案件の優先順位・次の行動・支援の要否を決められる状態です。入力率が上がったかと、業務の判断に使われたかは分けて確認します。</p>
+		</section>
+
+		<section class="article-section" id="adoption-diagnosis">
+			<h2 id="adoption-diagnosis-table">入力不足・定義の不一致・会議での未活用を見分ける</h2>
+			<div class="insight-evidence-table" role="region" aria-label="定着しない原因の切り分け" tabindex="0">
+				<table>
+					<caption>Consilegyが提案する、定着を阻む原因の確認方法</caption>
+					<thead><tr><th scope="col">現場で見える症状</th><th scope="col">確認する質問</th><th scope="col">最初に直すこと</th></tr></thead>
+					<tbody>
+						<tr><th scope="row">空欄が多い</th><td>この項目を、誰がいつ何の判断に使うか</td><td>利用目的を説明できる項目を残し、入力の負担を見直す</td></tr>
+						<tr><th scope="row">担当者でステージが違う</th><td>同じ案件を見て、全員が同じステージと答えるか</td><td>ステージ名に加え、進める条件と必要な根拠を揃える</td></tr>
+						<tr><th scope="row">会議前に別の集計が必要</th><td>システムの数字では何が判断できないか</td><td>会議で使う指標・絞り込み・更新時点を揃える</td></tr>
+						<tr><th scope="row">入力されても見られない</th><td>前回の会議で、記録を使って何を決めたか</td><td>案件の次の行動と担当者を、同じ画面を見て決める</td></tr>
+					</tbody>
+				</table>
+			</div>
+			<p>この表は入力率の良否を判定する統計基準ではなく、改善箇所を特定するための手順です。「項目が埋まった」「全員が同じ意味で読めた」「会議で判断が決まった」を別々に記録すると、どこに問題が残っているかを確認できます。</p>
+			<p>関連する実例は、<a href="/case-studies/healthcare-data-integration-ops-enablement/">医療テック企業のデータ統合・運用定着支援</a>で公開しています。部門をまたぐデータと運用を整えた取り組みとして参照でき、入力率だけを成果指標にする場合との違いを確認できます。</p>
+		</section>
+
 		<section class="article-section">
-			<h2>ある営業チームのCRMに、商談ステージが79段階ありました</h2>
-			<p>導入から1年。チームの誰もそのすべてを使っていませんでした。実際に更新されていたのは5段階。残りの74段階は、導入プロジェクト中に「将来使うかもしれない」と設定され、そのまま残っていました。</p>
-			<p>入力項目は30個。営業が実際に埋めていたのは10個でした。残りの20個は「あとで分析する用」に作られましたが、誰もそのデータを見ていませんでした。</p>
-			<p>マネージャーは毎週「ちゃんと入力してください」と言い続けていました。入力率は上がりませんでした。</p>
+			<h2 id="section-1">説明用の仮例：ステージ79段階のうち5段階しか使われない場合</h2>
+			<p><strong>以下は、設計と実際の利用のズレを説明するための仮例です。実在企業の支援実績や調査結果ではありません。</strong></p>
+			<p>導入から1年の営業チームに、商談ステージが79段階設定されているとします。実際に更新されるのは5段階で、残りの74段階は「将来使うかもしれない」と設定されたままになっています。</p>
+			<p>同じ仮例で、入力項目は30個、営業が埋めるのは10個とします。残りの20個は「あとで分析する用」に作られ、判断には使われていない状態です。</p>
+			<p>この状態でマネージャーが「ちゃんと入力してください」と伝えても、入力項目の用途やステージの移行条件は明確になりません。</p>
 			<div class="article-callout">
-				<p>CRMが定着しないとき、原因の多くは「設計」にあります。営業は意味のないシステムには入力しません。これは意識の問題ではなく、合理的な判断です。</p>
+				<p>顧客管理システムが定着しないときは、入力する人の意識だけでなく、項目の用途・ステージの条件・入力後の使い道を確認する必要があります。</p>
 			</div>
 		</section>
 
@@ -87,17 +137,17 @@ const breadcrumbSchema = {
 
 		<!-- 自己診断 -->
 		<section class="article-section">
-			<h2>まず確認してください：あなたのCRMは「営業ツール」ですか、「報告ツール」ですか</h2>
+			<h2 id="section-2">まず確認してください：あなたのCRMは「営業ツール」ですか、「報告ツール」ですか</h2>
 			<p>以下のうち、いくつ当てはまるか確認してみてください。</p>
 			<ul>
 				<li>営業会議でCRMを開かずに話が進む</li>
 				<li>ダッシュボードを見ているのはマネージャーだけ</li>
 				<li>商談ステージを更新しなくても、誰も困らない</li>
-				<li>CRMのデータをExcelに出力して集計している</li>
+				<li>CRMのデータをスプレッドシートに出力して集計している</li>
 				<li>入力しても、現場に何も返ってこない</li>
 			</ul>
 			<div class="article-callout">
-				<p><strong>3つ以上当てはまる場合、CRMはすでに現場にとって「報告義務」になっています。</strong>その状態でいくら「もっと入力してください」と伝えても、構造は変わりません。</p>
+				<p><strong>当てはまる項目があれば、システムが現場の判断に使われず、報告のための入力になっていないかを確認してください。</strong>その状態でいくら「もっと入力してください」と伝えても、構造は変わりません。</p>
 			</div>
 		</section>
 
@@ -105,26 +155,26 @@ const breadcrumbSchema = {
 
 		<!-- 3つのパターン -->
 		<section class="article-section">
-			<h2>定着しない3つの具体的なパターン</h2>
+			<h2 id="section-3">定着しない3つの具体的なパターン</h2>
 			<div class="article-numbered">
 				<div class="article-numbered__item">
 					<p class="article-numbered__num">01</p>
 					<h3>商談ステージに「移行条件」がない</h3>
-					<p>79段階のケースでは、ステージの「名前」はありました。しかし「どうなったら次のステージに進むのか」が決まっていませんでした。</p>
-					<p>結果、営業Aは「提案書を送ったら提案中」、営業Bは「顧客が前向きなら提案中」と判断していました。同じダッシュボードを見ても、数字の意味が人によって違います。パイプラインは飾りになります。</p>
+					<p>前述の仮例のように、ステージの名前だけがあり、次のステージに進む条件が決まっていない状態を考えてください。</p>
+					<p>たとえば、営業Aは「提案書を送ったら提案中」、営業Bは「顧客が前向きなら提案中」と判断するとします。同じダッシュボードを見ても、数字の意味が人によって違います。パイプラインは飾りになります。</p>
 					<p><strong>判断基準：</strong>チームの誰かに「このステージに進む条件は何ですか」と聞いて、全員が同じ答えを言えるかどうかを確認してください。言えなければ、定義されていないのと同じです。</p>
 				</div>
 				<div class="article-numbered__item">
 					<p class="article-numbered__num">02</p>
 					<h3>入力項目が「将来の分析用」に増殖している</h3>
-					<p>30項目のうち10項目しか使われていなかったケースでは、残りの20項目はすべて「いつか分析したい」という理由で追加されたものでした。</p>
-					<p>導入プロジェクト中に「受注確度も入れよう」「競合情報も記録しよう」「顧客の予算規模も」と積み上がった結果、営業は毎回30項目の入力を求められ、データは溜まるが誰も見ない状態になっていました。</p>
+					<p>前述の仮例では、入力項目30個のうち、判断に使われるのは10個という設定にしました。「いつか分析したい」という理由で項目だけを増やすと、入力の負担と利用の価値が釣り合わなくなります。</p>
+					<p>たとえば「受注確度も」「競合情報も」「顧客の予算規模も」と項目を増やす場合は、追加する前に、そのデータを使う人と判断の場面を決めます。</p>
 					<p><strong>判断基準：</strong>各入力項目について、「このデータをいつ・誰が・何の判断に使いましたか」に答えられるかどうか確認してください。答えられない項目は削除候補です。</p>
 				</div>
 				<div class="article-numbered__item">
 					<p class="article-numbered__num">03</p>
 					<h3>入力したデータが会議で使われていない</h3>
-					<p>営業会議でExcelを使う、CRMのダッシュボードは「一応表示する」が数字の確認だけで終わる。この状態では、営業がCRMを更新する理由がなくなります。</p>
+					<p>営業会議でスプレッドシートを使う、CRMのダッシュボードは「一応表示する」が数字の確認だけで終わる。この状態では、営業がCRMを更新する理由がなくなります。</p>
 					<p>「入力しても何も変わらない」という認識が現場に定着すると、設計をどれだけ改善しても使われなくなります。会議での使われ方が、定着の最終的な決め手になります。</p>
 					<p><strong>判断基準：</strong>「先週CRMに入力したデータが、今週の会議でどう使われましたか」という問いに、具体的に答えられるかどうかを確認してください。</p>
 				</div>
@@ -135,8 +185,8 @@ const breadcrumbSchema = {
 
 		<!-- CRMが機能したとき -->
 		<section class="article-section">
-			<h2>CRMが機能したとき、何が変わるか</h2>
-			<p>正しく設計されたCRMが機能すると、まず「集計作業」がなくなります。会議前のExcel集計、進捗確認のための個別ヒアリング、マネージャーが毎回行っていた「状況把握のための1on1」。CRMに情報が正しく入っていれば、これらは不要になります。</p>
+			<h2 id="section-4">CRMが機能したとき、何が変わるか</h2>
+			<p>正しく設計されたCRMが機能すると、まず「集計作業」がなくなります。会議前のスプレッドシート集計、進捗確認のための個別ヒアリング、マネージャーが毎回行っていた「状況把握のための1on1」。記録の定義と更新時点が揃えば、これらの確認にかかる作業を減らせます。</p>
 			<p>例えば、5人で対応していた週次の数字管理が1人で回るようになれば、空いた4人分のリソースを顧客対応・提案・改善に使えます。</p>
 			<div class="article-callout">
 				<p>CRMは「入力管理のツール」ではありません。正しく機能すれば、<strong>マネジメントコストそのものを下げるインフラ</strong>になります。</p>
@@ -147,13 +197,13 @@ const breadcrumbSchema = {
 
 		<!-- 最初の一手 -->
 		<section class="article-section">
-			<h2>最初の一手：何から直せばいいか</h2>
+			<h2 id="section-5">最初の一手：何から直せばいいか</h2>
 			<p>CRM定着のために最初に取り組むべきことは、次の3つです。順番が重要です。</p>
 			<div class="article-numbered">
 				<div class="article-numbered__item">
 					<p class="article-numbered__num">01</p>
 					<h3>使われていない入力項目を、入力画面から外す</h3>
-					<p>30個あるなら、まず「実際に使われている10個」だけを入力画面に残してください。「将来使うかもしれない」は、むしろ外す理由になります。項目を減らすことへの抵抗は出ますが、使われないデータに価値はありません。</p>
+					<p>入力項目ごとに、利用者と用途を確認してください。現場の判断に使われる項目に加え、契約・請求など業務上必要な項目は残し、用途がない項目を削減候補にします。「将来使うかもしれない」だけで必須項目にせず、必要になる時点で追加する運用も検討できます。</p>
 					<p>ただし、いきなり削除はしません。外す前に、その項目を参照しているワークフロー・レポート・外部連携を確認します。そのうえで入力画面から外すか読み取り専用にし、一定期間（例えば1四半期）誰も困らないことを確かめてから、データを退避して削除します。</p>
 				</div>
 				<div class="article-numbered__item">
@@ -173,7 +223,7 @@ const breadcrumbSchema = {
 
 		<!-- まとめ -->
 		<section class="article-section">
-			<h2>まとめ：「ちゃんと入力して」が必要な状況は、設計で解決できます</h2>
+			<h2 id="section-6">まとめ：「ちゃんと入力して」が必要な状況は、設計で解決できます</h2>
 			<p>CRMが定着しない原因は、現場の意識や習慣ではありません。使われない項目、定義されていないステージ、会議で使われないダッシュボード。これらは設計の問題であり、設計で解決できます。</p>
 			<p>最初にすべきことは現場への説得ではなく、使われていない項目の整理とステージ定義の言語化です。その2つを終えてから、会議の運営を変えてください。</p>
 			<div class="article-callout">
@@ -240,7 +290,7 @@ const breadcrumbSchema = {
 			<div class="article-cta__body">
 				<h2>Consilegyでは、Revenue Architectureの観点から<br class="br-pc" />売上の取りこぼしを可視化する無料の収益診断を公開しています。</h2>
 				<ul class="article-cta__list">
-					<li>CRMを入れたが、結局Excelから離れられない</li>
+					<li>CRMを入れたが、結局スプレッドシートから離れられない</li>
 					<li>営業がCRMに入力してくれない</li>
 					<li>ダッシュボードの数字を誰も信用していない</li>
 					<li>KPIと業務プロセスがつながっていない</li>

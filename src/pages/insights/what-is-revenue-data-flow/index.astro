@@ -1,18 +1,24 @@
 ---
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import InsightHead from '../../../components/InsightHead.astro';
+import InsightByline from '../../../components/InsightByline.astro';
+import InsightContents from '../../../components/InsightContents.astro';
+import '../../../styles/insight-evidence.css';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
-const pubDateDisplay = '2026年5月7日';
 const readTime = '約10分';
 
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
 	headline: 'Revenue Data Flowとは何か｜なぜ数字がつながらないのか',
-	description: 'DXコンサルティング企業（150名）がHubSpot・Salesforce・Sansan・GA4を統合し、問い合わせ前から商談までの行動を同じ画面で追える状態、分析工数30%削減を実現。データが「つながっているつもり」になっている組織の構造的な問題を解説します。',
+	description: 'Revenue Data Flowとは、部門やシステムのデータを同じ顧客・商談・収益につなぐ流れです。同一性・定義・更新元・更新時点・運用責任の5つの設計項目と、HubSpot移行・データ基盤再設計の支援事例を解説します。',
 	datePublished: pubDate,
-	dateModified: pubDate,
+	dateModified: '2026-10-27',
+	citation: [
+		'https://consilegy.com/case-studies/marketing-data-integration-hubspot-migration/',
+	],
 	author: { '@type': 'Person', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
 	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
 	url: 'https://consilegy.com/insights/what-is-revenue-data-flow/',
@@ -28,15 +34,29 @@ const breadcrumbSchema = {
 		{ '@type': 'ListItem', position: 3, name: 'Revenue Data Flowとは何か。なぜ数字がつながらないのか', item: 'https://consilegy.com/insights/what-is-revenue-data-flow/' },
 	],
 };
+
+// 見出しの id と目次を揃える。公開後は既存の id を変更しない。
+const headings = [
+	{"id": "section-1", "text": "Revenue Data Flowとは"},
+	{"id": "data-flow-design-sheet", "text": "データ連携を設定する前に決める5つの設計項目"},
+	{"id": "section-2", "text": "あなたの組織は大丈夫か。5つの確認項目"},
+	{"id": "section-3", "text": "データがつながらない3つのパターン"},
+	{"id": "section-4", "text": "設計を変えた後に何が起きたか"},
+	{"id": "section-5", "text": "今週から始められる3つのアクション"},
+	{"id": "section-6", "text": "まとめ：数字がつながらない原因は「設計の不在」"},
+];
+
 ---
 
 <BaseLayout
 	title="Revenue Data Flowとは何か｜なぜ数字がつながらないのか | Consilegy"
-	description="DXコンサルティング企業（150名）がHubSpot・Salesforce・Sansan・GA4を統合し、問い合わせ前から商談までの行動を同じ画面で追える状態、分析工数30%削減を実現。データが「つながっているつもり」になっている組織の構造的な問題を解説します。"
+	description={articleSchema.description}
+	hasTranslation={false}
+	ogType="article"
 	lang="ja"
 >
 	<Fragment slot="head">
-		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<InsightHead schema={articleSchema} />
 		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 	</Fragment>
 
@@ -55,11 +75,14 @@ const breadcrumbSchema = {
 			<span class="article-cat">データ基盤・可視化</span>
 		</div>
 		<h1>Revenue Data Flowとは何か<br class="br-pc" />なぜ数字がつながらないのか</h1>
-		<p class="article-desc">DXコンサルティング企業（150名）がHubSpot・Salesforce・Sansan・GA4を統合し、問い合わせ前から商談までの行動を同じ画面で追える状態、分析工数30%削減を実現。データが「つながっているつもり」になっている組織の構造的な問題を解説します。</p>
+		<p class="article-desc">{articleSchema.description}</p>
+		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
 	<div class="article-body container">
+
+		<InsightContents headings={headings} />
 		<div class="article-eyecatch">
 			<img
 				src="/images/insights/what-is-revenue-data-flow-2026b.svg"
@@ -72,6 +95,33 @@ const breadcrumbSchema = {
 			/>
 		</div>
 
+		<section class="article-section" id="definition">
+			<h2 id="section-1">Revenue Data Flowとは</h2>
+			<p><strong>Revenue Data Flowとは、マーケティング・営業・カスタマーサクセスで発生するデータを、同じ顧客や商談に結び付け、収益まで追えるようにするデータの流れです。</strong>システムを接続するだけでなく、顧客の識別、項目の対応、更新のタイミング、指標の定義を揃えることで、部門をまたいでも数字の意味がつながります。</p>
+			<p>Consilegyでは、この流れの設計を<a href="/revenue-architecture/">レベニューアーキテクチャ</a>の一部として扱っています。本記事の分析工数30%削減は、<a href="/case-studies/marketing-data-integration-hubspot-migration/">マーケティングデータ統合・HubSpot移行の支援事例</a>における結果です。個別の支援結果であり、一般的な改善率を示すものではありません。</p>
+		</section>
+
+
+		<section class="article-section" id="data-flow-design">
+			<h2 id="data-flow-design-sheet">データ連携を設定する前に決める5つの設計項目</h2>
+			<p>Revenue Data Flowの設計では、接続する製品名だけでなく、「何を同一とみなし、どの値を、どこから、いつ更新し、誰が直すか」を決めます。Consilegyは、連携の矢印と併せて次の項目を文書化することを勧めています。</p>
+			<div class="insight-evidence-table" role="region" aria-label="Revenue Data Flowの設計シート" tabindex="0">
+				<table>
+					<caption>顧客・商談・収益をまたぐデータ連携の設計シート</caption>
+					<thead><tr><th scope="col">設計項目</th><th scope="col">決めること</th><th scope="col">確認できる状態</th></tr></thead>
+					<tbody>
+						<tr><th scope="row">1. 同一性</th><td>会社・担当者・商談を識別するキーと重複の扱い</td><td>同じ顧客を別システムで開いても、対応する記録を特定できる</td></tr>
+						<tr><th scope="row">2. 定義</th><td>受注・売上・継続を何の条件で計上するか</td><td>同じ名前の指標について、期間と母数まで説明できる</td></tr>
+						<tr><th scope="row">3. 更新元</th><td>項目ごとに正とするシステムと同期方向</td><td>両方で編集されたとき、どちらを採用するか判断できる</td></tr>
+						<tr><th scope="row">4. 更新時点</th><td>同期の起点、頻度、締め時点と遅延の扱い</td><td>数字の差が未反映か、内容の不一致かを区別できる</td></tr>
+						<tr><th scope="row">5. 運用責任</th><td>エラー・例外・定義変更を確認し修正する担当者</td><td>不一致を見つけた人が、連絡先と修正手順をたどれる</td></tr>
+					</tbody>
+				</table>
+			</div>
+			<p>このシートは特定製品の設定仕様ではなく、Consilegyによる設計時の確認項目です。SalesforceとHubSpotを使う場合の具体的な照合手順は、<a href="/insights/why-salesforce-and-hubspot-data-do-not-match/#reconciliation-checklist">数字の不一致を切り分ける6項目</a>を参照してください。</p>
+			<p><a href="/case-studies/marketing-data-integration-hubspot-migration/">DXコンサルティング企業の支援事例</a>で公開しているのは、MarketoからHubSpotへの移行と、Web・Salesforce・Sansanなどを含む基盤再設計です。分析工数約30%削減という結果を、単一の接続機能の効果として扱わず、運用ロジックを含む取り組み全体の結果として読む必要があります。</p>
+		</section>
+
 		<div class="article-section">
 			<p><a href="/case-studies/marketing-data-integration-hubspot-migration/">国内トップクラスのDX知見を持つコンサルティング企業（従業員約150名）</a>では、Marketoによる高度なMA運用・Salesforceによる営業管理・SansanとGA4の活用を組み合わせた体制を構築していました。</p>
 			<p>ツールは揃っていました。</p>
@@ -81,7 +131,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>あなたの組織は大丈夫か。5つの確認項目</h2>
+			<h2 id="section-2">あなたの組織は大丈夫か。5つの確認項目</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>SFAとMAで「同じ顧客」のデータが一致しない</strong>
@@ -97,18 +147,18 @@ const breadcrumbSchema = {
 				</li>
 				<li>
 					<strong>レポートを作るたびに数字を手動で集計している</strong>
-					<p>GA4・CRM・MAの数字を毎回Excelに貼り付けて集計している場合、データが自動で流れる設計になっていません。</p>
+					<p>GA4・CRM・MAの数字を毎回スプレッドシートに貼り付けて集計している場合、データが自動で流れる設計になっていません。</p>
 				</li>
 				<li>
 					<strong>「どの施策が受注につながったか」が分からない</strong>
 					<p>マーケティング施策の成果を問われたとき、「コンバージョン数」は分かるが「最終的な受注」との接続が取れない場合、Revenue Data Flowが断絶しています。</p>
 				</li>
 			</ol>
-			<p class="article-callout">3つ以上当てはまる場合、問題はツールの機能不足ではありません。「どのデータがどこに流れるべきか」の設計が存在していないことが本質です。</p>
+			<p class="article-callout">当てはまる項目があれば、連携の機能・設定と、「どのデータがどこに流れるべきか」という運用上の設計を分けて確認してください。</p>
 		</div>
 
 		<div class="article-section">
-			<h2>データがつながらない3つのパターン</h2>
+			<h2 id="section-3">データがつながらない3つのパターン</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>ツールが増えるほどデータの島が増える</strong>
@@ -134,7 +184,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>設計を変えた後に何が起きたか</h2>
+			<h2 id="section-4">設計を変えた後に何が起きたか</h2>
 			<p>前述のコンサルティング企業では、ツールを揃えることではなく「Web・MA・CRM・名刺管理データを同一の顧客レコードとして統合する設計」から始めました。その結果、以下の変化が起きました。</p>
 			<ol class="article-numbered">
 				<li>
@@ -154,7 +204,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>今週から始められる3つのアクション</h2>
+			<h2 id="section-5">今週から始められる3つのアクション</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>1人の顧客について、各ツールのデータを横断して比較する</strong>
@@ -172,7 +222,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>まとめ：数字がつながらない原因は「設計の不在」</h2>
+			<h2 id="section-6">まとめ：数字がつながらない原因は「設計の不在」</h2>
 			<p>Revenue Data Flowとは、リードの獲得から受注・継続まで、各フェーズのデータが途切れなく流れる設計のことです。</p>
 			<p>ツールが揃っていても、「どのデータがどこに流れるべきか」が設計されていなければ、数字はつながりません。</p>
 			<p>DXコンサルティング企業の事例が示すように、問い合わせ前から商談までの行動を同じ画面で追える状態、分析工数30%削減は新しいツールの追加で実現したのではありません。既存ツールのデータを「同一の顧客として統合する設計」を整えたことで実現しました。</p>

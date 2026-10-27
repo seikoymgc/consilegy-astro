@@ -1,9 +1,11 @@
 ---
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import InsightHead from '../../../components/InsightHead.astro';
+import InsightByline from '../../../components/InsightByline.astro';
+import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
-const pubDateDisplay = '2026年5月7日';
 const readTime = '約10分';
 
 const articleSchema = {
@@ -28,15 +30,27 @@ const breadcrumbSchema = {
 		{ '@type': 'ListItem', position: 3, name: 'CRMがあっても営業とマーケティングが連携できない理由', item: 'https://consilegy.com/insights/why-crm-does-not-align-sales-and-marketing/' },
 	],
 };
+
+// 見出しの id と目次を揃える。公開後は既存の id を変更しない。
+const headings = [
+	{"id": "section-1", "text": "あなたの組織は大丈夫か。5つの確認項目"},
+	{"id": "section-2", "text": "CRMがあっても連携できない3つのパターン"},
+	{"id": "section-3", "text": "定義を揃えた後に何が起きたか"},
+	{"id": "section-4", "text": "今週から始められる3つのアクション"},
+	{"id": "section-5", "text": "まとめ：営業・マーケ連携は「定義の問題」"},
+];
+
 ---
 
 <BaseLayout
 	title="CRMがあっても営業とマーケティングが連携できない理由 | Consilegy"
 	description="ITバックオフィスSaaS企業（200名）がMQL・SQL定義を揃え、行動スコアリングと引き渡し自動化を構築した結果、MQLを増やさずに商談への転換率が20%上がり、商談の件数も増加。CRMがあっても連携できない原因は定義の問題です。"
+	hasTranslation={false}
+	ogType="article"
 	lang="ja"
 >
 	<Fragment slot="head">
-		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<InsightHead schema={articleSchema} />
 		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 	</Fragment>
 
@@ -56,10 +70,13 @@ const breadcrumbSchema = {
 		</div>
 		<h1>CRMがあっても<br class="br-pc" />営業とマーケティングが連携できない理由</h1>
 		<p class="article-desc">ITバックオフィスSaaS企業（200名）がMQL・SQL定義を揃え、行動スコアリングと引き渡し自動化を構築した結果、MQLを増やさずに商談への転換率が20%上がり、商談の件数も増加。CRMがあっても連携できない原因は定義の問題です。</p>
+		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
 	<div class="article-body container">
+
+		<InsightContents headings={headings} />
 		<div class="article-eyecatch">
 			<img
 				src="/images/insights/why-crm-does-not-align-sales-and-marketing-2026b.svg"
@@ -81,7 +98,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>あなたの組織は大丈夫か。5つの確認項目</h2>
+			<h2 id="section-1">あなたの組織は大丈夫か。5つの確認項目</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>営業が「マーケのリードは質が低い」と感じている</strong>
@@ -108,7 +125,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>CRMがあっても連携できない3つのパターン</h2>
+			<h2 id="section-2">CRMがあっても連携できない3つのパターン</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>MQL・SQLの定義が部門ごとに違う</strong>
@@ -132,7 +149,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>定義を揃えた後に何が起きたか</h2>
+			<h2 id="section-3">定義を揃えた後に何が起きたか</h2>
 			<p>前述のSaaS企業では、ツールを変えるのではなく、「マーケティングと営業が同じ基準でリードを判断できる運用ルール」の設計から始めました。その結果、以下の変化が起きました。</p>
 			<ol class="article-numbered">
 				<li>
@@ -152,7 +169,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>今週から始められる3つのアクション</h2>
+			<h2 id="section-4">今週から始められる3つのアクション</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>「MQLとは何か」を営業とマーケが別々に書き、比較する</strong>
@@ -170,7 +187,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>まとめ：営業・マーケ連携は「定義の問題」</h2>
+			<h2 id="section-5">まとめ：営業・マーケ連携は「定義の問題」</h2>
 			<p>CRMがあっても営業とマーケティングが連携できない原因は、ツールの機能不足でも部門間の意識の低さでもありません。</p>
 			<p>「MQL・SQLの定義が部門ごとに違うこと」「引き渡し判断が感覚依存であること」「成功の定義が両部門で一致していないこと」が構造的な原因です。</p>
 			<p>SaaS企業の事例が示すように、転換率20%向上と商談件数の増加を実現したのは定義の設計でした。「同じデータを同じ言語で議論できる状態」を作ることが、営業・マーケ連携の第一歩です。</p>

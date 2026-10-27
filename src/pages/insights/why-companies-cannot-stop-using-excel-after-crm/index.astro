@@ -1,9 +1,11 @@
 ---
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import InsightHead from '../../../components/InsightHead.astro';
+import InsightByline from '../../../components/InsightByline.astro';
+import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
-const pubDateDisplay = '2026年5月7日';
 const readTime = '約10分';
 
 const articleSchema = {
@@ -28,15 +30,27 @@ const breadcrumbSchema = {
 		{ '@type': 'ListItem', position: 3, name: 'CRMを導入してもExcelが止まらない理由', item: 'https://consilegy.com/insights/why-companies-cannot-stop-using-excel-after-crm/' },
 	],
 };
+
+// 見出しの id と目次を揃える。公開後は既存の id を変更しない。
+const headings = [
+	{"id": "section-1", "text": "あなたの組織は大丈夫か。5つの確認項目"},
+	{"id": "section-2", "text": "Excelが止まらない3つのパターン"},
+	{"id": "section-3", "text": "設計を変えた後に何が起きたか"},
+	{"id": "section-4", "text": "今週から始められる3つのアクション"},
+	{"id": "section-5", "text": "まとめ：Excelが止まらない原因は「CRM設計の問題」"},
+];
+
 ---
 
 <BaseLayout
 	title="CRMを導入してもExcelが止まらない理由 | Consilegy"
 	description="医療テック企業（150名）が10箇所以上に分散した顧客データをHubSpotへ統合し、データ管理業務65%削減・月100時間創出。CRMがあっても「Excelの方が使いやすい」が続く組織の構造問題を解説します。"
+	hasTranslation={false}
+	ogType="article"
 	lang="ja"
 >
 	<Fragment slot="head">
-		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<InsightHead schema={articleSchema} />
 		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 	</Fragment>
 
@@ -56,10 +70,13 @@ const breadcrumbSchema = {
 		</div>
 		<h1>CRMを導入しても<br class="br-pc" />Excelが止まらない理由</h1>
 		<p class="article-desc">医療テック企業（150名）が10箇所以上に分散した顧客データをHubSpotへ統合し、データ管理業務65%削減・月100時間創出。CRMがあっても「Excelの方が使いやすい」が続く組織の構造問題を解説します。</p>
+		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
 	<div class="article-body container">
+
+		<InsightContents headings={headings} />
 		<div class="article-eyecatch">
 			<img
 				src="/images/insights/why-companies-cannot-stop-using-excel-after-crm-2026b.svg"
@@ -81,7 +98,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>あなたの組織は大丈夫か。5つの確認項目</h2>
+			<h2 id="section-1">あなたの組織は大丈夫か。5つの確認項目</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>CRMの顧客情報が「最新かどうか分からない」という感覚がある</strong>
@@ -108,7 +125,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>Excelが止まらない3つのパターン</h2>
+			<h2 id="section-2">Excelが止まらない3つのパターン</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>CRMへの入力が手動のみで、データが常に最新でない</strong>
@@ -132,7 +149,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>設計を変えた後に何が起きたか</h2>
+			<h2 id="section-3">設計を変えた後に何が起きたか</h2>
 			<p>前述の医療テック企業では「CRMへの入力を強制する」のではなく、「CRMのデータが自動で最新状態になり、現場がすぐ使える形で取り出せる設計」から始めました。その結果、以下の変化が起きました。</p>
 			<ol class="article-numbered">
 				<li>
@@ -152,7 +169,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>今週から始められる3つのアクション</h2>
+			<h2 id="section-4">今週から始められる3つのアクション</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>「CRMとExcelで二重管理されている情報」をリストアップする</strong>
@@ -170,7 +187,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>まとめ：Excelが止まらない原因は「CRM設計の問題」</h2>
+			<h2 id="section-5">まとめ：Excelが止まらない原因は「CRM設計の問題」</h2>
 			<p>CRMを導入してもExcelが止まらない原因は、現場の意識でもCRMのUIでもありません。</p>
 			<p>「CRMのデータが常に最新でないこと」「CRMから必要な形式でデータが取り出せないこと」「CRMへの入力が現場の仕事を楽にしない設計になっていること」が構造的な原因です。</p>
 			<p>医療テック企業の事例が示すように、データ管理65%削減・月100時間の工数創出はExcelをなくすと決めた結果ではありません。「CRMが自動で最新状態になり、現場がすぐ使える設計」を整えたことで自然に実現しました。</p>

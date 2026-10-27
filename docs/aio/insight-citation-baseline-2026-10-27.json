@@ -1,0 +1,100 @@
+{
+  "observedAt": "2026-10-27T21:59:18+09:00",
+  "scope": "consilegy.com Japanese insights; baseline before publication of the proposed changes",
+  "googleUrlInspection": [
+    {
+      "url": "https://consilegy.com/insights/why-salesforce-and-hubspot-data-do-not-match/",
+      "indexed": true,
+      "fetch": "success",
+      "crawlAllowed": true,
+      "lastCrawlDisplay": "2026/10/15 16:22:26",
+      "googleCanonical": "inspected URL",
+      "sitemapDisplay": "temporary processing error"
+    },
+    {
+      "url": "https://consilegy.com/insights/why-crm-adoption-fails/",
+      "indexed": true,
+      "fetch": "success",
+      "crawlAllowed": true,
+      "lastCrawlDisplay": "2026/08/23 0:57:53",
+      "googleCanonical": "inspected URL",
+      "sitemapDisplay": "https://consilegy.com/sitemap-index.xml"
+    },
+    {
+      "url": "https://consilegy.com/insights/what-is-revenue-visibility/",
+      "indexed": true,
+      "fetch": "success",
+      "crawlAllowed": true,
+      "lastCrawlDisplay": "2026/10/19 23:17:25",
+      "googleCanonical": "inspected URL",
+      "sitemapDisplay": "temporary processing error"
+    }
+  ],
+  "googleInspectionNotes": [
+    "Dates are copied from the UI; the display timezone was not verified.",
+    "No indexing requests or live tests were submitted.",
+    "Index registration is not evidence of an AI citation."
+  ],
+  "bingAiPerformance": {
+    "scope": "Microsoft Copilots and Partners",
+    "periodStart": "2026-07-27",
+    "periodEnd": "2026-10-26",
+    "selectedPeriod": "3 M",
+    "totalCitationsDisplay": 0,
+    "avgCitedPagesDisplay": 0,
+    "pageRowsDisplay": 0,
+    "notes": "Site-wide displayed aggregate, not a per-article zero or a measure of ChatGPT/Gemini citations. This site was imported on 2026-10-26; processing can refine data."
+  },
+  "geminiAnswerTest": {
+    "modeDisplay": "Flash",
+    "temporaryChat": true,
+    "prompt": "SalesforceとHubSpotを連携しているのに、商談数や受注額が合いません。原因を切り分けるには何を確認すればよいですか。日本のB2B企業を想定し、ウェブ上の根拠を調べ、参照したページのURLを付けて説明してください。",
+    "attempts": 2,
+    "completed": false,
+    "citation": null,
+    "reason": "Both attempts returned inability-to-answer messages rather than a substantive answer; this is not a negative citation result. No company or target URL was supplied in the prompt."
+  },
+  "editorialEvidence": {
+    "userConfirmedHypothetical": [
+      "79 configured deal stages, 5 used",
+      "30 input fields, 10 filled"
+    ],
+    "treatment": "Label the narrative and its dependent references as hypothetical; remove these figures from the summary.",
+    "publishedCaseFigures": {
+      "analysisEffortReductionApprox30Percent": "Data platform redesign including migration and operations, not the effect of a single integration setting.",
+      "conversionImprovement20Percent": "Source does not publish before/after counts or resolve relative percent vs percentage points; do not infer either."
+    }
+  },
+  "priorityQuestions": [
+    {
+      "question": "SalesforceとHubSpotの数字が合わないとき、何を確認すればよいですか？",
+      "path": "/insights/why-salesforce-and-hubspot-data-do-not-match/"
+    },
+    {
+      "question": "顧客管理システムが定着しないとき、何から見直せばよいですか？",
+      "path": "/insights/why-crm-adoption-fails/"
+    },
+    {
+      "question": "MQLとSQLの違い、営業への引き渡し基準を教えてください。",
+      "path": "/insights/why-sql-definitions-break-between-marketing-and-sales/"
+    },
+    {
+      "question": "Revenue Visibilityとは何ですか？売上ダッシュボードとの違いは？",
+      "path": "/insights/what-is-revenue-visibility/"
+    },
+    {
+      "question": "部門をまたぐ収益データの連携では、何を先に設計しますか？",
+      "path": "/insights/what-is-revenue-data-flow/"
+    }
+  ],
+  "publication": {
+    "status": "not published; scoped worktree prepared",
+    "nextSteps": [
+      "Approve production publication of the scoped insight changes.",
+      "Verify deployed article content, canonical URLs, and source links.",
+      "Request fresh indexing for materially updated priority URLs.",
+      "Repeat the same unbranded questions and record actual cited URLs separately from indexing."
+    ],
+    "automationCreated": false
+  }
+}

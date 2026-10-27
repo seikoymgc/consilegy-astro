@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import InsightGuide from '../../components/InsightGuide.astro';
 import { articles } from '../../data/insights';
 
 
@@ -57,11 +58,13 @@ const uniqueCats = [
   <!-- ===== HEADER ===== -->
   <header class="ins-head">
     <div class="container"><div class="ins-head__inner">
-      <p class="ins-head__eyebrow">コラム</p>
+      <p class="ins-head__eyebrow">Insights</p>
       <h1 class="ins-head__title">RevOps・CRM・Revenue Architectureの実践コラム</h1>
       <p class="ins-head__lede">RevOps・Revenue Architecture・CRM・KPI設計に関する実践コラム。<br class="br-pc" />日本のBtoB企業が直面する課題の構造を、実務の観点から解説します。</p>
     </div></div>
   </header>
+
+  <div class="container"><InsightGuide /></div>
 
   <!-- ===== FILTER ===== -->
   <div class="ins-filter-wrap container">

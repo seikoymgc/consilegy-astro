@@ -1,9 +1,11 @@
 ---
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import InsightHead from '../../../components/InsightHead.astro';
+import InsightByline from '../../../components/InsightByline.astro';
+import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
-const pubDateDisplay = '2026年5月7日';
 const readTime = '約10分';
 
 const articleSchema = {
@@ -28,15 +30,27 @@ const breadcrumbSchema = {
 		{ '@type': 'ListItem', position: 3, name: 'なぜKPI会議は「数字確認会」で終わってしまうのか', item: 'https://consilegy.com/insights/why-kpi-meetings-become-status-update-sessions/' },
 	],
 };
+
+// 見出しの id と目次を揃える。公開後は既存の id を変更しない。
+const headings = [
+	{"id": "section-1", "text": "あなたの組織は大丈夫か。5つの確認項目"},
+	{"id": "section-2", "text": "KPI会議が数字確認で終わる3つのパターン"},
+	{"id": "section-3", "text": "設計を変えた後に何が起きたか"},
+	{"id": "section-4", "text": "今週から始められる3つのアクション"},
+	{"id": "section-5", "text": "まとめ：KPI会議の質は「実行速度の問題」"},
+];
+
 ---
 
 <BaseLayout
 	title="なぜKPI会議は「数字確認会」で終わってしまうのか | Consilegy"
 	description="グローバルDTCブランド（約20,000名）が施策実行のリードタイムを70〜80%短縮し、改善サイクルを定着させた事例から。KPI会議が報告で終わる原因は会議の進め方ではなく、「数字が出たとき変えられる速度」の問題です。"
+	hasTranslation={false}
+	ogType="article"
 	lang="ja"
 >
 	<Fragment slot="head">
-		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<InsightHead schema={articleSchema} />
 		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 	</Fragment>
 
@@ -56,10 +70,13 @@ const breadcrumbSchema = {
 		</div>
 		<h1>なぜKPI会議は<br class="br-pc" />「数字確認会」で終わってしまうのか</h1>
 		<p class="article-desc">グローバルDTCブランド（約20,000名）が施策実行のリードタイムを70〜80%短縮し、改善サイクルを定着させた事例から。KPI会議が報告で終わる原因は会議の進め方ではなく、「数字が出たとき変えられる速度」の問題です。</p>
+		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
 	<div class="article-body container">
+
+		<InsightContents headings={headings} />
 		<div class="article-eyecatch">
 			<img
 				src="/images/insights/why-kpi-meetings-become-status-update-sessions-2026b.svg"
@@ -81,7 +98,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>あなたの組織は大丈夫か。5つの確認項目</h2>
+			<h2 id="section-1">あなたの組織は大丈夫か。5つの確認項目</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>KPI会議の大半が「今月の数字はいくつでした」の確認で終わる</strong>
@@ -108,7 +125,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>KPI会議が数字確認で終わる3つのパターン</h2>
+			<h2 id="section-2">KPI会議が数字確認で終わる3つのパターン</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>実行速度が「決める速度」に追いついていない</strong>
@@ -133,7 +150,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>設計を変えた後に何が起きたか</h2>
+			<h2 id="section-3">設計を変えた後に何が起きたか</h2>
 			<p>前述のグローバルDTCブランドでは、会議の進め方を変えたのではなく、「会議で決めたことを即実行できる基盤」を整えました。その結果、以下の変化が起きました。</p>
 			<ol class="article-numbered">
 				<li>
@@ -153,7 +170,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>今週から始められる3つのアクション</h2>
+			<h2 id="section-4">今週から始められる3つのアクション</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>前回のKPI会議のアクションリストを今日確認する</strong>
@@ -171,7 +188,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>まとめ：KPI会議の質は「実行速度の問題」</h2>
+			<h2 id="section-5">まとめ：KPI会議の質は「実行速度の問題」</h2>
 			<p>KPI会議が数字確認で終わる原因は、会議のファシリテーションや参加者の質の問題ではありません。</p>
 			<p>「実行速度が決める速度に追いついていないこと」「KPIが行動トリガーとして設計されていないこと」「改善を確認する会議設計になっていないこと」が構造的な原因です。</p>
 			<p>グローバルDTCブランドの事例が示すように、リードタイムを70〜80%短縮したことで会議の性質が変わりました。</p>

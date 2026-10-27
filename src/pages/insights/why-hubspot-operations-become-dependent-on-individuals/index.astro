@@ -1,9 +1,11 @@
 ---
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import InsightHead from '../../../components/InsightHead.astro';
+import InsightByline from '../../../components/InsightByline.astro';
+import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
-const pubDateDisplay = '2026年5月7日';
 const readTime = '約10分';
 
 const articleSchema = {
@@ -28,15 +30,27 @@ const breadcrumbSchema = {
 		{ '@type': 'ListItem', position: 3, name: 'なぜHubSpot運用は「属人化」するのか', item: 'https://consilegy.com/insights/why-hubspot-operations-become-dependent-on-individuals/' },
 	],
 };
+
+// 見出しの id と目次を揃える。公開後は既存の id を変更しない。
+const headings = [
+	{"id": "section-1", "text": "あなたのHubSpotは大丈夫か。5つの確認項目"},
+	{"id": "section-2", "text": "属人化を生む3つのパターン"},
+	{"id": "section-3", "text": "再設計後に何が変わったか"},
+	{"id": "section-4", "text": "まず3日でできること"},
+	{"id": "section-5", "text": "まとめ：属人化はツールの問題ではない"},
+];
+
 ---
 
 <BaseLayout
 	title="なぜHubSpot運用は属人化するのか｜RevOpsとRevenue Architecture | Consilegy"
 	description="HubSpot運用が一部担当者に依存し、ブラックボックス化する原因を、Revenue ArchitectureとRevOpsの観点から解説します。"
+	hasTranslation={false}
+	ogType="article"
 	lang="ja"
 >
 	<Fragment slot="head">
-		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<InsightHead schema={articleSchema} />
 		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 	</Fragment>
 
@@ -56,10 +70,13 @@ const breadcrumbSchema = {
 		</div>
 		<h1>なぜHubSpot運用は<br class="br-pc" />「属人化」するのか</h1>
 		<p class="article-desc">DX支援会社がHubSpotへ移行する際、ワークフローのブラックボックス化と属人化を解消し、分析工数を約30%削減した事例から。属人化は担当者の問題ではなく、設計構造の問題です。</p>
+		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
 	<div class="article-body container">
+
+		<InsightContents headings={headings} />
 		<div class="article-eyecatch">
 			<img
 				src="/images/insights/why-hubspot-operations-become-dependent-on-individuals-2026b.svg"
@@ -80,7 +97,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>あなたのHubSpotは大丈夫か。5つの確認項目</h2>
+			<h2 id="section-1">あなたのHubSpotは大丈夫か。5つの確認項目</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>特定の担当者がいなければ、ワークフローの修正ができない</strong>
@@ -107,7 +124,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>属人化を生む3つのパターン</h2>
+			<h2 id="section-2">属人化を生む3つのパターン</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>プロパティが増殖し続ける</strong>
@@ -129,7 +146,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>再設計後に何が変わったか</h2>
+			<h2 id="section-3">再設計後に何が変わったか</h2>
 			<p>前述のコンサルティング企業では、HubSpotへの移行と同時に運用構造を再設計したことで、以下の変化が起きました。</p>
 			<ol class="article-numbered">
 				<li>
@@ -149,7 +166,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>まず3日でできること</h2>
+			<h2 id="section-4">まず3日でできること</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>使われていないプロパティを棚卸しする</strong>
@@ -167,7 +184,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>まとめ：属人化はツールの問題ではない</h2>
+			<h2 id="section-5">まとめ：属人化はツールの問題ではない</h2>
 			<p>HubSpotが属人化する本質的な理由は、ツールの柔軟性ではなく、設計思想がないまま運用が積み重なることにあります。</p>
 			<p>プロパティ・ワークフロー・ライフサイクル定義・連携ルールが構造として設計されていなければ、どれだけ高機能なツールも個人依存のシステムになります。</p>
 			<p>引き継ぎができる。変更しても壊れない。担当者が変わっても同じ運用が続く。この状態は、設計書1枚から始まります。</p>

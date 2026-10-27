@@ -1,9 +1,11 @@
 ---
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import InsightHead from '../../../components/InsightHead.astro';
+import InsightByline from '../../../components/InsightByline.astro';
+import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
-const pubDateDisplay = '2026年5月7日';
 const readTime = '約10分';
 
 const articleSchema = {
@@ -28,15 +30,27 @@ const breadcrumbSchema = {
 		{ '@type': 'ListItem', position: 3, name: 'なぜ「CRMを統合したい」プロジェクトは失敗しやすいのか', item: 'https://consilegy.com/insights/why-crm-integration-projects-fail/' },
 	],
 };
+
+// 見出しの id と目次を揃える。公開後は既存の id を変更しない。
+const headings = [
+	{"id": "section-1", "text": "あなたの組織は大丈夫か。5つの確認項目"},
+	{"id": "section-2", "text": "CRM統合が失敗する3つのパターン"},
+	{"id": "section-3", "text": "設計を変えた後に何が起きたか"},
+	{"id": "section-4", "text": "今週から始められる3つのアクション"},
+	{"id": "section-5", "text": "まとめ：CRM統合は「設計の問題」"},
+];
+
 ---
 
 <BaseLayout
 	title="CRM統合プロジェクトが失敗する理由 | Consilegy"
 	description="顧客データが10箇所以上に分散していた医療テック企業がHubSpotへ統合し、データ管理工数を約65%削減・月約100時間を創出。CRM統合が失敗する原因はツール連携の問題ではなく、設計の問題です。"
+	hasTranslation={false}
+	ogType="article"
 	lang="ja"
 >
 	<Fragment slot="head">
-		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<InsightHead schema={articleSchema} />
 		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 	</Fragment>
 
@@ -56,10 +70,13 @@ const breadcrumbSchema = {
 		</div>
 		<h1>なぜ「CRMを統合したい」<br class="br-pc" />プロジェクトは失敗しやすいのか</h1>
 		<p class="article-desc">顧客データが10箇所以上に分散していた医療テック企業がHubSpotへ統合し、データ管理工数を約65%削減・月約100時間を創出。CRM統合が失敗する原因はツール連携の問題ではなく、設計の問題です。</p>
+		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
 	<div class="article-body container">
+
+		<InsightContents headings={headings} />
 		<div class="article-eyecatch">
 			<img
 				src="/images/insights/why-crm-integration-projects-fail-2026b.svg"
@@ -80,7 +97,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>あなたの組織は大丈夫か。5つの確認項目</h2>
+			<h2 id="section-1">あなたの組織は大丈夫か。5つの確認項目</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>複数システムに同じ顧客情報が存在し、どれが最新か分からない</strong>
@@ -107,7 +124,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>CRM統合が失敗する3つのパターン</h2>
+			<h2 id="section-2">CRM統合が失敗する3つのパターン</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>「接続すること」がゴールになっている</strong>
@@ -131,7 +148,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>設計を変えた後に何が起きたか</h2>
+			<h2 id="section-3">設計を変えた後に何が起きたか</h2>
 			<p>前述の医療テック企業では、ツールを「つなぐ」ことから始めるのではなく、データフローと運用構造の再設計としてプロジェクトを推進しました。その結果、以下の変化が起きました。</p>
 			<ol class="article-numbered">
 				<li>
@@ -151,7 +168,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>今週から始められる3つのアクション</h2>
+			<h2 id="section-4">今週から始められる3つのアクション</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>「最もよく使うデータ」を1つ特定し、正データがどこにあるか確認する</strong>
@@ -169,7 +186,7 @@ const breadcrumbSchema = {
 		</div>
 
 		<div class="article-section">
-			<h2>まとめ：CRM統合は「設計の問題」</h2>
+			<h2 id="section-5">まとめ：CRM統合は「設計の問題」</h2>
 			<p>CRM統合プロジェクトが失敗する理由は、ツール連携の技術的な問題ではありません。</p>
 			<p>「接続することがゴールになっていること」「正データが定義されていないこと」「ツールリストから設計を始めること」が構造的な原因です。</p>
 			<p>医療テック企業の事例が示すように、65%の工数削減・月100時間の創出を実現した背景には、ツールを変える前に「誰がどんなデータをいつ必要とするか」を設計する順序がありました。</p>

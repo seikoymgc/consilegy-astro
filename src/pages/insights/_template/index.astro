@@ -8,25 +8,29 @@
 //   2. 「TODO」を全部埋める（grep TODO で漏れ確認）
 //   3. アイキャッチ: scripts/generate-eyecatches.mjs で生成
 //
-// LLMO必須要素（削らないこと）:
-//   - 定義ブロック: 冒頭H2直下に160〜200字の自己完結した定義段落。
-//     AIが引用する最小単位。主語を省略しない・指示語を使わない
-//   - 記事末FAQ: 3〜5問。faqItems に書けば本文とスキーマ両方に反映される
-//   - author は Person（山口聖子）固定。Organizationに戻さない
+// 記事を読み取りやすく保つための編集ルール:
+//   - 定義ブロック: 冒頭に、主語と対象が明確な説明を置く。
+//     AI引用に必須の文字数やスキーマはない。読者に必要な説明を優先する。
+//   - 記事末FAQ: 読者が必要とする質問があれば faqItems に書く。本文とスキーマ両方に反映される。
+//   - 著者と公開日は実態に合わせ、InsightHead と InsightByline で表示する。
+//   - H2のidは公開後に変えず、headings の目次と揃える。
+//   - 本文を実質的に更新した場合のみ dateModified を変更する。
 // ============================================================
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import InsightHead from '../../../components/InsightHead.astro';
+import InsightByline from '../../../components/InsightByline.astro';
+import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const slug = 'TODO-slug'; // 例: why-crm-adoption-fails（フォルダ名と一致させる）
 const pubDate = 'TODO-2026-MM-DD';
-const pubDateDisplay = 'TODO 2026年M月D日';
 
 const title = 'TODO 記事タイトル（32字前後・「なぜ」「〜とは」型）';
 const metaTitle = 'TODO 記事タイトル｜サブコピー | Consilegy';
 const metaDescription = 'TODO メタディスクリプション（100〜120字。検索結果とAI要約の両方で使われる）';
 const category = 'TODO カテゴリ'; // 例: CRM / RevOps / Revenue Architecture
 
-// ── 記事末FAQ（3〜5問・LLMO必須）
+// ── 記事末FAQ（読者に必要な質問・回答）
 // 質問は「〜とは？」「〜の違いは？」「いつ〜すべき？」など検索される形式で。
 // 回答は2〜4文で自己完結させる（この回答だけ読んでも意味が通ること）。
 const faqItems = [
@@ -67,15 +71,27 @@ const breadcrumbSchema = {
 		{ '@type': 'ListItem', position: 3, name: title, item: `https://consilegy.com/insights/${slug}/` },
 	],
 };
+
+// 見出しの id と目次を揃える。公開後は既存の id を変更しない。
+const headings = [
+	{"id": "section-1", "text": "TODO（記事の中心概念）とは"},
+	{"id": "section-2", "text": "TODO 導入見出し（具体的な場面・数字）"},
+	{"id": "section-3", "text": "TODO 見出し（「〜とは」「なぜ〜か」「〜との違い」型を優先）"},
+	{"id": "section-4", "text": "まとめ：TODO（結論を見出しに書く）"},
+	{"id": "section-5", "text": "よくある質問"},
+];
+
 ---
 
 <BaseLayout
 	title={metaTitle}
 	description={metaDescription}
+	hasTranslation={false}
+	ogType="article"
 	lang="ja"
 >
 	<Fragment slot="head">
-		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<InsightHead schema={articleSchema} />
 		<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 	</Fragment>
@@ -96,10 +112,13 @@ const breadcrumbSchema = {
 		</div>
 		<h1>{title}</h1>
 		<p class="article-desc">TODO リード文（具体的な数字・場面で始める。メタディスクリプションのコピペにしない）</p>
+		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
 	<!-- ===== ARTICLE BODY ===== -->
 	<article class="article-body container" id="article">
+
+		<InsightContents headings={headings} />
 		<div class="article-eyecatch">
 			<img
 				src={`/images/insights/${slug}-2026b.svg`}
@@ -116,7 +135,7 @@ const breadcrumbSchema = {
 		     160〜200字・1段落で自己完結。この段落だけ切り取られても
 		     意味が通ること。「TODOとは、〜です。」で始める。 -->
 		<section class="article-section article-def" id="definition">
-			<h2>TODO（記事の中心概念）とは</h2>
+			<h2 id="section-1">TODO（記事の中心概念）とは</h2>
 			<p class="article-def__text"><strong>TODO（中心概念）とは</strong>、TODO 160〜200字の定義文。主語を省略しない。指示語（これ・それ）を使わない。1段落で完結させる。</p>
 		</section>
 
@@ -124,7 +143,7 @@ const breadcrumbSchema = {
 
 		<!-- はじめに: 具体的なエピソード・数字で始める -->
 		<section class="article-section">
-			<h2>TODO 導入見出し（具体的な場面・数字）</h2>
+			<h2 id="section-2">TODO 導入見出し（具体的な場面・数字）</h2>
 			<p>TODO 本文</p>
 			<div class="article-callout">
 				<p>TODO この記事の核心を1〜2文で（コールアウトはAIに拾われやすい）</p>
@@ -135,7 +154,7 @@ const breadcrumbSchema = {
 
 		<!-- 本文: 必要なだけ article-section を繰り返す -->
 		<section class="article-section">
-			<h2>TODO 見出し（「〜とは」「なぜ〜か」「〜との違い」型を優先）</h2>
+			<h2 id="section-3">TODO 見出し（「〜とは」「なぜ〜か」「〜との違い」型を優先）</h2>
 			<p>TODO 本文</p>
 			<div class="article-numbered">
 				<div class="article-numbered__item">
@@ -155,7 +174,7 @@ const breadcrumbSchema = {
 
 		<!-- まとめ -->
 		<section class="article-section">
-			<h2>まとめ：TODO（結論を見出しに書く）</h2>
+			<h2 id="section-4">まとめ：TODO（結論を見出しに書く）</h2>
 			<p>TODO まとめ本文</p>
 		</section>
 
@@ -163,7 +182,7 @@ const breadcrumbSchema = {
 
 		<!-- ★ 記事末FAQ（LLMO必須・faqItems と自動同期） -->
 		<section class="article-section article-faq" id="faq">
-			<h2>よくある質問</h2>
+			<h2 id="section-5">よくある質問</h2>
 			<div class="faq-list">
 				{faqItems.map(({ q, a }) => (
 					<details class="faq-item">
@@ -173,8 +192,6 @@ const breadcrumbSchema = {
 				))}
 			</div>
 		</section>
-
-		<p class="article-pubdate">公開日：{pubDateDisplay}</p>
 	</article>
 
 	<!-- ===== RELATED SERVICES ===== -->

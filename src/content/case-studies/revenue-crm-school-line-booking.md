@@ -1,13 +1,13 @@
 ---
-title: "生徒約40人のオンライン英会話スクールで、LINEの確認と予約をつなぐ"
+title: "生徒数十人のオンライン英会話スクールで、LINEの確認と予約をつなぐ"
 slug: "revenue-crm-school-line-booking"
 sourceUrl: "https://consilegy.com/case-studies/revenue-crm-school-line-booking/"
 lang: "ja"
 modified: "2026-10-26T00:00:00+09:00"
-description: "Revenue CRMスクール版の開発のもとになった、オンライン英会話スクールの事例。生徒約40人の課題確認と予約をLINEで手作業で回していた背景、LINE公式アカウントとGoogleカレンダーの連携、経営者から寄せられた声を紹介します。"
+description: "Revenue CRMスクール版の開発のもとになった、オンライン英会話スクールの事例。生徒数十人の課題確認と予約をLINEで手作業で回していた背景、LINE公式アカウントとGoogleカレンダーの連携、経営者から寄せられた声を紹介します。"
 industry: "Online English School"
 service: "Revenue CRM School"
-size: "開発のもとになったスクール・生徒約40人"
+size: "開発のもとになったスクール・生徒数十人"
 symptom: "生徒ごとのLINEグループで課題の確認と予約を手作業で回し、運営に追われて新規生徒の募集を止めていた"
 action: "LINE公式アカウントとGoogleカレンダーをつなぎ、手作業だった確認と予約を自動化"
 result: "経営者から、新規生徒の募集を再開できるようになったとの声。定量的な効果は未掲載"
@@ -15,7 +15,7 @@ draft: false
 ---
 <p class="post-meta">公開日：2026年10月26日 · 執筆：Consilegy合同会社 代表 山口聖子</p>
 
-<p>Revenue CRMスクール版の開発のもとになったのは、代表の知人が運営するオンライン英会話スクールです。生徒約40人に対して、生徒ひとりにつき1つのLINEグループを使い、課題の確認と予約を手作業で回していました。</p>
+<p>Revenue CRMスクール版の開発のもとになったのは、代表の知人が運営するオンライン英会話スクールです。生徒数十人に対して、生徒ひとりにつき1つのLINEグループを使い、課題の確認と予約を手作業で回していました。</p>
 <p>ここでは、スクール版の開発背景として公開している運営状況、実施した連携、経営者から寄せられた声を紹介します。</p>
 
 <section class="cs-section">

@@ -4,6 +4,8 @@
 export const jaToEn: Record<string, string> = {
   '/': '/en/',
   '/services/': '/en/services/',
+  '/services/business-system-development/': '/en/services/business-system-development/',
+  '/services/project-management-support/': '/en/services/project-management-support/',
   '/services/revenue-architecture-design/': '/en/services/revenue-architecture-design/',
   '/services/marketing-strategy-design/': '/en/services/',
   '/services/hubspot-implementation-operations/': '/en/services/hubspot-implementation-operations-support/',

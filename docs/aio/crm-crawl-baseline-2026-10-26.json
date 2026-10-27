@@ -1,0 +1,28 @@
+{
+  "observedDateJst": "2026-10-26",
+  "source": "Google Search Console URL検査の画面",
+  "property": "https://consilegy.com/",
+  "lastCrawlTimeZone": "画面表示のまま保存。表示のタイムゾーンは未確認",
+  "localChangesPublished": false,
+  "pages": [
+    { "url": "https://consilegy.com/crm/", "indexed": true, "lastCrawlDisplay": "2026/10/24 22:59:00", "fetch": "成功", "googleCanonical": "https://consilegy.com/crm/", "note": "サイトマップ欄に一時的な処理エラーの表示あり" },
+    { "url": "https://consilegy.com/crm/standard/", "indexed": false, "lastCrawlDisplay": null, "fetch": null, "googleCanonical": null, "reason": "URL が Google に認識されていません" },
+    { "url": "https://consilegy.com/crm/contractor/", "indexed": true, "lastCrawlDisplay": "2026/10/16 23:14:30", "fetch": "成功", "googleCanonical": "https://consilegy.com/crm/contractor/" },
+    { "url": "https://consilegy.com/crm/services/", "indexed": false, "lastCrawlDisplay": null, "fetch": null, "googleCanonical": null, "reason": "URL が Google に認識されていません" },
+    { "url": "https://consilegy.com/crm/reseller/", "indexed": true, "lastCrawlDisplay": "2026/10/15 5:08:51", "fetch": "成功", "googleCanonical": "https://consilegy.com/crm/reseller/" },
+    { "url": "https://consilegy.com/crm/school/", "indexed": true, "lastCrawlDisplay": "2026/10/23 12:10:18", "fetch": "成功", "googleCanonical": "https://consilegy.com/crm/school/" },
+    { "url": "https://consilegy.com/crm/features/", "indexed": true, "lastCrawlDisplay": "2026/10/17 11:12:05", "fetch": "成功", "googleCanonical": "https://consilegy.com/crm/features/" },
+    { "url": "https://consilegy.com/crm/pricing/", "indexed": true, "lastCrawlDisplay": "2026/10/17 12:44:08", "fetch": "成功", "googleCanonical": "https://consilegy.com/crm/pricing/" },
+    { "url": "https://consilegy.com/crm/faq/", "indexed": true, "lastCrawlDisplay": "2026/10/16 5:49:45", "fetch": "成功", "googleCanonical": "https://consilegy.com/crm/faq/" },
+    { "url": "https://consilegy.com/crm/school/faq/", "indexed": true, "lastCrawlDisplay": "2026/10/23 21:29:54", "fetch": "成功", "googleCanonical": "https://consilegy.com/crm/school/faq/" },
+    { "url": "https://consilegy.com/case-studies/revenue-crm-school-line-booking/", "indexed": null, "lastCrawlDisplay": null, "fetch": null, "googleCanonical": null, "reason": "ローカル作成済み・未公開。今回のGSC検査対象外" }
+  ],
+  "aiCitations": {
+    "status": "公式数値は未取得",
+    "bingSiteRegistered": false,
+    "reason": "Bing Webmaster Toolsにログインしたが、サイト未登録。Search ConsoleからのImportは自動承認レビューで拒否され、ユーザー承認待ち",
+    "period": null,
+    "count": null,
+    "observations": []
+  }
+}

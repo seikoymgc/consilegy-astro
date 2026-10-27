@@ -1,0 +1,20 @@
+{
+  "publicationVerifiedAt": "2026-10-26T13:57:36+09:00",
+  "commit": "246a806468f23f218657226c5eb86cac9e1065e0",
+  "branch": "main",
+  "deployment": {
+    "runId": 40271558626,
+    "url": "https://github.com/seikoymgc/consilegy-astro/actions/runs/40271558626",
+    "conclusion": "success",
+    "localBuild": "success: latest main + 3 changed files"
+  },
+  "liveChecks": [
+    { "url": "https://consilegy.com/case-studies/revenue-crm-school-line-booking/", "httpStatus": 200, "verified": "事例本文と定量効果の範囲" },
+    { "url": "https://consilegy.com/crm/school/", "httpStatus": 200, "verified": "事例ページへのリンク" },
+    { "url": "https://consilegy.com/crm/faq/", "httpStatus": 200, "verified": "CollectionPageのItemList27件。FAQPageは出力しない" },
+    { "url": "https://consilegy.com/crm/faq/pricing/", "httpStatus": 200, "verified": "個別ページのFAQPageと回答全文を保持" }
+  ],
+  "postPublicationGoogleRecrawlConfirmed": false,
+  "postPublicationAiCitationConfirmed": false,
+  "note": "公開反映のみ確認済み。Googleの再クロールやAI引用を確認した記録ではない"
+}

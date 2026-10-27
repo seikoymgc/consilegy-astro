@@ -1,0 +1,102 @@
+{
+  "observed_at_jst": "2026-10-26T21:34:23.702302+09:00",
+  "publication": {
+    "commit": "e41d6a1e031d33fc9d971954bbfb10d6b4f21f70",
+    "workflow_run": 40297508597,
+    "workflow_url": "https://github.com/seikoymgc/consilegy-astro/actions/runs/40297508597",
+    "conclusion": "success",
+    "pages": [
+      "https://consilegy.com/crm/updates/",
+      "https://consilegy.com/en/crm/updates/",
+      "https://consilegy.com/news/revenue-crm-release/",
+      "https://consilegy.com/en/news/revenue-crm-release/",
+      "https://consilegy.com/crm/services/",
+      "https://consilegy.com/crm/contractor/"
+    ],
+    "changes": [
+      "日英の更新履歴に現在の5エディション、対象業務、料金の確認先を追加",
+      "日英の旧正式リリース記事に当時の情報である旨と最新情報へのリンクを追加。公開日は維持",
+      "支援会社版と受託開発版から最新エディション一覧にリンク"
+    ],
+    "verification": [
+      "npm run build成功、302ページ生成",
+      "変更した6ページの内部リンク・アンカー検査で欠落なし",
+      "最新mainを取り込んで再ビルド後にpush",
+      "公開画面を確認"
+    ],
+    "screenshot": "/private/tmp/crm-current-editions-published-2026-10-26.png"
+  },
+  "google": {
+    "observations": [
+      {
+        "url": "https://consilegy.com/crm/services/",
+        "indexed": false,
+        "reason": "URL が Google に認識されていません",
+        "last_crawl": null
+      },
+      {
+        "url": "https://consilegy.com/crm/contractor/",
+        "indexed": true,
+        "last_crawl_display": "2026/10/16 23:14:30",
+        "timezone": "UI表示。タイムゾーン未確認",
+        "fetch": "成功",
+        "google_canonical": "検査対象のURL"
+      },
+      {
+        "url": "https://consilegy.com/crm/standard/",
+        "indexed": false,
+        "reason": "URL が Google に認識されていません",
+        "last_crawl": null
+      }
+    ],
+    "indexing_request": {
+      "url": "https://consilegy.com/crm/contractor/",
+      "status": "failed_not_accepted",
+      "reason": "reCAPTCHAサービス接続エラー。送信中に問題が発生。",
+      "evidence": "/private/tmp/crm-gsc-request-error-2026-10-26.txt"
+    },
+    "sitemap": {
+      "url": "https://consilegy.com/sitemap-index.xml",
+      "resubmission": "accepted",
+      "submission_display": "2026/10/26",
+      "last_read_display": "2026/10/18",
+      "discovered_pages_display": 287,
+      "note": "送信受付を確認。再クロールや再登録の完了ではない。",
+      "screenshot": "/private/tmp/crm-gsc-sitemap-submitted-2026-10-26.png"
+    }
+  },
+  "technical_fetch": {
+    "record": "crm-fetch-audit-2026-10-26.json",
+    "checks": 14,
+    "http200": 14,
+    "note": "UA名を設定した合成GET。正規の各社ボットのIPや実アクセスログは未確認。"
+  },
+  "external_listings": {
+    "BOXIL": {
+      "url": "https://boxil.jp/service/51195/",
+      "observed_update_date": "2026/10/26",
+      "edition_groups": 5,
+      "action": "already_updated_no_mutation"
+    },
+    "ITreview": {
+      "url": "https://www.itreview.jp/products/revenue-crm/profile",
+      "observed_update_date": "2026/10/26",
+      "edition_groups": 5,
+      "action": "correction_published_and_verified",
+      "verified_at_jst": "2026-10-26T21:49:29.846591+09:00",
+      "correction_record": "crm-itreview-correction-2026-10-26.json"
+    }
+  },
+  "monitoring": {
+    "automation_id": "revenue-crm-ai",
+    "status": "ACTIVE",
+    "cadence": "既存の毎日9時の読み取り監視、週次のAI回答観測",
+    "note": "今回の公開時点とURLを追加。合成テスト、自然利用の引用、再クロールを分ける。変化なしの通知は行わない。"
+  },
+  "not_claimed": [
+    "Googleによる更新後の再クロール",
+    "Gemini・Claudeでの掲載改善",
+    "実ボットのアクセス成功",
+    "未検証の利用効果や架空の導入事例"
+  ]
+}

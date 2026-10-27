@@ -1,0 +1,31 @@
+{
+  "target": "https://www.itreview.jp/products/revenue-crm/profile",
+  "status": "published_verified",
+  "reason": "ユーザーのログイン後、保存プレビューと公開更新を実行。プレビュートークンを含まない公開URLで確認。",
+  "section": "業種・業務に合わせて、すぐに使い始められる",
+  "replace_scope": "4エディションの説明段落と4つの業種箇条書きのみ。画像は版との照合が済むまで変更しない。",
+  "replacement": "Revenue CRMには、用途に応じた5つのエディションがあります。\n・スタートアップ・中小企業向け：顧客・商談・タスクを管理し、名刺や商談メモからAIが記録の下書きを作成\n・受託開発・制作向け：営業案件・見積・納品の進み具合と担当者の空きを確認し、見積前に着手可能な時期を判断\n・コンサル・マーケティング支援会社向け：継続支援の案件、担当者の稼働・空き、月額契約と更新を管理\n・SaaS販売代理店向け：販売先の顧客、契約更新、継続収益と追加販売の案件を管理\n・スクール向け：生徒情報、LINEでのやり取り・宿題・レッスン予約を管理し、予約をGoogleカレンダーに連携\n現在の画面・対応範囲・料金と契約条件は公式サイトで確認できます。\nhttps://consilegy.com/crm/updates/#current-editions\nhttps://consilegy.com/crm/pricing/",
+  "evidence_urls": [
+    "https://consilegy.com/crm/standard/",
+    "https://consilegy.com/crm/contractor/",
+    "https://consilegy.com/crm/services/",
+    "https://consilegy.com/crm/reseller/",
+    "https://consilegy.com/crm/school/"
+  ],
+  "implementation_evidence": {
+    "repository": "seikoymgc/crm",
+    "pr": 368,
+    "title": "支援会社版エディション（services）を足す（242）",
+    "merged_at": "2026-10-25T13:09:27Z"
+  },
+  "published_verified_at_jst": "2026-10-26T21:49:29.846591+09:00",
+  "public_url": "https://www.itreview.jp/products/revenue-crm/profile",
+  "screenshot": "/private/tmp/crm-itreview-five-editions-published-2026-10-26.png",
+  "evidence": "/private/tmp/crm-itreview-five-editions-published-2026-10-26.txt",
+  "validation": {
+    "five_editions": true,
+    "old_four_editions": false,
+    "preview_banner": false,
+    "only_edition_description_block_changed": true
+  }
+}

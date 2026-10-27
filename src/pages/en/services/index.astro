@@ -34,12 +34,18 @@ const services = [
     description: 'Support the operating habits, reporting cycles, and documentation needed after CRM or GTM changes launch.',
     href: '/en/services/adoption-growth-support/',
   },
+  {
+    number: '06',
+    title: 'Business System Development, Integration & Automation',
+    description: 'Build business systems, connect existing applications, and automate repetitive work. From requirements and design through development and launch, with scope and pricing agreed for each project.',
+    href: '/en/services/business-system-development/',
+  },
 ];
 ---
 
 <BaseLayout
   title="Services | Consilegy"
-  description="Consilegy builds revenue operations that work for how Japan actually moves: GTM, CRM, RevOps, and adoption."
+  description="Revenue architecture, GTM, CRM implementation, adoption, and business system development. Consilegy designs and builds the systems, integrations, and automation your team needs."
   lang="en"
   alternateUrl="/services/"
 >
@@ -71,7 +77,7 @@ const services = [
           Need it to fit how you already work? We build the integrations and automations around it as a paid onboarding option: connecting the tools you already use, LINE bookings into Google Calendar, and contacts and tasks created from business cards and meeting notes.
           Officially launched on September 28, 2026.
         </p>
-        <p class="sv-product__note">The services below are for teams with a dedicated CRM admin.</p>
+        <p class="sv-product__note">Development and integrations can also be commissioned on their own, with or without Revenue CRM.</p>
         <a href="/en/crm/" class="sv-product__link">See Revenue CRM →</a>
       </div>
       <a href="/en/crm/" class="sv-product__shot" aria-label="Revenue CRM dashboard. Go to the product page">
@@ -91,7 +97,7 @@ const services = [
   <section class="sv-list">
     <div class="container sv-wide">
       <p class="sv-eyebrow">Services</p>
-      <h2 class="sv-h2">Five services on one revenue flow</h2>
+      <h2 class="sv-h2">Services from design to delivery</h2>
       <RevenueFlowFigure id="en-sv-flow" steps lang="en" caption="Every service works on the same flow: find where it stalls, redesign the flow and data, then run it with the team." />
       <div class="sv-grid">
         {services.map((s) => (
@@ -122,6 +128,7 @@ const services = [
         <div><dt>Ongoing Retainer</dt><dd>¥300K – ¥1M / mo</dd></div>
       </dl>
       <p class="sv-price__note">Prices exclude consumption tax. Scope and price are set after a first conversation. <a href="/services/">Full pricing (JA) →</a></p>
+      <p class="sv-price__note"><a href="/en/services/business-system-development/">Development, integration, and automation</a> are quoted individually. <a href="/en/services/project-management-support/">PM support</a> is also available on its own and quoted separately from standard retainers.</p>
     </div>
   </section>
 

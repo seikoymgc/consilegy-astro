@@ -1,0 +1,84 @@
+{
+  "observed_on": "2026-10-26",
+  "timezone": "Asia/Tokyo",
+  "scope": "支援会社と受託開発企業を分けた非指名の単発観測",
+  "limitations": [
+    "各サービス・各用途1回答。一般利用のメンション率ではない。",
+    "ChatGPTはログインなし。支援会社回答にはbasic modelの案内あり。モデルの正式名称は不明。",
+    "Geminiは今回別アカウントの一時チャット、画面表示Gemini Auto。先行Proテストと同条件ではない。",
+    "ClaudeはWeb版incognito、画面表示Fable 5.1 Medium。製品名やURL、過去の回答を質問文に含めていない。"
+  ],
+  "prompts": {
+    "support": "コンサルティング・マーケティング支援会社向けに、顧客ごとの継続契約、担当者の稼働と余力、成果報告、契約更新をまとめて管理できる顧客管理システムの候補を教えてください。",
+    "development": "システム受託開発・Web制作会社向けに、営業案件、見積、納品予定、担当者の空き状況、着手日をまとめて管理できる顧客管理システムの候補を教えてください。"
+  },
+  "tests": [
+    {
+      "provider": "ChatGPT",
+      "prompt_id": "support",
+      "status": "completed",
+      "mention": false,
+      "own_domain_citation": false,
+      "candidates": [
+        "Formia コンサルタント向け管理アプリ",
+        "Scoro",
+        "Salesforce",
+        "kintone",
+        "HubSpot + PSOhub"
+      ],
+      "evidence": "/private/tmp/consilegy-chatgpt-support-2026-10-26.txt"
+    },
+    {
+      "provider": "ChatGPT",
+      "prompt_id": "development",
+      "status": "completed",
+      "mention": false,
+      "own_domain_citation": false,
+      "candidates": [
+        "kintone",
+        "Zoho CRM + Zoho Projects",
+        "monday.com",
+        "Salesforce Sales Cloud",
+        "Jira",
+        "自社専用の業務管理システム"
+      ],
+      "evidence": "/private/tmp/consilegy-chatgpt-development-2026-10-26.txt"
+    },
+    {
+      "provider": "Gemini",
+      "prompt_id": "support",
+      "status": "completed",
+      "mention": false,
+      "own_domain_citation": false,
+      "candidates": [
+        "Zoho CRM + Zoho Projects",
+        "kintone",
+        "HubSpot",
+        "クラウドログ + CRM"
+      ],
+      "evidence": "/private/tmp/consilegy-gemini-support-2026-10-26.txt"
+    },
+    {
+      "provider": "Gemini",
+      "prompt_id": "development",
+      "status": "dispatched_completion_unverified",
+      "mention": null,
+      "own_domain_citation": null
+    },
+    {
+      "provider": "Claude",
+      "prompt_id": "support",
+      "status": "dispatched_completion_unverified",
+      "mention": null,
+      "own_domain_citation": null
+    },
+    {
+      "provider": "Claude",
+      "prompt_id": "development",
+      "status": "not_run",
+      "mention": null,
+      "own_domain_citation": null
+    }
+  ],
+  "interruption": "Chromeが別作業の画面に切り替わり、操作中に利用者による画面変更が検知されたため操作を中止。完了を読めていない回答は陰性に数えない。Claudeデスクトップには編集中の下書きがあったため触らず、別のWebタブのincognitoで支援会社の質問を送信した。"
+}

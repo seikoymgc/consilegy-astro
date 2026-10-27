@@ -1,0 +1,198 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+
+const title = 'Business System Development, Integration & Automation | Consilegy';
+const description = 'Custom business systems, integrations between existing applications, and automation for repetitive work. Consilegy supports requirements, design, development, testing, migration, and launch. Scope and pricing are agreed for each project.';
+const url = 'https://consilegy.com/en/services/business-system-development/';
+const examples = [
+  { title: 'Build a new business system', text: 'Map the information held in spreadsheets and paper records, along with processes that depend on individual knowledge. Build the screens and functions your work needs.', output: 'Project, booking, and request management' },
+  { title: 'Connect existing systems', text: 'Replace repeated data entry and manual exports and imports with integrations between the applications you already use.', output: 'Customer, booking, and operational data flows' },
+  { title: 'Automate repetitive tasks', text: 'Automate recurring steps such as routing incoming requests, notifying the right person, compiling reports, and updating status.', output: 'Request processing, reminders, and reporting' },
+  { title: 'Add missing screens and features', text: 'Identify work that standard product features cannot cover. Develop supporting screens and functions, with clear responsibilities for each system.', output: 'Input forms, approvals, and external-facing screens' },
+  { title: 'Improve or replace an existing system', text: 'Review current processing and usage before defining changes. Plan data migration, dependencies, and the transition to the updated system.', output: 'Feature changes, migration, and phased replacement' },
+  { title: 'Combine implementation with development', text: 'Build integrations and automation alongside a customer management or sales system implementation, under one plan through launch.', output: 'Configuration, integrations, custom features, and operating procedures' },
+];
+const faqItems = [
+  { q: 'Can we talk before we know what to build?', a: 'Yes. We start with the work: what gets copied, where approvals stall, and which tasks take time. We then propose what existing products can cover and what needs development.' },
+  { q: 'Does the project need to involve a CRM?', a: 'No. We also work on new business systems, changes to existing systems, data integrations, and workflow automation. We confirm the business requirements, technical environment, project size, and scope before proposing a solution.' },
+  { q: 'Do we need a Revenue CRM subscription?', a: 'No. Development, integration, and automation can be commissioned on their own. We start from your current systems and propose Revenue CRM as an option when it fits.' },
+  { q: 'Can every application be integrated?', a: 'Feasibility depends on the available APIs, permissions, subscription plan, and data formats. Where there are limitations, we explain alternatives and operational options. Required subscriptions or paid integration features are identified in the proposal.' },
+  { q: 'How much does it cost, and how long does it take?', a: 'We quote based on the work, number of screens and functions, connected systems, migration needs, access controls, security requirements, and operating support. Development fees, third-party subscriptions, and maintenance costs are presented separately.' },
+  { q: 'Can you provide project management if we already have developers?', a: 'Yes. If your existing vendor or internal team handles implementation, we can take on requirements clarification, vendor coordination, project management, and acceptance support. Responsibilities and fees are agreed separately for development and PM-only work.' },
+];
+---
+
+<BaseLayout title={title} description={description} lang="en" alternateUrl="/services/business-system-development/">
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify([
+    { '@context': 'https://schema.org', '@type': 'Service', name: 'Business System Development, Integration & Automation', description, url, provider: { '@id': 'https://consilegy.com/#organization' } },
+    { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://consilegy.com/en/' },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://consilegy.com/en/services/' },
+      { '@type': 'ListItem', position: 3, name: 'Business System Development', item: url },
+    ] },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqItems.map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
+  ])} />
+
+  <section class="dev-hero">
+    <div class="container">
+      <a href="/en/services/" class="dev-back">← All services</a>
+      <div class="dev-hero-grid">
+        <div class="dev-hero-intro">
+          <p class="dev-eyebrow">Development &amp; Automation</p>
+          <p class="dev-service">Business systems, integrations, and automation</p>
+          <h1>Build, connect, and automate<br />the systems your work needs</h1>
+          <p class="dev-lead">Copying data from spreadsheets. Information scattered across applications. Features missing from standard products. We map how your work gets done, then design and build the systems and integrations it needs.</p>
+        </div>
+        <figure class="dev-hero-visual dev-role" aria-labelledby="dev-flow-caption">
+          <div class="dev-role-box">Your current work and systems<span>Manual tasks, scattered data, missing features</span></div>
+          <div class="dev-role-arrow" aria-hidden="true">↓</div>
+          <div class="dev-role-box dev-role-box--main">Understand → Design &amp; build → Test<span>New systems, integrations, and automation</span></div>
+          <div class="dev-role-arrow" aria-hidden="true">↓</div>
+          <div class="dev-role-box">Systems your team can use<span>Useful screens, connected data, clear procedures</span></div>
+          <figcaption id="dev-flow-caption">From requirements through development, migration, and launch.</figcaption>
+        </figure>
+        <div class="dev-hero-conversion">
+          <div class="dev-actions"><a href="/en/contact/" class="btn btn--primary">Discuss your project</a><a href="#scope" class="btn btn--outline">See what we build</a></div>
+          <p class="dev-note">From a single integration to a new business system. Each project is scoped and quoted individually.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dev-band dev-band--gray" id="scope">
+    <div class="container">
+      <p class="dev-eyebrow">What We Build</p><h2>Start with what your work needs</h2>
+      <p class="dev-intro">These are examples of development and integration work. We confirm feasibility and scope against your requirements and current environment.</p>
+      <div class="dev-grid dev-grid--two">{examples.map(({ title, text, output }, i) => <article class="dev-card"><span class="dev-number">0{i + 1}</span><h3>{title}</h3><p>{text}</p><p class="dev-output"><strong>Examples</strong>{output}</p></article>)}</div>
+    </div>
+  </section>
+
+  <section class="dev-band">
+    <div class="container">
+      <p class="dev-eyebrow">Design Before Development</p><h2>Use what works<br />Build what is missing</h2>
+      <div class="dev-grid dev-grid--three">
+        <article class="dev-card"><span class="dev-number">01</span><h3>Understand the work</h3><p>Identify owners, inputs, decision rules, and exceptions. Agree what the system should handle and what remains an operational process.</p></article>
+        <article class="dev-card"><span class="dev-number">02</span><h3>Choose how to deliver it</h3><p>Compare product configuration, integrations, custom features, and a new build against cost, operating effort, and technical constraints.</p></article>
+        <article class="dev-card"><span class="dev-number">03</span><h3>Plan for ongoing use</h3><p>Define access, data handling, error recovery, and operational ownership. Agree the maintenance and improvement scope before launch.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="dev-band dev-band--gray">
+    <div class="container">
+      <p class="dev-eyebrow">Case Studies</p><h2>Connecting systems to everyday work</h2>
+      <div class="dev-grid dev-grid--two">
+        <article class="dev-card"><h3>Connect LINE with lesson bookings</h3><p>For an online English school with dozens of students, we connected a LINE Official Account with Google Calendar to automate manual checks and bookings.</p><p class="dev-output">This school was the starting point for the Revenue CRM School edition.</p><a href="/en/crm/school/">See Revenue CRM School →</a></article>
+        <article class="dev-card"><h3>Bring scattered customer data together</h3><p>For a healthtech company, we integrated customer data from multiple systems into HubSpot and supported data entry rules and operational adoption.</p><a href="/en/case-studies/healthcare-data-integration-ops-enablement-2/">Read the data integration case study →</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="dev-band" id="pricing">
+    <div class="container dev-pricing-layout">
+      <div><p class="dev-eyebrow">Process &amp; Pricing</p><h2>Agree the scope and cost<br />before development begins</h2><p>We first review your work, systems, and pain points. We then define the requirements and approach, with a proposal covering scope, deliverables, timing, and cost.</p><p>Third-party subscriptions, maintenance, operating support, and future changes are identified separately. Development is quoted individually, outside our standard retainer pricing.</p><a href="/en/contact/">Tell us about your workflow →</a></div>
+      <ol class="dev-process">
+        <li><strong>Discuss the work</strong><p>Review workflows, data, systems, and what you want to achieve.</p></li>
+        <li><strong>Design and quote</strong><p>Define features, integrations, access, acceptance criteria, schedule, and fees.</p></li>
+        <li><strong>Build, test, and migrate</strong><p>Implement the agreed scope and test it against actual business scenarios.</p></li>
+        <li><strong>Launch and hand over</strong><p>Confirm procedures and operational ownership. Provide maintenance and improvements within the agreed scope.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="dev-band dev-band--gray">
+    <div class="container"><p class="dev-eyebrow">Project Management</p><h2>We also manage delivery</h2><p>For development projects, we define requirements, stakeholder coordination, and project management as part of the proposed scope. If your internal team or an existing vendor handles development, you can commission PM support on its own.</p><a href="/en/services/project-management-support/">See the PM support scope →</a></div>
+  </section>
+  <section class="dev-band"><div class="container dev-faq"><p class="dev-eyebrow">FAQ</p><h2>Frequently asked questions</h2>{faqItems.map(({ q, a }) => <details><summary>{q}</summary><p>{a}</p></details>)}</div></section>
+  <section class="dev-band dev-band--gray">
+    <div class="container"><p class="dev-eyebrow">Related Services</p><h2>Implementation and ongoing use</h2><div class="dev-grid dev-grid--three">
+      <article class="dev-card"><h3>CRM / RevOps Implementation</h3><p>Review business processes, data structures, and system integrations together.</p><a href="/en/services/crm-revops-implementation/">See implementation support →</a></article>
+      <article class="dev-card"><h3>Revenue CRM</h3><p>Explore the product, its features, and the available plans.</p><a href="/en/crm/">See Revenue CRM →</a></article>
+      <article class="dev-card"><h3>Adoption &amp; Growth Support</h3><p>Establish the working habits and operating rules that help your team use the system.</p><a href="/en/services/adoption-growth-support/">See adoption support →</a></article>
+    </div></div>
+  </section>
+  <section class="dev-final"><div class="container"><p class="dev-eyebrow">Let's Talk</p><h2>Start with the task<br />that takes too much time</h2><p>You do not need a finished specification. Tell us how your team works and where the manual effort adds up.</p><div class="dev-actions"><a href="/en/contact/" class="btn btn--primary">Discuss your project</a><a href="/en/services/" class="btn dev-contact">Explore all services</a></div></div></section>
+</BaseLayout>
+
+<style>
+  .dev-hero { padding: 3rem 0 4.5rem; background: white; }
+  .dev-hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 1.5rem 2rem; align-items: start; }
+  .dev-hero-intro, .dev-hero-conversion { grid-column: 1; min-width: 0; }
+  .dev-hero-visual { grid-column: 2; grid-row: 1 / 3; align-self: center; margin: 0; }
+  .dev-hero h1 { font-size: clamp(2rem, 2.8vw, 2.5rem); }
+  h1 span { display: inline-block; white-space: nowrap; }
+  .dev-hero .dev-lead { margin-bottom: 0; }
+  .dev-back { display: inline-block; margin-bottom: 2.5rem; }
+  .dev-eyebrow { color: var(--color-navy); font-size: 0.875rem; font-weight: 600; letter-spacing: .12em; margin: 0 0 1rem; }
+  .dev-service { font-size: 1rem; color: var(--color-text-muted); margin: 0 0 1rem; }
+  h1, h2, h3 { color: var(--color-navy); }
+  h1 { font-size: clamp(2rem, 4.5vw, 3.4rem); line-height: 1.5; letter-spacing: -.035em; margin: 0 0 1.5rem; font-weight: 600; text-wrap: balance; }
+  h2 { font-size: clamp(1.65rem, 3vw, 2.25rem); line-height: 1.6; margin: 0 0 1.75rem; font-weight: 600; }
+  h3 { font-size: 1.125rem; line-height: 1.6; margin: .75rem 0; font-weight: 600; }
+  p { line-height: 1.9; }
+  .dev-lead { font-size: 1.125rem; max-width: 56rem; margin: 0 0 2rem; }
+  .dev-actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+  .btn { border-radius: 4px; padding: 1rem 1.5rem; }
+  .btn--outline { background: transparent; border: 1px solid var(--color-border-strong); color: var(--color-primary); }
+  .btn--outline:hover { border-color: var(--color-primary); }
+  .dev-note { color: var(--color-text-muted); font-size: .875rem; margin: 1.25rem 0 0; }
+  .dev-band { padding: 4.5rem 0; background: white; scroll-margin-top: 6rem; }
+  .dev-band--gray { background: var(--color-bg-subtle); }
+  .dev-intro { color: var(--color-text-muted); margin: -0.5rem 0 2rem; }
+  .dev-grid { display: grid; gap: 1.25rem; }
+  .dev-grid--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .dev-grid--two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dev-card { padding: 1.75rem; background: white; border: 1px solid var(--color-border); border-radius: 6px; box-shadow: var(--shadow-sm); }
+  .dev-card p { margin: 0; color: var(--color-text-muted); }
+  .dev-card a { display: inline-block; margin-top: 1rem; }
+  .dev-number { color: var(--color-navy); font-size: .875rem; font-weight: 600; letter-spacing: .08em; }
+  .dev-card .dev-output { border-top: 1px solid var(--color-border); margin-top: 1.25rem; padding-top: 1rem; color: var(--color-text); }
+  .dev-output strong { display: block; font-size: .875rem; color: var(--color-text-muted); font-weight: 500; }
+  .dev-role-layout, .dev-pricing-layout { display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; align-items: start; }
+  .dev-role { margin: 0; padding: 1.75rem; background: var(--color-bg-subtle); border: 1px solid var(--color-border); border-radius: 6px; }
+  .dev-role-box { border: 1px solid var(--color-navy); border-radius: 6px; padding: 1rem; text-align: center; color: var(--color-navy); font-weight: 600; background: white; }
+  .dev-role-box span { display: block; font-weight: 400; color: var(--color-text-muted); margin-top: .3rem; font-size: 1rem; }
+  .dev-role-box--main { background: var(--color-navy); color: white; }
+  .dev-role-box--main span { color: white; }
+  .dev-role-arrow { text-align: center; font-size: 1.5rem; color: var(--color-navy); }
+  figcaption { font-size: .875rem; color: var(--color-text-muted); margin-top: 1rem; line-height: 1.8; }
+  .dev-process { list-style: decimal-leading-zero; margin: 0; padding: 0 0 0 2.5rem; }
+  .dev-process li { padding: 0 0 1.25rem 1rem; margin-bottom: 1.25rem; border-bottom: 1px solid var(--color-border); }
+  .dev-process li::marker { color: var(--color-navy); font-weight: 600; }
+  .dev-process strong { color: var(--color-navy); }
+  .dev-process p { color: var(--color-text-muted); margin: .5rem 0 0; }
+  .dev-faq { max-width: 900px; }
+  details { background: white; border: 1px solid var(--color-border); border-radius: 6px; box-shadow: var(--shadow-sm); margin-top: .75rem; padding: 1.25rem 1.5rem; }
+  summary { cursor: pointer; font-weight: 600; color: var(--color-navy); line-height: 1.8; }
+  details p { color: var(--color-text-muted); margin: 1rem 0 0; }
+  .dev-final { padding: 4.5rem 0; background: var(--color-navy); color: white; }
+  .dev-final h2, .dev-final .dev-eyebrow { color: white; }
+  .dev-final p { margin-bottom: 2rem; }
+  .dev-contact { border: 1px solid white; color: white; background: transparent; }
+  .dev-contact:hover { background: white; color: var(--color-navy); }
+  @media (max-width: 900px) {
+    .dev-hero-grid { grid-template-columns: 1fr; }
+    .dev-hero-visual { grid-column: 1; grid-row: auto; width: 100%; max-width: 640px; }
+  }
+  @media (max-width: 800px) {
+    .dev-role-layout, .dev-pricing-layout, .dev-grid--three { grid-template-columns: 1fr; gap: 1.5rem; }
+    .dev-band, .dev-final { padding: 3rem 0; }
+  }
+  @media (max-width: 560px) {
+    .dev-grid--two { grid-template-columns: 1fr; }
+    .dev-hero { padding-bottom: 3rem; }
+    .dev-hero h1 { font-size: 1.625rem; text-wrap: initial; }
+    .dev-actions { flex-direction: column; }
+    .dev-actions .btn { width: 100%; text-align: center; white-space: normal; }
+    .dev-card { padding: 1.5rem; }
+  }
+
+  .container { max-width: 1120px; }
+  h1, h2, h3 { overflow-wrap: anywhere; }
+  .dev-hero h1 { line-height: 1.25; letter-spacing: -.02em; }
+  p { line-height: 1.75; }
+  @media (max-width: 560px) {
+    .dev-hero h1 { font-size: 2rem; }
+    .dev-role { padding: 1.25rem; }
+  }
+</style>

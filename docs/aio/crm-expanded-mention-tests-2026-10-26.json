@@ -1,0 +1,212 @@
+{
+  "observed_on": "2026-10-26",
+  "timezone": "Asia/Tokyo",
+  "purpose": "追加の非指名質問、言い換え、同一質問の再実行。自然利用による引用実績とは別の合成テスト。",
+  "limitations": [
+    "少数の便宜的な質問であり、母集団のメンション率を推定しない",
+    "表示順は回答内の列挙順であり、検索順位や固定ランキングではない",
+    "今回のサイト更新と掲載の因果関係は検証していない",
+    "製品名の言及とconsilegy.comの出典リンクを別々に記録する",
+    "各社AI回答に含まれる競合の料金・機能の正確性は検証していない"
+  ],
+  "conditions": {
+    "ChatGPT": "ログインなし。質問ごとに独立した新規会話。モデル名の表示なし。製品名やURLは非指名質問に含めていない。",
+    "Gemini": "Pro。一時チャット。各質問を別の新規会話で実行。",
+    "Claude": "デスクトップのincognito。画面上のモデル表示はFable 5.1 Medium。第1メッセージを編集して枝を再生成し、各判定対象の文脈を質問1件と回答1件にした。"
+  },
+  "tests": [
+    {
+      "id": "chatgpt-broad",
+      "provider": "ChatGPT",
+      "prompt": "中小企業におすすめの顧客管理システムを5つ、料金と特徴付きで比較してください。",
+      "status": "completed",
+      "mention": false,
+      "own_domain_citation": false,
+      "candidates": [
+        "HubSpot CRM",
+        "Zoho CRM",
+        "kintone",
+        "Salesforce Starter Suite",
+        "eセールスマネージャー"
+      ],
+      "evidence": "/private/tmp/consilegy-chatgpt-broad-extra-2026-10-26.txt"
+    },
+    {
+      "id": "chatgpt-b2b-repeat",
+      "provider": "ChatGPT",
+      "prompt": "中小企業向けで、AIが名刺や商談メモから入力を減らせる顧客管理システムの候補を、料金と特徴付きで教えて",
+      "status": "completed",
+      "mention": false,
+      "own_domain_citation": false,
+      "note": "先行テストは掲載あり。同じ質問の今回の再実行では掲載なし。",
+      "candidates": [
+        "GENIEE SFA/CRM",
+        "Mazrica Sales",
+        "Sansan",
+        "Salesforce Starter Suite",
+        "HubSpot CRM"
+      ],
+      "evidence": "/private/tmp/consilegy-chatgpt-b2b-repeat-2026-10-26.txt"
+    },
+    {
+      "id": "chatgpt-b2b-variant",
+      "provider": "ChatGPT",
+      "prompt": "営業担当5人の会社です。名刺の転記や商談後の記録が負担なので、AIで入力作業を減らせる、日本語対応の顧客管理システムを比較したいです。候補と費用を教えてください。",
+      "status": "completed",
+      "mention": false,
+      "own_domain_citation": false,
+      "candidates": [
+        "GENIEE SFA/CRM",
+        "ネクストSFA/CRM",
+        "Zoho CRM",
+        "Eight Team"
+      ],
+      "evidence": "/private/tmp/consilegy-chatgpt-b2b-variant-2026-10-26.txt"
+    },
+    {
+      "id": "chatgpt-reseller-repeat",
+      "provider": "ChatGPT",
+      "prompt": "SaaS販売代理店向けに、顧客の契約更新、ライセンス数、マージン、MRRをまとめて管理できるCRMの候補を教えて",
+      "status": "completed",
+      "mention": true,
+      "own_domain_citation": true,
+      "answer_position": 1,
+      "cited_urls": [
+        "https://consilegy.com/crm/reseller/"
+      ],
+      "note": "先行テストでも掲載あり（4番目）。今回もクローズドβの注記あり。",
+      "evidence": "/private/tmp/consilegy-chatgpt-reseller-repeat-2026-10-26.txt",
+      "screenshot": "/private/tmp/consilegy-chatgpt-reseller-repeat-2026-10-26.png"
+    },
+    {
+      "id": "claude-b2b",
+      "provider": "Claude",
+      "prompt": "中小企業向けで、AIが名刺や商談メモから入力を減らせる顧客管理システムの候補を、料金と特徴付きで教えて",
+      "status": "completed",
+      "mention": false,
+      "own_domain_citation": false,
+      "web_search_visible": true,
+      "candidates": [
+        "HubSpot",
+        "Zoho CRM",
+        "Mazrica Sales",
+        "GENIEE SFA/CRM",
+        "Salesforce"
+      ],
+      "evidence": "/private/tmp/consilegy-claude-b2b-extra-2026-10-26.txt"
+    },
+    {
+      "id": "chatgpt-school-variant",
+      "provider": "ChatGPT",
+      "prompt": "オンラインスクールの生徒管理、LINEでの宿題提出、レッスン予約、Googleカレンダー連携をまとめたいです。対応できる顧客管理システムを比較してください。",
+      "status": "completed",
+      "mention": false,
+      "own_domain_citation": false,
+      "candidates": [
+        "Lステップ",
+        "コエテコマネージャー",
+        "STORES予約",
+        "RESERVA school",
+        "Lestiq"
+      ],
+      "evidence": "/private/tmp/consilegy-chatgpt-school-variant-2026-10-26.txt"
+    },
+    {
+      "id": "claude-reseller",
+      "provider": "Claude",
+      "prompt": "SaaS販売代理店向けに、顧客の契約更新、ライセンス数、マージン、MRRをまとめて管理できるCRMの候補を教えて",
+      "status": "completed",
+      "mention": false,
+      "own_domain_citation": false,
+      "web_search_visible": true,
+      "candidates": [
+        "HaloPSA",
+        "Datto Autotask",
+        "ConnectWise PSA",
+        "HubSpot",
+        "Zoho CRM + Zoho Billing",
+        "kintone",
+        "ChartMogul"
+      ],
+      "evidence": "/private/tmp/consilegy-claude-reseller-extra-2026-10-26.txt"
+    },
+    {
+      "id": "gemini-reseller",
+      "provider": "Gemini",
+      "prompt": "SaaS販売代理店向けに、顧客の契約更新、ライセンス数、マージン、MRRをまとめて管理できるCRMの候補を教えて",
+      "status": "completed",
+      "mention": false,
+      "own_domain_citation": false,
+      "candidates": [
+        "HubSpot",
+        "Salesforce",
+        "Zoho CRM",
+        "kintone"
+      ],
+      "evidence": "/private/tmp/consilegy-gemini-reseller-extra-2026-10-26.txt"
+    },
+    {
+      "id": "gemini-brand",
+      "provider": "Gemini",
+      "prompt": "ConsilegyのRevenue CRMとはどんな顧客管理システムですか。公式情報を出典に、対象業種と料金を教えて",
+      "status": "completed",
+      "mention": true,
+      "own_domain_citation": true,
+      "cited_urls": [
+        "https://consilegy.com/crm/pricing/"
+      ],
+      "other_source_labels": [
+        "東京新聞",
+        "note",
+        "BizAIdea",
+        "PR TIMES"
+      ],
+      "note": "引用カードを開いて公式料金ページURLを確認。対象業種は旧情報の4エディションと説明。ユーザープラン月額3000円、生徒50人まで月額9800円から等の説明あり。",
+      "evidence": "/private/tmp/consilegy-gemini-brand-extra-2026-10-26.txt"
+    },
+    {
+      "id": "gemini-b2b",
+      "provider": "Gemini",
+      "prompt": "中小企業向けで、AIが名刺や商談メモから入力を減らせる顧客管理システムの候補を、料金と特徴付きで教えて",
+      "status": "completed",
+      "mention": false,
+      "own_domain_citation": false,
+      "candidates": [
+        "GENIEE SFA/CRM",
+        "ホットプロファイル",
+        "Mazrica Sales",
+        "GenLead"
+      ],
+      "source_labels": [
+        "ASPIC",
+        "価格.com",
+        "FAZOM",
+        "jinbay"
+      ],
+      "evidence": "/private/tmp/consilegy-gemini-b2b-extra-2026-10-26.txt"
+    },
+    {
+      "id": "claude-brand",
+      "provider": "Claude",
+      "prompt": "ConsilegyのRevenue CRMとはどんな顧客管理システムですか。公式情報を出典に、対象業種と料金を教えて",
+      "status": "completed",
+      "mention": true,
+      "own_domain_citation": false,
+      "web_search_visible": true,
+      "cited_urls": [
+        "https://prtimes.jp/main/html/rd/p/000000002.000191457.html"
+      ],
+      "note": "公式発表である2026年9月28日のPR TIMESを引用。4エディション、会議ツール連携は未対応など過去時点の情報を説明。crm.consilegy.com/pricingは本文中の案内のみで、取得・引用した公式サイトのリンクとは数えない。",
+      "evidence": "/private/tmp/consilegy-claude-brand-extra-2026-10-26.txt"
+    }
+  ],
+  "completed_additional_answers": 11,
+  "conclusions": [
+    "ChatGPTの代理店向け同一質問は先行分と追加分の2回とも掲載・自社引用あり（表示順4番目、1番目）。",
+    "ChatGPTの法人営業向け同一質問は先行分で掲載、追加分で未掲載。言い換えも未掲載。安定した掲載とはいえない。",
+    "ChatGPTの広い中小企業向け5選では未掲載。スクールは先行質問・言い換えとも未掲載。",
+    "GeminiとClaudeは先行スクール・追加法人営業・追加代理店の非指名3用途で掲載なし。",
+    "指名では3サービスとも説明できる。Geminiは公式料金ページを引用。ClaudeはPR TIMESの公式発表を引用するが自社サイトの直接引用は確認できない。",
+    "指名回答に旧4エディション等が残る。参照元の更新と新しいページの再クロール、同じ質問での日を変えた追跡を優先する。"
+  ]
+}

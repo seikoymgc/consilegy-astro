@@ -1,0 +1,24 @@
+{
+  "dateJst": "2026-10-27",
+  "commit": "b736c057c4dc5eccca59ae759f2d4faa8f133242",
+  "workflowRun": 40459329171,
+  "workflowConclusion": "success",
+  "scope": ["/en/crm/", "/en/crm/pricing/"],
+  "changes": [
+    "Removed outdated advice against migration from Salesforce or HubSpot; aligned migration FAQ and final CTA with current Japanese copy.",
+    "Distinguished all five editions in metadata, JSON-LD and edition overview; linked the current-editions reference.",
+    "Replaced blanket use-case default promises with edition-specific screens and automation wording.",
+    "Clarified that corrections serve as examples and do not train the AI model itself.",
+    "Corrected help/video pricing from a one-year-contract requirement to free on all plans."
+  ],
+  "validation": {
+    "build": "success; 306 pages",
+    "generatedJsonLd": "valid JSON",
+    "currentEditionsAnchor": "present",
+    "publicHome": "five-edition heading present; old migration advice absent",
+    "publicPricing": "Free (all plans) present"
+  },
+  "screenshot": "/private/tmp/crm-en-current-published-2026-10-27.png",
+  "googleRecrawl": "not verified after this publication",
+  "aiCitation": "not verified after this publication"
+}

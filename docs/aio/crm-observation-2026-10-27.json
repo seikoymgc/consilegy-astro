@@ -1,0 +1,205 @@
+{
+  "observedDateJst": "2026-10-27",
+  "observedAt": "2026-10-27T00:49:45.378Z",
+  "automationId": "revenue-crm-ai",
+  "source": "Google Search Console URL検査・既存Chromeログインでの読み取り",
+  "property": "https://consilegy.com/",
+  "publication": {
+    "schoolCasePublishedAtJst": "2026-10-26 13:57",
+    "schoolCaseCommit": "246a806468f23f218657226c5eb86cac9e1065e0",
+    "fiveEditionsCommit": "e41d6a1e031d33fc9d971954bbfb10d6b4f21f70",
+    "status": "previously_verified_not_retested"
+  },
+  "crawl": {
+    "lastCrawlTimeZone": "画面表示のまま保存。表示のタイムゾーン未確認、変換しない",
+    "pages": [
+      {
+        "url": "https://consilegy.com/crm/services/",
+        "observedAt": "2026-10-27T00:05:29.669Z",
+        "indexed": false,
+        "lastCrawlDisplay": null,
+        "fetch": null,
+        "googleCanonical": null,
+        "reason": "URL が Google に認識されていません",
+        "comparisonWithBaseline": "unchanged",
+        "sitemapTemporaryProcessingError": false,
+        "rawVisibleText": "help_outline\nヘルプ\nmanage_accounts\nユーザー設定\n\t\nnotifications\nメッセージ\n24\n\nhome\nサマリー\nlightbulb_2\n分析情報\ntrending_up\n検索パフォーマンス\nkeyboard_arrow_down\nsearch\nURL 検査\nインデックス作成\nkeyboard_arrow_up\nfile_copy\nページ\nvideo_library\n動画\naccount_tree\nサイトマップ\nvisibility_off\n非表示\nエクスペリエンス\nkeyboard_arrow_up\nspeed\nウェブに関する主な指標\nlock\nHTTPS\n拡張\nkeyboard_arrow_up\nlayers\nパンくずリスト\nセキュリティと手動による対策\nkeyboard_arrow_down\nlink_2\nリンク\ntrophy\n実績\nsettings\n設定\nfeedback\nフィードバックを送信\ninfo\nSearch Console の概要\nプライバシー利用規約\nhttps://consilegy.com/crm/services/\nURL 検査\n公開 URL をテスト\ninfo\nURL が Google に登録されていません\nこのページはインデックスに登録されていません。インデックスに登録されていないページは Google で配信することができません。インデックスに登録されなかった理由について詳細をご確認ください。詳細\nクロール済みのページを表示\nページを変更しましたか？\nインデックス登録をリクエスト\ninfo\nページのインデックス登録\nページはインデックスに登録されていません: URL が Google に認識されていません\n\n検出\nサイトマップ\n参照元サイトマップが検出されませんでした\n参照元ページ\n検出されませんでした\nURL は、現時点でレポートされていない他のソースから認識されている可能性があります\nクロール\n前回のクロール\n該当なし\nユーザー エージェント\n該当なし\nクロールを許可？\n該当なし\nページの取得\n該当なし\nインデックス登録を許可？\ninfo\n該当なし\nインデックス作成\nユーザーが指定した正規 URL\n該当なし\nGoogle が選択した正規 URL\n\n該当なし\n詳細\n拡張機能とエクスペリエンス\n拡張機能の対象になるのは、インデックスに登録されている URL のみです"
+      },
+      {
+        "url": "https://consilegy.com/crm/",
+        "observedAt": "2026-10-27T00:05:44.836Z",
+        "indexed": true,
+        "lastCrawlDisplay": "2026/10/24 22:59:00",
+        "fetch": "成功",
+        "googleCanonical": "https://consilegy.com/crm/",
+        "reason": null,
+        "comparisonWithBaseline": "unchanged",
+        "sitemapTemporaryProcessingError": false,
+        "rawVisibleText": "help_outline\nヘルプ\nmanage_accounts\nユーザー設定\n\t\nnotifications\nメッセージ\n24\n\nhome\nサマリー\nlightbulb_2\n分析情報\ntrending_up\n検索パフォーマンス\nkeyboard_arrow_down\nsearch\nURL 検査\nインデックス作成\nkeyboard_arrow_up\nfile_copy\nページ\nvideo_library\n動画\naccount_tree\nサイトマップ\nvisibility_off\n非表示\nエクスペリエンス\nkeyboard_arrow_up\nspeed\nウェブに関する主な指標\nlock\nHTTPS\n拡張\nkeyboard_arrow_up\nlayers\nパンくずリスト\nセキュリティと手動による対策\nkeyboard_arrow_down\nlink_2\nリンク\ntrophy\n実績\nsettings\n設定\nfeedback\nフィードバックを送信\ninfo\nSearch Console の概要\nプライバシー利用規約\nhttps://consilegy.com/crm/\nURL 検査\n公開 URL をテスト\ncheck_circle\nURL は Google に登録されています\n関連するすべての拡張機能とともに Google 検索結果に表示されます（手動による対策や削除リクエストの対象でない場合）。詳細\nクロール済みのページを表示\nページを変更しましたか？\nインデックス登録をリクエスト\ncheck_circle\nページのインデックス登録\nページはインデックスに登録済みです\n\n検出\nサイトマップ\nhttps://consilegy.com/sitemap-index.xml\n参照元ページ\nhttps://consilegy.com/en/crm/\nクロール\n前回のクロール\n2026/10/24 22:59:00\nユーザー エージェント\nスマートフォン用 Googlebot\nクロールを許可？\nはい\nページの取得\n成功\nインデックス登録を許可？\nはい\nインデックス作成\nユーザーが指定した正規 URL\nhttps://consilegy.com/crm/\nGoogle が選択した正規 URL\n\n検査対象の URL\n詳細\nレポートを開く\n拡張機能とエクスペリエンス\ncheck_circle\nHTTPS\nこのページは HTTPS で配信されています\n\nURL 検査"
+      },
+      {
+        "url": "https://consilegy.com/crm/standard/",
+        "observedAt": "2026-10-27T00:06:05.151Z",
+        "indexed": false,
+        "lastCrawlDisplay": null,
+        "fetch": null,
+        "googleCanonical": null,
+        "reason": "URL が Google に認識されていません",
+        "comparisonWithBaseline": "unchanged",
+        "sitemapTemporaryProcessingError": false,
+        "rawVisibleText": "help_outline\nヘルプ\nmanage_accounts\nユーザー設定\n\t\nnotifications\nメッセージ\n24\n\nhome\nサマリー\nlightbulb_2\n分析情報\ntrending_up\n検索パフォーマンス\nkeyboard_arrow_down\nsearch\nURL 検査\nインデックス作成\nkeyboard_arrow_up\nfile_copy\nページ\nvideo_library\n動画\naccount_tree\nサイトマップ\nvisibility_off\n非表示\nエクスペリエンス\nkeyboard_arrow_up\nspeed\nウェブに関する主な指標\nlock\nHTTPS\n拡張\nkeyboard_arrow_up\nlayers\nパンくずリスト\nセキュリティと手動による対策\nkeyboard_arrow_down\nlink_2\nリンク\ntrophy\n実績\nsettings\n設定\nfeedback\nフィードバックを送信\ninfo\nSearch Console の概要\nプライバシー利用規約\nhttps://consilegy.com/crm/standard/\nURL 検査\n公開 URL をテスト\ninfo\nURL が Google に登録されていません\nこのページはインデックスに登録されていません。インデックスに登録されていないページは Google で配信することができません。インデックスに登録されなかった理由について詳細をご確認ください。詳細\nクロール済みのページを表示\nページを変更しましたか？\nインデックス登録をリクエスト\ninfo\nページのインデックス登録\nページはインデックスに登録されていません: URL が Google に認識されていません\n\n検出\nサイトマップ\n参照元サイトマップが検出されませんでした\n参照元ページ\n検出されませんでした\nURL は、現時点でレポートされていない他のソースから認識されている可能性があります\nクロール\n前回のクロール\n該当なし\nユーザー エージェント\n該当なし\nクロールを許可？\n該当なし\nページの取得\n該当なし\nインデックス登録を許可？\ninfo\n該当なし\nインデックス作成\nユーザーが指定した正規 URL\n該当なし\nGoogle が選択した正規 URL\n\n該当なし\n詳細\n拡張機能とエクスペリエンス\n拡張機能の対象になるのは、インデックスに登録されている URL のみです\nURL 検査"
+      },
+      {
+        "url": "https://consilegy.com/crm/contractor/",
+        "observedAt": "2026-10-27T00:46:18.906Z",
+        "indexed": true,
+        "lastCrawlDisplay": "2026/10/16 23:14:30",
+        "fetch": "成功",
+        "googleCanonical": "https://consilegy.com/crm/contractor/",
+        "reason": null,
+        "comparisonWithBaseline": "unchanged",
+        "sitemapTemporaryProcessingError": false,
+        "rawVisibleText": "help_outline\nヘルプ\nmanage_accounts\nユーザー設定\n\t\nnotifications\nメッセージ\n24\n\nhome\nサマリー\nlightbulb_2\n分析情報\ntrending_up\n検索パフォーマンス\nkeyboard_arrow_down\nsearch\nURL 検査\nインデックス作成\nkeyboard_arrow_up\nfile_copy\nページ\nvideo_library\n動画\naccount_tree\nサイトマップ\nvisibility_off\n非表示\nエクスペリエンス\nkeyboard_arrow_up\nspeed\nウェブに関する主な指標\nlock\nHTTPS\n拡張\nkeyboard_arrow_up\nlayers\nパンくずリスト\nセキュリティと手動による対策\nkeyboard_arrow_down\nlink_2\nリンク\ntrophy\n実績\nsettings\n設定\nfeedback\nフィードバックを送信\ninfo\nSearch Console の概要\nプライバシー利用規約\nhttps://consilegy.com/crm/contractor/\nURL 検査\n公開 URL をテスト\ncheck_circle\nURL は Google に登録されています\n関連するすべての拡張機能とともに Google 検索結果に表示されます（手動による対策や削除リクエストの対象でない場合）。詳細\nクロール済みのページを表示\nページを変更しましたか？\nインデックス登録をリクエスト\ncheck_circle\nページのインデックス登録\nページはインデックスに登録済みです\n\n検出\nサイトマップ\nhttps://consilegy.com/sitemap-index.xml\n参照元ページ\nhttps://consilegy.com/insights/why-sales-teams-stop-using-crm/\nhttps://consilegy.com/en/crm/contractor/\nクロール\n前回のクロール\n2026/10/16 23:14:30\nユーザー エージェント\nスマートフォン用 Googlebot\nクロールを許可？\nはい\nページの取得\n成功\nインデックス登録を許可？\nはい\nインデックス作成\nユーザーが指定した正規 URL\nhttps://consilegy.com/crm/contractor/\nGoogle が選択した正規 URL\n\n検査対象の URL\n詳細\nレポートを開く\n拡張機能とエクスペリエンス\ncheck_circle\nHTTPS\nこのページは HTTPS で配信されています\n\ncheck_circle\nパンくずリスト\n1 件の有効なアイテムを検出しました\n"
+      },
+      {
+        "url": "https://consilegy.com/crm/reseller/",
+        "observedAt": "2026-10-27T00:46:31.110Z",
+        "indexed": true,
+        "lastCrawlDisplay": "2026/10/15 5:08:51",
+        "fetch": "成功",
+        "googleCanonical": "https://consilegy.com/crm/reseller/",
+        "reason": null,
+        "comparisonWithBaseline": "unchanged",
+        "sitemapTemporaryProcessingError": false,
+        "rawVisibleText": "help_outline\nヘルプ\nmanage_accounts\nユーザー設定\n\t\nnotifications\nメッセージ\n24\n\nhome\nサマリー\nlightbulb_2\n分析情報\ntrending_up\n検索パフォーマンス\nkeyboard_arrow_down\nsearch\nURL 検査\nインデックス作成\nkeyboard_arrow_up\nfile_copy\nページ\nvideo_library\n動画\naccount_tree\nサイトマップ\nvisibility_off\n非表示\nエクスペリエンス\nkeyboard_arrow_up\nspeed\nウェブに関する主な指標\nlock\nHTTPS\n拡張\nkeyboard_arrow_up\nlayers\nパンくずリスト\nセキュリティと手動による対策\nkeyboard_arrow_down\nlink_2\nリンク\ntrophy\n実績\nsettings\n設定\nfeedback\nフィードバックを送信\ninfo\nSearch Console の概要\nプライバシー利用規約\nhttps://consilegy.com/crm/reseller/\nURL 検査\n公開 URL をテスト\ncheck_circle\nURL は Google に登録されています\n関連するすべての拡張機能とともに Google 検索結果に表示されます（手動による対策や削除リクエストの対象でない場合）。詳細\nクロール済みのページを表示\nページを変更しましたか？\nインデックス登録をリクエスト\ncheck_circle\nページのインデックス登録\nページはインデックスに登録済みです\n\n検出\nサイトマップ\nhttps://consilegy.com/sitemap-index.xml\n参照元ページ\nhttps://consilegy.com/en/crm/reseller/\nhttps://consilegy.com/insights/why-sales-teams-stop-using-crm/\nクロール\n前回のクロール\n2026/10/15 5:08:51\nユーザー エージェント\nスマートフォン用 Googlebot\nクロールを許可？\nはい\nページの取得\n成功\nインデックス登録を許可？\nはい\nインデックス作成\nユーザーが指定した正規 URL\nhttps://consilegy.com/crm/reseller/\nGoogle が選択した正規 URL\n\n検査対象の URL\n詳細\nレポートを開く\n拡張機能とエクスペリエンス\ncheck_circle\nHTTPS\nこのページは HTTPS で配信されています\n\ncheck_circle\nパンくずリスト\n1 件の有効なアイテムを検出しました\n\nURL 検査"
+      },
+      {
+        "url": "https://consilegy.com/crm/school/",
+        "observedAt": "2026-10-27T00:46:42.894Z",
+        "indexed": true,
+        "lastCrawlDisplay": "2026/10/23 12:10:18",
+        "fetch": "成功",
+        "googleCanonical": "https://consilegy.com/crm/school/",
+        "reason": null,
+        "comparisonWithBaseline": "unchanged",
+        "sitemapTemporaryProcessingError": false,
+        "rawVisibleText": "help_outline\nヘルプ\nmanage_accounts\nユーザー設定\n\t\nnotifications\nメッセージ\n24\n\nhome\nサマリー\nlightbulb_2\n分析情報\ntrending_up\n検索パフォーマンス\nkeyboard_arrow_down\nsearch\nURL 検査\nインデックス作成\nkeyboard_arrow_up\nfile_copy\nページ\nvideo_library\n動画\naccount_tree\nサイトマップ\nvisibility_off\n非表示\nエクスペリエンス\nkeyboard_arrow_up\nspeed\nウェブに関する主な指標\nlock\nHTTPS\n拡張\nkeyboard_arrow_up\nlayers\nパンくずリスト\nセキュリティと手動による対策\nkeyboard_arrow_down\nlink_2\nリンク\ntrophy\n実績\nsettings\n設定\nfeedback\nフィードバックを送信\ninfo\nSearch Console の概要\nプライバシー利用規約\nhttps://consilegy.com/crm/school/\nURL 検査\n公開 URL をテスト\ncheck_circle\nURL は Google に登録されています\n関連するすべての拡張機能とともに Google 検索結果に表示されます（手動による対策や削除リクエストの対象でない場合）。詳細\nクロール済みのページを表示\nページを変更しましたか？\nインデックス登録をリクエスト\ncheck_circle\nページのインデックス登録\nページはインデックスに登録済みです\n\n検出\nサイトマップ\nhttps://consilegy.com/sitemap-index.xml\n参照元ページ\nhttps://consilegy.com/\nクロール\n前回のクロール\n2026/10/23 12:10:18\nユーザー エージェント\nスマートフォン用 Googlebot\nクロールを許可？\nはい\nページの取得\n成功\nインデックス登録を許可？\nはい\nインデックス作成\nユーザーが指定した正規 URL\nhttps://consilegy.com/crm/school/\nGoogle が選択した正規 URL\n\n検査対象の URL\n詳細\nレポートを開く\n拡張機能とエクスペリエンス\ncheck_circle\nHTTPS\nこのページは HTTPS で配信されています\n\ncheck_circle\nパンくずリスト\n1 件の有効なアイテムを検出しました\n\nURL 検査"
+      },
+      {
+        "url": "https://consilegy.com/crm/features/",
+        "observedAt": "2026-10-27T00:46:52.390Z",
+        "indexed": true,
+        "lastCrawlDisplay": "2026/10/17 11:12:05",
+        "fetch": "成功",
+        "googleCanonical": "https://consilegy.com/crm/features/",
+        "reason": null,
+        "comparisonWithBaseline": "unchanged",
+        "sitemapTemporaryProcessingError": true,
+        "rawVisibleText": "help_outline\nヘルプ\nmanage_accounts\nユーザー設定\n\t\nnotifications\nメッセージ\n24\n\nhome\nサマリー\nlightbulb_2\n分析情報\ntrending_up\n検索パフォーマンス\nkeyboard_arrow_down\nsearch\nURL 検査\nインデックス作成\nkeyboard_arrow_up\nfile_copy\nページ\nvideo_library\n動画\naccount_tree\nサイトマップ\nvisibility_off\n非表示\nエクスペリエンス\nkeyboard_arrow_up\nspeed\nウェブに関する主な指標\nlock\nHTTPS\n拡張\nkeyboard_arrow_up\nlayers\nパンくずリスト\nセキュリティと手動による対策\nkeyboard_arrow_down\nlink_2\nリンク\ntrophy\n実績\nsettings\n設定\nfeedback\nフィードバックを送信\ninfo\nSearch Console の概要\nプライバシー利用規約\nhttps://consilegy.com/crm/features/\nURL 検査\n公開 URL をテスト\ncheck_circle\nURL は Google に登録されています\n関連するすべての拡張機能とともに Google 検索結果に表示されます（手動による対策や削除リクエストの対象でない場合）。詳細\nクロール済みのページを表示\nページを変更しましたか？\nインデックス登録をリクエスト\ncheck_circle\nページのインデックス登録\nページはインデックスに登録済みです\n\n検出\nサイトマップ\n一時的な処理エラー\n参照元ページ\nhttps://consilegy.com/en/crm/features/\nクロール\n前回のクロール\n2026/10/17 11:12:05\nユーザー エージェント\nスマートフォン用 Googlebot\nクロールを許可？\nはい\nページの取得\n成功\nインデックス登録を許可？\nはい\nインデックス作成\nユーザーが指定した正規 URL\nhttps://consilegy.com/crm/features/\nGoogle が選択した正規 URL\n\n検査対象の URL\n詳細\nレポートを開く\n拡張機能とエクスペリエンス\ncheck_circle\nHTTPS\nこのページは HTTPS で配信されています\n\nURL 検査"
+      },
+      {
+        "url": "https://consilegy.com/crm/pricing/",
+        "observedAt": "2026-10-27T00:47:01.579Z",
+        "indexed": true,
+        "lastCrawlDisplay": "2026/10/17 12:44:08",
+        "fetch": "成功",
+        "googleCanonical": "https://consilegy.com/crm/pricing/",
+        "reason": null,
+        "comparisonWithBaseline": "unchanged",
+        "sitemapTemporaryProcessingError": true,
+        "rawVisibleText": "help_outline\nヘルプ\nmanage_accounts\nユーザー設定\n\t\nnotifications\nメッセージ\n24\n\nhome\nサマリー\nlightbulb_2\n分析情報\ntrending_up\n検索パフォーマンス\nkeyboard_arrow_down\nsearch\nURL 検査\nインデックス作成\nkeyboard_arrow_up\nfile_copy\nページ\nvideo_library\n動画\naccount_tree\nサイトマップ\nvisibility_off\n非表示\nエクスペリエンス\nkeyboard_arrow_up\nspeed\nウェブに関する主な指標\nlock\nHTTPS\n拡張\nkeyboard_arrow_up\nlayers\nパンくずリスト\nセキュリティと手動による対策\nkeyboard_arrow_down\nlink_2\nリンク\ntrophy\n実績\nsettings\n設定\nfeedback\nフィードバックを送信\ninfo\nSearch Console の概要\nプライバシー利用規約\nhttps://consilegy.com/crm/pricing/\nURL 検査\n公開 URL をテスト\ncheck_circle\nURL は Google に登録されています\n関連するすべての拡張機能とともに Google 検索結果に表示されます（手動による対策や削除リクエストの対象でない場合）。詳細\nクロール済みのページを表示\nページを変更しましたか？\nインデックス登録をリクエスト\ncheck_circle\nページのインデックス登録\nページはインデックスに登録済みです\n\n検出\nサイトマップ\n一時的な処理エラー\n参照元ページ\n検出されませんでした\nURL は、現時点でレポートされていない他のソースから認識されている可能性があります\nクロール\n前回のクロール\n2026/10/17 12:44:08\nユーザー エージェント\nスマートフォン用 Googlebot\nクロールを許可？\nはい\nページの取得\n成功\nインデックス登録を許可？\nはい\nインデックス作成\nユーザーが指定した正規 URL\nhttps://consilegy.com/crm/pricing/\nGoogle が選択した正規 URL\n\n検査対象の URL\n詳細\nレポートを開く\n拡張機能とエクスペリエンス\ncheck_circle\nHTTPS\nこのページは HTTPS で配信されています\n\ncheck_circle\nパンくずリスト\n1 件の有効なアイテムを検出しました\n\nURL 検査"
+      },
+      {
+        "url": "https://consilegy.com/crm/faq/",
+        "observedAt": "2026-10-27T00:47:19.060Z",
+        "indexed": true,
+        "lastCrawlDisplay": "2026/10/16 5:49:45",
+        "fetch": "成功",
+        "googleCanonical": "https://consilegy.com/crm/faq/",
+        "reason": null,
+        "comparisonWithBaseline": "unchanged",
+        "sitemapTemporaryProcessingError": true,
+        "rawVisibleText": "help_outline\nヘルプ\nmanage_accounts\nユーザー設定\n\t\nnotifications\nメッセージ\n24\n\nhome\nサマリー\nlightbulb_2\n分析情報\ntrending_up\n検索パフォーマンス\nkeyboard_arrow_down\nsearch\nURL 検査\nインデックス作成\nkeyboard_arrow_up\nfile_copy\nページ\nvideo_library\n動画\naccount_tree\nサイトマップ\nvisibility_off\n非表示\nエクスペリエンス\nkeyboard_arrow_up\nspeed\nウェブに関する主な指標\nlock\nHTTPS\n拡張\nkeyboard_arrow_up\nlayers\nパンくずリスト\nセキュリティと手動による対策\nkeyboard_arrow_down\nlink_2\nリンク\ntrophy\n実績\nsettings\n設定\nfeedback\nフィードバックを送信\ninfo\nSearch Console の概要\nプライバシー利用規約\nhttps://consilegy.com/crm/faq/\nURL 検査\n公開 URL をテスト\ncheck_circle\nURL は Google に登録されています\n関連するすべての拡張機能とともに Google 検索結果に表示されます（手動による対策や削除リクエストの対象でない場合）。詳細\nクロール済みのページを表示\nページを変更しましたか？\nインデックス登録をリクエスト\ncheck_circle\nページのインデックス登録\nページはインデックスに登録済みです\n\n検出\nサイトマップ\n一時的な処理エラー\n参照元ページ\nhttps://consilegy.com/crm/\nクロール\n前回のクロール\n2026/10/16 5:49:45\nユーザー エージェント\nスマートフォン用 Googlebot\nクロールを許可？\nはい\nページの取得\n成功\nインデックス登録を許可？\nはい\nインデックス作成\nユーザーが指定した正規 URL\nhttps://consilegy.com/crm/faq/\nGoogle が選択した正規 URL\n\n検査対象の URL\n詳細\nレポートを開く\n拡張機能とエクスペリエンス\ncheck_circle\nHTTPS\nこのページは HTTPS で配信されています\n\nURL 検査"
+      },
+      {
+        "url": "https://consilegy.com/crm/school/faq/",
+        "observedAt": "2026-10-27T00:47:36.383Z",
+        "indexed": true,
+        "lastCrawlDisplay": "2026/10/23 21:29:54",
+        "fetch": "成功",
+        "googleCanonical": "https://consilegy.com/crm/school/faq/",
+        "reason": null,
+        "comparisonWithBaseline": "unchanged",
+        "sitemapTemporaryProcessingError": true,
+        "rawVisibleText": "help_outline\nヘルプ\nmanage_accounts\nユーザー設定\n\t\nnotifications\nメッセージ\n24\n\nhome\nサマリー\nlightbulb_2\n分析情報\ntrending_up\n検索パフォーマンス\nkeyboard_arrow_down\nsearch\nURL 検査\nインデックス作成\nkeyboard_arrow_up\nfile_copy\nページ\nvideo_library\n動画\naccount_tree\nサイトマップ\nvisibility_off\n非表示\nエクスペリエンス\nkeyboard_arrow_up\nspeed\nウェブに関する主な指標\nlock\nHTTPS\n拡張\nkeyboard_arrow_up\nlayers\nパンくずリスト\nセキュリティと手動による対策\nkeyboard_arrow_down\nlink_2\nリンク\ntrophy\n実績\nsettings\n設定\nfeedback\nフィードバックを送信\ninfo\nSearch Console の概要\nプライバシー利用規約\nhttps://consilegy.com/crm/school/faq/\nURL 検査\n公開 URL をテスト\ncheck_circle\nURL は Google に登録されています\n関連するすべての拡張機能とともに Google 検索結果に表示されます（手動による対策や削除リクエストの対象でない場合）。詳細\nクロール済みのページを表示\nページを変更しましたか？\nインデックス登録をリクエスト\ncheck_circle\nページのインデックス登録\nページはインデックスに登録済みです\n\n検出\nサイトマップ\n一時的な処理エラー\n参照元ページ\nhttps://consilegy.com/crm/school/\nクロール\n前回のクロール\n2026/10/23 21:29:54\nユーザー エージェント\nスマートフォン用 Googlebot\nクロールを許可？\nはい\nページの取得\n成功\nインデックス登録を許可？\nはい\nインデックス作成\nユーザーが指定した正規 URL\nhttps://consilegy.com/crm/school/faq/\nGoogle が選択した正規 URL\n\n検査対象の URL\n詳細\nレポートを開く\n拡張機能とエクスペリエンス\ncheck_circle\nHTTPS\nこのページは HTTPS で配信されています\n\nURL 検査"
+      },
+      {
+        "url": "https://consilegy.com/case-studies/revenue-crm-school-line-booking/",
+        "observedAt": "2026-10-27T00:47:49.577Z",
+        "indexed": false,
+        "lastCrawlDisplay": null,
+        "fetch": null,
+        "googleCanonical": null,
+        "reason": "URL が Google に認識されていません",
+        "comparisonWithBaseline": "first_index_inspection",
+        "sitemapTemporaryProcessingError": false,
+        "rawVisibleText": "help_outline\nヘルプ\nmanage_accounts\nユーザー設定\n\t\nnotifications\nメッセージ\n24\n\nhome\nサマリー\nlightbulb_2\n分析情報\ntrending_up\n検索パフォーマンス\nkeyboard_arrow_down\nsearch\nURL 検査\nインデックス作成\nkeyboard_arrow_up\nfile_copy\nページ\nvideo_library\n動画\naccount_tree\nサイトマップ\nvisibility_off\n非表示\nエクスペリエンス\nkeyboard_arrow_up\nspeed\nウェブに関する主な指標\nlock\nHTTPS\n拡張\nkeyboard_arrow_up\nlayers\nパンくずリスト\nセキュリティと手動による対策\nkeyboard_arrow_down\nlink_2\nリンク\ntrophy\n実績\nsettings\n設定\nfeedback\nフィードバックを送信\ninfo\nSearch Console の概要\nプライバシー利用規約\nhttps://consilegy.com/case-studies/revenue-crm-school-line-booking/\nURL 検査\n公開 URL をテスト\ninfo\nURL が Google に登録されていません\nこのページはインデックスに登録されていません。インデックスに登録されていないページは Google で配信することができません。インデックスに登録されなかった理由について詳細をご確認ください。詳細\nクロール済みのページを表示\nページを変更しましたか？\nインデックス登録をリクエスト\ninfo\nページのインデックス登録\nページはインデックスに登録されていません: URL が Google に認識されていません\n\n検出\nサイトマップ\n参照元サイトマップが検出されませんでした\n参照元ページ\n検出されませんでした\nURL は、現時点でレポートされていない他のソースから認識されている可能性があります\nクロール\n前回のクロール\n該当なし\nユーザー エージェント\n該当なし\nクロールを許可？\n該当なし\nページの取得\n該当なし\nインデックス登録を許可？\ninfo\n該当なし\nインデックス作成\nユーザーが指定した正規 URL\n該当なし\nGoogle が選択した正規 URL\n\n該当なし\n詳細\n拡張機能とエクスペリエンス\n拡張機能の対象になるのは、インデックスに登録されている URL のみです\nURL 検査"
+      },
+      {
+        "url": "https://consilegy.com/crm/updates/",
+        "observedAt": "2026-10-27T00:47:58.964Z",
+        "indexed": true,
+        "lastCrawlDisplay": "2026/10/19 14:49:09",
+        "fetch": "成功",
+        "googleCanonical": "https://consilegy.com/crm/updates/",
+        "reason": null,
+        "comparisonWithBaseline": "first_index_inspection",
+        "sitemapTemporaryProcessingError": false,
+        "rawVisibleText": "help_outline\nヘルプ\nmanage_accounts\nユーザー設定\n\t\nnotifications\nメッセージ\n24\n\nhome\nサマリー\nlightbulb_2\n分析情報\ntrending_up\n検索パフォーマンス\nkeyboard_arrow_down\nsearch\nURL 検査\nインデックス作成\nkeyboard_arrow_up\nfile_copy\nページ\nvideo_library\n動画\naccount_tree\nサイトマップ\nvisibility_off\n非表示\nエクスペリエンス\nkeyboard_arrow_up\nspeed\nウェブに関する主な指標\nlock\nHTTPS\n拡張\nkeyboard_arrow_up\nlayers\nパンくずリスト\nセキュリティと手動による対策\nkeyboard_arrow_down\nlink_2\nリンク\ntrophy\n実績\nsettings\n設定\nfeedback\nフィードバックを送信\ninfo\nSearch Console の概要\nプライバシー利用規約\nhttps://consilegy.com/crm/updates/\nURL 検査\n公開 URL をテスト\ncheck_circle\nURL は Google に登録されています\n関連するすべての拡張機能とともに Google 検索結果に表示されます（手動による対策や削除リクエストの対象でない場合）。詳細\nクロール済みのページを表示\nページを変更しましたか？\nインデックス登録をリクエスト\ncheck_circle\nページのインデックス登録\nページはインデックスに登録済みです\n\n検出\nサイトマップ\nhttps://consilegy.com/sitemap-index.xml\n参照元ページ\nhttps://consilegy.com/crm/faq/business-card-scan/\nクロール\n前回のクロール\n2026/10/19 14:49:09\nユーザー エージェント\nスマートフォン用 Googlebot\nクロールを許可？\nはい\nページの取得\n成功\nインデックス登録を許可？\nはい\nインデックス作成\nユーザーが指定した正規 URL\nhttps://consilegy.com/crm/updates/\nGoogle が選択した正規 URL\n\n検査対象の URL\n詳細\nレポートを開く\n拡張機能とエクスペリエンス\ncheck_circle\nHTTPS\nこのページは HTTPS で配信されています\n\nURL 検査"
+      },
+      {
+        "url": "https://consilegy.com/en/crm/updates/",
+        "observedAt": "2026-10-27T00:48:10.803Z",
+        "indexed": true,
+        "lastCrawlDisplay": "2026/10/23 14:05:59",
+        "fetch": "成功",
+        "googleCanonical": "https://consilegy.com/en/crm/updates/",
+        "reason": null,
+        "comparisonWithBaseline": "first_index_inspection",
+        "sitemapTemporaryProcessingError": false,
+        "rawVisibleText": "help_outline\nヘルプ\nmanage_accounts\nユーザー設定\n\t\nnotifications\nメッセージ\n24\n\nhome\nサマリー\nlightbulb_2\n分析情報\ntrending_up\n検索パフォーマンス\nkeyboard_arrow_down\nsearch\nURL 検査\nインデックス作成\nkeyboard_arrow_up\nfile_copy\nページ\nvideo_library\n動画\naccount_tree\nサイトマップ\nvisibility_off\n非表示\nエクスペリエンス\nkeyboard_arrow_up\nspeed\nウェブに関する主な指標\nlock\nHTTPS\n拡張\nkeyboard_arrow_up\nlayers\nパンくずリスト\nセキュリティと手動による対策\nkeyboard_arrow_down\nlink_2\nリンク\ntrophy\n実績\nsettings\n設定\nfeedback\nフィードバックを送信\ninfo\nSearch Console の概要\nプライバシー利用規約\nhttps://consilegy.com/en/crm/updates/\nURL 検査\n公開 URL をテスト\ncheck_circle\nURL は Google に登録されています\n関連するすべての拡張機能とともに Google 検索結果に表示されます（手動による対策や削除リクエストの対象でない場合）。詳細\nクロール済みのページを表示\nページを変更しましたか？\nインデックス登録をリクエスト\ncheck_circle\nページのインデックス登録\nページはインデックスに登録済みです\n\n検出\nサイトマップ\nhttps://consilegy.com/sitemap-index.xml\n参照元ページ\nhttps://consilegy.com/en/crm/\nクロール\n前回のクロール\n2026/10/23 14:05:59\nユーザー エージェント\nスマートフォン用 Googlebot\nクロールを許可？\nはい\nページの取得\n成功\nインデックス登録を許可？\nはい\nインデックス作成\nユーザーが指定した正規 URL\nhttps://consilegy.com/en/crm/updates/\nGoogle が選択した正規 URL\n\n検査対象の URL\n詳細\nレポートを開く\n拡張機能とエクスペリエンス\ncheck_circle\nHTTPS\nこのページは HTTPS で配信されています\n\nURL 検査"
+      },
+      {
+        "url": "https://consilegy.com/news/revenue-crm-release/",
+        "observedAt": "2026-10-27T00:48:28.871Z",
+        "indexed": false,
+        "lastCrawlDisplay": null,
+        "fetch": null,
+        "googleCanonical": null,
+        "reason": "URL が Google に認識されていません",
+        "comparisonWithBaseline": "first_index_inspection",
+        "sitemapTemporaryProcessingError": false,
+        "rawVisibleText": "help_outline\nヘルプ\nmanage_accounts\nユーザー設定\n\t\nnotifications\nメッセージ\n24\n\nhome\nサマリー\nlightbulb_2\n分析情報\ntrending_up\n検索パフォーマンス\nkeyboard_arrow_down\nsearch\nURL 検査\nインデックス作成\nkeyboard_arrow_up\nfile_copy\nページ\nvideo_library\n動画\naccount_tree\nサイトマップ\nvisibility_off\n非表示\nエクスペリエンス\nkeyboard_arrow_up\nspeed\nウェブに関する主な指標\nlock\nHTTPS\n拡張\nkeyboard_arrow_up\nlayers\nパンくずリスト\nセキュリティと手動による対策\nkeyboard_arrow_down\nlink_2\nリンク\ntrophy\n実績\nsettings\n設定\nfeedback\nフィードバックを送信\ninfo\nSearch Console の概要\nプライバシー利用規約\nhttps://consilegy.com/news/revenue-crm-release/\nURL 検査\n公開 URL をテスト\ninfo\nURL が Google に登録されていません\nこのページはインデックスに登録されていません。インデックスに登録されていないページは Google で配信することができません。インデックスに登録されなかった理由について詳細をご確認ください。詳細\nクロール済みのページを表示\nページを変更しましたか？\nインデックス登録をリクエスト\ninfo\nページのインデックス登録\nページはインデックスに登録されていません: URL が Google に認識されていません\n\n検出\nサイトマップ\n参照元サイトマップが検出されませんでした\n参照元ページ\n検出されませんでした\nURL は、現時点でレポートされていない他のソースから認識されている可能性があります\nクロール\n前回のクロール\n該当なし\nユーザー エージェント\n該当なし\nクロールを許可？\n該当なし\nページの取得\n該当なし\nインデックス登録を許可？\ninfo\n該当なし\nインデックス作成\nユーザーが指定した正規 URL\n該当なし\nGoogle が選択した正規 URL\n\n該当なし\n詳細\n拡張機能とエクスペリエンス\n拡張機能の対象になるのは、インデックスに登録されている URL のみです\nURL 検査"
+      }
+    ],
+    "summary": {
+      "inspected": 14,
+      "indexed": 10,
+      "unrecognized": 4,
+      "changedAmongPreviouslyMeasured": 0,
+      "postPublicationRecrawlConfirmed": false
+    },
+    "note": "既存10URLの登録状態・最終クロール日時に変化なし。追加4URLは初回検査。サイトマップ欄の一時的な処理エラーはページ取得失敗とは別扱い。公開後の再クロールは未確認。"
+  },
+  "citations": {
+    "status": "not_scheduled_today",
+    "counts": null,
+    "reason": "火曜日のため週次のBing AI Performance・ChatGPT/Gemini/Claude合成観測は実施しない。未取得を0としない。",
+    "previousOfficialReport": "crm-bing-observation-2026-10-26.json"
+  },
+  "retrievalObservations": [],
+  "notification": {
+    "decision": "DONT_NOTIFY",
+    "reason": "既存URLの登録・クロールに進展や悪化なし。新規事例とリリース記事のURL未認識は初回観測で、登録解除を示すものではない。新しいAI引用は未観測。"
+  }
+}

@@ -1,0 +1,289 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CrmSubnav from '../../../components/CrmSubnav.astro';
+
+const DEMO_URL = 'https://crm.consilegy.com/demos';
+const SIGNUP_URL = 'https://crm.consilegy.com/signup';
+const CONSULT_URL = '/free-consultation/';
+
+// 導入支援・カスタマイズのページ（2026-10-27 代表指示で新設。製品を作った会社が設定から定着まで入るのが差別化）。
+// 料金と支援の中身は /crm/pricing/#support の表と揃える。片方だけ直さない。
+// 期間・工数・他社との比較は、確認できる数字がないので書かない。
+
+const reasons = [
+	{
+		title: '業務の流れを聞いてから、設定する。',
+		text: '誰が、いつ、何を記録し、誰に渡しているか。いまの業務の流れを伺ってから、項目・商談の段階・自動化・権限を決めます。画面に業務を合わせてもらうのではなく、業務に合わせて画面を整えます。',
+	},
+	{
+		title: '作った会社だから、機能そのものを足せる。',
+		text: '設定だけでは届かないところは、追加開発で機能を足します。Revenue CRMは当社が開発している製品なので、間に別の会社を挟まず、作り手が直接お見積りし、開発します。',
+	},
+	{
+		title: '使われ続けるところまで、見届ける。',
+		text: '導入後の3か月は週1回の定例で、使われ方を見ながら設定を見直します。その後も、設定変更の代行とご質問への対応を月額でお引き受けします。',
+	},
+];
+
+const customs = [
+	{ label: '項目', text: '自社で管理したい情報を項目として追加し、入力の順番や必須を整えます。' },
+	{ label: '商談の段階', text: '受注までの段階を、自社の営業の進め方に合わせて組み直します。' },
+	{ label: '自動化', text: '175本の自動化から必要なものを選び、通知の相手や日数などの条件を合わせます。' },
+	{ label: '権限', text: '顧客・会社・商談ごとに、見える範囲を「全体・チーム・自分」から設計します。' },
+	{ label: '追加開発', text: '設定では足りない画面や機能を、その会社の運用に合わせて開発します。' },
+	{ label: 'データ移行・連携', text: 'スプレッドシートの顧客リストやHubSpotのデータの取り込み、外部サービスとの連携を設定します。' },
+];
+
+const steps = [
+	{ label: '01', title: '30分の無料相談', text: '今の管理方法と、困っていることを伺います。オンラインで、資料の準備は要りません。' },
+	{ label: '02', title: 'ヒアリングとお見積り', text: '業務の流れと、必要な項目・権限・連携を確認し、支援の範囲と費用をお出しします。' },
+	{ label: '03', title: '初期設定と操作説明会', text: '項目・商談の段階・自動化・権限を設定し、操作説明会を3回行います。' },
+	{ label: '04', title: '定着支援', text: '3か月間、週1回の定例で使われ方を確かめ、設定を見直します。' },
+	{ label: '05', title: '運用支援・追加開発', text: '設定変更の代行とご質問への対応を続けます。必要になった機能は追加開発で足します。' },
+];
+
+// /crm/pricing/#support と同じ内容・金額。
+const menu = [
+	{ tier: '初期設定', figure: '120,000円〜', text: '開始に必要な内容のヒアリング、初期設定と権限の設計、操作説明会（3回）。追加の説明会は1回50,000円。' },
+	{ tier: '定着支援', figure: '300,000円〜（3か月）', text: '導入後3か月間。週1回の定例、設定の見直し、使い方の個別相談。' },
+	{ tier: '運用支援', figure: '月額30,000円〜', text: '定着後の設定変更の代行と、ご質問への対応（月2時間まで）。' },
+	{ tier: '追加開発', figure: '要見積', text: 'その会社の運用に合わせて、追加機能を開発します。' },
+];
+
+const faqs = [
+	{ q: '支援を頼まずに、自分で設定できますか。', a: 'できます。基本的な操作動画とヘルプ記事は、すべてのプランで無料です。自分で始めてみて、途中から支援をご依頼いただくこともできます。' },
+	{ q: 'HubSpot・Salesforceから乗り換えられますか。', a: 'はい。現在の管理項目や業務フローを確認し、Revenue CRMで実現できることをご案内します。スプレッドシートの顧客リストはCSVで、HubSpotのデータは読み取って取り込めます。データ移行や外部サービスとの連携設定は、件数や連携先によって工数が変わるため、別途お見積りします。' },
+	{ q: '費用はいつ決まりますか。', a: '有料の支援はいずれも、会社の規模やご要望をお伺いしたうえで、正式にお見積りします。お見積りまでは費用はかかりません。' },
+];
+---
+
+<BaseLayout
+	title="Revenue CRMの導入支援 | 初期設定・定着支援・カスタマイズを、作り手が直接"
+	description="Revenue CRMの導入支援。業務の流れを伺ってから、項目・商談の段階・自動化・権限を設定します。設定で届かないところは追加開発で機能を足します。当社が開発している製品なので、作り手が直接支援します。初期設定120,000円〜、定着支援（3か月）300,000円〜、運用支援 月額30,000円〜（税抜）。"
+	lang="ja"
+>
+<script type="application/ld+json" slot="head" set:html={JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://consilegy.com/"},
+		{"@type": "ListItem", "position": 2, "name": "Revenue CRM", "item": "https://consilegy.com/crm/"},
+		{"@type": "ListItem", "position": 3, "name": "導入支援", "item": "https://consilegy.com/crm/onboarding/"}
+	]
+})} />
+
+<CrmSubnav lang="ja" />
+
+<!-- ===================== HERO ===================== -->
+<section class="ob-hero">
+	<div class="container">
+		<p class="eyebrow">Revenue CRM · Onboarding</p>
+		<h1>入れて終わりにしない。<br />設定から定着まで、作り手が入ります。</h1>
+		<p class="ob-lead">
+			顧客管理システムは、入れた日がいちばん盛り上がり、使われないまま元のスプレッドシートに戻ることがよくあります。Revenue CRMは、製品を開発している当社が、<strong>初期設定・定着・カスタマイズまで直接支援</strong>します。
+		</p>
+		<div class="ob-actions">
+			<a href={CONSULT_URL} class="btn btn--primary">30分の無料相談</a>
+			<a href="#menu" class="btn btn--secondary">支援の内容と料金</a>
+		</div>
+		<ul class="ob-points" aria-label="導入支援の特徴">
+			<li>業務の流れを聞いてから設定</li>
+			<li>追加開発で機能を足せる</li>
+			<li>代表の導入支援 40社以上</li>
+		</ul>
+	</div>
+</section>
+
+<!-- ===================== WHY ===================== -->
+<section class="ob-band ob-band--gray">
+	<div class="container">
+		<header class="section-head">
+			<p class="section-eyebrow">Why Onboarding</p>
+			<h2>ツールを渡して終わり、にはしません。</h2>
+		</header>
+		<ol class="reason-list">
+			{reasons.map((r, i) => (
+				<li class="card"><span class="card__num">{String(i + 1).padStart(2, '0')}</span><h3>{r.title}</h3><p>{r.text}</p></li>
+			))}
+		</ol>
+	</div>
+</section>
+
+<!-- ===================== CUSTOMIZE ===================== -->
+<section class="ob-band" id="customize">
+	<div class="container">
+		<header class="section-head">
+			<p class="section-eyebrow">Customize</p>
+			<h2>自社の業務に、ここまで合わせられます。</h2>
+			<p class="section-lead">設定で合わせるところと、開発で足すところを分けてご提案します。</p>
+		</header>
+		<dl class="custom-list">
+			{customs.map((c) => (
+				<div class="card"><dt>{c.label}</dt><dd>{c.text}</dd></div>
+			))}
+		</dl>
+	</div>
+</section>
+
+<!-- ===================== PROCESS ===================== -->
+<section class="ob-band ob-band--gray">
+	<div class="container">
+		<header class="section-head">
+			<p class="section-eyebrow">Process</p>
+			<h2>ご相談から定着までの流れ。</h2>
+		</header>
+		<ol class="step-list">
+			{steps.map((s) => (
+				<li class="card"><span class="card__num">{s.label}</span><h3>{s.title}</h3><p>{s.text}</p></li>
+			))}
+		</ol>
+	</div>
+</section>
+
+<!-- ===================== MENU ===================== -->
+<section class="ob-band" id="menu">
+	<div class="container">
+		<header class="section-head">
+			<p class="section-eyebrow">Pricing</p>
+			<h2>支援の内容と料金。</h2>
+			<p class="section-lead">必要なものだけを選べます。自分で進める場合は、操作動画とヘルプ記事をすべてのプランで無料でご用意しています。</p>
+		</header>
+		<dl class="menu-list">
+			{menu.map((m) => (
+				<div class="card"><dt>{m.tier}<strong>{m.figure}</strong></dt><dd>{m.text}</dd></div>
+			))}
+		</dl>
+		<p class="note">データ移行や外部サービスとの連携設定は、件数や連携先によって工数が変わるため、別途お見積りします。有料の支援はいずれも、会社の規模やご要望をお伺いしたうえで、正式にお見積りします。価格は税抜です。<a href="/crm/pricing/">製品の料金 →</a></p>
+	</div>
+</section>
+
+<!-- ===================== WHO ===================== -->
+<section class="ob-band ob-band--gray">
+	<div class="container who">
+		<header>
+			<p class="section-eyebrow">Who</p>
+			<h2>支援に入るのは、<br />製品を作った本人です。</h2>
+		</header>
+		<div class="who-body card">
+			<p>代表の山口聖子は、HubSpot・Salesforceを中心に、個人事業の時代から40社以上の顧客管理システムの導入を支援してきました。</p>
+			<p>導入の日の盛り上がりと、その後に使われなくなっていく現場を、何度も見てきました。だから支援は、設定で終わらせず、使われ続けるところまでを一続きで設計します。Revenue CRMも、その経験から作った製品です。</p>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="ob-band">
+	<div class="container">
+		<header class="section-head">
+			<p class="section-eyebrow">FAQ</p>
+			<h2>導入支援について、よくいただく質問。</h2>
+		</header>
+		<dl class="faq-list">
+			{faqs.map((f) => (
+				<div class="faq-item"><dt>{f.q}</dt><dd>{f.a}</dd></div>
+			))}
+		</dl>
+		<p class="note"><a href="/crm/faq/">よくあるご質問をすべて見る →</a></p>
+	</div>
+</section>
+
+<!-- ===================== FINAL CTA ===================== -->
+<section class="final-cta">
+	<div class="container">
+		<p class="cta-eyebrow">Get Started</p>
+		<h2>まず、今の業務の話を<br />聞かせてください。</h2>
+		<p class="cta-lead">30分の無料相談で、今の管理方法と困っていることを伺い、設定で合わせるところと開発で足すところを整理します。オンラインで、資料の準備は要りません。</p>
+		<div class="ob-actions">
+			<a href={CONSULT_URL} class="btn btn--light">30分の無料相談</a>
+			<a href={DEMO_URL} class="btn btn--outline-light" target="_blank" rel="noopener noreferrer">デモを見る</a>
+			<a href={SIGNUP_URL} class="btn btn--outline-light" target="_blank" rel="noopener noreferrer">無料で始める</a>
+		</div>
+	</div>
+</section>
+
+</BaseLayout>
+
+<style>
+	.container { max-width: 1160px; margin-inline: auto; padding-inline: 2rem; }
+	section { padding-block: var(--space-2xl); }
+	h2 { margin: 0; font-size: clamp(1.625rem, 2.4vw, 2.125rem); font-weight: 500; line-height: 1.35; color: var(--color-text); text-wrap: balance; }
+	h3 { margin: 0; font-weight: 600; }
+	.eyebrow, .section-eyebrow, .cta-eyebrow { display: block; margin: 0 0 0.75rem; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-navy); }
+	.section-head { max-width: 720px; margin-bottom: var(--space-lg); }
+	.section-lead { margin: 1rem 0 0; font-size: 1rem; line-height: 1.85; color: var(--color-text-muted); }
+
+	.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0.85rem 1.5rem; border-radius: 4px; font-size: 1rem; font-weight: 600; text-decoration: none; transition: background 0.15s, color 0.15s, border-color 0.15s; }
+	.btn--primary { background: var(--color-primary); border: 1px solid var(--color-primary); color: #fff; }
+	.btn--primary:hover { background: var(--color-primary-dark); border-color: var(--color-primary-dark); color: #fff; }
+	.btn--secondary { background: transparent; border: 1px solid var(--color-border-strong); color: var(--color-text); }
+	.btn--secondary:hover { border-color: var(--color-primary); color: var(--color-primary); }
+	.btn--light { background: #fff; border: 1px solid #fff; color: var(--color-primary); }
+	.btn--light:hover { background: #F1F5F9; color: var(--color-primary); }
+	.btn--outline-light { background: transparent; border: 1px solid rgba(255,255,255,0.7); color: #fff; }
+	.btn--outline-light:hover { background: rgba(255,255,255,0.08); color: #fff; }
+	.ob-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: var(--space-md); }
+
+	/* Hero（白） */
+	.ob-hero { background: #fff; border-bottom: 1px solid var(--color-border); }
+	.ob-hero h1 { max-width: 20em; margin: 0; font-size: clamp(2rem, 3.6vw, 3rem); font-weight: 600; line-height: 1.3; color: var(--color-navy); text-wrap: balance; }
+	.ob-lead { max-width: 44em; margin: var(--space-md) 0 0; font-size: 1.0625rem; line-height: 1.95; color: var(--color-text); }
+	.ob-lead strong { font-weight: 700; }
+	.ob-points { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 52rem; margin: var(--space-lg) 0 0; padding: 0; list-style: none; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
+	.ob-points li { padding: 0.9rem 1rem; font-size: 1rem; font-weight: 600; color: var(--color-navy); }
+	.ob-points li + li { border-left: 1px solid var(--color-border); }
+
+	/* 帯＋白カード */
+	.ob-band { background: #fff; }
+	.ob-band--gray { background: #F1F5F9; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
+	.card { background: #fff; border: 1px solid var(--color-border); border-radius: 6px; box-shadow: 0 1px 3px rgba(15,23,42,0.06); padding: 1.5rem 1.4rem; }
+	.card__num { display: block; font-size: 0.875rem; font-weight: 700; letter-spacing: 0.08em; color: var(--color-navy); }
+	.card h3 { margin: 0.5rem 0 0.75rem; font-size: 1.125rem; line-height: 1.5; color: var(--color-navy); }
+	.card p { margin: 0; font-size: 1rem; line-height: 1.85; color: var(--color-text-muted); }
+
+	.reason-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin: 0; padding: 0; list-style: none; }
+
+	.custom-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin: 0; }
+	.custom-list dt { margin: 0 0 0.5rem; font-size: 1.0625rem; font-weight: 700; color: var(--color-navy); }
+	.custom-list dd { margin: 0; font-size: 1rem; line-height: 1.85; color: var(--color-text-muted); }
+
+	.step-list { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1rem; margin: 0; padding: 0; list-style: none; }
+	.step-list h3 { font-size: 1.0625rem; }
+
+	.menu-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin: 0; }
+	.menu-list dt { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.25rem 1rem; margin: 0 0 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--color-border); font-size: 1.0625rem; font-weight: 700; color: var(--color-text); }
+	.menu-list dt strong { font-size: 1.25rem; font-weight: 700; color: var(--color-navy); font-variant-numeric: tabular-nums; }
+	.menu-list dd { margin: 0; font-size: 1rem; line-height: 1.85; color: var(--color-text-muted); }
+	.note { margin: 1.25rem 0 0; font-size: 0.875rem; line-height: 1.8; color: var(--color-text-muted); }
+	.note a { margin-left: 0.5rem; font-weight: 600; }
+
+	.who { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: var(--space-xl); align-items: start; }
+	.who-body p { color: var(--color-text); }
+	.who-body p + p { margin-top: 1rem; }
+
+	.faq-list { max-width: 52rem; margin: 0; border-top: 1px solid var(--color-border); }
+	.faq-item { padding-block: 1.25rem; border-bottom: 1px solid var(--color-border); }
+	.faq-item dt { margin: 0 0 0.4rem; font-size: 1.0625rem; font-weight: 600; color: var(--color-text); }
+	.faq-item dd { margin: 0; font-size: 1rem; line-height: 1.85; color: var(--color-text-muted); }
+
+	.final-cta { background: #0F172A; color: #fff; }
+	.final-cta .cta-eyebrow { color: rgba(255,255,255,0.85); }
+	.final-cta h2 { color: #fff; font-size: clamp(1.875rem, 3.4vw, 2.75rem); line-height: 1.3; }
+	.cta-lead { max-width: 44em; margin: 1.25rem 0 0; font-size: 1rem; line-height: 1.85; color: rgba(255,255,255,0.9); }
+
+	@media (max-width: 1080px) {
+		.step-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+		.custom-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	}
+	@media (max-width: 860px) {
+		.reason-list, .menu-list, .who { grid-template-columns: 1fr; }
+	}
+	@media (max-width: 640px) {
+		.container { padding-inline: 1.25rem; }
+		section { padding-block: var(--space-xl); }
+		.custom-list, .step-list { grid-template-columns: 1fr; }
+		.ob-points { grid-template-columns: 1fr; }
+		.ob-points li + li { border-left: 0; border-top: 1px solid var(--color-border); }
+		.ob-actions { flex-direction: column; }
+		.ob-actions .btn { width: 100%; }
+	}
+</style>

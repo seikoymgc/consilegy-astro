@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+
+const title = 'System Development & Implementation PM Support | Consilegy';
+const description = 'Client-side project management for new systems, changes and replacements, and CRM implementation. Requirements, vendor coordination, schedule, budget, quality, testing, migration, and launch. Support for existing internal PMs is also available. Individually scoped and quoted.';
+const url = 'https://consilegy.com/en/services/project-management-support/';
+const problems = [
+  { title: 'You cannot evaluate the requirements or estimate', text: 'What to build is still unclear. You cannot assess the assumptions or scope behind the quote, and you are concerned about additional costs after approval.' },
+  { title: 'Internal teams and developers are not aligned', text: 'Departments want different things. Your vendor has a different understanding. New requests and open decisions keep accumulating without clear next steps.' },
+  { title: 'The deadline is fixed, but the whole project is hard to manage', text: 'You already have an internal PM and developers, but cross-team dependencies, migration, and acceptance preparations need more attention than the team can give them.' },
+];
+const scope = [
+  { title: 'Clarify the purpose and requirements', text: 'Review the work and its problems, then define the intended outcome, required functions, and priorities.', output: 'Business requirements, scope, and priorities' },
+  { title: 'Select development and implementation partners', text: 'Set proposal requirements, compare proposals and estimates, and clarify responsibilities so your team can make an informed choice.', output: 'Request for proposal and comparison materials' },
+  { title: 'Set the plan and decision process', text: 'Define schedules, owners, approvers, and meetings. Establish how new requests and specification changes will be evaluated.', output: 'Delivery plan, responsibilities, and change control' },
+  { title: 'Manage progress, budget, and issues', text: 'Work between developers and internal departments to track delays and open issues. Explain options and impacts so decisions can move forward.', output: 'Progress reports, issue tracking, and decision records' },
+  { title: 'Support acceptance and migration', text: 'Define checks against business requirements, coordinate user testing, and prepare data migration and the transition to the new system.', output: 'Acceptance checks and migration plan' },
+  { title: 'Hand over to the operating team', text: 'Clarify procedures, owners, and contact points. Support training and handover, then prioritize issues and improvements after launch.', output: 'Operating procedures, handover materials, and improvement backlog' },
+];
+const faqItems = [
+  { q: 'Can we commission PM support on its own?', a: 'Yes. You do not need to commission a revenue assessment or a full redesign first. We review the project and your current team, then propose the PM responsibilities required.' },
+  { q: 'Can you work with our existing development company?', a: 'Yes. We work with existing developers and implementation partners. For a project already in progress, we review the plan, requirements, issues, and responsibilities before agreeing where to start.' },
+  { q: 'Can you help if we already have an internal PM?', a: 'Yes. We can strengthen the existing team by taking on areas such as departmental coordination, vendor discussions, progress and issue tracking, or migration preparation. We confirm decision rights and divide responsibilities clearly.' },
+  { q: 'What is the difference between PM and PMO support?', a: 'A PM plans and drives the overall project. A PMO supports the management processes and project operations. We can act as a client-side PM or support your internal PM in a PMO role. Decision authority and responsibilities are agreed before work begins.' },
+  { q: 'Does PM support include development or configuration?', a: 'The core PM scope covers requirements, coordination, management, and acceptance support. If development or configuration is also needed, we define its responsibilities and costs separately. We can also work on the basis that your existing vendor handles implementation.' },
+  { q: 'What projects do you support?', a: 'New system development, changes to or replacement of existing systems, customer management and sales system implementations, data integration, and workflow automation. Projects do not have to be in sales or customer management. We confirm the domain, scale, and technical team before agreeing the scope.' },
+];
+---
+
+<BaseLayout title={title} description={description} lang="en" alternateUrl="/services/project-management-support/">
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify([
+    { '@context': 'https://schema.org', '@type': 'Service', name: 'System Development & Implementation PM Support', description, url, serviceType: 'Client-side project management', provider: { '@id': 'https://consilegy.com/#organization' } },
+    { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://consilegy.com/en/' },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://consilegy.com/en/services/' },
+      { '@type': 'ListItem', position: 3, name: 'Project Management Support', item: url },
+    ] },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqItems.map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
+  ])} />
+  <section class="pm-hero">
+    <div class="container">
+      <a href="/en/services/" class="pm-back">← All services</a>
+      <div class="pm-hero-grid">
+        <div class="pm-hero-intro">
+          <p class="pm-eyebrow">Project Management Support</p><p class="pm-service">From system development to CRM implementation</p>
+          <h1>An external PM<br />to move your project forward</h1>
+          <p class="pm-lead">Unclear requirements. Estimates you cannot evaluate. Internal teams and developers that are not aligned. We act as your client-side PM, from requirements through release and launch, for new builds, system changes, and product implementations.</p>
+        </div>
+        <figure class="pm-hero-visual pm-role" aria-labelledby="pm-role-caption">
+          <div class="pm-role-box">Your leadership and business teams<span>Purpose, operations, and priorities</span></div><div class="pm-role-arrow" aria-hidden="true">↕</div>
+          <div class="pm-role-box pm-role-box--main">Consilegy | Client-side PM<span>Requirements and decision support<br />Stakeholder coordination and delivery management</span></div><div class="pm-role-arrow" aria-hidden="true">↕</div>
+          <div class="pm-role-box">Developers and implementation partners<span>Design, development, configuration, and testing</span></div><figcaption id="pm-role-caption">Connecting business needs, technical work, and decisions.</figcaption>
+        </figure>
+        <div class="pm-hero-conversion"><div class="pm-actions"><a href="/en/contact/" class="btn btn--primary">Discuss PM support</a><a href="#scope" class="btn btn--outline">See the support scope</a></div><p class="pm-note">PM-only engagements, support for existing internal PMs, and projects already in progress are all welcome.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="pm-band pm-band--gray"><div class="container"><p class="pm-eyebrow">Common Problems</p><h2>Where decisions and delivery get stuck</h2><div class="pm-grid pm-grid--three">{problems.map(({ title, text }, i) => <article class="pm-card"><span class="pm-number">0{i + 1}</span><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
+  <section class="pm-band">
+    <div class="container pm-role-layout">
+      <div><p class="pm-eyebrow">Our Role</p><h2>Connect your business goals<br />to development and operations</h2><p>We organize requests from business teams and work through implementation options with developers. We explain cost, timing, and operational impact so leadership and department owners can make decisions.</p><p>From new builds and system replacements to customer management and sales system implementations, we manage requirements, development plans, testing, and release with both business and technical needs in view.</p></div>
+      <div class="pm-card"><h3>Make decisions easier</h3><p>Clarify requirements, estimates, and technical options, including the impact on cost and delivery dates.</p><h3>Align the people involved</h3><p>Resolve differences in needs and constraints between business teams and developers. Make owners and decisions explicit.</p><h3>Manage through launch</h3><p>Track progress, budget, and quality alongside migration and acceptance preparations.</p><p class="pm-output">Decision authority and responsibilities are agreed with your internal approvers before delivery starts.</p></div>
+    </div>
+  </section>
+  <section class="pm-band pm-band--gray">
+    <div class="container"><p class="pm-eyebrow">Project Types</p><h2>From new systems to product implementations</h2><div class="pm-grid pm-grid--three">
+      <article class="pm-card"><h3>New system development</h3><p>Turn an initial concept into requirements and a development plan. Coordinate specifications, progress, quality, testing, and release.</p></article>
+      <article class="pm-card"><h3>System changes and replacements</h3><p>Review effects on current work and connected systems. Coordinate changes, data integrations, migration, and the transition plan.</p></article>
+      <article class="pm-card"><h3>CRM and other product implementations</h3><p>Coordinate product selection, configuration, custom development, migration, and acceptance with your implementation partners.</p></article>
+    </div></div>
+  </section>
+  <section class="pm-band" id="scope"><div class="container"><p class="pm-eyebrow">Scope of Support</p><h2>The role you need, at the stage you need it</h2><p class="pm-intro">We can join before planning or during delivery. You do not need to commission every stage.</p><div class="pm-grid pm-grid--two">{scope.map(({ title, text, output }, i) => <article class="pm-card"><span class="pm-number">0{i + 1}</span><h3>{title}</h3><p>{text}</p><p class="pm-output"><strong>Typical deliverables</strong>{output}</p></article>)}</div><p class="pm-note">Deliverables depend on the project and agreed role. Development and configuration work, when required, are scoped and priced separately.</p></div></section>
+  <section class="pm-band pm-band--gray" id="pricing">
+    <div class="container pm-pricing-layout">
+      <div><p class="pm-eyebrow">Pricing &amp; Process</p><h2>Priced around the role<br />and time required</h2><p>We review the systems, project stage, departments, vendors, and required capacity, then provide an individual quote.</p><p>PM support is quoted separately from our standard advisory and retainer plans. A revenue assessment or a full redesign is not a prerequisite.</p><a href="/en/contact/">Tell us about the project →</a></div>
+      <ol class="pm-process"><li><strong>Initial discussion</strong><p>Review the purpose, project stage, team, and current obstacles.</p></li><li><strong>Proposal for scope, team, and fees</strong><p>Agree the starting stage, responsibilities, capacity, duration, and deliverables.</p></li><li><strong>Start within the agreed scope</strong><p>Confirm approvers, the division of responsibilities with developers, and reporting and decision processes.</p></li></ol>
+    </div>
+  </section>
+  <section class="pm-band"><div class="container pm-faq"><p class="pm-eyebrow">FAQ</p><h2>Frequently asked questions</h2>{faqItems.map(({ q, a }) => <details><summary>{q}</summary><p>{a}</p></details>)}</div></section>
+  <section class="pm-band pm-band--gray">
+    <div class="container"><p class="pm-eyebrow">Related Services</p><h2>Development, implementation, and adoption</h2><div class="pm-grid pm-grid--two">
+      <article class="pm-card"><h3>Need development as well?</h3><p>We design and build business systems, integrations, custom features, and automation.</p><a href="/en/services/business-system-development/">See development and automation →</a></article>
+      <article class="pm-card"><h3>Review the wider operating structure</h3><p>Redesign sales processes, data structures, and connected systems together.</p><a href="/en/services/crm-revops-implementation/">See CRM / RevOps Implementation →</a></article>
+      <article class="pm-card"><h3>Improve adoption after launch</h3><p>Support working habits, data entry rules, meetings, and the use of performance measures.</p><a href="/en/services/adoption-growth-support/">See Adoption &amp; Growth Support →</a></article>
+    </div></div>
+  </section>
+  <section class="pm-final"><div class="container"><p class="pm-eyebrow">Let's Talk</p><h2>Define the role<br />your project needs next</h2><p>Before the plan is finalized or after a developer has been selected. Tell us where things stand and what your team cannot cover.</p><div class="pm-actions"><a href="/en/contact/" class="btn btn--primary">Discuss PM support</a><a href="/en/services/" class="btn pm-contact">Explore all services</a></div></div></section>
+</BaseLayout>
+
+<style>
+  .pm-hero { padding: 3rem 0 4.5rem; background: white; }
+  .pm-hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 1.5rem 2rem; align-items: start; }
+  .pm-hero-intro, .pm-hero-conversion { grid-column: 1; min-width: 0; }
+  .pm-hero-visual { grid-column: 2; grid-row: 1 / 3; align-self: center; margin: 0; }
+  .pm-hero h1 { font-size: clamp(2rem, 3.2vw, 2.75rem); }
+  .pm-hero .pm-lead { margin-bottom: 0; }
+  .pm-back { display: inline-block; margin-bottom: 2.5rem; }
+  .pm-eyebrow { color: var(--color-navy); font-size: 0.875rem; font-weight: 600; letter-spacing: .12em; margin: 0 0 1rem; }
+  .pm-service { font-size: 1rem; color: var(--color-text-muted); margin: 0 0 1rem; }
+  h1, h2, h3 { color: var(--color-navy); }
+  h1 { font-size: clamp(2rem, 4.5vw, 3.4rem); line-height: 1.5; letter-spacing: -.035em; margin: 0 0 1.5rem; font-weight: 600; text-wrap: balance; }
+  h2 { font-size: clamp(1.65rem, 3vw, 2.25rem); line-height: 1.6; margin: 0 0 1.75rem; font-weight: 600; }
+  h3 { font-size: 1.125rem; line-height: 1.6; margin: .75rem 0; font-weight: 600; }
+  p { line-height: 1.9; }
+  .pm-lead { font-size: 1.125rem; max-width: 56rem; margin: 0 0 2rem; }
+  .pm-actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+  .btn { border-radius: 4px; padding: 1rem 1.5rem; }
+  .btn--outline { background: transparent; border: 1px solid var(--color-border-strong); color: var(--color-primary); }
+  .btn--outline:hover { border-color: var(--color-primary); }
+  .pm-note { color: var(--color-text-muted); font-size: .875rem; margin: 1.25rem 0 0; }
+  .pm-band { padding: 4.5rem 0; background: white; scroll-margin-top: 6rem; }
+  .pm-band--gray { background: var(--color-bg-subtle); }
+  .pm-intro { color: var(--color-text-muted); margin: -0.5rem 0 2rem; }
+  .pm-grid { display: grid; gap: 1.25rem; }
+  .pm-grid--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .pm-grid--two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pm-card { padding: 1.75rem; background: white; border: 1px solid var(--color-border); border-radius: 6px; box-shadow: var(--shadow-sm); }
+  .pm-card p { margin: 0; color: var(--color-text-muted); }
+  .pm-card a { display: inline-block; margin-top: 1rem; }
+  .pm-number { color: var(--color-navy); font-size: .875rem; font-weight: 600; letter-spacing: .08em; }
+  .pm-card .pm-output { border-top: 1px solid var(--color-border); margin-top: 1.25rem; padding-top: 1rem; color: var(--color-text); }
+  .pm-output strong { display: block; font-size: .875rem; color: var(--color-text-muted); font-weight: 500; }
+  .pm-role-layout, .pm-pricing-layout { display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; align-items: start; }
+  .pm-role { margin: 0; padding: 1.75rem; background: var(--color-bg-subtle); border: 1px solid var(--color-border); border-radius: 6px; }
+  .pm-role-box { border: 1px solid var(--color-navy); border-radius: 6px; padding: 1rem; text-align: center; color: var(--color-navy); font-weight: 600; background: white; }
+  .pm-role-box span { display: block; font-weight: 400; color: var(--color-text-muted); margin-top: .3rem; font-size: 1rem; }
+  .pm-role-box--main { background: var(--color-navy); color: white; }
+  .pm-role-box--main span { color: white; }
+  .pm-role-arrow { text-align: center; font-size: 1.5rem; color: var(--color-navy); }
+  figcaption { font-size: .875rem; color: var(--color-text-muted); margin-top: 1rem; line-height: 1.8; }
+  .pm-process { list-style: decimal-leading-zero; margin: 0; padding: 0 0 0 2.5rem; }
+  .pm-process li { padding: 0 0 1.25rem 1rem; margin-bottom: 1.25rem; border-bottom: 1px solid var(--color-border); }
+  .pm-process li::marker { color: var(--color-navy); font-weight: 600; }
+  .pm-process strong { color: var(--color-navy); }
+  .pm-process p { color: var(--color-text-muted); margin: .5rem 0 0; }
+  .pm-faq { max-width: 900px; }
+  details { background: white; border: 1px solid var(--color-border); border-radius: 6px; box-shadow: var(--shadow-sm); margin-top: .75rem; padding: 1.25rem 1.5rem; }
+  summary { cursor: pointer; font-weight: 600; color: var(--color-navy); line-height: 1.8; }
+  details p { color: var(--color-text-muted); margin: 1rem 0 0; }
+  .pm-final { padding: 4.5rem 0; background: var(--color-navy); color: white; }
+  .pm-final h2, .pm-final .pm-eyebrow { color: white; }
+  .pm-final p { margin-bottom: 2rem; }
+  .pm-contact { border: 1px solid white; color: white; background: transparent; }
+  .pm-contact:hover { background: white; color: var(--color-navy); }
+  @media (max-width: 900px) {
+    .pm-hero-grid { grid-template-columns: 1fr; }
+    .pm-hero-visual { grid-column: 1; grid-row: auto; width: 100%; max-width: 640px; }
+  }
+  @media (max-width: 800px) {
+    .pm-role-layout, .pm-pricing-layout, .pm-grid--three { grid-template-columns: 1fr; gap: 1.5rem; }
+    .pm-band, .pm-final { padding: 3rem 0; }
+  }
+  @media (max-width: 560px) {
+    .pm-grid--two { grid-template-columns: 1fr; }
+    .pm-hero { padding-bottom: 3rem; }
+    .pm-hero h1 { font-size: 1.75rem; text-wrap: initial; }
+    .pm-actions { flex-direction: column; }
+    .pm-actions .btn { width: 100%; text-align: center; white-space: normal; }
+    .pm-card { padding: 1.5rem; }
+  }
+
+  .container { max-width: 1120px; }
+  h1, h2, h3 { overflow-wrap: anywhere; }
+  .pm-hero h1 { line-height: 1.25; letter-spacing: -.02em; }
+  p { line-height: 1.75; }
+  @media (max-width: 560px) {
+    .pm-hero h1 { font-size: 2rem; }
+    .pm-role { padding: 1.25rem; }
+  }
+</style>

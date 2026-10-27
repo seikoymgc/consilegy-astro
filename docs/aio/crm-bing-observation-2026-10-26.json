@@ -1,0 +1,42 @@
+{
+  "observedDateJst": "2026-10-26",
+  "source": "Bing Webmaster Toolsの管理画面",
+  "site": "https://consilegy.com/",
+  "registration": {
+    "status": "完了",
+    "method": "Google Search ConsoleからのImport",
+    "userApproval": "2026-10-26にこのチャットで取り込みを明示承認",
+    "googlePermission": "Search Console読み取り専用",
+    "importedSites": ["https://consilegy.com/"],
+    "otherSitesImported": false
+  },
+  "sitemap": {
+    "url": "https://consilegy.com/sitemap-index.xml",
+    "lastSubmitDisplay": "10/26/2026",
+    "submitLabel": "Imported",
+    "lastCrawlDisplay": "10/26/2026",
+    "statusDisplay": "Success",
+    "urlsDiscoveredDisplay": 1,
+    "note": "サイトマップインデックスの行の表示値。サイト全体の登録ページ数とは解釈しない"
+  },
+  "aiCitations": {
+    "reportUrl": "https://www.bing.com/webmasters/aiperformance?siteUrl=https%3A%2F%2Fconsilegy.com%2F&activeTab=AIPagesReport",
+    "reportAvailable": true,
+    "citationSourcesDisplay": "Microsoft Copilots and Partners",
+    "rangePresetDisplay": "30 D",
+    "periodStartDisplay": "2026-09-26",
+    "periodEndDisplay": "2026-10-25",
+    "totalCitationsDisplay": 0,
+    "averageCitedPagesDisplay": 0,
+    "pageRowsDisplay": 0,
+    "queryRowsDisplay": 0,
+    "tableMessageDisplay": "No data available",
+    "pageCitations": null,
+    "note": "登録直後の初回表示。各URLの引用数を一律0とせず、過去に引用がなかったとも断定しない。ChatGPT・Googleを含む全AIサービスの引用数ではない"
+  },
+  "crawl": {
+    "googleLastCrawlSource": "crm-crawl-baseline-2026-10-26.json",
+    "googleReinspectionPerformed": false,
+    "note": "Bingへの登録・サイトマップ成功と、Googleの再クロール・AI引用は別の記録として扱う"
+  }
+}

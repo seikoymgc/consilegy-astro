@@ -1,0 +1,59 @@
+{
+  "observedDateJst": "2026-10-27",
+  "technical": {
+    "checkedUrls": [
+      "/en/crm/",
+      "/en/crm/features/",
+      "/en/crm/pricing/",
+      "/en/crm/contractor/",
+      "/en/crm/services/",
+      "/en/crm/reseller/",
+      "/en/crm/school/",
+      "/en/crm/updates/"
+    ],
+    "httpStatus": "all 200",
+    "htmlLang": "all en",
+    "canonical": "all self-referencing",
+    "metaRobots": "no robots meta tag found; X-Robots-Tag not checked",
+    "issue": "The English updates page's Japanese hreflang points to https://consilegy.com/ instead of /crm/updates/.",
+    "additionalProbe": {
+      "userAgent": "Python urllib default",
+      "paths": [
+        "/en/crm/updates/",
+        "/en/crm/faq/",
+        "/en/case-studies/revenue-crm-school-line-booking/"
+      ],
+      "httpStatus": [
+        403,
+        403,
+        403
+      ],
+      "interpretation": "Different fetch configuration from the earlier Mozilla/5.0 probes. Cannot infer whether the latter two routes exist, or whether real AI crawler IPs are blocked."
+    }
+  },
+  "searchObservations": {
+    "type": "supplementary search-tool retrieval, not consumer-AI citation evidence",
+    "brandIncludedQueries": [
+      "best AI CRM small business business card scanning meeting notes Revenue CRM Consilegy",
+      "CRM consulting marketing agencies retainer capacity planning Revenue CRM",
+      "CRM software development agencies capacity planning Revenue CRM Consilegy"
+    ],
+    "brandIncludedResult": "English contractor, features and release pages appeared in returned results. Some retrieved text still reflects older descriptions.",
+    "nonBrandQueries": [
+      "best CRM small business AI business card scanning meeting notes",
+      "CRM consulting marketing agencies monthly retainers capacity planning",
+      "CRM software development web agencies quotes delivery resource capacity",
+      "CRM SaaS resellers renewals margins MRR"
+    ],
+    "nonBrandResult": "No Consilegy URL appeared in this batch's returned results. This is a limited search observation, not a ranking survey or AI mention rate."
+  },
+  "consumerAiEnglishTests": {
+    "status": "not_completed",
+    "reason": "Browser security gate reported that access permission to chatgpt.com was declined. Did not retry via another browser or indirect access.",
+    "ChatGPT": null,
+    "Gemini": null,
+    "Claude": null,
+    "priorTests": "Recorded 2026-10-26 consumer-AI tests used Japanese prompts; do not reuse as evidence for English visibility."
+  },
+  "assessment": "English product facts have a usable technical foundation. Stable non-brand recommendations and citations in English are not yet demonstrated."
+}

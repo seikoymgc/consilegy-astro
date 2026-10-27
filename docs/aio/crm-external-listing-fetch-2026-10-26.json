@@ -1,0 +1,13 @@
+[
+  {
+    "site": "boxil",
+    "url": "https://boxil.jp/service/51195/",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "site": "itreview",
+    "url": "https://www.itreview.jp/products/revenue-crm/profile",
+    "status": 200,
+    "characters": 73696
+  }
+]

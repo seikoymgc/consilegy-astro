@@ -1,0 +1,46 @@
+{
+  "observedDateJst": "2026-10-27",
+  "type": "Consumer AI synthetic tests; separate from natural citations",
+  "prompts": {
+    "general": "Recommend five CRM systems for a small business with five salespeople that wants to reduce manual data entry using AI business card scanning and meeting notes. Compare their relevant features, published pricing, and limitations. Use current sources and link to the official product pages. Answer in English.",
+    "services": "Recommend five CRM systems for a small consulting or marketing agency with monthly retainer clients. We need client and engagement management, weekly team capacity, contract renewals, and reporting. Compare relevant features, published pricing, and limitations. Use current sources and link to the official product pages. Answer in English.",
+    "contractor": "Recommend five CRM systems for a small software development or web production agency. We need to manage sales opportunities, quotes, delivery milestones, and weekly team capacity so we can check availability before promising a start date. Compare relevant features, published pricing, and limitations. Use current sources and link to the official product pages. Answer in English.",
+    "reseller": "Recommend five CRM systems for a small SaaS reseller that needs to manage customer subscriptions, license counts, renewal dates, margins, and MRR. Compare relevant features, published pricing, and limitations. Use current sources and link to the official product pages. Answer in English.",
+    "school": "Recommend five systems for a small online language school that needs student records, homework submitted through LINE, lesson booking, and Google Calendar integration. Compare relevant features, published pricing, and limitations. Use current sources and link to the official product pages. Answer in English."
+  },
+  "ChatGPT": {
+    "completed": false,
+    "mention": null,
+    "citation": null,
+    "reason": "Saved user permission or managed policy blocks chatgpt.com. No alternate-surface workaround attempted."
+  },
+  "Claude": {
+    "completed": false,
+    "mention": null,
+    "citation": null,
+    "reason": "Logged out; waiting for user login."
+  },
+  "Gemini": {
+    "mode": "Pro",
+    "temporaryChats": true,
+    "status": "generating",
+    "promptsSent": [
+      "services",
+      "reseller",
+      "general"
+    ],
+    "initialServicesAttempt": "generation error; retried once"
+  },
+  "bingOfficial": {
+    "scope": "Microsoft Copilots and Partners; not ChatGPT/Gemini/Claude totals",
+    "range": "30 D",
+    "periodStart": "2026-09-27",
+    "periodEnd": "2026-10-26",
+    "totalCitationsDisplay": 0,
+    "pageRows": 0,
+    "pageSpecificCitations": null,
+    "note": "No page rows; English-specific counts unavailable. Registration was completed on 2026-10-26. Displayed total is not proof that every AI service has never cited the site.",
+    "rawText": "AI Performance\nCitation sources: Microsoft Copilots and Partners\n7 D\n30 D\n3 M\n6 M\nCustom\nCompare\nDownload\nTotal Citations\n\n0\nAvg. Cited Pages\n\n0\nCitations\nCited Pages\nDate\tSeptember 27, 2026\tSeptember 28, 2026\tSeptember 29, 2026\tSeptember 30, 2026\tOctober 01, 2026\tOctober 02, 2026\tOctober 03, 2026\tOctober 04, 2026\tOctober 05, 2026\tOctober 06, 2026\tOctober 07, 2026\tOctober 08, 2026\tOctober 09, 2026\tOctober 10, 2026\tOctober 11, 2026\tOctober 12, 2026\tOctober 13, 2026\tOctober 14, 2026\tOctober 15, 2026\tOctober 16, 2026\tOctober 17, 2026\tOctober 18, 2026\tOctober 19, 2026\tOctober 20, 2026\tOctober 21, 2026\tOctober 22, 2026\tOctober 23, 2026\tOctober 24, 2026\tOctober 25, 2026\tOctober 26, 2026\nTotal Citations\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\nAvg. Cited Pages\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\nCitations\nCited Pages\nList By\nGrounding Queries\nPages\nDownload all\n\nSearch\nNo results found\nPage\nCitations\n\n\nNo data available\n\n0 rows\n\n\nThe data shown below represents a sample of overall activity. Results may be refined as additional data is processed\n\nLearn more\n\n\nIntent and topic labels are AI generated and can filter potentially unsafe queries.\n\nLearn more",
+    "screenshot": "/private/tmp/crm-en-bing-ai-2026-10-27.png"
+  }
+}

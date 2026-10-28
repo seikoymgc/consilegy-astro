@@ -1,0 +1,202 @@
+---
+// 公開URL: https://consilegy.com/security/shared-responsibility/
+// /security/index.astro と同じ書き方・同じ見た目にそろえている。
+//
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const asOf = '2026年10月';
+const contactEmail = 'info@consilegy.com';
+
+// どれも本番の設定かコードで確かめたことだけを書く（/security と同じ方針）。
+const rows = [
+	{
+		area: '基盤（実行環境・データベース）',
+		provider: 'Vercel（実行環境）とSupabase（データベース・ファイル）を使い、いずれも日本（東京リージョン）に置いています。基盤事業者の選定と、契約・設定の管理を行います。',
+		customer: '—',
+	},
+	{
+		area: 'アプリケーションのセキュリティ',
+		provider: 'Revenue CRMの設計・開発・修正、認証と権限の仕組み、依存するソフトウェアの更新を行います。',
+		customer: '利用者に付ける役割（オーナー・管理者・メンバー）と、データの種類ごとの権限・見える範囲の設定。',
+	},
+	{
+		area: '会社ごとのデータの隔離',
+		provider: 'データベースの行単位のアクセス制御で、会社（ワークスペース）ごとにデータを隔離します。',
+		customer: '—',
+	},
+	{
+		area: '暗号化',
+		provider: '通信はすべてTLSで暗号化し、暗号化されていない接続は受け付けません。保存したデータは基盤（Supabase）の機能で暗号化されています。',
+		customer: '書き出したCSVなど、Revenue CRMの外に持ち出したデータの管理。',
+	},
+	{
+		area: '利用者のアカウントと多要素認証',
+		provider: 'Googleアカウントでのログインと、認証アプリを使った多要素認証の仕組みを提供します。多要素認証を登録した利用者は、認証を済ませないと画面に入れません。',
+		customer: '利用者の追加と削除（退職した人のアカウントを速やかに無効にすることを含みます）、パスワードと認証情報の管理、多要素認証の登録。不正な利用に気づいたときは、すぐに当社へ連絡してください。',
+	},
+	{
+		area: '登録したデータの中身',
+		provider: '利用規約で定めた目的の範囲でのみ取り扱います。入力されたデータをAIの学習に使うことはありません。',
+		customer: '登録するデータの中身と、その取得が適法であること。ご本人への利用目的の通知・公表。',
+	},
+	{
+		area: '外部サービスとの連携',
+		provider: '連携の仕組み（Gmail、Googleカレンダー、Zoom、LINE公式アカウント、APIキーなど）を提供します。当社が使う外部委託先は、利用規約の外部委託先一覧に載せています。',
+		customer: '連携するかどうかの判断と、連携先のサービスとの契約・設定・認証情報の管理。お客様が接続した連携先との関係は、お客様の責任になります。',
+	},
+	{
+		area: 'バックアップ',
+		provider: 'データベースを毎日自動でバックアップし、直近7日分を保持します。添付ファイルも毎日複製しています。',
+		customer: '重要なデータの手元での控え（設定画面からCSVで書き出せます）。',
+	},
+	{
+		area: '事故の通知',
+		provider: 'お預かりした個人情報の漏えい等を知ったときは、利用規約のとおり3営業日以内に契約者へ通知し、個人情報保護委員会への報告とご本人への通知に協力します。',
+		customer: '個人情報保護委員会への報告とご本人への通知（お客様が個人情報の取扱事業者として行うもの）。',
+	},
+];
+---
+
+<BaseLayout
+	title="セキュリティと責任分担 | Consilegy"
+	description="顧客管理システム「Revenue CRM」で、Consilegyとお客様がそれぞれ何を守るかの分担と、脆弱性を見つけたときの報告の方法をまとめています。"
+	lang="ja"
+>
+	<header class="page-head container">
+		<p class="page-head__eyebrow">Security &amp; Shared Responsibility</p>
+		<h1 class="page-head__title">セキュリティと責任分担</h1>
+		<p class="page-head__lead">Revenue CRMの安全は、当社が守る部分と、お客様に管理していただく部分の両方で成り立っています。その分担と、脆弱性を見つけたときの報告の方法を、{asOf}時点の内容でまとめています。</p>
+	</header>
+
+	<section class="band" id="shared-responsibility">
+		<div class="container">
+			<p class="section-eyebrow">Shared Responsibility</p>
+			<h2 class="section-title">責任分担</h2>
+			<div class="table-wrap">
+				<table class="resp-table">
+					<thead>
+						<tr>
+							<th scope="col">領域</th>
+							<th scope="col">当社（Consilegy）</th>
+							<th scope="col">お客様</th>
+						</tr>
+					</thead>
+					<tbody>
+						{rows.map(r => (
+							<tr>
+								<th scope="row">{r.area}</th>
+								<td>{r.provider}</td>
+								<td>{r.customer}</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
+			</div>
+			<p class="note">分担の根拠は<a href="https://crm.consilegy.com/terms">Revenue CRM利用規約</a>です。対策の詳しい内容は<a href="/security/">セキュリティへの取り組み</a>をご覧ください。</p>
+		</div>
+	</section>
+
+	<section class="band band--subtle" id="vulnerability-disclosure">
+		<div class="container narrow">
+			<p class="section-eyebrow">Vulnerability Disclosure</p>
+			<h2 class="section-title">脆弱性の報告</h2>
+			<p>Revenue CRMや当社のウェブサイトに脆弱性を見つけた場合は、次の方法でお知らせください。</p>
+
+			<h3>報告の方法</h3>
+			<p><a href={`mailto:${contactEmail}?subject=${encodeURIComponent('脆弱性の報告')}`}>{contactEmail}</a> 宛てに、件名を「脆弱性の報告」としてメールでお送りください。次の内容があると、早く確かめられます。</p>
+			<ul>
+				<li>対象のURLや機能</li>
+				<li>再現の手順</li>
+				<li>想定される影響</li>
+				<li>ご連絡先（匿名でも受け付けます）</li>
+			</ul>
+
+			<h3>対象</h3>
+			<ul>
+				<li>Revenue CRM（crm.consilegy.com）</li>
+				<li>当社のウェブサイト（consilegy.com）</li>
+			</ul>
+			<p>次のものは対象外です。</p>
+			<ul>
+				<li>サービスを止める攻撃（DoS攻撃）や、大量のリクエストの送信</li>
+				<li>当社やお客様の従業員をだます行為（ソーシャルエンジニアリング）、物理的な侵入</li>
+				<li>当社が使う外部サービス（Vercel、Supabaseなど）そのものの脆弱性。各社の窓口へ報告してください</li>
+			</ul>
+
+			<h3>調べるときのお願い</h3>
+			<ul>
+				<li>ご自身で作ったアカウントとワークスペースだけを使ってください。</li>
+				<li>他のお客様のデータに触れた場合は、それ以上見たり保存したりせず、すぐにご連絡ください。</li>
+				<li>データの変更・削除や、サービスの提供を妨げることはしないでください。</li>
+				<li>当社が修正を終えるまで、内容を公表しないでください。公表の時期はご相談のうえ決めます。</li>
+			</ul>
+
+			<h3>報告者の保護（セーフハーバー）</h3>
+			<p>このページに沿って誠実に調べ、報告していただいた場合、当社はその行為について法的な措置を取りません。また、この方針に沿った調査は、Revenue CRM利用規約 第6条第4号に定める「当社の事前の承諾」があったものとして扱います。</p>
+
+			<h3>当社の対応</h3>
+			<ul>
+				<li>報告を受け取ったことを、3営業日以内にお知らせします。</li>
+				<li>内容を確かめ、深刻度に応じて修正し、進み具合をお知らせします。</li>
+				<li>ご希望があれば、修正後にお名前を掲載して感謝をお伝えします。報奨金の制度はありません。</li>
+			</ul>
+		</div>
+	</section>
+	<section class="band" id="law-enforcement">
+		<div class="container narrow">
+			<p class="section-eyebrow">Government Requests</p>
+			<h2 class="section-title">捜査機関などからの開示の求め</h2>
+			<ul>
+				<li>捜査機関などからお客様のデータの開示を求められた場合は、法令に基づく正式な手続き（令状など）であることを確かめてから応じます。任意の求めには、原則として応じません。</li>
+				<li>開示する範囲は、求められたものに必要な最小限にとどめます。</li>
+				<li>法令で禁じられている場合を除き、開示の前に契約者へお知らせします。</li>
+				<li>求めを受けたことと対応の内容は、社内で記録します。</li>
+			</ul>
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+.page-head {
+	padding-block: var(--space-2xl) var(--space-lg);
+}
+.page-head__eyebrow, .section-eyebrow {
+	margin: 0 0 var(--space-xs);
+	font-size: 0.875rem; font-weight: 700;
+	letter-spacing: 0.12em; text-transform: uppercase;
+	color: var(--color-navy);
+}
+.page-head__title {
+	margin: 0 0 1rem;
+	font-size: clamp(1.75rem, 3vw, 2.25rem);
+	font-weight: 600; letter-spacing: 0.01em;
+}
+.page-head__lead { max-width: 720px; margin: 0 0 1.5rem; font-size: 1rem; line-height: 1.85; color: var(--color-text-muted); }
+
+.band { padding-block: var(--space-xl); }
+.band--subtle { background: var(--color-bg-subtle); }
+.narrow > p, .narrow > ul, .narrow > h3 { max-width: 720px; }
+.section-title { margin: 0 0 1.5rem; font-size: 1.5rem; font-weight: 600; }
+.band h3 { margin: 2rem 0 0.75rem; font-size: 1.0625rem; font-weight: 600; }
+.band p { font-size: 1rem; line-height: 1.85; }
+.band ul { padding-left: 1.375rem; margin: 0 0 1rem; }
+.band li { font-size: 1rem; line-height: 1.8; margin-bottom: 0.375rem; }
+.band a { color: var(--color-primary); }
+.band .note { margin-top: 1.25rem; font-size: 0.875rem; color: var(--color-text-muted); }
+
+/* 横に長い表は、表の中だけ横に動かす（ページ全体を横に動かさない） */
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.resp-table {
+	width: 100%; min-width: 640px; border-collapse: collapse;
+	background: #fff; border: 1px solid var(--color-border);
+	font-size: 0.9375rem;
+}
+.resp-table th, .resp-table td {
+	padding: 0.875rem 1rem; border-bottom: 1px solid var(--color-border);
+	text-align: left; vertical-align: top; line-height: 1.7;
+}
+.resp-table thead th { background: var(--color-navy, #0f172a); color: #fff; font-weight: 600; }
+.resp-table tbody th { background: var(--color-bg-subtle); font-weight: 600; width: 22%; }
+.resp-table td { width: 39%; color: var(--color-text); }
+.resp-table tr:last-child th, .resp-table tr:last-child td { border-bottom: none; }
+</style>

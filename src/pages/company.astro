@@ -129,7 +129,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			<h2>Consilegyの強み</h2>
 			<p class="why-lead">
 				Revenue Architectureは、設計と実行の両輪が揃わなければ機能しません。
-				40社以上やってきて、効いたのはこの3つでした。
+				40社以上やってきて、効いたのはこの4つでした。
 			</p>
 		</div>
 		<div class="why-right">
@@ -153,6 +153,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 					<div>
 						<h4>実績に裏打ちされた設計力</h4>
 						<p>代表 山口聖子が10年・40社以上のCRM / MA / SFA導入支援に直接関与してきた実践知が土台です。理論ではなく、現場で何度も検証された設計です。</p>
+					</div>
+				</div>
+				<div class="why-item">
+					<span class="why-num">04</span>
+					<div>
+						<h4>数字を読んで、次の一手を決める</h4>
+						<p>代表はGoogleアナリティクスの設定・設計から、API連携、レポート、改善提案まで、約12年続けてきました。大手電機メーカー様の米国チームの分析にも関わっています。仕組みを入れて終わりにせず、出てきた数字から、次に何を直すかまで一緒に決めます。</p>
 					</div>
 				</div>
 			</div>
@@ -387,6 +394,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 					<span class="track-tag">株式会社THE MOLTS</span>
 					<span class="track-tag">株式会社月曜日のトラ</span>
 					<span class="track-tag">Sazae Pty Ltd</span>
+				</div>
+			</div>
+			<div class="track-card">
+				<div class="track-cat">Analytics / Measurement</div>
+				<h3>データ分析・計測設計</h3>
+				<div class="track-tags">
+					<span class="track-tag">西川株式会社（Sleep Charge）</span>
+					<span class="track-tag">大手電機メーカー様 米国チーム</span>
+					<span class="track-tag">バックオフィスSaaS企業（リードスコアリング設計）</span>
 				</div>
 			</div>
 		</div>
@@ -758,7 +774,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	.tr-stat__num { font-size: 1.875rem; }
 }
 
-.track-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.track-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
 .track-card {
 	background: var(--color-bg); border: 1px solid var(--color-border);
 	border-radius: 8px; padding: 2rem;

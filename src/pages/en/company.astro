@@ -56,6 +56,16 @@ import CTA from '../../components/CTA.astro';
         <li>Choices change the future.</li>
         <li>Move what you want to do forward.</li>
       </ul>
+      <dl class="ab-mission__pillars">
+        <div class="ab-mission__pillar">
+          <dt>Crossing borders</dt>
+          <dd>Across countries, across teams, across the line between inside and outside a company. We reconnect the knowledge and people that get stuck at those edges.</dd>
+        </div>
+        <div class="ab-mission__pillar">
+          <dt>Co-creation</dt>
+          <dd>We don't advise from the outside. We build as one team, and turn what works into tools we share.</dd>
+        </div>
+      </dl>
       <div class="ab-mission__body">
         <p>Companies that can't move forward on what they want to do aren't short on ambition. They just can't see which paths are open. Once the structure is visible, choices appear. And when a company chooses and moves forward, new choices open up for its people and its partners too.</p>
         <p>What usually stops a choice is a lack of time and hands. So Consilegy doesn't advise from the outside. We join as part of your team. Your 24 hours, plus ours. <strong>A 48-hour day.</strong> We work alongside you from strategy through implementation and adoption, and we turn what we learn into <a href="/en/crm/">Revenue CRM</a>, a tool we share with more companies.</p>
@@ -199,6 +209,10 @@ import CTA from '../../components/CTA.astro';
           <strong>HubSpot and RevOps experience</strong>
           <p>We support CRM implementation, workflow design, reporting, and adoption with hands-on delivery across Japan-facing engagements.</p>
         </li>
+        <li class="ab-why__item">
+          <strong>Analytics that decide the next move</strong>
+          <p>Our founder has spent about 12 years setting up and designing Google Analytics, connecting it through APIs, building reports, and turning findings into improvement plans, including analysis for the US team of a major electronics manufacturer. Once a new system is running, we read its numbers and decide with you what to fix next.</p>
+        </li>
       </ul>
     </div>
   </section>
@@ -228,6 +242,14 @@ import CTA from '../../components/CTA.astro';
             <span class="ab-track__tag">Innova Inc.</span>
             <span class="ab-track__tag">THE MOLTS</span>
             <span class="ab-track__tag">Sazae Pty Ltd</span>
+          </div>
+        </div>
+        <div class="ab-track__card">
+          <p class="ab-track__cat">Analytics / Measurement</p>
+          <div class="ab-track__tags">
+            <span class="ab-track__tag">Nishikawa Co., Ltd. (Sleep Charge)</span>
+            <span class="ab-track__tag">US team of a major electronics manufacturer</span>
+            <span class="ab-track__tag">Back-office SaaS company (lead scoring design)</span>
           </div>
         </div>
       </div>
@@ -397,6 +419,32 @@ import CTA from '../../components/CTA.astro';
     gap: 0.5rem 2rem;
   }
 
+  .ab-mission__pillars {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 0 0 var(--space-xl);
+    text-align: left;
+  }
+  .ab-mission__pillar {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    padding: 1.5rem;
+  }
+  .ab-mission__pillar dt {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin: 0 0 0.5rem;
+  }
+  .ab-mission__pillar dd {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--color-text);
+    margin: 0;
+  }
   .ab-mission__tiers li {
     font-size: 1.125rem;
     font-weight: 600;
@@ -581,7 +629,7 @@ import CTA from '../../components/CTA.astro';
   }
   .ab-track__grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.25rem;
     margin-bottom: 1rem;
   }
@@ -694,7 +742,8 @@ import CTA from '../../components/CTA.astro';
     }
 
     .ab-beliefs__grid,
-    .ab-track__grid {
+    .ab-track__grid,
+    .ab-mission__pillars {
       grid-template-columns: 1fr;
     }
   }

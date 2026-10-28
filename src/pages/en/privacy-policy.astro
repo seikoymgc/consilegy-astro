@@ -5,7 +5,7 @@
  * English translation of /privacy-policy/. Keep the two in step; the Japanese original prevails.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
-const updated = 'October 24, 2026';
+const updated = 'October 27, 2026';
 ---
 
 <BaseLayout
@@ -23,7 +23,7 @@ const updated = 'October 24, 2026';
 	<article class="container prose legal-body">
 
 		<p class="intro">
-			Consilegy LLC ("we" or "us") recognizes the proper protection of personal information as an important responsibility and complies with Japan's Act on the Protection of Personal Information (APPI) and other related laws and guidelines. This Policy sets out how we handle personal information obtained through the website we operate (consilegy.com, the "Site").
+			Consilegy LLC ("we" or "us") recognizes the proper protection of personal information as an important responsibility and complies with Japan's Act on the Protection of Personal Information (APPI) and other related laws and guidelines. This Policy sets out how we handle personal information obtained through the website we operate (consilegy.com, the "Site") and information handled in our cloud service "Revenue CRM", including its school edition (the "Service"). Use of the Service is also governed by its Terms of Service.
 		</p>
 
 		<h2>1. Name and contact details</h2>
@@ -114,7 +114,30 @@ const updated = 'October 24, 2026';
 		<h2>11. Changes to this Policy</h2>
 		<p>We may change this Policy due to changes in law or in our business. The revised Policy will be posted on this page and takes effect on the date of posting. We will announce important changes on the Site.</p>
 
-		<h2>12. Contact</h2>
+		<h2>12. Information handled in the Service (Revenue CRM)</h2>
+		<h3>12.1 Information we handle</h3>
+		<ul>
+			<li>Account information: name, email address, organization, role, sign-in records.</li>
+			<li>Customer content: contacts, companies, deals, emails, attachments, student records and other information that customers enter into or connect to the Service.</li>
+			<li>Information from connected services, only when the customer authorizes the connection (see 12.2).</li>
+		</ul>
+		<h3>12.2 Zoom integration</h3>
+		<p>When a customer or user connects a Zoom account to the Service, we access the following information within the scopes approved on Zoom's authorization screen:</p>
+		<ul>
+			<li>Zoom user information (user ID, account ID, email address, user type)</li>
+			<li>Meeting information (meeting ID, topic, start and end time)</li>
+			<li>Past meeting participants (display name, email address, join and leave time)</li>
+			<li>The list of cloud recordings and the transcript text. We do not store audio or video recordings.</li>
+			<li>OAuth access and refresh tokens for the connection</li>
+		</ul>
+		<p><strong>Purpose:</strong> to log lessons and sales meetings in the Service automatically, to match participants with customer or student records, and to create meeting notes, summaries and tasks from transcripts. We do not use Zoom data for any other purpose, and we never sell it or use it for advertising.</p>
+		<p><strong>Storage and security:</strong> Data is stored in a database in Tokyo, Japan, and is accessible only within the customer's organization. Tokens are used only on our servers and are never sent to the browser. All traffic is encrypted with TLS, and data is encrypted at rest.</p>
+		<p><strong>AI processing:</strong> Transcripts are summarized using AI providers listed as subprocessors in our Terms of Service (Anthropic, OpenAI, Google). Under our contracts, these providers do not use customer data to train their models.</p>
+		<p><strong>Disconnection and deletion:</strong> Users can disconnect at any time by removing the app in Zoom (Zoom App Marketplace &rarr; Manage &rarr; Added Apps); Revenue CRM users can also disconnect from the settings screen. In either case, we immediately delete the tokens for that Zoom account and stop retrieving data from Zoom. To request deletion of records already imported, contact us using the details below. Customer data is deleted 30 days after the contract ends.</p>
+		<h3>12.3 Disclosure and subprocessors</h3>
+		<p>Disclosure to third parties and use of subprocessors follow sections 4 and 5 of this Policy and the subprocessor list in the Service's Terms of Service.</p>
+
+		<h2>13. Contact</h2>
 		<p>For inquiries, complaints, or questions about how we handle personal information, please contact:</p>
 		<address>
 			Consilegy LLC, Personal Information Desk<br />
@@ -164,6 +187,10 @@ const updated = 'October 24, 2026';
 .legal-body p, .legal-body address {
 	font-size: 0.9375rem; line-height: 1.85; color: var(--color-text);
 	margin: 0 0 1rem;
+}
+.legal-body h3 {
+	font-size: 1rem; font-weight: 600; color: var(--color-navy);
+	margin: 1.5rem 0 0.625rem;
 }
 .legal-body ul, .legal-body ol {
 	padding-left: 1.375rem; margin: 0 0 1rem;

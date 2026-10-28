@@ -17,8 +17,8 @@ export const news: NewsItem[] = [
 	{
 		date: '2026-10-28',
 		category: 'お知らせ',
-		title: 'Revenue CRMの「CSA STAR Level 1」自己評価が、CSAのSTAR Registryに掲載されました',
-		summary: 'クラウドセキュリティの国際団体 Cloud Security Alliance（CSA）の質問票（CAIQ）に、顧客管理システム「Revenue CRM」の対策を回答し、CSAが公開するSTAR Registryに掲載されました。Level 1は第三者の監査ではなく自己評価ですが、回答はどなたでも確認できます。あわせて「セキュリティへの取り組み」のページとチェックシートの回答を更新しました。',
+		title: 'Revenue CRMが、CSAの「STAR Registry」に掲載されました',
+		summary: '当社は、顧客管理システム「Revenue CRM」のセキュリティ対策について、クラウドセキュリティの国際団体であるCloud Security Alliance（CSA）の質問票に回答しました。この回答が、CSAが運営する「STAR Registry」に掲載されました。今回の回答は「STAR Level 1」にあたる自己評価で、第三者の監査を受けたものではありません。回答の内容は、STAR Registryでどなたでもご覧いただけます。あわせて、当社サイトの「セキュリティへの取り組み」のページと、チェックシートの回答を更新しました。',
 		image: '/images/news/csa-star-level1-2026-10-28.png',
 		imageAlt: 'CSA STAR Level One: Self-Assessment のバッジ',
 		imageFit: 'logo',

@@ -21,17 +21,17 @@ const assurance = [
 ];
 
 const controls = [
-	{ title: 'Data residency', text: 'The database, file storage, and application runtime are all in Japan (Tokyo region). Data handled by AI features (the text you enter, plus stored records the AI features draw on, such as contacts, deals, and meeting notes) is processed by US AI providers (Anthropic, OpenAI, Google). Email sent from the service is processed by a US provider (Resend). You can switch AI features to an AI provider your company contracts with directly.' },
-	{ title: 'Encryption', text: 'All traffic is encrypted with TLS, and HSTS tells browsers to use encrypted connections only. Stored data and files are encrypted at rest (AES-256) by our infrastructure provider, Supabase. Credentials for connected services (access tokens and API keys) are additionally encrypted with AES-256 by the application. Revenue CRM API keys are stored as hashes.' },
-	{ title: 'Tenant isolation', text: 'Each company’s data is isolated by row-level security (RLS) in the database. For server-side processes that run outside RLS, every change is automatically checked for code that handles data across companies; cross-company processing is allowed only where the reason is recorded. Missing RLS on new tables is also detected automatically.' },
+	{ title: 'Data residency', text: 'The database, file storage, and application runtime are all in Japan (Tokyo region).\nData handled by AI features (the text you enter, plus stored records the AI features draw on, such as contacts, deals, and meeting notes) is processed by US AI providers (Anthropic, OpenAI, Google). Email sent from the service is processed by a US provider (Resend). You can switch AI features to an AI provider your company contracts with directly.' },
+	{ title: 'Encryption', text: 'All traffic is encrypted with TLS, and HSTS tells browsers to use encrypted connections only. Stored data and files are encrypted at rest (AES-256) by our infrastructure provider, Supabase.\nCredentials for connected services (access tokens and API keys) are additionally encrypted with AES-256 by the application.\nRevenue CRM API keys are stored as hashes.' },
+	{ title: 'Tenant isolation', text: 'Each company’s data is isolated by row-level security (RLS) in the database.\nFor server-side processes that run outside RLS, every change is automatically checked for code that handles data across companies; cross-company processing is allowed only where the reason is recorded. Missing RLS on new tables is also detected automatically.' },
 	{ title: 'Access control', text: 'Roles (owner, admin, member), per-object permissions to view, create, edit, delete, and export, and visibility scopes (everyone, team, own records).' },
-	{ title: 'Authentication', text: 'Sign in with an email address and password, or a Google account. Multi-factor authentication with authenticator-app codes and backup codes is supported. If a user loses their device, an admin in the same company can reset it. The sign-in page is protected against automated attacks. Resets by an admin are recorded in the audit log.' },
+	{ title: 'Authentication', text: 'Sign in with an email address and password, or a Google account.\nMulti-factor authentication with authenticator-app codes and backup codes is supported. If a user loses their device, an admin in the same company can reset it. The sign-in page is protected against automated attacks. Resets by an admin are recorded in the audit log.' },
 	{ title: 'Audit logging', text: 'Creating, changing, and deleting contacts, companies, and deals, and every data export, are recorded with the user and time. Logs are kept for the term of the contract and admins can view them in Settings.' },
-	{ title: 'Backups', text: 'The database is backed up automatically every day, with the last 7 days retained. Uploaded files are copied daily to a separate storage area within the same infrastructure provider, also kept for 7 days.' },
-	{ title: 'AI and your data', text: 'Your data is never used, by us or by the AI providers we contract with, to train AI models. Our contracts with those providers exclude training. This does not apply to an AI provider you connect with your own key, which is governed by that provider’s terms. Providers may retain submitted content for a limited period to monitor abuse.' },
-	{ title: 'AI safeguards', text: 'Customer data and search results passed to AI are, as a rule, kept separate from instructions. Text that looks like an attempt to manipulate the AI is detected and recorded in our server logs. AI-generated content is labeled as such on the main screens. Admins can turn off all AI features for their company. AI inputs and outputs are logged and deleted automatically after 90 days.' },
+	{ title: 'Backups', text: 'The database is backed up automatically every day, with the last 7 days retained.\nUploaded files are copied daily to a separate storage area within the same infrastructure provider, also kept for 7 days.' },
+	{ title: 'AI and your data', text: 'Your data is never used, by us or by the AI providers we contract with, to train AI models. Our contracts with those providers exclude training.\nThis does not apply to an AI provider you connect with your own key, which is governed by that provider’s terms. Providers may retain submitted content for a limited period to monitor abuse.' },
+	{ title: 'AI safeguards', text: 'Customer data and search results passed to AI are, as a rule, kept separate from instructions. Text that looks like an attempt to manipulate the AI is detected and recorded in our server logs.\nAI-generated content is labeled as such on the main screens. Admins can turn off all AI features for their company.\nAI inputs and outputs are logged and deleted automatically after 90 days.' },
 	{ title: 'Vulnerability management', text: 'Updates and vulnerability alerts for the third-party software components we use reach us automatically, and we review them and apply updates based on severity. We also accept reports from security researchers (see below).' },
-	{ title: 'Retention and deletion', text: 'For 30 days after the contract ends, you can export your data to CSV from Settings. After that, data in the live environment is deleted, and copies in backups are deleted when the 7-day retention period ends.' },
+	{ title: 'Retention and deletion', text: 'For 30 days after the contract ends, you can export your data to CSV from Settings.\nAfter that, data in the live environment is deleted, and copies in backups are deleted when the 7-day retention period ends.' },
 ];
 
 // From the subprocessor list in the Revenue CRM Terms of Service (Japanese), version of 2026-10-28.
@@ -100,7 +100,7 @@ const subprocessors = [
 				{controls.map(c => (
 					<div class="card">
 						<h3>{c.title}</h3>
-						<p>{c.text}</p>
+						{c.text.split('\n').map((t) => <p>{t}</p>)}
 					</div>
 				))}
 			</div>

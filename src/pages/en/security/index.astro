@@ -10,28 +10,31 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 // Items we do not offer (SAML/OIDC SSO, SLA, third-party pentest) are answered in the
 // questionnaire, not listed on the page (same rule as the Japanese page).
 const asOf = 'October 2026';
-const questionnaireHref = '/downloads/consilegy-security-questionnaire-en-2026-10.xlsx';
+const questionnaireHref = '/downloads/consilegy-security-questionnaire-en-2026-10b.xlsx';
 
 const assurance = [
 	{ label: 'Information Security Policy', text: 'Our policy sets out management responsibility, organization, safeguards, customer information, training, compliance, incident response, and continual improvement.', link: { href: '/en/security-policy/', text: 'Read the policy' } },
 	{ label: 'SECURITY ACTION (two stars)', text: 'A self-declaration program run by IPA, Japan’s Information-technology Promotion Agency. Two stars means we have run IPA’s self-assessment and published an information security policy. It is a self-declaration, not a third-party certification.' },
-	{ label: 'CSA STAR', text: 'We are preparing a Level 1 self-assessment (CAIQ) for the Cloud Security Alliance STAR Registry.' },
+	{ label: 'CSA STAR Level 1 (self-assessment)', text: 'We have completed the Cloud Security Alliance (CSA) Consensus Assessments Initiative Questionnaire (CAIQ) for Revenue CRM, and our answers are published in the CSA STAR Registry (October 2026). Level 1 is a self-assessment, not a third-party audit or certification.', link: { href: 'https://cloudsecurityalliance.org/star/registry/consilegy-llc', text: 'View our STAR Registry listing' } },
+	{ label: 'Security program', text: 'Our internal security rules cover incident response, business continuity and recovery, secure development and change and vulnerability management, people, devices, suppliers and data, and the use of AI. They are reviewed at least once a year. We have run a restore test from backup, an incident-response tabletop exercise, and security training for staff, and we keep records of each.' },
 	{ label: 'Infrastructure certifications', text: 'Revenue CRM runs on Vercel (SOC 2 Type 2, ISO 27001:2022) and Supabase (SOC 2 Type 2). These certifications belong to those providers, not to Consilegy.' },
 ];
 
 const controls = [
 	{ title: 'Data residency', text: 'The database, file storage, and application runtime are all in Japan (Tokyo region). Text, audio, or images you send to AI features are processed by US AI providers (Anthropic, OpenAI, Google), and email sent from the service is processed by a US provider (Resend). You can switch AI features to an AI provider your company contracts with directly.' },
-	{ title: 'Encryption', text: 'All traffic is encrypted with TLS, and HSTS tells browsers to use encrypted connections only. Stored data and files are encrypted at rest (AES-256) by our infrastructure provider, Supabase. API keys are stored as hashes.' },
+	{ title: 'Encryption', text: 'All traffic is encrypted with TLS, and HSTS tells browsers to use encrypted connections only. Stored data and files are encrypted at rest (AES-256) by our infrastructure provider, Supabase. Credentials for connected services (access tokens and API keys) are additionally encrypted with AES-256 by the application. Revenue CRM API keys are stored as hashes.' },
 	{ title: 'Tenant isolation', text: 'Each company’s data is isolated by row-level security (RLS) in the database. Server-side processes that run outside RLS are required to scope every query to the customer’s company, and automated checks verify this on every change. Missing RLS on new tables is also detected automatically.' },
 	{ title: 'Access control', text: 'Roles (owner, admin, member), per-object permissions to view, create, edit, delete, and export, and visibility scopes (everyone, team, own records).' },
 	{ title: 'Authentication', text: 'Sign in with an email address and password, or a Google account. Multi-factor authentication with authenticator-app codes and backup codes is supported. If a user loses their device, an admin in the same company can reset it. The sign-in page is protected against automated attacks.' },
 	{ title: 'Audit logging', text: 'Creating, changing, and deleting contacts, companies, and deals, and every data export, are recorded with the user and time. Logs are kept for the term of the contract and admins can view them in Settings.' },
 	{ title: 'Backups', text: 'The database is backed up automatically every day, with the last 7 days retained. Uploaded files are copied daily to a separate storage area, also kept for 7 days.' },
 	{ title: 'AI and your data', text: 'Your data is never used, by us or by our AI providers, to train AI models. Our contracts with AI providers exclude training. Providers may retain submitted content for a limited period to monitor abuse.' },
+	{ title: 'AI safeguards', text: 'Customer data and search results passed to AI are clearly separated from instructions, and text that tries to manipulate the AI is detected and logged. AI-generated content is labeled as such. Admins can turn off all AI features for their company. AI inputs and outputs are logged and deleted automatically after 90 days.' },
+	{ title: 'Vulnerability management', text: 'Vulnerabilities in the third-party software components we use are detected automatically and updated. We also accept reports from security researchers (see below).' },
 	{ title: 'Retention and deletion', text: 'For 30 days after the contract ends, you can export your data to CSV from Settings. After that, data in the live environment is deleted, and copies in backups are deleted when the 7-day retention period ends.' },
 ];
 
-// From the subprocessor list in the Revenue CRM Terms of Service (Japanese), version of 2026-09-29.
+// From the subprocessor list in the Revenue CRM Terms of Service (Japanese), version of 2026-10-28.
 const subprocessors = [
 	{ name: 'Supabase Pte. Ltd.', purpose: 'Database and file storage', data: 'All customer data', where: 'Japan (Tokyo)', hq: 'Singapore' },
 	{ name: 'Vercel Inc.', purpose: 'Application runtime', data: 'Customer data passing through for processing', where: 'Japan (Tokyo)', hq: 'United States' },
@@ -130,7 +133,7 @@ const subprocessors = [
 					</tbody>
 				</table>
 			</div>
-			<p class="note">Payment (Stripe, PayPal) and sign-in bot protection (Cloudflare) handle only our own billing and technical connection data, not the customer data you store. Integrations you connect yourself (Zoom, Google Meet, LINE) are governed by your own agreements with those providers. We give customers 30 days’ notice before changing this list, and customers who object may cancel. The binding list is in the <a href="https://crm.consilegy.com/terms">Revenue CRM Terms of Service</a> (in Japanese).</p>
+			<p class="note">Payment (Stripe, PayPal), sign-in bot protection (Cloudflare), and rate limiting against abuse (Upstash, processed in Tokyo; temporary counters deleted within 15 minutes) handle only our own billing and technical connection data, not the customer data you store. Integrations you connect yourself (Zoom, Google Meet, LINE) are governed by your own agreements with those providers. We give customers 30 days’ notice before changing this list, and customers who object may cancel. The binding list is in the <a href="https://crm.consilegy.com/terms">Revenue CRM Terms of Service</a> (in Japanese).</p>
 		</div>
 	</section>
 

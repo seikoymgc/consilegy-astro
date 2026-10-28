@@ -62,6 +62,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				<li>選択が、未来を変える。</li>
 				<li>やりたいことを、前へ。</li>
 			</ul>
+			<dl class="mission-pillars">
+				<div class="mission-pillar">
+					<dt>越境</dt>
+					<dd>国、部門、会社の内と外。境目の手前で止まっている知恵と人を、つなぎ直す。</dd>
+				</div>
+				<div class="mission-pillar">
+					<dt>共創</dt>
+					<dd>外から助言するのではなく、同じチームとしてつくる。できた型は道具にして、分かち合う。</dd>
+				</div>
+			</dl>
 			<div class="mission-body">
 				<p>やりたいことがあるのに進めない会社は、意欲が足りないのではなく、選べる道が見えていないだけです。構造が見えれば選べる。選んだ会社が前へ進めば、そこで働く人にも取引先にも、次の選択肢が生まれます。</p>
 				<p>選べない理由の多くは、時間と手が足りないことです。だからConsilegyは、外から助言する側ではなく、同じチームの一員として入ります。お客様の24時間に、私たちの24時間を重ねる。<strong>1日を48時間にする。</strong>戦略から実装・定着まで一緒に動き、支援で得た型は<a href="/crm/">Revenue CRM</a>という道具にして、より多くの会社と分かち合います。</p>
@@ -134,8 +144,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				<div class="why-item">
 					<span class="why-num">02</span>
 					<div>
-						<h4>グローバル最新知識を、日本の現場に直接実装</h4>
-						<p>欧米で先行するRevenue Architectureの最新手法を英語の一次情報から取り込み、日本企業の現場に合わせて実装します。</p>
+						<h4>国境を越えて学び、日本の現場に実装する</h4>
+						<p>欧米で先行するRevenue Architectureの最新手法を英語の一次情報から取り込み、日本企業の現場に合わせて実装します。国と言語の境を越えることが、私たちの越境の原点です。</p>
 					</div>
 				</div>
 				<div class="why-item">
@@ -203,6 +213,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				<p>どうすれば、そういう人がいない社会にできるのか。考えて行き着いたのは、生きる理由や生きがい、そして未来へのワクワクでした。ワクワクは、選択肢から生まれます。</p>
 				<p>選択肢は、余白から生まれます。時間に余白ができると、いろんなことを試せる。試せると、自分は選べるのだと分かる。「こうすべき」や社会の常識ではなく、自分がやりたいことを選べたとき、人は未来にワクワクできます。</p>
 				<p>私自身、独立するときも拠点を移すときも、保証はありませんでした。それでも選んできた結果、できることは変わってきました。<strong>選択が未来を変える</strong>ことを、自分の身で知っています。</p>
+				<p>私は、競争より共創が好きです。国も業界も越えて働くなかで、境目を越えるたびに、選べる道が増えてきました。だからConsilegyは、お客様と同じ側に立って、一緒につくります。</p>
 				<p>会社の中でも同じです。人も時間も足りず、やりたいことが進まない。だからConsilegyは、お客様の24時間に私たちの24時間を重ねて、<strong>1日を48時間にします。</strong>余白をつくり、選べる状態をつくる。それが、社会に選択肢を増やす私たちのやり方です。</p>
 			</div>
 
@@ -643,6 +654,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	list-style: none; padding: 0; margin: 0 0 2.5rem;
 	display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem 2rem;
 }
+.mission-pillars {
+	display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem;
+	margin: 0 0 2.5rem; text-align: left;
+}
+.mission-pillar {
+	background: #fff; border: 1px solid var(--color-border); border-radius: 6px;
+	box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04); padding: 1.5rem 1.5rem 1.375rem;
+}
+.mission-pillar dt { font-size: 1.375rem; font-weight: 700; color: var(--color-navy); letter-spacing: 0.08em; margin: 0 0 0.5rem; }
+.mission-pillar dd { font-size: 1rem; line-height: 1.85; color: var(--color-text); margin: 0; }
+@media (max-width: 640px) { .mission-pillars { grid-template-columns: 1fr; } }
 .mission-tiers li { font-size: 1.25rem; font-weight: 600; color: var(--color-text); line-height: 1.6; }
 .mission-title span { display: inline-block; }
 .mission-body { text-align: left; padding-top: 2.5rem; border-top: 1px solid var(--color-border); }

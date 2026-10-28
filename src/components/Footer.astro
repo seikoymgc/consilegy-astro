@@ -27,49 +27,62 @@ const services = isEN
 		{ label: 'SFA定着支援',                href: '/services/sfa-adoption-support/' },
 	];
 
-const resources = isEN
+// サービス以外のリンクは用途ごとに束ねる。1列に詰めると17行になり、どこに何があるか分からなかった。
+const groups = isEN
 	? [
-		{ label: 'Revenue CRM',            href: '/en/crm/' },
-		{ label: 'Revenue CRM (School)',   href: '/en/crm/school/' },
-		{ label: 'Revenue CRM Guides',     href: '/en/crm/media/' },
-		{ label: 'Case Studies', href: '/en/case-studies/' },
-		{ label: 'Insights',     href: '/en/insights/' },
-		{ label: 'B2B Revenue Strategy Journal', href: 'https://media.consilegy.com/en/' },
-		{ label: 'Newsletter',   href: '/en/newsletter/' },
-		{ label: 'News',         href: '/en/news/' },
-		{ label: 'About',        href: '/en/company/' },
-		{ label: 'Contact',      href: '/en/contact/' },
+		{ heading: 'Revenue CRM', links: [
+			{ label: 'Revenue CRM',          href: '/en/crm/' },
+			{ label: 'Revenue CRM (School)', href: '/en/crm/school/' },
+			{ label: 'Revenue CRM Guides',   href: '/en/crm/media/' },
+		] },
+		{ heading: 'Learn', links: [
+			{ label: 'Case Studies', href: '/en/case-studies/' },
+			{ label: 'Insights',     href: '/en/insights/' },
+			{ label: 'B2B Revenue Strategy Journal', href: 'https://media.consilegy.com/en/' },
+			{ label: 'Newsletter',   href: '/en/newsletter/' },
+		] },
+		{ heading: 'Company', links: [
+			{ label: 'About',    href: '/en/company/' },
+			{ label: 'Security', href: '/en/security/' },
+			{ label: 'News',     href: '/en/news/' },
+			{ label: 'Contact',  href: '/en/contact/' },
+		] },
 	]
 	: [
-		{ label: '収益を自己診断（3分）', href: '/diagnostic/' },
-		{ label: '30分無料相談',         href: '/free-consultation/' },
-		{ label: '収益構造の現状分析（有償）', href: '/revops-assessment/' },
-		{ label: 'Revenue CRM 法人向け',        href: '/crm/' },
-		{ label: 'Revenue CRMスクール版',      href: '/crm/school/' },
-		{ label: 'Revenue CRM代理店版',        href: '/crm/reseller/' },
-		{ label: 'Revenue CRM受託開発・制作版', href: '/crm/contractor/' },
-		{ label: 'Revenue CRM支援会社版',      href: '/crm/services/' },
-		{ label: 'Revenue CRM紹介パートナー制度', href: '/crm/referral/' },
-		{ label: 'Revenue CRMの使い方',         href: '/crm/media/' },
-		{ label: '製品一覧',                   href: '/products/' },
-		{ label: '導入事例',                   href: '/case-studies/' },
-		{ label: 'インサイト',                  href: '/insights/' },
-		{ label: 'B2Bレベニュー戦略ジャーナル',  href: 'https://media.consilegy.com/' },
-		{ label: 'レベニューアーキテクチャとは', href: '/revenue-architecture/' },
-		{ label: 'RevOpsとは',                 href: '/about-revops/' },
-		{ label: 'ニュースレター',              href: '/newsletter/' },
+		{ heading: 'Revenue CRM', links: [
+			{ label: '法人向け',           href: '/crm/' },
+			{ label: 'スクール版',         href: '/crm/school/' },
+			{ label: '代理店版',           href: '/crm/reseller/' },
+			{ label: '受託開発・制作版',    href: '/crm/contractor/' },
+			{ label: '支援会社版',         href: '/crm/services/' },
+			{ label: '紹介パートナー制度',  href: '/crm/referral/' },
+			{ label: '使い方',             href: '/crm/media/' },
+			{ label: '製品一覧',           href: '/products/' },
+		] },
+		{ heading: '読む', links: [
+			{ label: 'インサイト',                  href: '/insights/' },
+			{ label: '導入事例',                   href: '/case-studies/' },
+			{ label: 'B2Bレベニュー戦略ジャーナル',  href: 'https://media.consilegy.com/' },
+			{ label: 'レベニューアーキテクチャとは', href: '/revenue-architecture/' },
+			{ label: 'RevOpsとは',                 href: '/about-revops/' },
+			{ label: 'ニュースレター',              href: '/newsletter/' },
+		] },
+		{ heading: '相談する', links: [
+			{ label: '収益を自己診断（3分）',      href: '/diagnostic/' },
+			{ label: '30分無料相談',              href: '/free-consultation/' },
+			{ label: '収益構造の現状分析（有償）', href: '/revops-assessment/' },
+			{ label: '資料ダウンロード',           href: '/download/' },
+			{ label: 'お問い合わせ',              href: '/contact/' },
+		] },
+		{ heading: '会社', links: [
+			{ label: '会社概要',     href: '/company/' },
+			{ label: 'セキュリティ', href: '/security/' },
+			{ label: 'ニュース',     href: '/news/' },
+			{ label: 'English site', href: '/en/' },
+		] },
 	];
 
-const company = isEN
-	? []
-	: [
-		{ label: '会社概要',       href: '/company/' },
-		{ label: 'セキュリティ',   href: '/security/' },
-		{ label: 'ニュース',       href: '/news/' },
-		{ label: '資料ダウンロード', href: '/download/' },
-		{ label: 'お問い合わせ',   href: '/contact/' },
-		{ label: 'English site',  href: '/en/' },
-	];
+const starRegistryHref = 'https://cloudsecurityalliance.org/star/registry/consilegy-llc';
 
 const privacyHref = isEN ? '/en/privacy-policy/' : '/privacy-policy/';
 ---
@@ -109,59 +122,38 @@ const privacyHref = isEN ? '/en/privacy-policy/' : '/privacy-policy/';
 					? 'We help global B2B teams design revenue operations that actually work in Japan.'
 					: 'マーケ・営業・CSをつなぐ収益構造の設計と実装を支援します。'}
 			</p>
-			<!-- IPA の規約で、ロゴは背景色の上に直接置かない（視認性）。白い台に載せる -->
-			<a
-				class="site-footer__security"
-				href="https://www.ipa.go.jp/security/security-action/"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				<img
-					src="/images/common/security-action-futatsuboshi-2026.png"
-					alt={isEN ? 'SECURITY ACTION: Self-declared information security (two stars)' : 'SECURITY ACTION セキュリティ対策自己宣言 二つ星'}
-					width="72"
-					height="72"
-					loading="lazy"
-				/>
-			</a>
-		</div>
-
-		<!-- Services -->
-		<div>
-			<p class="site-footer__heading">Services</p>
-			<ul class="site-footer__links">
-				{services.map(({ label, href }) => (
-					<li><a href={href}>{label}</a></li>
-				))}
-			</ul>
-		</div>
-
-		<!-- Resources -->
-		<div>
-			<p class="site-footer__heading">{isEN ? 'Resources' : 'リソース'}</p>
-			<ul class="site-footer__links">
-				{resources.map(({ label, href }) => (
-					<li><a href={href}>{label}</a></li>
-				))}
-			</ul>
-		</div>
-
-		<!-- Company & Contact (JA only) / Follow Us (EN) -->
-		{!isEN && (
-			<div>
-				<p class="site-footer__heading">会社・連絡先</p>
-				<ul class="site-footer__links">
-					{company.map(({ label, href }) => (
-						<li><a href={href}>{label}</a></li>
-					))}
-				</ul>
+			<!-- IPA の規約で、ロゴは背景色の上に直接置かない（視認性）。CSA も同じ白い台に載せる -->
+			<div class="site-footer__badges">
+				<a
+					class="site-footer__security"
+					href="https://www.ipa.go.jp/security/security-action/"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<img
+						src="/images/common/security-action-futatsuboshi-2026.png"
+						alt={isEN ? 'SECURITY ACTION: Self-declared information security (two stars)' : 'SECURITY ACTION セキュリティ対策自己宣言 二つ星'}
+						width="72"
+						height="72"
+						loading="lazy"
+					/>
+				</a>
+				<a
+					class="site-footer__security"
+					href={starRegistryHref}
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<img
+						src="/images/common/csa-star-level1-2026.png"
+						alt="CSA STAR Level One: Self-Assessment"
+						width="72"
+						height="72"
+						loading="lazy"
+					/>
+				</a>
 			</div>
-		)}
-
-		<!-- Follow Us -->
-		<div>
-			<p class="site-footer__heading">{isEN ? 'Follow Us' : 'フォロー'}</p>
-			<ul class="site-footer__links">
+			<ul class="site-footer__follow" aria-label={isEN ? 'Follow Us' : 'フォロー'}>
 				<li>
 					<a
 						href="https://www.linkedin.com/company/consilegy"
@@ -191,6 +183,29 @@ const privacyHref = isEN ? '/en/privacy-policy/' : '/privacy-policy/';
 			</ul>
 		</div>
 
+		<div class="site-footer__nav">
+			<!-- Services -->
+			<div>
+				<p class="site-footer__heading">{isEN ? 'Services' : 'サービス'}</p>
+				<ul class="site-footer__links">
+					{services.map(({ label, href }) => (
+						<li><a href={href}>{label}</a></li>
+					))}
+				</ul>
+			</div>
+
+			{groups.map(({ heading, links }) => (
+				<div>
+					<p class="site-footer__heading">{heading}</p>
+					<ul class="site-footer__links">
+						{links.map(({ label, href }) => (
+							<li><a href={href}>{label}</a></li>
+						))}
+					</ul>
+				</div>
+			))}
+		</div>
+
 	</div>
 
 	<!-- Bottom bar -->
@@ -198,7 +213,6 @@ const privacyHref = isEN ? '/en/privacy-policy/' : '/privacy-policy/';
 		<div class="container site-footer__bottom-inner">
 			<p>(c) 2026 Consilegy LLC.</p>
 			<span class="site-footer__legal">
-				{isEN && <a href="/en/security/" class="site-footer__privacy">Security</a>}
 				<a href={isEN ? '/en/security-policy/' : '/security-policy/'} class="site-footer__privacy">Security Policy</a>
 				<a href={privacyHref} class="site-footer__privacy">Privacy Policy</a>
 			</span>
@@ -222,18 +236,55 @@ const privacyHref = isEN ? '/en/privacy-policy/' : '/privacy-policy/';
 
 	.site-footer__grid {
 		/* Reset --container: html[lang="en"] sets 72ch which would narrow the footer */
-		--container: 1120px;
+		--container: 1200px;
 		display: grid;
-		grid-template-columns: 1.4fr 1fr 1fr 1fr 0.7fr;
+		/* ロゴ・認証バッジの段を上に置き、メニューは全幅で並べる（横に並べると日本語が1語ずつ折り返した） */
+		grid-template-columns: minmax(0, 1fr);
 		gap: var(--space-xl);
 		padding-block: var(--space-2xl) var(--space-xl);
 		align-items: start;
 	}
 
-	/* EN: 4 columns (no company column) */
-	.site-footer--en .site-footer__grid {
-		grid-template-columns: 1.4fr 1fr 1fr 0.7fr;
+	/* リンクは見出しごとの列。列の間に細い縦線を引いて塊を分ける */
+	.site-footer__nav {
+		display: grid;
+		grid-template-columns: repeat(5, minmax(0, 1fr));
+		gap: var(--space-lg) 0;
 	}
+
+	.site-footer--en .site-footer__nav {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+
+	.site-footer__nav > div {
+		padding-inline: 1.25rem;
+		border-left: 1px solid #1f2937;
+	}
+
+	.site-footer__nav > div:first-child {
+		padding-left: 0;
+		border-left: 0;
+	}
+
+	/* Brand：左にロゴと説明、右に認証バッジとSNS */
+	.site-footer__brand {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		grid-template-areas:
+			"logo badges"
+			"tagline badges"
+			"desc follow";
+		column-gap: var(--space-xl);
+		align-items: start;
+		padding-bottom: var(--space-xl);
+		border-bottom: 1px solid #1f2937;
+	}
+
+	.site-footer__logo-link { grid-area: logo; justify-self: start; }
+	.site-footer__tagline { grid-area: tagline; }
+	.site-footer__desc { grid-area: desc; }
+	.site-footer__badges { grid-area: badges; justify-self: end; }
+	.site-footer__follow { grid-area: follow; justify-self: end; align-self: end; }
 
 	/* Brand */
 	.site-footer__logo-link {
@@ -262,12 +313,16 @@ const privacyHref = isEN ? '/en/privacy-policy/' : '/privacy-policy/';
 		font-size: 0.85rem;
 		line-height: 1.7;
 		color: #CBD5E1;
-		max-width: 30ch;
+		max-width: 40ch;
+	}
+
+	.site-footer__badges {
+		display: flex;
+		gap: 0.6rem;
 	}
 
 	.site-footer__security {
 		display: inline-block;
-		margin-top: 1.25rem;
 		padding: 6px;
 		background: #fff;
 		border-radius: 6px;
@@ -310,6 +365,23 @@ const privacyHref = isEN ? '/en/privacy-policy/' : '/privacy-policy/';
 
 	.site-footer__links a:hover { color: #fff; }
 
+	.site-footer__follow {
+		list-style: none;
+		margin: 1.25rem 0 0;
+		padding: 0;
+		display: flex;
+		gap: 1.25rem;
+	}
+
+	.site-footer__follow a {
+		font-size: 0.85rem;
+		font-weight: 500;
+		color: #E2E8F0;
+		text-decoration: none;
+	}
+
+	.site-footer__follow a:hover { color: #fff; }
+
 	.site-footer__social {
 		display: inline-flex;
 		align-items: center;
@@ -322,6 +394,7 @@ const privacyHref = isEN ? '/en/privacy-policy/' : '/privacy-policy/';
 	}
 
 	.site-footer__bottom-inner {
+		--container: 1200px; /* 上のメニュー段と端を揃える */
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -346,20 +419,31 @@ const privacyHref = isEN ? '/en/privacy-policy/' : '/privacy-policy/';
 
 	/* Tablet */
 	@media (max-width: 1080px) {
-		.site-footer__grid {
-			grid-template-columns: 1fr 1fr 1fr;
-			gap: var(--space-lg);
+		.site-footer__nav,
+		.site-footer--en .site-footer__nav {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
 		}
 
-		.site-footer__brand {
-			grid-column: 1 / -1;
+		.site-footer__nav > div,
+		.site-footer__nav > div:first-child {
+			padding: 0 1.25rem 0 0;
+			border-left: 0;
 		}
-
-		.site-footer__desc { max-width: 100%; }
 	}
 
 	@media (max-width: 720px) {
-		.site-footer__grid {
+		.site-footer__brand {
+			grid-template-columns: minmax(0, 1fr);
+			grid-template-areas: "logo" "tagline" "desc" "badges" "follow";
+		}
+
+		.site-footer__badges,
+		.site-footer__follow { justify-self: start; }
+
+		.site-footer__badges { margin-top: 1.25rem; }
+
+		.site-footer__nav,
+		.site-footer--en .site-footer__nav {
 			grid-template-columns: 1fr 1fr;
 		}
 	}
@@ -367,9 +451,13 @@ const privacyHref = isEN ? '/en/privacy-policy/' : '/privacy-policy/';
 	/* SP */
 	@media (max-width: 560px) {
 		.site-footer__grid {
+			padding-block: var(--space-xl) var(--space-lg);
+		}
+
+		.site-footer__nav,
+		.site-footer--en .site-footer__nav {
 			grid-template-columns: 1fr;
 			gap: var(--space-md);
-			padding-block: var(--space-xl) var(--space-lg);
 		}
 	}
 </style>

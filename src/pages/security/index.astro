@@ -155,6 +155,8 @@ const crmMeasures = [
 .card a { color: var(--color-primary); }
 .card--badge { display: flex; gap: 1rem; align-items: flex-start; }
 .card--badge img { width: 72px; height: 72px; flex-shrink: 0; }
+/* CSA はロゴをリンクで包んでいる。包みが縮むと画像の幅だけ潰れて縦長になる */
+.card--badge > a { flex-shrink: 0; line-height: 0; }
 
 .band p { font-size: 1rem; line-height: 1.85; }
 .band .note { margin-top: 1.25rem; font-size: 0.875rem; color: var(--color-text-muted); }

@@ -23,7 +23,7 @@ When nothing from the trial is kept, the first lesson after enrolment starts fro
 
 ## In Revenue CRM, what you heard at the trial has a fixed place on the student record
 
-In the school edition, each student record has a section headed 📝 初回ヒアリング (first interview). It has six fields: how they found you, basic information, English level, what went well in the test conversation, what needs work, and the goal for three months from now. An empty field reads 未入力 (not entered). These labels are shown in Japanese at the time of writing, including when the display language is English.
+In the school edition, each student record has a section headed 📝 Intake interview. It has six fields: how they found you, basic information, English level, what went well in the test conversation, what needs work, and the goal for three months from now. An empty field reads "Not filled in."
 
 There are three ways to fill it by hand.
 
@@ -43,7 +43,7 @@ Any field the pasted text has something for replaces what was there, including t
 
 After registration there is no screen for correcting a single field by hand. To fix one, paste a note with the right content and run it again.
 
-The field names are written for English conversation schools and cannot be changed. "English level" and "test conversation" have to be read loosely for other kinds of lessons.
+The field names start out written for English conversation schools, but you can rename them under Profile field names (see [The student profile asks about English level, but you run a piano school](/en/crm/media/b2c/intake-fields-written-for-an-english-school/)).
 
 There is no dedicated field for why someone did not enroll.
 

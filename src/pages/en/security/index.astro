@@ -10,7 +10,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 // Items we do not offer (SAML/OIDC SSO, SLA, third-party pentest) are answered in the
 // questionnaire, not listed on the page (same rule as the Japanese page).
 const asOf = 'October 2026';
-const questionnaireHref = '/downloads/consilegy-security-questionnaire-en-2026-10b.xlsx';
+const questionnaireHref = '/downloads/consilegy-security-questionnaire-en-2026-10c.xlsx';
 
 const assurance = [
 	{ label: 'Information Security Policy', text: 'Our policy sets out management responsibility, organization, safeguards, customer information, training, compliance, incident response, and continual improvement.', link: { href: '/en/security-policy/', text: 'Read the policy' } },
@@ -21,16 +21,16 @@ const assurance = [
 ];
 
 const controls = [
-	{ title: 'Data residency', text: 'The database, file storage, and application runtime are all in Japan (Tokyo region). Text, audio, or images you send to AI features are processed by US AI providers (Anthropic, OpenAI, Google), and email sent from the service is processed by a US provider (Resend). You can switch AI features to an AI provider your company contracts with directly.' },
+	{ title: 'Data residency', text: 'The database, file storage, and application runtime are all in Japan (Tokyo region). Data handled by AI features (the text you enter, plus stored records the AI features draw on, such as contacts, deals, and meeting notes) is processed by US AI providers (Anthropic, OpenAI, Google). Email sent from the service is processed by a US provider (Resend). You can switch AI features to an AI provider your company contracts with directly.' },
 	{ title: 'Encryption', text: 'All traffic is encrypted with TLS, and HSTS tells browsers to use encrypted connections only. Stored data and files are encrypted at rest (AES-256) by our infrastructure provider, Supabase. Credentials for connected services (access tokens and API keys) are additionally encrypted with AES-256 by the application. Revenue CRM API keys are stored as hashes.' },
-	{ title: 'Tenant isolation', text: 'Each company’s data is isolated by row-level security (RLS) in the database. Server-side processes that run outside RLS are required to scope every query to the customer’s company, and automated checks verify this on every change. Missing RLS on new tables is also detected automatically.' },
+	{ title: 'Tenant isolation', text: 'Each company’s data is isolated by row-level security (RLS) in the database. For server-side processes that run outside RLS, every change is automatically checked for code that handles data across companies; cross-company processing is allowed only where the reason is recorded. Missing RLS on new tables is also detected automatically.' },
 	{ title: 'Access control', text: 'Roles (owner, admin, member), per-object permissions to view, create, edit, delete, and export, and visibility scopes (everyone, team, own records).' },
-	{ title: 'Authentication', text: 'Sign in with an email address and password, or a Google account. Multi-factor authentication with authenticator-app codes and backup codes is supported. If a user loses their device, an admin in the same company can reset it. The sign-in page is protected against automated attacks.' },
+	{ title: 'Authentication', text: 'Sign in with an email address and password, or a Google account. Multi-factor authentication with authenticator-app codes and backup codes is supported. If a user loses their device, an admin in the same company can reset it. The sign-in page is protected against automated attacks. Resets by an admin are recorded in the audit log.' },
 	{ title: 'Audit logging', text: 'Creating, changing, and deleting contacts, companies, and deals, and every data export, are recorded with the user and time. Logs are kept for the term of the contract and admins can view them in Settings.' },
-	{ title: 'Backups', text: 'The database is backed up automatically every day, with the last 7 days retained. Uploaded files are copied daily to a separate storage area, also kept for 7 days.' },
-	{ title: 'AI and your data', text: 'Your data is never used, by us or by our AI providers, to train AI models. Our contracts with AI providers exclude training. Providers may retain submitted content for a limited period to monitor abuse.' },
-	{ title: 'AI safeguards', text: 'Customer data and search results passed to AI are clearly separated from instructions, and text that tries to manipulate the AI is detected and logged. AI-generated content is labeled as such. Admins can turn off all AI features for their company. AI inputs and outputs are logged and deleted automatically after 90 days.' },
-	{ title: 'Vulnerability management', text: 'Vulnerabilities in the third-party software components we use are detected automatically and updated. We also accept reports from security researchers (see below).' },
+	{ title: 'Backups', text: 'The database is backed up automatically every day, with the last 7 days retained. Uploaded files are copied daily to a separate storage area within the same infrastructure provider, also kept for 7 days.' },
+	{ title: 'AI and your data', text: 'Your data is never used, by us or by the AI providers we contract with, to train AI models. Our contracts with those providers exclude training. This does not apply to an AI provider you connect with your own key, which is governed by that provider’s terms. Providers may retain submitted content for a limited period to monitor abuse.' },
+	{ title: 'AI safeguards', text: 'Customer data and search results passed to AI are, as a rule, kept separate from instructions. Text that looks like an attempt to manipulate the AI is detected and recorded in our server logs. AI-generated content is labeled as such on the main screens. Admins can turn off all AI features for their company. AI inputs and outputs are logged and deleted automatically after 90 days.' },
+	{ title: 'Vulnerability management', text: 'Updates and vulnerability alerts for the third-party software components we use reach us automatically, and we review them and apply updates based on severity. We also accept reports from security researchers (see below).' },
 	{ title: 'Retention and deletion', text: 'For 30 days after the contract ends, you can export your data to CSV from Settings. After that, data in the live environment is deleted, and copies in backups are deleted when the 7-day retention period ends.' },
 ];
 
@@ -62,7 +62,7 @@ const subprocessors = [
 	<section class="band band--subtle">
 		<div class="container">
 			<p class="section-eyebrow">Assurance</p>
-			<h2 class="section-title">Policies and certifications</h2>
+			<h2 class="section-title">Policies and assessments</h2>
 			<div class="cards cards--2">
 				{assurance.map(a => (
 					<div class="card">
@@ -86,7 +86,7 @@ const subprocessors = [
 				</div>
 				<div class="card">
 					<h3>Incident response</h3>
-					<p>We follow a defined procedure: report, initial response, impact assessment, notification, and prevention of recurrence. Under the Revenue CRM Terms of Service, we notify customers no later than 3 business days after we learn of a leak or other incident involving personal information they entrust to us, and we support the reports and notices they need to make.</p>
+					<p>We follow a defined procedure: report, initial response, impact assessment, notification, and prevention of recurrence. Under the Revenue CRM Terms of Service, we notify customers promptly, and no later than 3 business days after, we learn of a leak or other incident involving personal information they entrust to us, and we support the reports and notices they need to make.</p>
 				</div>
 			</div>
 		</div>
@@ -112,7 +112,7 @@ const subprocessors = [
 			<p class="section-eyebrow">Privacy</p>
 			<h2 class="section-title">Data protection and cross-border transfers</h2>
 			<p>We act as a processor for the customer data you store in Revenue CRM. Your data belongs to you, and we handle it only to provide, maintain, and support the service, to meet legal obligations, and to produce statistics that cannot identify individuals or customers.</p>
-			<p>We comply with Japan’s Act on the Protection of Personal Information (APPI). The European Commission has recognized Japan as providing an adequate level of data protection, and your data is stored in Japan. Where data is processed by providers outside Japan (listed below), we confirm in our contracts with them: purpose limitation including no model training, encryption and access control, flow-down obligations to their own providers, breach notification, and deletion after processing.</p>
+			<p>We comply with Japan’s Act on the Protection of Personal Information (APPI). The European Commission has recognized Japan as providing an adequate level of data protection. Your data is stored in Japan; AI and email processing take place in the US under the safeguards below. Where data is processed by providers outside Japan (listed below), we confirm in our contracts with them: purpose limitation including no model training, encryption and access control, flow-down obligations to their own providers, breach notification, and deletion after processing.</p>
 			<p>If your organization needs a data processing agreement (DPA), the EU Standard Contractual Clauses, or answers in your own format, contact us at <a href="mailto:info@consilegy.com">info@consilegy.com</a>.</p>
 		</div>
 	</section>
@@ -133,7 +133,7 @@ const subprocessors = [
 					</tbody>
 				</table>
 			</div>
-			<p class="note">Payment (Stripe, PayPal), sign-in bot protection (Cloudflare), and rate limiting against abuse (Upstash, processed in Tokyo; temporary counters deleted within 15 minutes) handle only our own billing and technical connection data, not the customer data you store. Integrations you connect yourself (Zoom, Google Meet, LINE) are governed by your own agreements with those providers. We give customers 30 days’ notice before changing this list, and customers who object may cancel. The binding list is in the <a href="https://crm.consilegy.com/terms">Revenue CRM Terms of Service</a> (in Japanese).</p>
+			<p class="note">Payment (Stripe, PayPal), sign-in bot protection (Cloudflare), and rate limiting against abuse (Upstash, processed in Tokyo) handle only our own billing data, connection data, and the account identifiers needed for rate limiting, not the customer data you store. Integrations you connect yourself (for example, Zoom, Google Meet, LINE, and Slack) are governed by your own agreements with those providers. We give customers 30 days’ notice before changing this list, and customers who object may cancel. The binding list is in the <a href="https://crm.consilegy.com/terms">Revenue CRM Terms of Service</a> (in Japanese).</p>
 		</div>
 	</section>
 
@@ -141,7 +141,7 @@ const subprocessors = [
 		<div class="container narrow">
 			<p class="section-eyebrow">Vulnerability Reporting</p>
 			<h2 class="section-title">Report a security issue</h2>
-			<p>If you believe you have found a vulnerability in our website or Revenue CRM, email <a href="mailto:info@consilegy.com">info@consilegy.com</a> with the details and steps to reproduce it. We will acknowledge your report and keep you updated. Please do not access or change other people’s data, and do not run tests that could degrade the service. Testing beyond this requires our written permission in advance.</p>
+			<p>If you believe you have found a vulnerability in our website or Revenue CRM, email <a href="mailto:info@consilegy.com">info@consilegy.com</a> with the details and steps to reproduce it. We will acknowledge your report within 3 business days and keep you updated. Please use only accounts and workspaces you created yourself, do not access or change other people’s data, and do not run denial-of-service tests or social engineering. If you research in good faith under these rules, we will not take legal action against you, and this page serves as our written permission under section 6(4) of the Revenue CRM Terms of Service. The full policy is on our <a href="/security/shared-responsibility/#vulnerability-disclosure">Japanese page</a>.</p>
 		</div>
 	</section>
 

@@ -116,12 +116,8 @@ const privacyHref = isEN ? '/en/privacy-policy/' : '/privacy-policy/';
 					class="site-footer__logo"
 				/>
 			</a>
-			<p class="site-footer__tagline">Translate strategy into operations.</p>
-			<p class="site-footer__desc">
-				{isEN
-					? 'We help global B2B teams design revenue operations that actually work in Japan.'
-					: 'マーケ・営業・CSをつなぐ収益構造の設計と実装を支援します。'}
-			</p>
+			<!-- 会社のミッション（会社ページの見出しと同じ言葉）。説明文は置かない -->
+			<p class="site-footer__tagline">{isEN ? 'Give society more choices.' : '社会に、選択肢を増やす。'}</p>
 			<!-- IPA の規約で、ロゴは背景色の上に直接置かない（視認性）。CSA も同じ白い台に載せる -->
 			<div class="site-footer__badges">
 				<a
@@ -266,14 +262,14 @@ const privacyHref = isEN ? '/en/privacy-policy/' : '/privacy-policy/';
 		border-left: 0;
 	}
 
-	/* Brand：左にロゴと説明、右に認証バッジとSNS */
+	/* Brand：左にロゴとミッション、右に認証バッジとSNS */
 	.site-footer__brand {
 		display: grid;
 		grid-template-columns: minmax(0, 1fr) auto;
 		grid-template-areas:
 			"logo badges"
 			"tagline badges"
-			"desc follow";
+			". follow";
 		column-gap: var(--space-xl);
 		align-items: start;
 		padding-bottom: var(--space-xl);
@@ -281,10 +277,17 @@ const privacyHref = isEN ? '/en/privacy-policy/' : '/privacy-policy/';
 	}
 
 	.site-footer__logo-link { grid-area: logo; justify-self: start; }
-	.site-footer__tagline { grid-area: tagline; }
-	.site-footer__desc { grid-area: desc; }
+	.site-footer__tagline {
+		grid-area: tagline;
+		margin: 0;
+		font-size: 1.05rem;
+		font-weight: 700;
+		letter-spacing: 0.02em;
+		color: #fff;
+	}
+
 	.site-footer__badges { grid-area: badges; justify-self: end; }
-	.site-footer__follow { grid-area: follow; justify-self: end; align-self: end; }
+	.site-footer__follow { grid-area: follow; justify-self: end; }
 
 	/* Brand */
 	.site-footer__logo-link {
@@ -297,23 +300,6 @@ const privacyHref = isEN ? '/en/privacy-policy/' : '/privacy-policy/';
 		height: 28px;
 		width: auto;
 		display: block;
-	}
-
-	.site-footer__tagline {
-		margin: 0 0 0.65rem;
-		font-size: 0.75rem;
-		font-weight: 600;
-		letter-spacing: 0.06em;
-		color: rgba(255, 255, 255, 0.78);
-		text-transform: uppercase;
-	}
-
-	.site-footer__desc {
-		margin: 0;
-		font-size: 0.85rem;
-		line-height: 1.7;
-		color: #CBD5E1;
-		max-width: 40ch;
 	}
 
 	.site-footer__badges {
@@ -434,7 +420,7 @@ const privacyHref = isEN ? '/en/privacy-policy/' : '/privacy-policy/';
 	@media (max-width: 720px) {
 		.site-footer__brand {
 			grid-template-columns: minmax(0, 1fr);
-			grid-template-areas: "logo" "tagline" "desc" "badges" "follow";
+			grid-template-areas: "logo" "tagline" "badges" "follow";
 		}
 
 		.site-footer__badges,

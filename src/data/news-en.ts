@@ -8,6 +8,16 @@ export type NewsItemEn = Omit<NewsItem, 'category'> & {
 
 export const newsEn: NewsItemEn[] = [
 	{
+		date: '2026-10-28',
+		category: 'Announcement',
+		title: 'Revenue CRM is listed in the CSA STAR Registry (Level 1 self-assessment)',
+		summary: 'We have answered the Cloud Security Alliance (CSA) Consensus Assessments Initiative Questionnaire (CAIQ) for Revenue CRM, and our answers are now published in the CSA STAR Registry. Level 1 is a self-assessment rather than a third-party audit, and anyone can review our answers. We have also updated our Security page and security questionnaire.',
+		image: '/images/news/csa-star-level1-2026-10-28.png',
+		imageAlt: 'CSA STAR Level One: Self-Assessment badge',
+		imageFit: 'logo',
+		url: 'https://cloudsecurityalliance.org/star/registry/consilegy-llc',
+	},
+	{
 		date: '2026-10-22',
 		category: 'Announcement',
 		title: 'Consilegy declares SECURITY ACTION two stars with IPA',

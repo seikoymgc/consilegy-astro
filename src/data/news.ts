@@ -15,6 +15,16 @@ export interface NewsItem {
 
 export const news: NewsItem[] = [
 	{
+		date: '2026-10-28',
+		category: 'お知らせ',
+		title: 'Revenue CRMの「CSA STAR Level 1」自己評価が、CSAのSTAR Registryに掲載されました',
+		summary: 'クラウドセキュリティの国際団体 Cloud Security Alliance（CSA）の質問票（CAIQ）に、顧客管理システム「Revenue CRM」の対策を回答し、CSAが公開するSTAR Registryに掲載されました。Level 1は第三者の監査ではなく自己評価ですが、回答はどなたでも確認できます。あわせて「セキュリティへの取り組み」のページとチェックシートの回答を更新しました。',
+		image: '/images/news/csa-star-level1-2026-10-28.png',
+		imageAlt: 'CSA STAR Level One: Self-Assessment のバッジ',
+		imageFit: 'logo',
+		url: 'https://cloudsecurityalliance.org/star/registry/consilegy-llc',
+	},
+	{
 		date: '2026-10-22',
 		category: 'お知らせ',
 		title: 'IPAの「SECURITY ACTION」で、二つ星を宣言しました',

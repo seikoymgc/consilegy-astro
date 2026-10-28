@@ -60,6 +60,18 @@ const breadcrumbSchema = {
 
   <article class="article-body container" id="article">
 
+    <div class="article-eyecatch">
+      <img
+        src="/images/insights/en/what-revenue-architecture-means-for-japan-gtm-2026b.svg"
+        alt=""
+        width="1200"
+        height="630"
+        class="article-eyecatch__img"
+        loading="eager"
+        aria-hidden="true"
+      />
+    </div>
+
     <section class="article-section">
       <p>Revenue architecture is a term used in different ways. For Japan GTM specifically, it means one thing: the operating structure that allows Japan-facing revenue execution to work in practice.</p>
       <p>This includes more than tools and data. It includes how leads are defined, how pipeline stages map to Japan's buying process, how marketing and sales share definitions, how data flows between systems, and how reporting reflects Japan's actual revenue motion rather than global defaults.</p>
@@ -228,6 +240,17 @@ const breadcrumbSchema = {
 </div>
 
 <style>
+/* ── Eyecatch（日本語版の記事と同じ寸法） ─── */
+.article-eyecatch {
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  overflow: hidden;
+  max-height: 360px;
+}
+.article-eyecatch__img {
+  width: 100%; height: auto; display: block;
+  max-height: 360px; object-fit: cover;
+}
 .article-wrap { background: #fff; }
 .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
 .article-head { padding-top: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--color-border, #e2e8f0); }

@@ -60,6 +60,18 @@ const breadcrumbSchema = {
 
   <article class="article-body container" id="article">
 
+    <div class="article-eyecatch">
+      <img
+        src="/images/insights/en/japan-market-entry-for-b2b-saas-common-gtm-mistakes-2026b.svg"
+        alt=""
+        width="1200"
+        height="630"
+        class="article-eyecatch__img"
+        loading="eager"
+        aria-hidden="true"
+      />
+    </div>
+
     <section class="article-section">
       <p>The B2B SaaS GTM playbook that works in US and European markets is built on assumptions that don't hold in Japan.</p>
       <p>Buyers will self-evaluate through trials. Evaluation cycles are short. A single champion can drive internal adoption. Urgency-driven CTAs convert interest into pipeline.</p>
@@ -227,6 +239,17 @@ const breadcrumbSchema = {
 </div>
 
 <style>
+/* ── Eyecatch（日本語版の記事と同じ寸法） ─── */
+.article-eyecatch {
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  overflow: hidden;
+  max-height: 360px;
+}
+.article-eyecatch__img {
+  width: 100%; height: auto; display: block;
+  max-height: 360px; object-fit: cover;
+}
 .article-wrap { background: #fff; }
 .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
 .article-head { padding-top: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--color-border, #e2e8f0); }

@@ -60,6 +60,18 @@ const breadcrumbSchema = {
 
   <article class="article-body container" id="article">
 
+    <div class="article-eyecatch">
+      <img
+        src="/images/insights/en/how-to-adapt-a-global-b2b-landing-page-for-japan-2026b.svg"
+        alt=""
+        width="1200"
+        height="630"
+        class="article-eyecatch__img"
+        loading="eager"
+        aria-hidden="true"
+      />
+    </div>
+
     <section class="article-section">
       <p>Translating a global B2B landing page for Japan is usually one of the first things that gets done before Japan launch. It is visible, has a clear completion state, and feels like market preparation.</p>
       <p>The problem is that translation does not change the argument structure of the page, and argument structure is exactly what needs to change.</p>
@@ -225,6 +237,17 @@ const breadcrumbSchema = {
 </div>
 
 <style>
+/* ── Eyecatch（日本語版の記事と同じ寸法） ─── */
+.article-eyecatch {
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  overflow: hidden;
+  max-height: 360px;
+}
+.article-eyecatch__img {
+  width: 100%; height: auto; display: block;
+  max-height: 360px; object-fit: cover;
+}
 .article-wrap { background: #fff; }
 .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
 

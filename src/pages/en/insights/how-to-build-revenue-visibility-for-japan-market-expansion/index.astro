@@ -60,6 +60,18 @@ const breadcrumbSchema = {
 
   <article class="article-body container" id="article">
 
+    <div class="article-eyecatch">
+      <img
+        src="/images/insights/en/how-to-build-revenue-visibility-for-japan-market-expansion-2026b.svg"
+        alt=""
+        width="1200"
+        height="630"
+        class="article-eyecatch__img"
+        loading="eager"
+        aria-hidden="true"
+      />
+    </div>
+
     <section class="article-section">
       <p>Most global revenue dashboards show aggregate data. Japan-facing pipeline gets folded into APAC or global numbers that mask how Japan is actually performing. Management makes decisions about Japan allocation, staffing, and strategy on totals driven entirely by other markets.</p>
       <p>Revenue visibility for Japan is not just a reporting preference. It is the prerequisite for making any investment decision about Japan that is grounded in what Japan is actually doing.</p>
@@ -225,6 +237,17 @@ const breadcrumbSchema = {
 </div>
 
 <style>
+/* ── Eyecatch（日本語版の記事と同じ寸法） ─── */
+.article-eyecatch {
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  overflow: hidden;
+  max-height: 360px;
+}
+.article-eyecatch__img {
+  width: 100%; height: auto; display: block;
+  max-height: 360px; object-fit: cover;
+}
 .article-wrap { background: #fff; }
 .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
 

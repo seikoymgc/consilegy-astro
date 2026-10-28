@@ -60,6 +60,18 @@ const breadcrumbSchema = {
 
   <article class="article-body container" id="article">
 
+    <div class="article-eyecatch">
+      <img
+        src="/images/insights/en/hubspot-dashboards-for-japan-revenue-visibility-2026b.svg"
+        alt=""
+        width="1200"
+        height="630"
+        class="article-eyecatch__img"
+        loading="eager"
+        aria-hidden="true"
+      />
+    </div>
+
     <section class="article-section">
       <p>HubSpot's default dashboards show aggregate data across all contacts, companies, and deals. For teams with a Japan focus, this means Japan pipeline is folded into APAC or worldwide numbers that tell you nothing about how Japan is actually performing.</p>
       <p>MQL volume looks fine globally even if Japan MQL is zero. Sales cycle length is averaged across all regions, hiding Japan's longer timelines. Win rate is diluted by faster-closing deals from other markets.</p>
@@ -226,6 +238,17 @@ const breadcrumbSchema = {
 </div>
 
 <style>
+/* ── Eyecatch（日本語版の記事と同じ寸法） ─── */
+.article-eyecatch {
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  overflow: hidden;
+  max-height: 360px;
+}
+.article-eyecatch__img {
+  width: 100%; height: auto; display: block;
+  max-height: 360px; object-fit: cover;
+}
 .article-wrap { background: #fff; }
 .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
 

@@ -60,6 +60,18 @@ const breadcrumbSchema = {
 
   <article class="article-body container" id="article">
 
+    <div class="article-eyecatch">
+      <img
+        src="/images/insights/en/how-to-design-a-japan-ready-revenue-funnel-before-hiring-sales-2026b.svg"
+        alt=""
+        width="1200"
+        height="630"
+        class="article-eyecatch__img"
+        loading="eager"
+        aria-hidden="true"
+      />
+    </div>
+
     <section class="article-section">
       <p>The logic behind hiring Japan sales first seems sound: you need someone in Japan to sell in Japan. A local hire brings language ability, cultural fluency, and an existing network. Without them, nothing happens.</p>
       <p>That logic is correct as far as it goes. The problem is the assumption buried inside it: that the sales hire will figure out positioning, qualification criteria, CRM configuration, and pipeline tracking themselves, while also executing on sales.</p>
@@ -225,6 +237,17 @@ const breadcrumbSchema = {
 </div>
 
 <style>
+/* ── Eyecatch（日本語版の記事と同じ寸法） ─── */
+.article-eyecatch {
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  overflow: hidden;
+  max-height: 360px;
+}
+.article-eyecatch__img {
+  width: 100%; height: auto; display: block;
+  max-height: 360px; object-fit: cover;
+}
 .article-wrap { background: #fff; }
 .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
 .article-head { padding-top: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--color-border, #e2e8f0); }

@@ -58,6 +58,7 @@ Consilegy redesigns how marketing, sales, and customer success connect—so reve
 - Revenue CRM 機能一覧: https://consilegy.com/crm/features/
 - Revenue CRM 料金・ご契約条件: https://consilegy.com/crm/pricing/
 - Revenue CRM よくある質問: https://consilegy.com/crm/faq/
+- Revenue CRM REST API (v1) for developers: https://consilegy.com/en/crm/developers/
 - インサイト（記事一覧）: https://consilegy.com/insights/
 - CRM / RevOps収益診断（無料）: https://consilegy.com/diagnostic/
 - 30分無料相談: https://consilegy.com/free-consultation/

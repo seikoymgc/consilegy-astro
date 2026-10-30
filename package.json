@@ -11,6 +11,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "audit:ai-search": "node scripts/audit-ai-search.mjs",
+    "audit:revenue-terms": "node scripts/audit-japanese-revenue-terms.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },

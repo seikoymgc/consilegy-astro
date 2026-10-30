@@ -5,30 +5,30 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const faqItems = [
 	{
 		q: 'レベニューアーキテクチャはRevOpsと同じですか？',
-		a: '同じではありません。RevOpsは収益に関わる業務を運用・改善する機能です。一方、Revenue Architecture（レベニューアーキテクチャ）は、その運用を成立させる土台です。データ・システム・プロセス・KPIのつながり方を設計するものです。RevOpsが「どう運用するか」であれば、Revenue Architectureは「何を設計するか」です。',
+		a: '同じではありません。RevOpsは収益に関わる業務を運用・改善する機能です。一方、レベニューアーキテクチャは、その運用を成立させる土台です。データ・システム・プロセス・KPIのつながり方を設計するものです。RevOpsが「どう運用するか」であれば、レベニューアーキテクチャは「何を設計するか」です。',
 	},
 	{
 		q: 'レベニューアーキテクチャとエンタープライズアーキテクチャの違いは何ですか？',
-		a: 'エンタープライズアーキテクチャは、企業全体の業務とIT構造を扱います。Revenue Architectureはその中でも、顧客獲得から売上化・継続収益までの「収益プロセス」に特化しています。対象範囲と目的が異なります。',
+		a: 'エンタープライズアーキテクチャは、企業全体の業務とIT構造を扱います。レベニューアーキテクチャはその中でも、顧客獲得から売上化・継続収益までの「収益プロセス」に特化しています。対象範囲と目的が異なります。',
 	},
 	{
-		q: '企業はいつRevenue Architectureを見直すべきですか？',
+		q: '企業はいつレベニューアーキテクチャを見直すべきですか？',
 		a: '次のような場合は見直しのサインです。CRMが定着しない。営業とマーケの数字が合わない。複数ツール運用が複雑化している。ARRやLTV管理が難しくなっている。また、新規事業立ち上げ時や、従量課金・複数商材へ移行するタイミングも設計を整える好機です。',
 	},
 	{
-		q: 'Revenue Architectureの責任者は誰ですか？',
+		q: 'レベニューアーキテクチャの責任者は誰ですか？',
 		a: '営業企画・RevOps・マーケティングオペレーション・CS Ops・情報システム・経営企画などが横断的に関与します。特定の1部署が単独で担うものではなく、収益構造に関わる全部門が共通の設計を持つことが重要です。',
 	},
 	{
 		q: 'レベニューアーキテクチャと「レベニューマネジメント」は同じものですか？',
-		a: '別の概念です。レベニューマネジメントは航空・ホテル業界に由来する価格と在庫の最適化手法を指します。Revenue Architecture（レベニューアーキテクチャ）は、顧客獲得から受注・継続収益までの収益プロセスと、それを支えるデータ・システムの構造設計を指します。日本語では表記が似ているため混同されやすい点にご注意ください。',
+		a: '別の概念です。レベニューマネジメントは航空・ホテル業界に由来する価格と在庫の最適化手法を指します。レベニューアーキテクチャは、顧客獲得から受注・継続収益までの収益プロセスと、それを支えるデータ・システムの構造設計を指します。日本語では表記が似ているため混同されやすい点にご注意ください。',
 	},
 	{
-		q: 'Revenue ArchitectureはThe Modelと対立する考え方ですか？',
-		a: '対立しません。The Modelは獲得工程の分業と予測に強く、Revenue Architectureは獲得から維持・拡大までの全体設計を担います。指標としても包含の関係にあり、The ModelのMQL→SQLはCR2（リード→案件）の途中の区間にあたり、案件から受注まではCR3×CR4に分解されます。分業を先に決めると受注後の設計が抜け落ちるため、先に全体構造を定義し、その中で分業を設計する順序を推奨します。',
+		q: 'レベニューアーキテクチャはThe Modelと対立する考え方ですか？',
+		a: '対立しません。The Modelは獲得工程の分業と予測に強く、レベニューアーキテクチャは獲得から維持・拡大までの全体設計を担います。指標としても包含の関係にあり、The ModelのMQL→SQLはCR2（リード→案件）の途中の区間にあたり、案件から受注まではCR3×CR4に分解されます。分業を先に決めると受注後の設計が抜け落ちるため、先に全体構造を定義し、その中で分業を設計する順序を推奨します。',
 	},
 	{
-		q: '日本市場ではRevenue Architectureをそのまま適用できますか？',
+		q: '日本市場ではレベニューアーキテクチャをそのまま適用できますか？',
 		a: '1点、工程の追加が必要です。日本のB2Bでは、選定と契約の間に社内合意形成（稟議）が独立した工程として入ります。発注までの承認が2段階以上の企業は8割を超え、検討期間が3〜8か月の企業が63.6%を占めます（IDEATECH × 北川裕康氏 共同調査／2026年4月公表・n=307）。この工程を商談ステージに含めないまま設計すると、「検討中」という名の滞留が可視化されません。',
 	},
 	{
@@ -51,14 +51,14 @@ const definedTermSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'DefinedTerm',
 	'@id': 'https://consilegy.com/revenue-architecture/#revenue-architecture',
-	name: 'Revenue Architecture',
-	alternateName: ['レベニューアーキテクチャ', '収益構造設計'],
+	name: 'レベニューアーキテクチャ',
+	alternateName: ['収益構造設計'],
 	description:
-		'Revenue Architecture（レベニューアーキテクチャ）とは、マーケティング・営業・カスタマーサクセス・CRM・KPI・データ・システムを、売上が生まれる一つの流れとして設計する考え方。売上を属人的な活動ではなく、再現可能な構造として設計する。RevOpsが「どう運用するか」であるのに対し、Revenue Architectureはその運用を成立させる「何を設計するか」を担う土台にあたる。',
+		'レベニューアーキテクチャとは、マーケティング・営業・カスタマーサクセス・CRM・KPI・データ・システムを、売上が生まれる一つの流れとして設計する考え方。売上を属人的な活動ではなく、再現可能な構造として設計する。RevOpsが「どう運用するか」であるのに対し、レベニューアーキテクチャはその運用を成立させる「何を設計するか」を担う土台にあたる。',
 	url: 'https://consilegy.com/revenue-architecture/',
 	inDefinedTermSet: {
 		'@type': 'DefinedTermSet',
-		name: 'Consilegy Revenue Architecture用語集',
+		name: 'Consilegy レベニューアーキテクチャ用語集',
 		url: 'https://consilegy.com/revenue-architecture/',
 	},
 };
@@ -66,7 +66,7 @@ const definedTermSchema = {
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
-	headline: 'Revenue Architectureとは｜レベニューアーキテクチャの定義・RevOpsとの違い・CRM再設計との関係',
+	headline: 'レベニューアーキテクチャとは｜定義・RevOpsとの違い・CRM再設計との関係',
 	datePublished: '2026-05-07',
 	dateModified: '2026-10-27',
 	author: { '@type': 'Person', '@id': 'https://consilegy.com/company/#founder', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', sameAs: ['https://seikoyamaguchi.com/', 'https://www.linkedin.com/in/seiko-yamaguchi/'], worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
@@ -81,7 +81,7 @@ const breadcrumbSchema = {
 	'@type': 'BreadcrumbList',
 	itemListElement: [
 		{ '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://consilegy.com/' },
-		{ '@type': 'ListItem', position: 2, name: 'Revenue Architectureとは', item: 'https://consilegy.com/revenue-architecture/' },
+		{ '@type': 'ListItem', position: 2, name: 'レベニューアーキテクチャとは', item: 'https://consilegy.com/revenue-architecture/' },
 	],
 };
 
@@ -251,7 +251,7 @@ const sources = [
 		url: 'https://winningbydesign.com/bowtie/',
 	},
 	{
-		name: 'Jacco van der Kooij『Revenue Architecture』',
+		name: 'Jacco van der Kooijによるレベニューアーキテクチャの原著',
 		meta: 'Winning by Design / 2023年10月刊 / 556ページ。2026年7月時点で日本語版なし',
 		url: 'https://winningbydesign.com/resources/books/revenue-architecture/',
 	},
@@ -267,8 +267,8 @@ const relatedServices = [
 ---
 
 <BaseLayout
-	title="Revenue Architectureとは | レベニューアーキテクチャの定義・RevOpsとの違い・CRM再設計との関係 | Consilegy"
-	description="Revenue Architecture（レベニューアーキテクチャ）とは、マーケティング・営業・カスタマーサクセス・CRM・KPI・データ・システムを、売上が生まれる一つの流れとして設計する考え方です。定義、転換率CR1〜CR8と待ち時間Δtの指標体系、RevOps・The Modelとの違いを出典付きデータとともに解説します。日本市場で必要になる稟議工程の追加まで扱います。"
+	title="レベニューアーキテクチャとは | 定義・RevOpsとの違い・CRM再設計との関係 | Consilegy"
+	description="レベニューアーキテクチャとは、マーケティング・営業・カスタマーサクセス・CRM・KPI・データ・システムを、売上が生まれる一つの流れとして設計する考え方です。定義、転換率CR1〜CR8と待ち時間Δtの指標体系、RevOps・The Modelとの違いを出典付きデータとともに解説します。日本市場で必要になる稟議工程の追加まで扱います。"
 	lang="ja"
 	ogImage="https://consilegy.com/images/og-revenue-architecture.png"
 >
@@ -285,7 +285,7 @@ const relatedServices = [
 		<nav class="breadcrumb" aria-label="パンくずリスト">
 			<a href="/">ホーム</a>
 			<span aria-hidden="true">›</span>
-			<span aria-current="page">Revenue Architectureとは</span>
+			<span aria-current="page">レベニューアーキテクチャとは</span>
 		</nav>
 		<div class="hero-body">
 			<div class="hero-text">
@@ -294,7 +294,7 @@ const relatedServices = [
 					どの施策が受注につながったのか。なぜ営業予測がズレるのか。なぜCRMが定着しないのか。
 				</p>
 				<p class="hero-lead">
-					Revenue Architecture（レベニューアーキテクチャ）は、それらを「収益構造」の問題として整理し、マーケティングから受注・継続までを一つの流れとして設計する考え方です。
+					レベニューアーキテクチャは、それらを「収益構造」の問題として整理し、マーケティングから受注・継続までを一つの流れとして設計する考え方です。
 				</p>
 				<p class="page-byline"><span>執筆：<a href="/company/">山口聖子</a>（Consilegy代表）</span><span>公開 <time datetime="2026-05-07">2026年5月7日</time></span><span>更新 <time datetime="2026-10-27">2026年10月27日</time></span></p>
 				<div class="hero-actions">
@@ -303,7 +303,7 @@ const relatedServices = [
 				</div>
 			</div>
 			<div class="hero-def-card">
-				<p class="def-card__label">Revenue Architecture = 収益構造設計</p>
+				<p class="def-card__label">レベニューアーキテクチャ = 収益構造設計</p>
 				<p class="def-card__text">マーケティング・営業・カスタマーサクセス・CRM・KPI・データ・システムを、売上が生まれる一つの流れとして設計する考え方。</p>
 				<div class="def-card__divider"></div>
 				<ul class="def-card__attrs">
@@ -320,8 +320,8 @@ const relatedServices = [
 <section class="section-def-quick" id="revenue-architecture-definition">
 	<div class="container">
 		<div class="def-quick-inner">
-			<h2>Revenue Architecture（レベニューアーキテクチャ）とは</h2>
-			<p class="def-quick-body">Revenue Architectureとは、マーケティング・営業・カスタマーサクセス・CRM・KPI・データ・システムを、売上が生まれる一つの流れとして設計する考え方です。売上を属人的な活動ではなく、再現可能な構造として設計します。</p>
+			<h2>レベニューアーキテクチャとは</h2>
+			<p class="def-quick-body">レベニューアーキテクチャとは、マーケティング・営業・カスタマーサクセス・CRM・KPI・データ・システムを、売上が生まれる一つの流れとして設計する考え方です。売上を属人的な活動ではなく、再現可能な構造として設計します。</p>
 		</div>
 	</div>
 </section>
@@ -342,7 +342,7 @@ const relatedServices = [
 					<li>営業へ渡したリードがどうなったか見えない</li>
 					<li>契約後に顧客が離れた理由を、共通の言葉で説明できない</li>
 				</ul>
-				<p class="problem-conclusion">Revenue Architecture（レベニューアーキテクチャ）は、この分断をなくし、マーケティングから受注・継続収益までを一つの流れとして設計します。</p>
+				<p class="problem-conclusion">レベニューアーキテクチャは、この分断をなくし、マーケティングから受注・継続収益までを一つの流れとして設計します。</p>
 			</div>
 			<figure class="bowtie-figure">
 				<img
@@ -366,7 +366,7 @@ const relatedServices = [
 	<div class="container">
 		<div class="section-header">
 			<p class="eyebrow">Why Now</p>
-			<h2>なぜ今、Revenue Architectureが必要なのか</h2>
+			<h2>なぜ今、レベニューアーキテクチャが必要なのか</h2>
 		</div>
 		<div class="issues-grid">
 			{issues.map((issue, i) => (
@@ -385,7 +385,7 @@ const relatedServices = [
 	<div class="container">
 		<div class="section-header">
 			<p class="eyebrow">Four Structures</p>
-			<h2>Revenue Architectureが扱う4つの構造</h2>
+			<h2>レベニューアーキテクチャが扱う4つの構造</h2>
 		</div>
 
 		<RevenueFlowFigure id="ra-map" boundaries="six" label="Six boundaries" caption="獲得から継続までの流れの、どこで止まるか。番号は本文の6つの境目に対応します。" />
@@ -409,7 +409,7 @@ const relatedServices = [
 			<h2>収益構造を測る2つの指標｜転換率と待ち時間</h2>
 		</div>
 		<div class="metrics-intro">
-			<p>Revenue Architectureは概念図ではなく、測定の枠組みです。各工程に「転換率（CR）」と「時間（Δt）」の2つの指標を持ちます。</p>
+			<p>レベニューアーキテクチャは概念図ではなく、測定の枠組みです。各工程に「転換率（CR）」と「時間（Δt）」の2つの指標を持ちます。</p>
 			<p>従来使われてきた指標は、この体系の中に位置づけられます。<strong>MQL→SQLはCR2（リード→案件）の途中の区間、案件から受注まではCR3×CR4</strong>にあたります。既存の指標を捨てる必要はありません。全体の中のどこを測っているかが分かるようになります。</p>
 		</div>
 		<div class="metrics-grid">
@@ -506,7 +506,7 @@ const relatedServices = [
 			<p class="eyebrow">Japan Market Data</p>
 			<h2>数字で見る、日本のB2B収益構造</h2>
 		</div>
-		<p class="japan-data-lead">Revenue Architectureを日本市場に当てはめるとき、前提となる実態を公開調査から整理しました。すべて調査主体・調査年・母数を明記しています。</p>
+		<p class="japan-data-lead">レベニューアーキテクチャを日本市場に当てはめるとき、前提となる実態を公開調査から整理しました。すべて調査主体・調査年・母数を明記しています。</p>
 		<div class="japan-data-grid">
 			{japanData.map(d => (
 				<div class="japan-data-card">
@@ -529,15 +529,15 @@ const relatedServices = [
 	<div class="container">
 		<div class="section-header">
 			<p class="eyebrow">Comparison</p>
-			<h2>Revenue ArchitectureとRevOpsの違い</h2>
+			<h2>レベニューアーキテクチャとRevOpsの違い</h2>
 		</div>
 		<div class="vs-body">
 			<div class="vs-text">
 				<p>RevOps（レベニューオペレーション）は、収益に関わる業務を運用・改善する機能です。</p>
-				<p>一方、Revenue Architecture（レベニューアーキテクチャ）は、そのRevOpsを成立させる土台です。CRM・データ・KPI・業務プロセスをどう接続するかを設計するものです。</p>
+				<p>一方、レベニューアーキテクチャは、そのRevOpsを成立させる土台です。CRM・データ・KPI・業務プロセスをどう接続するかを設計するものです。</p>
 				<div class="vs-relation">
 					<div class="vs-relation-box vs-relation-box--top">
-						<strong>Revenue Architecture（レベニューアーキテクチャ）</strong>
+						<strong>レベニューアーキテクチャ</strong>
 						<span>収益構造の設計</span>
 					</div>
 					<div class="vs-relation-arrow" aria-hidden="true">↓</div>
@@ -551,7 +551,7 @@ const relatedServices = [
 				<table>
 					<thead>
 						<tr>
-							<th>Revenue Architecture</th>
+							<th>レベニューアーキテクチャ</th>
 							<th>RevOps</th>
 						</tr>
 					</thead>
@@ -575,12 +575,12 @@ const relatedServices = [
 	<div class="container">
 		<div class="section-header">
 			<p class="eyebrow">Comparison</p>
-			<h2>Revenue Architectureは「CRM導入」ではありません</h2>
+			<h2>レベニューアーキテクチャは「CRM導入」ではありません</h2>
 		</div>
 		<div class="crm-body">
 			<div class="crm-text">
 				<p>CRMは、顧客情報や商談情報を管理するためのツールです。</p>
-				<p>Revenue Architecture（レベニューアーキテクチャ）は、そのCRMを、営業・マーケ・CS・経営が同じ収益構造の中で使える状態にするための設計思想です。</p>
+				<p>レベニューアーキテクチャは、そのCRMを、営業・マーケ・CS・経営が同じ収益構造の中で使える状態にするための設計思想です。</p>
 				<div class="crm-note">
 					<p>CRMを導入しても、KPI定義・データ構造・業務フロー・会議体が分断されたままでは、収益改善にはつながりません。</p>
 				</div>
@@ -596,7 +596,7 @@ const relatedServices = [
 				</div>
 				<div class="crm-compare-sep" aria-hidden="true">→</div>
 				<div class="crm-compare-col crm-compare-col--ra">
-					<p class="crm-compare-label">Revenue Architecture</p>
+					<p class="crm-compare-label">レベニューアーキテクチャ</p>
 					<ul>
 						<li>収益構造設計</li>
 						<li>KPI統一</li>
@@ -620,14 +620,14 @@ const relatedServices = [
 		<div class="vsc-body">
 			<p class="vsc-lead">
 				戦略コンサルティングは、何をすべきかを決めるところまでを範囲とします。
-				Revenue Architectureは、決めたことが現場のデータと業務フローに載り、
+				レベニューアーキテクチャは、決めたことが現場のデータと業務フローに載り、
 				翌月も同じように回っているところまでを範囲とします。
 			</p>
-			<div class="vsc-table" role="table" aria-label="従来のコンサルティングとRevenue Architectureの比較">
+			<div class="vsc-table" role="table" aria-label="従来のコンサルティングとレベニューアーキテクチャの比較">
 				<div class="vsc-row vsc-row--head" role="row">
 					<span role="columnheader">論点</span>
 					<span role="columnheader">従来のコンサルティング</span>
-					<span role="columnheader">Revenue Architecture</span>
+					<span role="columnheader">レベニューアーキテクチャ</span>
 				</div>
 				<div class="vsc-row" role="row">
 					<span role="rowheader">成果物</span>
@@ -654,7 +654,7 @@ const relatedServices = [
 				どちらが優れているという話ではありません。
 				論点が「何をすべきか」に集中している段階では戦略コンサルティングが適します。
 				「何をすべきかは分かっているが、決めたことが現場で回らない」段階に入ったときに、
-				Revenue Architectureが必要になります。
+				レベニューアーキテクチャが必要になります。
 			</p>
 		</div>
 	</div>
@@ -665,7 +665,7 @@ const relatedServices = [
 	<div class="container">
 		<div class="section-header">
 			<p class="eyebrow">Common Issues</p>
-			<h2>Revenue Architectureが不十分な企業で起きること</h2>
+			<h2>レベニューアーキテクチャが不十分な企業で起きること</h2>
 		</div>
 		<div class="failures-grid">
 			{failures.map(f => (
@@ -684,7 +684,7 @@ const relatedServices = [
 	<div class="container">
 		<div class="section-header">
 			<p class="eyebrow">Outcomes</p>
-			<h2>Revenue Architectureで実現できる状態</h2>
+			<h2>レベニューアーキテクチャで実現できる状態</h2>
 		</div>
 		<div class="outcomes-grid">
 			{outcomes.map((o, i) => (
@@ -703,15 +703,15 @@ const relatedServices = [
 	<div class="container">
 		<div class="section-header">
 			<p class="eyebrow">Our Approach</p>
-			<h2>私たちのRevenue Architecture支援</h2>
+			<h2>私たちのレベニューアーキテクチャ支援</h2>
 		</div>
 		<div class="approach-body">
-			<p class="approach-lead">ConsilegyはRevenue Architecture（レベニューアーキテクチャ）を、単なるCRM導入やRevOps改善ではなく「売上構造の設計」と捉えています。</p>
+			<p class="approach-lead">Consilegyはレベニューアーキテクチャを、単なるCRM導入やRevOps改善ではなく「売上構造の設計」と捉えています。</p>
 			<p class="approach-lead">営業・マーケティング・カスタマーサクセス・KPI・データ・CRM・会議体を、一つの収益構造として再設計します。</p>
 			<div class="pillars">
 				<div class="pillar">
 					<p class="pillar-num">01</p>
-					<h3>Revenue Architecture起点</h3>
+					<h3>レベニューアーキテクチャ起点</h3>
 					<p>ツール選定やCRM運用の前に、収益構造そのものを設計します。土台がなければ、ツールは定着しません。</p>
 				</div>
 				<div class="pillar">
@@ -789,7 +789,7 @@ const relatedServices = [
 <section class="section-cta">
 	<div class="container">
 		<div class="cta-body">
-			<h2>Revenue Architectureを、<br />自社ではどこから整理すべきか。</h2>
+			<h2>レベニューアーキテクチャを、<br />自社ではどこから整理すべきか。</h2>
 			<p>営業・マーケティング、CRM・KPI、レベニューオペレーション（Revenue Operations）の観点から現状の構造課題を整理します。</p>
 			<div class="cta-actions">
 				<a href="/diagnostic/" class="btn btn--cta-primary">収益を自己診断</a>

@@ -12,7 +12,7 @@ export interface ServiceGuide {
 export const serviceGuides: ServiceGuide[] = [
   {
     slug: 'revenue-architecture-design',
-    name: '営業・マーケティングの業務設計',
+    name: 'レベニューアーキテクチャ設計',
     need: '売上が伸びない理由が分からない',
     headline: ['部門ごとに分かれた仕事を、', '売上につながる一つの流れへ。'],
     summary: '集客から受注、その後の対応まで。部門の役割と引き継ぎを整理します。',

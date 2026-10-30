@@ -1,12 +1,12 @@
-# Consilegy（コンシレジー）— Revenue Architecture / RevOps・Revenue CRM
+# Consilegy（コンシレジー）— レベニューアーキテクチャ / RevOps・Revenue CRM
 
 > We help B2B companies and English-speaking leaders in Japan build revenue operations that work across CRM, SFA, and MA tools. Vendor-neutral. Tokyo-based.
 
-> Consilegy（コンシレジー）は東京のRevenue Architecture / RevOpsコンサルティング会社です。Revenue Architecture（レベニューアーキテクチャ）とは、マーケティング・営業・カスタマーサクセス・CRM・KPI・データ・システムを、売上が生まれる一つの流れとして構造設計する考え方です。詳細: https://consilegy.com/revenue-architecture/
+> Consilegy（コンシレジー）は東京のレベニューアーキテクチャ / RevOpsコンサルティング会社です。レベニューアーキテクチャとは、マーケティング・営業・カスタマーサクセス・CRM・KPI・データ・システムを、売上が生まれる一つの流れとして構造設計する考え方です。詳細: https://consilegy.com/revenue-architecture/
 
 ## 会社・サービス・製品の概要（日本語）
 
-Consilegy（コンシレジー）合同会社は、営業・マーケティング・カスタマーサクセスをまたぐ収益プロセスの課題に対し、戦略・構造設計・実装・定着までを一貫して支援するRevenue Architecture設計会社です。
+Consilegy（コンシレジー）合同会社は、営業・マーケティング・カスタマーサクセスをまたぐ収益プロセスの課題に対し、戦略・構造設計・実装・定着までを一貫して支援するレベニューアーキテクチャ設計会社です。
 
 - [会社情報](https://consilegy.com/company/): 運営会社、代表の山口聖子、事業内容。
 - [サービス・料金](https://consilegy.com/services/): 収益構造の現状分析、設計・実装、運用定着・改善伴走。
@@ -41,7 +41,7 @@ Consilegy redesigns how marketing, sales, and customer success connect—so reve
 ## Key Pages (日本語 / Japanese)
 
 - ホーム: https://consilegy.com/
-- Revenue Architectureとは（レベニューアーキテクチャの定義・RevOpsとの違い）: https://consilegy.com/revenue-architecture/
+- レベニューアーキテクチャとは（レベニューアーキテクチャの定義・RevOpsとの違い）: https://consilegy.com/revenue-architecture/
 - RevOpsとは: https://consilegy.com/about-revops/
 - サービス一覧: https://consilegy.com/services/
 - レベニューアーキテクチャ設計: https://consilegy.com/services/revenue-architecture-design/

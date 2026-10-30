@@ -16,17 +16,19 @@ const navJA_top = [
 ];
 
 // ── JA Row 2: サービス・集客導線 ──────────────────────────
-// 機能別5ページはSEOの受け皿として残すが、ナビからは外す。
-// 到達はサービスハブの「個別テーマ」セクションと記事からの内部リンク経由。
+// 主な支援メニューを掲載。SFA定着支援は運用定着・改善支援から案内する。
 const navJA_bottom: { label: string; href: string | null; children?: { label: string; href: string; divider?: boolean }[] }[] = [
 	{
 		label: 'サービス・料金',
 		href: '/services/',
 		children: [
-			{ label: 'サービス・料金',   href: '/services/' },
+			{ label: 'サービス一覧・料金', href: '/services/' },
+			{ label: 'レベニューアーキテクチャ設計', href: '/services/revenue-architecture-design/' },
+			{ label: 'マーケティング・GTM戦略設計', href: '/services/b2b-marketing-gtm-design/' },
+			{ label: 'CRM / RevOps再設計支援', href: '/services/crm-revops-redesign/' },
 			{ label: '業務システム開発・連携・自動化', href: '/services/business-system-development/' },
 			{ label: 'AI業務活用・ワークフロー構築支援', href: '/services/ai-workflow-enablement/' },
-			{ label: 'RevOps再設計とは', href: '/about-revops/' },
+			{ label: '運用定着・改善支援', href: '/services/adoption-growth-support/' },
 		],
 	},
 	{

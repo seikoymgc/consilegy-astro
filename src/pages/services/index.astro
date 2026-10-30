@@ -4,7 +4,7 @@ import GanttFigure from '../../components/figures/GanttFigure.astro';
 import ConsultationOutcomes from '../../components/ConsultationOutcomes.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-// 機能別の個別ページ。ナビからは外し、このハブと記事からの内部リンクで到達させる。
+// 主な支援メニュー。SFA定着支援は運用定着・改善支援の中で案内する。
 const topics = [
 	{
 		href: '/services/ai-workflow-enablement/',
@@ -46,14 +46,7 @@ const topics = [
 		href: '/services/adoption-growth-support/',
 		en: 'Adoption & Growth Support',
 		title: '運用定着・改善支援',
-		desc: '導入で終わらせず、データが蓄積し改善が回る状態まで伴走します。',
-		step: 'Step 03',
-	},
-	{
-		href: '/services/sfa-adoption-support/',
-		en: 'SFA Adoption Support',
-		title: 'SFA定着支援',
-		desc: '入れたSFAが現場で動く状態にする。営業5〜50名向け、スプレッドシートからの移行にも対応。',
+		desc: '営業支援システムの入力・商談管理の定着から、データ活用や会議・指標の改善まで伴走します。',
 		step: 'Step 03',
 	},
 	{

@@ -79,6 +79,33 @@ import { getServiceGuide } from '../data/service-guide';
 
 <NewsLatest lang="ja" />
 
+<!-- ===================== PROBLEMS（こんなお悩みありませんか） ===================== -->
+<section class="why problems-section">
+	<div class="container">
+		<header class="problems-overview">
+			<div class="why-head">
+				<p class="section-eyebrow">Common Problems</p>
+				<h2>こんなことで、<br /><span class="text-emph">困っていませんか。</span></h2>
+				<p class="section-lead">困りごとに合わせて、必要な支援をご案内します。</p>
+			</div>
+		</header>
+		<div class="problem-rows">
+			{commonProblems.map((item, i) => (
+				<article class="problem-row">
+					<div><p class="problem-num">{String(i + 1).padStart(2, '0')}</p><h3>{item.problem}</h3></div>
+					<div class="problem-response">
+						<p class="problem-text">{item.response}</p>
+						<ul class="problem-services">
+							{item.services.map((slug) => <li><a href={`/services/${slug}/`}>{getServiceGuide(slug).name} →</a></li>)}
+						</ul>
+					</div>
+				</article>
+			))}
+		</div>
+		<p class="problems-more"><a href="/services/#needs" class="btn btn--outline-primary">支援内容を見る →</a></p>
+	</div>
+</section>
+
 <!-- ===================== ASSURANCE（一文：使われるまでが、仕事です） ===================== -->
 <section class="founder founder--slim">
 	<div class="container">
@@ -103,33 +130,6 @@ import { getServiceGuide } from '../data/service-guide';
 				<p class="sflow__note">数字が動くのは、導入の先。使われて初めて、売上が動きます。</p>
 				<figcaption id="assurance-figure-caption">設計図を渡して終わりではなく、導入から定着までを支援の範囲にしています。</figcaption>
 			</figure>
-	</div>
-</section>
-
-<!-- ===================== PROBLEMS（こんなお悩みありませんか） ===================== -->
-<section class="why problems-section">
-	<div class="container">
-		<header class="problems-overview">
-			<div class="why-head">
-				<p class="section-eyebrow">Common Problems</p>
-				<h2>こんなことで、<br /><span class="text-emph">困っていませんか。</span></h2>
-				<p class="section-lead">困りごとに合わせて、必要な支援をご案内します。</p>
-			</div>
-		</header>
-		<div class="problem-rows">
-			{commonProblems.map((item) => (
-				<article class="problem-row">
-					<div><h3>{item.problem}</h3></div>
-					<div class="problem-response">
-						<p class="problem-text">{item.response}</p>
-						<ul class="problem-services">
-							{item.services.map((slug) => <li><a href={`/services/${slug}/`}>{getServiceGuide(slug).name} →</a></li>)}
-						</ul>
-					</div>
-				</article>
-			))}
-		</div>
-		<p class="problems-more"><a href="/services/#needs" class="btn btn--outline-primary">支援内容を見る →</a></p>
 	</div>
 </section>
 
@@ -1508,10 +1508,17 @@ section { padding-block: var(--space-2xl); }
 .problem-example { margin: 0; padding: 0; }
 .problem-example p { margin: 0; color: var(--color-text-muted); font-size: 0.9375rem; line-height: 1.9; }
 .problem-example strong { color: var(--color-text); font-weight: 600; }
-.problem-rows { display: grid; gap: 2.5rem; margin-top: 3rem; }
-.problem-row { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; padding: 0; }
+.problem-rows { display: grid; gap: 1rem; margin-top: 2.5rem; }
+/* 困りごとは白カードに載せ、左に悩み・右に整えることと支援を置く。 */
+.problem-row {
+	display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
+	padding: 1.75rem 2rem; background: #fff;
+	border: 1px solid var(--color-border); border-radius: 6px;
+	box-shadow: 0 1px 3px rgb(15 23 42 / .06);
+}
+.problem-num { margin: 0 0 0.35rem; font-size: 0.875rem; font-weight: 700; letter-spacing: 0.08em; color: var(--color-navy); }
 .problem-topic { margin: 0 0 0.6rem; font-size: 0.75rem; color: var(--color-text-muted); }
-.problem-row h3 { margin: 0; font-size: clamp(1.125rem, 1.7vw, 1.35rem); line-height: 1.6; font-weight: 500; }
+.problem-row h3 { margin: 0; font-size: clamp(1.125rem, 1.7vw, 1.35rem); line-height: 1.6; font-weight: 600; color: var(--color-navy); }
 .problem-response { padding-left: 0; }
 .problem-response > .problem-text { margin: 0; max-width: 31rem; font-size: 1rem; line-height: 1.9; color: var(--color-text); }
 .problem-services { list-style: none; padding: 0; margin: 0.75rem 0 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; }
@@ -1536,7 +1543,7 @@ section { padding-block: var(--space-2xl); }
 @media (max-width: 760px) {
  .problems-overview { grid-template-columns: 1fr; gap: 1.5rem; }
  .problem-example { padding-block: 0.5rem; }
- .problem-row { grid-template-columns: 1fr; gap: 1.25rem; }
+ .problem-row { grid-template-columns: 1fr; gap: 1rem; padding: 1.5rem 1.25rem; }
  .problem-response { padding-left: 0; }
  .revenue-flow { grid-template-columns: 1fr; gap: 3rem; }
  .revenue-flow > li:not(:last-child)::after { content: "↓"; left: 0; top: calc(100% + 0.6rem); }

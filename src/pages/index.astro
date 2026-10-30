@@ -6,6 +6,8 @@ import { articles } from '../data/insights';
 // PCは先頭が2列幅なので、5件で2行がちょうど埋まる（3件だと2行目に1枚だけ残る）。スマホは3件まで。
 const insightsPosts = articles.slice(0, 5);
 import NewsLatest from '../components/NewsLatest.astro';
+import { commonProblems } from '../data/common-problems';
+import { getServiceGuide } from '../data/service-guide';
 ---
 
 <BaseLayout
@@ -43,11 +45,12 @@ import NewsLatest from '../components/NewsLatest.astro';
 	<div class="container hero-inner">
 		<div class="hero-copy">
 			<h1 class="hero-h1--v2">
-				使われていない<span class="hero-subject">顧客データを、</span><br />
-				<span class="hero-accent">売上が動く仕組みへ。</span>
+				売上が伸びる。<br />
+				仕事が楽になる。<br />
+				全員が、<span class="hero-phrase">同じ情報で動ける。</span>
 			</h1>
 			<p class="hero-lead hero-lead--short">
-				CRMを入れても、結局スプレッドシート。その状態を、設定と業務の両方から直します。
+				集客から商談、受注まで。マーケティングと営業の進め方と、それを支える仕組み（業務フロー・システム・AI）を、会社に合わせて一緒につくります。
 			</p>
 			<div class="hero-actions">
 				<a href="/contact/" class="btn btn--cta btn--lg">お問い合わせ</a>
@@ -109,25 +112,24 @@ import NewsLatest from '../components/NewsLatest.astro';
 		<header class="problems-overview">
 			<div class="why-head">
 				<p class="section-eyebrow">Common Problems</p>
-				<h2>リードが、<br /><span class="text-emph">商談にならない。</span></h2>
-				<p class="section-lead">部門をまたぐルールとデータを、一緒に整えます。</p>
+				<h2>こんなことで、<br /><span class="text-emph">困っていませんか。</span></h2>
+				<p class="section-lead">困りごとに合わせて、必要な支援をご案内します。</p>
 			</div>
 		</header>
 		<div class="problem-rows">
-			<article class="problem-row">
-				<div><p class="problem-topic">引き継ぎ</p><h3>渡した見込み客が、<br />追われていない。</h3></div>
-				<div class="problem-response"><p class="problem-topic">整えること</p><p>誰に渡すか、いつまでに連絡するかを決める。今すぐ買わない人のフォローも、両部門で揃えます。</p></div>
-			</article>
-			<article class="problem-row">
-				<div><p class="problem-topic">営業からのフィードバック</p><h3>「質が悪い」の理由が、<br />戻ってこない。</h3></div>
-				<div class="problem-response"><p class="problem-topic">整えること</p><p>対象外・時期尚早・失注の理由をCRMに残す。営業の対応結果を、次の集客に活かします。</p></div>
-			</article>
-			<article class="problem-row">
-				<div><p class="problem-topic">施策と受注のつながり</p><h3>どの施策が受注につながったか、<br />分からない。</h3></div>
-				<div class="problem-response"><p class="problem-topic">整えること</p><p>集客・商談・受注のデータをつなぐ。施策ごとの結果を、同じ画面で確認できるようにします。</p></div>
-			</article>
+			{commonProblems.map((item) => (
+				<article class="problem-row">
+					<div><h3>{item.problem}</h3></div>
+					<div class="problem-response">
+						<p class="problem-text">{item.response}</p>
+						<ul class="problem-services">
+							{item.services.map((slug) => <li><a href={`/services/${slug}/`}>{getServiceGuide(slug).name} →</a></li>)}
+						</ul>
+					</div>
+				</article>
+			))}
 		</div>
-		<p class="problems-more"><a href="/services/" class="btn btn--outline-primary">支援内容を見る →</a></p>
+		<p class="problems-more"><a href="/services/#needs" class="btn btn--outline-primary">支援内容を見る →</a></p>
 	</div>
 </section>
 
@@ -1421,6 +1423,8 @@ section { padding-block: var(--space-2xl); }
 .fork-price { margin-top: auto; padding-top: var(--space-md); }
 .fork-btn { align-self: flex-start; }
 .hero-lead--short { margin: 1.25rem 0 1.5rem; font-size: 1.1rem; }
+/* 見出しの3行目が「る。」だけで折り返さないよう、句のまとまりで改行する。 */
+.hero-phrase { display: inline-block; }
 .hero-actions .btn--cta { padding: 0.95rem 1.6rem; font-size: 1rem; }
 .founder--slim { padding-block: var(--space-xl); }
 .founder-assurance--solo { max-width: 52rem; margin: 0 auto; padding-top: 0; border-top: 0; text-align: left; }
@@ -1509,7 +1513,10 @@ section { padding-block: var(--space-2xl); }
 .problem-topic { margin: 0 0 0.6rem; font-size: 0.75rem; color: var(--color-text-muted); }
 .problem-row h3 { margin: 0; font-size: clamp(1.125rem, 1.7vw, 1.35rem); line-height: 1.6; font-weight: 500; }
 .problem-response { padding-left: 0; }
-.problem-response > p:last-child { margin: 0; max-width: 31rem; font-size: 0.9375rem; line-height: 1.9; color: var(--color-text); }
+.problem-response > .problem-text { margin: 0; max-width: 31rem; font-size: 1rem; line-height: 1.9; color: var(--color-text); }
+.problem-services { list-style: none; padding: 0; margin: 0.75rem 0 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; }
+.problem-services a { color: var(--color-primary); font-weight: 600; font-size: 1rem; text-decoration: none; }
+.problem-services a:hover { text-decoration: underline; }
 .problems-more { margin: 2rem 0 0; }
 
 /* 課題名を工程に直接置き、図と凡例の往復をなくす。 */

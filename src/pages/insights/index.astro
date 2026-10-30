@@ -87,7 +87,7 @@ const uniqueCats = [
           <a href={`/insights/${a.slug}/`} class="ins-card__link">
             <div class="ins-card__thumb">
               <img
-                src={`/images/insights/${a.slug}-${a.slug === 'why-marketing-budget-is-treated-as-cost' ? '2026c' : '2026b'}.svg`}
+                src={`/images/insights/${a.slug}-${['why-marketing-budget-is-treated-as-cost', 'what-is-revenue-visibility'].includes(a.slug) ? '2026c' : '2026b'}.svg`}
                 alt={a.cat}
                 width="1200"
                 height="630"

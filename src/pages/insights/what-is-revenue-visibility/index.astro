@@ -12,10 +12,10 @@ const readTime = '約10分';
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
-	headline: 'Revenue Visibilityとは何か｜「売上が見える状態」の正体',
-	description: 'Revenue Visibility（収益可視性）とは、活動と収益のつながりを把握し、次の投資や改善を判断できる状態です。売上レポート・ダッシュボードとの違いを比較表で整理し、サブスクEC事業の支援事例から解説します。',
+	headline: '売上の見通しが立たないのはなぜか｜数字を次の判断につなげる方法',
+	description: '売上の数字は揃っているのに、来月の見通しや次の打ち手が決まらない。活動・商談・受注・継続のつながりを確かめ、売上レポートを判断に使うための確認項目を、比較表と支援事例で解説します。',
 	datePublished: pubDate,
-	dateModified: '2026-10-27',
+	dateModified: '2026-10-31',
 	citation: [
 		'https://consilegy.com/case-studies/ec-subscription-ltv-data-architecture/',
 	],
@@ -31,25 +31,25 @@ const breadcrumbSchema = {
 	itemListElement: [
 		{ '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://consilegy.com/' },
 		{ '@type': 'ListItem', position: 2, name: 'コラム', item: 'https://consilegy.com/insights/' },
-		{ '@type': 'ListItem', position: 3, name: 'Revenue Visibilityとは何か', item: 'https://consilegy.com/insights/what-is-revenue-visibility/' },
+		{ '@type': 'ListItem', position: 3, name: '売上の見通しが立たないのはなぜか', item: 'https://consilegy.com/insights/what-is-revenue-visibility/' },
 	],
 };
 
 // 見出しの id と目次を揃える。公開後は既存の id を変更しない。
 const headings = [
-	{"id": "section-1", "text": "Revenue Visibility（収益可視性）とは"},
-	{"id": "visibility-comparison", "text": "Revenue Visibilityと、売上レポート・ダッシュボードはどう違うか"},
+	{"id": "section-1", "text": "売上が「見える状態」とは"},
+	{"id": "visibility-comparison", "text": "売上レポートがあるのに、判断できないのはなぜか"},
 	{"id": "section-2", "text": "あなたの組織は大丈夫か。5つの確認項目"},
-	{"id": "section-3", "text": "Revenue Visibilityが存在しない3つのパターン"},
+	{"id": "section-3", "text": "数字があっても売上を見通せない3つのパターン"},
 	{"id": "section-4", "text": "設計を変えた後に何が起きたか"},
 	{"id": "section-5", "text": "今週から始められる3つのアクション"},
-	{"id": "section-6", "text": "まとめ：Revenue Visibilityは「設計の問題」"},
+	{"id": "section-6", "text": "まとめ：売上の数字を、次の判断につなげる"},
 ];
 
 ---
 
 <BaseLayout
-	title="Revenue Visibilityとは何か｜「売上が見える状態」の正体 | Consilegy"
+	title="売上の見通しが立たないのはなぜか｜数字を次の判断につなげる方法 | Consilegy"
 	description={articleSchema.description}
 	hasTranslation={false}
 	ogType="article"
@@ -69,12 +69,12 @@ const headings = [
 			<span aria-hidden="true">›</span>
 			<a href="/insights/">コラム</a>
 			<span aria-hidden="true">›</span>
-			<span aria-current="page">Revenue Visibilityとは何か</span>
+			<span aria-current="page">売上の見通しが立たないのはなぜか</span>
 		</nav>
 		<div class="article-meta">
 			<span class="article-cat">レベニューアーキテクチャ</span>
 		</div>
-		<h1>Revenue Visibilityとは何か<br class="br-pc" />「売上が見える状態」の正体</h1>
+		<h1>売上の見通しが立たないのはなぜか<br class="br-pc" />数字を次の判断につなげる方法</h1>
 		<p class="article-desc">{articleSchema.description}</p>
 		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
@@ -85,7 +85,7 @@ const headings = [
 		<InsightContents headings={headings} />
 		<div class="article-eyecatch">
 			<img
-				src="/images/insights/what-is-revenue-visibility-2026b.svg"
+				src="/images/insights/what-is-revenue-visibility-2026c.svg"
 				alt=""
 				width="1200"
 				height="630"
@@ -96,16 +96,18 @@ const headings = [
 		</div>
 
 		<section class="article-section" id="definition">
-			<h2 id="section-1">Revenue Visibility（収益可視性）とは</h2>
-			<p><strong>Revenue Visibility（収益可視性）とは、どの活動がどの収益につながるかを一貫して把握し、次の投資や改善を判断できる状態です。</strong>獲得数や売上を別々に表示するだけでなく、施策・商談・受注・継続をつなぎ、共通の定義で追えることが必要です。</p>
+			<h2 id="section-1">売上が「見える状態」とは</h2>
+			<p>売上の数字が揃っていても、活動・商談・受注・継続を別々に集計し、期間や定義が揃っていなければ、次の判断に使いにくくなります。まず、どの活動がどの収益につながるかを同じ条件で追えるか確かめます。</p>
+			<p><strong>売上が見える状態とは、どの活動がどの収益につながるかを一貫して把握し、次の投資や改善を判断できる状態です。</strong>獲得数や売上を別々に表示するだけでなく、施策・商談・受注・継続をつなぎ、共通の定義で追えることが必要です。</p>
+			<p>英語では Revenue Visibility と呼ばれる考え方です。本稿では「売上が見える状態」と表現します。</p>
 			<p>Consilegyでは、活動と収益をつなぐ設計を<a href="/revenue-architecture/">レベニューアーキテクチャ</a>の一部として扱っています。本記事では、<a href="/case-studies/ec-subscription-ltv-data-architecture/">サブスクリプション型EC事業のデータ基盤構築事例</a>をもとに、判断に使える状態の条件を説明します。事例の成果は個別の支援結果であり、同じ成果を保証するものではありません。</p>
 		</section>
 
 
 		<section class="article-section" id="visibility-vs-reporting">
-			<h2 id="visibility-comparison">Revenue Visibilityと、売上レポート・ダッシュボードはどう違うか</h2>
-			<p>売上レポートは実績を示し、ダッシュボードは複数の指標を一覧できる表示手段です。ConsilegyがRevenue Visibilityで重視するのは、その表示から活動と収益のつながりを説明し、次に変えることを決められるかです。</p>
-			<div class="insight-evidence-table" role="region" aria-label="レポートと収益可視性の比較" tabindex="0">
+			<h2 id="visibility-comparison">売上レポートがあるのに、判断できないのはなぜか</h2>
+			<p>売上レポートは実績を示し、ダッシュボードは複数の指標を一覧できる表示手段です。Consilegyが「売上が見える状態」で重視するのは、その表示から活動と収益のつながりを説明し、次に変えることを決められるかです。</p>
+			<div class="insight-evidence-table" role="region" aria-label="売上の表示と、判断に使える状態の比較" tabindex="0">
 				<table>
 					<caption>表示の完成と、判断に使える状態を分けて確認する</caption>
 					<thead><tr><th scope="col">確認する問い</th><th scope="col">表示できている状態</th><th scope="col">判断に使える状態</th></tr></thead>
@@ -156,25 +158,25 @@ const headings = [
 		</div>
 
 		<div class="article-section">
-			<h2 id="section-3">Revenue Visibilityが存在しない3つのパターン</h2>
+			<h2 id="section-3">数字があっても売上を見通せない3つのパターン</h2>
 			<ol class="article-numbered">
 				<li>
 					<strong>「活動」と「収益」がデータ上でつながっていない</strong>
-					<p>広告のクリック数は分かる。MAの開封率も分かる。しかし「その広告が最終的に受注・継続につながったか」を追えない場合、Revenue Visibilityは存在しません。</p>
+					<p>広告のクリック数は分かる。MAの開封率も分かる。しかし「その広告が最終的に受注・継続につながったか」を追えない場合、活動と売上のつながりを説明しにくくなります。</p>
 					<p>サブスクEC事業では、獲得施策とLTVが接続されていなかったため、「どのチャネルが本当に良い顧客を連れてくるか」が不明でした。施策と受注を別々のシステムで管理しているだけでは、つながりは見えません。</p>
 					<p><strong>判断基準：</strong>直近3か月の受注をランダムに5件選び、最初のタッチポイントが何だったか即答できるかどうかで確認できます。</p>
 				</li>
 				<li>
 					<strong>指標が「計測しやすいもの」になっている</strong>
 					<p>セッション数・CTR・開封率は計測しやすいですが、「売上予測に使えるか」は別の問いです。前述のサブスクEC事業では、初回売上ではなくLTV・継続率・解約率を軸とした指標設計が存在しませんでした。</p>
-					<p>サブスクビジネスでは、初回獲得コストで最適化しても長期収益は改善しません。「計測できる指標」ではなく「判断に使える指標」を設計することが出発点です。</p>
+					<p>サブスクビジネスでは、初回獲得コストだけでは長期収益を評価できません。「計測できる指標」ではなく「判断に使える指標」を設計することが出発点です。</p>
 					<p><strong>判断基準：</strong>追っているKPIを1つ指さして「これが改善したら売上がどう変わるか」を即答できるかどうかで確認できます。</p>
 				</li>
 				<li>
 					<strong>データ集計が後手に回っている</strong>
 					<p>意思決定に必要な数字を出すために毎回手動集計が発生している場合、判断のスピードはデータ集計のスピードに制約されます。</p>
 					<p>サブスクEC事業では、データ集計の遅延により施策評価と投資判断が後手に回っていました。Looker Studioによるリアルタイム可視化で、「知りたいときに見られる」状態を構築したことで、意思決定の即時化が実現しました。</p>
-					<p><strong>判断基準：</strong>今週の最重要KPIを確認するのに何分かかるか。5分以上かかるなら集計が後手に回っています。</p>
+					<p><strong>判断基準：</strong>今週の最重要KPIを確認するのに何分かかるか。会議や判断の締切に間に合うかを確認し、待ち時間の長い工程から見直します。</p>
 				</li>
 			</ol>
 		</div>
@@ -196,7 +198,7 @@ const headings = [
 					<p>売上と行動を統合したダッシュボードにより、リアルタイムで事業状況を把握できる環境を構築しました。集計待ちで判断が遅れる状態が解消されました。</p>
 				</li>
 			</ol>
-			<p class="article-callout">Revenue Visibilityを手に入れたのは、データを増やしたからではありません。活動と収益をつなぐ設計をしたからです。</p>
+			<p class="article-callout">この事例では、データを増やすだけでなく、活動と収益をつなぐ設計を整えました。</p>
 		</div>
 
 		<div class="article-section">
@@ -218,11 +220,11 @@ const headings = [
 		</div>
 
 		<div class="article-section">
-			<h2 id="section-6">まとめ：Revenue Visibilityは「設計の問題」</h2>
-			<p>Revenue Visibilityとは「データがある状態」ではありません。「どの活動が、どの収益につながるかを一貫して把握できる状態」のことです。</p>
-			<p>データが増えても、計測ツールを増やしても、活動と収益をつなぐ設計がなければRevenue Visibilityは生まれません。</p>
+			<h2 id="section-6">まとめ：売上の数字を、次の判断につなげる</h2>
+			<p>売上の見通しを立てるには、データを集めるだけでは足りません。活動と収益のつながりを同じ定義で追い、次に何を変えるかを決められる状態を目指します。</p>
+			<p>データが増えても、計測ツールを増やしても、活動と収益がつながっていなければ、次の判断に使いにくいままです。</p>
 			<p>サブスクEC事業の事例が示すように、LTV起点の判断を可能にしたのはツールではなく設計でした。</p>
-			<p>まず「どの指標が意思決定に使えるか」を問い直すことが、Revenue Visibilityへの第一歩です。</p>
+			<p>まず「どの指標が意思決定に使えるか」を問い直すことが、売上の数字を判断に使うための第一歩です。</p>
 		</div>
 
 		<!-- ===== CTA ===== -->

@@ -8,6 +8,16 @@ export type NewsItemEn = Omit<NewsItem, 'category'> & {
 
 export const newsEn: NewsItemEn[] = [
 	{
+		date: '2026-10-30',
+		category: 'Announcement',
+		title: 'Revenue CRM’s AI features are listed in CSA STAR for AI (Level 1 self-assessment)',
+		summary: 'We have answered the Cloud Security Alliance (CSA) AI questionnaire for the AI features in Revenue CRM, and our answers are now published in the CSA STAR Registry as STAR for AI Level 1. This follows the cloud listing published on October 28. Both are self-assessments rather than third-party audits, and anyone can review our answers.',
+		image: '/images/news/csa-star-for-ai-level1-2026-10-30.png',
+		imageAlt: 'CSA STAR for AI Level One: Self-Assessment badge',
+		imageFit: 'logo',
+		url: 'https://cloudsecurityalliance.org/star/registry/consilegy-llc',
+	},
+	{
 		date: '2026-10-28',
 		category: 'Announcement',
 		title: 'Revenue CRM is listed in the CSA STAR Registry (Level 1 self-assessment)',

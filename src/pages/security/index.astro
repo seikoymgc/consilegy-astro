@@ -5,7 +5,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 // （同名で差し替えると Cloudflare が旧ファイルを返す）。
 const asOf = '2026年10月';
 const starRegistryHref = 'https://cloudsecurityalliance.org/star/registry/consilegy-llc';
-const checklistHref = '/downloads/consilegy-security-checklist-2026-10e.xlsx';
+const checklistHref = '/downloads/consilegy-security-checklist-2026-10f.xlsx';
 
 // Revenue CRM の対策。どれも本番の設定かコードで確かめたことだけを書く（2026-10-22）。
 // 対応していないこと（SAML、SLA、第三者の脆弱性診断）はページに置かず、チェックシートの回答で正直に答える（2026-10-22 代表の判断）。
@@ -62,6 +62,15 @@ const crmMeasures = [
 					<div>
 						<h3>CSA STAR Level 1（自己評価）</h3>
 						<p>クラウドセキュリティの国際団体であるCloud Security Alliance（CSA）の質問票に、Revenue CRMの対策について回答しました。回答はCSAの「STAR Registry」に掲載されており（2026年10月掲載）、どなたでもご覧いただけます。</p>
+						<p>第三者の監査や認証を受けたものではなく、当社が自ら評価したものです。</p>
+						<p><a href={starRegistryHref} target="_blank" rel="noopener">STAR Registryで回答を見る</a></p>
+					</div>
+				</div>
+				<div class="card card--badge">
+					<a href={starRegistryHref} target="_blank" rel="noopener"><img src="/images/common/csa-star-for-ai-level1-2026.png" alt="CSA STAR for AI Level One: Self-Assessment" width="72" height="72" loading="lazy" /></a>
+					<div>
+						<h3>CSA STAR for AI Level 1（自己評価）</h3>
+						<p>Revenue CRMのAI機能について、CSAがAI向けに定めた質問票にも回答しました。回答はSTAR Registryに掲載されています（2026年10月掲載）。</p>
 						<p>第三者の監査や認証を受けたものではなく、当社が自ら評価したものです。</p>
 						<p><a href={starRegistryHref} target="_blank" rel="noopener">STAR Registryで回答を見る</a></p>
 					</div>

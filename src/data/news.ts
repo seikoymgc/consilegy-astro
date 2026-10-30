@@ -15,6 +15,16 @@ export interface NewsItem {
 
 export const news: NewsItem[] = [
 	{
+		date: '2026-10-30',
+		category: 'お知らせ',
+		title: 'Revenue CRMのAI機能が、CSAの「STAR for AI」に掲載されました',
+		summary: '顧客管理システム「Revenue CRM」のAI機能について、Cloud Security Alliance（CSA）がAI向けに定めた質問票に回答し、「STAR for AI Level 1」としてSTAR Registryに掲載されました。10月28日に掲載されたクラウド版の回答に続くもので、どちらも第三者の監査ではなく自己評価です。回答の内容は、STAR Registryでどなたでもご覧いただけます。',
+		image: '/images/news/csa-star-for-ai-level1-2026-10-30.png',
+		imageAlt: 'CSA STAR for AI Level One: Self-Assessment のバッジ',
+		imageFit: 'logo',
+		url: 'https://cloudsecurityalliance.org/star/registry/consilegy-llc',
+	},
+	{
 		date: '2026-10-28',
 		category: 'お知らせ',
 		title: 'Revenue CRMが、CSAの「STAR Registry」に掲載されました',

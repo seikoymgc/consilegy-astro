@@ -13,7 +13,7 @@ const faqItems = [
 	},
 	{
 		q: 'レベニューアーキテクチャとエンタープライズアーキテクチャの違いは何ですか？',
-		a: 'エンタープライズアーキテクチャ（EA）は、企業全体の業務・組織・ITシステムを対象とした全社設計です。一方、レベニューアーキテクチャはその中でも特に「顧客獲得・商談化・受注・継続収益」といった収益プロセスに焦点を当てます。それを支えるCRM・SFA・MA、請求、データ構造も焦点の対象です。Revenue Architectureは「売上に特化した業務・データ・システム設計」です。',
+		a: 'エンタープライズアーキテクチャ（EA）は、企業全体の業務・組織・ITシステムを対象とした全社設計です。一方、レベニューアーキテクチャはその中でも特に「顧客獲得・商談化・受注・継続収益」といった収益プロセスに焦点を当てます。それを支えるCRM・SFA・MA、請求、データ構造も焦点の対象です。レベニューアーキテクチャは「売上に特化した業務・データ・システム設計」です。',
 	},
 	{
 		q: 'レベニューアーキテクチャの責任者は誰ですか？',
@@ -21,15 +21,15 @@ const faqItems = [
 	},
 	{
 		q: '企業はいつレベニューアーキテクチャに投資すべきですか？',
-		a: '以下のタイミングは、Revenue Architectureを見直す代表的なサインです。事業成長により営業・マーケ・CSが分業化した / CRMやSFAが複数存在している / ARRやLTVなど継続収益管理が必要になった / SaaSやサブスクリプションモデルを導入した / CRM・請求・会計データが一致しない / ダッシュボードごとに数値が異なる / 売上予測の精度が低い。特に、営業・マーケ・財務で数値が一致していない状態は、構造設計を見直す重要な兆候です。',
+		a: '以下のタイミングは、レベニューアーキテクチャを見直す代表的なサインです。事業成長により営業・マーケ・CSが分業化した / CRMやSFAが複数存在している / ARRやLTVなど継続収益管理が必要になった / SaaSやサブスクリプションモデルを導入した / CRM・請求・会計データが一致しない / ダッシュボードごとに数値が異なる / 売上予測の精度が低い。特に、営業・マーケ・財務で数値が一致していない状態は、構造設計を見直す重要な兆候です。',
 	},
 	{
 		q: 'レベニューアーキテクチャが不十分である兆候には何がありますか？',
-		a: '代表的な兆候として以下があります。ダッシュボードごとに売上数字が違う / CRM内で顧客データが重複している / 商談ステージ定義が部門ごとに異なる / 見積・契約・請求フローに時間がかかる / 売上予測の精度が低い / KPIが部門単位で分断されている / MAで獲得したリードが受注につながったか追えない / マーケティング施策と継続収益が接続されていない。こうした状態は、個別施策ではなく、Revenue Architecture全体を見直す必要があるサインです。',
+		a: '代表的な兆候として以下があります。ダッシュボードごとに売上数字が違う / CRM内で顧客データが重複している / 商談ステージ定義が部門ごとに異なる / 見積・契約・請求フローに時間がかかる / 売上予測の精度が低い / KPIが部門単位で分断されている / MAで獲得したリードが受注につながったか追えない / マーケティング施策と継続収益が接続されていない。こうした状態は、個別施策ではなく、レベニューアーキテクチャ全体を見直す必要があるサインです。',
 	},
 	{
-		q: 'Revenue Architecture Designは、CRM導入支援と何が違いますか？',
-		a: 'CRM導入支援が「ツール導入」を目的とするのに対し、Revenue Architecture Designは、営業・マーケ・CS・KPI・会議体を含めた収益構造全体を設計する上流支援です。CRMはその構造を実現するための手段の一つに過ぎません。ConsilegyはCRM導入を目的とせず、収益プロセスの設計を目的として支援を行います。',
+		q: 'レベニューアーキテクチャ設計は、CRM導入支援と何が違いますか？',
+		a: 'CRM導入支援が「ツール導入」を目的とするのに対し、レベニューアーキテクチャ設計は、営業・マーケ・CS・KPI・会議体を含めた収益構造全体を設計する上流支援です。CRMはその構造を実現するための手段の一つに過ぎません。ConsilegyはCRM導入を目的とせず、収益プロセスの設計を目的として支援を行います。',
 	},
 ];
 
@@ -55,7 +55,7 @@ const breadcrumbSchema = {
 ---
 
 <BaseLayout
-	title="レベニューアーキテクチャ設計 | Revenue Architecture Design | Consilegy"
+	title="営業・マーケティングの業務設計 | Consilegy"
 	description={serviceGuide.summary}
 	lang="ja"
 >
@@ -106,13 +106,9 @@ const breadcrumbSchema = {
 	<div class="container">
 		<div class="definition-inner">
 			<p class="eyebrow-label">Definition</p>
-			<h2>Revenue Architecture Designとは</h2>
-			<p class="definition-text">
-				Revenue Architecture Designは、マーケティング・営業・カスタマーサクセス・CRM / SFA / MA・KPI・会議体・運用ルールを横断し、売上が生まれる仕組み全体を設計する上流支援です。
-			</p>
-			<div class="definition-oneline">
-				<p>売上を、属人的な営業活動ではなく、再現可能な業務構造として設計するサービスです。</p>
-			</div>
+			<h2>集客から受注後まで、仕事の流れを整えます</h2>
+			<p class="definition-text">集客、商談、受注、受注後の対応を一つの流れとして整理します。担当者、引き継ぐ情報、確認する数字を決め、部門をまたいで仕事が進むように設計します。</p>
+			<div class="definition-oneline"><p>担当者が変わっても、同じ手順で仕事を進められる状態を目指します。</p></div>
 
 		</div>
 		<RevenueFlowFigure id="rad-flow" caption="3部門の流れと、全部門で共有する顧客データの土台。境目（1・2）と土台が止まる場所です。" />
@@ -154,7 +150,7 @@ const breadcrumbSchema = {
 			<div class="pstep">
 				<div class="pstep__num">4</div>
 				<div class="pstep__body">
-					<h3>KPI・データ構造設計</h3>
+					<h3>指標とデータの持ち方を設計</h3>
 					<p>経営〜現場のKPIツリーと、CRM / SFA / MAのデータ設計方針を策定</p>
 				</div>
 			</div>
@@ -162,7 +158,7 @@ const breadcrumbSchema = {
 			<div class="pstep">
 				<div class="pstep__num">5</div>
 				<div class="pstep__body">
-					<h3>Revenue Architecture設計</h3>
+					<h3>営業・マーケティングの業務設計</h3>
 					<p>収益構造全体を統合した設計書を作成。部門間合意まで支援</p>
 				</div>
 			</div>
@@ -261,7 +257,7 @@ const breadcrumbSchema = {
 	<div class="container">
 		<div class="section-header">
 			<p class="eyebrow-label">Supported Tools</p>
-			<h2>主要CRM / SFA / MAに対応</h2>
+			<h2>主な顧客管理・営業支援システムに対応</h2>
 		</div>
 		<div class="tools-cats">
 			<div class="tools-cat">
@@ -317,7 +313,7 @@ const breadcrumbSchema = {
 				<div class="why-card__icon">
 					<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
 				</div>
-				<h3>マルチCRM × RevOps</h3>
+				<h3>複数のシステムと業務をまとめて見直す</h3>
 				<p>Salesforce・HubSpot・Kintone・Marketoなど、複数ツールを横断した設計・運用に対応しています。ツール境界を越えた設計が強みです。</p>
 			</div>
 			<div class="why-card">
@@ -344,13 +340,13 @@ const breadcrumbSchema = {
 				<div class="ba-status ba-status--bad">分断・属人化・数値不一致</div>
 			</div>
 			<div class="ba-arrow">
-				<span class="ba-arrow__label">Revenue Architecture Design</span>
+				<span class="ba-arrow__label">レベニューアーキテクチャ設計</span>
 				<svg width="40" height="16" viewBox="0 0 40 16" fill="none"><path d="M0 8h36M30 2l8 6-8 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 			</div>
 			<div class="ba-panel ba-panel--after">
 				<div class="ba-label ba-label--after">After</div>
 				<div class="ba-after-center">
-					<div class="ba-ra-box">Revenue Architecture</div>
+					<div class="ba-ra-box">レベニューアーキテクチャ</div>
 					<div class="ba-after-nodes">
 						<span>マーケ</span>
 						<span>営業</span>
@@ -492,23 +488,23 @@ const breadcrumbSchema = {
 		<div class="related-grid">
 			<a href="/services/b2b-marketing-gtm-design/" class="related-card">
 				<div class="related-card__num">02</div>
-				<h3>マーケティング・GTM戦略設計</h3>
-				<p>GTM & Marketing Strategy Design</p>
+				<h3>マーケティング戦略支援</h3>
+				<p>売る相手と、商談につながる進め方を決めます。</p>
 			</a>
 			<a href="/services/crm-revops-redesign/" class="related-card">
 				<div class="related-card__num">03</div>
-				<h3>主要CRM横断・RevOps実装支援</h3>
-				<p>Multi-CRM RevOps Implementation</p>
+				<h3>顧客管理システムの導入・改善</h3>
+				<p>情報の持ち方とシステムの連携を見直します。</p>
 			</a>
 			<a href="/services/adoption-growth-support/" class="related-card">
 				<div class="related-card__num">05</div>
-				<h3>運用定着・改善伴走支援</h3>
-				<p>Adoption & Growth Support</p>
+				<h3>システム定着・運用支援</h3>
+				<p>入力ルールや使い方を見直します。</p>
 			</a>
 			<a href="/services/hubspot-implementation-operations/" class="related-card">
 				<div class="related-card__num">04</div>
-				<h3>HubSpot導入・運用改善支援</h3>
-				<p>HubSpot Implementation & Operations</p>
+				<h3>HubSpot導入・運用支援</h3>
+				<p>業務に合わせて設定と使い方を整えます。</p>
 			</a>
 		</div>
 	</div>

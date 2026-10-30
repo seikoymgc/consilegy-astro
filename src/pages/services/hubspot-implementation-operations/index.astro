@@ -17,11 +17,11 @@ const faqItems = [
 	},
 	{
 		q: 'RevOpsとは何ですか？',
-		a: 'RevOps（Revenue Operations）は、営業・マーケティング・カスタマーサクセスなど収益に関わる部門を横断して、プロセス・データ・ツール・KPIを統合的に運用・改善する機能です。HubSpotはRevOpsを実現するためのプラットフォームの一つですが、RevOpsはツール導入だけでは実現しません。業務プロセス設計・KPI定義・会議体設計が伴って初めて機能します。',
+		a: 'RevOps（営業・マーケティングの運用）は、営業・マーケティング・カスタマーサクセスなど収益に関わる部門を横断して、プロセス・データ・ツール・KPIを統合的に運用・改善する機能です。HubSpotはRevOpsを実現するためのプラットフォームの一つですが、RevOpsはツール導入だけでは実現しません。業務プロセス設計・KPI定義・会議体設計が伴って初めて機能します。',
 	},
 	{
-		q: 'Revenue Architectureとの違いは何ですか？',
-		a: 'Revenue Architectureは、営業・マーケ・CS・CRM・KPI・会議体を含む収益構造全体の設計を指します。HubSpot導入・運用支援は、Revenue Architectureの設計をHubSpotというプラットフォーム上に実装し、現場で運用できる状態に落とし込む支援です。設計から実装・定着まで一気通貫で支援する場合、Revenue Architecture Designと組み合わせてご提案します。',
+		q: 'レベニューアーキテクチャとの違いは何ですか？',
+		a: 'レベニューアーキテクチャは、営業・マーケ・CS・CRM・KPI・会議体を含む収益構造全体の設計を指します。HubSpot導入・運用支援は、レベニューアーキテクチャの設計をHubSpotというプラットフォーム上に実装し、現場で運用できる状態に落とし込む支援です。設計から実装・定着まで一気通貫で支援する場合、レベニューアーキテクチャ設計と組み合わせてご提案します。',
 	},
 	{
 		q: '定着支援まで依頼できますか？',
@@ -37,7 +37,7 @@ const faqItems = [
 	},
 	{
 		q: 'HubSpot専門代理店との違いは何ですか？',
-		a: 'HubSpot専門代理店は、HubSpotの設定・実装を主なサービスとしています。ConsilegyはHubSpotをツールの一つとして捉え、営業・マーケ・CS・KPI・Revenue Operations全体を前提に設計します。「HubSpotをどう設定するか」ではなく「売上につながる運用構造を、HubSpotを使ってどう実現するか」が出発点です。',
+		a: 'HubSpot専門代理店は、HubSpotの設定・実装を主なサービスとしています。ConsilegyはHubSpotをツールの一つとして捉え、営業・マーケ・CS・KPI・営業・マーケティングの運用全体を前提に設計します。「HubSpotをどう設定するか」ではなく「売上につながる運用構造を、HubSpotを使ってどう実現するか」が出発点です。',
 	},
 ];
 
@@ -84,7 +84,7 @@ const scopeItems = [
 
 <BaseLayout
 	title="HubSpot導入・運用支援 | Consilegy"
-	description="HubSpot CRM / Marketing Hub / Sales Hubの導入・再設計・RevOps整備を支援。営業・マーケ・CS連携、KPI設計、Salesforce連携まで含む上流支援。HubSpot代理店ではなく、Revenue Architecture起点で設計します。"
+	description="HubSpot CRM / Marketing Hub / Sales Hubの導入・再設計・RevOps整備を支援。営業・マーケ・CS連携、KPI設計、Salesforce連携まで含む上流支援。HubSpot代理店ではなく、レベニューアーキテクチャ起点で設計します。"
 	lang="ja"
 >
 	<Fragment slot="head">
@@ -109,7 +109,7 @@ const scopeItems = [
 		</div>
 		<div class="hero-service-name">
 			<span class="hero-service-ja">HubSpot導入・運用支援</span>
-			<span class="hero-service-en">HubSpot Implementation &amp; Operations</span>
+
 		</div>
 		<h1>HubSpotを入れたのに、<br /><span class="accent">営業・マーケ・売上管理がつながらない</span></h1>
 		<p class="hero-sub">
@@ -183,7 +183,7 @@ const scopeItems = [
 			</div>
 			<div class="cause-card">
 				<div class="cause-card__num">03</div>
-				<h3>Revenue Architectureが存在しない</h3>
+				<h3>部門をまたぐ仕事の流れが決まっていない</h3>
 				<p>CRM / MA / KPI / 会議体 / データ構造が接続されていない。設定はされているが、売上構造として機能していない。</p>
 			</div>
 		</div>
@@ -199,7 +199,7 @@ const scopeItems = [
 			<p class="definition-body">
 				HubSpot導入・運用支援はHubSpot CRM・Marketing Hub・Sales Hubを中心に、
 				営業・マーケ・CS・RevOps運用を再設計し、売上につながる運用基盤へ整備する支援です。
-				HubSpotの設定代行ではなく、Revenue Operations全体を前提に設計・実装・定着まで支援します。
+				HubSpotの設定代行ではなく、営業・マーケティングの運用全体を前提に設計・実装・定着まで支援します。
 			</p>
 			<div class="definition-oneliner">
 				HubSpotを「入力ツール」ではなく、<br />
@@ -224,7 +224,7 @@ const scopeItems = [
 			</div>
 			<div class="problem-card">
 				<div class="problem-card__en">KPI Misalignment</div>
-				<h3>KPI不一致</h3>
+				<h3>部門ごとに数字の見方が違う</h3>
 				<p>営業・マーケで数字の定義と計算が一致していない。</p>
 			</div>
 			<div class="problem-card">
@@ -270,42 +270,42 @@ const scopeItems = [
 		<div class="section-header">
 			<p class="eyebrow-label">Process</p>
 			<h2>支援プロセス</h2>
-			<p class="section-note">単なるHubSpot設定代行ではなく、Revenue Operations全体を前提に再設計する支援です。</p>
+			<p class="section-note">単なるHubSpot設定代行ではなく、営業・マーケティングの運用全体を前提に再設計する支援です。</p>
 		</div>
 
 		<figure class="hs-figure" aria-labelledby="hs-figure-caption">
 			<svg class="fig-pc" viewBox="0 0 1120 210" role="img" aria-label="HubSpot導入の段取り。設計、設定、移行、教育、運用の5段階" font-family="inherit">
 				<defs><marker id="hs-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker></defs>
 				<rect x="40" y="40" width="200" height="150" rx="6" fill="#fff" stroke="#E2E8F0"/>
-				
+
 				<text x="56" y="72" font-size="14" fill="#64748b" letter-spacing="1">01 DESIGN</text>
 				<text x="56" y="108" font-size="20" font-weight="600" fill="#0F172A">設計</text>
 				<text x="56" y="142" font-size="16" fill="#475569">業務の流れと項目、</text>
 				<text x="56" y="168" font-size="16" fill="#475569">商談の段階を決める</text>
 				<line x1="241" y1="115" x2="249" y2="115" stroke="#0F172A" stroke-width="2" marker-end="url(#hs-arr)"/>
 				<rect x="250" y="40" width="200" height="150" rx="6" fill="#fff" stroke="#E2E8F0"/>
-				
+
 				<text x="266" y="72" font-size="14" fill="#64748b" letter-spacing="1">02 SETUP</text>
 				<text x="266" y="108" font-size="20" font-weight="600" fill="#0F172A">設定</text>
 				<text x="266" y="142" font-size="16" fill="#475569">パイプライン・自動化・</text>
 				<text x="266" y="168" font-size="16" fill="#475569">権限を入れる</text>
 				<line x1="451" y1="115" x2="459" y2="115" stroke="#0F172A" stroke-width="2" marker-end="url(#hs-arr)"/>
 				<rect x="460" y="40" width="200" height="150" rx="6" fill="#fff" stroke="#E2E8F0"/>
-				
+
 				<text x="476" y="72" font-size="14" fill="#64748b" letter-spacing="1">03 MIGRATE</text>
 				<text x="476" y="108" font-size="20" font-weight="600" fill="#0F172A">移行</text>
 				<text x="476" y="142" font-size="16" fill="#475569">既存データを整えて移す</text>
 				<text x="476" y="168" font-size="16" fill="#475569">重複と抜けをなくす</text>
 				<line x1="661" y1="115" x2="669" y2="115" stroke="#0F172A" stroke-width="2" marker-end="url(#hs-arr)"/>
 				<rect x="670" y="40" width="200" height="150" rx="6" fill="#fff" stroke="#E2E8F0"/>
-				
+
 				<text x="686" y="72" font-size="14" fill="#64748b" letter-spacing="1">04 TRAIN</text>
 				<text x="686" y="108" font-size="20" font-weight="600" fill="#0F172A">教育</text>
 				<text x="686" y="142" font-size="16" fill="#475569">役割ごとの使い方を</text>
 				<text x="686" y="168" font-size="16" fill="#475569">現場で覚えてもらう</text>
 				<line x1="871" y1="115" x2="879" y2="115" stroke="#0F172A" stroke-width="2" marker-end="url(#hs-arr)"/>
 				<rect x="880" y="40" width="200" height="150" rx="6" fill="#0F172A" stroke="#E2E8F0"/>
-				
+
 				<text x="896" y="72" font-size="14" fill="#CBD5E1" letter-spacing="1">05 OPERATE</text>
 				<text x="896" y="108" font-size="20" font-weight="600" fill="#fff">運用</text>
 				<text x="896" y="142" font-size="16" fill="#E2E8F0">定例で見直し、</text>
@@ -380,7 +380,7 @@ const scopeItems = [
 			<div class="pstep">
 				<div class="pstep__num">⑤</div>
 				<div class="pstep__body">
-					<strong>Revenue Architecture設計</strong>
+					<strong>レベニューアーキテクチャ設計</strong>
 					<p>収益構造全体のKPI・データ・業務フロー設計。</p>
 				</div>
 			</div>
@@ -486,9 +486,9 @@ const scopeItems = [
 				<div class="ba-arrow__label">RevOps<br />再設計</div>
 			</div>
 			<div class="ba-panel ba-panel--after">
-				<div class="ba-panel__label">After：Revenue Architecture基盤としてのHubSpot</div>
+				<div class="ba-panel__label">After：レベニューアーキテクチャ基盤としてのHubSpot</div>
 				<div class="ra-structure">
-					<div class="ra-top">Revenue Architecture</div>
+					<div class="ra-top">レベニューアーキテクチャ</div>
 					<div class="ra-row">
 						<div class="ra-node ra-node--hub">Marketing Hub</div>
 						<div class="ra-node ra-node--hub">Sales Hub</div>
@@ -504,7 +504,7 @@ const scopeItems = [
 			</div>
 		</div>
 		<div class="ba-notes">
-			<span class="ba-note">✓ Revenue Architectureの一部としてHubSpotを設計</span>
+			<span class="ba-note">✓ レベニューアーキテクチャの一部としてHubSpotを設計</span>
 			<span class="ba-note">✓ 既存環境を活かして段階的に整理</span>
 			<span class="ba-note">✓ HubSpot代理店ではなくRevOpsパートナー</span>
 		</div>
@@ -537,7 +537,7 @@ const scopeItems = [
 						<div class="doc-mock__header">
 							<div class="doc-mock__logo-bar"></div>
 							<div class="doc-mock__label">HubSpot設計方針書</div>
-							<div class="doc-mock__subtitle">HubSpot Implementation &amp; Operations</div>
+							<div class="doc-mock__subtitle">HubSpot導入・運用支援</div>
 						</div>
 						<div class="doc-mock__body">
 							<div class="doc-mock__section-title"></div>
@@ -594,7 +594,7 @@ const scopeItems = [
 		</div>
 		<div class="why-us-grid">
 			<div class="why-card">
-				<h3>マルチCRM・システム連携の知見</h3>
+				<h3>複数のシステムをつなぐ知見</h3>
 				<p>HubSpot単体ではなく、Salesforce・Kintone・Marketoなどを含め、複数システムを横断したRevOps設計に対応しています。HubSpot ↔ Salesforce連携設計も支援範囲です。</p>
 				<div class="why-card__notes">
 					<span>HubSpot ↔ Salesforce連携対応</span>
@@ -602,7 +602,7 @@ const scopeItems = [
 				</div>
 			</div>
 			<div class="why-card">
-				<h3>RevOps起点で設計する</h3>
+				<h3>日々の業務に合わせて設計する</h3>
 				<p>ツール設定が目的ではなく、売上運用構造から逆算してHubSpotを設計します。「どう設定するか」より「売上管理にどう機能させるか」が出発点です。</p>
 				<div class="why-card__notes">
 					<span>設定代行ではなく設計支援</span>
@@ -610,8 +610,8 @@ const scopeItems = [
 				</div>
 			</div>
 			<div class="why-card">
-				<h3>Revenue Architecture起点</h3>
-				<p>営業・マーケ・CS・KPI・データ構造を接続した収益構造全体を前提にHubSpotを設計します。HubSpotはRevenue Architectureを実現する手段の一つです。</p>
+				<h3>業務の流れから設計</h3>
+				<p>営業・マーケ・CS・KPI・データ構造を接続した収益構造全体を前提にHubSpotを設計します。HubSpotはレベニューアーキテクチャを実現する手段の一つです。</p>
 				<div class="why-card__notes">
 					<span>上流設計から実装まで一貫</span>
 					<span>経営と現場を接続する設計</span>
@@ -626,7 +626,7 @@ const scopeItems = [
 	<div class="container">
 		<div class="section-header">
 			<p class="eyebrow-label">Case Studies</p>
-			<h2>HubSpot / RevOps改善の支援事例</h2>
+			<h2>HubSpotの運用改善事例</h2>
 			<p class="section-note">※ 代表 山口聖子の個人実績を含む</p>
 		</div>
 		<div class="cases-grid">
@@ -700,7 +700,7 @@ const scopeItems = [
 				<li>KPIが営業・マーケで統一されていない</li>
 				<li>ワークフローが複雑化し、誰も全体を把握できていない</li>
 				<li>Salesforce連携に課題があり、データが分断している</li>
-				<li>Revenue Operationsを整備し、HubSpotを売上管理基盤として使いたい</li>
+				<li>営業・マーケティングの運用を整備し、HubSpotを売上管理基盤として使いたい</li>
 			</ul>
 		</div>
 	</div>
@@ -712,13 +712,13 @@ const scopeItems = [
 		<div class="approach-inner">
 			<div class="approach-copy">
 				<p class="eyebrow-label">Getting Started</p>
-				<h2>HubSpot / RevOps現状分析から<br />始めることも可能です</h2>
+				<h2>まずは、HubSpotの使い方の確認から</h2>
 				<p>
 					まずはHubSpot環境・営業プロセス・マーケティング運用・KPI・ダッシュボード・ワークフローを整理する
 					「HubSpot / RevOps現状分析」からスタートします。
 				</p>
 				<p>
-					どこでRevenue Operationsが崩れているのかを可視化し、
+					どこで営業・マーケティングの運用が崩れているのかを可視化し、
 					優先順位の高い課題から着手する進め方をご提案します。
 				</p>
 				<a href="/contact/" class="btn btn--primary">お問い合わせ</a>
@@ -749,7 +749,7 @@ const scopeItems = [
 		<p class="pricing-pretext">
 			HubSpotが機能していない状態では、リード獲得コスト・営業工数・レポート作成工数・マーケティングROIが
 			見えないまま積み上がります。<br />
-			Consilegyは、HubSpotを単なるCRMではなく、Revenue Operations基盤として再設計します。
+			Consilegyは、HubSpotを単なるCRMではなく、営業・マーケティングの運用基盤として再設計します。
 		</p>
 		<div class="pricing-phases">
 			<div class="pricing-phase">
@@ -773,7 +773,7 @@ const scopeItems = [
 				</div>
 				<ul class="pricing-phase__items">
 					<li>CRM / Hub設計・再構成</li>
-					<li>Revenue Architecture整備</li>
+					<li>レベニューアーキテクチャ整備</li>
 					<li>Salesforce連携設計・実装</li>
 					<li>KPI統合・ダッシュボード構築</li>
 					<li>定着支援・RevOps運用定着</li>
@@ -799,22 +799,22 @@ const scopeItems = [
 		<div class="related-grid">
 			<a href="/services/revenue-architecture-design/" class="related-card">
 				<div class="related-card__num">01</div>
-				<h3>Revenue Architecture Design</h3>
-				<p>HubSpot設計の上位概念。収益構造全体の設計から支援。</p>
+				<h3>営業・マーケティングの業務設計</h3>
+				<p>部門の役割と引き継ぎを整理します。</p>
 			</a>
 			<a href="/services/crm-revops-redesign/" class="related-card">
 				<div class="related-card__num">02</div>
-				<h3>CRM / RevOps再設計支援</h3>
-				<p>マルチCRM環境でのRevOps再設計。Salesforce・Kintone対応。</p>
+				<h3>顧客管理システムの導入・改善</h3>
+				<p>情報の持ち方とシステムの連携を見直します。</p>
 			</a>
 			<a href="/services/b2b-marketing-gtm-design/" class="related-card">
 				<div class="related-card__num">03</div>
-				<h3>B2B Marketing Strategy / GTM Design</h3>
-				<p>GTM・商談化設計の上流支援。Marketing Hubと組み合わせ可能。</p>
+				<h3>マーケティング戦略支援</h3>
+				<p>売る相手と、商談につながる進め方を決めます。</p>
 			</a>
 			<a href="/services/" class="related-card">
 				<div class="related-card__num">04</div>
-				<h3>Adoption &amp; Growth Support</h3>
+				<h3>運用定着・改善支援</h3>
 				<p>HubSpot定着後の継続改善を支援する月額伴走プログラム。</p>
 			</a>
 		</div>

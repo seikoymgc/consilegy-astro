@@ -21,11 +21,11 @@ const faqItems = [
 	},
 	{
 		q: 'RevOpsとは何ですか？',
-		a: 'RevOps（Revenue Operations）は、営業・マーケティング・カスタマーサクセスなど収益に関わる部門を横断して、プロセス・データ・ツール・KPIを統合的に運用・改善する機能です。部門ごとに分断された運用を、共通の定義と基準で連動させることで、売上の可視性・予測精度・成長効率を向上させます。ConsilegyではRevOpsを「Revenue Architectureの設計を現場で運用する仕組み」と定義しています。',
+		a: 'RevOps（営業・マーケティングの運用）は、営業・マーケティング・カスタマーサクセスなど収益に関わる部門を横断して、プロセス・データ・ツール・KPIを統合的に運用・改善する機能です。部門ごとに分断された運用を、共通の定義と基準で連動させることで、売上の可視性・予測精度・成長効率を向上させます。ConsilegyではRevOpsを「レベニューアーキテクチャの設計を現場で運用する仕組み」と定義しています。',
 	},
 	{
-		q: 'Revenue Architectureとの違いは何ですか？',
-		a: 'Revenue Architectureは、データ・システム・KPI・業務プロセスをどのようにつなぐかを設計する「構造設計」です。CRM / RevOps再設計支援は、その設計を既存のCRM / SFA / MA環境に実装し、現場で運用できる状態に落とし込む「実装・定着支援」です。Revenue Architecture Designと組み合わせることで、設計から実装・定着まで一気通貫で支援することも可能です。',
+		q: 'レベニューアーキテクチャとの違いは何ですか？',
+		a: 'レベニューアーキテクチャは、データ・システム・KPI・業務プロセスをどのようにつなぐかを設計する「構造設計」です。CRM / RevOps再設計支援は、その設計を既存のCRM / SFA / MA環境に実装し、現場で運用できる状態に落とし込む「実装・定着支援」です。レベニューアーキテクチャ設計と組み合わせることで、設計から実装・定着まで一気通貫で支援することも可能です。',
 	},
 	{
 		q: 'データ統合も含まれますか？',
@@ -80,7 +80,7 @@ const scopeItems = [
 ---
 
 <BaseLayout
-	title="CRM / RevOps再設計支援 | Consilegy"
+	title="顧客管理システムの導入・改善 | Consilegy"
 	description={serviceGuide.summary}
 	lang="ja"
 >
@@ -137,17 +137,9 @@ const scopeItems = [
 	<div class="container">
 		<div class="definition-inner">
 			<p class="eyebrow-label">Definition</p>
-			<h2>CRM / RevOps再設計支援とは</h2>
-			<p class="definition-body">
-				CRM / RevOps再設計支援は既存のCRM / SFA / MAを活かしながら、
-				営業プロセス・マーケティング連携・KPI・データ構造・会議体・運用ルールを再設計し、
-				売上管理に使える運用基盤へ整える支援です。
-			</p>
-			<div class="definition-oneliner">
-				CRMを「入力するだけのツール」から、<br />
-				売上を判断し、改善するための<br />
-				経営基盤へ再設計するサービスです。
-			</div>
+			<h2>顧客情報と仕事がつながるように見直します</h2>
+			<p class="definition-body">いま使っている顧客管理システムを確認し、入力項目、担当者への引き継ぎ、データ連携、集計方法を見直します。情報を記録するだけでなく、次の対応を決めるために使える状態を整えます。</p>
+			<div class="definition-oneliner"><p>必要な顧客情報を見ながら、次の対応を決められるようにします。</p></div>
 		</div>
 	</div>
 </section>
@@ -179,7 +171,7 @@ const scopeItems = [
 			<div class="pstep">
 				<div class="pstep__num">③</div>
 				<div class="pstep__body">
-					<strong>Revenue Architecture設計</strong>
+					<strong>レベニューアーキテクチャ設計</strong>
 					<p>全社共通のKPI・データ構造・業務フローの設計方針を策定します。</p>
 				</div>
 			</div>
@@ -269,7 +261,7 @@ const scopeItems = [
 	<div class="container">
 		<div class="section-header">
 			<p class="eyebrow-label">Before / After</p>
-			<h2>分断されたCRM環境を、<br />Revenue Architectureで再接続する</h2>
+			<h2>別々のシステムにある情報を、<br />仕事の流れに合わせてつなぎます</h2>
 		</div>
 		<div class="ba-diagram">
 			<div class="ba-panel ba-panel--before">
@@ -297,7 +289,7 @@ const scopeItems = [
 			</div>
 			<div class="ba-panel ba-panel--after">
 				<div class="ba-panel__label">After</div>
-				<div class="ba-ra-node">Revenue Architecture</div>
+				<div class="ba-ra-node">レベニューアーキテクチャ</div>
 				<div class="ba-results">
 					<div class="ba-result">統一KPI</div>
 					<div class="ba-result">統一顧客データ</div>
@@ -342,7 +334,7 @@ const scopeItems = [
 						<div class="doc-mock__header">
 							<div class="doc-mock__logo-bar"></div>
 							<div class="doc-mock__label">KPI定義書</div>
-							<div class="doc-mock__subtitle">CRM / RevOps Redesign</div>
+							<div class="doc-mock__subtitle">顧客管理システムの導入・改善</div>
 						</div>
 						<div class="doc-mock__body">
 							<div class="doc-mock__table">
@@ -408,12 +400,12 @@ const scopeItems = [
 			</div>
 			<div class="metric-card">
 				<div class="metric-card__en">CRM Adoption</div>
-				<h3>CRM定着率</h3>
+				<h3>システムの利用状況</h3>
 				<p>入力設計・運用ルール・会議体の整備により、現場のCRM使用定着率を改善します。</p>
 			</div>
 			<div class="metric-card">
 				<div class="metric-card__en">Cross-functional Alignment</div>
-				<h3>営業マーケCS連携</h3>
+				<h3>営業・マーケティング・顧客対応の連携</h3>
 				<p>共通KPI・ハンドオフ定義・データ基盤の整備で、部門間の分断を解消します。</p>
 			</div>
 			<div class="metric-card">
@@ -442,7 +434,7 @@ const scopeItems = [
 				</div>
 			</div>
 			<div class="why-card">
-				<h3>マルチCRM横断対応</h3>
+				<h3>複数のシステムに対応</h3>
 				<p>Salesforce・HubSpot・Kintone・Marketoなどを横断した設計・実装・定着支援を一社で担います。</p>
 				<div class="why-card__notes">
 					<span>複数CRM並存環境に対応</span>
@@ -450,7 +442,7 @@ const scopeItems = [
 				</div>
 			</div>
 			<div class="why-card">
-				<h3>Revenue Architecture起点</h3>
+				<h3>業務の流れから設計</h3>
 				<p>ツール導入が目的ではなく、売上構造全体から逆算してCRM / RevOpsを設計します。</p>
 				<div class="why-card__notes">
 					<span>上流設計から実装まで一貫</span>
@@ -466,7 +458,7 @@ const scopeItems = [
 	<div class="container">
 		<div class="section-header">
 			<p class="eyebrow-label">Case Studies</p>
-			<h2>CRM / RevOps支援事例</h2>
+			<h2>システムの導入・改善事例</h2>
 			<p class="section-note">※ 代表 山口聖子の個人実績を含む</p>
 		</div>
 		<div class="cases-grid">
@@ -538,7 +530,7 @@ const scopeItems = [
 				<li>ダッシュボードが経営判断に使われていない</li>
 				<li>CRMが現場に定着せず、スプレッドシート管理が残っている</li>
 				<li>MQL / SQL定義が曖昧で、リードの引き渡しが属人的</li>
-				<li>Revenue Operationsを整備し、売上予測精度を改善したい</li>
+				<li>営業・マーケティングの運用を整備し、売上予測精度を改善したい</li>
 				<li>既存CRM環境を活かしたまま、段階的に改善したい</li>
 				<li>BtoB企業で、営業組織が10名〜300名規模</li>
 			</ul>
@@ -592,13 +584,13 @@ const scopeItems = [
 		<div class="approach-inner">
 			<div class="approach-copy">
 				<p class="eyebrow-label">Getting Started</p>
-				<h2>RevOps現状分析から始める<br />小さく始めることも可能です</h2>
+				<h2>まずは、今の業務の確認から</h2>
 				<p>
 					まずはCRM・KPI・営業プロセス・マーケティング運用・ダッシュボード・データ構造を整理する
 					「RevOps現状分析」からスタートし、段階的に全体再設計へ移行します。
 				</p>
 				<p>
-					どこでRevenue Operationsが崩れているのかを可視化し、
+					どこで営業・マーケティングの運用が崩れているのかを可視化し、
 					優先順位の高い課題から着手する進め方をご提案します。
 				</p>
 				<a href="/contact/" class="btn btn--primary">お問い合わせ</a>
@@ -631,22 +623,22 @@ const scopeItems = [
 		<div class="related-grid">
 			<a href="/services/revenue-architecture-design/" class="related-card">
 				<div class="related-card__num">01</div>
-				<h3>Revenue Architecture Design</h3>
-				<p>CRM / RevOps再設計の上位概念。収益構造全体の設計から支援。</p>
+				<h3>営業・マーケティングの業務設計</h3>
+				<p>部門の役割と引き継ぎを整理します。</p>
 			</a>
 			<a href="/services/b2b-marketing-gtm-design/" class="related-card">
 				<div class="related-card__num">02</div>
-				<h3>B2B Marketing Strategy / GTM Design</h3>
-				<p>GTM設計・商談化構造の上流設計。CRM再設計と組み合わせ可能。</p>
+				<h3>マーケティング戦略支援</h3>
+				<p>売る相手と、商談につながる進め方を決めます。</p>
 			</a>
 			<a href="/services/" class="related-card">
 				<div class="related-card__num">03</div>
-				<h3>Adoption &amp; Growth Support</h3>
+				<h3>運用定着・改善支援</h3>
 				<p>再設計後の現場定着・継続改善を支援する月額伴走プログラム。</p>
 			</a>
 			<a href="/services/" class="related-card">
 				<div class="related-card__num">04</div>
-				<h3>HubSpot Implementation &amp; Operations</h3>
+				<h3>HubSpot導入・運用支援</h3>
 				<p>HubSpotを軸にした設計から実装・定着まで一気通貫の支援。</p>
 			</a>
 		</div>

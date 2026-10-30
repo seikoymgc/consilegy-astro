@@ -116,8 +116,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 <section class="topics" id="needs">
   <div class="container">
-    <div class="topics-head"><p class="section-eyebrow">What Do You Need?</p><h2>近い困りごとは、ありますか。</h2><p class="section-lead">複数に当てはまっても、どれか分からなくても大丈夫です。相談したい場面からお聞きします。</p></div>
-    <div class="topics-grid">{serviceGuides.map(service => <a class="topic-card" href={`/services/${service.slug}/`}><h3>{service.need}</h3><p class="topic-desc">{service.summary}</p><p class="topic-name">{service.name}</p><span class="topic-link">どう変わるか・支援内容を見る →</span></a>)}</div>
+    <div class="topics-head"><p class="section-eyebrow">What Do You Need?</p><h2>こんなお困りごとに</h2><p class="section-lead">複数に当てはまっても、どれか分からなくても大丈夫です。相談したい場面からお聞きします。</p></div>
+    <div class="topics-grid">{serviceGuides.map(service => <a class="topic-card" href={`/services/${service.slug}/`}><h3>{service.need}</h3><p class="topic-desc">{service.summary}</p><p class="topic-name">{service.menuLabel}</p><span class="topic-link">支援内容を見る →</span></a>)}</div>
     <div class="needs-help" id="guide"><h3>どれを選べばよいか分からない方へ</h3><p>サービス名を選んでいただく必要はありません。「毎回この作業で困る」「部門の間で止まる」など、いまの状況をお聞かせください。必要な支援の範囲と進め方をご提案します。</p><a class="btn btn--primary" href="/contact/">困っていることを相談する</a><p class="needs-note">最初の相談は無料です。有償の調査・設計・開発は、範囲と費用に合意してから着手します。</p></div>
   </div>
 </section>

@@ -4,13 +4,13 @@ interface Props { service: ServiceGuide }
 const { service } = Astro.props;
 ---
 <section class="service-band service-gray" id="situations">
-  <div class="container"><p class="service-eyebrow">Common Problems</p><h2>こんなことで、困っていませんか。</h2><div class="service-grid">{service.situations.map(text => <div class="service-card"><p>{text}</p></div>)}</div></div>
+  <div class="container"><p class="service-eyebrow">Common Problems</p><h2>こんなお困りごとに</h2><div class="service-grid">{service.situations.map(text => <div class="service-card"><p>{text}</p></div>)}</div></div>
 </section>
 <section class="service-band" id="outcomes">
-  <div class="container"><p class="service-eyebrow">What Changes</p><h2>支援を通じて、目指す状態。</h2><div class="service-grid">{service.changes.map(({title,text}) => <article class="service-card"><h3>{title}</h3><p>{text}</p></article>)}</div></div>
+  <div class="container"><p class="service-eyebrow">What Changes</p><h2>どう変わるか</h2><div class="service-grid">{service.changes.map(({title,text}) => <article class="service-card"><h3>{title}</h3><p>{text}</p></article>)}</div></div>
 </section>
 <section class="service-band service-gray" id="support">
-  <div class="container"><p class="service-eyebrow">How We Work</p><h2>そのために、私たちが支援すること。</h2><div class="service-grid">{service.support.map(({title,text},i) => <article class="service-card"><span class="service-number">0{i+1}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+  <div class="container"><p class="service-eyebrow">How We Work</p><h2>支援すること</h2><div class="service-grid">{service.support.map(({title,text},i) => <article class="service-card"><span class="service-number">0{i+1}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
     {service.slug === 'adoption-growth-support' && <p class="service-foot">営業支援システムの入力・商談管理に絞った支援も含みます。詳しくは<a href="/services/sfa-adoption-support/">SFA定着支援のページ</a>をご覧ください。</p>}
   </div>
 </section>

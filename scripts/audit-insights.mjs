@@ -48,11 +48,13 @@ for (const slug of slugs) {
   if (!article) continue;
   check(article['@id'] === url + '#article' && article.mainEntityOfPage?.['@id'] === url, path, 'Article identity differs from canonical');
   check(article.author?.['@id'] === origin + '/company/#founder', path, 'Author identity differs from profile');
-  check(all.some(n => n.tagName === 'a' && attr(n, 'rel') === 'author' && attr(n, 'href') === '/company/#founder'), path, 'Missing visible author link');
   for (const [field, meta] of [['datePublished', 'article:published_time'], ['dateModified', 'article:modified_time']]) {
     check(getMeta(meta) === article[field], path, `${field} meta/schema mismatch`);
-    check(all.some(n => n.tagName === 'time' && attr(n, 'datetime') === article[field]), path, `${field} missing from visible dates`);
   }
+  const byline = all.find(n => hasClass(n, 'insight-byline'));
+  const dates = byline ? nodes(byline).filter(n => n.tagName === 'time') : [];
+  check(dates.length === 1 && attr(dates[0], 'datetime') === article.dateModified, path, 'Visible update date differs from Article metadata');
+  check(byline && normalize(text(byline)).startsWith('更新日：') && !/著者|公開日/.test(text(byline)), path, 'Article header must show only the update date');
   const ids = all.map(n => attr(n, 'id')).filter(Boolean);
   check(new Set(ids).size === ids.length, path, 'Duplicate HTML ids');
   const toc = all.find(n => hasClass(n, 'insight-contents'));

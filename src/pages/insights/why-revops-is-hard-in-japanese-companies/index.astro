@@ -2,19 +2,25 @@
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
 import InsightHead from '../../../components/InsightHead.astro';
 import InsightByline from '../../../components/InsightByline.astro';
+import InsightEvidence from '../../../components/InsightEvidence.astro';
+import evidenceGuides from '../../../data/insight-evidence.json';
 import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
 const readTime = '約10分';
 
+const evidenceGuide = evidenceGuides["why-revops-is-hard-in-japanese-companies"];
+const evidenceDescription = evidenceGuide.answer.split("。").slice(0, 2).join("。") + "。";
+
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
 	headline: '日本企業でRevOpsが定着しない理由｜少人数組織で始める収益設計',
-	description: '日本企業でRevOpsが定着しにくい理由を、国内調査データと少人数の新規AIプロダクト事業の事例から解説。専任部署を作る前に、リード・商談・顧客の定義を揃えることが出発点です。',
+	description: evidenceDescription,
 	datePublished: pubDate,
-	dateModified: pubDate,
+	dateModified: '2026-10-30',
+	citation: evidenceGuide.sources.map(source => new URL(source.url, 'https://consilegy.com').href),
 	author: { '@type': 'Person', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
 	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
 	url: 'https://consilegy.com/insights/why-revops-is-hard-in-japanese-companies/',
@@ -33,6 +39,10 @@ const breadcrumbSchema = {
 
 // 見出しの id と目次を揃える。公開後は既存の id を変更しない。
 const headings = [
+	{ id: "direct-answer", text: "最初に押さえる結論" },
+	{ id: "decision-checklist", text: evidenceGuide.caption },
+	{ id: "verification-steps", text: "自社で確かめる手順" },
+	{ id: "evidence-scope", text: "根拠と、この解説の適用範囲" },
 	{"id": "section-1", "text": "RevOpsがツール管理で止まってしまう理由"},
 	{"id": "section-2", "text": "日本企業でRevOpsがズレやすい3つのポイント"},
 	{"id": "section-3", "text": "少人数組織でRevOpsを始めるなら、最初にやること"},
@@ -44,7 +54,7 @@ const headings = [
 
 <BaseLayout
 	title="日本企業でRevOpsが定着しない理由｜少人数組織で始める収益設計 | Consilegy"
-	description="日本企業でRevOpsが定着しにくい理由を、国内調査データと少人数の新規AIプロダクト事業の事例から解説。専任部署を作る前に、リード・商談・顧客の定義を揃えることが出発点です。"
+	description={evidenceDescription}
 	hasTranslation={false}
 	ogType="article"
 	lang="ja"
@@ -69,7 +79,7 @@ const headings = [
 			<span class="article-cat">RevOps</span>
 		</div>
 		<h1>日本企業でRevOpsが定着しない理由<br class="br-pc" />少人数組織で始める収益設計</h1>
-		<p class="article-desc">日本企業でRevOpsが定着しにくい理由を、国内調査データと少人数の新規AIプロダクト事業の事例から解説。専任部署を作る前に、リード・商談・顧客の定義を揃えることが出発点です。</p>
+		<p class="article-desc">{evidenceDescription}</p>
 		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
@@ -89,16 +99,18 @@ const headings = [
 			/>
 		</div>
 
+		<InsightEvidence slug="why-revops-is-hard-in-japanese-companies" />
+
 		<div class="article-section">
-			<p>日本でRevOpsという言葉が本格的に使われ始めたのは、2022〜2023年ごろからです。2023年に実施された国内調査でも、RevOpsの認知度はまだ1割程度にとどまっており、マーケティング・営業・カスタマーサクセスを横断した取り組みを行っている企業も全体の17.5%でした。</p>
-			<p>つまり、RevOpsは日本企業にとってまだ新しい概念です。</p>
-			<p>ただし、定着しにくい理由は「新しいから」だけではありません。</p>
+			<p>バーチャレクスの2023年調査では、従業員500名以上の企業に所属する20歳以上の回答者9,798人に、RevOpsの認知や部門横断の取り組みを質問しています。当時の全体の認知度は約1割と報告されました。これは2023年の回答者の状況であり、現在の日本企業全体の普及率ではありません。</p>
+			<p>この調査だけで、現在の企業規模別の導入状況までは判断できません。</p>
+			<p>RevOpsは、マーケティング・営業・カスタマーサクセスを横断して、収益につながる業務・データ・判断基準を整える取り組みです。</p>
 			<p>海外で生まれた概念を、日本の商習慣や組織構造にそのまま当てはめようとすると、どうしてもズレが生まれます。営業とマーケティングの役割分担・顧客との関係づくり・意思決定の進め方・部門間の責任範囲が米国のSaaS企業とは違うからです。</p>
 			<p>そのため日本企業でRevOpsを始めるときは、まず「RevOps部門を作るかどうか」よりも「収益につながる活動を、部門をまたいでどうつなぐか」を決める必要があります。</p>
 			<p>専任人材がいないことも、もちろん課題の一つです。ですが、原因はもっとシンプルなこともあります。</p>
 			<p>多くの場合、マーケティング・営業・カスタマーサクセス・プロダクトのあいだで「何を収益につながる活動と見るか」が揃っていません。</p>
 			<p><a href="/case-studies/ai-gtm-automation-product-integration/">ある新規AIプロダクト事業</a>では、国内のマーケティング担当は3名だけでした。しかも全員が他業務との兼務で、開発は海外チームが担っていました。</p>
-			<p>HubSpotは導入済みでしたが、活用の前提となる「誰に何を売るか」が決まっていませんでした。プロダクト利用データとマーケティング施策もつながっていませんでした。</p>
+			<p>顧客管理の基盤は未整備で、活用の前提となる「誰に何を売るか」が決まっていませんでした。プロダクト利用データとマーケティング施策もつながっていませんでした。</p>
 			<p>会議では「まずリードを増やそう」「営業に渡せる状態を作ろう」「プロダクト利用状況も見たい」という話が同時に出ます。</p>
 			<p>しかし誰をターゲットにするのか、どの行動を有望シグナルと見るのか、どの時点で営業に渡すのかが決まっていません。そのため施策を増やすほど運用が複雑になりました。</p>
 			<p>この状態でRevOps担当を採用しても、おそらく最初に任されるのはHubSpotの設定・レポート作成・データ整理です。もちろんそれも必要です。ただし、それだけではRevOpsにはなりません。</p>

@@ -2,19 +2,25 @@
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
 import InsightHead from '../../../components/InsightHead.astro';
 import InsightByline from '../../../components/InsightByline.astro';
+import InsightEvidence from '../../../components/InsightEvidence.astro';
+import evidenceGuides from '../../../data/insight-evidence.json';
 import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
 const readTime = '約10分';
 
+const evidenceGuide = evidenceGuides["why-hubspot-operations-become-dependent-on-individuals"];
+const evidenceDescription = evidenceGuide.answer.split("。").slice(0, 2).join("。") + "。";
+
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
 	headline: 'なぜHubSpot運用は属人化するのか｜RevOpsとレベニューアーキテクチャ',
-	description: 'HubSpot運用が一部担当者に依存し、ブラックボックス化する原因を、レベニューアーキテクチャとRevOpsの観点から解説します。',
+	description: evidenceDescription,
 	datePublished: pubDate,
-	dateModified: pubDate,
+	dateModified: '2026-10-30',
+	citation: evidenceGuide.sources.map(source => new URL(source.url, 'https://consilegy.com').href),
 	author: { '@type': 'Person', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
 	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
 	url: 'https://consilegy.com/insights/why-hubspot-operations-become-dependent-on-individuals/',
@@ -33,6 +39,10 @@ const breadcrumbSchema = {
 
 // 見出しの id と目次を揃える。公開後は既存の id を変更しない。
 const headings = [
+	{ id: "direct-answer", text: "最初に押さえる結論" },
+	{ id: "decision-checklist", text: evidenceGuide.caption },
+	{ id: "verification-steps", text: "自社で確かめる手順" },
+	{ id: "evidence-scope", text: "根拠と、この解説の適用範囲" },
 	{"id": "section-1", "text": "あなたのHubSpotは大丈夫か。5つの確認項目"},
 	{"id": "section-2", "text": "属人化を生む3つのパターン"},
 	{"id": "section-3", "text": "再設計後に何が変わったか"},
@@ -44,7 +54,7 @@ const headings = [
 
 <BaseLayout
 	title="なぜHubSpot運用は属人化するのか｜RevOpsとレベニューアーキテクチャ | Consilegy"
-	description="HubSpot運用が一部担当者に依存し、ブラックボックス化する原因を、レベニューアーキテクチャとRevOpsの観点から解説します。"
+	description={evidenceDescription}
 	hasTranslation={false}
 	ogType="article"
 	lang="ja"
@@ -69,7 +79,7 @@ const headings = [
 			<span class="article-cat">CRM</span>
 		</div>
 		<h1>なぜHubSpot運用は<br class="br-pc" />「属人化」するのか</h1>
-		<p class="article-desc">DX支援会社がHubSpotへ移行する際、ワークフローのブラックボックス化と属人化を解消し、分析工数を約30%削減した事例から。属人化は担当者の問題ではなく、設計構造の問題です。</p>
+		<p class="article-desc">{evidenceDescription}</p>
 		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
@@ -89,11 +99,13 @@ const headings = [
 			/>
 		</div>
 
+		<InsightEvidence slug="why-hubspot-operations-become-dependent-on-individuals" />
+
 		<div class="article-section">
 			<p><a href="/case-studies/marketing-data-integration-hubspot-migration/">国内トップクラスのDX支援を手がけるコンサルティング企業（従業員約150名）</a>は、Marketoを使った高度なマーケティング自動化を実現していました。</p>
 			<p>しかし数年後、その環境は「誰も全体を把握できない」状態に変わっていました。ワークフローは複雑に絡み合い、変更するたびに何かが壊れるリスクがある。設定の意図が特定の担当者の頭の中にしかない。</p>
 			<p>同社がHubSpotへの移行と同時に基盤を再設計した結果、<strong>分析工数を約30%削減し、問い合わせ前から商談までの行動を同じ画面で追える状態を実現</strong>しました。専門担当者以外でも施策を実行できる体制が整い、引き継ぎ可能な運用構造に変わりました。</p>
-			<p>この問題は「担当者の能力不足」ではありません。MAツールを設計思想なしに運用し続けると、必ず起きる構造的な問題です。</p>
+			<p>この問題は「担当者の能力不足」ではありません。設定の目的や依存関係が共有されない運用では、担当者への依存が強まる可能性があります。</p>
 		</div>
 
 		<div class="article-section">
@@ -120,7 +132,7 @@ const headings = [
 					<p>設計書がなく、現在の運用が個人の知識に依存している。</p>
 				</li>
 			</ol>
-			<p class="article-callout">3つ以上当てはまる場合、HubSpotは「組織の資産」ではなく「個人の負債」になっています。ツールの問題ではなく、設計構造の問題です。</p>
+			<p class="article-callout">当てはまる項目は、確認する順番を決める手がかりです。該当する数だけで原因は断定できません。実際のデータと作業を辿り、機能・設定・運用のどこで止まっているかを確かめてください。</p>
 		</div>
 
 		<div class="article-section">

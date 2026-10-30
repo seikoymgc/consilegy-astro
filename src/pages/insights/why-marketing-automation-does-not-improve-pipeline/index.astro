@@ -2,19 +2,25 @@
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
 import InsightHead from '../../../components/InsightHead.astro';
 import InsightByline from '../../../components/InsightByline.astro';
+import InsightEvidence from '../../../components/InsightEvidence.astro';
+import evidenceGuides from '../../../data/insight-evidence.json';
 import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
 const readTime = '約10分';
 
+const evidenceGuide = evidenceGuides["why-marketing-automation-does-not-improve-pipeline"];
+const evidenceDescription = evidenceGuide.answer.split("。").slice(0, 2).join("。") + "。";
+
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
 	headline: 'MAを導入しても商談化率が改善しない理由',
-	description: 'コンサルティング企業の新規AIプロダクト部門（3名兼務）が、GTM設計とMA自動化を統合し、2か月でGTM方針を合意・3名でも運用できる収益エンジンを構築。MAがメール配信ツールで止まっている組織の構造問題を解説します。',
+	description: evidenceDescription,
 	datePublished: pubDate,
-	dateModified: pubDate,
+	dateModified: '2026-10-30',
+	citation: evidenceGuide.sources.map(source => new URL(source.url, 'https://consilegy.com').href),
 	author: { '@type': 'Person', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
 	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
 	url: 'https://consilegy.com/insights/why-marketing-automation-does-not-improve-pipeline/',
@@ -33,6 +39,10 @@ const breadcrumbSchema = {
 
 // 見出しの id と目次を揃える。公開後は既存の id を変更しない。
 const headings = [
+	{ id: "direct-answer", text: "最初に押さえる結論" },
+	{ id: "decision-checklist", text: evidenceGuide.caption },
+	{ id: "verification-steps", text: "自社で確かめる手順" },
+	{ id: "evidence-scope", text: "根拠と、この解説の適用範囲" },
 	{"id": "section-1", "text": "あなたの組織は大丈夫か。5つの確認項目"},
 	{"id": "section-2", "text": "MAが商談化率を改善しない3つのパターン"},
 	{"id": "section-3", "text": "設計を変えた後に何が起きたか"},
@@ -44,7 +54,7 @@ const headings = [
 
 <BaseLayout
 	title="MAを導入しても商談化率が改善しない理由 | Consilegy"
-	description="コンサルティング企業の新規AIプロダクト部門（3名兼務）が、GTM設計とMA自動化を統合し、2か月でGTM方針を合意・3名でも運用できる収益エンジンを構築。MAがメール配信ツールで止まっている組織の構造問題を解説します。"
+	description={evidenceDescription}
 	hasTranslation={false}
 	ogType="article"
 	lang="ja"
@@ -69,7 +79,7 @@ const headings = [
 			<span class="article-cat">マーケティング・GTM</span>
 		</div>
 		<h1>MAを導入しても<br class="br-pc" />商談化率が改善しない理由</h1>
-		<p class="article-desc">コンサルティング企業の新規AIプロダクト部門（3名兼務）が、GTM設計とMA自動化を統合し、2か月でGTM方針を合意・3名でも運用できる収益エンジンを構築。MAがメール配信ツールで止まっている組織の構造問題を解説します。</p>
+		<p class="article-desc">{evidenceDescription}</p>
 		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
@@ -88,6 +98,8 @@ const headings = [
 				aria-hidden="true"
 			/>
 		</div>
+
+		<InsightEvidence slug="why-marketing-automation-does-not-improve-pipeline" />
 
 		<div class="article-section">
 			<p><a href="/case-studies/ai-gtm-automation-product-integration/">コンサルティング企業の新規AIプロダクト部門</a>では、国内のマーケティングチームは他業務と兼務する3名のみで、開発はベトナムの外部チームに委託している状況でした。</p>
@@ -120,7 +132,7 @@ const headings = [
 					<p>先月打った施策が何件の商談につながったかを即答できない場合、施策と収益のデータが断絶しています。</p>
 				</li>
 			</ol>
-			<p class="article-callout">3つ以上当てはまる場合、問題はMAの機能不足ではありません。「誰に・何のタイミングで・何を届けるか」の設計が存在していないことが本質です。</p>
+			<p class="article-callout">当てはまる項目は、確認する順番を決める手がかりです。該当する数だけで原因は断定できません。実際のデータと作業を辿り、機能・設定・運用のどこで止まっているかを確かめてください。</p>
 		</div>
 
 		<div class="article-section">
@@ -129,21 +141,21 @@ const headings = [
 				<li>
 					<strong>MAがコンテンツ配信ツールになっている</strong>
 					<p>MAを導入した後「メルマガ配信」「ダウンロードコンテンツの送付」のみに活用し、行動トリガーやスコアリングを設計しないまま運用が始まると、MAは施策実行の自動化ではなく配信の効率化ツールになります。</p>
-					<p>前述のAIプロダクト部門では、GTMを設計する前にMAが稼働していたため、送るコンテンツは存在してもそれが誰の・どのフェーズの行動に接続されているか不明でした。</p>
+					<p>参照事例では、ターゲット顧客の定義や顧客情報・プロダクト利用データの接続が未整備だったため、GTM設計とシステム連携を一体で進めました。</p>
 					<p>配信の前に、「誰が・何をしたタイミングで・何を受け取るべきか」を設計することが先です。</p>
 					<p><strong>判断基準：</strong>「最後に設定したワークフローは何のために作りましたか」と問うたとき、商談化との接続を説明できるかどうかで確認できます。</p>
 				</li>
 				<li>
 					<strong>スコアリングがなく、優先リードと非優先リードが区別されない</strong>
 					<p>リードが蓄積しても、「今すぐ営業が話すべきリード」と「まだナーチャリング段階のリード」が同列で扱われている場合、営業リソースが分散します。</p>
-					<p>前述の部門ではプロダクト利用データとHubSpotを連携することで、「試用を開始した」「特定機能を複数回使用した」などのシグナルをスコアに変換し、営業通知のトリガーを設計しました。</p>
+					<p>参照事例ではAPIでプロダクト利用データとHubSpotを連携しました。「試用開始」など、どの行動を営業通知の条件にするかは、自社の利用実態と受け入れ基準から検証する設計項目です。</p>
 					<p>行動の質によって優先度を変える仕組みが、商談化率改善の実効性を持ちます。</p>
 					<p><strong>判断基準：</strong>「直近の受注顧客は、引き渡し前にMAでどんな行動をしていましたか」と問うたとき、具体的な行動パターンを答えられるかどうかで確認できます。</p>
 				</li>
 				<li>
 					<strong>MAと商談パイプラインが接続されていない</strong>
 					<p>MAがメール配信・スコアリングまで機能していても、その情報がSFAの商談パイプラインに渡らなければ、マーケティングの成果は営業に見えません。施策と商談の因果関係も測定できません。</p>
-					<p>前述の部門では、HubSpotのMAとCRMを同一プラットフォームで設計し、リードの行動履歴・スコア・担当施策が商談レコードに紐づく構造を構築しました。</p>
+					<p>参照事例では、プロダクトと連動するマーケティング基盤と、少人数で運用できるワークフローを構築しました。公開情報には、個々の商談項目やスコア条件の詳細までは含まれていません。</p>
 					<p>3名でも運用できたのは、MA→CRM→商談の情報移動が自動化されていたためです。</p>
 					<p><strong>判断基準：</strong>「この商談のリードは、最初にどの施策で獲得されましたか」をSFAで確認できるかどうかで確認できます。</p>
 				</li>
@@ -190,7 +202,7 @@ const headings = [
 
 		<div class="article-section">
 			<h2 id="section-5">まとめ：MAの問題は「設定」より「設計」</h2>
-			<p>MAを導入しても商談化率が改善しない原因は、MAの機能不足でも設定の問題でもありません。</p>
+			<p>マーケティング自動化ツールで配信やスコアリングが動いても、商談が増えるとは限りません。</p>
 			<p>「MAがコンテンツ配信ツールになっていること」「スコアリングによる優先度設計がないこと」「MAと商談パイプラインが接続されていないこと」が構造的な原因です。</p>
 			<p>AIプロダクト部門の事例が示すように、2か月でのGTM合意・3名での収益エンジン運用を実現したのは、GTM設計とMA自動化を一体で構築したためです。</p>
 			<p>「誰に・何のタイミングで・何を届けるか」の設計が、MAを商談化エンジンに変える第一歩です。</p>

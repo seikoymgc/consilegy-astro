@@ -2,43 +2,48 @@
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
 import InsightHead from '../../../components/InsightHead.astro';
 import InsightByline from '../../../components/InsightByline.astro';
+import InsightEvidence from '../../../components/InsightEvidence.astro';
+import evidenceGuides from '../../../data/insight-evidence.json';
 import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const slug = 'why-marketing-budget-is-treated-as-cost';
 const pubDate = '2026-08-21';
 
-const title = 'マーケ予算が「費用」のまま議論される理由｜回収期間で話すと通る';
-const metaTitle = 'マーケ予算が「費用」のまま議論される理由｜回収期間で話すと通る | Consilegy';
-const metaDescription = 'マーケティング予算が毎年「いくら削るか」の議論になるのは、担当者の説明力不足ではありません。費用として計上される構造と、回収期間で語る言語が用意されていないことが原因です。CAC回収期間の考え方から解説します。';
+const title = 'マーケ予算が「費用」のまま議論される理由｜回収の前提を揃えて判断する';
+const metaTitle = 'マーケ予算が「費用」のまま議論される理由｜回収の前提を揃えて判断する | Consilegy';
 const category = '財務';
 
 const faqItems = [
 	{
 		q: 'CAC回収期間とは何ですか？',
-		a: 'CAC回収期間とは、1件の顧客を獲得するために使った費用を、その顧客からの粗利で何か月かけて回収できるかを示す指標です。獲得コストを月あたりの粗利で割って計算します。B2B SaaSでは12か月以内が健全な目安とされ、この数字が分かると、マーケティング支出を費用ではなく回収計画のある投資として説明できます。',
+		a: 'CAC回収期間とは、顧客獲得にかかった費用を顧客からの粗利で回収するまでの期間です。月間粗利が一定なら、顧客獲得単価を一社当たりの月間粗利で割って試算します。解約や粗利の変動がある場合は累積粗利で追い、前提を明記します。',
 	},
 	{
 		q: 'なぜマーケティング予算は削られやすいのですか？',
-		a: '会計上、広告宣伝費は発生した期の費用として計上されるためです。設備投資のように資産計上されて数年かけて償却される支出と違い、使った瞬間に利益を押し下げます。利益が必要な局面で、成果が同じ期に現れない支出から削られるのは、経理として自然な判断です。',
+		a: '削減の理由には、資金制約、事業の優先順位、効果の不確実性などがあります。支出と顧客・収益の対応が不明だと、減額した場合の影響を比較しにくくなります。回収の前提を示すことは判断材料になりますが、予算承認を保証するものではありません。',
 	},
 	{
 		q: '回収期間で説明するには何のデータが必要ですか？',
-		a: '獲得件数・獲得にかかった総額・受注単価・粗利率・継続期間の5つです。すべて完璧である必要はありません。おおよその数字でも、回収期間という形にすると議論の軸が「いくら使うか」から「いつ返ってくるか」に移ります。',
+		a: '獲得費用の範囲、新規獲得顧客数、一社当たりの月間粗利、解約や継続の前提を揃えます。獲得群と期間を対応させ、未確認の値は仮定として明記します。単発購入など月間粗利が一定でない業態では、累積粗利による確認が必要です。',
 	},
 	{
 		q: 'LTVはどこまで正確に出すべきですか？',
-		a: '継続期間まで含めて見ます。初年度の粗利だけでは、継続する顧客の価値を過小に見積もることになり、LTVの定義からも外れます。経営に出すときは継続率を実績より保守的に置き、その前提を明記してください。前提を控えめにしても回収できると示せるほうが、楽観的な長期の試算より通りやすくなります。',
+		a: 'LTVを示すときは、売上か粗利か、対象となる顧客群、観測期間、将来の継続に置いた仮定を明記します。短い実績から長期の継続を確実視せず、前提を変えた複数の試算と実績を比較します。',
 	},
 ];
+
+const evidenceGuide = evidenceGuides["why-marketing-budget-is-treated-as-cost"];
+const evidenceDescription = evidenceGuide.answer.split("。").slice(0, 2).join("。") + "。";
 
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
 	headline: title,
-	description: metaDescription,
+	description: evidenceDescription,
 	datePublished: pubDate,
-	dateModified: pubDate,
+	dateModified: '2026-10-30',
+	citation: evidenceGuide.sources.map(source => new URL(source.url, 'https://consilegy.com').href),
 	author: { '@type': 'Person', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
 	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
 	url: `https://consilegy.com/insights/${slug}/`,
@@ -67,6 +72,10 @@ const breadcrumbSchema = {
 
 // 見出しの id と目次を揃える。公開後は既存の id を変更しない。
 const headings = [
+	{ id: "direct-answer", text: "最初に押さえる結論" },
+	{ id: "decision-checklist", text: evidenceGuide.caption },
+	{ id: "verification-steps", text: "自社で確かめる手順" },
+	{ id: "evidence-scope", text: "根拠と、この解説の適用範囲" },
 	{"id": "section-1", "text": "CAC回収期間とは"},
 	{"id": "section-2", "text": "「今年、マーケはいくら削れる？」から始まる会議"},
 	{"id": "section-3", "text": "お金の話を、後ろにずらしてしまう"},
@@ -80,7 +89,7 @@ const headings = [
 
 <BaseLayout
 	title={metaTitle}
-	description={metaDescription}
+	description={evidenceDescription}
 	hasTranslation={false}
 	ogType="article"
 	lang="ja"
@@ -105,7 +114,7 @@ const headings = [
 			<span class="article-cat">{category}</span>
 		</div>
 		<h1>マーケ予算が「費用」のまま<br class="br-pc" />議論される理由</h1>
-		<p class="article-desc">予算会議でマーケティングの話になると、決まって「今年はいくら削れるか」から始まります。担当者の説明が下手だからではありません。その支出が、会計上どうしても費用に見える形で置かれているからです。</p>
+		<p class="article-desc">{evidenceDescription}</p>
 		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
@@ -114,7 +123,7 @@ const headings = [
 		<InsightContents headings={headings} />
 		<div class="article-eyecatch">
 			<img
-				src={`/images/insights/${slug}-2026b.svg`}
+				src={`/images/insights/${slug}-2026c.svg`}
 				alt=""
 				width="1200"
 				height="630"
@@ -124,26 +133,22 @@ const headings = [
 			/>
 		</div>
 
+		<InsightEvidence slug="why-marketing-budget-is-treated-as-cost" />
+
 		<section class="article-section article-def" id="definition">
 			<h2 id="section-1">CAC回収期間とは</h2>
-			<p class="article-def__text"><strong>CAC回収期間とは</strong>、1件の顧客を獲得するために使った費用を、その顧客から得られる粗利で何か月かけて回収できるかを示す指標です。顧客獲得単価を月あたりの粗利で割って計算します。B2B SaaSでは12か月以内が健全な水準の目安とされています。この数字を出せると、マーケティング支出を「使ったお金」ではなく「返ってくる予定のあるお金」として説明できるようになります。</p>
+			<p class="article-def__text"><strong>CAC回収期間とは</strong>、1件の顧客を獲得するために使った費用を、その顧客から得られる粗利で何か月かけて回収できるかを示す指標です。顧客獲得単価を月あたりの粗利で割って計算します。適切な回収期間は、粗利率、解約、資金余力、成長段階によって異なります。この数字を出せると、マーケティング支出を「使ったお金」ではなく「返ってくる予定のあるお金」として説明できるようになります。</p>
 		</section>
 
 		<hr class="article-hr" />
 
 		<section class="article-section">
 			<h2 id="section-2">「今年、マーケはいくら削れる？」から始まる会議</h2>
-			<p>期初の予算会議。売上目標の話が終わり、費用の項目に入ります。人件費は削れません。システムの保守費も止められません。</p>
-			<p>そこで残るのが広告宣伝費と外注費です。</p>
-			<p>マーケティング責任者は資料を用意しています。リード数、商談化率、獲得単価。数字はきちんと並んでいます。</p>
-			<p>それでも会議で聞かれるのは「その予算を半分にしたら、どのくらい減る?」です。</p>
-			<div class="article-callout">
-				<p><strong>マーケティング予算が毎年削減の対象になるのは、担当者の説明力の問題ではありません。</strong>広告宣伝費が発生した期の費用として計上され、成果が同じ期に現れないという、会計上の構造が原因です。</p>
-			</div>
-			<p>設備投資であれば、資産に計上されて数年かけて償却されます。支出した期の利益は、その分だけしか下がりません。</p>
-			<p>一方、マーケティング支出は使った瞬間に全額が利益を押し下げます。返ってくるのは翌期以降です。</p>
-			<p>この非対称がある以上、利益が必要な局面でここから削られるのは、経理として自然な判断です。</p>
-		</section>
+<p><strong>説明用の仮例：</strong>以下の予算会議や金額の例は説明のための設定であり、実在企業の支援実績や調査結果ではありません。</p>
+			<p>予算会議で広告や制作の支出額だけを並べると、削減した場合の事業への影響を比較しにくくなります。費用を減らせるかに加え、どの顧客からどの期間で利益を回収する想定かを示します。</p>
+<p>たとえば同じ支出額でも、新規顧客の獲得、既存顧客の継続、ブランド認知では、効果を確認する期間と方法が異なります。目的と評価期間を先に合意し、測れるものと未確認のものを分けます。</p>
+<p>本稿の「投資として説明する」は経営上の比較の仕方を指します。会計上の扱いは支出内容や適用する基準によって確認が必要であり、回収期間を示せば費用計上の区分が変わるという意味ではありません。</p>
+</section>
 
 		<hr class="article-hr" />
 
@@ -215,7 +220,7 @@ const headings = [
 			<p>リード数と獲得単価は活動の報告です。回収期間は投資の報告です。同じ活動を説明していても、後者は経営の判断材料になります。</p>
 			<p>最初の一歩は、直近1年の獲得コストを受注件数で割ってみることです。</p>
 			<p>おそらく初回の数字は粗く、いくつか前提を置くことになります。それで構いません。</p>
-			<p>粗い回収期間が1つあるほうが、精密なリード数のレポートより予算を守ります。</p>
+			<p>回収期間を示す場合は、仮定と未確認の値を明記し、活動指標と併せて予算の判断材料にします。</p>
 		</section>
 
 		<hr class="article-hr" />

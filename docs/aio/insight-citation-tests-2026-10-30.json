@@ -1,0 +1,79 @@
+{
+  "date": "2026-10-30",
+  "stage": "before-publication",
+  "prompt": "顧客管理システムが営業現場に定着しない原因と、最初に確認する項目を、日本のB2B企業を想定して説明してください。ウェブで根拠を調べ、参照したURLを付けてください。",
+  "brandOrTargetUrlSupplied": false,
+  "results": [
+    {
+      "provider": "Perplexity",
+      "mode": "Search / Free / incognito",
+      "status": "answer-and-10-sources-observed",
+      "consilegyCited": false,
+      "answerUrl": "https://www.perplexity.ai/search/33e2f674-8195-4959-9ecc-938f268bdbf3",
+      "sourceDomains": [
+        "pwc.com",
+        "wp.techtarget.itmedia.co.jp",
+        "layers.co.jp",
+        "saaske.com",
+        "decisense.co.jp",
+        "ccc.seraku.co.jp",
+        "zoho.com",
+        "synergy-marketing.co.jp",
+        "start-link.jp",
+        "tact-info.com"
+      ]
+    },
+    {
+      "provider": "Gemini",
+      "mode": "Pro / temporary chat",
+      "status": "answer-and-6-urls-observed",
+      "consilegyCited": false,
+      "sourceDomains": [
+        "usonar.co.jp",
+        "layers.co.jp",
+        "extech.co.jp",
+        "start-link.jp",
+        "chikyu.net",
+        "tact-info.com"
+      ]
+    },
+    {
+      "provider": "Claude",
+      "status": "reauthentication-did-not-return-to-chat",
+      "consilegyCited": null,
+      "detail": "Existing Google account reauthentication advanced; login page stayed disabled; popup observation timed out. No prompt sent."
+    },
+    {
+      "provider": "ChatGPT",
+      "status": "known-access-restriction-not-retried",
+      "consilegyCited": null
+    }
+  ],
+  "interpretation": "One unbranded prompt per completed provider before the 24-article update. These are baseline observations, not sitewide citation rates; blocked providers are null. Index submission acceptance is not evidence of AI citation.",
+  "updatedArticles": [
+    "what-changes-in-crm-design-when-ai-writes-records",
+    "why-companies-cannot-stop-using-excel-after-crm",
+    "why-crm-does-not-align-sales-and-marketing",
+    "why-crm-integration-projects-fail",
+    "why-crm-investment-does-not-pass-the-board",
+    "why-dashboards-do-not-improve-executive-decisions",
+    "why-good-marketing-does-not-create-repeatable-growth",
+    "why-good-marketing-strategies-fail-to-scale",
+    "why-hubspot-operations-become-dependent-on-individuals",
+    "why-kpi-meetings-become-status-update-sessions",
+    "why-marketing-automation-does-not-improve-pipeline",
+    "why-marketing-budget-is-treated-as-cost",
+    "why-more-kpis-create-less-revenue-visibility",
+    "why-more-leads-do-not-increase-revenue",
+    "why-removing-anxiety-sells-in-japan-b2b",
+    "why-revops-is-hard-in-japanese-companies",
+    "why-sales-and-customer-success-do-not-align",
+    "why-sales-forecasting-fails",
+    "why-sales-forecasting-fails-even-with-sfa",
+    "why-sales-meetings-become-number-reporting",
+    "why-sales-teams-stop-using-crm",
+    "why-salesforce-implementations-fail",
+    "why-sfa-becomes-just-a-pipeline-sheet",
+    "why-talent-development-depends-on-individuals"
+  ]
+}

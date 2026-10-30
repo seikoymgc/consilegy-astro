@@ -2,6 +2,8 @@
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
 import InsightHead from '../../../components/InsightHead.astro';
 import InsightByline from '../../../components/InsightByline.astro';
+import InsightEvidence from '../../../components/InsightEvidence.astro';
+import evidenceGuides from '../../../data/insight-evidence.json';
 import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
@@ -10,7 +12,6 @@ const pubDate = '2026-08-21';
 
 const title = '経営会議でCRM投資が通らない理由｜「選べる状態」をつくる3つの数字';
 const metaTitle = '経営会議でCRM投資が通らない理由｜「選べる状態」をつくる3つの数字 | Consilegy';
-const metaDescription = '効果試算も他社比較もそろえたのに「もう少し様子を見よう」で終わる。経営がCRM投資を判断できないのは情報が足りないからではなく、選択肢がやるかやらないかの二択しかないからです。可逆性を示す3つの数字を解説します。';
 const category = '経営';
 
 const faqItems = [
@@ -20,25 +21,29 @@ const faqItems = [
 	},
 	{
 		q: 'なぜ効果試算を出しても投資判断が進まないのですか？',
-		a: '効果試算はうまくいった場合の話であり、経営が気にしているのは外れた場合だからです。想定通りに進まなかったとき、いつ気づけて何を止められて、いくら残るのか。この3点が示されていないと、決裁者は判断を先送りするほうが安全になります。',
+		a: '期待効果だけでなく、予算、戦略との適合、運用負荷、移行リスクなどが判断に影響します。現状維持・限定導入・全面導入を比較し、前提が外れた場合に何を止められるかを示すと検討材料を揃えられます。',
 	},
 	{
 		q: '小さく始める提案は、本気度が低いと見られませんか？',
-		a: '逆になることが多いです。全額を一度に投じる案は、外れたときの損失が全額になります。段階に分けた案は、途中で止められるぶん最大損失が小さく、判断する側の負担が軽くなります。ただし各段階に、進む条件と止める条件を明示しておく必要があります。',
+		a: '評価は提案の目的と検証内容によります。限定導入では対象、終了日、検証費用、次に進む条件を明記します。中止しても残る契約義務や復旧費用があるため、初期予算だけを最大損失とはみなしません。',
 	},
 	{
 		q: '経営に報告すべき数字は何ですか？',
-		a: '回収期間・最大損失額・撤退の判断時期の3つです。いずれも「うまくいったらいくら儲かるか」ではなく、「外れたときにどうなるか」を示す数字です。この3つがそろうと、経営は判断を先送りせずにその場で選べます。',
+		a: '回収期間、途中で止めた場合の未回収額と追加費用、次の判断日を、効果の前提とともに示します。これらは比較の材料であり、経営がその場で承認できることを保証する指標ではありません。',
 	},
 ];
+
+const evidenceGuide = evidenceGuides["why-crm-investment-does-not-pass-the-board"];
+const evidenceDescription = evidenceGuide.answer.split("。").slice(0, 2).join("。") + "。";
 
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
 	headline: title,
-	description: metaDescription,
+	description: evidenceDescription,
 	datePublished: pubDate,
-	dateModified: pubDate,
+	dateModified: '2026-10-30',
+	citation: evidenceGuide.sources.map(source => new URL(source.url, 'https://consilegy.com').href),
 	author: { '@type': 'Person', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
 	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
 	url: `https://consilegy.com/insights/${slug}/`,
@@ -67,6 +72,10 @@ const breadcrumbSchema = {
 
 // 見出しの id と目次を揃える。公開後は既存の id を変更しない。
 const headings = [
+	{ id: "direct-answer", text: "最初に押さえる結論" },
+	{ id: "decision-checklist", text: evidenceGuide.caption },
+	{ id: "verification-steps", text: "自社で確かめる手順" },
+	{ id: "evidence-scope", text: "根拠と、この解説の適用範囲" },
 	{"id": "section-1", "text": "撤退基準とは"},
 	{"id": "section-2", "text": "資料は完璧だった。それでも結論は出なかった"},
 	{"id": "section-3", "text": "経営が見ているのは、上振れではなく引き返せるか"},
@@ -80,7 +89,7 @@ const headings = [
 
 <BaseLayout
 	title={metaTitle}
-	description={metaDescription}
+	description={evidenceDescription}
 	hasTranslation={false}
 	ogType="article"
 	lang="ja"
@@ -105,7 +114,7 @@ const headings = [
 			<span class="article-cat">{category}</span>
 		</div>
 		<h1>経営会議でCRM投資が<br class="br-pc" />通らない理由</h1>
-		<p class="article-desc">効果試算も他社比較も用意しました。質問にも答えました。それでも結論は「もう少し様子を見よう」。情報が足りないのではありません。経営に渡っている選択肢が、やるかやらないかの2つしかないからです。</p>
+		<p class="article-desc">{evidenceDescription}</p>
 		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
@@ -124,6 +133,8 @@ const headings = [
 			/>
 		</div>
 
+		<InsightEvidence slug="why-crm-investment-does-not-pass-the-board" />
+
 		<section class="article-section article-def" id="definition">
 			<h2 id="section-1">撤退基準とは</h2>
 			<p class="article-def__text"><strong>撤退基準とは</strong>、投資した施策やシステムについて、どの数字がどの水準を下回ったら縮小または中止するかを着手する前に決めておく取り決めです。着手前に決める点が重要で、実績が出てから判断しようとすると、それまでに使った費用が判断を歪めます。撤退基準があると、経営は「やるかやらないか」ではなく「どこまで試すか」を選べるようになります。</p>
@@ -133,6 +144,8 @@ const headings = [
 
 		<section class="article-section">
 			<h2 id="section-2">資料は完璧だった。それでも結論は出なかった</h2>
+			<p class="article-example-note"><strong>説明用の仮例：</strong>ここで描く場面・発言・数値は、論点を説明するための設定です。実在企業の支援実績や調査結果ではありません。</p>
+
 			<p>年間1,200万円のCRM刷新。資料には現状の課題・他社の導入事例・想定される効果・3年間の投資対効果が並んでいます。質疑にも答えました。反対意見も出ませんでした。</p>
 			<p>そして会議の最後に、こう言われます。「方向性は分かった。もう少し様子を見よう」。</p>
 			<p>これを「経営が理解してくれない」と受け取ると、次回は資料が厚くなります。効果試算の根拠を足し、事例を増やし、他社との比較表を作る。そして同じ結論が返ってきます。</p>
@@ -156,7 +169,7 @@ const headings = [
 				<div class="article-numbered__item">
 					<p class="article-numbered__num">02</p>
 					<h3>外れたとき、最大でいくら失うのか</h3>
-					<p>1,200万円の案件でも、途中で止められるなら最大損失は1,200万円ではありません。第1段階が300万円で、そこで判断できるなら、経営が背負うリスクは300万円です。この違いは、決裁のしやすさを大きく変えます。</p>
+					<p>説明用の仮例として、全体予算1,200万円、第1段階300万円とします。第1段階で止められても、未払いの契約義務やデータ復旧費用が残る場合があります。最大損失は300万円と即断せず、止めた後に必要な費用まで確認します。</p>
 				</div>
 				<div class="article-numbered__item">
 					<p class="article-numbered__num">03</p>
@@ -173,7 +186,7 @@ const headings = [
 		<section class="article-section">
 			<h2 id="section-4">「やる・やらない」を、「どこまで試すか」に変える</h2>
 			<p>二択で持っていくと、経営は選べません。正確に言えば、選ぶ理由がありません。判断を先送りしても、その期に損失は出ないからです。</p>
-			<p>選べる状態にするには、選択肢を3つ以上にします。たとえば1,200万円の刷新であれば、次のように分けられます。</p>
+			<p>選べる状態にするには、選択肢を3つ以上にします。説明用の仮例として、たとえば1,200万円の刷新であれば、次のように分けられます。</p>
 			<p>第1段階は、現状のデータ整理と定義の言語化で300万円。ここで得られるのは、どこで取りこぼしているかの特定です。</p>
 			<p>第2段階は、対象を1部門に絞った再設計で400万円。ここで見るのは、その部門の商談化率が動くかどうか。</p>
 			<p>第3段階で全社に広げます。</p>
@@ -196,7 +209,7 @@ const headings = [
 				<div class="article-numbered__item">
 					<p class="article-numbered__num">02</p>
 					<h3>途中で止めた場合、最大いくらの損失か</h3>
-					<p>段階を分けて、第1段階だけの金額を書きます。経営が背負うのはこの額です。全体金額と最大損失額は別物だと示すだけで、判断の重さが変わります。</p>
+					<p>段階ごとの未回収額に、中止時の契約義務・移行や復旧の費用を加えて試算します。回収できる資産や返金がある場合は区別し、対象と前提を明記します。</p>
 				</div>
 				<div class="article-numbered__item">
 					<p class="article-numbered__num">03</p>
@@ -210,7 +223,7 @@ const headings = [
 
 		<section class="article-section">
 			<h2 id="section-6">まとめ：判断してもらうとは、選べる状態にすること</h2>
-			<p>経営会議で投資が通らない原因は、提案の質でも経営の理解不足でもありません。選択肢が二択のままで、どちらにも決め手がない状態のまま持ち込まれていることです。</p>
+			<p>顧客管理システムへの投資提案では、期待効果に加え、現状維持・限定導入・全面導入を比較できる材料が必要です。</p>
 			<p>人が決められないのは、情報が足りないときではなく、選べる形になっていないときです。段階に分け、止める条件を先に書き、最大損失を明示する。これだけで、同じ提案が判断可能なものに変わります。</p>
 			<p>最初の一歩は、直近で保留になった提案を開いて、そこに撤退の条件が書かれているか確認することです。書かれていなければ、経営は判断できなかったのではなく、判断する材料を渡されていませんでした。</p>
 		</section>

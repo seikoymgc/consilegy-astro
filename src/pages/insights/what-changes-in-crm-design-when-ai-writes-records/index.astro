@@ -2,6 +2,8 @@
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
 import InsightHead from '../../../components/InsightHead.astro';
 import InsightByline from '../../../components/InsightByline.astro';
+import InsightEvidence from '../../../components/InsightEvidence.astro';
+import evidenceGuides from '../../../data/insight-evidence.json';
 import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
@@ -10,35 +12,38 @@ const pubDate = '2026-08-21';
 
 const title = 'AIが入力を代行する時代に、CRM設計は何が変わるか';
 const metaTitle = 'AIが入力を代行する時代に、CRM設計は何が変わるか｜ボトルネックは入力から定義へ | Consilegy';
-const metaDescription = 'AIが商談記録を自動生成すると、CRMの入力率は上がります。ただしパイプラインが読めるようになるとは限りません。入力コストが消えたときにボトルネックがどこへ移るのか、設計の何を先に決めるべきかを解説します。';
 const category = 'AI';
 
 const faqItems = [
 	{
 		q: 'CRMの入力自動化とは何ですか？',
-		a: 'CRMの入力自動化とは、商談の音声・会議の文字起こし・メールのやり取りをAIが解析し、商談記録・次回アクション・商談ステージなどを自動でCRMに書き込む仕組みです。営業担当者が手で入力する時間を大きく減らせます。一方で、何をどのステージとみなすかの判断基準は自動化されません。定義が曖昧なまま導入すると、埋まっているのに読めないデータが増えます。',
+		a: 'CRMの入力自動化とは、会議の文字起こしやメールなどから商談記録の候補を作り、システムへの記録を補助する仕組みです。対応範囲は製品によって異なり、要約や転記にも誤りが入り得ます。出典と確認手順を設計し、実際の作業時間と記録品質を確かめます。',
 	},
 	{
 		q: 'AIが入力すれば、CRMの定着問題は解決しますか？',
-		a: '入力されない問題は解決しますが、使われない問題は残ります。営業がCRMを見ない理由は入力の手間だけでなく、見ても次の判断が決まらないことにあります。入力率が100%になっても、ステージの意味が部門で揃っていなければ、パイプラインの数字は判断に使えません。',
+		a: '入力の手間を減らせる場合がありますが、記録の正しさや業務での利用は別途確認が必要です。営業がCRMを見ない理由は入力の手間だけでなく、見ても次の判断が決まらないことにあります。入力率が100%になっても、ステージの意味が部門で揃っていなければ、パイプラインの数字は判断に使えません。',
 	},
 	{
 		q: 'AIに任せてよい項目と、任せない方がよい項目の違いは何ですか？',
-		a: '起きた事実はAIに任せられます。誰と話したか、何を聞かれたか、いつ返答するかは記録から復元できるためです。一方、この案件を追うべきか、このステージに進んだとみなすかは判断です。組織が決めた基準がなければ、AIも決められません。事実は任せ、判断は基準を先に決める、という分け方が実務的です。',
+		a: '事実の抽出にも誤りが入り得るため、出典へ戻れることが前提です。金額・受注予定日・契約上の約束など、後工程への影響が大きい項目には確認者を置きます。自動確定する範囲は、誤記の影響と訂正方法を確認して決めます。',
 	},
 	{
 		q: '導入の順番はどうすべきですか？',
-		a: 'ステージの定義と、ステージが進む条件を先に決めてから自動化を入れてください。順番を逆にすると、曖昧な基準で大量のデータが生成され、あとから直す対象が増えます。定義は完璧である必要はなく、まず全員が同じ答えを言える状態まで揃えれば十分です。',
+		a: 'まずステージの定義と更新条件、記録の出典、確認者、更新権限を決めます。その後、一つの業務で試し、元の会話との照合、訂正率、確認にかかる時間を確かめてから広げます。',
 	},
 ];
+
+const evidenceGuide = evidenceGuides["what-changes-in-crm-design-when-ai-writes-records"];
+const evidenceDescription = evidenceGuide.answer.split("。").slice(0, 2).join("。") + "。";
 
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
 	headline: title,
-	description: metaDescription,
+	description: evidenceDescription,
 	datePublished: pubDate,
-	dateModified: pubDate,
+	dateModified: '2026-10-30',
+	citation: evidenceGuide.sources.map(source => new URL(source.url, 'https://consilegy.com').href),
 	author: { '@type': 'Person', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
 	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
 	url: `https://consilegy.com/insights/${slug}/`,
@@ -67,6 +72,10 @@ const breadcrumbSchema = {
 
 // 見出しの id と目次を揃える。公開後は既存の id を変更しない。
 const headings = [
+	{ id: "direct-answer", text: "最初に押さえる結論" },
+	{ id: "decision-checklist", text: evidenceGuide.caption },
+	{ id: "verification-steps", text: "自社で確かめる手順" },
+	{ id: "evidence-scope", text: "根拠と、この解説の適用範囲" },
 	{"id": "section-1", "text": "CRMの入力自動化とは"},
 	{"id": "section-2", "text": "入力率は上がった。会議の質問は変わらなかった"},
 	{"id": "section-3", "text": "AIが埋められるのは事実で、埋められないのは判断"},
@@ -81,7 +90,7 @@ const headings = [
 
 <BaseLayout
 	title={metaTitle}
-	description={metaDescription}
+	description={evidenceDescription}
 	hasTranslation={false}
 	ogType="article"
 	lang="ja"
@@ -106,7 +115,7 @@ const headings = [
 			<span class="article-cat">{category}</span>
 		</div>
 		<h1>AIが入力を代行する時代に、<br class="br-pc" />CRM設計は何が変わるか</h1>
-		<p class="article-desc">商談の記録が自動で入るようになり、入力率は9割を超えました。それでも週次のパイプライン会議では、相変わらず同じ質問が出ます。「この案件、本当に今月ですか」。埋まったことと、読めることは別です。</p>
+		<p class="article-desc">{evidenceDescription}</p>
 		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
@@ -125,6 +134,8 @@ const headings = [
 			/>
 		</div>
 
+		<InsightEvidence slug="what-changes-in-crm-design-when-ai-writes-records" />
+
 		<section class="article-section article-def" id="definition">
 			<h2 id="section-1">CRMの入力自動化とは</h2>
 			<p class="article-def__text"><strong>CRMの入力自動化とは</strong>、商談の音声・会議の文字起こし・メールのやり取りをAIが解析し、商談記録・次回アクション・商談ステージなどをCRMへ自動で書き込む仕組みです。営業担当者が手で入力する時間を大幅に減らせます。ただし、何をどのステージとみなすかという判断基準そのものは自動化されません。定義が曖昧なまま導入すると、項目は埋まっているのに判断には使えないデータが増えます。</p>
@@ -134,6 +145,8 @@ const headings = [
 
 		<section class="article-section">
 			<h2 id="section-2">入力率は上がった。会議の質問は変わらなかった</h2>
+
+			<p class="article-example-note"><strong>説明用の仮例：</strong>ここで描く場面・発言・数値は、論点を説明するための設定です。実在企業の支援実績や調査結果ではありません。</p>
 			<p>商談後の記録が自動で入るようになりました。文字起こしから要約が生成され、次回アクションも提案されます。以前は3割だった入力率が9割を超えました。営業からの評判も良好です。</p>
 			<p>ところが月曜の会議は、以前と同じ場面が続いています。</p>
 			<p>パイプラインを画面に出し、マネージャーが1件ずつ確認していく。「この案件、本当に今月ですか」「先方の決裁者は出てきましたか」。数字を見て判断するのではなく、聞いて確かめる時間です。</p>
@@ -195,7 +208,7 @@ const headings = [
 		<section class="article-section">
 			<h2 id="section-6">最初の一手：ステージの意味を、3人に聞いてみる</h2>
 			<p>営業・マーケ・マネージャーの3人に、同じ質問をしてください。「提案中とは、何が起きた状態ですか」。</p>
-			<p>3人の答えが揃っていれば、自動化を進めて問題ありません。揃っていなければ、そこが先です。ツールの検討より前に、30分の会話で決められます。</p>
+			<p>3人の答えが揃ったら、出典・確認者・更新権限も決めたうえで小さく自動化を試します。揃っていなければ、そこが先です。ツールの検討より前に、30分の会話で決められます。</p>
 			<p>揃っていなかったとしても、誰かが間違っているわけではありません。それぞれの立場から見て合理的な定義を持っているだけです。決めるべきなのは、どれが正しいかではなく、どれを共通の言葉にするかです。</p>
 		</section>
 
@@ -204,7 +217,7 @@ const headings = [
 		<section class="article-section">
 			<h2 id="section-7">まとめ：AIは入力を消すが、定義は消してくれない</h2>
 			<p>AIは仕事を奪うものではなく、仕事の進め方を変えるものです。CRMにおいては、入力という工程を消し、そのぶん定義という工程を前に押し出します。</p>
-			<p>入力率が上がっても会議の質問が変わらないなら、原因は最初から入力ではありませんでした。ステージの意味が揃っていないことが原因で、手間の問題がそれを隠していただけです。</p>
+			<p>入力率が上がっても判断が進まないなら、記録の正確さやステージの定義、顧客の意思決定についても確認が必要です。入力率の改善だけで他の問題まで解決したとは判断できません。</p>
 			<p>最初の一歩は、自動化の検討を止めることではありません。導入の順番を入れ替えて、ステージの定義を先に30分で決めることです。定義が揃っていれば、AIは強力に働きます。揃っていなければ、間違いを速く増やします。</p>
 		</section>
 

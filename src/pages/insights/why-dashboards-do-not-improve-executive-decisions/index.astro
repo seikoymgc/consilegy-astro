@@ -2,19 +2,25 @@
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
 import InsightHead from '../../../components/InsightHead.astro';
 import InsightByline from '../../../components/InsightByline.astro';
+import InsightEvidence from '../../../components/InsightEvidence.astro';
+import evidenceGuides from '../../../data/insight-evidence.json';
 import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
 const readTime = '約10分';
 
+const evidenceGuide = evidenceGuides["why-dashboards-do-not-improve-executive-decisions"];
+const evidenceDescription = evidenceGuide.answer.split("。").slice(0, 2).join("。") + "。";
+
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
 	headline: 'ダッシュボードを作っても意思決定が速くならない理由',
-	description: 'GA4・Looker Studio・BigQueryを整備済みのグローバル企業が「報告業務」から脱却し、経営層が短時間で現状把握できる環境を構築した事例から。問題は可視化不足ではなくKPI設計の問題です。',
+	description: evidenceDescription,
 	datePublished: pubDate,
-	dateModified: pubDate,
+	dateModified: '2026-10-30',
+	citation: evidenceGuide.sources.map(source => new URL(source.url, 'https://consilegy.com').href),
 	author: { '@type': 'Person', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
 	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
 	url: 'https://consilegy.com/insights/why-dashboards-do-not-improve-executive-decisions/',
@@ -33,6 +39,10 @@ const breadcrumbSchema = {
 
 // 見出しの id と目次を揃える。公開後は既存の id を変更しない。
 const headings = [
+	{ id: "direct-answer", text: "最初に押さえる結論" },
+	{ id: "decision-checklist", text: evidenceGuide.caption },
+	{ id: "verification-steps", text: "自社で確かめる手順" },
+	{ id: "evidence-scope", text: "根拠と、この解説の適用範囲" },
 	{"id": "section-1", "text": "あなたの組織は大丈夫か。5つの確認項目"},
 	{"id": "section-2", "text": "ダッシュボードが意思決定に使われない3つのパターン"},
 	{"id": "section-3", "text": "設計し直した後に何が変わったか"},
@@ -44,7 +54,7 @@ const headings = [
 
 <BaseLayout
 	title="ダッシュボードを作っても意思決定が速くならない理由 | Consilegy"
-	description="GA4・Looker Studio・BigQueryを整備済みのグローバル企業が「報告業務」から脱却し、経営層が短時間で現状把握できる環境を構築した事例から。問題は可視化不足ではなくKPI設計の問題です。"
+	description={evidenceDescription}
 	hasTranslation={false}
 	ogType="article"
 	lang="ja"
@@ -69,7 +79,7 @@ const headings = [
 			<span class="article-cat">KPI・BI</span>
 		</div>
 		<h1>なぜダッシュボードを整備しても、<br class="br-pc" />経営判断が速くならないのか</h1>
-		<p class="article-desc">GA4・Looker Studio・BigQueryを整備済みのグローバル企業が「報告業務」を脱却し、経営層が短時間で現状把握できる環境を構築した事例から。問題は可視化不足ではなく、KPI設計の問題です。</p>
+		<p class="article-desc">{evidenceDescription}</p>
 		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
@@ -88,6 +98,8 @@ const headings = [
 				aria-hidden="true"
 			/>
 		</div>
+
+		<InsightEvidence slug="why-dashboards-do-not-improve-executive-decisions" />
 
 		<div class="article-section">
 			<p><a href="/case-studies/ga4-kpi-design-global-analytics/">米国拠点のグローバルエンターテインメント企業（従業員約3,000名）</a>では、GA4による計測基盤はすでに導入されていました。Looker StudioとBigQueryも整備済みで、KPIダッシュボードも複数ありました。</p>
@@ -120,7 +132,7 @@ const headings = [
 					<p>広告・コンテンツ・セミナー・メールのそれぞれが最終的な商談・受注にどう寄与したか追えない場合、投資判断の根拠が存在しません。</p>
 				</li>
 			</ol>
-			<p class="article-callout">3つ以上当てはまる場合、問題はデータ不足ではありません。「何を判断するためのダッシュボードか」が設計されていないことが本質です。</p>
+			<p class="article-callout">当てはまる項目は、確認する順番を決める手がかりです。該当する数だけで原因は断定できません。実際のデータと作業を辿り、機能・設定・運用のどこで止まっているかを確かめてください。</p>
 		</div>
 
 		<div class="article-section">
@@ -189,7 +201,7 @@ const headings = [
 
 		<div class="article-section">
 			<h2 id="section-5">まとめ：ダッシュボードは「判断のため」に設計する</h2>
-			<p>ダッシュボードを整備しても意思決定が速くならない理由は、データ不足でも可視化不足でもありません。「何を判断するためのダッシュボードか」が設計されていないことが本質です。</p>
+			<p>ダッシュボードが経営判断に使われないときは、指標の不足だけでなく、誰が何を決める画面なのかを確認します。</p>
 			<p>KPIをビジネスゴールに逆算し、「この数字が変わったら何を変えるか」が即答できる状態を作ることが先です。ツールを増やす前に、指標の設計を見直してください。</p>
 		</div>
 

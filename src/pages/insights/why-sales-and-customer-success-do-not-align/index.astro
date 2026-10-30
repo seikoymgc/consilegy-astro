@@ -2,19 +2,25 @@
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
 import InsightHead from '../../../components/InsightHead.astro';
 import InsightByline from '../../../components/InsightByline.astro';
+import InsightEvidence from '../../../components/InsightEvidence.astro';
+import evidenceGuides from '../../../data/insight-evidence.json';
 import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
 const readTime = '約10分';
 
+const evidenceGuide = evidenceGuides["why-sales-and-customer-success-do-not-align"];
+const evidenceDescription = evidenceGuide.answer.split("。").slice(0, 2).join("。") + "。";
+
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
 	headline: '営業とカスタマーサクセスが連携できない理由｜RevOpsとレベニューアーキテクチャ',
-	description: '営業とカスタマーサクセスが分断される原因を、KPI設計・CRM・レベニューアーキテクチャの観点から解説します。',
+	description: evidenceDescription,
 	datePublished: pubDate,
-	dateModified: pubDate,
+	dateModified: '2026-10-30',
+	citation: evidenceGuide.sources.map(source => new URL(source.url, 'https://consilegy.com').href),
 	author: { '@type': 'Person', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
 	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
 	url: 'https://consilegy.com/insights/why-sales-and-customer-success-do-not-align/',
@@ -33,6 +39,10 @@ const breadcrumbSchema = {
 
 // 見出しの id と目次を揃える。公開後は既存の id を変更しない。
 const headings = [
+	{ id: "direct-answer", text: "最初に押さえる結論" },
+	{ id: "decision-checklist", text: evidenceGuide.caption },
+	{ id: "verification-steps", text: "自社で確かめる手順" },
+	{ id: "evidence-scope", text: "根拠と、この解説の適用範囲" },
 	{"id": "section-1", "text": "はじめに：「受注後」に構造が存在しない"},
 	{"id": "section-2", "text": "多くの会社では、「受注」で構造が切れている"},
 	{"id": "section-3", "text": "営業とCSが噛み合わない、典型的な3つのパターン"},
@@ -48,7 +58,7 @@ const headings = [
 
 <BaseLayout
 	title="営業とカスタマーサクセスが連携できない理由｜RevOpsとレベニューアーキテクチャ | Consilegy"
-	description="営業とカスタマーサクセスが分断される原因を、KPI設計・CRM・レベニューアーキテクチャの観点から解説します。"
+	description={evidenceDescription}
 	hasTranslation={false}
 	ogType="article"
 	lang="ja"
@@ -73,7 +83,7 @@ const headings = [
 			<span class="article-cat">カスタマーサクセス</span>
 		</div>
 		<h1>なぜ営業とカスタマーサクセスが<br class="br-pc" />分断されるのか</h1>
-		<p class="article-desc">受注まではうまくいっている。それなのに解約が増え、オンボーディングが荒れ、アップセルにつながらない。この問題の本質は、CS部門の問題ではなく、受注後の構造が設計されていないことにある。</p>
+		<p class="article-desc">{evidenceDescription}</p>
 		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
@@ -92,6 +102,8 @@ const headings = [
 				aria-hidden="true"
 			/>
 		</div>
+
+		<InsightEvidence slug="why-sales-and-customer-success-do-not-align" />
 
 		<!-- はじめに -->
 		<section class="article-section">
@@ -372,7 +384,7 @@ const headings = [
 		<!-- まとめ -->
 		<section class="article-section">
 			<h2 id="section-9">まとめ：営業とCSの分断は、収益構造の問題</h2>
-			<p>営業とCSが噛み合わない原因は、コミュニケーション不足ではありません。収益KPI分断・Customer Lifecycle未設計・レベニューアーキテクチャ不足・RevOps未整備が根本原因です。</p>
+			<p>営業とカスタマーサクセスの連携では、受注した内容に加え、顧客が実現したい成果と営業が約束した範囲を引き継ぎます。</p>
 			<p>だからこそ必要なのは部門改善ではなく、受注から継続までの構造を設計することです。収益は営業だけでなく、Customer Lifecycle全体で生まれます。</p>
 		</section>
 

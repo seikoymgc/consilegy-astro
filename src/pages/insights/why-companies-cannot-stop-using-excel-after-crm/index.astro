@@ -2,19 +2,25 @@
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
 import InsightHead from '../../../components/InsightHead.astro';
 import InsightByline from '../../../components/InsightByline.astro';
+import InsightEvidence from '../../../components/InsightEvidence.astro';
+import evidenceGuides from '../../../data/insight-evidence.json';
 import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
 const readTime = '約10分';
 
+const evidenceGuide = evidenceGuides["why-companies-cannot-stop-using-excel-after-crm"];
+const evidenceDescription = evidenceGuide.answer.split("。").slice(0, 2).join("。") + "。";
+
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
 	headline: 'CRMを導入してもExcelが止まらない理由',
-	description: '医療テック企業（150名）が10箇所以上に分散した顧客データをHubSpotへ統合し、データ管理業務65%削減・月100時間創出。CRMがあっても「Excelの方が使いやすい」が続く組織の構造問題を解説します。',
+	description: evidenceDescription,
 	datePublished: pubDate,
-	dateModified: pubDate,
+	dateModified: '2026-10-30',
+	citation: evidenceGuide.sources.map(source => new URL(source.url, 'https://consilegy.com').href),
 	author: { '@type': 'Person', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
 	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
 	url: 'https://consilegy.com/insights/why-companies-cannot-stop-using-excel-after-crm/',
@@ -33,6 +39,10 @@ const breadcrumbSchema = {
 
 // 見出しの id と目次を揃える。公開後は既存の id を変更しない。
 const headings = [
+	{ id: "direct-answer", text: "最初に押さえる結論" },
+	{ id: "decision-checklist", text: evidenceGuide.caption },
+	{ id: "verification-steps", text: "自社で確かめる手順" },
+	{ id: "evidence-scope", text: "根拠と、この解説の適用範囲" },
 	{"id": "section-1", "text": "あなたの組織は大丈夫か。5つの確認項目"},
 	{"id": "section-2", "text": "Excelが止まらない3つのパターン"},
 	{"id": "section-3", "text": "設計を変えた後に何が起きたか"},
@@ -44,7 +54,7 @@ const headings = [
 
 <BaseLayout
 	title="CRMを導入してもExcelが止まらない理由 | Consilegy"
-	description="医療テック企業（150名）が10箇所以上に分散した顧客データをHubSpotへ統合し、データ管理業務65%削減・月100時間創出。CRMがあっても「Excelの方が使いやすい」が続く組織の構造問題を解説します。"
+	description={evidenceDescription}
 	hasTranslation={false}
 	ogType="article"
 	lang="ja"
@@ -69,7 +79,7 @@ const headings = [
 			<span class="article-cat">CRM・MA・SFA</span>
 		</div>
 		<h1>CRMを導入しても<br class="br-pc" />Excelが止まらない理由</h1>
-		<p class="article-desc">医療テック企業（150名）が10箇所以上に分散した顧客データをHubSpotへ統合し、データ管理業務65%削減・月100時間創出。CRMがあっても「Excelの方が使いやすい」が続く組織の構造問題を解説します。</p>
+		<p class="article-desc">{evidenceDescription}</p>
 		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
@@ -88,6 +98,8 @@ const headings = [
 				aria-hidden="true"
 			/>
 		</div>
+
+		<InsightEvidence slug="why-companies-cannot-stop-using-excel-after-crm" />
 
 		<div class="article-section">
 			<p><a href="/case-studies/healthcare-data-integration-ops-enablement/">医療DXを推進する医療テック企業（従業員約150名）</a>では、急成長フェーズにおいて顧客情報が国内データベース・kintone・Excelなど10箇所以上に分散していました。</p>
@@ -121,7 +133,7 @@ const headings = [
 					<p>「入力しても自分の仕事に役立たない」という感覚が担当者にある場合、CRMが現場の業務判断を支援するツールになっていません。</p>
 				</li>
 			</ol>
-			<p class="article-callout">3つ以上当てはまる場合、問題は現場の意識でもCRMのUIでもありません。「CRMのデータが自動で最新状態に保たれ、現場がすぐに使える形で提供される設計」が存在していないことが本質です。</p>
+			<p class="article-callout">当てはまる項目は、確認する順番を決める手がかりです。該当する数だけで原因は断定できません。実際のデータと作業を辿り、機能・設定・運用のどこで止まっているかを確かめてください。</p>
 		</div>
 
 		<div class="article-section">
@@ -130,13 +142,13 @@ const headings = [
 				<li>
 					<strong>CRMへの入力が手動のみで、データが常に最新でない</strong>
 					<p>CRMのデータが担当者の手動入力だけに依存している場合、入力のタイミングによってCRMの情報が遅れます。「CRMより自分のExcelの方が最新」という状況が生まれると、Excelが実質的なデータの中心になります。</p>
-					<p>前述の医療テック企業では、複数ツールに分散していたデータをHubSpotに自動で統合する設計を構築しました。担当者が「CRMを開けば最新状態が確認できる」という信頼が生まれたことで、Excelの二重管理が解消されました。</p>
+					<p>前述の医療テック企業では、複数ツールに分散していたデータをHubSpotに自動で統合する設計を構築しました。公開事例では、データ管理・抽出業務の削減を報告しています。すべてのスプレッドシートを廃止したという意味ではありません。</p>
 					<p><strong>判断基準：</strong>「CRMのデータと手元のExcelのどちらが最新ですか」と担当者に聞いたとき、「CRM」と全員が答えるかどうかで確認できます。</p>
 				</li>
 				<li>
 					<strong>CRMから必要な形式でデータが取り出せない</strong>
 					<p>「施策用のリストが欲しい」「この条件の顧客を絞り込みたい」という要求に対して、CRMがそのまま答えられず毎回Excelで加工が必要な場合、Excelが「CRMのデータを使いやすくするためのツール」として機能し始めます。</p>
-					<p>前述の企業では、HubSpotのリスト機能とフィルタリングを適切に設計することで、「最新リストはHubSpotから直接取り出す」運用に移行しました。</p>
+					<p>参照事例では、顧客情報をHubSpotへ集約し、データ管理・抽出を自動化しました。自社では、必要な抽出条件と更新頻度を具体的に確認してください。</p>
 					<p><strong>判断基準：</strong>「来週の施策用のターゲットリストをCRMから直接出力できますか」を即答できるかどうかで確認できます。</p>
 				</li>
 				<li>
@@ -188,7 +200,7 @@ const headings = [
 
 		<div class="article-section">
 			<h2 id="section-5">まとめ：Excelが止まらない原因は「CRM設計の問題」</h2>
-			<p>CRMを導入してもExcelが止まらない原因は、現場の意識でもCRMのUIでもありません。</p>
+			<p>顧客管理システム導入後もスプレッドシートが残る理由を調べるには、その表が担う集計・承認・例外処理を分けて確認します。</p>
 			<p>「CRMのデータが常に最新でないこと」「CRMから必要な形式でデータが取り出せないこと」「CRMへの入力が現場の仕事を楽にしない設計になっていること」が構造的な原因です。</p>
 			<p>医療テック企業の事例が示すように、データ管理65%削減・月100時間の工数創出はExcelをなくすと決めた結果ではありません。「CRMが自動で最新状態になり、現場がすぐ使える設計」を整えたことで自然に実現しました。</p>
 			<p>最初の一歩は、CRMとExcelで二重管理されている情報を書き出すことから始まります。</p>

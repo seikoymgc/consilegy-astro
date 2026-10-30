@@ -1,0 +1,47 @@
+---
+import guides from '../data/insight-evidence.json';
+import '../styles/insight-evidence.css';
+type GuideSlug = keyof typeof guides;
+interface Props { slug: GuideSlug }
+const { slug } = Astro.props;
+const guide = guides[slug];
+---
+<div class="insight-evidence" data-insight-evidence={slug}>
+  <section class="article-section insight-evidence__answer" aria-labelledby="direct-answer">
+    <p class="insight-evidence__eyebrow">Quick Answer</p>
+    <h2 id="direct-answer">最初に押さえる結論</h2>
+    <p>{guide.answer}</p>
+  </section>
+  <section class="article-section" aria-labelledby="decision-checklist">
+    <h2 id="decision-checklist">{guide.caption}</h2>
+    <p>次の表は、原因を切り分けるためのConsilegyの確認観点です。該当数による診断や、効果の保証には使いません。</p>
+    <div class="insight-evidence-table" role="region" aria-label={guide.caption} tabindex="0">
+      <table>
+        <caption>{guide.caption}</caption>
+        <thead><tr><th scope="col">確認する軸</th><th scope="col">確かめること</th><th scope="col">対応の考え方</th></tr></thead>
+        <tbody>{guide.rows.map(([axis, question, action]) => <tr><th scope="row">{axis}</th><td>{question}</td><td>{action}</td></tr>)}</tbody>
+      </table>
+    </div>
+  </section>
+  <section class="article-section" aria-labelledby="verification-steps">
+    <h2 id="verification-steps">自社で確かめる手順</h2>
+    <ol>{guide.steps.map(step => <li>{step}</li>)}</ol>
+  </section>
+  <section class="article-section insight-evidence__sources" aria-labelledby="evidence-scope">
+    <h2 id="evidence-scope">根拠と、この解説の適用範囲</h2>
+    {guide.sources.length > 0 && <ul>{guide.sources.map(source => <li><a href={source.url}>{source.title}</a></li>)}</ul>}
+    <p>{guide.scope}</p>
+  </section>
+</div>
+<style>
+  .insight-evidence { margin: 2rem 0 3rem; }
+  .insight-evidence section { margin-bottom: 2.5rem; }
+  .insight-evidence__answer, .insight-evidence__sources { background: #F1F5F9; padding: clamp(1.25rem, 3vw, 2rem); border: 1px solid var(--color-border); border-radius: 6px; }
+  .insight-evidence__eyebrow { margin: 0 0 .5rem; color: var(--color-navy); font-size: 14px; font-weight: 700; letter-spacing: .08em; }
+  h2 { margin: 0 0 1rem; color: var(--color-navy); font-size: clamp(1.25rem, 2vw, 1.6rem); line-height: 1.5; }
+  p, li { color: var(--color-text); font-size: 1rem; line-height: 1.9; }
+  p { margin: .75rem 0; }
+  ul, ol { padding-left: 1.5rem; }
+  li + li { margin-top: .75rem; }
+  a { color: var(--color-primary); text-underline-offset: .2em; overflow-wrap: anywhere; }
+</style>

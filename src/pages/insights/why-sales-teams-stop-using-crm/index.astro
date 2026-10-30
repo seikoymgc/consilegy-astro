@@ -2,19 +2,25 @@
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
 import InsightHead from '../../../components/InsightHead.astro';
 import InsightByline from '../../../components/InsightByline.astro';
+import InsightEvidence from '../../../components/InsightEvidence.astro';
+import evidenceGuides from '../../../data/insight-evidence.json';
 import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
 const readTime = '約10分';
 
+const evidenceGuide = evidenceGuides["why-sales-teams-stop-using-crm"];
+const evidenceDescription = evidenceGuide.answer.split("。").slice(0, 2).join("。") + "。";
+
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
 	headline: 'CRMを導入しても現場が入力しなくなる理由',
-	description: 'データが10箇所以上に分散し、業務時間の約30%を手作業クレンジングに費やしていた医療テック企業が、HubSpot統合・自動化で月約100時間を創出。CRMが使われない問題は意識ではなく、設計の問題です。',
+	description: evidenceDescription,
 	datePublished: pubDate,
-	dateModified: pubDate,
+	dateModified: '2026-10-30',
+	citation: evidenceGuide.sources.map(source => new URL(source.url, 'https://consilegy.com').href),
 	author: { '@type': 'Person', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
 	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
 	url: 'https://consilegy.com/insights/why-sales-teams-stop-using-crm/',
@@ -33,6 +39,10 @@ const breadcrumbSchema = {
 
 // 見出しの id と目次を揃える。公開後は既存の id を変更しない。
 const headings = [
+	{ id: "direct-answer", text: "最初に押さえる結論" },
+	{ id: "decision-checklist", text: evidenceGuide.caption },
+	{ id: "verification-steps", text: "自社で確かめる手順" },
+	{ id: "evidence-scope", text: "根拠と、この解説の適用範囲" },
 	{"id": "section-1", "text": "あなたの組織は大丈夫か。5つの確認項目"},
 	{"id": "section-2", "text": "CRMが使われなくなる3つのパターン"},
 	{"id": "section-3", "text": "設計を変えた後に何が起きたか"},
@@ -44,7 +54,7 @@ const headings = [
 
 <BaseLayout
 	title="CRMを導入しても現場が入力しなくなる理由 | Consilegy"
-	description="データが10箇所以上に分散し、業務時間の約30%を手作業クレンジングに費やしていた医療テック企業が、HubSpot統合・自動化で月約100時間を創出。CRMが使われない問題は意識ではなく、設計の問題です。"
+	description={evidenceDescription}
 	hasTranslation={false}
 	ogType="article"
 	lang="ja"
@@ -69,7 +79,7 @@ const headings = [
 			<span class="article-cat">CRM・RevOps</span>
 		</div>
 		<h1>なぜCRMを導入しても、<br class="br-pc" />現場が入力しなくなるのか</h1>
-		<p class="article-desc">データが10箇所以上に分散し、業務時間の約30%を手作業クレンジングに費やしていた医療テック企業が、HubSpot統合・自動化で月約100時間を創出。CRMが使われない問題は意識ではなく、設計の問題です。</p>
+		<p class="article-desc">{evidenceDescription}</p>
 		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
@@ -88,6 +98,8 @@ const headings = [
 				aria-hidden="true"
 			/>
 		</div>
+
+		<InsightEvidence slug="why-sales-teams-stop-using-crm" />
 
 		<div class="article-section">
 			<p><a href="/case-studies/healthcare-data-integration-ops-enablement/">急成長フェーズの医療テック企業（従業員約150名）</a>では、顧客情報が国内DB・kintone・Excelなど10箇所以上に分散していました。</p>
@@ -121,7 +133,7 @@ const headings = [
 					<p>更新しなくても誰にも困らない状態が続いているなら、CRMが業務フローに接続されていません。</p>
 				</li>
 			</ol>
-			<p class="article-callout">3つ以上当てはまる場合、問題は意識の低さでも入力ルールの甘さでもありません。「入力したくなる構造」が設計されていないことが本質です。</p>
+			<p class="article-callout">当てはまる項目は、確認する順番を決める手がかりです。該当する数だけで原因は断定できません。実際のデータと作業を辿り、機能・設定・運用のどこで止まっているかを確かめてください。</p>
 		</div>
 
 		<div class="article-section">
@@ -188,7 +200,7 @@ const headings = [
 
 		<div class="article-section">
 			<h2 id="section-5">まとめ：CRMの定着は「設計の問題」</h2>
-			<p>CRMを導入しても現場が入力しなくなる原因は、意識の低さでも意欲の問題でもありません。</p>
+			<p>営業が顧客管理システムを使わなくなったときは、入力負荷、データへの信頼、日々の業務への有用性を分けて確認します。</p>
 			<p>「管理ツールとして設計されていること」「入力コストが利用メリットを上回っていること」「どこが正データか分からないこと」が構造的な原因です。</p>
 			<p>医療テック企業の事例が示すように、月約100時間の工数を創出できた背景には「入力したくなる構造」の設計がありました。</p>
 			<p>CRMが使われるかどうかは、ルールの強さではなく、設計の質で決まります。</p>

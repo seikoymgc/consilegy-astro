@@ -2,19 +2,25 @@
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
 import InsightHead from '../../../components/InsightHead.astro';
 import InsightByline from '../../../components/InsightByline.astro';
+import InsightEvidence from '../../../components/InsightEvidence.astro';
+import evidenceGuides from '../../../data/insight-evidence.json';
 import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
 const readTime = '約10分';
 
+const evidenceGuide = evidenceGuides["why-sales-meetings-become-number-reporting"];
+const evidenceDescription = evidenceGuide.answer.split("。").slice(0, 2).join("。") + "。";
+
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
 	headline: '営業会議が数字確認会になる理由',
-	description: 'ITバックオフィスSaaS企業（200名）が行動スコアリング・パイプライン可視化・引き渡し自動化を構築し、MQLを増やさずに商談への転換率が20%上がり、商談の件数も増加。会議で数字を読み上げるだけで終わる組織の構造問題を解説します。',
+	description: evidenceDescription,
 	datePublished: pubDate,
-	dateModified: pubDate,
+	dateModified: '2026-10-30',
+	citation: evidenceGuide.sources.map(source => new URL(source.url, 'https://consilegy.com').href),
 	author: { '@type': 'Person', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
 	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
 	url: 'https://consilegy.com/insights/why-sales-meetings-become-number-reporting/',
@@ -33,6 +39,10 @@ const breadcrumbSchema = {
 
 // 見出しの id と目次を揃える。公開後は既存の id を変更しない。
 const headings = [
+	{ id: "direct-answer", text: "最初に押さえる結論" },
+	{ id: "decision-checklist", text: evidenceGuide.caption },
+	{ id: "verification-steps", text: "自社で確かめる手順" },
+	{ id: "evidence-scope", text: "根拠と、この解説の適用範囲" },
 	{"id": "section-1", "text": "あなたの組織は大丈夫か。5つの確認項目"},
 	{"id": "section-2", "text": "営業会議が数字確認で終わる3つのパターン"},
 	{"id": "section-3", "text": "設計を変えた後に何が起きたか"},
@@ -44,7 +54,7 @@ const headings = [
 
 <BaseLayout
 	title="営業会議が数字確認会になる理由 | Consilegy"
-	description="ITバックオフィスSaaS企業（200名）が行動スコアリング・パイプライン可視化・引き渡し自動化を構築し、MQLを増やさずに商談への転換率が20%上がり、商談の件数も増加。会議で数字を読み上げるだけで終わる組織の構造問題を解説します。"
+	description={evidenceDescription}
 	hasTranslation={false}
 	ogType="article"
 	lang="ja"
@@ -69,7 +79,7 @@ const headings = [
 			<span class="article-cat">RevOps</span>
 		</div>
 		<h1>営業会議が<br class="br-pc" />数字確認会になる理由</h1>
-		<p class="article-desc">ITバックオフィスSaaS企業（200名）が行動スコアリング・パイプライン可視化・引き渡し自動化を構築し、MQLを増やさずに商談への転換率が20%上がり、商談の件数も増加。会議で数字を読み上げるだけで終わる組織の構造問題を解説します。</p>
+		<p class="article-desc">{evidenceDescription}</p>
 		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
@@ -88,6 +98,8 @@ const headings = [
 				aria-hidden="true"
 			/>
 		</div>
+
+		<InsightEvidence slug="why-sales-meetings-become-number-reporting" />
 
 		<div class="article-section">
 			<p><a href="/case-studies/hubspot-sales-handoff-lead-to-revenue/">ITバックオフィスSaaS企業（従業員約200名）</a>では、毎週の営業会議でパイプラインの数字を確認していました。「今月の見込みは〇〇円」「先週から△△円動いた」。</p>
@@ -120,7 +132,7 @@ const headings = [
 					<p>会議の結論が「次回も確認する」だけで、今週何をするかのアクションが明確にならない場合、会議が進捗管理ではなく状況確認の場になっています。</p>
 				</li>
 			</ol>
-			<p class="article-callout">3つ以上当てはまる場合、問題は会議のファシリテーションでも参加者の準備不足でもありません。「会議でリアルタイムに確認できるデータ」と「会議の決定を行動に変えるトリガー」が設計されていないことが本質です。</p>
+			<p class="article-callout">当てはまる項目は、確認する順番を決める手がかりです。該当する数だけで原因は断定できません。実際のデータと作業を辿り、機能・設定・運用のどこで止まっているかを確かめてください。</p>
 		</div>
 
 		<div class="article-section">
@@ -142,7 +154,7 @@ const headings = [
 				<li>
 					<strong>会議での決定がシステムに記録されず、次回の確認待ちになる</strong>
 					<p>会議で「この商談にフォローアップメールを送る」と決まっても、それがCRMのタスクとして記録されず担当者の記憶に依存する場合、フォローアップの速度と品質がブレます。</p>
-					<p>前述のSaaS企業では、営業に通知が届いたタイミングで次のアクションがCRM上にセットされる設計にしました。「次回会議で確認する」より「今日中にアクションが完了する」サイクルに変わりました。</p>
+					<p>参照事例では、一定スコアに達した際に必要な情報を営業へ自動通知しました。通知後の対応期限や次の行動は、営業側の受け入れ条件とともに決める必要があります。</p>
 					<p><strong>判断基準：</strong>今週の会議で決まったアクションが、翌日までにCRMのタスクとして全員に記録されているかどうかで確認できます。</p>
 				</li>
 			</ol>
@@ -188,7 +200,7 @@ const headings = [
 
 		<div class="article-section">
 			<h2 id="section-5">まとめ：営業会議は「データ設計の問題」</h2>
-			<p>営業会議が数字確認で終わる原因は、参加者の準備不足でも会議の進め方の問題でもありません。</p>
+			<p>営業会議を数字の報告で終わらせないためには、案件の説明よりも、顧客の次の行動と社内で必要な支援を決めます。</p>
 			<p>「会議に持ち込むデータが差分確認のみであること」「引き渡し基準が属人的でパイプラインの品質がブレること」「会議での決定がシステムに記録されないこと」が構造的な原因です。</p>
 			<p>SaaS企業の事例が示すように、転換率20%向上と商談件数の増加を実現したのは会議の形式改革ではなく、「リアルタイムに確認できるパイプラインデータ」と「行動から自動で次のアクションが設定される設計」でした。</p>
 			<p>最初の一歩は、今週の会議で「今週優先すべきリードTop5」をCRMから出すことから始まります。</p>

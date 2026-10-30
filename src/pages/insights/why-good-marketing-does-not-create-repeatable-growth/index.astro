@@ -2,19 +2,25 @@
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
 import InsightHead from '../../../components/InsightHead.astro';
 import InsightByline from '../../../components/InsightByline.astro';
+import InsightEvidence from '../../../components/InsightEvidence.astro';
+import evidenceGuides from '../../../data/insight-evidence.json';
 import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
 const readTime = '約10分';
 
+const evidenceGuide = evidenceGuides["why-good-marketing-does-not-create-repeatable-growth"];
+const evidenceDescription = evidenceGuide.answer.split("。").slice(0, 2).join("。") + "。";
+
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
 	headline: 'なぜ良いマーケティングをしていても再現性ある成長につながらないのか',
-	description: 'グローバルDTCブランド（約20,000名）が施策実行のリードタイムを70〜80%短縮し、外注依存から脱却した事例から。再現性ある成長が生まれない原因はマーケティングの質ではなく、改善サイクルが回せる実行基盤の問題です。',
+	description: evidenceDescription,
 	datePublished: pubDate,
-	dateModified: pubDate,
+	dateModified: '2026-10-30',
+	citation: evidenceGuide.sources.map(source => new URL(source.url, 'https://consilegy.com').href),
 	author: { '@type': 'Person', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
 	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
 	url: 'https://consilegy.com/insights/why-good-marketing-does-not-create-repeatable-growth/',
@@ -33,6 +39,10 @@ const breadcrumbSchema = {
 
 // 見出しの id と目次を揃える。公開後は既存の id を変更しない。
 const headings = [
+	{ id: "direct-answer", text: "最初に押さえる結論" },
+	{ id: "decision-checklist", text: evidenceGuide.caption },
+	{ id: "verification-steps", text: "自社で確かめる手順" },
+	{ id: "evidence-scope", text: "根拠と、この解説の適用範囲" },
 	{"id": "section-1", "text": "あなたの組織は大丈夫か。5つの確認項目"},
 	{"id": "section-2", "text": "再現性ある成長が生まれない3つのパターン"},
 	{"id": "section-3", "text": "設計を変えた後に何が起きたか"},
@@ -44,7 +54,7 @@ const headings = [
 
 <BaseLayout
 	title="なぜ良いマーケティングをしていても再現性ある成長につながらないのか | Consilegy"
-	description="グローバルDTCブランド（約20,000名）が施策実行のリードタイムを70〜80%短縮し、外注依存から脱却した事例から。再現性ある成長が生まれない原因はマーケティングの質ではなく、改善サイクルが回せる実行基盤の問題です。"
+	description={evidenceDescription}
 	hasTranslation={false}
 	ogType="article"
 	lang="ja"
@@ -69,7 +79,7 @@ const headings = [
 			<span class="article-cat">GTM・マーケティング戦略</span>
 		</div>
 		<h1>なぜ良いマーケティングをしていても<br class="br-pc" />再現性ある成長につながらないのか</h1>
-		<p class="article-desc">グローバルDTCブランド（約20,000名）が施策実行のリードタイムを70〜80%短縮し、外注依存から脱却した事例から。再現性ある成長が生まれない原因はマーケティングの質ではなく、改善サイクルが回せる実行基盤の問題です。</p>
+		<p class="article-desc">{evidenceDescription}</p>
 		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
@@ -88,6 +98,8 @@ const headings = [
 				aria-hidden="true"
 			/>
 		</div>
+
+		<InsightEvidence slug="why-good-marketing-does-not-create-repeatable-growth" />
 
 		<div class="article-section">
 			<p><a href="/case-studies/hubspot-cms-migration-marketing-operations/">グローバルDTCブランド（従業員約20,000名）</a>では、マーケティングの実行力は高い水準にありました。</p>
@@ -121,7 +133,7 @@ const headings = [
 					<p>キャンペーンの振り返りは行うが、学んだことを次の施策に反映できていない場合、改善が蓄積されていません。</p>
 				</li>
 			</ol>
-			<p class="article-callout">3つ以上当てはまる場合、問題はマーケティングの質でもアイデアの量でもありません。「試して改善できる速度」がボトルネックになっています。</p>
+			<p class="article-callout">当てはまる項目は、確認する順番を決める手がかりです。該当する数だけで原因は断定できません。実際のデータと作業を辿り、機能・設定・運用のどこで止まっているかを確かめてください。</p>
 		</div>
 
 		<div class="article-section">
@@ -131,7 +143,7 @@ const headings = [
 					<strong>施策の実行速度が改善サイクルのボトルネックになっている</strong>
 					<p>改善サイクルとは「試す→測る→改善する」の繰り返しです。</p>
 					<p>この一巡に数週間かかる場合、1か月に1回しか改善できません。一巡を数日にできる環境では、同じ期間に数倍〜10倍の改善サイクルを回せます。</p>
-					<p>前述のDTCブランドでは、実行速度を上げたことで学習速度が変わりました。再現性は「良い施策を打つこと」ではなく「多くの改善サイクルを回すこと」で生まれます。</p>
+					<p>参照事例では、施策を実行するまでの時間を短縮しました。検証の機会は作りやすくなりますが、学習の質や売上成長の再現性は、対象と条件を揃えて別途確認する必要があります。</p>
 					<p><strong>判断基準：</strong>直近3か月で、施策の仮説が実行・検証されたサイクルが何回あったかを数えると、速度の問題が可視化されます。</p>
 				</li>
 				<li>
@@ -190,7 +202,7 @@ const headings = [
 
 		<div class="article-section">
 			<h2 id="section-5">まとめ：再現性は「実行基盤の問題」</h2>
-			<p>良いマーケティングをしていても再現性ある成長につながらない原因は、施策の質でもマーケターの能力でもありません。</p>
+			<p>良いマーケティング施策を繰り返せないときは、企画の質と実行の制約を分けて確認します。</p>
 			<p>「施策実行速度が改善サイクルのボトルネックになっていること」「実行に外部依存があること」「施策・評価・改善が一つのチームに収まっていないこと」が構造的な原因です。</p>
 			<p>グローバルDTCブランドの事例が示すように、リードタイムを70〜80%短縮したことで改善サイクルの頻度が変わりました。</p>
 			<p>再現性は施策を変えることではなく、「試して改善できる速度」を変えることで生まれます。</p>

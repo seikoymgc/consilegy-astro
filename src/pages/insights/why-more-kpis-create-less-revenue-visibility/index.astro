@@ -2,19 +2,25 @@
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
 import InsightHead from '../../../components/InsightHead.astro';
 import InsightByline from '../../../components/InsightByline.astro';
+import InsightEvidence from '../../../components/InsightEvidence.astro';
+import evidenceGuides from '../../../data/insight-evidence.json';
 import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
 const readTime = '約10分';
 
+const evidenceGuide = evidenceGuides["why-more-kpis-create-less-revenue-visibility"];
+const evidenceDescription = evidenceGuide.answer.split("。").slice(0, 2).join("。") + "。";
+
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
 	headline: 'KPIが増えるほど売上が見えなくなる理由',
-	description: '各国・各部門でKPIが乱立していたグローバル企業が、共通指標を確立して改善サイクルを定着させた事例から。KPIが多いほど意思決定が遅くなる構造的な理由を解説します。',
+	description: evidenceDescription,
 	datePublished: pubDate,
-	dateModified: pubDate,
+	dateModified: '2026-10-30',
+	citation: evidenceGuide.sources.map(source => new URL(source.url, 'https://consilegy.com').href),
 	author: { '@type': 'Person', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
 	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
 	url: 'https://consilegy.com/insights/why-more-kpis-create-less-revenue-visibility/',
@@ -33,6 +39,10 @@ const breadcrumbSchema = {
 
 // 見出しの id と目次を揃える。公開後は既存の id を変更しない。
 const headings = [
+	{ id: "direct-answer", text: "最初に押さえる結論" },
+	{ id: "decision-checklist", text: evidenceGuide.caption },
+	{ id: "verification-steps", text: "自社で確かめる手順" },
+	{ id: "evidence-scope", text: "根拠と、この解説の適用範囲" },
 	{"id": "section-1", "text": "あなたの組織は大丈夫か。5つの確認項目"},
 	{"id": "section-2", "text": "KPIが増えるほど売上が見えなくなる3つのパターン"},
 	{"id": "section-3", "text": "KPI再設計後に何が変わったか"},
@@ -44,7 +54,7 @@ const headings = [
 
 <BaseLayout
 	title="KPIが増えるほど売上が見えなくなる理由 | Consilegy"
-	description="各国・各部門でKPIが乱立していたグローバル企業が、共通指標を確立して改善サイクルを定着させた事例から。KPIが多いほど意思決定が遅くなる構造的な理由を解説します。"
+	description={evidenceDescription}
 	hasTranslation={false}
 	ogType="article"
 	lang="ja"
@@ -69,7 +79,7 @@ const headings = [
 			<span class="article-cat">KPI・BI</span>
 		</div>
 		<h1>なぜ部門ごとにKPIが増えるほど、<br class="br-pc" />売上が見えなくなるのか</h1>
-		<p class="article-desc">各国・各部門でKPIが乱立していたグローバル企業が、共通指標を確立して改善サイクルを定着させた事例から。KPIが多いほど意思決定が遅くなる構造的な理由を解説します。</p>
+		<p class="article-desc">{evidenceDescription}</p>
 		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
@@ -88,6 +98,8 @@ const headings = [
 				aria-hidden="true"
 			/>
 		</div>
+
+		<InsightEvidence slug="why-more-kpis-create-less-revenue-visibility" />
 
 		<div class="article-section">
 			<p><a href="/case-studies/ga4-kpi-design-global-analytics/">米国拠点のグローバルエンターテインメント企業（従業員約3,000名）</a>では、GA4による計測基盤はすでに整備されていました。</p>
@@ -120,7 +132,7 @@ const headings = [
 					<p>レポート作成が目的化しており、本来やるべき分析・改善提案に時間を使えていない場合、KPI構造が複雑になりすぎています。</p>
 				</li>
 			</ol>
-			<p class="article-callout">3つ以上当てはまる場合、KPIの問題ではなくKPI設計の問題です。追う指標を増やすことが解決策ではありません。</p>
+			<p class="article-callout">当てはまる項目は、確認する順番を決める手がかりです。該当する数だけで原因は断定できません。実際のデータと作業を辿り、機能・設定・運用のどこで止まっているかを確かめてください。</p>
 		</div>
 
 		<div class="article-section">
@@ -129,7 +141,7 @@ const headings = [
 				<li>
 					<strong>KPIがビジネスゴールから逆算されていない</strong>
 					<p>「計測できるから追う」という積み重ねでKPIが増えた場合、その指標が売上にどう繋がるかの因果関係が設計されていません。</p>
-					<p>セッション数が上がっても受注が増えない、NPS改善しても継続率が変わらない。この「KPIと売上の断絶」は、KPIをゴールから逆算して設計していないときに必ず起きます。</p>
+					<p>セッション数が上がっても受注が増えない、NPS改善しても継続率が変わらない。指標と事業成果の関係を確認し、結果につながる仮説が妥当かを検証する必要があります。</p>
 					<p><strong>判断基準：</strong>現在のKPIリストを見て「このKPIが10%改善したら受注はいくら増えるか」に答えられるものが半数以下なら、逆算設計が不足しています。</p>
 				</li>
 				<li>
@@ -188,7 +200,7 @@ const headings = [
 
 		<div class="article-section">
 			<h2 id="section-5">まとめ：KPIは増やすより「絞る」ことが先</h2>
-			<p>KPIが増えるほど売上が見えなくなる理由は、データ不足でも分析不足でもありません。</p>
+			<p>KPIを増やして収益が見えにくくなるのは、指標同士の関係や定義が揃わないまま比較するときです。</p>
 			<p>ビジネスゴールから逆算されていない、定義が統一されていない、優先順位が設計されていない。この3つが重なると、どれだけデータを集めても意思決定は遅くなります。</p>
 			<p>新しいKPIを追加する前に、「今のKPIが売上にどう繋がるか」を1枚の紙に書いてください。書けない指標は、まだKPIではありません。</p>
 		</div>

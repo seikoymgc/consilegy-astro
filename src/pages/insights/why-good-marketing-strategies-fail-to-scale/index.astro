@@ -2,19 +2,25 @@
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
 import InsightHead from '../../../components/InsightHead.astro';
 import InsightByline from '../../../components/InsightByline.astro';
+import InsightEvidence from '../../../components/InsightEvidence.astro';
+import evidenceGuides from '../../../data/insight-evidence.json';
 import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
 const readTime = '約10分';
 
+const evidenceGuide = evidenceGuides["why-good-marketing-strategies-fail-to-scale"];
+const evidenceDescription = evidenceGuide.answer.split("。").slice(0, 2).join("。") + "。";
+
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
 	headline: '良いマーケティング施策がスケールしない理由｜BtoBの評価基準と引き継ぎ設計',
-	description: 'BtoBマーケティングで広告・ウェビナー・メール施策が単発成果で終わる理由を、HubSpotやSalesforceの運用・週次会議・営業フォローの具体シーンから解説します。',
+	description: evidenceDescription,
 	datePublished: pubDate,
-	dateModified: pubDate,
+	dateModified: '2026-10-30',
+	citation: evidenceGuide.sources.map(source => new URL(source.url, 'https://consilegy.com').href),
 	author: { '@type': 'Person', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
 	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
 	url: 'https://consilegy.com/insights/why-good-marketing-strategies-fail-to-scale/',
@@ -33,6 +39,10 @@ const breadcrumbSchema = {
 
 // 見出しの id と目次を揃える。公開後は既存の id を変更しない。
 const headings = [
+	{ id: "direct-answer", text: "最初に押さえる結論" },
+	{ id: "decision-checklist", text: evidenceGuide.caption },
+	{ id: "verification-steps", text: "自社で確かめる手順" },
+	{ id: "evidence-scope", text: "根拠と、この解説の適用範囲" },
 	{"id": "section-1", "text": "スケールしないとは、成果が増えないことではない"},
 	{"id": "section-2", "text": "週次会議で止まる3つのズレ"},
 	{"id": "section-3", "text": "HubSpotとSalesforceの画面で起きていること"},
@@ -47,7 +57,7 @@ const headings = [
 
 <BaseLayout
 	title="良いマーケティング施策がスケールしない理由｜BtoBの評価基準と引き継ぎ設計 | Consilegy"
-	description="BtoBマーケティングで広告・ウェビナー・メール施策が単発成果で終わる理由を、HubSpotやSalesforceの運用・週次会議・営業フォローの具体シーンから解説します。"
+	description={evidenceDescription}
 	hasTranslation={false}
 	ogType="article"
 	lang="ja"
@@ -72,7 +82,7 @@ const headings = [
 			<span class="article-cat">GTM・マーケティング戦略</span>
 		</div>
 		<h1>良いマーケティング施策が<br class="br-pc" />スケールしない理由</h1>
-		<p class="article-desc">BtoBマーケティングで広告・ウェビナー・メール施策が単発成果で終わる理由を、HubSpotやSalesforceの運用・週次会議・営業フォローの具体シーンから解説します。</p>
+		<p class="article-desc">{evidenceDescription}</p>
 		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
@@ -92,7 +102,11 @@ const headings = [
 			/>
 		</div>
 
+		<InsightEvidence slug="why-good-marketing-strategies-fail-to-scale" />
+
 		<div class="article-section">
+
+			<p class="article-example-note"><strong>説明用の仮例：</strong>ここで描く場面・発言・数値は、論点を説明するための設定です。実在企業の支援実績や調査結果ではありません。</p>
 			<p>月曜10時の営業・マーケティング会議。従業員50〜300名のBtoB SaaS企業で、マーケティング責任者が先週の施策結果を報告しています。</p>
 			<p>HubSpot上では、ウェビナーから86件、比較資料のダウンロードから42件の新規リードが増えています。広告のCPAも悪くありません。</p>
 			<p>ところがSalesforceで商談を見ると、新規作成は3件だけ。営業部長からは「このMQL、情報収集ばかりでは？」と聞かれ、CEOからは「来月も同じ予算を入れるべきか」と判断を求められる。</p>
@@ -149,7 +163,7 @@ const headings = [
 			<p>良い施策をスケールさせたいなら、「どの施策が良かったか」だけでなく、「どの条件で良かったか」まで残します。</p>
 			<ol class="article-numbered">
 				<li>
-					<strong>Before：ウェビナーAは参加86名、商談3件</strong>
+					<strong>Before（説明用の仮例）：ウェビナーAは参加86名、商談3件</strong>
 					<p>この記録だけでは次回も同じテーマで開催すべきか、広告を増やすべきか、営業フォローを変えるべきかが判断できません。参加者が増えた理由と商談になった理由が混ざっているからです。</p>
 				</li>
 				<li>

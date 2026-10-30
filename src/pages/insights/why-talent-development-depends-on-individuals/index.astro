@@ -2,6 +2,8 @@
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
 import InsightHead from '../../../components/InsightHead.astro';
 import InsightByline from '../../../components/InsightByline.astro';
+import InsightEvidence from '../../../components/InsightEvidence.astro';
+import evidenceGuides from '../../../data/insight-evidence.json';
 import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
@@ -10,17 +12,16 @@ const pubDate = '2026-08-21';
 
 const title = '育成が属人化する組織で起きていること｜「教える」を基準に変える';
 const metaTitle = '育成が属人化する組織で起きていること｜「教える」を基準に変える | Consilegy';
-const metaDescription = 'レビューが特定の人に集中し、赤入れがいつまでも減らない。育成が属人化する原因は指導力ではなく、良し悪しの判断基準が個人の頭の中にしかないことです。基準を外に出す手順を解説します。';
 const category = '組織';
 
 const faqItems = [
 	{
 		q: '育成の属人化とは何ですか？',
-		a: '育成の属人化とは、成果物の良し悪しを判断できる人が組織内で限られており、その人が確認しないと品質が保てない状態を指します。指導する時間が特定の個人に集中し、その人が不在になると品質が下がります。原因は指導力の差ではなく、判断基準が言語化されずに個人の経験の中にとどまっていることです。',
+		a: '育成の属人化とは、成果物の判断や指導が特定の人の経験に依存し、その人以外では同じ基準を使いにくい状態です。判断基準の未共有に加え、経験の差、仕事の難しさ、担当範囲も確認する必要があります。',
 	},
 	{
 		q: '教える時間を増やせば解決しますか？',
-		a: '解決しません。教える時間はメンバー数に比例して増えるため、人が増えるほど指導する側が先に限界を迎えます。必要なのは教える量を増やすことではなく、教えている内容のうち繰り返し出てくる判断基準を外に出し、本人が自分で確認できる形にすることです。',
+		a: '教える時間を増やすことが役立つ場合もありますが、レビューが集中する理由は別途確認します。同じ修正が繰り返される場合は、判断基準と例外時の相談条件を共有し、本人や別の担当者が確認できるようにする方法があります。',
 	},
 	{
 		q: '判断基準はどう言語化すればよいですか？',
@@ -28,17 +29,21 @@ const faqItems = [
 	},
 	{
 		q: '基準を決めると、メンバーの自由度が下がりませんか？',
-		a: '下がるのは判断の迷いであって、工夫の余地ではありません。基準があると、どこまでが守るべき線でどこからが自分で決めてよい範囲かが明確になります。基準がない状態のほうが、レビューで何を言われるか分からないぶん、挑戦しにくくなります。',
+		a: '守るべき品質条件と、本人が工夫してよい範囲を分けて伝えます。細部まで固定すると自由度を下げることもあるため、判断が分かれた事例を振り返り、基準そのものも更新します。',
 	},
 ];
+
+const evidenceGuide = evidenceGuides["why-talent-development-depends-on-individuals"];
+const evidenceDescription = evidenceGuide.answer.split("。").slice(0, 2).join("。") + "。";
 
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
 	headline: title,
-	description: metaDescription,
+	description: evidenceDescription,
 	datePublished: pubDate,
-	dateModified: pubDate,
+	dateModified: '2026-10-30',
+	citation: evidenceGuide.sources.map(source => new URL(source.url, 'https://consilegy.com').href),
 	author: { '@type': 'Person', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
 	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
 	url: `https://consilegy.com/insights/${slug}/`,
@@ -67,6 +72,10 @@ const breadcrumbSchema = {
 
 // 見出しの id と目次を揃える。公開後は既存の id を変更しない。
 const headings = [
+	{ id: "direct-answer", text: "最初に押さえる結論" },
+	{ id: "decision-checklist", text: evidenceGuide.caption },
+	{ id: "verification-steps", text: "自社で確かめる手順" },
+	{ id: "evidence-scope", text: "根拠と、この解説の適用範囲" },
 	{"id": "section-1", "text": "育成の属人化とは"},
 	{"id": "section-2", "text": "人を増やしたのに、自分の時間だけ減っていく"},
 	{"id": "section-3", "text": "「教える」を増やしても、限界が先に来る"},
@@ -80,7 +89,7 @@ const headings = [
 
 <BaseLayout
 	title={metaTitle}
-	description={metaDescription}
+	description={evidenceDescription}
 	hasTranslation={false}
 	ogType="article"
 	lang="ja"
@@ -105,7 +114,7 @@ const headings = [
 			<span class="article-cat">{category}</span>
 		</div>
 		<h1>育成が属人化する組織で<br class="br-pc" />起きていること</h1>
-		<p class="article-desc">メンバーが増えたのに、レビューの時間だけが増えていく。同じ指摘を毎回書いている。育成が属人化する原因は指導力ではなく、良し悪しを決める基準が誰かの頭の中にしかないことです。</p>
+		<p class="article-desc">{evidenceDescription}</p>
 		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
@@ -124,6 +133,8 @@ const headings = [
 			/>
 		</div>
 
+		<InsightEvidence slug="why-talent-development-depends-on-individuals" />
+
 		<section class="article-section article-def" id="definition">
 			<h2 id="section-1">育成の属人化とは</h2>
 			<p class="article-def__text"><strong>育成の属人化とは</strong>、成果物の良し悪しを判断できる人が組織内で限られており、その人が確認しないと品質が保てない状態を指します。指導にかかる時間が特定の個人に集中し、その人が休むと品質が下がります。原因は指導力の差ではなく、良し悪しを分ける判断基準が言語化されないまま、個人の経験の中にとどまっていることにあります。</p>
@@ -133,6 +144,8 @@ const headings = [
 
 		<section class="article-section">
 			<h2 id="section-2">人を増やしたのに、自分の時間だけ減っていく</h2>
+
+			<p class="article-example-note"><strong>説明用の仮例：</strong>ここで描く場面・発言・数値は、論点を説明するための設定です。実在企業の支援実績や調査結果ではありません。</p>
 			<p>チームが3人から6人になりました。仕事は回るはずでした。ところが半年たつと、レビューに使う時間が倍以上になっています。</p>
 			<p>提出物を開き、直し、意図を説明する。その説明は、先月も似た内容を誰かに書いています。</p>
 			<p>「ここは読み手が誰か分かるように」「この数字の出どころを入れて」。同じことを、毎回ちがう人に、毎回ゼロから書いている。</p>
@@ -147,7 +160,7 @@ const headings = [
 
 		<section class="article-section">
 			<h2 id="section-3">「教える」を増やしても、限界が先に来る</h2>
-			<p>教える時間は、メンバーの人数に比例して増えます。一方で、指導する側の時間は増えません。この2つを並べると、どこかで必ず交差します。</p>
+			<p>メンバーが増えても、指導を担当する人の時間が同じなら、レビューが集中する可能性があります。人数だけで負荷を推定せず、仕事の難しさや手戻りの理由も確認します。</p>
 			<p>交差したあとに起きることは、だいたい決まっています。</p>
 			<p>レビューが浅くなる。返すのが遅くなる。待たされる側は、確認を待つあいだ手が止まります。</p>
 			<p>品質を守るための工程が、進行を止める工程に変わります。</p>

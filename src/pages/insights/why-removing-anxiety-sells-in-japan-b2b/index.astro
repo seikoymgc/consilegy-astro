@@ -2,6 +2,8 @@
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
 import InsightHead from '../../../components/InsightHead.astro';
 import InsightByline from '../../../components/InsightByline.astro';
+import InsightEvidence from '../../../components/InsightEvidence.astro';
+import evidenceGuides from '../../../data/insight-evidence.json';
 import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
@@ -10,35 +12,38 @@ const pubDate = '2026-08-21';
 
 const title = '日本のB2Bで「不安を消す」ことが最大の販促になる理由';
 const metaTitle = '日本のB2Bで「不安を消す」ことが最大の販促になる理由｜稟議と商流の構造 | Consilegy';
-const metaDescription = '日本のB2B購買で決め手になるのは製品の良さではなく、稟議を通す人の不安が消えるかどうかです。稟議の構造とSIer・代理店を経由する商流から、何を用意すれば決裁が進むのかを解説します。';
 const category = '業界構造';
 
 const faqItems = [
 	{
 		q: '稟議とは何ですか？',
-		a: '稟議とは、担当者が作成した提案書を関係部署と上位者が順に確認し、承認印や承認操作を重ねて組織の意思決定とする手続きです。会議で議論して決めるのではなく、書面が人から人へ回る過程で合意が積み上がります。決裁者が最後に見る時点では、すでに複数の部署が目を通した状態になっています。',
+		a: '稟議とは、提案内容を関係者が文書やシステム上で確認し、組織として承認するための手続きです。承認の順序や段階、会議との組み合わせは企業や案件によって異なります。自社の想定で進めず、顧客側の手順を確認します。',
 	},
 	{
 		q: 'なぜ日本のB2Bでは検討期間が長くなるのですか？',
-		a: '購買の判断が個人ではなく組織に属しているためです。担当者は自分が納得するだけでは足りず、関係部署それぞれの懸念に答える材料を集める必要があります。検討開始から発注先決定までが3〜8か月の企業が63.6%、6か月以上も約4割を占めます（IDEATECH × 北川裕康氏 共同調査／2026年4月公表・n=307）。これは意思決定が遅いのではなく、合意を形成する工程が購買プロセスに組み込まれているということです。',
+		a: '複数部門の確認や予算・調達・契約の手続きが関わると、検討に時間がかかることがあります。IDEATECHの2026年4月公表調査は、300万円以上のB2B購買に2名以上で関与した307人が対象です。大型購買の結果を全案件に一般化せず、その商談の承認工程を確認します。',
 	},
 	{
 		q: '「不安を消す」とは具体的に何を用意することですか？',
-		a: '同規模・同業種の導入事例、想定していない事態が起きたときの対応、担当者が替わっても運用が続く設計の3つです。いずれも製品の性能ではなく、導入後に起きることの見通しを示す材料です。決裁者が知りたいのは製品が優れているかではなく、この判断で自分が責められないかどうかです。',
+		a: '関係者ごとの懸念を確認し、同業種の事例、移行方法、障害時の対応、運用の責任分担など必要な材料を用意することです。製品の機能・費用・適合性も併せて評価されるため、不安への対応だけで受注が決まるとは限りません。',
 	},
 	{
 		q: '代理店やSIerを経由すると何が変わりますか？',
-		a: '選定基準が導入実績に寄ります。提案する側にとって最も安全な材料が実績であり、買う側にとっても前例は稟議を通しやすい材料だからです。結果として、導入後の運用設計は提案にも稟議にも登場しにくくなります。ツールが入ったのに使われない状態は、この商流から生まれます。',
+		a: '提案や導入を担う関係者が増えるため、販売側・導入側・顧客側の役割と責任範囲を確認します。選定基準や運用支援の範囲は契約と案件によって異なり、代理店経由という理由だけで定着の可否は判断できません。',
 	},
 ];
+
+const evidenceGuide = evidenceGuides["why-removing-anxiety-sells-in-japan-b2b"];
+const evidenceDescription = evidenceGuide.answer.split("。").slice(0, 2).join("。") + "。";
 
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
 	headline: title,
-	description: metaDescription,
+	description: evidenceDescription,
 	datePublished: pubDate,
-	dateModified: pubDate,
+	dateModified: '2026-10-30',
+	citation: evidenceGuide.sources.map(source => new URL(source.url, 'https://consilegy.com').href),
 	author: { '@type': 'Person', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
 	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
 	url: `https://consilegy.com/insights/${slug}/`,
@@ -67,6 +72,10 @@ const breadcrumbSchema = {
 
 // 見出しの id と目次を揃える。公開後は既存の id を変更しない。
 const headings = [
+	{ id: "direct-answer", text: "最初に押さえる結論" },
+	{ id: "decision-checklist", text: evidenceGuide.caption },
+	{ id: "verification-steps", text: "自社で確かめる手順" },
+	{ id: "evidence-scope", text: "根拠と、この解説の適用範囲" },
 	{"id": "section-1", "text": "稟議とは"},
 	{"id": "section-2", "text": "商談は良かったのに、そこから3か月動かない"},
 	{"id": "section-3", "text": "稟議は「買う理由」ではなく「買って怒られない理由」を集める場"},
@@ -82,7 +91,7 @@ const headings = [
 
 <BaseLayout
 	title={metaTitle}
-	description={metaDescription}
+	description={evidenceDescription}
 	hasTranslation={false}
 	ogType="article"
 	lang="ja"
@@ -108,7 +117,7 @@ const headings = [
 			<span class="article-cat">{category}</span>
 		</div>
 		<h1>日本のB2Bで「不安を消す」ことが<br class="br-pc" />最大の販促になる理由</h1>
-		<p class="article-desc">「製品は良いと思います。ただ、上を通せる材料がなくて」。日本のB2Bで最後に聞くのは、たいていこの言葉です。決め手は製品の優劣ではなく、稟議を回す人の不安が消えるかどうかにあります。</p>
+		<p class="article-desc">{evidenceDescription}</p>
 		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
@@ -128,6 +137,8 @@ const headings = [
 			/>
 		</div>
 
+		<InsightEvidence slug="why-removing-anxiety-sells-in-japan-b2b" />
+
 		<!-- ★ 定義ブロック（LLMO必須・削除禁止） -->
 		<section class="article-section article-def" id="definition">
 			<h2 id="section-1">稟議とは</h2>
@@ -139,6 +150,8 @@ const headings = [
 		<!-- はじめに -->
 		<section class="article-section">
 			<h2 id="section-2">商談は良かったのに、そこから3か月動かない</h2>
+			<p class="article-example-note"><strong>説明用の仮例：</strong>ここで描く場面・発言・数値は、論点を説明するための設定です。実在企業の支援実績や調査結果ではありません。</p>
+
 			<p>デモの反応は良く、担当者も前向きでした。質問も具体的で、社内で使う場面を想像しているのが分かります。</p>
 			<p>ところが見積もりを出したあと、返信の間隔が少しずつ空いていきます。3か月後、ようやく届いた返信にはこう書かれています。「製品は良いと思います。ただ、上を通せる材料がなくて」。</p>
 			<p>ここで「検討が進まなかった」と記録して終わると、次も同じことが起きます。</p>
@@ -146,7 +159,7 @@ const headings = [
 			<div class="article-callout">
 				<p><strong>日本のB2B購買で決裁者が判断しているのは「これは良い製品か」ではなく、「これを承認して、自分が責められないか」です。</strong>だから購買を動かす最大の変数は、製品の魅力ではなく、判断する人の不安がどれだけ消えているかになります。</p>
 			</div>
-			<p>日本では、発注までの承認・稟議が2段階以上の企業が8割を超えます。検討開始から発注先決定までは3〜8か月の企業が63.6%、6か月以上も約4割を占めます（IDEATECH × 北川裕康氏 共同調査／2026年4月公表・n=307）。</p>
+			<p>株式会社IDEATECHと北川裕康氏の2026年4月公表調査では、発注までの承認・稟議が2段階以上という回答が8割を超えました。対象は、300万円以上のB2B購買に2名以上で関与した307人です。日本企業全体や小口購買の割合を示すものではありません。</p>
 			<p>承認の段が重なるほど、目を通す人と懸念の種類が増えます。担当者は自分が納得するだけでは足りず、関係部署それぞれの懸念に答える材料を集める工程に入ります。</p>
 		</section>
 
@@ -204,7 +217,7 @@ const headings = [
 			<p>両者の利害が一致するため、<strong>提案書の中心は「どれだけ入っているか」になり、「入れたあとどう回すか」は後景に退きます</strong>。</p>
 			<p>結果として、運用設計は提案にも稟議にも登場しにくくなります。</p>
 			<p>誰かが手を抜いたわけではなく、その工程を担当する人が商流の中に存在していません。売り手は導入までを担当し、買い手は稟議を通すまでを担当し、そこから先は空白になります。</p>
-			<p>ツールを入れたのに使われないという状態は、この空白から生まれます。従業員51〜5,000名の日本企業で、2024年度のCRM（顧客管理システム）導入率は37.2%にとどまります（HubSpot Japan「日本の営業に関する意識・実態調査2025」／2025年2月発表・売り手n=1,545）。</p>
+			<p>導入後の運用を誰が担うかが未定義なら、利用に必要な支援が不足する可能性があります。ただし、システムの導入率だけから、導入済み企業で使われているかどうかは判断できません。</p>
 			<p>導入が進まないことも、導入済みの企業で定着に課題が残ることも、製品の品質だけでは説明できません。</p>
 			<p>私たちが販売代理店をやらないのは、この構造から距離を置きたいからです。導入本数で収益を得ていると、活かす判断と止める判断を同じ基準で出せなくなります。</p>
 		</section>
@@ -242,7 +255,7 @@ const headings = [
 		<!-- まとめ -->
 		<section class="article-section">
 			<h2 id="section-7">まとめ：不安を消すことは、値引きより強い</h2>
-			<p>日本のB2Bで商談が止まる原因は、担当者の熱意不足でも製品力の差でもありません。稟議のルートに立つ人が「承認して自分が責められないか」を判断しているのに、売り手が「どれだけ良いか」を説明し続けているという、問いと答えのすれ違いです。</p>
+			<p>複数部門が関わるB2B購買では、製品の利点だけでなく、導入後の運用・移行・責任分担を説明する必要があります。</p>
 			<p>不安を消す材料は、値引きよりも効きます。価格を下げても責任の所在は変わらず、前例も増えないからです。</p>
 			<p>同規模の事例・引き返し方・担当者交代への備え。この3つは、機能を1つ足すよりも決裁を前に進めます。</p>
 			<p>最初の一歩は、直近で止まった商談を1件開いて、相手が最後に言った言葉を読み返すことです。「検討します」ではなく「上を通せる材料がなくて」と書かれていたなら、足りなかったのは製品ではありません。</p>
@@ -253,7 +266,7 @@ const headings = [
 		<section class="article-section">
 			<h2 id="section-8">参考情報</h2>
 			<ul>
-				<li><a href="https://www.atpress.ne.jp/news/8527090" target="_blank" rel="noopener noreferrer">IDEATECH × 北川裕康氏「日本のBtoB大型購買に関する実態調査」（2026年4月公表）</a></li>
+				<li><a href="https://www.atpress.ne.jp/news/8527090" target="_blank" rel="noopener noreferrer">株式会社IDEATECH × 北川裕康氏「日本のBtoB大型購買に関する実態調査」（2026年4月公表）</a>。調査元：<a href="https://ideatech.jp/">株式会社IDEATECH</a></li>
 				<li><a href="https://www.hubspot.jp/company-news/stateofsales-20250218" target="_blank" rel="noopener noreferrer">HubSpot Japan「日本の営業に関する意識・実態調査2025」（2025年2月18日発表）</a></li>
 			</ul>
 		</section>

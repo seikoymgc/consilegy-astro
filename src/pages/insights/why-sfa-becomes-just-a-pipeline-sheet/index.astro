@@ -2,19 +2,25 @@
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
 import InsightHead from '../../../components/InsightHead.astro';
 import InsightByline from '../../../components/InsightByline.astro';
+import InsightEvidence from '../../../components/InsightEvidence.astro';
+import evidenceGuides from '../../../data/insight-evidence.json';
 import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
 const readTime = '約10分';
 
+const evidenceGuide = evidenceGuides["why-sfa-becomes-just-a-pipeline-sheet"];
+const evidenceDescription = evidenceGuide.answer.split("。").slice(0, 2).join("。") + "。";
+
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
 	headline: 'SFAがパイプライン管理表になってしまう理由',
-	description: 'DXコンサルティング企業（150名）がHubSpot・Salesforce・Sansan・GA4を統合し、問い合わせ前から商談までの行動を同じ画面で追える状態、分析工数30%削減を実現。SFAが「入力するだけのツール」に止まる組織の構造問題を解説します。',
+	description: evidenceDescription,
 	datePublished: pubDate,
-	dateModified: pubDate,
+	dateModified: '2026-10-30',
+	citation: evidenceGuide.sources.map(source => new URL(source.url, 'https://consilegy.com').href),
 	author: { '@type': 'Person', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
 	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
 	url: 'https://consilegy.com/insights/why-sfa-becomes-just-a-pipeline-sheet/',
@@ -33,6 +39,10 @@ const breadcrumbSchema = {
 
 // 見出しの id と目次を揃える。公開後は既存の id を変更しない。
 const headings = [
+	{ id: "direct-answer", text: "最初に押さえる結論" },
+	{ id: "decision-checklist", text: evidenceGuide.caption },
+	{ id: "verification-steps", text: "自社で確かめる手順" },
+	{ id: "evidence-scope", text: "根拠と、この解説の適用範囲" },
 	{"id": "section-1", "text": "あなたの組織は大丈夫か。5つの確認項目"},
 	{"id": "section-2", "text": "SFAがパイプライン管理表になる3つのパターン"},
 	{"id": "section-3", "text": "設計を変えた後に何が起きたか"},
@@ -44,7 +54,7 @@ const headings = [
 
 <BaseLayout
 	title="SFAがパイプライン管理表になってしまう理由 | Consilegy"
-	description="DXコンサルティング企業（150名）がHubSpot・Salesforce・Sansan・GA4を統合し、問い合わせ前から商談までの行動を同じ画面で追える状態、分析工数30%削減を実現。SFAが「入力するだけのツール」に止まる組織の構造問題を解説します。"
+	description={evidenceDescription}
 	hasTranslation={false}
 	ogType="article"
 	lang="ja"
@@ -69,7 +79,7 @@ const headings = [
 			<span class="article-cat">CRM・MA・SFA</span>
 		</div>
 		<h1>SFAがパイプライン<br class="br-pc" />管理表になってしまう理由</h1>
-		<p class="article-desc">DXコンサルティング企業（150名）がHubSpot・Salesforce・Sansan・GA4を統合し、問い合わせ前から商談までの行動を同じ画面で追える状態、分析工数30%削減を実現。SFAが「入力するだけのツール」に止まる組織の構造問題を解説します。</p>
+		<p class="article-desc">{evidenceDescription}</p>
 		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
@@ -89,12 +99,14 @@ const headings = [
 			/>
 		</div>
 
+		<InsightEvidence slug="why-sfa-becomes-just-a-pipeline-sheet" />
+
 		<div class="article-section">
 			<p><a href="/case-studies/marketing-data-integration-hubspot-migration/">国内トップクラスのDX知見を持つコンサルティング企業（従業員約150名）</a>では、Salesforceを中心にした営業管理体制を構築していました。パイプラインの数字は入力されていました。</p>
 			<p>しかし、Webサイトでの顧客行動はCRMに反映されず、MAのスコアリング情報は商談レコードにつながっていませんでした。Sansanの名刺データとSalesforceの顧客データは、別物として存在していました。</p>
 			<p>SFAは「入力する場所」として機能していましたが、「顧客の状態を判断する場所」にはなっていませんでした。</p>
 			<p>MA移行・データパイプライン再設計・Web統合を経て、<strong>問い合わせ前から商談までの行動を同じ画面で追える状態、分析工数30%削減・全ツールの整合性確立を実現しました</strong>。</p>
-			<p>SFAを変えたのではなく、「SFAに流れ込むデータの設計」を変えたことで、SFAが意思決定の中心として機能するようになりました。</p>
+			<p>この事例では、MarketoからHubSpotへの移行と既存システムの連携再設計を実施しました。営業支援システムだけの変更で成果が出た事例ではありません。</p>
 		</div>
 
 		<div class="article-section">
@@ -106,7 +118,7 @@ const headings = [
 				</li>
 				<li>
 					<strong>商談レコードに「顧客がどこから来たか」が記録されていない</strong>
-					<p>どのマーケティング施策・どのチャネルから来た顧客かがSFAの商談に紐づいていない場合、施策と受注の因果関係が見えません。</p>
+					<p>どのマーケティング施策・どのチャネルから来た顧客かがSFAの商談に紐づいていない場合、施策と受注の対応を追いにくくなります。データを結ぶだけでは因果関係を証明できません。</p>
 				</li>
 				<li>
 					<strong>SFAのデータを使って「次にどのリードを優先すべきか」を判断できない</strong>
@@ -121,7 +133,7 @@ const headings = [
 					<p>SFAからレポートを作るたびに手動でデータを抽出・整形している場合、SFAが自動でレポーティングできる設計になっていません。</p>
 				</li>
 			</ol>
-			<p class="article-callout">3つ以上当てはまる場合、問題はSFAの機能でも入力率でもありません。「SFAに流れ込むデータの設計」が存在していないことが本質です。</p>
+			<p class="article-callout">当てはまる項目は、確認する順番を決める手がかりです。該当する数だけで原因は断定できません。実際のデータと作業を辿り、機能・設定・運用のどこで止まっているかを確かめてください。</p>
 		</div>
 
 		<div class="article-section">
@@ -130,19 +142,19 @@ const headings = [
 				<li>
 					<strong>SFAが「報告のためのシステム」として機能している</strong>
 					<p>「上司に報告するために入力する」という認識が現場に定着している場合、SFAは情報収集ツールとして機能しますが、担当者が活用するツールにはなりません。</p>
-					<p>前述のコンサルティング企業では、SFAへの入力は行われていましたが、その情報が「次のアクションを判断する材料」として返ってこない設計でした。Web行動・MAスコア・名刺情報がSFAに統合されたことで、担当者が「SFAを見ると次に何をすべきか分かる」状態になりました。</p>
+					<p>前述のコンサルティング企業では、SFAへの入力は行われていましたが、その情報が「次のアクションを判断する材料」として返ってこない設計でした。公開事例で確認できるのは、HubSpotへの情報統合とSalesforce・Sansanの連携再設計です。案件画面で何を判断できるかは、利用目的に沿って別途設計します。</p>
 					<p><strong>判断基準：</strong>「SFAを開くと、今日優先すべきアクションが分かる」と担当者が感じているかどうかで確認できます。</p>
 				</li>
 				<li>
 					<strong>SFAに流れ込むデータが「手入力のみ」で完結している</strong>
 					<p>担当者が手動で入力した情報だけがSFAに存在し、Webサイトでの行動・MAでのスコアリング・名刺管理ツールの接点情報が自動で統合されていない場合、SFAのデータは「担当者が知っていること」しか反映しません。</p>
-					<p>前述の企業では、Sansan・MA・GA4のデータがSalesforceに自動で連携される設計を構築しました。担当者が意識しなくても顧客の最新状態がSFAに反映される状態になりました。</p>
+					<p>参照事例ではWeb・マーケティング自動化・顧客情報をHubSpotへ統合し、SalesforceとSansanの連携を再設計しました。すべての情報がSalesforceへ自動で入る設計と同一ではありません。</p>
 					<p><strong>判断基準：</strong>「昨日顧客がWebサイトの価格ページを見た」という情報がSFAの商談レコードに自動で入っているかどうかで確認できます。</p>
 				</li>
 				<li>
 					<strong>SFAのデータをレポートするために毎回集計が必要</strong>
 					<p>SFAに入力されているデータを活用するために、毎回Excelにエクスポートして集計する工数が発生している場合、SFAが自動でインサイトを提供できる設計になっていません。</p>
-					<p>前述の企業では、自動化ロジックをシンプルに再設計し、分析工数を約30%削減しました。「SFAのデータがそのままレポートになる」設計が、活用頻度を上げます。</p>
+					<p>参照事例は、自動化ロジックの再設計を含む基盤全体の改善として、分析工数を約30%削減したと報告しています。営業支援システムの利用頻度だけを測った成果ではありません。</p>
 					<p><strong>判断基準：</strong>「今月の商談別の進捗レポート」を追加作業なしでSFAから出せるかどうかで確認できます。</p>
 				</li>
 			</ol>
@@ -150,7 +162,7 @@ const headings = [
 
 		<div class="article-section">
 			<h2 id="section-3">設計を変えた後に何が起きたか</h2>
-			<p>前述のコンサルティング企業では、SFAを変えるのではなく、「SFAに流れ込むデータを自動で統合する設計」から始めました。その結果、以下の変化が起きました。</p>
+			<p>前述のコンサルティング企業では、HubSpot移行とSalesforce・Sansanの連携再設計を一体で進めました。その結果、以下の変化が起きました。</p>
 			<ol class="article-numbered">
 				<li>
 					<strong>問い合わせ前から商談までの行動を同じ画面で追える状態を実現</strong>
@@ -165,7 +177,7 @@ const headings = [
 					<p>担当者がSFAを開くと顧客の最新状態が分かり、次のアクションを判断できる状態が整いました。</p>
 				</li>
 			</ol>
-			<p class="article-callout">SFAの機能を変えたのではなく、「SFAに流れ込むデータの設計」を変えました。</p>
+			<p class="article-callout">HubSpotを中心とする情報の統合と、Salesforce・Sansanの連携を再設計した事例です。</p>
 		</div>
 
 		<div class="article-section">
@@ -189,9 +201,9 @@ const headings = [
 
 		<div class="article-section">
 			<h2 id="section-5">まとめ：SFAの問題は「データフロー設計の問題」</h2>
-			<p>SFAがパイプライン管理表になってしまう原因は、SFAの機能不足でも入力率の問題でもありません。</p>
+			<p>営業支援システムが案件金額の一覧だけになるときは、顧客の課題、進行条件、次の行動が案件に結び付いているかを確認します。</p>
 			<p>「SFAが報告のためのシステムになっていること」「SFAに流れ込むデータが手入力のみであること」「SFAのデータをレポートするたびに集計が必要なこと」が構造的な原因です。</p>
-			<p>DXコンサルティング企業の事例が示すように、問い合わせ前から商談までの行動を同じ画面で追える状態、分析工数30%削減は、SFAを変えたのではなく「Web・MA・名刺管理のデータがSFAに自動で統合される設計」を整えたことで実現しました。</p>
+			<p>DXコンサルティング企業の事例では、HubSpotへの情報統合、Salesforce・Sansanの連携再設計、自動化ロジックの整理を実施しました。分析工数の約30%削減は、この基盤全体の改善として報告されています。</p>
 			<p>最初の一歩は、SFAの商談レコードで標準の流入元の項目が埋まっているかを確認することから始まります。</p>
 		</div>
 

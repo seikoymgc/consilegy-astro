@@ -2,19 +2,25 @@
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
 import InsightHead from '../../../components/InsightHead.astro';
 import InsightByline from '../../../components/InsightByline.astro';
+import InsightEvidence from '../../../components/InsightEvidence.astro';
+import evidenceGuides from '../../../data/insight-evidence.json';
 import InsightContents from '../../../components/InsightContents.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const pubDate = '2026-05-07';
 const readTime = '約10分';
 
+const evidenceGuide = evidenceGuides["why-salesforce-implementations-fail"];
+const evidenceDescription = evidenceGuide.answer.split("。").slice(0, 2).join("。") + "。";
+
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Article',
 	headline: 'Salesforce導入が失敗する理由',
-	description: 'DXコンサルティング企業（150名）がMarketo→HubSpot移行と同時にデータパイプラインを再設計し、問い合わせ前から商談までの行動を同じ画面で追える状態、分析工数30%削減を実現。「入れたけど使われない」が繰り返される組織の構造問題を解説します。',
+	description: evidenceDescription,
 	datePublished: pubDate,
-	dateModified: pubDate,
+	dateModified: '2026-10-30',
+	citation: evidenceGuide.sources.map(source => new URL(source.url, 'https://consilegy.com').href),
 	author: { '@type': 'Person', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
 	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
 	url: 'https://consilegy.com/insights/why-salesforce-implementations-fail/',
@@ -33,6 +39,10 @@ const breadcrumbSchema = {
 
 // 見出しの id と目次を揃える。公開後は既存の id を変更しない。
 const headings = [
+	{ id: "direct-answer", text: "最初に押さえる結論" },
+	{ id: "decision-checklist", text: evidenceGuide.caption },
+	{ id: "verification-steps", text: "自社で確かめる手順" },
+	{ id: "evidence-scope", text: "根拠と、この解説の適用範囲" },
 	{"id": "section-1", "text": "あなたの組織は大丈夫か。5つの確認項目"},
 	{"id": "section-2", "text": "Salesforce導入が失敗する3つのパターン"},
 	{"id": "section-3", "text": "設計を変えた後に何が起きたか"},
@@ -44,7 +54,7 @@ const headings = [
 
 <BaseLayout
 	title="Salesforce導入が失敗する理由 | Consilegy"
-	description="DXコンサルティング企業（150名）がMarketo→HubSpot移行と同時にデータパイプラインを再設計し、問い合わせ前から商談までの行動を同じ画面で追える状態、分析工数30%削減を実現。「入れたけど使われない」が繰り返される組織の構造問題を解説します。"
+	description={evidenceDescription}
 	hasTranslation={false}
 	ogType="article"
 	lang="ja"
@@ -69,7 +79,7 @@ const headings = [
 			<span class="article-cat">CRM・MA・SFA</span>
 		</div>
 		<h1>Salesforce導入が<br class="br-pc" />失敗する理由</h1>
-		<p class="article-desc">DXコンサルティング企業（150名）がMarketo→HubSpot移行と同時にデータパイプラインを再設計し、問い合わせ前から商談までの行動を同じ画面で追える状態、分析工数30%削減を実現。「入れたけど使われない」が繰り返される組織の構造問題を解説します。</p>
+		<p class="article-desc">{evidenceDescription}</p>
 		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
 	</header>
 
@@ -88,6 +98,8 @@ const headings = [
 				aria-hidden="true"
 			/>
 		</div>
+
+		<InsightEvidence slug="why-salesforce-implementations-fail" />
 
 		<div class="article-section">
 			<p><a href="/case-studies/marketing-data-integration-hubspot-migration/">国内トップクラスのDX知見を持つコンサルティング企業（従業員約150名）</a>では、Marketoによる高度なMA運用とSalesforceによる営業管理を組み合わせた体制を構築していました。ツールは揃っていました。</p>
@@ -120,7 +132,7 @@ const headings = [
 					<p>Salesforceが最初に設定した使い方のまま停滞しており、事業成長に合わせて進化していない場合、「導入が目的化」していた可能性があります。</p>
 				</li>
 			</ol>
-			<p class="article-callout">3つ以上当てはまる場合、問題はSalesforceの機能や現場の意識ではありません。「Salesforceが収益設計の中心として機能するためのデータフローと業務設計」が存在していないことが本質です。</p>
+			<p class="article-callout">当てはまる項目は、確認する順番を決める手がかりです。該当する数だけで原因は断定できません。実際のデータと作業を辿り、機能・設定・運用のどこで止まっているかを確かめてください。</p>
 		</div>
 
 		<div class="article-section">
@@ -150,11 +162,11 @@ const headings = [
 
 		<div class="article-section">
 			<h2 id="section-3">設計を変えた後に何が起きたか</h2>
-			<p>前述のコンサルティング企業では、ツールを変えるのではなく、「Web・MA・CRM・名刺管理が同一の顧客として統合されるデータフロー」の設計から始めました。その結果、以下の変化が起きました。</p>
+			<p>前述のコンサルティング企業では、MarketoからHubSpotへ移行するとともに、「Web・MA・CRM・名刺管理が同一の顧客として統合されるデータフロー」の設計から始めました。その結果、以下の変化が起きました。</p>
 			<ol class="article-numbered">
 				<li>
 					<strong>問い合わせ前から商談までの行動を同じ画面で追える状態を実現</strong>
-					<p>WebサイトでのGA4行動データからSalesforceの商談ステータスまで、顧客の動きが一本のタイムラインで確認できるようになりました。</p>
+					<p>Web・マーケティング自動化・顧客情報をHubSpotへ統合し、問い合わせ前から商談までを同じ画面で追える基盤を構築しました。</p>
 				</li>
 				<li>
 					<strong>分析工数を約30%削減</strong>
@@ -165,7 +177,7 @@ const headings = [
 					<p>全ツールが「同一の顧客」として一本化され、どのツールを見ても同じ情報が返る状態になりました。</p>
 				</li>
 			</ol>
-			<p class="article-callout">ツールを変えたのではなく、「Salesforceが収益設計の中心として機能するデータフロー」を作りました。</p>
+			<p class="article-callout">この事例は、HubSpotへの移行を含む基盤全体の再設計です。Salesforce単独の設定変更による効果としては扱いません。</p>
 		</div>
 
 		<div class="article-section">
@@ -188,7 +200,7 @@ const headings = [
 
 		<div class="article-section">
 			<h2 id="section-5">まとめ：Salesforce失敗の原因は「設計の不在」</h2>
-			<p>Salesforce導入が失敗する原因は、ツールの機能不足でも現場の意識の問題でもありません。</p>
+			<p>Salesforce導入で業務が改善しないときは、設定の完成と業務の受け入れを分けて確認します。</p>
 			<p>「ツール導入としてプロジェクト化し業務設計が伴わないこと」「入力項目が多すぎて現場に価値が見えないこと」「既存ツールとのデータ整合性を後から考えること」が構造的な原因です。</p>
 			<p>DXコンサルティング企業の事例が示すように、問い合わせ前から商談までの行動を同じ画面で追える状態、分析工数30%削減は、ツールを変えたのではなく「Salesforceが収益設計の中心として機能するデータフローと業務設計」を整えたことで実現しました。</p>
 			<p>最初の一歩は、現在のSalesforceの入力フィールドを「誰が何のために使うか」で整理することから始まります。</p>

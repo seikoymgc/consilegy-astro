@@ -10,7 +10,7 @@ export const newsEn: NewsItemEn[] = [
 	{
 		date: '2026-10-30',
 		category: 'Announcement',
-		title: 'Revenue CRM’s AI features are listed in CSA STAR for AI (Level 1 self-assessment)',
+		title: 'Revenue CRM’s AI features are listed in CSA STAR for AI (Level 1)',
 		summary: 'We have answered the Cloud Security Alliance (CSA) AI questionnaire for the AI features in Revenue CRM, and our answers are now published in the CSA STAR Registry as STAR for AI Level 1. This follows the cloud listing published on October 28, and anyone can review our answers.',
 		image: '/images/news/csa-star-for-ai-level1-2026-10-30.png',
 		imageAlt: 'CSA STAR for AI Level One: Self-Assessment badge',
@@ -20,7 +20,7 @@ export const newsEn: NewsItemEn[] = [
 	{
 		date: '2026-10-28',
 		category: 'Announcement',
-		title: 'Revenue CRM is listed in the CSA STAR Registry (Level 1 self-assessment)',
+		title: 'Revenue CRM is listed in the CSA STAR Registry (Level 1)',
 		summary: 'We have answered the Cloud Security Alliance (CSA) Consensus Assessments Initiative Questionnaire (CAIQ) for Revenue CRM, and our answers are now published in the CSA STAR Registry. Level 1 is a self-assessment, and anyone can review our answers. We have also updated our Security page and security questionnaire.',
 		image: '/images/news/csa-star-level1-2026-10-28.png',
 		imageAlt: 'CSA STAR Level One: Self-Assessment badge',

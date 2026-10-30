@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const name = 'AI業務活用・ワークフロー構築支援';
+const description = 'AIを、毎日の仕事で使える仕組みに。業務に合ったワークフローの構築から、実務講習、現場への定着まで支援します。有償の業務診断で成果の測り方を整理し、合意した成果の達成に連動するアウトカムベース課金でご提案します。';
+const url = 'https://consilegy.com/services/ai-workflow-enablement/';
+const examples = [
+  { title: '商談後の記録・引き継ぎ', text: '会議の内容から記録案と次の対応を作成。担当者の確認を経て、顧客管理システムへの記録や関係者への引き継ぎにつなげます。', outcome: '必要な項目が揃った記録と引き継ぎが、合意した時間内に完了する。', measure: '記録の品質・完了までの時間・修正にかかる時間' },
+  { title: '問い合わせの確認・振り分け', text: '問い合わせの内容を読み取り、分類と対応案を作成。判断が難しいものは人に戻し、担当者へ必要な情報を届けます。', outcome: '合意した精度で分類され、担当者への引き継ぎが期限内に完了する。', measure: '分類の正確さ・引き継ぎ時間・対応漏れ' },
+  { title: '社内資料からの回答作成', text: '参照してよい資料から、根拠付きの回答案を作成。根拠が見つからない場合の確認先も決め、日々の質問対応に組み込みます。', outcome: '根拠を確認できる回答案が作られ、担当者が実務で利用できる。', measure: '回答の正確さ・根拠の確認・回答作成時間' },
+];
+const steps = [
+  { title: '業務診断・現状の測定', text: '対象業務、現在の所要時間、処理件数、品質、利用環境を確認します。AIを使う範囲と、人が判断する箇所を整理します。', output: '業務の整理・現状値・実現可能性の確認' },
+  { title: '成果・料金・判定条件の合意', text: '何がどう変われば達成かを決めます。対象範囲、測定方法、判定期間、達成時の料金と支払条件を、構築前に合意します。', output: '成果条件・測定計画・見積もり' },
+  { title: '構築・実務講習', text: '小さく試しながら、普段使うシステムとAIをつなぎます。自社の業務を題材に、操作、出力の確認、例外時の対応を一緒に練習します。', output: '業務ワークフロー・実務講習・運用手順書' },
+  { title: '定着支援・成果の確認', text: '現場での利用状況と困りごとを確認し、合意した支援期間内で改善します。事前に決めた方法で成果を測り、達成状況を双方で確認します。', output: '利用状況の確認・改善・成果測定レポート' },
+];
+const faqItems = [
+  { q: 'どの業務にAIを使うか決まっていなくても相談できますか？', a: 'はい。繰り返している作業、確認待ちになる箇所、探すのに時間がかかる情報から伺います。有償の業務診断で対象と実現可能性を整理し、構築に進むか判断いただけます。診断の費用と範囲は着手前にご案内します。' },
+  { q: 'アウトカムベース課金とは何ですか？', a: 'あらかじめ合意した業務上の成果の達成に、料金を連動させる方式です。業務診断は別途有償です。その後の構築・講習・定着支援について、成果条件、判定方法、料金、支払時期を個別にご提案します。外部サービス利用料も分けてご案内します。' },
+  { q: '成果が達成できなかった場合はどうなりますか？', a: '未達成・一部達成の場合の料金、再測定や修正の範囲、終了条件を契約時に合意します。支援期間と対象範囲を定め、その範囲で改善と成果確認を行います。顧客側の協力条件や業務変更によって判定が難しくなった場合の扱いも事前に決めます。' },
+  { q: '講習だけ、定着支援だけでも依頼できますか？', a: 'はい。すでに利用中のAIやワークフローを前提とした講習・定着支援もご相談いただけます。実務で何ができるようになるかを整理し、対象者、課題、確認方法に合う成果条件と費用をご提案します。' },
+  { q: '利用するAIやシステムは決まっていますか？', a: '特定の製品を前提にせず、現在の環境、業務、情報の取り扱い、権限、連携機能、費用を確認して選びます。Revenue CRMの契約は必須ではありません。外部サービスの契約や有料オプションが必要な場合は事前に整理します。' },
+  { q: '社内の情報をAIに渡しても大丈夫ですか？', a: '入力できる情報、参照権限、保存期間、サービス提供元によるデータの利用条件を確認して設計します。機密情報や個人情報を扱う業務では、利用環境と社内ルールに合わせて対象範囲を決めます。AIの出力を人が確認する箇所も明確にします。' },
+];
+---
+
+<BaseLayout title={`${name} | Consilegy`} description={description} lang="ja" hasTranslation={false}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify([
+    { '@context': 'https://schema.org', '@type': 'Service', name, description, url, provider: { '@id': 'https://consilegy.com/#organization' } },
+    { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://consilegy.com/' },
+      { '@type': 'ListItem', position: 2, name: 'サービス・料金', item: 'https://consilegy.com/services/' },
+      { '@type': 'ListItem', position: 3, name, item: url },
+    ] },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqItems.map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
+  ])} />
+
+  <section class="ai-hero">
+    <div class="container">
+      <a class="ai-back" href="/services/">← サービス一覧</a>
+      <div class="ai-hero-grid">
+        <div>
+          <p class="ai-eyebrow">AI Workflow &amp; Enablement</p>
+          <p class="ai-service">{name}</p>
+          <h1>AIを、毎日の仕事で<br />使える仕組みに。</h1>
+          <p class="ai-lead">業務に合ったワークフローの構築から、実務に沿った講習、現場への定着まで。いまの仕事の流れを整理し、使い続けられる形にします。</p>
+          <div class="ai-actions"><a class="btn btn--primary" href="/contact/">AIの業務活用を相談する</a><a class="btn ai-outline" href="#pricing">成果と料金の決め方を見る</a></div>
+        </div>
+        <figure class="ai-flow">
+          <div class="ai-flow-box">業務と成果を決める<span>何を変えるか・どう測るか</span></div>
+          <div class="ai-arrow" aria-hidden="true">↓</div>
+          <div class="ai-flow-box ai-flow-main">構築 → 実務講習 → 定着<span>いつもの仕事で試し、改善する</span></div>
+          <div class="ai-arrow" aria-hidden="true">↓</div>
+          <div class="ai-flow-box">合意した成果を確認する<span>品質・作業時間・継続利用</span></div>
+          <figcaption>料金は、事前に合意した成果の達成に連動。最初の業務診断は別途有償です。</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="ai-band ai-gray">
+    <div class="container">
+      <p class="ai-eyebrow">Common Problems</p><h2>現場で使えるようになるまで、<br />一緒に整えます。</h2>
+      <div class="ai-grid ai-three">
+        <article class="ai-card"><h3>AIを契約したが、使い道が曖昧</h3><p>時間のかかる作業と判断の流れを確認し、効果を測れる業務から始めます。</p></article>
+        <article class="ai-card"><h3>一部の詳しい人しか使っていない</h3><p>自社の仕事を題材に講習を行い、担当者が実際に使う手順まで落とし込みます。</p></article>
+        <article class="ai-card"><h3>試作した仕組みが業務に残らない</h3><p>確認する人、例外時の対応、運用担当を決め、利用状況を見ながら改善します。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="ai-band" id="outcomes">
+    <div class="container">
+      <p class="ai-eyebrow">Outcomes</p><h2>「何ができたら成果か」を、<br />仕事ごとに決めます。</h2>
+      <p class="ai-intro">以下は支援内容と成果条件の例です。実績や達成保証を示すものではありません。目標値は、現在の業務を測定してから個別に合意します。</p>
+      <div class="ai-grid ai-three">{examples.map(({ title, text, outcome, measure }) => <article class="ai-card"><h3>{title}</h3><p>{text}</p><div class="ai-output"><strong>目指す成果</strong><p>{outcome}</p></div><div class="ai-output"><strong>確認する指標の例</strong><p>{measure}</p></div></article>)}</div>
+    </div>
+  </section>
+
+  <section class="ai-band ai-gray" id="process">
+    <div class="container">
+      <p class="ai-eyebrow">Process</p><h2>業務を知り、仕組みをつくり、<br />使えるところまで。</h2>
+      <div class="ai-grid ai-two">{steps.map(({ title, text, output }, i) => <article class="ai-card"><span class="ai-number">0{i + 1}</span><h3>{title}</h3><p>{text}</p><div class="ai-output"><strong>この段階で整えるもの</strong><p>{output}</p></div></article>)}</div>
+    </div>
+  </section>
+
+  <section class="ai-band" id="pricing">
+    <div class="container">
+      <p class="ai-eyebrow">Outcome-based Pricing</p><h2>仕事が変わることに、対価を。</h2>
+      <p class="ai-intro">成果に連動するアウトカムベース課金です。対象業務と達成条件を事前に合意し、構築・実務講習・定着支援を行います。</p>
+      <div class="ai-grid ai-two">
+        <article class="ai-card"><p class="ai-eyebrow">Discovery</p><h3>業務診断・成果設計</h3><p class="ai-price">有償・個別見積もり</p><p>現状値と実現可能性を確認し、成果条件と測定方法を整理します。診断の範囲・期間・料金は着手前に合意。診断結果を見て、構築に進むか判断いただけます。</p></article>
+        <article class="ai-card"><p class="ai-eyebrow">Delivery &amp; Adoption</p><h3>構築・講習・定着支援</h3><p class="ai-price">合意した成果の達成に連動</p><p>診断で決めた対象業務に対して、構築から定着まで支援します。成果ごとの料金、判定時期、支払条件を個別に設計します。</p></article>
+      </div>
+      <div class="ai-agreement"><h3>契約時に、ここまで決めます</h3><ul>
+        <li><strong>成果の定義：</strong>対象業務・対象者・達成基準と、現状の基準値</li>
+        <li><strong>判定方法：</strong>測定するデータ・件数・期間・確認担当者</li>
+        <li><strong>支援の範囲：</strong>構築内容・講習対象・支援期間・修正対応の範囲</li>
+        <li><strong>料金の条件：</strong>達成・一部達成・未達成の扱い、支払時期、再測定・終了条件</li>
+        <li><strong>お客様の協力：</strong>データや権限の提供、担当者の参加、実務での試行と確認</li>
+      </ul><p class="ai-note">AI・外部システムの利用料、追加開発、支援期間終了後の保守・改善は、成果に連動する料金と分けてご案内します。業務や前提条件が変わった場合の扱いも、事前に合意します。</p></div>
+    </div>
+  </section>
+
+  <section class="ai-band ai-gray">
+    <div class="container ai-faq"><p class="ai-eyebrow">FAQ</p><h2>よくある質問</h2>{faqItems.map(({ q, a }) => <details><summary>{q}</summary><p>{a}</p></details>)}</div>
+  </section>
+
+  <section class="ai-band">
+    <div class="container"><p class="ai-eyebrow">Related Services</p><h2>業務全体の見直しも、ご相談いただけます。</h2><div class="ai-grid ai-two">
+      <article class="ai-card"><h3>業務システム開発・連携・自動化</h3><p>新しい管理画面や既存システムとの連携など、業務に必要な機能を設計・開発します。</p><a href="/services/business-system-development/">開発・連携の支援を見る →</a></article>
+      <article class="ai-card"><h3>運用定着・改善支援</h3><p>顧客管理システムの入力ルール、会議、指標の活用まで、運用全体を見直します。</p><a href="/services/adoption-growth-support/">運用定着・改善支援を見る →</a></article>
+    </div></div>
+  </section>
+
+  <section class="ai-final"><div class="container"><p class="ai-eyebrow">Let's Talk</p><h2>まずは、変えたい仕事を<br />ひとつ教えてください。</h2><p>「毎回この作業に時間がかかる」「AIを入れたが使われていない」。<br />いま困っている場面から、対象業務と目指す成果を整理します。</p><div class="ai-actions"><a class="btn btn--primary" href="/contact/">AIの業務活用を相談する</a><a class="btn ai-outline" href="/free-consultation/#booking">30分無料相談を予約する</a></div><p class="ai-note">初回の無料相談と、有償の業務診断は別です。診断は範囲と費用をご案内し、合意してから着手します。</p></div></section>
+</BaseLayout>
+
+<style>
+  .ai-hero { padding: 3rem 0 4.5rem; background: #fff; }
+  .ai-back { display: inline-block; margin-bottom: 2.5rem; }
+  .ai-hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 3rem; align-items: center; }
+  .ai-eyebrow { color: var(--color-navy); font-size: .875rem; font-weight: 600; letter-spacing: .1em; margin: 0 0 1rem; }
+  .ai-service { color: var(--color-text-muted); margin: 0 0 1rem; }
+  h1, h2, h3 { color: var(--color-navy); font-weight: 600; }
+  h1 { font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.5; letter-spacing: -.035em; margin: 0 0 1.5rem; }
+  h2 { font-size: clamp(1.65rem, 3vw, 2.25rem); line-height: 1.6; margin: 0 0 1.75rem; }
+  h3 { font-size: 1.125rem; line-height: 1.65; margin: .5rem 0 1rem; }
+  p, li { line-height: 1.9; font-size: 1rem; }
+  .ai-lead { font-size: 1.125rem; margin-bottom: 2rem; }
+  .ai-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+  .btn { border-radius: 4px; padding: 1rem 1.25rem; white-space: normal; text-align: center; }
+  .ai-outline { border: 1px solid var(--color-border-strong); background: transparent; color: var(--color-primary); }
+  .ai-outline:hover { border-color: var(--color-primary); }
+  .ai-flow { margin: 0; padding: 1.75rem; background: #F1F5F9; border: 1px solid var(--color-border); border-radius: 6px; }
+  .ai-flow-box { padding: 1rem; border: 1px solid var(--color-navy); border-radius: 6px; background: #fff; color: var(--color-navy); font-weight: 600; text-align: center; }
+  .ai-flow-box span { display: block; font-size: 1rem; font-weight: 400; color: var(--color-text-muted); margin-top: .3rem; }
+  .ai-flow-main, .ai-flow-main span { background: var(--color-navy); color: #fff; }
+  .ai-arrow { color: var(--color-navy); font-size: 1.5rem; text-align: center; }
+  figcaption, .ai-note { font-size: .875rem; color: var(--color-text-muted); line-height: 1.8; margin: 1.25rem 0 0; }
+  .ai-band { padding: 4.5rem 0; background: #fff; scroll-margin-top: 6rem; }
+  .ai-gray { background: #F1F5F9; }
+  .ai-intro { max-width: 52rem; color: var(--color-text-muted); margin: 0 0 2rem; }
+  .ai-grid { display: grid; gap: 1.25rem; }
+  .ai-two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ai-three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ai-card { padding: 1.75rem; background: #fff; border: 1px solid var(--color-border); border-radius: 6px; box-shadow: var(--shadow-sm); }
+  .ai-card p { margin: 0; color: var(--color-text-muted); }
+  .ai-card .ai-eyebrow { margin-bottom: 1rem; color: var(--color-navy); }
+  .ai-card a { display: inline-block; margin-top: 1rem; }
+  .ai-number { color: var(--color-navy); font-size: .875rem; font-weight: 600; }
+  .ai-output { border-top: 1px solid var(--color-border); margin-top: 1.25rem; padding-top: 1rem; }
+  .ai-output strong { display: block; font-size: .875rem; font-weight: 500; color: var(--color-text-muted); margin-bottom: .35rem; }
+  .ai-output p { color: var(--color-text); }
+  .ai-card .ai-price { color: var(--color-navy); font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; }
+  .ai-agreement { margin-top: 2rem; padding: 1.75rem; background: #F1F5F9; border: 1px solid var(--color-border); border-radius: 6px; }
+  .ai-agreement ul { padding-left: 1.5rem; margin: 0; }
+  .ai-agreement li + li { margin-top: .6rem; }
+  .ai-faq { max-width: 900px; }
+  details { padding: 1.25rem 1.5rem; margin-top: .75rem; background: #fff; border: 1px solid var(--color-border); border-radius: 6px; box-shadow: var(--shadow-sm); }
+  summary { font-weight: 600; line-height: 1.8; color: var(--color-navy); cursor: pointer; }
+  details p { color: var(--color-text-muted); margin: 1rem 0 0; }
+  .ai-final { padding: 4.5rem 0; background: var(--color-navy); color: #fff; }
+  .ai-final h2, .ai-final .ai-eyebrow, .ai-final .ai-note { color: #fff; }
+  .ai-final .ai-actions { margin-top: 2rem; }
+  .ai-final .ai-outline { color: #fff; border-color: #fff; }
+  .ai-final .ai-outline:hover { background: #fff; color: var(--color-navy); }
+  @media (max-width: 900px) { .ai-hero-grid, .ai-three { grid-template-columns: 1fr; } .ai-flow { max-width: 640px; } }
+  @media (max-width: 600px) { .ai-two { grid-template-columns: 1fr; } .ai-band, .ai-final { padding: 3rem 0; } .ai-card, .ai-flow, .ai-agreement { padding: 1.5rem; } .ai-actions { flex-direction: column; } .ai-actions .btn { width: 100%; } h1 { font-size: 2rem; } }
+</style>

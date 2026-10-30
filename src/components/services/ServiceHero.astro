@@ -9,7 +9,7 @@ const { service } = Astro.props;
     <p class="service-eyebrow">How We Help</p>
     <h1>{service.headline[0]}<br />{service.headline[1]}</h1>
     <p class="service-summary">{service.summary}</p>
-    <p class="service-name">{service.menuLabel}</p>
+    <p class="service-name">{service.slug === 'revenue-architecture-design' ? service.name : service.menuLabel}</p>
     <div class="service-actions"><a class="btn btn--primary" href="/contact/">この困りごとを相談する</a><a class="btn service-outline" href="#pricing">料金・進め方を見る</a></div>
     <nav class="service-jump" aria-label="このページの内容"><a href="#situations">こんなお困りごとに</a><a href="#outcomes">どう変わるか</a><a href="#support">支援すること</a><a href="#pricing">料金</a></nav>
   </div>

@@ -14,7 +14,7 @@ export const serviceGuides: ServiceGuide[] = [
   {
     slug: 'revenue-architecture-design',
     name: 'レベニューアーキテクチャ設計',
-    menuLabel: '売上につながる業務の流れを設計する',
+    menuLabel: '営業・マーケティングの業務設計',
     need: '売上につながる業務の流れを設計したい',
     headline: ['部門ごとに分かれた仕事を、', '売上につながる一つの流れへ。'],
     summary: '集客から商談、受注、その後のお客様への対応まで。誰が、何を判断し、次の担当者に何を渡すかを整理します。',
@@ -33,7 +33,7 @@ export const serviceGuides: ServiceGuide[] = [
   {
     slug: 'b2b-marketing-gtm-design',
     name: 'マーケティング・GTM戦略設計',
-    menuLabel: '誰に、何を、どう売るかを整理する',
+    menuLabel: 'マーケティング戦略支援',
     need: '誰に、何を、どう売るかを整理したい',
     headline: ['誰に、何を、どう売るか。', '次に打つ手を明確に。'],
     summary: '狙うお客様、伝える価値、接点のつくり方、営業への引き継ぎを整理します。広告や展示会などの施策を、商談につながる流れとして設計します。',
@@ -52,7 +52,7 @@ export const serviceGuides: ServiceGuide[] = [
   {
     slug: 'crm-revops-redesign',
     name: 'CRM / RevOps再設計支援',
-    menuLabel: '顧客情報と営業・マーケの連携を整える',
+    menuLabel: '顧客管理システムの導入・改善',
     need: '顧客情報と営業・マーケの連携を整えたい',
     headline: ['顧客情報と営業・マーケを、', '一つの流れにつなぐ。'],
     summary: 'SalesforceやHubSpotなど、いま使っているシステムを確認。顧客情報の持ち方、担当者への引き継ぎ、集計の仕組みを見直します。',
@@ -71,7 +71,7 @@ export const serviceGuides: ServiceGuide[] = [
   {
     slug: 'business-system-development',
     name: '業務システム開発・連携・自動化',
-    menuLabel: '手作業を減らすシステムをつくる',
+    menuLabel: 'システム開発・業務自動化',
     need: '手作業を減らすシステムをつくりたい',
     headline: ['繰り返す手作業を、', '仕事に合う仕組みに。'],
     summary: '転記、予約の確認、集計、担当者への通知。いまの業務を整理し、必要な画面やシステム間の連携を設計・開発します。',
@@ -90,7 +90,7 @@ export const serviceGuides: ServiceGuide[] = [
   {
     slug: 'ai-workflow-enablement',
     name: 'AI業務活用・ワークフロー構築支援',
-    menuLabel: 'AIを日々の仕事で使えるようにする',
+    menuLabel: 'AI導入・活用支援',
     need: 'AIを日々の仕事で使えるようにしたい',
     headline: ['AIを、毎日の仕事で', '使える仕組みに。'],
     summary: '業務に合ったAIの使い方と仕事の流れをつくります。実務に沿った講習と運用の改善を通じて、現場で使い続けられる状態まで支援します。',
@@ -109,7 +109,7 @@ export const serviceGuides: ServiceGuide[] = [
   {
     slug: 'adoption-growth-support',
     name: '運用定着・改善支援',
-    menuLabel: '導入したシステムを現場に定着させる',
+    menuLabel: 'システム定着・運用支援',
     need: '導入したシステムを現場で使ってほしい',
     headline: ['入れたシステムを、', '現場で使えるものに。'],
     summary: '入力されない、数字が見られない、会議で使われない。現場の負担と使い方を見直し、担当者が使い続けられる運用を一緒に整えます。',

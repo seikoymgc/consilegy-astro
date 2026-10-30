@@ -1,4 +1,8 @@
 ---
+import ServiceHero from '../../../components/services/ServiceHero.astro';
+import ServiceOverview from '../../../components/services/ServiceOverview.astro';
+import { getServiceGuide } from '../../../data/service-guide';
+const serviceGuide = getServiceGuide('revenue-architecture-design');
 import RevenueFlowFigure from '../../../components/figures/RevenueFlowFigure.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
@@ -52,7 +56,7 @@ const breadcrumbSchema = {
 
 <BaseLayout
 	title="レベニューアーキテクチャ設計 | Revenue Architecture Design | Consilegy"
-	description="営業・マーケ・CSの分断を解消し、売上が生まれる構造を設計するRevenue Architecture設計サービス。Salesforce・HubSpot・Kintone・Marketoなど主要CRMを横断したRevOps上流設計支援。"
+	description={serviceGuide.summary}
 	lang="ja"
 >
 	<Fragment slot="head">
@@ -61,116 +65,43 @@ const breadcrumbSchema = {
 	</Fragment>
 
 <!-- ===================== HERO ===================== -->
-<section class="hero">
-	<div class="container">
-		<div class="hero-nav">
-			<a href="/services/" class="back-link">← サービス一覧</a>
-			<span class="hero-tag">Revenue Architecture Design</span>
-		</div>
-		<div class="hero-service-name">
-			<span class="hero-service-ja">レベニューアーキテクチャ設計</span>
-			<span class="hero-service-en">Revenue Architecture Design</span>
-		</div>
-		<h1>分断された営業・マーケ・CRMを、<br /><span class="accent">売上につながる構造へ再設計する</span></h1>
-		<p class="hero-sub">
-			営業・マーケティング・カスタマーサクセスが分断されたままでは、CRMも施策も成果につながりません。
-		</p>
-		<p class="hero-lead">
-			Consilegyは、顧客獲得から受注・継続収益までの流れを「レベニューアーキテクチャ」として設計し、
-			経営が売上を判断できる仕組みをつくります。
-		</p>
-		<div class="hero-cta">
-			<a href="/diagnostic/" class="btn btn--primary btn--lg">収益を自己診断</a>
-			<a href="/download/" class="btn btn--outline btn--lg">サービス資料をダウンロード</a>
-		</div>
-		<div class="hero-tools">
-			<span class="tools-label">対応ツール</span>
-			<div class="tools-pills">
-				<span class="tool-pill">Salesforce</span>
-				<span class="tool-pill">HubSpot</span>
-				<span class="tool-pill">Kintone</span>
-				<span class="tool-pill">Marketo</span>
-				<span class="tool-pill">ServiceNow</span>
-				<span class="tool-pill">Account Engagement</span>
-				<span class="tool-pill">Zoho CRM</span>
-				<span class="tool-pill">など</span>
-			</div>
-		</div>
-	</div>
-</section>
+<ServiceHero service={serviceGuide} />
+<ServiceOverview service={serviceGuide} />
 
-<!-- ===================== 課題提起 ===================== -->
-<section class="issues">
+<section class="pricing" id="pricing">
 	<div class="container">
 		<div class="section-header">
-			<p class="eyebrow-label">Problem</p>
-			<h2>施策を増やしても、売上が安定しない企業には<br />共通点があります。</h2>
+			<p class="eyebrow-label">Pricing</p>
+			<h2>料金と、始め方。</h2>
 		</div>
-		<div class="issues-grid">
-			<div class="issue-card">
-				<div class="issue-card__num">01</div>
-				<p>マーケティングはリード数、営業は受注、CSは継続率だけを見ている</p>
-			</div>
-			<div class="issue-card">
-				<div class="issue-card__num">02</div>
-				<p>リード・商談・受注・継続の定義が部門ごとに違う</p>
-			</div>
-			<div class="issue-card">
-				<div class="issue-card__num">03</div>
-				<p>CRMはあるが、経営判断に使える情報になっていない</p>
-			</div>
-			<div class="issue-card">
-				<div class="issue-card__num">04</div>
-				<p>営業会議が数字確認で終わっている</p>
-			</div>
-			<div class="issue-card">
-				<div class="issue-card__num">05</div>
-				<p>部門間の引き継ぎが属人的で、情報が次のフェーズに届かない</p>
-			</div>
-			<div class="issue-card">
-				<div class="issue-card__num">06</div>
-				<p>KPIが増えすぎて、どこを改善すべきか分からない</p>
-			</div>
-		</div>
-	</div>
-</section>
-
-<!-- ===================== 問題の本質 ===================== -->
-<section class="root-cause">
-	<div class="container root-cause__inner">
-		<div class="section-header">
-			<p class="eyebrow-label">Root Cause</p>
-			<h2>問題は、施策でも営業力でも<br />CRMでもありません。</h2>
-		</div>
-		<div class="root-cause__body">
-			<p>
-				多くの企業では、マーケティング・営業・カスタマーサクセスが個別最適で動いています。
-				その結果、どこに本当のボトルネックがあるかを判断できなくなります。
-			</p>
-			<div class="bottleneck-row">
-				<div class="bottleneck-item">商談化率</div>
-				<div class="bottleneck-sep">／</div>
-				<div class="bottleneck-item">受注率</div>
-				<div class="bottleneck-sep">／</div>
-				<div class="bottleneck-item">継続率</div>
-				<div class="bottleneck-sep">／</div>
-				<div class="bottleneck-item">LTV</div>
-			</div>
-			<p>
-				どの指標が低いのか、なぜ低いのかを可視化できない構造のまま施策を追加しても、
-				問題の本質は変わりません。
-			</p>
-			<div class="root-cause__resolution">
-				<p>
-					<strong>Revenue Architecture Designでは、</strong>売上を「部門別成果」ではなく、
-					顧客獲得から継続までをつなぐ一つの構造として再設計します。
+		<div class="pricing-card">
+			<div class="pricing-card__main">
+				<div class="pricing-service">レベニューアーキテクチャ設計</div>
+				<div class="pricing-amount">300万〜800万円</div>
+				<p class="pricing-note">
+					対象部門、現在のシステム、設計する範囲により変動します。
+					初回の無料相談で状況を伺い、対象範囲と見積もりの進め方をご案内します。
 				</p>
 			</div>
+			<div class="pricing-card__types">
+				<div class="pricing-type">
+					<div class="pricing-type__label">プロジェクト型</div>
+					<p>設計成果物の納品を目的とした、期限付きのプロジェクト支援</p>
+				</div>
+				<div class="pricing-type">
+					<div class="pricing-type__label">月額型伴走支援</div>
+					<p>設計後の実装・定着フェーズを月額で継続伴走する支援</p>
+				</div>
+			</div>
+			<div class="pricing-card__cta">
+				<a href="/contact/" class="btn btn--primary btn--lg">範囲と費用を相談する</a>
+				<a href="/services/" class="btn btn--outline btn--lg">サービスと料金を見る</a>
+			</div>
 		</div>
+			<p class="tax-note">価格はすべて税抜です。</p>
 	</div>
 </section>
 
-<!-- ===================== 定義 ===================== -->
 <section class="definition" id="revenue-architecture-design">
 	<div class="container">
 		<div class="definition-inner">
@@ -188,44 +119,6 @@ const breadcrumbSchema = {
 	</div>
 </section>
 
-<!-- ===================== 支援範囲 ===================== -->
-<section class="scope">
-	<div class="container">
-		<div class="section-header">
-			<p class="eyebrow-label">Scope of Work</p>
-			<h2>設計する領域</h2>
-		</div>
-		<div class="scope-grid">
-			<div class="scope-card">
-				<div class="scope-card__num">01</div>
-				<h3>Revenue Process</h3>
-				<p>顧客獲得・商談化・受注・継続までの収益プロセス設計。ステージ定義と部門間のハンドオフを言語化します。</p>
-			</div>
-			<div class="scope-card">
-				<div class="scope-card__num">02</div>
-				<h3>KPI Architecture</h3>
-				<p>売上につながるKPI構造設計。現場KPIと経営KPIを階層として整理し、改善の優先順位を明確にします。</p>
-			</div>
-			<div class="scope-card">
-				<div class="scope-card__num">03</div>
-				<h3>CRM / Data Structure</h3>
-				<p>CRM / SFA / MAのデータ構造設計。必要な情報が蓄積され、判断に使える形に整理します。</p>
-			</div>
-			<div class="scope-card">
-				<div class="scope-card__num">04</div>
-				<h3>Handoff Design</h3>
-				<p>営業・マーケ・CS間の引き継ぎ設計。属人的な情報共有をルールと構造に変換します。</p>
-			</div>
-			<div class="scope-card">
-				<div class="scope-card__num">05</div>
-				<h3>Operating Rhythm</h3>
-				<p>営業会議・経営会議・レビュー運用設計。会議の目的・頻度・アジェンダ・判断基準を整備します。</p>
-			</div>
-		</div>
-	</div>
-</section>
-
-<!-- ===================== 設計プロセス ===================== -->
 <section class="process">
 	<div class="container">
 		<div class="section-header">
@@ -291,7 +184,7 @@ const breadcrumbSchema = {
 		<div class="deliverables-inner">
 			<div class="section-header">
 				<p class="eyebrow-label">Deliverables</p>
-				<h2>主な成果物</h2>
+				<h2>支援でお渡しするもの</h2>
 				<p class="section-note">プロジェクト終了時に、以下のドキュメントをご提供します。</p>
 			</div>
 			<ul class="deliverables-list">
@@ -587,39 +480,7 @@ const breadcrumbSchema = {
 </section>
 
 <!-- ===================== 料金目安 ===================== -->
-<section class="pricing">
-	<div class="container">
-		<div class="section-header">
-			<p class="eyebrow-label">Pricing</p>
-			<h2>料金目安</h2>
-		</div>
-		<div class="pricing-card">
-			<div class="pricing-card__main">
-				<div class="pricing-service">レベニューアーキテクチャ設計</div>
-				<div class="pricing-amount">300万〜800万円</div>
-				<p class="pricing-note">
-					範囲・対象部門数・既存CRM環境・成果物範囲により変動します。
-					初回の無料診断で状況をヒアリングし、プロジェクト規模感をお伝えします。
-				</p>
-			</div>
-			<div class="pricing-card__types">
-				<div class="pricing-type">
-					<div class="pricing-type__label">プロジェクト型</div>
-					<p>設計成果物の納品を目的とした、期限付きのプロジェクト支援</p>
-				</div>
-				<div class="pricing-type">
-					<div class="pricing-type__label">月額型伴走支援</div>
-					<p>設計後の実装・定着フェーズを月額で継続伴走する支援</p>
-				</div>
-			</div>
-			<div class="pricing-card__cta">
-				<a href="/diagnostic/" class="btn btn--primary btn--lg">収益を自己診断</a>
-				<a href="/services/" class="btn btn--outline btn--lg">サービスと料金を見る</a>
-			</div>
-		</div>
-			<p class="tax-note">価格はすべて税抜です。</p>
-	</div>
-</section>
+
 
 <!-- ===================== 関連サービス ===================== -->
 <section class="related">
@@ -993,10 +854,10 @@ const breadcrumbSchema = {
 
 .ba-arrow {
 	display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-	color: var(--color-primary); flex-shrink: 0;
+	color: var(--color-navy); flex-shrink: 0;
 }
 .ba-arrow__label {
-	font-size: 0.6875rem; font-weight: 700; color: var(--color-primary);
+	font-size: 0.6875rem; font-weight: 700; color: var(--color-navy);
 	letter-spacing: 0.06em; text-align: center; white-space: nowrap;
 	writing-mode: vertical-rl; text-orientation: mixed;
 }

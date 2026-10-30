@@ -1,4 +1,8 @@
 ---
+import ServiceHero from '../../../components/services/ServiceHero.astro';
+import ServiceOverview from '../../../components/services/ServiceOverview.astro';
+import { getServiceGuide } from '../../../data/service-guide';
+const serviceGuide = getServiceGuide('ai-workflow-enablement');
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const name = 'AI業務活用・ワークフロー構築支援';
@@ -36,56 +40,10 @@ const faqItems = [
     { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqItems.map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
   ])} />
 
-  <section class="ai-hero">
-    <div class="container">
-      <a class="ai-back" href="/services/">← サービス一覧</a>
-      <div class="ai-hero-grid">
-        <div>
-          <p class="ai-eyebrow">AI Workflow &amp; Enablement</p>
-          <p class="ai-service">{name}</p>
-          <h1>AIを、毎日の仕事で<br />使える仕組みに。</h1>
-          <p class="ai-lead">業務に合ったワークフローの構築から、実務に沿った講習、現場への定着まで。いまの仕事の流れを整理し、使い続けられる形にします。</p>
-          <div class="ai-actions"><a class="btn btn--primary" href="/contact/">AIの業務活用を相談する</a><a class="btn ai-outline" href="#pricing">成果と料金の決め方を見る</a></div>
-        </div>
-        <figure class="ai-flow">
-          <div class="ai-flow-box">業務と成果を決める<span>何を変えるか・どう測るか</span></div>
-          <div class="ai-arrow" aria-hidden="true">↓</div>
-          <div class="ai-flow-box ai-flow-main">構築 → 実務講習 → 定着<span>いつもの仕事で試し、改善する</span></div>
-          <div class="ai-arrow" aria-hidden="true">↓</div>
-          <div class="ai-flow-box">合意した成果を確認する<span>品質・作業時間・継続利用</span></div>
-          <figcaption>料金は、事前に合意した成果の達成に連動。最初の業務診断は別途有償です。</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
+  <ServiceHero service={serviceGuide} />
+<ServiceOverview service={serviceGuide} />
 
-  <section class="ai-band ai-gray">
-    <div class="container">
-      <p class="ai-eyebrow">Common Problems</p><h2>現場で使えるようになるまで、<br />一緒に整えます。</h2>
-      <div class="ai-grid ai-three">
-        <article class="ai-card"><h3>AIを契約したが、使い道が曖昧</h3><p>時間のかかる作業と判断の流れを確認し、効果を測れる業務から始めます。</p></article>
-        <article class="ai-card"><h3>一部の詳しい人しか使っていない</h3><p>自社の仕事を題材に講習を行い、担当者が実際に使う手順まで落とし込みます。</p></article>
-        <article class="ai-card"><h3>試作した仕組みが業務に残らない</h3><p>確認する人、例外時の対応、運用担当を決め、利用状況を見ながら改善します。</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="ai-band" id="outcomes">
-    <div class="container">
-      <p class="ai-eyebrow">Outcomes</p><h2>「何ができたら成果か」を、<br />仕事ごとに決めます。</h2>
-      <p class="ai-intro">以下は支援内容と成果条件の例です。実績や達成保証を示すものではありません。目標値は、現在の業務を測定してから個別に合意します。</p>
-      <div class="ai-grid ai-three">{examples.map(({ title, text, outcome, measure }) => <article class="ai-card"><h3>{title}</h3><p>{text}</p><div class="ai-output"><strong>目指す成果</strong><p>{outcome}</p></div><div class="ai-output"><strong>確認する指標の例</strong><p>{measure}</p></div></article>)}</div>
-    </div>
-  </section>
-
-  <section class="ai-band ai-gray" id="process">
-    <div class="container">
-      <p class="ai-eyebrow">Process</p><h2>業務を知り、仕組みをつくり、<br />使えるところまで。</h2>
-      <div class="ai-grid ai-two">{steps.map(({ title, text, output }, i) => <article class="ai-card"><span class="ai-number">0{i + 1}</span><h3>{title}</h3><p>{text}</p><div class="ai-output"><strong>この段階で整えるもの</strong><p>{output}</p></div></article>)}</div>
-    </div>
-  </section>
-
-  <section class="ai-band" id="pricing">
+<section class="ai-band" id="pricing">
     <div class="container">
       <p class="ai-eyebrow">Outcome-based Pricing</p><h2>仕事が変わることに、対価を。</h2>
       <p class="ai-intro">成果に連動するアウトカムベース課金です。対象業務と達成条件を事前に合意し、構築・実務講習・定着支援を行います。</p>
@@ -100,6 +58,21 @@ const faqItems = [
         <li><strong>料金の条件：</strong>達成・一部達成・未達成の扱い、支払時期、再測定・終了条件</li>
         <li><strong>お客様の協力：</strong>データや権限の提供、担当者の参加、実務での試行と確認</li>
       </ul><p class="ai-note">AI・外部システムの利用料、追加開発、支援期間終了後の保守・改善は、成果に連動する料金と分けてご案内します。業務や前提条件が変わった場合の扱いも、事前に合意します。</p></div>
+    </div>
+  </section>
+
+<section class="ai-band" id="examples">
+    <div class="container">
+      <p class="ai-eyebrow">Outcomes</p><h2>「何ができたら成果か」を、<br />仕事ごとに決めます。</h2>
+      <p class="ai-intro">以下は支援内容と成果条件の例です。実績や達成保証を示すものではありません。目標値は、現在の業務を測定してから個別に合意します。</p>
+      <div class="ai-grid ai-three">{examples.map(({ title, text, outcome, measure }) => <article class="ai-card"><h3>{title}</h3><p>{text}</p><div class="ai-output"><strong>目指す成果</strong><p>{outcome}</p></div><div class="ai-output"><strong>確認する指標の例</strong><p>{measure}</p></div></article>)}</div>
+    </div>
+  </section>
+
+<section class="ai-band ai-gray" id="process">
+    <div class="container">
+      <p class="ai-eyebrow">Process</p><h2>業務を知り、仕組みをつくり、<br />使えるところまで。</h2>
+      <div class="ai-grid ai-two">{steps.map(({ title, text, output }, i) => <article class="ai-card"><span class="ai-number">0{i + 1}</span><h3>{title}</h3><p>{text}</p><div class="ai-output"><strong>この段階で整えるもの</strong><p>{output}</p></div></article>)}</div>
     </div>
   </section>
 

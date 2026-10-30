@@ -1,67 +1,14 @@
 ---
+import { serviceGuides } from '../../data/service-guide';
 import RevenueFlowFigure from '../../components/figures/RevenueFlowFigure.astro';
 import GanttFigure from '../../components/figures/GanttFigure.astro';
 import ConsultationOutcomes from '../../components/ConsultationOutcomes.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-
-// 主な支援メニュー。SFA定着支援は運用定着・改善支援の中で案内する。
-const topics = [
-	{
-		href: '/services/ai-workflow-enablement/',
-		en: 'AI Workflow & Enablement',
-		title: 'AI業務活用・ワークフロー構築支援',
-		desc: '業務に合ったAIワークフローの構築から、実務講習、現場への定着まで。事前に合意した成果の達成に連動する料金で支援します。',
-		step: '業務診断は有償・構築以降は成果に連動',
-	},
-	{
-		href: '/services/business-system-development/',
-		en: 'Development & Automation',
-		title: '業務システム開発・連携・自動化',
-		desc: '手作業のシステム化、既存システムの連携、足りない画面・機能の開発。業務整理から設計・開発・運用開始まで支援します。',
-		step: '開発範囲に応じた個別見積もり',
-	},
-	{
-		href: '/services/revenue-architecture-design/',
-		en: 'Revenue Architecture Design',
-		title: 'レベニューアーキテクチャ設計',
-		desc: '収益構造そのものを可視化し、獲得から継続までを一つの流れとして設計します。',
-		step: 'Step 01〜02',
-	},
-	{
-		href: '/services/b2b-marketing-gtm-design/',
-		en: 'GTM & Marketing Strategy Design',
-		title: 'マーケティング・GTM戦略設計',
-		desc: '市場・顧客・導線を整理し、商談化につながるマーケティング戦略を設計します。',
-		step: 'Step 02',
-	},
-	{
-		href: '/services/crm-revops-redesign/',
-		en: 'Multi-CRM RevOps Implementation',
-		title: 'CRM / RevOps再設計支援',
-		desc: 'Salesforce・HubSpot・Kintone・Marketoの連携と実装。ベンダーに縛られない横断設計。',
-		step: 'Step 02',
-		core: true,
-	},
-	{
-		href: '/services/adoption-growth-support/',
-		en: 'Adoption & Growth Support',
-		title: '運用定着・改善支援',
-		desc: '営業支援システムの入力・商談管理の定着から、データ活用や会議・指標の改善まで伴走します。',
-		step: 'Step 03',
-	},
-	{
-		href: '/services/hubspot-implementation-operations/',
-		en: 'HubSpot Implementation & Operations',
-		title: 'HubSpot導入・運用支援',
-		desc: 'HubSpotを利用中の企業向けに、設計・実装・運用改善を支援します。',
-		step: 'Step 02〜03',
-	},
-];
 ---
 
 <BaseLayout
-	title="サービス・料金 | Consilegy"
-	description="収益構造の現状分析（10〜50万円）、収益プロセス再設計（300〜800万円）、伴走・顧問支援（月額30〜100万円）。業務システム開発・連携・自動化は個別見積もり。要件整理から開発・運用開始まで支援します。"
+	title="困りごとから探すサービス・料金 | Consilegy"
+	description="営業・マーケティングの連携、手作業の削減、AI活用、システムの定着。いま困っている場面から、必要な支援と料金を確認できます。サービスが決まっていなくてもご相談いただけます。"
 	lang="ja"
 >
 <script type="application/ld+json" slot="head" set:html={JSON.stringify({
@@ -77,7 +24,7 @@ const topics = [
 	"@type": "WebPage",
 	"@id": "https://consilegy.com/services/#webpage",
 	"url": "https://consilegy.com/services/",
-	"name": "サービス・料金 | Consilegy",
+	"name": "困りごとから探すサービス・料金 | Consilegy",
 	"description": "収益構造の現状分析（10〜50万円）、収益プロセス再設計（300〜800万円）、伴走・顧問支援（月額30〜100万円）",
 	"publisher": { "@id": "https://consilegy.com/#organization" },
 	"mainEntity": {
@@ -158,63 +105,29 @@ const topics = [
 <section class="hero">
 	<div class="container">
 		<span class="eyebrow"><span class="eyebrow__dot"></span>Services &amp; Pricing</span>
-		<h1>見込み客を、商談へ。<br /><span class="accent">営業とマーケの間で、止めない。</span></h1>
-		<p class="hero-lead">
-			HubSpot・Salesforceなどを使っていても、営業に渡した見込み客が追われない。商談・受注の結果が戻ってこない。営業・マーケティングの責任者や運用担当の方と、引き継ぎルール・データ連携・集計を見直し、現場で運用できるところまで支援します。
-		</p>
+		<h1>どんなことで、<br />困っていますか。</h1>
+		<p class="hero-lead">部門の連携がうまくいかない。手作業が多い。AIやシステムが使われない。<br />いま困っている場面から、仕事の流れと仕組みを一緒に整えます。</p>
 		<div class="hero-actions">
 			<a href="/contact/" class="btn btn--primary btn--lg">お問い合わせ</a>
-			<a href="#guide" class="btn btn--ghost btn--lg">支援の進め方・料金を見る</a>
+			<a href="#needs" class="btn btn--ghost btn--lg">困りごとから探す</a>
 		</div>
 	</div>
 </section>
 
-<!-- ===================== PRODUCT（専任担当を置きにくい会社へ） ===================== -->
-<section class="svc-product">
-	<div class="container svc-product__inner">
-		<div class="svc-product__copy">
-			<p class="section-eyebrow">Who it is for</p>
-			<h2>CRMの運用に人を割けない場合は、自社プロダクトから始められます。</h2>
-			<p class="section-lead">
-				40社以上のCRM / MA / SFA導入支援で分かった「動くCRMの型」を製品にしたのが「Revenue CRM」です。移行作業なし。スプレッドシートの記録がそのまま残るところから始まります。2026年9月28日に正式リリースしました。
-			</p>
-			<p class="svc-product__custom">
-				貴社の業務に合わせた連携・自動化も、有償の導入支援として対応します。
-			</p>
-			<p class="svc-product__custom">
-				すでに使っているツールと連携できるよう接続する。<br />
-				LINEからの予約をGoogleカレンダーに自動で登録する。<br />
-				名刺や議事録から連絡先とタスクを自動で作成する。
-			</p>
-			<p class="svc-product__custom">
-				こうした部分を、CRMに合わせて仕事を変えるのではなく、いまの仕事の流れに合わせて作ります。
-			</p>
-			<p class="svc-product__note">以下のStep 01〜03は、CRMの運用に専任担当を置ける会社向けの支援です。</p>
-			<a href="/crm/" class="btn btn--outline-primary">Revenue CRMを見る →</a>
-		</div>
-		<a href="/crm/" class="svc-product__shot" aria-label="Revenue CRMのダッシュボード画面。詳細ページへ">
-			<span class="svc-product__bar" aria-hidden="true"><i></i><i></i><i></i></span>
-			<img
-				src="/images/crm/screen-dashboard-2026-10c.webp"
-				alt="Revenue CRMのダッシュボード。パイプライン総額・加重フォーキャスト・勝率・期限切れタスク・ステージ別パイプライン・注目の商談を一画面に表示。"
-				width="1600"
-				height="1000"
-				loading="lazy"
-				decoding="async"
-			/>
-		</a>
-	</div>
+<section class="topics" id="needs">
+  <div class="container">
+    <div class="topics-head"><p class="section-eyebrow">What Do You Need?</p><h2>近い困りごとは、ありますか。</h2><p class="section-lead">複数に当てはまっても、どれか分からなくても大丈夫です。相談したい場面からお聞きします。</p></div>
+    <div class="topics-grid">{serviceGuides.map(service => <a class="topic-card" href={`/services/${service.slug}/`}><h3>{service.need}</h3><p class="topic-desc">{service.summary}</p><p class="topic-name">{service.name}</p><span class="topic-link">どう変わるか・支援内容を見る →</span></a>)}</div>
+    <div class="needs-help" id="guide"><h3>どれを選べばよいか分からない方へ</h3><p>サービス名を選んでいただく必要はありません。「毎回この作業で困る」「部門の間で止まる」など、いまの状況をお聞かせください。必要な支援の範囲と進め方をご提案します。</p><a class="btn btn--primary" href="/contact/">困っていることを相談する</a><p class="needs-note">最初の相談は無料です。有償の調査・設計・開発は、範囲と費用に合意してから着手します。</p></div>
+  </div>
 </section>
 
-<!-- ===================== STEP OVERVIEW ===================== -->
-<section class="overview">
+<section class="overview" id="pricing-guide">
 	<div class="container">
 		<div class="overview-head">
 			<p class="section-eyebrow">The Three Steps</p>
-			<h2>支援の全体像</h2>
-			<p class="section-lead">
-				3つは独立したメニューではなく、ひとつの流れです。課題がはっきりしていればStep 02から入ることもあります。この流れの土台にある考え方は、<a href="/revenue-architecture/">レベニューアーキテクチャとは</a>で説明しています。
-			</p>
+			<h2>相談後は、状況に合わせて進め方を決めます。</h2>
+			<p class="section-lead">まず現状を調べる、業務やシステムを作り直す、使い続けるために改善する。必要な段階からご提案します。以下は業務の設計・改善支援の料金目安です。システム開発は個別見積もり、AI業務活用支援は有償診断の後、合意した成果の達成に連動する料金でご提案します。</p>
 		</div>
 
 		<div class="ov-flow">
@@ -273,7 +186,6 @@ const topics = [
 	</div>
 </section>
 
-<!-- ===================== STEP 01 ===================== -->
 <section class="plan-section" id="step-01">
 	<div class="container">
 		<div class="plan-group-head">
@@ -333,7 +245,6 @@ const topics = [
 	</div>
 </section>
 
-<!-- ===================== STEP 02 ===================== -->
 <section class="plan-section plan-section--alt" id="step-02">
 	<div class="container">
 		<div class="plan-group-head">
@@ -368,7 +279,6 @@ const topics = [
 	</div>
 </section>
 
-<!-- ===================== STEP 03 ===================== -->
 <section class="plan-section" id="step-03">
 	<div class="container">
 		<div class="plan-group-head">
@@ -434,80 +344,42 @@ const topics = [
 	</div>
 </section>
 
-<!-- ===================== WHERE TO START ===================== -->
-<section class="guide" id="guide">
-	<div class="container">
-		<div class="guide-head">
-			<p class="section-eyebrow">Where To Start</p>
-			<h2>どこから始めるべきか</h2>
+<section class="svc-product">
+	<div class="container svc-product__inner">
+		<div class="svc-product__copy">
+			<p class="section-eyebrow">Who it is for</p>
+			<h2>顧客管理システムを探している方へ。</h2>
 			<p class="section-lead">
-				判断の基準は、予算でも会社の規模でもありません。
-				「いま何が分かっていて、何が分かっていないか」です。
+				40社以上のCRM / MA / SFA導入支援で分かった「動くCRMの型」を製品にしたのが「Revenue CRM」です。移行作業なし。スプレッドシートの記録がそのまま残るところから始まります。2026年9月28日に正式リリースしました。
 			</p>
+			<p class="svc-product__custom">
+				貴社の業務に合わせた連携・自動化も、有償の導入支援として対応します。
+			</p>
+			<p class="svc-product__custom">
+				すでに使っているツールと連携できるよう接続する。<br />
+				LINEからの予約をGoogleカレンダーに自動で登録する。<br />
+				名刺や議事録から連絡先とタスクを自動で作成する。
+			</p>
+			<p class="svc-product__custom">
+				こうした部分を、CRMに合わせて仕事を変えるのではなく、いまの仕事の流れに合わせて作ります。
+			</p>
+			<p class="svc-product__note">製品の利用料と、業務の設計・構築・運用を支援するサービスの費用は別です。</p>
+			<a href="/crm/" class="btn btn--outline-primary">Revenue CRMを見る →</a>
 		</div>
-		<div class="guide-grid">
-			<a class="guide-card" href="#step-01">
-				<p class="guide-card__state">何が問題か、まだ言葉にできていない</p>
-				<p class="guide-card__desc">
-					症状は出ているが、原因の見当がついていない。社内で意見が割れている。
-					この状態で再設計に入ると、直す対象を間違えます。
-				</p>
-				<span class="guide-card__answer">Step 01 現状分析から →</span>
-			</a>
-			<a class="guide-card" href="#step-02">
-				<p class="guide-card__state">課題は見えていて、作り直す判断はできている</p>
-				<p class="guide-card__desc">
-					どこが詰まっているかは分かっていて、社内の合意も取れている。
-					あとは設計と実装の担い手が要る、という段階です。
-				</p>
-				<span class="guide-card__answer">Step 02 再設計から →</span>
-			</a>
-			<a class="guide-card" href="#step-03">
-				<p class="guide-card__state">設計はあるが、現場で回っていない</p>
-				<p class="guide-card__desc">
-					ツールも設計書もある。しかし入力されない・見られない・会議が形骸化している。
-					作り直すより、定着の設計が要ります。
-				</p>
-				<span class="guide-card__answer">Step 03 伴走支援から →</span>
-			</a>
-		</div>
-		<p class="guide-foot">
-			<strong>手作業のシステム化や既存システムの連携には、<a href="/services/business-system-development/">業務システム開発・連携・自動化</a>をご相談ください。</strong>開発会社が決まっている場合は、<a href="/services/project-management-support/">PM支援のみ</a>のご依頼にも対応します。<br />
-			判断がつかない場合は、<a href="/free-consultation/">30分の無料相談</a>で、いまの状況と次の進め方を一緒に整理します。
-			6つの「境目」のどこが詰まっているかが分かれば、どのステップから入るべきかも決まります。
-		</p>
+		<a href="/crm/" class="svc-product__shot" aria-label="Revenue CRMのダッシュボード画面。詳細ページへ">
+			<span class="svc-product__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+			<img
+				src="/images/crm/screen-dashboard-2026-10c.webp"
+				alt="Revenue CRMのダッシュボード。パイプライン総額・加重フォーキャスト・勝率・期限切れタスク・ステージ別パイプライン・注目の商談を一画面に表示。"
+				width="1600"
+				height="1000"
+				loading="lazy"
+				decoding="async"
+			/>
+		</a>
 	</div>
 </section>
 
-<!-- ===================== TOPICS (機能別) ===================== -->
-<section class="topics">
-	<div class="container">
-		<div class="topics-head">
-			<p class="section-eyebrow">By Topic</p>
-			<h2>個別テーマから探す</h2>
-			<p class="section-lead">
-				「HubSpotの運用を立て直したい」「GTM戦略から整理したい」など、
-				テーマが決まっている場合はこちらから。開発・連携だけのご相談にも対応します。
-			</p>
-		</div>
-		<div class="topics-grid">
-			{topics.map((t) => (
-				<a class={`topic-card${t.core ? ' topic-card--core' : ''}`} href={t.href}>
-					<span class="topic-step">{t.step}</span>
-					<h3>{t.title}</h3>
-					<p class="topic-en">{t.en}</p>
-					<p class="topic-desc">{t.desc}</p>
-					<span class="topic-link">詳しく見る →</span>
-				</a>
-			))}
-		</div>
-		<p class="topics-note">
-			※ ConsilegyはHubSpot専業ではなく、主要CRM / SFA / MAを横断して支援します。
-		</p>
-	</div>
-</section>
-
-<!-- ===================== SUPPORTED TOOLS ===================== -->
 <section class="tools">
 	<div class="container">
 		<div class="tools-head">
@@ -563,7 +435,6 @@ const topics = [
 	</div>
 </section>
 
-<!-- ===================== PROCESS FLOW ===================== -->
 <section class="process">
 	<div class="container">
 		<div class="process-head">
@@ -614,7 +485,6 @@ const topics = [
 	</div>
 </section>
 
-<!-- ===================== FINAL CTA ===================== -->
 <ConsultationOutcomes />
 <section class="final-cta">
   <div class="container cta-inner">
@@ -634,6 +504,20 @@ const topics = [
 </BaseLayout>
 
 <style>
+.topics.topics { scroll-margin-top: 6rem; background: #F1F5F9; }
+.topics .topics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.topics .topic-card { border-radius: 6px; box-shadow: 0 1px 3px rgb(15 23 42 / .06); }
+.topics .topic-link { font-size: 1rem; }
+.hero-actions .btn { border-radius: 4px; }
+.topics .topic-card h3 { font-size: 1.25rem; line-height: 1.65; color: var(--color-navy); }
+.topics .topic-name { font-size: 1rem; color: var(--color-text-muted); margin: 1rem 0; }
+.needs-help { margin-top: 2rem; padding: 2rem; background: #fff; border: 1px solid var(--color-border); border-radius: 6px; box-shadow: var(--shadow-sm); }
+.needs-help h3 { font-size: 1.25rem; color: var(--color-navy); }
+.needs-help p { max-width: 52rem; font-size: 1rem; line-height: 1.9; }
+.needs-help .needs-note { font-size: .875rem; color: var(--color-text-muted); margin-bottom: 0; }
+.overview { scroll-margin-top: 6rem; }
+@media(max-width: 700px) { .topics .topics-grid { grid-template-columns: 1fr; } .needs-help { padding: 1.5rem; } }
+
 /* ── Shared ──────────────────────────────────────────── */
 .section-eyebrow {
 	font-size: 0.8125rem; font-weight: 600; color: var(--color-navy);

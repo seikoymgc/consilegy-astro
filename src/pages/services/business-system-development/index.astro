@@ -1,4 +1,8 @@
 ---
+import ServiceHero from '../../../components/services/ServiceHero.astro';
+import ServiceOverview from '../../../components/services/ServiceOverview.astro';
+import { getServiceGuide } from '../../../data/service-guide';
+const serviceGuide = getServiceGuide('business-system-development');
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const title = '業務システム開発・連携・自動化 | Consilegy';
@@ -33,67 +37,10 @@ const faqItems = [
     { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqItems.map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
   ])} />
 
-  <section class="dev-hero">
-    <div class="container">
-      <a href="/services/" class="dev-back">← サービス一覧</a>
-      <div class="dev-hero-grid">
-        <div class="dev-hero-intro">
-          <p class="dev-eyebrow">Development &amp; Automation</p>
-          <p class="dev-service">業務システム開発・連携・自動化</p>
-          <h1>業務に必要な仕組みを、<br /><span>作る</span><span>・つなぐ</span><span>・自動化する</span></h1>
-          <p class="dev-lead">スプレッドシートからの転記。システムごとに分かれた情報。既製品では足りない機能。<br />いまの仕事の流れを整理し、必要なシステムと連携を設計・開発します。</p>
-        </div>
-        <figure class="dev-hero-visual dev-role" aria-labelledby="dev-flow-caption">
-          <div class="dev-role-box">いまの業務・システム<span>手作業・分散したデータ・足りない機能</span></div>
-          <div class="dev-role-arrow" aria-hidden="true">↓</div>
-          <div class="dev-role-box dev-role-box--main">業務整理 → 設計・開発 → テスト<span>新規開発・既存システムの連携・自動化</span></div>
-          <div class="dev-role-arrow" aria-hidden="true">↓</div>
-          <div class="dev-role-box">現場で使える仕組みへ<span>必要な画面・つながるデータ・運用手順</span></div>
-          <figcaption id="dev-flow-caption">要件整理から開発、移行・運用開始までを支援します。</figcaption>
-        </figure>
-        <div class="dev-hero-conversion">
-          <div class="dev-actions"><a href="/contact/" class="btn btn--primary">お問い合わせ</a><a href="#scope" class="btn btn--outline">開発できることを見る</a></div>
-          <p class="dev-note">連携一つから、新規システムの開発まで。対象範囲を整理して個別にお見積もりします。</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <ServiceHero service={serviceGuide} />
+<ServiceOverview service={serviceGuide} />
 
-  <section class="dev-band dev-band--gray" id="scope">
-    <div class="container">
-      <p class="dev-eyebrow">What We Build</p>
-      <h2>いまの業務に、何が必要かから</h2>
-      <p class="dev-intro">以下は開発・連携の相談例です。実現方法と対応範囲は、現在の環境と要件を確認して決めます。</p>
-      <div class="dev-grid dev-grid--two">
-        {examples.map(({ title, text, output }, i) => <article class="dev-card"><span class="dev-number">0{i + 1}</span><h3>{title}</h3><p>{text}</p><p class="dev-output"><strong>相談例</strong>{output}</p></article>)}
-      </div>
-    </div>
-  </section>
-
-  <section class="dev-band">
-    <div class="container">
-      <p class="dev-eyebrow">Design Before Development</p>
-      <h2>既存の仕組みを活かし、<br />必要な部分を開発する</h2>
-      <div class="dev-grid dev-grid--three">
-        <article class="dev-card"><span class="dev-number">01</span><h3>業務を整理する</h3><p>担当者、入力する情報、判断する条件、例外処理を確認。システム化する範囲と、運用で対応する範囲を整理します。</p></article>
-        <article class="dev-card"><span class="dev-number">02</span><h3>実現方法を選ぶ</h3><p>既存製品の設定、システム間の連携、追加機能の開発、新規構築を比較。費用・運用負荷・制約を踏まえて決めます。</p></article>
-        <article class="dev-card"><span class="dev-number">03</span><h3>使い続ける条件を決める</h3><p>利用権限、データの扱い、エラー時の対応、運用担当を設計。リリース後の保守・改善の範囲も合意します。</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="dev-band dev-band--gray">
-    <div class="container">
-      <p class="dev-eyebrow">Case Studies</p>
-      <h2>業務とシステムをつないだ実例</h2>
-      <div class="dev-grid dev-grid--two">
-        <article class="dev-card"><h3>LINEと予約の手作業をつなぐ</h3><p>生徒数十人のオンライン英会話スクールで、LINE公式アカウントとGoogleカレンダーを連携。手作業だった確認と予約を自動化しました。</p><p class="dev-output">Revenue CRMスクール版の開発背景となった事例です。</p><a href="/crm/school/">Revenue CRMスクール版を見る →</a></article>
-        <article class="dev-card"><h3>分散したデータを統合する</h3><p>医療テック企業で、複数のシステムに分散していた顧客データをHubSpotへ統合。入力ルールの整備と運用定着まで支援しました。</p><a href="/case-studies/healthcare-data-integration-ops-enablement/">データ統合の支援事例を見る →</a></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="dev-band" id="pricing">
+<section class="dev-band" id="pricing">
     <div class="container dev-pricing-layout">
       <div>
         <p class="dev-eyebrow">Process &amp; Pricing</p>
@@ -108,6 +55,40 @@ const faqItems = [
         <li><strong>開発・テスト・移行</strong><p>合意した範囲を実装し、実際の業務に沿って動作を確認します。</p></li>
         <li><strong>運用開始・引き継ぎ</strong><p>手順と運用担当を確認。保守・改善は合意した範囲で対応します。</p></li>
       </ol>
+    </div>
+  </section>
+
+<section class="dev-band dev-band--gray" id="scope">
+    <div class="container">
+      <p class="dev-eyebrow">What We Build</p>
+      <h2>開発・連携でできることの具体例</h2>
+      <p class="dev-intro">以下は開発・連携の相談例です。実現方法と対応範囲は、現在の環境と要件を確認して決めます。</p>
+      <div class="dev-grid dev-grid--two">
+        {examples.map(({ title, text, output }, i) => <article class="dev-card"><span class="dev-number">0{i + 1}</span><h3>{title}</h3><p>{text}</p><p class="dev-output"><strong>相談例</strong>{output}</p></article>)}
+      </div>
+    </div>
+  </section>
+
+<section class="dev-band">
+    <div class="container">
+      <p class="dev-eyebrow">Design Before Development</p>
+      <h2>既存の仕組みを活かし、<br />必要な部分を開発する</h2>
+      <div class="dev-grid dev-grid--three">
+        <article class="dev-card"><span class="dev-number">01</span><h3>業務を整理する</h3><p>担当者、入力する情報、判断する条件、例外処理を確認。システム化する範囲と、運用で対応する範囲を整理します。</p></article>
+        <article class="dev-card"><span class="dev-number">02</span><h3>実現方法を選ぶ</h3><p>既存製品の設定、システム間の連携、追加機能の開発、新規構築を比較。費用・運用負荷・制約を踏まえて決めます。</p></article>
+        <article class="dev-card"><span class="dev-number">03</span><h3>使い続ける条件を決める</h3><p>利用権限、データの扱い、エラー時の対応、運用担当を設計。リリース後の保守・改善の範囲も合意します。</p></article>
+      </div>
+    </div>
+  </section>
+
+<section class="dev-band dev-band--gray">
+    <div class="container">
+      <p class="dev-eyebrow">Case Studies</p>
+      <h2>業務とシステムをつないだ実例</h2>
+      <div class="dev-grid dev-grid--two">
+        <article class="dev-card"><h3>LINEと予約の手作業をつなぐ</h3><p>生徒数十人のオンライン英会話スクールで、LINE公式アカウントとGoogleカレンダーを連携。手作業だった確認と予約を自動化しました。</p><p class="dev-output">Revenue CRMスクール版の開発背景となった事例です。</p><a href="/crm/school/">Revenue CRMスクール版を見る →</a></article>
+        <article class="dev-card"><h3>分散したデータを統合する</h3><p>医療テック企業で、複数のシステムに分散していた顧客データをHubSpotへ統合。入力ルールの整備と運用定着まで支援しました。</p><a href="/case-studies/healthcare-data-integration-ops-enablement/">データ統合の支援事例を見る →</a></article>
+      </div>
     </div>
   </section>
 

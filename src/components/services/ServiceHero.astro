@@ -1,0 +1,33 @@
+---
+import type { ServiceGuide } from '../../data/service-guide';
+interface Props { service: ServiceGuide }
+const { service } = Astro.props;
+---
+<section class="service-hero">
+  <div class="container">
+    <a class="service-back" href="/services/">← 困りごとからサービスを探す</a>
+    <p class="service-eyebrow">How We Help</p>
+    <h1>{service.headline[0]}<br />{service.headline[1]}</h1>
+    <p class="service-summary">{service.summary}</p>
+    <p class="service-name">{service.name}</p>
+    <div class="service-actions"><a class="btn btn--primary" href="/contact/">この困りごとを相談する</a><a class="btn service-outline" href="#pricing">料金・進め方を見る</a></div>
+    <nav class="service-jump" aria-label="このページの内容"><a href="#situations">こんなお困りごとに</a><a href="#outcomes">どう変わるか</a><a href="#support">支援すること</a><a href="#pricing">料金</a></nav>
+  </div>
+</section>
+<style>
+  .service-hero { padding: 2.5rem 0 3.5rem; background: #fff; }
+  .service-back { display: inline-block; margin-bottom: 2.5rem; font-size: 1rem; }
+  .service-eyebrow { font-size: .875rem; font-weight: 600; letter-spacing: .12em; color: var(--color-navy); margin: 0 0 1rem; }
+  h1 { color: var(--color-navy); font-size: clamp(1.8rem, 3.8vw, 3rem); line-height: 1.55; font-weight: 600; letter-spacing: -.03em; margin: 0 0 1.5rem; }
+  .service-summary { max-width: 48rem; font-size: 1.125rem; line-height: 1.9; color: var(--color-text); margin: 0 0 1rem; }
+  .service-name { color: var(--color-text-muted); font-size: 1rem; margin: 0 0 2rem; }
+  .service-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+  .btn { border-radius: 4px; padding: .95rem 1.5rem; white-space: normal; text-align: center; }
+  .btn--primary { background: #8758C9; color: #fff; }
+  .btn--primary:hover { background: #7042ac; color: #fff; }
+  .service-outline { color: var(--color-primary); background: transparent; border: 1px solid var(--color-border-strong); }
+  .service-outline:hover { border-color: var(--color-primary); }
+  .service-jump { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid var(--color-border); }
+  .service-jump a { font-size: 1rem; }
+  @media(max-width: 560px) { h1 { font-size: 1.7rem; } .service-hero { padding: 2rem 0 3rem; } .service-back { margin-bottom: 2rem; } .service-actions { flex-direction: column; } .service-actions .btn { width: 100%; } }
+</style>

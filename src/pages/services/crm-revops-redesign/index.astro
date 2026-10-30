@@ -1,4 +1,8 @@
 ---
+import ServiceHero from '../../../components/services/ServiceHero.astro';
+import ServiceOverview from '../../../components/services/ServiceOverview.astro';
+import { getServiceGuide } from '../../../data/service-guide';
+const serviceGuide = getServiceGuide('crm-revops-redesign');
 import ConsultationOutcomes from '../../../components/ConsultationOutcomes.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
@@ -77,7 +81,7 @@ const scopeItems = [
 
 <BaseLayout
 	title="CRM / RevOps再設計支援 | Consilegy"
-	description="Salesforce・HubSpot・Kintone・Marketoなど既存CRM環境を活かしたまま、KPI・営業プロセス・データ構造・RevOpsを再設計。営業・マーケ・CSが連動する売上運用基盤を再構築する上流支援。"
+	description={serviceGuide.summary}
 	lang="ja"
 >
 	<Fragment slot="head">
@@ -94,170 +98,41 @@ const scopeItems = [
 	</Fragment>
 
 <!-- ===================== HERO ===================== -->
-<section class="hero">
-	<div class="container">
-		<div class="hero-nav">
-			<a href="/services/" class="back-link">← サービス一覧</a>
-			<span class="hero-tag">CRM / RevOps Redesign</span>
-		</div>
-		<div class="hero-service-name">
-			<span class="hero-service-ja">CRM / RevOps再設計支援</span>
-			<span class="hero-service-en">CRM / RevOps Redesign</span>
-		</div>
-		<h1>Salesforce・HubSpotを、<br /><span class="accent">営業が動ける仕組みに。</span></h1>
-		<p class="hero-sub">
-			Salesforce・HubSpot・Kintone・Marketoを導入しても、<br />
-			営業が入力しない。マーケティング施策と商談がつながらない。<br />
-			ダッシュボードの数字が信用されない。
-		</p>
-		<p class="hero-lead">
-          営業・マーケティングの責任者、システム運用担当の方へ。<br />
-          見込み客を渡す条件、担当者と対応期限、商談・受注の記録を一緒に見直します。<br />
-          既存の顧客管理システムを前提に、業務ルールとデータ連携の設計・実装・定着を支援します。
-        </p>
-		<div class="hero-cta">
-			<a href="/contact/" class="btn btn--primary btn--lg">お問い合わせ</a>
-			<a href="/download/" class="btn btn--outline btn--lg">サービス資料をダウンロード</a>
-		</div>
-		<div class="hero-keywords">
-			<span class="kw-pill">既存CRMを活かす</span>
-			<span class="kw-pill">リプレイス不要</span>
-			<span class="kw-pill">営業・マーケ・CS連携</span>
-			<span class="kw-pill">KPI再設計</span>
-		</div>
-	</div>
-</section>
+<ServiceHero service={serviceGuide} />
+<ServiceOverview service={serviceGuide} />
 
-<!-- ===================== よくある状態 ===================== -->
-<section class="symptoms">
+<section class="pricing" id="pricing">
 	<div class="container">
 		<div class="section-header">
-			<p class="eyebrow-label">Symptoms</p>
-			<h2>このような状態なら、CRM再設計が必要です。</h2>
+			<p class="eyebrow-label">Pricing</p>
+			<h2>料金と、始め方。</h2>
 		</div>
-		<div class="symptoms-grid">
-			<div class="symptom-card">営業が<strong>CRMに入力しない</strong></div>
-			<div class="symptom-card">ダッシュボードの数字を<strong>経営が信用していない</strong></div>
-			<div class="symptom-card">SalesforceとHubSpotで<strong>数値が違う</strong></div>
-			<div class="symptom-card">マーケティング施策が<strong>商談・受注につながったか分からない</strong></div>
-			<div class="symptom-card">MQL・SQL、商談、受注の<strong>定義が部門ごとに違う</strong></div>
-			<div class="symptom-card"><strong>スプレッドシートでの集計や二重管理</strong>が残っている</div>
-			<div class="symptom-card"><strong>商談ステージが形だけ</strong>になっている</div>
-			<div class="symptom-card"><strong>失注理由や受注確度</strong>が記録されていない</div>
-			<div class="symptom-card"><strong>営業会議が数字確認だけ</strong>で終わっている</div>
-			<div class="symptom-card">CRMが<strong>営業日報としてしか使われていない</strong></div>
+
+		<div class="pricing-card">
+			<div class="pricing-card__main">
+				<div class="pricing-service-name">CRM / RevOps再設計支援</div>
+				<div class="pricing-amount">300万〜800万円</div>
+				<p class="pricing-note">対象システムと部門の数、既存データの状態、運用開始後の支援範囲により変動します。</p>
+				<div class="pricing-card__types">
+					<div class="pricing-type">
+						<div class="pricing-type__label">プロジェクト型支援</div>
+						<p>CRM / RevOps再設計を期限付きプロジェクトとして実施。設計成果物の納品と実装対応が主目的。</p>
+					</div>
+					<div class="pricing-type">
+						<div class="pricing-type__label">月額型伴走支援</div>
+						<p>実装後の現場定着フェーズも含め、月次KPIレビューと継続改善で伴走。設計を担当したメンバーがそのまま担当します。</p>
+					</div>
+				</div>
+			</div>
+			<div class="pricing-card__cta">
+				<a href="/contact/" class="btn btn--primary btn--lg">お問い合わせ</a>
+				<a href="/services/" class="btn btn--ghost">パッケージ料金を見る</a>
+			</div>
 		</div>
-		<p class="symptoms-note">
-			CRMは、入力画面を整えるだけでは機能しません。<br />
-			売上管理に使えるCRMにするには、営業プロセス・マーケティング連携・KPI定義・データ構造・会議体までを一体で設計する必要があります。
-		</p>
+			<p class="tax-note">価格はすべて税抜です。</p>
 	</div>
 </section>
 
-<!-- ===================== 問題の本質 ===================== -->
-<section class="root-cause">
-	<div class="container">
-		<div class="root-cause-inner">
-			<div class="section-header">
-				<p class="eyebrow-label">Root Cause</p>
-				<h2>CRMが機能しない原因は、<br />ツールではなく設計にあります。</h2>
-			</div>
-			<div class="root-cause-body">
-				<p>多くの企業では、CRM導入時に「項目を作る」「商談ステージを設定する」「レポートを作る」ところまでは行われます。</p>
-				<p>しかし実際には、</p>
-				<ul class="root-cause-list">
-					<li>誰が、いつ、何を入力するのか。</li>
-					<li>どの条件でリードを営業へ渡すのか。</li>
-					<li>どの数字を経営判断に使うのか。</li>
-					<li>どの会議で、どのKPIを見て改善するのか。</li>
-				</ul>
-				<p>ここまで設計されていないため、CRMが現場にも経営にも使われない状態になります。</p>
-
-				<p class="root-cause-closing">Consilegyは、CRM単体ではなく、営業・マーケティング・CSを横断したRevenue Operations全体を再設計します。</p>
-			</div>
-		</div>
-	</div>
-	<div class="container">
-		<figure class="ba-figure" aria-labelledby="ba-figure-caption">
-			<svg class="fig-pc" viewBox="0 0 1120 320" role="img" aria-label="再設計の前と後。前はMA・SFA・CRMが分断され、後は一つの流れと共有データになる" font-family="inherit">
-				<defs>
-					<marker id="ba-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker>
-					<marker id="ba-arrp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2563EB"/></marker>
-				</defs>
-				<text x="40" y="30" font-size="14" fill="#64748b" letter-spacing="2">BEFORE</text>
-				<text x="40" y="60" font-size="20" font-weight="600" fill="#0F172A">ツールごとに分断</text>
-				<rect x="40" y="84" width="150" height="84" rx="6" fill="#fff" stroke="#E2E8F0"/>
-				<text x="54" y="112" font-size="14" fill="#64748b">マーケティング</text><text x="54" y="150" font-size="22" font-weight="600" fill="#0F172A">MA</text>
-				<line x1="196" y1="126" x2="208" y2="126" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="3 4"/>
-				<rect x="214" y="84" width="150" height="84" rx="6" fill="#fff" stroke="#E2E8F0"/>
-				<text x="228" y="112" font-size="14" fill="#64748b">営業</text><text x="228" y="150" font-size="22" font-weight="600" fill="#0F172A">SFA</text>
-				<line x1="370" y1="126" x2="382" y2="126" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="3 4"/>
-				<rect x="388" y="84" width="150" height="84" rx="6" fill="#fff" stroke="#E2E8F0"/>
-				<text x="402" y="112" font-size="14" fill="#64748b">CS</text><text x="402" y="150" font-size="22" font-weight="600" fill="#0F172A">CRM</text>
-				<rect x="40" y="190" width="498" height="52" rx="6" fill="#F1F5F9" stroke="#E2E8F0"/>
-				<text x="289" y="223" font-size="16" fill="#475569" text-anchor="middle">間をつなぐのは、スプレッドシートと人の記憶</text>
-				<text x="289" y="286" font-size="16" fill="#64748b" text-anchor="middle">同じ顧客が3か所にいて、数字が合わない</text>
-				<line x1="552" y1="160" x2="572" y2="160" stroke="#3B82F6" stroke-width="3" marker-end="url(#ba-arrp)"/>
-				<text x="582" y="30" font-size="14" fill="#64748b" letter-spacing="2">AFTER</text>
-				<text x="582" y="60" font-size="20" font-weight="600" fill="#0F172A">一つの流れに</text>
-				<rect x="582" y="84" width="150" height="84" rx="6" fill="#fff" stroke="#E2E8F0"/>
-				<text x="596" y="112" font-size="14" fill="#64748b">マーケティング</text><text x="596" y="146" font-size="16" font-weight="600" fill="#0F172A">見込み客→営業</text>
-				<line x1="734" y1="126" x2="752" y2="126" stroke="#0F172A" stroke-width="2" marker-end="url(#ba-arr)"/>
-				<rect x="756" y="84" width="150" height="84" rx="6" fill="#fff" stroke="#E2E8F0"/>
-				<text x="770" y="112" font-size="14" fill="#64748b">営業</text><text x="770" y="146" font-size="16" font-weight="600" fill="#0F172A">商談→受注</text>
-				<line x1="908" y1="126" x2="926" y2="126" stroke="#0F172A" stroke-width="2" marker-end="url(#ba-arr)"/>
-				<rect x="930" y="84" width="150" height="84" rx="6" fill="#fff" stroke="#E2E8F0"/>
-				<text x="944" y="112" font-size="14" fill="#64748b">CS</text><text x="944" y="146" font-size="16" font-weight="600" fill="#0F172A">受注→次の取引</text>
-				<rect x="582" y="190" width="498" height="52" rx="6" fill="#0F172A"/>
-				<text x="831" y="223" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">全部門で共有する顧客データと運用ルール</text>
-				<text x="831" y="286" font-size="16" fill="#64748b" text-anchor="middle">誰が・いつ・何を入れるか、どの数字で判断するかが決まっている</text>
-			</svg>
-<svg class="fig-sp" viewBox="0 0 360 1066" role="img" aria-label="再設計の前と後。前はMA・SFA・CRMが分断され、後は一つの流れと共有データになる" font-family="inherit"><defs><marker id="ba-sp-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker><marker id="ba-sp-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2563EB"/></marker><marker id="ba-sp-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#94A3B8"/></marker></defs>
-<text x="8" y="20" font-size="14" fill="#64748b" letter-spacing="1.5">BEFORE</text>
-<text x="8" y="50" font-size="20" font-weight="600" fill="#0F172A">ツールごとに分断</text>
-<rect x="8" y="64" width="344" height="78" rx="6" fill="#fff" stroke="#E2E8F0"/>
-<text x="24" y="94" font-size="14" fill="#64748b" letter-spacing="1.5">マーケティング</text>
-<text x="24" y="124" font-size="22" font-weight="600" fill="#0F172A">MA</text>
-<line x1="180.0" y1="146" x2="180.0" y2="162" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="3 4"/>
-<rect x="8" y="166" width="344" height="78" rx="6" fill="#fff" stroke="#E2E8F0"/>
-<text x="24" y="196" font-size="14" fill="#64748b" letter-spacing="1.5">営業</text>
-<text x="24" y="226" font-size="22" font-weight="600" fill="#0F172A">SFA</text>
-<line x1="180.0" y1="248" x2="180.0" y2="264" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="3 4"/>
-<rect x="8" y="268" width="344" height="78" rx="6" fill="#fff" stroke="#E2E8F0"/>
-<text x="24" y="298" font-size="14" fill="#64748b" letter-spacing="1.5">CS</text>
-<text x="24" y="328" font-size="22" font-weight="600" fill="#0F172A">CRM</text>
-<rect x="8" y="356" width="344" height="68" rx="6" fill="#F1F5F9" stroke="#E2E8F0"/>
-<text x="180.0" y="389" font-size="16" fill="#475569" text-anchor="middle">間をつなぐのは、</text>
-<text x="180.0" y="413" font-size="16" fill="#475569" text-anchor="middle">スプレッドシートと人の記憶</text>
-<text x="180.0" y="454" font-size="16" fill="#64748b" text-anchor="middle">同じ顧客が3か所にいて、</text>
-<text x="180.0" y="478" font-size="16" fill="#64748b" text-anchor="middle">数字が合わない</text>
-<line x1="180.0" y1="490" x2="180.0" y2="518" stroke="#3B82F6" stroke-width="3" marker-end="url(#ba-sp-b)"/>
-<text x="8" y="544" font-size="14" fill="#64748b" letter-spacing="1.5">AFTER</text>
-<text x="8" y="574" font-size="20" font-weight="600" fill="#0F172A">一つの流れに</text>
-<rect x="8" y="588" width="344" height="78" rx="6" fill="#fff" stroke="#E2E8F0"/>
-<text x="24" y="618" font-size="14" fill="#64748b" letter-spacing="1.5">マーケティング</text>
-<text x="24" y="648" font-size="18" font-weight="600" fill="#0F172A">見込み客→営業</text>
-<line x1="180.0" y1="670" x2="180.0" y2="698" stroke="#0F172A" stroke-width="2" marker-end="url(#ba-sp-a)"/>
-<rect x="8" y="704" width="344" height="78" rx="6" fill="#fff" stroke="#E2E8F0"/>
-<text x="24" y="734" font-size="14" fill="#64748b" letter-spacing="1.5">営業</text>
-<text x="24" y="764" font-size="18" font-weight="600" fill="#0F172A">商談→受注</text>
-<line x1="180.0" y1="786" x2="180.0" y2="814" stroke="#0F172A" stroke-width="2" marker-end="url(#ba-sp-a)"/>
-<rect x="8" y="820" width="344" height="78" rx="6" fill="#fff" stroke="#E2E8F0"/>
-<text x="24" y="850" font-size="14" fill="#64748b" letter-spacing="1.5">CS</text>
-<text x="24" y="880" font-size="18" font-weight="600" fill="#0F172A">受注→次の取引</text>
-<rect x="8" y="908" width="344" height="68" rx="6" fill="#0F172A"/>
-<text x="180.0" y="941" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">全部門で共有する</text>
-<text x="180.0" y="965" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">顧客データと運用ルール</text>
-<text x="180.0" y="1006" font-size="16" fill="#64748b" text-anchor="middle">誰が・いつ・何を入れるか、</text>
-<text x="180.0" y="1030" font-size="16" fill="#64748b" text-anchor="middle">どの数字で判断するかが</text>
-<text x="180.0" y="1054" font-size="16" fill="#64748b" text-anchor="middle">決まっている</text>
-</svg>
-			<figcaption id="ba-figure-caption">再設計で変わるのは、ツールではなく「つながり方」。部門ごとの箱を、共有データの上の一つの流れに作り直します。</figcaption>
-		</figure>
-	</div>
-</section>
-
-<!-- ===================== 定義 ===================== -->
 <section class="definition" id="crm-revops-redesign">
 	<div class="container">
 		<div class="definition-inner">
@@ -277,63 +152,6 @@ const scopeItems = [
 	</div>
 </section>
 
-<!-- ===================== 解決する課題 ===================== -->
-<section class="problems">
-	<div class="container">
-		<div class="section-header">
-			<p class="eyebrow-label">Problems We Solve</p>
-			<h2>解決する課題</h2>
-		</div>
-		<div class="problems-grid">
-			<div class="problem-card">
-				<div class="problem-card__en">CRM Fragmentation</div>
-				<h3>CRM分断</h3>
-				<p>複数のCRM / MA / SFAが接続されておらず、データが孤立している。</p>
-			</div>
-			<div class="problem-card">
-				<div class="problem-card__en">KPI Misalignment</div>
-				<h3>KPI不一致</h3>
-				<p>営業・マーケ・CSで数字の定義と計算方法が一致していない。</p>
-			</div>
-			<div class="problem-card">
-				<div class="problem-card__en">Operations Collapse</div>
-				<h3>運用崩壊</h3>
-				<p>入力定着・レビュー会議・ダッシュボード運用が形骸化している。</p>
-			</div>
-			<div class="problem-card">
-				<div class="problem-card__en">Data Duplication</div>
-				<h3>データ重複</h3>
-				<p>顧客・リード・会社データが複数システムで重複し、統一されていない。</p>
-			</div>
-			<div class="problem-card">
-				<div class="problem-card__en">Revenue Blindness</div>
-				<h3>売上可視化不足</h3>
-				<p>マーケティング施策から受注・継続収益まで一気通貫で追えていない。</p>
-			</div>
-		</div>
-	</div>
-</section>
-
-<!-- ===================== 支援範囲 ===================== -->
-<section class="scope">
-	<div class="container">
-		<div class="section-header">
-			<p class="eyebrow-label">Scope</p>
-			<h2>支援領域</h2>
-		</div>
-		<div class="scope-grid">
-			{scopeItems.map(item => (
-				<div class="scope-card">
-					<div class="scope-card__label">{item.en}</div>
-					<div class="scope-card__ja">{item.ja}</div>
-					<p>{item.desc}</p>
-				</div>
-			))}
-		</div>
-	</div>
-</section>
-
-<!-- ===================== 再設計プロセス ===================== -->
 <section class="process">
 	<div class="container">
 		<div class="section-header">
@@ -504,7 +322,7 @@ const scopeItems = [
 		<div class="deliverables-inner">
 			<div class="section-header">
 				<p class="eyebrow-label">Deliverables</p>
-				<h2>主な成果物</h2>
+				<h2>支援でお渡しするもの</h2>
 				<p class="section-note">プロジェクト終了時に、以下のドキュメントをご提供します。</p>
 			</div>
 			<div class="deliverables-layout">
@@ -801,41 +619,7 @@ const scopeItems = [
 </section>
 
 <!-- ===================== 料金目安 ===================== -->
-<section class="pricing">
-	<div class="container">
-		<div class="section-header">
-			<p class="eyebrow-label">Pricing</p>
-			<h2>料金目安</h2>
-		</div>
-		<p class="pricing-pretext">
-			機能していないCRM・手作業集計・部門間調整・誤った売上予測は、<br />
-			見えないコストとして積み上がります。<br />
-			CRM / RevOps再設計支援は、既存環境を活かしながら、売上運用基盤を再構築するための投資です。
-		</p>
-		<div class="pricing-card">
-			<div class="pricing-card__main">
-				<div class="pricing-service-name">CRM / RevOps再設計支援</div>
-				<div class="pricing-amount">300万〜800万円</div>
-				<p class="pricing-note">対象CRM数・対象部門数・既存データ環境・定着支援範囲により変動します。</p>
-				<div class="pricing-card__types">
-					<div class="pricing-type">
-						<div class="pricing-type__label">プロジェクト型支援</div>
-						<p>CRM / RevOps再設計を期限付きプロジェクトとして実施。設計成果物の納品と実装対応が主目的。</p>
-					</div>
-					<div class="pricing-type">
-						<div class="pricing-type__label">月額型伴走支援</div>
-						<p>実装後の現場定着フェーズも含め、月次KPIレビューと継続改善で伴走。設計を担当したメンバーがそのまま担当します。</p>
-					</div>
-				</div>
-			</div>
-			<div class="pricing-card__cta">
-				<a href="/contact/" class="btn btn--primary btn--lg">お問い合わせ</a>
-				<a href="/services/" class="btn btn--ghost">パッケージ料金を見る</a>
-			</div>
-		</div>
-			<p class="tax-note">価格はすべて税抜です。</p>
-	</div>
-</section>
+
 
 <!-- ===================== 関連サービス ===================== -->
 <section class="related">
@@ -909,16 +693,16 @@ const scopeItems = [
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-	--color-text: #111827;
-	--color-text-muted: #6b7280;
+	--color-text: #1E293B;
+	--color-text-muted: #475569;
 	--color-text-subtle: #9ca3af;
-	--color-primary: #1e40af;
-	--color-primary-dark: #1d4ed8;
+	--color-primary: #8758C9;
+	--color-primary-dark: #7042ac;
 	--color-accent-purple: #7c5cbf;
 	--color-bg: #ffffff;
-	--color-bg-subtle: #f8f9fb;
-	--color-border: #e5e7eb;
-	--color-border-strong: #d1d5db;
+	--color-bg-subtle: #F1F5F9;
+	--color-border: #E2E8F0;
+	--color-border-strong: #CBD5E1;
 	--shadow-xs: 0 1px 2px rgba(0,0,0,.06);
 	--shadow-sm: 0 2px 8px rgba(0,0,0,.08);
 	--font-sans: 'Inter', 'Noto Sans JP', 'Hiragino Sans', system-ui, sans-serif;
@@ -1144,7 +928,7 @@ p { font-family: var(--font-sans); line-height: 1.8; color: var(--color-text-mut
 }
 .ba-arrow__label {
 	font-size: 0.625rem; font-weight: 700; letter-spacing: 0.08em;
-	text-transform: uppercase; color: var(--color-primary); font-family: var(--font-sans);
+	text-transform: uppercase; color: var(--color-navy); font-family: var(--font-sans);
 	writing-mode: vertical-rl; text-orientation: mixed; white-space: nowrap; text-align: center;
 }
 .ba-notes { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }

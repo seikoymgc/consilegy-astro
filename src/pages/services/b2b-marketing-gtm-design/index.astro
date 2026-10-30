@@ -1,4 +1,8 @@
 ---
+import ServiceHero from '../../../components/services/ServiceHero.astro';
+import ServiceOverview from '../../../components/services/ServiceOverview.astro';
+import { getServiceGuide } from '../../../data/service-guide';
+const serviceGuide = getServiceGuide('b2b-marketing-gtm-design');
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const faqItems = [
@@ -67,7 +71,7 @@ const deliverables = [
 
 <BaseLayout
 	title="マーケティング・GTM戦略設計 | B2B Marketing Strategy / GTM Design | Consilegy"
-	description="ターゲット設計・ポジショニング・メッセージング・営業マーケ連携・CRM接続まで横断し、B2B企業の受注につながる市場開拓構造を設計します。GTM設計・商談化改善の上流コンサルティング。"
+	description={serviceGuide.summary}
 	lang="ja"
 >
 	<Fragment slot="head">
@@ -84,100 +88,40 @@ const deliverables = [
 	</Fragment>
 
 <!-- ===================== HERO ===================== -->
-<section class="hero">
-	<div class="container">
-		<div class="hero-nav">
-			<a href="/services/" class="back-link">← サービス一覧</a>
-			<span class="hero-tag">B2B Marketing Strategy / GTM Design</span>
-		</div>
-		<div class="hero-service-name">
-			<span class="hero-service-ja">マーケティング・GTM戦略設計</span>
-			<span class="hero-service-en">B2B Marketing Strategy / GTM Design</span>
-		</div>
-		<h1>施策は打っているのに、<br /><span class="accent">商談につながらない</span></h1>
-		<p class="hero-sub">
-			広告・SEO・ウェビナー・展示会など、施策単位でマーケティングを最適化しても、<br />
-			営業と接続されなければ売上にはつながりません。
-		</p>
-		<p class="hero-lead">
-			Consilegyは、ターゲット設計・メッセージング・営業連携・CRM設計まで含め、<br />
-			B2B企業のGTMと商談化構造を再設計します。
-		</p>
-		<div class="hero-cta">
-			<a href="/diagnostic/" class="btn btn--primary btn--lg">収益を自己診断</a>
-			<a href="/download/" class="btn btn--outline btn--lg">サービス資料をダウンロード</a>
-		</div>
-		<div class="hero-keywords">
-			<span class="kw-pill">B2B GTM</span>
-			<span class="kw-pill">営業マーケ連携</span>
-			<span class="kw-pill">商談化設計</span>
-			<span class="kw-pill">RevOps</span>
-			<span class="kw-pill">Revenue Architecture</span>
-		</div>
-	</div>
-</section>
+<ServiceHero service={serviceGuide} />
+<ServiceOverview service={serviceGuide} />
 
-<!-- ===================== 課題提起 ===================== -->
-<section class="issues">
+<section class="pricing" id="pricing">
 	<div class="container">
 		<div class="section-header">
-			<p class="eyebrow-label">Problem</p>
-			<h2>施策は増えているのに、売上につながらない。</h2>
+			<p class="eyebrow-label">Pricing</p>
+			<h2>料金と、始め方。</h2>
 		</div>
-		<div class="issues-grid">
-			<div class="issue-card">
-				<p>リード数は増えているが<strong>商談化しない</strong></p>
+		<div class="pricing-card">
+			<div class="pricing-card__main">
+				<div class="pricing-service-name">マーケティング・GTM戦略設計</div>
+				<div class="pricing-amount">300万〜800万円</div>
+				<p class="pricing-note">対象の市場・事業、営業組織の規模、利用中のシステム、作成する資料の範囲により変動します。</p>
+				<div class="pricing-card__types">
+					<div class="pricing-type">
+						<div class="pricing-type__label">プロジェクト型支援</div>
+						<p>GTM設計を期限付きプロジェクトとして実施。設計成果物の納品が主目的。</p>
+					</div>
+					<div class="pricing-type">
+						<div class="pricing-type__label">月額型伴走支援</div>
+						<p>設計後の実行フェーズも含め、月次KPIレビューと施策優先順位付けで伴走。</p>
+					</div>
+				</div>
 			</div>
-			<div class="issue-card">
-				<p>マーケティングと営業で<strong>ターゲット定義が違う</strong></p>
-			</div>
-			<div class="issue-card">
-				<p>LPや広告のCVが<strong>受注につながらない</strong></p>
-			</div>
-			<div class="issue-card">
-				<p><strong>MQL / SQL定義</strong>が曖昧で基準がない</p>
-			</div>
-			<div class="issue-card">
-				<p>展示会・ウェビナー後の<strong>追客が属人的</strong></p>
-			</div>
-			<div class="issue-card">
-				<p>CRMに<strong>マーケティングデータが接続</strong>されていない</p>
-			</div>
-			<div class="issue-card issue-card--wide">
-				<p>「<strong>どの施策が受注につながったか</strong>」が分からない</p>
+			<div class="pricing-card__cta">
+				<a href="/contact/" class="btn btn--primary btn--lg">範囲と費用を相談する</a>
+				<a href="/services/" class="btn btn--ghost">パッケージ料金を見る</a>
 			</div>
 		</div>
+			<p class="tax-note">価格はすべて税抜です。</p>
 	</div>
 </section>
 
-<!-- ===================== よくある失敗 ===================== -->
-<section class="failures">
-	<div class="container">
-		<div class="section-header">
-			<p class="eyebrow-label">Root Cause</p>
-			<h2>B2Bマーケティングが機能しない理由</h2>
-		</div>
-		<div class="failures-grid">
-			<div class="failure-card">
-				<div class="failure-card__num">01</div>
-				<h3>施策単位で最適化している</h3>
-				<p>SEO・広告・ウェビナーなどを個別最適化しているが、営業プロセスと接続されていない。施策の成果がパイプラインと受注に直結しない構造になっている。</p>
-			</div>
-			<div class="failure-card">
-				<div class="failure-card__num">02</div>
-				<h3>営業とマーケティングが分断している</h3>
-				<p>リード定義、ターゲット、KPIが部門間で一致していない。マーケティングが獲得したリードが営業に正しく引き渡されず、商談化の歩留まりが低下する。</p>
-			</div>
-			<div class="failure-card">
-				<div class="failure-card__num">03</div>
-				<h3>CRM / RevOps設計がない</h3>
-				<p>施策データが商談・受注・継続収益まで追えていない。どの施策が売上に貢献しているか不明なまま、効果のない施策に予算が投下され続ける。</p>
-			</div>
-		</div>
-	</div>
-</section>
-
-<!-- ===================== 定義 ===================== -->
 <section class="definition" id="b2b-gtm-design">
 	<div class="container">
 		<div class="definition-inner">
@@ -195,43 +139,6 @@ const deliverables = [
 	</div>
 </section>
 
-<!-- ===================== 支援範囲 ===================== -->
-<section class="scope">
-	<div class="container">
-		<div class="section-header">
-			<p class="eyebrow-label">Scope</p>
-			<h2>設計する領域</h2>
-		</div>
-		<div class="scope-grid">
-			<div class="scope-card">
-				<div class="scope-card__label">GTM Strategy</div>
-				<p>市場開拓戦略設計。参入市場、競合ポジション、収益モデルの構造を定義します。</p>
-			</div>
-			<div class="scope-card">
-				<div class="scope-card__label">ICP / Target Design</div>
-				<p>ターゲット企業・意思決定者プロファイルの定義と優先順位付けを行います。</p>
-			</div>
-			<div class="scope-card">
-				<div class="scope-card__label">Messaging / Positioning</div>
-				<p>競合差別化メッセージと、ターゲット別の訴求軸を設計します。</p>
-			</div>
-			<div class="scope-card">
-				<div class="scope-card__label">Funnel Design</div>
-				<p>リード獲得から商談化・受注・継続収益までのファネル構造を設計します。</p>
-			</div>
-			<div class="scope-card">
-				<div class="scope-card__label">Sales & Marketing Alignment</div>
-				<p>MQL/SQL定義、ハンドオフルール、共通KPIの設計で部門間の分断を解消します。</p>
-			</div>
-			<div class="scope-card">
-				<div class="scope-card__label">CRM / RevOps Connection</div>
-				<p>GTM設計をSalesforce・HubSpot等のCRMに接続するための方針と設計を整備します。</p>
-			</div>
-		</div>
-	</div>
-</section>
-
-<!-- ===================== GTM設計プロセス ===================== -->
 <section class="process">
 	<div class="container">
 		<div class="section-header">
@@ -244,28 +151,28 @@ const deliverables = [
 			<svg class="fig-pc" viewBox="0 0 1120 280" role="img" aria-label="GTM設計の流れ。市場・顧客、導線、商談化、計測の4段階が循環する" font-family="inherit">
 				<defs><marker id="gtm-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0F172A"/></marker><marker id="gtm-arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#94A3B8"/></marker></defs>
 				<rect x="40" y="40" width="240" height="150" rx="6" fill="#fff" stroke="#E2E8F0"/>
-				
+
 				<text x="58" y="72" font-size="14" fill="#64748b" letter-spacing="1">01 MARKET</text>
 				<text x="58" y="108" font-size="20" font-weight="600" fill="#0F172A">市場・顧客</text>
 				<text x="58" y="142" font-size="16" fill="#475569">誰に、何を、なぜ今か。</text>
 				<text x="58" y="168" font-size="16" fill="#475569">ICPと勝ち筋を決める</text>
 				<line x1="284" y1="115" x2="306" y2="115" stroke="#0F172A" stroke-width="2" marker-end="url(#gtm-arr)"/>
 				<rect x="310" y="40" width="240" height="150" rx="6" fill="#fff" stroke="#E2E8F0"/>
-				
+
 				<text x="328" y="72" font-size="14" fill="#64748b" letter-spacing="1">02 PATH</text>
 				<text x="328" y="108" font-size="20" font-weight="600" fill="#0F172A">導線</text>
 				<text x="328" y="142" font-size="16" fill="#475569">接点から商談までの道筋。</text>
 				<text x="328" y="168" font-size="16" fill="#475569">施策を流れに置き直す</text>
 				<line x1="554" y1="115" x2="576" y2="115" stroke="#0F172A" stroke-width="2" marker-end="url(#gtm-arr)"/>
 				<rect x="580" y="40" width="240" height="150" rx="6" fill="#fff" stroke="#E2E8F0"/>
-				
+
 				<text x="598" y="72" font-size="14" fill="#64748b" letter-spacing="1">03 PIPELINE</text>
 				<text x="598" y="108" font-size="20" font-weight="600" fill="#0F172A">商談化</text>
 				<text x="598" y="142" font-size="16" fill="#475569">マーケ→営業の受け渡し。</text>
 				<text x="598" y="168" font-size="16" fill="#475569">基準と期限を決める</text>
 				<line x1="824" y1="115" x2="846" y2="115" stroke="#0F172A" stroke-width="2" marker-end="url(#gtm-arr)"/>
 				<rect x="850" y="40" width="240" height="150" rx="6" fill="#fff" stroke="#E2E8F0"/>
-				
+
 				<text x="868" y="72" font-size="14" fill="#64748b" letter-spacing="1">04 MEASURE</text>
 				<text x="868" y="108" font-size="20" font-weight="600" fill="#0F172A">計測</text>
 				<text x="868" y="142" font-size="16" fill="#475569">どの施策が受注になったか。</text>
@@ -377,7 +284,7 @@ const deliverables = [
 		<div class="deliverables-inner">
 			<div class="section-header">
 				<p class="eyebrow-label">Deliverables</p>
-				<h2>主な成果物</h2>
+				<h2>支援でお渡しするもの</h2>
 				<p class="section-note">プロジェクト終了時に、以下のドキュメントをご提供します。</p>
 			</div>
 			<div class="deliverables-layout">
@@ -647,36 +554,7 @@ const deliverables = [
 </section>
 
 <!-- ===================== 料金目安 ===================== -->
-<section class="pricing">
-	<div class="container">
-		<div class="section-header">
-			<p class="eyebrow-label">Pricing</p>
-			<h2>料金目安</h2>
-		</div>
-		<div class="pricing-card">
-			<div class="pricing-card__main">
-				<div class="pricing-service-name">マーケティング・GTM戦略設計</div>
-				<div class="pricing-amount">300万〜800万円</div>
-				<p class="pricing-note">対象市場・対象事業・営業組織規模・CRM環境・成果物範囲により変動します。</p>
-				<div class="pricing-card__types">
-					<div class="pricing-type">
-						<div class="pricing-type__label">プロジェクト型支援</div>
-						<p>GTM設計を期限付きプロジェクトとして実施。設計成果物の納品が主目的。</p>
-					</div>
-					<div class="pricing-type">
-						<div class="pricing-type__label">月額型伴走支援</div>
-						<p>設計後の実行フェーズも含め、月次KPIレビューと施策優先順位付けで伴走。</p>
-					</div>
-				</div>
-			</div>
-			<div class="pricing-card__cta">
-				<a href="/diagnostic/" class="btn btn--primary btn--lg">収益を自己診断</a>
-				<a href="/services/" class="btn btn--ghost">パッケージ料金を見る</a>
-			</div>
-		</div>
-			<p class="tax-note">価格はすべて税抜です。</p>
-	</div>
-</section>
+
 
 <!-- ===================== 関連サービス ===================== -->
 <section class="related">
@@ -752,16 +630,16 @@ const deliverables = [
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-	--color-text: #111827;
-	--color-text-muted: #6b7280;
+	--color-text: #1E293B;
+	--color-text-muted: #475569;
 	--color-text-subtle: #9ca3af;
-	--color-primary: #1e40af;
-	--color-primary-dark: #1d4ed8;
+	--color-primary: #8758C9;
+	--color-primary-dark: #7042ac;
 	--color-accent-purple: #7c5cbf;
 	--color-bg: #ffffff;
-	--color-bg-subtle: #f8f9fb;
-	--color-border: #e5e7eb;
-	--color-border-strong: #d1d5db;
+	--color-bg-subtle: #F1F5F9;
+	--color-border: #E2E8F0;
+	--color-border-strong: #CBD5E1;
 	--shadow-xs: 0 1px 2px rgba(0,0,0,.06);
 	--shadow-sm: 0 2px 8px rgba(0,0,0,.08);
 	--shadow-md: 0 4px 20px rgba(0,0,0,.1);
@@ -1050,7 +928,7 @@ p { font-family: var(--font-sans); line-height: 1.8; color: var(--color-text-mut
 }
 .ba-arrow__label {
 	font-size: 0.625rem; font-weight: 700; letter-spacing: 0.1em;
-	text-transform: uppercase; color: var(--color-primary); font-family: var(--font-sans);
+	text-transform: uppercase; color: var(--color-navy); font-family: var(--font-sans);
 	writing-mode: vertical-rl; text-orientation: mixed; white-space: nowrap;
 }
 

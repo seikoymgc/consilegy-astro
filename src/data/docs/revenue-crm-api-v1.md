@@ -31,6 +31,7 @@ Errors return a JSON body `{ "error": "<message>" }` with one of these status co
 | 401 | Missing, invalid, expired, or revoked API key |
 | 403 | The key lacks the required scope (`insufficient_scope: write`) |
 | 404 | Record not found in your organization |
+| 409 | Conflict, for example a contact with the same email already exists in your organization |
 | 500 | Unexpected server error |
 
 IDs that belong to another organization are rejected as invalid, never revealed.

@@ -24,7 +24,7 @@ const faqItems = [
 	},
 	{
 		q: 'レベニューアーキテクチャとの違いは何ですか？',
-		a: 'レベニューアーキテクチャは、営業・マーケ・CS・CRM・KPI・会議体を含む収益構造全体の設計を指します。運用定着・改善支援は、その設計を現場に定着させ、継続的に改善するフェーズの支援です。レベニューアーキテクチャ設計が「構造の設計図を作る」なら、運用定着・改善支援は「その設計図が現場で機能し続けるように改善し続ける」支援です。',
+		a: 'レベニューアーキテクチャは、営業・マーケ・CS・CRM・KPI・会議体を含む収益構造全体の設計を指します。システム定着・運用支援は、その設計を現場に定着させ、継続的に改善するフェーズの支援です。営業・マーケティングの業務設計が「構造の設計図を作る」なら、システム定着・運用支援は「その設計図が現場で機能し続けるように改善し続ける」支援です。',
 	},
 	{
 		q: '会議改善も含まれますか？',
@@ -69,7 +69,7 @@ const deliverables = [
 ---
 
 <BaseLayout
-	title="運用定着・改善支援 | Consilegy"
+	title={`${serviceGuide.name} | Consilegy`}
 	description={serviceGuide.summary}
 	lang="ja"
 >
@@ -81,7 +81,7 @@ const deliverables = [
 			itemListElement: [
 				{ '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://consilegy.com/' },
 				{ '@type': 'ListItem', position: 2, name: 'サービス', item: 'https://consilegy.com/services/' },
-				{ '@type': 'ListItem', position: 3, name: '運用定着・改善支援', item: 'https://consilegy.com/services/adoption-growth-support/' },
+				{ '@type': 'ListItem', position: 3, name: 'システム定着・運用支援', item: 'https://consilegy.com/services/adoption-growth-support/' },
 			],
 		})} />
 	</Fragment>
@@ -114,7 +114,7 @@ const deliverables = [
 			<div class="pricing-phase pricing-phase--featured">
 				<div class="pricing-phase__badge">推奨</div>
 				<div class="pricing-phase__phase">Phase 2</div>
-				<h3>運用定着・改善伴走支援</h3>
+				<h3>システム定着・運用支援</h3>
 				<div class="pricing-phase__price">月額30万〜100万円</div>
 				<p class="pricing-phase__desc">入力ルール、会議、数字の活用を見直し、定例で改善を進めます。支援範囲に応じてプランを設定します。</p>
 				<ul class="pricing-includes">
@@ -323,7 +323,7 @@ const deliverables = [
 		<div class="ba-notes">
 			<p class="ba-note">※ ツールを替えるのではなく、今あるCRM・MAを機能させます。</p>
 			<p class="ba-note">※ 運用代行ではなく、チームが自走できる構造を設計します。</p>
-			<p class="ba-note">※ レベニューアーキテクチャ設計と組み合わせて、根本から整えることも可能です。</p>
+			<p class="ba-note">※ 営業・マーケティングの業務設計と組み合わせて、根本から整えることも可能です。</p>
 		</div>
 	</div>
 </section>
@@ -664,7 +664,7 @@ const deliverables = [
 		<div class="related-grid">
 			<a href="/services/revenue-architecture-design/" class="related-card">
 				<div class="related-card__tag">上流設計</div>
-				<h3>レベニューアーキテクチャ設計</h3>
+				<h3>営業・マーケティングの業務設計</h3>
 				<p>部門の役割と引き継ぎを整理します。</p>
 			</a>
 			<a href="/services/crm-revops-redesign/" class="related-card">

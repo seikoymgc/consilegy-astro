@@ -5,7 +5,7 @@ import { getServiceGuide } from '../../../data/service-guide';
 const serviceGuide = getServiceGuide('ai-workflow-enablement');
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
-const name = 'AI業務活用・ワークフロー構築支援';
+const name = serviceGuide.name;
 const description = 'AIを、毎日の仕事で使える仕組みに。業務に合ったワークフローの構築から、実務講習、現場への定着まで支援します。有償の業務診断で成果の測り方を整理し、合意した成果の達成に連動するアウトカムベース課金でご提案します。';
 const url = 'https://consilegy.com/services/ai-workflow-enablement/';
 const examples = [
@@ -82,8 +82,8 @@ const faqItems = [
 
   <section class="ai-band">
     <div class="container"><p class="ai-eyebrow">Related Services</p><h2>業務全体の見直しも、ご相談いただけます。</h2><div class="ai-grid ai-two">
-      <article class="ai-card"><h3>業務システム開発・連携・自動化</h3><p>新しい管理画面や既存システムとの連携など、業務に必要な機能を設計・開発します。</p><a href="/services/business-system-development/">開発・連携の支援を見る →</a></article>
-      <article class="ai-card"><h3>運用定着・改善支援</h3><p>顧客管理システムの入力ルール、会議、指標の活用まで、運用全体を見直します。</p><a href="/services/adoption-growth-support/">運用定着・改善支援を見る →</a></article>
+      <article class="ai-card"><h3>システム開発・業務自動化</h3><p>新しい管理画面や既存システムとの連携など、業務に必要な機能を設計・開発します。</p><a href="/services/business-system-development/">開発・連携の支援を見る →</a></article>
+      <article class="ai-card"><h3>システム定着・運用支援</h3><p>顧客管理システムの入力ルール、会議、指標の活用まで、運用全体を見直します。</p><a href="/services/adoption-growth-support/">システム定着・運用支援を見る →</a></article>
     </div></div>
   </section>
 

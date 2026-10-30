@@ -18,7 +18,7 @@ const services = isEN
 		{ label: 'HubSpot Implementation & Ops',          href: '/en/services/hubspot-implementation-operations-support/' },
 		{ label: 'Adoption & Growth Support',             href: '/en/services/adoption-growth-support/' },
 	]
-	: serviceGuides.map(service => ({ label: service.menuLabel, href: `/services/${service.slug}/` }));
+	: serviceGuides.map(service => ({ label: service.name, href: `/services/${service.slug}/` }));
 
 // サービス以外のリンクは用途ごとに束ねる。1列に詰めると17行になり、どこに何があるか分からなかった。
 const groups = isEN

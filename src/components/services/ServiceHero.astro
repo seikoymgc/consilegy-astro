@@ -7,9 +7,9 @@ const { service } = Astro.props;
   <div class="container">
     <a class="service-back" href="/services/">← 困りごとからサービスを探す</a>
     <p class="service-eyebrow">How We Help</p>
-    <h1>{service.headline[0]}<br />{service.headline[1]}</h1>
+    <h1>{service.name}</h1>
+    <p class="service-promise">{service.headline.join('')}</p>
     <p class="service-summary">{service.summary}</p>
-    <p class="service-name">{service.slug === 'revenue-architecture-design' ? service.name : service.menuLabel}</p>
     <div class="service-actions"><a class="btn btn--primary" href="/contact/">この困りごとを相談する</a><a class="btn service-outline" href="#pricing">料金・進め方を見る</a></div>
     <nav class="service-jump" aria-label="このページの内容"><a href="#situations">こんなお困りごとに</a><a href="#outcomes">どう変わるか</a><a href="#support">支援すること</a><a href="#pricing">料金</a></nav>
   </div>
@@ -19,8 +19,8 @@ const { service } = Astro.props;
   .service-back { display: inline-block; margin-bottom: 2.5rem; font-size: 1rem; }
   .service-eyebrow { font-size: .875rem; font-weight: 600; letter-spacing: .12em; color: var(--color-navy); margin: 0 0 1rem; }
   h1 { color: var(--color-navy); font-size: clamp(1.8rem, 3.8vw, 3rem); line-height: 1.55; font-weight: 600; letter-spacing: -.03em; margin: 0 0 1.5rem; }
-  .service-summary { max-width: 48rem; font-size: 1.125rem; line-height: 1.9; color: var(--color-text); margin: 0 0 1rem; }
-  .service-name { color: var(--color-text-muted); font-size: 1rem; margin: 0 0 2rem; }
+  .service-summary { max-width: 48rem; font-size: 1.125rem; line-height: 1.9; color: var(--color-text); margin: 0 0 2rem; }
+  .service-promise { color: var(--color-navy); font-size: 1.25rem; font-weight: 500; line-height: 1.7; margin: 0 0 1rem; }
   .service-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
   .btn { border-radius: 4px; padding: .95rem 1.5rem; white-space: normal; text-align: center; }
   .btn--primary { background: #8758C9; color: #fff; }

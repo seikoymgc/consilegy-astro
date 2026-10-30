@@ -17,14 +17,14 @@ const navJA_top = [
 ];
 
 // ── JA Row 2: サービス・集客導線 ──────────────────────────
-// 主な支援メニューを掲載。SFA定着支援は運用定着・改善支援から案内する。
+// 主な支援メニューを掲載。SFA定着支援はシステム定着・運用支援から案内する。
 const navJA_bottom: { label: string; href: string | null; children?: { label: string; href: string; divider?: boolean }[] }[] = [
 	{
 		label: 'サービス・料金',
 		href: '/services/',
 		children: [
 			{ label: 'サービス一覧・料金', href: '/services/' },
-			...serviceGuides.map(service => ({ label: service.menuLabel, href: `/services/${service.slug}/` })),
+			...serviceGuides.map(service => ({ label: service.name, href: `/services/${service.slug}/` })),
 		],
 	},
 	{

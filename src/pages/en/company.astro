@@ -1,4 +1,5 @@
 ---
+import PhotoIntro from '../../components/PhotoIntro.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTA from '../../components/CTA.astro';
 ---
@@ -40,11 +41,15 @@ import CTA from '../../components/CTA.astro';
   <!-- Hero -->
   <section class="ab-hero">
     <div class="container ab-hero__inner">
+<PhotoIntro subject="office" lang="en">
+
       <p class="ab-hero__eyebrow">About</p>
       <h1 class="ab-hero__title">We design strategy, turn it into systems, and stay until it works.</h1>
       <p class="ab-hero__sub">Consilegy builds the revenue architecture, CRM structure, and GTM operations that make Japan execution visible to you and to your HQ. We also build our own product, <a href="/en/crm/">Revenue CRM</a>, officially launched on September 28, 2026.</p>
       <a class="ab-hero__cta" href="/en/contact/">Contact Us</a>
-    </div>
+
+</PhotoIntro>
+</div>
   </section>
 
   <!-- Mission -->

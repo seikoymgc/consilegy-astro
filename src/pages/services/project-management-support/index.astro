@@ -1,4 +1,5 @@
 ---
+import PhotoIntro from '../../../components/PhotoIntro.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 const title = 'システム開発・CRM導入のPM支援 | Consilegy';
@@ -41,6 +42,8 @@ const faqItems = [
 
   <section class="pm-hero">
     <div class="container">
+<PhotoIntro subject="planning" lang="ja">
+
       <a href="/services/" class="pm-back">← サービス一覧</a>
       <div class="pm-hero-grid">
       <div class="pm-hero-intro">
@@ -65,7 +68,9 @@ const faqItems = [
       <p class="pm-note">PM支援のみのご依頼・社内PMの補強・進行中のプロジェクトもご相談いただけます。</p>
       </div>
       </div>
-    </div>
+
+</PhotoIntro>
+</div>
   </section>
 
   <section class="pm-band pm-band--gray">

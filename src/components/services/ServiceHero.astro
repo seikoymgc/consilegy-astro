@@ -1,10 +1,17 @@
 ---
+import PhotoIntro from '../PhotoIntro.astro';
 import type { ServiceGuide } from '../../data/service-guide';
 interface Props { service: ServiceGuide }
 const { service } = Astro.props;
+const sceneByService = { 'revenue-architecture-design': 'workshop', 'b2b-marketing-gtm-design': 'marketing', 'crm-revops-redesign': 'crm', 'business-system-development': 'development', 'ai-workflow-enablement': 'workflow', 'adoption-growth-support': 'training' } as const;
+const scene = Astro.url.pathname.includes('hubspot') ? 'analysis'
+  : Astro.url.pathname.includes('project-management') ? 'planning'
+  : sceneByService[service.slug as keyof typeof sceneByService] ?? 'consultation';
 ---
 <section class="service-hero">
   <div class="container">
+<PhotoIntro subject={scene}>
+
     <a class="service-back" href="/services/">← 困りごとからサービスを探す</a>
     <p class="service-eyebrow">How We Help</p>
     <h1>{service.name}</h1>
@@ -12,7 +19,9 @@ const { service } = Astro.props;
     <p class="service-summary">{service.summary}</p>
     <div class="service-actions"><a class="btn btn--primary" href="/contact/">この困りごとを相談する</a><a class="btn service-outline" href="#pricing">料金・進め方を見る</a></div>
     <nav class="service-jump" aria-label="このページの内容"><a href="#situations">こんなお困りごとに</a><a href="#outcomes">どう変わるか</a><a href="#support">支援すること</a><a href="#pricing">料金</a></nav>
-  </div>
+
+</PhotoIntro>
+</div>
 </section>
 <style>
   .service-hero { padding: 2.5rem 0 3.5rem; background: #fff; }

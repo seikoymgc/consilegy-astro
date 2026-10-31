@@ -49,3 +49,17 @@ crisp sharp focus, minimal and uncluttered, no text, no logo
 
 写真を置いてビルドすると、全記事のアイキャッチが写真で再生成されます。
 `git add -A && git commit && git push` で本番にも反映されます。
+
+## 人物写真の指定（2026-10-30）
+
+人物が写るイメージ写真は日本人を使う。人物なしのオフィスやビル、業務の場面も使える。
+`gen-eyecatch.mjs` の `SOURCE_OVERRIDES` で、日本人の業務場面と人物なしの写真を指定。
+`japanese-team-2026b.png` と `japanese-work-2026b.png` は imagegen で作成したイメージ写真。実際の顧客・社員ではない。
+画像参照の接尾辞は `-2026jp`。差し替え時は接尾辞を上げ、表示側も更新する。
+
+## 場面の追加（2026-10-31）
+
+`workshop / development / training / analysis / consultation / office / city / school` の8場面を追加。
+元画像は `{場面名}-japan-2026c.png`。人物は日本人。オフィスと街並みは人物なし。
+本体とメディアで場面を使い分け、記事別の専用写真があればそちらを優先します。
+メディアの新しい参照接尾辞は `-2026jp2`。

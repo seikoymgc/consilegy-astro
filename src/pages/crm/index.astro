@@ -1,4 +1,5 @@
 ---
+import SitePhoto from '../../components/SitePhoto.astro';
 import { featureCount } from '../../data/crm-features';
 import { crmSupports } from '../../data/crm-support';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -231,6 +232,7 @@ const readings = [
 			<p class="section-eyebrow">Why Revenue CRM</p>
 			<h2 id="features-title">Revenue CRMの、4つの特長。</h2>
 		</header>
+		<SitePhoto subject="crm" panorama />
 		<ol class="feature-list">
 			{features.map((f, i) => (
 				<li class="feature-card"><span class="feature-card__num">{String(i + 1).padStart(2, '0')}</span><h3>{f.title}</h3><p>{f.text}</p></li>
@@ -846,4 +848,5 @@ section#support .row-list__foot { font-size: 0.875rem; }
 .founder-body p { margin: 0 0 1rem; font-size: var(--fs-body); line-height: 1.9; color: var(--color-text); }
 .founder-sign { margin-top: 1.5rem !important; font-size: var(--fs-small) !important; font-weight: 600; color: var(--color-navy) !important; }
 @media (max-width: 760px) { .founder { padding: var(--space-xl) 0; } .founder-inner { grid-template-columns: 1fr; gap: 1.5rem; } .founder-photo img { max-width: 240px; } }
+.features .feature-list { margin-top: 2rem; }
 </style>

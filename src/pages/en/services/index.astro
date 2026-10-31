@@ -1,8 +1,12 @@
 ---
+import SitePhoto from '../../../components/SitePhoto.astro';
+import type { PhotoSubject } from '../../../lib/editorial-photos';
+import PhotoIntro from '../../../components/PhotoIntro.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CTA from '../../../components/CTA.astro';
 import RevenueFlowFigure from '../../../components/figures/RevenueFlowFigure.astro';
 
+const servicePhotos: PhotoSubject[] = ['workshop', 'city', 'crm', 'analysis', 'training', 'development'];
 const services = [
   {
     number: '01',
@@ -60,9 +64,11 @@ const services = [
 
   <section class="sv-hero">
     <div class="container sv-hero__inner">
-      <p class="sv-hero__eyebrow">Services</p>
-      <h1 class="sv-hero__title">Revenue operations for Japan, built to work in both languages.</h1>
-      <p class="sv-hero__sub">We build the messaging, CRM structure, and operating systems that make Japan revenue execution visible to you, your team, and your HQ.</p>
+      <PhotoIntro subject="sales" lang="en">
+        <p class="sv-hero__eyebrow">Services</p>
+        <h1 class="sv-hero__title">Revenue operations for Japan, built to work in both languages.</h1>
+        <p class="sv-hero__sub">We build the messaging, CRM structure, and operating systems that make Japan revenue execution visible to you, your team, and your HQ.</p>
+      </PhotoIntro>
     </div>
   </section>
 
@@ -100,8 +106,9 @@ const services = [
       <h2 class="sv-h2">Services from design to delivery</h2>
       <RevenueFlowFigure id="en-sv-flow" steps lang="en" caption="Every service works on the same flow: find where it stalls, redesign the flow and data, then run it with the team." />
       <div class="sv-grid">
-        {services.map((s) => (
+        {services.map((s, i) => (
           <a class="sv-card" href={s.href}>
+            <div class="sv-card__photo"><SitePhoto subject={servicePhotos[i]} lang="en" /></div>
             <span class="sv-card__number">{s.number}</span>
             <h3 class="sv-card__title">{s.title}</h3>
             <p class="sv-card__desc">{s.description}</p>
@@ -269,4 +276,5 @@ const services = [
   @media (max-width: 600px) {
     .sv-grid, .sv-price { grid-template-columns: 1fr; }
   }
+.sv-card__photo { margin-bottom: 1.25rem; }
 </style>

@@ -1,4 +1,5 @@
 ---
+import PhotoIntro from '../../../components/PhotoIntro.astro';
 import ConsultationOutcomes from '../../../components/ConsultationOutcomes.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 
@@ -103,6 +104,8 @@ const scopeItems = [
 <!-- ===================== HERO ===================== -->
 <section class="hero">
 	<div class="container">
+<PhotoIntro subject="analysis" lang="ja">
+
 		<div class="hero-nav">
 			<a href="/services/" class="back-link">← サービス一覧</a>
 			<span class="hero-tag">HubSpot Implementation &amp; Operations</span>
@@ -138,7 +141,9 @@ const scopeItems = [
 				<span class="tool-pill">Notion</span>
 			</div>
 		</div>
-	</div>
+
+</PhotoIntro>
+</div>
 </section>
 
 <!-- ===================== よくある状態 ===================== -->

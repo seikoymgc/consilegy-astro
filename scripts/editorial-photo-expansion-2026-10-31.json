@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-31",
+  "generatedWith": "image_gen.imagegen",
+  "outputDirectory": "public/images/editorial",
+  "sources": [
+    {
+      "name": "workshop",
+      "prompt": "Use case: photorealistic-natural. Asset type: ONE landscape editorial photograph for a Japanese B2B website, 1536x1024. Subject: A Japanese woman in her late 30s and a Japanese male colleague in his 40s working at a whiteboard with a few plain unlabelled paper rectangles, discussing how to organize a business process. Candid side view, natural Japanese business casual clothing, a modest bright Tokyo meeting room. Show the room, whiteboard and the two people, not a portrait. No readable writing on the whiteboard. Style: polished but natural contemporary editorial photography, bright soft daylight, crisp realistic textures, neutral true color, no film grain, no sepia, no artificial colored lighting. Composition: sufficient environment around the subject, essential subjects within the central 75% so both 4:3 and 1.91:1 crops work. Every person shown is Japanese. No Western models, no stereotypical Japanese props, no advertising pose, no text, no logos, no watermark. This is an illustrative business scene, not an actual client or employee photograph.",
+      "tool": "image_gen.imagegen",
+      "destination": "media/public/images/eyecatch-bg/workshop-japan-2026c.png"
+    },
+    {
+      "name": "development",
+      "prompt": "Use case: photorealistic-natural. Asset type: ONE landscape editorial photograph for a Japanese B2B website, 1536x1024. Subject: A Japanese female software developer around 35 with dark straight hair and thin glasses seated at her desk, focused on an external monitor and laptop in a small modern Japanese office. Three-quarter side view, quietly concentrating, wearing a simple navy knit top. Show keyboard, monitor backs or an oblique unreadable screen and practical office context. No futuristic visual effects. Style: polished but natural contemporary editorial photography, bright soft daylight, crisp realistic textures, neutral true color, no film grain, no sepia, no artificial colored lighting. Composition: sufficient environment around the subject, essential subjects within the central 75% so both 4:3 and 1.91:1 crops work. Every person shown is Japanese. No Western models, no stereotypical Japanese props, no advertising pose, no text, no logos, no watermark. This is an illustrative business scene, not an actual client or employee photograph.",
+      "tool": "image_gen.imagegen",
+      "destination": "media/public/images/eyecatch-bg/development-japan-2026c.png"
+    },
+    {
+      "name": "training",
+      "prompt": "Use case: photorealistic-natural. Asset type: ONE landscape editorial photograph for a Japanese B2B website, 1536x1024. Subject: Five Japanese office workers aged 30 to 55 attending a small hands-on software training session around a long light wood table, a Japanese woman instructor seated beside one participant helping them use a laptop. Other participants have their own laptops. Medium-wide candid photograph of the entire modest Japanese meeting room, natural concentration and informal business casual clothes. No presentation stage, no audience-facing poses, no readable screens. Style: polished but natural contemporary editorial photography, bright soft daylight, crisp realistic textures, neutral true color, no film grain, no sepia, no artificial colored lighting. Composition: sufficient environment around the subject, essential subjects within the central 75% so both 4:3 and 1.91:1 crops work. Every person shown is Japanese. No Western models, no stereotypical Japanese props, no advertising pose, no text, no logos, no watermark. This is an illustrative business scene, not an actual client or employee photograph.",
+      "tool": "image_gen.imagegen",
+      "destination": "media/public/images/eyecatch-bg/training-japan-2026c.png"
+    },
+    {
+      "name": "analysis",
+      "prompt": "Use case: photorealistic-natural. Asset type: ONE landscape editorial photograph for a Japanese B2B website, 1536x1024. Subject: A Japanese male business analyst in his early 40s in a light blue Oxford shirt reviewing a printed business chart beside his laptop, in a quiet Japanese office. Photograph from a natural three-quarter side angle, enough room context, chart graphics only without readable words or numbers, a closed notebook and simple pen. Contemplative, not posing, no visible logos. Style: polished but natural contemporary editorial photography, bright soft daylight, crisp realistic textures, neutral true color, no film grain, no sepia, no artificial colored lighting. Composition: sufficient environment around the subject, essential subjects within the central 75% so both 4:3 and 1.91:1 crops work. Every person shown is Japanese. No Western models, no stereotypical Japanese props, no advertising pose, no text, no logos, no watermark. This is an illustrative business scene, not an actual client or employee photograph.",
+      "tool": "image_gen.imagegen",
+      "destination": "media/public/images/eyecatch-bg/analysis-japan-2026c.png"
+    },
+    {
+      "name": "consultation",
+      "prompt": "Use case: photorealistic-natural. Asset type: ONE landscape editorial photograph for a Japanese B2B website, 1536x1024. Subject: Two Japanese women aged about 35 and 50 having a thoughtful professional consultation across a small table in a bright Japanese meeting room. One takes brief notes in a plain notebook and the other speaks calmly. Eye-level medium-wide photograph, ordinary natural office atmosphere, white blouse and charcoal blazer respectively, a closed laptop on the table. No handshake, no exaggerated smile, not looking at camera. Style: polished but natural contemporary editorial photography, bright soft daylight, crisp realistic textures, neutral true color, no film grain, no sepia, no artificial colored lighting. Composition: sufficient environment around the subject, essential subjects within the central 75% so both 4:3 and 1.91:1 crops work. Every person shown is Japanese. No Western models, no stereotypical Japanese props, no advertising pose, no text, no logos, no watermark. This is an illustrative business scene, not an actual client or employee photograph.",
+      "tool": "image_gen.imagegen",
+      "destination": "media/public/images/eyecatch-bg/consultation-japan-2026c.png"
+    },
+    {
+      "name": "office",
+      "prompt": "Use case: photorealistic-natural. Asset type: ONE landscape editorial photograph for a Japanese B2B website, 1536x1024. Subject: An unoccupied contemporary small Japanese office meeting area. A light oak meeting table, two simple charcoal upholstered chairs, a closed laptop and single plain notebook on the table. Large windows show a quiet out-of-focus Tokyo streetscape with mid-rise buildings. Bright natural morning daylight, lived-in and practical, not a luxurious corporate headquarters. No people, no plants blocking view, no signs or readable text. Style: polished but natural contemporary editorial photography, bright soft daylight, crisp realistic textures, neutral true color, no film grain, no sepia, no artificial colored lighting. Composition: sufficient environment around the subject, essential subjects within the central 75% so both 4:3 and 1.91:1 crops work. Every person shown is Japanese. No Western models, no stereotypical Japanese props, no advertising pose, no text, no logos, no watermark. This is an illustrative business scene, not an actual client or employee photograph.",
+      "tool": "image_gen.imagegen",
+      "destination": "media/public/images/eyecatch-bg/office-japan-2026c.png"
+    },
+    {
+      "name": "city",
+      "prompt": "Use case: photorealistic-natural. Asset type: ONE landscape editorial photograph for a Japanese B2B website, 1536x1024. Subject: A natural architectural photograph of a contemporary Tokyo business district from pedestrian street level, glass office facades on either side of a clean broad sidewalk, a few ginkgo trees and restrained Japanese urban details. Morning daylight, realistic clean blue sky, understated neutral palette, believable scale and straight verticals. No people, no vehicles close to camera, no signs, no readable text. Distinct from a stock Manhattan skyline. Style: polished but natural contemporary editorial photography, bright soft daylight, crisp realistic textures, neutral true color, no film grain, no sepia, no artificial colored lighting. Composition: sufficient environment around the subject, essential subjects within the central 75% so both 4:3 and 1.91:1 crops work. Every person shown is Japanese. No Western models, no stereotypical Japanese props, no advertising pose, no text, no logos, no watermark. This is an illustrative business scene, not an actual client or employee photograph.",
+      "tool": "image_gen.imagegen",
+      "destination": "media/public/images/eyecatch-bg/city-japan-2026c.png"
+    },
+    {
+      "name": "school",
+      "prompt": "Use case: photorealistic-natural. Asset type: ONE landscape editorial photograph for a Japanese B2B website, 1536x1024. Subject: A Japanese woman instructor in her 40s preparing a small language or tutoring classroom before learners arrive. She sets a closed workbook on a light wood desk, a laptop open nearby with its screen not readable, several empty chairs and a plain whiteboard in the background. Bright ordinary Japanese private school, candid medium-wide photograph, practical soft gray cardigan, calm and welcoming, no students or children, no text on board, no logos. Style: polished but natural contemporary editorial photography, bright soft daylight, crisp realistic textures, neutral true color, no film grain, no sepia, no artificial colored lighting. Composition: sufficient environment around the subject, essential subjects within the central 75% so both 4:3 and 1.91:1 crops work. Every person shown is Japanese. No Western models, no stereotypical Japanese props, no advertising pose, no text, no logos, no watermark. This is an illustrative business scene, not an actual client or employee photograph.",
+      "tool": "image_gen.imagegen",
+      "destination": "media/public/images/eyecatch-bg/school-japan-2026c.png"
+    }
+  ]
+}

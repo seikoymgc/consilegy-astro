@@ -1,4 +1,5 @@
 ---
+import PhotoIntro from '../components/PhotoIntro.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
 
@@ -49,12 +50,16 @@ const faqItems = [
 <!-- ===== HERO ===== -->
 <section class="hero">
 	<div class="container">
+<PhotoIntro subject="consultation" lang="ja">
+
 		<p class="eyebrow">Contact</p>
 		<h1>お問い合わせ</h1>
 		<p class="hero-sub">
 			Consilegyへのご相談・協業・取材・登壇、その他のお問い合わせはこちらからご連絡ください。
 		</p>
-	</div>
+
+</PhotoIntro>
+</div>
 </section>
 
 <!-- ===== FORM ===== -->

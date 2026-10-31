@@ -1,4 +1,5 @@
 ---
+import SitePhoto from '../../../components/SitePhoto.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CrmSubnav from '../../../components/CrmSubnav.astro';
 import CrmSupport from '../../../components/CrmSupport.astro';
@@ -181,7 +182,8 @@ const roles = [
 				<a href="/revenue-architecture/" class="pos-link">この考え方について読む →</a>
 			</div>
 		</div>
-	</div>
+	<div class="context-photo"><SitePhoto subject="school" lang="ja" panorama /></div>
+</div>
 </section>
 
 <!-- ===================== PROBLEM ===================== -->
@@ -1665,3 +1667,5 @@ const roles = [
 	.hero-lead { line-height: 1.85; text-wrap: pretty; }
 	.proof-grid strong { font-size: var(--fs-h3) !important; }
 </style>
+
+<style>.context-photo { grid-column: 1 / -1; min-width: 0; }</style>

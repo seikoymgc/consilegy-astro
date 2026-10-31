@@ -1,0 +1,29 @@
+---
+import { photoSrc, photoSubjects, type PhotoSubject } from '../lib/editorial-photos';
+interface Props {
+  subject: PhotoSubject;
+  lang?: string;
+  priority?: boolean;
+  caption?: string;
+  panorama?: boolean;
+}
+const { subject, lang = 'ja', priority = false, caption, panorama = false } = Astro.props;
+const isExpandedScene = ['workshop', 'development', 'training', 'analysis', 'consultation', 'office', 'city', 'school'].includes(subject);
+---
+<figure class:list={['site-photo', { 'site-photo--panorama': panorama, 'site-photo--scene': isExpandedScene, 'site-photo--people': ['workshop', 'development', 'training', 'analysis', 'consultation', 'school', 'sales', 'adoption', 'marketing'].includes(subject) }]}>
+  <img src={photoSrc(subject)} srcset={`${photoSrc(subject, 640)} 640w, ${photoSrc(subject)} 1200w`}
+    sizes={panorama ? '(max-width: 680px) 100vw, 1120px' : '(max-width: 900px) 100vw, 480px'}
+    alt={photoSubjects[subject][lang === 'en' ? 1 : 0]} width="1200" height={isExpandedScene ? 800 : 630}
+    loading={priority ? 'eager' : 'lazy'} fetchpriority={priority ? 'high' : 'auto'} decoding="async" />
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>
+<style>
+  .site-photo { margin: 0; min-width: 0; }
+  .site-photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border: 1px solid var(--color-border, #E2E8F0); border-radius: 6px; }
+  .site-photo--scene:not(.site-photo--panorama) img { aspect-ratio: 3 / 2; }
+  .site-photo--panorama { margin-top: 2.5rem; }
+  .site-photo--panorama img { aspect-ratio: 3.6 / 1; }
+  .site-photo--panorama.site-photo--people img { aspect-ratio: 2.6 / 1; object-position: center 20%; }
+  figcaption { margin-top: .65rem; color: var(--color-text-muted, #475569); font-size: 14px; line-height: 1.6; }
+  @media (max-width: 680px) { .site-photo--panorama { margin-top: 1.5rem; } .site-photo--panorama img, .site-photo--panorama.site-photo--people img { aspect-ratio: 16 / 9; } }
+</style>

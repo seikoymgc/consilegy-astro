@@ -1,4 +1,6 @@
 ---
+import { insightPhoto } from '../lib/editorial-photos';
+import PhotoIntro from '../components/PhotoIntro.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { articles } from '../data/insights';
 
@@ -18,7 +20,7 @@ import { getServiceGuide } from '../data/service-guide';
 	<link
 		rel="preload"
 		as="image"
-		href="/images/common/hero-visual.webp"
+		href="/images/editorial/city-1200-2026-10d.webp"
 		type="image/webp"
 		fetchpriority="high"
 		slot="head"
@@ -89,13 +91,15 @@ import { getServiceGuide } from '../data/service-guide';
 <!-- ===================== PROBLEMS（こんなお悩みありませんか） ===================== -->
 <section class="why problems-section">
 	<div class="container">
-		<header class="problems-overview">
+		<PhotoIntro subject="consultation" lang="ja" priority={false}>
+<header class="problems-overview">
 			<div class="why-head">
 				<p class="section-eyebrow">Common Problems</p>
 				<h2>こんなことで、<br /><span class="text-emph">困っていませんか。</span></h2>
 				<p class="section-lead">困りごとに合わせて、必要な支援をご案内します。</p>
 			</div>
 		</header>
+</PhotoIntro>
 		<div class="problem-rows">
 			{commonProblems.map((item, i) => (
 				<article class="problem-row">
@@ -116,7 +120,8 @@ import { getServiceGuide } from '../data/service-guide';
 <!-- ===================== ASSURANCE（一文：使われるまでが、仕事です） ===================== -->
 <section class="founder founder--slim">
 	<div class="container">
-		<div class="founder-assurance founder-assurance--solo">
+		<PhotoIntro subject="adoption" lang="ja" priority={false}>
+<div class="founder-assurance founder-assurance--solo">
 			<header class="sub-head">
 				<p class="section-eyebrow">Why It Works</p>
 				<h2 class="assurance-ja assurance-ja--main">導入して終わりにしない。<br />使われるまでが、仕事です。</h2>
@@ -126,6 +131,7 @@ import { getServiceGuide } from '../data/service-guide';
 ダッシュボードの読み方、営業会議での使い方、1on1での問いの立て方まで一緒に設計し、「これがないと仕事が回らない」と現場が言う状態まで並走します。
 			</p>
 		</div>
+</PhotoIntro>
 			<figure class="assurance-figure sflow" aria-labelledby="assurance-figure-caption">
 				<div class="sflow__grid" role="img" aria-label="設計、導入、定着の3段階。多くの支援は導入で終わるが、Consilegyは定着までを支援の範囲にする">
 					<p class="sflow__scope sflow__scope--others"><span>多くの支援はここまで</span></p>
@@ -198,7 +204,7 @@ import { getServiceGuide } from '../data/service-guide';
 			<li class="track-item"><span class="track-who">コンサル新規AIプロダクト部門<span class="track-size">3名の兼務チーム</span></span></li>
 		</ul>
 
-		<div class="track-founder">
+		<div class="track-founder track-founder--portrait"><img src="/images/common/seiko-yamaguchi-2026b.jpg" alt="Consilegy代表 山口聖子" width="720" height="864" loading="lazy" decoding="async" />
 			<p>
 設計するのは、代表の山口聖子です。B2Bマーケティング歴12年。Moloco・Kaizen Platform・アリババなどでマーケ・営業・CRMの設計と実装を担当してきました。Googleアナリティクスの設計と分析は約12年。入れた仕組みの数字を読み、次の一手まで決めます。
 				<a href="/company/">会社概要 →</a>
@@ -268,8 +274,8 @@ import { getServiceGuide } from '../data/service-guide';
 					<a href={`/insights/${post.slug}/`} class="blog-card__link">
 						<div class="blog-img">
 							<img
-								src={`/images/insights/${post.slug}-${['why-marketing-budget-is-treated-as-cost', 'what-is-revenue-visibility'].includes(post.slug) ? '2026c' : '2026b'}.svg`}
-								alt={post.cat}
+								src={insightPhoto(post.slug, post.cat)}
+								alt=""
 								loading="lazy"
 								width="1200"
 								height="630"
@@ -347,7 +353,7 @@ section { padding-block: var(--space-2xl); }
 /* ── Hero ──────────────────────────────────────────── */
 .hero {
 	position: relative; overflow: hidden;
-	background-image: url('/images/common/hero-visual-720.webp');
+	background-image: url('/images/editorial/city-640-2026-10d.webp');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -355,7 +361,7 @@ section { padding-block: var(--space-2xl); }
 	padding-block: 0;
 }
 @media (min-width: 769px) {
-	.hero { background-image: url('/images/common/hero-visual.webp'); }
+	.hero { background-image: url('/images/editorial/city-1200-2026-10d.webp'); }
 }
 /* Glass: gradient orbs floating over the hero visual */
 .hero-bg { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
@@ -1239,7 +1245,7 @@ section { padding-block: var(--space-2xl); }
 	position: absolute;
 	inset: 0;
 	z-index: 0;
-	background: rgba(12, 17, 28, 0.62);
+	background: rgba(15, 23, 42, 0.72);
 }
 .hero-bg { display: none; }
 .hero-inner { padding-block: 5.25rem 4.25rem; }
@@ -1609,3 +1615,5 @@ section { padding-block: var(--space-2xl); }
 }
 
 </style>
+
+<style>.track-founder--portrait { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 2rem; align-items: center; } .track-founder--portrait img { width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--color-border); } @media(max-width:600px) { .track-founder--portrait { grid-template-columns:100px minmax(0,1fr); gap:1rem; } } .problems-section .problem-rows { margin-top:2rem; }</style>

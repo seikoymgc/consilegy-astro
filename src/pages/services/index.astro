@@ -1,4 +1,5 @@
 ---
+import PhotoIntro from '../../components/PhotoIntro.astro';
 import { getServiceGuide } from '../../data/service-guide';
 import { commonProblems } from '../../data/common-problems';
 import RevenueFlowFigure from '../../components/figures/RevenueFlowFigure.astro';
@@ -105,6 +106,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 <!-- ===================== HERO ===================== -->
 <section class="hero">
 	<div class="container">
+<PhotoIntro subject="sales" lang="ja">
+
 		<span class="eyebrow"><span class="eyebrow__dot"></span>Services &amp; Pricing</span>
 		<h1>どんなことで、<br />困っていますか。</h1>
 		<p class="hero-lead">集客や商談が売上につながらない。システムが使われない。忙しいのに成果が増えない。<br />いま困っている場面から、改善するところと進め方を一緒に整理します。</p>
@@ -112,7 +115,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 			<a href="/contact/" class="btn btn--primary btn--lg">お問い合わせ</a>
 			<a href="#needs" class="btn btn--ghost btn--lg">困りごとから探す</a>
 		</div>
-	</div>
+
+</PhotoIntro>
+</div>
 </section>
 
 <section class="topics" id="needs">
@@ -195,14 +200,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 <section class="plan-section" id="step-01">
 	<div class="container">
-		<div class="plan-group-head">
+		<div class="plan-photo-intro"><PhotoIntro subject="analysis" priority={false}><div class="plan-group-head">
 			<span class="step-badge">Step 01</span>
 			<h2>収益構造の現状分析</h2>
 			<p class="plan-group-sub">
 				何が起きているかを、根拠のある形で特定します。予算と意思決定の前に置く入口です。
 				「たぶんCRMの問題」を「この工程のこの定義が原因」に変えるところまでが範囲です。
 			</p>
-		</div>
+		</div></PhotoIntro></div>
 
 		<GanttFigure id="sv-gantt" weeks={6} caption="ヒアリングから報告まで4段階。簡易分析は2〜3週間、詳細分析は4〜6週間が目安です。" phases={[
 			{ name: 'ヒアリング', note: '2〜3回のオンラインMTG', start: 0, end: 1.5 },
@@ -254,14 +259,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 <section class="plan-section plan-section--alt" id="step-02">
 	<div class="container">
-		<div class="plan-group-head">
+		<div class="plan-photo-intro"><PhotoIntro subject="workshop" priority={false}><div class="plan-group-head">
 			<span class="step-badge">Step 02</span>
 			<h2>収益プロセス再設計</h2>
 			<p class="plan-group-sub">
 				収益構造を根本から作り直す中核プロジェクトです。
 				最も相談が多く、Consilegyの支援の中心にあたります。
 			</p>
-		</div>
+		</div></PhotoIntro></div>
 
 		<article class="plan-card plan-card--recommended">
 			<span class="plan-sub-badge">中核プロジェクト</span>
@@ -288,14 +293,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 <section class="plan-section" id="step-03">
 	<div class="container">
-		<div class="plan-group-head">
+		<div class="plan-photo-intro"><PhotoIntro subject="training" priority={false}><div class="plan-group-head">
 			<span class="step-badge">Step 03</span>
 			<h2>伴走・顧問支援</h2>
 			<p class="plan-group-sub">
 				設計を現場で回る状態にし、最終的には自社でRevOpsを回せる状態まで持っていきます。
 				関与度に応じて3プランから選択できます。
 			</p>
-		</div>
+		</div></PhotoIntro></div>
 
 		<div class="plan-grid plan-grid--3">
 
@@ -925,3 +930,5 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 .btn--primary, .btn--white, .btn--cta, .btn--cta-primary { background: #8758C9; color: #fff; border-radius: 4px; }
 .btn--primary:hover, .btn--white:hover, .btn--cta:hover, .btn--cta-primary:hover { background: #7042ac; color: #fff; }
 </style>
+
+<style>.plan-photo-intro { margin-bottom:2rem; }</style>

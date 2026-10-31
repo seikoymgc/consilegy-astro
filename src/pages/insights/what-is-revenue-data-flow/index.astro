@@ -1,4 +1,5 @@
 ---
+import { insightPhoto } from '../../../lib/editorial-photos';
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
 import InsightHead from '../../../components/InsightHead.astro';
 import InsightByline from '../../../components/InsightByline.astro';
@@ -85,7 +86,7 @@ const headings = [
 		<InsightContents headings={headings} />
 		<div class="article-eyecatch">
 			<img
-				src="/images/insights/what-is-revenue-data-flow-2026b.svg"
+				src={insightPhoto("what-is-revenue-data-flow")}
 				alt=""
 				width="1200"
 				height="630"

@@ -1,4 +1,5 @@
 ---
+import SitePhoto from '../../../../components/SitePhoto.astro';
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 
 const title = 'System Development & Implementation PM Support | Consilegy';
@@ -53,7 +54,8 @@ const faqItems = [
         </figure>
         <div class="pm-hero-conversion"><div class="pm-actions"><a href="/en/contact/" class="btn btn--primary">Discuss PM support</a><a href="#scope" class="btn btn--outline">See the support scope</a></div><p class="pm-note">PM-only engagements, support for existing internal PMs, and projects already in progress are all welcome.</p></div>
       </div>
-    </div>
+      <SitePhoto subject="planning" lang="en" priority panorama />
+	</div>
   </section>
   <section class="pm-band pm-band--gray"><div class="container"><p class="pm-eyebrow">Common Problems</p><h2>Where decisions and delivery get stuck</h2><div class="pm-grid pm-grid--three">{problems.map(({ title, text }, i) => <article class="pm-card"><span class="pm-number">0{i + 1}</span><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
   <section class="pm-band">

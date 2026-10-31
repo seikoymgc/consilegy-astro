@@ -1,23 +1,33 @@
 ---
+import SitePhoto from './SitePhoto.astro';
+import type { PhotoSubject } from '../lib/editorial-photos';
 interface Props {
 	eyebrow?: string;
 	title: string;
 	lede?: string;
+	photo?: PhotoSubject;
+	photoCaption?: string;
 }
 
-const { eyebrow, title, lede } = Astro.props;
+const { eyebrow, title, lede, photo, photoCaption } = Astro.props;
 ---
 
 <div class="page-hero">
-	<div class="container page-hero__inner">
-		{eyebrow && <p class="page-hero__eyebrow">{eyebrow}</p>}
-		<h1 class="page-hero__title">{title}</h1>
-		{lede && <p class="page-hero__lede">{lede}</p>}
-		<slot />
+	<div class:list={['container', 'page-hero__inner', { 'page-hero__inner--photo': photo }]}>
+		<div>
+			{eyebrow && <p class="page-hero__eyebrow">{eyebrow}</p>}
+			<h1 class="page-hero__title">{title}</h1>
+			{lede && <p class="page-hero__lede">{lede}</p>}
+			<slot />
+		</div>
+		{photo && <SitePhoto subject={photo} lang={Astro.url.pathname.startsWith('/en/') ? 'en' : 'ja'} caption={photoCaption} priority />}
 	</div>
 </div>
 
 <style>
+	.page-hero__inner--photo { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: clamp(2rem, 4vw, 4rem); align-items: center; }
+	@media (max-width: 900px) { .page-hero__inner--photo { grid-template-columns: minmax(0, 1fr); } }
+
 	.page-hero {
 		background: var(--color-bg);
 		padding-block: var(--space-2xl) var(--space-xl);

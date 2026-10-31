@@ -1,4 +1,5 @@
 ---
+import SitePhoto from '../../components/SitePhoto.astro';
 import ConsultationMap from '../../components/ConsultationMap.astro';
 import ConsultationOutcomes from '../../components/ConsultationOutcomes.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -74,6 +75,7 @@ const faqSchema = {
 		</div>
 		</div>
 		<ConsultationMap />
+		<div class="context-photo"><SitePhoto subject="consultation" lang="ja" panorama /></div>
 	</div>
 </section>
 
@@ -461,4 +463,5 @@ details[open] .faq-q::after { content: '−'; }
 .hero h1 { font-size: clamp(28px, 3.2vw, 38px); line-height: 1.45; }
 @media (max-width: 900px) { .hero-layout { grid-template-columns: 1fr; } }
 @media (max-width: 640px) { .hero h1 { font-size: 26px; } }
+.context-photo { grid-column: 1 / -1; min-width: 0; }
 </style>

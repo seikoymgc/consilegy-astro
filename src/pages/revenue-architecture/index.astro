@@ -1,4 +1,5 @@
 ---
+import SitePhoto from '../../components/SitePhoto.astro';
 import RevenueFlowFigure from '../../components/figures/RevenueFlowFigure.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
@@ -313,7 +314,8 @@ const relatedServices = [
 				</ul>
 			</div>
 		</div>
-	</div>
+	<div class="context-photo"><SitePhoto subject="workshop" lang="ja" panorama /></div>
+</div>
 </section>
 
 <!-- ===== HERO直下 定義 ===== -->
@@ -1993,3 +1995,5 @@ const relatedServices = [
 .ra-figure svg { display: block; width: 100%; height: auto; }
 .ra-figure figcaption { margin-top: 0.75rem; font-size: 0.875rem; color: var(--color-text-muted); }
 </style>
+
+<style>.context-photo { grid-column: 1 / -1; min-width: 0; }</style>

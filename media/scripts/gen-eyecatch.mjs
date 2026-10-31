@@ -46,21 +46,35 @@ async function fileExists(p) {
 
 // 記事ごとに専用写真があれば優先、なければカテゴリ写真を使う。
 // 専用写真: public/images/eyecatch-bg/{slug}.png
+const SOURCE_OVERRIDES = {
+	crm: 'development-japan-2026c',
+	'japan-gtm': 'city-japan-2026c',
+	adoption: 'training-japan-2026c',
+	sales: 'consultation-japan-2026c',
+	marketing: 'japanese-work-2026b',
+	data: 'analysis-japan-2026c',
+	'japan-marketing-leads-no-pipeline': 'marketing-handoff-keeps-the-why',
+	'why-ma-leads-dont-become-deals': 'marketing-handoff-keeps-the-why',
+};
+const PHOTO_VERSION = '2026jp2';
+
 async function pickSource(slug, category) {
+	const override = SOURCE_OVERRIDES[slug];
+	if (override) return path.join(BG_DIR, `${override}.png`);
 	const perArticle = path.join(BG_DIR, `${slug}.png`);
 	if (await fileExists(perArticle)) return perArticle;
-	const perCategory = path.join(BG_DIR, `${category}.png`);
+	const perCategory = path.join(BG_DIR, `${SOURCE_OVERRIDES[category] ?? category}.png`);
 	if (await fileExists(perCategory)) return perCategory;
 	return null;
 }
 
 async function write(pipeline, slug) {
 	// ページ内表示はWebP、OGPはJPEG。どちらも写真なので可逆圧縮（PNG）は使わない。
-	await pipeline.clone().webp({ quality: 72 }).toFile(path.join(OUT_DIR, `${slug}.webp`));
+	await pipeline.clone().webp({ quality: 72 }).toFile(path.join(OUT_DIR, `${slug}-${PHOTO_VERSION}.webp`));
 	await pipeline
 		.clone()
 		.jpeg({ quality: 78, mozjpeg: true, chromaSubsampling: '4:2:0' })
-		.toFile(path.join(OUT_DIR, `${slug}.jpg`));
+		.toFile(path.join(OUT_DIR, `${slug}-${PHOTO_VERSION}.jpg`));
 }
 
 async function generate(slug, category) {

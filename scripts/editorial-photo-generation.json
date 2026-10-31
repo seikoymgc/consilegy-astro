@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-30",
+  "sourceDirectory": "media/public/images/eyecatch-bg",
+  "outputDirectory": "public/images/editorial",
+  "images": [
+    {
+      "name": "japanese-team-2026b.png",
+      "tool": "image_gen.imagegen",
+      "use_case": "photorealistic-natural",
+      "prompt": "Use case: photorealistic-natural. Create ONE landscape editorial photograph for a Japanese B2B consulting company's website, 1536x1024. A small team of three Japanese office workers, two women and one man aged 30–50, working together around a laptop in a contemporary modest Japanese office. All people are Japanese. The lead person is a Japanese woman with straight dark hair in a navy blouse; the other two listen as they review work together. Natural candid professional concentration, unposed, nobody looking at camera. Practical ordinary business casual clothes. Bright soft daylight, white walls, light wood table, neutral accurate color, crisp realistic photographic texture. Medium-wide shot showing their upper bodies and a little office context; compose the people near the center so both wide and 4:3 crops work. Laptop screen turned away and no readable text. Hands at rest naturally, no pointing. No Western models, no stock-photo handshakes, no staged smiles, no foreign office styling, no text, no logos, no watermarks. This is an illustrative image, not a real client photograph."
+    },
+    {
+      "name": "japanese-work-2026b.png",
+      "tool": "image_gen.imagegen",
+      "use_case": "photorealistic-natural",
+      "prompt": "Use case: photorealistic-natural. Create ONE landscape editorial photograph for a Japanese B2B business systems website, 1536x1024. A Japanese woman around 40 with straight dark hair, wearing a simple light gray business casual blouse, working thoughtfully at a laptop with an open plain notebook in a small bright modern Japanese office. She is Japanese. Candid side view from a little behind, relaxed focused posture, gaze on laptop, not smiling at camera. Natural soft daylight, white walls, subtle greenery outside window, light wood desk, neutral true colors, crisp professional editorial photography. Medium-wide scene with enough office and desktop visible, subject centered for 4:3 and wide crops. Laptop display angled away with no readable content. No posed portrait, no Western model, no charts floating in air, no exaggerated technology aesthetic, no hand distortions, no text, no logos, no watermark. Illustrative business scene, not an actual staff or customer photograph."
+    }
+  ]
+}

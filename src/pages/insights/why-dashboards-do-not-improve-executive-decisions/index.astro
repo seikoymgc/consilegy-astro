@@ -1,4 +1,5 @@
 ---
+import { insightPhoto } from '../../../lib/editorial-photos';
 import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
 import InsightHead from '../../../components/InsightHead.astro';
 import InsightByline from '../../../components/InsightByline.astro';
@@ -89,7 +90,7 @@ const headings = [
 		<InsightContents headings={headings} />
 		<div class="article-eyecatch">
 			<img
-				src="/images/insights/why-dashboards-do-not-improve-executive-decisions-2026b.svg"
+				src={insightPhoto("why-dashboards-do-not-improve-executive-decisions")}
 				alt=""
 				width="1200"
 				height="630"

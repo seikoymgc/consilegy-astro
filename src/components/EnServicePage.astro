@@ -1,4 +1,5 @@
 ---
+import PhotoIntro from './PhotoIntro.astro';
 interface CoverItem {
   title?: string;
   body: string;
@@ -64,6 +65,8 @@ interface Props {
   slug?: string;
 }
 
+import type { PhotoSubject } from '../lib/editorial-photos';
+
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const {
@@ -95,6 +98,11 @@ const {
   figureLabel = 'How it works',
   figureHeading,
 } = Astro.props;
+
+const servicePhoto: PhotoSubject = slug?.includes('adoption') ? 'training'
+  : slug?.includes('gtm') ? 'marketing'
+  : slug?.includes('hubspot') ? 'analysis'
+  : slug?.includes('crm') ? 'crm' : 'workshop';
 
 const breadcrumbSchema = slug ? {
   '@context': 'https://schema.org',
@@ -144,16 +152,18 @@ const band: Record<string, string> = {};
   <!-- ── HERO ──────────────────────────────────────── -->
   <section class="sv-hero">
     <div class="sv-container">
-      <p class="sv-eyebrow"><a href="/en/services/">← All Services</a></p>
-      <h1 class="sv-hero__h1">{title}</h1>
-      <p class="sv-hero__tagline">{heroTagline}</p>
-      <p class="sv-hero__brief">{heroBrief}</p>
-      <div class="sv-hero__actions">
-        <a href="/en/contact/" class="sv-btn sv-btn--primary">{primaryCta}</a>
-        {secondaryCta && (
-          <a href={secondaryCtaHref} class="sv-btn sv-btn--ghost">{secondaryCta} →</a>
-        )}
-      </div>
+      <PhotoIntro subject={servicePhoto} lang="en">
+        <p class="sv-eyebrow"><a href="/en/services/">← All Services</a></p>
+        <h1 class="sv-hero__h1">{title}</h1>
+        <p class="sv-hero__tagline">{heroTagline}</p>
+        <p class="sv-hero__brief">{heroBrief}</p>
+        <div class="sv-hero__actions">
+          <a href="/en/contact/" class="sv-btn sv-btn--primary">{primaryCta}</a>
+          {secondaryCta && (
+            <a href={secondaryCtaHref} class="sv-btn sv-btn--ghost">{secondaryCta} →</a>
+          )}
+        </div>
+      </PhotoIntro>
     </div>
   </section>
 

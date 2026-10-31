@@ -1,4 +1,5 @@
 ---
+import PhotoIntro from '../../../components/PhotoIntro.astro';
 import { featureCount } from '../../../data/crm-features';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CrmSubnav from '../../../components/CrmSubnav.astro';
@@ -175,7 +176,8 @@ const readings = [
 <!-- ===================== ASSURANCE (the system works for people) ===================== -->
 <section class="assurance">
 	<div class="container">
-		<div class="assurance-inner">
+		<PhotoIntro subject="crm" lang="en" priority={false}>
+<div class="assurance-inner">
 			<p class="section-eyebrow">Why It Works</p>
 			<h2>People shouldn't work for the system.<br />AI works for the people.</h2>
 			<p class="assurance-body">
@@ -188,6 +190,7 @@ Marketing, sales, and customer success share one customer record, in a CRM and s
 				<li><span class="assurance-ways__k">Paste</span>Meeting transcripts, as they are</li>
 			</ul>
 		</div>
+</PhotoIntro>
 	</div>
 </section>
 

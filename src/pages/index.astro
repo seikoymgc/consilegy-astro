@@ -13,7 +13,7 @@ import { getServiceGuide } from '../data/service-guide';
 ---
 
 <BaseLayout
-	title="売上が伸びる。仕事が楽になる。全員が、同じ情報で動ける。 | Consilegy"
+	title="売上が伸びる。仕事が楽になる。「あの人しか知らない」が、なくなる。 | Consilegy"
 	description="「顧客情報がスプレッドシートとメールにしかない」「入れたはずのMA/SFAに入力されない」。原因は営業力ではなく、収益構造の設計にあります。Salesforce・HubSpot・kintone・MarketoとAIを組み合わせ、マーケ・営業・CSをつなぐ収益プロセスを設計し、現場で回るところまで伴走します。CRM / MA / SFAの導入支援実績40社以上。"
 	lang="ja"
 >
@@ -49,7 +49,7 @@ import { getServiceGuide } from '../data/service-guide';
 			<h1 class="hero-h1--v2">
 				売上が伸びる。<br />
 				仕事が楽になる。<br />
-				全員が、<span class="hero-phrase">同じ情報で動ける。</span>
+				<span class="hero-phrase hero-phrase--hang">「あの人しか知らない」が、</span><span class="hero-phrase">なくなる。</span>
 			</h1>
 			<p class="hero-lead hero-lead--short">
 				集客から受注、成約後のフォローまで。マーケティング・営業・顧客対応の進め方と、それを支える仕組み（業務フロー・システム・AI）を設計し、定着まで支援します。
@@ -1438,6 +1438,10 @@ section { padding-block: var(--space-2xl); }
 .hero-lead--short { margin: 1.25rem 0 1.5rem; font-size: 1.1rem; }
 /* 見出しの3行目が「る。」だけで折り返さないよう、句のまとまりで改行する。 */
 .hero-phrase { display: inline-block; }
+/* 行頭の「の空きを左に出し、ほかの行と文字の左端をそろえる。 */
+.hero-phrase--hang { margin-left: -0.5em; }
+/* スマホでは3行目の「が、」が行頭に来ないよう、見出しを少しだけ小さくする。 */
+@media (max-width: 420px) { .hero-copy h1.hero-h1--v2 { font-size: 1.5rem !important; } }
 .hero-actions .btn--cta { padding: 0.95rem 1.6rem; font-size: 1rem; }
 .founder--slim { padding-block: var(--space-xl); }
 .founder-assurance--solo { max-width: 52rem; margin: 0 auto; padding-top: 0; border-top: 0; text-align: left; }

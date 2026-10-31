@@ -1577,36 +1577,44 @@ section { padding-block: var(--space-2xl); }
 /* 設計→導入→定着の図（HTMLで組む。PCは横3列、スマホは縦1列で左に範囲の線） */
 .sflow__grid {
 	display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 40px; row-gap: 10px;
-	grid-template-areas: "others others ." "ours ours ours" "s1 s2 s3";
+	grid-template-areas: "s1 s2 s3" "others others ." "ours ours ours";
 }
-.sflow__scope { margin: 0; font-size: 1rem; text-align: center; padding-bottom: 10px; border: 0 solid; border-width: 0 1.5px 1.5px; height: auto; }
-.sflow__scope span { position: relative; top: -2px; }
-.sflow__scope--others { grid-area: others; border-color: #94A3B8; color: #475569; }
-.sflow__scope--ours { grid-area: ours; border-color: var(--color-navy); border-width: 0 2px 2px; color: var(--color-navy); font-weight: 700; margin-bottom: 10px; }
+/* 範囲はカードの下に横棒で示す。棒の長さ＝支援の範囲。 */
+.sflow__scope { margin: 0; font-size: 1rem; text-align: center; padding-top: 0.6rem; border: 0 solid; border-top-width: 1.5px; border-radius: 0; height: auto; }
+.sflow__scope span { position: relative; }
+/* 棒の両端に上向きの短い縦線を付け、範囲の始まりと終わりを示す。 */
+.sflow__scope { position: relative; }
+.sflow__scope::before, .sflow__scope::after { content: ""; position: absolute; top: -9.5px; width: 1.5px; height: 9.5px; }
+.sflow__scope::before { left: 0; }
+.sflow__scope::after { right: 0; }
+.sflow__scope--others::before, .sflow__scope--others::after { background: var(--color-navy); }
+.sflow__scope--ours::before, .sflow__scope--ours::after { background: var(--color-navy); }
+.sflow__scope--others { grid-area: others; border-color: var(--color-navy); color: var(--color-navy); margin-top: 1.25rem; }
+.sflow__scope--ours { grid-area: ours; border-color: var(--color-navy); color: var(--color-navy); font-weight: 700; margin-top: 1.25rem; }
 .sflow__step { position: relative; background: #fff; border: 1px solid #E2E8F0; border-radius: 6px; padding: 1rem 1.25rem; }
 .sflow__step--1 { grid-area: s1; } .sflow__step--2 { grid-area: s2; } .sflow__step--3 { grid-area: s3; }
-.sflow__step--dark { background: #0F172A; border-color: #0F172A; }
+/* 図の中は紺1色にそろえる。定着のカードは塗らず、紺の太枠で示す。 */
+.sflow__step--dark { background: #fff; border: 2px solid var(--color-navy); }
 .sflow__step:not(.sflow__step--3)::after {
 	content: ""; position: absolute; right: -32px; top: 50%; width: 24px; height: 2px; background: #0F172A;
 }
 .sflow__step:not(.sflow__step--3)::before {
 	content: ""; position: absolute; right: -34px; top: calc(50% - 5px); border: 6px solid transparent; border-left: 8px solid #0F172A; border-right: 0;
 }
-.sflow__en { margin: 0; font-size: 0.875rem; letter-spacing: 0.08em; text-transform: uppercase; color: #64748b; }
+.sflow__en { margin: 0; font-size: 0.875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-navy); }
 .sflow__name { margin: 0.25rem 0 0; font-size: 1.25rem; font-weight: 600; color: #0F172A; }
-.sflow__desc { margin: 0.125rem 0 0; font-size: 1rem; color: #475569; }
-.sflow__step--dark .sflow__en { color: #94A3B8; }
-.sflow__step--dark .sflow__name { color: #fff; }
-.sflow__step--dark .sflow__desc { color: #CBD5E1; }
-.sflow__note { margin: 1rem 0 0; font-size: 1rem; color: #475569; }
+.sflow__desc { margin: 0.125rem 0 0; font-size: 1rem; color: var(--color-navy); }
+.sflow__note { margin: 1rem 0 0; font-size: 1rem; color: var(--color-navy); }
+.sflow figcaption { color: var(--color-navy); }
 @media (max-width: 767px) {
 	.sflow__grid {
-		grid-template-columns: 1fr; row-gap: 24px; border-left: 3px solid var(--color-navy); padding-left: 16px;
+		grid-template-columns: 1fr; row-gap: 24px; border-left: 1.5px solid var(--color-navy); padding-left: 16px;
 		grid-template-areas: "ours" "s1" "s2" "others" "s3";
 	}
 	.sflow__scope { border: 0; padding: 0; text-align: left; font-size: 1rem; }
+	.sflow__scope::before, .sflow__scope::after { display: none; }
 	.sflow__scope--ours { margin: 0; }
-	.sflow__scope--others { border-top: 1.5px dashed #94A3B8; padding-top: 8px; margin-top: -8px; font-size: 0.875rem; }
+	.sflow__scope--others { border-top: 1.5px dashed var(--color-navy); padding-top: 8px; margin-top: -8px; font-size: 0.875rem; }
 	.sflow__scope--others span::before { content: "↑ "; }
 	.sflow__scope span { top: 0; }
 	.sflow__step:not(.sflow__step--3)::after { right: auto; left: 50%; top: auto; bottom: -18px; width: 2px; height: 10px; }

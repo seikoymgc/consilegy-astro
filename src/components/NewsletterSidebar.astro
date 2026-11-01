@@ -6,7 +6,7 @@ import NewsletterForm from './NewsletterForm.astro';
 	<div class="nl-box">
 		<p class="nl-eyebrow">Newsletter</p>
 		<h2 class="nl-title">次世代B2Bレベニュー戦略バイブル</h2>
-		<p class="nl-desc">売上を伸ばすための考え方と、現場での実践例をお届けします。登録は無料です。</p>
+		<p class="nl-desc"><strong>数字はあるのに、次の打ち手が決まらない。</strong>売上予測、営業会議、顧客管理。現場で起きる問題を、仕組みから見直すヒントをお届けします。無料で読めます。</p>
 		<NewsletterForm lang="ja" compact />
 	</div>
 </aside>
@@ -111,6 +111,8 @@ import NewsletterForm from './NewsletterForm.astro';
 	margin: 0 0 12px;
 	letter-spacing: -.01em;
 }
+
+.nl-desc strong { display: block; margin-bottom: .5rem; color: var(--color-navy); font-weight: 600; }
 
 .nl-desc {
 	font-size: .78rem;

@@ -107,7 +107,7 @@ const CRM_SIGNUP_URL = 'https://crm.consilegy.com/signup';
 		<div class="pain-groups">
 			{[
 				{ title: '売上が伸びない', items: ['リードを取っても、商談につながらない', 'どの施策が売上に効いたのか、分からない', 'システムの数字が信用できず、結局口頭で確認する'], link: { label: '売上が止まる原因を調べる', href: '/services/revenue-architecture-design/' } },
-				{ title: '仕事が回らない', items: ['システムを入れたのに、誰も入力しない', '結局、スプレッドシートで管理している', '会議の前に部下に聞いて、代わりに入力している'], link: { label: '使われるシステムに直す', href: '/services/adoption-growth-support/' } },
+				{ title: '仕事が回らない', items: ['人を増やしても、成果が増えない', '毎日忙しいのに、仕事が前に進まない', '目の前の対応に追われ、改善に手が回らない'], link: { label: '業務とシステムを作り直す', href: '/services/business-system-development/' } },
 				{ title: '「あの人しか知らない」', items: ['営業のやり方が、人によってバラバラ', '顧客の情報が、個人の手帳やファイルに散らばっている', '勘と経験の営業から、抜け出せない'], link: { label: 'Revenue CRMを見る', href: '/crm/' } },
 			].map((g) => (
 				<article class="pain-group">
@@ -183,23 +183,18 @@ const CRM_SIGNUP_URL = 'https://crm.consilegy.com/signup';
 			</div>
 		</div>
 		<p class="home-crm__lead-figure">営業もマーケティングも、手作業が月に十数時間減る。</p>
-		<div class="time-grid">
-			{timeTables.map((t, ti) => (
-				<div class="time-card">
-					<input type="checkbox" class="time-toggle" id={`time-more-${ti}`} />
-					<p class="time-card__head"><span>{t.role}（1人・1か月）</span><strong>{t.total}<small>時間</small></strong></p>
-					<table class="time-table">
-						<thead><tr><th scope="col">作業と使う機能</th><th scope="col" class="time-per">1件で減る時間</th><th scope="col">月の件数</th><th scope="col">月に減る時間</th></tr></thead>
-						<tbody>
-							{t.rows.map((r, ri) => (
-								<tr class={ri >= 3 ? 'time-row--more' : undefined}><td>{r.task}<span class="time-feature">{r.feature}</span></td><td class="time-per">{r.per}</td><td>{r.count}</td><td><strong>{r.saved}</strong></td></tr>
-							))}
-						</tbody>
-					</table>
-					<label class="time-more" for={`time-more-${ti}`}><span class="time-more__open">残り{t.rows.length - 3}件を見る</span><span class="time-more__close">閉じる</span></label>
+		<div class="time-summary">
+			{timeTables.map((t) => (
+				<div class="time-stat">
+					<p class="time-stat__role">{t.role}（1人・1か月）</p>
+					<p class="time-stat__total"><strong>{t.total}</strong>時間 減る</p>
+					<ul class="time-stat__top">
+						{[...t.rows].sort((x, y) => parseFloat(y.saved) - parseFloat(x.saved)).slice(0, 3).map((r) => <li><span>{r.task}</span><strong>{r.saved}</strong></li>)}
+					</ul>
 				</div>
 			))}
 		</div>
+		<p class="time-summary__more"><a href="/crm/#time-saved">作業ごとの内訳を見る →</a></p>
 		<p class="time-note">{timeSavedNote}</p>
 	</div>
 </section>
@@ -223,7 +218,7 @@ const CRM_SIGNUP_URL = 'https://crm.consilegy.com/signup';
 
 		<figure class="revenue-map" aria-labelledby="revenue-map-caption">
 			<p class="revenue-map__label">売上は、部門をまたいで一周する。どこで止まっているかを見る</p>
-			<div class="revenue-cycle-wrap"><svg class="revenue-cycle" viewBox="0 0 960 680" role="img" aria-label="マーケティング、営業、カスタマーサクセスが一周する循環図。中心に全部門で共有する顧客データと運用がある。">
+			<div class="revenue-cycle-wrap"><svg class="revenue-cycle" viewBox="40 50 880 580" role="img" aria-label="マーケティング、営業、カスタマーサクセスが一周する循環図。中心に全部門で共有する顧客データと運用がある。">
 <defs>
 <filter id="rc-shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#0F172A" flood-opacity="0.14"/></filter>
 </defs>
@@ -1838,9 +1833,9 @@ section { padding-block: var(--space-2xl); }
 .home-crm { padding-block: var(--space-2xl); border-top: 1px solid var(--color-border);
 	background:
 		radial-gradient(640px 460px at 78% 220px, rgba(59,130,246,0.22), transparent 70%),
-		radial-gradient(560px 460px at 100% 480px, rgba(135,88,201,0.2), transparent 70%),
+		radial-gradient(560px 460px at 100% 480px, rgba(135,88,201,0.1), transparent 70%),
 		radial-gradient(520px 420px at 0% 260px, rgba(96,165,250,0.15), transparent 70%),
-		radial-gradient(700px 500px at 50% 100%, rgba(135,88,201,0.08), transparent 70%),
+		radial-gradient(700px 500px at 50% 100%, rgba(96,165,250,0.08), transparent 70%),
 		linear-gradient(180deg, #F8FAFF 0%, #F1F5F9 100%); }
 .home-crm .section-eyebrow { border: 0; padding-top: 0; margin: 0 0 0.75rem; }
 .home-crm__top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 3rem; align-items: center; margin-bottom: 3rem; }
@@ -1959,4 +1954,36 @@ section { padding-block: var(--space-2xl); }
 .pain-cta__actions .btn { border-radius: 4px; }
 @media (max-width: 860px) { .pain-groups { grid-template-columns: 1fr; } }
 @media (max-width: 600px) { .pain-cta { flex-direction: column; align-items: stretch; text-align: center; } .pain-cta__actions { flex-direction: column; } .pain-cta__actions .btn { text-align: center; } }
+
+/* ── 2026-11-02 代表指定：トップを詰め、紫を減らす ── */
+/* Revenue CRM：表は /crm/ に任せ、トップは合計と上位3つだけ */
+.time-summary { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.time-stat { background: #fff; border: 1px solid var(--color-border); border-radius: 6px; box-shadow: 0 1px 3px rgb(15 23 42 / .06); padding: 1.25rem 1.5rem; }
+.time-stat__role { margin: 0; font-weight: 600; color: var(--color-text); }
+.time-stat__total { margin: 0.25rem 0 0.75rem; color: var(--color-text-muted); }
+.time-stat__total strong { font-size: 2.25rem; font-weight: 700; color: var(--color-navy); margin-right: 0.15rem; }
+.time-stat__top { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--color-border); }
+.time-stat__top li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.5rem 0; border-bottom: 1px solid var(--color-border); font-size: 1rem; }
+.time-stat__top li:last-child { border-bottom: 0; padding-bottom: 0; }
+.time-stat__top strong { color: var(--color-navy); white-space: nowrap; }
+.time-summary__more { margin: 1rem 0 0; }
+.time-summary__more a { color: var(--color-primary); font-weight: 600; text-decoration: none; }
+.time-summary__more a:hover { text-decoration: underline; }
+@media (max-width: 760px) { .time-summary { grid-template-columns: 1fr; } }
+/* レベニューアーキテクチャ：説明と循環図を横に並べ、図を小さくする */
+@media (min-width: 961px) {
+	.why--flag-only > .container { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 3rem; align-items: center; }
+	.why--flag-only .why-flag { display: block; }
+	.why--flag-only .why-flag h2 { margin-bottom: 1.25rem; }
+	.why--flag-only .flag-body .btn { margin-top: 1.25rem; }
+	.why--flag-only .revenue-map { margin: 0; }
+	.why--flag-only .revenue-map__label { display: none; }
+	.why--flag-only .revenue-cycle { max-width: 560px; }
+	.why--flag-only figcaption { font-size: 0.875rem; }
+}
+/* 紫は「押すもの」の中でも、相談と Revenue CRM の主ボタンと文中リンクだけ。副ボタンは紺の枠線 */
+.btn--secondary, .btn--outline-primary { background: #fff; color: var(--color-navy); border: 1.5px solid var(--color-navy); }
+.btn--secondary:hover, .btn--outline-primary:hover { background: #F1F5F9; color: var(--color-navy); }
+
+.home-crm::after { background: radial-gradient(circle, rgba(135,88,201,0.12), rgba(135,88,201,0) 70%); }
 </style>

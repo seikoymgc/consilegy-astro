@@ -3,9 +3,17 @@ export interface CommonProblem {
   problem: string;
   response: string;
   services: string[];
+  // サービス以外の案内先（自社製品など）
+  links?: { label: string; href: string }[];
 }
 
 export const commonProblems: CommonProblem[] = [
+  {
+    problem: '「あの人しか知らない」仕事がある',
+    response: '担当者が休んでも、辞めても、仕事が止まらないようにします。手順や知識は社内Wikiに残し、トップ営業の判断は手本としてシステムに残して、自社専用のAIに育てます。',
+    services: ['crm-revops-redesign', 'ai-workflow-enablement'],
+    links: [{ label: 'Revenue CRM', href: '/crm/' }],
+  },
   {
     problem: '売上を伸ばしたいのに、どこを改善すべきか分からない',
     response: '売上が止まっている原因を整理します。',

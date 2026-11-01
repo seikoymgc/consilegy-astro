@@ -1791,7 +1791,13 @@ section { padding-block: var(--space-2xl); }
 @media (prefers-reduced-motion: reduce) { .mission-pulse { animation: none; opacity: 0; } }
 @media (max-width: 860px) { .mission-strip__inner { grid-template-columns: 1fr; gap: 2rem; } .mission-strip { padding-block: 3rem; } }
 /* Revenue CRM の段（表は /crm/ と同じ見た目） */
-.home-crm { padding-block: var(--space-2xl); background: #fff; border-top: 1px solid var(--color-border); }
+.home-crm { padding-block: var(--space-2xl); border-top: 1px solid var(--color-border);
+	background:
+		radial-gradient(640px 460px at 78% 220px, rgba(59,130,246,0.22), transparent 70%),
+		radial-gradient(560px 460px at 100% 480px, rgba(135,88,201,0.2), transparent 70%),
+		radial-gradient(520px 420px at 0% 260px, rgba(96,165,250,0.15), transparent 70%),
+		radial-gradient(700px 500px at 50% 100%, rgba(135,88,201,0.08), transparent 70%),
+		linear-gradient(180deg, #F8FAFF 0%, #F1F5F9 100%); }
 .home-crm .section-eyebrow { border: 0; padding-top: 0; margin: 0 0 0.75rem; }
 .home-crm__top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 3rem; align-items: center; margin-bottom: 3rem; }
 .home-crm__head h2 { margin: 0 0 0.75rem; color: var(--color-navy); }
@@ -1870,4 +1876,11 @@ section { padding-block: var(--space-2xl); }
 
 </style>
 
-<style>.track-founder--portrait { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 2rem; align-items: center; } .track-founder--portrait img { width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--color-border); } @media(max-width:600px) { .track-founder--portrait { grid-template-columns:100px minmax(0,1fr); gap:1rem; } } .problems-section .problem-rows { margin-top:2rem; }</style>
+<style>.track-founder--portrait { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 2rem; align-items: center; } .track-founder--portrait img { width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--color-border); } @media(max-width:600px) { .track-founder--portrait { grid-template-columns:100px minmax(0,1fr); gap:1rem; } } .problems-section .problem-rows { margin-top:2rem; }
+/* ふわふわの光の玉（ロゴの青と紫）。文字の後ろには置かない */
+.home-crm, .hero--unified { position: relative; overflow: hidden; isolation: isolate; }
+.home-crm::before, .home-crm::after, .hero--unified::before, .hero--unified::after { content: ""; position: absolute; border-radius: 50%; filter: blur(60px); pointer-events: none; z-index: -1; }
+.home-crm::before, .hero--unified::before { width: 520px; height: 520px; right: 4%; top: 40px; background: radial-gradient(circle, rgba(59,130,246,0.28), rgba(59,130,246,0) 70%); }
+.home-crm::after, .hero--unified::after { width: 460px; height: 460px; right: -80px; top: 320px; background: radial-gradient(circle, rgba(135,88,201,0.25), rgba(135,88,201,0) 70%); }
+@media (max-width: 960px) { .home-crm::before, .hero--unified::before { width: 360px; height: 360px; right: -60px; } .home-crm::after, .hero--unified::after { width: 320px; height: 320px; top: auto; bottom: 10%; } }
+</style>

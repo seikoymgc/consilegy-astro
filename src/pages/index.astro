@@ -8,8 +8,6 @@ import { articles } from '../data/insights';
 // PCは先頭が2列幅なので、5件で2行がちょうど埋まる（3件だと2行目に1枚だけ残る）。スマホは3件まで。
 const insightsPosts = articles.slice(0, 5);
 import NewsLatest from '../components/NewsLatest.astro';
-import { commonProblems } from '../data/common-problems';
-import { getServiceGuide } from '../data/service-guide';
 import { timeTables, timeSavedNote } from '../data/crm-time-saved';
 
 const CRM_SIGNUP_URL = 'https://crm.consilegy.com/signup';
@@ -91,20 +89,6 @@ const CRM_SIGNUP_URL = 'https://crm.consilegy.com/signup';
 	</div>
 </section>
 
-<!-- ===================== MISSION（志。会社概要の「Our Mission」と同じ言葉を使う） ===================== -->
-<section class="mission-strip mission-strip--photo" aria-labelledby="mission-strip-title">
-	<div class="mission-photo" aria-hidden="true"></div>
-	<div class="container mission-strip__inner">
-		<div class="mission-strip__body">
-			<p class="section-eyebrow">Our Mission</p>
-			<h2 id="mission-strip-title">社会に、<span class="mission-strip__phrase">選択肢を増やす。</span></h2>
-			<p>時間に余白ができると、いろいろなことを試せます。試せると、自分は選べるのだと分かる。自分の未来を選べたとき、人は未来にワクワクできます。</p>
-			<p>だからConsilegyは、売上と仕事の仕組みを整えて、会社とそこで働く人に余白をつくります。</p>
-			<a href="/company/" class="mission-strip__link">会社とミッションについて →</a>
-		</div>
-	</div>
-	<img class="mission-photo--sp" src="/images/common/mission-choices-2026-11c-800.webp" alt="空に浮かぶたくさんのガラスの箱を、広場の人々が見上げるイメージ（生成画像）" width="800" height="520" loading="lazy" decoding="async" />
-</section>
 
 <NewsLatest lang="ja" />
 
@@ -120,20 +104,55 @@ const CRM_SIGNUP_URL = 'https://crm.consilegy.com/signup';
 			</div>
 		</header>
 </PhotoIntro>
-		<div class="problem-rows">
-			{commonProblems.map((item, i) => (
-				<article class="problem-row">
-					<div><p class="problem-num">{String(i + 1).padStart(2, '0')}</p><h3>{item.problem}</h3></div>
-					<div class="problem-response">
-						<p class="problem-text">{item.response}</p>
-						<ul class="problem-services">
-							{item.services.map((slug) => <li><a href={`/services/${slug}/`}>{getServiceGuide(slug).name} →</a></li>)}{(item.links ?? []).map((l) => <li><a href={l.href}>{l.label} →</a></li>)}
-						</ul>
-					</div>
+		<div class="pain-groups">
+			{[
+				{ title: '売上が伸びない', items: ['リードを取っても、商談につながらない', 'どの施策が売上に効いたのか、分からない', 'システムの数字が信用できず、結局口頭で確認する'], link: { label: '売上が止まる原因を調べる', href: '/services/revenue-architecture-design/' } },
+				{ title: '仕事が回らない', items: ['システムを入れたのに、誰も入力しない', '結局、スプレッドシートで管理している', '会議の前に部下に聞いて、代わりに入力している'], link: { label: '使われるシステムに直す', href: '/services/adoption-growth-support/' } },
+				{ title: '「あの人しか知らない」', items: ['営業のやり方が、人によってバラバラ', '顧客の情報が、個人の手帳やファイルに散らばっている', '勘と経験の営業から、抜け出せない'], link: { label: 'Revenue CRMを見る', href: '/crm/' } },
+			].map((g) => (
+				<article class="pain-group">
+					<h3>{g.title}</h3>
+					<ul class="pain-list">{g.items.map((t) => <li>{t}</li>)}</ul>
+					<a class="pain-link" href={g.link.href}>{g.link.label} →</a>
 				</article>
 			))}
 		</div>
-		<p class="problems-more"><a href="/services/#needs" class="btn btn--outline-primary">支援内容を見る →</a></p>
+		<div class="pain-cta">
+			<p>当てはまるものがあれば、ご相談ください。</p>
+			<div class="pain-cta__actions">
+				<a href="/contact/" class="btn btn--primary">相談する</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===================== RESULTS（事例3つ：動き出すと、こう変わる） ===================== -->
+<section class="how how--after-only">
+	<div class="container">
+		<div class="how-after">
+			<header class="sub-head">
+				<p class="section-eyebrow">After</p>
+				<h2>動き出すと、こう変わります。</h2>
+			</header>
+			<div class="after-list after-list--three">
+				<article class="after-item after-item--metric">
+					<h3>売上が伸びる</h3>
+					<p class="result-metric"><strong><span>最大</span>20<span>%向上</span></strong><span class="result-metric__note">リードから商談への転換率</span></p>
+					<p>ITバックオフィスSaaS（約200名）。見込み客の取りこぼしを減らし、マーケが渡したリードが商談になる割合を改善。</p>
+				</article>
+				<article class="after-item after-item--metric">
+					<h3>時間が戻る</h3>
+					<p class="result-metric"><strong><span>約</span>65<span>%削減</span></strong><span class="result-metric__note">月約100時間を創出</span></p>
+					<p>「あの件、どうなった？」を聞かなくてよくなります。医療テック企業（約150名）のデータ管理・抽出業務を改善。</p>
+				</article>
+				<article class="after-item after-item--metric">
+					<h3>部門の摩擦が消える</h3>
+					<p class="result-metric"><strong>2<span>か月</span></strong><span class="result-metric__note">3名の兼務チームで仕組みを構築</span></p>
+					<p>全員が同じ顧客の情報を見るので、押し付け合いがなくなります。コンサル会社の新規AI部門で、3名のまま回る仕組みを構築。</p>
+				</article>
+			</div>
+			<p class="track-more"><a class="btn btn--secondary" href="/case-studies/">導入事例を見る</a></p>
+		</div>
 	</div>
 </section>
 
@@ -165,17 +184,19 @@ const CRM_SIGNUP_URL = 'https://crm.consilegy.com/signup';
 		</div>
 		<p class="home-crm__lead-figure">営業もマーケティングも、手作業が月に十数時間減る。</p>
 		<div class="time-grid">
-			{timeTables.map((t) => (
+			{timeTables.map((t, ti) => (
 				<div class="time-card">
+					<input type="checkbox" class="time-toggle" id={`time-more-${ti}`} />
 					<p class="time-card__head"><span>{t.role}（1人・1か月）</span><strong>{t.total}<small>時間</small></strong></p>
 					<table class="time-table">
 						<thead><tr><th scope="col">作業と使う機能</th><th scope="col" class="time-per">1件で減る時間</th><th scope="col">月の件数</th><th scope="col">月に減る時間</th></tr></thead>
 						<tbody>
-							{t.rows.map((r) => (
-								<tr><td>{r.task}<span class="time-feature">{r.feature}</span></td><td class="time-per">{r.per}</td><td>{r.count}</td><td><strong>{r.saved}</strong></td></tr>
+							{t.rows.map((r, ri) => (
+								<tr class={ri >= 3 ? 'time-row--more' : undefined}><td>{r.task}<span class="time-feature">{r.feature}</span></td><td class="time-per">{r.per}</td><td>{r.count}</td><td><strong>{r.saved}</strong></td></tr>
 							))}
 						</tbody>
 					</table>
+					<label class="time-more" for={`time-more-${ti}`}><span class="time-more__open">残り{t.rows.length - 3}件を見る</span><span class="time-more__close">閉じる</span></label>
 				</div>
 			))}
 		</div>
@@ -325,65 +346,56 @@ const CRM_SIGNUP_URL = 'https://crm.consilegy.com/signup';
 	</div>
 </section>
 
-<!-- ===================== RESULTS（事例3つ：動き出すと、こう変わる） ===================== -->
-<section class="how how--after-only">
+
+<!-- ===================== PRICING（費用の目安：Revenue CRM と支援サービス） ===================== -->
+<section class="pricing-band" aria-labelledby="pricing-title">
 	<div class="container">
-		<div class="how-after">
-			<header class="sub-head">
-				<p class="section-eyebrow">After</p>
-				<h2>動き出すと、こう変わります。</h2>
+		<div class="price-guide">
+			<header class="price-guide__head">
+				<p class="section-eyebrow">Pricing</p>
+				<h2 id="pricing-title">費用の目安</h2>
 			</header>
-			<div class="after-list after-list--three">
-				<article class="after-item after-item--metric">
-					<h3>売上が伸びる</h3>
-					<p class="result-metric"><strong><span>最大</span>20<span>%向上</span></strong><span class="result-metric__note">リードから商談への転換率</span></p>
-					<p>ITバックオフィスSaaS（約200名）。見込み客の取りこぼしを減らし、マーケが渡したリードが商談になる割合を改善。</p>
+			<div class="price-cards">
+				<article class="price-card">
+				<h3 class="price-card__name">Revenue CRM</h3>
+				<p class="price-card__what">入力がめんどくさくない、<br />顧客管理・営業支援システム</p>
+				<p class="price-card__price"><span class="price-card__unit">1人あたり月額</span><strong>3,000円〜</strong></p>
+				<ul class="price-card__facts">
+					<li>30日間無料</li>
+					<li>初期費用なし</li>
+					<li>従業員100名まで</li>
+				</ul>
+				<a class="btn btn--primary price-card__btn" href="/crm/">Revenue CRMを見る</a>
 				</article>
-				<article class="after-item after-item--metric">
-					<h3>時間が戻る</h3>
-					<p class="result-metric"><strong><span>約</span>65<span>%削減</span></strong><span class="result-metric__note">月約100時間を創出</span></p>
-					<p>「あの件、どうなった？」を聞かなくてよくなります。医療テック企業（約150名）のデータ管理・抽出業務を改善。</p>
-				</article>
-				<article class="after-item after-item--metric">
-					<h3>部門の摩擦が消える</h3>
-					<p class="result-metric"><strong>2<span>か月</span></strong><span class="result-metric__note">3名の兼務チームで仕組みを構築</span></p>
-					<p>全員が同じ顧客の情報を見るので、押し付け合いがなくなります。コンサル会社の新規AI部門で、3名のまま回る仕組みを構築。</p>
+				<article class="price-card">
+				<h3 class="price-card__name">支援サービス</h3>
+				<p class="price-card__what">業務とシステムを調べて、作り直し、<br />使われるまで定着させる</p>
+				<dl class="price-card__rows">
+					<div><dt>現状分析<span>2〜6週間</span></dt><dd>10万円〜</dd></div>
+					<div><dt>再設計<span>3〜6か月</span></dt><dd>300万円〜</dd></div>
+					<div><dt>伴走<span>3か月〜</span></dt><dd>月額30万円〜</dd></div>
+				</dl>
+				<a class="btn btn--secondary price-card__btn" href="/services/">支援サービスを見る</a>
 				</article>
 			</div>
-			<p class="track-more"><a class="btn btn--secondary" href="/case-studies/">導入事例を見る</a></p>
-			<div class="price-guide">
-				<header class="price-guide__head">
-					<p class="section-eyebrow">Pricing</p>
-					<h3>費用の目安</h3>
-				</header>
-				<div class="price-cards">
-					<article class="price-card">
-						<h4 class="price-card__name">Revenue CRM</h4>
-						<p class="price-card__what">入力がめんどくさくない、<br />顧客管理・営業支援システム</p>
-						<p class="price-card__price"><span class="price-card__unit">1人あたり月額</span><strong>3,000円〜</strong></p>
-						<ul class="price-card__facts">
-							<li>30日間無料</li>
-							<li>初期費用なし</li>
-							<li>従業員100名まで</li>
-						</ul>
-						<a class="btn btn--primary price-card__btn" href="/crm/">Revenue CRMを見る</a>
-					</article>
-					<article class="price-card">
-						<h4 class="price-card__name">支援サービス</h4>
-						<p class="price-card__what">業務とシステムを調べて、作り直し、<br />使われるまで定着させる</p>
-						<dl class="price-card__rows">
-							<div><dt>現状分析<span>2〜6週間</span></dt><dd>10万円〜</dd></div>
-							<div><dt>再設計<span>3〜6か月</span></dt><dd>300万円〜</dd></div>
-							<div><dt>伴走<span>3か月〜</span></dt><dd>月額30万円〜</dd></div>
-						</dl>
-						<a class="btn btn--secondary price-card__btn" href="/services/">支援サービスを見る</a>
-					</article>
-				</div>
-				<p class="price-guide__note">価格はすべて税抜です。システム開発は個別にお見積もりします。最初のご相談は無料です。</p>
-			</div>
-		</div>
+			<p class="price-guide__note">価格はすべて税抜です。システム開発は個別にお見積もりします。最初のご相談は無料です。</p>
 		</div>
 	</div>
+</section>
+
+<!-- ===================== MISSION（志。会社概要の「Our Mission」と同じ言葉を使う） ===================== -->
+<section class="mission-strip mission-strip--photo" aria-labelledby="mission-strip-title">
+	<div class="mission-photo" aria-hidden="true"></div>
+	<div class="container mission-strip__inner">
+		<div class="mission-strip__body">
+			<p class="section-eyebrow">Our Mission</p>
+			<h2 id="mission-strip-title">社会に、<span class="mission-strip__phrase">選択肢を増やす。</span></h2>
+			<p>時間に余白ができると、いろいろなことを試せます。試せると、自分は選べるのだと分かる。自分の未来を選べたとき、人は未来にワクワクできます。</p>
+			<p>だからConsilegyは、売上と仕事の仕組みを整えて、会社とそこで働く人に余白をつくります。</p>
+			<a href="/company/" class="mission-strip__link">会社とミッションについて →</a>
+		</div>
+	</div>
+	<img class="mission-photo--sp" src="/images/common/mission-choices-2026-11c-800.webp" alt="空に浮かぶたくさんのガラスの箱を、広場の人々が見上げるイメージ（生成画像）" width="800" height="520" loading="lazy" decoding="async" />
 </section>
 
 <!-- ===================== TRACK RECORD（実績＋代表） ===================== -->
@@ -393,7 +405,7 @@ const CRM_SIGNUP_URL = 'https://crm.consilegy.com/signup';
 			<p class="section-eyebrow">Track Record</p>
 			<h2>支援実績40社以上。</h2>
 			<p class="section-lead">
-代表・山口聖子が、個人事業時代から現在までに手がけたCRM / MA / SFA導入の累計です。SaaS・EC / D2C・メーカーなど業種は問いません。
+代表・山口聖子が、個人事業時代から現在までに手がけた、顧客管理システム（CRM）・営業支援システム（SFA）・マーケティング自動化ツール（MA）の導入支援の累計です。SaaS・EC / D2C・メーカーなど業種は問いません。
 			</p>
 		</header>
 
@@ -462,9 +474,9 @@ const CRM_SIGNUP_URL = 'https://crm.consilegy.com/signup';
 	<div class="container cta-inner cta-inner--single">
 		<div class="cta-copy">
 			<p class="cta-eyebrow">Get Started</p>
-			<h2>マーケと営業の間のこと、<br />ご相談ください。</h2>
+			<h2>売上のことも、仕事のやり方も、<br />まずはご相談ください。</h2>
 			<p class="cta-lead">
-				「営業に渡した後が分からない」「どの施策が効いたか知りたい」。
+				「売上が伸び悩んでいる」「手作業に追われている」「あの人がいないと回らない」。
 				困っている場面を、問い合わせフォームからお聞かせください。
 				課題や依頼内容が決まっていなくても大丈夫です。
 			</p>
@@ -1915,4 +1927,36 @@ section { padding-block: var(--space-2xl); }
 .home-crm::before, .hero--unified::before { width: 520px; height: 520px; right: 4%; top: 40px; background: radial-gradient(circle, rgba(59,130,246,0.28), rgba(59,130,246,0) 70%); }
 .home-crm::after, .hero--unified::after { width: 460px; height: 460px; right: -80px; top: 320px; background: radial-gradient(circle, rgba(135,88,201,0.25), rgba(135,88,201,0) 70%); }
 @media (max-width: 960px) { .home-crm::before, .hero--unified::before { width: 360px; height: 360px; right: -60px; } .home-crm::after, .hero--unified::after { width: 320px; height: 320px; top: auto; bottom: 10%; } }
+
+.pricing-band { padding-block: var(--space-2xl); background: #fff; }
+.pricing-band .price-guide { margin-top: 0; }
+.pricing-band .price-guide__head h2 { font-size: clamp(1.5rem, 2.8vw, 2rem); font-weight: 700; color: var(--color-navy); margin: 0.25rem 0 0; }
+.time-toggle { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
+.time-more { display: none; }
+@media (max-width: 760px) {
+	.time-card { position: relative; }
+	.time-toggle:not(:checked) ~ .time-table .time-row--more { display: none; }
+	.time-more { display: block; margin-top: 0.75rem; padding: 0.75rem; text-align: center; border: 1px solid var(--color-border-strong); border-radius: 4px; font-size: 1rem; font-weight: 600; color: var(--color-primary); cursor: pointer; background: #fff; }
+	.time-toggle:focus-visible + * , .time-toggle:focus-visible ~ .time-more { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+	.time-more__close { display: none; }
+	.time-toggle:checked ~ .time-more .time-more__open { display: none; }
+	.time-toggle:checked ~ .time-more .time-more__close { display: inline; }
+}
+
+/* 困りごと：ファーストビューの3つの約束（売上・仕事・属人化）に合わせて束ね、当てはまるかを確かめるチェックリストにする */
+.pain-groups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 2rem; }
+.pain-group { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--color-border); border-radius: 6px; box-shadow: 0 1px 3px rgb(15 23 42 / .06); padding: 1.5rem; }
+.pain-group h3 { margin: 0 0 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--color-border); font-size: 1.25rem; font-weight: 700; color: var(--color-navy); }
+.pain-list { list-style: none; margin: 0 0 1.25rem; padding: 0; display: grid; gap: 0.625rem; }
+.pain-list li { word-break: auto-phrase; position: relative; padding-left: 1.75rem; font-size: 1rem; line-height: 1.7; color: var(--color-text); }
+.pain-list li::before { content: ""; position: absolute; left: 0; top: 0.3em; width: 1.05rem; height: 1.05rem; border: 1.5px solid var(--color-border-strong); border-radius: 3px; background: #fff; }
+.pain-list li::after { content: ""; position: absolute; left: 0.36rem; top: 0.42em; width: 0.32rem; height: 0.6rem; border: solid var(--color-navy); border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.pain-link { margin-top: auto; color: var(--color-primary); font-weight: 600; text-decoration: none; }
+.pain-link:hover { text-decoration: underline; }
+.pain-cta { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem 1.5rem; margin-top: 1.5rem; padding: 1.25rem 1.5rem; background: #fff; border: 1px solid var(--color-border); border-radius: 6px; }
+.pain-cta p { word-break: auto-phrase; margin: 0; font-weight: 600; color: var(--color-navy); }
+.pain-cta__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.pain-cta__actions .btn { border-radius: 4px; }
+@media (max-width: 860px) { .pain-groups { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .pain-cta { flex-direction: column; align-items: stretch; text-align: center; } .pain-cta__actions { flex-direction: column; } .pain-cta__actions .btn { text-align: center; } }
 </style>

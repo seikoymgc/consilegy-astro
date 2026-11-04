@@ -30,6 +30,123 @@ export const EDITION_LABEL: Record<UpdateEdition, { ja: string; en: string }> = 
 
 export const CRM_UPDATES: CrmUpdate[] = [
   {
+    date: '2026-10-29',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: '外注先や代理店を「取引区分」で分けられます',
+      en: 'Separate vendors and partners with relationship types',
+    },
+    body: {
+      ja: '設定 → 取引区分で「外注先」「代理店」など自社の呼び方で区分を作り、会社・コンタクトに付けます。お客様以外の相手は、見込み客の数やファネル、自動の段階移動から外れます。一覧の絞り込み・グループ化とCSVインポートにも使えます。あわせて画面の「ライフサイクル」を「段階」に改めました。',
+      en: 'In Settings → Relationship types, create your own types such as “Vendor” or “Reseller” and assign them to companies and contacts. Anyone who isn’t a customer is left out of lead counts, the funnel and automatic stage changes. Types also work in list filters, grouping and CSV import. “Lifecycle” is now labeled “Stage” on screen.',
+    },
+    prs: [402],
+  },
+  {
+    date: '2026-10-29',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: '資料をダウンロードした人への追客を、手順どおりに回せます',
+      en: 'Follow up on content downloads with a set routine',
+    },
+    body: {
+      ja: 'フォームの設定で有効にすると、当日の電話、つながらなければ承認待ちのメール下書き、送信から3営業日後の再連絡、という順でタスクを作ります。返信・面談予約・辞退・連絡不可で止まります。相手と再連絡の日を約束したら、その日まで自動の追客を止めて担当者のタスクに切り替えます。',
+      en: 'Turn it on for a form and the CRM sets up a same-day call, a draft email for approval if the call doesn’t connect, and a follow-up three business days after sending. It stops on a reply, a booked meeting, a decline or a do-not-contact. When you agree on a callback date, automatic follow-up pauses until then and becomes a task for the owner.',
+    },
+    prs: [396],
+  },
+  {
+    date: '2026-10-29',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: '商談ごとに、次のアクションと期日を1つずつ持てます',
+      en: 'Every open deal carries one next action with a due date',
+    },
+    body: {
+      ja: '商談を完了にするときは、次の内容・担当・期日を決めてから閉じます。商談のあとや提案・見積の送付、先方待ちを記録すると、次の予定と承認待ちのメール下書きを作ります。受注・失注で終わります。',
+      en: 'To complete the current action, you set the next one, its owner and due date. Logging a meeting, a proposal or quote sent, or waiting on the client sets up the next step and a draft email for approval. The action ends when the deal is won or lost.',
+    },
+    prs: [396],
+  },
+  {
+    date: '2026-10-28',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: 'AI機能を会社ごとに止められます。AIが作った内容には印が付きます',
+      en: 'Turn off AI for your whole company, and see what AI wrote',
+    },
+    body: {
+      ja: '設定 → AI機能の利用で、オーナーと管理者がAIをまとめてオフにできます。オフのあいだは燃料も減りません。AIの返答やメールの下書き、要約などには「AI生成」の印が付き、使う前に確かめるよう案内します。',
+      en: 'In Settings → AI features, owners and admins can switch off all AI at once. No fuel is used while it’s off. AI replies, email drafts, summaries and similar content now carry an “AI-generated” label with a reminder to check before use.',
+    },
+    prs: [395],
+  },
+  {
+    date: '2026-10-28',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: '記録やウェブに紛れた命令に、AIが従いません',
+      en: 'AI ignores instructions hidden in your records or the web',
+    },
+    body: {
+      ja: 'AIに渡すCRMの記録や検索で読んだページは「データ」として区切り、中に「以前の指示を無視して」のような文が紛れていても指示として扱いません。こうした文を見つけたら記録に残します。',
+      en: 'CRM records and web pages passed to AI are marked as data, so text inside them like “ignore previous instructions” is never treated as a command. When such text is found, it is logged.',
+    },
+    prs: [393],
+  },
+  {
+    date: '2026-10-25',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: '会社の国（日本・米国・台湾・シンガポール）で、通貨・税・住所・タイムゾーンを切り替えられます',
+      en: 'Set your company’s country: Japan, US, Taiwan or Singapore',
+    },
+    body: {
+      ja: '設定 → 国と税・タイムゾーンで選ぶと、金額の通貨、見積書の税、登録番号、住所の並び、日付の区切りがその国に合います。画面の言語とは別に選べます。姓名の順番はコンタクトごとに入れ替えられます。',
+      en: 'Choose it in Settings → Country, tax & time zone, and currency, quote tax, registration numbers, address order and date boundaries follow that country. It’s separate from the display language. Name order can be switched per contact.',
+    },
+    prs: [375],
+  },
+  {
+    date: '2026-10-24',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: '自社で作った項目名・ステージ名を、言語ごとに付けられます',
+      en: 'Name your custom fields and stages in each language',
+    },
+    body: {
+      ja: '設定の商談ステージとカスタムフィールドで、日本語・英語・繁體中文の名前を入れられます。見る人の画面の言語で表示し、空欄の言語は元の名前のままです。',
+      en: 'In Settings, add Japanese, English and Traditional Chinese names to deal stages and custom fields. Each person sees the names in their display language; any left blank show the original.',
+    },
+    prs: [359, 360],
+  },
+  {
+    date: '2026-10-24',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: '活動履歴やメモを、自分の言語に訳して読めます',
+      en: 'Read activity notes in your own language',
+    },
+    body: {
+      ja: '議事録・通話・メール・メモ・通話のAIサマリーに「翻訳」ボタンが付き、画面の言語で読めます。「原文」で戻せます。同じ記録を同じ言語で読むのは、社内で2人目から燃料を使いません。',
+      en: 'Meeting notes, calls, emails, notes and AI call summaries have a “Translate” button that shows them in your display language, with “Original” to switch back. Once someone in your company has translated a record, others reading it in the same language use no fuel.',
+    },
+    prs: [358],
+  },
+  {
+    date: '2026-10-23',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: '名刺: 並べて撮れば1枚ずつ切り出し、配信の可否もその場で決められます',
+      en: 'Business cards: one photo for several cards, and consent on the spot',
+    },
+    body: {
+      ja: '何枚も並べて撮った写真から、名刺を1枚ずつ切り出して各人に添付します。確認画面で「営業メールを送ってよい」「メルマガを送ってよい」を1人ずつ選べます。1通目の下書きは「AIで調整」で、短く・丁寧になど指示どおりに書き直せます。',
+      en: 'Photograph several cards together and each one is cropped and attached to the right person. On the review screen, choose per person whether you may send sales emails and newsletters. The first email draft can be rewritten with “Adjust with AI”, for example shorter or more formal.',
+    },
+    prs: [348, 349, 353],
+  },
+  {
     date: '2026-10-21',
     editions: ['b2b', 'contractor', 'reseller'],
     title: {

@@ -9,8 +9,8 @@ const { lang = 'ja', privacyUrl } = Astro.props;
 const en = lang === 'en';
 const policy = privacyUrl ?? (en ? '/en/privacy-policy/' : '/privacy-policy/');
 const t = en
-	? { text: 'We use cookies to understand how this site is used.', link: 'Privacy Policy', accept: 'Accept', reject: 'Decline', label: 'Cookie notice' }
-	: { text: 'このサイトでは、利用状況を知るためにCookieを使っています。', link: 'プライバシーポリシー', accept: '同意する', reject: '拒否する', label: 'Cookieについてのお知らせ' };
+	? { text: 'We use cookies to understand how this site is used and to measure our ads.', link: 'Privacy Policy', accept: 'Accept', reject: 'Decline', label: 'Cookie notice' }
+	: { text: 'このサイトでは、利用状況の把握と広告の効果測定のためにCookieを使っています。', link: 'プライバシーポリシー', accept: '同意する', reject: '拒否する', label: 'Cookieについてのお知らせ' };
 ---
 <div class="cookie-banner" data-cookie-banner hidden role="region" aria-label={t.label}>
 	<p class="cookie-banner__text">{t.text} <a href={policy}>{t.link}</a></p>

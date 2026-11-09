@@ -218,6 +218,15 @@ crm origin/main（db20fc1）では、`src/app/school/` にあるのは `page.tsx
 - 2026-10-27: b2c は公開なし。10/26 以降のスクール版の変更は #378（/api/school-app/ も crm_ws を見る）と #379（デイリーコールの表示を外す）だけで新しい候補が無い。本番の /api/school-app/calendar は今も 503（CALENDAR_FEED_SECRET 未設定、Chrome で確認）
 - 2026-10-26: b2c は公開なし。10/25 の洗い出し以降、スクール版の変更は 39c3f38（カレンダーの文言）だけで新しい候補が無い。「レッスンのチャット」（もっと→💬）も見たが、Zoom 連携（保留中）が前提で書けない。teachers-without-google-cannot-see-their-lessons-on-their-phone は本番の CALENDAR_FEED_SECRET が入れば公開できる（日次タスクの環境からは本番に届かず確認できない）
 
+## 2026-11-10 選定・再検証
+
+| segment | 痛み | 機能 | slug | 根拠と既刊との差 |
+|---|---|---|---|---|
+| b2b | 登録した見積をPDFにするため別の書式へ転記する | 見積書の印刷用ページ | quotes-get-retyped-just-to-make-a-pdf | 更新履歴に未追加だった11/9のcrm #422を最新main fc56b01で確認。10/16保留の「PDFが無い」は現在は解消。印刷用ページを日英で実機確認。ブラウザからPDFに保存する機能に絞り、メール送信や送付済み化と分ける。既刊「添付ファイル」とは文書を作る工程で区別 |
+| b2c | 入会者名簿から一人ずつ新規登録し直す | 生徒CSV一括インポート | new-student-rosters-get-retyped-one-by-one | 最新main fc56b01のcsvImport・onCiSubmit・student/import API。7列固定、新規追加、重複更新なし、単純CSV・状態値・開始日の3か月後卒業日・部分失敗・プリペイド燃料3を説明。既刊「データの書き出し」とは新規名簿を入れる操作で区別。日英画面を閲覧・撮影し、取込は実行せず |
+
+実行記録は [`runs/2026-11-10.md`](./runs/2026-11-10.md)。
+
 ## 2026-11-09 選定・再検証
 
 | segment | 痛み | 機能 | slug | 根拠と既刊との差 |

@@ -218,6 +218,15 @@ crm origin/main（db20fc1）では、`src/app/school/` にあるのは `page.tsx
 - 2026-10-27: b2c は公開なし。10/26 以降のスクール版の変更は #378（/api/school-app/ も crm_ws を見る）と #379（デイリーコールの表示を外す）だけで新しい候補が無い。本番の /api/school-app/calendar は今も 503（CALENDAR_FEED_SECRET 未設定、Chrome で確認）
 - 2026-10-26: b2c は公開なし。10/25 の洗い出し以降、スクール版の変更は 39c3f38（カレンダーの文言）だけで新しい候補が無い。「レッスンのチャット」（もっと→💬）も見たが、Zoom 連携（保留中）が前提で書けない。teachers-without-google-cannot-see-their-lessons-on-their-phone は本番の CALENDAR_FEED_SECRET が入れば公開できる（日次タスクの環境からは本番に届かず確認できない）
 
+## 2026-11-09 選定・再検証
+
+| segment | 痛み | 機能 | slug | 根拠と既刊との差 |
+|---|---|---|---|---|
+| b2b | 英語の画面でも会社の日付の基準が合っていない | 国と税・タイムゾーン | english-interface-still-shows-the-wrong-business-day | 更新履歴10/25（#375）→最新crm b46d6a3のregion画面・API・日付書式。既刊「画面の言語」とは、会社の国・日付の基準を決める操作で区別。国の副作用と変更権限、国別のタイムゾーン候補を明記。日英デモを閲覧・撮影し設定は変更せず |
+| b2c | 生徒の状態の変更についてスタッフ全員へ聞いて回る | 監査ログの直近の確認 | staff-ask-who-changed-the-student-status | 最新crm b46d6a3のauditLog・loadAppData・ステータスAPI。10/22保留を再検証。最新40件・自動処理も含む・検索なし・非記録操作あり・ログ書込失敗ありを明記し、完全な証跡ではなく、直近で確認する相手を探す使い方に限定。既刊「課題の確認」「退会後の自動処理停止」とは目的を分けた。日英デモを閲覧・撮影し変更は作らず |
+
+実行記録は [`runs/2026-11-09.md`](./runs/2026-11-09.md)。
+
 ## 2026-11-08 再検証・公開対象
 
 | segment | 痛み | 機能 | slug | 根拠 |

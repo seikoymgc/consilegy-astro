@@ -2,7 +2,7 @@
 title: "In Japan, legal review is a deal stage, not post-signature paperwork"
 description: "Price agreed, product agreed, then you send the contract and the deal goes quiet. What stalls it is rarely a clause. It is that nobody owns the answer or the date. Japanese survey data (n=330) on when legal joins the evaluation, the five places Japanese counsel always marks up, and the one page to send ahead of the contract."
 publishedAt: 2026-09-03
-updatedAt: 2026-10-17
+updatedAt: 2026-11-08
 category: japan-gtm
 principle: "Legal review in Japan runs during the evaluation, not after the win. Decide which clauses move and which do not, name an owner and a turnaround for each, and track it as a deal stage."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -20,7 +20,7 @@ Your CRM records "in legal review" and the deal crosses into the next quarter.
 
 A joint survey by IDEATECH and Hiroyasu Kitagawa of Demagen Soken (published 9 June 2026, fielded 25 to 26 May 2026, n=330, restricted to people who took part with at least one colleague in Japanese purchases of B2B business software, SaaS, IT infrastructure or security with annual contract value of 5 million yen or more; an online survey run by a firm whose business is survey-based PR, so read it for order of magnitude) asked which specialist functions took part in the evaluation.
 
-Legal appeared in 33.2% of evaluations, behind IT at 42.2% and finance at 38.2% (multiple response, n=325).
+Legal appeared in 33.2% of evaluations, behind IT at 42.2%, finance at 38.2% and security at 37.2% (multiple response, n=325).
 
 In roughly one deal in three, legal has been looking at you before your contract ever arrives.
 

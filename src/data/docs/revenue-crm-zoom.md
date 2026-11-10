@@ -19,7 +19,7 @@ The integration is available in Revenue CRM (crm.consilegy.com) and in the schoo
 
 1. Sign in to Revenue CRM.
 2. Open **Settings → Meetings**.
-3. Click **Connect** next to Zoom.
+3. Click **Connect Zoom**.
 4. Sign in to Zoom if asked, review the permissions, and click **Allow**.
 5. You return to Revenue CRM and Zoom shows as connected.
 

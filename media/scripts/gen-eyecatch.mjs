@@ -18,6 +18,7 @@
 import { readdir, readFile, mkdir, access } from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
+import { eyecatchPath } from '../src/data/eyecatch.mjs';
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const OUT_DIR = path.join(ROOT, 'public/images/eyecatch');
@@ -47,6 +48,7 @@ async function fileExists(p) {
 // 記事ごとに専用写真があれば優先、なければカテゴリ写真を使う。
 // 専用写真: public/images/eyecatch-bg/{slug}.png
 const SOURCE_OVERRIDES = {
+	'inherited-automation-needs-a-business-owner': 'inherited-automation-needs-a-business-owner-20261110a',
 	crm: 'development-japan-2026c',
 	'japan-gtm': 'city-japan-2026c',
 	adoption: 'training-japan-2026c',
@@ -56,7 +58,6 @@ const SOURCE_OVERRIDES = {
 	'japan-marketing-leads-no-pipeline': 'marketing-handoff-keeps-the-why',
 	'why-ma-leads-dont-become-deals': 'marketing-handoff-keeps-the-why',
 };
-const PHOTO_VERSION = '2026jp2';
 
 async function pickSource(slug, category) {
 	const override = SOURCE_OVERRIDES[slug];
@@ -70,11 +71,11 @@ async function pickSource(slug, category) {
 
 async function write(pipeline, slug) {
 	// ページ内表示はWebP、OGPはJPEG。どちらも写真なので可逆圧縮（PNG）は使わない。
-	await pipeline.clone().webp({ quality: 72 }).toFile(path.join(OUT_DIR, `${slug}-${PHOTO_VERSION}.webp`));
+	await pipeline.clone().webp({ quality: 72 }).toFile(path.join(OUT_DIR, path.basename(eyecatchPath(slug))));
 	await pipeline
 		.clone()
 		.jpeg({ quality: 78, mozjpeg: true, chromaSubsampling: '4:2:0' })
-		.toFile(path.join(OUT_DIR, `${slug}-${PHOTO_VERSION}.jpg`));
+		.toFile(path.join(OUT_DIR, path.basename(eyecatchPath(slug, 'jpg'))));
 }
 
 async function generate(slug, category) {

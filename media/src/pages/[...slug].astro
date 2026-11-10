@@ -1,4 +1,5 @@
 ---
+import { eyecatchPath } from '../data/eyecatch.mjs';
 import TechnicalTerms from '../components/TechnicalTerms.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
@@ -34,7 +35,7 @@ const formatDate = (date: Date) =>
 	ogType="article"
 	publishedAt={d.publishedAt}
 	updatedAt={d.updatedAt}
-	ogImage={`/images/eyecatch/${note.id}-2026jp2.jpg`}
+	ogImage={eyecatchPath(note.id, 'jpg')}
 	section={categories[d.category]}
 	jaPath={hasEn ? `/${note.id}/` : undefined}
 	enPath={hasEn ? `/en/articles/${note.id}/` : undefined}
@@ -66,7 +67,7 @@ const formatDate = (date: Date) =>
 
 			<figure class="note-hero">
 				<img
-					src={`/images/eyecatch/${note.id}-2026jp2.webp`}
+					src={eyecatchPath(note.id)}
 					alt={d.title}
 					width="1200"
 					height="630"

@@ -1,0 +1,50 @@
+---
+// Revenue CRM の Zoom 連携の説明（英語）。Zoom App Marketplace の審査で、このURLを提出する（2026-11-10）。
+// 本文は src/data/docs/revenue-crm-zoom.md。追加・使い方・削除の手順は審査で必須。
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CrmSubnav from '../../../../components/CrmSubnav.astro';
+import { Content } from '../../../../data/docs/revenue-crm-zoom.md';
+---
+
+<BaseLayout
+  title="Zoom integration | Revenue CRM | Consilegy"
+  description="How to add, use and remove the Revenue CRM app for Zoom: automatic meeting logs, participant matching, and notes and tasks from transcripts."
+  canonical="https://consilegy.com/en/crm/zoom/"
+  lang="en"
+  hasTranslation={false}
+>
+  <CrmSubnav lang="en" />
+
+  <div class="api-page">
+    <header class="api-head">
+      <p class="kicker">Integrations</p>
+      <h1>Revenue CRM for Zoom</h1>
+      <p class="lead">Log Zoom meetings and lessons in Revenue CRM automatically. Questions: <a href="mailto:info@consilegy.com">info@consilegy.com</a></p>
+    </header>
+    <article class="api-doc">
+      <Content />
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  .api-page { max-width: 52rem; margin: 0 auto; padding: 4rem 1.25rem 5rem; }
+  .api-head { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid #E2E8F0; }
+  .kicker { font-size: 0.875rem; letter-spacing: 0.12em; color: var(--color-navy); margin: 0 0 0.5rem; font-weight: 600; }
+  .api-head h1 { font-size: clamp(1.75rem, 4vw, 2.5rem); margin: 0 0 0.75rem; color: var(--color-navy); }
+  .lead { color: var(--color-text-muted); line-height: 1.8; margin: 0; }
+
+  .api-doc { color: var(--color-text); line-height: 1.8; font-size: 1rem; }
+  .api-doc :global(h2) { font-size: 1.5rem; color: var(--color-navy); margin: 3rem 0 1rem; padding-top: 1.5rem; border-top: 1px solid #E2E8F0; }
+  .api-doc :global(h3) { font-size: 1.125rem; color: var(--color-navy); margin: 2rem 0 0.5rem; }
+  .api-doc :global(h3 code) { font-size: 1rem; background: #F1F5F9; padding: 0.15rem 0.45rem; border-radius: 4px; }
+  .api-doc :global(p), .api-doc :global(ul) { margin: 0 0 1rem; }
+  .api-doc :global(hr) { display: none; }
+  .api-doc :global(:not(pre) > code) { font-size: 0.9em; background: #F1F5F9; padding: 0.1rem 0.35rem; border-radius: 4px; overflow-wrap: anywhere; }
+  .api-doc :global(pre) { background: #0F172A; color: #E2E8F0; padding: 1rem 1.25rem; border-radius: 6px; overflow-x: auto; font-size: 0.9rem; line-height: 1.6; margin: 0 0 1.25rem; }
+  .api-doc :global(pre code) { background: none; color: inherit; padding: 0; }
+  .api-doc :global(table) { width: 100%; border-collapse: collapse; margin: 0 0 1.25rem; font-size: 1rem; display: block; overflow-x: auto; }
+  .api-doc :global(th), .api-doc :global(td) { text-align: left; padding: 0.6rem 0.75rem; border: 1px solid #E2E8F0; vertical-align: top; }
+  .api-doc :global(th) { background: #F1F5F9; color: var(--color-navy); font-weight: 600; }
+  .api-doc :global(a) { color: var(--color-primary); }
+</style>

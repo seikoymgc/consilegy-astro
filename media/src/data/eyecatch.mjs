@@ -1,5 +1,6 @@
 // 写真を差し替えた記事だけURLを更新し、既存記事の画像URLを保つ。
 const versions = {
+  'founder-sales-without-a-founder-copy': '20261112b',
   'inherited-automation-needs-a-business-owner': '20261110a',
 };
 

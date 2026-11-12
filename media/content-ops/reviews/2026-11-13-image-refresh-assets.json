@@ -1,0 +1,1737 @@
+[
+  {
+    "index": 0,
+    "source": "adoption-metric-is-not-login-rate",
+    "titles": [
+      "ログイン率だけでは、CRMの定着は分からない"
+    ],
+    "newSource": "adoption-metric-is-not-login-rate-20261113n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-edf39c54-1f7f-4809-af27-a62df9484f2e.png",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: ログイン率だけでは、CRMの定着は分からない",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "adoption-metric-is-not-login-rate",
+        "title": "ログイン率だけでは、CRMの定着は分からない"
+      },
+      {
+        "lang": "en",
+        "slug": "adoption-metric-is-not-login-rate",
+        "title": "Japan CRM adoption: check record use as well as logins"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/adoption-metric-is-not-login-rate-20261113n.png"
+  },
+  {
+    "index": 1,
+    "source": "training-japan-2026c",
+    "titles": [
+      "「上が決めたから」で入れたツールは、推進役の異動で止まった",
+      "「前のやり方に戻したい」に可否で答えると、二重帳簿が始まります",
+      "反対する人を呼ぶのは、まだ変えられるものが残っているとき",
+      "稼働後2週間のフォローを「質問受付」にすると、定着は止まる",
+      "CRM導入の進捗報告を月次にすると、現場は例外を作る"
+    ],
+    "newSource": "training-japan-2026c-20261113n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-51ffcacf-ac00-42bd-982a-cb6455b10774.png",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: 「上が決めたから」で入れたツールは、推進役の異動で止まった; 「前のやり方に戻したい」に可否で答えると、二重帳簿が始まります; 反対する人を呼ぶのは、まだ変えられるものが残っているとき; 稼働後2週間のフォローを「質問受付」にすると、定着は止まる; CRM導入の進捗報告を月次にすると、現場は例外を作る",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "adoption-stops-when-the-sponsor-leaves",
+        "title": "「上が決めたから」で入れたツールは、推進役の異動で止まった"
+      },
+      {
+        "lang": "ja",
+        "slug": "asked-to-go-back-to-the-old-way",
+        "title": "「前のやり方に戻したい」に可否で答えると、二重帳簿が始まります"
+      },
+      {
+        "lang": "ja",
+        "slug": "bring-objectors-in-while-it-can-change",
+        "title": "反対する人を呼ぶのは、まだ変えられるものが残っているとき"
+      },
+      {
+        "lang": "ja",
+        "slug": "first-two-weeks-after-go-live",
+        "title": "稼働後2週間のフォローを「質問受付」にすると、定着は止まる"
+      },
+      {
+        "lang": "ja",
+        "slug": "report-cadence-sets-the-wait",
+        "title": "CRM導入の進捗報告を月次にすると、現場は例外を作る"
+      },
+      {
+        "lang": "ja",
+        "slug": "say-what-sfa-records-wont-judge",
+        "title": "SFAの入力を人事評価に使うか、先に書いて渡す"
+      },
+      {
+        "lang": "ja",
+        "slug": "tool-training-once-is-not-enough",
+        "title": "導入研修をやったのにツールが使われないときの立て直し方"
+      },
+      {
+        "lang": "ja",
+        "slug": "translate-kpi-into-tomorrows-action",
+        "title": "現場がKPIを見ないのは、明日の行動に訳されていないから"
+      },
+      {
+        "lang": "ja",
+        "slug": "when-to-turn-off-the-old-system",
+        "title": "旧システムの停止には、期限と終了条件を決める"
+      },
+      {
+        "lang": "ja",
+        "slug": "who-owns-the-crm-rollout",
+        "title": "CRMの推進担当に必要なのは、操作知識と運用を変える権限"
+      },
+      {
+        "lang": "en",
+        "slug": "adoption-stops-when-the-sponsor-leaves",
+        "title": "Keeping a Japan CRM rollout running after its sponsor leaves"
+      },
+      {
+        "lang": "en",
+        "slug": "asked-to-go-back-to-the-old-way",
+        "title": "When your Japan team asks to go back to the spreadsheet, answer with a date"
+      },
+      {
+        "lang": "en",
+        "slug": "bring-objectors-in-while-it-can-change",
+        "title": "Bring your Japan team in while one decision is still open"
+      },
+      {
+        "lang": "en",
+        "slug": "first-two-weeks-after-go-live",
+        "title": "Silence after your Japan go-live is not adoption. It is the first warning"
+      },
+      {
+        "lang": "en",
+        "slug": "report-cadence-sets-the-wait",
+        "title": "Your review cadence sets how long Japan waits for answers"
+      },
+      {
+        "lang": "en",
+        "slug": "say-what-sfa-records-wont-judge",
+        "title": "Tell your Japan team what CRM records won't be used for"
+      },
+      {
+        "lang": "en",
+        "slug": "translate-kpi-into-tomorrows-action",
+        "title": "Why Your Japan Team Ignores KPIs: Translate Them to Actions"
+      },
+      {
+        "lang": "en",
+        "slug": "when-to-turn-off-the-old-system",
+        "title": "Japan's parallel run has an end date but no end condition"
+      },
+      {
+        "lang": "en",
+        "slug": "who-owns-the-crm-rollout",
+        "title": "Who should own your Japan CRM rollout (not the power user)"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/training-japan-2026c-20261113n.png"
+  },
+  {
+    "index": 2,
+    "source": "consultation-japan-2026c",
+    "titles": [
+      "営業AIの時間削減は、行き先を決めないと社内に吸われやすい",
+      "営業が作った競合比較表は、たいてい相手の社内で使われない",
+      "初回商談で「課題は何ですか」から始めるのをやめました",
+      "受注予測が外れた理由は、数えた日の根拠がないと検証できない",
+      "引き継ぎの項目を増やしても、毎回こぼれるのは同じ1か所です"
+    ],
+    "newSource": "consultation-japan-2026c-20261113n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-20eae0d4-775b-466d-a324-741457422412.png",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: 営業AIの時間削減は、行き先を決めないと社内に吸われやすい; 営業が作った競合比較表は、たいてい相手の社内で使われない; 初回商談で「課題は何ですか」から始めるのをやめました; 受注予測が外れた理由は、数えた日の根拠がないと検証できない; 引き継ぎの項目を増やしても、毎回こぼれるのは同じ1か所です",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "ai-time-saved-needs-a-destination",
+        "title": "営業AIの時間削減は、行き先を決めないと社内に吸われやすい"
+      },
+      {
+        "lang": "ja",
+        "slug": "comparison-chart-defends-the-choice",
+        "title": "営業が作った競合比較表は、たいてい相手の社内で使われない"
+      },
+      {
+        "lang": "ja",
+        "slug": "first-meeting-five-questions",
+        "title": "初回商談で「課題は何ですか」から始めるのをやめました"
+      },
+      {
+        "lang": "ja",
+        "slug": "forecast-miss-needs-the-day-of-basis",
+        "title": "受注予測が外れた理由は、数えた日の根拠がないと検証できない"
+      },
+      {
+        "lang": "ja",
+        "slug": "handoff-misses-why-it-was-approved",
+        "title": "引き継ぎの項目を増やしても、毎回こぼれるのは同じ1か所です"
+      },
+      {
+        "lang": "ja",
+        "slug": "how-to-get-an-approval-through",
+        "title": "稟議の通し方とは？比較・見積・たたき台の3点で整える"
+      },
+      {
+        "lang": "ja",
+        "slug": "long-deals-show-at-first-meeting",
+        "title": "商談が長引く案件は、初回の時点で見立てられる"
+      },
+      {
+        "lang": "ja",
+        "slug": "more-meetings-same-waiting-room",
+        "title": "商談数を増やしても売上が伸びないときの見分け方"
+      },
+      {
+        "lang": "ja",
+        "slug": "no-budget-means-no-slot",
+        "title": "「予算がない」と言われたら、金額と時期を分けて聞く"
+      },
+      {
+        "lang": "ja",
+        "slug": "reopen-lost-deals-on-a-trigger",
+        "title": "失注した商談は、戻る条件をつけて閉じる"
+      },
+      {
+        "lang": "ja",
+        "slug": "sales-stage-definition-rewrite",
+        "title": "商談が「検討中」に溜まるときは、社内合意をステージとして切り出す"
+      },
+      {
+        "lang": "ja",
+        "slug": "take-it-back-is-a-handoff",
+        "title": "「持ち帰って検討します」は返事ではなく引き継ぎです"
+      },
+      {
+        "lang": "ja",
+        "slug": "top-seller-judgment-from-three-wins",
+        "title": "営業の属人化は、トップ営業の受注3件を開いて解く"
+      },
+      {
+        "lang": "en",
+        "slug": "ai-time-saved-needs-a-destination",
+        "title": "AI time saved by your Japan sales team needs a destination"
+      },
+      {
+        "lang": "en",
+        "slug": "comparison-chart-defends-the-choice",
+        "title": "Your Japan battlecard is read in a room your rep never enters"
+      },
+      {
+        "lang": "en",
+        "slug": "first-meeting-five-questions",
+        "title": "The first Japan sales call: check what the buyer has already decided"
+      },
+      {
+        "lang": "en",
+        "slug": "forecast-miss-needs-the-day-of-basis",
+        "title": "Log why a Japan deal was forecast, or misses go unexplained"
+      },
+      {
+        "lang": "en",
+        "slug": "handoff-misses-why-it-was-approved",
+        "title": "What your Japan handoff drops is the reason the contract was approved"
+      },
+      {
+        "lang": "en",
+        "slug": "how-to-get-an-approval-through",
+        "title": "Three materials to support a Japanese ringi approval"
+      },
+      {
+        "lang": "en",
+        "slug": "long-deals-show-at-first-meeting",
+        "title": "Japan deal cycle length can be estimated at the first meeting"
+      },
+      {
+        "lang": "en",
+        "slug": "more-meetings-same-waiting-room",
+        "title": "Japan pipeline grew, revenue flat: the stall is downstream"
+      },
+      {
+        "lang": "en",
+        "slug": "no-budget-means-no-slot",
+        "title": "“No budget” in Japan: check the amount and the timing"
+      },
+      {
+        "lang": "en",
+        "slug": "reopen-lost-deals-on-a-trigger",
+        "title": "Add a restart condition to lost deals in Japan"
+      },
+      {
+        "lang": "en",
+        "slug": "take-it-back-is-a-handoff",
+        "title": "In Japan, 'we'll take it back' is a handoff, not an answer"
+      },
+      {
+        "lang": "en",
+        "slug": "top-seller-judgment-from-three-wins",
+        "title": "Before your best Japan rep leaves, open three of their wins"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/consultation-japan-2026c-20261113n.png"
+  },
+  {
+    "index": 3,
+    "source": "city-japan-2026c",
+    "titles": [
+      "日本法人の設立前に、需要と承認の通り方を確かめる",
+      "カスタマーサクセスの型を輸入したら、更新の面談が進捗報告会になった",
+      "海外本社に「日本の商談はなぜ長いのか」を説明する方法",
+      "本社の契約書をそのまま出すと、日本の商談は法務で止まる",
+      "ドル建てのままの価格表が、日本の稟議に載らない理由"
+    ],
+    "newSource": "city-japan-2026c-20261113n",
+    "prompt": "The subject is ONLY an empty contemporary Japanese office district street, glass facades, trees, pavement, daylight. Preserve the architectural scene from Image 1. Absolutely NO people, faces, hands, meeting, table, laptop or portrait. Image 2 is a color and photographic rendering reference only. Do not import its person. Photorealistic contemporary business magazine photograph, landscape 2:1. Match Image 2 ONLY for neutral white balance, rich natural midtones, dimensional directional daylight, clean black detail and premium Nikon full-frame rendering. No sepia, no film grain, no white haze, no washed-out stock lighting, no logos or watermark. Image 2's human identity must never appear.",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-fe8c0744-4d87-4799-a79a-bcfa4bd46940.png",
+    "rejectedPath": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-abd5d82e-9497-49c5-8ab2-497e586fbc51.png",
+    "revisionReason": "Restore empty Japanese office district; remove people imported from the tonal reference.",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "approval-test-before-japan-entity",
+        "title": "日本法人の設立前に、需要と承認の通り方を確かめる"
+      },
+      {
+        "lang": "ja",
+        "slug": "customer-success-playbook-import",
+        "title": "カスタマーサクセスの型を輸入したら、更新の面談が進捗報告会になった"
+      },
+      {
+        "lang": "ja",
+        "slug": "japan-decision-speed-explained-to-hq",
+        "title": "海外本社に「日本の商談はなぜ長いのか」を説明する方法"
+      },
+      {
+        "lang": "ja",
+        "slug": "legal-review-is-a-deal-stage",
+        "title": "本社の契約書をそのまま出すと、日本の商談は法務で止まる"
+      },
+      {
+        "lang": "ja",
+        "slug": "price-in-yen-or-dollars",
+        "title": "ドル建てのままの価格表が、日本の稟議に載らない理由"
+      },
+      {
+        "lang": "ja",
+        "slug": "renewal-falls-outside-the-budget-year",
+        "title": "更新日と予算年度がずれるとき、確認しておくこと"
+      },
+      {
+        "lang": "ja",
+        "slug": "security-sheet-unsupported-rows",
+        "title": "セキュリティチェックシートの回答は「×」の行から整える"
+      },
+      {
+        "lang": "en",
+        "slug": "approval-test-before-japan-entity",
+        "title": "Before incorporating in Japan, test the approval process"
+      },
+      {
+        "lang": "en",
+        "slug": "customer-success-playbook-import",
+        "title": "Does your Japan customer success playbook have a customer-side owner?"
+      },
+      {
+        "lang": "en",
+        "slug": "legal-review-is-a-deal-stage",
+        "title": "In Japan, legal review is a deal stage, not post-signature paperwork"
+      },
+      {
+        "lang": "en",
+        "slug": "price-in-yen-or-dollars",
+        "title": "Quoting in yen or dollars: what the Japan buyer needs for approval"
+      },
+      {
+        "lang": "en",
+        "slug": "renewal-falls-outside-the-budget-year",
+        "title": "Japan renewal dates that miss the customer's budget year"
+      },
+      {
+        "lang": "en",
+        "slug": "security-sheet-unsupported-rows",
+        "title": "Japan security check sheets: what to write in the No rows"
+      },
+      {
+        "lang": "en",
+        "slug": "why-japan-deals-take-longer",
+        "title": "Explain Japan deal timing through the approval process"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/city-japan-2026c-20261113n.png"
+  },
+  {
+    "index": 4,
+    "source": "analysis-japan-2026c",
+    "titles": [
+      "経営会議の指標を3つに絞る前に、外す7つの持ち主を決める",
+      "入口の数字で「効果が出ています」と報告すると、翌月に訂正が必要になります",
+      "リード数の定義が部署ごとに合わないときの揃え方",
+      "受注率が落ちた原因は、新しい競合が載っていない比較表だった",
+      "先月報告した商談化率が、今月見たら変わっていた"
+    ],
+    "newSource": "analysis-japan-2026c-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: 経営会議の指標を3つに絞る前に、外す7つの持ち主を決める; 入口の数字で「効果が出ています」と報告すると、翌月に訂正が必要になります; リード数の定義が部署ごとに合わないときの揃え方; 受注率が落ちた原因は、新しい競合が載っていない比較表だった; 先月報告した商談化率が、今月見たら変わっていた\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-f5ad4e8f-f68c-4416-a2fc-0bdd801fb5c5.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "assign-owners-to-the-metrics-you-drop",
+        "title": "経営会議の指標を3つに絞る前に、外す7つの持ち主を決める"
+      },
+      {
+        "lang": "ja",
+        "slug": "effect-needs-a-closed-outcome",
+        "title": "入口の数字で「効果が出ています」と報告すると、翌月に訂正が必要になります"
+      },
+      {
+        "lang": "ja",
+        "slug": "lead-count-meant-different-things",
+        "title": "リード数の定義が部署ごとに合わないときの揃え方"
+      },
+      {
+        "lang": "ja",
+        "slug": "playbook-needs-a-recheck-date",
+        "title": "受注率が落ちた原因は、新しい競合が載っていない比較表だった"
+      },
+      {
+        "lang": "ja",
+        "slug": "reports-recalculate-the-past",
+        "title": "先月報告した商談化率が、今月見たら変わっていた"
+      },
+      {
+        "lang": "ja",
+        "slug": "review-one-good-one-bad",
+        "title": "営業の数字の会議は、一覧を眺めず受注1件と失注1件を開く"
+      },
+      {
+        "lang": "ja",
+        "slug": "split-deal-wait-before-hiring",
+        "title": "営業増員の判断は、商談の待ち日数を3つに分けてから"
+      },
+      {
+        "lang": "ja",
+        "slug": "stop-debating-attribution-weights",
+        "title": "どの施策の受注かを30分議論しても、来月の予算は変わらない"
+      },
+      {
+        "lang": "ja",
+        "slug": "waiting-for-data-needs-a-restart-date",
+        "title": "「データが揃ってから」に、再開日と確認する人を決める"
+      },
+      {
+        "lang": "ja",
+        "slug": "what-is-a-lead-count",
+        "title": "リード数とは？3つの線で数え方を揃える"
+      },
+      {
+        "lang": "en",
+        "slug": "assign-owners-to-the-metrics-you-drop",
+        "title": "Japan metrics you drop still need an owner and a cadence"
+      },
+      {
+        "lang": "en",
+        "slug": "effect-needs-a-closed-outcome",
+        "title": "When Japan reports a campaign is working, ask what has closed since"
+      },
+      {
+        "lang": "en",
+        "slug": "japan-saas-churn-benchmark-median",
+        "title": "Reading Japan’s SaaS churn benchmark: check the distribution"
+      },
+      {
+        "lang": "en",
+        "slug": "playbook-needs-a-recheck-date",
+        "title": "The Japan playbook that worked once is quietly decaying"
+      },
+      {
+        "lang": "en",
+        "slug": "reports-recalculate-the-past",
+        "title": "Japan's conversion rate changed after you reported it to HQ"
+      },
+      {
+        "lang": "en",
+        "slug": "review-one-good-one-bad",
+        "title": "Run Your Japan Sales Review on One Won Deal and One Lost Deal"
+      },
+      {
+        "lang": "en",
+        "slug": "split-deal-wait-before-hiring",
+        "title": "Japan headcount: split the deal days before you hire more"
+      },
+      {
+        "lang": "en",
+        "slug": "stop-debating-attribution-weights",
+        "title": "Japan attribution: agree the decision before debating the weights"
+      },
+      {
+        "lang": "en",
+        "slug": "waiting-for-data-needs-a-restart-date",
+        "title": "A paused Japan programme needs a review date and a restart condition"
+      },
+      {
+        "lang": "en",
+        "slug": "what-is-a-lead-count",
+        "title": "How to Define a Lead Count in Japan So HQ and Japan Agree"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/analysis-japan-2026c-20261113n.png"
+  },
+  {
+    "index": 5,
+    "source": "japanese-work-2026b",
+    "titles": [
+      "「認知が足りない」と言われたとき、最初に疑うべき数字",
+      "展示会の名刺は、翌日に配るより会場で分けるほうが効く",
+      "施策を止める判断は、中止ではなく「更新しない」で下す",
+      "資料のダウンロード数から、社内で回ったかは分からない",
+      "開封率は改善する指標ではなく、判断から外す指標です"
+    ],
+    "newSource": "japanese-work-2026b-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: 「認知が足りない」と言われたとき、最初に疑うべき数字; 展示会の名刺は、翌日に配るより会場で分けるほうが効く; 施策を止める判断は、中止ではなく「更新しない」で下す; 資料のダウンロード数から、社内で回ったかは分からない; 開封率は改善する指標ではなく、判断から外す指標です\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-6794fc4f-7bdc-4054-ba37-1cc407d0f84b.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "awareness-is-rarely-the-problem",
+        "title": "「認知が足りない」と言われたとき、最初に疑うべき数字"
+      },
+      {
+        "lang": "ja",
+        "slug": "business-cards-after-the-trade-show",
+        "title": "展示会の名刺は、翌日に配るより会場で分けるほうが効く"
+      },
+      {
+        "lang": "ja",
+        "slug": "campaigns-expire-unless-renewed",
+        "title": "施策を止める判断は、中止ではなく「更新しない」で下す"
+      },
+      {
+        "lang": "ja",
+        "slug": "download-count-is-not-internal-use",
+        "title": "資料のダウンロード数から、社内で回ったかは分からない"
+      },
+      {
+        "lang": "ja",
+        "slug": "drop-open-rate-from-decisions",
+        "title": "開封率は改善する指標ではなく、判断から外す指標です"
+      },
+      {
+        "lang": "ja",
+        "slug": "exit-rule-before-the-trade-show",
+        "title": "展示会に出るか迷ったら、先に撤退基準を決める"
+      },
+      {
+        "lang": "ja",
+        "slug": "fewer-form-fields-same-pipeline",
+        "title": "問い合わせフォームの項目を減らしても、商談が増えないのはなぜか"
+      },
+      {
+        "lang": "ja",
+        "slug": "let-buyers-calculate-the-roi",
+        "title": "買い手が数字を作れる形で、ROIを渡す"
+      },
+      {
+        "lang": "ja",
+        "slug": "marketing-kpi-when-the-main-number-moves",
+        "title": "マーケティングKPIの見直し時期は、部門の対立で分かる"
+      },
+      {
+        "lang": "ja",
+        "slug": "record-why-leads-come-back",
+        "title": "営業がリードを戻す理由を、選択式にする"
+      },
+      {
+        "lang": "ja",
+        "slug": "webinar-topics-from-first-meeting-questions",
+        "title": "ウェビナーのテーマの決め方は、初回商談の質問から"
+      },
+      {
+        "lang": "ja",
+        "slug": "weekly-cadence-monthly-agenda",
+        "title": "マーケと営業の会議を週次にしても、議題が集計のままなら効かない"
+      },
+      {
+        "lang": "en",
+        "slug": "awareness-is-rarely-the-problem",
+        "title": "Brand awareness is rarely why your Japan pipeline is flat"
+      },
+      {
+        "lang": "en",
+        "slug": "business-cards-after-the-trade-show",
+        "title": "Your Japan team came back from the show with 900 business cards"
+      },
+      {
+        "lang": "en",
+        "slug": "campaigns-expire-unless-renewed",
+        "title": "Give Japan programmes a renewal date and a decision rule"
+      },
+      {
+        "lang": "en",
+        "slug": "download-count-is-not-internal-use",
+        "title": "Download counts do not show whether a buyer used the file"
+      },
+      {
+        "lang": "en",
+        "slug": "drop-open-rate-from-decisions",
+        "title": "Open rates from your Japan list are not evidence of intent"
+      },
+      {
+        "lang": "en",
+        "slug": "fewer-form-fields-same-pipeline",
+        "title": "Why shortening your Japan contact form does not add pipeline"
+      },
+      {
+        "lang": "en",
+        "slug": "let-buyers-calculate-the-roi",
+        "title": "Give Japanese Buyers an ROI Model They Can Edit Themselves"
+      },
+      {
+        "lang": "en",
+        "slug": "marketing-kpi-when-the-main-number-moves",
+        "title": "Japan marketing KPIs fall behind when the main number moves"
+      },
+      {
+        "lang": "en",
+        "slug": "record-why-leads-come-back",
+        "title": "Four reasons to record when Japan sales returns a lead"
+      },
+      {
+        "lang": "en",
+        "slug": "webinar-topics-from-first-meeting-questions",
+        "title": "Pick Japan webinar topics from first-meeting questions"
+      },
+      {
+        "lang": "en",
+        "slug": "weekly-cadence-monthly-agenda",
+        "title": "A weekly Japan review needs decisions, not another monthly report"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/japanese-work-2026b-20261113n.png"
+  },
+  {
+    "index": 6,
+    "source": "change-the-meeting-not-the-manual",
+    "titles": [
+      "マニュアルを作るより、週次会議の議題を変えるほうが効いた"
+    ],
+    "newSource": "change-the-meeting-not-the-manual-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: マニュアルを作るより、週次会議の議題を変えるほうが効いた\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-e50e3e30-d61a-4ce7-a599-ace5df2fbfc9.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "change-the-meeting-not-the-manual",
+        "title": "マニュアルを作るより、週次会議の議題を変えるほうが効いた"
+      },
+      {
+        "lang": "en",
+        "slug": "change-the-meeting-not-the-manual",
+        "title": "Japan CRM adoption: put the records to work in the weekly meeting"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/change-the-meeting-not-the-manual-20261113n.png"
+  },
+  {
+    "index": 7,
+    "source": "churn-rate-logo-or-revenue",
+    "titles": [
+      "解約率が悪化したと報告が来て、金額で見たら増えていた"
+    ],
+    "newSource": "churn-rate-logo-or-revenue-20261113n",
+    "prompt": "ONLY an ordinary work desk with two business reports showing a simple bar chart and a line chart. NO people or hands anywhere. No woman from the style reference. Business report photography, not artwork. No legible text or numerical values. Image 1 is the edit target; Image 2 is ONLY tonal reference. Contemporary photorealistic business magazine image, horizontal 2:1. Match Image 2 only for dimensional side daylight, deep clean blacks retaining detail, nuanced neutral midtones, controlled whites, premium Nikon full-frame optical rendering. Never import the reference woman. No sepia, grain, white haze, logos or watermark.",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-a4480237-84bc-4505-b65a-a2e1a16902f3.png",
+    "rejectedPath": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-358d8ef1-f9ce-44e3-a1a1-5aa3db614ca3.png",
+    "revisionReason": "ONLY an ordinary work desk with two business reports showing a simple bar chart and a line chart. NO people or hands anywhere. No woman from the style reference. Business report photography, not artwork. No legible text or numerical values.",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "churn-rate-logo-or-revenue",
+        "title": "解約率が悪化したと報告が来て、金額で見たら増えていた"
+      },
+      {
+        "lang": "en",
+        "slug": "churn-rate-logo-or-revenue",
+        "title": "Japan's NRR looks healthy on your dashboard. Ask for the logo churn."
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/churn-rate-logo-or-revenue-20261113n.png"
+  },
+  {
+    "index": 8,
+    "source": "clean-lists-before-crm-import",
+    "titles": [
+      "名刺とExcelを取り込む前に、必ず決める3つのこと"
+    ],
+    "newSource": "clean-lists-before-crm-import-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: 名刺とExcelを取り込む前に、必ず決める3つのこと\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-aa10cb62-ff44-4ab9-b131-a1f92caa5c28.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "clean-lists-before-crm-import",
+        "title": "名刺とExcelを取り込む前に、必ず決める3つのこと"
+      },
+      {
+        "lang": "en",
+        "slug": "clean-lists-before-crm-import",
+        "title": "Before importing your Japan contact lists, decide three things"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/clean-lists-before-crm-import-20261113n.png"
+  },
+  {
+    "index": 9,
+    "source": "company-record-four-lines",
+    "titles": [
+      "顧客情報を部署間で共有するなら、会社の画面に4行置く"
+    ],
+    "newSource": "company-record-four-lines-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: 顧客情報を部署間で共有するなら、会社の画面に4行置く\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-06d899e7-4538-4b26-9ef5-ce29137964b4.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "company-record-four-lines",
+        "title": "顧客情報を部署間で共有するなら、会社の画面に4行置く"
+      },
+      {
+        "lang": "en",
+        "slug": "company-record-four-lines",
+        "title": "Japan accounts: four lines every team reads before calling"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/company-record-four-lines-20261113n.png"
+  },
+  {
+    "index": 10,
+    "source": "content-lead-time-count-the-waiting",
+    "titles": [
+      "コンテンツ制作のリードタイムは、待ち日数で測る"
+    ],
+    "newSource": "content-lead-time-count-the-waiting-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: コンテンツ制作のリードタイムは、待ち日数で測る\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-7804e498-3124-4aba-9be8-fea248846728.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "content-lead-time-count-the-waiting",
+        "title": "コンテンツ制作のリードタイムは、待ち日数で測る"
+      },
+      {
+        "lang": "en",
+        "slug": "content-lead-time-count-the-waiting",
+        "title": "Japan content lead time: count the days spent waiting"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/content-lead-time-count-the-waiting-20261113n.png"
+  },
+  {
+    "index": 11,
+    "source": "development-japan-2026c",
+    "titles": [
+      "CRMの項目を半分に削るとき、消す前に確かめること",
+      "CRMの項目設計は、直近の判断で無かった数字から始める",
+      "見せない範囲を細かく決めたCRMほど、必要な情報が共有されない",
+      "CRMが人に頼む仕事を減らすと、定着は変わる",
+      "CRM連携が止まる原因は、機能ではなく照合キーの設計でした"
+    ],
+    "newSource": "development-japan-2026c-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: CRMの項目を半分に削るとき、消す前に確かめること; CRMの項目設計は、直近の判断で無かった数字から始める; 見せない範囲を細かく決めたCRMほど、必要な情報が共有されない; CRMが人に頼む仕事を減らすと、定着は変わる; CRM連携が止まる原因は、機能ではなく照合キーの設計でした\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-52516434-e825-4ad3-bbca-3026210d4c32.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "crm-custom-properties-cut-in-half",
+        "title": "CRMの項目を半分に削るとき、消す前に確かめること"
+      },
+      {
+        "lang": "ja",
+        "slug": "crm-fields-from-missing-numbers",
+        "title": "CRMの項目設計は、直近の判断で無かった数字から始める"
+      },
+      {
+        "lang": "ja",
+        "slug": "crm-permissions-too-fine",
+        "title": "見せない範囲を細かく決めたCRMほど、必要な情報が共有されない"
+      },
+      {
+        "lang": "ja",
+        "slug": "crm-should-ask-less-of-people",
+        "title": "CRMが人に頼む仕事を減らすと、定着は変わる"
+      },
+      {
+        "lang": "ja",
+        "slug": "decide-the-master-before-integrating",
+        "title": "CRM連携が止まる原因は、機能ではなく照合キーの設計でした"
+      },
+      {
+        "lang": "ja",
+        "slug": "lifecycle-stage-definition-and-design",
+        "title": "ライフサイクルステージとは何か。HubSpotでの定義と、設計で先に決めること"
+      },
+      {
+        "lang": "ja",
+        "slug": "merge-rules-need-a-signature",
+        "title": "重複レコードの統合は、基準より先に承認者を決める"
+      },
+      {
+        "lang": "ja",
+        "slug": "migrate-everything-request",
+        "title": "CRM移行で「全部の項目を移したい」と言われたら"
+      },
+      {
+        "lang": "ja",
+        "slug": "record-readable-in-three-minutes",
+        "title": "「前の担当者に聞いたほうが速い」と言われるCRMの直し方"
+      },
+      {
+        "lang": "ja",
+        "slug": "rehearsal-tests-people-not-data",
+        "title": "移行テストは通ったのに、リハーサルで人が詰まった"
+      },
+      {
+        "lang": "ja",
+        "slug": "split-pipeline-by-department",
+        "title": "パイプラインを部署ごとに分けた結果、全社の予測が作れなくなった"
+      },
+      {
+        "lang": "ja",
+        "slug": "upgrade-when-manual-work-repeats",
+        "title": "有料プランに上げる判断は、機能表ではなく手作業で決める"
+      },
+      {
+        "lang": "ja",
+        "slug": "why-sfa-adoption-fails",
+        "title": "SFAが定着しない理由は、入力の手間ではなく使い道"
+      },
+      {
+        "lang": "ja",
+        "slug": "workflow-re-enrollment-loop",
+        "title": "同じ人に3回メールが飛んだ原因は、再登録の設定ではありません"
+      },
+      {
+        "lang": "en",
+        "slug": "crm-fields-from-missing-numbers",
+        "title": "Japan CRM fields: start from the numbers decisions lacked"
+      },
+      {
+        "lang": "en",
+        "slug": "crm-permissions-too-fine",
+        "title": "Japan CRM permissions: separate record access from field protection"
+      },
+      {
+        "lang": "en",
+        "slug": "crm-should-ask-less-of-people",
+        "title": "Japan CRM adoption rises when the tool asks less of people"
+      },
+      {
+        "lang": "en",
+        "slug": "decide-the-master-before-integrating",
+        "title": "Before connecting Japan’s CRM, agree the matching key"
+      },
+      {
+        "lang": "en",
+        "slug": "merge-rules-need-a-signature",
+        "title": "Merging Duplicate CRM Records: Name the Approver First"
+      },
+      {
+        "lang": "en",
+        "slug": "migrate-everything-request",
+        "title": "CRM migration in Japan: when they ask to move every field"
+      },
+      {
+        "lang": "en",
+        "slug": "record-readable-in-three-minutes",
+        "title": "When Japan reps ask the last owner instead of reading the CRM"
+      },
+      {
+        "lang": "en",
+        "slug": "rehearsal-tests-people-not-data",
+        "title": "Why Japan CRM go-lives need a rehearsal, not just a test"
+      },
+      {
+        "lang": "en",
+        "slug": "split-pipeline-by-department",
+        "title": "Before giving Japan a separate pipeline, compare the exit criteria"
+      },
+      {
+        "lang": "en",
+        "slug": "upgrade-when-manual-work-repeats",
+        "title": "When to Upgrade a Free CRM Plan: Count Manual Work First"
+      },
+      {
+        "lang": "en",
+        "slug": "why-sfa-adoption-fails",
+        "title": "Japan CRM adoption: examine the work, the records and their use"
+      },
+      {
+        "lang": "en",
+        "slug": "workflow-re-enrollment-loop",
+        "title": "Why your Japan workflow fired three times and nobody reported it"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/development-japan-2026c-20261113n.png"
+  },
+  {
+    "index": 12,
+    "source": "crm-review-reread-the-requirements",
+    "titles": [
+      "CRMの見直しは、要件定義書の前提を読み直す"
+    ],
+    "newSource": "crm-review-reread-the-requirements-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: CRMの見直しは、要件定義書の前提を読み直す\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-494829ee-1dcc-40bb-82a7-c534ab5c6e3c.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "crm-review-reread-the-requirements",
+        "title": "CRMの見直しは、要件定義書の前提を読み直す"
+      },
+      {
+        "lang": "en",
+        "slug": "crm-review-reread-the-requirements",
+        "title": "Japan CRM review: reread the brief before touching fields"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/crm-review-reread-the-requirements-20261113n.png"
+  },
+  {
+    "index": 13,
+    "source": "cross-sell-customer-product-grid",
+    "titles": [
+      "クロスセルの提案先は、顧客×製品の表で決める"
+    ],
+    "newSource": "cross-sell-customer-product-grid-20261113n",
+    "prompt": "Change ONLY printed text on the customer-product grid: remove every word, letter, number and row or column label entirely. Keep all grid lines, small paper notes, perspective and natural desk materials. No people or hands. Preserve the existing light and photographic tone. Image 1 is the edit target; Image 2 is ONLY tonal reference. Contemporary photorealistic business magazine image, horizontal 2:1. Match Image 2 only for dimensional side daylight, deep clean blacks retaining detail, nuanced neutral midtones, controlled whites, premium Nikon full-frame optical rendering. Never import the reference woman. No sepia, grain, white haze, logos or watermark.",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-bc3cb917-a82c-4b64-8ac1-dd1ff6b2640b.png",
+    "rejectedPath": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-84711707-c678-42a7-b5a2-8cd7a9e5e604.png",
+    "revisionReason": "Change ONLY printed text on the customer-product grid: remove every word, letter, number and row or column label entirely. Keep all grid lines, small paper notes, perspective and natural desk materials. No people or hands. Preserve the existing light and photographic tone.",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "cross-sell-customer-product-grid",
+        "title": "クロスセルの提案先は、顧客×製品の表で決める"
+      },
+      {
+        "lang": "en",
+        "slug": "cross-sell-customer-product-grid",
+        "title": "Japan cross-sell: choose accounts by need, not usage score"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/cross-sell-customer-product-grid-20261113n.png"
+  },
+  {
+    "index": 14,
+    "source": "deal-amount-one-field-four-questions",
+    "titles": [
+      "取引金額が担当者ごとに違う単位で入る原因"
+    ],
+    "newSource": "deal-amount-one-field-four-questions-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: 取引金額が担当者ごとに違う単位で入る原因\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-77c69b7c-f199-431e-9e4b-dd96dd4ecfd5.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "deal-amount-one-field-four-questions",
+        "title": "取引金額が担当者ごとに違う単位で入る原因"
+      },
+      {
+        "lang": "en",
+        "slug": "deal-amount-one-field-four-questions",
+        "title": "Japan CRM deal amounts: why the pipeline won't reconcile"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/deal-amount-one-field-four-questions-20261113n.png"
+  },
+  {
+    "index": 15,
+    "source": "define-the-denominator-first",
+    "titles": [
+      "商談化率が部署ごとに違うのは、母数の定義がずれているから"
+    ],
+    "newSource": "define-the-denominator-first-20261113n",
+    "prompt": "Remove ALL readable text, words, numerical values, percentages and Japanese letters from BOTH the laptop screen and ALL papers. Replace their contents with faint small gray table lines and simple chart shapes without axes labels, no data labels at all. No people, no hands. Keep the realistic desk composition and photographic light. No paper sculptures or art. Image 1 is the edit target; Image 2 is ONLY tonal reference. Contemporary photorealistic business magazine image, horizontal 2:1. Match Image 2 only for dimensional side daylight, deep clean blacks retaining detail, nuanced neutral midtones, controlled whites, premium Nikon full-frame optical rendering. Never import the reference woman. No sepia, grain, white haze, logos or watermark.",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-14fc5bd0-c013-4517-9efe-58168e1f5839.png",
+    "rejectedPath": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-7ff7e242-9ba2-4a9d-a373-f8ec118ae729.png",
+    "revisionReason": "Remove ALL readable text, words, numerical values, percentages and Japanese letters from BOTH the laptop screen and ALL papers. Replace their contents with faint small gray table lines and simple chart shapes without axes labels, no data labels at all. No people, no hands. Keep the realistic desk composition and photographic light. No paper sculptures or art.",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "define-the-denominator-first",
+        "title": "商談化率が部署ごとに違うのは、母数の定義がずれているから"
+      },
+      {
+        "lang": "en",
+        "slug": "define-the-denominator-first",
+        "title": "Your Japan team's conversion rates don't match HQ's? Start with the denominator"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/define-the-denominator-first-20261113n.png"
+  },
+  {
+    "index": 16,
+    "source": "dont-make-unknown-fields-required",
+    "titles": [
+      "必須項目を増やすと、空欄は消えますが誤りが増えます"
+    ],
+    "newSource": "dont-make-unknown-fields-required-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: 必須項目を増やすと、空欄は消えますが誤りが増えます\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-17a18db8-86b1-4928-bfd8-4d3422a043e6.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "dont-make-unknown-fields-required",
+        "title": "必須項目を増やすと、空欄は消えますが誤りが増えます"
+      },
+      {
+        "lang": "en",
+        "slug": "dont-make-unknown-fields-required",
+        "title": "Required CRM fields: check whether the Japan team knows the answer"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/dont-make-unknown-fields-required-20261113n.png"
+  },
+  {
+    "index": 17,
+    "source": "draft-the-internal-approval-document",
+    "titles": [
+      "稟議のたたき台は、相手が数字を差し替えられる形で営業が渡す"
+    ],
+    "newSource": "draft-the-internal-approval-document-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: 稟議のたたき台は、相手が数字を差し替えられる形で営業が渡す\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-4bd48632-4a2e-4ba5-a0c3-751871f43e5c.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "draft-the-internal-approval-document",
+        "title": "稟議のたたき台は、相手が数字を差し替えられる形で営業が渡す"
+      },
+      {
+        "lang": "en",
+        "slug": "draft-the-internal-approval-document",
+        "title": "Help the Japan buyer prepare a draft business case"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/draft-the-internal-approval-document-20261113n.png"
+  },
+  {
+    "index": 18,
+    "source": "email-opening-follows-the-relationship",
+    "titles": [
+      "メールテンプレートの日本語化は、書き出しを関係で分ける"
+    ],
+    "newSource": "email-opening-follows-the-relationship-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: メールテンプレートの日本語化は、書き出しを関係で分ける\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-3ae70a5f-f612-463e-8fbf-412be0869ca8.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "email-opening-follows-the-relationship",
+        "title": "メールテンプレートの日本語化は、書き出しを関係で分ける"
+      },
+      {
+        "lang": "en",
+        "slug": "email-opening-follows-the-relationship",
+        "title": "Translated email templates in Japan fail at the first line"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/email-opening-follows-the-relationship-20261113n.png"
+  },
+  {
+    "index": 19,
+    "source": "forecast-by-approval-not-confidence",
+    "titles": [
+      "確度90%でも、決裁が止まっている商談はコミットに入れない"
+    ],
+    "newSource": "forecast-by-approval-not-confidence-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: 確度90%でも、決裁が止まっている商談はコミットに入れない\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-1286fb0f-1095-4375-baa4-a6b921d6d1ac.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "forecast-by-approval-not-confidence",
+        "title": "確度90%でも、決裁が止まっている商談はコミットに入れない"
+      },
+      {
+        "lang": "en",
+        "slug": "forecast-by-approval-not-confidence",
+        "title": "Forecast your Japan pipeline on approval progress, not rep confidence"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/forecast-by-approval-not-confidence-20261113n.png"
+  },
+  {
+    "index": 21,
+    "source": "global-crm-japan-only-fields",
+    "titles": [
+      "グローバルCRMのカスタマイズが日本だけ増える理由"
+    ],
+    "newSource": "global-crm-japan-only-fields-20261113n",
+    "prompt": "ONLY a real customer-data configuration work desk with a laptop seen from behind so its screen is not visible, one printed field-mapping document with very faint unlabeled rows, and a plain open notebook. No people, no faces, no hands, no reference portrait woman. No trays, sculpture, art or symbols. A practical office work surface. Image 1 is the edit target; Image 2 is ONLY tonal reference. Contemporary photorealistic business magazine image, horizontal 2:1. Match Image 2 only for dimensional side daylight, deep clean blacks retaining detail, nuanced neutral midtones, controlled whites, premium Nikon full-frame optical rendering. Never import the reference woman. No sepia, grain, white haze, logos or watermark.",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-45209365-9355-40b4-b30f-027a2f17a0fc.png",
+    "rejectedPath": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-41aa5275-7112-4fa8-9d3f-b63b8db601d8.png",
+    "revisionReason": "ONLY a real customer-data configuration work desk with a laptop seen from behind so its screen is not visible, one printed field-mapping document with very faint unlabeled rows, and a plain open notebook. No people, no faces, no hands, no reference portrait woman. No trays, sculpture, art or symbols. A practical office work surface.",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "global-crm-japan-only-fields",
+        "title": "グローバルCRMのカスタマイズが日本だけ増える理由"
+      },
+      {
+        "lang": "en",
+        "slug": "global-crm-japan-only-fields",
+        "title": "Why only Japan keeps adding fields to your global CRM"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/global-crm-japan-only-fields-20261113n.png"
+  },
+  {
+    "index": 22,
+    "source": "handoff-on-behavior-not-score",
+    "titles": [
+      "営業に渡すリードは、点数ではなく「行動」で決める"
+    ],
+    "newSource": "handoff-on-behavior-not-score-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: 営業に渡すリードは、点数ではなく「行動」で決める\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-cc187ab8-1763-439a-84d9-f0a52611cdd5.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "handoff-on-behavior-not-score",
+        "title": "営業に渡すリードは、点数ではなく「行動」で決める"
+      },
+      {
+        "lang": "en",
+        "slug": "handoff-on-behavior-not-score",
+        "title": "Japan lead handoffs: record the buyer action behind the score"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/handoff-on-behavior-not-score-20261113n.png"
+  },
+  {
+    "index": 23,
+    "source": "inherited-automation-needs-a-business-owner-20261110a",
+    "titles": [
+      "前任者の自動化が怖くて、何も変えられない"
+    ],
+    "newSource": "inherited-automation-needs-a-business-owner-20261110a-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: 前任者の自動化が怖くて、何も変えられない\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-ef5443e0-f3c6-4d4e-b7c6-a31ef85e0b5c.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "inherited-automation-needs-a-business-owner",
+        "title": "前任者の自動化が怖くて、何も変えられない"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/inherited-automation-needs-a-business-owner-20261110a-20261113n.png"
+  },
+  {
+    "index": 24,
+    "source": "japan-entry-bottleneck-is-hiring",
+    "titles": [
+      "外資SaaSの日本参入、採用を翻訳と価格の後に回さない"
+    ],
+    "newSource": "japan-entry-bottleneck-is-hiring-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: 外資SaaSの日本参入、採用を翻訳と価格の後に回さない\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-13c2e55c-5545-4f7d-8a77-554ea1e0637c.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "japan-entry-bottleneck-is-hiring",
+        "title": "外資SaaSの日本参入、採用を翻訳と価格の後に回さない"
+      },
+      {
+        "lang": "en",
+        "slug": "japan-entry-bottleneck-is-hiring",
+        "title": "Don't leave hiring until after translation and pricing in Japan"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/japan-entry-bottleneck-is-hiring-20261113n.png"
+  },
+  {
+    "index": 25,
+    "source": "japanese-deals-win-on-precedent",
+    "titles": [
+      "日本の商談は、機能で外され、前例で残る"
+    ],
+    "newSource": "japanese-deals-win-on-precedent-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: 日本の商談は、機能で外され、前例で残る\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-901059c7-1215-48c5-8e76-99a64b52c5e8.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "japanese-deals-win-on-precedent",
+        "title": "日本の商談は、機能で外され、前例で残る"
+      },
+      {
+        "lang": "en",
+        "slug": "japanese-deals-win-on-precedent",
+        "title": "Japanese enterprise sales: references matter alongside features"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/japanese-deals-win-on-precedent-20261113n.png"
+  },
+  {
+    "index": 26,
+    "source": "lead-sla-what-happens-when-overdue",
+    "titles": [
+      "リード対応のSLAは、期限切れの行き先で守られる"
+    ],
+    "newSource": "lead-sla-what-happens-when-overdue-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: リード対応のSLAは、期限切れの行き先で守られる\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-0ea6da3d-01dd-4f77-b36c-fabf3067550a.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "lead-sla-what-happens-when-overdue",
+        "title": "リード対応のSLAは、期限切れの行き先で守られる"
+      },
+      {
+        "lang": "en",
+        "slug": "lead-sla-what-happens-when-overdue",
+        "title": "Japan lead SLA: decide where overdue leads go, not the hours"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/lead-sla-what-happens-when-overdue-20261113n.png"
+  },
+  {
+    "index": 27,
+    "source": "lifecycle-stage-vs-deal-stage",
+    "titles": [
+      "ライフサイクルステージと取引ステージの違い、混同した結果"
+    ],
+    "newSource": "lifecycle-stage-vs-deal-stage-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: ライフサイクルステージと取引ステージの違い、混同した結果\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-c10b370e-3561-409f-91a8-ac704dab787c.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "lifecycle-stage-vs-deal-stage",
+        "title": "ライフサイクルステージと取引ステージの違い、混同した結果"
+      },
+      {
+        "lang": "en",
+        "slug": "lifecycle-stage-vs-deal-stage",
+        "title": "Setting up HubSpot for a Japan team: don't merge lifecycle stage and deal stage"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/lifecycle-stage-vs-deal-stage-20261113n.png"
+  },
+  {
+    "index": 28,
+    "source": "loss-reason-defaults-to-price",
+    "titles": [
+      "失注理由が毎月「価格」で埋まるのは、選択肢の設計の問題です"
+    ],
+    "newSource": "loss-reason-defaults-to-price-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: 失注理由が毎月「価格」で埋まるのは、選択肢の設計の問題です\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-ad43c0dc-b35d-46a3-b0f1-5331ac258a1b.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "loss-reason-defaults-to-price",
+        "title": "失注理由が毎月「価格」で埋まるのは、選択肢の設計の問題です"
+      },
+      {
+        "lang": "en",
+        "slug": "loss-reason-defaults-to-price",
+        "title": "When Japan’s lost deals are all recorded as “price”"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/loss-reason-defaults-to-price-20261113n.png"
+  },
+  {
+    "index": 29,
+    "source": "loss-reasons-by-source-for-marketing",
+    "titles": [
+      "失注分析をマーケティングに活かすなら、経路別に並べる"
+    ],
+    "newSource": "loss-reasons-by-source-for-marketing-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: 失注分析をマーケティングに活かすなら、経路別に並べる\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-5506129e-d94a-4211-9e98-bb89fbddbb0b.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "loss-reasons-by-source-for-marketing",
+        "title": "失注分析をマーケティングに活かすなら、経路別に並べる"
+      },
+      {
+        "lang": "en",
+        "slug": "loss-reasons-by-source-for-marketing",
+        "title": "Split Japan loss reasons by lead source to see what to fix"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/loss-reasons-by-source-for-marketing-20261113n.png"
+  },
+  {
+    "index": 30,
+    "source": "marketing-handoff-keeps-the-why",
+    "titles": [
+      "マーケの引き継ぎで残すのは、施策一覧ではなく3行",
+      "MAでリードは増えたのに商談が増えない。引き渡しを確かめる"
+    ],
+    "newSource": "marketing-handoff-keeps-the-why-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: マーケの引き継ぎで残すのは、施策一覧ではなく3行; MAでリードは増えたのに商談が増えない。引き渡しを確かめる\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-c20d0cf2-d530-47c3-a7d8-9465951581f8.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "marketing-handoff-keeps-the-why",
+        "title": "マーケの引き継ぎで残すのは、施策一覧ではなく3行"
+      },
+      {
+        "lang": "ja",
+        "slug": "why-ma-leads-dont-become-deals",
+        "title": "MAでリードは増えたのに商談が増えない。引き渡しを確かめる"
+      },
+      {
+        "lang": "en",
+        "slug": "japan-marketing-leads-no-pipeline",
+        "title": "Japan leads without pipeline: examine the handoff"
+      },
+      {
+        "lang": "en",
+        "slug": "marketing-handoff-keeps-the-why",
+        "title": "When your Japan marketer leaves, keep 3 lines per programme"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/marketing-handoff-keeps-the-why-20261113n.png"
+  },
+  {
+    "index": 31,
+    "source": "measure-before-go-live",
+    "titles": [
+      "システム導入の効果測定は、稼働前の数字で決まる"
+    ],
+    "newSource": "measure-before-go-live-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: システム導入の効果測定は、稼働前の数字で決まる\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-f591eee6-de5f-49e8-9feb-1b2830d9bb48.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "measure-before-go-live",
+        "title": "システム導入の効果測定は、稼働前の数字で決まる"
+      },
+      {
+        "lang": "en",
+        "slug": "measure-before-go-live",
+        "title": "Measure your Japan system rollout before go-live, not after"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/measure-before-go-live-20261113n.png"
+  },
+  {
+    "index": 32,
+    "source": "partner-or-direct-first-in-japan",
+    "titles": [
+      "パートナーか直販か。日本参入で残すべき商談の記録"
+    ],
+    "newSource": "partner-or-direct-first-in-japan-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: パートナーか直販か。日本参入で残すべき商談の記録\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-337a1a5b-6dfd-4acb-a1ca-a6f141204628.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "partner-or-direct-first-in-japan",
+        "title": "パートナーか直販か。日本参入で残すべき商談の記録"
+      },
+      {
+        "lang": "en",
+        "slug": "partner-or-direct-first-in-japan",
+        "title": "Distributor or direct: choosing your Japan entry model"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/partner-or-direct-first-in-japan-20261113n.png"
+  },
+  {
+    "index": 33,
+    "source": "quote-timing-one-step-later",
+    "titles": [
+      "見積書を出すのを1工程遅らせた理由は、値引きではなく稟議です"
+    ],
+    "newSource": "quote-timing-one-step-later-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: 見積書を出すのを1工程遅らせた理由は、値引きではなく稟議です\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-bd4b36d3-d1b8-407d-a8a4-0d95bd30eea6.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "quote-timing-one-step-later",
+        "title": "見積書を出すのを1工程遅らせた理由は、値引きではなく稟議です"
+      },
+      {
+        "lang": "en",
+        "slug": "quote-timing-one-step-later",
+        "title": "Why your 30-day quote expires inside Japan's approval cycle"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/quote-timing-one-step-later-20261113n.png"
+  },
+  {
+    "index": 34,
+    "source": "reassign-owners-keep-who-closed",
+    "titles": [
+      "CRMの担当者を一括変更する前に、過去の担当を固定する"
+    ],
+    "newSource": "reassign-owners-keep-who-closed-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: CRMの担当者を一括変更する前に、過去の担当を固定する\nRemove the glass sphere. Show a real desk with a laptop and a previous-owner assignment record beside a new assignment sheet; faint unreadable table lines, no symbols or art objects.",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-7c8919e5-95ef-4804-938b-d5dd197b3ae7.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "reassign-owners-keep-who-closed",
+        "title": "CRMの担当者を一括変更する前に、過去の担当を固定する"
+      },
+      {
+        "lang": "en",
+        "slug": "reassign-owners-keep-who-closed",
+        "title": "Before you reassign Japan accounts, freeze who closed them"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/reassign-owners-keep-who-closed-20261113n.png"
+  },
+  {
+    "index": 35,
+    "source": "split-campaigns-not-the-numbers",
+    "titles": [
+      "本社のマーケ施策、分けるのは中身で揃えるのは数字"
+    ],
+    "newSource": "split-campaigns-not-the-numbers-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: 本社のマーケ施策、分けるのは中身で揃えるのは数字\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-ef41bd06-d37d-41ab-82ad-4996546333e8.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "split-campaigns-not-the-numbers",
+        "title": "本社のマーケ施策、分けるのは中身で揃えるのは数字"
+      },
+      {
+        "lang": "en",
+        "slug": "split-campaigns-not-the-numbers",
+        "title": "Adapt the Japan campaign, keep the global pipeline wiring"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/split-campaigns-not-the-numbers-20261113n.png"
+  },
+  {
+    "index": 36,
+    "source": "stalled-or-queued-deals",
+    "titles": [
+      "商談の停滞は、「止まった」と「順番待ち」で分ける"
+    ],
+    "newSource": "stalled-or-queued-deals-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: 商談の停滞は、「止まった」と「順番待ち」で分ける\nUse real ordinary project folders with practical paper contents awaiting review on a working shelf, no paper sculptures, no artificial graphic or symbolic cube forms.",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-bb197547-4579-4381-b7bb-49801420aae5.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "stalled-or-queued-deals",
+        "title": "商談の停滞は、「止まった」と「順番待ち」で分ける"
+      },
+      {
+        "lang": "en",
+        "slug": "stalled-or-queued-deals",
+        "title": "Stalled deals in Japan: is the deal dead or just queued?"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/stalled-or-queued-deals-20261113n.png"
+  },
+  {
+    "index": 37,
+    "source": "three-decisions-before-choosing-crm",
+    "titles": [
+      "HubSpotとSalesforceのどちらを勧めるかは、3つの前提で決まります"
+    ],
+    "newSource": "three-decisions-before-choosing-crm-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: HubSpotとSalesforceのどちらを勧めるかは、3つの前提で決まります\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-cc398d68-7c8a-405d-82bd-dd69805da752.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "three-decisions-before-choosing-crm",
+        "title": "HubSpotとSalesforceのどちらを勧めるかは、3つの前提で決まります"
+      },
+      {
+        "lang": "en",
+        "slug": "three-decisions-before-choosing-crm",
+        "title": "Choosing a CRM for your Japan team: three decisions that settle it"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/three-decisions-before-choosing-crm-20261113n.png"
+  },
+  {
+    "index": 38,
+    "source": "threshold-before-dashboard",
+    "titles": [
+      "ダッシュボードを増やす前に、判断基準を1行決める"
+    ],
+    "newSource": "threshold-before-dashboard-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: ダッシュボードを増やす前に、判断基準を1行決める\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-6afd033d-fd2a-4e17-b1e9-2542237b18b9.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "threshold-before-dashboard",
+        "title": "ダッシュボードを増やす前に、判断基準を1行決める"
+      },
+      {
+        "lang": "en",
+        "slug": "threshold-before-dashboard",
+        "title": "Before you add another Japan dashboard, write the threshold"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/threshold-before-dashboard-20261113n.png"
+  },
+  {
+    "index": 39,
+    "source": "translate-evidence-before-product",
+    "titles": [
+      "日本語化を製品ページから始めて、問い合わせが増えなかった"
+    ],
+    "newSource": "translate-evidence-before-product-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: 日本語化を製品ページから始めて、問い合わせが増えなかった\nReplace exaggerated towering paper stacks with a modest real worktable holding a Japanese case-study printout, an open evidence binder and a laptop, readable only as document layouts, no artful metaphor.",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-74c5dc01-70fd-4340-9b51-b67cb2d7344b.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "translate-evidence-before-product",
+        "title": "日本語化を製品ページから始めて、問い合わせが増えなかった"
+      },
+      {
+        "lang": "en",
+        "slug": "translate-evidence-before-product",
+        "title": "Localising the product pages first is why your Japan launch produced no inbound"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/translate-evidence-before-product-20261113n.png"
+  },
+  {
+    "index": 40,
+    "source": "trial-builds-the-approval-case",
+    "titles": [
+      "「まず無料トライアルで」だけでは日本の稟議が通らない理由と、代わりに渡すもの"
+    ],
+    "newSource": "trial-builds-the-approval-case-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: 「まず無料トライアルで」だけでは日本の稟議が通らない理由と、代わりに渡すもの\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-aa9de21c-7393-4301-938f-144ea090b528.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "trial-builds-the-approval-case",
+        "title": "「まず無料トライアルで」だけでは日本の稟議が通らない理由と、代わりに渡すもの"
+      },
+      {
+        "lang": "en",
+        "slug": "trial-builds-the-approval-case",
+        "title": "Use a Japan trial to test the product and prepare the approval case"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/trial-builds-the-approval-case-20261113n.png"
+  },
+  {
+    "index": 41,
+    "source": "use-median-not-average",
+    "titles": [
+      "解約率を平均で出して疑われたら、中央値の前に「何の平均か」を確かめる"
+    ],
+    "newSource": "use-median-not-average-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: 解約率を平均で出して疑われたら、中央値の前に「何の平均か」を確かめる\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-b6aedaee-bf51-4f54-b1c9-210cbf9ff3b7.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "use-median-not-average",
+        "title": "解約率を平均で出して疑われたら、中央値の前に「何の平均か」を確かめる"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/use-median-not-average-20261113n.png"
+  },
+  {
+    "index": 42,
+    "source": "webinar-next-step-not-attendance",
+    "titles": [
+      "ウェビナーの目標を、参加者数から「次の一歩を踏んだ人数」に変えた"
+    ],
+    "newSource": "webinar-next-step-not-attendance-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: ウェビナーの目標を、参加者数から「次の一歩を踏んだ人数」に変えた\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-0c920233-d4c9-4a6b-8cb4-2d5a63b9b80e.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "webinar-next-step-not-attendance",
+        "title": "ウェビナーの目標を、参加者数から「次の一歩を踏んだ人数」に変えた"
+      },
+      {
+        "lang": "en",
+        "slug": "webinar-next-step-not-attendance",
+        "title": "Your Japan webinars fill up. Your pipeline does not move."
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/webinar-next-step-not-attendance-20261113n.png"
+  },
+  {
+    "index": 43,
+    "source": "what-to-ask-for-a-case-study",
+    "titles": [
+      "事例記事で聞くのは感想ではなく「自社と似ているか」の材料"
+    ],
+    "newSource": "what-to-ask-for-a-case-study-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: 事例記事で聞くのは感想ではなく「自社と似ているか」の材料\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-069bd146-6aa3-4247-b1ce-8acd0bc5c025.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "what-to-ask-for-a-case-study",
+        "title": "事例記事で聞くのは感想ではなく「自社と似ているか」の材料"
+      },
+      {
+        "lang": "en",
+        "slug": "what-to-ask-for-a-case-study",
+        "title": "Japan case studies: give buyers enough detail to assess the fit"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/what-to-ask-for-a-case-study-20261113n.png"
+  },
+  {
+    "index": 44,
+    "source": "win-rate-up-revenue-down",
+    "titles": [
+      "受注率が上がったのに売上が下がったときに見る3つの数字"
+    ],
+    "newSource": "win-rate-up-revenue-down-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: 受注率が上がったのに売上が下がったときに見る3つの数字\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-90c43d35-6e4b-4aa3-b6d4-8111218307df.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "win-rate-up-revenue-down",
+        "title": "受注率が上がったのに売上が下がったときに見る3つの数字"
+      },
+      {
+        "lang": "en",
+        "slug": "win-rate-up-revenue-down",
+        "title": "Japan win rate up, revenue down: read all three numbers"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/win-rate-up-revenue-down-20261113n.png"
+  },
+  {
+    "index": 45,
+    "source": "write-down-the-review-criteria",
+    "titles": [
+      "レビューの属人化は、毎回の指摘を問いにして手放す"
+    ],
+    "newSource": "write-down-the-review-criteria-20261113n",
+    "prompt": "Use case: lighting-weather / editorial photo refinement. Image 1 is the scene to improve; Image 2 is ONLY the approved tonal and photographic rendering reference. Preserve Image 1's real working subject and its relevance to the article, but make it feel photographed by the same accomplished photographer as Image 2: Nikon full-frame editorial rendering, directional natural window light, deep clean blacks with texture, nuanced neutral midtones, dimensional shadows with detail, controlled whites, authentic material and skin texture, believable optics. Match Image 2's white balance, tonal depth and realism, not its person or composition. Correct unnatural bodies/hands if present. Remove vintage yellow/green casts and grain, flat washed-out stock lighting, plastic skin, excessive HDR and oversharpening. Contemporary credible Japanese business setting, no forced smiles or corporate acting. Keep natural working posture, anatomically connected shoulders, torso and both arms. If Image 1 has no people, keep it without people. No readable text, logos or watermark. Keep useful working documents with faint plausible unreadable content; do not turn them into empty art objects. Landscape 2:1, keep key subject and full heads inside safe central crop for 1200x630. This is a generated editorial illustration, no claim of actual customer reporting.\nArticle context: レビューの属人化は、毎回の指摘を問いにして手放す\n",
+    "path": "/Users/seikoyamaguchi/.codex/generated_images/01a1c9f5-2f33-77a1-83d5-5606498388e5/exec-daf26bd0-490b-4754-95f3-cd1b60306a37.png",
+    "articles": [
+      {
+        "lang": "ja",
+        "slug": "write-down-the-review-criteria",
+        "title": "レビューの属人化は、毎回の指摘を問いにして手放す"
+      },
+      {
+        "lang": "en",
+        "slug": "write-down-the-review-criteria",
+        "title": "Japan content review stalls when the bar lives in one head"
+      }
+    ],
+    "generator": "built-in imagegen",
+    "styleReference": "founder-sales-without-a-founder-copy-20261112b.png",
+    "installedSource": "media/public/images/eyecatch-bg/write-down-the-review-criteria-20261113n.png"
+  }
+]

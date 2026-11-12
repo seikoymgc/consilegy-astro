@@ -1,3 +1,4 @@
+import { refreshedSources } from '../src/data/editorial-image-refresh-20261113.mjs';
 // 記事アイキャッチの生成
 //
 // 方針: カテゴリ別の写真（public/images/eyecatch-bg/{category}.png、
@@ -50,17 +51,18 @@ async function fileExists(p) {
 const SOURCE_OVERRIDES = {
 	'founder-sales-without-a-founder-copy': 'founder-sales-without-a-founder-copy-20261112b',
 	'inherited-automation-needs-a-business-owner': 'inherited-automation-needs-a-business-owner-20261110a',
-	crm: 'development-japan-2026c',
-	'japan-gtm': 'city-japan-2026c',
-	adoption: 'training-japan-2026c',
-	sales: 'consultation-japan-2026c',
-	marketing: 'japanese-work-2026b',
-	data: 'analysis-japan-2026c',
+	crm: 'development-japan-2026c-20261113n',
+	'japan-gtm': 'city-japan-2026c-20261113n',
+	adoption: 'training-japan-2026c-20261113n',
+	sales: 'consultation-japan-2026c-20261113n',
+	marketing: 'japanese-work-2026b-20261113n',
+	data: 'analysis-japan-2026c-20261113n',
 	'japan-marketing-leads-no-pipeline': 'marketing-handoff-keeps-the-why',
 	'why-ma-leads-dont-become-deals': 'marketing-handoff-keeps-the-why',
 };
 
 async function pickSource(slug, category) {
+	if (refreshedSources[slug]) return path.join(BG_DIR, `${refreshedSources[slug]}.png`);
 	const override = SOURCE_OVERRIDES[slug];
 	if (override) return path.join(BG_DIR, `${override}.png`);
 	const perArticle = path.join(BG_DIR, `${slug}.png`);

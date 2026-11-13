@@ -2,6 +2,8 @@
 
 日次タスクが公開した記事の記録。重複回避に使う。新しい順に上へ追記する。
 
+2026-11-13：JA `start-ai-from-existing-work`「AIの自動化が使われないなら、起動を見直す」（adoption）。問い：処理を作った後も人が起動役に残っていないか。本人の確定根拠：2026-06-19公開note https://note.com/seiko_consilegy/n/n50db61e99238 の既存ステータス変更からの起動と、人が最終判断する線引き。国内の困りごとはアシストのグリー取材 https://www.ashisuto.co.jp/case/industry/information/gree_jp1_2020.html 、別の声はHubSpotの追客に関するRedditの質問を確認。既刊のレビュー基準の移管とは別に、開始への人的依存と適用条件を扱う。調査値なし。狙う検索意図：AI 自動化 使われない 起動。ENは日本固有の別の問いの根拠不足で見送り。画像は組み込みimagegen、承認済み11/12最終写真をスタイル参照にしたノートパソコンの写真表現。元画像 `start-ai-from-existing-work-20261113a.png`、配信URL版20261113a。プロンプト、3独立AIレビュー、画像・HTML・ビルド確認は `reviews/2026-11-13-start-ai-from-existing-work-plan.md` と同名checks.json。AI回答による引用は未観測。
+
 2026-11-13：既存の日英206記事の画像トーン統一。承認済み1画像を保持し、45種類を差し替え。新URL版20261113n、対応109スラッグ。生成・修正・表示確認は `content-ops/reviews/2026-11-13-all-article-images.md` と画像別記録を参照。公開成否は検証記録に追記する。
 
 

@@ -1,0 +1,30 @@
+{
+  "imageGeneration": {"method":"built-in imagegen","reference":"media/content-ops/reviews/assets/2026-11-12/founder-sales-editorial-posture-v4.png","source":"media/public/images/eyecatch-bg/start-ai-from-existing-work-20261113a.png","prompt":"Use case: photorealistic-natural. Generate a completely new premium editorial photograph for a professional business magazine article about starting an internal AI document review from the normal workflow, without an extra manual launch. Scene: a real modern Japanese office desk after work has been handed off, no one at the desk. A single unbranded thin graphite laptop, fully visible screen and keyboard at an oblique three-quarter angle, on pale natural oak. The screen has a restrained document-review workspace with a few softly blurred gray panels, no legible characters anywhere. Beside it just a closed dark cloth notebook and a simple black pen; uncluttered. The unattended workstation is the main subject; no sculptures, no metaphors, no floating interfaces. White wall and large side window outside frame. Strong directional soft daylight creates depth, clean white balance, rich blacks, detailed charcoal metal, subtle wood grain and material texture, controlled highlights, subtle natural lens depth. Crisp professional full-frame photographic rendering, not a flat high-key stock image. Horizontal 2:1 composition, comfortably contain the whole laptop within the central 80%, leave safe crop margin for a 1200x630 delivery crop. Input image is STYLE REFERENCE ONLY: match its natural light direction, tonal depth, neutral color and tactile textures. Do NOT copy its subject, people, face, body, composition, or furniture arrangement. Strictly NO PEOPLE, NO HANDS, NO FACES; no readable text or digits, logos or watermarks. No sepia, yellow wash, grain, illustration, 3D art, haze, glowing neon, plastic surfaces. This is an AI-generated editorial image, not a photograph of actual Consilegy staff or a client."},
+  "browserVisualChecks": {"sourcePNG": "pass", "deliveryWebP": "pass", "deliveryJPEG": "pass", "article": "pass", "home": "pass", "adoptionCategory": "pass", "canonPage": "browser rendered despite urllib 403"},
+  "reviews": {"decisionMaker": 4, "operations": 4, "thirdReviewer": 4, "highMediumFindings": []},
+  "slug": "start-ai-from-existing-work",
+  "canonical": "https://media.consilegy.com/start-ai-from-existing-work/",
+  "author": "Consilegy メディア編集部",
+  "datePublished": "2026-11-13T00:00:00.000Z",
+  "og": "https://media.consilegy.com/images/eyecatch/start-ai-from-existing-work-20261113a.jpg",
+  "internalLinksPassed": true,
+  "sitemapRSSAndHubsPassed": true,
+  "articlesIndex": "text-only index; article link confirmed",
+  "noFakeEnglishHreflang": true,
+  "rootBuildPages": 364,
+  "mediaBuildPages": 226,
+  "externalChecks": [
+    {
+      "url": "https://www.ashisuto.co.jp/case/industry/information/gree_jp1_2020.html",
+      "status": 200
+    },
+    {
+      "url": "https://note.com/seiko_consilegy/n/n50db61e99238",
+      "status": 200
+    },
+    {
+      "url": "https://consilegy.com/revenue-architecture/",
+      "error": "HTTP Error 403: Forbidden"
+    }
+  ]
+}

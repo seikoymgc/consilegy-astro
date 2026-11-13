@@ -200,15 +200,19 @@ export function fmtDate(d: Date, lang: Lang): string {
  * アイキャッチ。場面の写真 public/images/crm/media/hero2/<slug>.webp（1200x630、日英共通）があればそれ。
  * 無い記事は scripts/generate-eyecatches.mjs が出す文字の SVG に落ちる（写真ができたら差し替える）。
  */
+const HERO_FILENAMES: Record<string, string> = {
+  'starting-a-deal-means-finding-the-same-contact-again': 'starting-a-deal-means-finding-the-same-contact-again-woman-20261113',
+};
+
 export function eyecatchPath(lang: Lang, slug: string): string {
-  const hero = `/images/crm/media/hero2/${slug}.webp`;
+  const hero = `/images/crm/media/hero2/${HERO_FILENAMES[slug] ?? slug}.webp`;
   if (existsSync(join(process.cwd(), 'public', hero))) return hero;
   return lang === 'ja' ? `/images/crm/media/${slug}-2026b.svg` : `/images/crm/media/en/${slug}-2026b.svg`;
 }
 
 /** OG 画像。写真があれば記事の写真、無ければ製品の OG。 */
 export function ogImagePath(lang: Lang, slug: string): string {
-  const hero = `/images/crm/media/hero2/${slug}.webp`;
+  const hero = `/images/crm/media/hero2/${HERO_FILENAMES[slug] ?? slug}.webp`;
   if (existsSync(join(process.cwd(), 'public', hero))) return hero;
   return lang === 'ja' ? '/images/og/crm-ja-2026f.png' : '/images/og/crm-en-2026c.png';
 }

@@ -10,7 +10,7 @@ segment: "b2c"
 edition: "school"
 sources: "src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/school-app/lib/homework.ts / src/school-app/lib/supabase.ts / src/school-app/lib/authz.ts / src/school-app/lib/notify.ts / src/school-app/lib/audit.ts / src/school-app/lib/mock-body.ts / src/school-app/lib/i18n-data.ts / src/school-app/lib/demo-seed.ts / src/app/school/page.tsx / src/app/api/school-app/submission/review/route.ts / src/app/api/school-app/line/webhook/route.ts / src/app/api/school-app/student/detail/route.ts / src/app/api/school-app/automation/run/route.ts / src/lib/demo.ts / supabase/migrations/131_beyonders_homework_submissions.sql / supabase/migrations/194_school_beyonders_copy.sql"
 date: 2026-10-12
-updated: 2026-10-13
+updated: "2026-11-13"
 author: "Seiko Yamaguchi"
 ---
 Wednesday night. A student sends a piece of writing and a voice recording to the school's account on LINE, the messaging app most schools in Japan already use with their students. Three teachers share that account. The message is marked as read, and each of the three takes that to mean one of the others has dealt with it.
@@ -40,7 +40,7 @@ Five things to know before you rely on it.
 - The list on Home and Tasks only shows students you are assigned to. A submission from a student with nobody assigned does not reach any teacher. It shows only on a manager's Home and Tasks until someone is assigned. Assign someone to every student first
 - Only the ten newest cards are shown. After you press, the count changes to the number of cards still visible. If you let more than ten pile up, reload the screen once you have cleared what you can see, and the hidden ones appear
 - Pressing the button sends nothing to the student. The only automatic message is the receipt they get when they submit. Corrections and comments go back through 💬 LINEで送る on the student's record
-- There is no undo button, and reading the message in the LINE app does not mark it as checked. Agree that the person who looked is the one who presses, after looking
+- A mistaken review can be reversed with Undo in the student record’s Homework submissions ([steps to undo a review](/en/crm/media/b2c/homework-marked-reviewed-before-it-was-checked/)). Reading the message in the LINE app does not mark it as checked
 - You need permission to edit lessons to press it. That is Edit on the Lessons row in 権限管理 (permissions). From a student's record, a teacher who is not assigned to that student can press it too
 
 When one person presses it, the submission clears for the other assigned teachers as well. Anyone with the screen already open keeps seeing the card until they reload. On your own screen too, a card you pressed on Home stays under Tasks until you reload.

@@ -49,6 +49,7 @@ async function fileExists(p) {
 // 記事ごとに専用写真があれば優先、なければカテゴリ写真を使う。
 // 専用写真: public/images/eyecatch-bg/{slug}.png
 const SOURCE_OVERRIDES = {
+	'download-and-demo-make-different-promises': 'download-and-demo-make-different-promises-20261114a',
 	'start-ai-from-existing-work': 'start-ai-from-existing-work-20261113a',
 	'founder-sales-without-a-founder-copy': 'founder-sales-without-a-founder-copy-20261112b',
 	'inherited-automation-needs-a-business-owner': 'inherited-automation-needs-a-business-owner-20261110a',

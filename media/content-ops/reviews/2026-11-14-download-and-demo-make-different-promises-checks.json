@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-14",
+  "slug": "download-and-demo-make-different-promises",
+  "reviews": {
+    "decisionmaker": "4/5 no high/medium",
+    "operations": "4/5 medium old-call-rule fixed and rereviewed",
+    "third": "4/5 no high/medium; EN scope skip checked",
+    "type": "three independent parallel AI reviews, no human supervision claimed"
+  },
+  "builds": {
+    "root": {
+      "success": true,
+      "pages": 368
+    },
+    "media": {
+      "success": true,
+      "pages": 227
+    }
+  },
+  "image": {
+    "method": "builtin imagegen; Recraft redirected to sign-in",
+    "prompt": "Use case: photorealistic-natural. New premium editorial photograph for a professional marketing magazine article about the difference between receiving product information and requesting a sales conversation. Scene: a realistic quiet Japanese office desk used by a buyer comparing materials before deciding whether to speak to a vendor. Main subject: a slightly open unbranded A4 product brochure with white pages and subtle soft gray printed layout, lying naturally on a pale oak desk, with a second thin brochure partially underneath. A small graphite smartphone lies FACE DOWN off to one side, not touching the brochures. No laptop, no screens, no people, no hands. The paper should look like ordinary practical business material, not sculpture or art. No legible text, numbers, logos or branding anywhere; background print should be completely defocused and unreadable. Oblique near-desk-level view, editorial composition, directional soft side-window daylight, white walls and light oak, deep crisp black tones in the phone, rich natural tonal transitions and detailed paper and wood textures, neutral clean white balance. No high-key white haze, sepia, strong yellow cast, fake glow or film grain. Wide horizontal 2:1 image; entire brochure's main pages and the phone fit well inside safe crop margins for 1200x630. Input image is STYLE REFERENCE ONLY: transfer the tonal depth, natural directional lighting, neutral colors and material realism. Do NOT copy its people, faces, bodies or composition. No face reflections, no illustration, no abstract concept art, no 3D rendering. No text overlays or watermark. A generated editorial scene, not an actual client site.",
+    "reference": "2026-11-12/founder-sales-editorial-posture-v4.png",
+    "source": "download-and-demo-make-different-promises-20261114a.png",
+    "sourceSize": [
+      1536,
+      768
+    ],
+    "deliverySize": [
+      1200,
+      630
+    ],
+    "visual": [
+      "source PNG",
+      "WebP",
+      "JPEG",
+      "local article",
+      "local homepage",
+      "local marketing category"
+    ],
+    "result": "pass: natural neutral daylight/material texture, no people or anatomy, no legible text/logo, brochure/phone clear without subject clipping",
+    "synthetic": true
+  },
+  "static": "pass: canonical, Article author/dates, image references, internal links, home/category/articles/RSS/sitemap, corrected existing JA/EN",
+  "publication": "pending"
+}

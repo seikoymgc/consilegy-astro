@@ -2,7 +2,7 @@
 title: "Download counts do not show whether a buyer used the file"
 description: "HQ reads Japan whitepaper downloads as pipeline signal, then wonders why sales calls go nowhere. A download records that someone received a file, not that it was used inside the buyer's company. Two 2026 Japanese B2B purchasing surveys show which content actually helped, and what to count instead."
 publishedAt: 2026-09-29
-updatedAt: 2026-10-17
+updatedAt: 2026-11-14
 category: marketing
 principle: "A download records that someone received a file, not that it was used inside the buyer's company. Judge each asset by whether a champion could use it to explain the decision internally, and count a trace of internal circulation instead of the download."
 canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
@@ -94,7 +94,7 @@ The number at the top of a regional review decides the next quarter's plan: make
 
 ## Common mistakes
 
-- **Having the sales team call every downloader immediately.** The downloader may have nothing to do with the approval. Wait for a sign that the material travelled inside the company, and the call is less likely to be turned away
+- **Treating every download as a request for a sales conversation.** Receiving a file and asking to be contacted are different actions. Respond to an explicit contact request in the way the buyer asked; do not route everyone who only wanted the file into a meeting. Measuring internal use and respecting a buyer's contact preference are separate decisions
 - **Retiring low-download assets as unpopular.** ROI tools and internal-use decks are downloaded less by nature. Ranked by count, the assets that help buyers are cut first
 - **Adding or removing form fields to tune the count.** The number moves, and you learn nothing new about whether the file was used
 

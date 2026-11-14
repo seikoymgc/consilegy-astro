@@ -2,6 +2,8 @@
 
 日次タスクが公開した記事の記録。重複回避に使う。新しい順に上へ追記する。
 
+2026-11-14：JA `download-and-demo-make-different-promises`「資料請求とデモ依頼は、約束していることが違う」（marketing）。資料を求めた人に商談まで求めていないかを扱う。本人の根拠：2026-05-08公開note https://note.com/seiko_consilegy/n/nc5a586ef91db の検討段階別CTA。需要：ITreview利用者レビュー https://www.itreview.jp/products/boxil/reviews/198894 （2024-11-28）と別事業者の実践記録 https://www.sales-request.com/blog/c42 （2022-05-28）。件数と商談・社内利用の既刊に対し、入口で約束する対応と実際の対応を揃える判断。調査値なし。EN新記事は日本参入・運用に固有の独立した問いが確認できず見送り。既存download-count-is-not-internal-useの日英は一律の架電待機助言を訂正。画像は組み込みimagegen、承認済み11/12写真をトーン参照に冊子と電話を生成。元画像・配信URL版20261114a。3独立AIレビューと修正再確認、本体/mediaビルド・ローカル画像表示・HTML確認は合格。詳細とプロンプトは `reviews/2026-11-14-download-and-demo-make-different-promises-plan.md` と同名checks.json。公開確認は追記する。AI引用は未観測。
+
 2026-11-13：JA `start-ai-from-existing-work`「AIの自動化が使われないなら、起動を見直す」（adoption）。問い：処理を作った後も人が起動役に残っていないか。本人の確定根拠：2026-06-19公開note https://note.com/seiko_consilegy/n/n50db61e99238 の既存ステータス変更からの起動と、人が最終判断する線引き。国内の困りごとはアシストのグリー取材 https://www.ashisuto.co.jp/case/industry/information/gree_jp1_2020.html 、別の声はHubSpotの追客に関するRedditの質問を確認。既刊のレビュー基準の移管とは別に、開始への人的依存と適用条件を扱う。調査値なし。狙う検索意図：AI 自動化 使われない 起動。ENは日本固有の別の問いの根拠不足で見送り。画像は組み込みimagegen、承認済み11/12最終写真をスタイル参照にしたノートパソコンの写真表現。元画像 `start-ai-from-existing-work-20261113a.png`、配信URL版20261113a。プロンプト、3独立AIレビュー、画像・HTML・ビルド確認は `reviews/2026-11-13-start-ai-from-existing-work-plan.md` と同名checks.json。AI回答による引用は未観測。
 
 2026-11-13：既存の日英206記事の画像トーン統一。承認済み1画像を保持し、45種類を差し替え。新URL版20261113n、対応109スラッグ。生成・修正・表示確認は `content-ops/reviews/2026-11-13-all-article-images.md` と画像別記録を参照。公開成否は検証記録に追記する。

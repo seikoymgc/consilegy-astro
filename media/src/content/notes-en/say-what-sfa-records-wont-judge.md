@@ -2,9 +2,10 @@
 title: "Tell your Japan team what CRM records won't be used for"
 description: "When HQ never says what Japan's CRM records will and will not be used for, the team reads the answer from the first few forecast calls and stops logging bad news. Write one table per record type, agree it with the Japan country manager, and match the questions on the call to it."
 publishedAt: 2026-10-20
+updatedAt: 2026-11-15
 category: adoption
 principle: "For each type of CRM record, write down what it is used for and what it is not used for, and hand that to the Japan team. Say openly what feeds performance reviews, and protect the rest through the questions asked on the forecast call."
-canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
+canonUrl: https://consilegy.com/en/services/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
 ---
@@ -100,6 +101,6 @@ Stage history is usually recorded by default. Whether you can build a day-of-wee
 
 ## Related reading
 
-Where the rep's own read should live, and who can see it, is covered in [when your Japan team asks to go back to the spreadsheet, answer with a date](/en/articles/asked-to-go-back-to-the-old-way/). The fourth row of the table above should match whatever you decide there.
+If private spreadsheets remain after the purpose of recording is clear, also examine whether the interface supports the work. [Japan’s spreadsheet requests can reveal a CRM design gap](/en/articles/asked-to-go-back-to-the-old-way/) separates a shared data source from familiar ways of viewing and updating it.
 
 Other notes on the same problem are collected under [Organization & adoption](/en/category/adoption/).

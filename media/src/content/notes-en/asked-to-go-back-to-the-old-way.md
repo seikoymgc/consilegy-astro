@@ -1,117 +1,47 @@
 ---
-title: "When your Japan team asks to go back to the spreadsheet, answer with a date"
-description: "Ask which task the old spreadsheet still supports. Name the owner and date for providing that function in the new process before deciding whether to retire the file."
+title: "Japan’s spreadsheet requests can reveal a CRM design gap"
+description: "When Japan users return to spreadsheets, compare the work before banning the file or granting a local exception. Japanese practitioner accounts show why familiar editing and a shared data source should be separate decisions."
 publishedAt: 2026-09-14
-updatedAt: 2026-10-17
+updatedAt: 2026-11-15
 category: adoption
-principle: "Ask which task the old spreadsheet still supports. Name the owner and date for providing that function in the new process before deciding whether to retire the file."
-canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
+principle: "If Japan users return to a spreadsheet after a CRM rollout, compare the same task in the old and new interfaces. Keeping a shared data source does not require replacing every familiar way of viewing and updating it. Preserve useful operations without reproducing unused fields or a second set of records."
+canonUrl: https://consilegy.com/en/services/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
 ---
 
-About a month after the global CRM goes live in Japan, someone asks to go back to the old spreadsheet.
+If your Japan team asks to return to its spreadsheet after a CRM rollout, compare how the same deal is updated in both systems before banning the file or granting a local exception.
 
-The request rarely arrives as a demand.
+A request for familiar editing is not necessarily a request to maintain a separate customer database. Treating those as the same decision can leave you choosing between a difficult interface and duplicate records.
 
-It comes softened, often through the local manager rather than in the review call, phrased as something that might be a little difficult for the team. HQ files it under settling-in and answers that everyone needs more time with the new system.
+## Japanese accounts show a workflow problem, not a national trait
 
-That answer is not wrong. It is just answering a different question than the one being asked.
+A [Japanese user review on BOXIL](https://boxil.jp/service/11977/reviews/65134/) describes repeatedly exporting Salesforce data into a spreadsheet, editing it and importing it again. The reviewer reported extra work and difficulty maintaining consistency. The post was submitted through an incentive campaign; it is one account, not an estimate of how often this happens.
 
-## The Japan team is the only group that has run the same work through both systems
+In a separate [interview with Information Strategy and Technology](https://raykit.mescius.jp/case/is-tech.html), sales staff described managing early opportunities in Google Sheets because finding a record, opening its detail page and updating it took too much work. Opportunities were entered into Salesforce closer to an order, leaving their earlier history outside the system.
 
-Plenty of people can critique the design. Almost nobody has used both.
+That vendor interview was conducted in May 2018. It does not establish what Salesforce’s standard interface can do today, nor does it describe a multinational rollout. It does show a Japanese team trying to reconcile an interface it could work in with a record management could follow.
 
-The HQ team saw the legacy spreadsheet once, during requirements gathering, translated. The regional sponsor approved a slide, not a screen. The only people who have closed the same deal twice, once the old way and once the new way, sit in the Japan office.
+Neither account supports a claim that Japanese users are unusually resistant to change. Both give a reason to inspect the actual work.
 
-So the request is not resistance. It is the only comparative report HQ is going to get, and it arrives disguised as a complaint.
+## Keep the useful operation without keeping a second database
 
-It also has a shelf life.
+In a [public note published on 10 November 2026](https://note.com/seiko_consilegy/n/n8d0fcb5ff641), Consilegy founder Seiko Yamaguchi approaches system adoption from the position of the person losing a familiar environment. Her recommendation is to compare the old table with the new system, retain useful similarities and remove what is unnecessary.
 
-Raised a couple of times with no visible result, it stops being raised. In a Japanese office that threshold is lower than HQ expects, because raising it again starts to look like a personal position against a decision that has already been approved.
+For a Japan rollout, this means separating the shared data source from the way people work with it. The 2018 case illustrates that distinction: the company chose a spreadsheet-like interface for updating data inside Salesforce.
 
-Mazrica's survey on SFA and CRM usage (fielded by IDEATECH, 25 to 28 November 2024, published 28 January 2025, n=101 sales managers and team leads at Japanese B2B companies; run by a company that sells sales software, on a small sample, so read it directionally) found the top usage complaints were that entering and updating information is cumbersome, 43.6%, and that the system is hard to operate, 38.6%.
+For example, a rep may need to scan assigned opportunities and update them in place. That need may be met within the new system rather than through an exported file. Check the available configuration and capabilities before choosing an additional product. The point is to preserve a useful operation, not to copy every legacy column.
 
-Neither of those is visible from a design review. Both are only visible from use.
+## Ask for a comparison before prescribing more training
 
-## Answering yes or no moves the request out of your reporting, not out of the business
+Have the local user show how they find, compare and update the same record in each interface. This makes a broad complaint about usability something you can examine together.
 
-In practice HQ picks one of two answers. No, the global design stands. Or yes, we will allow a local exception.
+Some differences are justified. A check that prevents an incorrect update may be worth keeping even when it adds a step. Re-entering the same information elsewhere calls for a different conversation about the design.
 
-What happens next is the same either way.
-
-The person who asked works out how to do their job regardless. The global CRM gets whatever the weekly pipeline call requires. The information they actually work from lives in a file on their machine.
-
-Adoption metrics hold up. The data stops describing the business.
-
-And from that point, design gaps stop getting reported at all. Someone with a workaround is no longer blocked, so they have nothing to raise.
-
-No Japanese public survey measures how often a parallel file exists, at least none we have been able to find.
-
-The closest is Keywalker's survey (fielded 8 to 10 October 2025, published 11 November 2025, n=1,034 sales staff and managers at Japanese companies already using SFA, CRM or BI tools, run online through PRIZMA; a survey by a company that sells BI implementation services), where 12.5% of respondents said they are not entering data or have frequent gaps.
-
-That measures admitted non-entry, not where the data went instead.
-
-Since it cannot be measured from HQ, it has to be spotted.
-
-A file you do not recognise flashes past during a screen share. You ask about a deal and hear context that is nowhere in the record. Every Japan opportunity has a last-modified timestamp from the day before the regional call.
-
-## The team does not want the old system back, it wants one thing the old system did
-
-Nobody in Japan is nostalgic about the legacy spreadsheet. The request points at one job the old way did that the new design has not picked up. Usually one of three.
-
-- **Speed.** Ten seconds in the spreadsheet becomes open the CRM, find the account, find the deal, pick from a dropdown. In the same Keywalker survey, 30.7% of those whose entry is delayed cited difficulty entering data on mobile. Japanese B2B sales involves a great deal of travel between client sites, so entry that used to happen on a train now happens at 9pm, or not at all
-- **Somewhere to put information that is not confirmed yet.** This is the one HQ almost never sees. The local spreadsheet held things that were not ready to be seen: a read on how the meeting went, which internal stakeholder is actually blocking, what needs checking before the next visit. A global CRM designed to hold confirmed facts only leaves that material with nowhere to go, and in a culture where putting an unconfirmed judgement into a system of record visible to HQ carries real personal cost, it goes back to the private file immediately
-- **Seeing everything at once.** The old sheet showed all accounts on one screen. Most CRM layouts show one record at a time. Anyone whose working habit starts with a morning scan of the whole book of business loses that habit on day one
-
-Speed and the overview are usually configuration problems.
-
-For speed, let reps log a one-line note against a deal from the mobile app. For the overview, set the columns of a list view that shows a rep's whole book on one screen, or use a board view by stage. Feature names differ by tool, but none of this adds a field.
-
-The middle one is not. It cannot be fixed by adding a field, because the issue is not the absence of a place to type. It is who can read what gets typed.
-
-So decide the audience first, then the place. There are three candidates:
-
-- **Notes on the deal record.** Easiest, but in most setups visible to everyone who can see the deal
-- **A private draft for the rep alone.** A task assigned to themselves, or a private note. Whether this exists depends on the tool
-- **A field for the rep's one-to-one with their manager.** Visible to the two of them by design
-
-Who can see each of these depends on the tool and on permission settings. Once chosen, check the actual visibility from the rep's own login and from a colleague's in the same team before announcing it.
-
-If nothing can be restricted to rep and manager, assume everyone can read it, and agree a format that separates fact from the rep's own read. An entry clearly marked as a read can be written before it is confirmed.
-
-## An exception you can count is cheaper than a file you cannot see
-
-The answer to give is not yes or no. It is a date.
-
-Tell the Japan team you will come back within two weeks with a decision on where that one job now lives. Then decide, before the two weeks start, what happens if the answer is that it does not live anywhere yet.
-
-If it does not, keep the old way for that one thing, and keep it in the open. Name it as an exception, write down when it gets reviewed, and make it something you can count users of.
-
-The container is a one-page exception register with four columns: the exception, who uses it, the end date, and who owns finding its replacement. The local CRM owner keeps it and checks only the items that have reached their date in the weekly review.
-
-What you keep is one function of the old way, with an end date, not the old system.
-
-If keeping it requires extending the legacy licence, it is not an exception. It is an extension of the parallel run, and it needs its own approval with the cost and the date written down.
-
-To the Japan team, an official exception and a private file feel identical. To whoever owns the platform, they are opposites.
-
-An exception appears in a review and eventually closes. A private file has no owner, no review, and no closing date.
-
-Documented exceptions also give you a priority list that no survey will.
-
-If three people in the Japan entity are using the same exception, that is not a local preference. That is a gap in the global design that Japan happened to find first, and the other regions are working around it silently.
-
-**A request to go back names one job the old way did that the new design has not picked up. Answer it with yes or no and the request does not disappear. It moves to a file you cannot see, and it stops being reported.**
-
-## Common mistakes
-
-- **Treating it as a familiarity problem.** Speed and the overview do resolve with a few weeks of use. Somewhere to put unconfirmed information does not. Reaching for the familiarity answer before asking which of the three it is guarantees you never hear the fourth request
-- **Removing the fallback instead of replacing it.** Revoking access to the legacy system, disabling exports. What this produces is not new CRM entries. It produces handwritten notes. Taking away the place without providing a place only removes the information
-- **Assuming one exception means everyone reverts.** Very few people actually want to go back. Driving exceptions to zero out of that fear does not reduce the number of workarounds, it only reduces the number you know about. Manage exceptions by whether they are countable, not by how few of them there are
+The comparison will not guarantee that the old file can be retired. It will tell you what the new process has to support before you ask the team to give it up.
 
 ## Related reading
 
-The decision about when the legacy system stops running at all comes before any of this. Setting that on an exit condition rather than a date is covered in [Japan's parallel run has an end date but no end condition](/en/articles/when-to-turn-off-the-old-system/).
+If entry and operating burdens remain after comparing the interfaces, examine the work itself. [A CRM that asks less of people gets used more](/en/articles/crm-should-ask-less-of-people/) considers what to reduce before adding more training. [Japan Market GTM and Messaging](https://consilegy.com/en/services/japan-market-gtm-messaging/) covers the wider context for aligning a Japan operation with its market.
 
-Other notes on the same problem are collected under [Change management](/en/category/adoption/).
+Other notes on the same problem are collected under [Team and adoption](/en/category/adoption/).

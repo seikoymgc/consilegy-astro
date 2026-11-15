@@ -1,0 +1,124 @@
+{
+  "date": "2026-11-15",
+  "action": "update existing JA/EN, no new articles",
+  "slug": "asked-to-go-back-to-the-old-way",
+  "publishedAt": "2026-09-14",
+  "updatedAt": "2026-11-15",
+  "reviews": {
+    "decisionmaker": "4/5 no high/medium",
+    "operations": "4/5 medium1 obsolete stopping-condition link fixed; re-review no high/medium",
+    "english": "JA4/5 EN4/5; FAQ/body/canonUrl re-review no high/medium",
+    "human_supervision": false
+  },
+  "image": {
+    "action": "retain existing category photo, no regenerated/overwritten asset",
+    "method": "built-in imagegen on 2026-11-13; not generated today",
+    "source": "training-japan-2026c-20261113n.png",
+    "url_version": "20261113n",
+    "reference_opened_today": "assets/2026-11-12/founder-sales-editorial-posture-v4.png",
+    "visual_pass": [
+      "source PNG",
+      "current delivery WebP",
+      "current delivery JPEG",
+      "local JA article",
+      "local EN article",
+      "local JA homepage",
+      "local EN homepage",
+      "local JA category target card",
+      "local EN category target card"
+    ],
+    "generation_history": "2026-11-13-image-refresh-assets.json"
+  },
+  "builds": {
+    "root": {
+      "success": true,
+      "pages": 372
+    },
+    "media": {
+      "success": true,
+      "pages": 227
+    }
+  },
+  "initial_static": {
+    "static": [
+      {
+        "page": "asked-to-go-back-to-the-old-way/",
+        "schema_dates_canonical_links": "pass"
+      },
+      {
+        "page": "global-crm-japan-only-fields/",
+        "schema_dates_canonical_links": "pass"
+      },
+      {
+        "page": "say-what-sfa-records-wont-judge/",
+        "schema_dates_canonical_links": "pass"
+      },
+      {
+        "page": "en/articles/asked-to-go-back-to-the-old-way/",
+        "schema_dates_canonical_links": "pass"
+      },
+      {
+        "page": "en/articles/global-crm-japan-only-fields/",
+        "schema_dates_canonical_links": "pass"
+      },
+      {
+        "page": "en/articles/say-what-sfa-records-wont-judge/",
+        "schema_dates_canonical_links": "pass"
+      }
+    ],
+    "discovery": "JA/EN categories, article indexes, sitemap pass; original published dates retained; no new homepage lead expected",
+    "external": [
+      {
+        "url": "https://note.com/seiko_consilegy/n/n8d0fcb5ff641",
+        "status": 200
+      },
+      {
+        "url": "https://boxil.jp/service/11977/reviews/65134/",
+        "error": "HTTP Error 403: Forbidden"
+      },
+      {
+        "url": "https://raykit.mescius.jp/case/is-tech.html",
+        "status": 200
+      },
+      {
+        "url": "https://consilegy.com/revenue-architecture/",
+        "status": 200
+      },
+      {
+        "url": "https://consilegy.com/en/services-en/japan-market-gtm-messaging/",
+        "error": "HTTP Error 404: Not Found"
+      }
+    ]
+  },
+  "link_fixes": "EN3 target canonUrls and one body link services-en 404 -> verified services route; BOXIL web reader body available despite ordinary HTTP 403",
+  "ai_citations": "not observed",
+  "publication": "pending",
+  "final_static": [
+    {
+      "path": "asked-to-go-back-to-the-old-way/",
+      "checks": "canonical/schema/date/links pass"
+    },
+    {
+      "path": "global-crm-japan-only-fields/",
+      "checks": "canonical/schema/date/links pass"
+    },
+    {
+      "path": "say-what-sfa-records-wont-judge/",
+      "checks": "canonical/schema/date/links pass"
+    },
+    {
+      "path": "en/articles/asked-to-go-back-to-the-old-way/",
+      "checks": "canonical/schema/date/links pass"
+    },
+    {
+      "path": "en/articles/global-crm-japan-only-fields/",
+      "checks": "canonical/schema/date/links pass"
+    },
+    {
+      "path": "en/articles/say-what-sfa-records-wont-judge/",
+      "checks": "canonical/schema/date/links pass"
+    }
+  ],
+  "link_fixes_verified": "current EN services URL HTTP200; shared footer route fixed",
+  "remaining_out_of_scope": "linked EN crm-should-ask-less-of-people retains old canonUrl; unchanged article body not fully audited"
+}

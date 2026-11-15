@@ -2,9 +2,10 @@
 title: "Why only Japan keeps adding fields to your global CRM"
 description: "Global CRM customization piles up in Japan when every field request is answered with yes or no. Ask who decides what with the field, then route it to the global standard, the Japan account record, the document layer, or nowhere."
 publishedAt: 2026-10-19
+updatedAt: 2026-11-15
 category: japan-gtm
 principle: "Before approving or refusing a field request from Japan, ask who will decide what with that field. Route it to the global standard, to the Japan account record, to the document layer outside the CRM, or nowhere."
-canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
+canonUrl: https://consilegy.com/en/services/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
 ---
@@ -111,6 +112,6 @@ And when a request ends up in the global standard, say so to the other regions. 
 
 ## Related reading
 
-What happens to a refused request, and how it becomes a second set of books, is covered in [when your Japan team asks to go back to the spreadsheet, answer with a date](/en/articles/asked-to-go-back-to-the-old-way/). The same mechanics apply when the request is a field rather than a system.
+Before adding a field, also check whether the current interface makes the work difficult. [Japan’s spreadsheet requests can reveal a CRM design gap](/en/articles/asked-to-go-back-to-the-old-way/) examines how familiar viewing and editing can be preserved without maintaining a second set of records.
 
 Other notes on the same problem are collected under [Japan market & GTM](/en/category/japan-gtm/).

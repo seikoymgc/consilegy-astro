@@ -108,7 +108,7 @@ export const categoryHubsEn: Record<CategoryKey, CategoryHub> = {
 			},
 			{
 				q: 'Our Japan team says they prefer the old process. Is that cultural resistance?',
-				a: "That cannot be inferred from the request alone.\n\nAsk what work the old process supports and what the new one makes harder. Treat it as design feedback and find out which meeting still runs on the old artefact, because that meeting is what keeps the old process alive.",
+				a: "That cannot be inferred from the request alone.\n\nCompare the same task in both interfaces. A request for familiar viewing or editing is not necessarily a request to keep a separate database. Retain useful operations where possible without copying unused fields or duplicate records.",
 			},
 		],
 	},

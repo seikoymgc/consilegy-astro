@@ -43,6 +43,8 @@ import FigBleed from '../components/FigBleed.astro';
 <!doctype html>
 <html lang={htmlLang}>
 	<head>
+		<!-- Zoom Marketplace のドメイン確認（Revenue CRM の Zoom アプリ申請用。消さない） -->
+		<meta name="zoom-domain-verification" content="ZOOM_verify_fc0b4bf88a2240f2ba323390aa2462a7">
 		<!-- Cookie の同意：前回「拒否」なら、GTM より前に同意なしを既定にする（CookieBanner.astro と対） -->
 		<script is:inline>(function(){var v;try{v=localStorage.getItem('cslg_cookie_consent')}catch(e){}if(v!=='denied')return;var w=window;w.dataLayer=w.dataLayer||[];var g=function(){w.dataLayer.push(arguments)};g('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});w.clarity=w.clarity||function(){(w.clarity.q=w.clarity.q||[]).push(arguments)};w.clarity('consent',false);})();</script>
 		<!-- Google Tag Manager -->

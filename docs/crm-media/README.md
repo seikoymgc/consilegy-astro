@@ -218,6 +218,15 @@ crm origin/main（db20fc1）では、`src/app/school/` にあるのは `page.tsx
 - 2026-10-27: b2c は公開なし。10/26 以降のスクール版の変更は #378（/api/school-app/ も crm_ws を見る）と #379（デイリーコールの表示を外す）だけで新しい候補が無い。本番の /api/school-app/calendar は今も 503（CALENDAR_FEED_SECRET 未設定、Chrome で確認）
 - 2026-10-26: b2c は公開なし。10/25 の洗い出し以降、スクール版の変更は 39c3f38（カレンダーの文言）だけで新しい候補が無い。「レッスンのチャット」（もっと→💬）も見たが、Zoom 連携（保留中）が前提で書けない。teachers-without-google-cannot-see-their-lessons-on-their-phone は本番の CALENDAR_FEED_SECRET が入れば公開できる（日次タスクの環境からは本番に届かず確認できない）
 
+## 2026-11-17 選定・再検証
+
+| segment | 痛み | 機能 | slug | 根拠と既刊との差 |
+|---|---|---|---|---|
+| b2b | 英語の画面でもタスク件名が日本語のままで読めない | 短い見出しの表示翻訳 | task-headings-stay-japanese-in-an-english-interface | 最新CRM 5c485bb、11/16の0bbf35c/0f87552。UI言語切替と異なりタスク名/活動件名を表示用に翻訳。原文不変・tooltip・対象文字・300字・利用枠とcache・失敗時原文を確認 |
+| b2c | 卒業後プランの案内改定後も新規加入に古い月額が入る | 卒業後プランの単価変更 | new-alumni-signups-still-use-the-old-price | 同mainのgradPlanEditor/MockShell/grad-plan API/加入API。10/25保留を再検証し、単価変更と以後の新規登録だけに限定。既存請求不変・自動課金なし・権限・即保存・空欄0・追加/名前変更UIなし。通常コース全体に一般化せず |
+
+実行記録は [`runs/2026-11-17.md`](./runs/2026-11-17.md)。デモの認証切れにより本文キャプチャなしの例外を使用。補う画面は日英のタスク見出しと原文ホバー、卒業後プラン単価と金額入力小窓。表紙は女性の写真2枚、Recraft未ログインのため組み込みimagegenを使用。
+
 ## 2026-11-16 選定・再検証
 
 | segment | 痛み | 機能 | slug | 根拠と既刊との差 |

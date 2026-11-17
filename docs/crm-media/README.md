@@ -218,6 +218,15 @@ crm origin/main（db20fc1）では、`src/app/school/` にあるのは `page.tsx
 - 2026-10-27: b2c は公開なし。10/26 以降のスクール版の変更は #378（/api/school-app/ も crm_ws を見る）と #379（デイリーコールの表示を外す）だけで新しい候補が無い。本番の /api/school-app/calendar は今も 503（CALENDAR_FEED_SECRET 未設定、Chrome で確認）
 - 2026-10-26: b2c は公開なし。10/25 の洗い出し以降、スクール版の変更は 39c3f38（カレンダーの文言）だけで新しい候補が無い。「レッスンのチャット」（もっと→💬）も見たが、Zoom 連携（保留中）が前提で書けない。teachers-without-google-cannot-see-their-lessons-on-their-phone は本番の CALENDAR_FEED_SECRET が入れば公開できる（日次タスクの環境からは本番に届かず確認できない）
 
+## 2026-11-18 選定・再検証
+
+| segment | 痛み | 機能 | slug | 根拠と既刊との差 |
+|---|---|---|---|---|
+| b2b | マーケのメニューが自社の分担と合わない | 業務ごとのメニュー設定 | the-marketing-menu-still-follows-someone-elses-workflow | 最新CRM 8cbe6f9、274/277と#447/#450。既刊の業務切替と異なりworkspace共通の定義を編集。Save/Reset即保存/権限/All/Mine/常時項目を照合 |
+| b2c | 未確認の課題が残る生徒をカルテの往復で探す | ダッシュボード下表の提出・未確認・最終提出・担当 | finding-unreviewed-homework-means-opening-every-student-profile | 同mainのrender/supabase/authz/page。既刊の講師別負担は上表のみ。生徒進捗の過去保留を再検証し、確認対象の選択に限定。active/graduating、未確認全件＋確認済み全校300件、全履歴でない/非リンク/期間絞込なしを明記 |
+
+実行記録は [`runs/2026-11-18.md`](./runs/2026-11-18.md)。認証切れで本文キャプチャなし。補う画面は日英のメニュー設定表と生徒別提出表。女性表紙2枚をimagegenで生成（Recraft未ログイン）。11/17の見出し翻訳記事も、既定手動/会社単位自動設定の最新仕様へ日英で更新。
+
 ## 2026-11-17 選定・再検証
 
 | segment | 痛み | 機能 | slug | 根拠と既刊との差 |

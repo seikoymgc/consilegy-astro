@@ -8,10 +8,12 @@ edition: "b2b"
 pain: "海外メンバーがタスクの件名を読めず、何の用件か同僚に聞き直している"
 feature: "タスクと活動の短い見出しの表示翻訳"
 screens: "画面上端 EN・繁中／タスク／活動の件名／翻訳された見出しの原文ホバー"
-sources: "src/components/localized-title.tsx / src/lib/title-translate.ts / src/app/api/ai/translate-titles/route.ts / src/lib/record-translation.ts / src/app/(dashboard)/tasks/tasks-view.tsx / src/components/activity-timeline.tsx / src/lib/ai-quota.ts / src/lib/ai-fuel.ts"
+sources: "src/components/localized-title.tsx / src/lib/title-translate.ts / src/app/api/ai/translate-titles/route.ts / src/lib/record-translation.ts / src/app/(dashboard)/tasks/tasks-view.tsx / src/components/activity-timeline.tsx / src/lib/ai-quota.ts / src/lib/ai-fuel.ts / src/app/api/org-settings/auto-translate/route.ts / src/app/(dashboard)/settings/ai-features/ai-features-view.tsx / supabase/migrations/275_org_auto_translate_records.sql"
 date: 2026-11-17
 author: "山口聖子"
 ---
+*2026年11月18日更新：既定の手動翻訳と、会社単位の自動翻訳設定を反映しました。*
+
 海外のメンバーが、画面右上の「EN」を押します。メニューもボタンも英語になりました。けれど、今日のタスクには日本語の件名が並んでいます。
 
 期限は分かる。でも、何をする用件なのかが読めない。「これは何の連絡ですか」と同僚に聞いてからでないと、最初の一件に取りかかれません。
@@ -26,10 +28,10 @@ Revenue CRMの法人営業版では、英語や繁体字中国語の画面で、
 
 ## 英語の画面で「タスク」を開く
 
-一覧の見出しには、翻訳ボタンを一つずつ押す必要がありません。表示言語を選んだうえで、普段使う一覧を開きます。
+現在の既定は、必要な見出しを一件ずつ訳す方法です。表示言語を選んだうえで、普段使う一覧を開きます。
 
 1. 画面上端の「EN」を押し、英語表示にします。繁体字中国語なら「繁中」を選びます。
-2. 「Tasks（タスク）」を開き、用件の見出しを読みます。翻訳が届くまでは元の日本語が出ます。
+2. 「Tasks（タスク）」を開きます。パソコンで日本語の見出しにマウスを重ね、表示される「Translate（翻訳）」を押すと、その一件を訳します。翻訳が届くまでは元の日本語です。
 3. 訳された見出しの原文を確認したいときは、パソコンで見出しにマウスを重ねます。原文が補足表示されます。
 4. 内容が判断しにくい用件は、関連する商談や活動の記録を開き、本文と照らして確かめます。
 
@@ -37,11 +39,13 @@ Revenue CRMの法人営業版では、英語や繁体字中国語の画面で、
 
 「JA」の画面では元の表記です。日本語の見出しを別の言語で読むための仕組みなので、英語で書かれた件名を日本語にする機能とは違います。英語表示では漢字だけの見出しも対象ですが、繁体字中国語表示では、かなを含む日本語の見出しが対象です。
 
+会社で一覧を自動翻訳したい場合は、オーナーか管理者が「設定」→「AI機能の利用」の「入力データを自動翻訳する」をオンにします。ワークスペース全体の設定で、画面を開き直すと反映されます。オンの間は、一覧の対象の見出しをまとめて訳します。
+
 ## 原文が残る理由も、先に共有しておく
 
 翻訳はすべての文字を必ず置き換える機能ではありません。300文字を超える見出しは対象外ですし、人名や会社名まで英語の名前になると期待しないでください。
 
-初めて訳す見出しは、会社のAI利用枠を使って、画面に並ぶものをまとめて処理します。同じ文面・同じ言語の訳が社内で保存されていれば、それを再利用します。
+未訳の見出しを訳すと会社のAI利用枠を使います。自動翻訳がオンなら、画面に並ぶ対象をまとめて処理します。同じ文面・同じ言語の訳が社内で保存されていれば、それを再利用します。
 
 未訳の見出しについて、会社でAIを止めている、利用枠が足りない、処理に失敗した、といった場合は原文のままです。すでに保存された訳は表示されることがあります。日本語が残ったとき、タスク自体が消えたわけではありません。
 

@@ -5,7 +5,7 @@
  * English translation of /privacy-policy/. Keep the two in step; the Japanese original prevails.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
-const updated = 'November 16, 2026';
+const updated = 'November 18, 2026';
 ---
 
 <BaseLayout
@@ -163,7 +163,17 @@ const updated = 'November 16, 2026';
 		<p><strong>Human access:</strong> Our staff view information received from Google only with the user's consent, when necessary for security purposes (such as investigating abuse), or when required by law.</p>
 		<p><strong>Disconnection and deletion:</strong> Users can disconnect at any time from the Revenue CRM settings screen or in their Google Account settings (<a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">Third-party apps &amp; services</a>). After disconnection, we stop retrieving data from Google. To request deletion of records already imported, contact us using the details below.</p>
 		<p>Revenue CRM's use and transfer of information received from Google APIs to any other app will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
-		<h3>12.4 Disclosure and subprocessors</h3>
+		<h3>12.4 Connecting AI apps (ChatGPT, Claude)</h3>
+		<p>When a customer's owner or admin allows an AI app such as ChatGPT (OpenAI) or Claude (Anthropic) to connect to the Service, we handle information as follows. For setup steps, see <a href="/en/crm/ai-connect/">Use Revenue CRM from ChatGPT and Claude</a>.</p>
+		<ul>
+			<li><strong>What we store:</strong> the connected AI app's name and redirect URL, the workspace and access level approved (read-only, or read and write), and the connection tokens. Tokens are stored only as one-way hashes.</li>
+			<li><strong>What the AI app receives:</strong> in response to what the user asks in the AI app, we return contacts, companies, deals and activities from the approved workspace. We do not return data from any other workspace.</li>
+			<li><strong>Purpose:</strong> only to look up, create and update information in the Service and to log activities, as the user requests.</li>
+			<li><strong>After it leaves the Service:</strong> information passed to an AI app is handled under the terms and privacy policy of the company that provides it (such as OpenAI or Anthropic). The customer decides whether to connect and which AI app to use.</li>
+			<li><strong>Retention:</strong> access tokens expire after one hour. Refresh tokens expire after 90 days without use. When a connection is removed, its tokens stop working immediately.</li>
+			<li><strong>Disconnecting:</strong> an owner or admin can disconnect at any time under Settings → API keys → Connected AI apps in the Service. Removing the connection in the AI app also stops it.</li>
+		</ul>
+		<h3>12.5 Disclosure and subprocessors</h3>
 		<p>Disclosure to third parties and use of subprocessors follow sections 4 and 5 of this Policy and the subprocessor list in the Service's Terms of Service.</p>
 
 		<h2>13. Contact</h2>

@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const updated = '2026年11月16日';
+const updated = '2026年11月18日';
 ---
 
 <BaseLayout
@@ -157,7 +157,17 @@ const updated = '2026年11月16日';
 		<p><strong>人による閲覧：</strong>当社の従業員がGoogleから受け取った情報を見るのは、利用者の同意がある場合、セキュリティ上の目的（不正利用の調査など）で必要な場合、法令に基づく場合に限ります。</p>
 		<p><strong>連携の解除と削除：</strong>Revenue CRMの設定画面、またはGoogleアカウントの設定（<a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">サードパーティ製のアプリとサービス</a>）から、いつでも解除できます。解除すると、以後Googleから情報を取得しません。すでに取り込んだ記録の削除を希望される場合は、下記の窓口までご連絡ください。</p>
 		<p>Revenue CRM's use and transfer of information received from Google APIs to any other app will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
-		<h3>12.4 第三者への提供と委託</h3>
+		<h3>12.4 AIアプリ（ChatGPT・Claude）との接続</h3>
+		<p>お客様のオーナーまたは管理者がChatGPT（OpenAI）やClaude（Anthropic）などのAIアプリから本サービスへの接続を許可した場合、当社は次のとおり情報を取り扱います。接続の手順は<a href="/crm/ai-connect/">ChatGPT・ClaudeからRevenue CRMを使う</a>をご覧ください。</p>
+		<ul>
+			<li><strong>当社が保存する情報：</strong>接続したAIアプリの名前と戻り先のURL、接続を許可したワークスペースと権限（読み取りのみ、または読み取りと書き込み）、接続のためのトークン。トークンは元に戻せない形（ハッシュ）でのみ保存します。</li>
+			<li><strong>AIアプリに渡る情報：</strong>利用者がAIアプリの会話で頼んだ内容に応じて、接続を許可したワークスペースの中の連絡先・会社・商談・活動の情報をAIアプリに返します。ほかのワークスペースの情報は渡しません。</li>
+			<li><strong>利用目的：</strong>利用者の依頼に応じて、本サービスの情報を調べること、作成・更新すること、活動を記録することのためにのみ使います。</li>
+			<li><strong>渡った後の扱い：</strong>AIアプリに渡った情報は、そのAIアプリを提供する会社（OpenAI、Anthropicなど）の規約とプライバシーポリシーに従って扱われます。接続するかどうか、どのAIアプリにつなぐかは、お客様が選びます。</li>
+			<li><strong>保有期間：</strong>アクセス用のトークンは1時間で切れます。更新用のトークンは90日使われなければ無効になります。接続を解除すると、そのトークンは直ちに使えなくなります。</li>
+			<li><strong>接続の解除：</strong>本サービスの「設定」→「APIキー」の「接続中のAIアプリ」から、オーナーまたは管理者がいつでも解除できます。AIアプリの側で接続を外しても止まります。</li>
+		</ul>
+		<h3>12.5 第三者への提供と委託</h3>
 		<p>本サービスの情報の第三者への提供・業務委託については、4と5の定めと、本サービスの利用規約の外部委託先一覧によります。</p>
 
 		<h2>13. お問い合わせ窓口</h2>

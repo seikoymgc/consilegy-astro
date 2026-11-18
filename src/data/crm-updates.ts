@@ -59,6 +59,19 @@ export const CRM_UPDATES: CrmUpdate[] = [
     date: '2026-11-16',
     editions: ['b2b', 'contractor', 'reseller'],
     title: {
+      ja: 'コンタクトの「メール・予定」タブをいつでも開けます',
+      en: 'The Email & events tab is always on a contact',
+    },
+    body: {
+      ja: 'これまではGmailのやり取りやGoogleカレンダーの予定があるときだけ出ていたタブを、いつも出すようにしました。まだ何もないときは、Googleを接続すると自動で並ぶことを案内します。',
+      en: 'The tab used to appear only when there were Gmail threads or Google Calendar events. It now always shows, and explains that connecting Google fills it automatically.',
+    },
+    prs: [],
+  },
+  {
+    date: '2026-11-16',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
       ja: '英語・繁体中国語の画面で、一覧の見出しも訳して出します',
       en: 'Lists are translated on English and Traditional Chinese screens',
     },

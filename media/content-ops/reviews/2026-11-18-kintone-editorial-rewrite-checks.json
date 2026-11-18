@@ -1,0 +1,27 @@
+{
+  "revision": "2026-11-18 professional editorial rewrite",
+  "article": "choose-kintone-to-build-your-own-app",
+  "editorial": {
+    "decisionmaker": "publishable with quoted reasons",
+    "operations": "publishable; official specs checked",
+    "logic_and_english_scope": "JA publishable; no English manuscript reviewed",
+    "initial_review_failure_acknowledged": true,
+    "human_supervision_claim": false
+  },
+  "build": {
+    "root": "pass,384 pages",
+    "media": "pass,228 pages"
+  },
+  "html": {
+    "intro_and_concrete_example": "pass",
+    "local_internal_links": "pass",
+    "schema": "present",
+    "og_version": "20261117a",
+    "listings_rss_sitemap": "pass"
+  },
+  "visual": {
+    "local_article_intro_image": "pass",
+    "unchanged_image": "previous source and delivery inspected; suitable for revised form/data topic"
+  },
+  "production": "pending"
+}

@@ -40,9 +40,21 @@
     "rss_sitemap_home_category": "pass"
   },
   "production": {
-    "push": "pending",
-    "actions": "pending",
-    "visual": "pending"
+    "push": "success",
+    "sha": "2f687a1b3d2783d99f3c5c2e19171d2ea5355b21",
+    "actions": "success",
+    "actions_url": "https://github.com/seikoymgc/consilegy-astro/actions/runs/44234232112",
+    "article_home_category_og_visual": "pass, actual browser screenshots inspected",
+    "versioned_image_references": "pass; article/home/category complete=true, naturalWidth=1200; OGP JPEG visibly loaded at 1200x630",
+    "raw_http_script": "urllib received 403; browser independently loaded article, home, category and JPEG; no HTTP 200 claim"
   },
-  "ai_url_citation": "not observed"
+  "ai_url_citation": "not observed",
+  "title_correction": {
+    "date": "2026-11-18",
+    "title": "kintoneを選ぶ前に、業務アプリを自分たちで作りたいか考える",
+    "root_build": "passed",
+    "media_build": "passed",
+    "built_article_home_category_articles_rss": "passed",
+    "live": "pending"
+  }
 }

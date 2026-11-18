@@ -45,3 +45,7 @@ Recraftはサインイン画面で生成できず、組み込みimagegenを使�
 場面プロンプト：Contemporary editorial photograph, dark graphite laptop on a light oak desk beside a window, screen turned away, two off-white forms with subtle empty field outlines and a mechanical pencil, directional natural daylight, neutral gray-white wall, rich blacks and natural material texture, realistic lens depth, clean restrained business magazine photography, no text, no logo, no people, no hands. 2:1 composition with crop margins.
 
 元PNG、ビルド後WebP/JPEG、ローカル記事・トップ・CRMカテゴリを目視。主役の欠け・不正な文字・ロゴ・人体破綻なし。紙と画面設計という本文の主題に対応。生成画像を取材写真と表示しない。JA/ENカテゴリFAQも確認し、限定的な問いのため追加不要と判断。
+
+## 2026-11-18 タイトル訂正
+
+本人から日本語の不自然さを指摘。「kintone選びは〜を問う」の主語述語と、「作る」の対象の欠落を修正。新タイトルは「kintoneを選ぶ前に、業務アプリを自分たちで作りたいか考える」。本文・選定判断・画像・URLは同一。公開前の独立レビューはこの日本語の不自然さを拾えていなかった。

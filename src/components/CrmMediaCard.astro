@@ -1,29 +1,25 @@
 ---
-import { CATEGORIES, articlePath, eyecatchPath, type Article } from '../lib/crm-media';
+import { CATEGORIES, fmtDate, articlePath, eyecatchPath, type Article } from '../lib/crm-media';
 interface Props { a: Article }
 const { a } = Astro.props;
 const lang = a.data.lang;
 ---
 <a class="card" href={articlePath(a)}>
   <img class="thumb" src={eyecatchPath(lang, a.data.slug)} alt="" width="1200" height="630" loading="lazy" />
-  <span class="chip">{CATEGORIES[a.data.category][lang]}</span>
-  <span class="title">{a.data.title}</span>
-  <span class="pain">{a.data.pain}</span>
-  <span class="feat">{a.data.feature}</span>
+  <div class="card-copy">
+    <div class="card-meta"><span>{CATEGORIES[a.data.category][lang]}</span><time datetime={a.data.date.toISOString()}>{fmtDate(a.data.date, lang)}</time></div>
+    <span class="title">{a.data.title}</span>
+  </div>
 </a>
 
 <style>
-  .card {
-    display: flex; flex-direction: column; gap: 0.5rem;
-    padding: 0 0 1rem; overflow: hidden; border: 1px solid var(--color-border); border-radius: var(--radius);
-    background: #fff; text-decoration: none; color: inherit; box-shadow: var(--shadow-sm);
-    transition: box-shadow 0.15s, border-color 0.15s;
-  }
-  .card:hover { box-shadow: var(--shadow-md); border-color: var(--color-primary); }
-  .thumb { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 630; border-bottom: 1px solid var(--color-border); margin-bottom: 0.5rem; }
-  .chip { margin-left: 1.15rem; align-self: flex-start; font-size: 0.75rem; font-weight: 700; color: var(--color-navy); background: #eef2ff; border-radius: 999px; padding: 0.1rem 0.65rem; }
-  .title, .pain, .feat { padding: 0 1.15rem; }
-  .title { font-weight: 700; font-size: 1.02rem; line-height: 1.55; color: var(--color-text); }
-  .pain { font-size: 0.9rem; line-height: 1.7; color: var(--color-text-muted); }
-  .feat { margin-top: auto; font-size: 0.8rem; font-weight: 600; color: var(--color-text-muted); }
+  .card { display:flex; flex-direction:column; min-width:0; overflow:hidden; border:1px solid var(--color-border); border-radius:6px; background:#fff; text-decoration:none; color:inherit; box-shadow:0 2px 8px rgb(15 23 42 / .035); transition:border-color .18s,box-shadow .18s; }
+  .card:hover { border-color:var(--color-border-strong); box-shadow:0 6px 18px rgb(15 23 42 / .08); }
+  .thumb { display:block; width:100%; height:auto; aspect-ratio:1200/630; object-fit:cover; }
+  .card-copy { padding:1.25rem; }
+  .card-meta { display:flex; flex-wrap:wrap; justify-content:space-between; gap:.4rem .75rem; margin-bottom:.75rem; font-size:.875rem; color:var(--color-text-muted); }
+  .card-meta span { font-weight:600; color:var(--color-navy); }
+  .title { display:block; font-weight:700; font-size:1.125rem; line-height:1.65; color:var(--color-navy); text-wrap:pretty; }
+  .card:hover .title { color:var(--color-primary); }
+
 </style>

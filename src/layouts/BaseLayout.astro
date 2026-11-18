@@ -5,6 +5,7 @@ import '../styles/crm-editorial.css';
 import SEO from '../components/SEO.astro';
 import Header from '../components/Header.astro';
 import CrmMediaHeader from '../components/CrmMediaHeader.astro';
+import CrmMediaFooter from '../components/CrmMediaFooter.astro';
 import Footer from '../components/Footer.astro';
 import Analytics from '../components/Analytics.astro';
 import CookieBanner from '../components/CookieBanner.astro';
@@ -134,7 +135,7 @@ import FigBleed from '../components/FigBleed.astro';
 		}}>
 			<slot />
 		</main>
-		<Footer />
+		{chrome === 'media' ? <CrmMediaFooter lang={htmlLang as 'ja' | 'en'} /> : <Footer />}
 		<Analytics />
 		<CookieBanner lang={htmlLang as 'ja' | 'en'} />
 		<FigBleed />

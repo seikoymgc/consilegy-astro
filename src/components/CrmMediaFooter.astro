@@ -1,0 +1,28 @@
+---
+interface Props { lang: 'ja' | 'en' }
+const { lang } = Astro.props;
+const prefix = lang === 'ja' ? '' : '/en';
+---
+<footer class="media-footer">
+  <div class="footer-inner">
+    <a class="footer-brand" href={`${prefix}/`}><img src="/images/common/consilegy-logo-2026b.svg" alt="Consilegy" width="133" height="24" /><span>Revenue CRM {lang === 'ja' ? '使い方メディア' : 'Field Guide'}</span></a>
+    <nav aria-label={lang === 'ja' ? 'フッター' : 'Footer'}>
+      <a href={`${prefix}/crm/`}>Revenue CRM</a>
+      <a href={`${prefix}/company/`}>{lang === 'ja' ? '会社情報' : 'Company'}</a>
+      <a href={`${prefix}/privacy-policy/`}>{lang === 'ja' ? 'プライバシーポリシー' : 'Privacy policy'}</a>
+    </nav>
+    <small>© {new Date().getFullYear()} Consilegy LLC.</small>
+  </div>
+</footer>
+<style>
+  .media-footer { background:var(--color-bg-subtle); border-top:1px solid var(--color-border); }
+  .footer-inner { max-width:72rem; margin:0 auto; padding:2.5rem 1.25rem; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.5rem 2rem; }
+  .footer-brand { display:flex; flex-direction:column; gap:.5rem; color:var(--color-navy); font-size:1.25rem; font-weight:800; text-decoration:none; }
+  .footer-brand img { display:block; width:133px; height:24px; }
+  .footer-brand span { font-size:.875rem; font-weight:400; color:var(--color-text-muted); }
+  nav { display:flex; flex-wrap:wrap; gap:.75rem 1.5rem; }
+  nav a { font-size:.875rem; color:var(--color-text-muted); text-decoration:none; }
+  nav a:hover { color:var(--color-primary); }
+  small { font-size:.875rem; color:var(--color-text-muted); }
+  @media(max-width:600px) { .footer-inner { align-items:flex-start; flex-direction:column; } }
+</style>

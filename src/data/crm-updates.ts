@@ -30,6 +30,45 @@ export const EDITION_LABEL: Record<UpdateEdition, { ja: string; en: string }> = 
 
 export const CRM_UPDATES: CrmUpdate[] = [
   {
+    date: '2026-11-18',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: 'Zapierのアプリ一覧に公開しました',
+      en: 'Now listed in the Zapier app directory',
+    },
+    body: {
+      ja: 'Zapierで「Revenue CRM」を探すと見つかります。新しいコンタクト・新しい商談・更新された商談をきっかけに動かし、コンタクト・会社・商談の作成やコンタクトの検索ができます。つなぐときは 設定 → APIキー で作ったキーを使います。',
+      en: 'Search for “Revenue CRM” in Zapier. Trigger on new contacts, new deals and updated deals, create contacts, companies and deals, and find contacts. Connect with a key from Settings → API keys.',
+    },
+    prs: [404, 406],
+  },
+  {
+    date: '2026-11-17',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: '入力した内容の自動翻訳を、組織ごとに選べます',
+      en: 'Choose auto-translation of entered data per organization',
+    },
+    body: {
+      ja: '設定で、入力された記録を画面の言語に自動で訳すかどうかを選べます。最初はオフで、オフのときはマウスを乗せて出る「翻訳」で1件ずつ訳せます。',
+      en: 'A setting decides whether entered records are translated into each viewer’s language automatically. It starts off; when off, hover and click “Translate” to translate one record at a time.',
+    },
+    prs: [],
+  },
+  {
+    date: '2026-11-16',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: '英語・繁体中国語の画面で、一覧の見出しも訳して出します',
+      en: 'Lists are translated on English and Traditional Chinese screens',
+    },
+    body: {
+      ja: 'タスク名、活動の件名、商談名、予定名、項目の値などを、英語や繁体中国語の画面ではその言語に訳して表示します。',
+      en: 'Task names, activity subjects, deal names, event names and field values appear in English or Traditional Chinese when that is your screen language.',
+    },
+    prs: [],
+  },
+  {
     date: '2026-11-17',
     editions: ['b2b', 'contractor', 'reseller'],
     title: {

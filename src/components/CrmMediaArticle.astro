@@ -105,9 +105,9 @@ const jsonLd = {
 <style>
   .media-layout {
     max-width: 72rem; margin: 0 auto; padding: 2.5rem 1.25rem 5rem;
-    display: grid; grid-template-columns: minmax(0, 1fr) 17rem; gap: 3.5rem; align-items: start;
+    display: grid; grid-template-columns: minmax(0, 1fr) 17rem; gap: 2.5rem; align-items: start;
   }
-  .media-article { max-width: 46rem; min-width: 0; margin: 0 auto; }
+  .media-article { width: 100%; max-width: 50rem; min-width: 0; margin: 0 auto; }
   @media (max-width: 900px) { .media-layout { grid-template-columns: minmax(0, 1fr); gap: 3rem; } }
   .crumbs { display: flex; flex-wrap: wrap; gap: 0.4rem; font-size: 0.8rem; color: #5b6673; margin-bottom: 1.5rem; }
   .crumbs a { color: #3a4551; text-decoration: none; }
@@ -121,6 +121,7 @@ const jsonLd = {
   }
   .summary dt { font-size: 0.75rem; color: var(--color-text-muted); }
   .summary dd { margin: 0.1rem 0 0; line-height: 1.7; }
+  .body { max-width: none; }
   .body :global(h2) {
     font-size: clamp(1.5rem, 2.4vw, 1.75rem);
     font-weight: 700;

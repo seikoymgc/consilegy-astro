@@ -8,8 +8,9 @@ feature: "Dropdown and radio choices on forms"
 screens: "Forms → Settings → Add field → Field type → Choices (one per line)"
 segment: "b2b"
 edition: "b2b"
-sources: "src/app/(dashboard)/forms/[id]/form-detail.tsx / src/lib/forms/field-options.ts / src/app/api/forms/[id]/route.ts / src/app/f/[id]/page.tsx / src/lib/i18n/translations.ts"
+sources: "src/app/(dashboard)/forms/[id]/form-detail.tsx / src/lib/forms/field-options.ts / src/app/api/forms/[id]/route.ts / src/app/f/[id]/page.tsx / src/lib/i18n/translations.ts / src/app/(dashboard)/forms/[id]/form-tabs.tsx / src/app/(dashboard)/forms/[id]/page.tsx / src/app/(dashboard)/forms/[id]/form-analytics.tsx"
 date: "2026-11-11"
+updated: 2026-11-18
 author: "Seiko Yamaguchi"
 ---
 One person wants a brochure. Another needs a quote. An existing customer has a contract question. All three arrive in the same message field, and someone reads each one before adding a request category elsewhere.
@@ -47,6 +48,12 @@ For an existing dropdown or radio field, click its displayed choices in the fiel
 A choice field without any options is hidden on the public page. Marking it required does not make it appear. Open the **Public URL** from the settings and check that the intended options are visible and easy to understand.
 
 This change does not automatically route the inquiry to an owner or classify historical free-text answers. Start with a simple agreement: the person handling intake uses the selected request type to decide on the next response.
+
+## Read the selected request type in Submissions
+
+Open the form's **Submissions** tab. Each field's label becomes a column heading, so read the answer under the label you chose, such as “What can we help with?”. A label entered in Japanese remains that label; switching the interface to English does not translate your custom question.
+
+The intake owner can use this answer together with the message to decide the first response. Capturing a category does not itself assign an owner.
 
 ## Start with the decisions you actually make
 

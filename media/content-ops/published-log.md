@@ -293,3 +293,12 @@
 | 2026-07-xx | lead-count-meant-different-things | data | リード定義の不一致 | — | analytics monitor |
 | 2026-07-xx | crm-custom-properties-cut-in-half | crm | カスタム項目の削減 | — | crm dashboard |
 | 2026-07-xx | sales-stage-definition-rewrite | sales | ステージ定義の書き直し | — | business meeting |
+
+
+## 2026-11-18：週間品質監査の修正17ページを反映
+
+本人の最新指示「全部公開して」により、確認用一覧の17ページ（メディアJA5・EN4、本体ガイドJA4・EN4）の修正を公開する。新規記事17本の生成ではない。対象と本文の版は `reviews/2026-11-18-weekly-repair-v3/manifest.json`。
+
+調査の誤読、未確認の経験帰属、一律の運用ルールを訂正。導入・理由・適用条件を補足。講師通知は既存連携済みの範囲に限定。既存画像を維持、画像差し替えなし。日英の比較メモ・原典・仕様照合・確認限界は同レビュー記録を参照。本人の公開指示を、全文読了・独立した人の審査の実施証拠には置き換えない。v3の人の未実施項目は合格にせず、今回の明示的な公開指示を例外として記録する。今後の日次運用の基準緩和ではない。
+
+公開前ビルド・push・デプロイ・本番反映は `publication-status.json` に実測を記録する。

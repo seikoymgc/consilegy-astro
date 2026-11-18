@@ -10,6 +10,7 @@ segment: "b2b"
 edition: "b2b"
 sources: "src/app/(dashboard)/settings/pipeline-stages/page.tsx / src/app/(dashboard)/settings/pipeline-stages/stages-view.tsx / src/app/api/pipeline-stages/route.ts / src/lib/pipeline-stages.ts / src/lib/label-i18n.ts / src/lib/deals-i18n.ts"
 date: "2026-11-15"
+updated: 2026-11-18
 author: "山口聖子"
 ---
 英語で使うメンバーが増え、顧客管理システムの画面も英語に切り替えた。それでも、会社で独自に付けた「稟議待ち」のような商談ステージ名は日本語のまま。会議では、その列が何を表すのかを毎回説明しています。
@@ -23,7 +24,7 @@ author: "山口聖子"
 ![商談ステージの各行の下に日本語・English・繁體中文の名前欄が並ぶ](/images/crm/media/screens/custom-deal-stages-stay-in-one-language-1-ja-2026-11.webp)
 *デモで「言語ごとの名前」を開いた画面です。薄い文字は、空欄の場合に表示される名前の目安です。入力・保存・並べ替えはしていません。*
 
-たとえば「稟議待ち」を、英語では「Internal approval」と呼ぶ。この例は、会社の呼び方をそろえるためのものです。直訳が合うかより、同じ状態を指しているかを両方の言語で確かめてください。
+たとえば、買い手の社内承認を待つ状態を「稟議待ち」と呼ぶなら、英語では「Awaiting customer approval」と表す案があります。製品の既定訳ではなく、呼び方を決めるための例です。自社の承認待ちなら別の言葉が必要なので、承認する側と待っている状態が、両方の言語で一致するかを確かめてください。
 
 言語ごとに別のステージを足す必要はありません。表示名だけを入れれば、同じステージを使う人がそれぞれの言語で読めます。日本語の人向けと英語の人向けに列を分けると、同じ進み具合の商談を別々の列へ入れることになり、会議でも数え直す手間が残ります。
 

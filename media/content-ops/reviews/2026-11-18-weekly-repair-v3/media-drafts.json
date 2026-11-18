@@ -1,0 +1,27 @@
+{
+  "ja/say-what-sfa-records-wont-judge": {
+    "path": "media/src/content/notes/say-what-sfa-records-wont-judge.md",
+    "title": "営業情報の入力と人事評価の関係を、先に伝える",
+    "publication": "既存公開記事の修正候補。未公開。人による確認待ち"
+  },
+  "ja/download-count-is-not-internal-use": {
+    "path": "media/src/content/notes/download-count-is-not-internal-use.md",
+    "title": "資料ダウンロードの効果は、取得数と利用を分けて見る",
+    "publication": "既存公開記事の修正候補。未公開。人による確認待ち"
+  },
+  "ja/global-crm-japan-only-fields": {
+    "path": "media/src/content/notes/global-crm-japan-only-fields.md",
+    "title": "顧客管理の日本独自項目は、使う判断から置き場を決める",
+    "publication": "既存公開記事の修正候補。未公開。人による確認待ち"
+  },
+  "ja/split-deal-wait-before-hiring": {
+    "path": "media/src/content/notes/split-deal-wait-before-hiring.md",
+    "title": "営業増員の判断では、商談期間と担当できる件数を分ける",
+    "publication": "既存公開記事の修正候補。未公開。人による確認待ち"
+  },
+  "ja/founder-sales-without-a-founder-copy": {
+    "path": "media/src/content/notes/founder-sales-without-a-founder-copy.md",
+    "title": "社長営業を手放すなら、同じ売り方を求めない",
+    "publication": "未公開の修正候補"
+  }
+}

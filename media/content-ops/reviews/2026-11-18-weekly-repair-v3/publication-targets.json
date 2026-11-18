@@ -1,0 +1,213 @@
+[
+  {
+    "url": "https://media.consilegy.com/say-what-sfa-records-wont-judge/",
+    "title": "営業情報の入力と人事評価の関係を、先に伝える",
+    "h2_expected": [
+      "公開調査が示すのは、管理職が考える未入力の理由",
+      "支援のために知らせることと、本人の責任を判断することを分ける",
+      "確かめるのは、会議の日付より説明と実態の食い違い",
+      "入力負担が原因なら、用途の説明だけでは変わらない",
+      "関連する記事"
+    ],
+    "h2_count": 5,
+    "source": "media/src/content/notes/say-what-sfa-records-wont-judge.md"
+  },
+  {
+    "url": "https://media.consilegy.com/download-count-is-not-internal-use/",
+    "title": "資料ダウンロードの効果は、取得数と利用を分けて見る",
+    "h2_expected": [
+      "候補選びに使う資料と、社内説明に使う資料では役割が違う",
+      "閲覧の記録を、社内で使われた証拠にしない",
+      "社内承認に使う資料なら、買い手が何を補うかまで見る",
+      "取得数を捨てず、目的に合った問いを足す",
+      "関連する記事"
+    ],
+    "h2_count": 5,
+    "source": "media/src/content/notes/download-count-is-not-internal-use.md"
+  },
+  {
+    "url": "https://media.consilegy.com/global-crm-japan-only-fields/",
+    "title": "顧客管理の日本独自項目は、使う判断から置き場を決める",
+    "h2_expected": [
+      "買い手の承認状況なら、地域共通で必要かを確かめる",
+      "商談の状態と、会社の属性と、帳票の書式を混ぜない",
+      "古い項目を止める判断は、配置の見直しとは別に必要",
+      "標準を守ることと、すべてを標準に入れることは違う",
+      "関連する記事"
+    ],
+    "h2_count": 5,
+    "source": "media/src/content/notes/global-crm-japan-only-fields.md"
+  },
+  {
+    "url": "https://media.consilegy.com/split-deal-wait-before-hiring/",
+    "title": "営業増員の判断では、商談期間と担当できる件数を分ける",
+    "h2_expected": [
+      "商談が短くならなくても、増員に意味がある場合",
+      "待ち時間から分かるのは、解決策ではなく確認すべき相手",
+      "終了した商談だけを見ると、長く続いている案件が抜ける",
+      "採用後に見るものも、採用前の目的に合わせる",
+      "関連する記事"
+    ],
+    "h2_count": 5,
+    "source": "media/src/content/notes/split-deal-wait-before-hiring.md"
+  },
+  {
+    "url": "https://media.consilegy.com/founder-sales-without-a-founder-copy/",
+    "title": "社長営業を手放すなら、同じ売り方を求めない",
+    "h2_expected": [
+      "自分の売り方には、渡せないものも混ざっている",
+      "納品を任せることと、仕事を生み出す人を育てることは別",
+      "渡せるのは、結論だけでなく判断に至る材料",
+      "すでに渡せる営業があるなら、話は変わる",
+      "関連する記事"
+    ],
+    "h2_count": 5,
+    "source": "media/src/content/notes/founder-sales-without-a-founder-copy.md"
+  },
+  {
+    "url": "https://media.consilegy.com/en/articles/say-what-sfa-records-wont-judge/",
+    "title": "Japan CRM adoption: explain how records affect reviews",
+    "h2_expected": [
+      "A manager survey cannot tell you what an individual rep fears",
+      "Explain the judgment, rather than promising that no data will be evaluated",
+      "Look for inconsistent uses, not a suspicious weekday",
+      "A data-use policy does not remove entry work"
+    ],
+    "h2_count": 4,
+    "source": "media/src/content/notes-en/say-what-sfa-records-wont-judge.md"
+  },
+  {
+    "url": "https://media.consilegy.com/en/articles/download-count-is-not-internal-use/",
+    "title": "Japan whitepaper performance: separate downloads from use",
+    "h2_expected": [
+      "Start with the decision the asset is meant to help",
+      "Keep observable events separate from inferred behavior",
+      "For an approval asset, ask what the buyer still has to supply",
+      "Keep downloads, but limit the conclusion drawn from them"
+    ],
+    "h2_count": 4,
+    "source": "media/src/content/notes-en/download-count-is-not-internal-use.md"
+  },
+  {
+    "url": "https://media.consilegy.com/en/articles/global-crm-japan-only-fields/",
+    "title": "Global CRM in Japan: decide what a local field is for",
+    "h2_expected": [
+      "A shared label is not necessarily a shared meaning",
+      "Separate company facts, deal states, and document requirements",
+      "Do not turn a storage decision into an untested migration recipe",
+      "Judge local requirements by accountable use"
+    ],
+    "h2_count": 4,
+    "source": "media/src/content/notes-en/global-crm-japan-only-fields.md"
+  },
+  {
+    "url": "https://media.consilegy.com/en/articles/split-deal-wait-before-hiring/",
+    "title": "Japan sales hiring: separate cycle time from capacity",
+    "h2_expected": [
+      "A hire can add capacity without shortening an individual deal",
+      "Locate the unfinished work before assigning a cause",
+      "Closed deals omit the work still waiting to finish",
+      "Evaluate the hire against the constraint it was meant to remove"
+    ],
+    "h2_count": 4,
+    "source": "media/src/content/notes-en/split-deal-wait-before-hiring.md"
+  },
+  {
+    "url": "https://consilegy.com/crm/media/b2c/teachers-notice-homework-only-after-opening-the-system/",
+    "title": "LINE連携済み講師の課題通知を、担当範囲に合わせる",
+    "h2_expected": [
+      "操作できるのは「運営」と「マネージャー」",
+      "ボタンは、押すたびにその場で設定を保存する",
+      "通知設定と、提出への対応は別に確認する",
+      "既存の連携済みの人から、対象と範囲を確かめる"
+    ],
+    "h2_count": 4,
+    "source": "src/content/crm-media/ja/teachers-notice-homework-only-after-opening-the-system.md"
+  },
+  {
+    "url": "https://consilegy.com/crm/media/b2c/new-alumni-signups-still-use-the-old-price/",
+    "title": "卒業後プランの月額が、次の加入者にも古いまま",
+    "h2_expected": [
+      "案内を変えるときは、登録の元になる単価も確かめる",
+      "「卒業後プランの単価」から、対象の月額を直す",
+      "既存の請求や、外部の決済は変わらない",
+      "最初の一歩"
+    ],
+    "h2_count": 4,
+    "source": "src/content/crm-media/ja/new-alumni-signups-still-use-the-old-price.md"
+  },
+  {
+    "url": "https://consilegy.com/crm/media/b2b/custom-deal-stages-stay-in-one-language/",
+    "title": "画面を英語にしても、自社で作った商談ステージ名だけ日本語のまま",
+    "h2_expected": [
+      "列を言語ごとに増やさず、同じステージに別の名前を付ける",
+      "名前を入力し、「保存する」を押してから確認する",
+      "空欄は、標準名の翻訳か元の名前へ戻る",
+      "最初の一歩"
+    ],
+    "h2_count": 4,
+    "source": "src/content/crm-media/ja/custom-deal-stages-stay-in-one-language.md"
+  },
+  {
+    "url": "https://consilegy.com/crm/media/b2b/inquiry-types-get-sorted-by-hand-after-submission/",
+    "title": "問い合わせの種類を、届いてから毎回読み分けている",
+    "h2_expected": [
+      "失っているのは、分類する手間と返事の判断に使う時間",
+      "Revenue CRMでは、フォームに選択式の用件欄を置ける",
+      "公開前に、実際の選択肢を確認する",
+      "送信された用件は「送信した人」で読む",
+      "最初の一歩"
+    ],
+    "h2_count": 5,
+    "source": "src/content/crm-media/ja/inquiry-types-get-sorted-by-hand-after-submission.md"
+  },
+  {
+    "url": "https://consilegy.com/en/crm/media/b2c/teachers-notice-homework-only-after-opening-the-system/",
+    "title": "Set homework alerts for teachers already linked to LINE",
+    "h2_expected": [
+      "Operations and Manager can change the setting",
+      "Each click changes and saves the mode immediately",
+      "Scope does not guarantee delivery or complete the review",
+      "Start with someone already linked"
+    ],
+    "h2_count": 4,
+    "source": "src/content/crm-media/en/teachers-notice-homework-only-after-opening-the-system.md"
+  },
+  {
+    "url": "https://consilegy.com/en/crm/media/b2c/new-alumni-signups-still-use-the-old-price/",
+    "title": "New alumni sign-ups still use the old monthly price",
+    "h2_expected": [
+      "Check the price used for registration",
+      "Change the named plan's monthly amount",
+      "This does not reprice existing members or charge a payment method",
+      "Start with the next plan you will offer"
+    ],
+    "h2_count": 4,
+    "source": "src/content/crm-media/en/new-alumni-signups-still-use-the-old-price.md"
+  },
+  {
+    "url": "https://consilegy.com/en/crm/media/b2b/custom-deal-stages-stay-in-one-language/",
+    "title": "The interface is in English, but your custom deal stages are still in Japanese",
+    "h2_expected": [
+      "Give one stage several names, rather than creating several stages",
+      "Enter the names and save the stage list",
+      "An empty language field uses a fallback",
+      "Start with the stage that needs the most explanation"
+    ],
+    "h2_count": 4,
+    "source": "src/content/crm-media/en/custom-deal-stages-stay-in-one-language.md"
+  },
+  {
+    "url": "https://consilegy.com/en/crm/media/b2b/inquiry-types-get-sorted-by-hand-after-submission/",
+    "title": "Every inquiry arrives as free text. Someone has to classify it again.",
+    "h2_expected": [
+      "A clearer request makes the first response easier",
+      "Add one choice field in Revenue CRM",
+      "Check the public form before relying on it",
+      "Read the selected request type in Submissions",
+      "Start with the decisions you actually make"
+    ],
+    "h2_count": 5,
+    "source": "src/content/crm-media/en/inquiry-types-get-sorted-by-hand-after-submission.md"
+  }
+]

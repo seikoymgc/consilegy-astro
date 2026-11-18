@@ -8,8 +8,9 @@ feature: "フォームのドロップダウン・ラジオと選択肢の設定"
 screens: "フォーム → 設定 → フィールドを追加 → フィールドタイプ → 選択肢（1行に1つ）"
 segment: "b2b"
 edition: "b2b"
-sources: "src/app/(dashboard)/forms/[id]/form-detail.tsx / src/lib/forms/field-options.ts / src/app/api/forms/[id]/route.ts / src/app/f/[id]/page.tsx / src/lib/i18n/translations.ts"
+sources: "src/app/(dashboard)/forms/[id]/form-detail.tsx / src/lib/forms/field-options.ts / src/app/api/forms/[id]/route.ts / src/app/f/[id]/page.tsx / src/lib/i18n/translations.ts / src/app/(dashboard)/forms/[id]/form-tabs.tsx / src/app/(dashboard)/forms/[id]/page.tsx / src/app/(dashboard)/forms/[id]/form-analytics.tsx"
 date: "2026-11-11"
+updated: 2026-11-18
 author: "山口聖子"
 ---
 問い合わせを開くと、「まず資料を見たい」「費用を教えてほしい」「今の契約について確認したい」が、全部同じ文章欄に入っています。営業が読み分け、別の表に「資料請求」「見積依頼」「契約中の相談」と書き足す。受付の段階で聞けることを、届いてから毎回判定しています。
@@ -49,6 +50,12 @@ author: "山口聖子"
 選択肢が未設定の項目は、公開ページに出ません。「必須」にしただけでは足りないので、設定画面の「公開URL」からフォームを開き、期待した候補が出るかを確認します。
 
 この設定だけで、担当者への振り分けまで自動になるわけではありません。まずは受付担当が、選ばれた用件を見て対応を決める運用にします。過去の自由記述の回答も、自動で分類し直されません。
+
+## 送信された用件は「送信した人」で読む
+
+対象のフォームで「送信した人」タブを開くと、設問のラベルを見出しにした列で回答を読めます。「お問い合わせの種類」というラベルで作ったなら、その列で選ばれた用件を確かめます。別のラベルを付けた場合は、その名前の列を見てください。
+
+受付担当は、この回答と詳しい事情を合わせて最初の対応を決めます。選択肢を置いたことと、担当者を自動で決めることは別です。
 
 ## 最初の一歩
 

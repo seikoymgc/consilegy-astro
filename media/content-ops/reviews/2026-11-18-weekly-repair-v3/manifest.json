@@ -1,0 +1,138 @@
+[
+  {
+    "source": "media/src/content/notes/say-what-sfa-records-wont-judge.md",
+    "sha256": "03a48510f6962a8c3f3334beb7b92d700db1cbf2b840b552888e1ca5e71105b1",
+    "language": "ja",
+    "slug": "say-what-sfa-records-wont-judge",
+    "kind": "media",
+    "review_text": "texts/ja-say-what-sfa-records-wont-judge.md"
+  },
+  {
+    "source": "media/src/content/notes/download-count-is-not-internal-use.md",
+    "sha256": "ca79ba125ff3b0d1976c0b6e92488112a850ad3a8f273e13d50778562dd9b944",
+    "language": "ja",
+    "slug": "download-count-is-not-internal-use",
+    "kind": "media",
+    "review_text": "texts/ja-download-count-is-not-internal-use.md"
+  },
+  {
+    "source": "media/src/content/notes/global-crm-japan-only-fields.md",
+    "sha256": "702c8d39f56a1fb49747772715b37bd5d7b11404891e45fc6938591fa0b30f70",
+    "language": "ja",
+    "slug": "global-crm-japan-only-fields",
+    "kind": "media",
+    "review_text": "texts/ja-global-crm-japan-only-fields.md"
+  },
+  {
+    "source": "media/src/content/notes/split-deal-wait-before-hiring.md",
+    "sha256": "7019c59738ee68d9f725845e126b0d0880e029891be19b6e4a5f76c11b792294",
+    "language": "ja",
+    "slug": "split-deal-wait-before-hiring",
+    "kind": "media",
+    "review_text": "texts/ja-split-deal-wait-before-hiring.md"
+  },
+  {
+    "source": "media/src/content/notes/founder-sales-without-a-founder-copy.md",
+    "sha256": "3f7e3cd98ba11a037c67c8766a4a7e79397958812ea0d68d5d180971bc02efc9",
+    "language": "ja",
+    "slug": "founder-sales-without-a-founder-copy",
+    "kind": "media",
+    "review_text": "texts/ja-founder-sales-without-a-founder-copy.md"
+  },
+  {
+    "source": "media/src/content/notes-en/say-what-sfa-records-wont-judge.md",
+    "sha256": "4a364188371859a23e13b4165975b9be42ace75beafc81d1e48ad4aed65d0765",
+    "language": "en",
+    "slug": "say-what-sfa-records-wont-judge",
+    "kind": "media",
+    "review_text": "texts/en-say-what-sfa-records-wont-judge.md"
+  },
+  {
+    "source": "media/src/content/notes-en/download-count-is-not-internal-use.md",
+    "sha256": "ddb46567bafbb15bf44c2035f216415b62e70f459c432977caa5a8713ace9a7b",
+    "language": "en",
+    "slug": "download-count-is-not-internal-use",
+    "kind": "media",
+    "review_text": "texts/en-download-count-is-not-internal-use.md"
+  },
+  {
+    "source": "media/src/content/notes-en/global-crm-japan-only-fields.md",
+    "sha256": "45ef020cb570c69a3695fecadde5290dff26dc6acc4eff5cd5a98a56cb4ce2ff",
+    "language": "en",
+    "slug": "global-crm-japan-only-fields",
+    "kind": "media",
+    "review_text": "texts/en-global-crm-japan-only-fields.md"
+  },
+  {
+    "source": "media/src/content/notes-en/split-deal-wait-before-hiring.md",
+    "sha256": "ac7b0927ec097d3990417a4926e60232282e33aea83e0244b7539da289ac0efa",
+    "language": "en",
+    "slug": "split-deal-wait-before-hiring",
+    "kind": "media",
+    "review_text": "texts/en-split-deal-wait-before-hiring.md"
+  },
+  {
+    "source": "src/content/crm-media/ja/teachers-notice-homework-only-after-opening-the-system.md",
+    "sha256": "2584d47bbbe54fbe08e0a2a4811fa5c0a1109ab4e5036d275f68dbfe0377416a",
+    "language": "ja",
+    "slug": "teachers-notice-homework-only-after-opening-the-system",
+    "kind": "product-guide",
+    "review_text": "texts/ja-teachers-notice-homework-only-after-opening-the-system.md"
+  },
+  {
+    "source": "src/content/crm-media/ja/new-alumni-signups-still-use-the-old-price.md",
+    "sha256": "e39a19987e5aa0c5e05461e6b271b85d1d38017f5085f75ccae7231a5de9aef9",
+    "language": "ja",
+    "slug": "new-alumni-signups-still-use-the-old-price",
+    "kind": "product-guide",
+    "review_text": "texts/ja-new-alumni-signups-still-use-the-old-price.md"
+  },
+  {
+    "source": "src/content/crm-media/ja/custom-deal-stages-stay-in-one-language.md",
+    "sha256": "3e97430aca26081a1e2a13146a73f45228d28c60276817d4dc892baa31f1bef5",
+    "language": "ja",
+    "slug": "custom-deal-stages-stay-in-one-language",
+    "kind": "product-guide",
+    "review_text": "texts/ja-custom-deal-stages-stay-in-one-language.md"
+  },
+  {
+    "source": "src/content/crm-media/ja/inquiry-types-get-sorted-by-hand-after-submission.md",
+    "sha256": "3aeefc4799ad3d64a2e3ac10e1ac6bcf91b0ceeff7b797ff475f82c70d4c18ca",
+    "language": "ja",
+    "slug": "inquiry-types-get-sorted-by-hand-after-submission",
+    "kind": "product-guide",
+    "review_text": "texts/ja-inquiry-types-get-sorted-by-hand-after-submission.md"
+  },
+  {
+    "source": "src/content/crm-media/en/teachers-notice-homework-only-after-opening-the-system.md",
+    "sha256": "fbf724bdc51e10e027937407736631b8bb643078fba87b0f3e7c7f25b99987f9",
+    "language": "en",
+    "slug": "teachers-notice-homework-only-after-opening-the-system",
+    "kind": "product-guide",
+    "review_text": "texts/en-teachers-notice-homework-only-after-opening-the-system.md"
+  },
+  {
+    "source": "src/content/crm-media/en/new-alumni-signups-still-use-the-old-price.md",
+    "sha256": "859749c6a273a6b00378daf32e6cbef1f7a77dce449c194824a703ec052d4b63",
+    "language": "en",
+    "slug": "new-alumni-signups-still-use-the-old-price",
+    "kind": "product-guide",
+    "review_text": "texts/en-new-alumni-signups-still-use-the-old-price.md"
+  },
+  {
+    "source": "src/content/crm-media/en/custom-deal-stages-stay-in-one-language.md",
+    "sha256": "14dd01a5be4741540ba70d46d0dce48075b5b9767deb376bbc3ae6769face32d",
+    "language": "en",
+    "slug": "custom-deal-stages-stay-in-one-language",
+    "kind": "product-guide",
+    "review_text": "texts/en-custom-deal-stages-stay-in-one-language.md"
+  },
+  {
+    "source": "src/content/crm-media/en/inquiry-types-get-sorted-by-hand-after-submission.md",
+    "sha256": "b84dc95ca9754b02c6884216455f29e11e61d8f935463ea2af091e6af1c28dbd",
+    "language": "en",
+    "slug": "inquiry-types-get-sorted-by-hand-after-submission",
+    "kind": "product-guide",
+    "review_text": "texts/en-inquiry-types-get-sorted-by-hand-after-submission.md"
+  }
+]

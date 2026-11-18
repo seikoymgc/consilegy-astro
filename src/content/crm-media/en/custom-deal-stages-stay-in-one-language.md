@@ -10,6 +10,7 @@ segment: "b2b"
 edition: "b2b"
 sources: "src/app/(dashboard)/settings/pipeline-stages/page.tsx / src/app/(dashboard)/settings/pipeline-stages/stages-view.tsx / src/app/api/pipeline-stages/route.ts / src/lib/pipeline-stages.ts / src/lib/label-i18n.ts / src/lib/deals-i18n.ts"
 date: "2026-11-15"
+updated: 2026-11-18
 author: "Seiko Yamaguchi"
 ---
 Your international colleagues have switched Revenue CRM to English. The menus make sense, but a custom deal stage still carries the Japanese name your team gave it. Every pipeline review starts with someone explaining what that column means.
@@ -23,7 +24,7 @@ Open Settings → Deal stages and click Name in each language. Three language fi
 ![Language-specific name fields beneath the stages in Deal stages](/images/crm/media/screens/custom-deal-stages-stay-in-one-language-1-en-2026-11.webp)
 *The demo with Name in each language expanded. Faint text is a fallback-name hint, not necessarily a saved value. No names, probabilities, or stage order were changed.*
 
-For example, a team might choose “Internal approval” as the English name for a Japanese stage meaning that the buyer's internal approval is pending. Agree on the state the stage represents before deciding the wording. A literal translation is not useful if the two teams interpret it differently.
+For example, a team might choose “Awaiting customer approval” for a Japanese stage meaning that approval inside the buyer's organization is pending. This is an illustrative label, not a built-in translation. A stage awaiting your own company's approval needs different wording. Agree on who must approve and what is still pending before choosing the names.
 
 You do not need separate Japanese and English columns. Language-specific names let colleagues read the same stage in their own interface language. Separate columns would split deals that are at the same point in the buying process and leave someone reconciling them in the review.
 

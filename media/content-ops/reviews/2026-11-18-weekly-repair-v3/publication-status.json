@@ -1,0 +1,14 @@
+{
+  "authorization": "本人の最新指示「全部公開して」。今回の17ページの公開を実施。",
+  "human_full_text_read": "実施したとは確認していない。公開指示と区別。",
+  "independent_human_review": "未実施",
+  "scope": "17ページの修正、英語問い合わせリンク訂正、v3編集基準と監査記録",
+  "commit": null,
+  "push": "未実施",
+  "deployment": "未確認",
+  "build": {
+    "root": "成功：386ページ。最新の記事幅・見出し表示修正を維持。",
+    "media": "成功：228ページ。",
+    "headings": "17記事・本文H2 75個を確認。"
+  }
+}

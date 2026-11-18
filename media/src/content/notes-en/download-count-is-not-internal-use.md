@@ -1,105 +1,43 @@
 ---
-title: "Download counts do not show whether a buyer used the file"
-description: "HQ reads Japan whitepaper downloads as pipeline signal, then wonders why sales calls go nowhere. A download records that someone received a file, not that it was used inside the buyer's company. Two 2026 Japanese B2B purchasing surveys show which content actually helped, and what to count instead."
+title: "Japan whitepaper performance: separate downloads from use"
+description: "Evaluate Japan content by its purpose. Distinguish a download, a page view, an intended use, and a buyer-confirmed use without claiming causation."
 publishedAt: 2026-09-29
-updatedAt: 2026-11-14
+updatedAt: 2026-11-18
 category: marketing
-principle: "A download records that someone received a file, not that it was used inside the buyer's company. Judge each asset by whether a champion could use it to explain the decision internally, and count a trace of internal circulation instead of the download."
-canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
+principle: "A Japan whitepaper download is not evidence of internal decision use. Keep acquisition metrics and distinguish observed visits, stated intentions, and buyer-confirmed use."
+canonUrl: https://consilegy.com/en/services/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
 ---
 
-Your Japan team translates the flagship whitepaper and publishes it. Downloads climb for two months, and the number goes into the regional review as the proof that Japan demand generation is working.
+Evaluate a Japan whitepaper by its intended role, and keep downloads separate from evidence of use. A download can indicate interest in obtaining the asset; it does not establish reading, internal sharing, or influence on a purchase. A visit from another person at the same company does not establish those outcomes either.
 
-Meanwhile the Japan sales team reports the opposite. They call the people who downloaded it, and get "we are still gathering information" or a colleague who has moved teams.
+This distinction matters when HQ judges a Japan content program while sales needs material that a buyer can take to colleagues. The same asset may support initial research, supplier comparison, or an internal approval request. Those are different jobs, not interchangeable measures of demand.
 
-HQ hears a disagreement between marketing and sales. It is more useful to read it as two teams counting different things.
+## Start with the decision the asset is meant to help
 
-## A download records that a file was received, and nothing after that
+A translated market overview can serve early research without generating an immediate sales conversation. Rejecting it solely for a low meeting rate would ignore that role. An approval-support document has a different purpose: helping the buyer explain a specific choice internally.
 
-The event you capture is a click on a button. Whether the person read it, and whether anyone else ever saw it, is not in the record.
+[IDEATECH's 2026 survey with Hiroyasu Kitagawa](https://prtimes.jp/main/html/rd/p/000000629.000045863.html) asks respondents both which information sources they consulted when identifying candidates and which one most influenced that candidate selection. Conducted March 23–26, 2026, it covered 307 participants involved with others in a purchase meeting a minimum contract or implementation-cost criterion specified in the source. The amount threshold limits how broadly the findings apply.
 
-In large Japanese B2B purchases the gap matters more than it does elsewhere.
+The survey did not compare asset download volumes. It cannot show that widely downloaded content is less useful. Both questions concern candidate selection, not the asset's effect on internal approval. Their limited relevance is that consultation and greatest reported influence are different questions. The publisher, [IDEATECH](https://ideatech.jp), sells research services, and the sample concerns larger purchases, not all Japanese buyers.
 
-IDEATECH and the Demagen Research Institute published a survey on 16 April 2026, fielded 23 to 26 March 2026. Respondents were employees and executives who had, in the previous 12 months, been involved together with at least one other person in buying or reviewing B2B products costing 3 million yen or more per year (n=307).
+## Keep observable events separate from inferred behavior
 
-IDEATECH's business is survey PR and the sample is an online panel, so read the figures as orders of magnitude.
+An internal-sharing page view is an observed visit. A buyer saying they plan to use the document for approval is a stated intention. A buyer later describing where they used it is confirmation of that use. None alone proves that the document caused a sale.
 
-By the time a buyer was substantively talking to a vendor's sales rep, the purchasing process was on average about 40% complete.
+Another known contact at the same company might have arrived independently. The first contact might have forwarded the file offline, leaving no recorded visit. Report what you can observe and retain an unconfirmed category rather than interpreting missing tracking as non-use.
 
-Your rep is calling into a process that started without you. The person who downloaded the file is one contributor to it, and often not the one who signs.
+A tagged URL does not create a viewing log on its own. Recording visits requires an appropriate measurement system and a review of its limits and data-handling requirements.
 
-## A file can get you onto the shortlist without being the file that decides
+## For an approval asset, ask what the buyer still has to supply
 
-In the same survey (n=307), whitepapers and downloadable materials were used by 41.0% of respondents when listing candidate vendors (multiple answers allowed), close to vendor-hosted webinars at 42.3%. So downloadable content does earn a place at the shortlisting stage.
+In a hypothetical Japan purchase requiring ringi, an internally circulated approval proposal, a champion may need to explain the cost, assumptions, and operational implications to people who have not attended sales meetings. A document containing only generic benefits leaves the champion to create that explanation.
 
-Ask which single source had the greatest influence, though (n=300), and whitepapers and materials drop to 20.3%.
+An editable calculation can reduce some of that work, but only if the buyer can obtain and defend the required inputs. More fields do not automatically make it useful. Ask which decision the document supported and what was still missing. Do not claim every Japanese company uses the same approval process, or that this requirement is unique to Japan.
 
-The two questions differ in wording and base, so do not read 41.0% to 20.3% as a fall by half. What the pair does show is that "helped us build a shortlist" and "helped us decide" are separate questions, and a download count speaks only to a slice of the first.
+## Keep downloads, but limit the conclusion drawn from them
 
-## The content buyers found helpful lets them run their own numbers and explain the choice inside the company
+HQ can retain downloads as an acquisition measure while reviewing evidence appropriate to each asset's role. For approval support, buyer feedback can reveal whether to change the document, its recipient, or its timing. The number acquired does not settle those choices.
 
-A second survey from the same two organisations, published 9 June 2026, asked about the content that helped a purchase decision.
-
-It was fielded 25 to 26 May 2026, with 330 valid responses (the base varies by question). Respondents had been involved with at least one other person in buying business software, SaaS, IT infrastructure or security products costing 5 million yen or more per year.
-
-The threshold and questions differ from the first survey, so do not combine the figures. It is again an online panel run by a survey-PR company.
-
-The most helpful content type was an ROI calculator at 55.4%, followed by case studies from the buyer's own industry or a similar size at 46.5%, slides written for internal explanation at 26.8%, and materials to support the approval request at 14.2% (all multiple answers).
-
-The items that did not influence the decision were led by generic industry trend reports at 49.5% and feature comparison tables at 46.2%.
-
-The pattern is easy to read.
-
-What helped is content the buyer can put their own numbers into and carry into an internal meeting, or use as it is. What did not help is content that is read as general information, or that only compares.
-
-The survey asked about influence, not download volume.
-
-Still, in the accounts we have worked with, the assets that top the download ranking tend to sit in the second group. They are easy to pick up, so they are picked up often. Volume of downloads does not turn into volume of deals.
-
-## Count a trace of internal circulation, and choose it before you publish the asset
-
-Start by writing one line per asset: in which internal situation does the buyer use this? To frame the problem, to compare options, or to write the approval request. If you cannot write the line, the asset has no defined reader.
-
-Then choose one trace that shows it was used in that situation. For example:
-
-- Opens of a one-page internal summary linked from the asset, holding the key points and an indicative cost
-- Visits to the same asset or related pages by a different person at the downloader's email domain
-- Inquiries to sales that include phrases like "I need to explain this internally" or "to attach to the approval request"
-
-Each needs a capture mechanism decided in advance, or nobody will be able to count it.
-
-For the first, a PDF sent as an attachment records nothing. Deliver the one-pager as a web page that logs views, or through a URL with tracking parameters.
-
-For the second, your marketing automation or CRM can only follow people who are already known contacts and whose browsing is tied to their record.
-
-Picking up anonymous visitors from the same company needs a separate capability that infers the company from the visit, and whether you have it depends on your tools and contract. Counting known contacts at the same domain, other than the downloader, is enough to start.
-
-For the third, free text in an inquiry is never tallied. Either add an optional "purpose" choice to the inquiry form, or have sales record "for internal explanation or approval" in a field on the deal.
-
-None of these can be captured completely. Some Japanese companies pass PDFs around by email without going through any link you control. Still, each is closer to something moving inside the buyer's company than a download is.
-
-The choice has a side effect.
-
-An asset that cannot support a one-page internal summary is often information that lets a reader feel informed without helping them act. That is a reason to rework the asset before you rework the number.
-
-## Move the download count to the bottom of the report
-
-You do not have to stop recording downloads. As a rough measure of how wide the top of the funnel is, they are fine.
-
-What to drop is the habit of reporting success with them.
-
-The number at the top of a regional review decides the next quarter's plan: make more of whatever grew, stop whatever did not. The first assets to go are the ROI calculator and the internal-explanation deck, because they never gather many downloads, and they are the ones the survey says helped.
-
-## Common mistakes
-
-- **Treating every download as a request for a sales conversation.** Receiving a file and asking to be contacted are different actions. Respond to an explicit contact request in the way the buyer asked; do not route everyone who only wanted the file into a meeting. Measuring internal use and respecting a buyer's contact preference are separate decisions
-- **Retiring low-download assets as unpopular.** ROI tools and internal-use decks are downloaded less by nature. Ranked by count, the assets that help buyers are cut first
-- **Adding or removing form fields to tune the count.** The number moves, and you learn nothing new about whether the file was used
-
-## Related reading
-
-A comparison sheet from your sales team is judged the same way: by whether it gets used when the buyer explains the choice internally. That case is in [Your Japan battlecard is read in a room your rep never enters](/en/articles/comparison-chart-defends-the-choice/).
-
-Other notes on the same problem are collected under [Demand generation](/en/category/marketing/).
+See [Japan market GTM and messaging](https://consilegy.com/en/services/japan-market-gtm-messaging/) for the wider market-entry context. Related articles address [buyer-editable approval material](/en/articles/draft-the-internal-approval-document/) and [letting buyers calculate their own ROI](/en/articles/let-buyers-calculate-the-roi/).

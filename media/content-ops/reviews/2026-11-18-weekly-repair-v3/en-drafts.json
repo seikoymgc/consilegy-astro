@@ -1,0 +1,22 @@
+{
+  "en/say-what-sfa-records-wont-judge": {
+    "path": "media/src/content/notes-en/say-what-sfa-records-wont-judge.md",
+    "title": "Japan CRM adoption: explain how records affect reviews",
+    "publication": "既存公開記事の修正候補。未公開。人による確認待ち"
+  },
+  "en/download-count-is-not-internal-use": {
+    "path": "media/src/content/notes-en/download-count-is-not-internal-use.md",
+    "title": "Japan whitepaper performance: separate downloads from use",
+    "publication": "既存公開記事の修正候補。未公開。人による確認待ち"
+  },
+  "en/global-crm-japan-only-fields": {
+    "path": "media/src/content/notes-en/global-crm-japan-only-fields.md",
+    "title": "Global CRM in Japan: decide what a local field is for",
+    "publication": "既存公開記事の修正候補。未公開。人による確認待ち"
+  },
+  "en/split-deal-wait-before-hiring": {
+    "path": "media/src/content/notes-en/split-deal-wait-before-hiring.md",
+    "title": "Japan sales hiring: separate cycle time from capacity",
+    "publication": "既存公開記事の修正候補。未公開。人による確認待ち"
+  }
+}

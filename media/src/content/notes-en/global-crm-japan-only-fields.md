@@ -1,117 +1,47 @@
 ---
-title: "Why only Japan keeps adding fields to your global CRM"
-description: "Global CRM customization piles up in Japan when every field request is answered with yes or no. Ask who decides what with the field, then route it to the global standard, the Japan account record, the document layer, or nowhere."
+title: "Global CRM in Japan: decide what a local field is for"
+description: "Assess Japan field requests by their business use, shared meaning, and record requirements. A classification is not a tested migration procedure."
 publishedAt: 2026-10-19
-updatedAt: 2026-11-15
+updatedAt: 2026-11-18
 category: japan-gtm
-principle: "Before approving or refusing a field request from Japan, ask who will decide what with that field. Route it to the global standard, to the Japan account record, to the document layer outside the CRM, or nowhere."
+principle: "Before adding a Japan field, distinguish a shared business meaning from local data and document presentation. Preserve historical records and validate dependencies before migration."
 canonUrl: https://consilegy.com/en/services/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
 ---
 
-Six months after the global CRM goes live in Japan, the admin team at HQ notices that the Japan page layout has grown.
+Assess a Japan CRM field request by the decision it supports, rather than approving or rejecting it because it is local. A request may expose missing information shared across regions, a Japan-specific business requirement, or a document presentation issue. Each calls for a different design decision.
 
-Approval reference numbers. The approver's title. An internal approval target date. Honorifics for the addressee. Contract dates in the Japanese era calendar.
+HQ needs comparable reports; the Japan team needs to complete its work with buyers. Treating every request as another field to allow or refuse can obscure both requirements. It also misses the difference between translating a label and recording a genuinely different state.
 
-From HQ it looks like Japan is running its own version of the CRM. Ask the Japan team and they will tell you they only added what the work requires.
+## A shared label is not necessarily a shared meaning
 
-Both are telling the truth.
+Suppose, as a hypothetical case, Japan asks to record progress through a buyer's ringi process, the circulation of a proposal for internal approval. If HQ needs that progress for forecasting, storing it only in local notes may leave relevant information out of the global view.
 
-The problem is the shape of the decision: each request gets a yes, and lands on a Japan-only layout, or a no, and moves into a spreadsheet on someone's laptop.
+That does not mean a single approval ladder fits every buyer or region. A value such as “department approved” is comparable only when teams understand what has been approved and what remains. Translation cannot settle a disagreement about the underlying state.
 
-Either way, someone is unhappy two quarters later.
+[IDEATECH's 2026 research with Hiroyasu Kitagawa](https://prtimes.jp/main/html/rd/p/000000629.000045863.html) examines departments and approvals in larger Japanese B2B purchases. It was conducted March 23–26, 2026 among 307 people involved with others in qualifying purchases. It is a Japan sample, not an international comparison, and does not establish a universal approval sequence. [IDEATECH](https://ideatech.jp) is a research service provider.
 
-## Some of what Japan asks for is not about Japan
+The design question is whether regional teams need the same information for the same judgment. Shared information and local explanatory detail can coexist when their responsibilities are clear.
 
-Sort the Japan requests and a large share are about approval.
+## Separate company facts, deal states, and document requirements
 
-Whose sign-off is still missing. When the ringi, the internal approval request, will be submitted. Who the final approver is.
+A company attribute may belong on an account record, while a changing approval status concerns an individual opportunity. But avoid treating this as a blanket rule against duplication: a contract may need a fixed record of what was true when it was issued, rather than the latest account value.
 
-Multi-step approval is normal in large Japanese purchases. In a survey by IDEATECH with Hiroyasu Kitagawa of Demagen Research (published 16 April 2026, fielded 23 to 26 March 2026; 307 people in Japan who, together with at least one colleague, had handled a B2B purchase, renewal or replacement worth JPY 3 million or more in annual contract value or upfront cost; run by a company whose business is survey-based PR), more than 80% reported two or more approval steps before the order.
+Japanese honorifics or date formats might be handled when generating a document. If the issued form must be retained exactly, presentation alone is not the whole requirement. Check where documents are produced and how their historical content is preserved before deciding that a source field is unnecessary.
 
-It is not surprising that the Japan team wants a place to record them.
+A local field can therefore be justified even when HQ does not aggregate it. Conversely, information used in a global decision should not disappear from that decision merely because Japan first requested it.
 
-Deals that stall on the buyer's side are not only a Japan problem, either. In Ebsta and Pavilion's 2024 B2B Sales Benchmarks (about 4.2 million opportunities across 530 companies; not Japan data), 61% of lost deals were attributed to buyer indecision.
+## Do not turn a storage decision into an untested migration recipe
 
-That does not mean recording approval steps would prevent those losses. It is background: in other regions too, much of what is lost is lost on the buyer's side.
+Adding a replacement field and copying values does not switch the workflows, integrations, and reports that still read or write the old one. Making the old field read-only can interrupt those processes.
 
-The practical gain for HQ is elsewhere. If every region records approval progress in the same field, the forecast call can separate "high confidence, approval stalled" deals from the rest, in any region.
+A migration needs separate validation of dependencies, value mapping, updates during transition, historical reporting, and recovery if something fails. The classification in this article does not complete those checks and should not be executed as a product-specific migration procedure.
 
-Some Japan requests are exactly this kind of thing: a gap in the global design that Japan hit first.
+## Judge local requirements by accountable use
 
-Put that on a Japan-only layout and the gap gets locked in as a local field.
+Reducing the count of Japan-only fields is not sufficient evidence of improvement. A clearly owned local field may be appropriate; an unused global field may not be.
 
-The field exists on the object and is technically reportable, but only Japan fills it in, so nobody at HQ builds a report or forecast around it.
+For the next unresolved request, identify who uses the information, what they decide, and whether a current value or an issued historical record is required. Only then decide whether to translate, share, retain locally, or handle it in the document process.
 
-Reportable in theory, invisible in practice. That is the most expensive way to handle it.
-
-## Route each request by what it is trying to record
-
-Before you approve or refuse, ask one question: who will look at this field, and what will they decide with it? The answer tells you where it goes.
-
-| What the request records | Examples | Where it goes |
-|---|---|---|
-| What has moved inside the buyer's organisation | Approval step, approver, internal approval deadline | The global standard. Approval step as one deal field; approver as a contact role on the deal; deadline as a date field for the customer's internal deadline |
-| Records Japanese law or trade practice requires on the account | Qualified invoice issuer registration number, corporate number | A Japan-only field on the account (company) record. Not on the deal |
-| Information needed to produce Japanese-format documents | Honorifics, era-calendar dates, invoice layout | Not a field. Convert it where quotes and invoices are generated |
-| A column from the old spreadsheet | Rep notes column, legacy system reference number | If nobody decides anything with it, do not add it |
-
-The first type is useful in the global forecast call, not just in Tokyo.
-
-Record the approval step in one deal field, with steps such as working team aligned, manager approved, executive approved, decision made.
-
-Keep the picklist values identical across regions; only the display labels should be translated. If the values themselves differ by region, the field is shared but the reporting axis is not.
-
-HQ and each regional sales lead agree the step definitions.
-
-Only the approval step goes into that single field.
-
-The approver is a person, so hold it as a role on the deal's contacts (Opportunity Contact Roles in Salesforce; association labels between deals and contacts in HubSpot, where availability depends on your subscription, so check). The deadline is a date, so it goes in its own date field.
-
-Neither is known when the deal is created, so do not make them required at creation. Ask for them when the deal moves into the approval stage.
-
-The third type is output, not data. Adding honorifics or era dates as deal fields puts empty columns in every other region's reports and gives Japan its own entry rules.
-
-One caveat: if quotes are built with the CRM's native quoting tool, the conversion lives inside the CRM after all. Check how quotes and invoices are actually produced first.
-
-The fourth type often has no answer when you ask.
-
-If the reason is "it was in the old spreadsheet," look at what that column was used for. If it turns out to support a decision, it belongs in one of the other three. If not, leave it out.
-
-## When a field moves to the global standard, set a date to retire the Japan one
-
-If a Japan-only field already exists, adding the global field next to it just gives you two copies, and one will go stale. Once you decide to standardise:
-
-1. Raise it through HQ change management and get agreement from each regional sales lead. Make the field optional in other regions, not required.
-2. List every workflow, validation rule, report and integration that reads the old Japan field.
-3. Bulk-migrate existing values to the new field and reconcile the record counts.
-4. Make the old field read-only. Leave historical reports on the old field and note the cutover date.
-
-## HQ and Japan sort the list together
-
-If the HQ admin does the sorting alone, Japan hears "refused again." If the Japan team does it alone, everything is required.
-
-Keep every request on one shared list, and have the HQ CRM admin and the Japan operations owner review it together. Do not create a new meeting; add the list to the weekly operations meeting that already exists.
-
-Four columns are enough: the request, who decides what with it, where it goes, and the date of the decision.
-
-Name one person who decides when they disagree, such as the head of RevOps at HQ. Changes to the global standard alter every region's layout, so release them together once a quarter.
-
-Keep the rows you decide not to build. When the same request comes back from someone else, you can explain in thirty seconds why it was not added.
-
-And when a request ends up in the global standard, say so to the other regions. Japan should get the credit for having fixed the global design.
-
-**Before approving or refusing a field request from Japan, ask who will decide what with that field. Route it to the global standard, the Japan account record, the document layer outside the CRM, or nowhere, and Japan stops accumulating a version of its own.**
-
-## Common mistakes
-
-- **Building a Japan-only layout or record type first.** It is quick, but fields placed there are filled in only by Japan, so no global report or forecast ever uses them. Check whether the field belongs in the global standard before you branch.
-- **Refusing without saying where the need should go.** A request with no destination does not disappear. It moves into a spreadsheet.
-- **Solving a formatting request with a field.** Honorifics and era dates are an output problem, not a data problem.
-
-## Related reading
-
-Before adding a field, also check whether the current interface makes the work difficult. [Japan’s spreadsheet requests can reveal a CRM design gap](/en/articles/asked-to-go-back-to-the-old-way/) examines how familiar viewing and editing can be preserved without maintaining a second set of records.
-
-Other notes on the same problem are collected under [Japan market & GTM](/en/category/japan-gtm/).
+For the wider context, see [Japan market GTM and messaging](https://consilegy.com/en/services/japan-market-gtm-messaging/). Related articles cover [buyer-editable approval documents](/en/articles/draft-the-internal-approval-document/) and [separating interface familiarity from the data location](/en/articles/asked-to-go-back-to-the-old-way/).

@@ -1,0 +1,700 @@
+[
+  {
+    "source": "media/src/content/notes/say-what-sfa-records-wont-judge.md",
+    "markdown_h2": 5,
+    "rendered_h2": 5,
+    "missing_h2": [],
+    "heading_jumps": [],
+    "headings": [
+      [
+        1,
+        "営業情報の入力と人事評価の関係を、先に伝える"
+      ],
+      [
+        2,
+        "公開調査が示すのは、管理職が考える未入力の理由"
+      ],
+      [
+        2,
+        "支援のために知らせることと、本人の責任を判断することを分ける"
+      ],
+      [
+        2,
+        "確かめるのは、会議の日付より説明と実態の食い違い"
+      ],
+      [
+        2,
+        "入力負担が原因なら、用途の説明だけでは変わらない"
+      ],
+      [
+        2,
+        "関連する記事"
+      ]
+    ],
+    "comparison_note": "アポストロフィの自動組版（直線から曲線）を正規化して照合。"
+  },
+  {
+    "source": "media/src/content/notes/download-count-is-not-internal-use.md",
+    "markdown_h2": 5,
+    "rendered_h2": 5,
+    "missing_h2": [],
+    "heading_jumps": [],
+    "headings": [
+      [
+        1,
+        "資料ダウンロードの効果は、取得数と利用を分けて見る"
+      ],
+      [
+        2,
+        "候補選びに使う資料と、社内説明に使う資料では役割が違う"
+      ],
+      [
+        2,
+        "閲覧の記録を、社内で使われた証拠にしない"
+      ],
+      [
+        2,
+        "社内承認に使う資料なら、買い手が何を補うかまで見る"
+      ],
+      [
+        2,
+        "取得数を捨てず、目的に合った問いを足す"
+      ],
+      [
+        2,
+        "関連する記事"
+      ]
+    ],
+    "comparison_note": "アポストロフィの自動組版（直線から曲線）を正規化して照合。"
+  },
+  {
+    "source": "media/src/content/notes/global-crm-japan-only-fields.md",
+    "markdown_h2": 5,
+    "rendered_h2": 5,
+    "missing_h2": [],
+    "heading_jumps": [],
+    "headings": [
+      [
+        1,
+        "顧客管理の日本独自項目は、使う判断から置き場を決める"
+      ],
+      [
+        2,
+        "買い手の承認状況なら、地域共通で必要かを確かめる"
+      ],
+      [
+        2,
+        "商談の状態と、会社の属性と、帳票の書式を混ぜない"
+      ],
+      [
+        2,
+        "古い項目を止める判断は、配置の見直しとは別に必要"
+      ],
+      [
+        2,
+        "標準を守ることと、すべてを標準に入れることは違う"
+      ],
+      [
+        2,
+        "関連する記事"
+      ]
+    ],
+    "comparison_note": "アポストロフィの自動組版（直線から曲線）を正規化して照合。"
+  },
+  {
+    "source": "media/src/content/notes/split-deal-wait-before-hiring.md",
+    "markdown_h2": 5,
+    "rendered_h2": 5,
+    "missing_h2": [],
+    "heading_jumps": [],
+    "headings": [
+      [
+        1,
+        "営業増員の判断では、商談期間と担当できる件数を分ける"
+      ],
+      [
+        2,
+        "商談が短くならなくても、増員に意味がある場合"
+      ],
+      [
+        2,
+        "待ち時間から分かるのは、解決策ではなく確認すべき相手"
+      ],
+      [
+        2,
+        "終了した商談だけを見ると、長く続いている案件が抜ける"
+      ],
+      [
+        2,
+        "採用後に見るものも、採用前の目的に合わせる"
+      ],
+      [
+        2,
+        "関連する記事"
+      ]
+    ],
+    "comparison_note": "アポストロフィの自動組版（直線から曲線）を正規化して照合。"
+  },
+  {
+    "source": "media/src/content/notes/founder-sales-without-a-founder-copy.md",
+    "markdown_h2": 5,
+    "rendered_h2": 5,
+    "missing_h2": [],
+    "heading_jumps": [],
+    "headings": [
+      [
+        1,
+        "社長営業を手放すなら、同じ売り方を求めない"
+      ],
+      [
+        2,
+        "自分の売り方には、渡せないものも混ざっている"
+      ],
+      [
+        2,
+        "納品を任せることと、仕事を生み出す人を育てることは別"
+      ],
+      [
+        2,
+        "渡せるのは、結論だけでなく判断に至る材料"
+      ],
+      [
+        2,
+        "すでに渡せる営業があるなら、話は変わる"
+      ],
+      [
+        2,
+        "関連する記事"
+      ]
+    ],
+    "comparison_note": "アポストロフィの自動組版（直線から曲線）を正規化して照合。"
+  },
+  {
+    "source": "media/src/content/notes-en/say-what-sfa-records-wont-judge.md",
+    "markdown_h2": 4,
+    "rendered_h2": 4,
+    "missing_h2": [],
+    "heading_jumps": [],
+    "headings": [
+      [
+        1,
+        "Japan CRM adoption: explain how records affect reviews"
+      ],
+      [
+        2,
+        "A manager survey cannot tell you what an individual rep fears"
+      ],
+      [
+        2,
+        "Explain the judgment, rather than promising that no data will be evaluated"
+      ],
+      [
+        2,
+        "Look for inconsistent uses, not a suspicious weekday"
+      ],
+      [
+        2,
+        "A data-use policy does not remove entry work"
+      ]
+    ],
+    "comparison_note": "アポストロフィの自動組版（直線から曲線）を正規化して照合。"
+  },
+  {
+    "source": "media/src/content/notes-en/download-count-is-not-internal-use.md",
+    "markdown_h2": 4,
+    "rendered_h2": 4,
+    "missing_h2": [],
+    "heading_jumps": [],
+    "headings": [
+      [
+        1,
+        "Japan whitepaper performance: separate downloads from use"
+      ],
+      [
+        2,
+        "Start with the decision the asset is meant to help"
+      ],
+      [
+        2,
+        "Keep observable events separate from inferred behavior"
+      ],
+      [
+        2,
+        "For an approval asset, ask what the buyer still has to supply"
+      ],
+      [
+        2,
+        "Keep downloads, but limit the conclusion drawn from them"
+      ]
+    ],
+    "comparison_note": "アポストロフィの自動組版（直線から曲線）を正規化して照合。"
+  },
+  {
+    "source": "media/src/content/notes-en/global-crm-japan-only-fields.md",
+    "markdown_h2": 4,
+    "rendered_h2": 4,
+    "missing_h2": [],
+    "heading_jumps": [],
+    "headings": [
+      [
+        1,
+        "Global CRM in Japan: decide what a local field is for"
+      ],
+      [
+        2,
+        "A shared label is not necessarily a shared meaning"
+      ],
+      [
+        2,
+        "Separate company facts, deal states, and document requirements"
+      ],
+      [
+        2,
+        "Do not turn a storage decision into an untested migration recipe"
+      ],
+      [
+        2,
+        "Judge local requirements by accountable use"
+      ]
+    ],
+    "comparison_note": "アポストロフィの自動組版（直線から曲線）を正規化して照合。"
+  },
+  {
+    "source": "media/src/content/notes-en/split-deal-wait-before-hiring.md",
+    "markdown_h2": 4,
+    "rendered_h2": 4,
+    "missing_h2": [],
+    "heading_jumps": [],
+    "headings": [
+      [
+        1,
+        "Japan sales hiring: separate cycle time from capacity"
+      ],
+      [
+        2,
+        "A hire can add capacity without shortening an individual deal"
+      ],
+      [
+        2,
+        "Locate the unfinished work before assigning a cause"
+      ],
+      [
+        2,
+        "Closed deals omit the work still waiting to finish"
+      ],
+      [
+        2,
+        "Evaluate the hire against the constraint it was meant to remove"
+      ]
+    ],
+    "comparison_note": "アポストロフィの自動組版（直線から曲線）を正規化して照合。"
+  },
+  {
+    "source": "src/content/crm-media/ja/teachers-notice-homework-only-after-opening-the-system.md",
+    "markdown_h2": 4,
+    "rendered_h2": 9,
+    "missing_h2": [],
+    "heading_jumps": [],
+    "headings": [
+      [
+        1,
+        "LINE連携済み講師の課題通知を、担当範囲に合わせる"
+      ],
+      [
+        2,
+        "操作できるのは「運営」と「マネージャー」"
+      ],
+      [
+        2,
+        "ボタンは、押すたびにその場で設定を保存する"
+      ],
+      [
+        2,
+        "通知設定と、提出への対応は別に確認する"
+      ],
+      [
+        2,
+        "既存の連携済みの人から、対象と範囲を確かめる"
+      ],
+      [
+        2,
+        "次に読む"
+      ],
+      [
+        2,
+        "新着記事"
+      ],
+      [
+        2,
+        "よく読まれている記事"
+      ],
+      [
+        2,
+        "読者"
+      ],
+      [
+        2,
+        "カテゴリ"
+      ]
+    ],
+    "comparison_note": "アポストロフィの自動組版（直線から曲線）を正規化して照合。"
+  },
+  {
+    "source": "src/content/crm-media/ja/new-alumni-signups-still-use-the-old-price.md",
+    "markdown_h2": 4,
+    "rendered_h2": 9,
+    "missing_h2": [],
+    "heading_jumps": [],
+    "headings": [
+      [
+        1,
+        "卒業後プランの月額が、次の加入者にも古いまま"
+      ],
+      [
+        2,
+        "案内を変えるときは、登録の元になる単価も確かめる"
+      ],
+      [
+        2,
+        "「卒業後プランの単価」から、対象の月額を直す"
+      ],
+      [
+        2,
+        "既存の請求や、外部の決済は変わらない"
+      ],
+      [
+        2,
+        "最初の一歩"
+      ],
+      [
+        2,
+        "次に読む"
+      ],
+      [
+        2,
+        "新着記事"
+      ],
+      [
+        2,
+        "よく読まれている記事"
+      ],
+      [
+        2,
+        "読者"
+      ],
+      [
+        2,
+        "カテゴリ"
+      ]
+    ],
+    "comparison_note": "アポストロフィの自動組版（直線から曲線）を正規化して照合。"
+  },
+  {
+    "source": "src/content/crm-media/ja/custom-deal-stages-stay-in-one-language.md",
+    "markdown_h2": 4,
+    "rendered_h2": 9,
+    "missing_h2": [],
+    "heading_jumps": [],
+    "headings": [
+      [
+        1,
+        "画面を英語にしても、自社で作った商談ステージ名だけ日本語のまま"
+      ],
+      [
+        2,
+        "列を言語ごとに増やさず、同じステージに別の名前を付ける"
+      ],
+      [
+        2,
+        "名前を入力し、「保存する」を押してから確認する"
+      ],
+      [
+        2,
+        "空欄は、標準名の翻訳か元の名前へ戻る"
+      ],
+      [
+        2,
+        "最初の一歩"
+      ],
+      [
+        2,
+        "次に読む"
+      ],
+      [
+        2,
+        "新着記事"
+      ],
+      [
+        2,
+        "よく読まれている記事"
+      ],
+      [
+        2,
+        "読者"
+      ],
+      [
+        2,
+        "カテゴリ"
+      ]
+    ],
+    "comparison_note": "アポストロフィの自動組版（直線から曲線）を正規化して照合。"
+  },
+  {
+    "source": "src/content/crm-media/ja/inquiry-types-get-sorted-by-hand-after-submission.md",
+    "markdown_h2": 5,
+    "rendered_h2": 10,
+    "missing_h2": [],
+    "heading_jumps": [],
+    "headings": [
+      [
+        1,
+        "問い合わせの種類を、届いてから毎回読み分けている"
+      ],
+      [
+        2,
+        "失っているのは、分類する手間と返事の判断に使う時間"
+      ],
+      [
+        2,
+        "Revenue CRMでは、フォームに選択式の用件欄を置ける"
+      ],
+      [
+        2,
+        "公開前に、実際の選択肢を確認する"
+      ],
+      [
+        2,
+        "送信された用件は「送信した人」で読む"
+      ],
+      [
+        2,
+        "最初の一歩"
+      ],
+      [
+        2,
+        "次に読む"
+      ],
+      [
+        2,
+        "新着記事"
+      ],
+      [
+        2,
+        "よく読まれている記事"
+      ],
+      [
+        2,
+        "読者"
+      ],
+      [
+        2,
+        "カテゴリ"
+      ]
+    ],
+    "comparison_note": "アポストロフィの自動組版（直線から曲線）を正規化して照合。"
+  },
+  {
+    "source": "src/content/crm-media/en/teachers-notice-homework-only-after-opening-the-system.md",
+    "markdown_h2": 4,
+    "rendered_h2": 9,
+    "missing_h2": [],
+    "heading_jumps": [],
+    "headings": [
+      [
+        1,
+        "Set homework alerts for teachers already linked to LINE"
+      ],
+      [
+        2,
+        "Operations and Manager can change the setting"
+      ],
+      [
+        2,
+        "Each click changes and saves the mode immediately"
+      ],
+      [
+        2,
+        "Scope does not guarantee delivery or complete the review"
+      ],
+      [
+        2,
+        "Start with someone already linked"
+      ],
+      [
+        2,
+        "Read next"
+      ],
+      [
+        2,
+        "New articles"
+      ],
+      [
+        2,
+        "Most read"
+      ],
+      [
+        2,
+        "For"
+      ],
+      [
+        2,
+        "Categories"
+      ]
+    ],
+    "comparison_note": "アポストロフィの自動組版（直線から曲線）を正規化して照合。"
+  },
+  {
+    "source": "src/content/crm-media/en/new-alumni-signups-still-use-the-old-price.md",
+    "markdown_h2": 4,
+    "rendered_h2": 9,
+    "missing_h2": [],
+    "heading_jumps": [],
+    "headings": [
+      [
+        1,
+        "New alumni sign-ups still use the old monthly price"
+      ],
+      [
+        2,
+        "Check the price used for registration"
+      ],
+      [
+        2,
+        "Change the named plan’s monthly amount"
+      ],
+      [
+        2,
+        "This does not reprice existing members or charge a payment method"
+      ],
+      [
+        2,
+        "Start with the next plan you will offer"
+      ],
+      [
+        2,
+        "Read next"
+      ],
+      [
+        2,
+        "New articles"
+      ],
+      [
+        2,
+        "Most read"
+      ],
+      [
+        2,
+        "For"
+      ],
+      [
+        2,
+        "Categories"
+      ]
+    ],
+    "comparison_note": "アポストロフィの自動組版（直線から曲線）を正規化して照合。"
+  },
+  {
+    "source": "src/content/crm-media/en/custom-deal-stages-stay-in-one-language.md",
+    "markdown_h2": 4,
+    "rendered_h2": 9,
+    "missing_h2": [],
+    "heading_jumps": [],
+    "headings": [
+      [
+        1,
+        "The interface is in English, but your custom deal stages are still in Japanese"
+      ],
+      [
+        2,
+        "Give one stage several names, rather than creating several stages"
+      ],
+      [
+        2,
+        "Enter the names and save the stage list"
+      ],
+      [
+        2,
+        "An empty language field uses a fallback"
+      ],
+      [
+        2,
+        "Start with the stage that needs the most explanation"
+      ],
+      [
+        2,
+        "Read next"
+      ],
+      [
+        2,
+        "New articles"
+      ],
+      [
+        2,
+        "Most read"
+      ],
+      [
+        2,
+        "For"
+      ],
+      [
+        2,
+        "Categories"
+      ]
+    ],
+    "comparison_note": "アポストロフィの自動組版（直線から曲線）を正規化して照合。"
+  },
+  {
+    "source": "src/content/crm-media/en/inquiry-types-get-sorted-by-hand-after-submission.md",
+    "markdown_h2": 5,
+    "rendered_h2": 10,
+    "missing_h2": [],
+    "heading_jumps": [],
+    "headings": [
+      [
+        1,
+        "Every inquiry arrives as free text. Someone has to classify it again."
+      ],
+      [
+        2,
+        "A clearer request makes the first response easier"
+      ],
+      [
+        2,
+        "Add one choice field in Revenue CRM"
+      ],
+      [
+        2,
+        "Check the public form before relying on it"
+      ],
+      [
+        2,
+        "Read the selected request type in Submissions"
+      ],
+      [
+        2,
+        "Start with the decisions you actually make"
+      ],
+      [
+        2,
+        "Read next"
+      ],
+      [
+        2,
+        "New articles"
+      ],
+      [
+        2,
+        "Most read"
+      ],
+      [
+        2,
+        "For"
+      ],
+      [
+        2,
+        "Categories"
+      ]
+    ],
+    "comparison_note": "アポストロフィの自動組版（直線から曲線）を正規化して照合。"
+  }
+]

@@ -10,6 +10,7 @@ feature: "Editing a post-graduation plan price"
 screens: "Billing / Post-graduation plan price / Change amount / monthly-yen prompt"
 sources: "src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/app/api/school-app/grad-plan/route.ts / src/app/api/school-app/student/grad-plan/route.ts / src/school-app/lib/authz.ts / src/school-app/lib/html-en.ts / src/school-app/lib/supabase.ts / supabase/migrations/112_beyonders_billing_visibility.sql"
 date: 2026-11-17
+updated: 2026-11-18
 author: "Seiko Yamaguchi"
 ---
 Your school revises the monthly price of an optional alumni programme. The course information is updated, but the next sign-up still appears with the previous amount.
@@ -28,6 +29,8 @@ The revised amount applies to subsequent sign-ups. Existing billing records keep
 
 You need both permission to view billing amounts and permission to edit billing. Operations and Manager normally have access; other roles need the relevant billing permissions. Being able to see an amount alone is not enough.
 
+There is an input detail to watch: confirming an empty field is treated as zero yen. Enter a whole-yen amount without decimal points or minus signs. If you decide against changing the price, use Cancel instead of clearing the field and confirming.
+
 1. Open **Billing** from the desktop sidebar or through **More** on a phone.
 2. Find **Post-graduation plan price** near the bottom of the screen. Check the plan name and current monthly amount.
 3. Click **✏️ Change amount** for that plan. A prompt opens with the current value.
@@ -42,8 +45,6 @@ Saving also removes a provisional-price marker if the plan has one. Verify the a
 Changing the plan price affects what a new sign-up reads from the plan. It does not apply a price increase to existing billing records. If current members need different treatment, decide and handle that separately.
 
 This control does not initiate a charge. Registering someone for a post-graduation plan creates a pending-payment record in the system; it is separate from taking payment. Do not assume that changing the price updates a PayPal billing agreement or confirms an incoming payment.
-
-There is an input detail to watch: confirming an empty field is treated as zero yen. Enter a whole-yen amount without decimal points or minus signs. If you decide against changing the price, use Cancel instead of clearing the field and confirming.
 
 The section also does not provide controls for creating a new plan or renaming one. Use it to change the monthly amount of a plan already listed there.
 

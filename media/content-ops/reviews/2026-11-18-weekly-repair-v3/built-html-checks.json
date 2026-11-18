@@ -1,0 +1,222 @@
+[
+  {
+    "source": "media/src/content/notes/say-what-sfa-records-wont-judge.md",
+    "route": "/say-what-sfa-records-wont-judge/",
+    "html_exists": true,
+    "h1_count": 1,
+    "jsonld_blocks": 3,
+    "missing_local_targets": [],
+    "images_without_alt": [],
+    "decorative_images": [],
+    "robots": null,
+    "preview": "http://localhost:8770/say-what-sfa-records-wont-judge/"
+  },
+  {
+    "source": "media/src/content/notes/download-count-is-not-internal-use.md",
+    "route": "/download-count-is-not-internal-use/",
+    "html_exists": true,
+    "h1_count": 1,
+    "jsonld_blocks": 3,
+    "missing_local_targets": [],
+    "images_without_alt": [],
+    "decorative_images": [],
+    "robots": null,
+    "preview": "http://localhost:8770/download-count-is-not-internal-use/"
+  },
+  {
+    "source": "media/src/content/notes/global-crm-japan-only-fields.md",
+    "route": "/global-crm-japan-only-fields/",
+    "html_exists": true,
+    "h1_count": 1,
+    "jsonld_blocks": 3,
+    "missing_local_targets": [],
+    "images_without_alt": [],
+    "decorative_images": [],
+    "robots": null,
+    "preview": "http://localhost:8770/global-crm-japan-only-fields/"
+  },
+  {
+    "source": "media/src/content/notes/split-deal-wait-before-hiring.md",
+    "route": "/split-deal-wait-before-hiring/",
+    "html_exists": true,
+    "h1_count": 1,
+    "jsonld_blocks": 3,
+    "missing_local_targets": [],
+    "images_without_alt": [],
+    "decorative_images": [],
+    "robots": null,
+    "preview": "http://localhost:8770/split-deal-wait-before-hiring/"
+  },
+  {
+    "source": "media/src/content/notes/founder-sales-without-a-founder-copy.md",
+    "route": "/founder-sales-without-a-founder-copy/",
+    "html_exists": true,
+    "h1_count": 1,
+    "jsonld_blocks": 3,
+    "missing_local_targets": [],
+    "images_without_alt": [],
+    "decorative_images": [],
+    "robots": null,
+    "preview": "http://localhost:8770/founder-sales-without-a-founder-copy/"
+  },
+  {
+    "source": "media/src/content/notes-en/say-what-sfa-records-wont-judge.md",
+    "route": "/en/articles/say-what-sfa-records-wont-judge/",
+    "html_exists": true,
+    "h1_count": 1,
+    "jsonld_blocks": 3,
+    "missing_local_targets": [],
+    "images_without_alt": [],
+    "decorative_images": [],
+    "robots": null,
+    "preview": "http://localhost:8770/en/articles/say-what-sfa-records-wont-judge/"
+  },
+  {
+    "source": "media/src/content/notes-en/download-count-is-not-internal-use.md",
+    "route": "/en/articles/download-count-is-not-internal-use/",
+    "html_exists": true,
+    "h1_count": 1,
+    "jsonld_blocks": 3,
+    "missing_local_targets": [],
+    "images_without_alt": [],
+    "decorative_images": [],
+    "robots": null,
+    "preview": "http://localhost:8770/en/articles/download-count-is-not-internal-use/"
+  },
+  {
+    "source": "media/src/content/notes-en/global-crm-japan-only-fields.md",
+    "route": "/en/articles/global-crm-japan-only-fields/",
+    "html_exists": true,
+    "h1_count": 1,
+    "jsonld_blocks": 3,
+    "missing_local_targets": [],
+    "images_without_alt": [],
+    "decorative_images": [],
+    "robots": null,
+    "preview": "http://localhost:8770/en/articles/global-crm-japan-only-fields/"
+  },
+  {
+    "source": "media/src/content/notes-en/split-deal-wait-before-hiring.md",
+    "route": "/en/articles/split-deal-wait-before-hiring/",
+    "html_exists": true,
+    "h1_count": 1,
+    "jsonld_blocks": 3,
+    "missing_local_targets": [],
+    "images_without_alt": [],
+    "decorative_images": [],
+    "robots": null,
+    "preview": "http://localhost:8770/en/articles/split-deal-wait-before-hiring/"
+  },
+  {
+    "source": "src/content/crm-media/ja/teachers-notice-homework-only-after-opening-the-system.md",
+    "route": "/crm/media/b2c/teachers-notice-homework-only-after-opening-the-system/",
+    "html_exists": true,
+    "h1_count": 1,
+    "jsonld_blocks": 2,
+    "missing_local_targets": [],
+    "images_without_alt": [],
+    "decorative_images": [
+      "/images/crm/media/hero2/teachers-notice-homework-only-after-opening-the-system.webp"
+    ],
+    "robots": "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+    "preview": "http://localhost:8771/crm/media/b2c/teachers-notice-homework-only-after-opening-the-system/"
+  },
+  {
+    "source": "src/content/crm-media/ja/new-alumni-signups-still-use-the-old-price.md",
+    "route": "/crm/media/b2c/new-alumni-signups-still-use-the-old-price/",
+    "html_exists": true,
+    "h1_count": 1,
+    "jsonld_blocks": 2,
+    "missing_local_targets": [],
+    "images_without_alt": [],
+    "decorative_images": [
+      "/images/crm/media/hero2/new-alumni-signups-still-use-the-old-price.webp"
+    ],
+    "robots": "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+    "preview": "http://localhost:8771/crm/media/b2c/new-alumni-signups-still-use-the-old-price/"
+  },
+  {
+    "source": "src/content/crm-media/ja/custom-deal-stages-stay-in-one-language.md",
+    "route": "/crm/media/b2b/custom-deal-stages-stay-in-one-language/",
+    "html_exists": true,
+    "h1_count": 1,
+    "jsonld_blocks": 2,
+    "missing_local_targets": [],
+    "images_without_alt": [],
+    "decorative_images": [
+      "/images/crm/media/hero2/custom-deal-stages-stay-in-one-language.webp"
+    ],
+    "robots": "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+    "preview": "http://localhost:8771/crm/media/b2b/custom-deal-stages-stay-in-one-language/"
+  },
+  {
+    "source": "src/content/crm-media/ja/inquiry-types-get-sorted-by-hand-after-submission.md",
+    "route": "/crm/media/b2b/inquiry-types-get-sorted-by-hand-after-submission/",
+    "html_exists": true,
+    "h1_count": 1,
+    "jsonld_blocks": 2,
+    "missing_local_targets": [],
+    "images_without_alt": [],
+    "decorative_images": [
+      "/images/crm/media/hero2/inquiry-types-get-sorted-by-hand-after-submission.webp"
+    ],
+    "robots": "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+    "preview": "http://localhost:8771/crm/media/b2b/inquiry-types-get-sorted-by-hand-after-submission/"
+  },
+  {
+    "source": "src/content/crm-media/en/teachers-notice-homework-only-after-opening-the-system.md",
+    "route": "/en/crm/media/b2c/teachers-notice-homework-only-after-opening-the-system/",
+    "html_exists": true,
+    "h1_count": 1,
+    "jsonld_blocks": 2,
+    "missing_local_targets": [],
+    "images_without_alt": [],
+    "decorative_images": [
+      "/images/crm/media/hero2/teachers-notice-homework-only-after-opening-the-system.webp"
+    ],
+    "robots": "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+    "preview": "http://localhost:8771/en/crm/media/b2c/teachers-notice-homework-only-after-opening-the-system/"
+  },
+  {
+    "source": "src/content/crm-media/en/new-alumni-signups-still-use-the-old-price.md",
+    "route": "/en/crm/media/b2c/new-alumni-signups-still-use-the-old-price/",
+    "html_exists": true,
+    "h1_count": 1,
+    "jsonld_blocks": 2,
+    "missing_local_targets": [],
+    "images_without_alt": [],
+    "decorative_images": [
+      "/images/crm/media/hero2/new-alumni-signups-still-use-the-old-price.webp"
+    ],
+    "robots": "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+    "preview": "http://localhost:8771/en/crm/media/b2c/new-alumni-signups-still-use-the-old-price/"
+  },
+  {
+    "source": "src/content/crm-media/en/custom-deal-stages-stay-in-one-language.md",
+    "route": "/en/crm/media/b2b/custom-deal-stages-stay-in-one-language/",
+    "html_exists": true,
+    "h1_count": 1,
+    "jsonld_blocks": 2,
+    "missing_local_targets": [],
+    "images_without_alt": [],
+    "decorative_images": [
+      "/images/crm/media/hero2/custom-deal-stages-stay-in-one-language.webp"
+    ],
+    "robots": "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+    "preview": "http://localhost:8771/en/crm/media/b2b/custom-deal-stages-stay-in-one-language/"
+  },
+  {
+    "source": "src/content/crm-media/en/inquiry-types-get-sorted-by-hand-after-submission.md",
+    "route": "/en/crm/media/b2b/inquiry-types-get-sorted-by-hand-after-submission/",
+    "html_exists": true,
+    "h1_count": 1,
+    "jsonld_blocks": 2,
+    "missing_local_targets": [],
+    "images_without_alt": [],
+    "decorative_images": [
+      "/images/crm/media/hero2/inquiry-types-get-sorted-by-hand-after-submission.webp"
+    ],
+    "robots": "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+    "preview": "http://localhost:8771/en/crm/media/b2b/inquiry-types-get-sorted-by-hand-after-submission/"
+  }
+]

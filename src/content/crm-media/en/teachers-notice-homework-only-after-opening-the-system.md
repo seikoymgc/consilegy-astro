@@ -1,56 +1,48 @@
 ---
-title: "Teachers only notice new homework after opening the system"
+title: "Set homework alerts for teachers already linked to LINE"
 slug: "teachers-notice-homework-only-after-opening-the-system"
 lang: "en"
 category: "setup"
 pain: "Teachers repeatedly open the system to find out whether their students have submitted homework."
-feature: "Link a teacher’s LINE account to receive alerts for relevant homework submissions"
-screens: "Users → User management → LINE alerts / LINE ✓ Alerts: my students"
+feature: "Review and change LINE notification modes for an already linked teacher"
+screens: "Users → User management → an already linked member’s notification-mode button"
 segment: "b2c"
 edition: "school"
 sources: "src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/app/api/school-app/users/line/route.ts / src/app/api/school-app/line/webhook/route.ts / src/school-app/lib/notify.ts / src/school-app/lib/line-push.ts / src/school-app/lib/homework.ts / src/school-app/lib/authz.ts"
 date: "2026-11-12"
+updated: 2026-11-18
 author: "Seiko Yamaguchi"
 ---
-The teacher responsible for checking homework is clear. Yet they still open the system between lessons to see whether anything has arrived. If the school owner notices first, the owner sends another message: “There is new homework for you.”
 
-Assignment and notification solve different problems. A LINE alert can help the teacher notice incoming work without repeatedly checking an empty screen.
+This guide covers notification modes for teachers whose LINE accounts are already linked. Check whether a teacher should receive relevant submissions, school-wide arrivals, or a nightly summary. It does not cover creating a new link or adding the official account as a friend.
 
-## An arrival alert gives the teacher a starting point
+An arrival alert does not mark homework as reviewed. Noticing a submission and checking its content remain separate tasks.
 
-When the owner relays every arrival, the teacher’s awareness depends on the owner being available. When teachers check repeatedly themselves, those checks interrupt preparation even when there is nothing new.
+## Operations and Manager can change the setting
 
-An alert does not review the homework. Agree on the next step too: open the submission, inspect it, and record that it was checked.
+In the School edition, open **Users** and find the teacher in **User management**. The control is restricted to the owner and admin roles, labeled Operations and Manager in the school interface. Being a teacher alone does not provide permission.
 
-## Link the teacher’s LINE account in Revenue CRM
+Use only the notification control on an already linked member's row, such as **LINE ✓ Alerts: my students**. The unlinked **LINE alerts** button and the adjacent unlink control perform different operations and are outside this guide.
 
-In the school edition, open **Users** to reach **User management**. An unlinked member has a **LINE alerts** control. A Manager or another account authorized to manage notification settings performs this setup.
+![Where to check the notification scope for an already linked member in User management](/images/crm/media/screens/teachers-notice-homework-only-after-opening-the-system-1-en-2026-11.webp)
+*Existing demo screenshot with sample names and email addresses. Unlinked controls also appear, but are outside this guide. No setting was changed during capture.*
 
-The school’s LINE Official Account must already be connected. Having a personal LINE account alone does not make the teacher a notification recipient.
+## Each click changes and saves the mode immediately
 
-1. The authorized administrator selects **LINE alerts** on the correct teacher’s row to issue a linking code.
-2. Give that code only to the named teacher. They add the school’s official account as a friend and send the code in its chat.
-3. Check that the row now shows **LINE ✓ Alerts: my students**.
+The button cycles through relevant students, all submissions, nightly summary, and off, then returns to relevant students. There is no separate Save button. Intermediate modes are saved too, so do not click simply to inspect a menu.
 
-![User management showing an already linked member and a LINE alerts control for an unlinked member](/images/crm/media/screens/teachers-notice-homework-only-after-opening-the-system-1-en-2026-11.webp)
-*Names and email addresses are demo samples. No linking code was issued and no notification setting was changed during capture.*
+Some labels remain Japanese in the current implementation, including after a click. **担当ぶん** means relevant submissions, **全件** means all submissions, **毎晩** means nightly, and **切** means off. These are explanations of the modes, not a claim that every button is translated into English.
 
-Linking initially enables alerts for the teacher’s relevant submissions. For a typed submission, the normal recipient is assigned both to the student and to that lesson type. If the student has no assigned teachers, the system falls back to the lesson type’s teachers. An unclassified submission goes to the student’s assigned teachers because it cannot be filtered by type.
+A teacher checking assigned work and an office role monitoring the whole school may need different scopes. If you change a mode, use the correct person's row and stop at the intended setting. If an error appears, do not assume it saved. Reload the page and check the stored display.
 
-If an expected alert does not arrive, check both the student’s assigned teachers and **Teachers by lesson type** in **Lessons**, as well as the LINE link.
+## Scope does not guarantee delivery or complete the review
 
-## Choose the notification scope deliberately
+Relevant-submission mode also depends on student and lesson-type assignments. If an expected alert is missing, check those assignments rather than repeatedly cycling the notification button.
 
-The notification button cycles through the modes on each click and saves immediately: relevant students, all submissions, nightly summary, and off. Do not click it just to inspect the options.
+Connectivity, integration problems, and the LINE message allowance can also affect delivery. Keep a check of submissions in the system as a fallback. This setting alone cannot resolve every delayed or missing alert.
 
-All-submission mode suits an intake or office role that needs school-wide arrivals, including work outside its own assignments. Nightly mode sends the evening action summary rather than individual arrival alerts. All-submission mode also receives that summary. Start one teacher with their relevant submissions.
+## Start with someone already linked
 
-Several arrivals close together are held and combined to avoid repeated alerts. A submission arriving within 15 minutes of the previous alert is deferred until another sending opportunity, such as a subsequent relevant submission. It is not a promise of delivery exactly 15 minutes later.
+Read that person's existing mode and agree whether it matches their responsibilities. Explain any scope change before saving it. When genuine homework arrives, check the submission in the system and complete the required review; an alert is only the starting point.
 
-Alerts use the official account’s LINE message allowance. When the system can retrieve the remaining allowance and finds 30 messages or fewer, it stops arrival alerts to preserve capacity for student communication. Connectivity or integration problems can also prevent delivery. Keep a scheduled check of the system as a fallback.
-
-## Start with one teacher
-
-Link one teacher, then verify their student and lesson-type assignments. When genuine homework next arrives, compare the alert with the submission in the system. Receiving the alert does not mark the work reviewed; finish the check by using **Mark as reviewed** on the submission.
-
-[Try the Revenue CRM demo](https://crm.consilegy.com/demos), choose Schools, and inspect the notification controls in User management.
+To inspect the controls, open the [Revenue CRM demo](https://crm.consilegy.com/demos), choose Schools, and open User management.

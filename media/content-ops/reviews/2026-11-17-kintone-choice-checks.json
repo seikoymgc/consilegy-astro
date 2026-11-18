@@ -1,0 +1,48 @@
+{
+  "article": "choose-kintone-to-build-your-own-app",
+  "publishedAt": "2026-11-18",
+  "started": "2026-11-17",
+  "reviews": {
+    "editorial_ja": {
+      "score": 4,
+      "high": 0,
+      "medium": 0
+    },
+    "operations_ja": {
+      "score": 4,
+      "high": 0,
+      "medium": 0
+    },
+    "english_scope": {
+      "score": 4,
+      "high": 0,
+      "medium": 0
+    }
+  },
+  "review_scope": "JA manuscript; English-scope reviewer assessed JA logic and EN omission; no English manuscript",
+  "human_full_manuscript_supervision": false,
+  "image": {
+    "method": "imagegen",
+    "version": "20261117a",
+    "original_visual": "pass",
+    "delivery_webp_jpeg_visual": "pass",
+    "local_article_home_category_visual": "pass"
+  },
+  "build": {
+    "root": "passed after rebasing onto 632e77d, 384 pages",
+    "media": "passed after publication-date correction, 228 pages"
+  },
+  "html": {
+    "canonical": "pass",
+    "og_image_version": "20261117a",
+    "author": "Consilegy メディア編集部",
+    "internal_links": "pass",
+    "rss_sitemap_home_category": "pass"
+  },
+  "production": {
+    "push": "pending",
+    "actions": "pending",
+    "visual": "pending"
+  },
+  "ai_url_citation": "not observed"
+}

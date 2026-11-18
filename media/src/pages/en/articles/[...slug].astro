@@ -166,7 +166,7 @@ const fmt = (date: Date) =>
 	}
 
 	.note h1 {
-		font-size: clamp(1.35rem, 3.2vw, 1.85rem);
+		font-size: clamp(1.75rem, 3.2vw, 2.25rem);
 		margin-top: 0.5rem;
 		letter-spacing: -0.01em;
 	}
@@ -225,10 +225,21 @@ const fmt = (date: Date) =>
 	}
 
 	.note-body :global(h2) {
-		font-size: 1.05rem;
-		margin-top: 2.5rem;
+		font-size: clamp(1.5rem, 2.4vw, 1.75rem);
+		font-weight: 700;
+		line-height: 1.5;
+		color: var(--color-navy, #0F172A);
+		margin: 3rem 0 1.25rem;
 		padding-top: 1.5rem;
 		border-top: 1px solid var(--color-border);
+	}
+
+	.note-body :global(h3) {
+		font-size: 1.25rem;
+		font-weight: 700;
+		line-height: 1.6;
+		color: var(--color-navy, #0F172A);
+		margin: 2rem 0 1rem;
 	}
 
 	.note-body :global(p) {

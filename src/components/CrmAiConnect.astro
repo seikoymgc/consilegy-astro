@@ -1,0 +1,128 @@
+---
+// ChatGPT・Claude から Revenue CRM につなぐ手順（/crm/ai-connect/・/en/crm/ai-connect/）。
+// Claude のコネクタ一覧・ChatGPT のアプリ一覧へ申請するときの「説明ページ」を兼ねる。
+// ツールの中身は crm リポジトリ src/lib/crm/use-cases.ts の CRM_MCP_TOOLS と合わせる（削除のツールは無い）。
+// 同意画面はオーナー・管理者だけが通せる（#416）。トークンはアクセス1時間・更新90日。
+interface Props { lang: 'ja' | 'en' }
+const { lang } = Astro.props;
+const ja = lang === 'ja';
+const MCP_URL = 'https://crm.consilegy.com/api/mcp';
+const t = ja ? {
+  kicker: 'Revenue CRM',
+  h1: 'ChatGPT・ClaudeからRevenue CRMを使う',
+  lead: 'ChatGPTやClaudeにRevenue CRMをつなぐと、会話の中でコンタクト・会社・商談を調べたり、商談を更新したり、活動を記録したりできます。APIキーは要りません。Revenue CRMにログインして、許可するだけです。',
+  beforeH: 'つなぐ前に',
+  before: [
+    'Revenue CRMのアカウントが必要です。つなぐ操作（許可）は、ワークスペースのオーナーか管理者が行います。',
+    'つなぐときに「読み取りのみ」か「読み取りと書き込み」を選べます。迷ったら読み取りのみから始めてください。',
+  ],
+  claudeH: 'Claudeにつなぐ',
+  claude: [
+    'Claudeの「設定」→「コネクタ」を開き、「カスタムコネクタを追加」を押します。',
+    `URLに ${MCP_URL} を入れて追加します。`,
+    '「連携」を押すと、Revenue CRMのログイン画面が開きます。ログインし、つなぐワークスペースと権限を選んで「許可」を押します。',
+  ],
+  gptH: 'ChatGPTにつなぐ',
+  gpt: [
+    'ChatGPTの「設定」→「アプリ（プラグイン）」で、開発者モードをオンにします（自作のアプリを追加できるプランが必要です）。',
+    `新しいアプリを作り、URLに ${MCP_URL} 、認証に OAuth を選びます。`,
+    'Revenue CRMのログイン画面が開くので、ログインし、つなぐワークスペースと権限を選んで「許可」を押します。',
+  ],
+  toolsH: 'AIができること',
+  toolsRead: '読み取り：コンタクト・会社の検索、商談の一覧、コンタクト・会社・商談の詳細（関連する会社・商談・最近の活動つき）、商談パイプラインと段階の一覧、最近の活動の一覧',
+  toolsWrite: '書き込み（「読み取りと書き込み」でつないだときだけ）：コンタクト・会社・商談の作成、コンタクトと商談の更新、活動（メモ・電話・メール・打ち合わせ・タスク・チャット）の記録',
+  toolsNo: '削除はできません。AIからレコードを消す機能はありません。',
+  exH: '頼み方の例',
+  ex: [
+    '「今月クローズ予定の商談を、金額の大きい順に出して」',
+    '「株式会社サンプルとの最近のやり取りをまとめて」',
+    '「さっきの打ち合わせの内容を、田中さんの活動にメモとして記録して」',
+    '「サンプル商事の商談を『提案』の段階に進めて」',
+  ],
+  dataH: 'データの扱い',
+  data: [
+    'AIが読めるのは、つないだワークスペースのデータだけです。ほかのワークスペースや会社のデータには届きません。',
+    'AIに渡ったデータは、ChatGPT（OpenAI）やClaude（Anthropic）の会話の中で扱われ、それぞれの会社の規約とプライバシーポリシーに従います。',
+    'Revenue CRMは接続のための鍵（トークン）だけを保存し、その中身は暗号のハッシュで持ちます。鍵は1時間で切れ、自動で更新されます。90日使わなければ無効になります。',
+  ],
+  offH: 'つなぐのをやめる',
+  off: 'Revenue CRMの「設定」→「APIキー」の「接続中のAIアプリ」で、いつでも解除できます（オーナー・管理者）。ChatGPTやClaudeの側で外しても止まります。',
+  helpH: 'お問い合わせ',
+  help: 'うまくつながらないときは、info@consilegy.com までご連絡ください。',
+  privacy: 'プライバシーポリシー',
+  privacyHref: '/privacy-policy/',
+} : {
+  kicker: 'Revenue CRM',
+  h1: 'Use Revenue CRM from ChatGPT and Claude',
+  lead: 'Connect Revenue CRM to ChatGPT or Claude to look up contacts, companies and deals, update deals, and log activities right from the conversation. No API key needed: sign in to Revenue CRM and approve the connection.',
+  beforeH: 'Before you connect',
+  before: [
+    'You need a Revenue CRM account. A workspace owner or admin approves the connection.',
+    'When you connect, choose read-only or read and write. If unsure, start with read-only.',
+  ],
+  claudeH: 'Connect Claude',
+  claude: [
+    'In Claude, open Settings → Connectors and click “Add custom connector”.',
+    `Enter ${MCP_URL} as the URL and add it.`,
+    'Click “Connect”. The Revenue CRM sign-in page opens. Sign in, pick the workspace and access level, and click “Allow”.',
+  ],
+  gptH: 'Connect ChatGPT',
+  gpt: [
+    'In ChatGPT, open Settings → Apps (Plugins) and turn on developer mode (your plan must allow custom apps).',
+    `Create a new app with ${MCP_URL} as the URL and OAuth as the authentication.`,
+    'The Revenue CRM sign-in page opens. Sign in, pick the workspace and access level, and click “Allow”.',
+  ],
+  toolsH: 'What the AI can do',
+  toolsRead: 'Read: search contacts and companies, list deals, get a contact, company or deal with related records and recent activities, list pipelines and stages, list recent activities.',
+  toolsWrite: 'Write (only with read and write access): create contacts, companies and deals, update contacts and deals, log activities (note, call, email, meeting, task, chat).',
+  toolsNo: 'Nothing can be deleted. There is no tool for removing records.',
+  exH: 'Example prompts',
+  ex: [
+    '“Show deals closing this month, largest first.”',
+    '“Summarize our recent activity with Sample Inc.”',
+    '“Log a note on Tanaka’s record with what we just discussed.”',
+    '“Move the Sample Trading deal to the Proposal stage.”',
+  ],
+  dataH: 'How your data is handled',
+  data: [
+    'The AI can only reach the workspace you connected. Other workspaces and companies are out of reach.',
+    'Data passed to the AI is handled inside your ChatGPT (OpenAI) or Claude (Anthropic) conversation under that company’s terms and privacy policy.',
+    'Revenue CRM stores only the connection tokens, as one-way hashes. Access tokens expire after one hour and renew automatically; unused connections expire after 90 days.',
+  ],
+  offH: 'Disconnect',
+  off: 'Owners and admins can disconnect any time under Settings → API keys → Connected AI apps in Revenue CRM. Removing the app in ChatGPT or Claude also stops it.',
+  helpH: 'Support',
+  help: 'If you have trouble connecting, email info@consilegy.com.',
+  privacy: 'Privacy policy',
+  privacyHref: '/privacy-policy/',
+};
+---
+<div class="ac-page">
+  <header class="ac-head">
+    <p class="kicker">{t.kicker}</p>
+    <h1>{t.h1}</h1>
+    <p class="lead">{t.lead}</p>
+  </header>
+
+  <section><h2>{t.beforeH}</h2><ul>{t.before.map(s => <li>{s}</li>)}</ul></section>
+  <section id="claude"><h2>{t.claudeH}</h2><ol>{t.claude.map(s => <li>{s}</li>)}</ol></section>
+  <section id="chatgpt"><h2>{t.gptH}</h2><ol>{t.gpt.map(s => <li>{s}</li>)}</ol></section>
+  <section><h2>{t.toolsH}</h2><ul><li>{t.toolsRead}</li><li>{t.toolsWrite}</li><li>{t.toolsNo}</li></ul></section>
+  <section><h2>{t.exH}</h2><ul>{t.ex.map(s => <li>{s}</li>)}</ul></section>
+  <section id="data"><h2>{t.dataH}</h2><ul>{t.data.map(s => <li>{s}</li>)}</ul><p><a href={t.privacyHref}>{t.privacy}</a></p></section>
+  <section><h2>{t.offH}</h2><p>{t.off}</p></section>
+  <section id="support"><h2>{t.helpH}</h2><p>{t.help}</p></section>
+</div>
+
+<style>
+  .ac-page { max-width: 46rem; margin: 0 auto; padding: 4rem 1rem 5rem; }
+  .ac-head { margin-bottom: 2rem; }
+  .kicker { font-size: 0.8rem; letter-spacing: 0.12em; color: var(--color-navy); margin: 0 0 0.5rem; }
+  .ac-head h1 { font-size: clamp(1.6rem, 4vw, 2.3rem); margin: 0 0 0.75rem; line-height: 1.4; }
+  .lead { color: #4a5568; line-height: 1.9; margin: 0; }
+  section { margin-top: 2.25rem; }
+  h2 { font-size: 1.15rem; margin: 0 0 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid #e6eaef; }
+  ul, ol { margin: 0; padding-left: 1.3rem; }
+  li { line-height: 1.9; color: #3a4551; margin-bottom: 0.35rem; overflow-wrap: anywhere; }
+  p { line-height: 1.9; color: #3a4551; margin: 0.5rem 0 0; }
+</style>

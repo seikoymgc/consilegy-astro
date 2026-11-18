@@ -15,6 +15,13 @@ export interface NewsItem {
 
 export const news: NewsItem[] = [
 	{
+		date: '2026-11-18',
+		category: 'お知らせ',
+		title: 'Revenue CRMが、Zapierのアプリ一覧に掲載されました',
+		summary: '顧客管理システム「Revenue CRM」が、業務自動化サービスZapierのアプリ一覧に掲載されました。Zapierで「Revenue CRM」を探すと、ほかのアプリとつなぐ設定をプログラムなしで作れます。新しいコンタクトや商談、商談の更新をきっかけに動かすほか、コンタクト・会社・商談の作成やコンタクトの検索ができます。あわせて、ChatGPTとClaudeからも、APIキーを用意せずにRevenue CRMへつなげるようになりました。',
+		url: 'https://zapier.com/apps/revenue-crm/integrations',
+	},
+	{
 		date: '2026-10-30',
 		category: 'お知らせ',
 		title: 'Revenue CRMのAI機能が、CSAの「STAR for AI」に掲載されました',

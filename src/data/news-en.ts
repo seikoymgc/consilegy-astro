@@ -8,6 +8,13 @@ export type NewsItemEn = Omit<NewsItem, 'category'> & {
 
 export const newsEn: NewsItemEn[] = [
 	{
+		date: '2026-11-18',
+		category: 'Announcement',
+		title: 'Revenue CRM is now listed in the Zapier app directory',
+		summary: 'Revenue CRM is now listed in the Zapier app directory. Search for “Revenue CRM” in Zapier to connect it with other apps, no code required. Trigger on new contacts, new deals and updated deals, create contacts, companies and deals, and find contacts. You can also now connect ChatGPT and Claude to Revenue CRM without an API key.',
+		url: 'https://zapier.com/apps/revenue-crm/integrations',
+	},
+	{
 		date: '2026-10-30',
 		category: 'Announcement',
 		title: 'Revenue CRM’s AI features are listed in CSA STAR for AI (Level 1)',

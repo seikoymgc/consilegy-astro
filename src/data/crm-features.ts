@@ -665,8 +665,8 @@ export const CRM_FEATURES: FeatureGroup[] = [
       {
         name: { ja: '外部サービス連携', en: 'Integrations' },
         desc: {
-          ja: 'Notion / Google / LinkedIn / Stripe。',
-          en: 'Notion, Google, LinkedIn, and Stripe.',
+          ja: 'Notion / Google / LinkedIn / Stripe / Zapier。',
+          en: 'Notion, Google, LinkedIn, Stripe, and Zapier.',
         },
       },
     ],

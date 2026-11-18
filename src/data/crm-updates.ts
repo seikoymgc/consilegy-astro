@@ -30,6 +30,123 @@ export const EDITION_LABEL: Record<UpdateEdition, { ja: string; en: string }> = 
 
 export const CRM_UPDATES: CrmUpdate[] = [
   {
+    date: '2026-11-17',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: '営業・マーケなど業務ごとに、出すメニューを決められます',
+      en: 'Choose which menu items each role sees',
+    },
+    body: {
+      ja: '設定 → 業務ごとのメニュー で、営業・マーケ・CS・経営・管理それぞれに出すメニューをチェックで選べます。保存すると全員のサイドバーに反映されます。変えられるのはオーナーと管理者です。',
+      en: 'In Settings → Menus by role, tick which items Sales, Marketing, CS, Executive and Admin each see. Saving updates everyone’s sidebar. Owners and admins can change it.',
+    },
+    prs: [445, 447],
+  },
+  {
+    date: '2026-11-17',
+    editions: ['all'],
+    title: {
+      ja: 'パスワードの再設定は、メールの確認コードで行います',
+      en: 'Password resets now use a verification code',
+    },
+    body: {
+      ja: '再設定のメールにはリンクではなく確認コードが届きます。画面にコードを入れると、新しいパスワードを設定できます。会社のメールの安全チェックが先にリンクを開いてしまい、再設定できないことがなくなります。',
+      en: 'The reset email now contains a code instead of a link. Enter it on the reset screen to set a new password. Company email security scanners can no longer use up the link before you do.',
+    },
+    prs: [448],
+  },
+  {
+    date: '2026-11-16',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: '取り込んだ会議から、参加したお客さんを開けます',
+      en: 'Open the customer from an imported meeting',
+    },
+    body: {
+      ja: '設定 → 会議ツール連携 の「最近の取り込み」に「参加者のお客さんを開く」ボタンを付けました。押すと、会議の記録が入ったそのお客さんのページが開きます。',
+      en: 'Recent imports in Settings → Meeting tools now have an “Open attendee” button. It opens that customer’s page, where the meeting record is saved.',
+    },
+    prs: [439],
+  },
+  {
+    date: '2026-11-12',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: 'コンタクトの画面から商談を作れます',
+      en: 'Create a deal from a contact',
+    },
+    body: {
+      ja: 'コンタクトの詳細画面の「新規商談」を押すと、そのコンタクトと所属の会社が入った状態で商談の作成画面が開きます。',
+      en: 'Click “New deal” on a contact’s page. The deal form opens with that contact and their company already filled in.',
+    },
+    prs: [434],
+  },
+  {
+    date: '2026-11-12',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: '商談で会社を選ぶと、その会社の人だけが候補に出ます',
+      en: 'Picking a company narrows the contact list',
+    },
+    body: {
+      ja: '商談の作成・編集で会社を選ぶと、コンタクト（主担当）の候補がその会社の人だけになります。名前やメールで絞り込む検索欄もあります。会社にまだ人が登録されていないときは、全員が候補に出ます。',
+      en: 'When you pick a company on a new or existing deal, the primary contact list shows only that company’s people, with a search box for name or email. If the company has no contacts yet, everyone is listed.',
+    },
+    prs: [434, 435],
+  },
+  {
+    date: '2026-11-10',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: 'ChatGPT・Claudeから、APIキーなしでつなげます',
+      en: 'Connect ChatGPT and Claude without an API key',
+    },
+    body: {
+      ja: 'ChatGPTやClaudeのコネクタからRevenue CRMにログインするだけでつながります。読み取りのみか、書き込みも許すかは、つなぐときに選べます。つないだAIから、コンタクト・会社・商談を調べるほか、商談の更新や活動の記録もできます。接続中のAIアプリは 設定 → APIキー で確認・解除できます。',
+      en: 'Sign in to Revenue CRM from a ChatGPT or Claude connector and you are connected. Choose read-only or read and write when you connect. From the AI you can look up contacts, companies and deals, update deals and log activities. See and disconnect AI apps in Settings → API keys.',
+    },
+    prs: [416, 417],
+  },
+  {
+    date: '2026-11-09',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: 'フォームのドロップダウンとラジオに選択肢を入れられます',
+      en: 'Add choices to form dropdowns and radio buttons',
+    },
+    body: {
+      ja: '項目を追加するときに、選択肢を1行に1つ入れます。追加したあとも、一覧から選択肢を直せます。',
+      en: 'Enter one choice per line when adding the field. You can edit the choices later from the field list.',
+    },
+    prs: [429],
+  },
+  {
+    date: '2026-11-09',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: 'スマホで使いやすくしました',
+      en: 'Easier to use on a phone',
+    },
+    body: {
+      ja: '上のバーを1段にまとめ、メンバー管理・社内Wiki・見積書・フォームなどの表示を整えました。スマホのメニューからワークスペースも切り替えられます。',
+      en: 'The top bar is now a single row, and members, wiki, quotes, forms and other screens fit a phone. You can also switch workspaces from the phone menu.',
+    },
+    prs: [423, 426],
+  },
+  {
+    date: '2026-11-04',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: 'Makeとつなげます。APIキーは書き込みも選べます',
+      en: 'Connect with Make, plus write-access API keys',
+    },
+    body: {
+      ja: 'Makeから、コンタクト・会社・商談の作成やコンタクトの検索ができ、新しい登録や更新をきっかけにシナリオを動かせます。設定 → APIキー で、キーごとに「読み取りのみ」か「読み取りと書き込み」を選べます。',
+      en: 'Use Make to create contacts, companies and deals, search contacts, and start scenarios when records are added or updated. In Settings → API keys, choose read-only or read and write for each key.',
+    },
+    prs: [415],
+  },
+  {
     date: '2026-10-29',
     editions: ['b2b', 'contractor', 'reseller'],
     title: {

@@ -72,6 +72,19 @@ export const CRM_UPDATES: CrmUpdate[] = [
     date: '2026-11-17',
     editions: ['b2b', 'contractor', 'reseller'],
     title: {
+      ja: 'サイドバーの業務の切り替えを1行にしました',
+      en: 'Role switcher in the sidebar is now one line',
+    },
+    body: {
+      ja: 'サイドバー上部の「業務を切り替え」を、ボタンの並びから1行の選択欄にまとめ、メニューが上から見えるようにしました。「管理」の役割でも「自動化」と「ワークフロー」が出ます。',
+      en: 'The role switcher at the top of the sidebar is now a single dropdown instead of a block of buttons, so the menu starts higher. The Admin role now also shows Automation and Workflows.',
+    },
+    prs: [442, 444],
+  },
+  {
+    date: '2026-11-17',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
       ja: '営業・マーケなど業務ごとに、出すメニューを決められます',
       en: 'Choose which menu items each role sees',
     },

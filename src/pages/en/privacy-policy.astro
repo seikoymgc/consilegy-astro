@@ -5,7 +5,7 @@
  * English translation of /privacy-policy/. Keep the two in step; the Japanese original prevails.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
-const updated = 'November 16, 2026';
+const updated = 'November 18, 2026';
 ---
 
 <BaseLayout
@@ -163,7 +163,16 @@ const updated = 'November 16, 2026';
 		<p><strong>Human access:</strong> Our staff view information received from Google only with the user's consent, when necessary for security purposes (such as investigating abuse), or when required by law.</p>
 		<p><strong>Disconnection and deletion:</strong> Users can disconnect at any time from the Revenue CRM settings screen or in their Google Account settings (<a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">Third-party apps &amp; services</a>). After disconnection, we stop retrieving data from Google. To request deletion of records already imported, contact us using the details below.</p>
 		<p>Revenue CRM's use and transfer of information received from Google APIs to any other app will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
-		<h3>12.4 Disclosure and subprocessors</h3>
+		<h3>12.4 Connections from AI apps (Claude, ChatGPT)</h3>
+		<p>When an owner or admin of a customer workspace connects the Service to an AI app such as Claude or ChatGPT, we handle information as follows:</p>
+		<ul>
+			<li>Connection records: the name of the connected app, the person who approved the connection, the workspace chosen, and the permission granted (read only, or read and write)</li>
+			<li>Connection tokens: stored only as hashes. An access token is valid for one hour, and a connection lasts up to 90 days unless it is renewed.</li>
+		</ul>
+		<p><strong>Information sent to the AI app:</strong> In response to requests from the AI app, we send only the contact, company, deal, pipeline and activity information the request needs, from the workspace that was approved. With write permission, the AI app can also create and update contacts, companies and deals and log activities; logged activities are recorded under the person who approved the connection.</p>
+		<p><strong>Handling by the AI app:</strong> Information received by the AI app is handled under the terms and privacy policy of that app's provider (such as Anthropic or OpenAI). We do not provide customer data to anyone for AI development through this connection.</p>
+		<p><strong>Disconnection:</strong> Workspace users can disconnect at any time under Settings &rarr; API keys &rarr; Connected AI apps in the Service. On disconnection we immediately invalidate the app's tokens, and the app can no longer retrieve information from the Service.</p>
+		<h3>12.5 Disclosure and subprocessors</h3>
 		<p>Disclosure to third parties and use of subprocessors follow sections 4 and 5 of this Policy and the subprocessor list in the Service's Terms of Service.</p>
 
 		<h2>13. Contact</h2>

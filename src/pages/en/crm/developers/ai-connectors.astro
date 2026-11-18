@@ -1,0 +1,146 @@
+---
+// Claude / ChatGPT から Revenue CRM につなぐ手順（英語）。Claude のコネクタ一覧・ChatGPT のアプリ一覧への
+// 申請で「説明ページのURL」として出す。ツールの一覧は crm リポジトリの src/lib/crm/use-cases.ts（CRM_MCP_TOOLS）とそろえる。
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CrmSubnav from '../../../../components/CrmSubnav.astro';
+
+const serverUrl = 'https://crm.consilegy.com/api/mcp';
+
+const readTools = [
+  ['search_contacts', 'Search contacts', 'Search contacts by name or email.'],
+  ['get_contact', 'Get contact', 'Get one contact with its company, deals and recent activities.'],
+  ['search_companies', 'Search companies', 'Search companies by name.'],
+  ['get_company', 'Get company', 'Get one company with its contacts, deals and recent activities.'],
+  ['list_deals', 'List deals', 'List deals, largest amount first. Filters for stalled deals, close dates, due dates and stage.'],
+  ['get_deal', 'Get deal', 'Get one deal with its stage, company, contact and recent activities.'],
+  ['list_pipelines', 'List pipelines', 'List deal pipelines and their stages in order.'],
+  ['list_recent_activities', 'List recent activities', 'List recent activities, newest first, for the workspace or for one record.'],
+];
+
+const writeTools = [
+  ['create_contact', 'Create contact', 'Create a new contact.'],
+  ['update_contact', 'Update contact', 'Update the fields you specify on a contact.'],
+  ['create_company', 'Create company', 'Create a new company.'],
+  ['create_deal', 'Create deal', 'Create a new deal.'],
+  ['update_deal', 'Update deal', 'Change a deal’s stage, amount, close date, name or probability.'],
+  ['add_note', 'Log activity', 'Log a note, call, email, meeting, task or chat on a contact, company or deal.'],
+];
+
+const prompts = [
+  'Which deals have stalled this month, and what was the last activity on each?',
+  'Show my pipeline by stage with the total amount in each stage.',
+  'Find the contact Jane Tanaka and summarize our recent conversations.',
+  'Log a note on the Acme deal: “Sent the revised quote, follow up on Friday.”',
+  'Move the Acme deal to Proposal and set the close date to the end of next month.',
+];
+---
+
+<BaseLayout
+  title="Connect Claude and ChatGPT | Revenue CRM | Consilegy"
+  description="How to connect Revenue CRM to Claude and ChatGPT: setup, permissions, available tools, example prompts, disconnecting, and how your data is handled."
+  canonical="https://consilegy.com/en/crm/developers/ai-connectors/"
+  lang="en"
+  hasTranslation={false}
+>
+  <CrmSubnav lang="en" />
+
+  <div class="api-page">
+    <header class="api-head">
+      <p class="kicker">Developers</p>
+      <h1>Connect Revenue CRM to Claude and ChatGPT</h1>
+      <p class="lead">Ask Claude or ChatGPT about your contacts, companies and deals, and let it log notes and update deals for you. The connection uses OAuth, so you sign in to Revenue CRM and choose what the app may do. No API key is needed.</p>
+    </header>
+
+    <article class="api-doc">
+      <h2>What you need</h2>
+      <ul>
+        <li>A Revenue CRM account. You must be an <strong>owner or admin</strong> of the workspace you connect.</li>
+        <li>A Claude or ChatGPT plan that lets you add connectors.</li>
+      </ul>
+
+      <h2>Connect from Claude</h2>
+      <ol>
+        <li>In Claude, open <strong>Settings → Connectors</strong>.</li>
+        <li>Find <strong>Revenue CRM</strong> in the directory and select <strong>Connect</strong>. If it is not listed in your region or plan yet, choose <strong>Add custom connector</strong> and enter the server URL below.</li>
+        <li>Sign in to Revenue CRM in the window that opens.</li>
+        <li>Choose the <strong>workspace</strong> and the <strong>permission</strong> (read only, or read and write), then select <strong>Allow</strong>.</li>
+        <li>Back in Claude, turn on Revenue CRM in a conversation and ask your question.</li>
+      </ol>
+      <p>Server URL:</p>
+      <pre><code>{serverUrl}</code></pre>
+
+      <h2>Connect from ChatGPT</h2>
+      <ol>
+        <li>In ChatGPT, open <strong>Settings → Apps</strong>.</li>
+        <li>Find <strong>Revenue CRM</strong> and connect it. If it is not listed yet, add it as a custom app (connector) with the server URL above.</li>
+        <li>Sign in to Revenue CRM, choose the workspace and permission, and select <strong>Allow</strong>.</li>
+      </ol>
+
+      <h2>Permissions</h2>
+      <p>On the Revenue CRM sign-in screen you choose one workspace and one of two permissions:</p>
+      <ul>
+        <li><strong>Read only</strong>: the app can search and read contacts, companies, deals, pipelines and activities. It cannot change anything.</li>
+        <li><strong>Read and write</strong>: the app can also create contacts, companies and deals, update contacts and deals, and log activities.</li>
+      </ul>
+      <p>The app can only reach the one workspace you chose. No tool deletes records.</p>
+
+      <h2>Tools</h2>
+      <h3>Read (available with either permission)</h3>
+      <table>
+        <thead><tr><th>Tool</th><th>Title</th><th>What it does</th></tr></thead>
+        <tbody>
+          {readTools.map(([name, title, desc]) => <tr><td><code>{name}</code></td><td>{title}</td><td>{desc}</td></tr>)}
+        </tbody>
+      </table>
+      <h3>Write (read and write permission only)</h3>
+      <table>
+        <thead><tr><th>Tool</th><th>Title</th><th>What it does</th></tr></thead>
+        <tbody>
+          {writeTools.map(([name, title, desc]) => <tr><td><code>{name}</code></td><td>{title}</td><td>{desc}</td></tr>)}
+        </tbody>
+      </table>
+      <p>Activities logged from Claude or ChatGPT are recorded under the person who approved the connection.</p>
+
+      <h2>Example prompts</h2>
+      <ul>
+        {prompts.map(p => <li>{p}</li>)}
+      </ul>
+
+      <h2>Disconnect</h2>
+      <p>In Revenue CRM, open <strong>Settings → API keys</strong>. Under <strong>Connected AI apps</strong>, select <strong>Disconnect</strong> next to the app. Its access ends immediately. You can also remove the connector in Claude or ChatGPT.</p>
+
+      <h2>Your data</h2>
+      <ul>
+        <li>Revenue CRM sends the app only what a tool call asks for, from the workspace you chose.</li>
+        <li>Tokens are stored only as hashes. An access token lasts one hour, and the connection lasts up to 90 days unless it is renewed or disconnected.</li>
+        <li>What Claude or ChatGPT does with the data it receives is covered by Anthropic’s or OpenAI’s own terms and privacy policy.</li>
+      </ul>
+      <p>Details: <a href="/en/privacy-policy/">Privacy Policy</a> (section 12.4).</p>
+
+      <h2>Support</h2>
+      <p>Questions or problems: <a href="mailto:info@consilegy.com">info@consilegy.com</a></p>
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  .api-page { max-width: 52rem; margin: 0 auto; padding: 4rem 1.25rem 5rem; }
+  .api-head { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid #E2E8F0; }
+  .kicker { font-size: 0.875rem; letter-spacing: 0.12em; color: var(--color-navy); margin: 0 0 0.5rem; font-weight: 600; }
+  .api-head h1 { font-size: clamp(1.75rem, 4vw, 2.5rem); margin: 0 0 0.75rem; color: var(--color-navy); }
+  .lead { color: var(--color-text-muted); line-height: 1.8; margin: 0; }
+
+  .api-doc { color: var(--color-text); line-height: 1.8; font-size: 1rem; }
+  .api-doc h2 { font-size: 1.5rem; color: var(--color-navy); margin: 3rem 0 1rem; padding-top: 1.5rem; border-top: 1px solid #E2E8F0; }
+  .api-doc h3 { font-size: 1.125rem; color: var(--color-navy); margin: 2rem 0 0.5rem; }
+  .api-doc p, .api-doc ul, .api-doc ol { margin: 0 0 1rem; }
+  .api-doc li { margin-bottom: 0.35rem; }
+  .api-doc :not(pre) > code { font-size: 0.9em; background: #F1F5F9; padding: 0.1rem 0.35rem; border-radius: 4px; overflow-wrap: anywhere; }
+  .api-doc pre { background: #F1F5F9; color: var(--color-text); border: 1px solid #E2E8F0; padding: 1rem 1.25rem; border-radius: 6px; overflow-x: auto; font-size: 1rem; line-height: 1.6; margin: 0 0 1.25rem; }
+  .api-doc pre code { background: none; color: inherit; padding: 0; }
+  .api-doc table { width: 100%; border-collapse: collapse; margin: 0 0 1.25rem; font-size: 1rem; display: block; overflow-x: auto; }
+  .api-doc th, .api-doc td { text-align: left; padding: 0.6rem 0.75rem; border: 1px solid #E2E8F0; vertical-align: top; }
+  .api-doc td:first-child code { white-space: nowrap; overflow-wrap: normal; }
+  .api-doc th { background: #F1F5F9; color: var(--color-navy); font-weight: 600; }
+  .api-doc a { color: var(--color-primary); }
+</style>

@@ -8,9 +8,9 @@ edition: "school"
 pain: "Phone and walk-in enrollments remain outside the shared student roster"
 feature: "Individual new-student registration"
 screens: "Students / + New student / Register a new student / Name / Plan / Status / Length / Start date / Goal / notes / + Register"
-sources: "src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/app/api/school-app/student/route.ts / src/school-app/lib/authz.ts / src/school-app/lib/supabase.ts / src/school-app/lib/html-en.ts / src/app/school/page.tsx"
+sources: "src/lib/school/provision.ts / src/school-app/lib/demo-seed.ts / src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/app/api/school-app/student/route.ts / src/school-app/lib/authz.ts / src/school-app/lib/supabase.ts / src/school-app/lib/html-en.ts / src/app/school/page.tsx"
 date: 2026-11-19
-updated: 2026-11-19
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 A student enrolls over the phone. Reception writes down the name and start date, then tells the teacher. The next morning, another staff member searches the shared roster and finds nothing.
@@ -27,7 +27,7 @@ Check for an existing profile first, especially if the student previously booked
 
 ## Check status before accepting the defaults
 
-Registration requires the student **Create** permission. The default roles allowed are Operations, Manager and Office. A school can change the permission matrix.
+Registration requires the student **Create** permission. In newly created schools, Staff also starts with permission to create students. A school may have changed its matrix, so check the registration user’s current permissions.
 
 For registration, first switch the interface to **JA** at the top. The English form currently submits translated choices as values, which can cause a trial booking to be saved with the wrong status. The steps below use Japanese labels; their meanings are given alongside them.
 

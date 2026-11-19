@@ -8,9 +8,9 @@ edition: "school"
 pain: "電話や対面で受けた入会が、紙の受付記録だけに残る"
 feature: "新規生徒の個別登録"
 screens: "生徒／＋ 新規生徒／新規生徒の登録／氏名／プラン／ステータス／期間／レッスン回数／開始日／目標・メモ／＋ 登録する"
-sources: "src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/app/api/school-app/student/route.ts / src/school-app/lib/authz.ts / src/school-app/lib/supabase.ts / src/school-app/lib/html-en.ts / src/app/school/page.tsx"
+sources: "src/lib/school/provision.ts / src/school-app/lib/demo-seed.ts / src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/app/api/school-app/student/route.ts / src/school-app/lib/authz.ts / src/school-app/lib/supabase.ts / src/school-app/lib/html-en.ts / src/app/school/page.tsx"
 date: 2026-11-19
-updated: 2026-11-19
+updated: 2026-11-20
 author: "山口聖子"
 ---
 電話で入会が決まり、受付のノートに名前と開始日を書きます。担当の先生には口頭で伝えました。ところが、翌日別のスタッフが生徒一覧を開いても、その名前が見つかりません。
@@ -27,7 +27,7 @@ Revenue CRMのスクール版には、生徒を一人ずつ登録する画面が
 
 ## 氏名の次に、状態と開始条件を確かめる
 
-最初から全部の欄を埋めるより、誰を、どの状態で登録するかを先に決めます。作成には「生徒」の「作成」権限が必要で、初期設定では運営・マネージャー・管理部が対象です。
+最初から全部の欄を埋めるより、誰を、どの状態で登録するかを先に決めます。作成には「生徒」の「作成」権限が必要で、新しく作った教室では「一般」にも作成が許可されています。教室で設定を変えている場合もあるため、登録担当者の現在の権限を確認してください。
 
 英語表示で登録すると、選択肢の訳語がそのまま送られ、体験予約の状態などが意図とずれる場合があります。登録するときは、先に画面上部の「JA」で日本語表示へ切り替えてください。以下は日本語画面での手順です。
 

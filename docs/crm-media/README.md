@@ -323,3 +323,15 @@ crm origin/main（db20fc1）では、`src/app/school/` にあるのは `page.tsx
 
 - 既刊記事のスクリーンショット（2026-10-25 時点で入っているのは b2b 3本と b2c #29 だけ）
 - 製品内ヘルプへの流し込み（同じ原稿を `product_help_articles` に入れるか、リンクだけにするか）
+
+
+## 2026-11-20 選定・再検証
+
+| segment | 困りごと | 機能 | slug | 一次確認・既刊との差 |
+|---|---|---|---|---|
+| b2b | 終わった企画の配信リストを顧客まで消える不安で片付けられない | リスト詳細「このリストを削除」 | old-mailing-lists-stay-because-deleting-contacts-feels-risky | 更新履歴11/19 #459とCRM main61c5428。所属とリストの削除、コンタクト維持、不可逆、campaign参照エラー、RLSを確認。既刊コンタクトのゴミ箱とは消す対象と復元可否が異なる |
+| b2c | 受付には新規登録を任せたいが状態や担当の変更まで許可している | 一般／Staffの生徒・作成と編集 | reception-can-change-student-status-and-teacher-assignments | Claudeの初回レビューで初期設定の誤認を検出し、未公開の旧原稿を作り直した。school/provision.ts・demo-seedとstatus/coaches APIで初期設定は一般も登録・編集可を照合。作成と状態・担当変更の切り分け、役割全員への影響、ブラウザ再読み込みによる保存確認を案内 |
+
+実行記録: [runs/2026-11-20.md](./runs/2026-11-20.md)。Codexが執筆、実際のClaude Code CLIが統合品質基準の3段階レビューを担当。デモは認証切れのため本文画像なし例外、Recraft未ログインのためimagegenで日本人女性の表紙2枚を生成。
+
+2026-11-20の代表指示により、レビュー後の品質修正とClaudeでの再確認、公開・既刊更新まで自動実施する。未解決のCritical・Majorが残る記事は公開しない。

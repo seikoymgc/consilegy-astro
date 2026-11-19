@@ -25,6 +25,9 @@ ErrorDocument 404 /404.html
 	# 紹介キットは紹介パートナープラットフォームのマイページへ（2026-10-17）
 	RewriteRule ^crm/referral/kit/?$ https://referral.consilegy.com/my/products/ [R=301,L]
 
+	# 古い紹介パートナーページは削除。送付済みメールのリンク用に新サイトへ（2026-11-19）
+	RewriteRule ^crm/referral/?$ https://referral.consilegy.com/ [R=301,L]
+
 	# Revenue CRM の汎用B2C版はスクール版へ統合（2026-08）
 	RewriteRule ^crm/b2c/?$ /crm/school/ [R=301,L]
 

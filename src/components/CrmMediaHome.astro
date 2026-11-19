@@ -1,6 +1,6 @@
 ---
 // /crm/media/ の入口。
-// 配置: タグライン → 読者のナビ → 新着記事（大きいカード3枚） → 読者×カテゴリのブロック（小さい行3本＋もっと見る）。
+// 配置: 新着記事 → 読者×カテゴリの記事。説明用の大見出しは置かない。
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CrmMediaCard from './CrmMediaCard.astro';
 import CrmMediaRow from './CrmMediaRow.astro';
@@ -40,14 +40,13 @@ const jsonLd = {
 
   <div class="media-page">
     <div class="main">
-    <header class="media-head">
-      <h1>{t.homeTitle}</h1>
-      <p class="lead">{t.homeLead}</p>
-    </header>
-
+    <p class="product-intro">
+      <span>{t.homeProductIntro}</span>
+      <a href={lang === 'ja' ? '/crm/' : '/en/crm/'}>{t.homeProductLink}<span aria-hidden="true"> →</span></a>
+    </p>
     {latest.length > 0 && (
       <section class="latest">
-        <h2 class="rule"><span>{t.latest}</span></h2>
+        <h1 class="rule"><span>{t.latest}</span></h1>
         <div class="cards">{latest.map((a) => <CrmMediaCard a={a} />)}</div>
       </section>
     )}
@@ -82,9 +81,8 @@ const jsonLd = {
 <style>
   .media-page { max-width:72rem; margin:0 auto; padding:3.5rem 1.25rem 5rem; }
   .main { min-width:0; }
-  .media-head { max-width:52rem; margin:0 0 3.5rem; }
-  h1 { font-size:clamp(2rem,4vw,3rem); line-height:1.4; letter-spacing:-.035em; color:var(--color-navy); margin:0 0 1.5rem; font-weight:800; text-wrap:balance; }
-  .lead { max-width:46rem; margin:0; line-height:1.9; color:var(--color-text-muted); }
+  .product-intro { margin:0 0 2.5rem; display:flex; flex-wrap:wrap; align-items:baseline; gap:.5rem 1.25rem; font-size:1rem; line-height:1.8; color:var(--color-text-muted); }
+  .product-intro a { color:var(--color-primary); font-weight:600; text-underline-offset:4px; }
   .rule { margin:0 0 1.5rem; color:var(--color-navy); font-size:1.5rem; font-weight:700; line-height:1.5; }
   .rule span { display:flex; flex-direction:column; align-items:flex-start; gap:.35rem; }
   .rule small { font-size:.875rem; font-weight:500; color:var(--color-text-muted); }
@@ -96,6 +94,6 @@ const jsonLd = {
   .more { margin:1.5rem 0 0; } .more a { display:inline-flex; padding:.5rem 0; font-weight:600; color:var(--color-primary); text-underline-offset:4px; }
   .why { margin-top:4rem; color:var(--color-text-muted); } .why a { color:inherit; }
   @media(max-width:800px) { .cards { grid-template-columns:repeat(2,minmax(0,1fr)); } .blocks { grid-template-columns:minmax(0,1fr); } }
-  @media(max-width:600px) { .media-page { padding-top:2rem; } .media-head { margin-bottom:2.5rem; } .cards { grid-template-columns:minmax(0,1fr); } .block { padding:1.25rem; } }
+  @media(max-width:600px) { .media-page { padding-top:2rem; } .cards { grid-template-columns:minmax(0,1fr); } .block { padding:1.25rem; } }
 
 </style>

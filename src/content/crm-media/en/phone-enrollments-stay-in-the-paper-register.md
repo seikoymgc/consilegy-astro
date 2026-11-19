@@ -10,6 +10,7 @@ feature: "Individual new-student registration"
 screens: "Students / + New student / Register a new student / Name / Plan / Status / Length / Start date / Goal / notes / + Register"
 sources: "src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/app/api/school-app/student/route.ts / src/school-app/lib/authz.ts / src/school-app/lib/supabase.ts / src/school-app/lib/html-en.ts / src/app/school/page.tsx"
 date: 2026-11-19
+updated: 2026-11-19
 author: "Seiko Yamaguchi"
 ---
 A student enrolls over the phone. Reception writes down the name and start date, then tells the teacher. The next morning, another staff member searches the shared roster and finds nothing.
@@ -47,9 +48,9 @@ Length sets the basis for the planned graduation date. The lesson count supplies
 
 Length offers one through six months. For an active student with a start date, registration saves a graduation date calculated by adding the selected months. That calculation does not run for a trial booking.
 
-Leaving the lesson count blank saves zero and omits the total-count denominator. Entering a total does not establish a complete attendance ledger: the displayed completed side depends on the lesson records loaded into the screen.
+Leaving the lesson count blank saves zero and omits the total-count denominator. Entering a total does not establish a complete attendance ledger. The completed count in “lesson X of Y” is the number of lesson records loaded into the screen, so lessons nobody logged are not counted.
 
-The plan choices here are weekly and monthly. This is not an editor for adding arbitrary course names. Creating the student also does not book a lesson, create a bill or link the student's LINE account. Check the teacher-assignment section after registration so the actual handoff goes to the right person.
+The plan choices here are weekly and monthly. This is not an editor for adding arbitrary course names. Creating the student also does not book a lesson, create a bill or link the student's LINE account. If the person registering is an Office user designated as a teacher (LEADERS), they become the student's assigned teacher. Otherwise the student starts with no assigned teacher, so assign one in the teacher section of the profile.
 
 ## Start with one enrollment missing from the roster
 
@@ -57,4 +58,4 @@ Choose one student whose enrollment is still recorded only on paper. Check for a
 
 The practical check is simple: another staff member can find that student and read their goal without asking reception to repeat the conversation.
 
-To explore the form, choose the school edition in the [Revenue CRM demo](https://crm.consilegy.com/demos).
+To explore the form, choose **Schools** in the [Revenue CRM demo](https://crm.consilegy.com/demos).

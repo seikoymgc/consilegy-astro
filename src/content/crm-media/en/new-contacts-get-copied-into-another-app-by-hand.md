@@ -10,6 +10,7 @@ feature: "Zapier New Contact with a read-only API key"
 screens: "Settings / Integrations & channels / API keys / Read only / Issue / API Key / New Contact"
 sources: "integrations/zapier/authentication.js / integrations/zapier/triggers/contact.js / integrations/zapier/lib/http.js / src/app/(dashboard)/settings/api-keys/api-keys-view.tsx / src/app/api/v1/api-keys/route.ts / src/app/api/v1/contacts/route.ts / src/lib/crm/use-cases.ts / https://zapier.com/apps/revenue-crm/integrations"
 date: 2026-11-19
+updated: 2026-11-19
 author: "Seiko Yamaguchi"
 ---
 A sales rep adds a contact to Revenue CRM. Someone in operations then opens another app and pastes the same name and email into a shared list.
@@ -52,4 +53,4 @@ Pick one place where someone currently pastes new contact details. Agree on the 
 
 The first useful change is small: remove one repeated copy after registration, and make the handoff visible to the person who owns the next step.
 
-To explore the settings, choose the B2B edition in the [Revenue CRM demo](https://crm.consilegy.com/demos).
+To explore the settings, choose **B2B sales** in the [Revenue CRM demo](https://crm.consilegy.com/demos).

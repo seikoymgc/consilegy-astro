@@ -10,6 +10,7 @@ feature: "ZapierのNew Contactと読み取り用APIキー"
 screens: "設定／連携・チャネル／APIキー／読み取りのみ／発行／API Key／New Contact"
 sources: "integrations/zapier/authentication.js / integrations/zapier/triggers/contact.js / integrations/zapier/lib/http.js / src/app/(dashboard)/settings/api-keys/api-keys-view.tsx / src/app/api/v1/api-keys/route.ts / src/app/api/v1/contacts/route.ts / src/lib/crm/use-cases.ts / https://zapier.com/apps/revenue-crm/integrations"
 date: 2026-11-19
+updated: 2026-11-19
 author: "山口聖子"
 ---
 営業が新しい顧客を登録します。そのあと、運用担当が別のアプリを開き、共有用の一覧へ名前とメールアドレスをコピーします。
@@ -28,11 +29,11 @@ Zapierは、アプリ同士の処理をつなぐサービスです。[公開ア�
 
 外へ読むだけなら、Revenue CRMへ書き込める権限は要りません。「設定」の「連携・チャネル」から「APIキー」を開き、用途が分かるキーを作ります。発行できるのはオーナーと管理者です。
 
-APIキーは、連携先が顧客情報を読むための認証情報です。個人の担当範囲だけに絞った鍵ではなく、組織のデータを扱います。渡す項目と共有先を決めてから発行してください。
+APIキーは、連携先が顧客情報を読むための認証情報です。個人の担当範囲だけに絞ったキーではなく、組織のデータを扱います。渡す項目と共有先を決めてから発行してください。
 
 1. キー名に、何へ渡す連携か分かる名前を入れます。
 2. 権限は「読み取りのみ」を選び、有効期限も確認して「発行」を押します。
-3. 発行直後に出るキーを控えます。完全なキーは再表示されません。
+3. 発行直後に表示されるキーをコピーします。完全なキーは再表示されません。
 4. ZapierでRevenue CRMを接続するとき、「API Key」の欄にそのキーを入れます。
 5. きっかけに「New Contact」を選び、連携先の処理で、必要な項目だけを対応付けます。
 
@@ -52,4 +53,4 @@ APIキーは、連携先が顧客情報を読むための認証情報です。�
 
 最初から全アプリをつなぐ必要はありません。登録後にもう一度コピーする場所を、一つ減らすところから始めます。
 
-設定の入口は、[Revenue CRMのデモ](https://crm.consilegy.com/demos)で法人営業版を選び、確認してください。
+設定の入口は、[Revenue CRMのデモ](https://crm.consilegy.com/demos)で「B2B」を選び、確認してください。

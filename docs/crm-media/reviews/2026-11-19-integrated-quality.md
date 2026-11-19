@@ -4,17 +4,21 @@
 - 実施: 2026-11-19、Claude（執筆には関与していない）。①事実検証→②編集レビュー→③校正・推敲の順。
 - 対象: `src/content/crm-media/{ja,en}/new-contacts-get-copied-into-another-app-by-hand.md`、`src/content/crm-media/{ja,en}/phone-enrollments-stay-in-the-paper-register.md`（いずれも公開済み）
 - 一次情報: 隣の作業コピー `crm-run` の実装（行番号はこの日の内容）、Zapier公開ページ、`runs/2026-11-19.md`。当日の別レビューの結論はそのまま採らず、実装を読み直して確認した。
-- 原稿・画像・サイトコード・CRMは変更していない。下の修正案はすべて**未承認**。公開済みの記事なので、どの指摘も代表の承認後に直す。
+- レビューの時点では、原稿・画像・サイトコード・CRMは変更していない。指摘と修正案だけを出した。
+- 2026-11-19、代表が9件の修正案（A-2・A-3・A-4・B-2・C-1・C-2・D-1・D-2・D-3）に「公開」と明示承認した。これを根拠に、Claudeが日英4原稿へ反映した。あわせて4本に `updated: 2026-11-19` を加えた（公開日 `date` とslugは変えていない）。画像・サイトコード・CRMは変更していない。build・commit・pushはCodexが行う。
+- 下の表の「問題」「原文」は、指摘時の履歴として残している。
 
 ## 集計
 
-| 記事 | Critical | Major | Minor | 要確認 | 公開判定 |
-|---|---|---|---|---|---|
-| A. B2B 日本語 | 0 | 0 | 3 | 0 | 公開可 |
-| B. B2B 英語 | 0 | 0 | 1 | 0 | 公開可 |
-| C. B2C 日本語 | 0 | 0 | 2 | 0 | 公開可 |
-| D. B2C 英語 | 0 | 0 | 3 | 0 | 公開可 |
-| 計 | 0 | 0 | 9 | 0 | |
+| 記事 | Critical | Major | Minor（指摘） | うち対応済み | 未解決 | 要確認 | 公開判定 |
+|---|---|---|---|---|---|---|---|
+| A. B2B 日本語 | 0 | 0 | 3 | 3 | 0 | 0 | 公開可 |
+| B. B2B 英語 | 0 | 0 | 1 | 1 | 0 | 0 | 公開可 |
+| C. B2C 日本語 | 0 | 0 | 2 | 2 | 0 | 0 | 公開可 |
+| D. B2C 英語 | 0 | 0 | 3 | 3 | 0 | 0 | 公開可 |
+| 計 | 0 | 0 | 9 | 9 | 0 | 0 | |
+
+未解決は0件。
 
 Zapier公開ページの「Beta」表示（A-1・B-1）は、当初「要確認」にしていた。その後、追確認で解消したので「問題なし」に改めた。
 - 当初「要確認」にした理由: WebFetchで取ったテキストに「Beta」が無かった。ただし、テキストへの変換で表示部品（バッジ）が落ちた可能性があった。
@@ -47,10 +51,10 @@ Zapier公開ページの「Beta」表示（A-1・B-1）は、当初「要確認�
 | 「「Create Contact」…「読み取りと書き込み」のキーが必要」 | `integrations/zapier/creates/contact.js:8`、`src/app/api/v1/contacts/route.ts:25` |
 | 公開アプリ一覧にRevenue CRM・New Contact・Create Contactがある | https://zapier.com/apps/revenue-crm/integrations （2026-11-19取得。トリガーNew Contact／New Deal／Updated Deal、アクションCreate Contactなど） |
 
-| ID | 原文（場所） | 問題 | 根拠 | 重大度 | 修正案（未承認） | 対応状況 |
+| ID | 原文（場所） | 問題 | 根拠 | 重大度 | 修正案（承認済み） | 対応状況 |
 |---|---|---|---|---|---|---|
 | A-1 | 「公開ページには現在「Beta」の表示があります。」（23行） | 問題なし（当初は要確認） | Codexが2026-11-19に実画面で確認。画面の記録 `outputs/zapier-beta-quality-2026-11-19.png`（見出し横の「Beta」）と同名の .txt（URL https://zapier.com/apps/revenue-crm/integrations）。WebFetchのテキストに無かったのは変換の問題で、画面の表示とは別 | なし | なし | 解消 |
-| A-2 | 「[Revenue CRMのデモ]で法人営業版を選び」（55行） | デモのカード見出しは「B2B」。「法人営業向け」は説明文の側で、見出しと語が違う | `src/lib/demo.ts:15-16`、`src/app/demos/demos-client.tsx:19` | Minor | 「デモで「B2B」を選び」 | 承認待ち |
+| A-2 | 「[Revenue CRMのデモ]で法人営業版を選び」（55行） | デモのカード見出しは「B2B」。「法人営業向け」は説明文の側で、見出しと語が違う | `src/lib/demo.ts:15-16`、`src/app/demos/demos-client.tsx:19` | Minor | 「デモで「B2B」を選び」 | 承認済み・対応済み |
 
 ### ②編集レビュー（領域2・3・5）
 
@@ -60,10 +64,10 @@ Zapier公開ページの「Beta」表示（A-1・B-1）は、当初「要確認�
 
 ### ③校正・推敲（領域4・6）
 
-| ID | 原文（場所） | 問題 | 理由 | 重大度 | 修正案（未承認） | 対応状況 |
+| ID | 原文（場所） | 問題 | 理由 | 重大度 | 修正案（承認済み） | 対応状況 |
 |---|---|---|---|---|---|---|
-| A-3 | 「個人の担当範囲だけに絞った鍵ではなく」（31行） | 表記ゆれ | 同じ記事のほかの箇所は「キー」 | Minor | 「…絞ったキーではなく」 | 承認待ち |
-| A-4 | 「3. 発行直後に出るキーを控えます。」（35行） | 「控える」先が曖昧で、39行「キーそのものを共有用の表や作業メモへ貼らないでください」と並ぶと、どこに控えればよいか迷う | 手順4でそのまま貼るので、保管の指示は要らない | Minor | 「3. 発行直後に表示されるキーをコピーします。完全なキーは再表示されません。」 | 承認待ち |
+| A-3 | 「個人の担当範囲だけに絞った鍵ではなく」（31行） | 表記ゆれ | 同じ記事のほかの箇所は「キー」 | Minor | 「…絞ったキーではなく」 | 承認済み・対応済み |
+| A-4 | 「3. 発行直後に出るキーを控えます。」（35行） | 「控える」先が曖昧で、39行「キーそのものを共有用の表や作業メモへ貼らないでください」と並ぶと、どこに控えればよいか迷う | 手順4でそのまま貼るので、保管の指示は要らない | Minor | 「3. 発行直後に表示されるキーをコピーします。完全なキーは再表示されません。」 | 承認済み・対応済み |
 
 - AI特有の表現・定型の締め・誇張・エムダッシュ: 問題なし。
 - 一文の長さ・語尾の連続: 問題なし（目視。字数の機械計測はしていない）。
@@ -79,10 +83,10 @@ Zapier公開ページの「Beta」表示（A-1・B-1）は、当初「要確認�
 
 日本語版と同じ根拠で照合し、問題なし（Settings → Integrations & channels → API keys、Read only、Issue、API Key、New Contact、newest first up to 100、Create Contact needs Read and write）。英語の画面ラベルは `api-keys-view.tsx:309-311,322`、`settings-index.tsx:70,75` と一致する。
 
-| ID | 原文（場所） | 問題 | 根拠 | 重大度 | 修正案（未承認） | 対応状況 |
+| ID | 原文（場所） | 問題 | 根拠 | 重大度 | 修正案（承認済み） | 対応状況 |
 |---|---|---|---|---|---|---|
 | B-1 | "where the integration currently carries a Beta label."（23行） | 問題なし（当初は要確認） | A-1と同じ（Codexが実画面で確認、画面の記録をClaudeが読んで確認） | なし | なし | 解消 |
-| B-2 | "choose the B2B edition in the [Revenue CRM demo]"（55行） | 英語のデモのカード見出しは "B2B sales" | `src/lib/demo.ts:17` | Minor | "choose **B2B sales** in the Revenue CRM demo" | 承認待ち |
+| B-2 | "choose the B2B edition in the [Revenue CRM demo]"（55行） | 英語のデモのカード見出しは "B2B sales" | `src/lib/demo.ts:17` | Minor | "choose **B2B sales** in the Revenue CRM demo" | 承認済み・対応済み |
 
 ### ②編集レビュー
 
@@ -124,9 +128,9 @@ Zapier公開ページの「Beta」表示（A-1・B-1）は、当初「要確認�
 
 ### ②編集レビュー
 
-| ID | 原文（場所） | 問題 | 根拠 | 重大度 | 修正案（未承認） | 対応状況 |
+| ID | 原文（場所） | 問題 | 根拠 | 重大度 | 修正案（承認済み） | 対応状況 |
 |---|---|---|---|---|---|---|
-| C-1 | 「登録後に担当欄も確認し、実際の引き継ぎ先と合っているかを見ます。」（52行） | 担当がすでに入っている前提に読める。実際は、運営・マネージャー、LEADERSでない管理部が登録すると担当は空のまま。冒頭の場面（先生に伝わらない）に直結する点なので、空なら付ける、まで書くと読者が動ける | `student/route.ts:92-98`（担当になるのは、管理部かつLEADERSの登録者だけ）、`src/school-app/lib/supabase.ts:611-612`（スクール版の既定の担当は空）、`supabase.ts:607-608`（担当のいない生徒の提出は誰の画面にも出ない、とのコメント） | Minor | 「登録した人がレッスンを持つ講師でなければ、担当は空のままです。カルテの担当欄で、引き継ぐ先生を指名してください。」 | 承認待ち |
+| C-1 | 「登録後に担当欄も確認し、実際の引き継ぎ先と合っているかを見ます。」（52行） | 担当がすでに入っている前提に読める。実際は、運営・マネージャー、LEADERSでない管理部が登録すると担当は空のまま。冒頭の場面（先生に伝わらない）に直結する点なので、空なら付ける、まで書くと読者が動ける | `student/route.ts:92-98`（担当になるのは、管理部かつLEADERSの登録者だけ）、`src/school-app/lib/supabase.ts:611-612`（スクール版の既定の担当は空）、`supabase.ts:607-608`（担当のいない生徒の提出は誰の画面にも出ない、とのコメント） | Minor | 当初案「登録した人がレッスンを持つ講師でなければ、担当は空のままです。…」。条件が曖昧なため、反映時に「管理部かつLEADERS」へ正確化した（「承認と反映の記録」を参照） | 承認済み・対応済み |
 
 - 構成・論理: 問題なし。場面→損失→その場で登録→状態と初期値→期間と回数の違い→最初の一歩。初期値の落とし穴と、英語表示の回避策を手順の前に置いている。
 - 具体性・独自性: 問題なし。「期間と回数は同じ意味ではない」は実装から導いた判断材料で、筆者固有の知見に当たる。
@@ -134,9 +138,9 @@ Zapier公開ページの「Beta」表示（A-1・B-1）は、当初「要確認�
 
 ### ③校正・推敲
 
-| ID | 原文（場所） | 問題 | 理由 | 重大度 | 修正案（未承認） | 対応状況 |
+| ID | 原文（場所） | 問題 | 理由 | 重大度 | 修正案（承認済み） | 対応状況 |
 |---|---|---|---|---|---|---|
-| C-2 | 「表示される実施側の数は、読み込まれたレッスン記録に依存します。」（50行） | 翻訳調で、「実施側の数」が何を指すか伝わりにくい | 実装では「◯回中◯回目」の◯回目は、記録したレッスンの件数（`render.ts:996-1004`） | Minor | 「「◯回中◯回目」の◯回目は、記録したレッスンの件数から数えます。」 | 承認待ち |
+| C-2 | 「表示される実施側の数は、読み込まれたレッスン記録に依存します。」（50行） | 翻訳調で、「実施側の数」が何を指すか伝わりにくい | 実装では「◯回中◯回目」の◯回目は、記録したレッスンの件数（`render.ts:996-1004`） | Minor | 「「◯回中◯回目」の◯回目は、記録したレッスンの件数から数えます。」 | 承認済み・対応済み |
 
 - AI特有の表現・定型の締め・誇張・エムダッシュ: 問題なし。
 - 表記: 「か月」で統一（サイトの規則どおり。画面の表示は「3ヶ月」だが、本文は画面の文字を「」で引いていないので問題なし）。
@@ -158,32 +162,44 @@ Zapier公開ページの「Beta」表示（A-1・B-1）は、当初「要確認�
 
 ### ②編集レビュー
 
-| ID | 原文（場所） | 問題 | 根拠 | 重大度 | 修正案（未承認） | 対応状況 |
+| ID | 原文（場所） | 問題 | 根拠 | 重大度 | 修正案（承認済み） | 対応状況 |
 |---|---|---|---|---|---|---|
-| D-1 | "Check the teacher-assignment section after registration so the actual handoff goes to the right person."（52行） | C-1と同じ | C-1と同じ | Minor | "Unless the person registering is a teacher, the student starts with no assigned teacher. Assign one on the profile so the handoff reaches them." | 承認待ち |
-| D-2 | "choose the school edition in the [Revenue CRM demo]"（60行） | 英語のデモのカード見出しは "Schools" | `src/lib/demo.ts:32` | Minor | "choose **Schools** in the Revenue CRM demo" | 承認待ち |
+| D-1 | "Check the teacher-assignment section after registration so the actual handoff goes to the right person."（52行） | C-1と同じ | C-1と同じ | Minor | 当初案 "Unless the person registering is a teacher, …"。C-1と同じ理由で、反映時に "Office user designated as a teacher (LEADERS)" へ正確化した | 承認済み・対応済み |
+| D-2 | "choose the school edition in the [Revenue CRM demo]"（60行） | 英語のデモのカード見出しは "Schools" | `src/lib/demo.ts:32` | Minor | "choose **Schools** in the Revenue CRM demo" | 承認済み・対応済み |
 
 - 日本語版との事実の差: なし。
 - 読者適合: 問題なし。"paper register" "intake notes" など、英語圏の教室運営に通じる語。
 
 ### ③校正・推敲
 
-| ID | 原文（場所） | 問題 | 理由 | 重大度 | 修正案（未承認） | 対応状況 |
+| ID | 原文（場所） | 問題 | 理由 | 重大度 | 修正案（承認済み） | 対応状況 |
 |---|---|---|---|---|---|---|
-| D-3 | "the displayed completed side depends on the lesson records loaded into the screen."（50行） | 日本語版C-2を直訳した言い回しで、"completed side" が不自然 | `render.ts:996-1004` | Minor | "the completed count in “lesson X of Y” comes from the lessons you have logged." | 承認待ち |
+| D-3 | "the displayed completed side depends on the lesson records loaded into the screen."（50行） | 日本語版C-2を直訳した言い回しで、"completed side" が不自然 | `render.ts:996-1004` | Minor | "the completed count in “lesson X of Y” comes from the lessons you have logged." | 承認済み・対応済み |
 
 **公開判定: 公開可。**
 
 ---
 
-## 承認が必要な修正案
+## 承認と反映の記録
 
-すべて Minor。公開を止めるものはない。
+2026-11-19、代表の明示承認「公開」により、9件すべてを反映した。未解決は0件。
 
-1. A-2・B-2・D-2: CTAの語を、デモのカード見出し「B2B」「B2B sales」「Schools」に合わせる。
-2. A-3・A-4: 「鍵」を「キー」へ。手順3を「コピーします」へ。
-3. C-1・D-1: 担当が空のままになる条件と、カードで指名することを書く。
-4. C-2・D-3: 「◯回中◯回目」の数え方を平易に言い直す。
+| ID | 反映した文（原稿） |
+|---|---|
+| A-2 | 「[Revenue CRMのデモ](…)で「B2B」を選び、確認してください。」 |
+| A-3 | 「個人の担当範囲だけに絞ったキーではなく」 |
+| A-4 | 「3. 発行直後に表示されるキーをコピーします。完全なキーは再表示されません。」 |
+| B-2 | "choose **B2B sales** in the [Revenue CRM demo](…)." |
+| C-1 | 「登録した人が「管理部」で、LEADERSにも指定されている場合は、その人が担当に入ります。それ以外は担当が空のままなので、カルテの担当欄で引き継ぐ先生を指名してください。」 |
+| C-2 | 「ただし、回数を入れたことだけで正確な消化回数まで管理できるわけではありません。「◯回中◯回目」の◯回目は、画面に読み込まれたレッスン記録の件数から数えます。記録していないレッスンは数に入りません。」 |
+| D-1 | "If the person registering is an Office user designated as a teacher (LEADERS), they become the student's assigned teacher. Otherwise the student starts with no assigned teacher, so assign one in the teacher section of the profile." |
+| D-2 | "choose **Schools** in the [Revenue CRM demo](…)." |
+| D-3 | "Entering a total does not establish a complete attendance ledger. The completed count in “lesson X of Y” is the number of lesson records loaded into the screen, so lessons nobody logged are not counted." |
+
+補足:
+- C-1・D-1は、表の修正案にあった「登録した人がレッスンを持つ講師でなければ」という書き方が曖昧だったため、実装に合わせて条件を正確にした。担当が自動で付くのは、登録した人の役割が表示上「管理部」（role teacher）で、かつLEADERS（is_coach）に指定されている場合だけ（`student/route.ts:92-98`、役割の表示は `render.ts:43`）。運営・マネージャーがLEADERSに指定されていても、この経路では自分は担当に入らない。
+- C-2・D-3は、消化回数を保証しないという注意を残した。数える範囲は「読み込まれたレッスン記録の件数」のまま変えていない（`render.ts:996-1004`）。
+- 4本とも、本文末尾のCTAは1回のまま。
 
 ## 製品側の要確認（記事の欠陥ではない。CRMは変更していない）
 

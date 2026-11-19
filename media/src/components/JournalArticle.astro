@@ -1,0 +1,97 @@
+---
+import { eyecatchPath } from '../data/eyecatch.mjs';
+import type { CollectionEntry } from 'astro:content';
+import TechnicalTerms from './TechnicalTerms.astro';
+import { categories, categoriesEn } from '../content.config';
+import '../styles/article-editorial.css';
+
+type Note = CollectionEntry<'notes'> | CollectionEntry<'notesEn'>;
+interface Props {
+  note: Note;
+  headings: Array<{ slug: string; text: string }>;
+  related: Note[];
+  lang: 'ja' | 'en';
+}
+const { note, headings, related, lang } = Astro.props;
+const d = note.data;
+const en = lang === 'en';
+const home = en ? '/en/' : '/';
+const articlePath = (id: string) => en ? `/en/articles/${id}/` : `/${id}/`;
+const categoryPath = (id: string) => en ? `/en/category/${id}/` : `/category/${id}/`;
+const labels = en ? categoriesEn : categories;
+const about = en ? '/en/about/' : '/about/';
+const editor = en ? 'Consilegy Media Editorial Team' : 'Consilegy メディア編集部';
+const date = (v: Date) => v.toLocaleDateString(en ? 'en-US' : 'ja-JP', {year: 'numeric', month: en ? 'short' : '2-digit', day: '2-digit'});
+---
+<article class="journal-article">
+  <div class="journal-shell">
+    <nav class="journal-crumbs" aria-label={en ? 'Breadcrumb' : 'パンくずリスト'}>
+      <a href={home}>{en ? 'Home' : 'ホーム'}</a><span aria-hidden="true">/</span>
+      <a href={en ? '/en/articles/' : '/articles/'}>{en ? 'Articles' : '記事一覧'}</a><span aria-hidden="true">/</span>
+      <a href={categoryPath(d.category)}>{labels[d.category]}</a>
+    </nav>
+    <div class="journal-layout">
+      <div class="journal-main">
+        <header class="journal-heading">
+          <div class="journal-kicker"><span>BUSINESS INSIGHTS</span><a href={categoryPath(d.category)}>{labels[d.category]}</a></div>
+          <h1>{d.title}</h1>
+          <p class="journal-deck">{d.description}</p>
+          <div class="journal-byline">
+            <a href={about}>{editor}</a>
+            <div class="journal-dates">
+              <time datetime={d.publishedAt.toISOString()}>{en ? 'Published' : '公開'} {date(d.publishedAt)}</time>
+              {d.updatedAt && <time datetime={d.updatedAt.toISOString()}>{en ? 'Updated' : '更新'} {date(d.updatedAt)}</time>}
+            </div>
+          </div>
+          {!en && <TechnicalTerms text={`${d.title} ${note.body ?? ''}`} />}
+        </header>
+        <figure class="journal-hero">
+          <img src={eyecatchPath(note.id)} alt={d.title} width="1200" height="630" fetchpriority="high" decoding="async" />
+        </figure>
+        <aside class="journal-takeaway" aria-label={en ? 'Key takeaway' : 'この記事の要点'}>
+          <p class="journal-label">KEY TAKEAWAY</p>
+          <p>{d.principle}</p>
+        </aside>
+        {headings.length >= 2 && <details class="journal-toc" open>
+          <summary>{en ? 'Contents' : 'この記事の目次'}<span aria-hidden="true">＋</span></summary>
+          <nav aria-label={en ? 'Table of contents' : '目次'}><ol>{headings.map((h, i) => <li><a href={`#${h.slug}`}><span aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>{h.text}</a></li>)}</ol></nav>
+        </details>}
+        <div class="note-body journal-body"><slot /></div>
+        <aside class="journal-canon">
+          <p class="journal-label">FRAMEWORK</p>
+          <a href={d.canonUrl}>{d.canonLabel}<span aria-hidden="true"> ↗</span></a>
+        </aside>
+        <aside class="journal-author">
+          <p class="journal-label">EDITORIAL TEAM</p>
+          <p class="journal-author-name">{editor}</p>
+          <p>{en ? 'Practical insights on attracting customers, winning business, and retaining and growing accounts, drawing on Consilegy’s implementation work and published research.' : '集客・受注・取引の継続と拡大について、Consilegyの実装・運用支援で得た知見と公開調査をもとに、B2Bの売上設計に役立つ情報を発信しています。'}</p>
+          <a href={about}>{en ? 'About the editorial team' : '編集部について'}<span aria-hidden="true"> →</span></a>
+        </aside>
+        <aside class="journal-cta">
+          <p class="journal-label">CONSULTATION</p>
+          <p>{en ? 'Discuss your Japan market and revenue operations.' : '貴社の営業・マーケティングの課題を整理する。'}</p>
+          <a href={en ? 'https://consilegy.com/en/contact/' : 'https://consilegy.com/free-consultation/'}>{en ? 'Book a free consultation' : '30分無料相談'}<span aria-hidden="true"> →</span></a>
+        </aside>
+      </div>
+      <aside class="journal-rail" aria-label={en ? 'Related reading and topics' : '関連記事とテーマ'}>
+        {related.length > 0 && <section class="journal-rail-section">
+          <h2 class="journal-label">RELATED ARTICLES</h2>
+          <div class="journal-related">{related.map(item => <a href={articlePath(item.id)} class="journal-related-item">
+            <img src={eyecatchPath(item.id)} alt="" width="96" height="64" loading="lazy" />
+            <div><p>{item.data.title}</p><time datetime={item.data.publishedAt.toISOString()}>{date(item.data.publishedAt)}</time></div>
+          </a>)}</div>
+        </section>}
+        <section class="journal-rail-section">
+          <h2 class="journal-label">TOPICS</h2>
+          <nav class="journal-topics" aria-label={en ? 'Topics' : 'テーマから探す'}>{Object.entries(labels).map(([key,label]) => <a href={categoryPath(key)} aria-current={key === d.category ? 'true' : undefined}>{label}<span aria-hidden="true">→</span></a>)}</nav>
+        </section>
+        <section class="journal-publisher">
+          <p class="journal-label">PUBLISHED BY</p>
+          <p class="journal-publisher-name">Consilegy</p>
+          <p>{en ? 'Connecting marketing, sales, and customer growth.' : '集客から受注、その後の継続・拡大まで。売上を生み出す仕組みを考える。'}</p>
+          <a href={en ? 'https://consilegy.com/en/' : 'https://consilegy.com/'}>{en ? 'About Consilegy' : 'Consilegyについて'}<span aria-hidden="true"> ↗</span></a>
+        </section>
+      </aside>
+    </div>
+  </div>
+</article>

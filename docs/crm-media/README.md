@@ -218,6 +218,15 @@ crm origin/main（db20fc1）では、`src/app/school/` にあるのは `page.tsx
 - 2026-10-27: b2c は公開なし。10/26 以降のスクール版の変更は #378（/api/school-app/ も crm_ws を見る）と #379（デイリーコールの表示を外す）だけで新しい候補が無い。本番の /api/school-app/calendar は今も 503（CALENDAR_FEED_SECRET 未設定、Chrome で確認）
 - 2026-10-26: b2c は公開なし。10/25 の洗い出し以降、スクール版の変更は 39c3f38（カレンダーの文言）だけで新しい候補が無い。「レッスンのチャット」（もっと→💬）も見たが、Zoom 連携（保留中）が前提で書けない。teachers-without-google-cannot-see-their-lessons-on-their-phone は本番の CALENDAR_FEED_SECRET が入れば公開できる（日次タスクの環境からは本番に届かず確認できない）
 
+## 2026-11-19 選定・再検証
+
+| segment | 痛み | 機能 | slug | 根拠と既刊との差 |
+|---|---|---|---|---|
+| b2b | 新しい顧客を別アプリへもう一度コピーする | Zapier New Contact・読み取り用APIキー | new-contacts-get-copied-into-another-app-by-hand | 更新履歴11/18 #404/#406を最新CRM b49c7b7とZapier公開ページで照合。既刊のCSV移行やAIアプリ接続と異なる新規登録後の一方向の引き渡し。Beta・polling・最新100件・既存編集非対象・組織単位キー・発行権限・一度のみ表示を確認 |
+| b2c | 電話・対面で受けた入会が紙の名簿にしか無い | 新規生徒の個別登録 | phone-enrollments-stay-in-the-paper-register | 同mainのstudentNew/onNsSubmit/student API/authzで過去保留の手入力を再検証。既刊CSVは一括7列、体験フォームは外部受付。個別受付時の状態・期間・開始条件を入れる。初期値・新規追加・総回数の限界・後工程は別・権限を明記。英語フォームの送信値がずれるためJAでの登録に限定し、途中失敗時は一覧確認 |
+
+実行記録は [`runs/2026-11-19.md`](./runs/2026-11-19.md)。デモ2系統とも認証切れで本文画面なしの例外。補う画面は日英のAPIキー発行フォーム（キー値なし）と新規生徒の登録フォーム。日本人女性の表紙2枚をimagegenで生成し、前日の写真と比較。Recraftは未ログイン。
+
 ## 2026-11-18 選定・再検証
 
 | segment | 痛み | 機能 | slug | 根拠と既刊との差 |

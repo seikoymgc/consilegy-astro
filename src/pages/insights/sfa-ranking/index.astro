@@ -1,0 +1,992 @@
+---
+import { insightPhoto } from '../../../lib/editorial-photos';
+import NewsletterSidebar from '../../../components/NewsletterSidebar.astro';
+import InsightHead from '../../../components/InsightHead.astro';
+import InsightByline from '../../../components/InsightByline.astro';
+import InsightContents from '../../../components/InsightContents.astro';
+import '../../../styles/insight-evidence.css';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const slug = 'sfa-ranking';
+const pubDate = '2026-11-19';
+
+const title = "SFAランキング・比較：導入条件で選ぶ6製品";
+const metaTitle = "SFAランキング・比較：導入条件で選ぶ6製品 | Consilegy";
+const metaDescription = "SFA（営業支援システム）のランキングと比較。Salesforce、HubSpot、Mazrica Sales、Pipedrive、Zoho CRM、Revenue CRMを、案件を把握したいのか、記録の負担を減らしたいのかという導入条件で比べます。料金の見方とデモの試し方も解説します。";
+const category = 'CRM';
+
+const articleSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: title,
+	description: metaDescription,
+	datePublished: pubDate,
+	dateModified: pubDate,
+	author: { '@type': 'Person', name: '山口聖子', alternateName: 'Seiko Yamaguchi', jobTitle: 'Revenue Architect', url: 'https://consilegy.com/company/', worksFor: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' } },
+	publisher: { '@type': 'Organization', name: 'Consilegy', url: 'https://consilegy.com' },
+	url: `https://consilegy.com/insights/${slug}/`,
+	inLanguage: 'ja',
+};
+
+const breadcrumbSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://consilegy.com/' },
+		{ '@type': 'ListItem', position: 2, name: 'コラム', item: 'https://consilegy.com/insights/' },
+		{ '@type': 'ListItem', position: 3, name: title, item: `https://consilegy.com/insights/${slug}/` },
+	],
+};
+
+const headings = [{"id": "section-1", "text": "先に結論：どの製品から比較するか"}, {"id": "section-2", "text": "SFAランキングは、何を集計した順位かを見る"}, {"id": "section-3", "text": "Salesforce：十分な予算を持ち、権限や業務を作り込みたい場合"}, {"id": "section-4", "text": "HubSpot：親しみやすい画面と、豊富な機能を両立したい場合"}, {"id": "section-5", "text": "Mazrica Sales：案件の動きを見えるようにし、営業チームでフォローしたい場合"}, {"id": "section-6", "text": "Pipedrive：案件と次の活動を中心に始めたい場合"}, {"id": "section-7", "text": "Zoho CRM：AIより、基本の顧客・商談管理を低予算で使いたい場合"}, {"id": "section-8", "text": "Revenue CRM：最初の導入からAIを使い、記録・運用の負担を減らしたい場合"}, {"id": "section-9", "text": "デモでは、今の案件を使って営業と上司の両方を試す"}, {"id": "section-10", "text": "既存システムが使われないなら、切り替えの前に原因を分ける"}];
+---
+
+<BaseLayout
+	title={metaTitle}
+	description={metaDescription}
+	hasTranslation={false}
+	ogType="article"
+	lang="ja"
+>
+	<Fragment slot="head">
+		<InsightHead schema={articleSchema} />
+		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	</Fragment>
+
+<div class="article-wrap">
+
+	<header class="article-head container">
+		<nav class="breadcrumb" aria-label="パンくずリスト">
+			<a href="/">ホーム</a>
+			<span aria-hidden="true">›</span>
+			<a href="/insights/">コラム</a>
+			<span aria-hidden="true">›</span>
+			<span aria-current="page">{title}</span>
+		</nav>
+		<div class="article-meta">
+			<span class="article-cat">{category}</span>
+		</div>
+		<h1>{title}</h1>
+		<InsightByline published={articleSchema.datePublished} modified={articleSchema.dateModified} />
+	</header>
+
+	<article class="article-body container" id="article">
+
+		<InsightContents headings={headings} />
+		<div class="article-eyecatch">
+			<img src={insightPhoto(slug)} alt="" width="1200" height="630" class="article-eyecatch__img" loading="eager" aria-hidden="true" />
+		</div>
+
+		<section class="article-section article-lead">
+			<p>SFA（営業支援システム）を選ぶなら、最初に「案件を把握したい」のか、「営業が記録する負担を減らしたい」のかを分けてください。案件一覧がきれいに見えても、更新が止まれば判断には使えません。反対に、入力が楽でも、上司が支援すべき案件を見つけられなければ、営業管理は変わりません。</p>
+			<p>この記事では、Salesforce、HubSpot、Mazrica Sales、Pipedrive、Zoho CRM、Revenue CRMを比較します。対象は、B2Bの営業チームで案件・活動・次の対応を共有したい会社です。販売時点情報や消費者向け購買分析を中心に選ぶ場合とは、比較の前提が異なります。</p>
+			<p><strong>編集方針・利害関係：</strong> ConsilegyはRevenue CRMを開発・提供しています。以下は各社の公式資料に基づく比較と、それを踏まえた選定条件です。全製品の実機試験や利用者調査による総合ランキングではありません。情報確認日は2026年11月17日です。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section">
+			<h2 id="section-1">先に結論：どの製品から比較するか</h2>
+			<p>営業支援システムの候補は、営業が情報を更新する場面と、その情報を上司が使う場面をつなげて選びます。自社で設定を維持できる範囲も条件に入れます。その条件が違えば、最初に試す製品も変わります。</p>
+			<div class="insight-evidence-table" role="region" aria-label="先に結論：どの製品から比較するか" tabindex="0">
+				<table>
+					<thead><tr><th scope="col">いま変えたいこと</th><th scope="col">比較を始める候補</th><th scope="col">選定を左右する条件</th></tr></thead>
+					<tbody><tr><td>大企業で、厳しい権限・セキュリティ要件に合わせて作り込みたい</td><td>Salesforce</td><td>ライセンスに加え、カスタマイズ・管理・追加の保護機能に予算を持てるか</td></tr><tr><td>親しみやすい画面と、幅広い機能を両立したい</td><td>HubSpot</td><td>現場が使う操作を試し、必要なHub・シートを含めた費用を持てるか</td></tr><tr><td>営業チームで、動いていない案件を見つけてフォローしたい</td><td>Mazrica Sales</td><td>案件ボードの見せ方が営業に合い、最低契約人数・費用を受け入れられるか</td></tr><tr><td>案件の進捗と次の活動を、パイプライン中心に扱いたい</td><td>Pipedrive</td><td>メール連携・自動化など、必要な機能をどのプランで揃えるか</td></tr><tr><td>AIの高度な機能より、基本の顧客・商談管理を低予算で使いたい</td><td>Zoho CRM</td><td>必要な機能が低価格プランに収まるか。AIを追加する場合の条件は何か</td></tr><tr><td>最初の導入からAIも使い、日々の入力・記録を減らしたい</td><td>Revenue CRM</td><td>AI処理の燃料、業務との適合、契約・導入支援の条件を確認できるか</td></tr></tbody>
+				</table>
+			</div>
+			<p>これは機能の優劣を採点した表ではありません。たとえば営業だけの案件管理を始めたい会社が、部門横断の仕組みを一度に導入すれば、使い始める前の設定が重くなることがあります。一方、複雑な権限が必要な会社が最初の手軽さだけで選ぶと、必要な統制を後から作り直すことになります。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section">
+			<h2 id="section-2">SFAランキングは、何を集計した順位かを見る</h2>
+			<p>ランキングは候補を知る入口として使えます。ただし、満足度、レビュー数、使いやすさ、資料請求数では、測っているものが違います。</p>
+			<p>たとえば<a href="https://www.itreview.jp/categories/sfa/high_rated_rankings" target="_blank" rel="noopener">ITreviewのSFA満足度ランキング</a>は、レビュー評価を用い、ランキング対象にもレビュー数などの条件を設けています。営業活動を記録する製品と、商談の会話を扱う製品が同じカテゴリーに入る場合もあります。</p>
+			<p>その順位は、自社の導入条件で全製品を比べた結果ではありません。「上位だから選ぶ」より、自社と近い業務・利用方法のレビューを読み、試す候補を見つけるために使う方が役立ちます。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section">
+			<h2 id="section-3">Salesforce：十分な予算を持ち、権限や業務を作り込みたい場合</h2>
+			<p>Salesforceを勧めたい代表的なケースは、企業規模が大きく、厳しい権限・セキュリティ要件に合わせて業務を作り込む会社です。この使い方では、ライセンスだけでなく、カスタマイズと導入後の管理にも十分な予算を持てることが条件になります。</p>
+			<p>ただし、大企業専用という意味ではありません。Salesforceは<a href="https://www.salesforce.com/jp/small-business/" target="_blank" rel="noopener">中堅・中小企業向けの製品</a>も提供しています。会社の規模だけで候補から外さず、必要な設計と運用体制があるかで判断します。</p>
+			<p><a href="https://www.salesforce.com/jp/sales/pricing/" target="_blank" rel="noopener">公式価格表</a>には、営業・サービス・マーケティングなどを含むStarter Suiteと、機能を拡張した上位構成が掲載されています。最も安いプランの価格に、上位の自動化や分析機能まで含まれていると考えてはいけません。</p>
+			<p>比較では、現在の案件だけでなく、例外になる案件を扱えるかを見ます。たとえば、複数部署が同じ会社へ提案する場合に、誰が何を閲覧・更新するのか。<a href="https://www.salesforce.com/jp/platform/shield/" target="_blank" rel="noopener">Salesforce Shield</a>のような監視・暗号化・監査の製品もあるため、必要な保護と追加契約を具体的に照合します。導入するだけで社内のセキュリティ要件を満たすわけではありません。</p>
+			<p>一方、設定の判断をすべて外部に任せ、営業方法が変わるたびに改修を待つ状態では、柔軟性を日常業務に生かせません。小規模か大規模かだけでなく、導入後に設定を判断する体制まで含めて候補にします。</p>
+			<p><a href="https://www.itreview.jp/products/salesforce-sales-cloud/reviews/223774" target="_blank" rel="noopener">利用者レビュー</a>でも、情報共有やレポートを評価する一方、画面の複雑さと習熟の負担が述べられています。機能を使うための教育・管理を予算に含める理由は、ここにあります。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section">
+			<h2 id="section-4">HubSpot：親しみやすい画面と、豊富な機能を両立したい場合</h2>
+			<p>HubSpotを勧めたいのは、現場が親しみを持って使える画面を重視しながら、機能の幅も求める会社です。画面を触るハードルと、業務を広げるときの選択肢を、両方見たい場合の候補になります。使いやすさの感じ方は人によるため、実際に使う営業担当者の操作で確かめます。</p>
+			<p><a href="https://www.hubspot.jp/products/sales" target="_blank" rel="noopener">Sales Hub</a>に加え、マーケティングやサービスの製品を組み合わせられることは、その機能の幅を検討する理由です。</p>
+			<p>「親しみやすい」は、初めて触る全員が説明なしに使えるという意味ではありません。<a href="https://www.itreview.jp/products/hubspot-sales-hub/reviews/211223" target="_blank" rel="noopener">利用者レビュー</a>にも、営業に必要な機能を評価する一方、ITに不慣れな人には操作が難しいという指摘があります。画面の印象と、権限や自動処理を設定する難しさは分けて確認します。</p>
+			<p>ここで確認したいのは、「情報が同じ場所にある」ことと「必要な処理を実行できる」ことの違いです。資料請求を確認できても、その後の割り当てや追客まで自動化するには、契約構成の確認が必要です。</p>
+			<p><a href="https://www.hubspot.jp/pricing/sales" target="_blank" rel="noopener">公式価格表</a>では、シート、導入支援、クレジットなどの条件を確認できます。今回の日本語ページは米ドル表示でした。円換算した最安単価を置くより、必要な機能・利用者・支払期間を揃えた見積もりで比べてください。</p>
+			<p>営業の案件表だけを置き換えるなら、部門をまたぐ構成の価値を使い切れない可能性があります。すでに問い合わせから営業への受け渡しで情報が欠けているなら、営業機能だけの比較から一歩広げる意味があります。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section">
+			<h2 id="section-5">Mazrica Sales：案件の動きを見えるようにし、営業チームでフォローしたい場合</h2>
+			<p>Mazrica Salesは、営業チームで案件を共有し、対応が止まっている案件を見つけたい場合の候補です。<a href="https://help-sales.mazrica.com/ja/articles/4189977-案件ボードの表示について" target="_blank" rel="noopener">公式マニュアル</a>では、直近のアクションからの経過によって案件を色分けする仕組みが説明されています。担当者への聞き取りだけに頼らず、確認すべき案件を画面から探す使い方を検討できます。</p>
+			<p>ただし、記録上の動きがないことと、失注しそうなことは同じではありません。顧客側の決裁待ちなのか、自社の対応が止まっているのかは、記録の中身で確かめます。この区別をした上で、営業のフォローに使えるかを見ます。</p>
+			<p><a href="https://www.itreview.jp/products/senses/reviews/244531" target="_blank" rel="noopener">2026年5月の利用者レビュー</a>では、営業会議で案件の鮮度を把握する使い方と、有人チャットの支援が評価されています。一方、自動化を使いこなすための事例を求める記述もあります。見やすい画面に加え、導入後に自分たちで活用を広げられるかも確認します。</p>
+			<p>費用を見るときは、<a href="https://mazrica.com/product/pricing/" target="_blank" rel="noopener">公式料金</a>の1ID単価だけを抜き出さないでください。確認時点のStarterは、10ID分の料金と組織単位のSales Agent料金を含み、最低月額は税抜70,000円です。公式FAQには年間契約・一括払いの記載もあります。</p>
+			<p>少人数で始める会社には、この最低契約単位が選定を左右します。利用人数が合う会社では、既存のメールや予定から案件を更新し、チームが確認するまでの流れを試すと、導入目的に合うか判断できます。</p>
+			<p>複数の営業プロセス、API連携、細かな権限が必要なら、対象プランと利用条件を個別に確認します。機能名が製品紹介に載っているだけで、入口のプランに含まれるとは判断しません。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section">
+			<h2 id="section-6">Pipedrive：案件と次の活動を中心に始めたい場合</h2>
+			<p>Pipedriveは、案件の進捗と日々の活動を中心に比較したい場合の候補です。<a href="https://www.pipedrive.com/ja/pricing" target="_blank" rel="noopener">公式価格ページ</a>では、リード・取引・連絡先・予定の管理などが案内されています。</p>
+			<p>公式の<a href="https://www.pipedrive.com/ja/features/pipeline-management" target="_blank" rel="noopener">パイプライン機能</a>では、カンバン表示やドラッグ操作を案内しています。営業の仕事を「どの案件を、次にどう動かすか」から整理したい会社に向く、というのがここでの選定判断です。</p>
+			<p>試す際は、案件を右へ動かせるかだけで終わらせません。「提案済み」の案件を開き、前回何を約束したか、次に誰が何をするかを確認し、そのまま更新するところまで見ます。案件ボードと活動が分断されていると、進捗を確認するたびに担当者へ聞く仕事が残るからです。</p>
+			<p>メール同期や自動化まで使うなら、入口のLiteだけで費用を判断せず、Growthなど必要な機能を含むプランで比較します。パイプラインの扱いが目的に合うことと、マーケティングから受注後まで必要な業務が揃うことは、別の評価です。</p>
+			<p>まず営業の仕事を揃えたい会社には、試す理由があります。部門横断の統合が主目的なら、追加する仕組みや連携も含めて比較します。</p>
+			<p><a href="https://www.g2.com/products/pipedrive/reviews" target="_blank" rel="noopener">G2の利用者レビュー</a>でも、案件や次の活動を追いやすいという評価と、高度なレポート・自動化の設定や上位プランの費用への指摘が併存しています。詳細な分析が必須なら、必要な帳票を実際に作れるかまで試します。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section">
+			<h2 id="section-7">Zoho CRM：AIより、基本の顧客・商談管理を低予算で使いたい場合</h2>
+			<p>Zoho CRMを勧めたいのは、高度なAI機能を選定の中心に置かず、まず顧客・商談管理を低予算で使いたい会社です。AIまで含めた費用と、基本機能を使う費用を分けて比較します。</p>
+			<p>安い基本機能だけの製品という意味ではありません。<a href="https://www.itreview.jp/products/zoho-crm/reviews/199223" target="_blank" rel="noopener">国内の利用者レビュー</a>には、価格に対する機能やカスタマイズの幅、関連製品との連携を評価する記述があります。低予算でも必要な機能が揃うか、設定を維持できるかを比較する製品です。</p>
+			<p><a href="https://www.zoho.com/jp/crm/comparison.html" target="_blank" rel="noopener">公式比較表</a>では、年間契約の場合、スタンダードは1人月額換算1,760円、エンタープライズは5,660円、いずれも税別です。予測ビルダーなどのAI機能には上位プランの条件があります。一方でAIの一部機能は別のプランにもあるため、「AIはすべて上位プランだけ」とは判断しません。</p>
+			<p>基本の顧客管理で十分なら、低価格プランを比較する意味があります。AIが導入の主目的なら、必要な機能のプラン・人数・日本語対応を先に確認します。公式比較表にもデータセンターによる差異の注意書きがあるため、契約前に自社の評価環境で確かめてください。</p>
+			<p>上位プランが必要になることと、他社より高額であることは別です。AIを含めた費用対効果は、同じ処理・利用人数の構成を揃えて比べます。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section">
+			<h2 id="section-8">Revenue CRM：最初の導入からAIを使い、記録・運用の負担を減らしたい場合</h2>
+			<p>Revenue CRMは、Consilegyが提供する顧客管理・営業支援システムです。<a href="/crm/features/">公開機能一覧</a>では、日本語での検索・作成指示、音声やメモからの記録、AIによる要約・下書きなどを案内しています。機能の範囲は全料金プランで共通です。</p>
+			<p>この構成から、これから初めて導入し、AIも使って日々の入力や記録を減らしたい会社の候補と考えます。高度なAIを使うために機能プランを上げる方式とは異なりますが、処理には燃料を使うため、無制限・追加費用なしという意味ではありません。</p>
+			<p>ここは提供元としての提案です。確認日時点の<a href="https://it-trend.jp/crm/26946/review" target="_blank" rel="noopener">ITトレンド掲載ページ</a>には利用者レビューがなく、今回の調査では、他製品と同じように独立した利用者の評価を照合できていません。使いやすさや成果が第三者に実証された製品としては紹介しません。</p>
+			<p>自社製品だからという理由で、既存システムからの入れ替えを勧めるものではありません。すでに必要な情報が揃い、現場が使っているなら、移行で失うものも比較してください。複雑な既存連携や統制要件がある場合も、対応範囲を個別に確かめる必要があります。</p>
+			<p><a href="/crm/pricing/">料金</a>は、ユーザープランが1人月額3,000円、税別です。AI処理には燃料を使い、追加購入や有償の導入支援は別に考えます。契約は1年で、月額払いでも途中解約できません。少人数での価格だけでなく、利用量と契約条件まで含めて判断してください。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section">
+			<h2 id="section-9">デモでは、今の案件を使って営業と上司の両方を試す</h2>
+			<p>製品ごとに用意されたデモだけでは、違いが見えにくくなります。自社の同じ案件を使い、営業が記録し、その情報で上司が支援を決めるところまでを比べてください。顧客の機密情報は持ち込まず、必要に応じて匿名化したサンプルを使います。</p>
+			<p>たとえば、提案後に顧客から返答を待っている案件。営業が面談の内容を残したとき、次の連絡日や確認事項を別の表へ書き直さずに済むか。上司はその記録から、価格の相談が必要なのか、意思決定者への接点が足りないのかを判断できるか。この一往復で、自社が求める使い方に合うかを見ます。</p>
+			<p>山口聖子は<a href="https://note.com/seiko_consilegy/n/n8d0fcb5ff641" target="_blank" rel="noopener">顧客管理システムの導入についての公開文章</a>で、慣れた表と新しい画面を並べ、共通点を残しながら不要なものを減らす考えを述べています。比較でも、現場が今どのように仕事を終えているかを基準にすると、単なる新機能の見学で終わりません。</p>
+			<p>使い慣れた方法をすべて残す必要はありません。ただし、置き換える操作が何の役に立っていたかを知らないまま消すと、現場は別の表で補います。その結果、システムへの記録だけが追加作業になります。</p>
+		</section>
+
+		<hr class="article-hr" />
+
+		<section class="article-section">
+			<h2 id="section-10">既存システムが使われないなら、切り替えの前に原因を分ける</h2>
+			<p>記録が古い原因が、不要な入力項目や二重報告であれば、製品を替えて同じ運用を作っても改善しません。一方、必要な連携や権限を現行の契約構成で実現できず、追加費用や維持の負担が大きすぎるなら、切り替えを比較する理由があります。</p>
+			<p>営業支援システムの選定は、人気製品を決める作業ではありません。営業が残せる記録で、次の商談と上司の支援が変わる製品を選ぶ作業です。</p>
+			<p>比較を始めるなら、今困っている案件を一つ選び、その案件の更新から確認までを候補製品で試してください。すでに導入済みで、切り替えと運用改善のどちらが必要か迷う場合は、<a href="/services/sfa-adoption-support/">ConsilegyのSFA定着支援</a>で、現行環境を前提に整理できます。</p>
+		</section>
+	</article>
+
+	<nav class="article-services" aria-label="関連サービス">
+		<h2 class="article-services__heading">関連サービス</h2>
+		<div class="article-services__grid">
+		<a href="/services/sfa-adoption-support/" class="article-services__card">
+				<span class="article-services__cat">サービス</span>
+				<span class="article-services__title">SFA定着支援</span>
+				<span class="article-services__arrow">→</span>
+			</a>
+		<a href="/services/crm-revops-redesign/" class="article-services__card">
+				<span class="article-services__cat">サービス</span>
+				<span class="article-services__title">顧客管理システム導入・改善支援</span>
+				<span class="article-services__arrow">→</span>
+			</a>
+		</div>
+	</nav>
+	<NewsletterSidebar />
+
+	<aside class="article-related container">
+		<p class="article-related__label">関連コンテンツ</p>
+		<div class="article-related__grid">
+			<a href="/insights/crm-comparison/" class="article-related__card">
+				<p class="article-related__card-cat">関連記事</p>
+				<p class="article-related__card-title">CRM比較：主要5製品の違いと、顧客情報をつなぐための選び方</p>
+				<span class="article-related__card-arrow">→</span>
+			</a>
+			<a href="/insights/why-sfa-becomes-just-a-pipeline-sheet/" class="article-related__card">
+				<p class="article-related__card-cat">関連記事</p>
+				<p class="article-related__card-title">なぜSFAは案件管理表になるのか</p>
+				<span class="article-related__card-arrow">→</span>
+			</a>
+			<a href="/insights/why-sales-teams-stop-using-crm/" class="article-related__card">
+				<p class="article-related__card-cat">関連記事</p>
+				<p class="article-related__card-title">CRMを導入すると営業が入力しなくなる理由</p>
+				<span class="article-related__card-arrow">→</span>
+			</a>
+		</div>
+	</aside>
+
+	<section class="article-cta">
+		<div class="container">
+			<div class="article-cta__body">
+				<h2>Consilegyでは、レベニューアーキテクチャの観点から<br class="br-pc" />売上の取りこぼしを可視化する無料の収益診断を公開しています。</h2>
+				<p class="article-cta__note">製品を比べる前に、どこで情報が途切れているかを整理すると、候補が絞れます。</p>
+				<div class="article-cta__actions">
+					<a href="/diagnostic/" class="btn btn--cta-primary">収益を自己診断</a>
+					<a href="/services/sfa-adoption-support/" class="btn btn--cta-ghost">SFA定着支援を見る</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</div>
+</BaseLayout>
+
+<style>
+	/* ── 定義ブロック（LLMO） ─── */
+	.article-def__text {
+		background: var(--color-bg-soft, #f8fafc);
+		border-left: 4px solid var(--color-border-strong);
+		border-radius: 0 8px 8px 0;
+		padding: 1.25rem 1.5rem;
+		font-size: 1rem;
+		line-height: 1.85;
+		color: var(--color-navy, #0f172a);
+	}
+
+	/* ── 記事末FAQ（LLMO） ─── */
+	.faq-list {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.faq-item {
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		background: #fff;
+		overflow: hidden;
+	}
+
+	.faq-q {
+		font-size: 0.95rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		padding: 1.1rem 1.25rem;
+		cursor: pointer;
+		list-style: none;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+		line-height: 1.5;
+	}
+
+	.faq-q::-webkit-details-marker { display: none; }
+
+	.faq-q::after {
+		content: '+';
+		font-size: 1.25rem;
+		font-weight: 300;
+		color: var(--color-navy);
+		flex-shrink: 0;
+		transition: transform 0.2s;
+	}
+
+	details[open] .faq-q::after { transform: rotate(45deg); }
+
+	.faq-a {
+		font-size: 0.9rem;
+		line-height: 1.8;
+		color: var(--color-charcoal, #334155);
+		padding: 0 1.25rem 1.25rem;
+		margin: 0;
+	}
+
+	/* ── Eyecatch ─── */
+	.article-eyecatch {
+		margin-bottom: 2rem;
+		border-radius: 8px;
+		overflow: hidden;
+		max-height: 360px;
+	}
+	.article-eyecatch__img {
+		width: 100%; height: auto; display: block;
+		max-height: 360px; object-fit: cover;
+	}
+	/* ── Layout ────────────────────────────────────────────── */
+	.article-wrap { background: #fff; }
+
+	.container {
+		max-width: 800px;
+		margin-inline: auto;
+		padding-inline: var(--space-md, 1.5rem);
+	}
+
+	.br-pc { display: inline; }
+
+	/* ── Breadcrumb ────────────────────────────────────────── */
+	.breadcrumb {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.4em;
+		font-size: 0.8rem;
+		color: var(--color-text-muted);
+		margin-bottom: 2rem;
+	}
+
+	.breadcrumb a { color: inherit; text-decoration: none; }
+	.breadcrumb a:hover { color: var(--color-primary, #1e40af); }
+
+	/* ── Article header ────────────────────────────────────── */
+	.article-head {
+		padding-top: 3rem;
+		padding-bottom: 2.5rem;
+		border-bottom: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.article-meta {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		margin-bottom: 1.25rem;
+		flex-wrap: wrap;
+	}
+
+	.article-cat {
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--color-navy);
+		background: rgba(15, 23, 42, 0.07);
+		padding: 0.2em 0.7em;
+		border-radius: 4px;
+	}
+
+	.article-date,
+	.article-read {
+		font-size: 0.8rem;
+		color: var(--color-text-muted);
+	}
+
+	.article-date::before {
+		content: '';
+		display: inline-block;
+		width: 1px;
+		height: 0.9em;
+		background: var(--color-border, #e2e8f0);
+		margin-right: 0.75rem;
+		vertical-align: middle;
+	}
+
+	.article-head h1 {
+		font-size: clamp(1.5rem, 3vw, 2.1rem);
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		line-height: 1.35;
+		margin: 0 0 1rem;
+	}
+
+	.article-desc {
+		font-size: 1rem;
+		line-height: 1.75;
+		color: var(--color-charcoal, #334155);
+		margin: 0;
+	}
+
+	/* ── Article body ──────────────────────────────────────── */
+	.article-body { padding-block: 3rem; }
+
+	.article-section { margin-bottom: 0; }
+
+	.article-section h2 {
+		font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		margin: 0 0 1.25rem;
+		line-height: 1.45;
+		padding-bottom: 0.6rem;
+		border-bottom: 2px solid var(--color-border, #e2e8f0);
+	}
+
+	.article-section h3 {
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		margin: 2rem 0 0.75rem;
+	}
+
+	.article-section p {
+		font-size: 0.975rem;
+		line-height: 1.9;
+		color: var(--color-charcoal, #334155);
+		margin: 0 0 1rem;
+	}
+
+	.article-section ul {
+		margin: 0 0 1.25rem;
+		padding: 0;
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.article-section ul li {
+		padding-left: 1.25rem;
+		position: relative;
+		font-size: 0.95rem;
+		line-height: 1.7;
+		color: var(--color-charcoal, #334155);
+	}
+
+	.article-section ul li::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0.65em;
+		width: 5px;
+		height: 5px;
+		border-radius: 50%;
+		background: var(--color-navy);
+		opacity: 0.5;
+	}
+
+	.article-hr {
+		border: none;
+		border-top: 1px solid var(--color-border, #e2e8f0);
+		margin: 3rem 0;
+	}
+
+	/* ── Callout ───────────────────────────────────────────── */
+	.article-callout {
+		background: var(--color-bg-soft, #f8fafc);
+		border-left: 4px solid var(--color-border-strong);
+		border-radius: 0 8px 8px 0;
+		padding: 1.1rem 1.5rem;
+		margin: 1.5rem 0;
+	}
+
+	.article-callout p {
+		margin: 0;
+		font-size: 0.95rem;
+		line-height: 1.8;
+		color: var(--color-navy, #0f172a);
+	}
+
+	/* ── Numbered blocks ───────────────────────────────────── */
+	.article-numbered {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		margin-top: 1.5rem;
+	}
+
+	.article-numbered__item {
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		padding: 1.5rem;
+		background: #fff;
+	}
+
+	.article-numbered__num {
+		font-size: 0.7rem;
+		font-weight: 800;
+		letter-spacing: 0.12em;
+		color: var(--color-navy);
+		margin: 0 0 0.5rem;
+	}
+
+	.article-numbered__item h3 {
+		margin: 0 0 0.75rem;
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+	}
+
+	.article-numbered__item p {
+		margin: 0;
+		font-size: 0.9rem;
+		line-height: 1.8;
+		color: var(--color-charcoal, #334155);
+	}
+
+	/* ── Table ─────────────────────────────────────────────── */
+	.article-table-wrap {
+		overflow-x: auto;
+		margin: 1.5rem 0;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+	}
+
+	.article-table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 0.9rem;
+	}
+
+	.article-table thead th {
+		padding: 0.75rem 1.25rem;
+		background: var(--color-navy, #0f172a);
+		color: #fff;
+		font-weight: 700;
+		text-align: left;
+		white-space: nowrap;
+	}
+
+	.article-table tbody td {
+		padding: 0.75rem 1.25rem;
+		border-bottom: 1px solid var(--color-border, #e2e8f0);
+		color: var(--color-charcoal, #334155);
+		line-height: 1.6;
+	}
+
+	.article-table tbody tr:last-child td { border-bottom: none; }
+
+	.article-table tbody td:first-child {
+		font-weight: 700;
+		color: var(--color-navy, #0f172a);
+		white-space: nowrap;
+		border-right: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	/* ── Related ───────────────────────────────────────────── */
+	.article-related {
+		padding-block: 2.5rem 3rem;
+		border-top: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.article-related__label {
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--color-text-muted);
+		margin: 0 0 1rem;
+	}
+
+	.article-related__grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+		gap: 0.75rem;
+	}
+
+	.article-related__card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.3rem;
+		padding: 1rem 1.25rem;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		text-decoration: none;
+		transition: border-color 0.15s, box-shadow 0.15s;
+	}
+
+	.article-related__card:hover {
+		border-color: var(--color-primary, #1e40af);
+		box-shadow: 0 2px 10px rgba(15, 23, 42, 0.07);
+	}
+
+	.article-related__card-cat {
+		font-size: 0.68rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--color-navy);
+		margin: 0;
+	}
+
+	.article-related__card-title {
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		margin: 0;
+		line-height: 1.45;
+	}
+
+	.article-related__card-arrow {
+		font-size: 0.85rem;
+		color: var(--color-primary, #1e40af);
+		margin-top: 0.25rem;
+	}
+
+	/* ── CTA ───────────────────────────────────────────────── */
+	.article-cta {
+		padding-block: 4rem;
+		background:
+			radial-gradient(800px 360px at 85% -5%, rgba(124,92,191,0.35), transparent 55%),
+			linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+	}
+
+	.article-cta__body {
+		max-width: 700px;
+		margin-inline: auto;
+		text-align: center;
+	}
+
+	.article-cta__body h2 {
+		font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+		font-weight: 600;
+		color: #fff;
+		line-height: 1.5;
+		margin: 0 0 1.5rem;
+	}
+
+	.article-cta__list {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+		margin: 0 auto 1.5rem;
+		padding: 0;
+		list-style: none;
+		text-align: left;
+		max-width: 420px;
+	}
+
+	.article-cta__list li {
+		font-size: 0.875rem;
+		color: rgba(255,255,255,0.85);
+		padding-left: 1.1rem;
+		position: relative;
+		line-height: 1.6;
+	}
+
+	.article-cta__list li::before {
+		content: '·';
+		position: absolute;
+		left: 0;
+		color: rgba(255,255,255,0.5);
+		font-size: 1.2em;
+	}
+
+	.article-cta__note {
+		font-size: 0.9rem;
+		color: rgba(255,255,255,0.7);
+		margin: 0 0 2rem;
+	}
+
+	.article-cta__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		justify-content: center;
+	}
+
+	.btn--cta-primary {
+		display: inline-flex;
+		align-items: center;
+		background: #fff;
+		color: var(--color-primary, #1e40af);
+		border: 2px solid transparent;
+		padding: 0.85em 1.75em;
+		font-size: 0.95rem;
+		border-radius: 6px;
+		font-weight: 700;
+		text-decoration: none;
+		transition: background 0.15s;
+	}
+
+	.btn--cta-primary:hover { background: rgba(255,255,255,0.9); }
+
+	.btn--cta-ghost {
+		display: inline-flex;
+		align-items: center;
+		background: transparent;
+		color: rgba(255,255,255,0.9);
+		border: 2px solid rgba(255,255,255,0.4);
+		padding: 0.85em 1.75em;
+		font-size: 0.95rem;
+		border-radius: 6px;
+		font-weight: 600;
+		text-decoration: none;
+		transition: border-color 0.15s;
+	}
+
+	.btn--cta-ghost:hover { border-color: rgba(255,255,255,0.8); }
+
+	/* ══════════════════════════════════════════════════════════
+	   DIAGRAMS
+	══════════════════════════════════════════════════════════ */
+	.diag {
+		margin: 2rem 0;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		overflow: hidden;
+		background: #fff;
+	}
+
+	.diag-caption {
+		display: block;
+		font-size: 0.78rem;
+		color: var(--color-text-muted);
+		text-align: center;
+		padding: 0.75rem 1rem;
+		background: var(--color-bg-soft, #f8fafc);
+		border-top: 1px solid var(--color-border, #e2e8f0);
+		line-height: 1.5;
+		margin: 0;
+	}
+
+	/* ── Diagram 1: Flow (日報化) ─────────────────────────── */
+	.diag--flow { padding: 1.5rem 1.5rem 0; }
+
+	.diag-flow-track {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-bottom: 1rem;
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		padding-bottom: 0.25rem;
+	}
+
+	.diag-flow-node {
+		flex: 1;
+		min-width: 100px;
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		padding: 1rem 0.75rem;
+		text-align: center;
+		background: var(--color-bg-soft, #f8fafc);
+		flex-shrink: 0;
+	}
+
+	.diag-flow-node--center {
+		border-color: var(--color-border-strong);
+		background: rgba(15, 23, 42, 0.04);
+	}
+
+	.diag-flow-node__icon {
+		font-size: 1.25rem;
+		margin-bottom: 0.4rem;
+		line-height: 1;
+	}
+
+	.diag-flow-node__label {
+		font-size: 0.82rem;
+		font-weight: 700;
+		color: var(--color-navy, #0f172a);
+		margin-bottom: 0.25rem;
+	}
+
+	.diag-flow-node__sub {
+		font-size: 0.7rem;
+		color: var(--color-text-muted);
+		line-height: 1.4;
+	}
+
+	.diag-flow-arrow {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.2rem;
+		color: var(--color-text-muted);
+		flex-shrink: 0;
+	}
+
+	.diag-flow-arrow__label {
+		font-size: 0.65rem;
+		color: var(--color-text-muted);
+	}
+
+	.diag-flow-nofeedback {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		padding: 0.65rem 1rem;
+		margin-bottom: 1.25rem;
+		background: #fef2f2;
+		border: 1px solid #fecaca;
+		border-radius: 6px;
+		font-size: 0.82rem;
+		font-weight: 600;
+		color: #dc2626;
+	}
+
+	.diag-flow-nofeedback__icon {
+		font-size: 1rem;
+		opacity: 0.7;
+	}
+
+	/* ── Diagram 2: Hex Grid (6 elements) ────────────────── */
+	.diag--hex { padding: 1.5rem 1.5rem 0; }
+
+	.diag-hex-center {
+		text-align: center;
+		margin-bottom: 1rem;
+	}
+
+	.diag-hex-center__label {
+		font-size: 1.1rem;
+		font-weight: 800;
+		color: var(--color-navy, #0f172a);
+		line-height: 1.2;
+	}
+
+	.diag-hex-center__sub {
+		font-size: 0.78rem;
+		color: var(--color-navy);
+		font-weight: 700;
+		letter-spacing: 0.06em;
+	}
+
+	.diag-hex-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 0.75rem;
+		margin-bottom: 1.25rem;
+	}
+
+	.diag-hex-card {
+		border: 1px solid var(--color-border, #e2e8f0);
+		border-radius: 8px;
+		padding: 1rem;
+		background: #fff;
+		position: relative;
+	}
+
+	.diag-hex-card__num {
+		font-size: 0.65rem;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		color: var(--color-navy);
+		margin: 0 0 0.35rem;
+	}
+
+	.diag-hex-card__title {
+		font-size: 0.82rem;
+		font-weight: 600;
+		color: var(--color-navy, #0f172a);
+		margin: 0 0 0.4rem;
+		line-height: 1.35;
+	}
+
+	.diag-hex-card__body {
+		font-size: 0.75rem;
+		line-height: 1.55;
+		color: var(--color-charcoal, #334155);
+		margin: 0;
+	}
+
+	/* ── Diagram 3: Pyramid (RA → RevOps → CRM) ──────────── */
+	.diag--pyramid { padding: 1.5rem 1.5rem 0; }
+
+	.diag-pyramid-tier {
+		border-radius: 8px;
+		padding: 1rem 1.25rem;
+		margin-bottom: 0;
+	}
+
+	.diag-pyramid-tier--ra {
+		background: var(--color-navy, #0f172a);
+		color: #fff;
+	}
+
+	.diag-pyramid-tier--mid {
+		background: var(--color-bg-soft, #f8fafc);
+		border: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.diag-pyramid-tier--revops {
+		background: #fff;
+		border: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.diag-pyramid-tier--outcome {
+		background: rgba(15, 23, 42, 0.04);
+		border: 1px solid rgba(112, 66, 172, 0.2);
+		margin-bottom: 1.25rem;
+	}
+
+	.diag-pyramid-tier__tag {
+		font-size: 0.68rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		margin-bottom: 0.3rem;
+	}
+
+	.diag-pyramid-tier--ra .diag-pyramid-tier__tag    { color: rgba(255,255,255,0.45); }
+	.diag-pyramid-tier--mid .diag-pyramid-tier__tag    { color: var(--color-text-muted); }
+	.diag-pyramid-tier--revops .diag-pyramid-tier__tag { color: var(--color-text-muted); }
+	.diag-pyramid-tier--outcome .diag-pyramid-tier__tag { color: var(--color-navy); }
+
+	.diag-pyramid-tier__role {
+		font-size: 0.9rem;
+		font-weight: 700;
+		margin-bottom: 0.65rem;
+	}
+
+	.diag-pyramid-tier--ra .diag-pyramid-tier__role    { color: #fff; }
+	.diag-pyramid-tier--revops .diag-pyramid-tier__role { color: var(--color-navy, #0f172a); }
+
+	.diag-pyramid-tier__items {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35rem;
+	}
+
+	.diag-pyramid-tier__items span {
+		font-size: 0.75rem;
+		font-weight: 500;
+		padding: 0.2em 0.7em;
+		border-radius: 4px;
+	}
+
+	.diag-pyramid-tier--ra .diag-pyramid-tier__items span {
+		background: rgba(255,255,255,0.1);
+		color: rgba(255,255,255,0.8);
+		border: 1px solid rgba(255,255,255,0.12);
+	}
+
+	.diag-pyramid-tier--mid .diag-pyramid-tier__items span {
+		background: #fff;
+		color: var(--color-charcoal, #334155);
+		border: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.diag-pyramid-tier--revops .diag-pyramid-tier__items span {
+		background: var(--color-bg-soft, #f8fafc);
+		color: var(--color-charcoal, #334155);
+		border: 1px solid var(--color-border, #e2e8f0);
+	}
+
+	.diag-pyramid-tier--outcome .diag-pyramid-tier__items span {
+		background: rgba(15, 23, 42, 0.07);
+		color: var(--color-navy);
+		border: 1px solid rgba(112, 66, 172, 0.15);
+		font-weight: 600;
+	}
+
+	.diag-pyramid-arrow {
+		text-align: center;
+		font-size: 1.1rem;
+		color: var(--color-primary, #1e40af);
+		padding: 0.35rem 0;
+	}
+
+	/* ── Responsive ────────────────────────────────────────── */
+	@media (max-width: 700px) {
+		.br-pc { display: none; }
+		.article-related__grid { grid-template-columns: 1fr; }
+		.article-head { padding-top: 2rem; }
+		.diag-hex-grid { grid-template-columns: repeat(2, 1fr); }
+		.diag-flow-track { gap: 0.35rem; }
+		.diag-flow-node { min-width: 88px; padding: 0.75rem 0.5rem; }
+	}
+
+	@media (max-width: 480px) {
+		.diag-hex-grid { grid-template-columns: 1fr 1fr; }
+	}
+</style>

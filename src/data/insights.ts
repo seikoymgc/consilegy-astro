@@ -9,6 +9,20 @@ export interface InsightArticle {
 
 export const articles: InsightArticle[] = [
   {
+    slug: 'sfa-ranking',
+    title: 'SFAランキング・比較：導入条件で選ぶ6製品',
+    desc: 'SFA（営業支援システム）を、案件を把握したいのか、記録の負担を減らしたいのかという導入条件で比較します。Salesforce、HubSpot、Mazrica Sales、Pipedrive、Zoho CRM、Revenue CRMの選び方、料金の見方、デモの試し方を解説します。',
+    cat: 'CRM',
+    date: '2026-11-19',
+  },
+  {
+    slug: 'crm-comparison',
+    title: 'CRM比較：主要5製品の違いと、顧客情報をつなぐための選び方',
+    desc: 'CRM（顧客管理システム）を、営業だけで使うのか、マーケティングや受注後の対応までつなぐのかという条件で比較します。Salesforce、HubSpot、Zoho CRM、kintone、Revenue CRMの選び方、料金の見方、デモでの確かめ方を解説します。',
+    cat: 'CRM',
+    date: '2026-11-19',
+  },
+  {
     slug: 'why-crm-investment-does-not-pass-the-board',
     title: '経営会議でCRM投資が通らない理由｜「選べる状態」をつくる3つの数字',
     desc: '顧客管理システムへの投資提案では、期待効果に加え、現状維持・限定導入・全面導入を比較できる材料が必要です。回収の前提、途中で止めた場合の損失、継続を判断する日を明示すると、不確実性を含めて検討できます。',

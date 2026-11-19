@@ -30,6 +30,58 @@ export const EDITION_LABEL: Record<UpdateEdition, { ja: string; en: string }> = 
 
 export const CRM_UPDATES: CrmUpdate[] = [
   {
+    date: '2026-11-19',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: 'MicrosoftログインとOutlook連携を、すべての組織で使えます',
+      en: 'Microsoft sign-in and Outlook are now available to every organization',
+    },
+    body: {
+      ja: '一部の組織で先に使っていたMicrosoftアカウントでのログインとOutlookとの連携を、すべての組織に広げました。ログイン画面の「Microsoft で続行」から入れます。設定 → 連携 → Outlook でつなぐと、1対1のメールとステップメールを自分のOutlookから送り、メールと予定表を取り込めます。取り込んだメールと予定は、コンタクトのメールアドレスと一致したものがタイムラインに並びます。',
+      en: 'Microsoft sign-in and the Outlook connection, previously available to some organizations, are now open to all. Use “Continue with Microsoft” on the sign-in screen. Connect in Settings → Integrations → Outlook to send one-to-one emails and sequences from your own Outlook and import mail and calendar events. Imported items that match a contact’s email address appear on their timeline.',
+    },
+    prs: [453],
+  },
+  {
+    date: '2026-11-19',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: 'リストを詳細画面から削除できます',
+      en: 'Delete a list from its detail page',
+    },
+    body: {
+      ja: 'リストの詳細画面に「このリストを削除」ボタンを付けました。',
+      en: 'List detail pages now have a “Delete this list” button.',
+    },
+    prs: [459],
+  },
+  {
+    date: '2026-11-19',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: 'AIエージェントのボタンを好きな位置に動かせます',
+      en: 'Move the AI agent button where you like',
+    },
+    body: {
+      ja: '画面の隅に出るAIエージェントのボタンを、ドラッグで動かせます。表の操作や入力の邪魔になるときに使えます。',
+      en: 'Drag the AI agent button in the corner of the screen to another spot when it gets in the way of a table or form.',
+    },
+    prs: [461],
+  },
+  {
+    date: '2026-11-19',
+    editions: ['b2b', 'contractor', 'reseller'],
+    title: {
+      ja: 'フォームの項目の種類を、分かりやすい名前にしました',
+      en: 'Clearer names for form field types',
+    },
+    body: {
+      ja: 'フォームを作るときに選ぶ項目の種類の名前を、「テキスト」は「1行テキスト」、「テキストエリア」は「自由記述（複数行）」に変えました。',
+      en: 'In the form builder, “Text” is now “Single-line text” and “Textarea” is now “Free text (multi-line)”.',
+    },
+    prs: [460],
+  },
+  {
     date: '2026-11-18',
     editions: ['b2b', 'contractor', 'reseller'],
     title: {

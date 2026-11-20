@@ -10,6 +10,7 @@ sources: "src/app/(dashboard)/weekly-review/weekly-review-view.tsx / src/app/(da
 segment: "b2b"
 edition: "b2b"
 date: 2026-11-08
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 Monday, 10 a.m. Pipeline meeting. Each rep reads out last week's closed-won and closed-lost, the manager says "great, keep it up," and an hour later the team walks out having decided nothing.

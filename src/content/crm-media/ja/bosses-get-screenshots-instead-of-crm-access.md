@@ -10,6 +10,7 @@ sources: "src/lib/seats.ts / src/lib/seat-gate.ts / src/lib/platform-billing.ts 
 segment: "b2b"
 edition: "b2b"
 date: 2026-11-05
+updated: 2026-11-20
 author: "山口聖子"
 ---
 月曜の朝。営業責任者がホームの画面をスクリーンショットに撮って、社長にチャットで送ります。経理には、今月の受注をスプレッドシートに写して送る。

@@ -10,6 +10,7 @@ segment: "b2c"
 edition: "school"
 sources: "src/school-app/lib/render.ts (lessonChats, zoomRecord) / src/school-app/components/MockShell.tsx (bey-chatopen) / src/app/api/school-app/chat/route.ts / src/school-app/lib/supabase.ts (chatMeetings) / src/school-app/lib/zoom-chat.ts / src/school-app/lib/zoom-ingest.ts / src/school-app/lib/html-en.ts"
 date: "2026-11-14"
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 A covering teacher wants to reuse the phrase taught in the previous online lesson. The handover note says “practised polite requests,” but it does not include the wording. Someone has to find the original Zoom session or ask the previous instructor.

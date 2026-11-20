@@ -64,12 +64,16 @@ import NewsletterForm from './NewsletterForm.astro';
 @media (max-width: 960px) {
 	.article-wrap {
 		grid-template-columns: minmax(0, 1fr);
+		grid-template-rows: none;
 		max-width: 800px;
 	}
+	.article-wrap .article-head,
 	.article-wrap .article-body.container,
 	.article-wrap .article-related.container,
+	.article-wrap .article-services,
 	.article-wrap .article-cta {
 		grid-column: 1;
+		grid-row: auto;
 	}
 }
 </style>
@@ -126,11 +130,12 @@ import NewsletterForm from './NewsletterForm.astro';
 @media (max-width: 960px) {
 	.nl-sidebar {
 		grid-column: 1;
+		grid-row: auto;
 		position: static;
 		align-self: auto;
 		padding-bottom: 0;
 		margin-bottom: 48px;
-		order: -1; /* show sidebar above article on mobile */
+		order: 0; /* Follow the article instead of occupying its grid row. */
 	}
 	/* 追従は中のカードに移したので、モバイルではそちらを止める */
 	.nl-box {

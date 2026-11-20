@@ -8,8 +8,9 @@ feature: "Lesson log (recorded from the student's record and kept in the history
 screens: "Student record: ＋ レッスン記録 (+ Log lesson) / レッスン記録 (Log a lesson): 生徒名 (Student), 日付 (Date), 種別 (Type), 担当 (Teacher), トピック（複数可） (Topics), 今日の出来 (How it went), 宿題を出した (Gave homework), メモ（任意） (Note, optional), 記録する (Submit), ✓ 記録しました / Student record: 📖 レッスン・対応履歴 (Lessons & history) / Bottom nav レッスン (Lessons) → レッスン履歴 (Lesson History): 🎓 種別ごとの担当, ＋ 種別を追加, 担当を追加, 追加する, 📖 履歴 / Menu > 権限管理 (Permissions): \"Lessons\" row, 作成 (create)"
 segment: "b2c"
 edition: "school"
-sources: "src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/app/api/school-app/lesson/route.ts / src/school-app/lib/lesson-type.ts / src/app/api/school-app/lesson-types/route.ts / src/app/api/school-app/student/detail/route.ts / src/school-app/lib/authz.ts / src/school-app/lib/supabase.ts / src/school-app/lib/i18n-data.ts / src/school-app/lib/demo-seed.ts / supabase/migrations/194_school_beyonders_copy.sql"
+sources: "src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/app/api/school-app/lesson/route.ts / src/school-app/lib/lesson-type.ts / src/app/api/school-app/lesson-types/route.ts / src/app/api/school-app/student/detail/route.ts / src/school-app/lib/authz.ts / src/school-app/lib/supabase.ts / src/school-app/lib/i18n-data.ts / src/school-app/lib/demo-seed.ts / supabase/migrations/194_school_beyonders_copy.sql / src/school-app/lib/jst.ts / src/school-app/lib/html-en.ts"
 date: 2026-10-08
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 A teacher who has been with the school for years is leaving at the end of term. She has 14 students. On handover day she opens her own notebook and talks the new teacher through them one by one. The new teacher takes notes, but an hour is not enough for 14 people.
@@ -30,19 +31,19 @@ What I recommend is not better lesson reports. It is everyone leaving a note in 
 
 Where you write the log and where the next person reads it are the same screen. Open the student and tap ＋ レッスン記録 (+ Log lesson).
 
-Some labels switch to English and others stay in Japanese, so I give the Japanese with a gloss. The レッスン記録 (Log a lesson) screen opens with the student's name and today's date filled in. Choose 種別 (Type) and 担当 (Teacher) fills in from it (if a type has two teachers, pick one). Tap your choices under トピック（複数可） (Topics (multi)), 今日の出来 (How it went) and 宿題を出した (Gave homework), add a line in メモ（任意） (Note (optional)), and tap 記録する (Submit). When the button reads ✓ 記録しました, it is saved.
+I give each label in Japanese with a gloss. With the screen in English, almost all of them appear in English, so look for the gloss. The レッスン記録 (Log a lesson) screen opens with the student's name and today's date filled in. Choose 種別 (Type) and 担当 (Teacher) fills in from it (if a type has two teachers, pick one). Tap your choices under トピック（複数可） (Topics (multi)), 今日の出来 (How it went) and 宿題を出した (Gave homework), add a line in メモ（任意） (Note (optional)), and tap 記録する (Submit). When the button reads ✓ 記録しました, it is saved.
 
 The entry then appears on that student's record under 📖 レッスン・対応履歴 (Lessons & history), with its type and date. Everything you tapped is stored as one run, for example "トピック: 旅行・とても良い・はい", followed by your note. How it went and homework sit in that same run after the word トピック (topics), so tell whoever will read it. If you log with the screen in English, the choices are saved in English. For the whole school, open レッスン (Lessons) in the bottom navigation: the 📖 履歴 list on the レッスン履歴 (Lesson History) screen shows every entry with the student's and teacher's names. Only the start of the note appears there, so the student's record is the place to read.
 
 Five things to know before you rely on it.
 
-First, lesson types have to exist. With none registered, the log screen shows a warning and will not save. On the Lessons screen, find 🎓 種別ごとの担当 (teachers per lesson type), tap ＋ 種別を追加, enter a type and a teacher, and tap 追加する. A Manager can always do this. Other roles can only if 編集 (Edit) is on in their "Lessons" row under 権限管理 (Permissions).
+First, lesson types have to exist. With none registered, the log screen shows a warning and will not save. On the Lessons screen, find 🎓 種別ごとの担当 (teachers per lesson type), tap ＋ 種別を追加, enter a type and a teacher, and tap 追加する. The Operations and Manager roles can always do this. Other roles can only if 編集 (Edit) is on in their "Lessons" row under 権限管理 (Permissions).
 
 Second, two answers are preselected. 今日の出来 opens on とても良い ("Great") and 宿題を出した opens on はい ("Yes"). If that is not what happened, change them. Otherwise that is what gets saved.
 
 Third, the topic choices are fixed at five: 日常会話 (Daily), フリートーク (Free talk), 旅行 (Travel), ビジネス (Business) and 発音 (Pronunciation). They were written with a language school in mind. If you teach music, maths or dance, skip them and put the content in the note.
 
-Fourth, the date. It is set automatically to the day you log and cannot be changed. The date is taken in UTC, so the day changes at 9:00 a.m. Japan time. Log before that and the entry is stored under the previous day, even though the form shows today. Logging right after the lesson ends is the safe habit.
+Fourth, the date. It is set automatically to the day you log, in Japan time, and cannot be changed. If you log yesterday's lesson today, it is stored under today's date. Logging right after the lesson ends is the safe habit.
 
 Fifth, there is no edit. A saved entry cannot be rewritten or deleted from the screen. If you get one wrong, log it again correctly and say in the note that it is a correction.
 

@@ -5,11 +5,12 @@ lang: "ja"
 category: "setup"
 pain: "生徒ごとの担当が決まっておらず、課題の確認も休みがちな生徒への声かけも「気づいた人がやる」になって、誰もやらない生徒が出る"
 feature: "生徒ごとの担当（カルテの「🎓 担当LEADERS」で役割ごとに担当を付けると、その生徒のタスクと届いた課題が担当の画面に出る）"
-screens: "下のナビ「もっと」→「ユーザー管理（設定）」の「☐ LEADERS」「☑ LEADERS」／下のナビ「生徒」→ 生徒のカルテ「🎓 担当LEADERS」（文法・シャドーイング・モチベーション・カウンセリング・その他）／「＋ アカウントのない人を担当にする」「追加」／ホーム「担当なしの生徒 ○人」「🚨 今すぐ対応」「📩 届いた課題」／「もっと」→「監査ログ」の「担当コーチ追加」「担当コーチ解除」／「権限管理」"
+screens: "下のナビ「もっと」→「ユーザー管理（設定）」の「☐ LEADERS」「☑ LEADERS」／下のナビ「生徒」→ 生徒のカルテ「🎓 担当LEADERS」（週1レッスン・文法・シャドーイング・モチベーション・カウンセリング・その他）／「＋ アカウントのない人を担当にする」「追加」／ホーム「担当なしの生徒 ○人」「🚨 今すぐ対応」「📩 届いた課題」／「もっと」→「監査ログ」の「担当コーチ追加」「担当コーチ解除」／「権限管理」"
 segment: "b2c"
 edition: "school"
-sources: "src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/school-app/lib/supabase.ts / src/school-app/lib/authz.ts / src/school-app/lib/notify.ts / src/school-app/lib/line-push.ts / src/school-app/lib/audit.ts / src/school-app/lib/mock-body.ts / src/school-app/lib/i18n-data.ts / src/school-app/lib/demo-seed.ts / src/app/school/page.tsx / src/app/api/school-app/student/coaches/route.ts / src/app/api/school-app/users/coach/route.ts / src/app/api/school-app/student/route.ts / supabase/migrations/194_school_beyonders_copy.sql"
+sources: "src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/school-app/lib/supabase.ts / src/school-app/lib/authz.ts / src/school-app/lib/notify.ts / src/school-app/lib/line-push.ts / src/school-app/lib/audit.ts / src/school-app/lib/mock-body.ts / src/school-app/lib/i18n-data.ts / src/school-app/lib/demo-seed.ts / src/app/school/page.tsx / src/app/api/school-app/student/coaches/route.ts / src/app/api/school-app/users/coach/route.ts / src/app/api/school-app/student/route.ts / supabase/migrations/194_school_beyonders_copy.sql / src/lib/school-homework.ts / src/lib/school/provision.ts"
 date: 2026-10-13
+updated: 2026-11-20
 author: "山口聖子"
 ---
 先生が3人の教室。ある生徒の課題が、2週間止まっています。3人とも気づいています。そして3人とも、「担当の先生が声をかけるだろう」と思っています。その生徒の担当は、決まっていませんでした。
@@ -24,9 +25,9 @@ author: "山口聖子"
 
 ## Revenue CRMのスクール版では、担当を付けた人の画面に、その生徒のタスクと課題が出る
 
-生徒のカルテの「🎓 担当LEADERS」で担当を付けると、その生徒のタスクと届いた課題は、担当の人のホームに出ます。
+生徒のカルテの「🎓 担当LEADERS」で役割ごとに担当を付けると、その生徒のタスクと届いた課題は、役割の合う担当の人のホームに出ます。課題はその種別（文法・シャドーイングなど）の担当に、次回予約のタスクは「週1レッスン」の担当に、月1サポートとモチベ設定のタスクは「モチベーション」の担当に届きます。担当はいても、ある種別の担当がいなければ、その種別の課題は誰のホームにも出ません。
 
-1つ目。担当にできる人を決めます。下のナビの「もっと」から「ユーザー管理（設定）」を開き、先生の行の「☐ LEADERS」を押して「☑ LEADERS」にします。押せるのは、マネージャーと管理部の人です。
+1つ目。担当にできる人を決めます。下のナビの「もっと」から「ユーザー管理（設定）」を開き、先生の行の「☐ LEADERS」を押して「☑ LEADERS」にします。押せるのは、マネージャー・運営・管理部の人です。
 
 2つ目。下のナビの「生徒」から生徒のカルテを開き、一番下の「🎓 担当LEADERS」を見ます。役割ごとに、先ほど印を付けた人の名前が並びます。名前を押すと担当に付き、もう一度押すと外れます。押した時点で保存されます。
 
@@ -40,13 +41,13 @@ author: "山口聖子"
 
 注意が7つあります。
 
-- 役割は「文法」「シャドーイング」「モチベーション」「カウンセリング」「その他」の5つで固定です。変える画面はありません。どれを何に使うかを先に決めてください
+- 役割は「週1レッスン」「文法」「シャドーイング」「モチベーション」「カウンセリング」「その他」の6つで固定です。変える画面はありません。どれを何に使うかを先に決めてください
 - 付け外しのあと、ホーム、「タスク」、生徒の一覧は、画面を読み込み直すまで変わりません。「☑ LEADERS」にした直後の人も、すでに開いたことのあるカルテには、読み込み直すまで並びません
 - 「＋ アカウントのない人を担当にする」で、名前だけの担当も置けます。ただし、その人には何も届かず、生徒は「担当なし」の扱いのままです
 - 担当を付けると、その生徒のタスクと課題は、支払いのタスクを除いてマネージャーの画面から消えます。見続けたいマネージャーの方は、自分の行も「☑ LEADERS」にして担当に入ってください。教室を作った本人はユーザー管理の一覧に出ず、担当には入れません
 - 「☑ LEADERS」を外しても、その人が付いていた担当は残ります。カルテの一覧からは名前が消えるので、外せなくなります。先にカルテで担当を外してから、印を外します
 - 「担当なしの生徒」の人数には、休止・卒業・退会の生徒も含まれます。体験の生徒は数えません
-- 担当を付け外しできるのは、マネージャーのほか、「権限管理」で「生徒」の「編集」が付いている役割の人です
+- 担当を付け外しできるのは、マネージャーと運営のほか、「権限管理」で「生徒」の「編集」が付いている役割の人です。新しく作った教室では、管理部と一般にも初めから付いているので、全員が付け外しできます。絞りたいときは「権限管理」で外します
 
 担当を付けても、本人に知らせは届きません。付けたことは、口頭で伝えてください。
 
@@ -54,6 +55,6 @@ author: "山口聖子"
 
 今週、マネージャーの方が「ユーザー管理（設定）」を開き、レッスンを持つ先生に「☑ LEADERS」を付けてください。画面を読み込み直してから、受講中の生徒のカルテを一人ずつ開き、担当を付けます。
 
-終わったらホームを読み込み直し、「担当なしの生徒」の表示を確かめます。残った人数が、休止・卒業・退会の生徒だけになっていれば完了です。
+終わったらホームを読み込み直し、「担当なしの生徒」の表示を確かめます。残った人数が休止・卒業・退会の生徒だけなら、受講中の生徒には担当が付いた状態です。最後に「📊 ダッシュボード」を開き、「⚠️ 誰のホームにも出ていないもの」が出ていないか確認します。出ていたら、その課題の種別の担当を見直してください。
 
 メールアドレスだけで入れる[デモ](https://crm.consilegy.com/demos)で「スクール」を選ぶと、カルテの「🎓 担当LEADERS」とユーザー管理の「☐ LEADERS」を、記事と同じ位置で確かめられます。

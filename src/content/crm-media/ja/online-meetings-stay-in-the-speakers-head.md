@@ -8,15 +8,15 @@ feature: "会議ツール連携（議事録の取り込み）"
 screens: "設定 → 連携「会議ツール」／「会議ツール連携」「Google Meetを接続」「今すぐ取り込む」「最近の取り込み」「確認して確定」「取り込む」"
 segment: "b2b"
 edition: "b2b"
-sources: "src/app/(dashboard)/settings/meetings/page.tsx / src/app/(dashboard)/settings/meetings/meetings-view.tsx / src/app/(dashboard)/settings/integrations/page.tsx / src/lib/meetings/ingest.ts / src/lib/meetings/sync.ts / src/lib/meetings/zoom.ts / src/lib/meetings/gemini-notes.ts / src/components/chat-import-dialog.tsx"
+sources: "src/app/(dashboard)/settings/meetings/page.tsx / src/app/(dashboard)/settings/meetings/meetings-view.tsx / src/app/(dashboard)/settings/integrations/page.tsx / src/lib/meetings/ingest.ts / src/lib/meetings/sync.ts / src/lib/meetings/zoom.ts / src/lib/meetings/gemini-notes.ts / src/components/chat-import-dialog.tsx / src/lib/followups/suggest.ts / src/app/(dashboard)/settings/notifications/notifications-view.tsx"
 date: 2026-10-01
+updated: 2026-11-20
 author: "山口聖子"
 ---
-午後4時、Zoomの商談が終わります。先方は3人、こちらは担当が1人。導入の時期、決裁の順番、「来週金曜までに概算を」という宿題まで出た、中身のある1時間でした。担当は次の会議に5分遅れで入り、そのまま一日が終わります。CRMの商談に入るのは「オンライン商談済み」の一行です。
+午後4時、Zoomの商談が終わります。先方は3人、こちらは担当が1人。導入の時期、決裁の順番、「来週金曜までに概算を」という宿題まで出た、中身のある1時間でした。担当は次の会議に5分遅れで入り、そのまま一日が終わります。顧客管理システムの商談に入るのは「オンライン商談済み」の一行です。
 
 録画は残っています。ただ、1時間の録画を見返す上司はいません。文字起こしも会議ツールの中に置かれたまま、誰も開きません。
 
-特定の会社の話ではありません。HubSpotとSalesforceの導入支援を8年やってきて、オンライン商談が増えるほど記録は増えるのに、CRMは薄くなる。そういう現場を何度も見てきました。
 
 ## 失っているのは録画ではなく、顧客の記録とのつながり
 
@@ -36,7 +36,7 @@ author: "山口聖子"
 
 場所は「設定」→「連携」の「会議ツール」です。開くと「会議ツール連携」の画面にZoom、Google Meet、Microsoft Teamsの3つが並びます。使っているツールの接続ボタン（たとえば「Google Meetを接続」）を押して、同意するだけです。「準備中です」と出ているツールは、アプリの審査が通り次第、同じ場所から接続できるようになります。TeamsはMicrosoft 365の管理者の同意が必要です。
 
-取り込みのあと、自動で入るのは二つだけです。
+取り込みのあと、自動で入るのは二つだけです（「設定」→「通知」の「フォローの下書きと朝のまとめ」をオンにしていれば、相手へのお礼とまとめのメールの下書きも「送信待ちの下書き」に入ります。送るのは人です）。
 
 一つは、会議の記録です。参加者のメールアドレスか氏名が、既存のコンタクトにちょうど1件だけ一致したとき、その人の履歴に残ります。同姓同名が2件以上あるときは入れず、人が選びます。別人の履歴に入るのがいちばん困るからです。
 
@@ -44,7 +44,7 @@ author: "山口聖子"
 
 それ以外は自動では入りません。コンタクトの新規作成、期日のないやること、商談との結び付けは、人が確定します。同じ画面の「最近の取り込み」に並ぶ「確認して確定」を押すと、要約、重要ポイント、ネクストアクションが出ます。ネクストアクションはチェックしたものだけがタスクになり、連絡先と商談（任意）を選んで「取り込む」を押せば終わりです。
 
-前提が一つあります。文字起こしが無い会議は取り込めません。Zoomはクラウド録画と音声文字起こしがオンのとき、Google Meetは文字起こしをオンにするかGeminiのメモを取ったときに残ります。無かった会議は「見送り」として理由つきで一覧に出るので、入らなかったこと自体には気づけます。Google MeetとTeamsは、接続後に出る「今すぐ取り込む」で、待たずに取りに行くこともできます。
+前提が一つあります。文字起こしが無い会議は取り込めません。Zoomはクラウド録画と音声文字起こしがオンのとき、Google Meetは文字起こしをオンにするかGeminiのメモを取ったときに残ります。無かった会議は「見送り」として理由つきで一覧に出るので、入らなかったこと自体には気づけます。取り込みはAIの解析を使うので、燃料が足りないときは「見送り」、AIの利用枠の上限に達したときやAI機能をオフにしているときは「失敗」として、同じく理由つきで出ます。Google MeetとTeamsは、接続後に出る「今すぐ取り込む」で、待たずに取りに行くこともできます。
 
 ## 最初の一歩
 

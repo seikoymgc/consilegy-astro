@@ -8,8 +8,9 @@ edition: "school"
 pain: "A school coordinator opens student profiles one by one to find homework still awaiting review"
 feature: "Student-level submission and unreviewed counts in the dashboard"
 screens: "Dashboard / How each student is doing / Submissions / last submission / assigned staff / Students"
-sources: "src/school-app/lib/render.ts / src/school-app/lib/supabase.ts / src/school-app/lib/authz.ts / src/app/school/page.tsx / src/school-app/lib/html-en.ts"
+sources: "src/school-app/lib/render.ts / src/school-app/lib/supabase.ts / src/school-app/lib/authz.ts / src/app/school/page.tsx / src/school-app/lib/html-en.ts / src/lib/demo.ts"
 date: 2026-11-18
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 A school coordinator wants to check for homework awaiting review. They open a student profile, inspect submissions, return to the roster, and repeat.
@@ -28,7 +29,7 @@ Use the lower student table, rather than the staff workload matrix above it:
 
 1. Open **Dashboard** from the desktop sidebar, or through **More** on a phone.
 2. Go to **How each student is doing**.
-3. Look in the submissions column for a student's unreviewed indicator and count.
+3. In the **Submitted** column, look for the amber pill with a count next to the total.
 4. Check the assigned staff shown on that row, then open the student's profile through **Students** and read the actual submissions.
 
 Student names in this table are not links to profiles. It is a place to identify the name before finding it in Students. There is also no control here for marking work reviewed.
@@ -53,4 +54,4 @@ Pick one row with an unreviewed indicator today. Check the actual work with the 
 
 The useful change is in the order of work: identify the person first, then open the submissions, instead of inspecting every profile just to discover who needs attention.
 
-To locate the table, open the [Revenue CRM demo](https://crm.consilegy.com/demos), choose School, and look at the dashboard.
+To locate the table, open the [Revenue CRM demo](https://crm.consilegy.com/demos), choose Schools, and look at the dashboard.

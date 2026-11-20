@@ -8,11 +8,12 @@ feature: "コールインテリジェンス（商談の文字起こしを貼り�
 screens: "サイドバー「コール」→「コールインテリジェンス」／「新規コール」の「タイトル」「コンタクト」「商談」「メソドロジー」（MEDDPICC・BANT・CHAMP・SPIN・カスタム）「通話日時」「通話時間（秒）」「トランスクリプト（貼り付け）」「保存」／詳細の「AI分析」「AI サマリー」「BANT 分析」「未抽出」「分析済み」「未分析」／自動化「取引項目自動補完ワークフロー」"
 segment: "b2b"
 edition: "b2b"
-sources: "src/app/(dashboard)/calls/page.tsx / src/app/(dashboard)/calls/calls-view.tsx / src/app/(dashboard)/calls/new/page.tsx / src/app/(dashboard)/calls/[id]/page.tsx / src/app/(dashboard)/calls/[id]/call-detail.tsx / src/app/api/calls/analyze/route.ts / src/lib/ai-fuel.ts / src/lib/ai-quota.ts / src/lib/revops/sales-ai.ts / src/lib/revops/catalog.ts / src/lib/revops/execution.ts / src/lib/personas.ts / src/components/app-sidebar.tsx / src/lib/i18n/translations.ts / src/lib/demo/extras.ts / supabase/migrations/004_custom_objects_ai_calls.sql"
+sources: "src/app/(dashboard)/calls/page.tsx / src/app/(dashboard)/calls/calls-view.tsx / src/app/(dashboard)/calls/new/page.tsx / src/app/(dashboard)/calls/[id]/page.tsx / src/app/(dashboard)/calls/[id]/call-detail.tsx / src/app/api/calls/analyze/route.ts / src/lib/ai-fuel.ts / src/lib/ai-quota.ts / src/lib/revops/sales-ai.ts / src/lib/revops/catalog.ts / src/lib/revops/execution.ts / src/lib/personas.ts / src/components/app-sidebar.tsx / src/lib/i18n/translations.ts / src/lib/demo/extras.ts / supabase/migrations/004_custom_objects_ai_calls.sql / src/lib/pipelines/provision.ts / src/lib/deals-i18n.ts"
 date: 2026-10-16
+updated: 2026-11-20
 author: "山口聖子"
 ---
-月曜の営業会議。「先週のA社、どうだった」「手応えありました。前向きです」「予算は」「そこまでは聞けていません」「決めるのは誰」「たぶん部長です」。CRMを開くと、商談のステージが「初回商談」に進んでいるだけで、1時間の話の中身は一行もありません。その商談は、来月の見込みに金額付きで乗っています。
+月曜の営業会議。「先週のA社、どうだった」「手応えありました。前向きです」「予算は」「そこまでは聞けていません」「決めるのは誰」「たぶん部長です」。システムを開くと、商談のステージが「ヒアリング」に進んでいるだけで、1時間の話の中身は一行もありません。その商談は、来月の見込みに金額付きで乗っています。
 
 ## 失っているのは、「手応え」を数字に変える材料
 
@@ -46,4 +47,4 @@ ZoomやGoogle Meet、スマホの録音アプリが出した文字起こしを�
 
 次の営業会議は、「分析済み」のコールを開いて「不明」の項目を読み上げるところから始めます。「予算が不明の商談が5件中3件」と分かれば、次に聞くことが決まります。聞けていない商談を見込みから外すのは、そのあとです。
 
-メールアドレスだけで試せるデモで「B2B」（法人営業向け）を選ぶと、サイドバーの「コール」に分析済みのコールが4件入った状態を同じ画面で確かめられます。デモのコールには文字起こしが無いので「AI分析」のボタンは出ません。デモは共有のアカウントで、貼ったコールは他の人にも見え、消せません。実際のお客様の文字起こしは貼らず、試すなら架空の商談を数行書いて「新規コール」から貼るか、自分のワークスペースで行ってください。[デモを試す](https://crm.consilegy.com/demos)
+メールアドレスだけで試せるデモで「B2B」（法人営業向け）を選ぶと、サイドバーの「コール」に、分析済みのサンプルのコールが入った状態を同じ画面で確かめられます。デモのコールには文字起こしが無いので「AI分析」のボタンは出ません。デモは共有のアカウントで、貼ったコールは他の人にも見え、消せません。実際のお客様の文字起こしは貼らず、試すなら架空の商談を数行書いて「新規コール」から貼るか、自分のワークスペースで行ってください。[デモを試す](https://crm.consilegy.com/demos)

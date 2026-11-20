@@ -10,6 +10,7 @@ feature: "タスクと活動の短い見出しの表示翻訳"
 screens: "画面上端 EN・繁中／タスク／活動の件名／翻訳された見出しの原文ホバー"
 sources: "src/components/localized-title.tsx / src/lib/title-translate.ts / src/app/api/ai/translate-titles/route.ts / src/lib/record-translation.ts / src/app/(dashboard)/tasks/tasks-view.tsx / src/components/activity-timeline.tsx / src/lib/ai-quota.ts / src/lib/ai-fuel.ts / src/app/api/org-settings/auto-translate/route.ts / src/app/(dashboard)/settings/ai-features/ai-features-view.tsx / supabase/migrations/275_org_auto_translate_records.sql"
 date: 2026-11-17
+updated: 2026-11-20
 author: "山口聖子"
 ---
 *2026年11月18日更新：既定の手動翻訳と、会社単位の自動翻訳設定を反映しました。*
@@ -39,7 +40,7 @@ Revenue CRMの法人営業版では、英語や繁体字中国語の画面で、
 
 「JA」の画面では元の表記です。日本語の見出しを別の言語で読むための仕組みなので、英語で書かれた件名を日本語にする機能とは違います。英語表示では漢字だけの見出しも対象ですが、繁体字中国語表示では、かなを含む日本語の見出しが対象です。
 
-会社で一覧を自動翻訳したい場合は、オーナーか管理者が「設定」→「AI機能の利用」の「入力データを自動翻訳する」をオンにします。ワークスペース全体の設定で、画面を開き直すと反映されます。オンの間は、一覧の対象の見出しをまとめて訳します。
+会社で一覧を自動翻訳したい場合は、オーナーか管理者が「設定」→「AI機能の利用」で、「入力データの自動翻訳: オフ」の右にあるスイッチをオンにします。ワークスペース全体の設定で、画面を開き直すと反映されます。オンの間は、一覧の対象の見出しをまとめて訳します。
 
 ## 原文が残る理由も、先に共有しておく
 

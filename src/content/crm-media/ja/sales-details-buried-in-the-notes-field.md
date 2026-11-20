@@ -8,8 +8,9 @@ feature: "コンタクトのカスタム項目を定義し、既存のコンタ�
 screens: "設定 → データ構造 → カスタム項目／カスタムフィールド → コンタクト → フィールドを追加／コンタクト → 編集 → 保存"
 segment: "b2b"
 edition: "b2b"
-sources: "src/app/(dashboard)/settings/settings-index.tsx / src/app/(dashboard)/settings/custom-fields/page.tsx / src/app/(dashboard)/settings/custom-fields/custom-fields-view.tsx / src/app/api/custom-fields/route.ts / src/components/custom-fields-input.tsx / src/components/custom-fields-display.tsx / src/components/contact-form-fields.tsx / src/app/(dashboard)/contacts/[id]/edit/page.tsx / src/app/(dashboard)/contacts/[id]/edit/contact-edit-form.tsx / src/lib/crm/record-form.ts"
+sources: "src/app/(dashboard)/settings/settings-index.tsx / src/app/(dashboard)/settings/custom-fields/page.tsx / src/app/(dashboard)/settings/custom-fields/custom-fields-view.tsx / src/app/api/custom-fields/route.ts / src/components/custom-fields-input.tsx / src/components/custom-fields-display.tsx / src/components/contact-form-fields.tsx / src/app/(dashboard)/contacts/[id]/edit/page.tsx / src/app/(dashboard)/contacts/[id]/edit/contact-edit-form.tsx / src/lib/crm/record-form.ts / src/lib/demo.ts"
 date: "2026-11-12"
+updated: 2026-11-20
 author: "山口聖子"
 ---
 訪問前に「この方が検討しているサービスは何か」を知りたい。顧客の記録を開くと、備考欄には初回の電話、展示会での会話、担当者の補足が続いています。答えはどこかにあるはずなのに、最初から読むことになる。
@@ -54,4 +55,4 @@ author: "山口聖子"
 
 今週の訪問準備で何度も探した情報を、1つだけ選んでください。その欄をコンタクトに作り、次に訪問する相手の記録から入力します。担当者同士で「この答えはここを見る」と揃えられたら、他の相手にも広げます。
 
-[Revenue CRMのデモを試す](https://crm.consilegy.com/demos)で法人営業を選ぶと、カスタムフィールドの設定画面を確認できます。
+[Revenue CRMのデモを試す](https://crm.consilegy.com/demos)で「B2B」（法人営業向け）を選ぶと、カスタムフィールドの設定画面を確認できます。

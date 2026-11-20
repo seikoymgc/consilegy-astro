@@ -8,8 +8,9 @@ feature: "ナレッジベース（同期された講師マニュアルの一覧�
 screens: "もっと → ナレッジ／ナレッジベース／記事のタイトル／‹ ナレッジ"
 segment: "b2c"
 edition: "school"
-sources: "src/school-app/lib/render.ts (knowledge, kbArticle) / src/school-app/components/MockShell.tsx (beyKb) / src/school-app/lib/drive-knowledge.ts / src/school-app/lib/html-en.ts / src/app/api/school-app/drive/folder/route.ts / src/app/api/school-app/drive/sync/route.ts"
+sources: "src/school-app/lib/render.ts (knowledge, kbArticle) / src/school-app/components/MockShell.tsx (beyKb) / src/school-app/lib/drive-knowledge.ts / src/school-app/lib/html-en.ts / src/app/api/school-app/drive/folder/route.ts / src/app/api/school-app/drive/sync/route.ts / src/school-app/lib/render.ts / src/app/api/school-app/automation/run/route.ts"
 date: "2026-11-08"
+updated: 2026-11-20
 author: "山口聖子"
 ---
 レッスン前に先生から「振替のルールはどこにありますか」と連絡が来る。代表はドライブを開き、前にも送った資料を探して、もう一度リンクを返す。別の先生からも似た質問が届きます。
@@ -31,7 +32,7 @@ author: "山口聖子"
 ![スクール版のナレッジベース。講師マニュアルや運営の資料がタイトルごとに並ぶ](/images/crm/media/screens/teachers-ask-the-owner-for-every-manual-1-ja-2026-11.webp)
 *デモには「週1レッスンの進め方」「休講・振替のルール」などのサンプルが並びます。実際の教室では自分たちの資料を用意します。*
 
-一覧には、記事のタイトルと「講師マニュアル」「運営」などの分類が並びます。必要なタイトルを押すと、その記事の本文が開きます。別の資料を探すときは「‹ ナレッジ」で一覧に戻ります。
+一覧には、記事のタイトルと「講師マニュアル」「運営」などの分類が並びます。Google Driveから取り込んだ資料は、すべて「講師マニュアル ・ Drive同期」と表示されます。必要なタイトルを押すと、その記事の本文が開きます。別の資料を探すときは「‹ ナレッジ」で一覧に戻ります。
 
 ![選んだ「週1レッスンの進め方」の本文が表示された画面](/images/crm/media/screens/teachers-ask-the-owner-for-every-manual-2-ja-2026-11.webp)
 *一覧のタイトルを押すと本文を読めます。この文章はデモ用のサンプルです。*
@@ -44,7 +45,7 @@ Google Driveの連携とフォルダ指定を済ませると、そのフォル�
 
 本文を取り込めるのは、Googleドキュメント、スライド、スプレッドシートの最初のシート、テキスト形式などです。PDFやWordは名前が一覧に出ても、本文は読み取れません。画面に読めない旨の案内が出たら、元の資料をDriveで確認します。
 
-Driveの変更が画面に常に即時反映されるわけでもありません。更新は取り込み後に反映されます。また、英語の表示に切り替えても、用意した日本語マニュアルの本文が自動で英訳されるわけではありません。先生が読める言語で、元の資料を用意してください。
+Driveの変更は、その場では画面に出ません。毎晩の自動取り込みか、「連携設定」で「保存して取り込む」を押し直したときに反映されます。Driveのフォルダから外した資料は、次の取り込みで一覧からも消えます。また、英語の表示に切り替えても、用意した日本語マニュアルの本文が自動で英訳されるわけではありません。先生が読める言語で、元の資料を用意してください。
 
 ## 最初の一歩は、よく聞かれる手順を1本だけ置くこと
 

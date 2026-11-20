@@ -10,7 +10,7 @@ segment: "b2b"
 edition: "b2b"
 sources: "src/app/(dashboard)/forms/[id]/form-detail.tsx / src/lib/forms/field-options.ts / src/app/api/forms/[id]/route.ts / src/app/f/[id]/page.tsx / src/lib/i18n/translations.ts / src/app/(dashboard)/forms/[id]/form-tabs.tsx / src/app/(dashboard)/forms/[id]/page.tsx / src/app/(dashboard)/forms/[id]/form-analytics.tsx"
 date: "2026-11-11"
-updated: 2026-11-18
+updated: 2026-11-20
 author: "山口聖子"
 ---
 問い合わせを開くと、「まず資料を見たい」「費用を教えてほしい」「今の契約について確認したい」が、全部同じ文章欄に入っています。営業が読み分け、別の表に「資料請求」「見積依頼」「契約中の相談」と書き足す。受付の段階で聞けることを、届いてから毎回判定しています。
@@ -31,7 +31,7 @@ author: "山口聖子"
 
 「フォーム」がサイドバーに見当たらなければ、上部の業務の切り替えで「マーケ」を選びます。使うフォームを開き、「設定」タブへ進みます。「フィールドを追加」の欄で、次のように用意します。
 
-1. 「ラベル」に「お問い合わせの種類」、 「キー(英数)」に `inquiry_type` を入れる。これは説明用の名前なので、自社の使い方に合わせて決めます。
+1. 「ラベル」に「お問い合わせの種類」、「キー(英数)」に `inquiry_type` を入れる。これは説明用の名前なので、自社の使い方に合わせて決めます。
 2. 「フィールドタイプ」を「ドロップダウン」または「ラジオ」にする。
 3. 出てきた「選択肢（1行に1つ）」に、「資料請求」「見積依頼」「契約中の相談」「その他」を改行して入れる。
 4. 毎回選んでほしい欄なら「必須」にチェックし、「フィールドを追加」を押す。

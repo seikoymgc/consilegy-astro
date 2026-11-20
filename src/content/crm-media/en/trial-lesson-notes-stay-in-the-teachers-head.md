@@ -8,9 +8,9 @@ feature: "The 初回ヒアリング (first interview) section of the student rec
 screens: "Student record 📝 初回ヒアリング, 🎥 テスト会話から自動入力, ✦ AIで抽出してカルテに反映 / Students: ＋ 新規生徒, 体験予約フォーム（公開URL）"
 segment: "b2c"
 edition: "school"
-sources: "school-app/lib/render.ts / school-app/components/MockShell.tsx / school-app/components/TrialForm.tsx / app/api/school-app/hearing/extract/route.ts / app/api/school-app/trial/route.ts / app/api/school-app/student/route.ts / school-app/lib/authz.ts"
+sources: "school-app/lib/render.ts / school-app/components/MockShell.tsx / school-app/components/TrialForm.tsx / app/api/school-app/hearing/extract/route.ts / app/api/school-app/trial/route.ts / app/api/school-app/student/route.ts / school-app/lib/authz.ts / src/app/api/school-app/trial/route.ts / src/app/api/school-app/hearing/extract/route.ts / src/school-app/lib/html-en.ts / src/school-app/components/MockShell.tsx"
 date: 2026-09-30
-updated: 2026-10-12
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 The first ten minutes of a trial lesson are the richest conversation you will have with a student. "Why did you decide to start?" "What have you done before?" "Where do you want to be, and by when?" People are surprisingly honest with a teacher they have just met.
@@ -25,19 +25,19 @@ When nothing from the trial is kept, the first lesson after enrolment starts fro
 
 In the school edition, each student record has a section headed 📝 Intake interview. It has six fields: how they found you, basic information, English level, what went well in the test conversation, what needs work, and the goal for three months from now. An empty field reads "Not filled in."
 
-There are three ways to fill it by hand.
+There are three ways to fill it.
 
-The first is the trial form. Anyone who applies through the link under 体験予約フォーム（公開URL） on the Students screen arrives with their own answers already in this section: how they found you, their level, their goal.
+The first is the trial form. Anyone who applies through the link under Trial booking form (public URL) on the Students screen arrives with their own answers already in this section: how they found you, their level, their goal.
 
-The second is typing it in at registration. The ＋ 新規生徒 (new student) screen has the same six fields.
+The second is typing it in at registration. The + New student screen has the same six fields.
 
-The third is pasting after the trial. Open 🎥 テスト会話から自動入力 on the student record, paste a transcript of the conversation or your own notes, and press ✦ AIで抽出してカルテに反映. The text is sorted into the six fields and the screen shows ✓ カルテに反映しました.
+The third is pasting after the trial. Open 🎥 Fill in from trial conversation on the student record, paste a transcript of the conversation or your own notes, and press ✦ Extract with AI and add to profile. The text is sorted into the six fields and the button changes to ✓ カルテに反映しました (this confirmation is still shown in Japanese).
 
 Every member of the school can open a student record. If the teacher who ran the trial and the teacher who takes over are different people, both read the same section before the first lesson.
 
 ## What to know
 
-✦ AIで抽出してカルテに反映 writes to the record as soon as you press it. There is no review screen before saving. Once it is done, open the record and read the six fields.
+✦ Extract with AI and add to profile writes to the record as soon as you press it. There is no review screen before saving. Once it is done, open the record and read the six fields.
 
 Any field the pasted text has something for replaces what was there, including the goal the student wrote on the form and the email address the form stores under basic information. Note the contact details before you paste, and put anything you want to keep into the text.
 
@@ -49,6 +49,6 @@ There is no dedicated field for why someone did not enroll.
 
 ## The first step
 
-After your next trial, paste three lines of what you remember, the same day. It does not need to be a clean transcript. When the student enrolls, tell the teacher taking over to read 初回ヒアリング on the record before the first lesson. That is the whole routine.
+After your next trial, paste three lines of what you remember, the same day. It does not need to be a clean transcript. When the student enrolls, tell the teacher taking over to read Intake interview on the record before the first lesson. That is the whole routine.
 
 The [demo](https://crm.consilegy.com/demos) opens with just an email address. Pick "Schools" to look around the school edition.

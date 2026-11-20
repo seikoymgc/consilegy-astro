@@ -8,8 +8,9 @@ feature: "講師ごとのGoogleカレンダー連携（講師が自分のGoogle�
 screens: "ホーム「📅 自分のGoogleカレンダーにつなぐ」「Googleカレンダーをつなぐ」「カレンダー連携済み」「つなぎ直す」／「もっと」→「連携設定」の「講師のカレンダー」／「レッスン」の「🗓️ Googleカレンダーと今すぐ同期」"
 segment: "b2c"
 edition: "school"
-sources: "src/school-app/lib/coach-calendar.ts / src/school-app/lib/google-calendar.ts / src/school-app/lib/render.ts / src/app/api/school-app/auth/google/start/route.ts / src/app/api/school-app/gcal/sync/route.ts / src/app/api/school-app/calendar/share/route.ts / src/app/api/school-app/automation/run/route.ts"
+sources: "src/school-app/lib/coach-calendar.ts / src/school-app/lib/google-calendar.ts / src/school-app/lib/render.ts / src/app/api/school-app/auth/google/start/route.ts / src/app/api/school-app/gcal/sync/route.ts / src/app/api/school-app/calendar/share/route.ts / src/app/api/school-app/automation/run/route.ts / src/app/api/school-app/lesson/reschedule/route.ts / src/app/school/page.tsx"
 date: 2026-10-21
+updated: 2026-11-20
 author: "山口聖子"
 ---
 日曜の夜。先生からLINEが届きます。「明日、私の担当って何時からでしたっけ」。代表は予約の一覧を開いて答え、ついでに先生のカレンダーにも入れておきます。先生が4人いれば、これが毎週続きます。そして月に一度は、先生の歯医者の予約とレッスンがかぶります。
@@ -30,10 +31,10 @@ author: "山口聖子"
 
 注意が4つあります。
 
-- 予約の変更・取消は、Googleカレンダー側で行ってください。システムの画面には、予約を動かす・取り消す操作がありません（予定の説明欄には「変更はCRMで行ってください」と出ますが、今はカレンダー側が正です）。カレンダーで予定を動かす・消すと、「レッスン」の「🗓️ Googleカレンダーと今すぐ同期」か、毎日10時ごろの自動処理で予約に反映されます。すぐには反映されません
+- 予約の変更・取消は、Googleカレンダー側で行ってください。システムの画面で予約を動かせるのは、「レッスン」の「記録漏れ」の「振替」だけです（予定の説明欄には「変更はCRMで行ってください」と出ますが、今はカレンダー側が正です）。カレンダーで予定を動かす・消すと、Googleからの変更通知を受けたときに予約へ反映されます。通知を登録できていないときは、ホームの「🚨 今すぐ対応」に「カレンダー未反映」の行が出て、反映は「レッスン」の「🗓️ Googleカレンダーと今すぐ同期」か、毎日10時ごろの自動処理のときになります
 - カレンダーに新しく作った予定は、予約として取り込まれません。新しい予約はシステム側（LINE予約やカルテ）で入れます
-- 「レッスン」の「記録漏れ」で「振替」を押すと、翌週の同じ時刻に予約が足されるだけで、もとの予約と予定は残ります。もとの予定はカレンダー側で消してください
-- 連携を外すボタンはありません。外すときは、先生のGoogleアカウントの設定からアクセスを取り消します。また、画面に出るカレンダーの名前と、実際にできるカレンダーの名前（教室名）が違うことがあります
+- 「レッスン」の「記録漏れ」で「振替」を押すと、押した日の7日後に、もとの予約と同じ時刻・種別・担当で予約が入ります。今日から7日以内に予約があれば、いちばん近い1件が取り消され、カレンダーの予定もそれに合わせて消えます。7日以内に予約が無いときは、取り消される予約はありません
+- 連携を外すボタンはありません。外すときは、先生のGoogleアカウントの設定からアクセスを取り消します。作られるカレンダーの名前は教室名で、ホームの案内に出る名前と同じです
 
 ## 最初の一歩
 

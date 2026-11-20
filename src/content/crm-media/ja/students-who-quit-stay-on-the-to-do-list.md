@@ -8,8 +8,9 @@ feature: "生徒のステータス変更（カルテの「⚙ ステータス変
 screens: "下のナビ「生徒」→生徒のカルテ「⚙ ステータス変更」の「体験予約」「受講中」「休止」「卒業」「退会」／退会の入力窓「退会理由を入力してください（任意）」／カルテの「退会日」「理由」／生徒一覧のチップ「受講中」「卒業間近」「休止」「卒業生」「退会」／「もっと」→「サブスク・請求」の「停止」／権限管理の「生徒」「編集」"
 segment: "b2c"
 edition: "school"
-sources: "src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/school-app/lib/mock-body.ts / src/school-app/lib/html-en.ts / src/school-app/lib/i18n-data.ts / src/school-app/lib/authz.ts / src/school-app/lib/homework-reminder.ts / src/school-app/lib/monthly-fee.ts / src/school-app/lib/monthly-fee-rollover.ts / src/school-app/lib/dunning.ts / src/school-app/lib/line-booking.ts / src/school-app/lib/demo-seed.ts / src/app/api/school-app/student/status/route.ts / src/app/api/school-app/automation/run/route.ts / src/app/api/school-app/billing/fee/stop/route.ts / src/app/api/school-app/permissions/route.ts"
+sources: "src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/school-app/lib/mock-body.ts / src/school-app/lib/html-en.ts / src/school-app/lib/i18n-data.ts / src/school-app/lib/authz.ts / src/school-app/lib/homework-reminder.ts / src/school-app/lib/monthly-fee.ts / src/school-app/lib/monthly-fee-rollover.ts / src/school-app/lib/dunning.ts / src/school-app/lib/line-booking.ts / src/school-app/lib/demo-seed.ts / src/app/api/school-app/student/status/route.ts / src/app/api/school-app/automation/run/route.ts / src/app/api/school-app/billing/fee/stop/route.ts / src/app/api/school-app/permissions/route.ts / src/school-app/lib/jst.ts / src/lib/school/provision.ts"
 date: 2026-10-20
+updated: 2026-11-20
 author: "山口聖子"
 ---
 日曜の夜、教室のLINEに保護者から1通届きます。「部活が忙しくなるので、今月で辞めさせてください」。先生は丁寧に返事をして、それで終わりにします。翌朝、ホームのタスクにはその生徒の「次回予約を促す」が出ています。次の支払い日が近づくと、月謝がまた「未入金」に戻ります。先生は「この子はもう辞めた」と心の中でつぶやき、毎回読み飛ばします。
@@ -45,8 +46,8 @@ author: "山口聖子"
 - 止まるのは次の晩の自動処理からです。押した直後は、その日のタスクが残ります。ホームの「受講中の生徒」の数は、休止・卒業・退会の生徒も数えるので減りません
 - すでに期日を過ぎた未入金の行は、状態を変えても「支払い期日超過」のタスクに出続けます。「もっと」の「サブスク・請求」で、その生徒の月謝の「停止」を押します。押せるのはマネージャー（請求の編集ができる役割）だけです。PayPalで払っている行は「停止」が出ず、催促もここでは止まりません
 - LINEの「予約する」は状態を見ません。生徒の担当か、レッスン画面の「種別ごとの担当」が決まっていれば、退会した生徒も予約できます。入っている予約も消えません
-- 退会日は押した日になり、選べません（日本時間の朝9時前に押すと前日の日付になります）。理由だけを後から直す方法はなく、もう一度「退会」を押すと日付も変わります。別の状態に戻すと、退会日と理由は消えます
-- 押せるのはマネージャーと、権限管理で「生徒」の「編集」をONにした役割（管理部・一般）です。権限が無いと、押しても何も起きません
+- 退会日は押した日（日本時間）になり、選べません。理由だけを後から直す方法はなく、もう一度「退会」を押すと日付も変わります。別の状態に戻すと、退会日と理由は消えます
+- 押せるのは、マネージャーと、権限管理で「生徒」の「編集」が許可されている役割です。新しく作った教室では、管理部と一般にも最初から許可されています。マネージャーが権限管理で外すと、その役割の人は押しても何も起きず、失敗の表示も出ません
 
 ## 最初の一歩
 

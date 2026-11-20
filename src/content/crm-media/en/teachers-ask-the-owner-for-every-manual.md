@@ -8,8 +8,9 @@ feature: "Knowledge: open a synced teacher manual and read its contents"
 screens: "More → Knowledge / article title / back to Knowledge"
 segment: "b2c"
 edition: "school"
-sources: "src/school-app/lib/render.ts (knowledge, kbArticle) / src/school-app/components/MockShell.tsx (beyKb) / src/school-app/lib/drive-knowledge.ts / src/school-app/lib/html-en.ts / src/app/api/school-app/drive/folder/route.ts / src/app/api/school-app/drive/sync/route.ts"
+sources: "src/school-app/lib/render.ts (knowledge, kbArticle) / src/school-app/components/MockShell.tsx (beyKb) / src/school-app/lib/drive-knowledge.ts / src/school-app/lib/html-en.ts / src/app/api/school-app/drive/folder/route.ts / src/app/api/school-app/drive/sync/route.ts / src/app/api/school-app/automation/run/route.ts"
 date: "2026-11-08"
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 A teacher asks where to find the make-up lesson policy. The school owner searches Drive, finds a document they have shared before, and sends the link again. Another teacher asks the same question next week.
@@ -26,7 +27,7 @@ A useful manual should be available at the point of uncertainty. Faster replies 
 
 ## Open Knowledge, then choose the article title
 
-On a phone, use **More → Knowledge**. On a desktop, select **Knowledge** in the left menu. The list shows titles and categories such as teacher manuals and operations.
+On a phone, use **More → Knowledge**. On a desktop, select **Knowledge** in the left menu. The list shows titles and categories such as teacher manuals and operations. Every document imported from Google Drive is labelled "Teacher manual · Synced from Drive".
 
 ![The school demo Knowledge list, with separate entries for manuals and school procedures](/images/crm/media/screens/teachers-ask-the-owner-for-every-manual-1-en-2026-11.webp)
 *These are sample documents in the demo. Your school supplies its own procedures.*
@@ -44,7 +45,7 @@ Before teachers can read your own materials here, an authorized staff member con
 
 Supported text includes Google Docs, Slides, the first sheet of a Google spreadsheet, and text files. PDF and Word files can appear by name without readable contents. If the app says it could not read the text, check the original in Drive.
 
-Updates in Drive appear after importing; do not assume every edit is immediately visible. Switching the interface to English does not translate a Japanese manual automatically. Supply the original in a language your teachers can read.
+Edits in Drive do not appear immediately. They come in with the nightly re-import, or when an authorized staff member runs save-and-import again under Integrations. Documents removed from the Drive folder disappear from the list at the next import. Switching the interface to English does not translate a Japanese manual automatically. Supply the original in a language your teachers can read.
 
 ## Begin with one frequently requested procedure
 

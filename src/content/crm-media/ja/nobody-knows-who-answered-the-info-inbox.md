@@ -8,8 +8,9 @@ feature: "インボックス（フォームの送信と、転送した代表ア�
 screens: "サイドバー「インボックス」／見出し横の「+」（新規インボックス）「インボックス名」「メール」「転送元のアドレス（例: info@example.com）」「作成」／転送先アドレスと「コピー」／「オープン」「解決済」「全て」／「担当者」「未割当」／「解決」「再オープン」／「返信を入力... (Shift+Enter で改行)」「送信」／受信箱「フォーム」／コンタクトの「アクティビティ」"
 segment: "b2b"
 edition: "b2b"
-sources: "src/components/app-sidebar.tsx / src/lib/personas.ts / src/app/(dashboard)/inbox/page.tsx / src/app/(dashboard)/inbox/inbox-view.tsx / src/app/api/inboxes/route.ts / src/lib/email-inbox.ts / src/app/api/webhooks/email-inbound/route.ts / src/lib/form-inbox.ts / src/app/api/forms/[id]/submit/route.ts / src/lib/contact-intake.ts / src/app/api/conversations/[id]/route.ts / src/app/api/conversations/[id]/messages/route.ts / src/lib/gmail.ts / src/lib/sending.ts / src/lib/email-log.ts / src/lib/demo/extras.ts / src/lib/i18n/translations.ts / supabase/migrations/018_conversations.sql / supabase/migrations/223_form_inbox_channel.sql"
+sources: "src/components/app-sidebar.tsx / src/lib/personas.ts / src/app/(dashboard)/inbox/page.tsx / src/app/(dashboard)/inbox/inbox-view.tsx / src/app/api/inboxes/route.ts / src/lib/email-inbox.ts / src/app/api/webhooks/email-inbound/route.ts / src/lib/form-inbox.ts / src/app/api/forms/[id]/submit/route.ts / src/lib/contact-intake.ts / src/app/api/conversations/[id]/route.ts / src/app/api/conversations/[id]/messages/route.ts / src/lib/gmail.ts / src/lib/sending.ts / src/lib/email-log.ts / src/lib/demo/extras.ts / src/lib/i18n/translations.ts / supabase/migrations/018_conversations.sql / supabase/migrations/223_form_inbox_channel.sql / src/lib/mailbox-send.ts / src/lib/outlook-send.ts / src/app/(dashboard)/settings/integrations/page.tsx"
 date: 2026-10-15
+updated: 2026-11-20
 author: "山口聖子"
 ---
 木曜の午後、info@に「見積りをお願いできますか」というメールが届きます。総務が営業3人に転送し、「どなたか対応お願いします」と添えます。金曜、2人が別々に返信していたことが分かります。同じ週のもう1通は、3人とも「誰かが返したはず」と思ったまま、2週間後に「まだお返事がありません」という電話で見つかります。
@@ -26,12 +27,12 @@ author: "山口聖子"
 
 入り口は2つあります。1つはRevenue CRMのフォームからの送信で、全部が「フォーム」という受信箱に自動で会話として入ります。もう1つが代表アドレスのメールです。見出し横の「+」（新規インボックス）を押し、「インボックス名」を入れ、種類に「メール」を選ぶと「転送元のアドレス（例: info@example.com）」の欄が出ます。info@を入れて「作成」すると、この受信箱専用の転送先アドレスと転送の設定手順が出ます。info@からそこへ転送すると、届いたメールがここに入ります。送った人のメールアドレスでコンタクトが探され、無ければ作られます。
 
-一覧は「オープン」「解決済」「全て」で切り替えます。会話を開くと上に「担当者」の選択があり、「未割当」か組織のメンバーから選びます。返したら「解決」を押すと「解決済」に移り、「再オープン」で戻せます。返信は下の「返信を入力...」に書いて「送信」です（Enterで送信、改行はShift+Enter）。返信した人がGoogle連携をしていればその人のGmailから、していなければ組織の検証済みの送信ドメインから、それも無ければRevenue CRM共通の差出人から送られます。会話にコンタクトが結びついていれば、返信はそのコンタクトの「アクティビティ」タブに「メール」として返信した人の名前と日時つきで残り、「最終コンタクト」の日付も更新されます。新しい会話やメールは、画面を開いたままでも増えます。
+一覧は「オープン」「解決済」「全て」で切り替えます。会話を開くと上に「担当者」の選択があり、「未割当」か組織のメンバーから選びます。返したら「解決」を押すと「解決済」に移り、「再オープン」で戻せます。返信は下の「返信を入力...」に書いて「送信」です（Enterで送信、改行はShift+Enter）。返信した人がGoogle連携をしていればその人のGmailから、Outlook連携をしていればその人のOutlookから送られます。どちらも無ければ組織の検証済みの送信ドメインから、それも無ければRevenue CRM共通の差出人から送られます。会話にコンタクトが結びついていれば、返信はそのコンタクトの「アクティビティ」タブに「メール」として返信した人の名前と日時つきで残り、「最終コンタクト」の日付も更新されます。新しい会話やメールは、画面を開いたままでも増えます。
 
 注意が5つあります。
 
 - 担当者を選んでも、その人への通知は飛びません。「自分の担当だけ」を絞る機能も無いので、「オープン」の一覧を開いて担当者を見る運用になります
-- 返信はinfo@からではなく、返信した人のGmailか、送信ドメインかRevenue CRM共通の差出人から届きます。お客様がそれに返信すると、その受信箱にも同じ転送を設定していない限り、インボックスには入りません。「解決」にしたあとに来た返事は、同じ件名でも新しい会話になります
+- 返信はinfo@からではなく、返信した人のGmailかOutlook、または送信ドメインかRevenue CRM共通の差出人から届きます。お客様がそれに返信すると、その受信箱にも同じ転送を設定していない限り、インボックスには入りません。「解決」にしたあとに来た返事は、同じ件名でも新しい会話になります
 - 作成した受信箱に「メールの受信はまだ準備中です」と出るときは、運営側の設定待ちです。そのあいだもフォームからの送信は入ります
 - 添付ファイルは取り込まれず、返信にも付けられません。送信に失敗したとき（宛先のメールアドレスが無い、コンタクトが連絡不可、など）は、書いた文が返信欄に戻るだけで、エラーは出ません
 - 受信箱と会話を消す操作はありません。メールから作られたコンタクトは会社と結びつきません

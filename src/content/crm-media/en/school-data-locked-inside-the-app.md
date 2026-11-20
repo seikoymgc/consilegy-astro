@@ -8,8 +8,9 @@ feature: "Export data (students, lesson logs, homework submissions and billing a
 screens: "Bottom nav More → Export data (PC sidebar: Export) / Students, Lessons, Homework submissions, Billing / Audit log → \"Export data · Billing\" / Students → CSV import"
 segment: "b2c"
 edition: "school"
-sources: "src/school-app/lib/export.ts / src/school-app/lib/export.test.ts / src/app/api/school-app/export/[dataset]/route.ts / src/school-app/lib/render.ts / src/school-app/lib/mock-body.ts / src/school-app/lib/html-en.ts / src/school-app/lib/authz.ts / src/school-app/lib/audit.ts / src/school-app/lib/supabase.ts / src/school-app/lib/pg-query-builder.ts / src/school-app/lib/demo-seed.ts / src/school-app/components/MockShell.tsx / src/app/api/school-app/student/import/route.ts / src/lib/csv.ts / src/lib/trials.ts / src/content/legal/terms-2026-09-29.md / supabase/migrations/194_school_beyonders_copy.sql / supabase/migrations/220_school_subscription_billing_kind.sql"
+sources: "src/school-app/lib/export.ts / src/school-app/lib/export.test.ts / src/app/api/school-app/export/[dataset]/route.ts / src/school-app/lib/render.ts / src/school-app/lib/mock-body.ts / src/school-app/lib/html-en.ts / src/school-app/lib/authz.ts / src/school-app/lib/audit.ts / src/school-app/lib/supabase.ts / src/school-app/lib/pg-query-builder.ts / src/school-app/lib/demo-seed.ts / src/school-app/components/MockShell.tsx / src/app/api/school-app/student/import/route.ts / src/lib/csv.ts / src/lib/trials.ts / src/content/legal/terms-2026-09-29.md / supabase/migrations/194_school_beyonders_copy.sql / supabase/migrations/220_school_subscription_billing_kind.sql / src/lib/i18n/format-date.ts"
 date: 2026-10-16
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 First week of the month. The accountant asks who has paid last month's tuition and who has not, student by student. The management app has a billing screen, but a screen is all it has. The owner photographs it on her phone and retypes forty students' plans, amounts and statuses into Excel. Every month. Somewhere around row 30 a second thought arrives: if we ever wanted a different tool, is the whole roster going to be retyped the same way?
@@ -33,7 +34,7 @@ The screen lives under More in the bottom navigation, as Export data; on a PC th
 - Homework submissions: submitted at, student, kind (text, photo, audio and so on), homework type, text, reviewed at, channel
 - Billing: student, plan, amount in yen, status (paid, unpaid, payment failed, or cancelled/stopped as one value), kind (tuition managed by the school, or external such as PayPal and post-graduation plans), next date, due date, when the reminder was sent
 
-For the accountant, the Billing row is the one. The file is named school_billing_ followed by the date, it opens straight into Excel, and filtering the status column gives you who has paid and who has not. Note that it is a snapshot: one row per student with the current status, no payment dates and no month-by-month history. Export it once a month and the stack of files becomes the year's record.
+For the accountant, the Billing row is the one. The file is named school_billing_ followed by the date, it opens straight into Excel, and filtering the status column gives you who has paid and who has not. Note that it is a snapshot: one row per billing record (a monthly fee, a post-graduation plan and so on) with its current status, so a student with two records appears twice. There are no payment dates and no month-by-month history. Export it once a month and the stack of files becomes the year's record.
 
 Every tap writes a line to the Audit log: "Export data · Billing", who did it, and how many rows. Who took the roster out, and when, is visible afterwards (the log shows the latest 40 entries).
 
@@ -43,9 +44,9 @@ Five things to know.
 - Four files is the whole set. The photo, audio and video files behind submissions, the LINE conversations, tasks, staff and their student assignments, bookings and closed periods are not included
 - The Students file does not match the seven columns that Students → CSV import reads (name, plan, status, start date, English level, goal, source); the import does not read the export as is. To load it into another school it has to be cut down to those seven columns first. There is no import screen for lessons, submissions or billing
 - Column headers and status words inside the CSV are in Japanese even when the interface is in English. The screen labels are translated; the file contents are not
-- Nothing confirms the download; the file simply arrives. Timestamps inside the file are Japan time, but the date in the file name is UTC, so an export before 9:00 Japan time carries the previous day's date
+- Nothing confirms the download; the file simply arrives. Timestamps inside the file and the date in the file name are both Japan time
 
-After a contract ends, the screen's promise holds: exports stay available for 30 days, after which the school's data is deleted. Whether or not you are leaving, taking all four files at the end of each term is the safe habit.
+The product's guidance says exports remain available for 30 days after the contract ends. Save the files you need while the contract is active, and confirm the retrieval method and deadline before ending it. Whether or not you are leaving, taking all four files at the end of each term is the safe habit.
 
 ## Your first step
 

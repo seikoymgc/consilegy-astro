@@ -8,11 +8,12 @@ feature: "ホームの「今やること」（自分が担当の未完了タス�
 screens: "サイドバー「ホーム」の「今やること」「すべて見る」「N日超過」「今日まで」「優先」「完了にする」「ほかN件」「今やることはありません」／サイドバー「タスク」の「新しいタスクを追加...」「優先度: 高/中/低」「追加」「未着手」「進行中」「完了」「未完了に戻す」／「自動化」の「商談停滞アラートワークフロー」"
 segment: "b2b"
 edition: "b2b"
-sources: "src/app/(dashboard)/page.tsx / src/lib/home/today-actions.ts / src/components/home/today-actions-panel.tsx / src/components/home/home-workspace.tsx / src/app/(dashboard)/tasks/tasks-view.tsx / src/app/api/tasks/route.ts / src/app/api/tasks/[id]/route.ts / src/app/(dashboard)/tasks/page.tsx / src/components/app-sidebar.tsx / src/lib/deals/last-touch.ts / src/lib/revops/deals.ts / src/lib/revops/util.ts / src/lib/revops/catalog.ts / src/lib/editions/index.ts / src/lib/workflow-engine.ts / src/lib/agent/tools.ts / src/app/api/chat-imports/[id]/confirm/route.ts / src/app/api/demo/seed/route.ts / src/lib/demo.ts"
+sources: "src/app/(dashboard)/page.tsx / src/lib/home/today-actions.ts / src/components/home/today-actions-panel.tsx / src/components/home/home-workspace.tsx / src/app/(dashboard)/tasks/tasks-view.tsx / src/app/api/tasks/route.ts / src/app/api/tasks/[id]/route.ts / src/app/(dashboard)/tasks/page.tsx / src/components/app-sidebar.tsx / src/lib/deals/last-touch.ts / src/lib/revops/deals.ts / src/lib/revops/util.ts / src/lib/revops/catalog.ts / src/lib/editions/index.ts / src/lib/workflow-engine.ts / src/lib/agent/tools.ts / src/app/api/chat-imports/[id]/confirm/route.ts / src/app/api/demo/seed/route.ts / src/lib/demo.ts / src/lib/region/server.ts / src/app/(dashboard)/settings/region/region-view.tsx / supabase/migrations/255_sales_playbooks.sql / src/components/deal-next-action.tsx / src/app/(dashboard)/deals/[id]/page.tsx"
 date: 2026-10-19
+updated: 2026-11-20
 author: "山口聖子"
 ---
-月曜の朝9時、営業がCRMを開きます。「タスク」の画面には、先週の自動化が作ったものと自分で入れたものが30件ほど、「未着手」に並んでいます。どれが今日の分なのか、一目では分かりません。結局メールを開き、昨日返事が来たお客様から返し始めます。金曜が期限だった「提案書を再送」は、今日も手つかずのまま終わります。
+月曜の朝9時、営業が顧客管理システムを開きます。「タスク」の画面には、先週の自動化が作ったものと自分で入れたものが30件ほど、「未着手」に並んでいます。どれが今日の分なのか、一目では分かりません。結局メールを開き、昨日返事が来たお客様から返し始めます。金曜が期限だった「提案書を再送」は、今日も手つかずのまま終わります。
 
 ## 失っているのは、毎朝の順番を自分で決め直す時間と、期限を過ぎた約束
 
@@ -34,20 +35,20 @@ author: "山口聖子"
 - 同じ段の中は、優先度の高いものが上です
 - 優先度も同じなら、つながっている商談の金額が大きいものが上、それも同じなら古いものが上です
 
-期限切れには赤で「N日超過」、今日が期限なら「今日まで」、優先度が高いものには「優先」と付きます。行の文字を押すと、その商談のページが開きます。商談が無ければコンタクトのページ、どちらも無ければ「タスク」画面です。左の丸（「完了にする」）を押すと、その場で完了になって消えます。並ぶのは8件までで、残りは「ほかN件」から「タスク」画面で見ます。「今日」は日本時間で数えます。
+期限切れには赤で「N日超過」、今日が期限なら「今日まで」、優先度が高いものには「優先」と付きます。行の文字を押すと、その商談のページが開きます。商談が無ければコンタクトのページ、どちらも無ければ「タスク」画面です。左の丸（「完了にする」）を押すと、その場で完了になって消えます。ただし、商談の「次のアクションと期日」で決める主アクションは、ホームの丸では完了できません。押しても、知らせが出ないまま行が戻ります。商談のページで「完了して次を設定」を使ってください。並ぶのは8件までで、残りは「ほかN件」から「タスク」画面で見ます。「今日」の区切りは、「設定」の「国と税・タイムゾーン」で選んだタイムゾーンで数えます（初期値は日本時間）。
 
-タスクの入り口は2つです。1つは「タスク」画面の上の欄で、「新しいタスクを追加...」に書き、優先度と期限日を選んで「追加」を押します。担当は作った本人です。もう1つは自動化です。法人営業向けで最初からONの「商談停滞アラートワークフロー」は、止まっている商談の担当者にタスクを作ります。自動化のタスクの多くは期限を持たないので、「期限なし」の段に入ります。
+タスクの入り口は主に3つです。1つは「タスク」画面の上の欄で、「新しいタスクを追加...」に書き、優先度と期限日を選んで「追加」を押します。担当は作った本人です。2つ目は商談のページの「次のアクションと期日」です。進行中の商談には、この主アクションが1件ずつあります。まだ決めていない商談には「次のアクションと期日を確定する」というタスクが、優先度「高」・期日つきで商談の担当者に自動で作られます。ホームの上のほうは、まずこれで埋まります。3つ目は自動化です。法人営業向けで最初からONの「商談停滞アラートワークフロー」は、止まっている商談の担当者にタスクを作ります。自動化のタスクの多くは期限を持たないので、「期限なし」の段に入ります。
 
 注意が4つあります。
 
 - 並ぶのは、自分が担当のタスクだけです。マネージャーの画面にも、チームの分は出ません
 - 担当者の入らないタスクは、誰の「今やること」にも出ません。ワークフローの「タスク作成」、AIエージェント、会話や議事録の取り込み（「会話を取り込む」）から作られたタスクと、担当者のいない商談に自動化が作ったタスクがこれに当たります
-- ホームには取り消しがありません。押し間違えたら、「タスク」画面の「完了」の列で丸を押して戻します（「未完了に戻す」）
+- ホームには取り消しがありません。押し間違えたら、「タスク」画面の「完了」の列で丸を押して戻します（「未完了に戻す」）。ただし、主アクションと、資料DLの追客で結果を選んだタスクは、一度完了にすると戻せません
 - 止まっている商談のタスクを、手を打たずに完了にしても、商談が動かないままなら14日後（初期設定）に同じタスクがまた作られます
 
 ## 最初の一歩
 
-今日から、自分で入れるタスクには、必ず期限日を選んでから「追加」を押してください。期限が無いと、一番下の段に沈みます。今の画面では、入れたあとのタスクに期限を足せないので、入れるときが勝負です。
+今日から、自分で入れるタスクには、必ず期限日を選んでから「追加」を押してください。期限が無いと、一番下の段に沈みます。「タスク」画面では、入れたあとのタスクに期限を足せないので、入れるときが勝負です（商談の主アクションだけは、商談のページの「次のアクションと期日」で期日を直せます）。
 
 明日の朝は、メールより先に「ホーム」を開き、「今やること」の上から3件を片付けます。これを1週間続けて、金曜に「N日超過」が何件残ったかを数えてください。
 

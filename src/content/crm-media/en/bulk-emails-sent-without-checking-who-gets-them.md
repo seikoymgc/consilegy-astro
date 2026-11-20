@@ -10,6 +10,7 @@ segment: "b2b"
 edition: "b2b"
 sources: "src/app/(dashboard)/emails/[id]/email-detail.tsx / src/app/(dashboard)/emails/[id]/page.tsx / src/lib/campaign-send.ts / src/lib/campaign-recipients.test.ts / src/lib/consent.ts / src/app/api/emails/send/route.ts / src/app/(dashboard)/emails/new/page.tsx / src/components/app-sidebar.tsx / src/lib/i18n/translations.ts / src/lib/personas.ts / src/app/api/webhooks/resend/route.ts / src/app/api/demo/seed/route.ts / src/app/(dashboard)/settings/sending-domain/sending-domain-view.tsx / src/app/(dashboard)/settings/settings-index.tsx / src/lib/sending.ts / src/lib/revops/marketing-ops.ts / src/lib/revops/catalog.ts / src/lib/demo.ts"
 date: 2026-10-23
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 It's Thursday afternoon and marketing is sending the webinar invite. The list is everyone you collected at trade shows and through the website. Somewhere in it is a person who replied last month asking to be taken off, and a few dozen people whose cards you scanned but who never agreed to hear from you. Nobody knows exactly who will be skipped until the email has gone. On Friday morning a sales rep forwards a short, annoyed reply from one of their prospects.
@@ -18,7 +19,7 @@ It's Thursday afternoon and marketing is sending the webinar invite. The list is
 
 A mass-email mistake only has to happen once for the recipient to remember it.
 
-Say your list has 600 people, and 20 of them have unsubscribed. Miss them, and 20 people who told you to stop hear from you again. If one of them is in the middle of a deal with your team, the rep pays for it. Marketing email is meant to go to people who agreed to receive it. If you can't say who is on the send before it goes, that gap is a business risk, not a technicality.
+Say your list has 600 people, and 20 of them have unsubscribed. Miss them, and 20 people who told you to stop hear from you again. If one of them is in the middle of a deal with your team, the rep pays for it. Marketing email should only go to people who agreed to receive it and have not asked you to stop. If you can't say who is on the send before it goes, that gap is a business risk, not a technicality.
 
 ## In Revenue CRM, pressing Send opens Confirm send, so you see who gets it and who is left out first
 

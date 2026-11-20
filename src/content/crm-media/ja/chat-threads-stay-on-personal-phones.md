@@ -8,15 +8,15 @@ feature: "会話の取り込み"
 screens: "アクティビティ「会話を取り込む」／「チャネル」（LINE・LINE WORKS・ChatWork・Slackほか）／「解析する」／「要約」「重要ポイント」「ネクストアクション」／「連絡先」「新規連絡先として作成」「商談（任意）」／「取り込む」／「全文を表示」"
 segment: "b2b"
 edition: "b2b"
-sources: "src/components/chat-import-dialog.tsx / src/lib/chat-parsers/ai-extract.ts / src/lib/chat-parsers/line.ts / src/app/api/chat-imports/route.ts / src/app/api/chat-imports/[id]/confirm/route.ts / src/app/(dashboard)/activities/page.tsx / src/components/activity-timeline.tsx / src/lib/i18n/translations.ts (chatImport) / consilegy-astro: src/data/crm-faq.ts (AIの学習)"
+sources: "src/components/chat-import-dialog.tsx / src/lib/chat-parsers/ai-extract.ts / src/lib/chat-parsers/line.ts / src/app/api/chat-imports/route.ts / src/app/api/chat-imports/[id]/confirm/route.ts / src/app/(dashboard)/activities/page.tsx / src/components/activity-timeline.tsx / src/lib/i18n/translations.ts (chatImport) / consilegy-astro: src/data/crm-faq.ts (AIの学習) / src/app/(dashboard)/deals/[id]/page.tsx"
 date: 2026-10-03
+updated: 2026-11-20
 author: "山口聖子"
 ---
 商談の初回はメールで始まります。二度目の訪問のあたりで、先方の担当者から「LINEでいいですか」と言われる。あるいは先方のChatworkのグループに招待される。見積の修正依頼も、「納期は月末で大丈夫です」も、「部長の承認が下りました」も、全部チャットで届きます。
 
 CRMの商談を開くと、最後の記録は3週間前の「見積送付」。その後に交わした十数通は、担当者のスマホの中にあります。
 
-特定の会社の話ではありません。CRMの導入支援を8年やってきて、連絡がチャットに移った瞬間に履歴が途切れる商談を、どの会社でも見てきました。
 
 ## 失っているのは「会話の記録」ではなく、会話の中で決まったこと
 
@@ -34,11 +34,11 @@ CRMの商談を開くと、最後の記録は3週間前の「見積送付」。�
 
 入口は「会話を取り込む」というボタンで、「アクティビティ」の画面と、コンタクトや商談の詳細にあるアクティビティの欄にあります。押すと貼り付け欄が開くので、チャットのやり取りをコピーして貼ります。LINEの場合は、トーク履歴のテキストファイル（.txt）をそのまま選ぶこともできます。
 
-「チャネル」で 「LINE」「LINE WORKS」「ChatWork」「Slack」などを選び、「解析する」を押します。会話から期日が読み取れたネクストアクションには、日付が付きます。
+「チャネル」で「LINE」「LINE WORKS」「ChatWork」「Slack」などを選び、「解析する」を押します。会話から期日が読み取れたネクストアクションには、日付が付きます。
 
 ここから先は人が決めます。要約はその場で書き直せます。ネクストアクションにはチェックボックスが付いていて、チェックを残したものだけがタスクになります。「月末までに修正見積を送る」は残し、「また連絡します」は外す。
 
-おすすめは、その商談の詳細から開くことです。最初からその商談に付くので、相手を選ぶ手順がありません。「アクティビティ」の画面から開いたときは、最後に「連絡先」で相手を選びます。姓か名のどちらかで検索して選ぶか、まだ登録が無ければ「新規連絡先として作成」を選びます。商談への紐付けは任意ですが、選ばないと商談の履歴には出ません。
+おすすめは、その商談の詳細から開くことです。最初からその商談に付くので、商談を選ぶ手順がありません。ただし相手の指定は要るので、最後に「連絡先」で相手を選んでから「取り込む」を押します（コンタクトの詳細から開いたときは、この手順もありません）。「アクティビティ」の画面から開いたときも、最後に「連絡先」で相手を選びます。姓か名のどちらかで検索して選ぶか、まだ登録が無ければ「新規連絡先として作成」を選びます。商談への紐付けは任意ですが、選ばないと商談の履歴には出ません。
 
 「取り込む」を押すと、要約が「チャット」の記録として残ります。貼った会話そのものも保存され、コンタクトや商談の詳細にあるアクティビティの欄で、その記録の「全文を表示」から読み返せます。
 

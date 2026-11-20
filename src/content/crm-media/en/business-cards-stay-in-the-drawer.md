@@ -10,15 +10,14 @@ segment: "b2b"
 edition: "b2b"
 help_slug: "card-scan"
 video: "4"
-sources: "supabase/migrations/146_product_help_articles_seed.sql (card-scan) / app/(dashboard)/contacts/scan/card-scan-view.tsx / lib/outbound/draft.ts / lib/consent.ts / components/outbound-draft-editor.tsx / lib/revops/recommend.ts (mkt-05)"
+sources: "supabase/migrations/146_product_help_articles_seed.sql (card-scan) / app/(dashboard)/contacts/scan/card-scan-view.tsx / lib/outbound/draft.ts / lib/consent.ts / components/outbound-draft-editor.tsx / lib/revops/recommend.ts (mkt-05) / src/lib/consent.ts / src/app/(dashboard)/contacts/scan/card-scan-view.tsx / src/lib/cards/consent.ts / src/components/outbound-draft-editor.tsx / src/lib/revops/execution.ts / src/lib/revops/catalog.ts / src/lib/revops/recommend.ts"
 date: 2026-09-28
-updated: 2026-09-30
+updated: 2026-11-20
 featured: 1
 author: "Seiko Yamaguchi"
 ---
 A sales rep comes back from a trade show, wraps the business cards in a rubber band and puts them in a desk drawer. Forty cards. "I'll enter them when things calm down." Things never calm down. Six months later the rep resigns, the successor opens the drawer and finds a stack that tells them a company name and a person's name. What was discussed, what was promised next, all of it left with the person who quit.
 
-This is not a story about one company. In eight years of HubSpot and Salesforce implementations, I have seen this scene at almost every client.
 
 ## The loss is not 40 cards. It is 40 people who never heard back
 
@@ -36,7 +35,7 @@ The difference is what happens after you press "Save". For each person you saved
 
 Nothing is sent. Only the drafts you edit and approve go out. You can review them one by one on the spot, or let them collect in the approval queue and go through them on the train. You can also keep scanning and approve drafts as they appear.
 
-There is one more guard against sending by accident. Before anything can go out, the CRM checks whether this person may be contacted for sales at all, based on their country, how the card was obtained, and what consent covers. When it cannot tell, the draft shows "We have not decided yet whether this person may be contacted. Nothing is sent until you decide", and the send button stays off until you make that call. Trade-show cards are ambiguous by nature. Not every person who hands you a card means "please email me", and that judgment should not live in a rep's memory.
+There is one more guard against sending by accident. On the confirmation screen, under "Emails you may send to this person", you decide for each person whether "Sales emails are OK" and whether "Newsletters are OK". "Sales emails are OK" starts out ticked, so untick it for anyone you are unsure about, such as someone who only stopped by the booth. For those people the draft shows "It is not yet decided whether this person may be contacted for sales. Nothing is sent until you decide.", and nothing goes out until you press "Allow sales contact". Your choice carries over to the next card, and you can change it per person. For an existing contact, an unsubscribe, do-not-contact or no-sales setting is kept as is. Trade-show cards are ambiguous by nature. Not every person who hands you a card means "please email me", and that call belongs on the screen while the card is in front of you, not in a rep's memory later.
 
 Drafts also appear on days when the AI usage limit has been reached, or when AI is switched off: they fall back to a template. There is never a day when "no draft came out, so I did not send anything".
 
@@ -54,12 +53,14 @@ The steps are: photograph, check, press "Save". Shoot in good light with the car
 ![Card scan screen with two buttons: take a photo, or choose images](/images/crm/media/screens/business-cards-stay-in-the-drawer-2-2026-10.webp)
 *The screen says it in so many words: what you photograph is not saved as is. You check the reading, then register.*
 
-On the confirmation screen, look at two things: the company name and the person's name. Japanese variant characters such as 髙, 﨑 and 眞 are sometimes normalized to their standard forms. If a contact with the same email already exists, the confirmation screen tells you; open and update the existing record rather than creating a new one. Companies are matched to existing records regardless of spelling differences (株式会社○○ and ○○ count as the same company), and a new one is created only if there is no match.
+On the confirmation screen, look at two things: the company name and the person's name. Japanese variant characters such as 髙, 﨑 and 眞 are sometimes normalized to their standard forms. If a contact with the same email already exists, the confirmation screen says "Already registered as (name). Instead of creating a new contact, this card will update that one." and lists the fields that differ. Untick anything you want to keep, then press "Update (name) from this card": the existing contact is updated and the card image is attached. Updating an existing contact does not create a first-email draft. Companies are matched to existing records regardless of spelling differences (株式会社○○ and ○○ count as the same company), and a new one is created only if there is no match.
 
-If your company does a lot of events, run "Find out which ones to turn on" under Automations and pick "Events" as one of your lead sources. It will suggest an automation that turns card exchanges and booth visits into leads on the spot, so there is no stack to bring home in the first place.
+
 
 ## The first step
 
 Do not try to enter every card in the drawer. This week, scan only the ten most recent ones, and approve just three of the ten drafts that come out. You do not have to send them all. Three is three more than the drawer ever sent. Once the confirmation screen and the approval step feel familiar, you will find yourself scanning on the show floor. Migrating the rest can wait.
 
-The video "Scan a card" (3 min) shows the steps, and the in-product help article "Turn a business card into a contact" has the same instructions.
+The in-product help article "Turn a business card into a contact" has the same instructions.
+
+To explore the screens, choose **B2B sales** in the [Revenue CRM demo](https://crm.consilegy.com/demos).

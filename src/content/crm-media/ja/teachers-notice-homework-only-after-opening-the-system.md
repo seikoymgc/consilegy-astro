@@ -8,12 +8,11 @@ feature: "連携済み講師のLINE通知範囲を確認・変更"
 screens: "ユーザー → ユーザー管理 → 連携済みの「LINE ✓ 通知:担当ぶん」等のボタン"
 segment: "b2c"
 edition: "school"
-sources: "src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/app/api/school-app/users/line/route.ts / src/app/api/school-app/line/webhook/route.ts / src/school-app/lib/notify.ts / src/school-app/lib/line-push.ts / src/school-app/lib/homework.ts / src/school-app/lib/authz.ts"
+sources: "src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/app/api/school-app/users/line/route.ts / src/app/api/school-app/line/webhook/route.ts / src/school-app/lib/notify.ts / src/school-app/lib/line-push.ts / src/school-app/lib/homework.ts / src/school-app/lib/authz.ts / src/lib/school/notify.ts"
 date: "2026-11-12"
-updated: 2026-11-18
+updated: 2026-11-20
 author: "山口聖子"
 ---
-
 LINE連携済みの先生が、提出の到着に気づくための通知範囲を確認します。担当の提出だけを受け取るのか、教室全体を受け取るのかで、通知の意味が違います。この記事は既存の連携設定を確認・変更する案内で、新規連携や友だち追加の手順は扱いません。
 
 通知が届いても、課題を確認したことにはなりません。到着を知ることと、提出を読んで返すことは分けて考えます。
@@ -37,7 +36,7 @@ LINE連携済みの先生が、提出の到着に気づくための通知範囲�
 
 ## 通知設定と、提出への対応は別に確認する
 
-「担当ぶん」でも、通知先は生徒やレッスンの担当設定に左右されます。期待した提出が届かないとき、通知範囲のボタンを押し続けるのではなく、生徒とレッスンの担当設定も確認します。
+「担当ぶん」で届くのは、その生徒の担当で、かつ提出された課題の種別の担当になっている人です（生徒に担当がいない場合は、種別の担当に届きます）。期待した提出が届かないとき、通知範囲のボタンを押し続けるのではなく、カルテの講師欄と、レッスン画面の「種別ごとの担当」も確認します。
 
 また、通信・連携・配信通数などの事情で通知が届かない場合があります。通知を唯一の確認手段にはせず、画面で提出を確認する運用も残してください。通知の遅延や未達の原因を、この記事の設定変更だけで解消できるとは限りません。
 

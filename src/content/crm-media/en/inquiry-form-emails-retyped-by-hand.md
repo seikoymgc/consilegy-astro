@@ -5,11 +5,12 @@ lang: "en"
 category: "input"
 pain: "Website inquiries arrive as notification emails and whoever notices copies them into the customer list, so nothing is owned until it is copied, and typos and duplicate records creep in"
 feature: "Forms (a submission becomes a contact the moment it is sent, the same email is never created twice, and the company is matched by email domain)"
-screens: "Sidebar \"Marketing\" → \"Forms\" / \"New form\", \"Form name\", \"Save\" / form tabs \"Analytics\", \"Submissions\", \"Settings\" / \"Publish and use\": \"Live\", \"Stop\", \"Public URL\", \"Embed on your site\" / \"On submission\": \"Update answers on re-submission\", \"Draft a first email to whoever submits\" / \"Add field\": \"Label\", \"Key (alphanumeric)\" / Sidebar \"Drafts waiting to send\""
+screens: "Sidebar \"Acquire\" → \"Forms\" / \"New form\", \"Form name\", \"Save\" / form tabs \"Analytics\", \"Submissions\", \"Settings\" / \"Publish and use\": \"Live\", \"Stop\", \"Public URL\", \"Embed on your site\" / \"On submission\": \"Update answers on re-submission\", \"Draft a first email to whoever submits\" / \"Add field\": \"Label\", \"Key (alphanumeric)\" / Sidebar \"Drafts waiting to send\""
 segment: "b2b"
 edition: "b2b"
-sources: "src/app/(dashboard)/forms/forms-view.tsx / src/app/(dashboard)/forms/new/page.tsx / src/app/(dashboard)/forms/[id]/page.tsx / src/app/(dashboard)/forms/[id]/form-detail.tsx / src/app/(dashboard)/forms/[id]/form-tabs.tsx / src/app/(dashboard)/forms/[id]/form-analytics.tsx / src/components/form-share.tsx / src/app/f/[id]/page.tsx / src/app/api/forms/[id]/submit/route.ts / src/lib/contact-intake.ts / src/lib/outbound/queue.ts / src/components/app-sidebar.tsx / src/lib/personas.ts / src/lib/i18n/translations.ts / supabase/migrations/003_marketing_sales_cs.sql / supabase/migrations/161_form_first_touch_draft.sql"
+sources: "src/app/(dashboard)/forms/forms-view.tsx / src/app/(dashboard)/forms/new/page.tsx / src/app/(dashboard)/forms/[id]/page.tsx / src/app/(dashboard)/forms/[id]/form-detail.tsx / src/app/(dashboard)/forms/[id]/form-tabs.tsx / src/app/(dashboard)/forms/[id]/form-analytics.tsx / src/components/form-share.tsx / src/app/f/[id]/page.tsx / src/app/api/forms/[id]/submit/route.ts / src/lib/contact-intake.ts / src/lib/outbound/queue.ts / src/components/app-sidebar.tsx / src/lib/personas.ts / src/lib/i18n/translations.ts / supabase/migrations/003_marketing_sales_cs.sql / supabase/migrations/161_form_first_touch_draft.sql / supabase/migrations/226_form_contact_on_reply.sql"
 date: 2026-10-10
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 Tuesday morning. Three "New inquiry received" emails are sitting in the shared inbox. Whoever notices opens them one at a time and copies the company, the name and the email address into the customer list. On a busy day nobody opens them at all.
@@ -28,9 +29,9 @@ My recommendation is to stop running inquiries out of notification emails. Point
 
 ## In Revenue CRM, a form submission is a contact the moment it is sent
 
-Take the inquiry through a Revenue CRM form and the person is saved as a contact when they press submit. There is no copying step.
+Take the inquiry through a Revenue CRM form and the person is saved as a contact when they press submit. There is no copying step. (The one exception is a form where "Create the contact when you reply" under "On submission" is turned on: the contact is created when you reply from the inbox. It is off for new forms.)
 
-Forms live under "Marketing" in the sidebar. If you do not see "Forms", use the role switch at the top of the sidebar and pick "Marketing". Press "New form", give it a "Form name" and "Save". On the form's "Settings" tab, enter a "Label", a "Key (alphanumeric)" and a field type, then press "Add field".
+Forms live under "Acquire" in the sidebar. If you do not see "Forms", choose "Marketing" from the "View" menu at the top of the sidebar. Press "New form", give it a "Form name" and "Save". On the form's "Settings" tab, enter a "Label", a "Key (alphanumeric)" and a field type, then press "Add field".
 
 Three rules for the fields.
 

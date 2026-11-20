@@ -33,7 +33,7 @@ Find the session by date and the displayed student name, then click its message-
 
 Scroll inside the expanded panel to read a longer conversation. Click the same count again to collapse it. A label such as 2:30 is elapsed recording time, not the time of day.
 
-For sessions already linked to a student, the student's profile also offers Chat during the lesson under Zoom records. A session marked “not linked” in the separate list has not yet been associated with a student. Reading that session is separate from changing its association.
+For sessions already linked to a student, the student's profile also offers Chat during the lesson under Zoom records. A session marked 未紐付け (not linked) in the Lesson chats list has not yet been associated with a student. Reading that session is separate from changing its association.
 
 ## This is a view of imported messages
 

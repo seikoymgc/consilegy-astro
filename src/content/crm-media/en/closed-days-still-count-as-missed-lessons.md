@@ -8,8 +8,9 @@ feature: "Breaks & holidays (register a period with no lessons by name, start da
 screens: "Bottom nav More → Breaks & holidays (PC sidebar: Breaks) / + Add, Name, Start date, End date, Add, Delete / Lessons → ⚠️ Unlogged lessons, Missing log, Log in 1 tap, Cancelled / Home → 🚨 Act now, Homework missing / student's LINE 予約する (Book) / Calendar → 🕘 Teachers' booking hours / Audit log"
 segment: "b2c"
 edition: "school"
-sources: "src/school-app/lib/render.ts / src/school-app/lib/mock-body.ts / src/school-app/lib/html-en.ts / src/school-app/lib/i18n-data.ts / src/school-app/lib/authz.ts / src/school-app/lib/supabase.ts / src/school-app/lib/homework.ts / src/school-app/lib/homework-reminder.ts / src/school-app/lib/booking-slots.ts / src/school-app/lib/booking-slots-core.ts / src/school-app/lib/line-booking.ts / src/school-app/lib/demo-seed.ts / src/school-app/components/MockShell.tsx / src/app/api/school-app/holidays/route.ts / src/app/api/school-app/automation/run/route.ts / src/app/api/cron/workflows/route.ts / supabase/migrations/194_school_beyonders_copy.sql / vercel.json"
+sources: "src/school-app/lib/render.ts / src/school-app/lib/mock-body.ts / src/school-app/lib/html-en.ts / src/school-app/lib/i18n-data.ts / src/school-app/lib/authz.ts / src/school-app/lib/supabase.ts / src/school-app/lib/homework.ts / src/school-app/lib/homework-reminder.ts / src/school-app/lib/booking-slots.ts / src/school-app/lib/booking-slots-core.ts / src/school-app/lib/line-booking.ts / src/school-app/lib/demo-seed.ts / src/school-app/components/MockShell.tsx / src/app/api/school-app/holidays/route.ts / src/app/api/school-app/automation/run/route.ts / src/app/api/cron/workflows/route.ts / supabase/migrations/194_school_beyonders_copy.sql / vercel.json / src/lib/demo.ts"
 date: 2026-10-15
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 The Monday after the summer break, the teacher opens Lessons on her phone. Under ⚠️ Unlogged lessons there is a row for nearly every student, each tagged Missing log. The school was closed all last week, so of course there are no lesson logs. While she is opening each one to check, a student messages: "I tried to book on LINE and it offered me a Tuesday in the middle of the break, so I took it."
@@ -48,4 +49,4 @@ This week, enter just the next long break. Go to More, then Breaks & holidays, p
 
 LINE booking only offers slots within the next 14 days, so a break can be checked the same day only if it starts within two weeks. For the New Year break, the check is the first morning back: no Missing log rows on the Lessons screen, and no closed days offered when a student taps 予約する (Book). Once that holds, add the summer break and Golden Week next.
 
-The demo needs only an email address. Choose "School" and Breaks & holidays already holds a New Year break and a Summer break, so you can see the screen as it looks with entries in it. [Try the demo](https://crm.consilegy.com/demos)
+The demo needs only an email address. Choose "Schools" and Breaks & holidays already holds a New Year break and a Summer break, so you can see the screen as it looks with entries in it. [Try the demo](https://crm.consilegy.com/demos)

@@ -8,8 +8,9 @@ lang: "en"
 category: "input"
 segment: "b2c"
 edition: "school"
-sources: "src/school-app/lib/render.ts (students, csvImport) / src/school-app/components/MockShell.tsx (CSV file reader and onCiSubmit) / src/app/api/school-app/student/import/route.ts / src/school-app/lib/authz.ts (guardPerm) / src/lib/work-fuel.ts / src/school-app/lib/i18n-data.ts (crm main fc56b01)"
+sources: "src/school-app/lib/render.ts (students, csvImport) / src/school-app/components/MockShell.tsx (CSV file reader and onCiSubmit) / src/app/api/school-app/student/import/route.ts / src/school-app/lib/authz.ts (guardPerm) / src/lib/work-fuel.ts / src/school-app/lib/i18n-data.ts (crm main fc56b01) / src/school-app/components/MockShell.tsx"
 date: "2026-11-10"
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 This month’s new students are already listed in a spreadsheet. An administrator still opens the registration form and copies each name and plan individually. After an interruption, they must check how far they got.
@@ -37,7 +38,7 @@ Use seven columns in this order:
 
 The first row is skipped as a header. Data starts on the second row. Columns are read by position, not automatically mapped from their names, so retain empty columns rather than closing the gaps. Rows without a name are skipped.
 
-Choosing a file loads its text into the area below; it does not register students yet. After checking it, select **Import** to add the records. A successful result displays the number registered and reloads the screen. You can also paste CSV text into the area.
+Choosing a file loads its text into the area below; it does not register students yet. The file is read as UTF-8, so save it in UTF-8 and check that the names in the area are not garbled before importing. After checking it, select **Import** to add the records. A successful result displays the number registered and reloads the screen. You can also paste CSV text into the area.
 
 ## Keep the first file simple
 

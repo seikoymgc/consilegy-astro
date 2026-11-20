@@ -10,6 +10,7 @@ segment: "b2c"
 edition: "school"
 sources: "src/school-app/lib/render.ts / src/school-app/lib/mock-body.ts / src/school-app/components/MockShell.tsx / src/school-app/lib/report.ts / src/school-app/lib/html-en.ts / src/school-app/lib/i18n-data.ts / src/school-app/lib/authz.ts / src/school-app/lib/demo-seed.ts / src/app/api/school-app/ai-report/route.ts / src/app/api/school-app/lesson/route.ts / src/app/api/school-app/line/send/route.ts / src/lib/ai-fuel.ts / src/app/api/school-app/lesson/reschedule/route.ts / src/app/api/school-app/lesson/cancel/route.ts / src/school-app/lib/zoom-carte.ts / src/lib/ai-quota.ts"
 date: 2026-10-19
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 Sunday night at the end of the month, ten o'clock. A teacher is writing progress reports for the fifteen students she looks after. For each one she scrolls back through a month of lesson notes, tries to remember what they covered and what they can now do, and types it out. Somewhere around student twelve, every report starts to read "Great effort again this month."
@@ -28,7 +29,7 @@ In my view, the teacher's job is not to write the report from a blank page. It i
 
 Press 📄 Progress report on a student's profile and you get a draft under five headings, written on the spot from that student's last 30 days of lesson notes.
 
-This part of the product sends messages on LINE, the messaging app most schools in Japan already use with their students. Most of the labels below show in English; the few that stay in Japanese are given with a gloss.
+This part of the product sends messages on LINE, a messaging app widely used in Japan. Most of the labels below show in English; the few that stay in Japanese are given with a gloss.
 
 Go to Students in the bottom nav, open the student's profile and press 📄 Progress report. The screen switches to Progress Reports (AI) and the draft is written. Above it, in Japanese, you see the student's name and how many notes went in: 直近30日の記録 3件 (3 notes from the last 30 days).
 

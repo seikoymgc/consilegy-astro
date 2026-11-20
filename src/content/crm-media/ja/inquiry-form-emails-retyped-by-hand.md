@@ -5,11 +5,12 @@ lang: "ja"
 category: "input"
 pain: "サイトの問い合わせは通知メールで届き、気づいた人が顧客リストに手で写しているので、写すまで誰の仕事にもならず、写し間違いと二重登録が起きる"
 feature: "フォーム（送信された時点でコンタクトになり、同じメールアドレスは二重に作らない。会社はメールアドレスのドメインで結びつく）"
-screens: "サイドバー「Marketing」の「フォーム」／「新規フォーム」「フォーム名」「保存」／フォームの「分析」「送信した人」「設定」タブ／「公開して使う」の「公開中」「公開を止める」「公開URL」「サイトに埋め込む」／「送信時の動き」の「再送信されたら回答を更新する」「送信した人への1通目を下書きする」／「フィールドを追加」の「ラベル」「キー(英数)」／サイドバー「送信待ちの下書き」"
+screens: "サイドバー「集客」の「フォーム」／「新規フォーム」「フォーム名」「保存」／フォームの「分析」「送信した人」「設定」タブ／「公開して使う」の「公開中」「公開を止める」「公開URL」「サイトに埋め込む」／「送信時の動き」の「再送信されたら回答を更新する」「送信した人への1通目を下書きする」／「フィールドを追加」の「ラベル」「キー(英数)」／サイドバー「送信待ちの下書き」"
 segment: "b2b"
 edition: "b2b"
-sources: "src/app/(dashboard)/forms/forms-view.tsx / src/app/(dashboard)/forms/new/page.tsx / src/app/(dashboard)/forms/[id]/page.tsx / src/app/(dashboard)/forms/[id]/form-detail.tsx / src/app/(dashboard)/forms/[id]/form-tabs.tsx / src/app/(dashboard)/forms/[id]/form-analytics.tsx / src/components/form-share.tsx / src/app/f/[id]/page.tsx / src/app/api/forms/[id]/submit/route.ts / src/lib/contact-intake.ts / src/lib/outbound/queue.ts / src/components/app-sidebar.tsx / src/lib/personas.ts / src/lib/i18n/translations.ts / supabase/migrations/003_marketing_sales_cs.sql / supabase/migrations/161_form_first_touch_draft.sql"
+sources: "src/app/(dashboard)/forms/forms-view.tsx / src/app/(dashboard)/forms/new/page.tsx / src/app/(dashboard)/forms/[id]/page.tsx / src/app/(dashboard)/forms/[id]/form-detail.tsx / src/app/(dashboard)/forms/[id]/form-tabs.tsx / src/app/(dashboard)/forms/[id]/form-analytics.tsx / src/components/form-share.tsx / src/app/f/[id]/page.tsx / src/app/api/forms/[id]/submit/route.ts / src/lib/contact-intake.ts / src/lib/outbound/queue.ts / src/components/app-sidebar.tsx / src/lib/personas.ts / src/lib/i18n/translations.ts / supabase/migrations/003_marketing_sales_cs.sql / supabase/migrations/161_form_first_touch_draft.sql / supabase/migrations/226_form_contact_on_reply.sql"
 date: 2026-10-10
+updated: 2026-11-20
 author: "山口聖子"
 ---
 火曜の朝。共有のメールアドレスに、「お問い合わせがありました」という通知が3通たまっています。気づいた人が1通ずつ開き、会社名と名前とメールアドレスを、顧客リストに写します。忙しい日は、誰も開きません。
@@ -28,9 +29,9 @@ author: "山口聖子"
 
 ## Revenue CRMでは、フォームの送信がそのままコンタクトになる
 
-Revenue CRMのフォームで受けると、送信された時点で、その人がコンタクトとして登録されます。写す作業はありません。
+Revenue CRMのフォームで受けると、送信された時点で、その人がコンタクトとして登録されます。写す作業はありません（「送信時の動き」の「返信したときに連絡先を作る」をオンにしたフォームだけは、受信箱から返信した時点でコンタクトになります。新しいフォームではオフです）。
 
-作る場所は、サイドバーの「Marketing」にある「フォーム」です。見当たらないときは、サイドバー上部の役割の切り替えで「マーケ」を選んでください。「新規フォーム」を押し、「フォーム名」を入れて「保存」します。開いた画面の「設定」タブで、「ラベル」と「キー(英数)」と種類を入れ、「フィールドを追加」で項目を足します。
+作る場所は、サイドバーの「集客」にある「フォーム」です。見当たらないときは、サイドバー上部の「業務」の選択欄で「マーケ」を選んでください。「新規フォーム」を押し、「フォーム名」を入れて「保存」します。開いた画面の「設定」タブで、「ラベル」と「キー(英数)」と種類を入れ、「フィールドを追加」で項目を足します。
 
 項目の決まりは3つです。
 

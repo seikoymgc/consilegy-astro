@@ -8,8 +8,9 @@ lang: "en"
 category: "operate"
 segment: "b2b"
 edition: "b2b"
-sources: "src/app/(dashboard)/quotes/[id]/page.tsx / src/app/(dashboard)/quotes/[id]/quote-detail.tsx / src/app/(print)/quotes/[id]/print/page.tsx / src/app/(print)/quotes/[id]/print/quote-print-view.tsx / src/lib/quotes/email.ts (crm main fc56b01; print workflow added in c5ddfc1, PR #422)"
+sources: "src/app/(dashboard)/quotes/[id]/page.tsx / src/app/(dashboard)/quotes/[id]/quote-detail.tsx / src/app/(print)/quotes/[id]/print/page.tsx / src/app/(print)/quotes/[id]/print/quote-print-view.tsx / src/lib/quotes/email.ts (crm main fc56b01; print workflow added in c5ddfc1, PR #422) / src/lib/demo.ts"
 date: "2026-11-10"
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 The items and prices are already entered in your customer management system. To send the quote, someone opens a spreadsheet template and enters them again. A last-minute change to quantity now means checking two versions.
@@ -31,7 +32,7 @@ Select a quote in **Quotes**. Near its name and status, **Print / PDF** opens a 
 ![Quote details with the Print / PDF control beside the quote name and status](/images/crm/media/screens/quotes-get-retyped-just-to-make-a-pdf-1-en-2026-11.webp)
 *This is a demo quote. Names, items and amounts are sample data, not a real client quote or product pricing guidance.*
 
-The document shows the quote name, linked company and contact, issue date, validity date, line items, tax breakdown, total and notes. An unlinked recipient is not filled in for you. The issue date comes from the quote’s creation date, so do not assume it will be today.
+The document shows the quote name, linked company and contact, issue date, validity date, line items, tax breakdown, total and notes. Your workspace name appears as the issuer, and a registration number entered under Settings → Country, tax & time zone is printed as well. An unlinked recipient is not filled in for you. The issue date comes from the quote’s creation date, so do not assume it will be today.
 
 ![The print-friendly quote using the saved line items and recipient](/images/crm/media/screens/quotes-get-retyped-just-to-make-a-pdf-2-en-2026-11.webp)
 *Check the recipient, dates, items, quantities, prices and total before sharing. No printing or sending was performed for this screenshot.*
@@ -52,4 +53,4 @@ This week, open Print / PDF for one existing quote and check whether the documen
 
 If it works for your process, remove the duplicate entry step from the next quote. Keeping the same amount out of a second template is a practical place to begin.
 
-Choose the B2B edition in the [Revenue CRM demo](https://crm.consilegy.com/demos), then open a sample under **Quotes** to inspect the print-friendly page.
+Choose B2B sales in the [Revenue CRM demo](https://crm.consilegy.com/demos), then open a sample under **Quotes** to inspect the print-friendly page.

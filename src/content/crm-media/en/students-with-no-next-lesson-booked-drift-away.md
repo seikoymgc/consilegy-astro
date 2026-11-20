@@ -10,6 +10,7 @@ segment: "b2c"
 edition: "school"
 sources: "src/app/api/school-app/automation/run/route.ts / src/app/api/cron/workflows/route.ts / vercel.json / src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/school-app/lib/line-templates.ts / src/app/api/school-app/line/send/route.ts / src/app/api/school-app/booking/route.ts / src/app/api/school-app/task/route.ts / src/school-app/lib/line-booking.ts / src/school-app/lib/lesson-type.ts / src/school-app/lib/supabase.ts / src/school-app/lib/google-calendar.ts / src/school-app/lib/i18n-data.ts / src/school-app/lib/html-en.ts / src/school-app/lib/demo-seed.ts / src/app/school/page.tsx / src/lib/demo.ts"
 date: 2026-10-23
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 Tuesday, end of the afternoon class. A student packs up and says, "I'll let you know about next week." The teacher is already setting up for the next lesson. The front desk assumes the teacher booked something. Two weeks later the student is still "active" on the roster, with nothing in the diary. Someone finally notices when the monthly fees are checked.
@@ -30,7 +31,7 @@ The second is for when a date is agreed. On the student record, open "📅 Book 
 
 "Mark as done" is for the in-between case: you've spoken on the phone but haven't fixed a date. If there's still no booking, the task returns the next morning.
 
-Who sees it depends on the student's assigned teachers. If a teacher with an account holds the "Weekly lesson" role for that student, only they see it. Otherwise all of the student's teachers do. A student with no teacher at all shows up for people in the Owner and Manager roles, but with "Not assigned to me" in place of "Mark as done". To clear it, book a lesson or assign a teacher.
+Who sees it depends on the student's assigned teachers. If a teacher with an account holds the "Weekly lesson" role for that student, only they see it. Otherwise all of the student's teachers do. A student with no teacher at all shows up for people in the Operations and Manager roles, but with "Not assigned to me" in place of "Mark as done". To clear it, book a lesson or assign a teacher.
 
 Five limits worth knowing:
 
@@ -44,4 +45,4 @@ Five limits worth knowing:
 
 This week, go down the "No next booking" cards on Home and sort them: truly unbooked, or booked only in someone's diary. Enter the diary ones with Book next lesson, then send "📅 Nudge booking" to the rest. Whatever is left on Home the next morning is the real list of students to call.
 
-The [demo](https://crm.consilegy.com/demos) opens with just an email address. Pick "Schools" and there's a "No next booking" card on Home. The demo isn't connected to LINE, so you can't actually send, but you can open the message panel and see the template.
+Choose **Schools** in the [Revenue CRM demo](https://crm.consilegy.com/demos) to explore Home and the student profile. The demo is shared; view the screens without registering students or sending messages.

@@ -8,8 +8,9 @@ feature: "通知（タスクの期限を担当者のスマホ・PCに前日と�
 screens: "サイドバー「設定」→「通知」／「タスクの期限をこの端末に通知」の「この端末で通知を受け取る」「この端末で受け取り中」「テスト通知を送る」「この端末では止める」／「通知設定」の「Slack通知を有効化」「Slack Incoming Webhook URL」「タスクの期限（前日・当日の朝10時）もこのSlackに流す」「メール通知を有効化」「営業通知メール(担当未設定時の宛先)」「マネージャーメール(Critical時に追加通知)」「保存」／通知「明日が期限: タスク名」「今日が期限 2件 / 明日が期限 1件」／Slack「新規MQL: 氏名」「優先度」「理由」「次アクション」「対応期限」／「設定」→「週次ダイジェスト」"
 segment: "b2b"
 edition: "b2b"
-sources: "src/app/(dashboard)/settings/page.tsx / src/app/(dashboard)/settings/notifications/page.tsx / src/app/(dashboard)/settings/notifications/notifications-view.tsx / src/app/(dashboard)/settings/notifications/push-device-card.tsx / src/app/api/notification-settings/route.ts / src/app/api/push/subscribe/route.ts / src/app/api/push/test/route.ts / public/push-sw.js / src/app/manifest.ts / src/lib/push.ts / src/lib/task-reminders.ts / src/lib/notify.ts / src/lib/mql-handoff.ts / src/lib/lead-scoring-run.ts / src/lib/routing.ts / src/lib/revops/deals.ts / src/lib/revops/util.ts / src/lib/digest/weekly.ts / src/app/(dashboard)/settings/weekly-digest/weekly-digest-view.tsx / src/app/api/cron/workflows/route.ts / vercel.json / supabase/migrations/039_notification_settings.sql / supabase/migrations/224_task_reminders_push.sql / supabase/migrations/071_secret_rls_hardening.sql / src/app/api/demo/seed/route.ts"
+sources: "src/app/(dashboard)/settings/page.tsx / src/app/(dashboard)/settings/notifications/page.tsx / src/app/(dashboard)/settings/notifications/notifications-view.tsx / src/app/(dashboard)/settings/notifications/push-device-card.tsx / src/app/api/notification-settings/route.ts / src/app/api/push/subscribe/route.ts / src/app/api/push/test/route.ts / public/push-sw.js / src/app/manifest.ts / src/lib/push.ts / src/lib/task-reminders.ts / src/lib/notify.ts / src/lib/mql-handoff.ts / src/lib/lead-scoring-run.ts / src/lib/routing.ts / src/lib/revops/deals.ts / src/lib/revops/util.ts / src/lib/digest/weekly.ts / src/app/(dashboard)/settings/weekly-digest/weekly-digest-view.tsx / src/app/api/cron/workflows/route.ts / vercel.json / supabase/migrations/039_notification_settings.sql / supabase/migrations/224_task_reminders_push.sql / supabase/migrations/071_secret_rls_hardening.sql / src/app/api/demo/seed/route.ts / src/lib/slack-notify.ts / src/lib/followups/digest.ts / supabase/migrations/276_followup_suggestions.sql"
 date: 2026-10-15
+updated: 2026-11-20
 author: "山口聖子"
 ---
 朝8時、営業は客先に直行します。昨日の帰り際、CRMに「A社へ見積を送る」を期限「今日」で入れました。商談が2件続き、CRMを開くのは夕方5時。見積は明日に回り、A社の担当者は一日、返事を待っていました。
@@ -28,17 +29,17 @@ author: "山口聖子"
 
 届くのは、自分が担当するタスク（担当が空なら、作った人）のうち、期限が明日のものと今日のものです。1件なら「明日が期限: タスク名」と相手の名前、複数なら「今日が期限 2件 / 明日が期限 1件」とまとまって届き、押すと「タスク」の画面が開きます。
 
-チームで見たいときは、同じ画面の「通知設定」で「Slack通知を有効化」が付いていることを確かめ、「Slack Incoming Webhook URL」を貼り、「タスクの期限（前日・当日の朝10時）もこのSlackに流す」にチェックを入れて「保存」します。朝10時に、担当者名つきで1通にまとまって届きます。
+チームで見たいときは、オーナーか管理者が同じ画面の「通知設定」で「Slack通知を有効化」が付いていることを確かめ、「Slackとつなぐ」を押してSlackの画面で送り先のチャンネルを選びます。戻ったら「テスト送信」で届くことを確かめ、「タスクの期限（前日・当日の朝10時）もこのSlackに流す」にチェックを入れて「保存」します。手元にWebhook URLがある場合は、「Webhook URLを直接入れる（上級者向け）」に貼っても使えます。朝10時に、担当者名つきで1通にまとまって届きます。
 
 同じ「通知設定」は、新しく見込み客（MQL）になった人の知らせにも使います。「新規MQL: 氏名」に「優先度」「理由」「次アクション」「対応期限」が付いて、Slackと、担当者のメールに届きます。担当が空の人は、担当の少ないメンバーに自動で割り当てられ、その人に届きます。「営業通知メール(担当未設定時の宛先)」に入れたアドレスには、担当の有無にかかわらず毎回届き、優先度がCriticalなら「マネージャーメール(Critical時に追加通知)」にも届きます。
 
 注意が5つあります。
 
-- スマホに届くのはタスクの期限だけです。期限の無いタスク（商談停滞の自動化が作るタスクなど）は届かず、期限を過ぎたタスクの再通知もありません
+- 期限の無いタスク（商談停滞の自動化が作るタスクなど）は届きません。期限を過ぎたタスクも、この通知では再送されません。オーナーか管理者が「通知設定」の「フォローの下書きと朝のまとめ」をオンにした組織では（既定はオフ）、この通知の代わりに毎朝10時の「今日のまとめ」が1通届き、期限切れ・今日・明日のタスクと今日フォローする相手が並びます
 - 時刻は朝10時（日本時間）、前日と当日の最大2回で固定です
 - 端末の登録は本人が自分で行います。「通知設定」のSlackとメールを保存できるのはオーナーと管理者だけで、一般メンバーが押すと「保存に失敗しました」と出るだけです
 - 新規MQLの知らせは、コンタクトがMQLになった時だけです。画面から作ったコンタクトはその場で判定されますが、フォーム・名刺・CSVで入った人は翌朝10時ごろの判定です。「問い合わせが来た瞬間」の通知ではありません。また、営業連絡してよいと決まっていない人は「連絡可否を確認: 氏名」のタスクになり、Slackもメールも出ません
-- 届いたかどうかの履歴を見る画面はありません。Slackは「Incoming Webhook」のURLを貼る方式で、チャンネルはSlack側で決まります
+- 届いたかどうかの履歴を見る画面はありません。Slackの送り先は、「Slackとつなぐ」で選んだチャンネル（またはWebhook URLを作ったときのチャンネル）1つです
 
 週の振り返りは、「設定」の「週次ダイジェスト」です。月曜の朝10時に、先週の動きと止まっている商談が、オーナーと管理者に1通で届きます。宛先はその画面で変えられます。
 

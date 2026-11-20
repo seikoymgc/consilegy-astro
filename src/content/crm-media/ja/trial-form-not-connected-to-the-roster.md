@@ -8,18 +8,18 @@ feature: "体験予約フォーム（申込みがそのまま生徒の一覧に�
 screens: "「生徒」の「体験予約フォーム（公開URL）」／申込みフォーム「無料体験レッスンのお申し込み」「体験レッスンを申し込む」／「生徒」の「体験予定」「体験予約」／ホーム「体験予定」／カルテ「📝 初回ヒアリング」「⚙ ステータス変更」「受講中」"
 segment: "b2c"
 edition: "school"
-sources: "school-app/lib/render.ts / school-app/components/MockShell.tsx / school-app/components/TrialForm.tsx / app/school/trial/page.tsx / app/api/school-app/trial/route.ts / app/api/school-app/student/status/route.ts / app/api/school-app/line/webhook/route.ts / school-app/lib/public-paths.ts"
+sources: "school-app/lib/render.ts / school-app/components/MockShell.tsx / school-app/components/TrialForm.tsx / app/school/trial/page.tsx / app/api/school-app/trial/route.ts / app/api/school-app/student/status/route.ts / app/api/school-app/line/webhook/route.ts / school-app/lib/public-paths.ts / src/app/api/school-app/student/status/route.ts / src/school-app/lib/authz.ts / src/lib/school/provision.ts / src/school-app/lib/demo-seed.ts / src/school-app/components/MockShell.tsx / src/app/api/school-app/student/coaches/route.ts / src/app/school/trial/page.tsx / src/school-app/components/TrialForm.tsx / src/school-app/lib/render.ts"
 date: 2026-10-03
-updated: 2026-10-12
+updated: 2026-11-20
 author: "山口聖子"
 ---
-教室のサイトに、体験レッスンの申込みフォームがあります。無料のフォーム作成ツールで作ったもので、申込みがあると教室のメールに通知が届きます。先生はレッスンの合間にそれを見て、「あとで返そう」と思います。夜、片付けが終わってから名簿のExcelを開き、名前と連絡先を打ち込み、返信を書く。忙しい週は、それが2日後になります。
+教室のサイトに、体験レッスンの申込みフォームがあります。無料のフォーム作成ツールで作ったもので、申込みがあると教室のメールに通知が届きます。先生はレッスンの合間にそれを見て、「あとで返そう」と思います。夜、片付けが終わってから名簿のスプレッドシートを開き、名前と連絡先を打ち込み、返信を書く。忙しい週は、それが2日後になります。
 
 申込みは来ています。でも名簿には入っていません。フォームと名簿の間に、先生の手作業が1つ挟まっています。
 
 ## 損失は「転記の手間」ではなく、申込みが数えられなくなること
 
-申込みが何件あって、何人が体験に来て、何人が入会したか。通知メールとExcelに分かれていると、月末に数え直す以外に確かめる方法がありません。転記が遅れた申込みは、名簿のどこにもいないので、返信したかどうかも受信箱をさかのぼらないと分かりません。
+申込みが何件あって、何人が体験に来て、何人が入会したか。通知メールとスプレッドシートに分かれていると、月末に数え直す以外に確かめる方法がありません。転記が遅れた申込みは、名簿のどこにもいないので、返信したかどうかも受信箱をさかのぼらないと分かりません。
 
 ## Revenue CRMでは、申込みがそのまま生徒の一覧に入る
 
@@ -29,7 +29,7 @@ author: "山口聖子"
 
 送られた申込みは、その場で生徒として登録されます。「生徒」の一覧で「体験予定」を選ぶと、「体験予約」の札が付いて並びます。ホームの「体験予定」の数にも入ります。本人が書いたきっかけ、レベル、目標は、カルテの「📝 初回ヒアリング」に入っています。転記はありません。
 
-入会が決まったら、カルテの「⚙ ステータス変更」で「受講中」を押します。初期設定では、これを変えられるのは管理者だけです。ボタンは誰にでも見えますが、権限のない人が押しても変わりません。
+入会が決まったら、カルテの「⚙ ステータス変更」で「受講中」を押します。初期設定では、マネージャー・管理部・一般のどの役割でも変えられます。変えられる人を絞りたいときは、「権限管理」でその役割の「生徒」の「編集」を外します（担当の割り当てなど、生徒のほかの編集も一緒に止まります）。外した役割にもボタンは見えますが、押しても変わらず、エラーの表示も出ません。
 
 ## 知っておくこと
 
@@ -37,7 +37,7 @@ author: "山口聖子"
 
 フォームに電話番号の欄はなく、メールアドレスも必須ではありません。名前だけの申込みには返事ができないので、リンクを貼る場所に「メールアドレスを必ずご記入ください」と添えてください。
 
-フォームの文言は英会話スクール向けで、変えられません。「英語レベル」「3か月後」の質問は、そのまま出ます。
+フォームの見出しと説明文は英会話スクール向けのままで、変えられません。「英語レベル」と「3か月後」の質問は、メニューの「カルテの項目名」で名前を付けると、その名前で出ます（[生徒カルテの聞き取り項目が英会話向けのままで、うちの教室では何を書けばいいか分からない](/crm/media/b2c/intake-fields-written-for-an-english-school/)）。
 
 フォームで申し込んだ人が、あとからLINE公式アカウントを友だち追加すると、同じ人が一覧に2人できます。1人にまとめる機能はありません。
 

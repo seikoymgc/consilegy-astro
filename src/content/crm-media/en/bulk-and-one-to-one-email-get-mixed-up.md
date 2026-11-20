@@ -9,8 +9,9 @@ screens: "Sidebar \"Drafts waiting to send\": \"Draft for new leads\", \"Allow s
 segment: "b2b"
 edition: "b2b"
 video: "7"
-sources: "src/components/ai-email-panel.tsx / src/app/api/contacts/[id]/send-email/route.ts / src/app/api/contacts/[id]/draft-email/route.ts / src/lib/gmail.ts / src/lib/sending.ts / src/lib/consent.ts / src/app/(dashboard)/settings/google/google-view.tsx / src/app/(dashboard)/settings/page.tsx / src/app/(dashboard)/settings/integrations/page.tsx / src/app/(dashboard)/emails/new/page.tsx / src/app/(dashboard)/emails/[id]/email-detail.tsx / src/app/api/emails/send/route.ts / src/lib/campaign-send.ts / src/components/email-builder.tsx / src/app/(dashboard)/settings/sending-domain/sending-domain-view.tsx / src/app/api/settings/sending-domain/route.ts / src/app/(dashboard)/lists/new/page.tsx / src/components/list-criteria-editor.tsx / src/lib/revops/marketing-ops.ts / src/lib/revops/catalog.ts / src/app/(dashboard)/lists/[id]/list-detail.tsx / src/lib/delivery/hubspot-push.ts / src/app/(dashboard)/settings/crm-sync/crm-sync-view.tsx / src/app/(dashboard)/outbound-drafts/outbound-drafts-view.tsx / src/components/outbound-draft-editor.tsx / src/app/api/outbound-drafts/[id]/route.ts / src/lib/outbound/send.ts / src/app/api/forms/[id]/submit/route.ts / src/app/(dashboard)/contacts/[id]/page.tsx / src/app/(dashboard)/lists/[id]/page.tsx / src/lib/demo.ts / src/lib/personas.ts / src/components/app-sidebar.tsx / src/lib/i18n/translations.ts"
+sources: "src/components/ai-email-panel.tsx / src/app/api/contacts/[id]/send-email/route.ts / src/app/api/contacts/[id]/draft-email/route.ts / src/lib/gmail.ts / src/lib/sending.ts / src/lib/consent.ts / src/app/(dashboard)/settings/google/google-view.tsx / src/app/(dashboard)/settings/page.tsx / src/app/(dashboard)/settings/integrations/page.tsx / src/app/(dashboard)/emails/new/page.tsx / src/app/(dashboard)/emails/[id]/email-detail.tsx / src/app/api/emails/send/route.ts / src/lib/campaign-send.ts / src/components/email-builder.tsx / src/app/(dashboard)/settings/sending-domain/sending-domain-view.tsx / src/app/api/settings/sending-domain/route.ts / src/app/(dashboard)/lists/new/page.tsx / src/components/list-criteria-editor.tsx / src/lib/revops/marketing-ops.ts / src/lib/revops/catalog.ts / src/app/(dashboard)/lists/[id]/list-detail.tsx / src/lib/delivery/hubspot-push.ts / src/app/(dashboard)/settings/crm-sync/crm-sync-view.tsx / src/app/(dashboard)/outbound-drafts/outbound-drafts-view.tsx / src/components/outbound-draft-editor.tsx / src/app/api/outbound-drafts/[id]/route.ts / src/lib/outbound/send.ts / src/app/api/forms/[id]/submit/route.ts / src/app/(dashboard)/contacts/[id]/page.tsx / src/app/(dashboard)/lists/[id]/page.tsx / src/lib/demo.ts / src/lib/personas.ts / src/components/app-sidebar.tsx / src/lib/i18n/translations.ts / src/lib/editions/index.ts"
 date: 2026-10-08
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 It is the week after the trade show. A rep wants to thank the 120 people she met at the booth and send them the deck. She knows the CRM "does email". She does not know where. So she opens her usual mail client, pastes 120 addresses into BCC and hits send.
@@ -33,7 +34,7 @@ Neither route sends to someone with no record that they may be contacted. So lea
 
 ### One-to-one email
 
-A contact you just scanned from a business card or imported from a CSV is undecided: nobody has said yet whether sales may contact them. Start at "Drafts waiting to send" in the sidebar. A scanned card already has a first email drafted there. If nothing is waiting, click "Draft for new leads". Open a draft, edit it, and click "Allow sales contact", which records the decision. Then "Approve and send" sends it.
+Start at "Drafts waiting to send" in the sidebar. A scanned card already has a first email drafted there. If nothing is waiting, click "Draft for new leads". On the card-scanning screen, "Sales emails are OK" under "Emails you may send to this person" is ticked by default, so a card saved as is gets recorded as someone sales may contact. A contact imported from a CSV, or a card saved with that box unticked, is undecided. For those, open the draft, edit it, and click "Allow sales contact", which records the decision. Then "Approve and send" sends it.
 
 Once that decision is on record, you can also write from the "AI email" card on the contact's page: "Suggest email" drafts it, you edit, and you click "Send". For an undecided contact that card shows "Cannot send", followed by a reason that currently appears in Japanese.
 
@@ -41,7 +42,7 @@ To send from your own Gmail, go to Settings, "Integrations", "Google", and click
 
 ### Bulk email
 
-Under "Email" in the sidebar, click "New campaign", enter a subject and body, choose a "List" and "Save". On the campaign page that opens, "Send" sends it right away. If your sidebar role is set to "Sales" you will not see "Email" or "Lists" at all, so switch to "Marketing" or "All".
+Under "Email" in the sidebar, click "New campaign", enter a subject and body, choose a "List" and "Save". On the campaign page that opens, "Send" opens "Confirm send", which shows the list, how many will receive it, who is excluded and why, and the sender. Press "Send to" followed by the number to send it. If "View" at the top of the sidebar is set to "Sales", "Lists" is not shown, so switch to "Marketing" or "All" when you build a list.
 
 Three things have to be in place first.
 
@@ -49,12 +50,12 @@ One, the sending domain. Under Settings, open "Sending domain", enter your domai
 
 Two, the list. Under "Lists", create a "New list" and tick "Keep members in sync with criteria". On the next screen, under "List criteria", use "Add condition" and then "Save criteria". Members arrive on the nightly refresh, so save at least a day before the send. That refresh only runs while "Dynamic list management" is switched on under "Automations". Both steps need an owner, admin or manager.
 
-Three, consent. Within the list, a campaign reaches only people with recorded marketing consent who have not unsubscribed. That consent is recorded when someone ticks the consent box on one of your CRM forms. Contacts you imported or scanned have none, and if nobody on the list qualifies, the send stops with "No sendable contacts". The unsubscribe link is added for you.
+Three, consent. Within the list, a campaign reaches only people with recorded marketing consent who have not unsubscribed. That consent is recorded when someone ticks the consent box on one of your CRM forms, or when you save a scanned card with "Newsletters are OK" ticked (it starts unticked). Contacts imported from a CSV, and cards saved without that box, have none, and if nobody on the list qualifies, the confirmation shows "No one can receive this." and the send button stays disabled. The unsubscribe link is added for you.
 
 If you already email your existing database from HubSpot, keep doing that and hand it the list. Save a HubSpot access token that can write contacts and lists under Settings, "Integrations", "Another CRM (read-only)", and "Push to HubSpot" on the list page starts working. It creates a static list with the same name in HubSpot. The send itself, and your opt-outs, stay on the HubSpot side.
 
 ## The first step
 
-One thing this week. Open "Drafts waiting to send", pick five people you met at an event or a visit, and take each one through "Allow sales contact" and "Approve and send". Deciding, one person at a time, that you may write to them, and leaving that on record, is what keeps the team from drifting back to BCC.
+One thing this week. Open "Drafts waiting to send", pick five people you met at an event or a visit, and take each one through "Approve and send", clicking "Allow sales contact" first for anyone still undecided. Deciding, one person at a time, that you may write to them, and leaving that on record, is what keeps the team from drifting back to BCC.
 
 If you would rather look first, the [demo](https://crm.consilegy.com/demos) opens with just an email address. Choose "B2B sales", open any contact and find the "AI email" card. It is a shared environment, so do the real sending and the Google connection in your own workspace.

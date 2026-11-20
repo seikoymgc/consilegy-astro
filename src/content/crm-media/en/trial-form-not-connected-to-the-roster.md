@@ -8,9 +8,9 @@ feature: "Trial booking form (an application goes straight into the student list
 screens: "Students: 体験予約フォーム（公開URL）, 体験予定, 体験予約 / the public form 無料体験レッスンのお申し込み / Home 体験予定 / student record 📝 初回ヒアリング, ⚙ ステータス変更, 受講中"
 segment: "b2c"
 edition: "school"
-sources: "school-app/lib/render.ts / school-app/components/MockShell.tsx / school-app/components/TrialForm.tsx / app/school/trial/page.tsx / app/api/school-app/trial/route.ts / app/api/school-app/student/status/route.ts / app/api/school-app/line/webhook/route.ts / school-app/lib/public-paths.ts"
+sources: "school-app/lib/render.ts / school-app/components/MockShell.tsx / school-app/components/TrialForm.tsx / app/school/trial/page.tsx / app/api/school-app/trial/route.ts / app/api/school-app/student/status/route.ts / app/api/school-app/line/webhook/route.ts / school-app/lib/public-paths.ts / src/app/api/school-app/student/status/route.ts / src/lib/school/provision.ts / src/school-app/lib/html-en.ts / src/school-app/components/MockShell.tsx / src/app/school/trial/page.tsx / src/school-app/components/TrialForm.tsx"
 date: 2026-10-03
-updated: 2026-10-12
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 Your school's website has a trial lesson form. It was made with a free form builder, and each request arrives as a notification email. The teacher sees it between lessons and thinks "I'll reply later". At night, after tidying up, they open the roster spreadsheet, type in the name and contact details, and write a reply. In a busy week that happens two days later.
@@ -23,21 +23,21 @@ How many requests came in, how many people showed up, how many enrolled. With no
 
 ## In Revenue CRM, an application goes straight into the student list
 
-On the Students screen of the school edition there is a banner reading 体験予約フォーム（公開URL） (trial booking form, public URL). Tap it and the link to the form is copied. Paste it on your website or Instagram. There is no form to build, and applicants open it without logging in.
+On the Students screen of the school edition there is a banner reading Trial booking form (public URL). Tap it and the link to the form is copied. Paste it on your website or Instagram. There is no form to build, and applicants open it without logging in.
 
 The form is headed 無料体験レッスンのお申し込み. It asks for name, email address, how they found the school, English level, preferred days and times, where they want to be in three months, and a free comment. Only the name is required. Pressing 体験レッスンを申し込む shows a confirmation. The form itself is in Japanese only.
 
-A submitted application is registered as a student on the spot. Choose 体験予定 on the Students list and it appears with a 体験予約 badge. It also counts toward 体験予定 on Home. What the applicant wrote about how they found you, their level and their goal is already in 📝 初回ヒアリング on the student record. Nothing is retyped. Most of these labels are shown in Japanese at the time of writing, including when the display language is English.
+A submitted application is registered as a student on the spot. Choose Upcoming trials on the Students list and it appears with a Trial booked badge. It also counts toward Upcoming trials on Home. What the applicant wrote about how they found you, their level and their goal is already in 📝 Intake interview on the student record. Nothing is retyped. With the English display on, these screen labels appear in English; only the public form itself stays in Japanese.
 
-When the student enrolls, press 受講中 (shown as "Active" in English display) under ⚙ ステータス変更 on the record. By default only admins can change it. Everyone sees the buttons, but nothing happens when someone without permission presses one.
+When the student enrolls, press Active under ⚙ Change status on the record. By default every role (Manager, Office and Staff) can change it. To restrict it, turn off Edit on the Students row for that role under Permissions; this also stops that role's other student edits, such as assigning teachers. That role still sees the buttons, but pressing one changes nothing and shows no error.
 
 ## What to know
 
-Nothing tells you an application has arrived. No email, no task. New applications sit at the bottom of the list. Open 体験予定 every morning and read to the end. How fast you reply depends on that habit.
+Nothing tells you an application has arrived. No email, no task. New applications sit at the bottom of the list. Open Upcoming trials every morning and read to the end. How fast you reply depends on that habit.
 
 The form has no phone number field and the email address is optional. You cannot answer an application that has only a name, so where you post the link, ask people to fill in their email address.
 
-The wording of the form is written for English conversation schools and cannot be changed. The questions about English level and the three-month goal appear as they are.
+The form's heading and introduction are written for English conversation schools and cannot be changed. The English level and three-month goal questions use the names you set under Profile field names in the menu (see [The student profile asks about English level, but you run a piano school](/en/crm/media/b2c/intake-fields-written-for-an-english-school/)).
 
 If someone who applied through the form later adds your LINE Official Account as a friend, the same person appears twice in the list. There is no merge.
 
@@ -45,6 +45,6 @@ There is no screen showing how many trials turned into enrolments.
 
 ## The first step
 
-Copy the link and submit one application yourself. See where it lands under 体験予定 and what the record contains. Students cannot be deleted, so use "Test" as the name and set it to 退会 (withdrawn) under ⚙ ステータス変更 once you have looked. It asks for a reason, which you can leave empty. Then point the button on your website at the new link.
+Copy the link and submit one application yourself. See where it lands under Upcoming trials and what the record contains. Students cannot be deleted, so use "Test" as the name and set it to Withdrawn under ⚙ Change status once you have looked. It asks for a reason, which you can leave empty. Then point the button on your website at the new link.
 
 The [demo](https://crm.consilegy.com/demos) opens with just an email address. Pick "Schools" to look around the school edition.

@@ -8,8 +8,9 @@ feature: "メンバー・チーム・閲覧範囲（「設定」→「ワーク�
 screens: "「設定」→「ワークスペース」→「メンバー管理」の「メンバーを招待」（メールアドレス・ロール）、「チーム」の「チーム作成」、メンバー一覧のチーム欄（「チームなし」）／「設定」→「ワークスペース」→「権限」の管理者・マネージャー・メンバーの表（コンタクト・会社・商談・チケット・タスク・アクティビティ・見積 × 閲覧・作成・編集・削除・ｴｸｽﾎﾟｰﾄ、「閲覧範囲」「編集範囲」）／コンタクト一覧の「担当者」列／商談の「編集」の「担当者」"
 segment: "b2b"
 edition: "b2b"
-sources: "src/app/(dashboard)/settings/permissions/permissions-view.tsx / src/app/(dashboard)/settings/permissions/page.tsx / src/app/api/permissions/route.ts / src/app/(dashboard)/settings/members/members-view.tsx / src/app/(dashboard)/settings/members/page.tsx / src/app/api/members/[id]/route.ts / src/app/(dashboard)/settings/settings-index.tsx / supabase/migrations/097_record_scopes_teams_export.sql / supabase/migrations/227_quote_record_scope.sql / src/components/contacts-table.tsx / src/app/(dashboard)/deals/[id]/edit/page.tsx / src/app/(dashboard)/companies/companies-view.tsx / src/lib/crm/use-cases.ts / src/app/api/contacts/import/route.ts / src/app/api/export/[dataset]/route.ts / src/app/api/demo/seed/route.ts"
+sources: "src/app/(dashboard)/settings/permissions/permissions-view.tsx / src/app/(dashboard)/settings/permissions/page.tsx / src/app/api/permissions/route.ts / src/app/(dashboard)/settings/members/members-view.tsx / src/app/(dashboard)/settings/members/page.tsx / src/app/api/members/[id]/route.ts / src/app/(dashboard)/settings/settings-index.tsx / supabase/migrations/097_record_scopes_teams_export.sql / supabase/migrations/227_quote_record_scope.sql / src/components/contacts-table.tsx / src/app/(dashboard)/deals/[id]/edit/page.tsx / src/app/(dashboard)/companies/companies-view.tsx / src/lib/crm/use-cases.ts / src/app/api/contacts/import/route.ts / src/app/api/export/[dataset]/route.ts / src/app/api/demo/seed/route.ts / src/lib/crm/csv-import.ts / src/components/csv-import-dialog.tsx"
 date: 2026-10-24
+updated: 2026-11-20
 author: "山口聖子"
 ---
 月曜の朝、中途で入った営業にアカウントを渡します。招待メールから入った画面には、会社の顧客も、ほかの営業が追っている商談の金額も、最初から全部並んでいます。誰かが「全部見せよう」と決めたわけではありません。「絞ろう」と決めた人がいなかった、それだけです。
@@ -38,7 +39,7 @@ author: "山口聖子"
 
 注意が4つあります。
 
-- 見える・見えないは「担当者」で決まります。CSVで取り込んだレコードは取り込んだ人が担当者になるので、管理者が全部取り込んでいると、「担当のみ」のメンバーには何も見えません。コンタクトは一覧の「担当者」列、商談は「編集」の「担当者」で付け替えられますが、まとめて変えるボタンは無く、会社の担当者は作ったあとに変える画面がありません
+- 見える・見えないは「担当者」で決まります。CSVで取り込むとき、「営業担当」の列が空のレコードは取り込んだ人が担当者になります。管理者がそのまま全部取り込むと、「担当のみ」のメンバーには何も見えません。取り込む前に「営業担当」の列へ担当者のメールアドレスか氏名を入れておけば、行ごとに担当者が付きます。コンタクトは一覧の「担当者」列、商談は「編集」の「担当者」で付け替えられますが、まとめて変えるボタンは無く、会社の担当者は作ったあとに変える画面がありません
 - チームに入っていない人は、「チーム」を選んでも「担当のみ」と同じ扱いです
 - アクティビティは「書いた人」が担当者です。ここを「担当のみ」にすると、自分のコンタクトでも前任者の記録が見えなくなります
 - メンバーをワークスペースから削除しても、その人の担当レコードは付け替わりません。「担当のみ」で運用しているなら、削除の前に担当者を移してください

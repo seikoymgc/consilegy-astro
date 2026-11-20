@@ -3,13 +3,14 @@ title: "CRMを乗り換えると、過去の電話や打ち合わせの記録が
 slug: "past-calls-and-meetings-left-behind-in-the-old-system"
 lang: "ja"
 category: "input"
-pain: "顧客と会社と商談は新しいCRMに移したが、何年分もの電話・打ち合わせ・訪問の記録は古いシステムやExcelに残ったまま。新しい担当がコンタクトを開いても、履歴は乗り換えた日から始まっている"
+pain: "顧客と会社と商談は新しいCRMに移したが、何年分もの電話・打ち合わせ・訪問の記録は古いシステムやスプレッドシートに残ったまま。新しい担当がコンタクトを開いても、履歴は乗り換えた日から始まっている"
 feature: "活動履歴のCSVインポート（アクティビティ一覧の「CSVインポート」。日時・種類・件名・内容・結果・コンタクトメール・会社名・商談名・営業担当を読み、その日時でコンタクト・会社・商談の「アクティビティ」に並ぶ）"
 screens: "サイドバー「アクティビティ」→ 右上「CSVインポート」→「テンプレート（CSV）をダウンロード」→ ファイルを選ぶ →「インポートのプレビュー」（「認識されたカラム」「未認識:」）→「（件数）件をインポート」→「インポート完了」（件数の下に「エラー（登録されていません）」「スキップ（既にあるデータ）」「確認が必要な点（登録はされています）」）；コンタクト・会社・商談の詳細の「アクティビティ」タブ"
 sources: "src/app/(dashboard)/activities/page.tsx / src/app/(dashboard)/activities/activities-import-button.tsx / src/components/csv-import-dialog.tsx / src/app/api/activities/import/route.ts / src/lib/crm/csv-import-http.ts / src/lib/crm/csv-import.ts / src/lib/csv-import.ts / src/lib/crm/activities.ts / src/components/activity-timeline.tsx / src/app/(dashboard)/contacts/[id]/page.tsx / src/app/(dashboard)/companies/[id]/page.tsx / src/app/(dashboard)/deals/[id]/page.tsx / docs/product/CSVインポート/項目定義.md（crm #397・#398・#399）"
 segment: "b2b"
 edition: "b2b"
 date: 2026-10-31
+updated: 2026-11-20
 author: "山口聖子"
 ---
 乗り換えの初日。会社も、コンタクトも、進行中の商談も、新しい顧客管理システムにきれいに入りました。移行担当はほっとしています。

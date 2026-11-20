@@ -8,8 +8,9 @@ feature: "成功プラン（コンタクト詳細の「成功プラン」カー�
 screens: "コンタクト詳細の「成功プラン」カード「成功プランを作成」／「ゴール / 達成したい成果」／「状態」（順調・注意・遅延・達成）／「目標期日」／「成功指標」「指標を追加」（指標・基準・目標・現在・状態）／「プランを削除」／サイドバー「カスタマーサクセス」の「成功プラン保有」「成功プラン」列「成功プラン一括作成」／コンタクト一覧「ステージ変更...」→「顧客」／「CS AIアシスト」の「成果レポート(QBR)」"
 segment: "b2b"
 edition: "b2b"
-sources: "src/components/success-plan-panel.tsx / src/app/(dashboard)/contacts/[id]/page.tsx / src/app/api/success-plans/route.ts / src/app/api/success-plans/[id]/route.ts / src/app/api/success-plans/[id]/metrics/route.ts / src/app/api/success-plan-metrics/[id]/route.ts / src/app/api/success-plans/bulk-create/route.ts / src/app/(dashboard)/customer-success/page.tsx / src/app/(dashboard)/customer-success/cockpit-view.tsx / src/components/cs-ai-panel.tsx / src/app/api/contacts/[id]/cs-ai/route.ts / src/components/app-sidebar.tsx / src/lib/personas.ts / src/lib/demo/extras.ts"
+sources: "src/components/success-plan-panel.tsx / src/app/(dashboard)/contacts/[id]/page.tsx / src/app/api/success-plans/route.ts / src/app/api/success-plans/[id]/route.ts / src/app/api/success-plans/[id]/metrics/route.ts / src/app/api/success-plan-metrics/[id]/route.ts / src/app/api/success-plans/bulk-create/route.ts / src/app/(dashboard)/customer-success/page.tsx / src/app/(dashboard)/customer-success/cockpit-view.tsx / src/components/cs-ai-panel.tsx / src/app/api/contacts/[id]/cs-ai/route.ts / src/components/app-sidebar.tsx / src/lib/personas.ts / src/lib/demo/extras.ts / src/lib/revops/deals.ts / src/lib/revops/catalog.ts / src/app/api/cron/workflows/route.ts / src/lib/editions/index.ts / supabase/migrations/052_revops_automations.sql / src/app/api/webhooks/stripe/[orgId]/route.ts"
 date: 2026-10-29
+updated: 2026-11-20
 author: "山口聖子"
 ---
 最終提案の席で、先方の部長がはっきり言いました。「半年後には、問い合わせの一次対応を今の半分の人数で回したいんです」。営業はうなずいて手帳に書き、翌週に受注。社内の引き継ぎ会では、契約金額と導入日と窓口の名前を伝えて終わりました。導入担当の最初の打ち合わせは、機能の一覧を上から説明する会になりました。
@@ -41,7 +42,7 @@ author: "山口聖子"
 - 「現在」の値も各「状態」も手で入れます。自動では変わりません
 - カードに出る「担当」は、カードから作ったプランなら作った人、「成功プラン一括作成」で作ったプランならコンタクトの担当者です。画面から付け替える操作はありません。営業が作り、導入担当が書き足す運用なら、それで困ることは少ないはずです
 - 指標の行の横のごみ箱は、確認なしで消えます。変更の履歴も残りません
-- 「カスタマーサクセス」の一覧に出るのは、ライフサイクルが「顧客」のコンタクトだけです。商談を受注にしても自動では「顧客」になりません（Stripe 連携でサブスクリプションが有効になったときを除く）。コンタクト一覧で該当する人にチェックを入れ、「ステージ変更...」から「顧客」を選びます。サイドバー上部の「業務を切り替え」で「CS」か「すべて」（自分の役割に CS が入っていれば「自分」でも可）を選んでいないと、画面自体が出ません
+- 「カスタマーサクセス」の一覧に出るのは、ライフサイクルが「顧客」のコンタクトだけです。商談を受注にしても、初期設定では自動で「顧客」になりません（Stripe 連携でサブスクリプションが有効になったときを除く）。「自動化」の「受注確定・顧客化ワークフロー」をオンにすると、受注した商談に紐づくコンタクトが、毎日の定期処理（日本時間10時ごろ）で「顧客」になります。オンにしていなければ、コンタクト一覧で該当する人にチェックを入れ、「ステージ変更...」から「顧客」を選びます。サイドバー上部の「業務」で「CS」「経営」「すべて」のどれか（自分の役割に CS か経営が入っていれば「自分」でも可）を選んでいないと、サイドバーに「カスタマーサクセス」が出ません
 
 ## 最初の一歩
 

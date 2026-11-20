@@ -10,6 +10,7 @@ segment: "b2b"
 edition: "b2b"
 sources: "src/app/(dashboard)/settings/audit-log/page.tsx / src/app/(dashboard)/settings/audit-log/audit-log-view.tsx / src/app/(dashboard)/settings/settings-index.tsx / src/lib/audit/access-log.ts / supabase/migrations/030_audit_triggers.sql / supabase/migrations/081_audit_trigger_org_purge.sql"
 date: "2026-11-14"
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 You open a customer record before a call and notice that something has changed. Was it the account owner, another colleague, or an automated process? The next step becomes a message to the whole team: “Does anyone know who updated this?”
@@ -37,7 +38,7 @@ The detail line is also not a before-and-after comparison. It displays field nam
 
 ## A System entry does not identify a colleague
 
-Automated work and other updates without an identifiable actor can appear as System. The label does not tell you which person to question or why the value changed.
+Automated work and other updates without an identifiable actor appear as System. So does an edit by a member whose profile has no name, so a person may still be behind it. The label does not tell you which person to question or why the value changed.
 
 Use the log to establish what is visible, then compare it with the current record and ask about the remaining uncertainty. The log has no field for a change explanation and no button to restore a previous value. Viewing the audit log is itself recorded.
 

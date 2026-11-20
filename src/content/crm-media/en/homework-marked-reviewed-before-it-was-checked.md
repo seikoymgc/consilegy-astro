@@ -8,8 +8,9 @@ feature: "Undo the reviewed state from the student record"
 screens: "Students → student record → Homework submissions → Reviewed → Undo"
 segment: "b2c"
 edition: "school"
-sources: "src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/app/api/school-app/submission/review/route.ts / src/school-app/lib/supabase.ts / src/school-app/lib/authz.ts / src/school-app/lib/audit.ts"
+sources: "src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/app/api/school-app/submission/review/route.ts / src/school-app/lib/supabase.ts / src/school-app/lib/authz.ts / src/school-app/lib/audit.ts / src/school-app/lib/html-en.ts"
 date: "2026-11-13"
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 While working through incoming homework, someone clicks **Mark as reviewed** on the wrong submission. Its card disappears. The work has not been checked, but another teacher now sees it as complete.
@@ -45,7 +46,7 @@ Reload Home or Tasks to check the relevant teacher’s unchecked inbox. On an al
 
 The student record displays up to the latest 20 submission rows. If an older item is not visible, do not undo a different row as a substitute.
 
-The operation also attempts to record the reversal in **Audit log**, available under **More**. That log is a recent operational record, not a complete all-time audit archive. Use what it actually shows when checking who reversed the status.
+The operation also attempts to record the reversal in **Audit log**, available under **More** to the Operations, Manager and Office roles. That log is a recent operational record, not a complete all-time audit archive. Use what it actually shows when checking who reversed the status.
 
 ## Return one overlooked item to the right queue
 

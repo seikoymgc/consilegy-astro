@@ -8,15 +8,15 @@ feature: "Chat import"
 screens: "Activities \"Import conversation\" / \"Channel\" (LINE, LINE WORKS, ChatWork, Slack, Messenger, LinkedIn) / \"Analyze\" / \"Summary\" \"Key points\" \"Next actions\" / \"Contact\" \"Create as new contact\" \"Deal (optional)\" / \"Import\" / \"View full transcript\""
 segment: "b2b"
 edition: "b2b"
-sources: "src/components/chat-import-dialog.tsx / src/lib/chat-parsers/ai-extract.ts / src/lib/chat-parsers/line.ts / src/app/api/chat-imports/route.ts / src/app/api/chat-imports/[id]/confirm/route.ts / src/app/(dashboard)/activities/page.tsx / src/components/activity-timeline.tsx / src/lib/i18n/translations.ts (chatImport) / consilegy-astro: src/data/crm-faq.ts (AI training)"
+sources: "src/components/chat-import-dialog.tsx / src/lib/chat-parsers/ai-extract.ts / src/lib/chat-parsers/line.ts / src/app/api/chat-imports/route.ts / src/app/api/chat-imports/[id]/confirm/route.ts / src/app/(dashboard)/activities/page.tsx / src/components/activity-timeline.tsx / src/lib/i18n/translations.ts (chatImport) / consilegy-astro: src/data/crm-faq.ts (AI training) / src/app/(dashboard)/deals/[id]/page.tsx"
 date: 2026-10-03
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 The first exchange is by email. Somewhere around the second meeting the buyer says "just message me", or adds your rep to a shared Slack channel, or replies on LinkedIn because that is where they happened to be. From then on things move quickly. The request to revise the quote, "end of month works for delivery", "my director signed off": all of it arrives as chat.
 
 Open the deal in the CRM and the last entry is three weeks old: "Quote sent". The dozen messages since then are on the rep's phone.
 
-This is not one company. In eight years of CRM implementation work I have watched deal histories go quiet at the same moment everywhere: the moment the conversation left email.
 
 ## What you lose is not the chat log. It is what was decided in it
 
@@ -38,7 +38,7 @@ Pick the "Channel" (Slack, Messenger, LinkedIn, LINE and a few others) and press
 
 From here a person decides. The summary is editable on the spot. Each next action has a checkbox, and only the ones left checked become tasks. Keep "Send revised quote by month end". Uncheck "Will be in touch". A misread never becomes a commitment on its own.
 
-The simplest route is to start from the deal itself. Opened there, the import is attached to that deal and there is nobody to pick. Opened from the Activities screen, the last step is "Contact": search by first or last name, or pick "Create as new contact" if they are not in the CRM yet (check the name order on the new contact afterwards). Linking a deal is optional, but an import with no deal chosen will not show in that deal's history.
+The simplest route is to start from the deal itself. Opened there, the import is already attached to that deal, so there is no deal to pick, but you still choose the person under "Contact" before you press "Import" (opened from a contact, even that step is skipped). Opened from the Activities screen, the last step is also "Contact": search by first or last name, or pick "Create as new contact" if they are not in the CRM yet (check the name order on the new contact afterwards). Linking a deal is optional, but an import with no deal chosen will not show in that deal's history.
 
 Press "Import" and the summary is saved as a chat record. The pasted conversation is kept as well: open the contact or deal, and "View full transcript" on that record brings it back.
 

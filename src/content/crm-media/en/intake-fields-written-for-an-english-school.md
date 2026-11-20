@@ -10,6 +10,7 @@ segment: "b2c"
 edition: "school"
 sources: "src/school-app/lib/hearing-labels.ts / src/app/api/school-app/settings/hearing-labels/route.ts / src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/school-app/components/TrialForm.tsx / src/app/school/trial/page.tsx / src/app/api/school-app/hearing/extract/route.ts / src/school-app/lib/export.ts / src/school-app/lib/html-en.ts / src/school-app/lib/authz.ts / supabase/migrations/248_school_settings.sql"
 date: 2026-10-28
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 A trial lesson at a piano school has just finished. The teacher opens the new student's profile, and the intake section reads: English level. Trial conversation: strengths. Trial conversation: areas to work on.
@@ -20,7 +21,7 @@ So where does "three years of lessons, can play a Clementi sonatina" go? One tea
 
 When the field names don't match how your school talks, the same kind of information lands in a different field for every teacher, or nowhere at all.
 
-Most schools ask roughly the same things in a trial. For piano: years of experience, pieces they can play, the next recital they're aiming for, how much they can practice at home. Say you run eight trials a month, what you hear in four of them never makes it into the profile, and those four students sign up. That's four new students a month whose first regular teacher asks the same questions again, and four sets of parents thinking "we already told you this." Not the first impression you want after someone signs up.
+Each school tends to ask the same things in every trial. For piano: years of experience, pieces they can play, the next recital they're aiming for, how much they can practice at home. Say you run eight trials a month, what you hear in four of them never makes it into the profile, and those four students sign up. That's four new students a month whose first regular teacher asks the same questions again, and four sets of parents thinking "we already told you this." Not the first impression you want after someone signs up.
 
 It isn't the teachers being careless. The labels just don't describe what they're supposed to write.
 

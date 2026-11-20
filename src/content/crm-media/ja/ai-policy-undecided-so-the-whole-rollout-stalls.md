@@ -10,6 +10,7 @@ segment: "b2b"
 edition: "b2b"
 sources: "src/app/(dashboard)/settings/ai-features/page.tsx / src/app/(dashboard)/settings/ai-features/ai-features-view.tsx / src/app/api/org-settings/ai-enabled/route.ts / src/lib/ai-enabled.ts / src/data/crm-updates.ts (consilegy-astro, 2026-10-28, PR #395)"
 date: "2026-11-08"
+updated: 2026-11-20
 author: "山口聖子"
 ---
 顧客情報を一つにまとめたい。担当が替わっても、商談の経緯をたどれるようにしたい。そこまでは合意できているのに、「AIにどこまで任せるか」の話で導入全体が止まる。こんなときは、顧客管理とAIの利用を別々に決めると、次に進めます。
@@ -32,7 +33,7 @@ AIのオン・オフを変更できるのは、オーナーと管理者です。
 *デモの設定画面です。撮影時はオンの状態で、切り替えは行っていません。*
 
 1. 「設定」から「AI機能の利用」を開きます。
-2. 管理者が「AI機能を使う」のスイッチをオフにします。
+2. 管理者が、「AI機能: オン」と出ている欄の右にあるスイッチをオフにします。その下の「入力データの自動翻訳」は別のスイッチです。
 3. 「AI機能: オフ」と、保存できたことを示すメッセージを確認します。
 
 オフの間は、AIエージェント、下書き、要約、翻訳、名刺や手書きの読み取り、会社の調査などのAI機能が止まります。自社で用意したAIキーでの呼び出しや、夜間処理のAI利用も対象です。保存済みのデータは残り、オンに戻すとAI機能を再び使えます。

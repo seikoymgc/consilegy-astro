@@ -8,8 +8,9 @@ feature: "Per-teacher Google Calendar connection (a teacher connects their own G
 screens: "Home: 📅 自分のGoogleカレンダーにつなぐ (Connect my Google Calendar), Googleカレンダーをつなぐ (Connect Google Calendar), カレンダー連携済み (Calendar connected), つなぎ直す (Reconnect) / More → Integrations → Teachers' calendars / Lessons → 🗓️ Sync with Google Calendar now"
 segment: "b2c"
 edition: "school"
-sources: "src/school-app/lib/coach-calendar.ts / src/school-app/lib/google-calendar.ts / src/school-app/lib/render.ts / src/school-app/lib/html-en.ts / src/app/api/school-app/auth/google/start/route.ts / src/app/api/school-app/gcal/sync/route.ts / src/app/api/school-app/calendar/share/route.ts / src/app/api/school-app/automation/run/route.ts"
+sources: "src/school-app/lib/coach-calendar.ts / src/school-app/lib/google-calendar.ts / src/school-app/lib/render.ts / src/school-app/lib/html-en.ts / src/app/api/school-app/auth/google/start/route.ts / src/app/api/school-app/gcal/sync/route.ts / src/app/api/school-app/calendar/share/route.ts / src/app/api/school-app/automation/run/route.ts / src/app/api/school-app/lesson/reschedule/route.ts / src/app/school/page.tsx / src/lib/demo.ts"
 date: 2026-10-21
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 Sunday night. A teacher messages the owner: "What time am I teaching tomorrow?" The owner opens the booking list, answers, and copies the lesson into the teacher's calendar while they are at it. With four teachers, this happens every week. And about once a month, a lesson lands on top of a teacher's dentist appointment.
@@ -30,10 +31,10 @@ If the teacher allows it during connection, their personal calendar is read for 
 
 Four things to know before you rely on it:
 
-- Move or cancel bookings in Google Calendar, not in Revenue CRM. There is no screen in Revenue CRM to reschedule or cancel a booking yet. (The event description says to make changes in the CRM; for now, the calendar is the place.) Changes made in the calendar come back to the booking when someone taps 🗓️ Sync with Google Calendar now under Lessons, or in the automatic run around 10:00 every morning Japan time. They are not instant
+- Move or cancel bookings in Google Calendar, not in Revenue CRM. The only way to move a booking inside Revenue CRM is Reschedule under Missing log on the Lessons screen. (The event description says to make changes in the CRM; for now, the calendar is the place.) Changes made in the calendar come back to the booking when Google sends its change notification. If notifications could not be registered, a red calendar alert appears under Act now on Home, and changes come back only when someone taps 🗓️ Sync with Google Calendar now under Lessons, or in the automatic run around 10:00 every morning Japan time
 - Events created directly in the calendar are not imported as bookings. New bookings still go in through LINE booking or the student record
-- Tapping Reschedule under Missing log on the Lessons screen adds a booking at the same time next week. The original booking and its calendar event stay. Delete the original event in the calendar
-- There is no disconnect button. To disconnect, the teacher removes access from their Google account settings. The calendar name shown on screen can also differ from the one actually created, which is named after the school
+- Tapping Reschedule under Missing log on the Lessons screen books a lesson seven days from the day you tap it, at the same time and with the same type and teacher as the original. If the student has a booking within the next seven days, the nearest one is cancelled and its calendar event is removed. If there is none, nothing is cancelled
+- There is no disconnect button. To disconnect, the teacher removes access from their Google account settings. The calendar that is created is named after the school, the same name shown on the Home card
 
 ## Your first step
 
@@ -41,4 +42,4 @@ This week, pick one teacher and ask them to tap Connect Google Calendar on the h
 
 Tell them one thing: "If a lesson moves, move it in your calendar." If a week later that teacher has stopped asking "what time am I on?", connect the next one.
 
-You can look around the school edition in the [demo](https://crm.consilegy.com/demos). Pick 「スクール」 (School). All you need is an email address.
+You can look around the school edition in the [demo](https://crm.consilegy.com/demos). Pick Schools. All you need is an email address.

@@ -8,9 +8,9 @@ feature: "カルテの「初回ヒアリング」（体験予約フォームの�
 screens: "生徒のカルテ「📝 初回ヒアリング」「🎥 テスト会話から自動入力」「✦ AIで抽出してカルテに反映」／「生徒」の「＋ 新規生徒」「体験予約フォーム（公開URL）」"
 segment: "b2c"
 edition: "school"
-sources: "school-app/lib/render.ts / school-app/components/MockShell.tsx / school-app/components/TrialForm.tsx / app/api/school-app/hearing/extract/route.ts / app/api/school-app/trial/route.ts / app/api/school-app/student/route.ts / school-app/lib/authz.ts"
+sources: "school-app/lib/render.ts / school-app/components/MockShell.tsx / school-app/components/TrialForm.tsx / app/api/school-app/hearing/extract/route.ts / app/api/school-app/trial/route.ts / app/api/school-app/student/route.ts / school-app/lib/authz.ts / src/app/api/school-app/trial/route.ts / src/app/api/school-app/hearing/extract/route.ts"
 date: 2026-09-30
-updated: 2026-10-12
+updated: 2026-11-20
 author: "山口聖子"
 ---
 体験レッスンの最初の10分は、いちばん濃い会話です。「なぜ習おうと思ったんですか」「前にやっていたことは」「いつまでにどうなりたいですか」。生徒は初対面の先生に、けっこう正直に話します。
@@ -25,7 +25,7 @@ author: "山口聖子"
 
 スクール版では、生徒のカルテに「📝 初回ヒアリング」という欄があります。項目は6つです。「きっかけ（どう知ったか）」「基本情報」「英語レベル」「テスト会話：よかった点」「テスト会話：課題」「3か月後の目標（何ができるように）」。入っていない項目は「未入力」と出ます。
 
-手で埋める方法は3つあります。
+埋める方法は3つあります。
 
 1つ目は、体験予約フォームです。「生徒」の画面にある「体験予約フォーム（公開URL）」から申し込んだ人は、本人が書いたきっかけ、レベル、目標が、最初からこの欄に入っています。
 

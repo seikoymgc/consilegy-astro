@@ -8,8 +8,9 @@ feature: "メールの「翻訳」（インボックスの届いたメッセー�
 screens: "サイドバー「インボックス」の届いたメッセージ「翻訳」「原文」／返信欄「翻訳」→「翻訳先」（日本語・English・繁體中文）「翻訳する」「置き換える」「閉じる」「元に戻す」／サイドバー「送信待ちの下書き」の「翻訳」「承認して送信」／コンタクト詳細「AIメール」の「翻訳」／「シーケンス」の「ステップを追加」（メール）の「翻訳」"
 segment: "b2b"
 edition: "b2b"
-sources: "src/components/email-translate.tsx / src/lib/email-translate.ts / src/app/api/ai/translate/route.ts / src/app/(dashboard)/inbox/inbox-view.tsx / src/components/outbound-draft-editor.tsx / src/app/(dashboard)/outbound-drafts/outbound-drafts-view.tsx / src/components/ai-email-panel.tsx / src/app/(dashboard)/sequences/[id]/sequence-detail.tsx / src/lib/email-signature.ts / src/lib/ai-fuel.ts / src/lib/ai-quota.ts / src/components/app-sidebar.tsx / src/components/app-topbar.tsx / src/lib/demo.ts / src/app/(dashboard)/contacts/[id]/page.tsx"
+sources: "src/components/email-translate.tsx / src/lib/email-translate.ts / src/app/api/ai/translate/route.ts / src/app/(dashboard)/inbox/inbox-view.tsx / src/components/outbound-draft-editor.tsx / src/app/(dashboard)/outbound-drafts/outbound-drafts-view.tsx / src/components/ai-email-panel.tsx / src/app/(dashboard)/sequences/[id]/sequence-detail.tsx / src/lib/email-signature.ts / src/lib/ai-fuel.ts / src/lib/ai-quota.ts / src/components/app-sidebar.tsx / src/components/app-topbar.tsx / src/lib/demo.ts / src/app/(dashboard)/contacts/[id]/page.tsx / src/lib/record-translation.ts"
 date: 2026-10-22
+updated: 2026-11-20
 author: "山口聖子"
 ---
 海外の展示会から戻った週、台湾と米国の会社から問い合わせのメールが届きます。営業部で英語のメールを書けるのは1人だけです。届いたメールはその人に転送され、返事もその人が書きます。その人は自分の商談で外出が多く、返事は夕方か翌日になります。待ちきれない営業が翻訳サイトに日本語を貼り、出てきた直訳をそのまま送ることもあります。
@@ -38,8 +39,8 @@ author: "山口聖子"
 
 - 「翻訳」はメールを送りません。送るのはいつもどおり、自分で「送信」や「承認して送信」を押したときです
 - 言語は日本語・English・繁體中文の3つだけです。簡体字の中国語や韓国語はありません
-- 「翻訳する」（届いたメールでは「翻訳」）で1回訳すごとに燃料を1使います。燃料が足りないときは文は変わらず、案内が出ます
-- 届いたメールの訳は保存されません。画面を離れると消えるので、また押します。届いたメールの件名は訳しません
+- 「翻訳する」で1回書き直すごとに燃料を1使います。届いたメールの「翻訳」も、初めて訳すときは燃料を1使います。燃料が足りないときは文は変わらず、案内が出ます
+- 届いたメールの訳は組織内に保存され、同じ文面を同じ言語でもう一度訳すとき（ほかの人が開くときも）は燃料を使いません。画面を離れると原文の表示に戻るので、また「翻訳」を押します。届いたメールの件名は訳しません
 - 一斉配信のメールには「翻訳」がありません。シーケンスも、これから足すステップだけです
 
 書き直しなので、送る前に必ずプレビューを読んでください。数字と日付が原文どおりかを見るだけでも、事故は防げます。

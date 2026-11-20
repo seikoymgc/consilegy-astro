@@ -8,8 +8,9 @@ feature: "Calendar (More → 📅 Calendar, or Calendar in the desktop sidebar. 
 screens: "Bottom nav More → 📅 Calendar / desktop sidebar Calendar / ‹ Previous, Next ›, teacher chips All and each teacher's name, day cells showing time and student name, cancelled bookings faded with a strikethrough / on the same screen: 📲 View in your phone calendar, 🕘 Teachers' booking hours / student profile: 📅 Book next lesson"
 segment: "b2c"
 edition: "school"
-sources: "src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/school-app/lib/mock-body.ts / src/school-app/lib/supabase.ts / src/school-app/lib/authz.ts / src/school-app/lib/google-calendar.ts / src/school-app/lib/html-en.ts / src/school-app/lib/demo-seed.ts / src/app/api/school-app/booking/route.ts"
+sources: "src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/school-app/lib/mock-body.ts / src/school-app/lib/supabase.ts / src/school-app/lib/authz.ts / src/school-app/lib/google-calendar.ts / src/school-app/lib/html-en.ts / src/school-app/lib/demo-seed.ts / src/app/api/school-app/booking/route.ts / src/app/api/school-app/lesson/reschedule/route.ts"
 date: 2026-10-25
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 Tuesday lunchtime, a trial inquiry comes in: "Do you have any weekday evenings free next week?" The owner messages all three teachers to ask what's booked. The last reply arrives late in the afternoon, and the prospect gets their options the next morning.
@@ -41,10 +42,10 @@ What appears here is every booking made with 📅 Book next lesson on a student 
 Five things to know:
 
 - It shows bookings, nothing more. There are no per-teacher totals and no list of open slots. An empty cell may simply be outside that teacher's hours, so read the gaps against 🕘 Teachers' booking hours further down the same screen. 📅 Book next lesson doesn't check for clashes, so double bookings can happen
-- A make-up booking is added next week while the original stays in place, so the same student can appear twice
+- 振替 (make-up) cancels the original booking if it falls within the next seven days (it stays in the grid, faded with a strikethrough) and adds a new booking at the same time, one week from the day you press it. If the original booking is further out than that, it is not cancelled, so the same student can appear twice
 - You can't move or cancel a booking from this screen. If Google Calendar is connected, moving the event there moves the booking, and deleting it fades the booking with a strikethrough, after the next sync (the manual sync on the Lessons screen or the daily automatic run)
 - There are four colors, so once five or more teachers have bookings, some share a color. Chips use the teacher name exactly as written on the booking, so two spellings of the same name become two chips
-- Further down the same screen, 📲 View in your phone calendar currently shows a setup notice instead of a subscription link
+- Further down the same screen, 📲 View in your phone calendar shows subscription links only once feed URLs are configured on the service side; until then, it shows a setup notice instead
 
 ## Your first step
 
@@ -52,4 +53,4 @@ Ask your teachers for one thing this week: enter the next booking with 📅 Book
 
 On Friday afternoon, open Calendar and look at next week and next month. Tap each teacher's chip in turn and check whether the load is even, and which evenings are still free. The sign it's working: the next trial inquiry gets its options from you first, with just a quick confirmation from the teacher.
 
-Start the [demo](https://crm.consilegy.com/demos) with just an email address, choose Schools, and open More → Calendar to see the next few days of bookings laid out in three teachers' colors.
+Start the [demo](https://crm.consilegy.com/demos) with just an email address, choose Schools, and open More → Calendar to see the next few days of bookings laid out in each teacher's color. The demo is shared, so bookings added by other visitors may also appear.

@@ -5,11 +5,12 @@ lang: "en"
 category: "setup"
 pain: "The roster and the fees live in one sheet, so sharing it shows every amount to every teacher, and not sharing it leaves teachers unaware of who has not paid while the owner answers every question alone"
 feature: "Permissions (billing view closed per role; create and edit for students, lessons and tasks split by role)"
-screens: "Menu > 権限管理 (Permissions): roles \"Manager\" \"Admin dept\" \"Member\" / rows \"Students\" \"Lessons\" \"Tasks\" 請求 (Billing) / view / create / edit / delete chips / Menu > \"Subscriptions & Billing\" or 入金状況 (Payment status) / Menu > 監査ログ (Audit log): 権限変更"
+screens: "Menu > Permissions: roles \"Manager\" \"Office\" \"Staff\" / rows \"Students\" \"Lessons\" \"Tasks\" \"Billing\" / Viewer / Create / Edit chips / Menu > \"Subscriptions & Billing\" or \"Payment Status\" / Menu > Audit log: 権限変更"
 segment: "b2c"
 edition: "school"
-sources: "src/school-app/lib/render.ts / src/school-app/lib/authz.ts / src/school-app/components/MockShell.tsx / src/app/api/school-app/permissions/route.ts / src/app/api/school-app/copilot/route.ts / src/school-app/lib/i18n-data.ts / src/school-app/lib/demo-seed.ts / supabase/migrations/194_school_beyonders_copy.sql"
+sources: "src/school-app/lib/render.ts / src/school-app/lib/authz.ts / src/school-app/components/MockShell.tsx / src/app/api/school-app/permissions/route.ts / src/app/api/school-app/copilot/route.ts / src/school-app/lib/i18n-data.ts / src/school-app/lib/demo-seed.ts / supabase/migrations/194_school_beyonders_copy.sql / src/school-app/lib/html-en.ts / src/app/school/page.tsx"
 date: 2026-10-07
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 In most small schools the roster is one spreadsheet. Name, contact details, teacher, course, and on the same row the monthly fee and whether it has been paid.
@@ -28,21 +29,21 @@ My recommendation is to stop treating it as share or do not share. The line to d
 
 ## In Revenue CRM for schools, the amounts are the one thing closed from the start
 
-Student and lesson records are visible to everyone, and fee amounts are visible to the Manager only. That split is already in place, and you can see it under 権限管理 (Permissions) in the menu.
+Student and lesson records are visible to everyone, and fee amounts are visible to the Manager only. That split is already in place, and you can see it under Permissions in the menu.
 
-Most labels stay in Japanese even with the English switch on, so I give them as they appear. The screen lists three roles: "Manager", "Admin dept" and "Member". Each has four rows, "Students", "Lessons", "Tasks" and 請求 (Billing), and each row has four chips for view, create, edit and delete. Tapping a chip saves it. Manager always has full access and cannot be changed.
+With the English display on, this screen shows its labels in English. It lists three roles: Manager, Office and Staff. Each has four rows, Students, Lessons, Tasks and Billing, and each row has three chips: Viewer (meaning view), Create and Edit. Tapping a chip saves it. Manager always has full access and cannot be changed. There is no delete setting, because no role has a way to delete students, lessons or tasks.
 
-Of those chips, the ones that currently change what people see and can do are view on Billing, and create and edit on Students, Lessons and Tasks. Delete, and view on Students and Tasks, do not change anything yet. After any change, reopen the screen and check that it did what you meant.
+Of those chips, the ones that currently change what people see and can do are all three on Billing and on Lessons, Create and Edit on Students, and Edit on Tasks. View on Students and Tasks, and Create on Tasks, do not change anything yet. After any change, reopen the screen and check that it did what you meant.
 
-Only the Manager sees amounts. Only the Manager can change the Billing row, too: an Admin dept user can open this screen, but those chips do not respond. Nobody can quietly give themselves access to the money.
+Only the Manager sees amounts. Only the Manager can change the Billing row, too: an Office user can open this screen, but those chips do not respond. Nobody can quietly give themselves access to the money.
 
-Here is what a person without Billing view gets. On the menu screen, "Subscriptions & Billing" is renamed 入金状況 (Payment status). Inside are counts of paid, unpaid and failed payments, and for each student a line that says they have a contract, the next date, and the payment state. No fee amounts and no monthly revenue. The screen says so itself: amounts are visible to the administrator only.
+Here is what a person without Billing view gets. On the menu screen, "Subscriptions & Billing" is renamed "Payment Status". Inside are counts of paid, unpaid and failed payments, and for each student a line that says they have a contract, the next date, and the payment state. No fee amounts and no monthly revenue. The screen says so itself: amounts are visible to the administrator only.
 
 So a teacher can see who has not paid, but not how much anyone pays. That is the split the spreadsheet could not do.
 
 It is not only the display. Create and edit actions are checked on the server against the same table, so an action a role is not allowed simply does not go through. The AI assistant follows the same rule: when someone who cannot see amounts asks it a question, the amounts are not handed to it in the first place.
 
-Every permission change is written to 監査ログ (Audit log) as 権限変更, so for recent changes you can check who made them and when.
+Every permission change is written to the Audit log as 権限変更, so for recent changes you can check who made them and when.
 
 A person's role is chosen when you invite them. Student records themselves are visible to every member regardless of role. It is not set up so that a teacher sees only their own students.
 

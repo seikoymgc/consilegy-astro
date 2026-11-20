@@ -6,10 +6,11 @@ category: "input"
 pain: "Proposal, quote and contract PDFs exist only on the desktop of the rep who made them and in their sent mail. When that rep is out or leaves, nobody can answer \"which quote did we send last?\""
 feature: "Attachments (the Files tab on company, contact and deal pages. Upload puts a file on that record, listed with its name, size and who uploaded it. Text inside PDFs and images is read so the AI agent can search it)"
 screens: "Company, contact and deal pages, Files tab: Upload → list (file name, size, uploader) → download icon / delete icon (\"Delete this attachment?\"); AI agent (⌘E / Ctrl+E, button at the bottom right)"
-sources: "src/components/attachments-panel.tsx / src/app/api/attachments/route.ts / src/app/api/attachments/[id]/route.ts / src/app/api/attachments/[id]/extract/route.ts / src/lib/extract.ts / src/lib/embeddings.ts / src/lib/agent/tools.ts / src/components/copilot/tool-result-card.tsx / src/app/(dashboard)/deals/[id]/page.tsx / src/app/(dashboard)/contacts/[id]/page.tsx / src/app/(dashboard)/companies/[id]/page.tsx / supabase/migrations/041_document_search.sql / supabase/migrations/105_active_org_rls_hardening.sql"
+sources: "src/components/attachments-panel.tsx / src/app/api/attachments/route.ts / src/app/api/attachments/[id]/route.ts / src/app/api/attachments/[id]/extract/route.ts / src/lib/extract.ts / src/lib/embeddings.ts / src/lib/agent/tools.ts / src/components/copilot/tool-result-card.tsx / src/app/(dashboard)/deals/[id]/page.tsx / src/app/(dashboard)/contacts/[id]/page.tsx / src/app/(dashboard)/companies/[id]/page.tsx / supabase/migrations/041_document_search.sql / supabase/migrations/105_active_org_rls_hardening.sql / src/lib/ai-fuel.ts"
 segment: "b2b"
 edition: "b2b"
 date: 2026-10-28
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 Friday afternoon, a customer calls. "About the quote you sent last month, can we go over the terms again?" The account owner started a week of leave this morning.
@@ -32,7 +33,7 @@ Open the deal, go to Files and click Upload. You can pick several files at once.
 
 You can upload PDF, Word, Excel, PowerPoint, images (JPEG, PNG and others), plain text and CSV.
 
-For PDFs, images and plain text (including CSV), the text inside is read after upload. Ask the AI agent (⌘E / Ctrl+E, or the button at the bottom right) something like "the quote with our payment terms," and it returns excerpts that look like a match. You don't need to remember the file name, only roughly what the document said.
+For PDFs, images and plain text (including CSV), the text inside is read after upload. This step uses AI quota for every file you upload (10 units of AI Fuel per file on Fuel plans), including Word, Excel and PowerPoint files that are not read. If the quota runs out, the file is not read and no message appears, so search will not find it. Ask the AI agent (⌘E / Ctrl+E, or the button at the bottom right) something like "the quote with our payment terms," and it returns excerpts that look like a match. You don't need to remember the file name, only roughly what the document said.
 
 Five things to know before you rely on it:
 

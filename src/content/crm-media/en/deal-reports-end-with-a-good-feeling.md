@@ -8,8 +8,9 @@ feature: "Call Intelligence (paste a call transcript and the CRM writes out what
 screens: "Sidebar Calls → Call Intelligence / New call: Title, Contact, Deal, Methodology (MEDDPICC, BANT, CHAMP, SPIN, Custom), Call date, Duration (seconds), Transcript (paste), Save / Detail: AI analysis, AI summary, BANT analysis, Not extracted, Analyzed, Not analyzed / Automation \"Deal field auto-fill\""
 segment: "b2b"
 edition: "b2b"
-sources: "src/app/(dashboard)/calls/page.tsx / src/app/(dashboard)/calls/calls-view.tsx / src/app/(dashboard)/calls/new/page.tsx / src/app/(dashboard)/calls/[id]/page.tsx / src/app/(dashboard)/calls/[id]/call-detail.tsx / src/app/api/calls/analyze/route.ts / src/lib/ai-fuel.ts / src/lib/ai-quota.ts / src/lib/revops/sales-ai.ts / src/lib/revops/catalog.ts / src/lib/revops/execution.ts / src/lib/personas.ts / src/components/app-sidebar.tsx / src/lib/i18n/translations.ts / src/lib/demo/extras.ts / supabase/migrations/004_custom_objects_ai_calls.sql"
+sources: "src/app/(dashboard)/calls/page.tsx / src/app/(dashboard)/calls/calls-view.tsx / src/app/(dashboard)/calls/new/page.tsx / src/app/(dashboard)/calls/[id]/page.tsx / src/app/(dashboard)/calls/[id]/call-detail.tsx / src/app/api/calls/analyze/route.ts / src/lib/ai-fuel.ts / src/lib/ai-quota.ts / src/lib/revops/sales-ai.ts / src/lib/revops/catalog.ts / src/lib/revops/execution.ts / src/lib/personas.ts / src/components/app-sidebar.tsx / src/lib/i18n/translations.ts / src/lib/demo/extras.ts / supabase/migrations/004_custom_objects_ai_calls.sql / src/components/email-translate.tsx"
 date: 2026-10-16
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 Monday pipeline review. "How did the call with Company A go?" "Really well. They're keen." "What's their budget?" "We didn't get that far." "Who signs off?" "Probably the department head." In the CRM, the deal has moved to the first-meeting stage and that is all. An hour of conversation, not one line of it recorded. The deal is in next month's forecast, with an amount.
@@ -38,7 +39,7 @@ Five things to know.
 - The result is saved as soon as it comes back and cannot be edited by hand. Pressing AI analysis again overwrites the previous result and spends another 3 Fuel
 - The result does not appear on the contact or deal page. The call links to the deal, not the other way round. If the deal's Amount, Close date or Next step is blank and the automation Deal field auto-fill is on, the next morning's run (around 10:00 Japan time) fills the blanks from the deal's notes and the call summaries. The BANT fields themselves are never copied onto the deal
 - Custom runs the same fields as MEDDPICC. It is not a way to define your own
-- Every member of the workspace can see every call; there is no edit or delete screen. There is no length limit on the transcript, and the summary and field values are written in Japanese even when the interface is in English. For an English-speaking team this is the biggest caveat: the extracted text needs a Japanese reader, or the deal note alongside it
+- Every member of the workspace can see every call; there is no edit or delete screen. There is no length limit on the transcript, and the summary and field values are written in Japanese even when the interface is in English. The AI summary card has a Translate button; the field values do not. For an English-speaking team this is the biggest caveat: the extracted fields need a Japanese reader, or the deal note alongside them
 
 ## Your first step
 
@@ -46,4 +47,4 @@ This week, have every rep log one call under Calls and run AI analysis with BANT
 
 Start the next pipeline review by opening the Analyzed calls and reading out the unknowns. "Budget unknown on three of five deals" tells you what to ask next. Removing the unverified deals from the forecast comes after that.
 
-The demo takes only an email address. Pick "B2B sales" and Calls in the sidebar already holds four analyzed calls on the same screen. The demo calls have no transcript, so the AI analysis button does not appear there. The demo is a shared account: anything you paste is visible to other visitors and cannot be deleted, so never paste a real customer call. To see the analysis run, write a few lines of a made-up call and add it via New call, or use your own workspace. [Try the demo](https://crm.consilegy.com/demos)
+The demo takes only an email address. Pick "B2B sales" and Calls in the sidebar already holds sample calls that have been analyzed. The demo calls have no transcript, so the AI analysis button does not appear there. The demo is a shared account: anything you paste is visible to other visitors and cannot be deleted, so never paste a real customer call. To see the analysis run, write a few lines of a made-up call and add it via New call, or use your own workspace. [Try the demo](https://crm.consilegy.com/demos)

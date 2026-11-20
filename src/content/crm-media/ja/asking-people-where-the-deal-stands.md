@@ -9,8 +9,9 @@ screens: "ホーム「今日の営業状況」の進行中パイプライン・�
 segment: "b2b"
 edition: "b2b"
 video: "3"
-sources: "components/home/home-workspace.tsx / app/(dashboard)/page.tsx / app/(dashboard)/forecast/forecast-view.tsx / app/(dashboard)/deals/[id]/edit/page.tsx / components/app-sidebar.tsx / lib/editions/context.tsx / lib/i18n/translations.ts / app/demos/demos-client.tsx / lib/demo.ts / docs/product/操作動画_台本.md"
+sources: "components/home/home-workspace.tsx / app/(dashboard)/page.tsx / app/(dashboard)/forecast/forecast-view.tsx / app/(dashboard)/deals/[id]/edit/page.tsx / components/app-sidebar.tsx / lib/editions/context.tsx / lib/i18n/translations.ts / app/demos/demos-client.tsx / lib/demo.ts / docs/product/操作動画_台本.md / src/components/home/home-workspace.tsx / src/lib/home/department-view.ts / src/components/app-sidebar.tsx / src/lib/i18n/translations.ts / src/lib/personas.ts"
 date: 2026-10-04
+updated: 2026-11-20
 author: "山口聖子"
 ---
 金曜の夕方。経営者が営業責任者にチャットを送ります。「あの案件、どこまで進んだ？」。責任者は担当者に聞き、担当者は移動中の電車から返事を打つ。答えが経営者に届くのは30分後で、内容は「先方の返事待ちです」の一行です。
@@ -27,7 +28,7 @@ author: "山口聖子"
 
 ## Revenue CRMでは、ホームの4つの数字が最初の答えになる
 
-ホーム「今日の営業状況」の一番上に、数字が4つ並びます。聞く前に、ここを見てください。
+ホームでは、サイドバー上部の「業務」で「営業」か「経営」を選ぶと、数字が4つ並びます（見出しは「今日の営業状況」か「経営サマリー」）。「管理」「マーケ」「CS」だけを選んでいると、この4つは出ません。聞く前に、ここを見てください。
 
 - 進行中パイプライン。進行中の商談の合計金額と件数。先方待ちの商談があれば、その金額が分けて出る
 - 加重フォーキャスト。確度を反映した見込み
@@ -38,7 +39,7 @@ author: "山口聖子"
 
 ## 着地は「フォーキャスト」で、堅い数字と上限を分けて見る
 
-今期の着地は、サイドバーのSales（営業）にある「フォーキャスト」を開きます。四半期ごとの画面で、左右の矢印で期を切り替えます。
+今期の着地は、サイドバーの「商談」の欄にある「フォーキャスト」を開きます（「業務」で「営業」か「経営」を選んでいれば表示されます）。四半期ごとの画面で、左右の矢印で期を切り替えます。
 
 一番上に「着地見込み（確度加重）」、その隣に「堅め（成立＋コミット）」。下にコミット下限とベストケース上限が出ます。「いけそう」が、堅い数字と上限の2本に分かれるわけです。期の目標を設定すると、目標達成、ギャップ、カバレッジも出ます。さらに下の「担当者別」と「ステージ別」で、どこに偏っているかが分かります。
 
@@ -46,12 +47,12 @@ author: "山口聖子"
 
 注意が1つあります。フォーキャストに入るのは、クローズ予定日がその四半期に入っている商談だけです。クローズ予定日が空の商談は、どの期にも数えられません。クローズ予定日は、同じ編集画面の「基本情報」にあります。
 
-文章で聞きたいときは、ホームの「AIエージェントに相談」に「今月の着地見込みは？」という例文があります。押すだけで聞けます。
+文章で聞きたいときは、ホームの「AIエージェントに相談」を使います。「経営」を選んでいると「今月の着地見込みは？」という例文が出て、押すだけで聞けます。
 
 ## 最初の一歩
 
 今週、進行中の商談のうち金額の大きい10件だけ、クローズ予定日、成約確率、予測カテゴリの3つを埋めてください。全件をそろえる必要はありません。金額の大きい商談から入れれば、着地見込みに効くところから先に埋まります。
 
-そして次の営業会議は、集計した表ではなくホームを映して始めます。「どこまで進んだ？」と聞く前に、全員が同じ数字を見ている状態になります。商談の入れ方は、動画「商談を入れて、進み具合を見る」で見られます。
+そして次の営業会議は、集計した表ではなくホームを映して始めます。「どこまで進んだ？」と聞く前に、全員が同じ数字を見ている状態になります。
 
 メールアドレスだけで試せるデモ環境を用意しています。「法人営業」を選ぶと、データの入った状態でホームとフォーキャストを開けます。[デモを試す](https://crm.consilegy.com/demos)

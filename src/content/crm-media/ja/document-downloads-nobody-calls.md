@@ -6,10 +6,11 @@ category: "operate"
 pain: "資料のダウンロードの通知は全員に届くのに、誰がいつ電話するかが決まっていない。全員が「誰かがかけるだろう」と思ったまま数日が過ぎ、かけても不通のあとの次の一手が誰の予定にも入らない"
 feature: "資料DLの営業手順（フォームの「資料DLの営業手順を使う」。送信のたびに担当者のタスクを作り、電話の結果で、メールの下書き、3営業日後の再連絡へ進める）"
 screens: "フォーム詳細のチェック「資料DLの営業手順を使う」と「送信後に渡す資料のURL」；「設定」→「営業の進め方」の「営業日カレンダー」「当日対応の締切」「土日以外の休業日」「営業タスクの作成・期日前日・当日・超過を通知する」「進行中の資料DL対応」「営業連絡可と確認」「追客を停止」；サイドバー「タスク」のカードの「不通」「接続・引き継ぎ」「追客終了」「確認済み・電話へ」；サイドバー「送信待ちの下書き」の「承認して送信」「署名を入れる」；ホームの「今やること」"
-sources: "src/app/(dashboard)/forms/[id]/form-detail.tsx / src/app/api/forms/[id]/submit/route.ts / src/app/(dashboard)/settings/sales-playbooks/sales-playbooks-view.tsx / src/app/(dashboard)/tasks/tasks-view.tsx / src/app/(dashboard)/tasks/page.tsx / src/components/sales-assignments.tsx / src/components/home/today-actions-panel.tsx / src/components/outbound-draft-editor.tsx / src/lib/sales-playbooks.ts / src/lib/sales-playbook-errors.ts / src/lib/sales-action-alerts.ts / src/lib/form-contact.ts / src/lib/contact-intake.ts / supabase/migrations/255_sales_playbooks.sql / supabase/migrations/257_sales_followup_coordination.sql / supabase/migrations/259_sales_handoff_opt_in.sql（crm #396、#403）"
+sources: "src/app/(dashboard)/forms/[id]/form-detail.tsx / src/app/api/forms/[id]/submit/route.ts / src/app/(dashboard)/settings/sales-playbooks/sales-playbooks-view.tsx / src/app/(dashboard)/tasks/tasks-view.tsx / src/app/(dashboard)/tasks/page.tsx / src/components/sales-assignments.tsx / src/components/home/today-actions-panel.tsx / src/components/outbound-draft-editor.tsx / src/lib/sales-playbooks.ts / src/lib/sales-playbook-errors.ts / src/lib/sales-action-alerts.ts / src/lib/form-contact.ts / src/lib/contact-intake.ts / supabase/migrations/255_sales_playbooks.sql / supabase/migrations/257_sales_followup_coordination.sql / supabase/migrations/259_sales_handoff_opt_in.sql（crm #396、#403） / src/components/app-sidebar.tsx"
 segment: "b2b"
 edition: "b2b"
 date: 2026-11-04
+updated: 2026-11-20
 author: "山口聖子"
 ---
 火曜の午前、サイトから資料が1件ダウンロードされました。通知メールは営業の全員に届きます。全員が読んで、全員が「誰かかけるだろう」と思います。
@@ -23,7 +24,7 @@ author: "山口聖子"
 仮に月30件のダウンロードがあり、その週のうちに連絡できるのが半分なら、毎月15人には、いちばん話を聞いてくれる週に誰からも連絡が行きません。わざわざ作った資料と、広告で集めた相手です。ここを放っておいて、次の資料を作るのは順番が逆だと思います。
 
 ![パイプライン診断の画面。左のサイドバーに「タスク」が見える](/images/crm/media/screens/waiting-on-the-customer-for-three-months-3-2026-10.webp)
-*画面の例はパイプライン診断です。資料DLの対応は、左のサイドバーの「タスク」に担当者ごとに入ります。*
+*画面の例はパイプライン診断です（2026年10月時点の画面で、サイドバー上部の見た目は現在と異なります）。資料DLの対応は、左のサイドバーの「タスク」に担当者ごとに入ります。*
 
 ## Revenue CRMでは、フォームのチェック1つで「次の一手」がタスクになる
 

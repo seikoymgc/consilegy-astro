@@ -8,8 +8,9 @@ edition: "school"
 pain: "新しく始めた課題の名前がLINEの選択肢に無く、生徒が別の種別を選んで提出してしまう"
 feature: "レッスン種別の追加と課題ありの設定"
 screens: "レッスン／種別ごとの担当／＋ 種別を追加／担当を追加／レッスン種別／担当／追加する／課題あり"
-sources: "src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/app/api/school-app/lesson-types/route.ts / src/school-app/lib/homework.ts / src/app/api/school-app/line/webhook/route.ts / src/school-app/lib/line-push.ts / src/school-app/lib/authz.ts / supabase/migrations/135_beyonders_homework_types.sql"
+sources: "src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/app/api/school-app/lesson-types/route.ts / src/school-app/lib/homework.ts / src/app/api/school-app/line/webhook/route.ts / src/school-app/lib/line-push.ts / src/school-app/lib/authz.ts / supabase/migrations/135_beyonders_homework_types.sql / src/app/api/school-app/automation/run/route.ts / src/school-app/lib/homework-reminder.ts"
 date: 2026-11-16
+updated: 2026-11-20
 author: "山口聖子"
 ---
 教室で、新しく「音読」の課題を始めます。ところが、生徒がLINEの「課題を出す」を押しても、選べるのは文法添削とシャドーイングだけです。
@@ -43,7 +44,7 @@ Revenue CRMのスクール版では、「課題あり」にしたレッスン種
 
 ## 提出先の設定は、催促の対象にもつながる
 
-「課題あり」は、LINEの見た目だけを変えるスイッチではありません。その種別は未提出の検知対象にもなり、生徒ごとの自動リマインドが有効なら、条件に合うと催促の対象になります。教室で実際に課題を出す種別だけ付けてください。
+「課題あり」は、LINEの見た目だけを変えるスイッチではありません。その種別は、受講中の生徒全員の未提出の検知対象になります。生徒ごとに対象を絞る設定はありません。その種別をまだ一度も出していない生徒は開始日（無ければ登録日）から数えるので、次に検知が走ると、多くの生徒に「課題が出ていない（音読）」が並ぶことがあります。生徒ごとの自動リマインドが有効なら、その生徒には催促も届きます。教室で実際に課題を出す種別だけ付けてください。
 
 また、ここで担当を登録しても、生徒のカルテに課題確認の担当を割り当てたことにはなりません。誰が確認するかは別に確かめます。
 

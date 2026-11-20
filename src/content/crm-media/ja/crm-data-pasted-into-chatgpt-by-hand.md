@@ -4,12 +4,13 @@ slug: "crm-data-pasted-into-chatgpt-by-hand"
 lang: "ja"
 category: "setup"
 pain: "ChatGPT や Claude に商談のことを聞くために、顧客管理システムの一覧を書き出したりコピーしたりして貼り付けている。貼った時点で数字は古くなり、誰がどのアカウントに何を貼ったかを会社は把握できない"
-feature: "ChatGPT・Claude からの接続（接続先URL https://crm.consilegy.com/api/mcp。オーナーか管理者が同意画面でワークスペースと権限を選ぶ。読めるのは連絡先・会社・商談、書けるのは連絡先と商談の登録だけ。「設定」→「APIキー」の「接続中のAIアプリ」で一覧と解除）"
+feature: "ChatGPT・Claude からの接続（接続先URL https://crm.consilegy.com/api/mcp。オーナーか管理者が同意画面でワークスペースと権限を選ぶ。連絡先・会社・商談と活動を読み、「読み取りと書き込み」なら連絡先・会社・商談の作成、連絡先と商談の更新、活動の記録ができる。「設定」→「APIキー」の「接続中のAIアプリ」で一覧と解除）"
 screens: "「設定」→「連携・チャネル」の「APIキー」→「接続中のAIアプリ」（アプリ名、権限、最終使用、「接続を解除」）；同意画面「（アプリ名） を Revenue CRM につなぎますか？」の「ワークスペース」「権限」（「読み取りのみ」「読み取りと書き込み（連絡先・商談の登録）」）「キャンセル」「許可してつなぐ」"
-sources: "src/app/(auth)/oauth/authorize/page.tsx / src/app/(auth)/oauth/authorize/consent-form.tsx / src/lib/oauth/server.ts / src/app/api/mcp/route.ts / src/lib/crm/use-cases.ts（CRM_MCP_TOOLS、callCrmMcpTool、listDeals） / src/app/(dashboard)/settings/api-keys/page.tsx / src/app/(dashboard)/settings/api-keys/api-keys-view.tsx / src/app/(dashboard)/settings/settings-index.tsx / supabase/migrations/263_oauth_mcp.sql / src/app/api/demo/seed/route.ts（crm ccdb7aa 時点。#416。本番に oauth_clients・oauth_authorization_codes・oauth_tokens があることを 2026-11-06 に確認）"
+sources: "src/app/(auth)/oauth/authorize/page.tsx / src/app/(auth)/oauth/authorize/consent-form.tsx / src/lib/oauth/server.ts / src/app/api/mcp/route.ts / src/lib/crm/use-cases.ts（CRM_MCP_TOOLS、callCrmMcpTool、listDeals） / src/app/(dashboard)/settings/api-keys/page.tsx / src/app/(dashboard)/settings/api-keys/api-keys-view.tsx / src/app/(dashboard)/settings/settings-index.tsx / supabase/migrations/263_oauth_mcp.sql / src/app/api/demo/seed/route.ts（crm ccdb7aa 時点。#416。本番に oauth_clients・oauth_authorization_codes・oauth_tokens があることを 2026-11-06 に確認） / src/lib/crm/use-cases.ts"
 segment: "b2b"
 edition: "b2b"
 date: 2026-11-06
+updated: 2026-11-20
 author: "山口聖子"
 ---
 金曜の夕方。営業マネージャーが、月曜の会議に向けて商談の一覧をCSVで書き出し、ChatGPT に貼り付けて「大きい案件と止まっていそうな案件をまとめて」と頼みます。
@@ -37,11 +38,11 @@ ChatGPT や Claude から Revenue CRM を直接つなげます。AI は聞かれ
 
 つないだアプリは、「APIキー」の画面の「接続中のAIアプリ」に、権限と最終使用の日付つきで並びます。やめるときは「接続を解除」を押すだけ。どのAIアプリに、どの権限でつないでいるかを、会社の側で一覧にして、いつでも切れます。つないだアカウントのチャット履歴に答えが残る点は変わりません。
 
-AI ができることは、今のところ多くありません。ここは正直に書いておきます。
+AI ができることには、まだ限りがあります。ここは正直に書いておきます。
 
-- **読めるのは3つです。** 連絡先を名前かメールアドレスで探す。会社を名前で探す。商談を金額の大きい順に並べる（商談名、金額、確度、クローズ予定日、ステージ、会社）。活動の記録、メモ、タスク、商談の担当者は読みません
+- **読めるもの。** 連絡先を名前かメールアドレスで探す、会社を名前で探す、商談を金額の大きい順に並べる（商談名、金額、確度、クローズ予定日、ステージ、会社）。そのほか、連絡先・会社・商談を1件ずつ開いて、ひもづく会社・商談・最近の活動まで読めます。パイプラインとステージの一覧、最近の活動の一覧も読めます。連絡先のメモ欄も読み取りの対象です。「タスク」画面のタスクと、商談の担当者は読みません
 - 商談の一覧には、受注や失注で終わった商談も入ります。「進行中の大きい案件は？」と聞くときは、ステージで分けて見るよう AI に頼むと読み違えが減ります
-- 書けるのは、「読み取りと書き込み」でつないだときに、連絡先と商談を新しく作ることだけです。直す、消す、送る、はできません
+- 「読み取りと書き込み」でつなぐと、連絡先・会社・商談を新しく作るほか、連絡先の項目と、商談のステージ・金額・受注予定日・名前・確度を書き換え、メモや電話・会議などの活動を記録できます。同意画面の選択肢は「読み取りと書き込み（連絡先・商談の登録）」と書かれていますが、実際には更新と活動の記録も含みます。消す、メールを送る、はできません
 - **見える範囲は、ワークスペース全体です。** 「設定」の「権限」で決める「閲覧範囲」（全件／チーム／担当のみ）は効きません。つないだ AIアプリのアカウントからは、誰が聞いても全件が読めます。全件を見てよい人だけが使うアカウントでつないでください
 - AIアプリが読み取りだけを求めてきたとき以外は、同意画面で「読み取りと書き込み」が最初から選ばれています。最初は「読み取りのみ」に変えてから押すことをおすすめします
 - AI に渡った内容をどう扱うかは、AIアプリ側の規約と、自社の AI 利用ルールに従います。Revenue CRM の側で止められるのは、接続そのものです

@@ -10,6 +10,7 @@ feature: "Display translation for task and activity headings"
 screens: "EN and 繁中 language controls / Tasks / activity subjects / original text on hover"
 sources: "src/components/localized-title.tsx / src/lib/title-translate.ts / src/app/api/ai/translate-titles/route.ts / src/lib/record-translation.ts / src/app/(dashboard)/tasks/tasks-view.tsx / src/components/activity-timeline.tsx / src/lib/ai-quota.ts / src/lib/ai-fuel.ts / src/app/api/org-settings/auto-translate/route.ts / src/app/(dashboard)/settings/ai-features/ai-features-view.tsx / supabase/migrations/275_org_auto_translate_records.sql"
 date: 2026-11-17
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 *Updated November 18, 2026: reflects manual translation by default and the workspace setting for automatic translation.*
@@ -39,7 +40,7 @@ Activity subjects use the same approach. A translated heading helps you decide w
 
 With **JA** selected, the original heading is shown. This feature translates Japanese headings for English and Traditional Chinese readers. It is not a reverse translation of English headings into Japanese. English display also covers headings written entirely in kanji; Traditional Chinese display targets Japanese headings containing kana.
 
-For automatic translation of list headings, an owner or admin can enable **Translate records automatically** in **Settings → AI features**. This is a workspace-wide setting; reload the screen to apply it. With it enabled, eligible headings on the list are translated in batches.
+For automatic translation of list headings, an owner or admin can turn on the switch next to **Automatic translation of records: off** in **Settings → AI features**. This is a workspace-wide setting; reload the screen to apply it. With it enabled, eligible headings on the list are translated in batches.
 
 ## Expect some headings to stay in the original language
 

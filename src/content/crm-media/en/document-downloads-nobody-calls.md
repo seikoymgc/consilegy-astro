@@ -6,10 +6,11 @@ category: "operate"
 pain: "Everyone gets the download alert, but nobody owns the call. Each rep assumes someone else has it, days go by, and when a call goes unanswered the next step isn't on anyone's list"
 feature: "The download follow-up playbook (a checkbox on the form: every submission becomes a task for an owner, and the call outcome decides what comes next: a draft email, then a follow-up three business days later)"
 screens: "On the form: Use the download follow-up playbook and File to hand over after submission. Settings: Sales playbooks, with Business calendar, Same-day cutoff, Additional holidays, Notify on task creation and before / on / after the due date, Active download follow-ups, Confirm outreach allowed, Stop follow-up. Sidebar: Tasks, with No answer, Connected / hand off, End follow-up, Reviewed: call next. Sidebar: Drafts waiting to send, with Approve and send and Add signature. Home: Do now"
-sources: "src/app/(dashboard)/forms/[id]/form-detail.tsx / src/app/api/forms/[id]/submit/route.ts / src/app/(dashboard)/settings/sales-playbooks/sales-playbooks-view.tsx / src/app/(dashboard)/tasks/tasks-view.tsx / src/app/(dashboard)/tasks/page.tsx / src/components/sales-assignments.tsx / src/components/home/today-actions-panel.tsx / src/components/outbound-draft-editor.tsx / src/lib/sales-playbooks.ts / src/lib/sales-playbook-errors.ts / src/lib/sales-action-alerts.ts / src/lib/form-contact.ts / src/lib/contact-intake.ts / supabase/migrations/255_sales_playbooks.sql / supabase/migrations/257_sales_followup_coordination.sql / supabase/migrations/259_sales_handoff_opt_in.sql (crm #396, #403)"
+sources: "src/app/(dashboard)/forms/[id]/form-detail.tsx / src/app/api/forms/[id]/submit/route.ts / src/app/(dashboard)/settings/sales-playbooks/sales-playbooks-view.tsx / src/app/(dashboard)/tasks/tasks-view.tsx / src/app/(dashboard)/tasks/page.tsx / src/components/sales-assignments.tsx / src/components/home/today-actions-panel.tsx / src/components/outbound-draft-editor.tsx / src/lib/sales-playbooks.ts / src/lib/sales-playbook-errors.ts / src/lib/sales-action-alerts.ts / src/lib/form-contact.ts / src/lib/contact-intake.ts / supabase/migrations/255_sales_playbooks.sql / supabase/migrations/257_sales_followup_coordination.sql / supabase/migrations/259_sales_handoff_opt_in.sql (crm #396, #403) / src/components/app-sidebar.tsx"
 segment: "b2b"
 edition: "b2b"
 date: 2026-11-04
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 Tuesday morning, someone downloads your guide. The alert lands in every rep's inbox. Everyone reads it, and everyone assumes someone else will call.
@@ -23,7 +24,7 @@ People who download something are most willing to talk that same week. And the w
 Say you get 30 downloads a month and reach half of them that week. That's 15 people a month who don't hear from you in the week they'd most likely talk, after you paid to write the guide and to bring them to it. I'd fix that before commissioning the next guide.
 
 ![The pipeline review page, with Tasks in the left sidebar](/images/crm/media/screens/waiting-on-the-customer-for-three-months-3-2026-10.webp)
-*Shown in Japanese on the pipeline review page. Download follow-ups land under Tasks in the left sidebar, with an owner on each.*
+*Shown in Japanese on the pipeline review page, captured in October 2026; the top of the sidebar looks different now. Download follow-ups land under Tasks in the left sidebar, with an owner on each.*
 
 ## In Revenue CRM, one checkbox on the form turns the next step into a task
 

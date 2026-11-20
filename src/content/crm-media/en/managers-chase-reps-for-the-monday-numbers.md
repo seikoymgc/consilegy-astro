@@ -8,8 +8,9 @@ feature: "Weekly digest (every Monday at 10:00 JST, one email with last week's w
 screens: "Settings → Operations → Weekly digest: Delivery (Send the weekly digest), Recipients (Send to owners and admins automatically, Choose the recipients, Current recipients), What you receive (Last week, Not moving, Pending by owner, This quarter, This week; Reset to default, Save) / In the email: Open pipeline review →, Open tasks → / Forecast: Set quota / Settings → Operations → Notifications: Enable email notifications"
 segment: "b2b"
 edition: "b2b"
-sources: "src/app/(dashboard)/settings/weekly-digest/page.tsx / src/app/(dashboard)/settings/weekly-digest/weekly-digest-view.tsx / src/app/(dashboard)/settings/weekly-digest/digest-items-view.tsx / src/lib/digest/items.ts / src/lib/digest/weekly.ts / src/lib/deals/pipeline-review.ts / src/lib/revops/util.ts / src/app/api/cron/workflows/route.ts / src/app/api/notification-settings/route.ts / src/app/api/weekly-digest-preferences/route.ts / src/app/(dashboard)/settings/settings-index.tsx / src/app/(dashboard)/settings/notifications/notifications-view.tsx / src/app/(dashboard)/forecast/forecast-view.tsx / supabase/migrations/105_active_org_rls_hardening.sql / vercel.json"
+sources: "src/app/(dashboard)/settings/weekly-digest/page.tsx / src/app/(dashboard)/settings/weekly-digest/weekly-digest-view.tsx / src/app/(dashboard)/settings/weekly-digest/digest-items-view.tsx / src/lib/digest/items.ts / src/lib/digest/weekly.ts / src/lib/deals/pipeline-review.ts / src/lib/revops/util.ts / src/app/api/cron/workflows/route.ts / src/app/api/notification-settings/route.ts / src/app/api/weekly-digest-preferences/route.ts / src/app/(dashboard)/settings/settings-index.tsx / src/app/(dashboard)/settings/notifications/notifications-view.tsx / src/app/(dashboard)/forecast/forecast-view.tsx / supabase/migrations/105_active_org_rls_hardening.sql / vercel.json / src/app/(dashboard)/settings/region/region-view.tsx"
 date: 2026-10-25
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 It's 9 a.m. on Monday and the pipeline meeting starts at 11. The sales manager opens chat and works down the list. "Anything close last week?" "Did they get back to you on the renewal?" Each answer gets copied into the meeting deck, and the reps who haven't replied get a second nudge. Every one of those numbers is already in the CRM.
@@ -24,7 +25,7 @@ The second is the deals that never come up. Reps talk about the deals they remem
 
 ## In Revenue CRM, the weekly digest lands every Monday at 10:00 JST with last week in one email
 
-Go to Settings → Operations → Weekly digest. Send the weekly digest is already ticked. The send time is fixed at 10:00 Tokyo time every Monday, and each email covers the previous Monday through Sunday. Nobody has to write anything.
+Go to Settings → Operations → Weekly digest. Send the weekly digest is already ticked. If the company time zone is Japan time (the default), it arrives every Monday at 10:00 and covers the previous Monday through Sunday. If an owner or admin has set a US time zone under Settings → Country, tax & time zone, it arrives on Monday evening in that zone, and the week is counted in that zone. Nobody has to write anything.
 
 By default the email includes:
 

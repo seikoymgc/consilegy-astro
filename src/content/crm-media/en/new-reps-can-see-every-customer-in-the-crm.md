@@ -8,8 +8,9 @@ feature: "Members, teams and record scopes (Settings → Workspace → Members t
 screens: "Settings → Workspace → Members: Invite member (Email address, Role), Teams, Create team, team selector on each member (No team) / Settings → Workspace → Permissions: tables for Admin, Manager and Member (Contact, Company, Deal, Ticket, Task, Activity, Quote × View, Create, Edit, Delete, Export, View scope, Edit scope) / Contacts list: Owner column / Deal: Edit, Owner"
 segment: "b2b"
 edition: "b2b"
-sources: "src/app/(dashboard)/settings/permissions/permissions-view.tsx / src/app/(dashboard)/settings/permissions/page.tsx / src/app/api/permissions/route.ts / src/app/(dashboard)/settings/members/members-view.tsx / src/app/(dashboard)/settings/members/page.tsx / src/app/api/members/[id]/route.ts / src/app/(dashboard)/settings/settings-index.tsx / supabase/migrations/097_record_scopes_teams_export.sql / supabase/migrations/227_quote_record_scope.sql / src/components/contacts-table.tsx / src/app/(dashboard)/deals/[id]/edit/page.tsx / src/app/(dashboard)/companies/companies-view.tsx / src/lib/crm/use-cases.ts / src/app/api/contacts/import/route.ts / src/app/api/export/[dataset]/route.ts / src/app/api/demo/seed/route.ts"
+sources: "src/app/(dashboard)/settings/permissions/permissions-view.tsx / src/app/(dashboard)/settings/permissions/page.tsx / src/app/api/permissions/route.ts / src/app/(dashboard)/settings/members/members-view.tsx / src/app/(dashboard)/settings/members/page.tsx / src/app/api/members/[id]/route.ts / src/app/(dashboard)/settings/settings-index.tsx / supabase/migrations/097_record_scopes_teams_export.sql / supabase/migrations/227_quote_record_scope.sql / src/components/contacts-table.tsx / src/app/(dashboard)/deals/[id]/edit/page.tsx / src/app/(dashboard)/companies/companies-view.tsx / src/lib/crm/use-cases.ts / src/app/api/contacts/import/route.ts / src/app/api/export/[dataset]/route.ts / src/app/api/demo/seed/route.ts / src/lib/crm/csv-import.ts / src/components/csv-import-dialog.tsx"
 date: 2026-10-24
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 Monday morning, a new account executive accepts the invite and logs in. On the first screen: every customer the company has, and every open deal, with amounts, including the ones their new teammates have spent months on. Nobody chose to show all of that. Nobody chose not to, either. The default simply won.
@@ -38,7 +39,7 @@ Teams live in Settings → Workspace → Members. Type a team name, press Create
 
 Four things to know before you switch it on:
 
-- Visibility follows the Owner field. Records brought in by CSV import are owned by whoever ran the import, so if an admin imported everything, a Member set to Owned will see nothing. You can reassign contacts from the Owner column in the Contacts list and deals from Edit on the deal, one at a time. There is no bulk reassignment, and there is no screen to change a company's owner after it's created
+- Visibility follows the Owner field. When you import a CSV, any row with an empty Owner column is owned by whoever ran the import, so if an admin imports everything that way, a Member set to Owned will see nothing. Fill the Owner column with each rep's email address or name before you import, and the owner is set row by row. You can reassign contacts from the Owner column in the Contacts list and deals from Edit on the deal, one at a time. There is no bulk reassignment, and there is no screen to change a company's owner after it's created
 - Someone with no team who is set to Team sees only their own records, the same as Owned
 - Activities are owned by whoever logged them. Set Activity to Owned and a rep loses sight of their predecessor's notes, even on contacts they now own
 - Removing someone from the workspace doesn't reassign their records. If you run on Owned, move their records before you remove them

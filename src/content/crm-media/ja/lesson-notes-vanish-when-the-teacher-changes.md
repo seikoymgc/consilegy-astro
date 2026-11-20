@@ -8,8 +8,9 @@ feature: "レッスン記録（生徒のカルテから記録し、同じカル�
 screens: "生徒のカルテ「＋ レッスン記録」／「レッスン記録」の「生徒名」「日付」「種別」「担当」「トピック（複数可）」「今日の出来」「宿題を出した」「メモ（任意）」「記録する」「✓ 記録しました」／生徒のカルテ「📖 レッスン・対応履歴」／下のナビ「レッスン」→「レッスン履歴」の「🎓 種別ごとの担当」「＋ 種別を追加」「担当を追加」「追加する」「📖 履歴」／メニュー「権限管理」の「レッスン」「作成」"
 segment: "b2c"
 edition: "school"
-sources: "src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/app/api/school-app/lesson/route.ts / src/school-app/lib/lesson-type.ts / src/app/api/school-app/lesson-types/route.ts / src/app/api/school-app/student/detail/route.ts / src/school-app/lib/authz.ts / src/school-app/lib/supabase.ts / src/school-app/lib/demo-seed.ts / supabase/migrations/194_school_beyonders_copy.sql"
+sources: "src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/app/api/school-app/lesson/route.ts / src/school-app/lib/lesson-type.ts / src/app/api/school-app/lesson-types/route.ts / src/app/api/school-app/student/detail/route.ts / src/school-app/lib/authz.ts / src/school-app/lib/supabase.ts / src/school-app/lib/demo-seed.ts / supabase/migrations/194_school_beyonders_copy.sql / src/school-app/lib/jst.ts"
 date: 2026-10-08
+updated: 2026-11-20
 author: "山口聖子"
 ---
 3月、長く教えていた先生が教室を離れることになりました。担当していた生徒は14人。引き継ぎの日、その先生は自分のノートを開きながら、一人ずつ口頭で説明します。新しい先生は、14人ぶんを1時間では書ききれません。
@@ -36,13 +37,13 @@ author: "山口聖子"
 
 使う前に知っておいてほしいことが5つあります。
 
-1つ目は、種別の登録が先に要ることです。種別が一つも無いと、記録の画面に「レッスン種別がまだ登録されていません」と出て進めません。「レッスン」の画面の「🎓 種別ごとの担当」で「＋ 種別を追加」を押し、「レッスン種別」と「担当」を入れて「追加する」を押します。登録できるのは、マネージャーと、「権限管理」で「レッスン」の「編集」が開いている役割の人です。
+1つ目は、種別の登録が先に要ることです。種別が一つも無いと、記録の画面に「レッスン種別がまだ登録されていません」と出て進めません。「レッスン」の画面の「🎓 種別ごとの担当」で「＋ 種別を追加」を押し、「レッスン種別」と「担当」を入れて「追加する」を押します。登録できるのは、運営とマネージャー、それに「権限管理」で「レッスン」の「編集」が開いている役割の人です。
 
 2つ目は、最初から選ばれている項目です。「今日の出来」は「とても良い」、「宿題を出した」は「はい」が選ばれた状態で開きます。違うときは選び直してください。そのまま押すと、その内容で残ります。
 
 3つ目は、「トピック（複数可）」の選択肢です。「日常会話」「フリートーク」「旅行」「ビジネス」「発音」の5つで固定されていて、英会話を想定した並びです。ほかの科目の教室では、ここは選ばず、内容を「メモ（任意）」に書いてください。
 
-4つ目は、日付です。日付は記録した日が自動で入り、変えられません。日本時間の朝9時より前に記録すると、画面に今日の日付が出ていても、前日の日付で残ります。レッスンが終わったその場で記録するのが、いちばん確実です。
+4つ目は、日付です。日付は記録した日（日本時間）が自動で入り、変えられません。前日のレッスンを翌日に記録すると、記録した日の日付で残ります。レッスンが終わったその場で記録するのが、いちばん確実です。
 
 5つ目は、直せないことです。保存した記録を書き直したり消したりするボタンはありません。間違えたときは、正しい内容でもう一度記録し、メモに「訂正」と書いてください。
 

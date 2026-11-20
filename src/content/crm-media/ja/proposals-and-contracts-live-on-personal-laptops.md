@@ -6,10 +6,11 @@ category: "input"
 pain: "提案書・見積書・契約書のPDFが、作った営業のPCのデスクトップと送信済みメールにしか無い。担当が休んだ日や引き継ぎの日に「最後に出した見積はどれ？」に誰も答えられない"
 feature: "添付ファイル（会社・コンタクト・商談の詳細にある「添付」タブ。「アップロード」でファイルをその記録に置くと、ファイル名・サイズ・上げた人つきで並ぶ。PDFと画像は中身の文字が読み取られ、AIエージェントの資料検索の対象になる）"
 screens: "会社詳細・コンタクト詳細・商談詳細の「添付」タブ：「アップロード」→ 一覧（ファイル名・サイズ・上げた人）→ ダウンロードのアイコン／削除のアイコン（「この添付ファイルを削除しますか？」）；AIエージェント（⌘E / Ctrl+E、右下のボタン）"
-sources: "src/components/attachments-panel.tsx / src/app/api/attachments/route.ts / src/app/api/attachments/[id]/route.ts / src/app/api/attachments/[id]/extract/route.ts / src/lib/extract.ts / src/lib/embeddings.ts / src/lib/agent/tools.ts / src/components/copilot/tool-result-card.tsx / src/app/(dashboard)/deals/[id]/page.tsx / src/app/(dashboard)/contacts/[id]/page.tsx / src/app/(dashboard)/companies/[id]/page.tsx / supabase/migrations/041_document_search.sql / supabase/migrations/105_active_org_rls_hardening.sql"
+sources: "src/components/attachments-panel.tsx / src/app/api/attachments/route.ts / src/app/api/attachments/[id]/route.ts / src/app/api/attachments/[id]/extract/route.ts / src/lib/extract.ts / src/lib/embeddings.ts / src/lib/agent/tools.ts / src/components/copilot/tool-result-card.tsx / src/app/(dashboard)/deals/[id]/page.tsx / src/app/(dashboard)/contacts/[id]/page.tsx / src/app/(dashboard)/companies/[id]/page.tsx / supabase/migrations/041_document_search.sql / supabase/migrations/105_active_org_rls_hardening.sql / src/lib/ai-fuel.ts"
 segment: "b2b"
 edition: "b2b"
 date: 2026-10-28
+updated: 2026-11-20
 author: "山口聖子"
 ---
 金曜の夕方、取引先から電話が入ります。「先月いただいた見積、条件をもう一度確認したくて」。担当の営業は、今日から休暇です。
@@ -20,7 +21,7 @@ author: "山口聖子"
 
 商談の金額が残っていても、相手に渡した書類が会社に残っていなければ、約束の中身は担当者の手元にしかありません。
 
-見積の有効期限、値引きの条件、契約書の更新の条項。書面で約束したことは、CRMの項目には入りきりません。仮に引き継ぎのたびに、元の担当にメールを遡ってもらって1件10分かかるなら、10件で100分です。いちばん痛いのは、同じ相手に前回と違う条件の見積を出してしまうことです。
+見積の有効期限、値引きの条件、契約書の更新の条項。書面で約束したことは、顧客管理システムの項目には入りきりません。仮に引き継ぎのたびに、元の担当にメールを遡ってもらって1件10分かかるなら、10件で100分です。いちばん痛いのは、同じ相手に前回と違う条件の見積を出してしまうことです。
 
 共有フォルダに置くルールを作っても、商談とつながっていないと「どのフォルダだっけ」で止まります。置き場所は、商談の画面そのものがいちばん迷いません。
 
@@ -32,7 +33,7 @@ author: "山口聖子"
 
 置けるのは、PDF、Word、Excel、PowerPoint、画像（JPEG・PNGなど）、テキストとCSVです。
 
-PDF・画像・テキスト（CSVを含む）は、上げたあとに中身の文字が読み取られます。画面右下のAIエージェント（⌘E / Ctrl+E）に「支払い条件が書いてある見積書」のように聞くと、当てはまりそうな箇所の抜粋が返ります。
+PDF・画像・テキスト（CSVを含む）は、上げたあとに中身の文字が読み取られます。この読み取りは、ファイルを1つ上げるごとにAIの利用枠を使います（燃料なら1件につき10。読み取らないWord・Excel・PowerPointでも使います）。枠が足りないときは読み取られず、知らせも出ないので、検索にはかかりません。画面右下のAIエージェント（⌘E / Ctrl+E）に「支払い条件が書いてある見積書」のように聞くと、当てはまりそうな箇所の抜粋が返ります。
 
 注意が5つあります。
 

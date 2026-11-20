@@ -8,8 +8,9 @@ feature: "Student status (on the student profile, ⚙ Change status → Paused, 
 screens: "Bottom nav Students → student profile ⚙ Change status: Trial booked, Active, Paused, Graduated, Withdrawn / withdrawal reason box 退会理由を入力してください（任意） (shown in Japanese) / profile note 退会日・理由 (shown in Japanese) / student list chips Active, Graduating, Paused, Alumni, Withdrawn / tasks Nudge next booking, Homework not submitted, Send monthly support, Payment past due / Lessons: Unlogged lessons / More → Subscriptions & Billing: 停止 (Stop, shown in Japanese) / Permissions: Students, Edit"
 segment: "b2c"
 edition: "school"
-sources: "src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/school-app/lib/mock-body.ts / src/school-app/lib/html-en.ts / src/school-app/lib/i18n-data.ts / src/school-app/lib/authz.ts / src/school-app/lib/homework-reminder.ts / src/school-app/lib/monthly-fee.ts / src/school-app/lib/monthly-fee-rollover.ts / src/school-app/lib/dunning.ts / src/school-app/lib/line-booking.ts / src/school-app/lib/demo-seed.ts / src/app/api/school-app/student/status/route.ts / src/app/api/school-app/automation/run/route.ts / src/app/api/school-app/billing/fee/stop/route.ts / src/app/api/school-app/permissions/route.ts"
+sources: "src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/school-app/lib/mock-body.ts / src/school-app/lib/html-en.ts / src/school-app/lib/i18n-data.ts / src/school-app/lib/authz.ts / src/school-app/lib/homework-reminder.ts / src/school-app/lib/monthly-fee.ts / src/school-app/lib/monthly-fee-rollover.ts / src/school-app/lib/dunning.ts / src/school-app/lib/line-booking.ts / src/school-app/lib/demo-seed.ts / src/app/api/school-app/student/status/route.ts / src/app/api/school-app/automation/run/route.ts / src/app/api/school-app/billing/fee/stop/route.ts / src/app/api/school-app/permissions/route.ts / src/school-app/lib/jst.ts / src/lib/school/provision.ts"
 date: 2026-10-20
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 Sunday evening, a message lands in the school's LINE account. "Soccer practice is taking over, so this will be his last month." The teacher writes a kind reply and moves on. Monday morning, Home has a task telling her to nudge that same student to book his next lesson. A week before his next due date, his fee flips back to unpaid. The teacher mutters "he left" under her breath and scrolls past, and does the same thing the next day.
@@ -28,7 +29,7 @@ Marking a student as left or paused isn't admin you get to later. It's the switc
 
 Once you tap Paused, Graduated or Withdrawn on a profile, that night's automation treats the student as no longer attending.
 
-This part of the product talks to families through LINE, the messaging app most schools in Japan already use. Most labels below show in English; the few that stay in Japanese come with a gloss.
+This part of the product talks to families through LINE, the messaging app the school already uses with them. Most labels below show in English; the few that stay in Japanese come with a gloss.
 
 Open Students in the bottom nav and tap a student's card to open their profile. Under ⚙ Change status you'll see Trial booked, Active, Paused, Graduated and Withdrawn. Tap the one that's true now.
 
@@ -47,8 +48,8 @@ Five things to know:
 - Changes kick in from the next nightly run, so today's tasks stay until then. The "Active students" number on Home counts paused, graduated and withdrawn students too, so it won't drop
 - A monthly fee that's already past due keeps showing up as a Payment past due task after you change the status. Go to More → Subscriptions & Billing and tap 停止 (Stop; the button stays in Japanese) on that student's fee. Only a Manager, or a role allowed to edit billing, can do this. Fees paid through PayPal don't have that button, and their reminders aren't stopped here
 - Booking through LINE doesn't check status. If the student has an assigned teacher, or the Lessons screen has someone covering that lesson type, a withdrawn student can still book, and existing bookings stay put
-- The withdrawal date is the day you tap it, and you can't pick another (tap it before 9 a.m. Japan time and it records the previous day). You can't edit only the reason later; tapping Withdrawn again resets the date too. Switching to another status clears both
-- Managers can change status, and so can the Office and Staff roles once Students → Edit is switched on in Permissions. Without that permission, tapping does nothing
+- The withdrawal date is the day you tap it, in Japan time, and you can't pick another. You can't edit only the reason later; tapping Withdrawn again resets the date too. Switching to another status clears both
+- Managers can always change status. Office and Staff can too while Students → Edit is allowed for their role in Permissions, which it is from the start in a newly created school. If a manager turns it off, tapping does nothing and no error appears
 
 ## The first step
 

@@ -8,8 +8,9 @@ lang: "ja"
 category: "input"
 segment: "b2c"
 edition: "school"
-sources: "src/school-app/lib/render.ts (students, csvImport) / src/school-app/components/MockShell.tsx (CSV file reader and onCiSubmit) / src/app/api/school-app/student/import/route.ts / src/school-app/lib/authz.ts (guardPerm) / src/lib/work-fuel.ts / src/school-app/lib/i18n-data.ts (crm main fc56b01)"
+sources: "src/school-app/lib/render.ts (students, csvImport) / src/school-app/components/MockShell.tsx (CSV file reader and onCiSubmit) / src/app/api/school-app/student/import/route.ts / src/school-app/lib/authz.ts (guardPerm) / src/lib/work-fuel.ts / src/school-app/lib/i18n-data.ts (crm main fc56b01) / src/school-app/components/MockShell.tsx"
 date: "2026-11-10"
+updated: 2026-11-20
 author: "山口聖子"
 ---
 今月の入会者は、すでにスプレッドシートにまとまっている。それなのに、生徒の登録画面を開いて、氏名とプランを一人ずつ写している。途中で電話が入ると、誰まで登録したかも確認し直しです。
@@ -37,7 +38,7 @@ Revenue CRMのスクール版には「CSV取込」があります。決まった
 
 1行目は見出しとして飛ばされ、2行目からデータを読みます。列名を見て自動で対応づける機能ではないので、空欄の項目も列を詰めずに残します。氏名が空の行は登録されません。
 
-「CSVファイルを選択」でファイルを選ぶと、内容が下の欄へ読み込まれます。この時点では登録されません。確認して「取り込む」を押すと追加され、成功時は登録件数が表示されて画面が読み直されます。入力欄へCSVの文字を貼り付ける方法もあります。
+「CSVファイルを選択」でファイルを選ぶと、内容が下の欄へ読み込まれます。この時点では登録されません。ファイルはUTF-8として読み込まれるので、保存するときの文字コードはUTF-8にし、下の欄で氏名が文字化けしていないかを確かめてから進みます。確認して「取り込む」を押すと追加され、成功時は登録件数が表示されて画面が読み直されます。入力欄へCSVの文字を貼り付ける方法もあります。
 
 ## 最初の名簿は、簡単な内容でそろえる
 

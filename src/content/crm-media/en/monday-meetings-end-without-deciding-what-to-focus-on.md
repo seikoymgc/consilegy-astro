@@ -52,4 +52,4 @@ At the end of the meeting, click "Draft next actions," read the drafts with each
 ![The top of the home screen: open pipeline, weighted forecast, closed this month, win rate, and the to-do list](/images/crm/media/screens/business-cards-stay-in-the-drawer-1-2026-10.webp)
 *The B2B home screen. The "Set this week's plan →" card appears between these four numbers and the to-do list; it isn't in this capture. Approved next actions show up in the owner's to-do list. The screenshot is in Japanese.*
 
-Try the [demo](https://crm.consilegy.com/demos) with just an email address: choose "B2B" and open "Set this week's plan →" on the home screen to see last week's numbers and the focus candidates. The demo is shared, so look around without setting a plan.
+Try the [demo](https://crm.consilegy.com/demos) with just an email address: choose "B2B sales" and open "Set this week's plan →" on the home screen to see last week's numbers and the focus candidates. The demo is shared, so look around without setting a plan.

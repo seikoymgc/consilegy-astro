@@ -10,6 +10,7 @@ segment: "b2b"
 edition: "b2b"
 sources: "src/app/(dashboard)/settings/ai-features/page.tsx / src/app/(dashboard)/settings/ai-features/ai-features-view.tsx / src/app/api/org-settings/ai-enabled/route.ts / src/lib/ai-enabled.ts / src/data/crm-updates.ts (consilegy-astro, 2026-10-28, PR #395)"
 date: "2026-11-08"
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 The sales team has agreed to keep customer history in one place. Then someone asks which AI features staff may use, who approves generated emails, and whether the company has finished its review. The customer management rollout stops with the policy discussion.
@@ -26,7 +27,7 @@ Define the initial workflow explicitly: who enters records, who may view them, a
 
 ## Owners and admins control the switch in Settings
 
-Open **Settings → AI features**. The **Use AI features** switch applies to the whole workspace, rather than one user’s preference. Only owners and admins can change it.
+Open **Settings → AI features**. The switch next to **AI features: on** applies to the whole workspace, rather than one user’s preference. Only owners and admins can change it. The **Automatic translation of records** switch below it is a separate setting.
 
 ![The B2B AI features settings page, showing its current status and the Use AI features switch](/images/crm/media/screens/ai-policy-undecided-so-the-whole-rollout-stalls-1-en-2026-11.webp)
 *The demo is shown with AI on. The switch was left unchanged when this screenshot was taken.*

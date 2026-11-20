@@ -8,8 +8,9 @@ lang: "ja"
 category: "operate"
 segment: "b2b"
 edition: "b2b"
-sources: "src/app/(dashboard)/quotes/[id]/page.tsx / src/app/(dashboard)/quotes/[id]/quote-detail.tsx / src/app/(print)/quotes/[id]/print/page.tsx / src/app/(print)/quotes/[id]/print/quote-print-view.tsx / src/lib/quotes/email.ts (crm main fc56b01; print workflow added in c5ddfc1, PR #422)"
+sources: "src/app/(dashboard)/quotes/[id]/page.tsx / src/app/(dashboard)/quotes/[id]/quote-detail.tsx / src/app/(print)/quotes/[id]/print/page.tsx / src/app/(print)/quotes/[id]/print/quote-print-view.tsx / src/lib/quotes/email.ts (crm main fc56b01; print workflow added in c5ddfc1, PR #422) / src/app/(dashboard)/settings/region/region-view.tsx / src/lib/demo.ts / src/app/demos/demos-client.tsx"
 date: "2026-11-10"
+updated: 2026-11-20
 author: "山口聖子"
 ---
 見積の品目と金額をシステムに入れた。相手へ送る段階になって、今度はスプレッドシートの見積書へ同じ内容を打ち直す。直前に回数や単価が変わると、両方を直したか確かめる仕事まで増えます。
@@ -31,7 +32,7 @@ Revenue CRMの法人版では、登録した見積書から「印刷・PDF」を
 ![見積の詳細画面。見積名とステータスの横に「印刷・PDF」が並ぶ](/images/crm/media/screens/quotes-get-retyped-just-to-make-a-pdf-1-ja-2026-11.webp)
 *デモのサンプル見積です。社名・人名・明細・金額は説明用で、実際のお客様の見積や製品の料金案内ではありません。*
 
-印刷用ページには、見積名、紐付けた会社・コンタクト、発行日、有効期限、明細、税と合計、備考が表示されます。宛先を紐付けていなければ、その宛先は出ません。発行日には見積の作成日が使われるので、今日の日付になるとは限りません。
+印刷用ページには、見積名、紐付けた会社・コンタクト、発行日、有効期限、明細、税と合計、備考が表示されます。発行元にはワークスペースの名前が入り、「設定」の「国と税・タイムゾーン」で登録番号を入れていれば、その番号も載ります。宛先を紐付けていなければ、その宛先は出ません。発行日には見積の作成日が使われるので、今日の日付になるとは限りません。
 
 ![登録した明細を使って表示された印刷用の御見積書](/images/crm/media/screens/quotes-get-retyped-just-to-make-a-pdf-2-ja-2026-11.webp)
 *送付前に、宛先・期限・品目・数量・単価・合計をこのページで確認します。撮影では印刷も送信もしていません。*
@@ -52,4 +53,4 @@ PDFに保存することと、お客様へ送ることは別の操作です。�
 
 その形式で使えるなら、次の見積から明細を打ち直す作業を外せます。見た目を整える前に、同じ金額を二度入力している場所を減らしましょう。
 
-[Revenue CRMのデモ](https://crm.consilegy.com/demos)で法人営業版を選び、「見積書」のサンプルから印刷用ページを確認できます。
+[Revenue CRMのデモ](https://crm.consilegy.com/demos)で「B2B」（法人営業向け）を選び、「見積書」のサンプルから印刷用ページを確認できます。

@@ -8,8 +8,9 @@ feature: "Success plan (the \"Success plan\" card on a contact: \"Goal / desired
 screens: "Contact detail, \"Success plan\" card, \"Create success plan\" / \"Goal / desired outcome\" / \"Status\" (On track, At risk, Off track, Achieved) / \"Target date\" / \"Success metrics\", \"Add metric\" (Metric, Baseline, Target, Current, Status) / \"Delete plan\" / Sidebar \"Customer Success\": \"With success plan\", \"Plan\" column, \"Bulk-create plans\" / Contacts list \"Change stage...\" → \"Customer\" / \"CS AI assist\" → \"Outcome report (QBR)\""
 segment: "b2b"
 edition: "b2b"
-sources: "src/components/success-plan-panel.tsx / src/app/(dashboard)/contacts/[id]/page.tsx / src/app/api/success-plans/route.ts / src/app/api/success-plans/[id]/route.ts / src/app/api/success-plans/[id]/metrics/route.ts / src/app/api/success-plan-metrics/[id]/route.ts / src/app/api/success-plans/bulk-create/route.ts / src/app/(dashboard)/customer-success/page.tsx / src/app/(dashboard)/customer-success/cockpit-view.tsx / src/components/cs-ai-panel.tsx / src/app/api/contacts/[id]/cs-ai/route.ts / src/components/app-sidebar.tsx / src/lib/personas.ts / src/lib/demo/extras.ts"
+sources: "src/components/success-plan-panel.tsx / src/app/(dashboard)/contacts/[id]/page.tsx / src/app/api/success-plans/route.ts / src/app/api/success-plans/[id]/route.ts / src/app/api/success-plans/[id]/metrics/route.ts / src/app/api/success-plan-metrics/[id]/route.ts / src/app/api/success-plans/bulk-create/route.ts / src/app/(dashboard)/customer-success/page.tsx / src/app/(dashboard)/customer-success/cockpit-view.tsx / src/components/cs-ai-panel.tsx / src/app/api/contacts/[id]/cs-ai/route.ts / src/components/app-sidebar.tsx / src/lib/personas.ts / src/lib/demo/extras.ts / src/lib/revops/deals.ts / src/lib/revops/catalog.ts / src/lib/editions/index.ts"
 date: 2026-10-29
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 In the final pitch meeting, the customer's head of support said it plainly: "Six months from now, I want first-line support handled by half the people it takes today." The account executive nodded, wrote it down, and closed the deal the following week. The internal handoff covered contract value, go-live date and the main contact's name. The onboarding lead's first call with the customer turned into a walk through the feature list, top to bottom.
@@ -41,7 +42,7 @@ Five things to know before you rely on it:
 - Current values and every Status are entered by hand. Nothing updates on its own
 - The Owner shown on the card is whoever created the plan from the card, or the contact's owner for plans made with Bulk-create plans. There is no control to reassign it. If sales creates the plan and onboarding adds to it, that rarely matters
 - The trash icon on a metric row deletes it without asking, and there is no change history
-- The Customer Success list only includes contacts whose lifecycle stage is Customer. Winning a deal does not set that automatically (a subscription becoming active through the Stripe integration does). In the Contacts list, tick the people, then use Change stage... and choose Customer. The Customer Success screen also stays hidden unless Switch workspace view at the top of the sidebar is set to CS or All (or Mine, if your roles include CS)
+- The Customer Success list only includes contacts whose lifecycle stage is Customer. By default, winning a deal does not set that (a subscription becoming active through the Stripe integration does). If the automation Won & customer conversion is on, the contact linked to a won deal becomes a Customer in the daily run (around 10:00 Japan time). Otherwise, in the Contacts list, tick the people, then use Change stage... and choose Customer. Customer Success also stays out of the sidebar unless View at the top of the sidebar is set to CS, Executive or All (or Mine, if your roles include CS or Executive)
 
 ## Your first step
 

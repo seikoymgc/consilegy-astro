@@ -8,8 +8,9 @@ feature: "表示言語の切り替え（画面上端の「JA」「EN」「繁中
 screens: "画面上端の帯の右側「JA」「EN」「繁中」／スマートフォンでは右上の人のアイコン（マイアカウント）のメニューの中の「JA」「EN」「繁中」／ログイン画面の言語ボタン／デモの入口（/demos）右上の言語ボタン"
 segment: "b2b"
 edition: "b2b"
-sources: "src/components/app-topbar.tsx / src/lib/i18n/context.tsx / src/lib/i18n/lang-cookie.ts / src/lib/i18n/tt.tsx / src/lib/i18n/translations.ts / src/lib/i18n/server.ts / src/lib/i18n/format-date.ts / src/hooks/use-lang.ts / src/app/layout.tsx / src/app/(auth)/login/login-client.tsx / src/lib/demo-lang-switch.ts / src/lib/demo.ts / src/app/demos/demos-client.tsx / src/lib/api-i18n.ts / src/lib/deals-i18n.ts / src/lib/notify.ts / src/lib/task-reminders.ts / src/lib/revops/util.ts / src/app/api/agent/chat/route.ts / src/app/api/contacts/[id]/draft-email/route.ts / src/app/api/calls/analyze/route.ts / src/lib/chat-parsers/ai-extract.ts / src/app/api/contacts/export/route.ts / src/app/api/orgs/route.ts / supabase/migrations/061_org_language.sql"
+sources: "src/components/app-topbar.tsx / src/lib/i18n/context.tsx / src/lib/i18n/lang-cookie.ts / src/lib/i18n/tt.tsx / src/lib/i18n/translations.ts / src/lib/i18n/server.ts / src/lib/i18n/format-date.ts / src/hooks/use-lang.ts / src/app/layout.tsx / src/app/(auth)/login/login-client.tsx / src/lib/demo-lang-switch.ts / src/lib/demo.ts / src/app/demos/demos-client.tsx / src/lib/api-i18n.ts / src/lib/deals-i18n.ts / src/lib/notify.ts / src/lib/task-reminders.ts / src/lib/revops/util.ts / src/app/api/agent/chat/route.ts / src/app/api/contacts/[id]/draft-email/route.ts / src/app/api/calls/analyze/route.ts / src/lib/chat-parsers/ai-extract.ts / src/app/api/contacts/export/route.ts / src/app/api/orgs/route.ts / supabase/migrations/061_org_language.sql / src/components/activity-timeline.tsx / src/components/email-translate.tsx / src/components/localized-title.tsx / src/app/(dashboard)/settings/settings-index.tsx"
 date: 2026-10-20
+updated: 2026-11-20
 author: "山口聖子"
 ---
 営業チームに、日本語が読めないメンバーが1人入りました。顧客管理システムの画面は日本語で表示されています。新しい商談を入れようとして、項目の意味が分からずに手が止まります。隣の同僚に聞くか、翻訳アプリで画面を撮るか、結局は自分のノートに書いて終わります。商談はあるのに、システムには残りません。
@@ -38,8 +39,8 @@ author: "山口聖子"
 
 - 別のパソコンやスマートフォンで開くと、日本語から始まります。端末ごとに一度押してください
 - 通知、タスク期限のリマインド、自動化が作るタスク名は、画面の言語ではなく組織の言語で届きます。組織の言語は組織を作ったときの表示言語で決まり、あとから変える画面はありません。日本語で作った組織なら日本語です
-- 入力した名前やメモは訳されません。自分たちで付けたステージ名も、多くはそのまま残ります。通話の分析と、会話・会議の取り込み（「会話を取り込む」）で作られる要約は日本語で、連絡先を書き出したCSVの見出しも日本語です。AIメールの下書きは相手の連絡先の「言語」で作られ、空なら日本語です。一部のエラー表示は、ボタンではなくブラウザの言語設定に従います
-- 時刻は日本時間、金額は円で表示されます。海外の拠点から見ても同じです
+- 入力した名前は訳されません。メモや活動の本文は、記録ごとの「翻訳」で画面の言語に訳して読めます（保存された内容は変わらず、AIの利用枠を使います）。タスク名や活動の件名などの見出しは、マウスを乗せて出る「翻訳」で1件ずつ訳せ、オーナーか管理者が「設定」→「AI機能の利用」で入力データの自動翻訳をオンにすると、まとめて訳して表示します。自分たちで付けたステージ名は、「設定」の商談ステージで英語・繁體中文の名前を入れておけば、その言語で表示されます。通話の分析と、会話・会議の取り込み（「会話を取り込む」）で作られる要約は日本語で、連絡先を書き出したCSVの見出しも日本語です。AIメールの下書きは相手の連絡先の「言語」で作られ、空なら日本語です。一部のエラー表示は、ボタンではなくブラウザの言語設定に従います
+- 時刻と金額の通貨は、「設定」→「国と税・タイムゾーン」で選んだ会社の国とタイムゾーンに従います（日本の会社なら日本時間・円）。見る人ごとには変わらないので、海外の拠点から見ても同じ表示です
 
 ## 最初の一歩
 

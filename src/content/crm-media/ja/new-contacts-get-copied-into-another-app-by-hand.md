@@ -8,9 +8,9 @@ edition: "b2b"
 pain: "顧客の登録後に、共有先のアプリへ同じ情報をもう一度コピーしている"
 feature: "ZapierのNew Contactと読み取り用APIキー"
 screens: "設定／連携・チャネル／APIキー／読み取りのみ／発行／API Key／New Contact"
-sources: "integrations/zapier/authentication.js / integrations/zapier/triggers/contact.js / integrations/zapier/lib/http.js / src/app/(dashboard)/settings/api-keys/api-keys-view.tsx / src/app/api/v1/api-keys/route.ts / src/app/api/v1/contacts/route.ts / src/lib/crm/use-cases.ts / https://zapier.com/apps/revenue-crm/integrations"
+sources: "integrations/zapier/authentication.js / integrations/zapier/triggers/contact.js / integrations/zapier/lib/http.js / src/app/(dashboard)/settings/api-keys/api-keys-view.tsx / src/app/api/v1/api-keys/route.ts / src/app/api/v1/contacts/route.ts / src/lib/crm/use-cases.ts / https://zapier.com/apps/revenue-crm/integrations / src/app/(dashboard)/settings/settings-index.tsx"
 date: 2026-11-19
-updated: 2026-11-19
+updated: 2026-11-20
 author: "山口聖子"
 ---
 営業が新しい顧客を登録します。そのあと、運用担当が別のアプリを開き、共有用の一覧へ名前とメールアドレスをコピーします。
@@ -53,4 +53,4 @@ APIキーは、連携先が顧客情報を読むための認証情報です。�
 
 最初から全アプリをつなぐ必要はありません。登録後にもう一度コピーする場所を、一つ減らすところから始めます。
 
-設定の入口は、[Revenue CRMのデモ](https://crm.consilegy.com/demos)で「B2B」を選び、確認してください。
+[Revenue CRMのデモ](https://crm.consilegy.com/demos)で「B2B」を選ぶと、「設定」→「連携・チャネル」→「APIキー」の画面を確かめられます。デモは共有なので、APIキーは発行せずに、画面を見るだけにします。

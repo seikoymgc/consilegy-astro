@@ -10,6 +10,7 @@ sources: "src/app/(dashboard)/settings/relationship-types/page.tsx / src/app/(da
 segment: "b2b"
 edition: "b2b"
 date: 2026-11-01
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 Monday pipeline review. The Lifecycle funnel on the home screen says MQLs are up again this month. Good news, apparently.
@@ -43,7 +44,7 @@ The company and contact lists also get a Relationship filter and a By relationsh
 
 Only owners and admins can save changes to the list of types. Four more things worth knowing:
 
-- Setting a type on a company does not change its contacts. You set contacts one at a time. In CSV import, contacts inherit their company's type when the Relationship type column is blank. A type name that doesn't match is saved as Customer, with a note to check
+- Setting a type on a company does not change its contacts. You set contacts one at a time. In CSV import, contacts inherit their company's type when the Relationship type column is blank. A type name that doesn't match is saved as Customer, with a note to check (a contact whose company already has a type gets the company's type instead)
 - Setting an existing MQL to Reseller does not move their lifecycle stage back. What changes is future automatic promotion and the funnel count. You can still change stages by hand
 - Bulk email lists don't exclude them, and lists can't filter by relationship type. Check the recipients before you send a newsletter
 - Deleting a type turns its companies and contacts back into customers. You are asked to confirm before it saves

@@ -8,8 +8,9 @@ feature: "データの書き出し（「設定」→「運用」→「データ�
 screens: "サイドバー「設定」→「運用」の「データの書き出し」／各行の「CSV」「書き出し中…」／「データの書き出しは、オーナーと管理者だけが使えます。」（ほかの役割の人の画面）／「監査ログ」"
 segment: "b2b"
 edition: "b2b"
-sources: "src/app/(dashboard)/settings/settings-index.tsx / src/app/(dashboard)/settings/export/page.tsx / src/app/(dashboard)/settings/export/export-view.tsx / src/lib/export/full-export.ts / src/lib/export/read-pages.ts / src/app/api/export/[dataset]/route.ts / src/lib/csv.ts / src/app/(dashboard)/settings/audit-log/audit-log-view.tsx / src/app/api/contacts/export/route.ts / src/components/csv-import-dialog.tsx / src/app/(dashboard)/layout.tsx / src/app/api/demo/seed/route.ts"
+sources: "src/app/(dashboard)/settings/settings-index.tsx / src/app/(dashboard)/settings/export/page.tsx / src/app/(dashboard)/settings/export/export-view.tsx / src/lib/export/full-export.ts / src/lib/export/read-pages.ts / src/app/api/export/[dataset]/route.ts / src/lib/csv.ts / src/app/(dashboard)/settings/audit-log/audit-log-view.tsx / src/app/api/contacts/export/route.ts / src/components/csv-import-dialog.tsx / src/app/(dashboard)/layout.tsx / src/app/api/demo/seed/route.ts / src/app/api/activities/import/route.ts / src/app/(dashboard)/activities/activities-import-button.tsx / src/app/(dashboard)/activities/page.tsx / src/app/trial-expired/page.tsx / src/lib/region/server.ts / src/lib/outlook-sync.ts"
 date: 2026-10-21
+updated: 2026-11-20
 author: "山口聖子"
 ---
 期末の監査の前に、経理から営業部長へ依頼が来ます。「この取引先と、いつ誰が何を話したか、記録を一式ください」。部長はコンタクトの一覧画面からCSVを落とします。出てきたのは氏名と会社と電話番号の表でした。電話の記録も、商談の経緯も、先方から届いた見積の添付も入っていません。結局、画面を1件ずつ開いて写すことになります。
@@ -31,20 +32,20 @@ author: "山口聖子"
 - コンタクト、会社、商談（全項目。カスタム項目は、まとめて1列にJSON形式で入ります）
 - 活動履歴（電話・会議・メールなどの記録と、紐づくコンタクト・会社・商談）
 - メモ、タスク
-- メール（Gmail連携で取り込んだ分の日時・差出人・宛先・件名・冒頭の抜粋）
+- メール（Gmail連携・Outlook連携で取り込んだ分の日時・差出人・宛先・件名・冒頭の抜粋）
 - 添付ファイル（一覧と、1件ずつのダウンロードURL）
 
-件数の上限はありません。関連先は名前とIDの両方で出るので、ほかのツールに移すときに紐付け直せます。日時は日本時間で、文字コードはBOM付きのUTF-8なので、スプレッドシートでそのまま開けます。見出しは表示言語に合わせて出ますが、ライフサイクルなどの選択肢は画面の言葉ではなく、保存されている値（例: customer）のまま出ます。書き出すたびに、誰が何を何件出したかが「監査ログ」に残ります。
+件数の上限はありません。関連先は名前とIDの両方で出るので、ほかのツールに移すときに紐付け直せます。日時は会社のタイムゾーン（初期設定は日本時間）で、文字コードはBOM付きのUTF-8なので、スプレッドシートでそのまま開けます。見出しは表示言語に合わせて出ますが、ライフサイクルなどの選択肢は画面の言葉ではなく、保存されている値（例: customer）のまま出ます。書き出すたびに、誰が何を何件出したかが「監査ログ」に残ります。
 
 知っておくことが5つあります。
 
 - 使えるのはオーナーと管理者だけです。閲覧範囲の設定に関係なく、組織の全件が出ます
 - 1種類ずつの書き出しです。まとめて落とすボタンはありません
-- Gmail連携で取り込んだメールの本文の全文、見積、チケット、受信箱の会話、カレンダーの予定、一斉配信の送信履歴は入りません（Revenue CRM から送った1対1のメールは、本文ごと活動履歴に入ります）
+- Gmail連携・Outlook連携で取り込んだメールの本文の全文、見積、チケット、受信箱の会話、カレンダーの予定、一斉配信の送信履歴は入りません（Revenue CRM から送った1対1のメールは、本文ごと活動履歴に入ります）
 - ゴミ箱に入れたコンタクト・会社・商談は入りません。添付のURLは書き出してから7日で切れます
-- 書き出したCSVを、そのまま取り込んで元に戻すことはできません。CSVの取り込みで入れられるのはコンタクト・会社・商談の3種類だけで、IDは引き継がれません
+- 書き出したCSVを、そのまま取り込んで元に戻すことはできません。CSVの取り込みで入れられるのはコンタクト・会社・商談・アクティビティの4種類で、IDは引き継がれません
 
-もう1つ、書き出しは契約が有効なうちに行ってください。契約が終わると、ログインしたあとの画面が終了の案内に切り替わり、設定を開けなくなります。
+もう1つ、書き出しは契約が有効で、操作できるうちに済ませておいてください。契約終了後の取り出し方や期限は、終了前に確認しておきます。
 
 ## 最初の一歩
 

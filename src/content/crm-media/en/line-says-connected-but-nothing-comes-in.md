@@ -6,10 +6,11 @@ category: "setup"
 pain: "The school entered its LINE Official Account credentials and assumed it was done, but a setting on the LINE side was still off. Not one homework submission or new follower made it in, and nobody noticed for days"
 feature: "LINE connection check (open More > Integrations and the system asks LINE directly, showing 受信中 (receiving), Webhook OFF, URLが違う (wrong URL), 未連携 (not connected) or 状態不明 (unknown), plus the LINE friend count and the number imported into the CRM. The status is shown to the Manager and Office roles)"
 screens: "More > 🔗 Integrations (on a computer, Integrations in the sidebar): the badge on the LINE Official Account row (Checking… then the status), the status line and friend/import counts under LINE Official Account settings, the webhook URL with Copy, and steps ① and ②"
-sources: "src/school-app/lib/render.ts (integrations) / src/school-app/components/MockShell.tsx (loadLineHealth) / src/app/api/school-app/line/health/route.ts / src/app/api/school-app/line/webhook/route.ts (findOrImportStudent, submission recording) / src/school-app/lib/authz.ts (STAFF) / src/school-app/lib/i18n-data.ts (crm b46d6a3)"
+sources: "src/school-app/lib/render.ts (integrations) / src/school-app/components/MockShell.tsx (loadLineHealth) / src/app/api/school-app/line/health/route.ts / src/app/api/school-app/line/webhook/route.ts (findOrImportStudent, submission recording) / src/school-app/lib/authz.ts (STAFF) / src/school-app/lib/i18n-data.ts (crm b46d6a3) / src/school-app/lib/render.ts / src/app/api/school-app/student/line-code/route.ts / src/app/api/school-app/line/webhook/route.ts / src/school-app/lib/html-en.ts / src/school-app/components/MockShell.tsx"
 segment: "b2c"
 edition: "school"
 date: 2026-11-08
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 A school owner pastes the LINE Official Account's Channel ID and Channel secret into the admin screen and saves. Homework photos and new followers should start flowing in now. A week goes by.
@@ -26,7 +27,7 @@ And nothing looks wrong. There's no error, just silence. That's what makes it ha
 
 ## In Revenue CRM, opening Integrations asks LINE directly whether messages can get through
 
-In the school edition, go to More > 🔗 Integrations (on a computer, Integrations in the sidebar). The status shows up for people with the Manager or Office role. A Member who opens it on a computer sees 確認できず (could not check).
+In the school edition, go to More > 🔗 Integrations (on a computer, Integrations in the sidebar). The status shows up for people with the Manager or Office role. A Staff member who opens it on a computer sees 確認できず (could not check).
 
 As soon as the screen opens, the system checks with LINE. The badge on the LINE Official Account row changes from "Checking…" to one of the following. The status, its explanation and the counts stay in Japanese even in the English interface:
 
@@ -34,7 +35,7 @@ As soon as the screen opens, the system checks with LINE. The badge on the LINE 
 - **Webhook OFF**: the webhook is off on LINE's side, so nothing arrives
 - **URLが違う (the URL is wrong)**: LINE is sending to a URL that isn't this school's
 - **未連携 (not connected)**: either no credentials have been entered, or the ones entered don't get through to LINE. Re-enter the Channel ID and Channel secret
-- **状態不明 (unknown)**: the check with LINE failed partway. Wait a moment and open the screen again
+- **状態不明 (unknown)**: the check with LINE failed, and the message asks you to check your credentials. Confirm the Channel ID and Channel secret, then reload the page and open the screen again
 
 Under LINE Official Account settings you'll see an explanation and two counts side by side: LINE friends and students imported into the CRM. Say there are eight friends and zero imported: that means something upstream is blocked.
 
@@ -44,7 +45,7 @@ Four things to know:
 
 - The check runs the first time you open this screen after loading the page. You won't get an alert if delivery stops, so make a habit of reloading and looking
 - Turning things on doesn't pull in people who were already friends. They come in the moment they send anything. That first message is used for the import and isn't kept as homework, so ask them to resend a homework photo
-- People who come in through LINE are added as new trial students under their LINE display name. If the same student is already on your roster, the two aren't merged, and the extra row can't be deleted from the screen. Don't ask your whole roster to "send us something," or every student will appear twice
+- People who come in through LINE are added as new trial students under their LINE display name. If the same student is already on your roster, the two aren't merged, and the extra row can't be deleted from the screen. Don't ask your whole roster to "send us something," or every student will appear twice. To link a student who is already on your roster, open their profile, press 🔗 LINE紐付け (link LINE) and have them send the code it shows (it starts with BEY-) to your LINE account before anything else. The code ties their LINE to the existing row, so no duplicate is created
 - The friend count is as of the previous day and may be missing on some days
 
 ## Your first step

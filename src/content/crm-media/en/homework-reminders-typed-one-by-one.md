@@ -8,8 +8,9 @@ feature: "Automatic homework reminders (one LINE message per homework type once 
 screens: "Bottom nav レッスン (Lessons) → レッスン履歴 (Lesson History): 🎓 種別ごとの担当, 課題あり, 🔔 課題未提出の自動リマインド / Student record: 📩 課題の提出, 課題の自動リマインド, この生徒に送る, この生徒には送らない, 🔗 LINE紐付け / Home: 🚨 今すぐ対応 (Act now), 🔄 今すぐ検知 / Menu > 監査ログ (Audit log): 課題の催促を自動送信"
 segment: "b2c"
 edition: "school"
-sources: "src/school-app/lib/render.ts / src/school-app/lib/homework.ts / src/school-app/lib/homework-reminder.ts / src/school-app/lib/line-push.ts / src/school-app/lib/authz.ts / src/school-app/lib/supabase.ts / src/app/school/page.tsx / src/school-app/components/MockShell.tsx / src/app/api/school-app/student/reminder/route.ts / src/app/api/school-app/lesson-types/route.ts / src/app/api/school-app/automation/run/route.ts / src/app/api/school-app/line/webhook/route.ts / src/app/api/cron/workflows/route.ts / vercel.json / src/school-app/lib/i18n-data.ts / src/school-app/lib/demo-seed.ts / supabase/migrations/194_school_beyonders_copy.sql"
+sources: "src/school-app/lib/render.ts / src/school-app/lib/homework.ts / src/school-app/lib/homework-reminder.ts / src/school-app/lib/line-push.ts / src/school-app/lib/authz.ts / src/school-app/lib/supabase.ts / src/app/school/page.tsx / src/school-app/components/MockShell.tsx / src/app/api/school-app/student/reminder/route.ts / src/app/api/school-app/lesson-types/route.ts / src/app/api/school-app/automation/run/route.ts / src/app/api/school-app/line/webhook/route.ts / src/app/api/cron/workflows/route.ts / vercel.json / src/school-app/lib/i18n-data.ts / src/school-app/lib/demo-seed.ts / supabase/migrations/194_school_beyonders_copy.sql / src/school-app/lib/html-en.ts / src/app/api/school-app/submission/review/route.ts"
 date: 2026-10-09
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 Thursday, ten at night. A teacher opens the messaging app on her phone and tries to remember who has not turned in this week's homework. She types to them one by one: "How is this week's assignment going?" Who she has already messaged, and who has already submitted, is a list she keeps in her head.
@@ -28,26 +29,26 @@ My recommendation is to stop having a person send the first reminder. The human 
 
 ## In Revenue CRM for schools, a student who goes three business days without submitting gets one message per homework type
 
-This part of the product runs on LINE, the messaging app most schools in Japan already use with their students. Set an active student to receive reminders, and when a homework type has gone three business days without a submission, one reminder goes to that student's LINE. Weekends are not counted.
+This part of the product runs on LINE, the messaging app the school edition uses to reach students. Set an active student to receive reminders, and when a homework type has gone three business days without a submission, one reminder goes to that student's LINE. Weekends are not counted.
 
-A note on labels: Lessons, Lesson History and Act now switch to English. The rest stay in Japanese, so I give them as they appear with my gloss in parentheses. There are two places to set up.
+A note on labels: I give each label in Japanese first. With the screen in English, most of them appear in English, so look for these: 🎓 種別ごとの担当 (🎓 Teachers by lesson type), 課題あり (Homework), 🔔 課題未提出の自動リマインド (🔔 Automatic reminders for missing homework), 📩 課題の提出 (📩 Homework submissions), この生徒に送る (Send to this student), この生徒には送らない (Don't send to this student), 🔄 今すぐ検知 (🔄 Check now) and 監査ログ (Audit log). The audit-log entry 課題の催促を自動送信 and the LINE menu item 課題を出す stay in Japanese. There are two places to set up.
 
-The first is Lessons in the bottom nav. Under 🎓 種別ごとの担当 you see your lesson types. Tap 課題あり (has homework) on the types that actually come with homework. Only the checked types are counted. A person needs edit permission on lessons to change this. On the same screen, next to 🔔 課題未提出の自動リマインド, you can see how many of your active students are currently set to receive reminders.
+The first is Lessons in the bottom nav. Under 🎓 種別ごとの担当 you see your lesson types. Tap 課題あり (Homework) on the types that actually come with homework. Only the checked types are counted. A person needs edit permission on lessons to change this. On the same screen, next to 🔔 課題未提出の自動リマインド, you can see how many of your active students are currently set to receive reminders.
 
-The second is the student's record. Inside 📩 課題の提出 (homework submissions) there is a block called 課題の自動リマインド with two buttons: この生徒に送る (send to this student) and この生徒には送らない (do not send). A newly added student starts on "do not send", so nothing goes to anyone until you choose. The buttons appear for people who can edit students, and switching also needs edit permission on lessons.
+The second is the student's record. Inside 📩 課題の提出 (📩 Homework submissions) there is a block called 課題の自動リマインド (Automatic homework reminders) with two buttons: この生徒に送る (Send to this student) and この生徒には送らない (Don't send to this student). A newly added student starts on "do not send", so nothing goes to anyone until you choose. The buttons appear for people who can edit students, and switching also needs edit permission on lessons.
 
 How it behaves:
 
 - The check runs once a day with the automatic detection. Pressing 🔄 今すぐ検知 on Home runs the same check, and students who meet the condition get a message then too
 - After one reminder, no second one is sent for that type until a submission of that type is recorded. Once the student submits, the slate is cleared, and another three business days of silence means one more message
-- The wording does not scold, and it says in plain terms that the message was sent automatically based on submission status. If a student thinks a teacher wrote it, they reply and nobody reads the reply
+- The wording does not scold, and it says in plain terms that the message was sent automatically based on submission status, and invites the student to ask their teacher about anything unclear
 - Each send is written to 監査ログ (audit log) in the menu as 課題の催促を自動送信, so recent sends can be checked there
 
 Three cautions.
 
-Your school's LINE Official Account has to be connected, and the student has to be linked to it. A student who is not linked cannot be reached. They still show up under 🚨 Act now on Home, but only for staff assigned to that student. A student with nobody assigned shows up on no one's Home, so assign someone on the record first, then link the student from 🔗 LINE紐付け.
+Your school's LINE Official Account has to be connected, and the student has to be linked to it. A student who is not linked cannot be reached. They still show up under 🚨 Act now on Home, but only for staff assigned to that student. A student with nobody assigned shows up only on the Home screens of the Operations and Manager roles, so assign a teacher on the record first, then link the student from 🔗 LINE紐付け.
 
-Submissions are counted per type. If a student just sends a photo without going through the 課題を出す (submit homework) menu in LINE, it is recorded as 種別なし (no type) and does not count toward any type. That student can submit and still get a reminder. Tell students on day one to pick the type from the menu before sending.
+Submissions are counted per type. If a student just sends a photo without going through the 課題を出す (submit homework) menu in LINE, it is recorded as 種別なし (no type) and does not count toward any type. A recent untyped submission holds off the reminder for three business days, but if nobody assigns a type on the student's record in that time, the student can submit and still get a reminder. Assign a type to such submissions promptly, and tell students on day one to pick the type from the menu before sending (see [The homework was submitted. Why did the student get a missing-work reminder?](/en/crm/media/b2c/homework-was-submitted-but-the-reminder-still-arrives/)).
 
 During a period you registered as school holidays, the homework rows stop appearing under Act now. The reminders to students do not stop. Before a long break, switch students to "do not send".
 

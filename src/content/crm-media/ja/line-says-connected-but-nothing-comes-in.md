@@ -6,10 +6,11 @@ category: "setup"
 pain: "LINE公式アカウントの認証情報を入れて安心していたが、LINE側の設定がOFFのままで、生徒が送った課題も新しい友だちも1件も取り込まれていなかった。誰も気づかないまま日が過ぎる"
 feature: "LINEの接続確認（「もっと」→「連携設定」を開くと、LINEに直接問い合わせて「受信中」「Webhook OFF」「URLが違う」「未連携」「状態不明」を出し、「LINE友だち N人 / CRM取り込み済み N人」を並べる。状態を確かめられるのはマネージャーと管理部）"
 screens: "「もっと」→「🔗 連携設定」（PCはサイドバー「連携設定」）の「LINE公式アカウント」の札（「確認中…」→状態）、「LINE公式アカウントの設定」の状態の文と「LINE友だち N人 / CRM取り込み済み N人」、Webhook の URL と「コピー」、①② の手順"
-sources: "src/school-app/lib/render.ts（integrations） / src/school-app/components/MockShell.tsx（loadLineHealth） / src/app/api/school-app/line/health/route.ts / src/app/api/school-app/line/webhook/route.ts（findOrImportStudent、提出の記録） / src/school-app/lib/authz.ts（STAFF） / src/school-app/lib/i18n-data.ts（crm b46d6a3 時点）"
+sources: "src/school-app/lib/render.ts（integrations） / src/school-app/components/MockShell.tsx（loadLineHealth） / src/app/api/school-app/line/health/route.ts / src/app/api/school-app/line/webhook/route.ts（findOrImportStudent、提出の記録） / src/school-app/lib/authz.ts（STAFF） / src/school-app/lib/i18n-data.ts（crm b46d6a3 時点） / src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/app/api/school-app/student/line-code/route.ts / src/app/api/school-app/line/webhook/route.ts"
 segment: "b2c"
 edition: "school"
 date: 2026-11-08
+updated: 2026-11-20
 author: "山口聖子"
 ---
 教室の代表が、LINE公式アカウントの Channel ID と Channel secret を管理画面に入れて保存した。これで生徒の課題提出も、新しい友だちも入ってくる。そう思って1週間。
@@ -34,7 +35,7 @@ author: "山口聖子"
 - **Webhook OFF**：LINE側のWebhookがOFFで、何も届きません
 - **URLが違う**：LINEに登録されている送り先のURLが、この教室のものではありません
 - **未連携**：認証情報が入っていないか、入れた値ではLINEにつながりません。Channel ID と Channel secret を入れ直します
-- **状態不明**：LINEへの問い合わせが途中で失敗しました。少し待って開き直します
+- **状態不明**：LINEへの問い合わせに失敗しました。画面には「認証情報を確認してください」と出ます。Channel ID と Channel secret を確かめてから、ページを読み込み直して開き直します
 
 下の「LINE公式アカウントの設定」には、状態の説明と「LINE友だち N人 / CRM取り込み済み N人」が並びます。仮に友だちが8人いて取り込みが0人なら、どこかで止まっています。
 
@@ -44,7 +45,7 @@ author: "山口聖子"
 
 - 確認するのは、ページを読み込んで最初にこの画面を開いたときだけです。止まっても通知は来ないので、ページを開き直して見る習慣が要ります
 - 「受信中」になっても、すでに友だちだった人は、それだけでは取り込まれません。その人から何かメッセージが届いた時点で取り込まれます。最初に届いたメッセージは取り込みに使われ、課題としては残らないので、写真の課題なら送り直してもらいます
-- LINEから入った人は、LINEの表示名で「体験予約」の新しい生徒として入ります。名簿に同じ生徒がすでにいても自動ではまとまらず、画面から行を消すこともできません。名簿にいる生徒に一斉に「何か送って」と頼むと、生徒が二重に並ぶので避けてください
+- LINEから入った人は、LINEの表示名で「体験予約」の新しい生徒として入ります。名簿に同じ生徒がすでにいても自動ではまとまらず、画面から行を消すこともできません。名簿にいる生徒に一斉に「何か送って」と頼むと、生徒が二重に並ぶので避けてください。名簿にいる生徒は、カルテの「🔗 LINE紐付け」で出るコード（BEY-で始まる文字列）を、ほかのメッセージより先に公式アカウントへ送ってもらうと、名簿の行にそのままつながり、二重になりません
 - LINE友だちの人数は前日までの数字で、取れない日は出ません
 
 ## 最初の一歩

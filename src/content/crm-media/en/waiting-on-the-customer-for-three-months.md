@@ -10,8 +10,9 @@ segment: "b2b"
 edition: "b2b"
 help_slug: "waiting, pipeline-review"
 video: "3, 9"
-sources: "supabase/migrations/146_product_help_articles_seed.sql (waiting, pipeline-review) / 141_deal_waiting_state.sql / 143_deal_stage_dwell_and_decision.sql / lib/revops/catalog.ts (sal-37)"
+sources: "supabase/migrations/146_product_help_articles_seed.sql (waiting, pipeline-review) / 141_deal_waiting_state.sql / 143_deal_stage_dwell_and_decision.sql / lib/revops/catalog.ts (sal-37) / supabase/migrations/146_product_help_articles_seed.sql / src/app/(dashboard)/pipeline-review/pipeline-review-view.tsx / src/lib/deals/waiting.ts / src/lib/revops/deals.ts / src/lib/editions/index.ts"
 date: 2026-09-28
+updated: 2026-11-20
 featured: 3
 author: "Seiko Yamaguchi"
 ---
@@ -36,11 +37,11 @@ I do not treat this as a sales problem. The CRM simply had nowhere to write down
 
 The deal edit screen has a section called "Waiting & decision." You enter three things.
 
-- The reason for waiting: customer approval, legal or security review, waiting on budget release, waiting on the customer's resources, or work on our side
+- The reason for waiting: Customer approval, Legal / security review, Budget cycle, Customer resourcing, or Our own work
 - The expected resume date: when it should start moving again
 - The decision date: the day the customer's decision was made. This is not a win. It is for deals that are decided but cannot yet be marked won because of revenue recognition or paperwork
 
-Once an expected resume date is set, no stall alert and no dormancy alert fires until that date. The day before, a "check status" task appears; if the date passes, an "overdue resume date" task appears. On Home, the "Open pipeline" tile shows the amount that is waiting on customers as a separate figure.
+Once both a waiting reason and an expected resume date are set, no stall alert and no dormancy alert fires until that date. If the "Deal stall alert" automation is on (it is on by default in the B2B sales edition), a "check status" task appears the day before, and an "overdue resume date" task appears if the date passes. On Home, the "Open pipeline" tile shows the amount that is waiting on customers as a separate figure.
 
 One caution. If you leave the expected resume date empty, the deal is not treated as waiting and it keeps getting chased as stalled. A wait with no date is indistinguishable from neglect, so always put the date in.
 
@@ -51,14 +52,14 @@ One caution. If you leave the expected resume date empty, the deal is not treate
 
 For deals that have already piled up, open "Pipeline review" under Sales in the sidebar. You can switch between 30, 60 and 90 days; the default is 60. Deals that have sat in one stage for a long time fall into three piles.
 
-- No record: the CRM cannot tell whether the deal is decided or stuck
-- Waiting on the customer's clock: a waiting reason is recorded
+- Not recorded: the system cannot tell whether the deal is decided or stuck
+- Waiting on the customer: a waiting reason is recorded
 - Already decided: a decision date is recorded
 
-It also shows the amount that is "decided but not visible this quarter." The work is to clear the "No record" pile using the controls on the right. Either enter a waiting reason and resume date, or press "Already decided." Every deal you sort moves the numbers at the top.
+It also shows the amount that is "Decided but not visible this period." The work is to clear the "Not recorded" pile using the controls on the right. Either enter a waiting reason and resume date, or press "Mark decided." Every deal you sort moves the numbers at the top.
 
 ![Pipeline review: three piles with amounts, no record / waiting on the customer / already decided](/images/crm/media/screens/waiting-on-the-customer-for-three-months-3-2026-10.webp)
-*Pipeline review at 60 days. The first line on the screen is the whole point: if two kinds of deal sit in the same stage, it is not a sales problem.*
+*Pipeline review, shown at the 30-day setting. The first line on the screen is the whole point: if two kinds of deal sit in the same stage, it is not a sales problem.*
 
 Days in stage are counted from the day the deal entered its current stage. History from before this feature was in use cannot be reconstructed, so existing deals may show fewer days than reality. Accurate counts build up from the day you start.
 
@@ -66,6 +67,8 @@ For the daily check, ask the AI agent in the bottom right: "Show me the deals th
 
 ## The first step
 
-Before your next sales meeting, open Pipeline review at 60 days and sort the entire "No record" pile. It will probably take about 20 minutes. From that meeting on, "waiting on the customer" turns into a reason and a return date.
+Before your next sales meeting, open Pipeline review at 60 days and sort the entire "Not recorded" pile. Each deal takes one choice: a reason and a date, or "Mark decided." From that meeting on, "waiting on the customer" turns into a reason and a return date.
 
-The in-product help articles "Record that a deal is waiting on the customer" and "Sort stuck deals with the pipeline review" have the same steps. The basics of the deal screen are in the video "Enter deals and see where they stand" (4 min).
+The in-product help articles "Record that a deal is waiting on the customer" and "Sort stuck deals with the pipeline review" have the same steps.
+
+To explore the screens, choose **B2B sales** in the [Revenue CRM demo](https://crm.consilegy.com/demos).

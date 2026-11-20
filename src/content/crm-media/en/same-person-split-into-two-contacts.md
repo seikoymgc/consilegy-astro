@@ -6,10 +6,11 @@ category: "operate"
 pain: "Someone who runs two companies has two email addresses, so the CRM creates two contacts. Their history splits, and two reps can pitch the same person in the same week without anything on screen warning them"
 feature: "Extra email addresses and companies on a single contact (Add email and Add company on the contact page, with Make primary and Remove)"
 screens: "Add email (field: Another email address), Add company, the arrow (Make primary) and X (Remove) on the contact page, named only in tooltips; the message This address belongs to another contact; the Contacts card on the company page; the trash icon (Move to trash) on the contact page; the Email column on the contact list; the search at the top of the screen; Related records on the deal edit page"
-sources: "src/app/(dashboard)/contacts/[id]/contact-secondaries.tsx / src/app/(dashboard)/contacts/[id]/page.tsx / src/app/(dashboard)/companies/[id]/page.tsx / src/app/(dashboard)/contacts/scan/card-scan-view.tsx / src/app/(dashboard)/deals/[id]/edit/page.tsx / src/app/api/contacts/[id]/emails/route.ts / src/app/api/contacts/[id]/companies/route.ts / src/app/api/search/route.ts / src/lib/crm/contact-emails.ts / src/lib/crm/use-cases.ts / src/lib/crm/csv-import.ts / src/lib/contact-intake.ts / src/lib/email-inbox.ts / src/lib/google-sync.ts / src/lib/meetings/ingest.ts / src/lib/export/full-export.ts / src/components/record-delete-button.tsx / supabase/migrations/240_contact_secondary_emails_companies.sql（crm #363）"
+sources: "src/app/(dashboard)/contacts/[id]/contact-secondaries.tsx / src/app/(dashboard)/contacts/[id]/page.tsx / src/app/(dashboard)/companies/[id]/page.tsx / src/app/(dashboard)/contacts/scan/card-scan-view.tsx / src/app/(dashboard)/deals/[id]/edit/page.tsx / src/app/api/contacts/[id]/emails/route.ts / src/app/api/contacts/[id]/companies/route.ts / src/app/api/search/route.ts / src/lib/crm/contact-emails.ts / src/lib/crm/use-cases.ts / src/lib/crm/csv-import.ts / src/lib/contact-intake.ts / src/lib/email-inbox.ts / src/lib/google-sync.ts / src/lib/meetings/ingest.ts / src/lib/export/full-export.ts / src/components/record-delete-button.tsx / supabase/migrations/240_contact_secondary_emails_companies.sql（crm #363） / src/components/contact-form-fields.tsx / src/lib/crm/record-form.ts / src/lib/outlook-sync.ts"
 segment: "b2b"
 edition: "b2b"
 date: 2026-11-02
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 One of your reps is working a deal with a founder at her manufacturing company. Another rep met the same founder at a trade show, wearing her other hat as head of a services firm, and scanned that card.
@@ -35,7 +36,7 @@ Under the email address on the contact page, click Add email, type into the Anot
 
 Once added, the address and company count as the same person here:
 
-- Form submissions, email arriving in the Inbox, Gmail sync and meeting tool imports
+- Form submissions, email arriving in the Inbox, Gmail and Outlook sync, and meeting tool imports
 - Card scanning, which now shows the existing contact for a card with that address instead of creating someone new
 - The Contacts card on the added company's page, which lists this person
 
@@ -43,7 +44,7 @@ If someone is already split, the order matters. You can't add an address that is
 
 1. Note the other record's address. If it has added addresses, note those too and remove them with the X
 2. Search the deal list by company name and open each deal to find the ones on the other record. Move them across with Related records on the deal's edit page. The name appears twice in the picker, so after saving, open the contact from the deal to check. Add their Contact roles again too
-3. Clear the other record's address in the Email column of the contact list. The list only shows the newest 300 contacts. If the record is too old to appear, leave the two records as they are for now
+3. Open the other record, choose Edit, clear Email (primary) and save. Clearing it in the Email column of the contact list works too, but that list only shows the newest 300 contacts
 4. Add that address and company to the record you kept
 5. Move the other record to the trash with the trash icon on its page
 

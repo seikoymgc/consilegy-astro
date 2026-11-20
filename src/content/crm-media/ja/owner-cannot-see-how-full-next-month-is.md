@@ -8,8 +8,9 @@ feature: "カレンダー（「もっと」→「📅 カレンダー」、PCの
 screens: "下のナビ「もっと」→「📅 カレンダー」（説明「予約の月表示・講師の受付時間」）／PCのサイドバー「カレンダー」／「‹ 前の月」「次の月 ›」、講師のチップ「すべて」と講師名、マスの「時刻 生徒名」、取り消された予約の薄い取り消し線／予約が無いときの案内「予約がまだ1件もありません。カルテの「📅 次回予約を登録」か、生徒のLINEの「予約する」から入ります。」／同じ画面の「📲 スマホのカレンダーで見る」「🕘 講師の受付時間」／カルテ「📅 次回予約を登録」"
 segment: "b2c"
 edition: "school"
-sources: "src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/school-app/lib/mock-body.ts / src/school-app/lib/supabase.ts / src/school-app/lib/authz.ts / src/school-app/lib/google-calendar.ts / src/school-app/lib/html-en.ts / src/school-app/lib/demo-seed.ts / src/app/api/school-app/booking/route.ts"
+sources: "src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/school-app/lib/mock-body.ts / src/school-app/lib/supabase.ts / src/school-app/lib/authz.ts / src/school-app/lib/google-calendar.ts / src/school-app/lib/html-en.ts / src/school-app/lib/demo-seed.ts / src/app/api/school-app/booking/route.ts / src/app/api/school-app/lesson/reschedule/route.ts"
 date: 2026-10-25
+updated: 2026-11-20
 author: "山口聖子"
 ---
 火曜の昼、体験レッスンの問い合わせが届きます。「来週の平日の夜で、空いている日はありますか」。代表は先生3人にLINEを送ります。「来週の夜、どこが埋まってる？」。全員の返事がそろうのは夕方で、問い合わせた人に候補を返せたのは翌朝でした。
@@ -41,10 +42,10 @@ author: "山口聖子"
 注意が5つあります。
 
 - 見られるのは予約だけです。先生ごとの件数の合計や、空いている枠の一覧は出ません。マスが空いていても、その先生の受付時間の外かもしれません。空きは、同じ画面の下の「🕘 講師の受付時間」と見比べて読み取ります。カルテの「📅 次回予約を登録」は重なりを確かめないので、二重予約も起こりえます
-- 「振替」はもとの予約を残したまま来週の予約を足すので、同じ生徒が2回並ぶことがあります
+- 「振替」を押すと、今日から1週間以内のもとの予約が取り消され（マスには薄い取り消し線で残ります）、押した日の1週間後の同じ時刻に新しい予約が入ります。もとの予約が1週間より先にあるときは取り消されないので、同じ生徒が2回並ぶことがあります
 - この画面で予約を動かす・取り消すことはできません。Googleカレンダーとつないでいれば、カレンダー側で予定を動かすと日時が、消すと薄い取り消し線の表示が、同期のあと（「🗓️ Googleカレンダーと今すぐ同期」か毎日の自動処理）に反映されます
 - 色は4色で、予約のある先生が5人以上いると同じ色が出ます。チップの名前は予約に入っている表記のままなので、同じ先生でも書き方が違うと別のチップになります
-- 同じ画面の下にある「📲 スマホのカレンダーで見る」は、いまは設定を促す案内が出るだけで、URLは発行されません
+- 同じ画面の下にある「📲 スマホのカレンダーで見る」に購読URLが出るのは、サービス側で購読の設定が済んでいるときです。設定前は、URLの代わりに設定を促す案内が出ます
 
 ## 最初の一歩
 
@@ -52,4 +53,4 @@ author: "山口聖子"
 
 金曜の夕方、代表は「カレンダー」で来週と来月のマスを開きます。先生のチップを1人ずつ押して、予約が偏っていないか、夜の空いている曜日はどこかを確かめてください。次に体験の問い合わせが来たとき、候補を出してから先生に一言確かめるだけで済めば、仕組みが回り始めた合図です。
 
-メールアドレスだけで入れる[デモ](https://crm.consilegy.com/demos)で「スクール」を選び、「もっと」→「カレンダー」を開くと、今日から数日分の予約が、先生3人の色で並んだ月表示を見られます。
+メールアドレスだけで入れる[デモ](https://crm.consilegy.com/demos)で「スクール」を選び、「もっと」→「カレンダー」を開くと、今日から数日分の予約が先生ごとの色で並んだ月表示を見られます。共有のデモなので、ほかの方が入れた予約が混ざることがあります。

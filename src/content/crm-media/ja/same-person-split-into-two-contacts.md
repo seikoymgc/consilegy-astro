@@ -6,10 +6,11 @@ category: "operate"
 pain: "複数の会社を兼ねる人の名刺を読むと、メールアドレスが違うので会社ごとに別のコンタクトができる。履歴が割れ、営業どうしが同じ人に別々に連絡しても、画面からは気づけない"
 feature: "1人のコンタクトに2つ目以降のメールアドレスと会社を持たせる（コンタクト詳細の「メールを追加」「会社を追加」。「主にする」「外す」）"
 screens: "コンタクト詳細の「メールを追加」（入力欄「別のメールアドレス」）、「会社を追加」、行の右の矢印「主にする」と×「外す」（名前はツールチップ）；重なったときの表示「このアドレスは他のコンタクトで使われています」；会社詳細の「コンタクト」カード；コンタクト詳細のゴミ箱のアイコン「ゴミ箱へ移動」；コンタクト一覧の「メール」列；画面上部の検索；商談の編集の「関連先」"
-sources: "src/app/(dashboard)/contacts/[id]/contact-secondaries.tsx / src/app/(dashboard)/contacts/[id]/page.tsx / src/app/(dashboard)/companies/[id]/page.tsx / src/app/(dashboard)/contacts/scan/card-scan-view.tsx / src/app/(dashboard)/deals/[id]/edit/page.tsx / src/app/api/contacts/[id]/emails/route.ts / src/app/api/contacts/[id]/companies/route.ts / src/app/api/search/route.ts / src/lib/crm/contact-emails.ts / src/lib/crm/use-cases.ts / src/lib/crm/csv-import.ts / src/lib/contact-intake.ts / src/lib/email-inbox.ts / src/lib/google-sync.ts / src/lib/meetings/ingest.ts / src/lib/export/full-export.ts / src/components/record-delete-button.tsx / supabase/migrations/240_contact_secondary_emails_companies.sql（crm #363）"
+sources: "src/app/(dashboard)/contacts/[id]/contact-secondaries.tsx / src/app/(dashboard)/contacts/[id]/page.tsx / src/app/(dashboard)/companies/[id]/page.tsx / src/app/(dashboard)/contacts/scan/card-scan-view.tsx / src/app/(dashboard)/deals/[id]/edit/page.tsx / src/app/api/contacts/[id]/emails/route.ts / src/app/api/contacts/[id]/companies/route.ts / src/app/api/search/route.ts / src/lib/crm/contact-emails.ts / src/lib/crm/use-cases.ts / src/lib/crm/csv-import.ts / src/lib/contact-intake.ts / src/lib/email-inbox.ts / src/lib/google-sync.ts / src/lib/meetings/ingest.ts / src/lib/export/full-export.ts / src/components/record-delete-button.tsx / supabase/migrations/240_contact_secondary_emails_companies.sql（crm #363） / src/components/contact-form-fields.tsx / src/lib/crm/record-form.ts / src/app/(dashboard)/contacts/page.tsx / src/lib/outlook-sync.ts"
 segment: "b2b"
 edition: "b2b"
 date: 2026-11-02
+updated: 2026-11-20
 author: "山口聖子"
 ---
 営業Aさんは、ある社長と製造会社の件で話を進めています。同じ社長は、別のサービス会社の代表も兼ねていて、そちらの名刺は展示会で営業Bさんが受け取りました。
@@ -35,7 +36,7 @@ author: "山口聖子"
 
 足すと、次の場面で同じ人として扱われます。
 
-- フォームの送信、インボックスに届くメール、Gmail の同期、会議ツールの取り込み
+- フォームの送信、インボックスに届くメール、Gmail と Outlook の同期、会議ツールの取り込み
 - 名刺の読み取り（足したアドレスの名刺は、新しい人ではなく登録済みの人として出ます）
 - 足した会社の詳細の「コンタクト」カードに、その人が並びます
 
@@ -43,7 +44,7 @@ author: "山口聖子"
 
 1. もう一方のアドレスを控えます。足したアドレスがあれば、それも控えて×で外します
 2. 商談の一覧を会社名で検索し、商談を開いて、もう一方に付いているものを探します。「編集」の「関連先」で残すほうに付け替えます。同じ名前が2行並ぶので、保存後に商談からコンタクトを開いて確かめます。商談の「コンタクトロール」も足し直します
-3. コンタクト一覧の「メール」列で、もう一方のアドレスを消します。一覧に出るのは新しい300件までです。古くて出てこない人は、いまはまとめずに2件のまま置いてください
+3. もう一方のコンタクト詳細で「編集」を開き、「メールアドレス（主）」を消して保存します。コンタクト一覧の「メール」列で消しても同じです（一覧に出るのは新しい300件までです）
 4. 残すほうに、そのアドレスと会社を足します
 5. もう一方を、詳細のゴミ箱のアイコンでゴミ箱へ移します
 

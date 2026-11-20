@@ -8,8 +8,9 @@ feature: "Export data (Settings > Operations > Export data). Eight datasets, eac
 screens: "Sidebar Settings > Operations: Export data / CSV button on each row, Exporting… / Only owners and admins can export all data. (shown to other roles) / Audit log"
 segment: "b2b"
 edition: "b2b"
-sources: "src/app/(dashboard)/settings/settings-index.tsx / src/app/(dashboard)/settings/export/page.tsx / src/app/(dashboard)/settings/export/export-view.tsx / src/lib/export/full-export.ts / src/lib/export/read-pages.ts / src/app/api/export/[dataset]/route.ts / src/lib/csv.ts / src/app/(dashboard)/settings/audit-log/audit-log-view.tsx / src/app/api/contacts/export/route.ts / src/components/csv-import-dialog.tsx / src/app/(dashboard)/layout.tsx / src/app/api/demo/seed/route.ts"
+sources: "src/app/(dashboard)/settings/settings-index.tsx / src/app/(dashboard)/settings/export/page.tsx / src/app/(dashboard)/settings/export/export-view.tsx / src/lib/export/full-export.ts / src/lib/export/read-pages.ts / src/app/api/export/[dataset]/route.ts / src/lib/csv.ts / src/app/(dashboard)/settings/audit-log/audit-log-view.tsx / src/app/api/contacts/export/route.ts / src/components/csv-import-dialog.tsx / src/app/(dashboard)/layout.tsx / src/app/api/demo/seed/route.ts / src/app/api/activities/import/route.ts / src/app/(dashboard)/activities/activities-import-button.tsx / src/app/trial-expired/page.tsx / src/lib/region/server.ts / src/lib/outlook-sync.ts"
 date: 2026-10-21
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 Two weeks before the year-end audit, finance asks the head of sales for "the full record of what we discussed with this client, and when." She goes to the contact list and downloads the CSV. What she gets is a table of names, companies and phone numbers. No call logs, no deal history, no copy of the quote the client sent as an attachment. The rest of her afternoon goes into opening records one by one and copying them out.
@@ -31,20 +32,20 @@ These are the eight datasets:
 - Contacts, Companies and Deals, with every field. Custom fields come out in a single JSON column
 - Activities: calls, meetings, emails and other logged touches, with the contact, company or deal they belong to
 - Notes and Tasks
-- Emails: date, sender, recipient, subject and a short preview of messages synced from Gmail
+- Emails: date, sender, recipient, subject and a short preview of messages synced from Gmail or Outlook
 - Attachments: a list of files with a download URL for each one
 
-There is no row limit. Related records are given by both name and ID, so you can re-link them in another system. Timestamps are in Japan time (YYYY-MM-DD HH:mm), which is worth knowing if your team sits in another time zone. The files are UTF-8 with a byte-order mark, so Excel opens them without garbled characters. Column headers follow your display language, while picklist values come out as stored, such as `customer`. Every export lands in the Audit log with who exported which dataset and how many rows.
+There is no row limit. Related records are given by both name and ID, so you can re-link them in another system. Timestamps use your workspace's time zone, which is Japan time unless it has been changed, in the format YYYY-MM-DD HH:mm. The files are UTF-8 with a byte-order mark, so Excel opens them without garbled characters. Column headers follow your display language, while picklist values come out as stored, such as `customer`. Every export lands in the Audit log with who exported which dataset and how many rows.
 
 Five things to know before you rely on it:
 
 - Only owners and admins can use it, and it exports the whole workspace regardless of anyone's visibility settings
 - It runs one dataset at a time. There is no single "download everything" button
-- Full bodies of emails synced from Gmail, quotes, tickets, inbox conversations, calendar events and campaign send history are not included. One-to-one emails sent from Revenue CRM are in Activities, body and all
+- Full bodies of emails synced from Gmail or Outlook, quotes, tickets, inbox conversations, calendar events and campaign send history are not included. One-to-one emails sent from Revenue CRM are in Activities, body and all
 - Contacts, companies and deals in the trash are left out, and attachment URLs expire seven days after the export
-- You can't load these files straight back in to restore. CSV import covers contacts, companies and deals only, and IDs are not carried over
+- You can't load these files straight back in to restore. CSV import covers contacts, companies, deals and activities, and IDs are not carried over
 
-One more: export while your subscription is active. Once it ends, every screen after login switches to an end-of-plan page and Settings is no longer reachable.
+One more: export while your subscription is active and you can still use the screen. Confirm how to retrieve data after the contract ends, and any deadline, before ending it.
 
 ## The first step
 

@@ -8,8 +8,9 @@ edition: "school"
 pain: "Students submit a new homework activity under an unrelated category because its name is missing from LINE"
 feature: "Custom lesson types with homework enabled"
 screens: "Lessons / Teachers by lesson type / + Add lesson type / Add teacher / Lesson type / Teacher / Add / Homework"
-sources: "src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/app/api/school-app/lesson-types/route.ts / src/school-app/lib/homework.ts / src/app/api/school-app/line/webhook/route.ts / src/school-app/lib/line-push.ts / src/school-app/lib/authz.ts / supabase/migrations/135_beyonders_homework_types.sql"
+sources: "src/school-app/lib/render.ts / src/school-app/components/MockShell.tsx / src/app/api/school-app/lesson-types/route.ts / src/school-app/lib/homework.ts / src/app/api/school-app/line/webhook/route.ts / src/school-app/lib/line-push.ts / src/school-app/lib/authz.ts / supabase/migrations/135_beyonders_homework_types.sql / src/app/api/school-app/automation/run/route.ts / src/school-app/lib/homework-reminder.ts / src/school-app/lib/html-en.ts"
 date: 2026-11-16
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 A language school adds a read-aloud assignment. Students open the school's LINE account to submit it, but the available choices still show only grammar correction and shadowing.
@@ -43,7 +44,7 @@ Once configured, the new name is included when a student opens the existing home
 
 ## The switch also affects missing-homework checks
 
-Homework is more than a display preference. Enabling it makes that type eligible for missing-submission detection. Students who have automatic homework reminders enabled can also become eligible for reminders when the conditions are met. Enable it only for activities the school really assigns, and review those student settings before introducing a type.
+Homework is more than a display preference. Enabling it applies missing-submission detection for that type to every active student; there is no per-student setting. A student who has never submitted that type is counted from their start date (or the date they were added), so the next detection run can list "Homework not submitted" for that type on many students at once. Students who have automatic homework reminders enabled will also be sent a reminder. Enable it only for activities the school really assigns, and review those student settings before introducing a type.
 
 The teacher entry on this screen is also separate from the homework-review assignments on an individual student's profile. Registering a teacher here does not complete that student assignment. Confirm who will review submissions separately.
 

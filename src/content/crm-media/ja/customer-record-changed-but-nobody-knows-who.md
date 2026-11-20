@@ -8,8 +8,9 @@ feature: "監査ログのレコード種別・操作による絞り込みで、�
 screens: "設定 → 監査ログ／すべてのレコード／すべての操作／更新"
 segment: "b2b"
 edition: "b2b"
-sources: "src/app/(dashboard)/settings/audit-log/page.tsx / src/app/(dashboard)/settings/audit-log/audit-log-view.tsx / src/app/(dashboard)/settings/settings-index.tsx / src/lib/audit/access-log.ts / supabase/migrations/030_audit_triggers.sql / supabase/migrations/081_audit_trigger_org_purge.sql"
+sources: "src/app/(dashboard)/settings/audit-log/page.tsx / src/app/(dashboard)/settings/audit-log/audit-log-view.tsx / src/app/(dashboard)/settings/settings-index.tsx / src/lib/audit/access-log.ts / supabase/migrations/030_audit_triggers.sql / supabase/migrations/081_audit_trigger_org_purge.sql / src/lib/demo.ts / src/app/demos/demos-client.tsx"
 date: "2026-11-14"
+updated: 2026-11-20
 author: "山口聖子"
 ---
 商談の前に顧客情報を開くと、昨日見た内容と違う。担当者が直したのか、別の人が更新したのか。理由を確かめるために、チームのチャットへ「この情報を変えた方はいますか」と投げるところから始まります。
@@ -37,7 +38,7 @@ author: "山口聖子"
 
 ## 「システム」なら、特定の担当者が直したとは決めつけない
 
-自動処理など、操作した本人を特定できない更新には「システム」と出ることがあります。この表示から、人の名前や変更の意図までは分かりません。
+自動処理など、操作した本人を特定できない更新には「システム」と出ます。プロフィールに名前が入っていないメンバーの操作も「システム」と出るので、人が直した可能性は残ります。この表示から、人の名前や変更の意図までは分かりません。
 
 ログで確かめられる範囲と、担当者に聞く範囲を分けます。表示された新しい値と、現在の顧客情報を見比べ、それでも分からない点を質問します。ログ自体に変更理由を書く欄や、以前の値へ戻すボタンはありません。監査ログを見たことも記録されます。
 
@@ -49,4 +50,4 @@ author: "山口聖子"
 
 確認の起点が決まると、全員への呼びかけから始めずに済みます。見つからない場合も、ログの範囲を踏まえて次に聞く相手を決められます。
 
-画面を先に見たい方は、[デモ](https://crm.consilegy.com/demos)で「法人営業」を選び、「設定」→「監査ログ」を開いてください。
+画面を先に見たい方は、[デモ](https://crm.consilegy.com/demos)で「B2B」（法人営業向け）を選び、「設定」→「監査ログ」を開いてください。

@@ -8,8 +8,9 @@ feature: "Translate on emails (read an incoming message in your screen language;
 screens: "Sidebar Inbox, incoming message: Translate, Original / Reply box: Translate → Translate into (日本語, English, 繁體中文), Translate, Replace, Close, Undo / Sidebar Drafts waiting to send: Translate, Approve and send / Contact page AI email: Translate / Sequences → Add step (email): Translate"
 segment: "b2b"
 edition: "b2b"
-sources: "src/components/email-translate.tsx / src/lib/email-translate.ts / src/app/api/ai/translate/route.ts / src/app/(dashboard)/inbox/inbox-view.tsx / src/components/outbound-draft-editor.tsx / src/app/(dashboard)/outbound-drafts/outbound-drafts-view.tsx / src/components/ai-email-panel.tsx / src/app/(dashboard)/sequences/[id]/sequence-detail.tsx / src/lib/email-signature.ts / src/lib/ai-fuel.ts / src/lib/ai-quota.ts / src/components/app-sidebar.tsx / src/components/app-topbar.tsx / src/lib/demo.ts / src/app/(dashboard)/contacts/[id]/page.tsx"
+sources: "src/components/email-translate.tsx / src/lib/email-translate.ts / src/app/api/ai/translate/route.ts / src/app/(dashboard)/inbox/inbox-view.tsx / src/components/outbound-draft-editor.tsx / src/app/(dashboard)/outbound-drafts/outbound-drafts-view.tsx / src/components/ai-email-panel.tsx / src/app/(dashboard)/sequences/[id]/sequence-detail.tsx / src/lib/email-signature.ts / src/lib/ai-fuel.ts / src/lib/ai-quota.ts / src/components/app-sidebar.tsx / src/components/app-topbar.tsx / src/lib/demo.ts / src/app/(dashboard)/contacts/[id]/page.tsx / src/lib/record-translation.ts"
 date: 2026-10-22
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 The week after an overseas trade show, enquiries arrive from a company in Taiwan and another in the US. On the sales team, exactly one person writes business English with confidence. Every foreign-language email gets forwarded to her, and she writes every reply. She is also out at her own meetings most days, so replies go out in the evening or the next morning. Now and then a rep gets impatient, pastes Japanese into a free translator and sends whatever comes out.
@@ -38,8 +39,8 @@ Five things to know before you rely on it:
 
 - Translate never sends anything. Email goes out only when you press Send or Approve and send, as usual
 - There are three languages: Japanese, English and Traditional Chinese. No Simplified Chinese, Korean or others
-- Each translation uses 1 AI Fuel (charged when you press Translate in the panel, or Translate on an incoming message). If you're out of Fuel, your text stays as it was and a message tells you so
-- Translations of incoming messages aren't saved. Leave the page and you press Translate again. Incoming subject lines aren't translated
+- Each rewrite uses 1 AI Fuel when you press Translate in the panel. Translating an incoming message also uses 1 AI Fuel the first time. If you're out of Fuel, your text stays as it was and a message tells you so
+- Translations of incoming messages are saved for your organization, so translating the same message into the same language again, by you or a teammate, uses no Fuel. Leave the page and the original shows again, so you press Translate once more. Incoming subject lines aren't translated
 - Broadcast emails have no Translate button, and in Sequences it only appears on steps you are adding
 
 It's a rewrite, not a word-for-word conversion, so read the preview before you send. Checking that the numbers and dates match your draft catches most problems.

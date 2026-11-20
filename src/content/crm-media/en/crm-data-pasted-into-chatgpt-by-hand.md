@@ -4,12 +4,13 @@ slug: "crm-data-pasted-into-chatgpt-by-hand"
 lang: "en"
 category: "setup"
 pain: "To ask ChatGPT or Claude about the pipeline, people export or copy deal lists out of the CRM and paste them in. The numbers go stale the moment they are pasted, and the company has no record of which AI account received which customer data"
-feature: "Connecting ChatGPT and Claude (connector URL https://crm.consilegy.com/api/mcp. An owner or admin picks the workspace and permission on a consent screen. The app can read contacts, companies and deals, and can only create contacts and deals. Listed and disconnected under Settings > API keys > Connected AI apps)"
+feature: "Connecting ChatGPT and Claude (connector URL https://crm.consilegy.com/api/mcp. An owner or admin picks the workspace and permission on a consent screen. The app reads contacts, companies, deals and activities; with Read and write it can also create contacts, companies and deals, update contacts and deals, and log activities. Listed and disconnected under Settings > API keys > Connected AI apps)"
 screens: "Settings > Integrations & channels > API keys > Connected AI apps (app name, permission, last used, Disconnect); consent screen \"Connect (app name) to Revenue CRM?\" with Workspace, Permission (Read only / Read and write (create contacts and deals)), Cancel, Allow and connect"
-sources: "src/app/(auth)/oauth/authorize/page.tsx / src/app/(auth)/oauth/authorize/consent-form.tsx / src/lib/oauth/server.ts / src/app/api/mcp/route.ts / src/lib/crm/use-cases.ts (CRM_MCP_TOOLS, callCrmMcpTool, listDeals) / src/app/(dashboard)/settings/api-keys/page.tsx / src/app/(dashboard)/settings/api-keys/api-keys-view.tsx / src/app/(dashboard)/settings/settings-index.tsx / supabase/migrations/263_oauth_mcp.sql / src/app/api/demo/seed/route.ts (crm ccdb7aa, #416. oauth_clients, oauth_authorization_codes and oauth_tokens confirmed in production on 2026-11-06)"
+sources: "src/app/(auth)/oauth/authorize/page.tsx / src/app/(auth)/oauth/authorize/consent-form.tsx / src/lib/oauth/server.ts / src/app/api/mcp/route.ts / src/lib/crm/use-cases.ts (CRM_MCP_TOOLS, callCrmMcpTool, listDeals) / src/app/(dashboard)/settings/api-keys/page.tsx / src/app/(dashboard)/settings/api-keys/api-keys-view.tsx / src/app/(dashboard)/settings/settings-index.tsx / supabase/migrations/263_oauth_mcp.sql / src/app/api/demo/seed/route.ts (crm ccdb7aa, #416. oauth_clients, oauth_authorization_codes and oauth_tokens confirmed in production on 2026-11-06) / src/lib/crm/use-cases.ts"
 segment: "b2b"
 edition: "b2b"
 date: 2026-11-06
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 Friday, 5 p.m. A sales manager exports the open deals to CSV, pastes the file into ChatGPT, and types: "Summarize the biggest deals and flag anything that looks stuck."
@@ -37,11 +38,11 @@ Only a workspace owner or admin can connect an app.
 
 Every connected app then appears under "Connected AI apps" on the API keys page, with its permission and the date it was last used. To cut it off, click "Disconnect". The company keeps one list of which AI apps are connected, with what permission, and can cut any of them off. Answers already given still sit in the chat history of the account that asked.
 
-What the AI can do is still narrow. Better to know that up front.
+What the AI can do still has limits. Better to know that up front.
 
-- **It reads three things.** Contacts by name or email, companies by name, and deals sorted by amount, largest first (deal name, amount, probability, close date, stage, company). It does not read activities, notes, tasks or deal owners
+- **What it reads.** Contacts by name or email, companies by name, and deals sorted by amount, largest first (deal name, amount, probability, close date, stage, company). It can also open a single contact, company or deal along with its linked company, deals and recent activities, list pipelines and their stages, and list recent activities. A contact's Notes field is included. It does not read the Tasks list or deal owners
 - The deal list includes deals that are already won or lost. When you ask about open opportunities, tell the AI to group by stage, or it may count closed deals
-- With "Read and write", it can create new contacts and deals. It cannot edit, delete or send anything
+- With "Read and write", it can create contacts, companies and deals, edit contact fields, change a deal's stage, amount, close date, name or probability, and log notes, calls, meetings and other activities. The consent screen still labels this option "Read and write (create contacts and deals)", but it covers edits and activity logging too. It cannot delete records or send email
 - **It sees the whole workspace.** The view scope set under Settings > Permissions (All, Team, Owned) does not apply. Anyone using the connected AI account can read every record, so connect it from an account used only by people who are allowed to see everything
 - Unless the AI app asks for read only, "Read and write" is preselected on the consent screen. Switch it to "Read only" for the first connection
 - What happens to data once it reaches the AI app is governed by that app's terms and your own AI policy. What Revenue CRM controls is the connection itself

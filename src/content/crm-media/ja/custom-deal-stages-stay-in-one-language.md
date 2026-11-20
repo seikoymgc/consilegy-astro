@@ -8,9 +8,9 @@ feature: "同じ商談ステージに日本語・英語・繁體中文の表示�
 screens: "設定 → 商談ステージ → 言語ごとの名前／日本語／English／繁體中文／保存する"
 segment: "b2b"
 edition: "b2b"
-sources: "src/app/(dashboard)/settings/pipeline-stages/page.tsx / src/app/(dashboard)/settings/pipeline-stages/stages-view.tsx / src/app/api/pipeline-stages/route.ts / src/lib/pipeline-stages.ts / src/lib/label-i18n.ts / src/lib/deals-i18n.ts"
+sources: "src/app/(dashboard)/settings/pipeline-stages/page.tsx / src/app/(dashboard)/settings/pipeline-stages/stages-view.tsx / src/app/api/pipeline-stages/route.ts / src/lib/pipeline-stages.ts / src/lib/label-i18n.ts / src/lib/deals-i18n.ts / src/lib/demo.ts / src/app/demos/demos-client.tsx"
 date: "2026-11-15"
-updated: 2026-11-18
+updated: 2026-11-20
 author: "山口聖子"
 ---
 英語で使うメンバーが増え、顧客管理システムの画面も英語に切り替えた。それでも、会社で独自に付けた「稟議待ち」のような商談ステージ名は日本語のまま。会議では、その列が何を表すのかを毎回説明しています。
@@ -50,4 +50,4 @@ author: "山口聖子"
 
 [画面そのものの言語切り替え](/crm/media/b2b/teammates-who-dont-read-japanese-cant-use-the-crm/)と組み合わせて、担当者が自分の言葉で同じ商談の進み具合を読めるようにします。
 
-画面を先に見たい方は、[デモ](https://crm.consilegy.com/demos)で「法人営業」を選び、「設定」→「商談ステージ」を開いてください。
+画面を先に見たい方は、[デモ](https://crm.consilegy.com/demos)で「B2B」を選び、「設定」→「商談ステージ」を開いてください。

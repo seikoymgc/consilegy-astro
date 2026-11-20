@@ -5,11 +5,12 @@ lang: "ja"
 category: "setup"
 pain: "新しい先生に代表のメールアドレスとパスワードを渡して同じログインを使い回しているので、誰が記録を書いたかが分からず、月謝の金額まで全員に見えている"
 feature: "ユーザー管理（メールアドレスと役割で一人ずつ招待し、本人が名前とパスワードを決めて入る。招待中はURLの再発行・再送信・取り消しができる）"
-screens: "下のナビ「もっと」→「ユーザー管理（設定）」（パソコンでは左の「ユーザー」）／役割の選択「一般」「管理部」／「＋ 招待リンクを発行」／招待中の行の「保留」「🔗 URLを発行」「✉️ 再送信」「🗑 取り消し」／「☐ LEADERS」／初回設定の「お名前」「パスワード」「確認用パスワード」「設定して開始」／「監査ログ」の「メンバー招待」「招待URL発行」「招待メール再送信」「招待取り消し」"
+screens: "下のナビ「もっと」→「ユーザー管理（設定）」（パソコンでは左の「ユーザー」）／役割の選択「一般」「管理部」／「＋ 招待リンクを発行」／招待中の行の「保留」「🔗 URLを発行」「✉️ 再送信」「🗑 取り消し」／「☐ 講師」／初回設定の「お名前」「パスワード」「確認用パスワード」「設定して開始」／「監査ログ」の「メンバー招待」「招待URL発行」「招待メール再送信」「招待取り消し」"
 segment: "b2c"
 edition: "school"
-sources: "src/school-app/lib/render.ts / src/school-app/lib/mock-body.ts / src/school-app/components/MockShell.tsx / src/school-app/lib/authz.ts / src/school-app/lib/supabase.ts / src/school-app/lib/invite-link.ts / src/school-app/lib/invite-email.ts / src/app/api/school-app/invite/route.ts / src/app/api/school-app/invite/link/route.ts / src/app/api/school-app/invite/resend/route.ts / src/app/api/school-app/invite/cancel/route.ts / src/app/api/school-app/users/coach/route.ts / src/app/school/invite/[token]/route.ts / src/app/school/invite/setup/InviteSetupClient.tsx / src/school-app/lib/demo-seed.ts"
+sources: "src/school-app/lib/render.ts / src/school-app/lib/mock-body.ts / src/school-app/components/MockShell.tsx / src/school-app/lib/authz.ts / src/school-app/lib/supabase.ts / src/school-app/lib/invite-link.ts / src/school-app/lib/invite-email.ts / src/app/api/school-app/invite/route.ts / src/app/api/school-app/invite/link/route.ts / src/app/api/school-app/invite/resend/route.ts / src/app/api/school-app/invite/cancel/route.ts / src/app/api/school-app/users/coach/route.ts / src/app/school/invite/[token]/route.ts / src/app/school/invite/setup/InviteSetupClient.tsx / src/school-app/lib/demo-seed.ts / src/school-app/lib/school-terms.ts / src/app/school/page.tsx"
 date: 2026-10-10
+updated: 2026-11-20
 author: "山口聖子"
 ---
 4月の最初の月曜。新しい先生が2人入ります。代表は朝、自分のメールアドレスとパスワードを付箋に書いて渡します。「とりあえず、これで入ってください」。その日から、3人が同じログインを使います。
@@ -38,13 +39,13 @@ author: "山口聖子"
 2. 「＋ 招待リンクを発行」を押し、相手のメールアドレスを入れます
 3. 招待メールが送られ、同じ招待のURLが画面にも出ます。メールが届かない相手には、そのURLを直接渡せます
 
-招待メールには、入り方が2つ書かれています。1つはリンクで、発行から3日間、1回きり有効です。もう1つは仮パスワードで、こちらに期限はありませんが、本人がパスワードを決めた時点で使えなくなります。どちらで入っても、最初に「お名前」と「パスワード」（8文字以上）と「確認用パスワード」を入れ、「設定して開始」を押します。
+招待メールには、入り方が2つ書かれています（同じメールアドレスのアカウントをすでに持っている人には仮パスワードは載らず、リンクだけです）。1つはリンクで、発行から3日間、1回きり有効です。もう1つは仮パスワードで、こちらに期限はありませんが、本人がパスワードを決めた時点で使えなくなります。どちらで入っても、最初に「お名前」と「パスワード」（8文字以上）と「確認用パスワード」を入れ、「設定して開始」を押します。
 
 役割の決まりです。
 
 - 「一般」は、生徒・レッスン・課題を扱えます。「管理部」は、それに加えて招待や連携設定などの管理もできます。はじめの設定では、金額を見られるのはマネージャーだけで、マネージャーは招待では作れません
 - 招待できるのは、管理部とマネージャーの人です
-- 先生かどうかは、役割では決まりません。参加したあと、管理部かマネージャーの人が一覧の「☐ LEADERS」を押してチェックを入れると、その人を生徒の担当に指名できるようになります。レッスンを持たない事務の方は、外したままにします
+- 先生かどうかは、役割では決まりません。参加したあと、管理部かマネージャーの人が一覧の「☐ 講師」を押してチェックを入れると、その人を生徒の担当に指名できるようになります。レッスンを持たない事務の方は、外したままにします
 
 まだ入っていない人の行には「招待中」「保留」と出て、ボタンが3つ並びます。
 
@@ -62,4 +63,4 @@ author: "山口聖子"
 
 使い回していたパスワードを変えるのは、全員が自分のログインで入れたあとです。先に変えると、まだ招待していない人が入れなくなります。
 
-画面を先に見たい方は、メールアドレスだけで入れる[デモ](https://crm.consilegy.com/demos)の「ユーザー管理」を開いてください。招待中の人が1人いて、3つのボタンの並びを確かめられます。
+画面を先に見たい方は、メールアドレスだけで入れる[デモ](https://crm.consilegy.com/demos)の「ユーザー管理」を開いてください。見本の招待中の人がいれば、その行で3つのボタンの並びを確かめられます。共有のデモで毎晩入れ直しているため、日中はほかの訪問者の操作で変わっていることがあります。ボタンは押さずに見るだけにしてください。

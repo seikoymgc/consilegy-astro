@@ -10,9 +10,10 @@ segment: "b2c"
 edition: "school"
 sources: "src/school-app/lib/render.ts / src/school-app/lib/supabase.ts / src/school-app/lib/html-en.ts / src/school-app/lib/i18n-data.ts / src/school-app/lib/demo-seed.ts / src/app/school/page.tsx / src/school-app/lib/authz.ts / src/school-app/lib/homework.ts / src/app/api/school-app/automation/run/route.ts / src/app/api/cron/workflows/route.ts / src/lib/demo.ts"
 date: 2026-10-22
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
-A school with four teachers. Every student now has an assigned teacher, so each teacher's home screen shows only the tasks and homework for their own students. That's good for focus. The owner's home screen still lists everything, but nothing on it says which teacher each item belongs to. To find out whether anyone is falling behind on homework reviews this week, she messages each teacher. Everyone replies "all good".
+A school with four teachers. Every student now has an assigned teacher, so each teacher's home screen shows only the tasks and homework for their own students. That's good for focus. The owner's home screen is filtered the same way: it shows only the owner's own students, plus students with no teacher assigned at all. How much is piling up for other teachers is not visible from there. To find out whether anyone is falling behind on homework reviews this week, she messages each teacher. Everyone replies "all good".
 
 ## What you lose is the days before you notice a teacher who is swamped
 
@@ -36,13 +37,13 @@ How to read it. Each person assigned to at least one student gets a row, sorted 
 
 A column only appears if at least one teacher has something in it. The "N open tasks" figure in the heading is the number of open tasks across the whole school. It leaves out Homework to review, and one task can be counted on more than one teacher's row, so it won't match the table's totals. On a PC, hover over a cell to see which students are behind the number.
 
-Below the table you may see ⚠️ 誰のホームにも出ていないもの (items on no one's home screen). This line and the items under it stay in Japanese even with the display set to English. These are items for students who have no teacher assigned for that type: they show on the owner's home screen, but not on any teacher's. Tap a line to open the student's profile and assign someone.
+Below the table you may see two boxes, both in Japanese even with the display set to English. ⚠️ 誰のホームにも出ていないもの (items on no one's home screen) lists items for students who do have a teacher, but none for that type of work, such as a homework type: they appear on nobody's home screen, the owner's included. ⚠️ 担当の講師がいない生徒の分 (items for students with no teacher) lists items for students with no teacher assigned at all: these appear only on the home screens of the Manager and Operations roles. Tap a line in either box to open the student's profile and assign someone.
 
 Five things to know before you rely on it:
 
 - It shows the numbers as they are when you open it. There is no history to compare with last week, no date range and no export
 - Only a PC shows which students are behind a number, by hovering. On a phone you get the count only. Cells can't be tapped, and reassigning is done on the student's profile
-- Apart from Homework to review, tasks are created by a daily run at around 10 a.m. Japan time. Anything that happens after that shows up in the next day's numbers
+- Apart from Homework to review, tasks are rebuilt by a daily run at around 10 a.m. Japan time, or when someone presses 🔄 Check now on Home. Anything that happens in between shows up the next time they are rebuilt
 - Homework to review includes submissions from students who have paused or withdrawn. If a number never goes down, open that student's profile and mark their submissions as reviewed there
 - If no student has a teacher assigned yet, you'll see 未対応のタスクはありません。 ("no open tasks") instead of a table. Assign teachers to students first
 

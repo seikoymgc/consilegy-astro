@@ -8,9 +8,9 @@ feature: "ゴミ箱（コンタクト・会社・商談の削除はゴミ箱へ�
 screens: "コンタクト・会社・商談の詳細のゴミ箱アイコン「ゴミ箱へ移動」／一覧のチェックボックスと「削除」／商談の「リスト」表示／サイドバー「設定」→「運用」の「ゴミ箱」／タブ「コンタクト」「会社」「商談」／「復元」「完全に削除」／「設定」→「権限」（「権限管理」の「削除」列）／「設定」→「運用」の「監査ログ」"
 segment: "b2b"
 edition: "b2b"
-sources: "src/app/(dashboard)/trash/trash-view.tsx / src/app/api/trash/route.ts / src/app/api/trash/restore/route.ts / src/app/api/trash/purge/route.ts / src/components/record-delete-button.tsx / src/components/contacts-table.tsx / src/components/deal-list.tsx / src/components/deal-kanban.tsx / src/app/(dashboard)/companies/companies-view.tsx / src/app/(dashboard)/settings/page.tsx / src/app/(dashboard)/settings/permissions/permissions-view.tsx / src/app/(dashboard)/settings/audit-log/audit-log-view.tsx / src/lib/crm/use-cases.ts / src/lib/permissions.ts / src/app/api/orgs/route.ts / src/lib/contact-intake.ts / src/app/api/contacts/import/route.ts / src/lib/db-errors.ts / src/lib/campaign-send.ts / src/app/api/cron/sequences/route.ts / src/app/(dashboard)/forecast/page.tsx / src/app/(dashboard)/lists/[id]/list-detail.tsx / src/components/app-sidebar.tsx / src/lib/i18n/translations.ts / supabase/migrations/001_initial_schema.sql / supabase/migrations/006_organizations.sql / supabase/migrations/026_soft_delete_relations_rich_fields.sql / supabase/migrations/081_audit_trigger_org_purge.sql / supabase/migrations/097_record_scopes_teams_export.sql / vercel.json / src/lib/workflow-engine.ts / src/lib/forecast-snapshot.ts / src/app/api/forms/[id]/submit/route.ts"
+sources: "src/app/(dashboard)/trash/trash-view.tsx / src/app/api/trash/route.ts / src/app/api/trash/restore/route.ts / src/app/api/trash/purge/route.ts / src/components/record-delete-button.tsx / src/components/contacts-table.tsx / src/components/deal-list.tsx / src/components/deal-kanban.tsx / src/app/(dashboard)/companies/companies-view.tsx / src/app/(dashboard)/settings/page.tsx / src/app/(dashboard)/settings/permissions/permissions-view.tsx / src/app/(dashboard)/settings/audit-log/audit-log-view.tsx / src/lib/crm/use-cases.ts / src/lib/permissions.ts / src/app/api/orgs/route.ts / src/lib/contact-intake.ts / src/app/api/contacts/import/route.ts / src/lib/db-errors.ts / src/lib/campaign-send.ts / src/app/api/cron/sequences/route.ts / src/app/(dashboard)/forecast/page.tsx / src/app/(dashboard)/lists/[id]/list-detail.tsx / src/components/app-sidebar.tsx / src/lib/i18n/translations.ts / supabase/migrations/001_initial_schema.sql / supabase/migrations/006_organizations.sql / supabase/migrations/026_soft_delete_relations_rich_fields.sql / supabase/migrations/081_audit_trigger_org_purge.sql / supabase/migrations/097_record_scopes_teams_export.sql / vercel.json / src/lib/workflow-engine.ts / src/lib/forecast-snapshot.ts / src/app/api/forms/[id]/submit/route.ts / src/app/(dashboard)/lists/[id]/page.tsx / src/app/(dashboard)/lists/page.tsx / src/lib/crm/csv-import.ts / src/components/csv-import-dialog.tsx / src/app/(dashboard)/contacts/new/page.tsx / src/app/(dashboard)/contacts/scan/card-scan-view.tsx / src/app/(dashboard)/settings/audit-log/page.tsx / src/app/(dashboard)/settings/settings-index.tsx"
 date: 2026-10-12
-updated: 2026-10-12
+updated: 2026-11-20
 author: "山口聖子"
 ---
 展示会の翌週。顧客リストに、同じ人が2件入っています。3年前に退職した担当者の名前も残っています。営業が聞きます。「これ、消していいですか」。誰も答えません。前の仕組みで、消した顧客が戻せなかったことがあるからです。
@@ -31,16 +31,16 @@ Revenue CRMでコンタクト、会社、商談を削除すると、ゴミ箱に
 
 戻す場所は、サイドバーの「設定」です。「運用」の中の「ゴミ箱」を開くと、「コンタクト」「会社」「商談」のタブに、削除した日時の新しい順で並びます。チェックを入れて「復元」を押すと、元の一覧に戻ります。紐づいていた商談やアクティビティは、ゴミ箱に入れても動かしていないので、そのまま付いています。
 
-ゴミ箱の中身は、「完全に削除」を押すまで残ります。日数がたって自動で消える動きはありません。各タブに出るのは新しい200件までです。
+ゴミ箱の中身は、「完全に削除」を押すまで残ります。日数がたって自動で消える動きはありません。各タブには新しい順に200件ずつ並び、それより前のものは下の「さらに読み込む」で続きを出せます。
 
 誰が消せるかも決まっています。はじめの設定では、ゴミ箱に入れられるのはオーナーと管理者だけです。マネージャーとメンバーは、ゴミ箱から「復元」はできます。変えるときは、「設定」の「権限」を開き、役割ごとの表の「削除」にチェックを入れます。
 
 注意が4つあります。
 
-- ゴミ箱に入れた人には、一斉メールもシーケンスも届きません。ただし、リストからは外れません。リストの画面にはそのまま並ぶので、リストの人数と実際に送られる数が合わないことがあります。シーケンスは止まったまま残り、「復元」すると続きから再開します。それで困る相手は、復元の前に確かめてください。ゴミ箱に入れた商談は、フォーキャストに出ません
-- ゴミ箱にいる人と同じメールアドレスは、手入力、名刺の読み取り、CSVでは新しく登録できません。手入力と名刺の読み取りでは「このメールアドレスのコンタクトは既に登録されています。」と出ます。CSVではその行が飛ばされ、「飛ばした○件（メール重複）」と出ます。一覧にいないのに登録できないときは、ゴミ箱を見てください。フォームだけは別で、ゴミ箱にいる人が同じメールアドレスで送信すると、その人が自動で一覧に戻ります
+- ゴミ箱に入れた人には、一斉メールもシーケンスも届きません。ただし、リストの所属は残ったままで、「復元」するとリストにも戻ります。ゴミ箱にいる間は、リストの詳細画面には表示されません（リスト一覧の人数には数えられたままのことがあります）。シーケンスは止まったまま残り、「復元」すると続きから再開します。それで困る相手は、復元の前に確かめてください。ゴミ箱に入れた商談は、フォーキャストに出ません
+- ゴミ箱にいる人と同じメールアドレスは、手入力、名刺の読み取り、CSVでは新しく登録できません。手入力では「このメールアドレスのコンタクトは既に登録されています。」と出ます。名刺の読み取りでも、同じアドレスのコンタクトが既にあるという内容のエラーで保存できません。CSVではその行がスキップされ、結果の「スキップ（既にあるデータ）」に「同じメールアドレスのコンタクトがゴミ箱にあるため、スキップしました（ゴミ箱から完全に削除すると取り込めます）」と理由が出ます。一覧にいないのに登録できないときは、ゴミ箱を見てください。フォームだけは別で、ゴミ箱にいる人が同じメールアドレスで送信すると、その人が自動で一覧に戻ります
 - 二重登録を1件にまとめる機能はありません。残すほうに必要な情報を写してから、もう一方をゴミ箱に入れます
-- 「設定」の「運用」にある「監査ログ」には、「ゴミ箱へ移動」「復元」「完全削除」が、実行した人の名前つきで残ります。あとから誰が入れたかを追えます
+- 「設定」の「運用」にある「監査ログ」には、「ゴミ箱へ移動」「復元」「完全削除」が、実行した人の名前つきで残ります。監査ログを開けるのはオーナーと管理者だけですが、あとから誰が入れたかを追えます
 
 「完全に削除」は取り消せません。コンタクトを完全に消すと、その人のアクティビティとタスクも一緒に消えます。商談は残り、コンタクトとの紐づけだけが外れます。急ぐ理由が無ければ、押さなくてかまいません。
 

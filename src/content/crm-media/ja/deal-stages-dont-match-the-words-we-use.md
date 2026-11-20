@@ -8,8 +8,9 @@ feature: "商談ステージの設定（ステージの名前・並び・確度�
 screens: "サイドバー「設定」→「データ構造」の「商談ステージ」／表の「ステージ名」「確度」「区分」／「上へ」「下へ」「削除」／「ステージを足す」／「保存する」／商談の「カンバン」「リスト」／商談の「成約確率（%）」／「フォーキャスト」"
 segment: "b2b"
 edition: "b2b"
-sources: "src/app/(dashboard)/settings/page.tsx / src/app/(dashboard)/settings/pipeline-stages/page.tsx / src/app/(dashboard)/settings/pipeline-stages/stages-view.tsx / src/app/(dashboard)/settings/pipeline-stages/create-pipeline.tsx / src/app/api/pipeline-stages/route.ts / src/lib/pipeline-stages.ts / src/lib/pipelines/provision.ts / src/lib/deals-i18n.ts / src/components/deal-kanban.tsx / src/components/deal-list.tsx / src/app/(dashboard)/deals/page.tsx / src/app/(dashboard)/deals/deals-view.tsx / src/app/(dashboard)/deals/new/page.tsx / src/app/(dashboard)/forecast/forecast-view.tsx / src/lib/forecast-snapshot.ts / src/app/api/deals/import/route.ts / src/components/app-sidebar.tsx / src/lib/i18n/translations.ts / supabase/migrations/001_initial_schema.sql / supabase/migrations/030_audit_triggers.sql / src/app/api/demo/seed/route.ts"
+sources: "src/app/(dashboard)/settings/page.tsx / src/app/(dashboard)/settings/pipeline-stages/page.tsx / src/app/(dashboard)/settings/pipeline-stages/stages-view.tsx / src/app/(dashboard)/settings/pipeline-stages/create-pipeline.tsx / src/app/api/pipeline-stages/route.ts / src/lib/pipeline-stages.ts / src/lib/pipelines/provision.ts / src/lib/deals-i18n.ts / src/components/deal-kanban.tsx / src/components/deal-list.tsx / src/app/(dashboard)/deals/page.tsx / src/app/(dashboard)/deals/deals-view.tsx / src/app/(dashboard)/deals/new/page.tsx / src/app/(dashboard)/forecast/forecast-view.tsx / src/lib/forecast-snapshot.ts / src/app/api/deals/import/route.ts / src/components/app-sidebar.tsx / src/lib/i18n/translations.ts / supabase/migrations/001_initial_schema.sql / supabase/migrations/030_audit_triggers.sql / src/app/api/demo/seed/route.ts / src/lib/stage-labels.tsx"
 date: 2026-10-13
+updated: 2026-11-20
 author: "山口聖子"
 ---
 月曜の営業会議。「あの件、先方の稟議に入りました」と営業が言います。ところが、画面の商談ステージに「稟議」はありません。ある人は「提案」に置き、別の人は「交渉」に置きます。同じ状態の商談が、人によって違う列に並びます。
@@ -39,7 +40,7 @@ Revenue CRMの初期設定では、「提案」の確度は40%、「交渉」は
 - ステージの意味や、次へ進める条件を書く欄はありません。意味は名前に込めます。「稟議」「トライアル中」のように、お客様の側で起きていることを名前にすると、解釈が割れません
 - 受注と失注のステージは消せません。商談が乗っているステージも消せず、保存のときに名前と件数つきで断られます。ゴミ箱に入れた商談も数えるので、カンバンで空に見えても消せないことがあります。先に商談を別のステージへ移してください
 - 確度を変えて動くのは、商談に個別の「成約確率（%）」を入れていない商談の見込みだけです。個別に入れた商談は、その数字が優先されます
-- 一部の名前は、付けたとおりに出ません。「初回商談」は「ヒアリング」、「提案中」は「提案」、「見積り」は「見積」、「条件交渉」は「交渉」、「開拓」は「アプローチ」と、カンバンやフォーキャストでは初期の名前で表示されます。これらの名前は避けてください
+- 一部の名前は、付けたとおりに出ません。「初回商談」は「ヒアリング」、「提案中」は「提案」、「見積り」は「見積」、「条件交渉」は「交渉」、「開拓」は「アプローチ」と、カンバンやフォーキャストでは初期の名前で表示されます。これらの名前は避けるか、「言語ごとの名前」の日本語の欄に同じ名前を入れてください。その名前がそのまま表示されます（[言語ごとの名前の使い方](/crm/media/b2b/custom-deal-stages-stay-in-one-language/)）
 - 商談の「リスト」でステージを絞り込んだビューを保存している場合、そのステージの名前を変えると、絞り込みが当たらなくなります。変えたあとに作り直します
 - 誰がいつステージを変えたかは、監査ログに残りません。変える担当を一人に決めてください
 

@@ -7,15 +7,15 @@ pain: "Handwritten notes and whiteboard photos from customer meetings stay in th
 feature: "Handwriting & whiteboard capture"
 segment: "b2b"
 edition: "b2b"
-sources: "src/data/crm-features.ts (Handwriting & whiteboard capture) / src/data/crm-faq.ts (handwriting-and-voice, mobile)"
+sources: "src/data/crm-features.ts (Handwriting & whiteboard capture) / src/data/crm-faq.ts (handwriting-and-voice, mobile) / src/components/notes-panel.tsx / src/components/handwriting-capture.tsx"
 date: 2026-09-30
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 A meeting room at the customer's office. The rep opens a notebook and writes by hand: the customer's problem, a remark about budget, a promise to send a quote by next Tuesday. On the train back, they remember they photographed the whiteboard, but they do not open the photo. Back at the office another deal is on the phone, the notebook stays closed, and it is the following week.
 
 In the CRM, the deal says "visited". What was discussed, and what happens next and by when, exists only in the notebook and on the phone.
 
-This is not one company either. Across eight years of HubSpot and Salesforce implementations, the sales rep's notebook was, at every client, a more detailed record than the CRM.
 
 ## What you lose is not the minutes. It is the date on the next step
 
@@ -25,17 +25,17 @@ The second thing to go is the handover. The rep is out for a day, the manager op
 
 Then the reasons not to type pile up. Retyping a meeting from the notebook into a laptop takes, say, 15 minutes per visit. Three visits a day is 45 minutes. No rep has 45 spare minutes, so the deal gets the single word "visited". Installing a CRM does not change this until the 15 minutes go away.
 
-I do not think telling reps to abandon the notebook and type straight into the CRM is realistic. Someone typing into a screen during a meeting is not listening. Writing in a notebook is fine. The problem is the 15 minutes between the notebook and the CRM.
+I do not think telling reps to abandon the notebook and type straight into the CRM is realistic. There is no need to stop the conversation to type into a screen. Writing in a notebook is fine. The problem is the 15 minutes between the notebook and the CRM.
 
 ## In Revenue CRM you photograph the page and get a transcript and task candidates
 
 Take a photo of handwritten notes or a whiteboard and you get a transcript, a summary and candidate tasks. Phrases like "by next Tuesday" are converted into dates. What a person does is fix any misreads and save.
 
-The flow is the same as for business cards: photograph, check, save. It is built to be used on a phone, and pressing the button opens the camera directly. Picking the whiteboard photo you already took, on the train home, works too.
+The flow is the same as for business cards: photograph, check, save. On a deal, contact or company, press Scan handwriting in the Notes section. It is built to be used on a phone, and pressing the button opens the camera directly. To use a photo you have already taken, press the same button in a computer browser and choose the image file.
 
 On the confirmation screen, look at dates and numbers. A handwritten 7 versus a 1, and which week "next week" means counting from today. A person is more reliable than the machine on these, so check them by eye before you save.
 
-Task candidates stay candidates. Whether to create them is a person's choice, so that a misread never turns into a scheduled commitment on its own. You keep "Send quote, by Tuesday" and drop "Bring the director next time", which is a note, not a task.
+Task candidates stay candidates. Whether to create them is a person's choice, so that a misread never turns into a scheduled commitment on its own. Candidates with a date read from the page start out ticked, so untick any you don't want before you save. You keep "Send quote, by Tuesday" and drop "Bring the director next time", which is a note, not a task.
 
 Voice works the same way. Record a memo while you are on the move and it is transcribed, with the filler words removed. It is the fallback for the day you could not even open the notebook.
 
@@ -46,3 +46,5 @@ The reading is done by outside AI services, contracted under terms that exclude 
 From next week's visits, photograph one page the moment you leave the meeting room. Not back at the office; while you wait for the elevator. Checking and saving takes a minute or two once you are used to it.
 
 Do not try to capture every old notebook. The most recent meeting on each deal that is still live is enough. Once dated tasks start landing in the CRM, the deals that only ever said "visited" begin to show what happens next.
+
+To see where the button is, choose **B2B sales** in the [Revenue CRM demo](https://crm.consilegy.com/demos) and open the Notes section on a deal. The demo is shared, so look without scanning or saving anything.

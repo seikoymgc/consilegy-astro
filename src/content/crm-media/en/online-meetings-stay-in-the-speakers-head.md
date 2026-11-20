@@ -8,15 +8,15 @@ feature: "Meeting integrations (importing meeting notes)"
 screens: "Settings → Integrations \"Meetings\" / \"Meeting integrations\" \"Connect Google Meet\" \"Import now\" \"Recent imports\" \"Review and confirm\" \"Import\""
 segment: "b2b"
 edition: "b2b"
-sources: "src/app/(dashboard)/settings/meetings/page.tsx / src/app/(dashboard)/settings/meetings/meetings-view.tsx / src/app/(dashboard)/settings/integrations/page.tsx / src/lib/meetings/ingest.ts / src/lib/meetings/sync.ts / src/lib/meetings/zoom.ts / src/lib/meetings/gemini-notes.ts / src/components/chat-import-dialog.tsx"
+sources: "src/app/(dashboard)/settings/meetings/page.tsx / src/app/(dashboard)/settings/meetings/meetings-view.tsx / src/app/(dashboard)/settings/integrations/page.tsx / src/lib/meetings/ingest.ts / src/lib/meetings/sync.ts / src/lib/meetings/zoom.ts / src/lib/meetings/gemini-notes.ts / src/components/chat-import-dialog.tsx / src/lib/followups/suggest.ts / src/app/(dashboard)/settings/notifications/notifications-view.tsx"
 date: 2026-10-01
+updated: 2026-11-20
 author: "Seiko Yamaguchi"
 ---
 Four in the afternoon, and the Zoom call ends. Three people on the customer's side, one rep on yours. It was a good hour: rollout timing, who signs off in what order, and a request for a rough estimate by next Friday. The rep joins the next meeting five minutes late and the day runs out. The deal in the CRM gets two words: "call held".
 
 The recording exists. No manager is going to rewatch an hour of it. The transcript exists too, sitting inside the meeting tool where nobody opens it.
 
-This is not one company. Across eight years of HubSpot and Salesforce implementations I kept seeing the same thing: the more selling moved to video, the more got recorded and the thinner the CRM became.
 
 ## What you lose is not the recording. It is the link to the customer record
 
@@ -36,15 +36,15 @@ Connect your meeting tool and, after each meeting, Revenue CRM fetches the trans
 
 It lives under Settings → Integrations → "Meetings". The "Meeting integrations" screen lists three tools: Zoom, Google Meet and Microsoft Teams. Press the connect button for the one you use, for example "Connect Google Meet", and give consent. A tool that shows "Coming soon" becomes connectable from the same place once its app review is through. Teams needs consent from your Microsoft 365 admin.
 
-After an import, exactly two things happen without anyone pressing a button.
+After an import, exactly two things happen without anyone pressing a button. (If "Follow-up drafts and morning summary" is turned on under Settings → Notifications, a thank-you and recap email is also drafted into Drafts waiting to send. Nothing goes out until a person sends it.)
 
 The first is the meeting log. If an attendee's email address or full name matches exactly one existing contact, the meeting is logged on that contact's history. If two contacts share the name, nothing is logged and a person chooses. Notes landing on the wrong person's record is the worst outcome, so the system declines to guess.
 
-The second is action items with a due date that was actually said in the meeting. "By next Friday" becomes a task. An action item with no stated date does not. Each task title starts with a meeting-notes tag and carries the meeting name, so you can trace it back to the call where it was agreed.
+The second is action items with a due date that was actually said in the meeting. "By next Friday" becomes a task. An action item with no stated date does not. Each task title starts with the tag [議事録] (Japanese for "meeting notes"; it appears as is on the English screen) and carries the meeting name, so you can trace it back to the call where it was agreed.
 
 Everything else waits for a person: creating a new contact, action items without a date, attaching the notes to a deal. On the same screen, "Recent imports" shows a "Review and confirm" button next to each staged meeting. It opens the summary, the key points and the next actions. Only the next actions you tick become tasks. Pick the contact, optionally a deal, and press "Import".
 
-One precondition. A meeting with no transcript cannot be imported. Zoom produces one when cloud recording and audio transcription are on. Google Meet produces one when transcription is on, or when Gemini took notes. A meeting that had neither shows up in the list as "Skipped" with the reason, so at least you know it did not come in. For Google Meet and Teams, an "Import now" button appears once connected, for when you do not want to wait.
+One precondition. A meeting with no transcript cannot be imported. Zoom produces one when cloud recording and audio transcription are on. Google Meet produces one when transcription is on, or when Gemini took notes. A meeting that had neither shows up in the list as "Skipped" with the reason, so at least you know it did not come in. Each import also runs an AI analysis, so a meeting is likewise listed as "Skipped" when you are out of AI Fuel, or as "Failed" when the AI usage limit is reached or AI is turned off, again with the reason. For Google Meet and Teams, an "Import now" button appears once connected, for when you do not want to wait.
 
 ## The first step
 

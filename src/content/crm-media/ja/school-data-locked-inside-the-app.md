@@ -3,16 +3,17 @@ title: "入れたデータが持ち出せない気がして、管理ツールを
 slug: "school-data-locked-inside-the-app"
 lang: "ja"
 category: "operate"
-pain: "毎月の月謝の入金状況や、年度末の名簿を、管理ツールの画面を見ながらExcelに打ち直して税理士に送っている。入れたデータが出せないと分かっているから、次のツールにも移れない"
+pain: "毎月の月謝の入金状況や、年度末の名簿を、管理ツールの画面を見ながらスプレッドシートに打ち直して税理士に送っている。入れたデータが出せないと分かっているから、次のツールにも移れない"
 feature: "データの書き出し（生徒・レッスンの記録・課題の提出・請求の4つを、Excelでそのまま開けるCSVで書き出す。書き出した操作は監査ログに残る）"
 screens: "下のナビ「もっと」→「データの書き出し」（PCのサイドバーは「書き出し」）／「生徒」「レッスンの記録」「課題の提出」「請求」／「監査ログ」の「データの書き出し ・ 請求」／「生徒」の「CSV取込」"
 segment: "b2c"
 edition: "school"
-sources: "src/school-app/lib/export.ts / src/school-app/lib/export.test.ts / src/app/api/school-app/export/[dataset]/route.ts / src/school-app/lib/render.ts / src/school-app/lib/mock-body.ts / src/school-app/lib/html-en.ts / src/school-app/lib/authz.ts / src/school-app/lib/audit.ts / src/school-app/lib/supabase.ts / src/school-app/lib/pg-query-builder.ts / src/school-app/lib/demo-seed.ts / src/school-app/components/MockShell.tsx / src/app/api/school-app/student/import/route.ts / src/lib/csv.ts / src/lib/trials.ts / src/content/legal/terms-2026-09-29.md / supabase/migrations/194_school_beyonders_copy.sql / supabase/migrations/220_school_subscription_billing_kind.sql"
+sources: "src/school-app/lib/export.ts / src/school-app/lib/export.test.ts / src/app/api/school-app/export/[dataset]/route.ts / src/school-app/lib/render.ts / src/school-app/lib/mock-body.ts / src/school-app/lib/html-en.ts / src/school-app/lib/authz.ts / src/school-app/lib/audit.ts / src/school-app/lib/supabase.ts / src/school-app/lib/pg-query-builder.ts / src/school-app/lib/demo-seed.ts / src/school-app/components/MockShell.tsx / src/app/api/school-app/student/import/route.ts / src/lib/csv.ts / src/lib/trials.ts / src/content/legal/terms-2026-09-29.md / supabase/migrations/194_school_beyonders_copy.sql / supabase/migrations/220_school_subscription_billing_kind.sql / src/lib/i18n/format-date.ts"
 date: 2026-10-16
+updated: 2026-11-20
 author: "山口聖子"
 ---
-月初、税理士から「先月の月謝、誰が入金済みで誰が未納か、一覧をください」と連絡が来ます。管理ツールには請求の画面はありますが、出てくるのは画面だけです。代表はスマホで画面を撮り、生徒40人分のプランと金額と状態をExcelに打ち直します。毎月のことです。打ち終わった夜に、ふと思います。別のツールに変えたくなっても、この名簿は同じように打ち直すしかないのではないか。
+月初、税理士から「先月の月謝、誰が入金済みで誰が未納か、一覧をください」と連絡が来ます。管理ツールには請求の画面はありますが、出てくるのは画面だけです。代表はスマホで画面を撮り、生徒40人分のプランと金額と状態をスプレッドシートに打ち直します。毎月のことです。打ち終わった夜に、ふと思います。別のツールに変えたくなっても、この名簿は同じように打ち直すしかないのではないか。
 
 ## 失っているのは、打ち直す時間と、ツールを選び直す自由
 
@@ -20,7 +21,7 @@ author: "山口聖子"
 
 仮に生徒40人分を毎月打ち直すと、年に480行です。1行30秒でも4時間かかり、打ち間違いは税理士のところで見つかります。それより大きいのは、ツールを変える判断のたびに「名簿の入れ直し」が天秤に乗り、結局いまのツールを使い続けることです。
 
-入れたデータは、いつでもExcelで開ける形で持ち出せるのが前提です。それが無いツールに、教室の記録を預けてはいけません。
+入れたデータは、いつでもスプレッドシートで開ける形で持ち出せるのが前提です。それが無いツールに、教室の記録を預けてはいけません。
 
 ## Revenue CRMでは、「データの書き出し」で4つのCSVがその場で落ちる
 
@@ -33,7 +34,7 @@ author: "山口聖子"
 - 「課題の提出」: 提出日時、生徒、種別（文章・写真・音声など）、課題の種類、本文、確認日時、経路
 - 「請求」: 生徒、プラン、金額（円）、状態（入金済・未入金・決済失敗・「解約・停止」の4つ）、区分（「月謝（教室で管理）」か「外部（PayPal・卒業後プラン）」）、次回日、期日、催促の送信日時
 
-税理士に出すのは「請求」の1枚です。ファイル名は「school_billing_日付.csv」で、Excelでそのまま開き、状態の列で絞れば「誰が入金済みで誰が未納か」の一覧になります。ただし出るのは今の状態が生徒ごとに1行で、入金日や月ごとの入金の履歴は入りません。毎月1回落としておけば、その積み重ねが年度の記録になります。
+税理士に出すのは「請求」の1枚です。ファイル名は「school_billing_日付.csv」で、スプレッドシートで開き、状態の列で絞れば「誰が入金済みで誰が未納か」の一覧になります。ただし出るのは請求（月謝や卒業後プランなど）ごとに今の状態が1行ずつで、同じ生徒に請求が2つあれば2行になります。入金日や月ごとの入金の履歴は入りません。毎月1回落としておけば、その積み重ねが年度の記録になります。
 
 押すたびに「監査ログ」に「データの書き出し ・ 請求」と、書き出した人と件数が残ります。誰がいつ名簿を持ち出したかは、あとから見られます（最新40件）。
 
@@ -43,13 +44,13 @@ author: "山口聖子"
 - 出るのは4つだけです。課題の写真・音声・動画そのもの、LINEのやり取り、タスク、スタッフと担当の割り当て、予約、休講期間は入りません
 - 「生徒」のCSVは、「生徒」の「CSV取込」が読む7列（氏名、プラン、ステータス、開始日、英語レベル、目標、流入元）と列の数も並びも違うので、そのままでは入りません。別の教室に入れ直すには、先に7列に作り直す必要があります。レッスン・課題・請求は取込の画面がありません
 - 英語表示にしていても、CSVの見出しと状態の言葉は日本語です
-- 押した直後に「完了」の表示は出ず、ファイルが落ちるだけです。中の日時は日本時間ですが、ファイル名の日付は世界標準時なので、朝9時前に押すと前日の日付が付きます
+- 押した直後に「完了」の表示は出ず、ファイルが落ちるだけです。中の日時もファイル名の日付も日本時間です
 
-契約が終わったあとも、画面の文言どおり30日間は書き出せます。そのあと教室のデータは消えます。使い続けるかどうかにかかわらず、年度の区切りに4つとも落としておくのが安全です。
+製品の案内では、契約終了日から30日間も書き出せるとしています。必要な資料は契約が有効なうちに保存し、終了後の取り出し方や期限は終了前に確認してください。使い続けるかどうかにかかわらず、年度の区切りに4つとも落としておくのが安全です。
 
 ## 最初の一歩
 
-今週、マネージャーか運営の人が「もっと」→「データの書き出し」で「請求」を押し、Excelで開いてください。金額と状態が読めれば、今月の税理士への一覧はそのファイルで足ります。
+今週、マネージャーか運営の人が「もっと」→「データの書き出し」で「請求」を押し、スプレッドシートで開いてください。金額と状態が読めれば、今月の税理士への一覧はそのファイルで足ります。
 
 そのまま残りの3つも落として、教室のGoogleドライブなどに「2026年10月」のフォルダを作って入れておきます。月に1回、同じことを繰り返せば、ツールを変える日が来ても名簿を打ち直す必要はありません。
 

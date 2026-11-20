@@ -8,8 +8,9 @@ feature: "権限管理（役割ごとに請求の閲覧を閉じる。生徒・�
 screens: "メニュー「権限管理」（「マネージャー」「管理部」「一般」／「生徒」「レッスン」「タスク」「請求」／「閲覧」「作成」「編集」「削除」／「常に全権限」）／メニュー「サブスク・請求」と「入金状況」（「入金済」「未入金」「決済失敗」「契約済」）／メニュー「監査ログ」の「権限変更」"
 segment: "b2c"
 edition: "school"
-sources: "src/school-app/lib/render.ts / src/school-app/lib/authz.ts / src/school-app/components/MockShell.tsx / src/app/api/school-app/permissions/route.ts / src/app/api/school-app/copilot/route.ts / src/school-app/lib/demo-seed.ts / supabase/migrations/194_school_beyonders_copy.sql"
+sources: "src/school-app/lib/render.ts / src/school-app/lib/authz.ts / src/school-app/components/MockShell.tsx / src/app/api/school-app/permissions/route.ts / src/app/api/school-app/copilot/route.ts / src/school-app/lib/demo-seed.ts / supabase/migrations/194_school_beyonders_copy.sql / src/app/api/school-app/chat/route.ts / src/app/api/school-app/billing/fee/route.ts / src/app/api/school-app/student/route.ts"
 date: 2026-10-07
+updated: 2026-11-20
 author: "山口聖子"
 ---
 教室の名簿は、たいてい一つの表です。生徒の名前、連絡先、担当の先生、コース、そして月謝の金額と入金の有無が、同じ行に並んでいます。
@@ -30,9 +31,9 @@ author: "山口聖子"
 
 生徒とレッスンの記録は全員に見え、月謝の金額はマネージャーにしか見えません。この分け方が最初から入っていて、メニューの「権限管理」で確かめられます。
 
-画面には役割が3つ並びます。「マネージャー」「管理部」「一般」です。それぞれに「生徒」「レッスン」「タスク」「請求」の4行があり、各行に「閲覧」「作成」「編集」「削除」の4つが並びます。押すと保存されます。「マネージャー」は「常に全権限」で、変えられません。
+画面には役割が3つ並びます。「マネージャー」「管理部」「一般」です。それぞれに「生徒」「レッスン」「タスク」「請求」の4行があり、各行に「閲覧」「作成」「編集」の3つが並びます。押すと保存されます。「マネージャー」は「常に全権限」で、変えられません。削除の設定はありません。生徒・レッスン・タスクを消す操作が、どの役割にも用意されていないためです。
 
-このうち、いま画面と操作に効くのは、「請求」の閲覧と、生徒・レッスン・タスクの作成や編集です。「削除」と、生徒・タスクの「閲覧」は、押しても見え方は変わりません。変えたときは、画面を開き直して、思ったとおりになっているかを確かめてください。
+このうち、いま画面と操作に効くのは、「請求」とレッスンの閲覧・作成・編集、生徒の作成と編集、タスクの編集です。生徒とタスクの「閲覧」、タスクの「作成」は、押しても見え方は変わりません。変えたときは、画面を開き直して、思ったとおりになっているかを確かめてください。
 
 金額を見られるのはマネージャーだけです。「請求」の行を動かせるのもマネージャーだけで、管理部がこの画面を開いても、その行は押せません。管理部が自分で金額の閲覧を開け直すことはできない、ということです。
 

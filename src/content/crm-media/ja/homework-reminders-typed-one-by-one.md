@@ -8,8 +8,9 @@ feature: "課題の自動リマインド（課題のある種別ごとに、3営
 screens: "下のナビ「レッスン」→「レッスン履歴」の「🎓 種別ごとの担当」「課題あり」「🔔 課題未提出の自動リマインド」／生徒のカルテ「📩 課題の提出」「課題の自動リマインド」「この生徒に送る」「この生徒には送らない」「🔗 LINE紐付け」／ホーム「🚨 今すぐ対応」「🔄 今すぐ検知」／メニュー「監査ログ」の「課題の催促を自動送信」"
 segment: "b2c"
 edition: "school"
-sources: "src/school-app/lib/render.ts / src/school-app/lib/homework.ts / src/school-app/lib/homework-reminder.ts / src/school-app/lib/line-push.ts / src/school-app/lib/authz.ts / src/school-app/lib/supabase.ts / src/app/school/page.tsx / src/school-app/components/MockShell.tsx / src/app/api/school-app/student/reminder/route.ts / src/app/api/school-app/lesson-types/route.ts / src/app/api/school-app/automation/run/route.ts / src/app/api/school-app/line/webhook/route.ts / src/app/api/cron/workflows/route.ts / vercel.json / src/school-app/lib/demo-seed.ts / supabase/migrations/194_school_beyonders_copy.sql"
+sources: "src/school-app/lib/render.ts / src/school-app/lib/homework.ts / src/school-app/lib/homework-reminder.ts / src/school-app/lib/line-push.ts / src/school-app/lib/authz.ts / src/school-app/lib/supabase.ts / src/app/school/page.tsx / src/school-app/components/MockShell.tsx / src/app/api/school-app/student/reminder/route.ts / src/app/api/school-app/lesson-types/route.ts / src/app/api/school-app/automation/run/route.ts / src/app/api/school-app/line/webhook/route.ts / src/app/api/cron/workflows/route.ts / vercel.json / src/school-app/lib/demo-seed.ts / supabase/migrations/194_school_beyonders_copy.sql / src/app/api/school-app/submission/review/route.ts"
 date: 2026-10-09
+updated: 2026-11-20
 author: "山口聖子"
 ---
 木曜の夜10時。先生がスマホでLINEを開き、今週まだ課題を出していない生徒を思い出しながら、一人ずつ打ちます。「今週の課題、どうですか」。誰がもう出していたかは、頭の中の名簿が頼りです。
@@ -43,11 +44,11 @@ author: "山口聖子"
 
 注意が3つあります。
 
-スクールのLINE公式アカウントがつながっていて、生徒がそのLINEと紐付いていることが前提です。紐付いていない生徒には送れません。その場合も、その生徒の担当になっている人のホームの「🚨 今すぐ対応」には行が出ます。担当が付いていない生徒の行は誰の画面にも出ないので、先にカルテで担当を付け、「🔗 LINE紐付け」から連携してください。
+スクールのLINE公式アカウントがつながっていて、生徒がそのLINEと紐付いていることが前提です。紐付いていない生徒には送れません。その場合も、その生徒の担当になっている人のホームの「🚨 今すぐ対応」には行が出ます。担当が付いていない生徒の行は、運営とマネージャーのホームにだけ出ます。担当の先生の目に届くよう、先にカルテで担当を付け、「🔗 LINE紐付け」から連携してください。
 
-提出は種別ごとに数えます。生徒がLINEのメニュー「課題を出す」を押さずに、写真だけを送ると、「種別なし」で記録されます。これはどの種別の提出にも数えません。出したのに催促が届く、が起きます。最初の案内で「メニューから種別を選んで送る」と伝えてください。
+提出は種別ごとに数えます。生徒がLINEのメニュー「課題を出す」を押さずに、写真だけを送ると、「種別なし」で記録されます。これはどの種別の提出にも数えません。ただし、種別なしの提出が新しい間は、その日から日数を数えるので、すぐには催促されません。担当がカルテで種別を付けないまま3営業日たつと、出したのに催促が届く、が起きます。届いた提出には早めに種別を付け、最初の案内で「メニューから種別を選んで送る」と伝えてください（種別の付け方は[課題を出したのに、「未提出」の催促が届いてしまう](/crm/media/b2c/homework-was-submitted-but-the-reminder-still-arrives/)に書きました）。
 
-休校日として登録した期間は、「今すぐ対応」に課題の行が出なくなります。ただし、生徒への催促は止まりません。長い休みの前は、「この生徒には送らない」に切り替えてください。
+「休講期間・祝日」に登録した期間は、「今すぐ対応」に課題の行が出なくなります。ただし、生徒への催促は止まりません。長い休みの前は、「この生徒には送らない」に切り替えてください。
 
 ## 最初の一歩
 

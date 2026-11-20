@@ -3,16 +3,17 @@ title: "月曜の会議の前に、マネージャーが先週の受注と止ま
 slug: "managers-chase-reps-for-the-monday-numbers"
 lang: "ja"
 category: "operate"
-pain: "月曜の営業会議の前に、マネージャーが一人ずつ「先週どうだった」「あの商談どうなってる」と聞いて回り、聞いた数字を資料に打ち直している。数字はCRMに入っているのに、まとめる作業が毎週人の手に残っている"
+pain: "月曜の営業会議の前に、マネージャーが一人ずつ「先週どうだった」「あの商談どうなってる」と聞いて回り、聞いた数字を資料に打ち直している。数字はシステムに入っているのに、まとめる作業が毎週人の手に残っている"
 feature: "週次ダイジェスト（毎週月曜10時（日本時間）に、先週の受注・失注・新規、止まっている商談、担当者別の未処理、今期の目標対比、今週のタスクを1通のメールにまとめて送る。宛先はオーナーと管理者が既定で、指定もできる。載せる項目は受け取る人ごとに選ぶ）"
 screens: "「設定」→「運用」→「週次ダイジェスト」の「配信」（「週次ダイジェストを送る」）、「宛先」（「オーナーと管理者に自動で送る」「宛先を指定する」「いまの宛先」）、「あなたが受け取る項目」（先週の動き・止まっているもの・担当者別の未処理・今期・今週、「既定に戻す」「保存」）／メール本文の「パイプラインレビューを開く →」「タスクを開く →」／「フォーキャスト」の「目標を設定」／「設定」→「運用」→「通知」の「メール通知を有効化」"
 segment: "b2b"
 edition: "b2b"
-sources: "src/app/(dashboard)/settings/weekly-digest/page.tsx / src/app/(dashboard)/settings/weekly-digest/weekly-digest-view.tsx / src/app/(dashboard)/settings/weekly-digest/digest-items-view.tsx / src/lib/digest/items.ts / src/lib/digest/weekly.ts / src/lib/deals/pipeline-review.ts / src/lib/revops/util.ts / src/app/api/cron/workflows/route.ts / src/app/api/notification-settings/route.ts / src/app/api/weekly-digest-preferences/route.ts / src/app/(dashboard)/settings/settings-index.tsx / src/app/(dashboard)/settings/notifications/notifications-view.tsx / src/app/(dashboard)/forecast/forecast-view.tsx / supabase/migrations/105_active_org_rls_hardening.sql / vercel.json"
+sources: "src/app/(dashboard)/settings/weekly-digest/page.tsx / src/app/(dashboard)/settings/weekly-digest/weekly-digest-view.tsx / src/app/(dashboard)/settings/weekly-digest/digest-items-view.tsx / src/lib/digest/items.ts / src/lib/digest/weekly.ts / src/lib/deals/pipeline-review.ts / src/lib/revops/util.ts / src/app/api/cron/workflows/route.ts / src/app/api/notification-settings/route.ts / src/app/api/weekly-digest-preferences/route.ts / src/app/(dashboard)/settings/settings-index.tsx / src/app/(dashboard)/settings/notifications/notifications-view.tsx / src/app/(dashboard)/forecast/forecast-view.tsx / supabase/migrations/105_active_org_rls_hardening.sql / vercel.json / src/app/(dashboard)/settings/region/region-view.tsx"
 date: 2026-10-25
+updated: 2026-11-20
 author: "山口聖子"
 ---
-月曜の朝9時。営業会議は11時からです。マネージャーはチャットで一人ずつ聞いて回ります。「先週、受注あった？」「あの商談、先方の返事は来た？」。返ってきた数字を会議資料に打ち直し、足りない人にはもう一度聞きます。数字そのものは、全部CRMに入っています。
+月曜の朝9時。営業会議は11時からです。マネージャーはチャットで一人ずつ聞いて回ります。「先週、受注あった？」「あの商談、先方の返事は来た？」。返ってきた数字を会議資料に打ち直し、足りない人にはもう一度聞きます。数字そのものは、全部システムに入っています。
 
 ## 失っているのは、マネージャーの月曜の午前と、聞かれなかった商談
 
@@ -24,7 +25,7 @@ author: "山口聖子"
 
 ## Revenue CRMでは、週次ダイジェストが月曜10時に先週の数字を1通で届ける
 
-「設定」→「運用」→「週次ダイジェスト」を開くと、最初から「週次ダイジェストを送る」にチェックが入っています。毎週月曜10時（日本時間）に、前の週の月曜から日曜までの分が届きます。誰も書く必要はありません。
+「設定」→「運用」→「週次ダイジェスト」を開くと、最初から「週次ダイジェストを送る」にチェックが入っています。会社のタイムゾーンが日本時間（既定）なら、毎週月曜10時に、前の週の月曜から日曜までの分が届きます。「設定」→「国と税・タイムゾーン」で米国のタイムゾーンにした会社では、現地の月曜に、現地の暦で区切った前の週の分が届きます。誰も書く必要はありません。
 
 既定で載るのは次の項目です。
 

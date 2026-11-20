@@ -8,8 +8,9 @@ feature: "取り込み済みのZoomチャットをレッスンのチャットで
 screens: "もっと → レッスンのチャット／記録／💬 件数／カルテ → Zoomの記録 → レッスン中のチャット"
 segment: "b2c"
 edition: "school"
-sources: "src/school-app/lib/render.ts (lessonChats, zoomRecord) / src/school-app/components/MockShell.tsx (bey-chatopen) / src/app/api/school-app/chat/route.ts / src/school-app/lib/supabase.ts (chatMeetings) / src/school-app/lib/zoom-chat.ts / src/school-app/lib/zoom-ingest.ts / src/school-app/lib/html-en.ts"
+sources: "src/school-app/lib/render.ts (lessonChats, zoomRecord) / src/school-app/components/MockShell.tsx (bey-chatopen) / src/app/api/school-app/chat/route.ts / src/school-app/lib/supabase.ts (chatMeetings) / src/school-app/lib/zoom-chat.ts / src/school-app/lib/zoom-ingest.ts / src/school-app/lib/html-en.ts / src/school-app/lib/render.ts"
 date: "2026-11-14"
+updated: 2026-11-20
 author: "山口聖子"
 ---
 前回の先生がZoomのチャットに書いた英語表現を、次の先生も使いたい。レッスンのメモには「依頼の表現を練習」とあるけれど、実際にどの言い方を教えたのかは分からない。元の録画やチャットを、日付から探し直すことになります。
@@ -31,7 +32,7 @@ author: "山口聖子"
 ![レッスンのチャットで件数ボタンを押し、経過時間・送信者・英語表現を読む](/images/crm/media/screens/lesson-phrases-disappear-when-the-zoom-call-ends-1-ja-2026-11.webp)
 *デモの架空の生徒・講師によるサンプルです。チャットを開いて読んだだけで、投稿・同期・紐付けの変更はしていません。*
 
-表示名と日時を手掛かりに回を選びます。本文が長いときは、開いた枠の中をスクロールします。同じ件数ボタンをもう一度押すと閉じます。「2:30」のような数字は実際の時刻ではなく、録画開始からの経過時間です。
+日時と、紐付いた生徒名（紐付いていない回は「未紐付け」）を手掛かりに回を選びます。本文が長いときは、開いた枠の中をスクロールします。同じ件数ボタンをもう一度押すと閉じます。「2:30」のような数字は実際の時刻ではなく、録画開始からの経過時間です。
 
 生徒に紐付いた回なら、その生徒のカルテの「Zoomの記録」から「レッスン中のチャット」のボタンでも読めます。一覧で「未紐付け」となっている回は、まだ生徒と結ばれていない回です。一覧の本文を確認することと、生徒への紐付けを変えることは別の操作です。
 

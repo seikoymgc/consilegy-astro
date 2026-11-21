@@ -12,10 +12,10 @@ const cols = [
 	{ key: 'low', name: '低価格の海外製品', sub: '' },
 ];
 const rows = [
-	{ label: '入門プランの月額（1人）', v: { rcrm: '3,000円', global: '2,000〜3,000円台', domestic: '6,000円台〜', low: '1,000円台〜' } },
-	{ label: '追客の自動化・AIまで使うときの月額（1人）', v: { rcrm: '3,000円', global: '1万円台〜（AIは別に申し込み）', domestic: '1万円台〜', low: '5,000円台〜' } },
+	{ label: '入門プランの月額', v: { rcrm: '3,000円', global: '2,000〜3,000円台', domestic: '6,000円台〜', low: '1,000円台〜' } },
+	{ label: '追客の自動化・AIまで使う月額', v: { rcrm: '3,000円', global: '1万円台〜（AIは別に申し込み）', domestic: '1万円台〜', low: '5,000円台〜' } },
 	{ label: '最低人数', v: { rcrm: '1人から', global: '1人から', domestic: '10人から', low: '1人から' } },
-	{ label: '10人で1年使ったときの費用（追客・AIまで）', v: { rcrm: '36万円〜', global: '約130万円〜', domestic: '約150万円〜', low: '約70万円〜' } },
+	{ label: '10人で1年の費用（追客・AIまで）', v: { rcrm: '36万円〜', global: '約130万円〜', domestic: '約150万円〜', low: '約70万円〜' } },
 ];
 ---
 
@@ -49,24 +49,13 @@ const rows = [
 			</table>
 		</div>
 
-		<div class="cmp-cards">
-			{cols.map((c) => (
-				<div class={`cmp-card${c.key === 'rcrm' ? ' is-ours' : ''}`}>
-					<p class="cmp-card-name">{c.name}{c.sub && <span class="cmp-sub">{c.sub}</span>}</p>
-					<dl>
-						{rows.map((r) => (
-							<div><dt>{r.label}</dt><dd>{r.v[c.key]}</dd></div>
-						))}
-					</dl>
-				</div>
-			))}
-		</div>
+		<p class="cmp-scroll-hint">表は横にスクロールできます。</p>
 
 		<div class="cmp-body">
 			<p>Revenue CRMは、名刺の撮影からお礼メールの下書き、追いかけまでを同じ料金で使えます。AIの処理には燃料を使います。毎月1人30（最低100）の燃料が付き、足りないときは3,000円で400を追加できます。</p>
 			<p>設定から定着までの支援も、ご希望に応じてご用意しています（有料）。<a href="#support">支援の内容と料金を見る</a></p>
 		</div>
-		<p class="cmp-source">2026年11月に各社の公式サイトに出ている価格（税抜・年間契約時の1人あたり月額）をもとに、代表的な製品の価格帯をまとめたものです。「追客の自動化・AI」は、各社でその機能が使えるプランの価格で、AIを別に申し込む製品はその費用を含みません。最新の価格は各社の公式サイトでご確認ください。</p>
+		<p class="cmp-source">2026年11月に各社の公式サイトに出ている価格（税抜・年間契約時の1人あたり月額。10人で1年の費用はその12か月分）をもとに、代表的な製品の価格帯をまとめたものです。「追客の自動化・AI」は、各社でその機能が使えるプランの価格で、AIを別に申し込む製品はその費用を含みません。最新の価格は各社の公式サイトでご確認ください。</p>
 	</div>
 </section>
 
@@ -125,7 +114,7 @@ const rows = [
 	}
 	.cmp-table thead .is-ours { border-top: 2px solid var(--color-navy); }
 	.cmp-table tbody tr:last-child .is-ours { border-bottom: 2px solid var(--color-navy); }
-	.cmp-cards { display: none; }
+	.cmp-scroll-hint { display: none; margin: 0.5rem 0 0; font-size: 0.875rem; color: var(--color-text-muted); }
 	.cmp-body { margin-top: var(--space-md); max-width: 62ch; }
 	.cmp-body p { margin: 0 0 0.5rem; font-size: 1rem; color: var(--color-text); }
 	.cmp-source {
@@ -138,30 +127,25 @@ const rows = [
 	}
 
 	@media (max-width: 860px) {
-		.cmp-table-wrap { display: none; }
-		.cmp-cards {
-			display: grid;
-			gap: var(--space-sm);
+		.compare { padding-block: var(--space-lg); }
+		/* スマホ：表のまま横にスクロール。項目の列は左に固定 */
+		.cmp-table-wrap {
 			margin-top: var(--space-md);
+			overflow-x: auto;
+			-webkit-overflow-scrolling: touch;
 		}
-		.cmp-card {
-			background: #fff;
-			border: 1px solid var(--color-border);
-			border-radius: 6px;
-			padding: var(--space-sm);
+		.cmp-table { table-layout: auto; min-width: 560px; }
+		.cmp-table th,
+		.cmp-table td { padding: 0.6rem 0.5rem; }
+		.cmp-table tbody th {
+			position: sticky;
+			left: 0;
+			z-index: 1;
+			width: 8.5rem;
+			min-width: 8.5rem;
 		}
-		.cmp-card.is-ours { border: 2px solid var(--color-navy); }
-		.cmp-card-name { margin: 0 0 0.5rem; font-weight: 700; color: var(--color-navy); font-size: 1.125rem; }
-		.cmp-card dl { margin: 0; }
-		.cmp-card dl div {
-			display: grid;
-			grid-template-columns: minmax(0, 1fr) minmax(0, 46%);
-			gap: 0.75rem;
-			padding: 0.5rem 0;
-			border-top: 1px solid var(--color-border);
-			font-size: 1rem;
-		}
-		.cmp-card dt { color: var(--color-text-muted); }
-		.cmp-card dd { margin: 0; text-align: right; font-weight: 700; color: var(--color-navy); }
+		.cmp-table thead th:first-child { position: sticky; left: 0; z-index: 1; }
+		.cmp-table .is-ours { font-size: 1rem; }
+		.cmp-scroll-hint { display: block; }
 	}
 </style>

@@ -164,30 +164,58 @@ const after = [
 	}
 
 	@media (max-width: 960px) {
-		.cf-row { grid-template-columns: 1fr; gap: var(--space-sm); }
-		.cf-row-label { justify-content: flex-start; text-align: left; }
-		.cf-steps { grid-template-columns: 1fr; gap: 1.5rem; }
-		.cf-box { min-height: 0; }
-		.cf-steps--before .cf-box { text-align: left; align-items: flex-start; }
-		.cf-box:not(:last-child)::after {
+		.cardflow { padding-block: var(--space-lg); }
+		.cf-row { grid-template-columns: 1fr; gap: 0.5rem; margin-top: var(--space-md); }
+		.cf-row-label { justify-content: flex-start; text-align: left; padding: 0; background: none; border: 0; font-size: 1rem; }
+		.cf-row-label--after { border: 0; }
+		/* これまで：1つの箱にまとめ、矢印でつなぐ */
+		.cf-steps--before {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.25rem 0;
+			padding: 0.75rem 1rem;
+			background: var(--color-bg-subtle);
+			border-radius: 6px;
+		}
+		.cf-steps--before .cf-box {
+			display: inline;
+			min-height: 0;
+			padding: 0;
+			background: none;
+			text-align: left;
+		}
+		.cf-steps--before .cf-box:not(:last-child)::after {
+			content: '→';
+			position: static;
+			display: inline;
+			width: auto;
+			height: auto;
+			background: none;
+			margin: 0 0.4em;
+			color: var(--color-text-muted);
+		}
+		.cf-steps--before .cf-box::before { display: none; }
+		/* Revenue CRMなら：詰めた箱を縦に */
+		.cf-steps--after { grid-template-columns: 1fr; gap: 1.1rem; }
+		.cf-steps--after .cf-box { min-height: 0; padding: 0.6rem 0.9rem; gap: 0.1rem; }
+		.cf-steps--after .cf-box:not(:last-child)::after {
 			top: auto;
-			bottom: -1.2rem;
+			bottom: -0.95rem;
 			right: auto;
 			left: 50%;
 			width: 2px;
-			height: 0.8rem;
+			height: 0.55rem;
 		}
-		.cf-box:not(:last-child)::before {
+		.cf-steps--after .cf-box:not(:last-child)::before {
 			top: auto;
-			bottom: -1.45rem;
+			bottom: -1.15rem;
 			right: auto;
 			left: calc(50% - 5px);
-			border: 6px solid transparent;
-			border-top: 7px solid var(--color-navy);
+			border: 5px solid transparent;
+			border-top: 6px solid var(--color-navy);
 			border-bottom: 0;
 			transform: none;
 		}
-		.cf-steps--before .cf-box:not(:last-child)::before { border-left-color: transparent; border-top-color: var(--color-border-strong); }
-		.cf-pain { margin-left: 0; }
+		.cf-pain { margin: 0.75rem 0 0; }
 	}
 </style>

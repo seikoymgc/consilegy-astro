@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CrmSubnav from '../../../components/CrmSubnav.astro';
+import CrmPriceCompare from '../../../components/CrmPriceCompare.astro';
 
 const DEMO_URL = 'https://crm.consilegy.com/demos';
 const SIGNUP_URL = 'https://crm.consilegy.com/signup';
@@ -193,6 +194,8 @@ const terms = [
 		<p class="proof-note">※価格はすべて税抜表示です。</p>
 	</div>
 </section>
+
+<CrmPriceCompare />
 
 <section class="support-section" id="support">
 	<div class="container">

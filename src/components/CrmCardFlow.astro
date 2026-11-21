@@ -1,0 +1,193 @@
+---
+// 名刺を受け取ってから追いかけるまでの、これまでと Revenue CRM の比較図（2026-11-21 代表了承）。
+// 書いてよい機能は src/data/crm-features.ts の「名刺スキャン」「送信待ちの下書き」「シーケンス」だけ。
+// 人が判断する工程（撮る・確かめて送る）を必ず見せる。
+const before = [
+	'名刺を持ち帰る',
+	'1枚ずつ手で入力',
+	'会社の情報を調べて書き足す',
+	'お礼メールを1通ずつ書く',
+	'追いかける予定を手で管理',
+];
+const after = [
+	{ who: 'human', title: '名刺をまとめて撮る', note: '1枚の写真に10枚まで' },
+	{ who: 'ai', title: 'AIが読み取り、連絡先を作る', note: '読み取った内容は画面で直せます' },
+	{ who: 'ai', title: 'お礼メールの下書きができる', note: '新しい相手ごとに1通' },
+	{ who: 'human', title: '確かめて送る', note: '承認するまで送られません' },
+	{ who: 'ai', title: '追いかけのメールを自動で送る', note: '設定した場合。返信があれば止まります' },
+];
+---
+
+<section class="cardflow" aria-labelledby="cardflow-title">
+	<div class="container">
+		<div class="section-head">
+			<p class="section-eyebrow">Business cards</p>
+			<h2 id="cardflow-title" class="cardflow-title">名刺を受け取ってから追いかけるまで、人がやるのは「撮る」と「確かめて送る」だけ。</h2>
+		</div>
+
+		<div class="cf-row">
+			<p class="cf-row-label">これまで</p>
+			<ol class="cf-steps cf-steps--before">
+				{before.map((t) => <li class="cf-box">{t}</li>)}
+			</ol>
+		</div>
+		<p class="cf-pain">名刺が多いほど入力が後回しになり、お礼や追いかけが遅れて、商談のきっかけを逃してしまいます。</p>
+
+		<div class="cf-row">
+			<p class="cf-row-label cf-row-label--after">Revenue CRMなら</p>
+			<ol class="cf-steps cf-steps--after">
+				{after.map((s) => (
+					<li class={`cf-box cf-box--${s.who}`}>
+						<span class="cf-who">{s.who === 'human' ? '人がやる' : 'AI・システム'}</span>
+						<strong>{s.title}</strong>
+						<span class="cf-note">{s.note}</span>
+					</li>
+				))}
+			</ol>
+		</div>
+	</div>
+</section>
+
+<style>
+	.cardflow {
+		background: #fff;
+		padding-block: var(--space-xl);
+		border-bottom: 1px solid var(--color-border);
+	}
+	.cardflow-title {
+		color: var(--color-navy);
+		max-width: 34em;
+	}
+	.cf-row {
+		display: grid;
+		grid-template-columns: 9rem 1fr;
+		gap: var(--space-md);
+		align-items: stretch;
+		margin-top: var(--space-lg);
+	}
+	.cf-row-label {
+		margin: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		padding: var(--space-sm);
+		border-radius: 6px;
+		background: var(--color-bg-subtle);
+		color: var(--color-text-muted);
+		font-weight: 700;
+		font-size: 1.125rem;
+	}
+	.cf-row-label--after {
+		background: #fff;
+		border: 2px solid var(--color-navy);
+		color: var(--color-navy);
+	}
+	.cf-steps {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		grid-template-columns: repeat(5, minmax(0, 1fr));
+		gap: 1.75rem;
+		counter-reset: none;
+	}
+	.cf-box {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 0.35rem;
+		min-height: 6.5rem;
+		padding: var(--space-sm);
+		border-radius: 6px;
+		font-size: 1rem;
+		line-height: 1.6;
+		margin: 0;
+	}
+	/* 矢印：横並びのときは右、縦並びのときは下 */
+	.cf-box:not(:last-child)::after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		right: -1.45rem;
+		width: 1.1rem;
+		height: 2px;
+		background: var(--color-navy);
+	}
+	.cf-box:not(:last-child)::before {
+		content: '';
+		position: absolute;
+		top: calc(50% - 5px);
+		right: -1.55rem;
+		border: 6px solid transparent;
+		border-left: 7px solid var(--color-navy);
+		border-right: 0;
+		transform: translateY(-1px);
+	}
+	.cf-steps--before .cf-box {
+		background: var(--color-bg-subtle);
+		color: var(--color-text);
+		text-align: center;
+		align-items: center;
+	}
+	.cf-steps--before .cf-box:not(:last-child)::after { background: var(--color-border-strong); }
+	.cf-steps--before .cf-box:not(:last-child)::before { border-left-color: var(--color-border-strong); }
+	.cf-box--ai {
+		background: #EFF6FF;
+		border: 1px solid #BFDBFE;
+	}
+	.cf-box--human {
+		background: #fff;
+		border: 2px solid var(--color-navy);
+		box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+	}
+	.cf-box strong {
+		color: var(--color-navy);
+		font-size: 1.0625rem;
+	}
+	.cf-who {
+		font-size: 0.875rem;
+		font-weight: 700;
+		letter-spacing: 0.02em;
+	}
+	.cf-box--ai .cf-who { color: #2563EB; }
+	.cf-box--human .cf-who { color: var(--color-navy); }
+	.cf-note {
+		font-size: 1rem;
+		color: var(--color-text-muted);
+	}
+	.cf-pain {
+		margin: var(--space-sm) 0 0 calc(9rem + var(--space-md));
+		font-size: 1rem;
+		color: var(--color-text);
+	}
+
+	@media (max-width: 960px) {
+		.cf-row { grid-template-columns: 1fr; gap: var(--space-sm); }
+		.cf-row-label { justify-content: flex-start; text-align: left; }
+		.cf-steps { grid-template-columns: 1fr; gap: 1.5rem; }
+		.cf-box { min-height: 0; }
+		.cf-steps--before .cf-box { text-align: left; align-items: flex-start; }
+		.cf-box:not(:last-child)::after {
+			top: auto;
+			bottom: -1.2rem;
+			right: auto;
+			left: 50%;
+			width: 2px;
+			height: 0.8rem;
+		}
+		.cf-box:not(:last-child)::before {
+			top: auto;
+			bottom: -1.45rem;
+			right: auto;
+			left: calc(50% - 5px);
+			border: 6px solid transparent;
+			border-top: 7px solid var(--color-navy);
+			border-bottom: 0;
+			transform: none;
+		}
+		.cf-steps--before .cf-box:not(:last-child)::before { border-left-color: transparent; border-top-color: var(--color-border-strong); }
+		.cf-pain { margin-left: 0; }
+	}
+</style>

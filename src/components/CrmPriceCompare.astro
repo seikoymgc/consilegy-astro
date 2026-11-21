@@ -1,0 +1,167 @@
+---
+// 他社との価格の比較（2026-11-21 代表了承）。製品名は出さず、種類と価格帯で書く。
+// 根拠（2026-11 各社公式の税抜・年間契約時の1人あたり月額）：
+//   海外大手の製品：HubSpot Sales Hub（Starter 2,400／Professional 10,800）、Salesforce（Starter Suite 3,000／Pro Suite 12,000、AIは別に申し込み）
+//   国内の営業支援システム：Mazrica Sales（Starter 6,500／AIはGrowth 12,500、最低10ID）
+//   低価格の海外製品：Zoho CRM（スタンダード 1,760／Ziaはエンタープライズ 5,660）
+// 10人1年＝追客・AIが使えるプランの単価×10人×12か月。価格が変わったらここと表を一緒に直す。
+const cols = [
+	{ key: 'rcrm', name: 'Revenue CRM', sub: '当社' },
+	{ key: 'global', name: '海外大手の製品', sub: '中小企業向けプラン' },
+	{ key: 'domestic', name: '国内の営業支援システム', sub: '' },
+	{ key: 'low', name: '低価格の海外製品', sub: '' },
+];
+const rows = [
+	{ label: '入門プランの月額（1人）', v: { rcrm: '3,000円', global: '2,000〜3,000円台', domestic: '6,000円台〜', low: '1,000円台〜' } },
+	{ label: '追客の自動化・AIまで使うときの月額（1人）', v: { rcrm: '3,000円', global: '1万円台〜（AIは別に申し込み）', domestic: '1万円台〜', low: '5,000円台〜' } },
+	{ label: '最低人数', v: { rcrm: '1人から', global: '1人から', domestic: '10人から', low: '1人から' } },
+	{ label: '10人で1年使ったときの費用（追客・AIまで）', v: { rcrm: '36万円〜', global: '約130万円〜', domestic: '約150万円〜', low: '約70万円〜' } },
+];
+---
+
+<section class="compare" id="compare" aria-labelledby="compare-title">
+	<div class="container">
+		<div class="section-head">
+			<p class="section-eyebrow">Comparison</p>
+			<h2 id="compare-title" class="compare-title">入門プランと同じ価格帯で、追客の自動化とAIまで使える。</h2>
+		</div>
+
+		<div class="cmp-table-wrap">
+			<table class="cmp-table">
+				<thead>
+					<tr>
+						<th scope="col"><span class="visually-hidden">項目</span></th>
+						{cols.map((c) => (
+							<th scope="col" class={c.key === 'rcrm' ? 'is-ours' : ''}>
+								{c.name}{c.sub && <span class="cmp-sub">{c.sub}</span>}
+							</th>
+						))}
+					</tr>
+				</thead>
+				<tbody>
+					{rows.map((r) => (
+						<tr>
+							<th scope="row">{r.label}</th>
+							{cols.map((c) => <td class={c.key === 'rcrm' ? 'is-ours' : ''}>{r.v[c.key]}</td>)}
+						</tr>
+					))}
+				</tbody>
+			</table>
+		</div>
+
+		<div class="cmp-cards">
+			{cols.map((c) => (
+				<div class={`cmp-card${c.key === 'rcrm' ? ' is-ours' : ''}`}>
+					<p class="cmp-card-name">{c.name}{c.sub && <span class="cmp-sub">{c.sub}</span>}</p>
+					<dl>
+						{rows.map((r) => (
+							<div><dt>{r.label}</dt><dd>{r.v[c.key]}</dd></div>
+						))}
+					</dl>
+				</div>
+			))}
+		</div>
+
+		<div class="cmp-body">
+			<p>Revenue CRMは、名刺の撮影からお礼メールの下書き、追いかけまでを同じ料金で使えます。AIの処理には燃料を使います。毎月1人30（最低100）の燃料が付き、足りないときは3,000円で400を追加できます。</p>
+			<p>設定から定着までの支援も、ご希望に応じてご用意しています（有料）。<a href="#support">支援の内容と料金を見る</a></p>
+		</div>
+		<p class="cmp-source">2026年11月に各社の公式サイトに出ている価格（税抜・年間契約時の1人あたり月額）をもとに、代表的な製品の価格帯をまとめたものです。「追客の自動化・AI」は、各社でその機能が使えるプランの価格で、AIを別に申し込む製品はその費用を含みません。最新の価格は各社の公式サイトでご確認ください。</p>
+	</div>
+</section>
+
+<style>
+	.compare {
+		background: var(--color-bg-subtle);
+		padding-block: var(--space-xl);
+	}
+	.compare-title { color: var(--color-navy); max-width: 32em; }
+	.cmp-table-wrap { margin-top: var(--space-lg); }
+	.cmp-table {
+		width: 100%;
+		border-collapse: separate;
+		border-spacing: 0;
+		background: #fff;
+		border: 1px solid var(--color-border);
+		border-radius: 6px;
+		font-size: 1rem;
+		table-layout: fixed;
+	}
+	.cmp-table th,
+	.cmp-table td {
+		padding: 1rem;
+		border-bottom: 1px solid var(--color-border);
+		text-align: center;
+		vertical-align: middle;
+		line-height: 1.6;
+		color: var(--color-text);
+	}
+	.cmp-table tbody tr:last-child th,
+	.cmp-table tbody tr:last-child td { border-bottom: 0; }
+	.cmp-table thead th {
+		color: var(--color-navy);
+		font-weight: 700;
+		background: #fff;
+	}
+	.cmp-table tbody th {
+		text-align: left;
+		font-weight: 700;
+		color: var(--color-navy);
+		background: var(--color-bg-subtle);
+		width: 22%;
+	}
+	.cmp-sub {
+		display: block;
+		font-size: 0.875rem;
+		font-weight: 400;
+		color: var(--color-text-muted);
+	}
+	.cmp-table .is-ours {
+		border-left: 2px solid var(--color-navy);
+		border-right: 2px solid var(--color-navy);
+		font-weight: 700;
+		color: var(--color-navy);
+		font-size: 1.125rem;
+	}
+	.cmp-table thead .is-ours { border-top: 2px solid var(--color-navy); }
+	.cmp-table tbody tr:last-child .is-ours { border-bottom: 2px solid var(--color-navy); }
+	.cmp-cards { display: none; }
+	.cmp-body { margin-top: var(--space-md); max-width: 62ch; }
+	.cmp-body p { margin: 0 0 0.5rem; font-size: 1rem; color: var(--color-text); }
+	.cmp-source {
+		margin: var(--space-sm) 0 0;
+		font-size: 0.875rem;
+		color: var(--color-text-muted);
+	}
+	.visually-hidden {
+		position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+	}
+
+	@media (max-width: 860px) {
+		.cmp-table-wrap { display: none; }
+		.cmp-cards {
+			display: grid;
+			gap: var(--space-sm);
+			margin-top: var(--space-md);
+		}
+		.cmp-card {
+			background: #fff;
+			border: 1px solid var(--color-border);
+			border-radius: 6px;
+			padding: var(--space-sm);
+		}
+		.cmp-card.is-ours { border: 2px solid var(--color-navy); }
+		.cmp-card-name { margin: 0 0 0.5rem; font-weight: 700; color: var(--color-navy); font-size: 1.125rem; }
+		.cmp-card dl { margin: 0; }
+		.cmp-card dl div {
+			display: grid;
+			grid-template-columns: minmax(0, 1fr) minmax(0, 46%);
+			gap: 0.75rem;
+			padding: 0.5rem 0;
+			border-top: 1px solid var(--color-border);
+			font-size: 1rem;
+		}
+		.cmp-card dt { color: var(--color-text-muted); }
+		.cmp-card dd { margin: 0; text-align: right; font-weight: 700; color: var(--color-navy); }
+	}
+</style>

@@ -105,7 +105,7 @@ How to redesign the full process around this sits on top of [Revenue Architectur
 
 ## Common mistakes
 
-- **Choosing between the comparison chart and case studies.** The chart keeps you from being dropped; the case studies keep you in. Missing features is the top reason vendors get cut, so abandon the chart and you are cut first. How to make the chart usable inside the buyer is in [Your Japan battlecard is read in a room your rep never enters](/en/articles/comparison-chart-defends-the-choice/).
+- **Choosing between the comparison chart and case studies.** The chart keeps you from being dropped; the case studies keep you in. Missing features is the top reason vendors get cut, so abandon the chart and you are cut first. How to make the chart usable inside the buyer is in [A comparison sheet for Japan must explain fit and implementation conditions](/en/articles/comparison-chart-defends-the-choice/).
 - **Treating your contact as the decision-maker.** With two to four departments involved, an eager champion cannot carry the deal past another department's unresolved "no." Watch the spread of consensus, not the enthusiasm of one person.
 - **Waiting out "let me take this back internally."** While you wait, your contact is assembling the explanation for the next level on their own. Decide before you wait what you will hand them: the ringi draft and the case study from the matching cell.
 

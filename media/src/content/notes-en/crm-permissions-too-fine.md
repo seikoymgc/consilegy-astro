@@ -1,104 +1,57 @@
 ---
-title: "Japan CRM permissions: separate record access from field protection"
+title: "CRM access between Japan and headquarters: set the boundary"
 description: "Separate requests to hide records from requests to protect specific fields. Check the legal, contractual and operational reasons for each restriction before applying it."
 publishedAt: 2026-08-30
-updatedAt: 2026-10-17
+updatedAt: 2026-11-21
 category: crm
 principle: "Separate requests to hide records from requests to protect specific fields. Check the legal, contractual and operational reasons for each restriction before applying it."
-canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
-canonLabel: Japan Market GTM and Messaging
+canonUrl: https://consilegy.com/en/services/crm-revops-implementation/
+canonLabel: CRM / RevOps Implementation
 draft: false
 ---
 
-The Japan rollout reaches the permission model and, for the first time in the project, nobody argues. The local team lists what must not be visible. HQ, wanting the launch to go well, agrees to most of it.
+This article addresses a cross-team design decision: what Japan’s operating team and overseas headquarters each need to access in a shared customer management system. Start with the information that needs protection and the work each side must complete. A request to hide a whole deal, a request to protect its cost information and a request to find one’s own deals more easily require different answers.
 
-Six months later the same team reports that they cannot find anything, and the regional forecast has to be assembled by hand.
+Do not treat local restrictions as unnecessary accommodation, or assume that more permission groups mean stronger protection. The task is to preserve the required boundary while allowing authorised work across Japan and headquarters. The examples below are hypothetical; this is editorial analysis, not a report of a particular rollout.
 
-Nothing was misconfigured. The requests were simply never sorted before they were granted.
+## Establish the reason before choosing the mechanism
 
-## Sort the requests by what they hide, not by who asked
+Ask which information is restricted, who must not access it and which uses are permitted. Record ownership alone does not answer those questions. A restriction involving another team’s accounts may have a contractual or operational basis; it should not be dismissed as reluctance to share results.
 
-Write out what the Japan team wants restricted and it separates cleanly.
+Where a requirement depends on law or contract, have the responsible people establish the requirement before configuring the system. A country label is not a substitute for that decision. Japan-based users do not automatically need identical access, and headquarters does not automatically need every underlying record.
 
-- Reps should not see accounts owned by other reps
-- One business unit should not see another unit's deals
-- Deals in progress should not be visible upward until the number firms up
-- Cost, margin and credit data should not be visible to sales
+The resulting design should identify both the protection requirement and the permitted work. That makes it possible to distinguish a real access boundary from a request about screen organisation.
 
-The first three are about who owns the record. Only the last is about what the record contains.
+## A filtered view is not an access boundary
 
-In most cases only the last one is a confidentiality requirement. The other three are about exposure.
+Suppose the local team cannot find its own deals among everyone else’s. A saved view filtered by owner may address that navigation problem. It does not establish that other records are inaccessible through search or related screens.
 
-There are real exceptions: deals touching M&A or insider information, businesses such as financial institutions where regulation requires an information wall between divisions, competitive information between resellers, and personal data restricted to a stated purpose.
+Conversely, if another team must not view a customer record, a convenient landing view is insufficient. The restriction has to hold through the relevant routes by which that user could reach the information.
 
-Those need records isolated, not just fields. Everything below is about the requests that fall outside those cases.
+Separating these questions helps avoid two mistakes: restricting records merely to simplify a screen, and treating a display preference as protection for confidential information. Confirm the customer’s actual requirement rather than inferring one from the Japan rollout.
 
-That is not a criticism of the Japan team.
+## Check what field protection actually does
 
-In Mazrica's SFA/CRM survey (published 28 January 2025, fielded 25 to 28 November 2024, n=101 Japanese B2B sales managers and team leads; run by a vendor that sells SFA software, with a small base, so read it for ordering rather than precision), the fifth most common reason reps gave for not entering data was "I don't want my results and my process visible to other people," at 27.7%.
+Hiding a field is not automatically safe or operationally costless. Consider calculated values, reports, exports and integrations that use the same information. If a user can see selling price and gross profit, the difference may reveal cost even when its own field is hidden.
 
-The feeling is real. It is not a control requirement, and the permission model is the wrong instrument for it.
+The opposite problem is also possible: a report using a restricted property may become unavailable. Check the product and configuration rather than assuming that every system displays blank or zero values in the same way.
 
-## Field restrictions are reversible. Record restrictions partition the company.
+[HubSpot’s official documentation](https://knowledge.hubspot.com/properties/restrict-view-edit-access-for-properties) says its property restrictions do not provide complete restricted access and are not recommended as a security measure. It describes setting or editing restricted properties through the API or manual record creation, as well as effects on tools using those properties. This is a limitation of that specific feature, not a claim about every CRM’s field protection.
 
-The difference only shows up after go-live.
+If the proposed mechanism cannot meet the protection requirement, reconsider where the information is held and which functions use it. Do not compensate by adding more rules without checking their effect.
 
-Hiding a field costs nothing.
+## Design the access needed for handover and regional reporting
 
-A rep who cannot see margin still runs the deal, because they never needed the number to run it. Turn the restriction off later and nothing has to be rebuilt.
+Once a record restriction is justified, trace the work that crosses it: account handovers, specialist support, reporting and integrations. Specify what each task requires before granting an exception.
 
-Two caveats.
+A regional reporting role may need an aggregate rather than the full content of every Japanese deal. A colleague taking over an account may need the record itself. An integration account needs the objects and operations required for its actual task. These needs should be assessed separately, instead of giving them all unrestricted access.
 
-Whether you can hide a field at all depends on the tool and edition: Salesforce does it with field-level security, while in HubSpot it is limited to certain editions, so check what your Japan instance's edition supports before you design around it. If it is not available, that field has to live somewhere else.
+Before launch, verify both sides of the design from the relevant user’s position: protected information stays inaccessible, and authorised work can still be completed. Include the search, output and integration routes that the organisation actually uses. Passing one of those checks does not establish the other.
 
-And anything calculated from a hidden field, such as formula fields, rollups and reports, may show blank or zero to users who cannot see the source. Hide cost but show a margin calculated from it, and the margin breaks.
-
-Hiding records splits the organisation once per rule.
-
-Restrict by owner and every account handover needs a manual grant. Restrict by business unit and the regional roll-up breaks, which is the moment HQ discovers that Japan's number now arrives as a spreadsheet.
-
-Worse, the partitions multiply. Each person who cannot see something they need produces one more exception group, and past a certain count nobody in the company can say who can see what.
-
-Permission design is not the only cause, but the endpoint is visible in the same survey. The third most common complaint about using SFA and CRM was "necessary information is not properly shared," at 39.6%, effectively level with "data entry and updating is cumbersome" at 43.6% and "field reps don't enter information" at 40.6%.
-
-HubSpot Japan's annual survey (published 19 February 2024, fielded by Macromill, n=1,545 sellers at companies of 51 to 5,000 employees; a survey by a company that sells CRM) found the same pattern from the data side.
-
-Among difficulties with using data, "data within the sales organisation is not properly managed" came in at 28.1% and "data integration with other departments has not progressed" at 24.4%.
-
-HQ tends to treat the entry problem and the sharing problem as separate workstreams. In a Japan rollout they usually come out of one configuration decision.
-
-## Make them write the reason in one line before you touch the model
-
-Ask for the reason at the moment the request arrives, in writing, in one line.
-
-If the answer names a law, a contract clause or personnel data, restrict the field. If regulation or a contract requires the record itself to be walled off, partition the record. If it names neither, the request is about record ownership and it goes on hold.
-
-Held requests get two things instead.
-
-First, an operating rule that assumes visibility. "Do not contact an account you do not own" is a norm, enforceable by a manager, and it does not partition anything.
-
-Second, a default view: save a list filtered to the rep's own accounts and make it the first screen they land on (how you pin it depends on the tool and edition).
-
-If a rep opens the CRM and sees their own accounts first, the daily irritation disappears. Not being able to see something and not having to look for it feel identical on Monday morning, and the second one is almost always what was actually being asked for.
-
-There is one more reason to hold the line here rather than concede it as a local accommodation.
-
-Where account ownership is tied to how someone is evaluated, a visibility request can be a request about standing rather than about data. Granting it in the permission model freezes an internal arrangement into the system, where the next reorganisation will have to break it out again.
-
-If you do decide to partition records, attach one condition. Name the role that produces the company-wide numbers first, and keep full record access on it.
-
-The integration user that connects other systems needs the same treatment. Skip that and the next quarterly forecast turns into a permission redesign.
-
-**Hiding a field is cheap and reversible. Hiding a record partitions the organisation. Sort the requests before you edit the model, because outside regulated or contract-bound cases only one kind is about confidentiality.**
-
-## Common mistakes
-
-- **Reading granularity as control.** The number of permission groups and the strength of governance are not related. Past the point where one person can explain the model, governance is weaker, not stronger.
-- **Creating the exception group in the meeting.** Granting takes five minutes; revoking needs an approval. Set the review date at the moment you create it.
-- **Porting the legacy permission model.** Workarounds built around the constraints of a system you are replacing arrive as unexplained complexity in the new one, and by then nobody remembers the constraint.
+For system configuration, handoff and reporting support, see [CRM / RevOps Implementation](https://consilegy.com/en/services/crm-revops-implementation/).
 
 ## Related reading
 
-The same "we want ours separate" request shows up one layer down in the pipeline, and it is worth reading alongside this: [your Japan team wants its own pipeline, give them four fields instead](/en/articles/split-pipeline-by-department/).
+For a related reporting decision, see [separating Japan’s pipeline and preserving regional visibility](/en/articles/split-pipeline-by-department/). Assess the access requirement before choosing the reporting structure.
 
-Other notes on the same problem are collected under [CRM adoption](/en/category/crm/).
+Other notes are collected under [CRM adoption](/en/category/crm/).

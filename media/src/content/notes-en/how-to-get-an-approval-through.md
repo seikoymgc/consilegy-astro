@@ -69,7 +69,7 @@ Use three columns only: meets, meets with conditions, does not meet. Write the "
 
 In the "with conditions" cells, say what has to happen in implementation terms. Those cells become the champion's answers to internal objections.
 
-The full method is in [Your Japan battlecard is read in a room your rep never enters](/en/articles/comparison-chart-defends-the-choice/).
+The full method is in [A comparison sheet for Japan must explain fit and implementation conditions](/en/articles/comparison-chart-defends-the-choice/).
 
 ## A quote fixes the amount the approver will see
 

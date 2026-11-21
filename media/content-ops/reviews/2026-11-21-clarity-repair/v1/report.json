@@ -1,0 +1,674 @@
+{
+  "created_at": "2026-11-21T08:02:32.855799+00:00",
+  "provider": "Claude Code",
+  "article": {
+    "path": "/Users/seikoyamaguchi/.codex/worktrees/all-published-review-20261120/src/content/blog/microsoft-clarity-masking.md",
+    "sha256": "1ddc78300787bada841213be5f9f599ede732d4f40b6bc5858ccb5fdeadfa4ea"
+  },
+  "article_url": "https://consilegy.com/analytics/microsoft-clarity-masking/",
+  "checklist": {
+    "path": "/Users/seikoyamaguchi/Claude/consilegy-astro/media/content-ops/claude-review/checklist.md",
+    "sha256": "9a3f2f2559b216a05f4fa871d3b8f43a92bb9fb6af3e40dd7090de1d6c7b206c"
+  },
+  "evidence": [
+    {
+      "path": "/Users/seikoyamaguchi/Claude/consilegy-astro/media/content-ops/reviews/2026-11-21-clarity-repair/evidence.md",
+      "sha256": "abcbb846811d5f54e5613d52ebcbae20e44e45da178b9d778f5526f033007c9a"
+    }
+  ],
+  "completed": true,
+  "ai_clear": false,
+  "publication_authorized": false,
+  "phases": {
+    "facts": {
+      "session_id": "a668714d-fa92-4322-b339-83a80225f15b",
+      "model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 4,
+          "outputTokens": 5039,
+          "cacheReadInputTokens": 11739,
+          "cacheCreationInputTokens": 11624,
+          "webSearchRequests": 0,
+          "costUSD": 0.19613579999999997,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 1778,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 11624,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        },
+        "claude-haiku-5-5": {
+          "inputTokens": 50636,
+          "outputTokens": 655,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.0053911,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 472,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 0,
+          "canonicalModel": "claude-haiku-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "review": {
+        "summary": "本日（2026-11-21）、記事にある2つのリンク先（Microsoft Learn「Masking content」〔ドキュメント更新日 2025-12-05〕とMDNのClass selectorsページ）を実際に開き、本文と照合しました。数値・仕様・手順・属性名はすべて一次情報と一致し、事実のCritical・Majorはありません。一致を確認した主な点は次のとおりです。初期設定はBalanced。3モードの定義。入力欄とドロップダウンは全モードでマスクされ、変更できない。設定を変更できるのはプロジェクト管理者のみ。登録手順はSettings > Masking > Mask by element > Add element > Confirmで、Mask/Unmaskを切り替えられる。設定は子要素にも適用される。data-clarity-mask=\"True\"とdata-clarity-unmask。CSSやstyleタグ内はマスクされない。反映は最大1時間で、新しい録画だけに適用され、過去の録画には遡らない。MDNについては、`.class_name`という構文と複数クラスの指定例（li.spacious.elegant）を確認しました。指摘は2件で、どちらもMinorです。1件目は、HTML属性がClarityサイト上の設定より優先されるという公式の記載が本文にない点です。2件目は、Balancedの説明に公式にない「など」が付いている点です。アイキャッチ画像は今回見ておらず、本人による全文確認と筆者の意図の確認もできていないため、P06・P07・P10は要確認にしました。公開中のURLは旧版で、今回は審査対象にしていません。",
+        "assessments": [
+          {
+            "id": "F01",
+            "status": "問題なし",
+            "reason": "本文中の数値は「最大1時間」だけです。Microsoft Learnの「could take up to one hour to be reflected」と一致することを確認しました。"
+          },
+          {
+            "id": "F02",
+            "status": "問題なし",
+            "reason": "仕様はMicrosoft Learnの公式資料、CSS記法はMDNを参照しています。どちらも今回実際に開いて内容を確認しました。"
+          },
+          {
+            "id": "F03",
+            "status": "問題なし",
+            "reason": "Microsoft Clarity、Strict/Balanced/Relaxed、Mask by element、Add element、Confirm、Mask/Unmask、data-clarity-mask/data-clarity-unmaskの表記は、いずれも公式ページと一致します。"
+          },
+          {
+            "id": "F04",
+            "status": "問題なし",
+            "reason": "公開日は2022年、更新日と本文の確認日はともに2026-11-21で、矛盾はありません。公式ドキュメントの更新日（2025-12-05）は確認日より前です。"
+          },
+          {
+            "id": "F05",
+            "status": "問題なし",
+            "reason": "本日取得した最新版の公式ページ（updated_at 2025-12-05）と仕様・手順を照合し、一致しました。"
+          },
+          {
+            "id": "F06",
+            "status": "問題なし",
+            "reason": "直接引用しているのは属性値data-clarity-mask=\"True\"だけで、公式の表記と一致します。"
+          },
+          {
+            "id": "F07",
+            "status": "問題なし",
+            "reason": "2つのリンクは両方とも実在し、説明どおりのページ（Masking content、Class selectors）に遷移しました。"
+          },
+          {
+            "id": "F08",
+            "status": "問題なし",
+            "reason": "「業界No.1」のような最上級表現や、導入数を示す根拠のない主張はありません。"
+          },
+          {
+            "id": "F09",
+            "status": "問題なし",
+            "reason": "仕様の説明に誤りはありません。`privacy`だけを指定すると要素名の指定になるという説明も、CSSの仕様として正しいです。網羅性の面で軽微な指摘が2件あり、findingsに記載しました（F09、F12）。"
+          },
+          {
+            "id": "F10",
+            "status": "問題なし",
+            "reason": "コード例は本文中で「説明用の架空の例」と明示されています。録画テストを実施したという体験談の創作もありません。"
+          },
+          {
+            "id": "F11",
+            "status": "問題なし",
+            "reason": "公式仕様（「公式資料では」「公式に推奨」）と、運用上の判断（どちらの方法を使うかはサイトの更新方法で決める、など）が区別して書かれています。"
+          },
+          {
+            "id": "F12",
+            "status": "問題なし",
+            "reason": "断定している事実はすべて公式資料で確認できました。Balancedの説明に付いた「など」は軽微な指摘としてfindingsに記載しました。"
+          },
+          {
+            "id": "P01",
+            "status": "問題なし",
+            "reason": "タイトル・description・見出し・本文の内容は一致しており、過去の録画に適用されないという制約も本文で説明されています。"
+          },
+          {
+            "id": "P02",
+            "status": "問題なし",
+            "reason": "数値・日付・固有名詞・URLは、今回すべて一次情報と照合しました。画像の確認はP06で扱います。"
+          },
+          {
+            "id": "P03",
+            "status": "問題なし",
+            "reason": "仮置きの文章や「TBD」などの未確定表記はありません。"
+          },
+          {
+            "id": "P04",
+            "status": "問題なし",
+            "reason": "公式の文章や画像の転載はなく、自分の言葉で要約したうえで出典リンクを付けています。"
+          },
+          {
+            "id": "P05",
+            "status": "問題なし",
+            "reason": "冒頭で公式資料と確認日を明記し、本文中でMDNにもリンクしています。"
+          },
+          {
+            "id": "P06",
+            "status": "要確認",
+            "reason": "アイキャッチ画像（/images/media/2022/04/clarity-masking-1.jpg）は今回提供されておらず、見ていません。資料には確認済みとありますが、本工程では確認できていません。"
+          },
+          {
+            "id": "P07",
+            "status": "要確認",
+            "reason": "「サイトの更新方法で決めます」などの運用上の判断が、筆者の意図どおりかは本人の確認が必要です。資料からは、本人の全文監修が済んでいないと読み取れます。"
+          },
+          {
+            "id": "P08",
+            "status": "問題なし",
+            "reason": "実際のアカウントで設定や録画テストをしたという記述はなく、事実や実績の創作は見当たりません。"
+          },
+          {
+            "id": "P09",
+            "status": "問題なし",
+            "reason": "子要素への適用は2か所に出てきますが、1つはMask by element、もう1つはHTML属性の説明で、文脈が異なるため重複ではありません。"
+          },
+          {
+            "id": "P10",
+            "status": "要確認",
+            "reason": "本人による全文確認と独立した人によるレビューはまだ行われておらず、AIのレビューだけでは本人の確認済みとは扱えません。"
+          }
+        ],
+        "findings": [
+          {
+            "id": "F09",
+            "severity": "Minor",
+            "quote": "解除設定や上書きによって対象が見える状態になっていないかも確認します。",
+            "reason": "公式資料には、data-clarity-maskとdata-clarity-unmaskが「This overrides anything set on the Clarity website」と書かれており、HTML属性の方がClarityサイト上の設定より優先されます。本文の「上書き」だけでは、どちらが優先されるのかが読者に伝わりません。",
+            "proposal": "例：「HTML側のdata-clarity-mask／data-clarity-unmaskは、Clarityの管理画面での設定より優先されると公式に記載されています。」という一文を足し、何が何を上書きするのかを明記する。",
+            "evidence": "https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-masking（Using the Clarity data-clarity-mask APIの節）"
+          },
+          {
+            "id": "F12",
+            "severity": "Minor",
+            "quote": "数値やメールアドレスなど、Clarityが機密情報と分類する内容をマスキングします。",
+            "reason": "公式資料は「We classify numbers and email addresses as sensitive content.」と、数値とメールアドレスだけを挙げています。「など」を付けると、ほかにも分類対象があるように読めますが、今回確認したページではその根拠を確認できませんでした。",
+            "proposal": "「など」を外して「Clarityが機密情報と分類する数値とメールアドレスをマスキングします。」とする。ほかの分類対象がFAQなど公式資料で確認できるなら、その出典を示す。",
+            "evidence": "https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-masking（Masking modesの節）"
+          }
+        ]
+      }
+    },
+    "editorial": {
+      "session_id": "4518e7b9-b2bc-45c6-8b17-62f4ec86098f",
+      "model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 4,
+          "outputTokens": 5802,
+          "cacheReadInputTokens": 11971,
+          "cacheCreationInputTokens": 11844,
+          "webSearchRequests": 0,
+          "costUSD": 0.2132022,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 1654,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 11844,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        },
+        "claude-haiku-5-5": {
+          "inputTokens": 50629,
+          "outputTokens": 647,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.0053864,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 263,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 0,
+          "canonicalModel": "claude-haiku-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "review": {
+        "summary": "今回はMicrosoft公式資料「Masking content」（ページ更新日 2025-12-05）とMDNのClass selectorsページを実際に開き、本文と照らし合わせました。結論として、Critical・Majorの指摘はありません。照合して一致を確認できたのは次の点です。初期設定がBalancedであること、3つのモードの定義、入力欄とドロップダウンが全モードでマスキングされ変更できないこと、操作できるのは管理者だけであること、Settings→Masking→Mask by element→Add element→Confirmの手順、子要素にも適用されること、data-clarity-mask=\"True\"とdata-clarity-unmaskの記載、CSS・styleタグ内はマスキングされないこと、反映に最大1時間かかり新しい録画にだけ適用され過去の録画には遡らないこと。.privacyの説明や複数クラスの記法もMDNと矛盾しません。.container.no1のような高度な指定については、Clarityで動くと言い切らず実際の録画での確認を求めており、適切です。結論の提示、各章の役割、制約の説明、確認手順はそろっています。改善任意のMinorは2件です。(1) Balancedで氏名が自動ではマスキングされない可能性について、根拠のつながりが本文で明示されていない。(2) HTML属性がClarity管理画面の設定より優先されるという公式の説明が書かれていない。なお、今回の対象は構成・内容・読者体験の項目だけです。ファクト、日本語表現、公開前確認の各項目、公開ページへの反映状況、画像・OGP、独立した人による審査、代表の全文最終確認は対象外で、完了扱いにはしていません。",
+        "assessments": [
+          {
+            "id": "S01",
+            "status": "問題なし",
+            "reason": "タイトル「個人情報マスキング機能」に対して、本文はマスキングモード、要素の指定、HTML属性、確認方法と制約を扱っており一致している。"
+          },
+          {
+            "id": "S02",
+            "status": "問題なし",
+            "reason": "冒頭で「入力するセレクタは.privacy」「先頭のピリオドを省くと別の指定になる」という答えを示し、続けて記事の範囲と、公式資料をいつ確認したかを書いている。"
+          },
+          {
+            "id": "S03",
+            "status": "問題なし",
+            "reason": "読者がまず知りたい、モードごとの範囲と入力欄の扱いから始め、続いてセレクタの書き方と手順を説明しており、優先順位が適切。"
+          },
+          {
+            "id": "S04",
+            "status": "問題なし",
+            "reason": "モード→管理画面での要素指定→HTML属性→保存後の確認・制約という流れで、設定から検証までの順序が論理的につながっている。"
+          },
+          {
+            "id": "S05",
+            "status": "問題なし",
+            "reason": "各章が、モードの範囲、CSSセレクタ、HTML属性、反映と検証をそれぞれ担当しており、内容の重複はない。"
+          },
+          {
+            "id": "S06",
+            "status": "問題なし",
+            "reason": "誤りが起きやすいセレクタの章と、確認・制約の章に分量が割かれており、長さの配分は不自然ではない。"
+          },
+          {
+            "id": "S07",
+            "status": "問題なし",
+            "reason": "箇条書き、コード例、手順、判断基準と、章ごとに構成が違い、同じ型を繰り返していない。"
+          },
+          {
+            "id": "S08",
+            "status": "問題なし",
+            "reason": "主張はおおむね公式資料とMDNで裏付けられる。Balancedと氏名の関係で根拠のつながりが暗黙になっている点はC10で軽微に指摘した。"
+          },
+          {
+            "id": "S09",
+            "status": "問題なし",
+            "reason": "「セレクタを保存できた」ことと「録画で意図どおりマスキングされる」ことを分けて扱っており、因果を混同していない。"
+          },
+          {
+            "id": "S10",
+            "status": "問題なし",
+            "reason": "一般論の前置きはなく、冒頭から具体的な設定値に入っている。"
+          },
+          {
+            "id": "S11",
+            "status": "問題なし",
+            "reason": "MDNの記法の話もClarityで指定する際の注意に結び付いており、脱線はない。"
+          },
+          {
+            "id": "S12",
+            "status": "問題なし",
+            "reason": "最後の段落は本文の繰り返しではなく、対象の選定と録画での確認を一組で扱うという運用上の原則に絞った締めになっている。"
+          },
+          {
+            "id": "C01",
+            "status": "問題なし",
+            "reason": "曖昧語はほとんどなく、モード名、操作名、属性名などの固有名で説明している。"
+          },
+          {
+            "id": "C02",
+            "status": "問題なし",
+            "reason": ".privacy、data-clarity-mask=\"True\"、最大1時間などの具体値があり、いずれも公式資料で確認できた。数字の創作はない。"
+          },
+          {
+            "id": "C03",
+            "status": "問題なし",
+            "reason": "コンテナを指定すると子要素まで隠れるリスクや、改修でクラス名が変わったときの再確認など、実務上の示唆がある。"
+          },
+          {
+            "id": "C04",
+            "status": "問題なし",
+            "reason": "実体験は書かれていないが、公式資料とMDNを比べ、CSSとして書けることとClarityの録画結果を分けて考えるという分析がある。体験を創作していない。"
+          },
+          {
+            "id": "C05",
+            "status": "問題なし",
+            "reason": "ピリオドの有無で要素名の指定に変わってしまう点や、CSS登録とHTML属性のどちらを選ぶかの基準など、公式資料だけでは得にくい判断材料がある。"
+          },
+          {
+            "id": "C06",
+            "status": "問題なし",
+            "reason": "class=\"privacy\"の例と<privacy>要素との対比は、ピリオドが必要な理由を理解する助けになっている。"
+          },
+          {
+            "id": "C07",
+            "status": "問題なし",
+            "reason": "コード例について「説明用の架空の例です」と明記しており、実話として扱っていない。"
+          },
+          {
+            "id": "C08",
+            "status": "問題なし",
+            "reason": "過去の録画には適用されないこと、最大1時間かかること、CSS内はマスキングされないこと、子要素にも及ぶことなどの制約を示している。HTML属性の優先順位が書かれていない点は軽微な指摘として別記した。"
+          },
+          {
+            "id": "C09",
+            "status": "問題なし",
+            "reason": "Clarityを導入済みでマスキングを設定する担当者にとって、CSSセレクタの基礎から補足しており、深さは適切。"
+          },
+          {
+            "id": "C10",
+            "status": "問題なし",
+            "reason": "大半の説明に理由が添えられている。ただし、初期設定のままでは不十分という主張の理由（Balancedが機密情報と分類するのは数値とメールアドレス）が氏名の例と結び付けられていないため、Minorとして指摘した。"
+          },
+          {
+            "id": "C11",
+            "status": "問題なし",
+            "reason": "操作手順、テスト用の情報を使った録画確認、解除設定の確認、方法を選ぶ基準があり、実務で使える。"
+          },
+          {
+            "id": "R01",
+            "status": "問題なし",
+            "reason": "Clarityの管理者・設定担当者で、個人情報を記録させたくない読者が対象だと本文から読み取れる。"
+          },
+          {
+            "id": "R02",
+            "status": "問題なし",
+            "reason": "どう指定すれば隠せるか、どう確かめるかという疑問に答えている。"
+          },
+          {
+            "id": "R03",
+            "status": "問題なし",
+            "reason": "冒頭で、ピリオドを付け忘れるというよくある誤りと正しい指定方法を示しており、記事の価値が伝わる。"
+          },
+          {
+            "id": "R04",
+            "status": "問題なし",
+            "reason": "記事は短く、冗長で離脱を招くような箇所はない。"
+          },
+          {
+            "id": "R05",
+            "status": "問題なし",
+            "reason": "必要な説明はおおむね揃っている。HTML属性がClarity管理画面の設定より優先されるという公式の記述が抜けている点はMinorで指摘した。"
+          },
+          {
+            "id": "R06",
+            "status": "問題なし",
+            "reason": "クラスセレクタと要素名による指定の違いを説明し、MDNへリンクしている。"
+          },
+          {
+            "id": "R07",
+            "status": "問題なし",
+            "reason": "CSSで登録する方法とHTML属性で指定する方法を比べ、運用の違いを説明している。"
+          },
+          {
+            "id": "R08",
+            "status": "問題なし",
+            "reason": "見出しが「入力欄はどのモードでも…」「先頭にピリオドを付ける」のように結論型で、見出しだけでも要点が分かる。"
+          },
+          {
+            "id": "R09",
+            "status": "問題なし",
+            "reason": "モード、指定方法、確認の順に章が分かれていて探しやすい。"
+          },
+          {
+            "id": "R10",
+            "status": "問題なし",
+            "reason": ".privacyで登録し、新しい録画をテスト用の情報で確認する、という次の行動が明確。"
+          },
+          {
+            "id": "R11",
+            "status": "問題なし",
+            "reason": "公式資料とMDNへの導線が文脈に沿って置かれている。内部リンクはないが、この記事の目的には不足していない。"
+          }
+        ],
+        "findings": [
+          {
+            "id": "C10",
+            "severity": "Minor",
+            "quote": "一方、初期設定を使っているから、隠したい情報がすべて対象になるとも判断しないことです。",
+            "reason": "初期設定だけでは不十分だと注意しているが、その理由が書かれていない。公式資料では、Balancedが機密情報と分類するのは数値とメールアドレスだとしている。記事の例である氏名のような文字列が自動では対象にならない可能性が、本文から読み取りにくい。",
+            "proposal": "直後に公式資料の範囲で理由を補う。例：「公式資料でBalancedが機密情報と分類しているのは数値やメールアドレスです。氏名のような表示が隠れるかは、次章の要素指定と録画で確かめます。」挙動を断定したり、新しい閾値を作ったりはしない。",
+            "evidence": "https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-masking （\"Balanced: Only sensitive content is masked. We classify numbers and email addresses as sensitive content.\"）"
+          },
+          {
+            "id": "C08",
+            "severity": "Minor",
+            "quote": "解除設定や上書きによって対象が見える状態になっていないかも確認します。",
+            "reason": "公式資料には、data-clarity-maskとdata-clarity-unmaskは「Clarityのウェブサイトでの設定を上書きする」と書かれている。この優先順位が本文にないため、管理画面でMaskにした箇所でもHTML側のunmaskが優先されることが伝わらない。どちらの方法を選ぶかや、確認の際に何を見るかの判断材料が少し足りない。",
+            "proposal": "HTML属性の章か確認の章に、「公式資料では、HTML属性による指定はClarityの管理画面の設定より優先されると説明されています」という一文を足す。",
+            "evidence": "https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-masking （\"This overrides anything set on the Clarity website.\"）"
+          }
+        ]
+      }
+    },
+    "copy": {
+      "session_id": "f00146dd-a393-4a6f-b18b-867a9242bbe0",
+      "model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 4,
+          "outputTokens": 6426,
+          "cacheReadInputTokens": 12046,
+          "cacheCreationInputTokens": 11751,
+          "webSearchRequests": 0,
+          "costUSD": 0.2249532,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 2540,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 11751,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        },
+        "claude-haiku-5-5": {
+          "inputTokens": 50637,
+          "outputTokens": 624,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.005375700000000001,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 343,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 0,
+          "canonicalModel": "claude-haiku-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "review": {
+        "summary": "校正・推敲工程（J01〜J28、P01〜P10）の審査です。2026-11-21にMicrosoft公式「Masking content」（ms.date 2024-11-01、updated_at 2025-12-05）とMDNのクラスセレクタのページを開き、本文と照合しました。確認できた仕様は次のとおりで、本文とおおむね一致しています。初期設定はBalanced、入力欄とドロップダウンは全モードでマスクされ、入力欄の挙動は変更できません。変更できるのは管理者のみで、Add element→セレクタ入力→Confirmで登録し、Mask/Unmaskを切り替えます。設定は子要素に適用され、data-clarity-mask=\"True\"とdata-clarity-unmaskが使えます。CSSとstyleタグ内はマスクされず、反映は最大1時間、新しい録画のみが対象で、過去の録画には遡って適用されません。.class_nameの記法と、複数クラスを並べる複合セレクタはMDNで確認しました。日本語表現には大きな問題がなく、Minorを2件挙げます（公式にない「など」による拡張、「判断しないことです」の硬い言い方）。Critical・Majorは0件です。ただし次の3点は要確認です。アイキャッチ画像は未提供で確認していません（P06）。本人の意図と、AIが加えた判断文の一致を確かめていません（P07）。本人の全文監修も未実施です（P10）。この3点が残るため、この工程だけで公開可とはしません。旧公開版と修正原稿の食い違いは未デプロイの状態として扱い、指摘には含めていません。",
+        "assessments": [
+          {
+            "id": "J01",
+            "status": "問題なし",
+            "reason": "「ではないでしょうか」「と言えるでしょう」は本文に使われていない。"
+          },
+          {
+            "id": "J02",
+            "status": "問題なし",
+            "reason": "締めは「対象の選定と、実際の録画での確認を一組にして扱ってください。」で、「いかがでしたか」のような定型句はない。"
+          },
+          {
+            "id": "J03",
+            "status": "問題なし",
+            "reason": "冒頭は「Microsoft Clarityで個人情報を記録させないためには」から始まり、「近年」などの決まった導入句はない。"
+          },
+          {
+            "id": "J04",
+            "status": "問題なし",
+            "reason": "「また」は最終章で1回だけ使われ、「さらに」「加えて」が続く箇所もない。"
+          },
+          {
+            "id": "J05",
+            "status": "問題なし",
+            "reason": "「重要です」「大切です」「ポイントです」は使われていない。"
+          },
+          {
+            "id": "J06",
+            "status": "問題なし",
+            "reason": "過剰な共感や、へりくだりすぎた丁寧表現はない。"
+          },
+          {
+            "id": "J07",
+            "status": "問題なし",
+            "reason": "「革新的」「非常に有効」などの誇張はない。機能の説明は公式仕様の範囲に収まっている。"
+          },
+          {
+            "id": "J08",
+            "status": "問題あり",
+            "reason": "「判断しないことです」という言い方が硬く、少し不自然（Minor）。ほかに翻訳調の目立つ箇所はない。"
+          },
+          {
+            "id": "J09",
+            "status": "問題なし",
+            "reason": "「確かめます」「確認します」は数回出てくるが、記事の中心となる行動を指す言葉なので、機械的な繰り返しには当たらない。"
+          },
+          {
+            "id": "J10",
+            "status": "問題なし",
+            "reason": "「〜ます。」が続く段落はあるが、文型（表示します／見ます／ないようにします）が変わっており、敬体として自然。"
+          },
+          {
+            "id": "J11",
+            "status": "問題なし",
+            "reason": "いちばん長いのはSettings→…→Confirmの手順文だが、UI名を含むため長さは妥当で、読みにくくない。"
+          },
+          {
+            "id": "J12",
+            "status": "問題なし",
+            "reason": "各文の主張は一つずつにまとまっている。"
+          },
+          {
+            "id": "J13",
+            "status": "問題なし",
+            "reason": "「プロジェクトの管理者が…を開き…選びます」など、主語と述語は対応している。"
+          },
+          {
+            "id": "J14",
+            "status": "問題なし",
+            "reason": "「この動作は変更できません」「これは説明用の架空の例です」とも、指す対象がすぐ前の文にあって明確。"
+          },
+          {
+            "id": "J15",
+            "status": "問題なし",
+            "reason": "目立つ冗長表現はない。"
+          },
+          {
+            "id": "J16",
+            "status": "問題なし",
+            "reason": "録画で確かめるという主旨は各章に出てくるが、章ごとの観点（指定範囲／高度なセレクタ／反映後／解除設定）が違い、同じ文の繰り返しではない。"
+          },
+          {
+            "id": "J17",
+            "status": "問題なし",
+            "reason": "不自然な体言止めや疑問形の多用はない。"
+          },
+          {
+            "id": "J18",
+            "status": "問題なし",
+            "reason": "段落は複数の文でまとまっており、一文ごとの改行はない。"
+          },
+          {
+            "id": "J19",
+            "status": "問題なし",
+            "reason": "モード、クラス指定、HTML属性、保存後の確認という意味のまとまりで段落が分かれている。"
+          },
+          {
+            "id": "J20",
+            "status": "問題なし",
+            "reason": "箇条書きは3つのモードを比べる箇所だけで、必要な範囲に限られている。"
+          },
+          {
+            "id": "J21",
+            "status": "問題なし",
+            "reason": "誤字脱字や変換ミスは見当たらない。"
+          },
+          {
+            "id": "J22",
+            "status": "問題なし",
+            "reason": "本文は敬体でそろっている。見出しが常体なのは一般的な書き方。"
+          },
+          {
+            "id": "J23",
+            "status": "問題なし",
+            "reason": "「マスキング」「録画」「入力欄」「セレクタ」は表記がそろっている。英語のMask/UnmaskはUI名として区別して使われている。"
+          },
+          {
+            "id": "J24",
+            "status": "問題なし",
+            "reason": "「2026年11月21日」「最大1時間」など、数字と単位の書き方がそろっている。"
+          },
+          {
+            "id": "J25",
+            "status": "問題なし",
+            "reason": "Microsoft Clarity、MDN、CSS、HTML、Strict/Balanced/Relaxed、Settings/Masking/Add element/Confirmは公式の表記と一致している。"
+          },
+          {
+            "id": "J26",
+            "status": "問題なし",
+            "reason": "CSSセレクタや子要素は、クラスセレクタの例とMDNへのリンクで補われており、想定読者（サイト運用者）の水準に合っている。"
+          },
+          {
+            "id": "J27",
+            "status": "問題なし",
+            "reason": "二重表現は見当たらない。"
+          },
+          {
+            "id": "J28",
+            "status": "問題なし",
+            "reason": "「」とcodeタグの使い方がそろっている。UIの階層は→で統一されている。"
+          },
+          {
+            "id": "P01",
+            "status": "問題なし",
+            "reason": "タイトル「個人情報マスキング機能」、各見出し（モード、クラス指定、HTML属性、保存後の確認）、本文の内容は互いに矛盾しない。"
+          },
+          {
+            "id": "P02",
+            "status": "問題あり",
+            "reason": "公式ページとMDNを開いて、URLと仕様をほぼ照合できた。ただしBalancedの説明にある「など」は公式記載（数値とメールアドレス）より範囲が広い（Minor）。公式ページの更新日は2025-12-05で、本文の「2026年11月21日に確認」とは矛盾しない。"
+          },
+          {
+            "id": "P03",
+            "status": "問題なし",
+            "reason": "仮置きの文章やTODOはない。"
+          },
+          {
+            "id": "P04",
+            "status": "問題なし",
+            "reason": "公式文の転載はなく、要約と独自のコード例で構成されている。リンクで出典も示している。"
+          },
+          {
+            "id": "P05",
+            "status": "問題なし",
+            "reason": "Microsoft公式資料とMDNを、本文中のリンクで明記している。"
+          },
+          {
+            "id": "P06",
+            "status": "要確認",
+            "reason": "featuredImage（/images/media/2022/04/clarity-masking-1.jpg）は今回提供されておらず、開いていない。資料には確認済みとあるが、この工程では未確認。"
+          },
+          {
+            "id": "P07",
+            "status": "要確認",
+            "reason": "「どちらを使うかは、サイトの更新方法で決めます」などの運用上の判断文が、筆者の意図に沿うかを本人に確認していない。"
+          },
+          {
+            "id": "P08",
+            "status": "問題なし",
+            "reason": "コード例には「説明用の架空の例です」と明記されている。実際のアカウントでテストしたという記述もなく、体験の創作はない。"
+          },
+          {
+            "id": "P09",
+            "status": "問題なし",
+            "reason": "最終段落は録画での確認を改めて強調しているが、対象の選定と確認を一組にするという結論として機能しており、重複には当たらない。"
+          },
+          {
+            "id": "P10",
+            "status": "要確認",
+            "reason": "本人による全文監修と、独立した人の審査は未実施（資料にも実施済みとしないと明記されている）。"
+          }
+        ],
+        "findings": [
+          {
+            "id": "P02",
+            "severity": "Minor",
+            "quote": "数値やメールアドレスなど、Clarityが機密情報と分類する内容をマスキングします。",
+            "reason": "公式は「Only sensitive content is masked. We classify numbers and email addresses as sensitive content.」と書いており、例として挙げているのは数値とメールアドレスだけ。「など」があると、ほかの種類も自動で対象になると読まれるおそれがある。",
+            "proposal": "「数値やメールアドレスなど」を「数値とメールアドレスを、Clarityが機密情報と分類してマスキングします。」とするなど、公式の記載範囲に合わせる。",
+            "evidence": "https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-masking（Masking modes > Balanced）"
+          },
+          {
+            "id": "J08",
+            "severity": "Minor",
+            "quote": "一方、初期設定を使っているから、隠したい情報がすべて対象になるとも判断しないことです。",
+            "reason": "「〜とも判断しないことです」という言い方が硬く、文末として少し落ち着かない。意味は通じる。",
+            "proposal": "「一方、初期設定のままでも、隠したい情報がすべて対象になるとは限りません。」のように言い切る形にする（主旨は変えない）。",
+            "evidence": "本文の表現上の問題で、外部根拠は不要。"
+          }
+        ]
+      }
+    }
+  }
+}

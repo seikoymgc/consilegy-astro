@@ -4,141 +4,44 @@ title: "Microsoft Clarityの個人情報マスキング機能"
 slug: "microsoft-clarity-masking"
 sourceUrl: "https://consilegy.com/analytics/microsoft-clarity-masking/"
 pubDate: "2022-04-18T23:00:00"
-updatedDate: "2022-04-26T00:39:46"
-description: " Microsoft Clarityを使用する際、お客様の個人情報が見えてしまうとまずいシーンは結構あると思います。    個人情報は取り扱い要注意情報です。個人情報が見えてしまうだけでメンバー管理が煩雑になったり、分析データを気軽に共有できなくなったり、さまざまな問題が発生します。    Micr"
+updatedDate: "2026-11-21T09:00:00+09:00"
+description: "Microsoft Clarityのマスキングモードと、CSSクラスを使う追加設定を解説します。.privacyの指定、入力欄の扱い、設定後の確認、過去の録画に適用されない制約を整理します。"
 featuredImage: "/images/media/2022/04/clarity-masking-1.jpg"
-featuredImageAlt: ""
+featuredImageAlt: "Microsoft Clarityの個人情報マスキング機能"
 draft: false
 categories:
   - "analytics"
 tags:
   - "%e3%83%92%e3%83%bc%e3%83%88%e3%83%9e%e3%83%83%e3%83%97"
-hasShortcodes: true
+hasShortcodes: false
 ---
-<!-- wp:paragraph -->
-<p>Microsoft Clarityを使用する際、お客様の個人情報が見えてしまうとまずいシーンは結構あると思います。</p>
-<!-- /wp:paragraph -->
+<p>Microsoft Clarityで個人情報を記録させないためには、マスキングモードを選ぶだけでなく、ページ上のどの情報を隠すかを確認します。例えば、氏名に付けた<code>privacy</code>というクラスを指定するなら、入力するセレクタは<strong><code>.privacy</code></strong>です。先頭のピリオドを省くと、別の指定になってしまいます。</p>
+<p>この記事では、モードの違いと、CSSクラスで対象を指定する方法を整理します。仕様と管理画面の操作名は、2026年11月21日に確認した<a href="https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-masking">Microsoft公式資料「Masking content」</a>に基づきます。</p>
 
-<!-- wp:paragraph -->
-<p>個人情報は取り扱い要注意情報です。個人情報が見えてしまうだけでメンバー管理が煩雑になったり、分析データを気軽に共有できなくなったり、さまざまな問題が発生します。</p>
-<!-- /wp:paragraph -->
+<h2>入力欄は、どのモードでもマスキングされる</h2>
+<p>Clarityの初期設定はBalancedです。モードの違いは次のとおりです。</p>
+<ul>
+<li><strong>Strict</strong>：コンテンツ全体をマスキングします。</li>
+<li><strong>Balanced</strong>：数値やメールアドレスなど、Clarityが機密情報と分類する内容をマスキングします。</li>
+<li><strong>Relaxed</strong>：通常のコンテンツはマスキングしません。ただし、入力欄とドロップダウンは引き続きマスキングされます。</li>
+</ul>
+<p>入力欄の内容は全モードでマスキングされ、この動作は変更できません。「Relaxedなら何も隠れない」という意味ではありません。一方、初期設定を使っているから、隠したい情報がすべて対象になるとも判断しないことです。</p>
 
-<!-- wp:paragraph -->
-<p>Microsoft Clarityには便利な機能があり、<strong>CSSのセレクターで個人情報をマスキングできる</strong>というものです。マスキングを設定すると当該情報は非公開となり、Clarityにアップロードされないようになります。</p>
-<!-- /wp:paragraph -->
+<h2>クラス名を登録するときは、先頭にピリオドを付ける</h2>
+<p>例えば、画面に表示する情報へ次のクラスを付けたとします。これは説明用の架空の例です。</p>
+<pre><code>&lt;p class="privacy"&gt;サンプルの氏名&lt;/p&gt;</code></pre>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Class_selectors">MDNのクラスセレクタの説明</a>にあるとおり、クラスは<code>.privacy</code>と指定します。<code>privacy</code>だけでは、<code>class="privacy"</code>ではなく、<code>&lt;privacy&gt;</code>という要素名を指定することになります。</p>
+<p>Clarity公式の手順では、プロジェクトの管理者が<strong>Settings → Masking → Mask by element → Add element</strong>を開き、CSSセレクタを入力して<strong>Confirm</strong>を選びます。追加した指定は<strong>Mask</strong>に設定します。</p>
+<p>指定した要素の子要素にも設定が適用されます。例えば、氏名だけを隠すつもりで、その氏名を含むページ全体のコンテナを指定すると、分析で見たい部分まで隠してしまう可能性があります。対象の要素を見分けられるクラスを使い、実際のページで指定範囲を確かめます。</p>
+<p>一般的なCSSでは、複数のクラスを持つ要素を<code>.container.no1</code>のように表せます。ただし、CSSの記法として成立することと、利用中のClarity設定で意図した録画になることは別の確認です。高度な指定を使う場合は、実際の録画まで確かめてください。</p>
 
-<!-- wp:paragraph -->
-<p>デフォルトの状態でも入力ボックスの内容や電話番号、メールアドレスは隠されますが、社内のレギュレーションやhtmlの内容によっては項目の追加が必要な場合もあるでしょう。</p>
-<!-- /wp:paragraph -->
+<h2>HTML側で対象を明示する方法もある</h2>
+<p>Clarityは、HTML要素に<code>data-clarity-mask="True"</code>を付ける方法も案内しています。次のように記述すると、その要素と子要素がマスキング対象になります。</p>
+<pre><code>&lt;p data-clarity-mask="True"&gt;サンプルの氏名&lt;/p&gt;</code></pre>
+<p>CSSクラスを登録する方法と、HTMLに属性を付ける方法のどちらを使うかは、サイトの更新方法で決めます。HTMLを編集できるなら、保護したい表示箇所と一緒に属性を管理できます。Clarity側で登録するなら、サイト改修でクラス名や構造が変わった際にも、指定が有効かを確かめる必要があります。</p>
 
-<!-- wp:paragraph -->
-<p>今回はMicrosoft Clatiryのマスキングの仕方をメモします。すっごい簡単です。セキュリティ固い大企業でも承認が通りやすいMicrosoftのツールでここまで簡単だと感慨無量ですね。ありがとう。</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:heading -->
-<h2>マスキング基本設定</h2>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>まずMicrosoft Clarityの管理画面でSettings &gt; Maskingを選択します。</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:image {"id":307,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="/images/media/2022/04/71339868aae5af2fe6f49dd0245398d1-1-1024x669.jpg" alt="" class="wp-image-307"/></figure>
-<!-- /wp:image -->
-
-<!-- wp:paragraph -->
-<p>マスキングモードには3種類あります。</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:image {"id":313,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="/images/media/2022/04/4a5e4d49bcc4122941826531ba3b4605-1024x425.jpg" alt="" class="wp-image-313"/></figure>
-<!-- /wp:image -->
-
-<!-- wp:list -->
-<ul><li>Strict：全てのテキストがマスキングされる</li><li>Balanced：取り扱いに注意が必要なテキストのみマスキング</li><li>Relaxed：マスキングなし</li></ul>
-<!-- /wp:list -->
-
-<!-- wp:paragraph -->
-<p>デフォルトでは「Balanced」になっています。</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>「Strict」に設定して全てのテキストがマスキングされてしまうと、どれがどのページだかいまいちわからないし、「Balanced」では不安…という方は次のCSSセレクタによるマスキングを追加しましょう。</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:heading -->
-<h2>CSSセレクタによる追加の設定</h2>
-<!-- /wp:heading -->
-
-<!-- wp:image {"id":309,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="/images/media/2022/04/eb0d287cea9d69d39f5e289df7982234-1024x723.jpg" alt="" class="wp-image-309"/></figure>
-<!-- /wp:image -->
-
-<!-- wp:paragraph -->
-<p>追加の設定は「Masking」メニュー内最下部の「Add element」から行います。</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:image {"id":310,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="/images/media/2022/04/56912ecb1919426691c599e067eafdbb-1024x865.jpg" alt="" class="wp-image-310"/></figure>
-<!-- /wp:image -->
-
-<!-- wp:paragraph -->
-<p>「Add element」クリックするとこのようなモーダルが開くので、CSSセレクタを入力します。</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>CSSセレクタとは、CSSでスタイルを設定するための識別名です。</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>例えば、&lt;div class="name">お名前&lt;/div>というhtmlコードがあったら、.<strong>name</strong>がCSSセレクタになりますので、「.name」と入力し、「Add」をクリックします。</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>指定方法にはいろいろな種類があります。以下一覧です（内容の項目はマスキング用に変えていますが、要は通常のCSSクラスタ指定です）。</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:table {"className":"is-style-stripes"} -->
-<figure class="wp-block-table is-style-stripes"><table><tbody><tr><td>種類</td><td>例</td><td>内容</td></tr><tr><td>ワイルドカードでの指定</td><td>*</td><td>全要素をマスキング</td></tr><tr><td>タグタイプでの指定</td><td>div /p / spanなど</td><td>指定されたタイプをマスキング</td></tr><tr><td>idでの指定</td><td>#name / #container など</td><td>指定されたidの要素をマスキング</td></tr><tr><td>classでの指定</td><td>.name / .container など</td><td>指定されたclassの要素をマスキング</td></tr><tr><td>属性での指定</td><td>[title] / [autoplay] など</td><td>指定されたattrの要素をマスキング</td></tr><tr><td>複数指定（OR指定）</td><td>div,span /.container,.name など「,」で区切る</td><td>指定された2つの要素をそれぞれマスキング</td></tr><tr><td>親子関係</td><td>div span / .container .name など半角スペースで区切る</td><td>最初の要素（div）内の子要素（span）に一致する要素をマスキング</td></tr><tr><td>親子関係（ネスト）</td><td>ul > li など「>」で区切る</td><td>最初の要素（ul）直下の指定子要素（li）に一致する要素をマスキング</td></tr><tr><td>兄弟要素指定</td><td>div~pなど「~」で区切る</td><td>直後だけではなく、最初の要素（div）に続く要素（p）をマスキング</td></tr><tr><td>隣接要素指定</td><td>div+pなど「+」で区切る</td><td>最初の要素（div）の直後に続く要素（p）をマスキング</td></tr><tr><td>カラム</td><td>col || tdなど「||」で区切る </td><td>&lt;col>スコープ内の要素&lt;td>をマスキング</td></tr><tr><td>疑似要素</td><td>a:visitedなどCSSの疑似要素</td><td>指定疑似要素をマスキング</td></tr><tr><td>疑似要素</td><td>a::first-childなどCSSの疑似要素</td><td>指定疑似要素をマスキング</td></tr></tbody></table></figure>
-<!-- /wp:table -->
-
-<!-- wp:paragraph -->
-<p>汎用性の高いCSSセレクタ（例えば&lt;p class="title">&lt;/p>など多くの場所で使われるものや、Bootstrapコーディングの使用時）を設定すると、見たい情報にまで閲覧制限がかかってしまうことがあります。</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>その際は複数要素で絞り込みをかけることができますね。CSSに慣れていれば詳細に絞り込むことができて、かなり便利です。</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>ただ、複数クラスのAND指定、例えば&lt;div class="container no1">というhtml要素のcontainer no1両方に属するもの、といった指定はできません。</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:image {"id":370,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="/images/media/2022/04/clarity-1024x761.png" alt="" class="wp-image-370"/></figure>
-<!-- /wp:image -->
-
-<!-- wp:paragraph -->
-<p>追加が完了すると「Add element」ボタンの下にCSSセレクタ名とマスキングあり、なしの設定ボタンが表示されます。該当CSSセレクタ名の横の「Mask」ボタンにチェックがついていればマスキングが設定されています。</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>Webサイトのコーディング前にMicrosoft Clarityや他、こうしたマスキングが使えるツールの導入が決まっていれば、個人情報にだけCSSセレクタをつけておくのが便利かもしれません。</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>その場合、CSSセレクタを一つ決めて個人情報全てに追加するという方法がおすすめ。例えば&lt;p class="privacy"&gt;&lt;/p&gt;等で設定すれば、「privacy」をMicrosoft ClarityのMask by elementに追加するだけで一括でマスキングができます。</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:heading -->
-<h2>マスキング設定時の留意事項</h2>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>マスキング設定をしてから反映されるまで、1時間ほどかかることがあります。</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>また、すでに取得されたデータを修正することはできませんので、アカウントを作成してすぐなど、早めに設定しておくことをおすすめします。</p>
-<!-- /wp:paragraph -->
+<h2>設定の保存後は、新しい録画で対象と解除設定を確認する</h2>
+<p>公式資料では、設定の反映に最大1時間かかる場合があり、変更は新しい録画に適用されます。すでに取得した録画を後からマスキングすることはできません。</p>
+<p>確認には実在の個人情報を使わず、テスト用の情報で対象の画面を表示します。反映後の録画で、隠すべき箇所が隠れ、分析に必要な箇所が意図せず消えていないかを見ます。設定画面でセレクタを保存できたことだけで、確認を終えないようにします。</p>
+<p>Mask by elementには解除するUnmaskの指定があり、HTML側にも<code>data-clarity-unmask</code>があります。解除設定や上書きによって対象が見える状態になっていないかも確認します。また、Clarityはスタイルシートやstyleタグ内の内容をマスキングしないため、そこへ機密情報を置かないことが公式に推奨されています。</p>
+<p>マスキングは、収集する表示内容を制御するための機能です。対象の選定と、実際の録画での確認を一組にして扱ってください。</p>

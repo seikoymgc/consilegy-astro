@@ -1,0 +1,985 @@
+---
+import SitePhoto from '../../../../components/SitePhoto.astro';
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CrmSubnav from '../../../../components/CrmSubnav.astro';
+
+const DEMO_URL = 'https://crm.consilegy.com/demos';
+const SIGNUP_URL = 'https://crm.consilegy.com/signup';
+
+// CRM for Startups (EN). Same product as the standard B2B edition; only the entry point and message differ.
+// LinkedIn: write only what the product code supports (confirmed 2026-11-22). No connection/contact sync,
+// no ad audience push (Marketing API not approved). Features must exist in src/data/crm-features.ts.
+
+const problems = [
+	{ title: 'The cards from last week’s meetup are already a blur.', text: 'The more events you go to, the further the data entry slips. By the time the thank-you goes out, the conversation has gone cold.' },
+	{ title: 'Your LinkedIn conversations live in one person’s inbox.', text: 'Who said what to whom stays inside individual accounts. The rest of the team can’t see it.' },
+	{ title: 'Founders lose selling time to everything around selling.', text: 'Logging, follow-ups, checking which deals have stalled. The work around the sale starts to outgrow the sale itself.' },
+	{ title: 'No one to build the system, and no budget for an expensive one.', text: 'Automation usually needs a dedicated admin. You are not at the stage of hiring one yet.' },
+];
+
+const values = [
+	{
+		title: 'Snap the card. AI drafts the first email',
+		text: 'Lay out up to 10 cards in one photo and AI reads them all into contacts, with where you met. New contacts get a first email drafted for you; nothing is sent until you approve it.',
+	},
+	{
+		title: 'LinkedIn conversations land on the same record',
+		text: 'Paste a LinkedIn message thread and it is filed on the customer’s record. When AI suggests the next step, LinkedIn sits alongside email and phone as an option. Each member connects their own account.',
+	},
+	{
+		title: 'Hand follow-up to a deep library of automations',
+		text: 'Stalled-deal alerts, overdue responses, dormant-lead reactivation. Pick what you need from 175 pre-built automations and switch it on. No building required.',
+	},
+	{
+		title: 'Rich features and AI, at a reachable price',
+		text: 'From ¥3,000 per user per month. No setup fee, and every plan is free for 30 days.',
+	},
+];
+
+const cardflow = [
+	{ who: 'You', title: 'Snap a stack of cards', note: 'Up to 10 per photo' },
+	{ who: 'AI', title: 'Contacts are created', note: 'Fix anything on screen' },
+	{ who: 'AI', title: 'A first email is drafted', note: 'One per new contact, translatable on the spot' },
+	{ who: 'You', title: 'Check it and send', note: 'Nothing goes out until you approve' },
+];
+
+const linkedin = [
+	{ label: 'Capture', text: 'Paste message threads onto the customer record' },
+	{ label: 'Suggest', text: 'AI proposes LinkedIn outreach as a next step' },
+	{ label: 'Publish', text: 'Post as yourself or as a company page you manage' },
+	{ label: 'Link', text: 'Keep each contact’s LinkedIn profile URL' },
+];
+
+const automations = [
+	{ area: 'Sales', title: 'Stalled-deal alerts', text: 'Find deals with no email, call, meeting, or note for a set period and create a task for the owner.' },
+	{ area: 'Sales', title: 'Overdue response check', text: 'Turn inquiries past their response deadline into a high-priority task.' },
+	{ area: 'Marketing', title: 'Dormant-lead reactivation', text: 'Use content viewed and quiet periods to line up the next touch.' },
+	{ area: 'Marketing', title: 'Lead-volume anomaly check', text: 'When new leads fall below half of the previous week, a task is created to look into it.' },
+	{ area: 'Sales', title: 'Target-account flagging', text: 'Flag accounts from intent and ideal-customer fit, and create a task when contact goes quiet.' },
+	{ area: 'Customer success', title: 'Renewal deals, opened early', text: 'Work back from the contract date and open the renewal deal before it is due.' },
+];
+
+const screens = [
+	{
+		src: '/images/crm/media/screens/business-cards-stay-in-the-drawer-2-2026-10.webp', w: 1456, h: 430,
+		title: 'Business card scanning',
+		desc: 'Take a photo or pick an image, and what AI reads becomes a draft contact. A person checks it before it is saved.',
+		alt: 'The business card screen, with a field for where you met and buttons to take a photo or choose an image.',
+	},
+	{
+		src: '/images/crm/media/screens/which-automations-to-turn-on-first-1-2026-10.webp', w: 1456, h: 822,
+		title: 'Automation library',
+		desc: 'Choose from marketing, sales, and customer success automations and switch on what you need.',
+		alt: 'The automation library, showing automation sets and how many automations each can switch on.',
+	},
+	{
+		src: '/images/crm/media/screens/waiting-on-the-customer-for-three-months-1-2026-10.webp', w: 1456, h: 822,
+		title: 'Deals',
+		desc: 'Stage, amount, close date, and the full history on one screen. Stalled deals trigger a notification.',
+		alt: 'A deal record showing stages from approach to won, amount and close date, and the activity history.',
+	},
+	{
+		src: '/images/crm/screen-dashboard-2026-10c-en.webp', w: 2000, h: 1250,
+		title: 'Dashboard',
+		desc: 'Pipeline, forecast, and win rate on one screen. The numbers for your board or investor update are right here.',
+		alt: 'The dashboard in English, with pipeline, weighted forecast, won this month, and win rate cards.',
+	},
+];
+---
+
+<BaseLayout
+	title="CRM for Startups | Turn the people you meet and connect with into deals | Revenue CRM"
+	description="A CRM for startups that want to focus on selling. Snap business cards and AI creates the contacts and drafts the first email. LinkedIn conversations land on the same customer record. Follow-up runs on 175 pre-built automations you simply switch on. From ¥3,000 per user per month, free for 30 days. Made in Japan."
+	lang="en"
+	alternateUrl="/crm/startups/"
+>
+<script type="application/ld+json" slot="head" set:html={JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://consilegy.com/en/"},
+		{"@type": "ListItem", "position": 2, "name": "Revenue CRM", "item": "https://consilegy.com/en/crm/"},
+		{"@type": "ListItem", "position": 3, "name": "CRM for Startups", "item": "https://consilegy.com/en/crm/startups/"}
+	]
+})} />
+
+<CrmSubnav lang="en" />
+
+<section class="hero">
+	<div class="container hero-grid">
+		<div class="hero-copy">
+			<p class="eyebrow">Revenue CRM · CRM for Startups</p>
+			<h1>Everyone you meet. Everyone you connect with. Straight into deals.</h1>
+			<p class="hero-lead">
+				Snap the business cards from tonight’s event. Keep your LinkedIn conversations on the same customer record. Let a deep library of automations handle follow-up, so your team can focus on selling.
+			</p>
+			<div class="hero-actions">
+				<a href={SIGNUP_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">Start free</a>
+				<a href={DEMO_URL} class="btn btn--secondary" target="_blank" rel="noopener noreferrer">See the demo</a>
+			</div>
+		</div>
+		<figure class="hero-media">
+			<img src="/images/crm/screen-dashboard-2026-10c-en.webp" alt="The Revenue CRM dashboard in English." width="2000" height="1250" decoding="async" />
+			<figcaption>Every member picks their own language: English, Japanese, or Traditional Chinese</figcaption>
+		</figure>
+	</div>
+</section>
+
+<section class="positioning">
+	<div class="container">
+		<div class="pos-body">
+			<p class="pos-lead">Startup sales begin with meeting people and connecting with them.</p>
+			<div class="pos-copy">
+				<p>
+					Your first customers usually come from events, meetups, and LinkedIn. Yet the cards pile up on the desk and the messages stay in one person’s inbox. Good conversations stall before they ever become deals.
+				</p>
+				<p>
+					Revenue CRM connects both entry points straight to the customer record. AI drafts the record, and automation keeps the follow-up moving. Founders and the team spend their time meeting and talking to customers.
+				</p>
+			</div>
+		</div>
+		<SitePhoto subject="sales" lang="en" panorama />
+	</div>
+</section>
+
+<section class="problem">
+	<div class="container">
+		<div class="section-head">
+			<p class="section-eyebrow">Common Problems</p>
+			<h2 class="prob-title">Sound familiar?</h2>
+		</div>
+		<div class="prob-grid prob-grid--4">
+			{problems.map((item, index) => (
+				<article class="prob-item">
+					<span class="issue-label" aria-label={`Item ${index + 1}`}>
+						<span class="issue-label__number">{String(index + 1).padStart(2, '0')}</span>
+					</span>
+					<h3>{item.title}</h3>
+					<p>{item.text}</p>
+				</article>
+			))}
+		</div>
+	</div>
+</section>
+
+<section class="problem values">
+	<div class="container">
+		<div class="section-head">
+			<p class="section-eyebrow">Features</p>
+			<h2 class="prob-title">From first meeting to record. From record to deal.</h2>
+		</div>
+		<div class="prob-grid prob-grid--4">
+			{values.map((item, index) => (
+				<article class="prob-item">
+					<span class="issue-label" aria-label={`Item ${index + 1}`}>
+						<span class="issue-label__number">{String(index + 1).padStart(2, '0')}</span>
+					</span>
+					<h3>{item.title}</h3>
+					<p>{item.text}</p>
+				</article>
+			))}
+		</div>
+	</div>
+</section>
+
+<section class="support">
+	<div class="container">
+		<div class="section-head">
+			<p class="section-eyebrow">Business cards</p>
+			<h2 class="prob-title">From card to follow-up, people only snap and approve.</h2>
+		</div>
+	</div>
+	<div class="container support-inner">
+		<div class="support-list">
+			<h3>How it works</h3>
+			<ul>
+				{cardflow.map((r) => (
+					<li><span>{r.who}</span><strong>{r.title} — {r.note}</strong></li>
+				))}
+			</ul>
+		</div>
+		<div class="support-list">
+			<h3>LinkedIn</h3>
+			<ul>
+				{linkedin.map((r) => (
+					<li><span>{r.label}</span><strong>{r.text}</strong></li>
+				))}
+			</ul>
+		</div>
+	</div>
+</section>
+
+<section class="problem">
+	<div class="container">
+		<div class="section-head">
+			<p class="section-eyebrow">Automation</p>
+			<h2 class="prob-title">A deep library of automations. Switch on what you need.</h2>
+		</div>
+		<p class="intl-lead">
+			59 for marketing, 59 for sales, 57 for customer success: 175 pre-built automations in all. No admin needed to build them; pick what fits your team today.
+		</p>
+		<div class="prob-grid">
+			{automations.map((item) => (
+				<article class="prob-item">
+					<p class="section-eyebrow auto-area">{item.area}</p>
+					<h3>{item.title}</h3>
+					<p>{item.text}</p>
+				</article>
+			))}
+		</div>
+		<p class="pos-link-wrap"><a href="/en/crm/features/" class="pos-link">See all features →</a></p>
+	</div>
+</section>
+
+<section class="screens" id="screens">
+	<div class="container">
+		<div class="section-head">
+			<p class="section-eyebrow">The screens</p>
+			<h2 class="sc-title">The four screens you will use most</h2>
+		</div>
+		<div class="sc-grid">
+			{screens.map((s) => (
+				<article class="sc-card">
+					<figure class="sc-shot">
+						<img src={s.src} alt={s.alt} width={s.w} height={s.h} loading="lazy" decoding="async" />
+					</figure>
+					<div>
+						<h3>{s.title}</h3>
+						<p>{s.desc}</p>
+					</div>
+				</article>
+			))}
+		</div>
+	</div>
+</section>
+
+<section class="intl">
+	<div class="container">
+		<div class="section-head">
+			<p class="section-eyebrow">Made in Japan</p>
+			<h2 class="prob-title">Built for teams that sell in Japan, in any language.</h2>
+		</div>
+		<p class="intl-lead">
+			Each member chooses English, Japanese, or Traditional Chinese. The data is shared, so everyone sees the same customers and the same deals. Deals waiting on internal approval (ringi), or won now but booked next fiscal year, are handled as they are.
+		</p>
+	</div>
+</section>
+
+<section class="final-cta">
+	<div class="container cta-inner">
+		<div>
+			<p class="cta-eyebrow">30 days free</p>
+			<h2>Try it on the real screens before your next event.</h2>
+			<p class="cta-lead">
+				No setup fee. Every plan is free for 30 days, no card required. The demo opens as soon as you enter your email.
+			</p>
+			<div class="cta-actions">
+				<a href={SIGNUP_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer">Start free</a>
+				<a href={DEMO_URL} class="btn btn--secondary" target="_blank" rel="noopener noreferrer">See the demo</a>
+				<a href="/en/crm/pricing/" class="btn btn--secondary">See pricing</a>
+			</div>
+		</div>
+		<div class="cta-card">
+			<h4>What the demo shows</h4>
+			<ul class="cta-list">
+				<li>Snapping a stack of cards into contacts and first emails</li>
+				<li>Filing LinkedIn conversations on the customer record</li>
+				<li>Switching on automations from the library</li>
+				<li>How stalled deals are flagged</li>
+				<li>Talking to the AI agent in your own language</li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+</BaseLayout>
+
+<style>
+	.container { max-width: 1120px; }
+	.auto-area { margin-bottom: 0.5rem; }
+	.pos-link-wrap { margin: var(--space-md) 0 0; }
+	.support .section-head + .intl-lead { margin-bottom: 0; }
+	.section-eyebrow,
+	.eyebrow,
+	.cta-eyebrow {
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: var(--fs-small);
+		font-weight: 600;
+		letter-spacing: 0.12em;
+		line-height: 1.4;
+		text-transform: uppercase;
+	}
+
+	/* uppercase はギリシャ文字も変えるので β が B になる。ラテン文字だけ大文字にしたいので、日本語まじりの語は除外する。 */
+	.section-eyebrow .no-upper,
+	.eyebrow .no-upper,
+	.cta-eyebrow .no-upper {
+		text-transform: none;
+	}
+
+	h2,
+	h3 {
+		letter-spacing: 0;
+	}
+
+	h2 {
+		margin: 0;
+		color: var(--color-text);
+		font-size: var(--fs-h2);
+		font-weight: 500;
+		line-height: 1.4;
+		text-wrap: balance;
+	}
+
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 46px;
+		padding: 0.8rem 1.35rem;
+		border: 1px solid var(--color-border);
+		border-radius: 4px;
+		font-size: var(--fs-small);
+		font-weight: 600;
+		line-height: 1.25;
+		text-decoration: none;
+		transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+	}
+
+	.btn--primary {
+		background: var(--color-primary);
+		border-color: var(--color-primary);
+		color: #fff;
+	}
+
+	.btn--primary:hover {
+		background: var(--color-primary-dark);
+		border-color: var(--color-primary-dark);
+		color: #fff;
+	}
+
+	.btn--secondary {
+		background: transparent;
+		color: var(--color-text);
+	}
+
+	.btn--secondary:hover {
+		border-color: var(--color-primary);
+		color: var(--color-primary);
+	}
+
+	.hero-actions,
+	.cta-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: var(--space-md);
+	}
+
+	.hero {
+		padding: var(--space-lg) 0 var(--space-md);
+		background: var(--color-bg);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.hero-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+		gap: var(--space-lg);
+		align-items: center;
+	}
+
+	.hero-copy {
+		max-width: 720px;
+	}
+
+	.eyebrow {
+		display: block;
+		margin-bottom: var(--space-md);
+		padding-top: 0.875rem;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.hero h1 {
+		max-width: 13em;
+		margin: 0;
+		color: var(--color-text);
+		font-size: var(--fs-h1);
+		font-weight: 500;
+		line-height: 1.2;
+		letter-spacing: 0;
+		text-wrap: balance;
+	}
+
+	.hero-lead {
+		max-width: 43em;
+		margin: var(--space-md) 0 0;
+		color: var(--color-text);
+		font-size: var(--fs-lead);
+		line-height: 2;
+	}
+
+	.hero-lead strong {
+		font-weight: 700;
+	}
+
+	.hero-points {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 0;
+		margin: var(--space-md) 0 0;
+		padding: 0;
+		list-style: none;
+		border-top: 1px solid var(--color-border);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.hero-points li {
+		min-width: 0;
+		padding: 0.85rem 1rem;
+		color: var(--color-text-muted);
+		font-size: var(--fs-small);
+		line-height: 1.6;
+	}
+
+	.hero-points li + li {
+		border-left: 1px solid var(--color-border);
+	}
+
+	.pos-link {
+		color: var(--color-primary);
+		font-weight: 600;
+		text-decoration: none;
+		border-bottom: 1px solid currentColor;
+	}
+
+	.hero-media {
+		margin: 0;
+		min-width: 0;
+	}
+
+	.hero-media img,
+	.prob-shot img {
+		width: 100%;
+		height: auto;
+		display: block;
+		border: 1px solid var(--color-border);
+		border-radius: 0;
+		background: #fff;
+		box-shadow: none;
+	}
+
+	.hero-media figcaption,
+	.prob-shot figcaption {
+		margin-top: 0.65rem;
+		color: var(--color-text-muted);
+		font-size: var(--fs-small);
+		line-height: 1.6;
+	}
+
+	.positioning,
+	.problem,
+	.screens,
+	.support,
+	.ai,
+	.roles,
+	.final-cta {
+		padding: var(--space-2xl) 0;
+		background: var(--color-bg);
+	}
+
+	.screens,
+	.roles {
+		background: var(--color-bg-subtle);
+		border-top: 1px solid var(--color-border);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.prob-shot {
+		max-width: 900px;
+		margin: 0;
+		background: transparent;
+		border: 0;
+		border-radius: 0;
+		box-shadow: none;
+	}
+
+	.positioning {
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.pos-body {
+		display: grid;
+		grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+		gap: var(--space-xl);
+		align-items: start;
+		padding-top: var(--space-sm);
+		border-top: 1px solid var(--color-border);
+	}
+
+	.pos-lead {
+		margin: 0;
+		color: var(--color-text);
+		font-size: var(--fs-h3);
+		font-weight: 500;
+		line-height: 1.7;
+		text-wrap: balance;
+	}
+
+	.pos-copy p {
+		margin: 0 0 1rem;
+		color: var(--color-text-muted);
+		font-size: var(--fs-small);
+		line-height: 1.9;
+	}
+
+	.pos-body strong {
+		color: var(--color-text);
+		font-weight: 700;
+	}
+
+	.pos-link {
+		display: inline-flex;
+		margin-top: 0.25rem;
+		font-size: var(--fs-small);
+	}
+
+	.section-head {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: 0.5rem;
+		align-items: start;
+		margin-bottom: var(--space-lg);
+		padding-top: var(--space-sm);
+		border-top: 1px solid var(--color-border);
+	}
+
+	.prob-grid,
+	.sc-grid {
+		display: grid;
+		gap: 0;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.prob-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	.prob-item,
+	.sc-card {
+		min-width: 0;
+		padding: 1.35rem 1.5rem 1.35rem 0;
+		background: transparent;
+		border: 0;
+		border-bottom: 1px solid var(--color-border);
+		border-radius: 0;
+	}
+
+	.prob-item:nth-child(2),
+	.prob-item:nth-child(3) {
+		padding-left: var(--space-md);
+		border-left: 1px solid var(--color-border);
+	}
+
+	.issue-label {
+		display: flex;
+		align-items: flex-end;
+		gap: 0.85rem;
+		margin-bottom: 0.9rem;
+		color: var(--color-navy);
+	}
+
+	.issue-label::after {
+		content: "";
+		flex: 1;
+		height: 1px;
+		margin-bottom: 0.34rem;
+		background: var(--color-border);
+	}
+
+	.issue-label__number {
+		color: rgba(112, 66, 172, 0.24);
+		font-size: var(--fs-figure);
+		font-weight: 500;
+		font-variant-numeric: tabular-nums;
+		line-height: 0.82;
+		letter-spacing: 0;
+	}
+
+	.prob-item h3,
+	.sc-card h3 {
+		margin: 0;
+		color: var(--color-text);
+		font-size: var(--fs-body);
+		font-weight: 600;
+		line-height: 1.55;
+	}
+
+	.prob-item p,
+	.sc-card p {
+		margin: 0.6rem 0 0;
+		color: var(--color-text-muted);
+		font-size: var(--fs-small);
+		line-height: 1.85;
+	}
+
+	.prob-shot {
+		margin-top: var(--space-xl);
+	}
+
+	.prob-shot strong {
+		color: var(--color-text);
+		font-weight: 700;
+	}
+
+	.screens {
+		scroll-margin-top: 120px;
+	}
+
+	.sc-grid {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+
+	.sc-card {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: 0.9rem;
+		align-content: start;
+		padding-right: var(--space-md);
+	}
+
+	.sc-shot {
+		margin: 0;
+		overflow: hidden;
+		border: 1px solid var(--color-border);
+		border-radius: 8px;
+		background: #fff;
+		box-shadow: 0 8px 22px rgba(15, 23, 42, 0.07);
+	}
+
+	.sc-shot img {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+
+	.sc-card:nth-child(4n + 2),
+	.sc-card:nth-child(4n + 3),
+	.sc-card:nth-child(4n + 4) {
+		padding-left: var(--space-md);
+		border-left: 1px solid var(--color-border);
+	}
+
+	.support {
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.support-inner,
+	.ai-inner,
+	.cta-inner {
+		display: grid;
+		grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+		gap: var(--space-xl);
+		align-items: start;
+	}
+
+	.support-inner > div:first-child,
+	.ai-inner > div:first-child,
+	.cta-inner > div:first-child {
+		padding-top: var(--space-sm);
+		border-top: 1px solid var(--color-border);
+	}
+
+	.support .section-eyebrow,
+	.ai .section-eyebrow,
+	.cta-eyebrow {
+		margin-bottom: var(--space-sm);
+	}
+
+	.support-lead,
+	.ai-lead,
+	.ro-lead,
+	.cta-lead {
+		margin: 1rem 0 0;
+		color: var(--color-text-muted);
+		font-size: var(--fs-small);
+		line-height: 1.85;
+	}
+
+	.support-list {
+		border-top: 1px solid var(--color-border);
+	}
+
+	.support-list h3,
+	.cta-card h4 {
+		margin: 0;
+		padding: 0.95rem 0;
+		border-bottom: 1px solid var(--color-border);
+		color: var(--color-primary);
+		font-size: var(--fs-small);
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		line-height: 1.5;
+	}
+
+	.support-list ul,
+	.cta-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.support-list li {
+		display: grid;
+		grid-template-columns: 6rem minmax(0, 1fr);
+		gap: var(--space-md);
+		padding: 0.9rem 0;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.support-list span {
+		color: var(--color-text-muted);
+		font-size: var(--fs-small);
+		font-weight: 600;
+		line-height: 1.7;
+	}
+
+	.support-list strong {
+		color: var(--color-text);
+		font-size: var(--fs-small);
+		font-weight: 600;
+		line-height: 1.7;
+	}
+
+	.ai-examples {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.ai-examples li {
+		padding: 0.9rem 0;
+		border-bottom: 1px solid var(--color-border);
+		color: var(--color-text);
+		font-size: var(--fs-small);
+		line-height: 1.7;
+	}
+
+	.ai-examples li::before {
+		content: '\201C';
+		color: var(--color-navy);
+	}
+
+	.ai-examples li::after {
+		content: '\201D';
+		color: var(--color-navy);
+	}
+
+	.ro-lead {
+		max-width: 720px;
+		margin-top: 0;
+		margin-bottom: var(--space-lg);
+	}
+
+	.ro-list {
+		max-width: 720px;
+		margin: 0;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.ro-row {
+		display: grid;
+		grid-template-columns: 14rem minmax(0, 1fr);
+		gap: var(--space-md);
+		padding: 1rem 0;
+		align-items: baseline;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.ro-row dt {
+		color: var(--color-text);
+		font-size: var(--fs-small);
+		font-weight: 600;
+		line-height: 1.7;
+	}
+
+	.ro-row dd {
+		margin: 0;
+		color: var(--color-text-muted);
+		font-size: var(--fs-small);
+		line-height: 1.7;
+	}
+
+	.ro-note {
+		margin: 1.25rem 0 0;
+		color: var(--color-text-muted);
+		font-size: var(--fs-small);
+		line-height: 1.7;
+	}
+
+	.final-cta {
+		color: var(--color-text);
+	}
+
+	.cta-card {
+		background: transparent;
+		border: 0;
+		border-top: 1px solid var(--color-border);
+		border-radius: 0;
+		padding: 0;
+	}
+
+	.cta-list li {
+		padding: 0.75rem 0;
+		border-bottom: 1px solid var(--color-border);
+		color: var(--color-text);
+		font-size: var(--fs-small);
+		line-height: 1.75;
+	}
+
+	@media (max-width: 1020px) {
+		.hero-grid,
+		.pos-body,
+		.support-inner,
+		.ai-inner,
+		.cta-inner {
+			grid-template-columns: 1fr;
+		}
+
+		.hero h1 {
+			font-size: var(--fs-h1);
+		}
+
+		.hero-media,
+		.prob-shot {
+			max-width: 680px;
+		}
+
+		.sc-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.sc-card:nth-child(odd) {
+			padding-left: 0;
+			border-left: 0;
+		}
+
+		.sc-card:nth-child(even) {
+			padding-left: var(--space-md);
+			border-left: 1px solid var(--color-border);
+		}
+	}
+
+	@media (max-width: 760px) {
+		.hero,
+		.positioning,
+		.problem,
+		.screens,
+		.support,
+		.roles,
+		.final-cta {
+			padding-block: var(--space-xl);
+		}
+
+		.hero {
+			padding-block: var(--space-lg) var(--space-md);
+		}
+
+		.section-head,
+		.prob-grid,
+		.sc-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.section-head {
+			gap: 0.75rem;
+		}
+
+		.hero-grid {
+			gap: var(--space-md);
+		}
+
+		h2 {
+			font-size: var(--fs-h3);
+		}
+
+		.hero h1 {
+			font-size: var(--fs-h2);
+		}
+
+		.hero-lead {
+			font-size: var(--fs-body);
+			line-height: 1.85;
+		}
+
+		.hero-points {
+			display: none;
+		}
+
+		.prob-item,
+		.prob-item:nth-child(2),
+		.prob-item:nth-child(3),
+		.sc-card,
+		.sc-card:nth-child(even) {
+			padding-left: 0;
+			padding-right: 0;
+			border-left: 0;
+		}
+
+		.support-list li,
+		.ro-row {
+			grid-template-columns: 1fr;
+			gap: 0.25rem;
+		}
+
+		.hero-actions,
+		.cta-actions {
+			flex-direction: column;
+			align-items: stretch;
+		}
+	}
+
+	.flow-figure { margin: 0 0 var(--space-lg); }
+	.flow-figure svg { display: block; width: 100%; height: auto; }
+	.flow-figure figcaption { margin-top: 0.75rem; font-size: var(--fs-small); color: var(--color-text-muted); }
+
+	.hero h1 { font-size: var(--fs-h2); max-width: none; }
+	.nw { display: inline-block; }
+	.prob-grid.prob-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+	:global(#main-content.crm-editorial) .values { background: #fff; }
+	:global(#main-content.crm-editorial) .intl { background: #F1F5F9; }
+	.intl { padding: var(--space-2xl) 0; border-block: 1px solid var(--color-border); }
+	.intl-lead { max-width: 46rem; margin: var(--space-md) 0 var(--space-lg); color: var(--color-text-muted); font-size: var(--fs-body); line-height: 1.85; }
+	.intl-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+	.intl-grid figure { margin: 0; }
+	.intl-grid img { display: block; width: 100%; height: auto; border: 1px solid var(--color-border); border-radius: 8px; background: #fff; box-shadow: 0 8px 22px rgba(15, 23, 42, 0.07); }
+	.intl-grid figcaption { margin-top: 0.6rem; font-size: var(--fs-small); font-weight: 600; color: var(--color-navy); letter-spacing: 0.04em; }
+	.values .prob-grid.prob-grid--4 { grid-template-columns: 1fr; gap: 0.75rem; border-top: 0; }
+	.values .prob-item { display: grid; grid-template-columns: 3.5rem 15rem minmax(0, 1fr); gap: 0 1.5rem; align-items: baseline; }
+	.values .prob-item h3 { margin: 0; }
+	.values .prob-item p { margin: 0; }
+	.sc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 1.5rem; border-top: 0; }
+	.sc-card, .sc-card:nth-child(n) { padding-left: 1.6rem; border-left: 1px solid var(--color-border); }
+	@media (max-width: 760px) {
+		.intl-grid, .sc-grid { grid-template-columns: 1fr !important; }
+		.values .prob-item { grid-template-columns: 1fr; gap: 0.5rem; }
+		.intl { padding: var(--space-xl) 0; }
+	}
+
+	.prob-link { display: inline-block; margin-top: 0.75rem; color: var(--color-primary); font-weight: 600; text-decoration: none; }
+	.prob-link:hover { text-decoration: underline; }
+	.support-inner .support-list + .support-list { margin-top: 0; }
+	@media (max-width: 1080px) { .hero h1 { font-size: var(--fs-h2); } }
+	@media (max-width: 760px) {
+		.hero h1 { font-size: var(--fs-h2); }
+		.prob-grid.prob-grid--4 { grid-template-columns: 1fr; }
+	}
+
+
+	.hero-download { margin: 0.9rem 0 0; font-size: var(--fs-small); }
+	.hero-download a { color: var(--color-primary); text-decoration: underline; text-underline-offset: 3px; }
+	.hero-lead { line-height: 1.85; text-wrap: pretty; }
+</style>

@@ -49,7 +49,8 @@ const editions = [
 
 // ファーストビュー直下の業態選択。説明文は各エディションのLPの説明（description）から取る。
 const editionCards = [
-	{ who: 'スタートアップ・中小企業', tag: '標準版', text: '名刺や議事録から、AIが顧客情報を記録。商談管理もシンプルに。', href: '/crm/standard/' },
+	{ who: 'スタートアップ', tag: 'CRM for Startups', text: '営業に集中したいスタートアップのための、豊富な自動化オプション。', href: '/crm/startups/' },
+	{ who: '中小企業', tag: '標準版', text: '名刺や議事録から、AIが顧客情報を記録。商談管理もシンプルに。', href: '/crm/standard/' },
 	{ who: 'システム開発・Web制作', text: '案件・見積・納品をまとめて管理。メンバーの空き状況もひと目で。', href: '/crm/contractor/' },
 	{ who: 'コンサル・マーケティング支援', text: '案件・契約・稼働をまとめて管理。継続契約の更新も見逃さない。', href: '/crm/services/' },
 	{ who: 'SaaS販売代理店', text: '契約・売上・更新をまとめて管理。MRRやARRもひと目で把握。', href: '/crm/reseller/' },
@@ -662,7 +663,8 @@ h3 { font-weight: 500; }
 .edition-strip .section-head { max-width: none; }
 .edition-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; }
 .edition-list > li { grid-column: span 2; }
-.edition-list > li:nth-child(n+4) { grid-column: span 3; }
+/* 6枚（2026-11-22 スタートアップを追加）なので 3枚×2段。 */
+.edition-list > li:nth-child(n+4) { grid-column: span 2; }
 .edition-list > li:nth-child(n+4) .edition-card__text { min-height: 0; }
 .edition-card { display: flex; flex-direction: column; gap: 0.6rem; height: 100%; padding: 1.5rem 1.35rem; background: #fff; border: 1px solid var(--color-border); border-radius: 6px; box-shadow: 0 1px 3px rgba(15,23,42,0.06); color: var(--color-text); text-decoration: none; transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s; }
 .edition-card:hover { border-color: var(--color-primary); box-shadow: 0 6px 18px rgba(15,23,42,0.10); transform: translateY(-2px); color: var(--color-text); }

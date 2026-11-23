@@ -1,141 +1,51 @@
 ---
-title: "Japan pipeline grew, revenue flat: the stall is downstream"
-description: "Before raising meeting targets, locate the common point of delay. If deals are waiting on buyer approval, plan support for that step and test whether it reduces the wait."
+title: "Japan sales meetings are up, bookings are flat: check what is waiting"
+description: "Before increasing Japan's meeting target again, distinguish seller work from buyer decisions. The last logged activity does not establish who owes the next action or whether more sales capacity will help."
 publishedAt: 2026-09-18
-updatedAt: 2026-10-17
+updatedAt: 2026-11-23
 category: sales
-principle: "Before raising meeting targets, locate the common point of delay. If deals are waiting on buyer approval, plan support for that step and test whether it reduces the wait."
-canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
+principle: "Before increasing activity targets, identify what open deals need next. Additional seller capacity can help with seller work; buyer-side decisions may instead need specific information or access to the relevant people."
+canonUrl: https://consilegy.com/en/services/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 draft: false
 ---
 
-Japan came in under plan, so the instruction was the obvious one: more meetings per rep.
+Consider a Japan pipeline review in which meeting volume and open pipeline have grown, but bookings have not. Headquarters might respond by raising the meeting target again. It is not yet a diagnosis: the figures do not show whether the team lacks qualified opportunities, needs more capacity to deliver proposals, or is waiting for customers to decide.
 
-The next quarterly review looked encouraging. Meeting count up, pipeline value at a record, activity compliance green.
+This is a hypothetical review, not a reported customer case. The practical question is what the next increment of sales effort should do. **Before adding another activity target, identify the next action or decision that matters in the open deals.** If the seller owes the work, more capacity may help. If a buyer is considering the proposal internally, another meeting is useful only if it helps resolve something needed for that decision.
 
-Bookings within a rounding error of the quarter before.
+## A buyer survey gives a reason to examine the wait
 
-HQ has two standard readings for that shape. The local reps are not good enough, or Japanese demand is softer than the business case assumed. The first leads to a performance conversation, the second to discount authority.
+[IDEATECH](https://ideatech.jp), with Hiroyasu Kitagawa of Demagen Soken (デマジェン総研), conducted an online survey on May 25–26, 2026. Its [second Japan B2B large-purchase process study](https://prtimes.jp/main/html/rd/p/000000657.000045863.html) covered **330 respondents** who had participated with at least one other person in a purchase, review, replacement or major renewal of B2B software, SaaS, IT infrastructure or security products worth at least **¥5 million annually**, within the preceding year.
 
-Neither touches what happened, which is that every added deal queued at the same point and nobody was counting that queue.
+Among the **239 respondents who reported a longer-than-planned evaluation**, **63.6%** selected waiting for management's decision as a reason, and **45.2%** selected time spent gathering information. The question allowed multiple answers. These responses describe reasons buyers recalled; they do not identify the cause of delay in your pipeline.
 
-## The added deals joined one queue, and it was not on your side of the table
+IDEATECH sells research marketing services, and this is a vendor-sponsored online survey of large purchases. It should not be generalised to every Japanese sale. Nor does it establish that meetings are ineffective: a discussion that resolves a missing requirement may help a decision. The narrower implication is to ask what the buyer still needs, rather than treating all elapsed time as a shortage of seller activity.
 
-The stall sits after the proposal, while the buyer works the decision through their own organisation.
+## Identify the next action, not the last person who sent an email
 
-Before the push, nobody was counting how many open Japan deals were sitting there. What was counted was meeting volume, pipeline value and win rate.
+Activity history helps reconstruct a deal, but its latest entry cannot tell you who is responsible for the next step. A seller's email might contain a completed proposal awaiting review. It might instead promise a revised quotation that the seller has yet to deliver. The seller acted last in both cases; the outstanding work is different.
 
-All three are worth having. None of them answers the only question that matters here: right now, how many deals are waiting, and whose desk are they on.
+For the deals under review, separate what the record confirms from what the rep is assuming. What action or decision is outstanding? Who is expected to take it? What evidence supports that expectation? A buyer's stated review plan is stronger evidence than a rep's assumption that the proposal is circulating.
 
-So the added deals entered at the top, settled in the same place, and the rollup showed growth all the way through the quarter.
+If the team cannot answer, record the uncertainty and ask the contact. Do not convert a missing answer into a confident claim that the buyer is holding things up. Equally, the absence of a logged reply does not prove the customer has abandoned the purchase. Internal conversations may be happening without appearing in the seller's system.
 
-What arrived at the end were two lines that do not belong next to each other: record pipeline, flat bookings.
+This is an investigation of where effort could help, not an automatic classification rule based on inactivity or stage age.
 
-Queue is discovered after you add to it. Seen beforehand, it changes whether you add at all.
+## Allocate effort to the work that can change the next step
 
-## What the deal is waiting for is a Japanese executive, not your rep
+Suppose the seller owes a revised proposal or a response to security questions. Before hiring or raising meeting quotas, ask why that work remains incomplete. Capacity is one possible explanation. Unclear ownership or a missing technical answer may call for a different response. More customer conversations will not, by themselves, deliver the outstanding document.
 
-There is Japanese data on where the wait happens, and the ranking is the whole argument.
+If the buyer is evaluating implementation effort, the useful contribution may be a scoped explanation of responsibilities, assumptions and unresolved work. The management-decision wait reported in the Japan survey makes one distinction particularly worth checking: has the relevant decision-maker received the business case, or is the team still discussing it only with an evaluator? A conversation with that decision-maker may be valuable if it resolves an outstanding question. These are proposed examples of approval support, not findings that the survey proves will shorten a sale.
 
-IDEATECH, with Hiroyasu Kitagawa of Demagen Research Institute, surveyed 330 people between 25 and 26 May 2026 who had been involved, with at least one colleague, in buying, replacing or renewing B2B software, SaaS or IT infrastructure and security products at annual contract values of 5 million yen or more.
+There is also a limit to seller influence. A buyer may be waiting for a budget decision that useful materials cannot accelerate. Confirm what can still be prepared, then use the buyer's stated timetable when assessing the deal. Repeated contact should not be counted as progress merely because it produces more activity records.
 
-Of them, 73.5% said the evaluation ran longer than originally scheduled (n=325 for that question).
+The allocation should remain open to revision. Check whether the proposed support addresses the stated obstacle and whether the expected decision actually moves. If it does not, revisit the explanation instead of defending the initial label.
 
-Those respondents were then asked why (n=239, multiple answers). Top of the list: "it took time for management to reach a decision," 63.6%. Then information gathering 45.2%, more departments and people joining 38.1%, budget approval 31.0%.
+## More meetings remain an option when access is the constraint
 
-"The vendors did not give us enough information" comes in at 16.7%, near the bottom.
+A review may show that the Japan team has too few qualified conversations or cannot reach relevant stakeholders. In that case, increasing effective outreach or arranging meetings may be appropriate. Check the quality and relevance of those conversations as well as their number; this article does not establish a universal volume target.
 
-Read that ranking against the instruction your Japan team received. What dominates the delay is time spent waiting for the buyer's own approvers to reach the item.
+The distinction for headquarters is between effort that creates access and effort that helps an existing opportunity reach a decision. Both can matter in the same pipeline. The recommendation is to diagnose the outstanding work before assigning more of either, rather than inferring the answer from flat bookings alone.
 
-A shortage of vendor contact sits four places below it. The constraint is downstream of everything a meeting can influence, and it is inside an organisation you do not manage.
-
-The caveat belongs in the open: IDEATECH sells research-led PR, so this survey doubles as a demonstration of its own service, and it is an online panel. Treat the percentages as order of magnitude and ranking.
-
-Respondents are buyers, and buyers may find it easier to blame their own management than to say a vendor gave them too little. Even allowing for that, the gap between 63.6% and 16.7% is not a gap that reverses.
-
-One more number sets the scale of the circuit the deal is moving through. In the same survey, 58.5% of deals involved seven or more people in the decision, and the specialist functions taking part were IT 42.2%, finance and accounting 38.2%, security 37.2%, legal 33.2%, procurement 32.0% (n=325, multiple answers).
-
-Adding a rep does not add capacity to any of them.
-
-## More meetings crowd out the work that actually clears the queue
-
-The sharper cost is not the wasted activity. It is what the activity displaces.
-
-Clearing a Japanese deal through its approval circuit is unglamorous, per-deal work.
-
-Writing text the internal champion can paste directly into the 稟議 (ringi) document that carries the decision. Producing an operating-load estimate the IT department will accept. Answering finance and legal before they ask. Creating an occasion where the approver is actually in the room.
-
-None of it scales, none of it is predictable in duration, and none of it has a field in your global CRM.
-
-Meetings have all three. They sit in a calendar, they count, they appear in the weekly rollup you read.
-
-When one person's week is contested by work that is recorded and work that is not, the unrecorded work loses. Anyone would make the same trade when one half of the job is visible to headquarters and the other half is not.
-
-Calling it a discipline problem in your Japan office gets the causality backwards.
-
-So the quarter you push activity is the quarter per-deal approval support drops. You raised throughput at the front of the process and slowed the stage that was already the constraint.
-
-That a single stage governs the whole rate is not a new idea.
-
-What makes it awkward in Japan is that the governing stage sits outside your company and leaves no trace in your CRM, so the decision to add volume never shows up in any report as the thing that slowed the process down. What shows up is pipeline growth and flat bookings, which reads like a Japan problem.
-
-The buyer has a capacity ceiling too. In the same survey, 13.4% named "our own staff were too busy to make time for the evaluation" as a cause of delay (n=239).
-
-The queue you are feeding is congested on the other side as well.
-
-## Before approving more activity, ask how many open Japan deals have a known stall point
-
-Change the order of the decision. Before signing off more meetings or more headcount for Japan, count how many open deals your team can state a stall point for.
-
-If most cannot, the increase is not yet a decision you can make, because you will not be able to tell afterwards whether what you bought was bookings or queue.
-
-A rough read takes half an hour and no new tooling.
-
-Open ten recent Japan losses and ten open deals untouched for more than three months. For each, look only at the last activity: did your side act last, or was your side waiting on the buyer.
-
-This only works where activity is actually logged. If email sync is on for only some reps, and calls and meetings rarely get recorded, the last activity skews toward your own outbound email and every deal looks like it is waiting on the buyer.
-
-Check first that email sync is on for everyone and that calls and meetings are logged. If the record is thin, ask each rep deal by deal instead.
-
-Where your side acted last, the delay is yours. Proposal turnaround, internal quote approval, or simply nobody having time.
-
-That distribution is the one where more meetings and more headcount convert, and the instruction was right.
-
-Where the buyer's response is what is outstanding, the same spend extends the queue.
-
-What converts instead is material the buyer can carry through their own organisation. Same budget, opposite destination: buyer-enablement content rather than sales capacity.
-
-This is a direction rather than a measurement, and it is enough to decide with.
-
-Making it repeatable is where CRM design comes in, and it starts with holding stall location as a field rather than reconstructing it from activity history each quarter.
-
-## When losses cluster at the shortlist and the stalls are yours, add the meetings
-
-Two conditions. Losses concentrate in "never made the shortlist" or "never reached anyone," and the stall points on open deals are known and mostly on your side.
-
-With both true, activity converts and the instruction needs no revision.
-
-One option not taken: capping the number of open deals a rep may carry at once.
-
-It does reduce queue, but once the cap binds, someone has to decline new conversations, and that judgment lands on a rep who cannot yet see value or probability. What survives a cap is the easy deal.
-
-Making stall location visible gets the same result without handing the local team a decision they are not equipped to make, and without HQ discovering the cap in a QBR.
-
-The full model for designing revenue around the buyer's internal process, rather than around seller activity, sits in [Japan Market GTM and Messaging](https://consilegy.com/en/services-en/japan-market-gtm-messaging/).
-
-**Activity converts to revenue only where deals are stalled on your side of the table. When the stall sits inside the Japanese buyer's approval circuit, the meetings you add become queue rather than bookings.**
-
-This week, ask your Japan team for one column against every open deal: is the ball on our side or theirs.
-
-Do not ask for confidence, and do not ask in a forecast call, where the answer is social.
-
-How many deals come back with an answer tells you whether next year's Japan budget belongs in sales capacity or in buyer enablement.
-
-## Related reading
-
-Stall location only becomes usable when it lives in a column rather than in a rep's head, and the same column changes which deals belong in this quarter's number.
-
-How to build that second axis, and how to write the exclusion rule before the quarter closes, is in [Forecast your Japan pipeline on approval progress, not rep confidence](/en/articles/forecast-by-approval-not-confidence/). This note decides whether to add volume; that one decides what to count.
-
-Other notes on the same problem are collected under [Sales process](/en/category/sales/).
+More notes on this topic are collected under [Sales & pipeline](/en/category/sales/).

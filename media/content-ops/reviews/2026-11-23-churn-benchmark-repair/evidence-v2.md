@@ -1,0 +1,16 @@
+# Existing article correction, 2026-11-23
+
+URL https://media.consilegy.com/en/articles/japan-saas-churn-benchmark-median/ . This URL is the old live version until deployment. Review the attached manuscript; known predeployment differences are a deployment check, not a new manuscript defect.
+
+Scope: user authorized all published articles to be corrected, re-reviewed by real Claude, and updated. Normal factual/logical/copy corrections are preapproved. Do not invent personal experience, original Seiko opinions, customer results or human approval. This is editorial analysis, not a Seiko quotation or personal experience. Existing thesis retained: examine benchmark population/distribution and internal calculation before using a mean as a target.
+
+Baseline report: all-published-audit-complete/reports/941033f65f794984/report.json. Corrections: reverse the incorrect low-churn=poor-performance logic; distinguish respondents from distinct companies; remove unsupported exact typical value and 'almost none'; add primary link. Remove unrelated unverifiable Benchmarkit NRR and universal software-default claims. Remove guaranteed loss of HQ trust. Clarify customer churn vs revenue retention and avoid saying all ratio series have no median. Source is historical illustrative, not latest benchmark. Local JA companion use-median-not-average read fully but not adopted as factual authority; internal link article churn-rate-logo-or-revenue remains a separate topic. No new mandatory thresholds, fields or routines.
+
+Primary verified by Codex through web open on 2026-11-23:
+https://prtimes.jp/main/html/rd/p/000000352.000016877.html
+Publisher Startia Holdings, 2025-09-25; Fullstar vendor survey provided by クラウドサーカス株式会社. 200 CS/support respondents in BtoB information and communications, not verified 200 distinct firms. Release reports mean monthly customer churn 3.01%. Bands: ~1% 45%; 1~2% 14%; 2~3% 13%; 3~5% 11%; 5~10% 8%; 10%~9%. Median exact cannot be calculated from grouped data. It lies in second band under the published bands. Source's fieldwork date has a 2023/2025 typo, so manuscript does not assert exact fieldwork interval. Survey does not establish population-representative Japan target or all firms SaaS-vendor status; do not infer these. Subsequent contract/segment/denominator examples explicitly are editorial proposed checks/hypothetical reasoning, not survey findings or personal experience.
+
+Image existing category analysis-japan-2026c-20261113n unchanged. Original and built distribution image to be checked separately. Browser visual review unavailable at current time; do not assert completed human/visual/Seiko review. Canonical service route corrected from broken services-en to actual /en/services/japan-market-gtm-messaging/. No claim of AI citation success.
+
+
+v1 Minor addressed: direct description, less repetitive negative contrast, explicit survey provider and unverified all-SaaS/distinct-company scope, explain mean mechanism without new statistic, clearer H2/category wording. Canonical service kept as existing Japan strategy context; no more directly matching first-party definition page established.

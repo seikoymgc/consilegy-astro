@@ -1,0 +1,674 @@
+{
+  "created_at": "2026-11-23T01:06:58.208966+00:00",
+  "provider": "Claude Code",
+  "article": {
+    "path": "/Users/seikoyamaguchi/.codex/worktrees/all-published-review-20261120/media/src/content/notes-en/japan-saas-churn-benchmark-median.md",
+    "sha256": "9fae6cc96ffbc74352fb2c932902ec9d24f100e8879012c0b98b50b7542296de"
+  },
+  "article_url": "https://media.consilegy.com/en/articles/japan-saas-churn-benchmark-median/",
+  "checklist": {
+    "path": "/Users/seikoyamaguchi/.codex/worktrees/all-published-review-20261120/media/content-ops/claude-review/checklist.md",
+    "sha256": "9a3f2f2559b216a05f4fa871d3b8f43a92bb9fb6af3e40dd7090de1d6c7b206c"
+  },
+  "evidence": [
+    {
+      "path": "/Users/seikoyamaguchi/.codex/worktrees/all-published-review-20261120/media/content-ops/reviews/2026-11-23-churn-benchmark-repair/evidence-v2.md",
+      "sha256": "07857a1e4dfda2162f8c58963b878af86d963e14232946fb8ccf62a7dd3527a7"
+    }
+  ],
+  "completed": true,
+  "ai_clear": false,
+  "publication_authorized": false,
+  "phases": {
+    "facts": {
+      "session_id": "b592a47e-011a-4757-b59b-9e42bbe2ad92",
+      "model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 6,
+          "outputTokens": 4904,
+          "cacheReadInputTokens": 22513,
+          "cacheCreationInputTokens": 9993,
+          "webSearchRequests": 0,
+          "costUSD": 0.1825506,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 1647,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 9993,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        },
+        "claude-haiku-5-5": {
+          "inputTokens": 28645,
+          "outputTokens": 3799,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.004764000000000001,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 2502,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 0,
+          "canonicalModel": "claude-haiku-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "review": {
+        "summary": "2026-11-23にPR TIMESの一次情報を開いて照合しました。記事の主要な事実はすべて原典と一致しています。照合した項目は、発行者がStartia Holdings、公開日が2025-09-25、調査提供がCloud Circus（Fullstar）、調査名が「カスタマーサクセス実態調査 第2弾(2025年版)」、対象がBtoB情報通信業のCS・サポート担当200名、平均月次解約率が3.01%、分布が~1%:45%・1~2%:14%などの6区分である点です。分布の累積は45%と59%なので、中央値が第2区分（1~2%）にあるという記述は正しく、厳密な中央値を断定していない点も適切です。原典の調査期間には「2025年8月15日～2023年8月18日」という誤記がありますが、原稿は期間を断定していません。内部リンク（churn-rate-logo-or-revenue、/en/category/data/）とcanonUrlのサービスページは実在し、説明と内容が合っています。仮想例と編集上の提案は、事実や調査結果と区別して明示されています。Critical・Majorはありません。Minorは1件で、回答者を「in Japan」と限定している根拠が原典本文で明示されていない点です。ただし、分布画像（P06）と本人による見解・文体の確認（P10）は今回できないため要確認とし、公開可とは判定しません。公開URLは旧版のままなので、デプロイ後の表示確認も別途必要です。",
+        "assessments": [
+          {
+            "id": "F01",
+            "status": "問題なし",
+            "reason": "3.01%、200名、45%、14%、「more than half」（45+14=59%）は、いずれもPR TIMESの原典本文で確認しました。"
+          },
+          {
+            "id": "F02",
+            "status": "問題なし",
+            "reason": "発行元のPR TIMESリリースに直接リンクしています（一次情報）。"
+          },
+          {
+            "id": "F03",
+            "status": "問題なし",
+            "reason": "Startia Holdings（発行者）、Cloud Circus（クラウドサーカス株式会社）、Fullstarの名称と関係を原典で確認しました。"
+          },
+          {
+            "id": "F04",
+            "status": "問題なし",
+            "reason": "リリース日2025-09-25は原典と一致します。publishedAt 2026-07-24、updatedAt 2026-11-23との前後関係にも矛盾はありません。原典の調査期間の誤記については、原稿が期間を断定していないため影響しません。"
+          },
+          {
+            "id": "F05",
+            "status": "問題なし",
+            "reason": "法律・料金・仕様の記述はありません。調査データは「historical survey」「not as a claim about the latest market rate」と時点を限定して書かれています。"
+          },
+          {
+            "id": "F06",
+            "status": "問題なし",
+            "reason": "帯ラベル「~1%」「1~2%」は、原典本文の半角チルダ表記と一致しています。それ以外に直接引用はありません。"
+          },
+          {
+            "id": "F07",
+            "status": "問題なし",
+            "reason": "PR TIMESのURL、/en/articles/churn-rate-logo-or-revenue/（ロゴチャーンとNRRの記事）、/en/category/data/（Data & KPIs一覧）、canonUrlのサービスページを開きました。いずれも実在し、説明に合っています。"
+          },
+          {
+            "id": "F08",
+            "status": "問題なし",
+            "reason": "「many respondents reported lower rates」は、59%が2%未満の帯にあることで裏付けられます。No.1などの最上級表現はありません。"
+          },
+          {
+            "id": "F09",
+            "status": "問題なし",
+            "reason": "分布の累積から中央値は第2区分にあり、区分データなので厳密値は出せないという説明は正確です。高い値の影響で平均が中心より上に来るという説明も妥当です。"
+          },
+          {
+            "id": "F10",
+            "status": "問題なし",
+            "reason": "「Consider a hypothetical Japan team」と仮想例であることを明示しています。架空の実績や人物はありません。"
+          },
+          {
+            "id": "F11",
+            "status": "問題なし",
+            "reason": "「These are proposed checks for interpreting the result, not additional findings from the Fullstar survey」とあり、調査事実と編集上の提案を区別しています。"
+          },
+          {
+            "id": "F12",
+            "status": "問題なし",
+            "reason": "主要な主張は出典で裏付けられています。回答者の所在地の表現にだけ軽微な限定の問題があり、Minorとして指摘しました。断定に関わる重大な問題ではありません。"
+          },
+          {
+            "id": "P01",
+            "status": "問題なし",
+            "reason": "タイトル「why the mean is not a target」は、見出しと本文の主張（平均値は文脈であって目標ではない）と一致しています。"
+          },
+          {
+            "id": "P02",
+            "status": "問題なし",
+            "reason": "数値・日付・固有名詞・URLを今回すべて一次情報またはリンク先で確認しました。画像はP06で、デプロイ後の表示は別工程で確認します。"
+          },
+          {
+            "id": "P03",
+            "status": "問題なし",
+            "reason": "仮置き文や未確認のまま残った記述は見当たりません。"
+          },
+          {
+            "id": "P04",
+            "status": "問題なし",
+            "reason": "転載は数値の要約にとどまり、出典リンクがあります。Fullstarと調査提供者も明記されています。"
+          },
+          {
+            "id": "P05",
+            "status": "問題なし",
+            "reason": "一次出典を本文中にリンクし、発行者・日付・調査母集団を明記しています。"
+          },
+          {
+            "id": "P06",
+            "status": "要確認",
+            "reason": "分布画像（analysis-japan-2026c-20261113n）は今回提供されていません。資料にも別途確認と記載があるため、本文との一致は未確認です。"
+          },
+          {
+            "id": "P07",
+            "status": "問題なし",
+            "reason": "資料にある既存の主張（平均値を目標にする前に母集団・分布・計算方法を確認する）を維持しています。本人の見解・体験・顧客実績を新たに足していません。"
+          },
+          {
+            "id": "P08",
+            "status": "問題なし",
+            "reason": "体験・実績・調査結果の創作はありません。仮想例と提案はその旨を明示しています。"
+          },
+          {
+            "id": "P09",
+            "status": "問題なし",
+            "reason": "各章の役割（調査内容／解釈／計算の比較／意思決定の分離）が分かれており、目立った重複はありません。"
+          },
+          {
+            "id": "P10",
+            "status": "要確認",
+            "reason": "筆者本人（代表）による見解・文体の確認は今回提供されていません。本人確認済みとは扱えません。"
+          }
+        ],
+        "findings": [
+          {
+            "id": "F12",
+            "severity": "Minor",
+            "quote": "200 customer success and support respondents in Japan's B2B information and communications sector",
+            "reason": "原典の調査概要は「BtoB企業の情報通信業でカスタマーサクセス・サポート業務に従事する200名」で、国内に限定するとは明記されていません。日本のリリースなので国内調査である可能性は高いものの、「Japan's」という限定は推測を含みます。",
+            "proposal": "原典の表現に合わせて「200 customer success and support respondents working at B2B companies in the information and communications sector」とします。日本の調査であることを示したい場合は「in a Japanese vendor survey」のように、調査元の属性として書くことを検討してください。",
+            "evidence": "https://prtimes.jp/main/html/rd/p/000000352.000016877.html（2026-11-23確認。調査概要に国内限定の明記なし）"
+          }
+        ]
+      }
+    },
+    "editorial": {
+      "session_id": "23a4596a-ecba-41f0-a0f5-04e58bc6cdac",
+      "model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 4,
+          "outputTokens": 5302,
+          "cacheReadInputTokens": 11752,
+          "cacheCreationInputTokens": 9421,
+          "webSearchRequests": 0,
+          "costUSD": 0.1837744,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 819,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 9421,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        },
+        "claude-haiku-5-5": {
+          "inputTokens": 20296,
+          "outputTokens": 2819,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.0034391,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 1632,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 0,
+          "canonicalModel": "claude-haiku-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "review": {
+        "summary": "編集レビュー（S/C/R）を行いました。今回開いて確認したページは4つです。PR TIMESの一次情報（スターティアホールディングス、2025-09-25、Fullstar調べ、BtoB情報通信業のCS・サポート担当200名、平均月次解約率3.01%、6区分の分布）、内部リンク2件（/en/articles/churn-rate-logo-or-revenue/、/en/category/data/）、canonの /en/services/japan-market-gtm-messaging/ です。どれも本文の説明と一致し、リンク切れはありませんでした。分布から言える内容も一次情報と矛盾しません。最低2区分の合計は59%で過半数、累積で50%に達するのは2区分目のため、中央値は2区分目に入ります。このほか、回答者数と企業数を区別している点、集計期間の誤植（2025年8月15日～2023年8月18日）を断定していない点、仮想例を仮想例として明示している点も確認しました。\n\nCritical・Majorはありません。Minorは2件です。①平均値が分布の中心より上に出る理由の説明が少し不正確。②「自社にとって妥当な水準」をどう判断するかの手がかりが薄い。どちらも任意の改善で、公開を止める理由にはなりません。\n\n別途確認が必要な点が3つあります。\n- 公開URLのスラッグに「median」が残っており、本文の「正確な中央値は分からない」と食い違って見える可能性があります。ここはデプロイ確認として扱い、原稿の欠陥とはしていません。\n- 分布図などの画像は今回提供されておらず、未確認です。\n- 本人（Seiko氏）の最終確認と、独立した人によるレビューはまだ行われていません。",
+        "assessments": [
+          {
+            "id": "S01",
+            "status": "問題なし",
+            "reason": "タイトル「why the mean is not a target」に対し、本文は平均値を自動的に目標にしない理由（分布、比較可能性、算定の違い）を一貫して論じている。"
+          },
+          {
+            "id": "S02",
+            "status": "問題なし",
+            "reason": "冒頭2段落目の太字文「A mean churn rate is useful context, but it is not automatically a performance target.」で答えを先に示し、本社報告という状況も第1段落で説明している。"
+          },
+          {
+            "id": "S03",
+            "status": "問題なし",
+            "reason": "調査が実際に示している内容 → 平均値の読み方 → 算定の照合 → 報告での扱い、の順で、読者（Japan責任者と本社）が知りたい順に並んでいる。"
+          },
+          {
+            "id": "S04",
+            "status": "問題なし",
+            "reason": "H2は「調査の中身 → 平均を上回ることの意味 → 算定比較 → 意思決定との分離」の順で、論理的に段階を追っている。"
+          },
+          {
+            "id": "S05",
+            "status": "問題なし",
+            "reason": "一次情報の読解、目標設定の論点、算定の照合、報告の書き方と、各章の役割が分かれている。顧客チャーンと収益維持の詳細は内部リンク先に任せており、重複を避けている。"
+          },
+          {
+            "id": "S06",
+            "status": "問題なし",
+            "reason": "中心となる調査読解の章と算定比較の章に、十分な分量が割かれている。長さが機械的に揃えられている様子はない。"
+          },
+          {
+            "id": "S07",
+            "status": "問題なし",
+            "reason": "各章の構成は、データ説明・仮想例・手順的な提案・報告文の指針と異なり、同じ型の繰り返しではない。"
+          },
+          {
+            "id": "S08",
+            "status": "問題なし",
+            "reason": "「45%+14%で過半数 → 中央値は2区分目、正確な値は不明」という推論は、一次情報の分布（45/14/13/11/8/9%）と整合する。目標にできない根拠も、事業モデルの違いという明示した理由に基づいている。"
+          },
+          {
+            "id": "S09",
+            "status": "問題なし",
+            "reason": "「Yet the distribution alone cannot prove that the Japan team should match those respondents.」と述べ、分布から自社の目標を因果的に導けないことを明示している。差をすぐに日本市場の影響とみなさないよう注意もしている。"
+          },
+          {
+            "id": "S10",
+            "status": "問題なし",
+            "reason": "導入は本社からの問いという具体的な場面から始まり、一般論による水増しはない。"
+          },
+          {
+            "id": "S11",
+            "status": "問題なし",
+            "reason": "収益維持の話題は、外部ベンチマークが比較対象として妥当かという論点に結び付けて、短く扱っている。脱線はない。"
+          },
+          {
+            "id": "S12",
+            "status": "問題なし",
+            "reason": "独立したまとめ章はない。最終章は、報告への記載方法と意思決定を分けるという新しい示唆を加えており、本文の単純な繰り返しではない。"
+          },
+          {
+            "id": "C01",
+            "status": "問題なし",
+            "reason": "曖昧語の多用はない。「substantial part」は直後の45%・14%という実数で裏付けられている。"
+          },
+          {
+            "id": "C02",
+            "status": "問題なし",
+            "reason": "調査名・発行元・日付・3.01%・200名・区分別の割合という固有情報があり、数字の創作もない。社内事例は仮想例として明示している。"
+          },
+          {
+            "id": "C03",
+            "status": "問題なし",
+            "reason": "分母の定義の統一、本社と定義をすり合わせること、初期段階では件数を併記すること、セグメント別の比較など、実務上の示唆がある。"
+          },
+          {
+            "id": "C04",
+            "status": "問題なし",
+            "reason": "一次情報の区分データを読み直し、平均値と中央の区分がずれることを示している。これは比較分析としての独自の視点に当たる。実体験は創作していない。"
+          },
+          {
+            "id": "C05",
+            "status": "問題なし",
+            "reason": "公表された平均値だけを引用する記事と違い、分布の読み方と、回答者数と企業数・SaaSベンダーかどうかの区別という判断材料を示している。"
+          },
+          {
+            "id": "C06",
+            "status": "問題なし",
+            "reason": "月単位で契約する中小企業向けと年次更新のエンタープライズ契約の対比は、目標が事業モデルによって変わることの理解に役立つ。"
+          },
+          {
+            "id": "C07",
+            "status": "問題なし",
+            "reason": "「Consider a hypothetical Japan team」と仮想例を明示し、提案は「These are proposed checks ..., not additional findings from the Fullstar survey.」と区別している。"
+          },
+          {
+            "id": "C08",
+            "status": "問題なし",
+            "reason": "調査の制約（グループ化されたデータ、回答者≠企業、SaaS限定でないこと、過去データであること）と、比較が成り立つ条件を明示している。"
+          },
+          {
+            "id": "C09",
+            "status": "問題なし",
+            "reason": "Japan事業の責任者や本社の担当者という想定読者に対して、統計の説明が浅すぎも深すぎもしない。"
+          },
+          {
+            "id": "C10",
+            "status": "問題あり",
+            "reason": "平均値が中央より上に出る理由の説明が不正確気味である（Minorとして指摘）。それ以外の主張には理由が添えられている。"
+          },
+          {
+            "id": "C11",
+            "status": "問題あり",
+            "reason": "算定の照合手順は具体的。一方、「what result is reasonable for our operation」をどう判断するかの手がかりは、契約条件とセグメントの言及にとどまる（Minorとして指摘。数値の閾値を追加する必要はない）。"
+          },
+          {
+            "id": "R01",
+            "status": "問題なし",
+            "reason": "本社に日本の維持率を報告する立場の読者を、冒頭の場面設定で明確にしている。"
+          },
+          {
+            "id": "R02",
+            "status": "問題なし",
+            "reason": "「平均を下回れば健全と言えるか」という問いに、「文脈としては使えるが目標ではない」と答え、判断の手順も示している。"
+          },
+          {
+            "id": "R03",
+            "status": "問題なし",
+            "reason": "冒頭2段落で、分布・顧客構成・算定を確認すべきだという記事の価値が伝わる。"
+          },
+          {
+            "id": "R04",
+            "status": "問題なし",
+            "reason": "全体が簡潔で、離脱を招くような冗長な箇所はない。"
+          },
+          {
+            "id": "R05",
+            "status": "問題なし",
+            "reason": "区分データから正確な中央値が出せないこと、調査範囲の限界、算定定義の要素が説明されており、理解に必要な説明は揃っている。"
+          },
+          {
+            "id": "R06",
+            "status": "問題なし",
+            "reason": "customer churn と revenue retention の違いを説明し、詳細は内部リンクで補っている。mean と median も文脈で理解できる。"
+          },
+          {
+            "id": "R07",
+            "status": "問題なし",
+            "reason": "小口顧客を複数失う場合と大口顧客を1社失う場合、月契約と年契約といった比較が理解を助けている。"
+          },
+          {
+            "id": "R08",
+            "status": "問題なし",
+            "reason": "「Beating the mean does not settle what Japan should achieve」「Keep the benchmark separate from the operating decision」など、見出しだけで要点が分かる。"
+          },
+          {
+            "id": "R09",
+            "status": "問題なし",
+            "reason": "一次情報、目標の論点、算定、報告の書き方が章ごとに分かれており、探しやすい。"
+          },
+          {
+            "id": "R10",
+            "status": "問題なし",
+            "reason": "出典・年・母集団を併記すること、比較できない場合は context と表示すること、社内の根拠で対応が必要かを判断すること、と次の行動が明確である。"
+          },
+          {
+            "id": "R11",
+            "status": "問題なし",
+            "reason": "関連記事へのリンク（churn-rate-logo-or-revenue）とカテゴリページへのリンク（/en/category/data/）を開き、実在と内容の一致を確認した。canonのサービスページも実在し、日本のGTMという文脈と合っている。"
+          }
+        ],
+        "findings": [
+          {
+            "id": "C10",
+            "severity": "Minor",
+            "quote": "Higher values contribute more to a mean, which is why a mean can sit above the central part of a distribution.",
+            "reason": "平均値が中央より上に出る仕組みは、大きな値が一部にあると平均が引き上げられる、つまり分布が右に裾を引いていることによる。「高い値ほど平均への寄与が大きい」という言い方では、その仕組みが十分に伝わらない。一次情報では10%超の回答が9%、5~10%が8%あり、この裾が平均3.01%を2区分目より上に押し上げている、と説明できる。新しい統計値は必要ない。",
+            "proposal": "例: \"A minority of high responses can pull a mean upward, which is why a mean can sit above the central part of a distribution.\"（既に公表されている区分の割合に触れる程度にとどめ、新しい数値は加えない）",
+            "evidence": "https://prtimes.jp/main/html/rd/p/000000352.000016877.html（区分: ~1% 45%、1~2% 14%、2~3% 13%、3~5% 11%、5~10% 8%、10%~ 9%。2026-11-23にWebFetchで確認）"
+          },
+          {
+            "id": "C11",
+            "severity": "Minor",
+            "quote": "The second requires an assessment of the customers and contracts behind the number.",
+            "reason": "記事の中心となる問い「自社にとって妥当な水準は何か」について、判断の材料が契約期間とセグメントへの言及にとどまる。読者が本社に何を根拠として示せばよいかが、やや抽象的なままである。ただし、閾値や必須の手順を作り出して補うべきではない。",
+            "proposal": "新しい数値は加えず、既に本文にある要素（契約期間ごとの解約の機会、セグメント別の率、顧客数）を、この文の直後で「評価の際に見る観点」として1〜2文に集約することを検討する。追加しない判断も許容される。",
+            "evidence": "本文内の検討による。外部の根拠は不要。"
+          }
+        ]
+      }
+    },
+    "copy": {
+      "session_id": "64bd92e7-1615-4917-a9a0-719917accbd3",
+      "model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 6,
+          "outputTokens": 6728,
+          "cacheReadInputTokens": 22893,
+          "cacheCreationInputTokens": 9804,
+          "webSearchRequests": 0,
+          "costUSD": 0.2175946,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 2110,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 9804,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        },
+        "claude-haiku-5-5": {
+          "inputTokens": 28611,
+          "outputTokens": 3290,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.004506100000000001,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 2177,
+          "cacheCreationEphemeral5mInputTokens": 0,
+          "cacheCreationEphemeral1hInputTokens": 0,
+          "canonicalModel": "claude-haiku-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "review": {
+        "summary": "2026-11-23にPR TIMESの一次情報を開いて照合しました。確認できた内容は、発行元Startia Holdings、発行日2025-09-25、調査主体Fullstar（クラウドサーカス）、回答者はBtoB情報通信業のCS・サポート担当200名、月次解約率の平均3.01%、最下位帯「~1%」が45%で次の「1~2%」が14%（合計59%）である点です。原稿の記述はいずれも原典と一致しました。原典はSaaS企業に限定しておらず、社数も示していません。この限界を本文が明記している点も適切です。中央値が第2帯に入るという推論は、累積45%→59%から正しいと言えます。内部リンク2件とcanonUrlは実在し、説明どおりのページです。英語の文法・論理に公開を止める誤りはなく、Critical・Majorはありません。Minorは3件で、(1) タイトルの「is not a target」が本文・descriptionの「not automatically」より断定的、(2) 原典ラベル「~1%」が英語読者には「約1%」と読まれやすい、(3) アポストロフィの曲直が混在、の3点です。要確認は3件です。画像は未提供のため確認できていません（P06）。本人の意図・文体の確認がありません（P07・P10）。公開URLはslugに「median」を含みますが、本文は正確な中央値を示せないとしています。slugは変更しない前提のため、指摘ではなく参考情報とします。旧版が公開中のため、デプロイ後の差分確認が別途必要です。ClaudeはAIレビュワーであり、独立した人のレビューや代表の全文最終OKの代わりにはなりません。",
+        "assessments": [
+          {
+            "id": "J01",
+            "status": "該当なし",
+            "reason": "「ではないでしょうか」等は日本語特有の表現。英語の相当表現（過剰なhedging、修辞疑問）も本文にはなく、断定と留保の使い分けは適切。"
+          },
+          {
+            "id": "J02",
+            "status": "問題なし",
+            "reason": "末尾は「More notes on metrics and reporting are collected under Data & KPIs」というカテゴリへの導線で、定型の締め（I hope this helps等）ではない。"
+          },
+          {
+            "id": "J03",
+            "status": "問題なし",
+            "reason": "冒頭は「When headquarters asks whether...」と具体的な場面から始まり、「In recent years」型の空疎な導入はない。"
+          },
+          {
+            "id": "J04",
+            "status": "問題なし",
+            "reason": "段落頭の「Then」が2回（Compare章・Keep章）あるだけで、Also/Furthermore等の連続使用はない。"
+          },
+          {
+            "id": "J05",
+            "status": "問題なし",
+            "reason": "「It is important」型の反復はない。"
+          },
+          {
+            "id": "J06",
+            "status": "問題なし",
+            "reason": "過剰な共感や丁寧表現はなく、実務的な文体。"
+          },
+          {
+            "id": "J07",
+            "status": "問題なし",
+            "reason": "「innovative」「highly effective」等の誇張語はない。"
+          },
+          {
+            "id": "J08",
+            "status": "問題なし",
+            "reason": "英語として自然。翻訳調の不自然さは見当たらない。ラベル「~1%」の読まれ方はJ24で扱う。"
+          },
+          {
+            "id": "J09",
+            "status": "問題なし",
+            "reason": "「context, not target」はdescription・principle・リード・最終章に出るが、主題の要所での再提示にとどまる。同じ文型の機械的な反復ではない。"
+          },
+          {
+            "id": "J10",
+            "status": "該当なし",
+            "reason": "同じ語尾の連続は日本語特有の項目。英語の文末・文型にも単調な連続はない。"
+          },
+          {
+            "id": "J11",
+            "status": "問題なし",
+            "reason": "最長級の文（companion noteの一文、セミコロン付き）も構造は明快で、過度に長くない。"
+          },
+          {
+            "id": "J12",
+            "status": "問題なし",
+            "reason": "複数の主張を含む文は、セミコロン・コロンで論理関係が明示されている。"
+          },
+          {
+            "id": "J13",
+            "status": "問題なし",
+            "reason": "「The grouped data put the middle responses in the second band」など、主語と述語の対応・数の一致に誤りはない。"
+          },
+          {
+            "id": "J14",
+            "status": "問題なし",
+            "reason": "「that distribution」「that distinction」「Neither」など、いずれも直前に指す対象がある。"
+          },
+          {
+            "id": "J15",
+            "status": "問題なし",
+            "reason": "目立つ冗長表現はない。"
+          },
+          {
+            "id": "J16",
+            "status": "問題なし",
+            "reason": "「does not settle」はH2と最終章に出るが、文脈（現状評価と報告方法）が異なり、同じ意味の文の反復ではない。"
+          },
+          {
+            "id": "J17",
+            "status": "問題なし",
+            "reason": "疑問形は太字の2問だけで、論点整理に機能している。体言止めは日本語特有で該当しない。"
+          },
+          {
+            "id": "J18",
+            "status": "問題なし",
+            "reason": "一文ごとの改行はない。"
+          },
+          {
+            "id": "J19",
+            "status": "問題なし",
+            "reason": "段落は意味のまとまりで区切られ、各章2〜3段落で役割が明確。"
+          },
+          {
+            "id": "J20",
+            "status": "問題なし",
+            "reason": "箇条書きを使っておらず、散文の論述で足りている。"
+          },
+          {
+            "id": "J21",
+            "status": "問題なし",
+            "reason": "英語のスペルミス・誤字は確認できない。"
+          },
+          {
+            "id": "J22",
+            "status": "該当なし",
+            "reason": "敬体・常体の統一は日本語特有の項目。英文のトーンは一貫している。"
+          },
+          {
+            "id": "J23",
+            "status": "問題なし",
+            "reason": "Fullstar・Startia Holdings・headquarters・Japan team等の表記は本文内で一貫している。参考として、canonLabel「GTM and Messaging」とリンク先ページのタイトル「GTM & Messaging」に差がある（メタデータのみ）。"
+          },
+          {
+            "id": "J24",
+            "status": "問題あり",
+            "reason": "数値・%表記は統一されている。ただし原典の帯ラベル「~1%」「1~2%」を英語読者向けの説明なしに引用している。英語では「~」が「約」と読まれやすく、帯の意味（1%以下）が誤解されうる。"
+          },
+          {
+            "id": "J25",
+            "status": "問題なし",
+            "reason": "Cloud Circus、Fullstar、Startia Holdings、Data & KPIsの大文字表記は原典・リンク先と一致する。"
+          },
+          {
+            "id": "J26",
+            "status": "問題なし",
+            "reason": "denominator・installed base・revenue retention等は、B2B SaaSの本社・日本責任者という読者層に適した水準。"
+          },
+          {
+            "id": "J27",
+            "status": "問題なし",
+            "reason": "重複表現はない。"
+          },
+          {
+            "id": "J28",
+            "status": "問題あり",
+            "reason": "アポストロフィが「Cloud Circus’s」では曲がり（’）、「Japan's」「survey's」「operation's」では直線（'）で混在している。"
+          },
+          {
+            "id": "P01",
+            "status": "問題あり",
+            "reason": "本文・description・principleは「not automatically a (suitable) target」と留保している。一方、タイトルは「why the mean is not a target」と断定的で、トーンがずれる。矛盾とまでは言えないためMinor。slugの「median」は変更しない前提のため参考情報とする。"
+          },
+          {
+            "id": "P02",
+            "status": "問題なし",
+            "reason": "2026-11-23にPR TIMESを開き、日付2025-09-25、Startia Holdings、Fullstar/クラウドサーカス、200名・BtoB情報通信業CS/サポート、平均3.01%、45%/14%を照合して一致した。内部リンク2件（/en/articles/churn-rate-logo-or-revenue/、/en/category/data/）とcanonUrlの実在・内容一致も確認した。"
+          },
+          {
+            "id": "P03",
+            "status": "問題なし",
+            "reason": "仮置き文やTODOはない。原典の調査期間は誤植（終了年が2023年）を含むが、本文は期間を断定していない。"
+          },
+          {
+            "id": "P04",
+            "status": "問題なし",
+            "reason": "原典からは数値とラベルの短い引用だけで、出典リンクを明示している。転載はない。画像の権利はP06で別途確認が必要。"
+          },
+          {
+            "id": "P05",
+            "status": "問題なし",
+            "reason": "一次情報（PR TIMES）へのリンク、発行元、発行日、調査主体、回答者の母集団を明記している。"
+          },
+          {
+            "id": "P06",
+            "status": "要確認",
+            "reason": "画像・分布図は今回提供されておらず、確認していない。資料にもビルド済み画像は別途確認とある。"
+          },
+          {
+            "id": "P07",
+            "status": "要確認",
+            "reason": "資料上は既存の主張を維持し、仮説例は「proposed checks」「hypothetical」と明示されている。ただし筆者本人による意図の確認はない。"
+          },
+          {
+            "id": "P08",
+            "status": "問題なし",
+            "reason": "事例は「hypothetical Japan team」と明示され、顧客実績や体験の創作はない。調査結果の範囲外の推論も「not additional findings from the Fullstar survey」と区別している。"
+          },
+          {
+            "id": "P09",
+            "status": "問題なし",
+            "reason": "各章の役割は、調査の読み方→平均超えの解釈→計算の整合→報告と意思決定と分かれ、全体での実質的な重複はない。"
+          },
+          {
+            "id": "P10",
+            "status": "要確認",
+            "reason": "本人による文体・見解の確認記録がない。資料もSeiko氏の見解ではない編集分析としている。"
+          }
+        ],
+        "findings": [
+          {
+            "id": "P01",
+            "severity": "Minor",
+            "quote": "Japan SaaS churn benchmarks: why the mean is not a target",
+            "reason": "本文は「A mean churn rate is useful context, but it is not automatically a performance target.」と留保している。descriptionも「not automatically a suitable target」としており、タイトルだけが断定的で主張の強さがずれる。",
+            "proposal": "タイトルを本文の留保に合わせる。例：「Japan SaaS churn benchmarks: why the mean is not automatically a target」。現タイトルを維持する場合は、筆者が意図した強調かを確認する。",
+            "evidence": "本文リード、frontmatterのdescription・principleとの照合（記事内で完結）"
+          },
+          {
+            "id": "J24",
+            "severity": "Minor",
+            "quote": "45% of responses are in the lowest band, labelled “~1%,” and 14% are in the next, “1~2%.”",
+            "reason": "原典のラベル「~1%」をそのまま引用している。英語圏の読者には「~」が「approximately」と読まれやすく、「1%以下の帯」という意味が伝わりにくい。引用であること自体は正確。",
+            "proposal": "原典ラベルは残し、意味を補う。例：「labelled “~1%” (up to about 1%) in the release」。または「1~2%」も含め英語のレンジ表記（1–2%）を併記する。",
+            "evidence": "https://prtimes.jp/main/html/rd/p/000000352.000016877.html （本文の表記「~1%：45％」を確認）"
+          },
+          {
+            "id": "J28",
+            "severity": "Minor",
+            "quote": "Cloud Circus’s Fullstar 2025 customer success survey",
+            "reason": "所有格のアポストロフィが、ここでは曲がり（’）、他の箇所（Japan's、survey's、operation's）では直線（'）で混在している。",
+            "proposal": "媒体の表記ルールに合わせて、どちらかに統一する（例：Cloud Circus's）。",
+            "evidence": "本文内の表記比較（記事内で完結）"
+          }
+        ]
+      }
+    }
+  }
+}

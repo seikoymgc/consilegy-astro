@@ -1,0 +1,13 @@
+{
+  "completed_phases": [
+    "facts",
+    "editorial",
+    "copy"
+  ],
+  "critical_major_count": 0,
+  "minor_count": 3,
+  "article_evidence_checklist_hashes_match": true,
+  "gate_exit_code": 2,
+  "gate_stdout": "BLOCKED: 未解決・未確認・原稿変更・審査未完了\n",
+  "limitations": "Unperformed human/Seiko/page-visual review remains unverified, not claimed. See response.md."
+}

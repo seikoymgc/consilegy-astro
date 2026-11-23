@@ -1,69 +1,48 @@
 ---
-title: "Reading Japan’s SaaS churn benchmark: check the distribution"
-description: "Check the population, denominator and distribution before using a churn benchmark. Read the industry figure by its distribution; your own churn rate is a single ratio, so split it by logo and revenue, and large accounts from the rest, instead of looking for a median."
+title: "Japan SaaS churn benchmarks: why the mean is not a target"
+description: "A reported mean monthly churn of 3.01% is not automatically a suitable target for your Japan operation. Check the survey distribution, customer mix and calculation before reporting performance to headquarters."
 publishedAt: 2026-07-24
-updatedAt: 2026-10-17
+updatedAt: 2026-11-23
 category: data
-principle: "Check the population, denominator and distribution before using a churn benchmark. Read the industry figure by its distribution; your own churn rate is a single ratio, so split it by logo and revenue, and large accounts from the rest, instead of looking for a median."
-canonUrl: https://consilegy.com/en/services-en/japan-market-gtm-messaging/
+principle: "Use a Japan churn benchmark as context, not an automatic target. A mean can hide lower-churn respondents, and a fair comparison also requires the same denominator, period and customer mix."
+canonUrl: https://consilegy.com/en/services/japan-market-gtm-messaging/
 canonLabel: Japan Market GTM and Messaging
 ---
 
-If you are setting a churn target for your Japan operation from a benchmark that says "Japanese SaaS churns at about 3% a month," you are likely setting it against the wrong number.
+When headquarters asks whether the Japan operation's retention is healthy, a local benchmark can make the answer look straightforward. If monthly customer churn is below a published average, the team appears to be doing well. But that conclusion depends on what the average represents and whether the comparison fits your customers.
 
-That 3% is a mean, and it is pulled up by a small number of high-churn companies.
+**A mean churn rate is useful context, but it is not automatically a performance target.** Where lower-churn responses make up a substantial part of a survey, meeting the mean can still leave room for improvement. Examine that distribution alongside the business model and customer mix before judging the Japan team.
 
-**Nearly half the companies in the same dataset sit at 1% or lower.** Read the mean as the market, and your Japan team looks like it is failing when it is roughly at par.
+## What the Fullstar survey actually shows
 
-## The number that circulates
+[Cloud Circus’s Fullstar 2025 customer success survey](https://prtimes.jp/main/html/rd/p/000000352.000016877.html), published by Startia Holdings on September 25, 2025, reports mean monthly customer churn of **3.01%**. The vendor survey covered **200 customer success and support respondents in Japan's B2B information and communications sector**. The release counts respondents; it does not establish 200 distinct companies or that every respondent works for a SaaS vendor.
 
-The figure comes from CloudCircus's Fullstar "Customer Success Survey 2025" (fielded August 2025, n=200, customer success and support staff at B2B information and communications companies in Japan; note that this is a vendor survey).
+In the published distribution, **45% of responses are in the lowest band, labelled “~1%,” and 14% are in the next, “1~2%.”** Together they account for more than half the responses. The grouped data put the middle responses in the second band; they do not establish an exact median. Higher values contribute more to a mean, which is why a mean can sit above the central part of a distribution.
 
-The headline is a **mean monthly churn of 3.01%**.
+The release does not establish a universal target for Japan SaaS businesses. In particular, these grouped responses cannot tell you what churn should be for your own pricing model, contract term or stage of market entry. This article uses the historical survey to illustrate how to read a benchmark, not as a claim about the latest market rate.
 
-But the same survey publishes the distribution, and it is heavily skewed: **45% of companies report 1% or lower**, while about 9% report 10% or higher.
+## Beating the mean does not settle what Japan should achieve
 
-Those few high-churn companies drag the average up.
+Consider a hypothetical Japan team whose monthly customer churn is below the survey mean. It would be wrong to say that the benchmark makes this team look like it is failing: lower churn is generally preferable when the calculation and population are comparable.
 
-The typical company sits well below the mean, at a third of it or less.
+The more plausible mistake runs in the other direction. Headquarters might accept performance near the mean as satisfactory without noticing that many respondents reported lower rates. Yet the distribution alone cannot prove that the Japan team should match those respondents. A subscription sold month to month to small businesses and an enterprise contract renewed annually create different opportunities for cancellation.
 
-So "Japan churns at 3%" describes almost none of the companies in the data. It describes the gap between the typical company and a handful of struggling ones.
+For the review with headquarters, separate two questions: **where does our result sit in this survey, and what result is reasonable for our operation?** The first is a statistical comparison. The second requires an assessment of the customers and contracts behind the number. A benchmark can inform that assessment; it cannot replace it.
 
-## Why this matters when you report to HQ
+## Compare the calculation before explaining Japan's performance
 
-Two failures follow from using the mean as if it were typical.
+Start with the result you are reporting. For monthly customer churn, define which existing customers were eligible to leave during the period and which departures count as churn. Use the same definition over time. If headquarters uses a different definition, reconcile the calculations before interpreting the difference as a Japan market effect.
 
-First, **you set the wrong target.**
+Then distinguish customer churn from revenue retention. Losing several small accounts and losing one large account can have very different revenue consequences. Revenue from expansion can also offset lost revenue while customer losses continue. The companion note on [customer churn and revenue retention](/en/articles/churn-rate-logo-or-revenue/) focuses on that distinction; the issue here is whether the external benchmark is a fair comparator at all.
 
-If HQ benchmarks your Japan team against a 3% "market rate," a team at 1% looks mediocre, and a team genuinely at 3% looks acceptable when roughly half the market sits at a third of that or less.
+If contract terms or customer segments differ materially, compare those groups separately where the data allow it. During an early Japan launch, a small customer base can make a single cancellation move the rate sharply. Show the underlying customer counts alongside the rate so headquarters can see what changed. These are proposed checks for interpreting the result, not additional findings from the Fullstar survey.
 
-The averaged number hides both the good and the bad.
+## Keep the benchmark separate from the operating decision
 
-Second, **you lose HQ's trust in the whole report.**
+A useful report can say that the Japan result is below a named survey's mean while also explaining why that does not settle the target. State the source, survey year and respondent population next to the comparison. If the survey's calculation or customer mix cannot be matched to your own, label the comparison as context rather than a like-for-like assessment.
 
-The moment a headline number stops matching what people see on the ground, they stop trusting the dashboard it came from.
+Then explain what the internal evidence supports. A concentrated loss among a particular customer group calls for a different investigation from a broad rise across the installed base. Neither becomes harmless because the overall rate is below a market average.
 
-After that, even your accurate numbers get discounted in decisions.
+The decision for headquarters is whether the observed losses require action, and on what basis. Keeping that decision separate from the external benchmark prevents a convenient average from doing work the evidence cannot support.
 
-A dashboard exists to surface what needs intervention, not to produce a tidy single figure; a distrusted figure cannot do that job.
-
-## What to report instead
-
-- **Split your own churn rate; do not look for a median in it.** Your monthly churn is churned customers divided by customers at the start of the month: a single ratio, so it has no median. Report it split two ways instead: by logo and by revenue, and large accounts separately from the rest. How to lay those side by side is in [Japan's NRR looks healthy on your dashboard. Ask for the logo churn.](/en/articles/churn-rate-logo-or-revenue/). Use median and distribution only for the industry benchmark, and for metrics that have one value per record, such as deal size or days in stage.
-- **Show large churned accounts as a separate list, not blended in.** They are exactly what your customer success team should act on. Folding them into one rate hides the intervention target.
-- **Name the source, year, and sample every time.** When you cite the Japan benchmark, say "Fullstar 2025, n=200, vendor survey." HQ can weigh a vendor survey of 200 companies appropriately, and a sourced number survives scrutiny that an unsourced one does not.
-- **Do not compare Japan and home-market retention as if the numbers are equivalent.** US benchmarks such as Benchmarkit 2025 report a median net revenue retention around 101%, and Japan's Fullstar reports a mean NRR of 102.1%, but the samples, methods, and mean-versus-median basis all differ. They look close; they are not directly comparable. Present each with its own definition and let HQ draw the line.
-
-**Check the population, denominator and distribution before using a churn benchmark. Read the industry figure by its distribution; your own churn rate is a single ratio, so split it by logo and revenue, and large accounts from the rest, instead of looking for a median.**
-
-## Common mistakes
-
-- **Treating every metric as skewed.** Symmetric metrics are fine to average. Deal size and stage duration are the ones that reliably skew; check the distribution per metric. Churn and conversion rates are ratios, so split them rather than taking a median.
-- **Reporting the median but hiding the distribution.** The median is a representative value, not a tool for making the outliers disappear.
-- **Trusting the dashboard's default.** Most tools aggregate with a mean by default. For skewed metrics, do not ship that default to HQ.
-
-## Related reading
-
-Reading the median is the first half; attaching a decision rule to it is the second. See [write the threshold before adding another dashboard](/en/articles/threshold-before-dashboard/).
-
-Other notes on the same problem are collected under [Revenue data](/en/category/data/).
+More notes on metrics and reporting are collected under [Data & KPIs](/en/category/data/).

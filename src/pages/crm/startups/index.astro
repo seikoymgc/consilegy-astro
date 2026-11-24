@@ -6,7 +6,8 @@ import CrmSubnav from '../../../components/CrmSubnav.astro';
 import CrmSupport from '../../../components/CrmSupport.astro';
 import CrmCardFlow from '../../../components/CrmCardFlow.astro';
 
-const DEMO_URL = 'https://crm.consilegy.com/demos';
+// デモ一覧のスタートアップ・中小企業（標準版）のカードを先頭に出して開く（2026-11-25）
+const DEMO_URL = 'https://crm.consilegy.com/demos?edition=demo&lang=ja';
 const SIGNUP_URL = 'https://crm.consilegy.com/signup';
 
 // CRM for Startups（2026-11-22 代表と決定）。中身は標準版（法人B2B版）と同じで、入口と訴求だけ分ける。
@@ -341,7 +342,6 @@ const screens = [
 			<h4>デモでお見せする内容</h4>
 			<ul class="cta-list">
 				<li>名刺をまとめて撮って、連絡先と1通目のメールができる流れ</li>
-				<li>LinkedInのやり取りを顧客の記録に取り込む方法</li>
 				<li>自動化ライブラリから、必要な自動化をONにする方法</li>
 				<li>止まっている商談の知らせ方</li>
 				<li>話しかけて操作するAIエージェント</li>

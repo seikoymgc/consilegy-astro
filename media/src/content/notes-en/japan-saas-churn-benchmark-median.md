@@ -19,6 +19,42 @@ When headquarters asks whether the Japan operation's retention is healthy, a loc
 
 In the published distribution, **45% of responses are in the lowest band, labelled “~1%,” and 14% are in the next, “1~2%.”** Together they account for more than half the responses. The grouped data put the middle responses in the second band; they do not establish an exact median. Higher values contribute more to a mean, which is why a mean can sit above the central part of a distribution.
 
+<figure class="note-figure">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 430" role="img" aria-labelledby="churn-chart-title churn-chart-desc" style="max-width:440px" font-family="Arial, sans-serif">
+<title id="churn-chart-title">Monthly customer churn: distribution of responses</title>
+<desc id="churn-chart-desc">Fullstar 2025, 200 respondents. Published bands: ~1%: 45%; 1~2%: 14%; 2~3%: 13%; 3~5%: 11%; 5~10%: 8%; 10%~: 9%. Bar length shows share of responses, not churn rate.</desc>
+<rect width="400" height="430" rx="6" fill="#F1F5F9"/>
+<text x="18" y="30" font-size="17" fill="#475569">SHARE OF RESPONSES</text>
+<text x="18" y="68" font-size="20" fill="#1E293B">~1%</text>
+<text x="382" y="68" text-anchor="end" font-size="20" font-weight="700" fill="#0F172A">45%</text>
+<rect x="18" y="80" width="364" height="10" rx="2" fill="#E2E8F0"/>
+<rect x="18" y="80" width="327.60" height="10" rx="2" fill="#3B82F6"/>
+<text x="18" y="123" font-size="20" fill="#1E293B">1~2%</text>
+<text x="382" y="123" text-anchor="end" font-size="20" font-weight="700" fill="#0F172A">14%</text>
+<rect x="18" y="135" width="364" height="10" rx="2" fill="#E2E8F0"/>
+<rect x="18" y="135" width="101.92" height="10" rx="2" fill="#3B82F6"/>
+<text x="18" y="178" font-size="20" fill="#1E293B">2~3%</text>
+<text x="382" y="178" text-anchor="end" font-size="20" font-weight="700" fill="#0F172A">13%</text>
+<rect x="18" y="190" width="364" height="10" rx="2" fill="#E2E8F0"/>
+<rect x="18" y="190" width="94.64" height="10" rx="2" fill="#3B82F6"/>
+<text x="18" y="233" font-size="20" fill="#1E293B">3~5%</text>
+<text x="382" y="233" text-anchor="end" font-size="20" font-weight="700" fill="#0F172A">11%</text>
+<rect x="18" y="245" width="364" height="10" rx="2" fill="#E2E8F0"/>
+<rect x="18" y="245" width="80.08" height="10" rx="2" fill="#3B82F6"/>
+<text x="18" y="288" font-size="20" fill="#1E293B">5~10%</text>
+<text x="382" y="288" text-anchor="end" font-size="20" font-weight="700" fill="#0F172A">8%</text>
+<rect x="18" y="300" width="364" height="10" rx="2" fill="#E2E8F0"/>
+<rect x="18" y="300" width="58.24" height="10" rx="2" fill="#3B82F6"/>
+<text x="18" y="343" font-size="20" fill="#1E293B">10%~</text>
+<text x="382" y="343" text-anchor="end" font-size="20" font-weight="700" fill="#0F172A">9%</text>
+<rect x="18" y="355" width="364" height="10" rx="2" fill="#E2E8F0"/>
+<rect x="18" y="355" width="65.52" height="10" rx="2" fill="#3B82F6"/>
+<text x="18" y="404" font-size="17" fill="#475569">0</text>
+<text x="382" y="404" text-anchor="end" font-size="17" fill="#475569">50% of responses</text>
+</svg>
+<figcaption>Source: <a href="https://prtimes.jp/main/html/rd/p/000000352.000016877.html">Fullstar survey, 2025</a> (n=200 CS/support respondents in B2B information and communications). Chart: Consilegy, from published data. Labels preserve the source’s bands; “~1%” is the lowest band, not an estimate of the mean. Bars show respondent shares on a common 0–50% scale; the reported 3.01% mean is a churn rate and is not plotted on this scale.</figcaption>
+</figure>
+
 The release does not establish a universal target for Japan SaaS businesses. In particular, these grouped responses cannot tell you what churn should be for your own pricing model, contract term or stage of market entry. This article uses the historical survey to illustrate how to read a benchmark, not as a claim about the latest market rate.
 
 ## Beating the mean does not settle what Japan should achieve

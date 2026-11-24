@@ -32,6 +32,29 @@ If the team cannot answer, record the uncertainty and ask the contact. Do not co
 
 This is an investigation of where effort could help, not an automatic classification rule based on inactivity or stage age.
 
+<figure class="note-figure">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 526" role="img" aria-labelledby="next-work-title next-work-desc" style="max-width:440px" font-family="Arial, sans-serif">
+<title id="next-work-title">Match the next step to the outstanding work</title>
+<desc id="next-work-desc">Discussion examples. Seller work: find the delivery obstacle; capacity helps only if it is the constraint. Buyer decision: identify missing information or access. Unknown next step: ask and confirm, rather than assigning blame. More than one can apply in a deal.</desc>
+<rect x="1" y="10" width="398" height="154" rx="6" fill="#FFFFFF" stroke="#CBD5E1"/>
+<text x="18" y="46" font-size="20" font-weight="700" fill="#0F172A">Seller owes work</text>
+<text x="18" y="82" font-size="20" fill="#1E293B">Find what is blocking delivery.</text>
+<text x="18" y="109" font-size="20" fill="#1E293B">Add capacity only if capacity</text>
+<text x="18" y="136" font-size="20" fill="#1E293B">is the constraint.</text>
+<rect x="1" y="182" width="398" height="154" rx="6" fill="#FFFFFF" stroke="#CBD5E1"/>
+<text x="18" y="218" font-size="20" font-weight="700" fill="#0F172A">Buyer has a decision to make</text>
+<text x="18" y="254" font-size="20" fill="#1E293B">Check the missing information</text>
+<text x="18" y="281" font-size="20" fill="#1E293B">or access to decision-makers.</text>
+<text x="18" y="308" font-size="20" fill="#1E293B">Another meeting needs a purpose.</text>
+<rect x="1" y="354" width="398" height="154" rx="6" fill="#FFFFFF" stroke="#CBD5E1"/>
+<text x="18" y="390" font-size="20" font-weight="700" fill="#0F172A">The next step is unclear</text>
+<text x="18" y="426" font-size="20" fill="#1E293B">Ask and confirm the next action.</text>
+<text x="18" y="453" font-size="20" fill="#1E293B">Missing information is not proof</text>
+<text x="18" y="480" font-size="20" fill="#1E293B">that the buyer is causing delay.</text>
+</svg>
+<figcaption>Editorial illustration by Consilegy: examples for discussing outstanding work, not survey findings or an automatic classification rule. More than one may apply in the same deal.</figcaption>
+</figure>
+
 ## Allocate effort to the work that can change the next step
 
 Suppose the seller owes a revised proposal or a response to security questions. Before hiring or raising meeting quotas, ask why that work remains incomplete. Capacity is one possible explanation. Unclear ownership or a missing technical answer may call for a different response. More customer conversations will not, by themselves, deliver the outstanding document.

@@ -1,0 +1,26 @@
+{
+  "churn-v1": {
+    "completed_phases": [
+      "facts",
+      "editorial",
+      "copy"
+    ],
+    "critical_major": 0,
+    "minor": 7,
+    "hashes_match": true,
+    "gate_exit_code": 2,
+    "gate_output": "BLOCKED: 未解決・未確認・原稿変更・審査未完了"
+  },
+  "meetings-v1": {
+    "completed_phases": [
+      "facts",
+      "editorial",
+      "copy"
+    ],
+    "critical_major": 0,
+    "minor": 4,
+    "hashes_match": true,
+    "gate_exit_code": 2,
+    "gate_output": "BLOCKED: 未解決・未確認・原稿変更・審査未完了"
+  }
+}

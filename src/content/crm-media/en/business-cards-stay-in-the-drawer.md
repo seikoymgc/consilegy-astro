@@ -63,4 +63,4 @@ Do not try to enter every card in the drawer. This week, scan only the ten most 
 
 The in-product help article "Turn a business card into a contact" has the same instructions.
 
-To explore the screens, choose **B2B sales** in the [Revenue CRM demo](https://crm.consilegy.com/demos).
+To explore the screens, choose **Startups & SMBs (standard)** in the [Revenue CRM demo](https://crm.consilegy.com/demos?edition=demo&lang=en).

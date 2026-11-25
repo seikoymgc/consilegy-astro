@@ -63,4 +63,4 @@ This week, list everyone who signs in with the shared login and invite just one 
 
 Change the shared password last, once everyone has their own login. Change it first and the people you have not invited yet are locked out.
 
-If you would like to see the screen first, open the [demo](https://crm.consilegy.com/demos) with just an email address and go to "User management". If the sample pending invitation is there, you can see the three buttons on its row. The demo is shared and reset every night, so other visitors may have changed it during the day. Look without pressing the buttons.
+If you would like to see the screen first, open the [demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en) with just an email address and go to "User management". If the sample pending invitation is there, you can see the three buttons on its row. The demo is shared and reset every night, so other visitors may have changed it during the day. Look without pressing the buttons.

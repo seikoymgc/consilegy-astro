@@ -44,5 +44,5 @@ Revenue CRMのスクール版にある「未記録レッスン」の「振替」
 
 先生のカレンダーをつなぐ手順は[担当レッスンのカレンダー連携](/crm/media/b2c/teachers-ask-the-owner-for-their-schedule/)にまとめています。接続と、既にある予約を動かす操作は分けて確認してください。
 
-[デモ](https://crm.consilegy.com/demos)で「スクール」を選び、「レッスン」の予定表示を確かめられます。画面を見たいだけなら「振替」は押さずに確認してください。
+[デモ](https://crm.consilegy.com/demos?edition=demo-school&lang=ja)で「オンラインスクール」を選び、「レッスン」の予定表示を確かめられます。画面を見たいだけなら「振替」は押さずに確認してください。
 

@@ -55,4 +55,4 @@ Revenue CRMのスクール版では、ダッシュボードの「生徒ごとの
 
 探す順番を先に決めれば、全員のカルテを往復するところから始めずに済みます。
 
-画面の入口を見たい方は、[Revenue CRMのデモ](https://crm.consilegy.com/demos)で、スクール版のダッシュボードを確かめてください。
+画面の入口を見たい方は、[Revenue CRMのデモ](https://crm.consilegy.com/demos?edition=demo-school&lang=ja)で、スクール版のダッシュボードを確かめてください。

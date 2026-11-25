@@ -44,4 +44,4 @@ If saving fails, do not treat the import as stopped. Read the message and reload
 
 Have an admin identify who has connected an account and which work needs calendar import. If the policy is email only, explain the workspace-wide effect before turning calendars off, then verify the saved state.
 
-Open the [demo](https://crm.consilegy.com/demos), choose B2B sales, and inspect the integration settings. Leave shared demo settings unchanged.
+Open the [demo](https://crm.consilegy.com/demos?edition=demo&lang=en), choose **Startups & SMBs (standard)**, and inspect the integration settings. Leave shared demo settings unchanged.

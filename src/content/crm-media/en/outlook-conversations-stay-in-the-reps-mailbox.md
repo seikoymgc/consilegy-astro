@@ -51,5 +51,5 @@ Have the outgoing rep choose a customer with recent correspondence in their alre
 
 Use that preview to identify the conversation, then return to Outlook when the full message is needed. The handover can begin with a specific question about a particular email instead of a request to forward an entire mailbox thread.
 
-To explore the contact screen, open the [demo](https://crm.consilegy.com/demos), choose B2B sales, and locate the Email & events tab. Microsoft accounts cannot be connected there.
+To explore the contact screen, open the [demo](https://crm.consilegy.com/demos?edition=demo&lang=en), choose **Startups & SMBs (standard)**, and locate the Email & events tab. Microsoft accounts cannot be connected there.
 

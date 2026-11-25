@@ -43,4 +43,4 @@ This week, forward one shared address. Create an Email inbox under Inbox, press 
 
 Once mail is flowing, do one thing as a team for a week: give the first message an Owner, and press Resolve after replying. At next week's stand-up, open the Open list and check only whether every remaining conversation has an owner.
 
-The demo needs only an email address. Choose "B2B sales" and the Inbox comes with sample conversations, so you can try the Owner selector and Resolve on the same screen. [Try the demo](https://crm.consilegy.com/demos)
+The demo needs only an email address. Choose **Startups & SMBs (standard)** and the Inbox comes with sample conversations, so you can try the Owner selector and Resolve on the same screen. [Try the demo](https://crm.consilegy.com/demos?edition=demo&lang=en)

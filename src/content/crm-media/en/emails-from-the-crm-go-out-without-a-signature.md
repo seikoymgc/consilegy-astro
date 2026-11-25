@@ -51,4 +51,4 @@ Today, ask every rep to open Settings → Account → Email signature and save a
 
 Then have each rep open a real contact, click Suggest email under AI email, and check that their signature sits at the end of the draft. No need to send it. Finally, open Drafts waiting to send and look for drafts with no signature, or with someone else's.
 
-In the demo, which only needs an email address, choose B2B sales, write a signature under Settings → Account, and watch it show up in the Preview and in AI email on a contact. The demo is shared with other visitors, so clear the field and save again when you're done. [Try the demo](https://crm.consilegy.com/demos)
+In the demo, which only needs an email address, choose **Startups & SMBs (standard)**, write a signature under Settings → Account, and watch it show up in the Preview and in AI email on a contact. The demo is shared with other visitors, so clear the field and save again when you're done. [Try the demo](https://crm.consilegy.com/demos?edition=demo&lang=en)

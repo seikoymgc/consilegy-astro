@@ -49,4 +49,4 @@ Today, have every rep open Settings → Notifications on their phone, press Get 
 
 Then each rep logs one task due tomorrow. If it arrives at 10:00 tomorrow, setup is done. Add the Slack feed only after everyone has received their own.
 
-The demo takes only an email address. Pick "B2B sales" and you can open Settings → Notifications on the same screen. The demo is a shared account, so do not register your own phone there; try Send a test from a computer browser. The next-morning notification is not sent for demo workspaces. [Try the demo](https://crm.consilegy.com/demos)
+The demo takes only an email address. Pick **Startups & SMBs (standard)** and you can open Settings → Notifications on the same screen. The demo is a shared account, so do not register your own phone there; try Send a test from a computer browser. The next-morning notification is not sent for demo workspaces. [Try the demo](https://crm.consilegy.com/demos?edition=demo&lang=en)

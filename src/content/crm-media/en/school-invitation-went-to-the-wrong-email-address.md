@@ -44,4 +44,4 @@ Once the incorrect pending invitation has been withdrawn, invite the correct add
 
 When you spot an address error, check its participation state in Users. Revoke the pending invitation first, then create the correct one.
 
-Open the [demo](https://crm.consilegy.com/demos), choose Schools, and inspect Users. If a sample pending invitation is present, leave its Revoke and Resend controls untouched.
+Open the [demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en), choose **Online schools**, and inspect Users. If a sample pending invitation is present, leave its Revoke and Resend controls untouched.

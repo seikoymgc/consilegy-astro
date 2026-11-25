@@ -64,4 +64,4 @@ This week, think of three people who wear more than one hat and type each family
 
 You don't need to audit the whole database. The splits that hurt are the few people more than one rep deals with, and three names will tell you whether to keep going.
 
-Try the demo with just an email address. Choose B2B sales, open a contact, and you'll see Add email and Add company. The demo is shared, so look at where they are without adding anything. [Try the demo](https://crm.consilegy.com/demos)
+Try the demo with just an email address. Choose **Startups & SMBs (standard)**, open a contact, and you'll see Add email and Add company. The demo is shared, so look at where they are without adding anything. [Try the demo](https://crm.consilegy.com/demos?edition=demo&lang=en)

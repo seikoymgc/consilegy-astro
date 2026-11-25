@@ -50,4 +50,4 @@ That leaves three things for staff to remember: their own role's menu, ⌘E and 
 
 This week, skip the all-hands walkthrough. Ask each person to open "My account" and check that "What you work on" covers every hat they wear. It takes a few minutes. Then agree on one screen per person to open every day: Deals for a rep, Forecast for the owner. Everything else can wait until the day it is needed, and on that day ⌘E will do.
 
-If you would rather see the screen first, the [demo](https://crm.consilegy.com/demos) opens with just an email address.
+If you would rather see the screen first, the [demo](https://crm.consilegy.com/demos?edition=demo&lang=en) opens with just an email address.

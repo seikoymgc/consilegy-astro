@@ -51,4 +51,4 @@ What you get is a starting point. The seven stages may not be the words your tea
 
 This week, skip the stage meeting. Keep the default stages and enter just five deals that are live right now. As you go, write down every deal where you hesitated over which stage to pick. Those hesitations are the list of what to change. Because the list comes from five real deals, the meeting is short.
 
-If you would rather see the screen first, the [demo](https://crm.consilegy.com/demos) opens with just an email address.
+If you would rather see the screen first, the [demo](https://crm.consilegy.com/demos?edition=demo&lang=en) opens with just an email address.

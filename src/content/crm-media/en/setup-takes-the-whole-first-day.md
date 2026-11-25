@@ -49,4 +49,4 @@ Tonight there are only two things to do: make the lesson types your own, and sen
 
 Spend the rest of the time getting this month's active students in, with "+ New student" or "CSV import" on the Students screen. Breaks ("Breaks & holidays" in the menu), fees and booking hours can be added on the day you notice you need them. The one exception: before a long break, enter it as a single line. While a break is running, students with missing homework are not sent to "Needs action".
 
-If you would rather see the screens first, the [demo](https://crm.consilegy.com/demos) opens with just an email address.
+If you would rather see the screens first, the [demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en) opens with just an email address.

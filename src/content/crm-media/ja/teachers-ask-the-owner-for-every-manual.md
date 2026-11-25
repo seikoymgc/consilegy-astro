@@ -53,4 +53,4 @@ Driveの変更は、その場では画面に出ません。毎晩の自動取り
 
 資料を増やすのは、そのあとです。次に同じ質問が来たとき、先生が一覧から本文までたどれれば、代表が毎回資料を運ぶ仕事を減らせます。
 
-[Revenue CRMのデモ](https://crm.consilegy.com/demos)でスクール版を選び、「ナレッジ」からサンプルの記事を開いてみてください。デモの資料は見本で、自分のGoogle Driveを連携する必要はありません。
+[Revenue CRMのデモ](https://crm.consilegy.com/demos?edition=demo-school&lang=ja)で「オンラインスクール」を選び、「ナレッジ」からサンプルの記事を開いてみてください。デモの資料は見本で、自分のGoogle Driveを連携する必要はありません。

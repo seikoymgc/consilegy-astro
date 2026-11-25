@@ -47,4 +47,4 @@ For a student who pauses or leaves, press 停止 (stop) on the row. If you forge
 
 Take three students whose fee has not come in this month and add them with + Add monthly fee. When you see the payment in the bank, press Confirm payment. Next month, watch those three come back as Unpaid a week before the due date on their own. Then register the rest.
 
-The [demo](https://crm.consilegy.com/demos) opens with just an email address. Pick "Schools" to look around the school edition.
+The [demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en) opens with just an email address. Pick **Online schools** to look around the school edition.

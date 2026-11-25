@@ -51,4 +51,4 @@ A person's role is chosen when you invite them. Student records themselves are v
 
 This week, open your current roster sheet and color the columns in two colors: columns every teacher may see, and columns only the owner sees. If the owner-only columns are just the fee and the amount received, closing Billing is all the separation you need. If other columns ended up owner-only, try to say why for each one. A column you cannot give a reason for is a column your teachers can see.
 
-If you would rather see the screen first, the [demo](https://crm.consilegy.com/demos) opens with just an email address. You enter it as a Manager, so you see the Permissions screen and the billing screen with amounts showing.
+If you would rather see the screen first, the [demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en) opens with just an email address. You enter it as a Manager, so you see the Permissions screen and the billing screen with amounts showing.

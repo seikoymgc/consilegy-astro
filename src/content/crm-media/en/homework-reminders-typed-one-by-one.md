@@ -58,4 +58,4 @@ This week, pick just three students whose homework tends to lapse and switch the
 
 Watch for a week how they respond to the reminder. Did they submit, did they reply, did nothing happen? For the ones where nothing happened, the teacher asks in her own words. Keep anyone with something going on, such as a student talking about taking a break, on "do not send".
 
-If you would rather see the screen first, the [demo](https://crm.consilegy.com/demos) opens with just an email address. Open a student's record and find 課題の自動リマインド. The demo students start on "send".
+If you would rather see the screen first, the [demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en) opens with just an email address. Open a student's record and find 課題の自動リマインド. The demo students start on "send".

@@ -54,4 +54,4 @@ Revenue CRMの法人営業版では、「営業」「マーケ」「CS」「経�
 
 画面が少なくなることより、次にどこを開くか迷わないことを基準にします。
 
-設定の入口を見たい方は、[Revenue CRMのデモ](https://crm.consilegy.com/demos)で法人営業版を選び、「業務ごとのメニュー」を確かめてください。
+設定の入口を見たい方は、[Revenue CRMのデモ](https://crm.consilegy.com/demos?edition=demo&lang=ja)で「スタートアップ・中小企業（標準版）」を選び、「業務ごとのメニュー」を確かめてください。

@@ -54,4 +54,4 @@ You need permission to edit lessons for this operation. The ordinary interface d
 
 Choose one student who received a reminder despite sending the work. Match the file in LINE to the unclassified submission, assign the correct type, and reopen the record to check the result. Tell the student that the file was received. For future work, ask them to choose a type through LINE’s homework menu before sending it.
 
-[Try the Revenue CRM demo](https://crm.consilegy.com/demos), choose Schools, and inspect Homework submissions in a student record.
+[Try the Revenue CRM demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en), choose **Online schools**, and inspect Homework submissions in a student record.

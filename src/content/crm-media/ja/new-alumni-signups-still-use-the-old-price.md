@@ -52,4 +52,4 @@ Revenue CRMのスクール版には、卒業後に任意加入するプランの
 
 次に案内する卒業後プランを一つ選び、案内文の月額と「卒業後プランの単価」を並べて確認してください。違っていたら、いつから新しい加入者に適用するかを決めてから変更します。
 
-画面の入口を先に確かめたい方は、[Revenue CRMのデモ](https://crm.consilegy.com/demos)で、スクール版の請求画面を見てください。
+画面の入口を先に確かめたい方は、[Revenue CRMのデモ](https://crm.consilegy.com/demos?edition=demo-school&lang=ja)で、スクール版の請求画面を見てください。

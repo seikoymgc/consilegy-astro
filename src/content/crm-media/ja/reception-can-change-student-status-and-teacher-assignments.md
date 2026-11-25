@@ -55,4 +55,4 @@ Revenue CRMのスクール版では、新しい教室を作ると「一般」の
 
 全員に必要な仕事が一致してから設定します。受付に何を任せたかを、役割名ではなく、実際にできる操作で確認できます。
 
-画面の入口は、[Revenue CRMのデモ](https://crm.consilegy.com/demos)で「スクール」を選び、確認してください。
+画面の入口は、[Revenue CRMのデモ](https://crm.consilegy.com/demos?edition=demo-school&lang=ja)で「オンラインスクール」を選び、確認してください。

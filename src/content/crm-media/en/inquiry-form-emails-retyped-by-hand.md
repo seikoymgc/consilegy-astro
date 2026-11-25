@@ -60,4 +60,4 @@ This week, write down the fields on your current inquiry form and cut them to fo
 
 If a row appears under "Submissions" and you can find yourself in Contacts, the inquiry now lands in the record. Swapping the form on your website can wait until after that.
 
-There is a demo workspace you can open with just an email address. Pick "B2B sales" and open "Forms" in the sidebar to see how these screens are laid out. [Try the demo](https://crm.consilegy.com/demos)
+There is a demo workspace you can open with just an email address. Pick **Startups & SMBs (standard)** and open "Forms" in the sidebar to see how these screens are laid out. [Try the demo](https://crm.consilegy.com/demos?edition=demo&lang=en)

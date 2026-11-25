@@ -58,4 +58,4 @@ Revenue CRMのスクール版には、生徒を一人ずつ登録する画面が
 
 次のスタッフが生徒一覧からその人を見つけ、受付へ聞かずに目標を読める。まず、そこまでを一人分で確かめます。
 
-画面の入口は、[Revenue CRMのデモ](https://crm.consilegy.com/demos)でスクール版を選び、確認してください。
+画面の入口は、[Revenue CRMのデモ](https://crm.consilegy.com/demos?edition=demo-school&lang=ja)で「オンラインスクール」を選び、確認してください。

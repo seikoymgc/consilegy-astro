@@ -58,4 +58,4 @@ Then ask your contact one question: "Who makes the final call on this?" Once you
 
 For getting budget and authority out of call notes, see [The deal update says "it went well" and nobody knows the budget or the buyer](/en/crm/media/b2b/deal-reports-end-with-a-good-feeling/).
 
-Try the demo with just an email address. Choose B2B sales and open any deal under Deals to find the Contact roles card. Demo deals start with it empty, so click Add and try one person (the demo is shared, so you may see rows other visitors added). [Try the demo](https://crm.consilegy.com/demos)
+Try the demo with just an email address. Choose **Startups & SMBs (standard)** and open any deal under Deals to find the Contact roles card. Demo deals start with it empty, so click Add and try one person (the demo is shared, so you may see rows other visitors added). [Try the demo](https://crm.consilegy.com/demos?edition=demo&lang=en)

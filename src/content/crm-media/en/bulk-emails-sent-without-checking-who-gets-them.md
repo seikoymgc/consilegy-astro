@@ -48,4 +48,4 @@ Five limits worth knowing:
 
 If you have a campaign going out this week, open it the day before, press Send, read the Confirm send window, and press Cancel. Look at the Excluded counts and scroll the recipient list. If the number isn't what you expected, you still have a day to fix the list.
 
-The demo opens with just an email address. Pick "B2B sales", go to Email in the sidebar, open the draft campaign and press Send to see the confirmation window. The demo has no sending domain, so nothing is actually sent. Every demo contact has given consent, so the Excluded row won't appear. [Try the demo](https://crm.consilegy.com/demos)
+The demo opens with just an email address. Pick **Startups & SMBs (standard)**, go to Email in the sidebar, open the draft campaign and press Send to see the confirmation window. The demo has no sending domain, so nothing is actually sent. Every demo contact has given consent, so the Excluded row won't appear. [Try the demo](https://crm.consilegy.com/demos?edition=demo&lang=en)

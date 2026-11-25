@@ -54,4 +54,4 @@ LINE shows at most the first 13 homework types. Button labels are shortened to 2
 
 Pick one assignment you are about to introduce. Give it the same name in the course instructions and in the submission choices, then check the relevant reminder settings.
 
-To inspect the controls first, open the [Revenue CRM demo](https://crm.consilegy.com/demos) and look at **Teachers by lesson type** in the School edition.
+To inspect the controls first, open the [Revenue CRM demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en) and look at **Teachers by lesson type** in the School edition.

@@ -65,4 +65,4 @@ Run the diagnosis once and live with that number for two weeks. Add one only whe
 
 To change your answers, press "Start over" next to the result and run it again.
 
-To explore the screens, choose **B2B sales** in the [Revenue CRM demo](https://crm.consilegy.com/demos).
+To explore the screens, choose **Startups & SMBs (standard)** in the [Revenue CRM demo](https://crm.consilegy.com/demos?edition=demo&lang=en).

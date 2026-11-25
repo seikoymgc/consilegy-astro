@@ -46,4 +46,4 @@ This week, have one administrator locate the setting and write down what must be
 
 The switch controls AI within this workspace. It does not control separate AI services employees may use elsewhere, so it supports an internal policy rather than replacing one.
 
-To locate the controls, choose the B2B edition in the [Revenue CRM demo](https://crm.consilegy.com/demos), then open **Settings → AI features**.
+To locate the controls, choose **Startups & SMBs (standard)** in the [Revenue CRM demo](https://crm.consilegy.com/demos?edition=demo&lang=en), then open **Settings → AI features**.

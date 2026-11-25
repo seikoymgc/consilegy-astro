@@ -58,4 +58,4 @@ Revenue CRMの法人営業版では、英語や繁体字中国語の画面で、
 
 まず減らすのは、「どの用件を開けばいいか」を聞く往復です。本文の説明まで全員分を書き換えるところから始める必要はありません。
 
-画面の入口を確かめたい方は、[Revenue CRMのデモ](https://crm.consilegy.com/demos)で法人営業版の言語切り替えとタスク一覧を見てください。
+画面の入口を確かめたい方は、[Revenue CRMのデモ](https://crm.consilegy.com/demos?edition=demo&lang=ja)で法人営業版の言語切り替えとタスク一覧を見てください。

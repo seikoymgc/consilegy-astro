@@ -52,4 +52,4 @@ The section also does not provide controls for creating a new plan or renaming o
 
 Compare the amount in your alumni programme information with the price shown in the billing screen. If they differ, agree when the new rate should start applying to sign-ups before saving the change.
 
-To find the screen first, open the [Revenue CRM demo](https://crm.consilegy.com/demos) and choose the School edition's billing screen.
+To find the screen first, open the [Revenue CRM demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en) and choose the School edition's billing screen.

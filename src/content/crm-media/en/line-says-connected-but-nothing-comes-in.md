@@ -54,4 +54,4 @@ Today, have a Manager open Integrations and check one thing: does the LINE badge
 
 Once it's fixed, reload the page, open Integrations again, and check that the badge now says 受信中. Then put a monthly reminder on the calendar to open this screen.
 
-Start the [demo](https://crm.consilegy.com/demos) with just an email address and choose Schools to explore the school edition. The demo is shared, so look around without changing the integration settings.
+Start the [demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en) with just an email address and choose **Online schools** to explore the school edition. The demo is shared, so look around without changing the integration settings.

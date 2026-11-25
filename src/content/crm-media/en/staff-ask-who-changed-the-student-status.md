@@ -53,4 +53,4 @@ This week, have the owner or an office colleague locate the screen. When a statu
 
 If a matching entry exists, ask the named person. If it does not, acknowledge that the log does not settle the question and check other records or speak with staff. That is a practical way to use the screen without treating it as a complete audit archive.
 
-Choose Schools in the [Revenue CRM demo](https://crm.consilegy.com/demos) and open **Audit log** to inspect sample entries. You do not need to create any activity to see how the rows work.
+Choose **Online schools** in the [Revenue CRM demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en) and open **Audit log** to inspect sample entries. You do not need to create any activity to see how the rows work.

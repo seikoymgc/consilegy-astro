@@ -54,4 +54,4 @@ This week, pick your single longest-running customer and export just that accoun
 
 Once one account looks right, deciding whether to move the rest takes about a minute.
 
-Try the demo with just an email address. Choose B2B sales, and Import CSV is on the Activities page. The demo is shared and imported activities can't be removed, so download the template and look at the flow without loading real records. [Try the demo](https://crm.consilegy.com/demos)
+Try the demo with just an email address. Choose **Startups & SMBs (standard)**, and Import CSV is on the Activities page. The demo is shared and imported activities can't be removed, so download the template and look at the flow without loading real records. [Try the demo](https://crm.consilegy.com/demos?edition=demo&lang=en)

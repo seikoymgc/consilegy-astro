@@ -45,4 +45,4 @@ Five limits worth knowing:
 
 This week, go down the "No next booking" cards on Home and sort them: truly unbooked, or booked only in someone's diary. Enter the diary ones with Book next lesson, then send "📅 Nudge booking" to the rest. Whatever is left on Home the next morning is the real list of students to call.
 
-Choose **Schools** in the [Revenue CRM demo](https://crm.consilegy.com/demos) to explore Home and the student profile. The demo is shared; view the screens without registering students or sending messages.
+Choose **Online schools** in the [Revenue CRM demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en) to explore Home and the student profile. The demo is shared; view the screens without registering students or sending messages.

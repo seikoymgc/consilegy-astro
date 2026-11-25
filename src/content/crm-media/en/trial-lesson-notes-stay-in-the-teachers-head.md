@@ -51,4 +51,4 @@ There is no dedicated field for why someone did not enroll.
 
 After your next trial, paste three lines of what you remember, the same day. It does not need to be a clean transcript. When the student enrolls, tell the teacher taking over to read Intake interview on the record before the first lesson. That is the whole routine.
 
-The [demo](https://crm.consilegy.com/demos) opens with just an email address. Pick "Schools" to look around the school edition.
+The [demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en) opens with just an email address. Pick **Online schools** to look around the school edition.

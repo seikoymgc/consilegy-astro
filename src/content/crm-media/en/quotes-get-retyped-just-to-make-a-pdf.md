@@ -53,4 +53,4 @@ This week, open Print / PDF for one existing quote and check whether the documen
 
 If it works for your process, remove the duplicate entry step from the next quote. Keeping the same amount out of a second template is a practical place to begin.
 
-Choose B2B sales in the [Revenue CRM demo](https://crm.consilegy.com/demos), then open a sample under **Quotes** to inspect the print-friendly page.
+Choose **Startups & SMBs (standard)** in the [Revenue CRM demo](https://crm.consilegy.com/demos?edition=demo&lang=en), then open a sample under **Quotes** to inspect the print-friendly page.

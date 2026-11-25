@@ -55,4 +55,4 @@ This week, ask every teacher for one thing: "From your next lesson on, when it e
 
 Do not go back and type in old notebooks. Once entries build up from today, the next handover can start from reading the record instead of from one teacher's memory.
 
-If you would rather see the screen first, the [demo](https://crm.consilegy.com/demos) opens with just an email address. Choose "Schools" and open a student marked 受講中 (active). You will find 📖 レッスン・対応履歴 already filled with entries.
+If you would rather see the screen first, the [demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en) opens with just an email address. Choose **Online schools** and open a student marked 受講中 (active). You will find 📖 レッスン・対応履歴 already filled with entries.

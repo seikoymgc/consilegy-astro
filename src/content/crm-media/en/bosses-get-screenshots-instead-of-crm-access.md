@@ -59,4 +59,4 @@ This week, pick one person who gets the screenshots and invite them as View-only
 
 Next Monday, skip the image and just write, "It's on the home page." If they can open the numbers themselves, move to the next person. There's no need to switch everyone at once.
 
-Start the [demo](https://crm.consilegy.com/demos) with just an email address, choose B2B sales, and open Members in Settings to see the three seats. The demo is shared, so look but don't send an invite.
+Start the [demo](https://crm.consilegy.com/demos?edition=demo&lang=en) with just an email address, choose **Startups & SMBs (standard)**, and open Members in Settings to see the three seats. The demo is shared, so look but don't send an invite.

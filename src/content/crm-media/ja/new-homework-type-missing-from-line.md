@@ -54,4 +54,4 @@ LINEに出せる種別は先頭から最大13件で、ボタンの名前は20文
 
 次に出す課題を一つ選び、教室の案内で使う名前とLINEで選ぶ名前を揃えてください。課題名を追加するときは、生徒ごとの催促設定も併せて確認します。
 
-画面を先に確かめたい方は、[Revenue CRMのデモ](https://crm.consilegy.com/demos)で、スクール版の「種別ごとの担当」と追加欄を見てください。
+画面を先に確かめたい方は、[Revenue CRMのデモ](https://crm.consilegy.com/demos?edition=demo-school&lang=ja)で、スクール版の「種別ごとの担当」と追加欄を見てください。

@@ -57,4 +57,4 @@ Tomorrow morning, open Act now on Home, pick the one student among the 課題未
 
 Do not try to reach everyone. One a day is plenty. Noticing at three business days and learning at three weeks from a cancellation message leave you with very different options.
 
-If you would rather see the screens first, the [demo](https://crm.consilegy.com/demos) opens with just an email address.
+If you would rather see the screens first, the [demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en) opens with just an email address.

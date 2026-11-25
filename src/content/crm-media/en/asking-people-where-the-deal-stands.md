@@ -55,4 +55,4 @@ This week, take your ten largest open deals and fill in three fields on each: cl
 
 Then start the next pipeline meeting with Home on the screen instead of the spreadsheet. Before anyone asks "where are we?", everyone is already looking at the same numbers.
 
-There is a demo workspace you can open with just an email address. Pick "B2B sales" and you land in a workspace with data, so you can open Home and Forecast and see real numbers. [Try the demo](https://crm.consilegy.com/demos)
+There is a demo workspace you can open with just an email address. Pick **Startups & SMBs (standard)** and you land in a workspace with data, so you can open Home and Forecast and see real numbers. [Try the demo](https://crm.consilegy.com/demos?edition=demo&lang=en)

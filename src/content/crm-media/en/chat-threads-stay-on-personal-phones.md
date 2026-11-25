@@ -52,4 +52,4 @@ This week, pick one live deal: the one where chat has carried the most. Open tha
 
 Do not try to backfill every old conversation. Quote sent, terms changed, approval given. One paste at each of those points is enough to move the deal history past "Quote sent".
 
-If you would rather see the screens first, the [demo](https://crm.consilegy.com/demos) opens with just an email address.
+If you would rather see the screens first, the [demo](https://crm.consilegy.com/demos?edition=demo&lang=en) opens with just an email address.

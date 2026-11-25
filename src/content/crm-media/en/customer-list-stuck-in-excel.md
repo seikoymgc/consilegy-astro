@@ -53,4 +53,4 @@ This week, copy only the customers you have contacted in the last three months i
 
 Leave the rest. You are not deleting it. It stays in the spreadsheet, and when one of those accounts calls, you add that one. What you are buying is a Monday where the team opens the CRM and nothing else.
 
-There is a demo workspace you can open with just an email address. Pick "B2B sales" and you land in a workspace with data, so you can open the Contacts and Companies lists and see where the import sits. [Try the demo](https://crm.consilegy.com/demos)
+There is a demo workspace you can open with just an email address. Pick **Startups & SMBs (standard)** and you land in a workspace with data, so you can open the Contacts and Companies lists and see where the import sits. [Try the demo](https://crm.consilegy.com/demos?edition=demo&lang=en)

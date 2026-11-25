@@ -52,4 +52,4 @@ This week, create teams in Members, put each rep on one, and in the Member table
 
 The next day, ask each rep one question: can you see all of your deals? Any deal they can't see has an empty or wrong Owner. Fixing those is the real win. For the first time, the record of who owns which deal matches who is actually working it.
 
-The demo opens with just an email address. Pick "B2B sales", go to Settings → Workspace → Permissions, and you'll see the role tables and the scope options. [Try the demo](https://crm.consilegy.com/demos)
+The demo opens with just an email address. Pick **Startups & SMBs (standard)**, go to Settings → Workspace → Permissions, and you'll see the role tables and the scope options. [Try the demo](https://crm.consilegy.com/demos?edition=demo&lang=en)

@@ -50,4 +50,4 @@ Pick one deal you closed this week. The account executive opens the main contact
 
 At the handoff meeting, skip the slide and put that card on the screen instead. If the onboarding lead opens the first customer call with "Half the headcount in six months, is that still the target?", the handoff worked.
 
-In the demo, which you can try with just an email address, choose B2B sales. You can check the Plan column on Customer Success and the Success plan card on a customer's contact on the same screens. [Try the demo](https://crm.consilegy.com/demos)
+In the demo, which you can try with just an email address, choose **Startups & SMBs (standard)**. You can check the Plan column on Customer Success and the Success plan card on a customer's contact on the same screens. [Try the demo](https://crm.consilegy.com/demos?edition=demo&lang=en)

@@ -49,4 +49,4 @@ It's a rewrite, not a word-for-word conversion, so read the preview before you s
 
 This week, if your info@ address already forwards into Inbox, open one foreign-language conversation there and press Translate to read it. Write your reply in your own language, press Translate, pick the customer's language and look at the preview. For the first few, ask your one fluent colleague to read the preview and say "fine to send" or not. Her job shrinks from writing every email to checking a few.
 
-The demo opens with just an email address. Pick "B2B sales", draft a message with AI email on any contact, and press Translate to see it rewritten in Japanese or Traditional Chinese. [Try the demo](https://crm.consilegy.com/demos)
+The demo opens with just an email address. Pick **Startups & SMBs (standard)**, draft a message with AI email on any contact, and press Translate to see it rewritten in Japanese or Traditional Chinese. [Try the demo](https://crm.consilegy.com/demos?edition=demo&lang=en)

@@ -60,4 +60,4 @@ This month, try it with just three of your students. First check that each of th
 
 Read each draft against the notes, and always rewrite the word-from-your-teacher section yourself before sending. Time how long each student takes, then decide how many to cover next month.
 
-In the [demo](https://crm.consilegy.com/demos), which only needs an email address, press 📄 Progress report on any student's profile and a draft is written from the demo notes. The demo school is not connected to a LINE Official Account, so you can get as far as the draft in the message box and the confirmation. Pressing Send then shows LINE未連携（連携設定から） (LINE not connected) and nothing reaches the student.
+In the [demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en), which only needs an email address, press 📄 Progress report on any student's profile and a draft is written from the demo notes. The demo school is not connected to a LINE Official Account, so you can get as far as the draft in the message box and the confirmation. Pressing Send then shows LINE未連携（連携設定から） (LINE not connected) and nothing reaches the student.

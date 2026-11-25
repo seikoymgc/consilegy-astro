@@ -57,4 +57,4 @@ This week, a manager opens User management (Settings) and ticks ☑ LEADERS for 
 
 When you are done, reload Home and look at the N students without a teacher note. If the only students left in the count are paused, graduated or withdrawn, every active student has someone. Then open 📊 Dashboard and check for ⚠️ 誰のホームにも出ていないもの (items on no one's home screen). If it appears, review the teacher assignments for those homework types.
 
-The [demo](https://crm.consilegy.com/demos) opens with just an email address. Pick "Schools" and you can find 🎓 Assigned LEADERS on a student record and ☐ LEADERS under User management, exactly where this article describes them.
+The [demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en) opens with just an email address. Pick **Online schools** and you can find 🎓 Assigned LEADERS on a student record and ☐ LEADERS under User management, exactly where this article describes them.

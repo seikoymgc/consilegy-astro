@@ -54,4 +54,4 @@ author: "山口聖子"
 
 今日、提出済みなのに催促された生徒がいれば、その1人のカルテを開きます。LINEの日時と照合し、「種別なし」の提出に正しい種別を付ける。生徒には受け取れていたことを伝え、次からはLINEの「課題を出す」で種別を選んでから送るよう案内します。
 
-[Revenue CRMのデモを試す](https://crm.consilegy.com/demos)でスクールを選ぶと、カルテの課題の提出欄を確認できます。
+[Revenue CRMのデモを試す](https://crm.consilegy.com/demos?edition=demo-school&lang=ja)で「オンラインスクール」を選ぶと、カルテの課題の提出欄を確認できます。

@@ -42,4 +42,4 @@ The board cards do not show owners. Use List to check responsibility and the det
 
 Select a ticket you need to discuss. Check its status on the board, switch to List, and confirm the same subject’s owner and priority. Change the status only when the work has actually progressed.
 
-Open the [demo](https://crm.consilegy.com/demos), choose B2B sales, and inspect Tickets. You can explore the view controls without dragging any cards.
+Open the [demo](https://crm.consilegy.com/demos?edition=demo&lang=en), choose **Startups & SMBs (standard)**, and inspect Tickets. You can explore the view controls without dragging any cards.

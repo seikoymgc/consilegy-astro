@@ -58,4 +58,4 @@ Open the list with a teammate who works in English. Check one heading they can n
 
 The first improvement is practical: fewer questions about which item to open. You do not need to begin by rewriting every note in the account.
 
-To find the language controls and task list, open the [Revenue CRM demo](https://crm.consilegy.com/demos) and choose the B2B edition.
+To find the language controls and task list, open the [Revenue CRM demo](https://crm.consilegy.com/demos?edition=demo&lang=en) and choose **Startups & SMBs (standard)**.

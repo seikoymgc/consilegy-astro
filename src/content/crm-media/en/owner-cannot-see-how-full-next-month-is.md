@@ -53,4 +53,4 @@ Ask your teachers for one thing this week: enter the next booking with 📅 Book
 
 On Friday afternoon, open Calendar and look at next week and next month. Tap each teacher's chip in turn and check whether the load is even, and which evenings are still free. The sign it's working: the next trial inquiry gets its options from you first, with just a quick confirmation from the teacher.
 
-Start the [demo](https://crm.consilegy.com/demos) with just an email address, choose Schools, and open More → Calendar to see the next few days of bookings laid out in each teacher's color. The demo is shared, so bookings added by other visitors may also appear.
+Start the [demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en) with just an email address, choose **Online schools**, and open More → Calendar to see the next few days of bookings laid out in each teacher's color. The demo is shared, so bookings added by other visitors may also appear.

@@ -48,4 +48,4 @@ This week, ask each teammate who doesn't read Japanese to click EN on their own 
 
 Tell them up front that notifications and reminders will arrive in Japanese. If they click EN on their phone too, the screen they open from a notification will be in English, so they only need to recognize which deal it's about.
 
-In the demo, which only needs an email address, pick your language at the top right of the entry page and then choose B2B sales, and you'll see the English or Traditional Chinese screen with matching sample data. Clicking a language button inside the demo moves you to a separate demo that holds data in that language. [Try the demo](https://crm.consilegy.com/demos)
+In the demo, which only needs an email address, pick your language at the top right of the entry page and then choose **Startups & SMBs (standard)**, and you'll see the English or Traditional Chinese screen with matching sample data. Clicking a language button inside the demo moves you to a separate demo that holds data in that language. [Try the demo](https://crm.consilegy.com/demos?edition=demo&lang=en)

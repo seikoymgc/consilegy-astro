@@ -58,4 +58,4 @@ Choose one student whose enrollment is still recorded only on paper. Check for a
 
 The practical check is simple: another staff member can find that student and read their goal without asking reception to repeat the conversation.
 
-To explore the form, choose **Schools** in the [Revenue CRM demo](https://crm.consilegy.com/demos).
+To explore the form, choose **Online schools** in the [Revenue CRM demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en).

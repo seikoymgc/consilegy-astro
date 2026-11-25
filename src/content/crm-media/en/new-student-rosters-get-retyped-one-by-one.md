@@ -56,4 +56,4 @@ On the prepaid plan, each import uses three fuel units and is blocked if the bal
 
 If an error appears, check the student list before submitting the same file again. Student records can remain when a later part of the import process fails.
 
-Choose Schools in the [Revenue CRM demo](https://crm.consilegy.com/demos) and open **Students → CSV import** to inspect the screen. There is no need to put your real roster into the shared demo.
+Choose **Online schools** in the [Revenue CRM demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en) and open **Students → CSV import** to inspect the screen. There is no need to put your real roster into the shared demo.

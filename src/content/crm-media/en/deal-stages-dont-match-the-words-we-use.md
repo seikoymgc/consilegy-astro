@@ -52,4 +52,4 @@ In this week's pipeline meeting, write down the words people actually use to des
 
 An admin opens Deal stages, presses "Add a stage", types that word, sets a probability and presses Save. Move the deals that belong there into the new column, and at the next meeting check whether everyone now reads the numbers the same way. Add one stage at a time.
 
-The demo opens with just an email address. Pick "B2B sales" and you will find the same Deal stages screen under Settings. It is a shared demo, so the stage names may not be the defaults when you arrive. [Try the demo](https://crm.consilegy.com/demos)
+The demo opens with just an email address. Pick **Startups & SMBs (standard)** and you will find the same Deal stages screen under Settings. It is a shared demo, so the stage names may not be the defaults when you arrive. [Try the demo](https://crm.consilegy.com/demos?edition=demo&lang=en)

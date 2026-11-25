@@ -55,4 +55,4 @@ List everyone with Staff and decide who should register students, change their s
 
 Set the permissions after agreeing on the work everyone sharing the role should do. The useful check is what reception can actually change, rather than what their role is called.
 
-To explore the settings, choose **Schools** in the [Revenue CRM demo](https://crm.consilegy.com/demos).
+To explore the settings, choose **Online schools** in the [Revenue CRM demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en).

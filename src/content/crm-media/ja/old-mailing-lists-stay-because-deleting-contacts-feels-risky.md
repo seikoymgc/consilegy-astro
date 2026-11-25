@@ -56,4 +56,4 @@ Revenue CRMのメールでは使っていない、終了した企画のリスト
 
 顧客を失う不安を抱えたまま、全部を残す必要はありません。残す顧客の記録と、使い終えたリストを分けて判断します。
 
-画面の入口は、[Revenue CRMのデモ](https://crm.consilegy.com/demos)で「B2B」を選び、確認してください。
+画面の入口は、[Revenue CRMのデモ](https://crm.consilegy.com/demos?edition=demo&lang=ja)で「スタートアップ・中小企業（標準版）」を選び、確認してください。

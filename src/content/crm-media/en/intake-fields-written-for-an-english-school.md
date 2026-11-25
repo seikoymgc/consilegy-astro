@@ -56,4 +56,4 @@ Before you name anything, ask each teacher for the three things they always ask 
 
 Then have one person, the owner or someone in the Office role, save them under Profile field names. If nobody hesitates over which field to use after the next trial, you're done.
 
-Start the [demo](https://crm.consilegy.com/demos) with just an email address, choose Schools, and open More → Profile field names to see the six boxes. The demo is shared, so saving new names changes the profiles every other visitor sees, and the nightly demo reset doesn't undo it. Please just look.
+Start the [demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en) with just an email address, choose **Online schools**, and open More → Profile field names to see the six boxes. The demo is shared, so saving new names changes the profiles every other visitor sees, and the nightly demo reset doesn't undo it. Please just look.

@@ -56,4 +56,4 @@ Revenue CRMのスクール版には「CSV取込」があります。決まった
 
 エラーが出たときは、すぐ同じCSVを送り直さず、生徒一覧に追加されていないか確認します。一部の処理の途中で失敗しても、生徒の行が残る場合があるためです。
 
-[Revenue CRMのデモ](https://crm.consilegy.com/demos)では、スクール版の「生徒」→「CSV取込」で画面だけ確認できます。共有デモへ実際の名簿を登録する必要はありません。
+[Revenue CRMのデモ](https://crm.consilegy.com/demos?edition=demo-school&lang=ja)では、スクール版の「生徒」→「CSV取込」で画面だけ確認できます。共有デモへ実際の名簿を登録する必要はありません。

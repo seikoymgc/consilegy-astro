@@ -56,4 +56,4 @@ Choose a list for a finished campaign that was not used in Revenue CRM email cam
 
 That gives the next campaign a cleaner set of choices while preserving the customer records the business still uses.
 
-To explore the list screens, choose **B2B sales** in the [Revenue CRM demo](https://crm.consilegy.com/demos).
+To explore the list screens, choose **Startups & SMBs (standard)** in the [Revenue CRM demo](https://crm.consilegy.com/demos?edition=demo&lang=en).

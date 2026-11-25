@@ -54,4 +54,4 @@ A contact field also does not copy itself to a company or deal. Creating the sam
 
 Choose one detail that kept slowing down this week’s preparation. Create its field and fill it for the next contact you will call. Once the team knows where to look, extend the practice to other contacts. Let actual use determine whether another field is needed.
 
-[Try the Revenue CRM demo](https://crm.consilegy.com/demos), choose B2B sales, and inspect the custom field settings.
+[Try the Revenue CRM demo](https://crm.consilegy.com/demos?edition=demo&lang=en), choose **Startups & SMBs (standard)**, and inspect the custom field settings.

@@ -51,4 +51,4 @@ This week, open the record of every active student and check that each homework 
 
 After that, press what you have looked at until the 📩 Homework inbox heading no longer appears, even after a reload. Only then agree the rule among the teachers: whoever opens Home first in the morning presses what they have looked at.
 
-The [demo](https://crm.consilegy.com/demos) opens with just an email address. Pick "Schools" and you can find 📩 Homework inbox and Mark as reviewed on the home screen. The demo has no LINE connection, so the 💬 LINE Official Account Manager button does not appear. It is also shared, so if another visitor has already pressed everything, the list may be empty that day.
+The [demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en) opens with just an email address. Pick **Online schools** and you can find 📩 Homework inbox and Mark as reviewed on the home screen. The demo has no LINE connection, so the 💬 LINE Official Account Manager button does not appear. It is also shared, so if another visitor has already pressed everything, the list may be empty that day.

@@ -54,4 +54,4 @@ What to know before you rely on it:
 
 Pick one download form and tick the box. Don't start with all of them. A week on one form shows you who the tasks land on and how much review work this really adds.
 
-Start the [demo](https://crm.consilegy.com/demos) with just an email address and choose B2B sales to see where Tasks and Sales playbooks in Settings live. The demo is shared, so look but don't click through.
+Start the [demo](https://crm.consilegy.com/demos?edition=demo&lang=en) with just an email address and choose **Startups & SMBs (standard)** to see where Tasks and Sales playbooks in Settings live. The demo is shared, so look but don't click through.

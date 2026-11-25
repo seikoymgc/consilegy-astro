@@ -58,4 +58,4 @@ If you already email your existing database from HubSpot, keep doing that and ha
 
 One thing this week. Open "Drafts waiting to send", pick five people you met at an event or a visit, and take each one through "Approve and send", clicking "Allow sales contact" first for anyone still undecided. Deciding, one person at a time, that you may write to them, and leaving that on record, is what keeps the team from drifting back to BCC.
 
-If you would rather look first, the [demo](https://crm.consilegy.com/demos) opens with just an email address. Choose "B2B sales", open any contact and find the "AI email" card. It is a shared environment, so do the real sending and the Google connection in your own workspace.
+If you would rather look first, the [demo](https://crm.consilegy.com/demos?edition=demo&lang=en) opens with just an email address. Choose **Startups & SMBs (standard)**, open any contact and find the "AI email" card. It is a shared environment, so do the real sending and the Google connection in your own workspace.

@@ -44,4 +44,4 @@ This week, open the won deals that have a live contract and enter the Contract e
 
 Then open Automations and turn on Renewal-date management. The next daily batch creates a task for every deal ending within 60 days and hands it to the owner. At next week's pipeline meeting, check that those tasks are sitting in Do now.
 
-The demo takes only an email address. Pick "B2B sales" and you can look at the Renewal column in Customer Success on the same screen. [Try the demo](https://crm.consilegy.com/demos)
+The demo takes only an email address. Pick **Startups & SMBs (standard)** and you can look at the Renewal column in Customer Success on the same screen. [Try the demo](https://crm.consilegy.com/demos?edition=demo&lang=en)

@@ -54,4 +54,4 @@ This week, have a manager open More → Export data, tap Billing, and open the f
 
 Then take the other three and drop them into a folder named for the month in the school's Google Drive or equivalent. Repeat once a month, and the day you decide to change tools, there is no roster to retype.
 
-The demo takes only an email address. Pick "Schools" and More → Export data lets you download all four CSV files from the same screen. [Try the demo](https://crm.consilegy.com/demos)
+The demo takes only an email address. Pick **Online schools** and More → Export data lets you download all four CSV files from the same screen. [Try the demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en)

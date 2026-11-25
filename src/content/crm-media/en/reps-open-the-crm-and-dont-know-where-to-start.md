@@ -52,4 +52,4 @@ Starting today, pick a due date every time you add a task yourself, before you p
 
 Tomorrow morning, open Home before your inbox and clear the top three items in Do now. Keep it up for a week, then count how many "overdue" labels are left on Friday.
 
-In the demo, which only needs an email address, choose B2B sales and you will see Do now on the same Home screen. If the panel says "Nothing to do right now", add a task on the Tasks page with today's date and go back to Home. The demo is shared, so please leave existing tasks open for the next visitor. [Try the demo](https://crm.consilegy.com/demos)
+In the demo, which only needs an email address, choose **Startups & SMBs (standard)** and you will see Do now on the same Home screen. If the panel says "Nothing to do right now", add a task on the Tasks page with today's date and go back to Home. The demo is shared, so please leave existing tasks open for the next visitor. [Try the demo](https://crm.consilegy.com/demos?edition=demo&lang=en)

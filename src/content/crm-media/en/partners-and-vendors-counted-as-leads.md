@@ -55,4 +55,4 @@ This week, filter the contact list by Stage to MQL and look at the first 20 peop
 
 Once you know how many of those 20 were partners or vendors, you'll know whether a full cleanup is worth doing.
 
-Try the demo with just an email address. Choose B2B sales and you'll find Relationship types under Settings, in the Data model group. The demo is shared, so look at where it lives and what it says without creating types. [Try the demo](https://crm.consilegy.com/demos)
+Try the demo with just an email address. Choose **Startups & SMBs (standard)** and you'll find Relationship types under Settings, in the Data model group. The demo is shared, so look at where it lives and what it says without creating types. [Try the demo](https://crm.consilegy.com/demos?edition=demo&lang=en)

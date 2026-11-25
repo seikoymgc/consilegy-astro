@@ -51,4 +51,4 @@ This week, have an owner or admin open Weekly digest and check that whoever runs
 
 Then run next week's meeting from the Not moving section instead of a round of messages. When everyone starts from the same list of stuck deals, the meeting goes on next moves, not status updates.
 
-Start the demo with just an email address, choose B2B sales, and open Settings → Operations → Weekly digest to see the recipient and item settings. [Try the demo](https://crm.consilegy.com/demos)
+Start the demo with just an email address, choose **Startups & SMBs (standard)**, and open Settings → Operations → Weekly digest to see the recipient and item settings. [Try the demo](https://crm.consilegy.com/demos?edition=demo&lang=en)

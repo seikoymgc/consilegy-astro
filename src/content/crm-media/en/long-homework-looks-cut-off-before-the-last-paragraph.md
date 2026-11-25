@@ -44,4 +44,4 @@ The profile’s homework section contains up to 20 recent submissions. Expanding
 
 Choose a text submission you need to read today. Check the learner and date, expand it if Read more is present, and read the final sentence before deciding whether review or a reply is needed.
 
-Open the [demo](https://crm.consilegy.com/demos), choose Schools, and inspect Homework submissions in a learner profile. Use the demo to see how submissions are listed. Its initial sample text entries are short and do not include a long submission for testing this expansion control.
+Open the [demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en), choose **Online schools**, and inspect Homework submissions in a learner profile. Use the demo to see how submissions are listed. Its initial sample text entries are short and do not include a long submission for testing this expansion control.

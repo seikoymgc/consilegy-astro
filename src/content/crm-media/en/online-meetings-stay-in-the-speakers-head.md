@@ -52,4 +52,4 @@ This week, run one video call with transcription on (Gemini notes will do on Goo
 
 Do not go back through old recordings. Once dated tasks start appearing from next week's calls, the deals that only ever said "call held" begin to show what happens next.
 
-If you would rather see the screen first, the [demo](https://crm.consilegy.com/demos) opens with just an email address.
+If you would rather see the screen first, the [demo](https://crm.consilegy.com/demos?edition=demo&lang=en) opens with just an email address.

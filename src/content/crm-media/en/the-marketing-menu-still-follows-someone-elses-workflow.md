@@ -52,4 +52,4 @@ Pick the team that needs the most guidance when someone joins. Agree with a pers
 
 The goal is a clear next place to click. Fewer items are useful only when they make that decision easier.
 
-To locate the settings, open the [Revenue CRM demo](https://crm.consilegy.com/demos), choose B2B, and look for **Menu by role**.
+To locate the settings, open the [Revenue CRM demo](https://crm.consilegy.com/demos?edition=demo&lang=en), choose **Startups & SMBs (standard)**, and look for **Menu by role**.

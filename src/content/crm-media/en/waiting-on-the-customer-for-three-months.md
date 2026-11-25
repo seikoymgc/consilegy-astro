@@ -71,4 +71,4 @@ Before your next sales meeting, open Pipeline review at 60 days and sort the ent
 
 The in-product help articles "Record that a deal is waiting on the customer" and "Sort stuck deals with the pipeline review" have the same steps.
 
-To explore the screens, choose **B2B sales** in the [Revenue CRM demo](https://crm.consilegy.com/demos).
+To explore the screens, choose **Startups & SMBs (standard)** in the [Revenue CRM demo](https://crm.consilegy.com/demos?edition=demo&lang=en).

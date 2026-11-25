@@ -52,4 +52,4 @@ This week, have an admin pick one contact nobody needs and move it to Trash. The
 
 After that, clean up five pairs you already know are duplicates. If nobody misses anything after a week, do the next five.
 
-There is a demo workspace you can open with just an email address. Pick "B2B sales" and you can move a contact to Trash and restore it on the same screens. [Try the demo](https://crm.consilegy.com/demos)
+There is a demo workspace you can open with just an email address. Pick **Startups & SMBs (standard)** and you can move a contact to Trash and restore it on the same screens. [Try the demo](https://crm.consilegy.com/demos?edition=demo&lang=en)

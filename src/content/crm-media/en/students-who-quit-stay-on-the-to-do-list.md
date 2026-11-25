@@ -57,4 +57,4 @@ This week, tap the Active chip on the student list and read the names from top t
 
 From now on, split the job. The teacher who hears a student is leaving taps Withdrawn after the last lesson and writes the last day and the reason in the box. If the student has a monthly fee set up, the owner or manager then taps 停止 under Subscriptions & Billing.
 
-In the [demo](https://crm.consilegy.com/demos), which only needs an email address, open a withdrawn student's profile to see how the date and reason are kept. The demo is shared and reset every night, so any status you change is visible to other visitors and will be back to normal the next day.
+In the [demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en), which only needs an email address, open a withdrawn student's profile to see how the date and reason are kept. The demo is shared and reset every night, so any status you change is visible to other visitors and will be back to normal the next day.

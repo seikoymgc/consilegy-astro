@@ -51,4 +51,4 @@ author: "山口聖子"
 
 記録が同じ生徒に集まれば、[レッスン中に書かれたチャット](/crm/media/b2c/lesson-phrases-disappear-when-the-zoom-call-ends/)も、その生徒の授業の文脈で読み返せます。
 
-画面を先に見たい方は、[デモ](https://crm.consilegy.com/demos)で「スクール」を選び、「もっと」→「連携設定」を開いてください。
+画面を先に見たい方は、[デモ](https://crm.consilegy.com/demos?edition=demo-school&lang=ja)で「オンラインスクール」を選び、「もっと」→「連携設定」を開いてください。

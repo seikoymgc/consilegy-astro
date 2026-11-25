@@ -47,4 +47,4 @@ From next week's visits, photograph one page the moment you leave the meeting ro
 
 Do not try to capture every old notebook. The most recent meeting on each deal that is still live is enough. Once dated tasks start landing in the CRM, the deals that only ever said "visited" begin to show what happens next.
 
-To see where the button is, choose **B2B sales** in the [Revenue CRM demo](https://crm.consilegy.com/demos) and open the Notes section on a deal. The demo is shared, so look without scanning or saving anything.
+To see where the button is, choose **Startups & SMBs (standard)** in the [Revenue CRM demo](https://crm.consilegy.com/demos?edition=demo&lang=en) and open the Notes section on a deal. The demo is shared, so look without scanning or saving anything.

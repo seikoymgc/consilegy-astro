@@ -65,4 +65,4 @@ author: "山口聖子"
 
 答えを変えたいときは、結果の右上の「選び直す」で何度でもやり直せます。
 
-画面の入口は、[Revenue CRMのデモ](https://crm.consilegy.com/demos)で「B2B」を選んで確認してください。
+画面の入口は、[Revenue CRMのデモ](https://crm.consilegy.com/demos?edition=demo&lang=ja)で「スタートアップ・中小企業（標準版）」を選んで確認してください。

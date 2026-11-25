@@ -54,4 +54,4 @@ This week, pick one visit and ask the rep to record within five minutes of leavi
 
 Compare it with the logs typed that evening. The difference in how specific the words are tends to be obvious. Once it is, extend it to the rest of the team's visits.
 
-Try the demo with just an email address. Choose B2B sales, open any deal under Deals, go to Activity and click Add to find the microphone. Since it listens for Japanese, have a Japanese-speaking rep say a sentence or two, then use Translate on the saved entry. If the browser asks for microphone access, allow it first (the demo is shared, so other visitors can see what you save). [Try the demo](https://crm.consilegy.com/demos)
+Try the demo with just an email address. Choose **Startups & SMBs (standard)**, open any deal under Deals, go to Activity and click Add to find the microphone. Since it listens for Japanese, have a Japanese-speaking rep say a sentence or two, then use Translate on the saved entry. If the browser asks for microphone access, allow it first (the demo is shared, so other visitors can see what you save). [Try the demo](https://crm.consilegy.com/demos?edition=demo&lang=en)

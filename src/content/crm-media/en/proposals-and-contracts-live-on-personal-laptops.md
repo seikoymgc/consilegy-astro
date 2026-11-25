@@ -53,4 +53,4 @@ When you send a revised version, decide on the spot whether to delete the old on
 
 The next time someone is out, at least for those three deals, the answer to the customer becomes "one moment, let me pull that up."
 
-Try the demo with just an email address. Choose B2B sales and open any deal under Deals to find the Files tab. The demo is shared, so other visitors can see anything you upload. Use it to see where things are, not to store real documents. [Try the demo](https://crm.consilegy.com/demos)
+Try the demo with just an email address. Choose **Startups & SMBs (standard)** and open any deal under Deals to find the Files tab. The demo is shared, so other visitors can see anything you upload. Use it to see where things are, not to store real documents. [Try the demo](https://crm.consilegy.com/demos?edition=demo&lang=en)

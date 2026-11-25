@@ -63,4 +63,4 @@ AIの利用上限に当たった日や、AIを使わない設定でも、下書�
 
 製品内のヘルプ「名刺を撮ってコンタクトにする」にも同じ手順があります。
 
-画面の入口は、[Revenue CRMのデモ](https://crm.consilegy.com/demos)で「B2B」を選んで確認してください。
+画面の入口は、[Revenue CRMのデモ](https://crm.consilegy.com/demos?edition=demo&lang=ja)で「スタートアップ・中小企業（標準版）」を選んで確認してください。

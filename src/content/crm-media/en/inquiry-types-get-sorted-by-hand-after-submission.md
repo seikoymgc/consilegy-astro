@@ -59,4 +59,4 @@ The intake owner can use this answer together with the message to decide the fir
 
 List your three most common request types, add “Other”, and create one field. Check the public form, then agree with the intake team on what to send for each type. Add finer distinctions only when incoming answers show they are needed.
 
-[Try the Revenue CRM demo](https://crm.consilegy.com/demos), choose B2B sales, and inspect the form settings.
+[Try the Revenue CRM demo](https://crm.consilegy.com/demos?edition=demo&lang=en), choose **Startups & SMBs (standard)**, and inspect the form settings.

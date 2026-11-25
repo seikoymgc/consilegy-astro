@@ -53,4 +53,4 @@ Revenue CRMの法人版では、画面の言語と、会社の国・タイムゾ
 
 言葉の問題なのか、会社の日付の基準なのかが分かれば、直す場所を選べます。
 
-[Revenue CRMのデモ](https://crm.consilegy.com/demos)で法人営業版を選び、「設定」→「国と税・タイムゾーン」を開くと、言語とは別に置かれた設定を確認できます。
+[Revenue CRMのデモ](https://crm.consilegy.com/demos?edition=demo&lang=ja)で「スタートアップ・中小企業（標準版）」を選び、「設定」→「国と税・タイムゾーン」を開くと、言語とは別に置かれた設定を確認できます。

@@ -50,4 +50,4 @@ Zoomの連携が済み、クラウド録画に保存されたチャットが取�
 
 [毎回のレッスン記録](/crm/media/b2c/lesson-notes-vanish-when-the-teacher-changes/)には、今日やったことと次にやることを残す。実際の言い方が必要なときはチャットに戻る。この二つを使うと、短いメモに全文を写し直さずに済みます。
 
-画面を先に見たい方は、[デモ](https://crm.consilegy.com/demos)で「スクール」を選び、「もっと」→「レッスンのチャット」を開いてください。
+画面を先に見たい方は、[デモ](https://crm.consilegy.com/demos?edition=demo-school&lang=ja)で「オンラインスクール」を選び、「もっと」→「レッスンのチャット」を開いてください。

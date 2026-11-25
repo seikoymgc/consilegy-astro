@@ -42,4 +42,4 @@ This week, pick one teacher and ask them to tap Connect Google Calendar on the h
 
 Tell them one thing: "If a lesson moves, move it in your calendar." If a week later that teacher has stopped asking "what time am I on?", connect the next one.
 
-You can look around the school edition in the [demo](https://crm.consilegy.com/demos). Pick Schools. All you need is an email address.
+You can look around the school edition in the [demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en). Pick **Online schools**. All you need is an email address.

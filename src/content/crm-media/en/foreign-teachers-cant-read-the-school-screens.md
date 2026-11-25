@@ -59,4 +59,4 @@ Ask one teacher to press EN before their next lesson. After class, they open tha
 
 The next morning, have the office open that profile and check they can read it. If they can, that teacher's notes never need retyping again.
 
-Start the [demo](https://crm.consilegy.com/demos) with just an email address, choose Schools, and press EN at the top right to see the English screens.
+Start the [demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en) with just an email address, choose **Online schools**, and press EN at the top right to see the English screens.

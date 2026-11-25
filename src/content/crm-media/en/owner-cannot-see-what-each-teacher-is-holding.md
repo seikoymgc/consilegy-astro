@@ -55,4 +55,4 @@ Next Monday, any time after 10 a.m., open 📊 Dashboard and compare the teacher
 
 Open it again the following Monday. If the gap has narrowed, you've done the loop once.
 
-The [demo](https://crm.consilegy.com/demos) opens with just an email address. Pick "Schools", go to More → 📊 Dashboard, and you'll find the per-teacher table right where this article describes it.
+The [demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en) opens with just an email address. Pick **Online schools**, go to More → 📊 Dashboard, and you'll find the per-teacher table right where this article describes it.

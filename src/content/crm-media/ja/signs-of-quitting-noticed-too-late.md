@@ -57,4 +57,4 @@ author: "山口聖子"
 
 全員に連絡しようとしないでください。1日1人で十分です。3営業日で気づいて声をかけるのと、3週間後に退会の連絡で知るのとでは、選べる手の数が違います。
 
-画面を先に見たい場合は、[デモ](https://crm.consilegy.com/demos)をメールアドレスだけで開けます。
+画面を先に見たい場合は、[デモ](https://crm.consilegy.com/demos?edition=demo-school&lang=ja)をメールアドレスだけで開けます。

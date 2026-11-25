@@ -53,4 +53,4 @@ This week, have an owner or admin export all eight datasets once, put them in a 
 
 Put a recurring reminder on the first of every month to do it again. The next time an auditor or a successor asks for everything, you start from that folder instead of from scratch.
 
-In the demo, which only needs an email address, choose B2B sales and open Settings > Operations > Export data to see which records come out in which columns. [Try the demo](https://crm.consilegy.com/demos)
+In the demo, which only needs an email address, choose **Startups & SMBs (standard)** and open Settings > Operations > Export data to see which records come out in which columns. [Try the demo](https://crm.consilegy.com/demos?edition=demo&lang=en)

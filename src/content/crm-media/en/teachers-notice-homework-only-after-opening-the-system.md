@@ -45,4 +45,4 @@ Connectivity, integration problems, and the LINE message allowance can also affe
 
 Read that person's existing mode and agree whether it matches their responsibilities. Explain any scope change before saving it. When genuine homework arrives, check the submission in the system and complete the required review; an alert is only the starting point.
 
-To inspect the controls, open the [Revenue CRM demo](https://crm.consilegy.com/demos), choose Schools, and open User management.
+To inspect the controls, open the [Revenue CRM demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en), choose **Online schools**, and open User management.

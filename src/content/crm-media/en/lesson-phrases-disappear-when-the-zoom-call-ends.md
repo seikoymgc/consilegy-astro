@@ -50,4 +50,4 @@ Choose one student whose next lesson will be taught by someone else. Open one im
 
 Keep [lesson notes](/en/crm/media/b2c/lesson-notes-vanish-when-the-teacher-changes/) for what happened and what comes next. Return to the chat when the exact wording matters. That gives a brief handover somewhere to point without copying the whole conversation into it.
 
-To try the screen, open the [demo](https://crm.consilegy.com/demos), choose Schools, and go to More → Lesson chats.
+To try the screen, open the [demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en), choose **Online schools**, and go to More → Lesson chats.

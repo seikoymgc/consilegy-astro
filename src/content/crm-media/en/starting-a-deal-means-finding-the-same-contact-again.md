@@ -51,4 +51,4 @@ For a person with several affiliations, the contact shortcut carries over their 
 
 When the next inquiry becomes a proposal, stay on the contact record and choose **New deal**. Confirm the customer-side person and company, then the internal owner, before entering the opportunity details.
 
-[Try the Revenue CRM demo](https://crm.consilegy.com/demos), choose B2B sales, and follow the contact-to-deal flow without saving a new record.
+[Try the Revenue CRM demo](https://crm.consilegy.com/demos?edition=demo&lang=en), choose **Startups & SMBs (standard)**, and follow the contact-to-deal flow without saving a new record.

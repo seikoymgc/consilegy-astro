@@ -44,5 +44,5 @@ Write down the date, time, lesson type, and teacher agreed with the learner. Use
 
 For the separate setup task, see [connecting a teacher’s lesson calendar](/en/crm/media/b2c/teachers-ask-the-owner-for-their-schedule/). Connecting a calendar and moving an existing booking are different operations.
 
-Open the [demo](https://crm.consilegy.com/demos), choose Schools, and inspect the Lessons schedule. Leave Reschedule untouched if you only want to explore the screen.
+Open the [demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en), choose **Online schools**, and inspect the Lessons schedule. Leave Reschedule untouched if you only want to explore the screen.
 

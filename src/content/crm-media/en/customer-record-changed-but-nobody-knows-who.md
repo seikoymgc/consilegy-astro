@@ -50,4 +50,4 @@ Ask an owner or admin to inspect one record that recently changed. Filter the re
 
 You now have a specific starting point. If there is no match, account for the 200-entry limit before drawing a conclusion.
 
-To see the screen, open the [demo](https://crm.consilegy.com/demos), choose B2B Sales, and go to Settings → Audit log.
+To see the screen, open the [demo](https://crm.consilegy.com/demos?edition=demo&lang=en), choose **Startups & SMBs (standard)**, and go to Settings → Audit log.

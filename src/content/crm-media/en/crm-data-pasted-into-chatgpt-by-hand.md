@@ -53,4 +53,4 @@ This week, have an admin connect one app with "Read only", from an account used 
 
 Then ask the person who usually does the export to try: "Show the five largest deals in each stage." If the answer matches the CSV they would have pasted, Monday's export can stop.
 
-Open the [demo](https://crm.consilegy.com/demos) with just an email address, choose "B2B sales", and go to Settings > API keys to see the Connected AI apps section and the connector URL. The demo is shared, so please look without connecting an AI app.
+Open the [demo](https://crm.consilegy.com/demos?edition=demo&lang=en) with just an email address, choose **Startups & SMBs (standard)**, and go to Settings > API keys to see the Connected AI apps section and the connector URL. The demo is shared, so please look without connecting an AI app.

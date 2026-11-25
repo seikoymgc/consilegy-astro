@@ -50,4 +50,4 @@ Choose one column that regularly needs interpreting in the sales review. Agree o
 
 Combine this with [the interface language setting](/en/crm/media/b2b/teammates-who-dont-read-japanese-cant-use-the-crm/) so everyone can read the same pipeline in a language they use comfortably.
 
-To see the fields, open the [demo](https://crm.consilegy.com/demos), choose B2B Sales, and go to Settings → Deal stages.
+To see the fields, open the [demo](https://crm.consilegy.com/demos?edition=demo&lang=en), choose **Startups & SMBs (standard)**, and go to Settings → Deal stages.

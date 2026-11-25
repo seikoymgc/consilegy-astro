@@ -50,4 +50,4 @@ author: "山口聖子"
 
 [画面そのものの言語切り替え](/crm/media/b2b/teammates-who-dont-read-japanese-cant-use-the-crm/)と組み合わせて、担当者が自分の言葉で同じ商談の進み具合を読めるようにします。
 
-画面を先に見たい方は、[デモ](https://crm.consilegy.com/demos)で「B2B」を選び、「設定」→「商談ステージ」を開いてください。
+画面を先に見たい方は、[デモ](https://crm.consilegy.com/demos?edition=demo&lang=ja)で「スタートアップ・中小企業（標準版）」を選び、「設定」→「商談ステージ」を開いてください。

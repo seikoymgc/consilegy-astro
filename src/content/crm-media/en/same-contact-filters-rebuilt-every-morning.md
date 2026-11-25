@@ -53,4 +53,4 @@ Save one combination you expect to use again tomorrow. Click **All**, then your 
 
 Add more views after the first becomes useful. A short set of clearly named routines is easier to trust than a long row of experiments nobody can distinguish.
 
-To see where the controls sit, open the [Revenue CRM demo](https://crm.consilegy.com/demos) and filter the Contacts table to reveal the save option.
+To see where the controls sit, open the [Revenue CRM demo](https://crm.consilegy.com/demos?edition=demo&lang=en) and filter the Contacts table to reveal the save option.

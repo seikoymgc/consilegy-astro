@@ -54,4 +54,4 @@ Pick one row with an unreviewed indicator today. Check the actual work with the 
 
 The useful change is in the order of work: identify the person first, then open the submissions, instead of inspecting every profile just to discover who needs attention.
 
-To locate the table, open the [Revenue CRM demo](https://crm.consilegy.com/demos), choose Schools, and look at the dashboard.
+To locate the table, open the [Revenue CRM demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en), choose **Online schools**, and look at the dashboard.

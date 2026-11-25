@@ -47,4 +47,4 @@ This week, start with one teacher, in this order. Pick the two or three of that 
 
 Next week, count how many booking messages you exchanged with those students. If the number dropped, add the next teacher.
 
-The LINE official account is connected under More → Integrations; follow the on-screen note to turn the webhook on in both places, then Update rich menu pushes the menu to students' phones. The demo takes only an email address: pick "Schools" and you can see Teachers' booking hours and the Calendar month view in the same place. The demo is not connected to LINE, so the student side of 予約する cannot be tried there. [Try the demo](https://crm.consilegy.com/demos)
+The LINE official account is connected under More → Integrations; follow the on-screen note to turn the webhook on in both places, then Update rich menu pushes the menu to students' phones. The demo takes only an email address: pick **Online schools** and you can see Teachers' booking hours and the Calendar month view in the same place. The demo is not connected to LINE, so the student side of 予約する cannot be tried there. [Try the demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en)

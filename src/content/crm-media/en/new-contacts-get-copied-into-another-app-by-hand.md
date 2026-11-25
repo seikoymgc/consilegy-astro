@@ -53,4 +53,4 @@ Pick one place where someone currently pastes new contact details. Agree on the 
 
 The first useful change is small: remove one repeated copy after registration, and make the handoff visible to the person who owns the next step.
 
-To explore the settings, choose **B2B sales** in the [Revenue CRM demo](https://crm.consilegy.com/demos). The demo is shared; view the screens without issuing an API key.
+To explore the settings, choose **Startups & SMBs (standard)** in the [Revenue CRM demo](https://crm.consilegy.com/demos?edition=demo&lang=en). The demo is shared; view the screens without issuing an API key.

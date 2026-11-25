@@ -49,4 +49,4 @@ This week, enter just the next long break. Go to More, then Breaks & holidays, p
 
 LINE booking only offers slots within the next 14 days, so a break can be checked the same day only if it starts within two weeks. For the New Year break, the check is the first morning back: no Missing log rows on the Lessons screen, and no closed days offered when a student taps 予約する (Book). Once that holds, add the summer break and Golden Week next.
 
-The demo needs only an email address. Choose "Schools" and Breaks & holidays already holds a New Year break and a Summer break, so you can see the screen as it looks with entries in it. [Try the demo](https://crm.consilegy.com/demos)
+The demo needs only an email address. Choose **Online schools** and Breaks & holidays already holds a New Year break and a Summer break, so you can see the screen as it looks with entries in it. [Try the demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en)

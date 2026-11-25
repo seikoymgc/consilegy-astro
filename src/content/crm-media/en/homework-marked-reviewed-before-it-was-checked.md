@@ -52,4 +52,4 @@ The operation also attempts to record the reversal in **Audit log**, available u
 
 If a reviewed item still needs attention today, match its time and content in the student record. Use **Undo** only if it has not been checked, then tell the responsible teacher which submission needs review. Once they have examined it, they can mark it reviewed again.
 
-[Try the Revenue CRM demo](https://crm.consilegy.com/demos), choose Schools, and inspect a reviewed submission and its Undo control.
+[Try the Revenue CRM demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en), choose **Online schools**, and inspect a reviewed submission and its Undo control.

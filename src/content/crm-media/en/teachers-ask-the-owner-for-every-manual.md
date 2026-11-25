@@ -53,4 +53,4 @@ This week, put one recurring answer, such as your make-up lesson rules, into a G
 
 Expand the collection once that route works. The practical result to look for is a teacher checking the procedure before asking the owner to resend it.
 
-Choose Schools in the [Revenue CRM demo](https://crm.consilegy.com/demos) and open **Knowledge** to try the sample articles. Reading the samples does not require connecting your own Drive account.
+Choose **Online schools** in the [Revenue CRM demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en) and open **Knowledge** to try the sample articles. Reading the samples does not require connecting your own Drive account.

@@ -12,6 +12,8 @@ const t = COPY[lang];
 const { Content } = await render(a);
 
 const segment = a.data.segment;
+// デモ一覧で、記事のエディションのカードを先頭に出して開く（2026-11-25）
+const demoUrl = `https://crm.consilegy.com/demos?edition=${a.data.edition === 'school' ? 'demo-school' : 'demo'}&lang=${lang}`;
 const others = (await crmMediaArticles(lang, segment)).filter((x) => x.data.slug !== a.data.slug);
 const sameCat = others.filter((x) => x.data.category === a.data.category);
 const next = (sameCat.length ? sameCat : others).slice(0, 2);
@@ -69,7 +71,7 @@ const jsonLd = {
     <section class="cta">
       <p>{t.ctaText}</p>
       <div class="cta-links">
-        <a class="btn" href="https://crm.consilegy.com/demos" target="_blank" rel="noopener noreferrer">{t.demo}</a>
+        <a class="btn" href={demoUrl} target="_blank" rel="noopener noreferrer">{t.demo}</a>
         <a class="btn ghost" href={lang === 'ja' ? '/free-consultation/' : '/en/contact/'}>{t.consult}</a>
       </div>
     </section>

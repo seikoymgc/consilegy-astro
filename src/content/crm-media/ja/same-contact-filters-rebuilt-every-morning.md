@@ -55,4 +55,4 @@ Revenue CRMの法人営業版では、コンタクトの絞り込みや並べ替
 
 毎日使うものが一つできてから、別の用途を増やす。その順番なら、名前だけ増えて使わないビューを抱えずに済みます。
 
-画面を確かめたい方は、[Revenue CRMのデモ](https://crm.consilegy.com/demos)で、コンタクトを絞り込んだ後の保存欄を見てください。
+画面を確かめたい方は、[Revenue CRMのデモ](https://crm.consilegy.com/demos?edition=demo&lang=ja)で、コンタクトを絞り込んだ後の保存欄を見てください。

@@ -53,4 +53,4 @@ This week, review the current country and time zone before changing either. Take
 
 That tells you whether the problem is the language or the business-date reference, and which setting deserves attention.
 
-Choose the B2B edition in the [Revenue CRM demo](https://crm.consilegy.com/demos), then open **Settings → Country, tax & time zone** to see the controls separately from the interface language.
+Choose **Startups & SMBs (standard)** in the [Revenue CRM demo](https://crm.consilegy.com/demos?edition=demo&lang=en), then open **Settings → Country, tax & time zone** to see the controls separately from the interface language.

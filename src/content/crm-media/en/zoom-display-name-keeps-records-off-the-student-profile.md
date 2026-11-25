@@ -51,4 +51,4 @@ Review one unlinked name with the teacher who taught that session. Choose a clea
 
 Once records are associated with the learner, [the saved lesson chat](/en/crm/media/b2c/lesson-phrases-disappear-when-the-zoom-call-ends/) can be read in that student's lesson context rather than found in a separate list each time.
 
-To see the screen, open the [demo](https://crm.consilegy.com/demos), choose Schools, and go to More → Integrations.
+To see the screen, open the [demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en), choose **Online schools**, and go to More → Integrations.

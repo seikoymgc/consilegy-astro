@@ -62,4 +62,4 @@ Pick one meeting this week, and before you leave the room, enter two commitments
 
 No need to roll this out to the whole team. Just see whether the first five minutes of the next call change.
 
-Try the demo with just an email address. Choose B2B sales, open a deal that isn't won or lost, and find the Next action & due date card. The demo is shared, so look without recording anything. [Try the demo](https://crm.consilegy.com/demos)
+Try the demo with just an email address. Choose **Startups & SMBs (standard)**, open a deal that isn't won or lost, and find the Next action & due date card. The demo is shared, so look without recording anything. [Try the demo](https://crm.consilegy.com/demos?edition=demo&lang=en)

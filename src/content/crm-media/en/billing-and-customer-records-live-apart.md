@@ -61,4 +61,4 @@ This week, pick one company you bill by card or on a monthly plan. Check that th
 
 You do not need to line up every account. With one company aligned, the next failed payment there creates a task. That is one customer where the rep can say "about last month" before the customer does.
 
-There is a demo workspace you can open with just an email address. Pick "B2B sales", open a contact, and you can see where "Payment link" and "Send invoice" sit. Actually sending one requires connecting your own Stripe account. [Try the demo](https://crm.consilegy.com/demos)
+There is a demo workspace you can open with just an email address. Pick **Startups & SMBs (standard)**, open a contact, and you can see where "Payment link" and "Send invoice" sit. Actually sending one requires connecting your own Stripe account. [Try the demo](https://crm.consilegy.com/demos?edition=demo&lang=en)

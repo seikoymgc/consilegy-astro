@@ -47,4 +47,4 @@ There is no screen showing how many trials turned into enrolments.
 
 Copy the link and submit one application yourself. See where it lands under Upcoming trials and what the record contains. Students cannot be deleted, so use "Test" as the name and set it to Withdrawn under ⚙ Change status once you have looked. It asks for a reason, which you can leave empty. Then point the button on your website at the new link.
 
-The [demo](https://crm.consilegy.com/demos) opens with just an email address. Pick "Schools" to look around the school edition.
+The [demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en) opens with just an email address. Pick **Online schools** to look around the school edition.

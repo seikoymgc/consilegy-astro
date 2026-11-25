@@ -42,4 +42,4 @@ Moving the launcher and sending a request are separate actions. If all you need 
 
 View-only accounts do not show the launcher. Open a table you use often. Move the launcher away from the control it usually covers, then reopen the screen to check the saved position. When explaining this to colleagues, describe it as something each person adjusts in their browser.
 
-Open the [demo](https://crm.consilegy.com/demos), choose B2B sales, and locate the AI agent launcher.
+Open the [demo](https://crm.consilegy.com/demos?edition=demo&lang=en), choose **Startups & SMBs (standard)**, and locate the AI agent launcher.

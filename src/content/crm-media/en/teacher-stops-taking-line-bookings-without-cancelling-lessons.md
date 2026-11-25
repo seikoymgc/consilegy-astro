@@ -46,4 +46,4 @@ Check the saved setting separately from the availability of a particular slot. A
 
 Identify the existing lessons that should remain. Close new LINE availability, save, then reload to verify the setting. Track any learner communication separately.
 
-Open the [demo](https://crm.consilegy.com/demos), choose Schools, and inspect Teachers' booking hours under More → Calendar.
+Open the [demo](https://crm.consilegy.com/demos?edition=demo-school&lang=en), choose **Online schools**, and inspect Teachers' booking hours under More → Calendar.

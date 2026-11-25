@@ -13,10 +13,10 @@ export type Article = CollectionEntry<'crmMedia'>;
 export const SEGMENT_ORDER: Segment[] = ['b2b', 'b2c'];
 
 export const B2B_CATEGORIES = {
-  standard: { ja: '標準', en: 'Standard' },
-  contractor: { ja: '請負', en: 'Project delivery' },
-  services: { ja: '継続支援', en: 'Retainer services' },
-  reseller: { ja: '販売代理', en: 'Resellers' },
+  standard: { ja: 'スタートアップ・中小企業', en: 'Startups and small businesses' },
+  contractor: { ja: '受託開発・制作', en: 'Development and production' },
+  services: { ja: 'コンサル・マーケティング支援', en: 'Consulting and marketing agencies' },
+  reseller: { ja: '代理店', en: 'SaaS resellers' },
 } as const;
 
 

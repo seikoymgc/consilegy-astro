@@ -8,6 +8,7 @@ feature: "Call Intelligence (paste a call transcript and the CRM writes out what
 screens: "Sidebar Calls → Call Intelligence / New call: Title, Contact, Deal, Methodology (MEDDPICC, BANT, CHAMP, SPIN, Custom), Call date, Duration (seconds), Transcript (paste), Save / Detail: AI analysis, AI summary, BANT analysis, Not extracted, Analyzed, Not analyzed / Automation \"Deal field auto-fill\""
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/calls/page.tsx / src/app/(dashboard)/calls/calls-view.tsx / src/app/(dashboard)/calls/new/page.tsx / src/app/(dashboard)/calls/[id]/page.tsx / src/app/(dashboard)/calls/[id]/call-detail.tsx / src/app/api/calls/analyze/route.ts / src/lib/ai-fuel.ts / src/lib/ai-quota.ts / src/lib/revops/sales-ai.ts / src/lib/revops/catalog.ts / src/lib/revops/execution.ts / src/lib/personas.ts / src/components/app-sidebar.tsx / src/lib/i18n/translations.ts / src/lib/demo/extras.ts / supabase/migrations/004_custom_objects_ai_calls.sql / src/components/email-translate.tsx"
 date: 2026-10-16
 updated: 2026-11-20

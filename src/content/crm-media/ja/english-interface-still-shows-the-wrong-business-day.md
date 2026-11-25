@@ -8,6 +8,7 @@ feature: "国と税・タイムゾーン（表示言語とは別に、会社の�
 screens: "設定 → 国と税・タイムゾーン／タイムゾーン／保存"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/settings/settings-index.tsx / src/app/(dashboard)/settings/region/page.tsx / src/app/(dashboard)/settings/region/region-view.tsx / src/app/api/org-settings/region/route.ts / src/lib/region/index.ts / src/lib/region/context.tsx / src/lib/region/server.ts / src/lib/i18n/format-date.ts (crm main b46d6a3, 2026-11-07) / src/data/crm-updates.ts (consilegy-astro, 2026-10-25, PR #375)"
 date: "2026-11-09"
 author: "山口聖子"

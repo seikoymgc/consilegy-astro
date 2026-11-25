@@ -8,6 +8,7 @@ feature: "Business-type editions (one question at sign-up prepares the pipeline,
 screens: "First screen \"Let's get started\" / \"What best matches your business?\" \"B2B sales\" \"Development & production\" \"Consulting & agencies\" \"SaaS resellers\" \"Schools\" / \"What's your role?\" \"Get started\" / \"How this CRM fits together\" \"Go to Home\" / \"View\" menu at the top of the sidebar \"All\" / Deals list \"Columns\" (Visible columns)"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/onboarding/onboarding-flow.tsx / src/app/onboarding/workspace-map-step.tsx / src/lib/workspace-map.ts / src/lib/editions/index.ts / src/lib/editions/provision.ts / src/lib/pipelines/provision.ts / src/app/api/orgs/route.ts / src/lib/revops/catalog.ts / src/lib/personas.ts / src/components/deal-list.tsx / src/components/app-sidebar.tsx / src/lib/i18n/translations.ts"
 date: 2026-10-02
 updated: 2026-11-20

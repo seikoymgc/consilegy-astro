@@ -9,6 +9,7 @@ screens: "サイドバー「アクティビティ」→ 右上「CSVインポー
 sources: "src/app/(dashboard)/activities/page.tsx / src/app/(dashboard)/activities/activities-import-button.tsx / src/components/csv-import-dialog.tsx / src/app/api/activities/import/route.ts / src/lib/crm/csv-import-http.ts / src/lib/crm/csv-import.ts / src/lib/csv-import.ts / src/lib/crm/activities.ts / src/components/activity-timeline.tsx / src/app/(dashboard)/contacts/[id]/page.tsx / src/app/(dashboard)/companies/[id]/page.tsx / src/app/(dashboard)/deals/[id]/page.tsx / docs/product/CSVインポート/項目定義.md（crm #397・#398・#399）"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 date: 2026-10-31
 updated: 2026-11-20
 author: "山口聖子"

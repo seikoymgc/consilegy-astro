@@ -8,6 +8,7 @@ feature: "Do now on Home (your own open tasks that are overdue, due today or und
 screens: "Sidebar Home: Do now, View all, Nd overdue, Due today, High, Mark as done, N more, Nothing to do right now / Sidebar Tasks: Add a new task..., Priority: High/Medium/Low, Add, To do, In progress, Done, Mark as not done / Automations: Deal stall alert"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/page.tsx / src/lib/home/today-actions.ts / src/components/home/today-actions-panel.tsx / src/components/home/home-workspace.tsx / src/app/(dashboard)/tasks/tasks-view.tsx / src/app/api/tasks/route.ts / src/app/api/tasks/[id]/route.ts / src/app/(dashboard)/tasks/page.tsx / src/components/app-sidebar.tsx / src/lib/deals/last-touch.ts / src/lib/revops/deals.ts / src/lib/revops/util.ts / src/lib/revops/catalog.ts / src/lib/editions/index.ts / src/lib/workflow-engine.ts / src/lib/agent/tools.ts / src/app/api/chat-imports/[id]/confirm/route.ts / src/app/api/demo/seed/route.ts / src/lib/demo.ts / src/lib/region/server.ts / src/app/(dashboard)/settings/settings-index.tsx / supabase/migrations/255_sales_playbooks.sql / src/components/deal-next-action.tsx / src/app/(dashboard)/deals/[id]/page.tsx"
 date: 2026-10-19
 updated: 2026-11-20

@@ -8,6 +8,7 @@ feature: "Turn off workspace calendar import"
 screens: "Settings → Integrations → Google / Outlook → Calendar import (whole workspace)"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/components/calendar-sync-switch.tsx / src/lib/calendar-sync-enabled.ts / src/app/api/org-settings/calendar-sync/route.ts / src/app/(dashboard)/settings/outlook/page.tsx / src/app/(dashboard)/settings/google/page.tsx / src/app/api/integrations/outlook/sync-calendar/route.ts / src/app/api/integrations/google/sync-calendar/route.ts / supabase/migrations/285_org_calendar_sync.sql / supabase/migrations/286_organizations_grant_calendar_sync.sql / src/lib/outlook-sync.ts / src/lib/google-sync.ts / src/lib/outlook.ts / src/lib/meetings/teams.ts / src/lib/meetings/gemini-notes.ts / src/app/(dashboard)/settings/outlook/outlook-view.tsx / vercel.json"
 date: "2026-11-25"
 author: "Seiko Yamaguchi"

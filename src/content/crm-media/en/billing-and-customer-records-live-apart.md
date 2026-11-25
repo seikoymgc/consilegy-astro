@@ -8,6 +8,7 @@ feature: "Stripe integration (send invoices and payment links from a contact; pa
 screens: "Sidebar Settings → Integrations → \"Sync data\" → Stripe / \"Webhook setup\", \"Secret key\", \"Webhook signing secret\", \"Default currency\", \"Invoice registration number\", \"Connect & save\" / Contact screen: \"Payment link\", \"Send invoice\" / Sidebar Activities: \"Content\" and \"Contact\" columns / Sidebar Tasks"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/settings/stripe/stripe-view.tsx / src/app/(dashboard)/settings/integrations/page.tsx / src/app/(dashboard)/settings/page.tsx / src/app/(dashboard)/contacts/[id]/contact-detail-actions.tsx / src/app/(dashboard)/contacts/[id]/page.tsx / src/app/api/integrations/stripe/route.ts / src/app/api/integrations/stripe/invoice/route.ts / src/app/api/integrations/stripe/payment-link/route.ts / src/app/api/webhooks/stripe/[orgId]/route.ts / src/lib/revops/util.ts / src/components/activity-timeline.tsx / src/app/(dashboard)/activities/page.tsx / src/app/(dashboard)/tasks/tasks-view.tsx / src/lib/i18n/translations.ts / src/lib/demo.ts / src/app/demos/demos-client.tsx"
 date: 2026-10-09
 updated: 2026-11-20

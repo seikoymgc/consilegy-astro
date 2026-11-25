@@ -8,6 +8,7 @@ feature: "メンバー・チーム・閲覧範囲（「設定」→「ワーク�
 screens: "「設定」→「ワークスペース」→「メンバー管理」の「メンバーを招待」（メールアドレス・ロール）、「チーム」の「チーム作成」、メンバー一覧のチーム欄（「チームなし」）／「設定」→「ワークスペース」→「権限」の管理者・マネージャー・メンバーの表（コンタクト・会社・商談・チケット・タスク・アクティビティ・見積 × 閲覧・作成・編集・削除・ｴｸｽﾎﾟｰﾄ、「閲覧範囲」「編集範囲」）／コンタクト一覧の「担当者」列／商談の「編集」の「担当者」"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/settings/permissions/permissions-view.tsx / src/app/(dashboard)/settings/permissions/page.tsx / src/app/api/permissions/route.ts / src/app/(dashboard)/settings/members/members-view.tsx / src/app/(dashboard)/settings/members/page.tsx / src/app/api/members/[id]/route.ts / src/app/(dashboard)/settings/settings-index.tsx / supabase/migrations/097_record_scopes_teams_export.sql / supabase/migrations/227_quote_record_scope.sql / src/components/contacts-table.tsx / src/app/(dashboard)/deals/[id]/edit/page.tsx / src/app/(dashboard)/companies/companies-view.tsx / src/lib/crm/use-cases.ts / src/app/api/contacts/import/route.ts / src/app/api/export/[dataset]/route.ts / src/app/api/demo/seed/route.ts / src/lib/crm/csv-import.ts / src/components/csv-import-dialog.tsx"
 date: 2026-10-24
 updated: 2026-11-20

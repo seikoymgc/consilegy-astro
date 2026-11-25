@@ -8,6 +8,7 @@ feature: "会話の取り込み"
 screens: "アクティビティ「会話を取り込む」／「チャネル」（LINE・LINE WORKS・ChatWork・Slackほか）／「解析する」／「要約」「重要ポイント」「ネクストアクション」／「連絡先」「新規連絡先として作成」「商談（任意）」／「取り込む」／「全文を表示」"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/components/chat-import-dialog.tsx / src/lib/chat-parsers/ai-extract.ts / src/lib/chat-parsers/line.ts / src/app/api/chat-imports/route.ts / src/app/api/chat-imports/[id]/confirm/route.ts / src/app/(dashboard)/activities/page.tsx / src/components/activity-timeline.tsx / src/lib/i18n/translations.ts (chatImport) / consilegy-astro: src/data/crm-faq.ts (AIの学習) / src/app/(dashboard)/deals/[id]/page.tsx"
 date: 2026-10-03
 updated: 2026-11-20

@@ -8,6 +8,7 @@ feature: "Members, teams and record scopes (Settings → Workspace → Members t
 screens: "Settings → Workspace → Members: Invite member (Email address, Role), Teams, Create team, team selector on each member (No team) / Settings → Workspace → Permissions: tables for Admin, Manager and Member (Contact, Company, Deal, Ticket, Task, Activity, Quote × View, Create, Edit, Delete, Export, View scope, Edit scope) / Contacts list: Owner column / Deal: Edit, Owner"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/settings/permissions/permissions-view.tsx / src/app/(dashboard)/settings/permissions/page.tsx / src/app/api/permissions/route.ts / src/app/(dashboard)/settings/members/members-view.tsx / src/app/(dashboard)/settings/members/page.tsx / src/app/api/members/[id]/route.ts / src/app/(dashboard)/settings/settings-index.tsx / supabase/migrations/097_record_scopes_teams_export.sql / supabase/migrations/227_quote_record_scope.sql / src/components/contacts-table.tsx / src/app/(dashboard)/deals/[id]/edit/page.tsx / src/app/(dashboard)/companies/companies-view.tsx / src/lib/crm/use-cases.ts / src/app/api/contacts/import/route.ts / src/app/api/export/[dataset]/route.ts / src/app/api/demo/seed/route.ts / src/lib/crm/csv-import.ts / src/components/csv-import-dialog.tsx"
 date: 2026-10-24
 updated: 2026-11-20

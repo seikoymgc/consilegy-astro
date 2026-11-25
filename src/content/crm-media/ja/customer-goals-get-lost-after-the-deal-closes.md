@@ -8,6 +8,7 @@ feature: "成功プラン（コンタクト詳細の「成功プラン」カー�
 screens: "コンタクト詳細の「成功プラン」カード「成功プランを作成」／「ゴール / 達成したい成果」／「状態」（順調・注意・遅延・達成）／「目標期日」／「成功指標」「指標を追加」（指標・基準・目標・現在・状態）／「プランを削除」／サイドバー「カスタマーサクセス」の「成功プラン保有」「成功プラン」列「成功プラン一括作成」／コンタクト一覧「ステージ変更...」→「顧客」／「CS AIアシスト」の「成果レポート(QBR)」"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "services", "reseller"]
 sources: "src/components/success-plan-panel.tsx / src/app/(dashboard)/contacts/[id]/page.tsx / src/app/api/success-plans/route.ts / src/app/api/success-plans/[id]/route.ts / src/app/api/success-plans/[id]/metrics/route.ts / src/app/api/success-plan-metrics/[id]/route.ts / src/app/api/success-plans/bulk-create/route.ts / src/app/(dashboard)/customer-success/page.tsx / src/app/(dashboard)/customer-success/cockpit-view.tsx / src/components/cs-ai-panel.tsx / src/app/api/contacts/[id]/cs-ai/route.ts / src/components/app-sidebar.tsx / src/lib/personas.ts / src/lib/demo/extras.ts / src/lib/revops/deals.ts / src/lib/revops/catalog.ts / src/app/api/cron/workflows/route.ts / src/lib/editions/index.ts / supabase/migrations/052_revops_automations.sql / src/app/api/webhooks/stripe/[orgId]/route.ts"
 date: 2026-10-29
 updated: 2026-11-20

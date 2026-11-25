@@ -8,6 +8,7 @@ feature: "Waiting on customer / Pipeline review / Deal stall alert"
 screens: "Deal edit \"Waiting & decision\" / Sidebar Sales → Pipeline review / Automation \"Deal stall alert\" / AI agent"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 help_slug: "waiting, pipeline-review"
 video: "3, 9"
 sources: "supabase/migrations/146_product_help_articles_seed.sql (waiting, pipeline-review) / 141_deal_waiting_state.sql / 143_deal_stage_dwell_and_decision.sql / lib/revops/catalog.ts (sal-37) / supabase/migrations/146_product_help_articles_seed.sql / src/app/(dashboard)/pipeline-review/pipeline-review-view.tsx / src/lib/deals/waiting.ts / src/lib/revops/deals.ts / src/lib/editions/index.ts"

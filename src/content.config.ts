@@ -115,7 +115,7 @@ export const collections = {
   // Revenue CRM 使い方メディア（/crm/media/ と /en/crm/media/）。
   // 現場の困りごと1つ → Revenue CRM のどの画面で消えるか、を1本にする。
   // 日英で同じ slug を使うので、id はディレクトリ込み（ja/<slug>）にする。
-  // 原稿の決め事・型・予定表は crm リポジトリの docs/media/README.md。
+  // 原稿の決め事・型・予定表は本リポジトリの docs/crm-media/README.md。
   crmMedia: defineCollection({
     loader: glob({
       pattern: '**/*.md',
@@ -134,6 +134,8 @@ export const collections = {
       // segment=どの読者の一覧に載るか（URL: /crm/media/<segment>/）。edition=製品のエディション。
       segment: z.enum(['b2b', 'b2c']).default('b2b'),
       edition: z.enum(['b2b', 'school']).default('b2b'),
+      // B2Bの対象業態。記事の主題に合わせて複数指定する。
+      b2b_categories: z.array(z.enum(['standard', 'contractor', 'services', 'reseller'])).min(1).optional(),
       help_slug: z.union([z.string(), z.number()]).transform(String).optional(),
       video: z.union([z.string(), z.number()]).transform(String).optional(),
       sources: z.string().optional(),
@@ -143,6 +145,16 @@ export const collections = {
       // サイドバー「よく読まれている記事」の並び順（1が上）。閲覧数の取り込みまでは手動。
       featured: z.number().int().min(1).optional(),
       draft: z.boolean().default(false),
+    }).superRefine((article, ctx) => {
+      if (article.segment === 'b2b' && !article.b2b_categories?.length) {
+        ctx.addIssue({ code: 'custom', path: ['b2b_categories'], message: 'B2B記事には対象カテゴリを1つ以上指定してください' });
+      }
+      if (article.segment === 'b2c' && article.b2b_categories) {
+        ctx.addIssue({ code: 'custom', path: ['b2b_categories'], message: 'スクール記事にはB2Bカテゴリを指定しません' });
+      }
+      if (article.b2b_categories && new Set(article.b2b_categories).size !== article.b2b_categories.length) {
+        ctx.addIssue({ code: 'custom', path: ['b2b_categories'], message: '対象カテゴリが重複しています' });
+      }
     }),
   }),
 

@@ -5,6 +5,7 @@ lang: "ja"
 category: "operate"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 pain: "海外メンバーがタスクの件名を読めず、何の用件か同僚に聞き直している"
 feature: "タスクと活動の短い見出しの表示翻訳"
 screens: "画面上端 EN・繁中／タスク／活動の件名／翻訳された見出しの原文ホバー"

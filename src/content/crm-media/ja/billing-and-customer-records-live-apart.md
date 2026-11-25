@@ -8,6 +8,7 @@ feature: "Stripe連携（コンタクトから請求書と決済リンクを出�
 screens: "サイドバー「設定」→「連携」→「データを同期する」の「Stripe」／「Webhook設定」「シークレットキー」「Webhook署名シークレット」「適格請求書発行事業者の登録番号」「接続・保存」／コンタクトの画面「決済リンク」「請求書送信」／サイドバー「アクティビティ」の「内容」「コンタクト」／サイドバー「タスク」"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/settings/stripe/stripe-view.tsx / src/app/(dashboard)/settings/integrations/page.tsx / src/app/(dashboard)/settings/page.tsx / src/app/(dashboard)/contacts/[id]/contact-detail-actions.tsx / src/app/(dashboard)/contacts/[id]/page.tsx / src/app/api/integrations/stripe/route.ts / src/app/api/integrations/stripe/invoice/route.ts / src/app/api/integrations/stripe/payment-link/route.ts / src/app/api/webhooks/stripe/[orgId]/route.ts / src/lib/revops/util.ts / src/components/activity-timeline.tsx / src/app/(dashboard)/activities/page.tsx / src/app/(dashboard)/tasks/tasks-view.tsx / src/lib/i18n/translations.ts / src/lib/demo.ts / src/app/demos/demos-client.tsx"
 date: 2026-10-09
 updated: 2026-11-20

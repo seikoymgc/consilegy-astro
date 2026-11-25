@@ -8,6 +8,7 @@ feature: "Give the same deal stage a display name in Japanese, English and Tradi
 screens: "Settings → Deal stages → Name in each language / 日本語 / English / 繁體中文 / Save"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/settings/pipeline-stages/page.tsx / src/app/(dashboard)/settings/pipeline-stages/stages-view.tsx / src/app/api/pipeline-stages/route.ts / src/lib/pipeline-stages.ts / src/lib/label-i18n.ts / src/lib/deals-i18n.ts"
 date: "2026-11-15"
 updated: 2026-11-18

@@ -8,6 +8,7 @@ feature: "チケットのカンバンとリストの切り替え"
 screens: "チケット → カンバン／リスト"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/tickets/page.tsx / src/app/(dashboard)/tickets/tickets-view.tsx / src/components/status-kanban.tsx / src/app/api/tickets/[id]/route.ts / src/lib/i18n/translations.ts / src/components/app-sidebar.tsx"
 date: "2026-11-24"
 author: "山口聖子"

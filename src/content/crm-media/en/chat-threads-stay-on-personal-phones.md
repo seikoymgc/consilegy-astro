@@ -8,6 +8,7 @@ feature: "Chat import"
 screens: "Activities \"Import conversation\" / \"Channel\" (LINE, LINE WORKS, ChatWork, Slack, Messenger, LinkedIn) / \"Analyze\" / \"Summary\" \"Key points\" \"Next actions\" / \"Contact\" \"Create as new contact\" \"Deal (optional)\" / \"Import\" / \"View full transcript\""
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/components/chat-import-dialog.tsx / src/lib/chat-parsers/ai-extract.ts / src/lib/chat-parsers/line.ts / src/app/api/chat-imports/route.ts / src/app/api/chat-imports/[id]/confirm/route.ts / src/app/(dashboard)/activities/page.tsx / src/components/activity-timeline.tsx / src/lib/i18n/translations.ts (chatImport) / consilegy-astro: src/data/crm-faq.ts (AI training) / src/app/(dashboard)/deals/[id]/page.tsx"
 date: 2026-10-03
 updated: 2026-11-20

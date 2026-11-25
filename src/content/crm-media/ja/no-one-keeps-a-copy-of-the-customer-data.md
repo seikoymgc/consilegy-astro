@@ -8,6 +8,7 @@ feature: "データの書き出し（「設定」→「運用」→「データ�
 screens: "サイドバー「設定」→「運用」の「データの書き出し」／各行の「CSV」「書き出し中…」／「データの書き出しは、オーナーと管理者だけが使えます。」（ほかの役割の人の画面）／「監査ログ」"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/settings/settings-index.tsx / src/app/(dashboard)/settings/export/page.tsx / src/app/(dashboard)/settings/export/export-view.tsx / src/lib/export/full-export.ts / src/lib/export/read-pages.ts / src/app/api/export/[dataset]/route.ts / src/lib/csv.ts / src/app/(dashboard)/settings/audit-log/audit-log-view.tsx / src/app/api/contacts/export/route.ts / src/components/csv-import-dialog.tsx / src/app/(dashboard)/layout.tsx / src/app/api/demo/seed/route.ts / src/app/api/activities/import/route.ts / src/app/(dashboard)/activities/activities-import-button.tsx / src/app/(dashboard)/activities/page.tsx / src/app/trial-expired/page.tsx / src/lib/region/server.ts / src/lib/outlook-sync.ts"
 date: 2026-10-21
 updated: 2026-11-20

@@ -8,6 +8,7 @@ feature: "契約終了日の管理（商談の「契約終了日」を入れる�
 screens: "商談の作成・編集画面「納品・契約」の「契約終了日」／サイドバー「CS」の「カスタマーサクセス」／「更新予定 (90日内)」／一覧の「更新」列／コンタクト一覧の「ステージ変更...」→「顧客」／「自動化」の「契約更新日管理ワークフロー」「更新準備開始」／タスク「[更新] 契約更新の準備: 商談名」／ホームの「今やること」／「タスク」"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/customer-success/page.tsx / src/app/(dashboard)/customer-success/cockpit-view.tsx / src/app/(dashboard)/customer-success/renewals/page.tsx / src/app/(dashboard)/customer-success/renewals/renewals-view.tsx / src/lib/cs/portfolio.ts / src/app/(dashboard)/deals/new/page.tsx / src/app/(dashboard)/deals/[id]/edit/page.tsx / src/app/(dashboard)/deals/[id]/page.tsx / supabase/migrations/010_deal_complete.sql / src/components/contacts-table.tsx / src/lib/revops/health.ts / src/lib/revops/catalog.ts / src/lib/revops/outcomes.ts / src/lib/revops/execution.ts / src/lib/revops/config.ts / src/lib/revops/util.ts / src/lib/editions/index.ts / src/app/(dashboard)/automations/automations-view.tsx / src/app/api/cron/workflows/route.ts / vercel.json / src/app/(dashboard)/page.tsx / src/components/home/today-actions-panel.tsx / src/components/home/home-workspace.tsx / src/components/app-sidebar.tsx / src/lib/personas.ts / src/lib/i18n/translations.ts"
 date: 2026-10-14
 author: "山口聖子"

@@ -8,6 +8,7 @@ feature: "通知（タスクの期限を担当者のスマホ・PCに前日と�
 screens: "サイドバー「設定」→「通知」／「タスクの期限をこの端末に通知」の「この端末で通知を受け取る」「この端末で受け取り中」「テスト通知を送る」「この端末では止める」／「通知設定」の「Slack通知を有効化」「Slack Incoming Webhook URL」「タスクの期限（前日・当日の朝10時）もこのSlackに流す」「メール通知を有効化」「営業通知メール(担当未設定時の宛先)」「マネージャーメール(Critical時に追加通知)」「保存」／通知「明日が期限: タスク名」「今日が期限 2件 / 明日が期限 1件」／Slack「新規MQL: 氏名」「優先度」「理由」「次アクション」「対応期限」／「設定」→「週次ダイジェスト」"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/settings/page.tsx / src/app/(dashboard)/settings/notifications/page.tsx / src/app/(dashboard)/settings/notifications/notifications-view.tsx / src/app/(dashboard)/settings/notifications/push-device-card.tsx / src/app/api/notification-settings/route.ts / src/app/api/push/subscribe/route.ts / src/app/api/push/test/route.ts / public/push-sw.js / src/app/manifest.ts / src/lib/push.ts / src/lib/task-reminders.ts / src/lib/notify.ts / src/lib/mql-handoff.ts / src/lib/lead-scoring-run.ts / src/lib/routing.ts / src/lib/revops/deals.ts / src/lib/revops/util.ts / src/lib/digest/weekly.ts / src/app/(dashboard)/settings/weekly-digest/weekly-digest-view.tsx / src/app/api/cron/workflows/route.ts / vercel.json / supabase/migrations/039_notification_settings.sql / supabase/migrations/224_task_reminders_push.sql / supabase/migrations/071_secret_rls_hardening.sql / src/app/api/demo/seed/route.ts / src/lib/slack-notify.ts / src/lib/followups/digest.ts / supabase/migrations/276_followup_suggestions.sql"
 date: 2026-10-15
 updated: 2026-11-20

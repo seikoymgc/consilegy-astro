@@ -5,6 +5,7 @@ lang: "en"
 category: "operate"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 pain: "Retired campaign lists make it harder to choose the right audience"
 feature: "Delete this list on a list's detail page"
 screens: "Lists / Delete this list / deletion confirmation / Contacts"

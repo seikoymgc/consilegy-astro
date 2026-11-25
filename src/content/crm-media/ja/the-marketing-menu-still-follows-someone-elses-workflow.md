@@ -5,6 +5,7 @@ lang: "ja"
 category: "setup"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 pain: "業務別のメニューが自社の分担と合わず、毎回使う画面を説明し直している"
 feature: "業務ごとのメニュー設定"
 screens: "設定／業務ごとのメニュー／マーケ／商談／保存する／既定に戻す／業務／すべて"

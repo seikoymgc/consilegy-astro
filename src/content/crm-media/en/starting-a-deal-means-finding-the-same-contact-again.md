@@ -8,6 +8,7 @@ feature: "Start a new deal from a contact and carry over the contact and primary
 screens: "Contacts → New deal → Related records → Contact (primary) / Filter by name or email / Save"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/contacts/[id]/page.tsx / src/app/(dashboard)/deals/new/page.tsx / src/app/(dashboard)/deals/[id]/edit/page.tsx / src/lib/deals/company-contacts.ts / src/lib/crm/use-cases.ts"
 date: "2026-11-13"
 author: "Seiko Yamaguchi"

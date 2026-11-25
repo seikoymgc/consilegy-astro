@@ -8,6 +8,7 @@ feature: "ホームの4つの数字／フォーキャスト"
 screens: "ホーム「今日の営業状況」の進行中パイプライン・加重フォーキャスト・今月の受注・勝率／「注目の商談」「対応待ち」／サイドバーSales → フォーキャスト「着地見込み（確度加重）」「堅め（成立＋コミット）」「担当者別」「ステージ別」／商談の編集画面「基本情報」「パイプライン・予測」"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 video: "3"
 sources: "components/home/home-workspace.tsx / app/(dashboard)/page.tsx / app/(dashboard)/forecast/forecast-view.tsx / app/(dashboard)/deals/[id]/edit/page.tsx / components/app-sidebar.tsx / lib/editions/context.tsx / lib/i18n/translations.ts / app/demos/demos-client.tsx / lib/demo.ts / docs/product/操作動画_台本.md / src/components/home/home-workspace.tsx / src/lib/home/department-view.ts / src/components/app-sidebar.tsx / src/lib/i18n/translations.ts / src/lib/personas.ts"
 date: 2026-10-04

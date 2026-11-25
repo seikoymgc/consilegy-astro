@@ -8,6 +8,7 @@ feature: "商談ステージの設定（ステージの名前・並び・確度�
 screens: "サイドバー「設定」→「データ構造」の「商談ステージ」／表の「ステージ名」「確度」「区分」／「上へ」「下へ」「削除」／「ステージを足す」／「保存する」／商談の「カンバン」「リスト」／商談の「成約確率（%）」／「フォーキャスト」"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/settings/page.tsx / src/app/(dashboard)/settings/pipeline-stages/page.tsx / src/app/(dashboard)/settings/pipeline-stages/stages-view.tsx / src/app/(dashboard)/settings/pipeline-stages/create-pipeline.tsx / src/app/api/pipeline-stages/route.ts / src/lib/pipeline-stages.ts / src/lib/pipelines/provision.ts / src/lib/deals-i18n.ts / src/components/deal-kanban.tsx / src/components/deal-list.tsx / src/app/(dashboard)/deals/page.tsx / src/app/(dashboard)/deals/deals-view.tsx / src/app/(dashboard)/deals/new/page.tsx / src/app/(dashboard)/forecast/forecast-view.tsx / src/lib/forecast-snapshot.ts / src/app/api/deals/import/route.ts / src/components/app-sidebar.tsx / src/lib/i18n/translations.ts / supabase/migrations/001_initial_schema.sql / supabase/migrations/030_audit_triggers.sql / src/app/api/demo/seed/route.ts / src/lib/stage-labels.tsx"
 date: 2026-10-13
 updated: 2026-11-20

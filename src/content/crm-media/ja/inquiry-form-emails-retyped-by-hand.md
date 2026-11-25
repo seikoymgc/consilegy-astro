@@ -8,6 +8,7 @@ feature: "フォーム（送信された時点でコンタクトになり、同�
 screens: "サイドバー「集客」の「フォーム」／「新規フォーム」「フォーム名」「保存」／フォームの「分析」「送信した人」「設定」タブ／「公開して使う」の「公開中」「公開を止める」「公開URL」「サイトに埋め込む」／「送信時の動き」の「再送信されたら回答を更新する」「送信した人への1通目を下書きする」／「フィールドを追加」の「ラベル」「キー(英数)」／サイドバー「送信待ちの下書き」"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/forms/forms-view.tsx / src/app/(dashboard)/forms/new/page.tsx / src/app/(dashboard)/forms/[id]/page.tsx / src/app/(dashboard)/forms/[id]/form-detail.tsx / src/app/(dashboard)/forms/[id]/form-tabs.tsx / src/app/(dashboard)/forms/[id]/form-analytics.tsx / src/components/form-share.tsx / src/app/f/[id]/page.tsx / src/app/api/forms/[id]/submit/route.ts / src/lib/contact-intake.ts / src/lib/outbound/queue.ts / src/components/app-sidebar.tsx / src/lib/personas.ts / src/lib/i18n/translations.ts / supabase/migrations/003_marketing_sales_cs.sql / supabase/migrations/161_form_first_touch_draft.sql / supabase/migrations/226_form_contact_on_reply.sql"
 date: 2026-10-10
 updated: 2026-11-20

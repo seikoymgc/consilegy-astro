@@ -5,6 +5,7 @@ lang: "ja"
 category: "operate"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 pain: "使い終えた配信リストが残り、次の配信でどれを選ぶか迷う"
 feature: "リスト詳細からのリスト削除"
 screens: "リスト／このリストを削除／削除の確認／コンタクト"

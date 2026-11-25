@@ -8,6 +8,7 @@ feature: "Define a contact custom field and fill it from an existing contact’s
 screens: "Settings → Data model → Custom fields → Contact → Add field; Contacts → Edit → Save"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/settings/settings-index.tsx / src/app/(dashboard)/settings/custom-fields/page.tsx / src/app/(dashboard)/settings/custom-fields/custom-fields-view.tsx / src/app/api/custom-fields/route.ts / src/components/custom-fields-input.tsx / src/components/custom-fields-display.tsx / src/components/contact-form-fields.tsx / src/app/(dashboard)/contacts/[id]/edit/page.tsx / src/app/(dashboard)/contacts/[id]/edit/contact-edit-form.tsx / src/lib/crm/record-form.ts"
 date: "2026-11-12"
 author: "Seiko Yamaguchi"

@@ -9,6 +9,7 @@ screens: "フォーム詳細のチェック「資料DLの営業手順を使う�
 sources: "src/app/(dashboard)/forms/[id]/form-detail.tsx / src/app/api/forms/[id]/submit/route.ts / src/app/(dashboard)/settings/sales-playbooks/sales-playbooks-view.tsx / src/app/(dashboard)/tasks/tasks-view.tsx / src/app/(dashboard)/tasks/page.tsx / src/components/sales-assignments.tsx / src/components/home/today-actions-panel.tsx / src/components/outbound-draft-editor.tsx / src/lib/sales-playbooks.ts / src/lib/sales-playbook-errors.ts / src/lib/sales-action-alerts.ts / src/lib/form-contact.ts / src/lib/contact-intake.ts / supabase/migrations/255_sales_playbooks.sql / supabase/migrations/257_sales_followup_coordination.sql / supabase/migrations/259_sales_handoff_opt_in.sql（crm #396、#403） / src/components/app-sidebar.tsx"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 date: 2026-11-04
 updated: 2026-11-20
 author: "山口聖子"

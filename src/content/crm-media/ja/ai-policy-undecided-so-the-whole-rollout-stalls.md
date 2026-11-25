@@ -8,6 +8,7 @@ feature: "AI機能の利用（ワークスペース単位のオン・オフ。�
 screens: "設定 → AI機能の利用／AI機能を使う／AI機能: オン・オフ"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/settings/ai-features/page.tsx / src/app/(dashboard)/settings/ai-features/ai-features-view.tsx / src/app/api/org-settings/ai-enabled/route.ts / src/lib/ai-enabled.ts / src/data/crm-updates.ts (consilegy-astro, 2026-10-28, PR #395)"
 date: "2026-11-08"
 updated: 2026-11-20

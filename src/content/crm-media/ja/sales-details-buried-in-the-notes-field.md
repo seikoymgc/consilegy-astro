@@ -8,6 +8,7 @@ feature: "コンタクトのカスタム項目を定義し、既存のコンタ�
 screens: "設定 → データ構造 → カスタム項目／カスタムフィールド → コンタクト → フィールドを追加／コンタクト → 編集 → 保存"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/settings/settings-index.tsx / src/app/(dashboard)/settings/custom-fields/page.tsx / src/app/(dashboard)/settings/custom-fields/custom-fields-view.tsx / src/app/api/custom-fields/route.ts / src/components/custom-fields-input.tsx / src/components/custom-fields-display.tsx / src/components/contact-form-fields.tsx / src/app/(dashboard)/contacts/[id]/edit/page.tsx / src/app/(dashboard)/contacts/[id]/edit/contact-edit-form.tsx / src/lib/crm/record-form.ts / src/lib/demo.ts"
 date: "2026-11-12"
 updated: 2026-11-20

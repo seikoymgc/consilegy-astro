@@ -8,6 +8,7 @@ feature: "CSV import (contacts, companies, deals)"
 screens: "Sidebar \"Contacts\" \"Companies\" \"Deals\" / \"Import CSV\" at the top right of each list / \"Import preview\" with \"Recognized columns\", \"Unrecognized:\", \"Preview (first 3)\", \"Import N\" / \"Import complete\" with \"Errors (not imported)\", \"Skipped (already exists)\" and \"Check these (imported)\" / Settings \"Integrations\" → \"Another CRM (read-only)\" → \"CRM sync\""
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/components/csv-import-dialog.tsx / src/app/api/contacts/import/route.ts / src/app/api/companies/import/route.ts / src/app/api/deals/import/route.ts / src/components/contacts-table.tsx / src/app/(dashboard)/companies/companies-view.tsx / src/app/(dashboard)/deals/page.tsx / src/app/(dashboard)/settings/crm-sync/page.tsx / src/app/(dashboard)/settings/integrations/page.tsx / src/app/(dashboard)/settings/page.tsx / src/app/(dashboard)/settings/crm-sync/crm-sync-view.tsx / src/lib/delivery/crm-sync.ts / src/app/(dashboard)/deals/deals-import-button.tsx / src/lib/work-fuel.ts / src/lib/demo.ts / src/lib/i18n/translations.ts / src/lib/crm/csv-import.ts"
 date: 2026-10-05
 updated: 2026-11-20

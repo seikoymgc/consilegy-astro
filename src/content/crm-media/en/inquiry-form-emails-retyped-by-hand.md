@@ -8,6 +8,7 @@ feature: "Forms (a submission becomes a contact the moment it is sent, the same 
 screens: "Sidebar \"Acquire\" → \"Forms\" / \"New form\", \"Form name\", \"Save\" / form tabs \"Analytics\", \"Submissions\", \"Settings\" / \"Publish and use\": \"Live\", \"Stop\", \"Public URL\", \"Embed on your site\" / \"On submission\": \"Update answers on re-submission\", \"Draft a first email to whoever submits\" / \"Add field\": \"Label\", \"Key (alphanumeric)\" / Sidebar \"Drafts waiting to send\""
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/forms/forms-view.tsx / src/app/(dashboard)/forms/new/page.tsx / src/app/(dashboard)/forms/[id]/page.tsx / src/app/(dashboard)/forms/[id]/form-detail.tsx / src/app/(dashboard)/forms/[id]/form-tabs.tsx / src/app/(dashboard)/forms/[id]/form-analytics.tsx / src/components/form-share.tsx / src/app/f/[id]/page.tsx / src/app/api/forms/[id]/submit/route.ts / src/lib/contact-intake.ts / src/lib/outbound/queue.ts / src/components/app-sidebar.tsx / src/lib/personas.ts / src/lib/i18n/translations.ts / supabase/migrations/003_marketing_sales_cs.sql / supabase/migrations/161_form_first_touch_draft.sql / supabase/migrations/226_form_contact_on_reply.sql"
 date: 2026-10-10
 updated: 2026-11-20

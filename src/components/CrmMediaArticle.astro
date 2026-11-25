@@ -1,5 +1,6 @@
 ---
 // 記事1本。/crm/faq/[slug] と同じ骨格（パンくず → 本文 → 関連 → CTA）。
+import CrmMediaB2BCategories from './CrmMediaB2BCategories.astro';
 import { render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CrmMediaCard from './CrmMediaCard.astro';
@@ -59,6 +60,7 @@ const jsonLd = {
       <span>{t.published} {fmtDate(a.data.date, lang)}</span>
       {a.data.updated && <span>{t.updated} {fmtDate(a.data.updated, lang)}</span>}
     </div>
+    <CrmMediaB2BCategories a={a} />
     <h1>{a.data.title}</h1>
     <div class="byline">{t.author}<span>Consilegy</span></div>
 

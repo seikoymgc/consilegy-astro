@@ -9,6 +9,7 @@ screens: "Settings > Workspace > Members: Invite member, Seat, User (paid), View
 sources: "src/lib/seats.ts / src/lib/seat-gate.ts / src/lib/platform-billing.ts / src/lib/ai-fuel-grants.ts / src/lib/view-only-hide.ts / src/components/view-only-guard.tsx / src/app/(dashboard)/layout.tsx / src/app/(dashboard)/settings/members/members-view.tsx / src/app/(dashboard)/settings/settings-index.tsx / src/app/(dashboard)/settings/permissions/permissions-view.tsx / src/app/api/invitations/route.ts / src/app/api/members/[id]/route.ts / src/lib/invitations.ts / src/app/pricing/pricing-page.tsx / supabase/migrations/097_record_scopes_teams_export.sql / supabase/migrations/261_seat_types.sql / src/components/home/home-workspace.tsx / src/lib/home/department-view.ts / src/lib/demo.ts / src/app/api/demo/seed/route.ts / supabase/migrations/258_relationship_types.sql (crm 12b1ccd, #410)"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 date: 2026-11-05
 author: "Seiko Yamaguchi"
 ---

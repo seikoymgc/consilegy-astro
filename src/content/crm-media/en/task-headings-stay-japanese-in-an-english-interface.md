@@ -5,6 +5,7 @@ lang: "en"
 category: "operate"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 pain: "International teammates need a colleague to explain Japanese task headings before they can act"
 feature: "Display translation for task and activity headings"
 screens: "EN and 繁中 language controls / Tasks / activity subjects / original text on hover"

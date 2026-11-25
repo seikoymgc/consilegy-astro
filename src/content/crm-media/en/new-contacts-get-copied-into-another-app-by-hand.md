@@ -5,6 +5,7 @@ lang: "en"
 category: "setup"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 pain: "Operations copies newly registered contacts into a separate shared app"
 feature: "Zapier New Contact with a read-only API key"
 screens: "Settings / Integrations & channels / API keys / Read only / Issue / API Key / New Contact"

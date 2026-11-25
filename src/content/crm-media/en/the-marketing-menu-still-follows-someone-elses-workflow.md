@@ -5,6 +5,7 @@ lang: "en"
 category: "setup"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 pain: "The default function-specific menu does not match how the team divides its work"
 feature: "Workspace menu settings by job function"
 screens: "Settings / Menu by role / Marketing / Deals / Save / Reset to default / View / All"

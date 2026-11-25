@@ -8,6 +8,7 @@ feature: "AIエージェントのボタンをドラッグして移動"
 screens: "AIエージェント"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/components/copilot/copilot-launcher.tsx"
 date: "2026-11-23"
 author: "山口聖子"

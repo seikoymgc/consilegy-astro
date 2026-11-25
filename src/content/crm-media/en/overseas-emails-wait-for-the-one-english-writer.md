@@ -8,6 +8,7 @@ feature: "Translate on emails (read an incoming message in your screen language;
 screens: "Sidebar Inbox, incoming message: Translate, Original / Reply box: Translate → Translate into (日本語, English, 繁體中文), Translate, Replace, Close, Undo / Sidebar Drafts waiting to send: Translate, Approve and send / Contact page AI email: Translate / Sequences → Add step (email): Translate"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/components/email-translate.tsx / src/lib/email-translate.ts / src/app/api/ai/translate/route.ts / src/app/(dashboard)/inbox/inbox-view.tsx / src/components/outbound-draft-editor.tsx / src/app/(dashboard)/outbound-drafts/outbound-drafts-view.tsx / src/components/ai-email-panel.tsx / src/app/(dashboard)/sequences/[id]/sequence-detail.tsx / src/lib/email-signature.ts / src/lib/ai-fuel.ts / src/lib/ai-quota.ts / src/components/app-sidebar.tsx / src/components/app-topbar.tsx / src/lib/demo.ts / src/app/(dashboard)/contacts/[id]/page.tsx / src/lib/record-translation.ts"
 date: 2026-10-22
 updated: 2026-11-20

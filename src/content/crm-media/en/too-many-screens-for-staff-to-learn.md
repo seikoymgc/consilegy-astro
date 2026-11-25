@@ -8,6 +8,7 @@ feature: "Role-based menu (the role switcher at the top of the sidebar) and aski
 screens: "Role switcher at the top of the sidebar \"Mine\" \"Sales\" \"Marketing\" \"CS\" \"Executive\" \"Admin\" \"All\" / First screen \"What's your role?\" / Top bar \"My account\" > \"What you work on\" / \"AI agent\" (⌘E / Ctrl+E, button at the bottom right) \"Instruct the CRM… (voice supported)\" / Search (⌘K / Ctrl+K) \"Search contacts, companies, deals...\""
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/components/app-sidebar.tsx / src/lib/personas.ts / src/lib/persona-view.tsx / src/lib/editions/index.ts / src/app/onboarding/onboarding-flow.tsx / src/app/(dashboard)/settings/account/account-client.tsx / src/components/app-topbar.tsx / src/app/(dashboard)/agent/page.tsx / src/components/copilot/copilot-launcher.tsx / src/components/copilot/copilot-chat.tsx / src/components/command-palette.tsx / src/components/command-palette-dialog.tsx / src/lib/i18n/translations.ts / src/app/(dashboard)/settings/settings-index.tsx"
 date: 2026-10-07
 updated: 2026-11-20

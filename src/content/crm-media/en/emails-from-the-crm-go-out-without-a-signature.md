@@ -8,6 +8,7 @@ feature: "Email signature (each person saves one under Settings → Account; it 
 screens: "Sidebar Settings → You → Account → Email signature: Signature, Preview, Save signature / Contact page AI email: Suggest email, Send, Regenerate / Sidebar Inbox reply box: Send / Sidebar Drafts waiting to send: Add signature, Approve and send, Do not send"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "supabase/migrations/231_member_email_signatures.sql / src/lib/email-signature.ts / src/app/api/email-signature/route.ts / src/hooks/use-email-signature.ts / src/app/(dashboard)/settings/account/page.tsx / src/app/(dashboard)/settings/account/account-client.tsx / src/app/(dashboard)/settings/account/email-signature-card.tsx / src/app/(dashboard)/settings/settings-index.tsx / src/components/app-sidebar.tsx / src/components/ai-email-panel.tsx / src/app/api/contacts/[id]/draft-email/route.ts / src/app/api/contacts/[id]/send-email/route.ts / src/app/(dashboard)/inbox/inbox-view.tsx / src/app/api/conversations/[id]/messages/route.ts / src/lib/outbound/queue.ts / src/lib/outbound/draft.ts / src/lib/outbound/send.ts / src/components/outbound-draft-editor.tsx / src/app/(dashboard)/outbound-drafts/outbound-drafts-view.tsx / src/app/api/outbound-drafts/route.ts / src/lib/consent.ts / src/app/(dashboard)/emails/new/page.tsx / src/lib/ai-fuel.ts / src/lib/demo.ts"
 date: 2026-10-20
 author: "Seiko Yamaguchi"

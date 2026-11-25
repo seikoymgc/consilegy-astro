@@ -8,6 +8,7 @@ feature: "CSVインポート（コンタクト・会社・商談）"
 screens: "サイドバー「コンタクト」「会社」「商談」／一覧右上「CSVインポート」／「インポートのプレビュー」の「認識されたカラム」「未認識:」「プレビュー（先頭 3 件）」「○ 件をインポート」／「インポート完了」「エラー（登録されていません）」「スキップ（既にあるデータ）」「確認が必要な点（登録はされています）」／設定「連携」→「他社CRM（読み取り）」→「CRM連携」"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/components/csv-import-dialog.tsx / src/app/api/contacts/import/route.ts / src/app/api/companies/import/route.ts / src/app/api/deals/import/route.ts / src/components/contacts-table.tsx / src/app/(dashboard)/companies/companies-view.tsx / src/app/(dashboard)/deals/page.tsx / src/app/(dashboard)/settings/crm-sync/page.tsx / src/app/(dashboard)/settings/integrations/page.tsx / src/app/(dashboard)/settings/page.tsx / src/app/(dashboard)/settings/crm-sync/crm-sync-view.tsx / src/lib/delivery/crm-sync.ts / src/app/(dashboard)/deals/deals-import-button.tsx / src/lib/work-fuel.ts / src/lib/demo.ts / src/lib/i18n/translations.ts / src/lib/crm/csv-import.ts / src/app/demos/demos-client.tsx"
 date: 2026-10-05
 updated: 2026-11-20

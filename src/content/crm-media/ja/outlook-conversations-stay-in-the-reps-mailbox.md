@@ -8,6 +8,7 @@ feature: "Outlookのメール同期とコンタクトのメール・予定"
 screens: "設定 → 連携 → Outlook → メール → 今すぐ同期／コンタクト → メール・予定"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/settings/integrations/page.tsx / src/app/(dashboard)/settings/outlook/page.tsx / src/app/(dashboard)/settings/outlook/outlook-view.tsx / src/app/api/integrations/outlook/route.ts / src/app/api/integrations/outlook/sync-email/route.ts / src/lib/outlook-sync.ts / src/lib/google-sync.ts / src/lib/crm/contact-emails.ts / src/app/(dashboard)/contacts/[id]/page.tsx / supabase/migrations/105_active_org_rls_hardening.sql / src/lib/work-fuel.ts / src/lib/calendar-sync-enabled.ts / src/components/calendar-sync-switch.tsx / src/lib/outlook-subscriptions.ts / src/app/api/integrations/outlook/notify/route.ts / src/app/api/integrations/outlook/callback/route.ts / supabase/migrations/288_outlook_mail_subscriptions.sql / supabase/migrations/285_org_calendar_sync.sql"
 date: "2026-11-22"
 updated: "2026-11-25"

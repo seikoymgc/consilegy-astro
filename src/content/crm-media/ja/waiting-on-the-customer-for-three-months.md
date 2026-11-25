@@ -8,6 +8,7 @@ feature: "先方待ち・意思決定／パイプライン診断／商談停滞�
 screens: "商談の編集画面「先方待ち・意思決定」／サイドバー 営業 → パイプライン診断／自動化「商談停滞アラートワークフロー」／AIエージェント"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 help_slug: "waiting, pipeline-review"
 video: "3, 9"
 sources: "supabase/migrations/146_product_help_articles_seed.sql (waiting, pipeline-review) / 141_deal_waiting_state.sql / 143_deal_stage_dwell_and_decision.sql / lib/revops/catalog.ts (sal-37) / supabase/migrations/182_help_article_video.sql / supabase/migrations/146_product_help_articles_seed.sql / src/lib/deals/waiting.ts / src/lib/revops/deals.ts / src/lib/editions/index.ts"

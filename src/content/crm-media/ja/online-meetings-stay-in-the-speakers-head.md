@@ -8,6 +8,7 @@ feature: "会議ツール連携（議事録の取り込み）"
 screens: "設定 → 連携「会議ツール」／「会議ツール連携」「Google Meetを接続」「今すぐ取り込む」「最近の取り込み」「確認して確定」「取り込む」"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/settings/meetings/page.tsx / src/app/(dashboard)/settings/meetings/meetings-view.tsx / src/app/(dashboard)/settings/integrations/page.tsx / src/lib/meetings/ingest.ts / src/lib/meetings/sync.ts / src/lib/meetings/zoom.ts / src/lib/meetings/gemini-notes.ts / src/components/chat-import-dialog.tsx / src/lib/followups/suggest.ts / src/app/(dashboard)/settings/notifications/notifications-view.tsx"
 date: 2026-10-01
 updated: 2026-11-20

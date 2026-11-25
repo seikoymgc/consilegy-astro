@@ -5,6 +5,7 @@ lang: "en"
 category: "operate"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 pain: "Recreating a morning contact view makes the review depend on which filters someone remembers to apply"
 feature: "Saved views for contacts"
 screens: "Contacts / All stages / Save current view / View name / All"

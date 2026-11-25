@@ -8,6 +8,7 @@ feature: "フォームのドロップダウン・ラジオと選択肢の設定"
 screens: "フォーム → 設定 → フィールドを追加 → フィールドタイプ → 選択肢（1行に1つ）"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/forms/[id]/form-detail.tsx / src/lib/forms/field-options.ts / src/app/api/forms/[id]/route.ts / src/app/f/[id]/page.tsx / src/lib/i18n/translations.ts / src/app/(dashboard)/forms/[id]/form-tabs.tsx / src/app/(dashboard)/forms/[id]/page.tsx / src/app/(dashboard)/forms/[id]/form-analytics.tsx"
 date: "2026-11-11"
 updated: 2026-11-20

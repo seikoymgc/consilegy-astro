@@ -8,6 +8,7 @@ feature: "週次ダイジェスト（毎週月曜10時（日本時間）に、�
 screens: "「設定」→「運用」→「週次ダイジェスト」の「配信」（「週次ダイジェストを送る」）、「宛先」（「オーナーと管理者に自動で送る」「宛先を指定する」「いまの宛先」）、「あなたが受け取る項目」（先週の動き・止まっているもの・担当者別の未処理・今期・今週、「既定に戻す」「保存」）／メール本文の「パイプラインレビューを開く →」「タスクを開く →」／「フォーキャスト」の「目標を設定」／「設定」→「運用」→「通知」の「メール通知を有効化」"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/settings/weekly-digest/page.tsx / src/app/(dashboard)/settings/weekly-digest/weekly-digest-view.tsx / src/app/(dashboard)/settings/weekly-digest/digest-items-view.tsx / src/lib/digest/items.ts / src/lib/digest/weekly.ts / src/lib/deals/pipeline-review.ts / src/lib/revops/util.ts / src/app/api/cron/workflows/route.ts / src/app/api/notification-settings/route.ts / src/app/api/weekly-digest-preferences/route.ts / src/app/(dashboard)/settings/settings-index.tsx / src/app/(dashboard)/settings/notifications/notifications-view.tsx / src/app/(dashboard)/forecast/forecast-view.tsx / supabase/migrations/105_active_org_rls_hardening.sql / vercel.json / src/app/(dashboard)/settings/region/region-view.tsx"
 date: 2026-10-25
 updated: 2026-11-20

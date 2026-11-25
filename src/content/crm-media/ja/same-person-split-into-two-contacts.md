@@ -9,6 +9,7 @@ screens: "コンタクト詳細の「メールを追加」（入力欄「別の�
 sources: "src/app/(dashboard)/contacts/[id]/contact-secondaries.tsx / src/app/(dashboard)/contacts/[id]/page.tsx / src/app/(dashboard)/companies/[id]/page.tsx / src/app/(dashboard)/contacts/scan/card-scan-view.tsx / src/app/(dashboard)/deals/[id]/edit/page.tsx / src/app/api/contacts/[id]/emails/route.ts / src/app/api/contacts/[id]/companies/route.ts / src/app/api/search/route.ts / src/lib/crm/contact-emails.ts / src/lib/crm/use-cases.ts / src/lib/crm/csv-import.ts / src/lib/contact-intake.ts / src/lib/email-inbox.ts / src/lib/google-sync.ts / src/lib/meetings/ingest.ts / src/lib/export/full-export.ts / src/components/record-delete-button.tsx / supabase/migrations/240_contact_secondary_emails_companies.sql（crm #363） / src/components/contact-form-fields.tsx / src/lib/crm/record-form.ts / src/app/(dashboard)/contacts/page.tsx / src/lib/outlook-sync.ts"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 date: 2026-11-02
 updated: 2026-11-20
 author: "山口聖子"

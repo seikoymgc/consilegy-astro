@@ -9,6 +9,7 @@ screens: "商談詳細・コンタクト詳細の「アクティビティ」タ�
 sources: "src/components/voice-textarea.tsx / src/components/activity-timeline.tsx / src/app/api/voice/transcribe/route.ts / src/lib/ai-fuel.ts / src/lib/ai-quota.ts / src/app/(dashboard)/deals/[id]/page.tsx / src/app/(dashboard)/contacts/[id]/page.tsx / src/lib/i18n/translations.ts"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 date: 2026-10-27
 author: "山口聖子"
 ---

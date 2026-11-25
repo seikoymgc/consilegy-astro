@@ -8,6 +8,7 @@ feature: "Inbox (form submissions and mail forwarded from a shared address line 
 screens: "Sidebar Inbox / + (New inbox), Inbox name, Email, Address you will forward from (e.g. info@example.com), Create / forwarding address and Copy / Open, Resolved, All / Owner, Unassigned / Resolve, Reopen / Type a reply... (Shift+Enter for newline), Send / the Form inbox / contact record Activity tab"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/components/app-sidebar.tsx / src/lib/personas.ts / src/app/(dashboard)/inbox/page.tsx / src/app/(dashboard)/inbox/inbox-view.tsx / src/app/api/inboxes/route.ts / src/lib/email-inbox.ts / src/app/api/webhooks/email-inbound/route.ts / src/lib/form-inbox.ts / src/app/api/forms/[id]/submit/route.ts / src/lib/contact-intake.ts / src/app/api/conversations/[id]/route.ts / src/app/api/conversations/[id]/messages/route.ts / src/lib/gmail.ts / src/lib/sending.ts / src/lib/email-log.ts / src/lib/demo/extras.ts / src/lib/i18n/translations.ts / supabase/migrations/018_conversations.sql / supabase/migrations/223_form_inbox_channel.sql / src/lib/mailbox-send.ts / src/lib/outlook-send.ts"
 date: 2026-10-15
 updated: 2026-11-20

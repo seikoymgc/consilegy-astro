@@ -8,6 +8,7 @@ feature: "Display language switch (JA, EN and 繁中 buttons at the top of the s
 screens: "Top bar, right side: JA, EN, 繁中 / On phones: the same buttons inside the menu under the person icon (My account) at the top right / Language buttons on the login screen / Language buttons at the top right of the demo page (/demos)"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/components/app-topbar.tsx / src/lib/i18n/context.tsx / src/lib/i18n/lang-cookie.ts / src/lib/i18n/tt.tsx / src/lib/i18n/translations.ts / src/lib/i18n/server.ts / src/lib/i18n/format-date.ts / src/hooks/use-lang.ts / src/app/layout.tsx / src/app/(auth)/login/login-client.tsx / src/lib/demo-lang-switch.ts / src/lib/demo.ts / src/app/demos/demos-client.tsx / src/lib/api-i18n.ts / src/lib/deals-i18n.ts / src/lib/notify.ts / src/lib/task-reminders.ts / src/lib/revops/util.ts / src/app/api/agent/chat/route.ts / src/app/api/contacts/[id]/draft-email/route.ts / src/app/api/calls/analyze/route.ts / src/lib/chat-parsers/ai-extract.ts / src/app/api/contacts/export/route.ts / src/app/api/orgs/route.ts / supabase/migrations/061_org_language.sql / src/components/activity-timeline.tsx / src/components/email-translate.tsx / src/components/localized-title.tsx / src/app/(dashboard)/settings/settings-index.tsx"
 date: 2026-10-20
 updated: 2026-11-20

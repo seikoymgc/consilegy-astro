@@ -8,6 +8,7 @@ feature: "インボックス（フォームの送信と、転送した代表ア�
 screens: "サイドバー「インボックス」／見出し横の「+」（新規インボックス）「インボックス名」「メール」「転送元のアドレス（例: info@example.com）」「作成」／転送先アドレスと「コピー」／「オープン」「解決済」「全て」／「担当者」「未割当」／「解決」「再オープン」／「返信を入力... (Shift+Enter で改行)」「送信」／受信箱「フォーム」／コンタクトの「アクティビティ」"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/components/app-sidebar.tsx / src/lib/personas.ts / src/app/(dashboard)/inbox/page.tsx / src/app/(dashboard)/inbox/inbox-view.tsx / src/app/api/inboxes/route.ts / src/lib/email-inbox.ts / src/app/api/webhooks/email-inbound/route.ts / src/lib/form-inbox.ts / src/app/api/forms/[id]/submit/route.ts / src/lib/contact-intake.ts / src/app/api/conversations/[id]/route.ts / src/app/api/conversations/[id]/messages/route.ts / src/lib/gmail.ts / src/lib/sending.ts / src/lib/email-log.ts / src/lib/demo/extras.ts / src/lib/i18n/translations.ts / supabase/migrations/018_conversations.sql / supabase/migrations/223_form_inbox_channel.sql / src/lib/mailbox-send.ts / src/lib/outlook-send.ts / src/app/(dashboard)/settings/integrations/page.tsx"
 date: 2026-10-15
 updated: 2026-11-20

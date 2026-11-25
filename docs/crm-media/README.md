@@ -42,6 +42,7 @@ lang:         ja | en
 category:     input | setup | operate   （入力する仕事／設定する仕事／運用を回す仕事）
 segment:      b2b | b2c                 （どの読者の一覧に載るか。URL になる）
 edition:      b2b | school              （製品のエディション）
+b2b_categories: ["standard", "contractor", "services", "reseller"] （B2Bのみ必須、複数可）
 pain:         痛みを一文で
 feature:      対応する機能名
 screens:      画面・ボタン名（実装どおり）
@@ -335,3 +336,15 @@ crm origin/main（db20fc1）では、`src/app/school/` にあるのは `page.tsx
 実行記録: [runs/2026-11-20.md](./runs/2026-11-20.md)。Codexが執筆、実際のClaude Code CLIが統合品質基準の3段階レビューを担当。デモは認証切れのため本文画像なし例外、Recraft未ログインのためimagegenで日本人女性の表紙2枚を生成。
 
 2026-11-20の代表指示により、レビュー後の品質修正とClaudeでの再確認、公開・既刊更新まで自動実施する。未解決のCritical・Majorが残る記事は公開しない。
+
+
+## B2Bの対象カテゴリ（2026-11-25）
+
+B2B記事は `b2b_categories` に対象を1つ以上指定する。`standard`＝標準、`contractor`＝請負、`services`＝継続支援、`reseller`＝販売代理。記事と一覧カードに日英で表示する。日英ペアは同じ配列にする。学校には付けない。
+
+既存の `category`（入力・設定・運用）とは別の分類。対象読者と本文の場面を表し、エディション別の実機検証済みという意味ではない。共通の設定・メール・顧客記録などは複数を付ける。特定の業態の初期設定や専用画面は、最新CRM実装と本文を照合して対象を絞る。機械的な全カテゴリ付与はしない。今回の既刊は共通コア機能を基本とし、ホームの「今週の方針を決める」を入口にする記事は標準のみ、継続利用の成功支援の記事は標準・継続支援・販売代理へ分類した。契約更新の記事には、保守契約の更新を既定で扱う請負も含める。
+
+
+更新履歴 `src/data/crm-updates.ts` の `b2b` は `standard`、`contractor` は `contractor`、`reseller` は `reseller` に対応する。`services` は更新履歴の型にないため、最新CRMの `src/lib/editions/index.ts` と各機能の実装で対象を判断し、更新履歴の配列をそのまま転記しない。
+
+記事の画面名とスクリーンショットは、特記がなければ標準版を基準とする。請負・継続支援では「商談」が「案件」（英語では Project / Engagement）になる。本文の「法人営業版」が標準版の既定設定を指す場合は、その条件を全カテゴリに広げて読まない。今後の記事では標準版のみの条件は「標準版」、B2B共通の操作は「Revenue CRM」で書き分ける。

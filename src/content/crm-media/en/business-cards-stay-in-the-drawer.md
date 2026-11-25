@@ -8,6 +8,7 @@ feature: "Scan a card / first-touch draft"
 screens: "Home, top right \"Scan a card\" / first-touch drafts right after saving / approval queue"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 help_slug: "card-scan"
 video: "4"
 sources: "supabase/migrations/146_product_help_articles_seed.sql (card-scan) / app/(dashboard)/contacts/scan/card-scan-view.tsx / lib/outbound/draft.ts / lib/consent.ts / components/outbound-draft-editor.tsx / lib/revops/recommend.ts (mkt-05) / src/lib/consent.ts / src/app/(dashboard)/contacts/scan/card-scan-view.tsx / src/lib/cards/consent.ts / src/components/outbound-draft-editor.tsx / src/lib/revops/execution.ts / src/lib/revops/catalog.ts / src/lib/revops/recommend.ts"

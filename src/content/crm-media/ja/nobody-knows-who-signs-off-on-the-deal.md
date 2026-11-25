@@ -10,6 +10,7 @@ help_slug: "card-scan"
 sources: "src/app/(dashboard)/deals/[id]/deal-contact-roles.tsx / src/app/(dashboard)/deals/[id]/page.tsx / src/app/(dashboard)/contacts/scan/card-scan-view.tsx / src/app/(dashboard)/forms/[id]/page.tsx / supabase/migrations/010_deal_complete.sql / supabase/migrations/146_product_help_articles_seed.sql"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 date: 2026-10-26
 updated: 2026-11-20
 author: "山口聖子"

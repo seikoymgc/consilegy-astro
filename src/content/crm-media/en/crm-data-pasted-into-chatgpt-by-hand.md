@@ -9,6 +9,7 @@ screens: "Settings > Integrations & channels > API keys > Connected AI apps (app
 sources: "src/app/(auth)/oauth/authorize/page.tsx / src/app/(auth)/oauth/authorize/consent-form.tsx / src/lib/oauth/server.ts / src/app/api/mcp/route.ts / src/lib/crm/use-cases.ts (CRM_MCP_TOOLS, callCrmMcpTool, listDeals) / src/app/(dashboard)/settings/api-keys/page.tsx / src/app/(dashboard)/settings/api-keys/api-keys-view.tsx / src/app/(dashboard)/settings/settings-index.tsx / supabase/migrations/263_oauth_mcp.sql / src/app/api/demo/seed/route.ts (crm ccdb7aa, #416. oauth_clients, oauth_authorization_codes and oauth_tokens confirmed in production on 2026-11-06) / src/lib/crm/use-cases.ts"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 date: 2026-11-06
 updated: 2026-11-20
 author: "Seiko Yamaguchi"

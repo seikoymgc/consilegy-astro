@@ -8,6 +8,7 @@ feature: "同じ商談ステージに日本語・英語・繁體中文の表示�
 screens: "設定 → 商談ステージ → 言語ごとの名前／日本語／English／繁體中文／保存する"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/settings/pipeline-stages/page.tsx / src/app/(dashboard)/settings/pipeline-stages/stages-view.tsx / src/app/api/pipeline-stages/route.ts / src/lib/pipeline-stages.ts / src/lib/label-i18n.ts / src/lib/deals-i18n.ts / src/lib/demo.ts / src/app/demos/demos-client.tsx"
 date: "2026-11-15"
 updated: 2026-11-20

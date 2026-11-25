@@ -8,6 +8,7 @@ lang: "en"
 category: "operate"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/quotes/[id]/page.tsx / src/app/(dashboard)/quotes/[id]/quote-detail.tsx / src/app/(print)/quotes/[id]/print/page.tsx / src/app/(print)/quotes/[id]/print/quote-print-view.tsx / src/lib/quotes/email.ts (crm main fc56b01; print workflow added in c5ddfc1, PR #422) / src/lib/demo.ts"
 date: "2026-11-10"
 updated: 2026-11-20

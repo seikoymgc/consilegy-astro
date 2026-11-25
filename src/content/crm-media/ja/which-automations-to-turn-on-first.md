@@ -8,6 +8,7 @@ feature: "どれをONにするか診断する"
 screens: "サイドバー「自動化」→ 一番上「どれをONにするか診断する」／設定 → 送信ドメイン"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 help_slug: "（記事なし。操作動画台本6「最初にONにする自動化」に対応）"
 video: "6"
 sources: "lib/revops/recommend.ts / lib/revops/catalog.ts / app/(dashboard)/automations/diagnosis-card.tsx / src/lib/revops/recommend.ts / src/lib/revops/status.ts / src/lib/revops/catalog.ts / src/lib/editions/index.ts / src/app/(dashboard)/automations/diagnosis-card.tsx / src/app/(dashboard)/automations/automations-view.tsx"

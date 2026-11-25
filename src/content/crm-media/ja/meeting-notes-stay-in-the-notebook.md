@@ -7,6 +7,7 @@ pain: "訪問先で取った手書きのメモやホワイトボードの写真�
 feature: "手書き・ホワイトボードの読み取り"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/data/crm-features.ts (手書き・ホワイトボードの読み取り) / src/data/crm-faq.ts (handwriting-and-voice, mobile) / src/components/notes-panel.tsx / src/components/handwriting-capture.tsx"
 date: 2026-09-30
 updated: 2026-11-20

@@ -8,6 +8,7 @@ feature: "ホームの「今やること」（自分が担当の未完了タス�
 screens: "サイドバー「ホーム」の「今やること」「すべて見る」「N日超過」「今日まで」「優先」「完了にする」「ほかN件」「今やることはありません」／サイドバー「タスク」の「新しいタスクを追加...」「優先度: 高/中/低」「追加」「未着手」「進行中」「完了」「未完了に戻す」／「自動化」の「商談停滞アラートワークフロー」"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/page.tsx / src/lib/home/today-actions.ts / src/components/home/today-actions-panel.tsx / src/components/home/home-workspace.tsx / src/app/(dashboard)/tasks/tasks-view.tsx / src/app/api/tasks/route.ts / src/app/api/tasks/[id]/route.ts / src/app/(dashboard)/tasks/page.tsx / src/components/app-sidebar.tsx / src/lib/deals/last-touch.ts / src/lib/revops/deals.ts / src/lib/revops/util.ts / src/lib/revops/catalog.ts / src/lib/editions/index.ts / src/lib/workflow-engine.ts / src/lib/agent/tools.ts / src/app/api/chat-imports/[id]/confirm/route.ts / src/app/api/demo/seed/route.ts / src/lib/demo.ts / src/lib/region/server.ts / src/app/(dashboard)/settings/region/region-view.tsx / supabase/migrations/255_sales_playbooks.sql / src/components/deal-next-action.tsx / src/app/(dashboard)/deals/[id]/page.tsx"
 date: 2026-10-19
 updated: 2026-11-20

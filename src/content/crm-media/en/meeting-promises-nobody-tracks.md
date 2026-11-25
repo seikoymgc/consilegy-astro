@@ -9,6 +9,7 @@ screens: "On the deal page: the Next action & due date card, Record meetings, pr
 sources: "src/components/deal-next-action.tsx / src/components/deal-sales-workflow.tsx / src/lib/deals/sales-workflows.ts / src/lib/crm/use-cases.ts / src/lib/sales-playbook-errors.ts / src/lib/sales-action-alerts.ts / src/components/outbound-draft-editor.tsx / src/components/email-translate.tsx / src/components/home/today-actions-panel.tsx / src/app/(dashboard)/page.tsx / src/app/(dashboard)/tasks/tasks-view.tsx / src/app/(dashboard)/settings/sales-playbooks/sales-playbooks-view.tsx / src/lib/outbound/send.ts / src/components/activity-timeline.tsx / src/app/(dashboard)/contacts/[id]/page.tsx / src/app/(dashboard)/settings/notifications / supabase/migrations/255_sales_playbooks.sql / supabase/migrations/256_deal_sales_workflows.sql / supabase/migrations/257_sales_followup_coordination.sql (crm #396)"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 date: 2026-11-03
 author: "Seiko Yamaguchi"
 ---

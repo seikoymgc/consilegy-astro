@@ -9,6 +9,7 @@ screens: "「設定」→「データ構造」→「取引区分」（「お客�
 sources: "src/app/(dashboard)/settings/relationship-types/page.tsx / src/app/(dashboard)/settings/relationship-types/relationship-types-view.tsx / src/app/api/relationship-types/route.ts / src/lib/relationship-types.ts / src/components/relationship-type-picker.tsx / src/app/(dashboard)/companies/[id]/page.tsx / src/app/(dashboard)/contacts/[id]/page.tsx / src/app/(dashboard)/companies/companies-view.tsx / src/components/contacts-table.tsx / src/lib/crm/csv-import.ts / src/lib/csv-import.ts / src/lib/lifecycle.ts / src/lib/lead-scoring-run.ts / src/lib/revops/inflow.ts / src/lib/revops/marketing.ts / src/lib/list-criteria.ts / src/app/(dashboard)/settings/settings-index.tsx / supabase/migrations/258_relationship_types.sql（crm #402）"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 date: 2026-11-01
 updated: 2026-11-20
 author: "山口聖子"

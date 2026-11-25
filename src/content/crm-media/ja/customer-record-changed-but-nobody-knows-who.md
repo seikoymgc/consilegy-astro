@@ -8,6 +8,7 @@ feature: "監査ログのレコード種別・操作による絞り込みで、�
 screens: "設定 → 監査ログ／すべてのレコード／すべての操作／更新"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/settings/audit-log/page.tsx / src/app/(dashboard)/settings/audit-log/audit-log-view.tsx / src/app/(dashboard)/settings/settings-index.tsx / src/lib/audit/access-log.ts / supabase/migrations/030_audit_triggers.sql / supabase/migrations/081_audit_trigger_org_purge.sql / src/lib/demo.ts / src/app/demos/demos-client.tsx"
 date: "2026-11-14"
 updated: 2026-11-20

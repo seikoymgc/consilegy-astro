@@ -8,6 +8,7 @@ feature: "The four numbers on Home / Forecast"
 screens: "Home \"Today in revenue\": Open pipeline, Weighted forecast, Won this month, Win rate / \"Top deals\" and \"Needs attention\" / Sidebar Sales → Forecast: \"Weighted forecast\", \"Forecast (Closed+Commit)\", \"By owner\", \"By stage\" / Deal edit screen \"Basic info\" and \"Pipeline & forecast\""
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 video: "3"
 sources: "components/home/home-workspace.tsx / app/(dashboard)/page.tsx / app/(dashboard)/forecast/forecast-view.tsx / app/(dashboard)/deals/[id]/edit/page.tsx / components/app-sidebar.tsx / lib/editions/context.tsx / lib/i18n/translations.ts / app/demos/demos-client.tsx / lib/demo.ts / docs/product/操作動画_台本.md / src/components/home/home-workspace.tsx / src/lib/home/department-view.ts / src/components/app-sidebar.tsx / src/lib/i18n/translations.ts / src/lib/personas.ts"
 date: 2026-10-04

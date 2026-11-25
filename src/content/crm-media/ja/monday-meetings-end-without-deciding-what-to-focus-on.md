@@ -9,6 +9,7 @@ screens: "ホームの「今週の方針を決める →」（決めたあとは
 sources: "src/app/(dashboard)/weekly-review/weekly-review-view.tsx / src/app/(dashboard)/weekly-review/page.tsx / src/app/api/weekly-run/route.ts / src/lib/weekly-run.ts（MAX_FOCUS 3、FOCUS_CANDIDATES 30、ensureWeeklyRun、measureOutcome） / src/lib/digest/weekly.ts / src/components/home/home-workspace.tsx / src/app/(dashboard)/page.tsx / src/lib/ai-delegation.ts / src/app/(dashboard)/settings/settings-index.tsx / supabase/migrations/237_ai_memory_playbooks.sql（crm ccdb7aa 時点。本番に weekly_runs があることを 2026-11-08 に確認）"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard"]
 date: 2026-11-08
 author: "山口聖子"
 ---

@@ -8,6 +8,7 @@ feature: "一斉配信の「送信内容の確認」（宛先リスト・送信�
 screens: "サイドバー「メール」→「メールキャンペーン」「新規キャンペーン」「保存」／キャンペーン詳細「送信」→「送信内容の確認」の「宛先リスト」「送信する人数」「送らない人」（「連絡不可」「過去にバウンス」「配信停止済み」「配信の同意なし」）「差出人」「件名」「キャンセル」「（人数）人に送信する」／送信後の「受信者」（「送信済」「配信済」「開封」「クリック」「バウンス」「スパム報告」）"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/emails/[id]/email-detail.tsx / src/app/(dashboard)/emails/[id]/page.tsx / src/lib/campaign-send.ts / src/lib/campaign-recipients.test.ts / src/lib/consent.ts / src/app/api/emails/send/route.ts / src/app/(dashboard)/emails/new/page.tsx / src/components/app-sidebar.tsx / src/lib/i18n/translations.ts / src/lib/personas.ts / src/app/api/webhooks/resend/route.ts / src/app/api/demo/seed/route.ts / src/app/(dashboard)/settings/sending-domain/sending-domain-view.tsx / src/app/(dashboard)/settings/settings-index.tsx / src/lib/sending.ts / src/lib/revops/marketing-ops.ts / src/lib/revops/catalog.ts / src/lib/demo.ts"
 date: 2026-10-23
 author: "山口聖子"

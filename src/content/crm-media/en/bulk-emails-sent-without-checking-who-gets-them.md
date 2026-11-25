@@ -8,6 +8,7 @@ feature: "Confirm send for email campaigns (see the list, how many will receive 
 screens: "Sidebar Email → Email Campaigns, New campaign, Save / Campaign page: Send → Confirm send: List, Will receive, Excluded (Do not contact, Previously bounced, Unsubscribed, No marketing consent), From, Subject, Cancel, Send to N / After sending: Recipients (Sent, Delivered, Opened, Clicked, Bounced, Complained)"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/emails/[id]/email-detail.tsx / src/app/(dashboard)/emails/[id]/page.tsx / src/lib/campaign-send.ts / src/lib/campaign-recipients.test.ts / src/lib/consent.ts / src/app/api/emails/send/route.ts / src/app/(dashboard)/emails/new/page.tsx / src/components/app-sidebar.tsx / src/lib/i18n/translations.ts / src/lib/personas.ts / src/app/api/webhooks/resend/route.ts / src/app/api/demo/seed/route.ts / src/app/(dashboard)/settings/sending-domain/sending-domain-view.tsx / src/app/(dashboard)/settings/settings-index.tsx / src/lib/sending.ts / src/lib/revops/marketing-ops.ts / src/lib/revops/catalog.ts / src/lib/demo.ts"
 date: 2026-10-23
 updated: 2026-11-20

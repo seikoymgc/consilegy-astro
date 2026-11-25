@@ -8,6 +8,7 @@ feature: "Deal stage settings (an admin renames, reorders and reweights the stag
 screens: "Sidebar \"Settings\" → \"Data model\" → \"Deal stages\" / columns \"Stage\", \"Probability\", \"Type\" / \"Move up\", \"Move down\", \"Delete\" / \"Add a stage\" / \"Save\" / Deals \"Kanban\" and \"List\" / \"Win probability (%)\" on a deal / \"Forecast\""
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/settings/page.tsx / src/app/(dashboard)/settings/pipeline-stages/page.tsx / src/app/(dashboard)/settings/pipeline-stages/stages-view.tsx / src/app/(dashboard)/settings/pipeline-stages/create-pipeline.tsx / src/app/api/pipeline-stages/route.ts / src/lib/pipeline-stages.ts / src/lib/pipelines/provision.ts / src/lib/deals-i18n.ts / src/components/deal-kanban.tsx / src/components/deal-list.tsx / src/app/(dashboard)/deals/page.tsx / src/app/(dashboard)/deals/deals-view.tsx / src/app/(dashboard)/deals/new/page.tsx / src/app/(dashboard)/forecast/forecast-view.tsx / src/lib/forecast-snapshot.ts / src/app/api/deals/import/route.ts / src/components/app-sidebar.tsx / src/lib/i18n/translations.ts / supabase/migrations/001_initial_schema.sql / supabase/migrations/030_audit_triggers.sql / src/app/api/demo/seed/route.ts / src/lib/stage-labels.tsx"
 date: 2026-10-13
 updated: 2026-11-20

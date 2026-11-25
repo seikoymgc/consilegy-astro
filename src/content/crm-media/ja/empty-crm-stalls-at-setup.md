@@ -8,6 +8,7 @@ feature: "業種別エディション（最初の質問で、パイプライン�
 screens: "初回の画面「はじめましょう」／「使い方に近いものは？」「B2B」「受託開発・制作」「支援会社」「代理店」「スクール」／「役割は？」「始める」／「このCRMの全体像」「ホームへ」／サイドバー上部「業務」の選択欄「すべて」／商談一覧「列」（表示する列）"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/onboarding/onboarding-flow.tsx / src/app/onboarding/workspace-map-step.tsx / src/lib/workspace-map.ts / src/lib/editions/index.ts / src/lib/editions/provision.ts / src/lib/pipelines/provision.ts / src/app/api/orgs/route.ts / src/lib/revops/catalog.ts / src/lib/personas.ts / src/components/deal-list.tsx / src/components/app-sidebar.tsx / src/lib/i18n/translations.ts"
 date: 2026-10-02
 updated: 2026-11-20

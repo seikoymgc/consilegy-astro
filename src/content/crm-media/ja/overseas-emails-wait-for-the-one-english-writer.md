@@ -8,6 +8,7 @@ feature: "メールの「翻訳」（インボックスの届いたメッセー�
 screens: "サイドバー「インボックス」の届いたメッセージ「翻訳」「原文」／返信欄「翻訳」→「翻訳先」（日本語・English・繁體中文）「翻訳する」「置き換える」「閉じる」「元に戻す」／サイドバー「送信待ちの下書き」の「翻訳」「承認して送信」／コンタクト詳細「AIメール」の「翻訳」／「シーケンス」の「ステップを追加」（メール）の「翻訳」"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/components/email-translate.tsx / src/lib/email-translate.ts / src/app/api/ai/translate/route.ts / src/app/(dashboard)/inbox/inbox-view.tsx / src/components/outbound-draft-editor.tsx / src/app/(dashboard)/outbound-drafts/outbound-drafts-view.tsx / src/components/ai-email-panel.tsx / src/app/(dashboard)/sequences/[id]/sequence-detail.tsx / src/lib/email-signature.ts / src/lib/ai-fuel.ts / src/lib/ai-quota.ts / src/components/app-sidebar.tsx / src/components/app-topbar.tsx / src/lib/demo.ts / src/app/(dashboard)/contacts/[id]/page.tsx / src/lib/record-translation.ts"
 date: 2026-10-22
 updated: 2026-11-20

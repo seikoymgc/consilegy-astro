@@ -1,4 +1,5 @@
 ---
+import CrmMediaB2BCategories from './CrmMediaB2BCategories.astro';
 import { CATEGORIES, fmtDate, articlePath, eyecatchPath, type Article } from '../lib/crm-media';
 interface Props { a: Article }
 const { a } = Astro.props;
@@ -8,6 +9,7 @@ const lang = a.data.lang;
   <img class="thumb" src={eyecatchPath(lang, a.data.slug)} alt="" width="1200" height="630" loading="lazy" />
   <div class="card-copy">
     <div class="card-meta"><span>{CATEGORIES[a.data.category][lang]}</span><time datetime={a.data.date.toISOString()}>{fmtDate(a.data.date, lang)}</time></div>
+    <CrmMediaB2BCategories a={a} />
     <span class="title">{a.data.title}</span>
   </div>
 </a>

@@ -8,6 +8,7 @@ feature: "Contract end date tracking (set \"Contract end\" on a deal and it show
 screens: "Deal form, \"Delivery & contract\" card, \"Contract end\" / Sidebar \"CS\" → \"Customer Success\" / \"Renewals due (90d)\" / \"Renewal\" column / Contacts list \"Change stage...\" → \"Customer\" / \"Automations\" → \"Renewal-date management\", \"Renewal prep window\" / Task \"[Renewal] Prepare contract renewal: deal name\" / Home \"Do now\" / \"Tasks\""
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/customer-success/page.tsx / src/app/(dashboard)/customer-success/cockpit-view.tsx / src/app/(dashboard)/customer-success/renewals/page.tsx / src/app/(dashboard)/customer-success/renewals/renewals-view.tsx / src/lib/cs/portfolio.ts / src/app/(dashboard)/deals/new/page.tsx / src/app/(dashboard)/deals/[id]/edit/page.tsx / src/app/(dashboard)/deals/[id]/page.tsx / supabase/migrations/010_deal_complete.sql / src/components/contacts-table.tsx / src/lib/revops/health.ts / src/lib/revops/catalog.ts / src/lib/revops/outcomes.ts / src/lib/revops/execution.ts / src/lib/revops/config.ts / src/lib/revops/util.ts / src/lib/editions/index.ts / src/app/(dashboard)/automations/automations-view.tsx / src/app/api/cron/workflows/route.ts / vercel.json / src/app/(dashboard)/page.tsx / src/components/home/today-actions-panel.tsx / src/components/home/home-workspace.tsx / src/components/app-sidebar.tsx / src/lib/personas.ts / src/lib/i18n/translations.ts"
 date: 2026-10-14
 author: "Seiko Yamaguchi"

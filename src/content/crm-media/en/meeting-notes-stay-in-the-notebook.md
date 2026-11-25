@@ -7,6 +7,7 @@ pain: "Handwritten notes and whiteboard photos from customer meetings stay in th
 feature: "Handwriting & whiteboard capture"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/data/crm-features.ts (Handwriting & whiteboard capture) / src/data/crm-faq.ts (handwriting-and-voice, mobile) / src/components/notes-panel.tsx / src/components/handwriting-capture.tsx"
 date: 2026-09-30
 updated: 2026-11-20

@@ -5,6 +5,7 @@ lang: "ja"
 category: "setup"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 pain: "顧客の登録後に、共有先のアプリへ同じ情報をもう一度コピーしている"
 feature: "ZapierのNew Contactと読み取り用APIキー"
 screens: "設定／連携・チャネル／APIキー／読み取りのみ／発行／API Key／New Contact"

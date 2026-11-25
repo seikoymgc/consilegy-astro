@@ -8,6 +8,7 @@ feature: "Weekly digest (every Monday at 10:00 JST, one email with last week's w
 screens: "Settings → Operations → Weekly digest: Delivery (Send the weekly digest), Recipients (Send to owners and admins automatically, Choose the recipients, Current recipients), What you receive (Last week, Not moving, Pending by owner, This quarter, This week; Reset to default, Save) / In the email: Open pipeline review →, Open tasks → / Forecast: Set quota / Settings → Operations → Notifications: Enable email notifications"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/settings/weekly-digest/page.tsx / src/app/(dashboard)/settings/weekly-digest/weekly-digest-view.tsx / src/app/(dashboard)/settings/weekly-digest/digest-items-view.tsx / src/lib/digest/items.ts / src/lib/digest/weekly.ts / src/lib/deals/pipeline-review.ts / src/lib/revops/util.ts / src/app/api/cron/workflows/route.ts / src/app/api/notification-settings/route.ts / src/app/api/weekly-digest-preferences/route.ts / src/app/(dashboard)/settings/settings-index.tsx / src/app/(dashboard)/settings/notifications/notifications-view.tsx / src/app/(dashboard)/forecast/forecast-view.tsx / supabase/migrations/105_active_org_rls_hardening.sql / vercel.json / src/app/(dashboard)/settings/region/region-view.tsx"
 date: 2026-10-25
 updated: 2026-11-20

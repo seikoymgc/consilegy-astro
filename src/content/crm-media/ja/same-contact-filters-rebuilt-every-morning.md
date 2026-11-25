@@ -5,6 +5,7 @@ lang: "ja"
 category: "operate"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 pain: "毎朝同じ条件を選び直すので、確認する顧客の範囲が日によって変わってしまう"
 feature: "コンタクトの保存ビュー"
 screens: "コンタクト／すべてのステージ／現在のビューを保存／ビュー名／すべて"

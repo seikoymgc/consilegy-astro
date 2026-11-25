@@ -8,6 +8,7 @@ feature: "Meeting integrations (importing meeting notes)"
 screens: "Settings → Integrations \"Meetings\" / \"Meeting integrations\" \"Connect Google Meet\" \"Import now\" \"Recent imports\" \"Review and confirm\" \"Import\""
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/settings/meetings/page.tsx / src/app/(dashboard)/settings/meetings/meetings-view.tsx / src/app/(dashboard)/settings/integrations/page.tsx / src/lib/meetings/ingest.ts / src/lib/meetings/sync.ts / src/lib/meetings/zoom.ts / src/lib/meetings/gemini-notes.ts / src/components/chat-import-dialog.tsx / src/lib/followups/suggest.ts / src/app/(dashboard)/settings/notifications/notifications-view.tsx"
 date: 2026-10-01
 updated: 2026-11-20

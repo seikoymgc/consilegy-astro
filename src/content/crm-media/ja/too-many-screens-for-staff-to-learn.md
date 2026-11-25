@@ -8,6 +8,7 @@ feature: "役割別のメニュー（サイドバー上部の役割の切り替�
 screens: "サイドバー上部の役割の切り替え「自分」「営業」「マーケ」「CS」「経営」「管理」「すべて」／初回の画面「役割は？」／上部バー「マイアカウント」の「担当領域」／「AIエージェント」（⌘E / Ctrl+E、右下のボタン）「CRMに指示する…(音声可)」／検索（⌘K / Ctrl+K）「コンタクト・会社・商談を検索...」"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/components/app-sidebar.tsx / src/lib/personas.ts / src/lib/persona-view.tsx / src/lib/editions/index.ts / src/app/onboarding/onboarding-flow.tsx / src/app/(dashboard)/settings/account/account-client.tsx / src/components/app-topbar.tsx / src/app/(dashboard)/agent/page.tsx / src/components/copilot/copilot-launcher.tsx / src/components/copilot/copilot-chat.tsx / src/components/command-palette.tsx / src/components/command-palette-dialog.tsx / src/lib/i18n/translations.ts / src/app/(dashboard)/settings/settings-index.tsx"
 date: 2026-10-07
 updated: 2026-11-20

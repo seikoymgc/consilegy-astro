@@ -12,6 +12,14 @@ export type Article = CollectionEntry<'crmMedia'>;
 
 export const SEGMENT_ORDER: Segment[] = ['b2b', 'b2c'];
 
+export const B2B_CATEGORIES = {
+  standard: { ja: '標準', en: 'Standard' },
+  contractor: { ja: '請負', en: 'Project delivery' },
+  services: { ja: '継続支援', en: 'Retainer services' },
+  reseller: { ja: '販売代理', en: 'Resellers' },
+} as const;
+
+
 /** 一覧は /crm/media/b2b/ と /crm/media/b2c/ に分かれる。読者の痛みが違うため。 */
 export const SEGMENTS: Record<Segment, {
   ja: string; en: string;

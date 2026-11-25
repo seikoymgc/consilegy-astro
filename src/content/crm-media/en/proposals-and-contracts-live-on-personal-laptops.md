@@ -9,6 +9,7 @@ screens: "Company, contact and deal pages, Files tab: Upload → list (file name
 sources: "src/components/attachments-panel.tsx / src/app/api/attachments/route.ts / src/app/api/attachments/[id]/route.ts / src/app/api/attachments/[id]/extract/route.ts / src/lib/extract.ts / src/lib/embeddings.ts / src/lib/agent/tools.ts / src/components/copilot/tool-result-card.tsx / src/app/(dashboard)/deals/[id]/page.tsx / src/app/(dashboard)/contacts/[id]/page.tsx / src/app/(dashboard)/companies/[id]/page.tsx / supabase/migrations/041_document_search.sql / supabase/migrations/105_active_org_rls_hardening.sql / src/lib/ai-fuel.ts"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 date: 2026-10-28
 updated: 2026-11-20
 author: "Seiko Yamaguchi"

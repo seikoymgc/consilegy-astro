@@ -8,6 +8,7 @@ feature: "Success plan (the \"Success plan\" card on a contact: \"Goal / desired
 screens: "Contact detail, \"Success plan\" card, \"Create success plan\" / \"Goal / desired outcome\" / \"Status\" (On track, At risk, Off track, Achieved) / \"Target date\" / \"Success metrics\", \"Add metric\" (Metric, Baseline, Target, Current, Status) / \"Delete plan\" / Sidebar \"Customer Success\": \"With success plan\", \"Plan\" column, \"Bulk-create plans\" / Contacts list \"Change stage...\" → \"Customer\" / \"CS AI assist\" → \"Outcome report (QBR)\""
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "services", "reseller"]
 sources: "src/components/success-plan-panel.tsx / src/app/(dashboard)/contacts/[id]/page.tsx / src/app/api/success-plans/route.ts / src/app/api/success-plans/[id]/route.ts / src/app/api/success-plans/[id]/metrics/route.ts / src/app/api/success-plan-metrics/[id]/route.ts / src/app/api/success-plans/bulk-create/route.ts / src/app/(dashboard)/customer-success/page.tsx / src/app/(dashboard)/customer-success/cockpit-view.tsx / src/components/cs-ai-panel.tsx / src/app/api/contacts/[id]/cs-ai/route.ts / src/components/app-sidebar.tsx / src/lib/personas.ts / src/lib/demo/extras.ts / src/lib/revops/deals.ts / src/lib/revops/catalog.ts / src/lib/editions/index.ts"
 date: 2026-10-29
 updated: 2026-11-20

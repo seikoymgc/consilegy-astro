@@ -8,6 +8,7 @@ feature: "Diagnose which automations to turn on"
 screens: "Sidebar \"Automations\" → top card \"Find out which ones to turn on\" / Settings → Sending domain"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 help_slug: "(no article yet; matches video script 6 \"The first automations to turn on\")"
 video: "6"
 sources: "lib/revops/recommend.ts / lib/revops/catalog.ts / app/(dashboard)/automations/diagnosis-card.tsx / src/lib/revops/recommend.ts / src/lib/revops/catalog.ts / src/lib/editions/index.ts / src/app/(dashboard)/automations/diagnosis-card.tsx / src/app/(dashboard)/automations/automations-view.tsx"

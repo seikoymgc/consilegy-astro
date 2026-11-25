@@ -8,6 +8,7 @@ feature: "Filter the audit log by record type and action to inspect recent chang
 screens: "Settings → Audit log / All records / All actions / Update"
 segment: "b2b"
 edition: "b2b"
+b2b_categories: ["standard", "contractor", "services", "reseller"]
 sources: "src/app/(dashboard)/settings/audit-log/page.tsx / src/app/(dashboard)/settings/audit-log/audit-log-view.tsx / src/app/(dashboard)/settings/settings-index.tsx / src/lib/audit/access-log.ts / supabase/migrations/030_audit_triggers.sql / supabase/migrations/081_audit_trigger_org_purge.sql"
 date: "2026-11-14"
 updated: 2026-11-20

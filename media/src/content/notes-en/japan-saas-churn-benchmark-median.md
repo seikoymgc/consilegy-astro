@@ -2,7 +2,7 @@
 title: "Japan SaaS churn benchmarks: why the mean is not a target"
 description: "A reported mean monthly churn of 3.01% is not automatically a suitable target for your Japan operation. Check the survey distribution, customer mix and calculation before reporting performance to headquarters."
 publishedAt: 2026-07-24
-updatedAt: 2026-11-23
+updatedAt: 2026-11-25
 category: data
 principle: "Use a Japan churn benchmark as context, not an automatic target. A mean can hide lower-churn respondents, and a fair comparison also requires the same denominator, period and customer mix."
 canonUrl: https://consilegy.com/en/services/japan-market-gtm-messaging/
@@ -17,7 +17,7 @@ When headquarters asks whether the Japan operation's retention is healthy, a loc
 
 [Cloud Circus’s Fullstar 2025 customer success survey](https://prtimes.jp/main/html/rd/p/000000352.000016877.html), published by Startia Holdings on September 25, 2025, reports mean monthly customer churn of **3.01%**. The vendor survey covered **200 customer success and support respondents in Japan's B2B information and communications sector**. The release counts respondents; it does not establish 200 distinct companies or that every respondent works for a SaaS vendor.
 
-In the published distribution, **45% of responses are in the lowest band, labelled “~1%,” and 14% are in the next, “1~2%.”** Together they account for more than half the responses. The grouped data put the middle responses in the second band; they do not establish an exact median. Higher values contribute more to a mean, which is why a mean can sit above the central part of a distribution.
+In the published distribution, **45% of responses are in the lowest band, labelled “&#126;1%,” and 14% are in the next, “1&#126;2%.”** Together they account for more than half the responses. The grouped data put the middle responses in the second band; they do not establish an exact median. Higher values contribute more to a mean, which is why a mean can sit above the central part of a distribution.
 
 <figure class="note-figure">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 430" role="img" aria-labelledby="churn-chart-title churn-chart-desc" style="max-width:440px" font-family="Arial, sans-serif">

@@ -1,0 +1,14 @@
+{
+  "actual_completed_phases": [
+    "facts",
+    "editorial",
+    "copy"
+  ],
+  "critical_major_count": 0,
+  "minor_count": 5,
+  "article_evidence_checklist_hashes_match": true,
+  "gate_exit_code": 2,
+  "gate_output": "BLOCKED: 未解決・未確認・原稿変更・審査未完了\n",
+  "human_review": "not claimed; ordinary correction authorized by user",
+  "display": "Browser screenshots and dimensions recorded separately, not verified by text AI."
+}

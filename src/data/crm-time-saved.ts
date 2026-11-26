@@ -27,3 +27,29 @@ export const timeTables = [
 
 // 試算であることの注記。表を出す場所では必ず一緒に出す。
 export const timeSavedNote = '営業1人・マーケティング担当1人の1か月を想定した、当社の試算です。作業ごとの時間と件数は仮に置いた値で、導入企業での実測値ではありません。実際の時間は、業務の量や進め方によって変わります。';
+
+// English version for /en/crm/. Same figures and rows as above; keep both in step when the numbers change.
+export const timeSalesEn = [
+	{ task: 'Adding a business card, researching the company, writing the first email', feature: 'Business card scanning', per: '9 min', count: '20', saved: '3.0 h' },
+	{ task: 'Meeting notes, data entry, and tasks after a meeting', feature: 'Meeting import', per: '17 min', count: '30', saved: '8.5 h' },
+	{ task: 'Logging activity after a call or visit', feature: 'Voice input', per: '3.5 min', count: '40', saved: '2.3 h' },
+	{ task: 'Summarizing and logging chat conversations', feature: 'Chat import', per: '8 min', count: '10', saved: '1.3 h' },
+	{ task: 'Deciding the next action and writing the message', feature: 'Next best action', per: '7 min', count: '20', saved: '2.3 h' },
+	{ task: 'Finding stalled deals', feature: 'Stalled deal alerts', per: '30 min/wk', count: '4 wks', saved: '2.0 h' },
+	{ task: 'Creating contacts, adding tasks, searching', feature: 'AI agent', per: '1.5 min', count: '40', saved: '1.0 h' },
+	{ task: 'Logging email threads to the record', feature: 'Gmail sync', per: '2 min', count: '60', saved: '2.0 h' },
+];
+export const timeMarketingEn = [
+	{ task: 'Adding business cards collected at trade shows and events', feature: 'Bulk card scanning', per: '2.5 min', count: '60', saved: '2.5 h' },
+	{ task: 'Adding inquiries (checking duplicates, linking to companies)', feature: 'Form capture', per: '4 min', count: '30', saved: '2.0 h' },
+	{ task: 'Researching company information', feature: 'Company enrichment', per: '4.5 min', count: '50', saved: '3.8 h' },
+	{ task: 'Sorting leads', feature: 'Classification and scoring', per: '1.5 min', count: '80', saved: '2.0 h' },
+	{ task: 'Handing deal candidates to sales', feature: 'Automatic handoff', per: '5 min', count: '15', saved: '1.3 h' },
+	{ task: 'Writing the first email to a lead', feature: 'First email drafts', per: '4 min', count: '30', saved: '2.0 h' },
+	{ task: 'Sending follow-up emails', feature: 'Sequences', per: '3 min', count: '60', saved: '3.0 h' },
+];
+export const timeTablesEn = [
+	{ role: 'Sales', total: '~22', rows: timeSalesEn },
+	{ role: 'Marketing', total: '~16', rows: timeMarketingEn },
+];
+export const timeSavedNoteEn = 'Our own estimate for one salesperson and one marketer over one month. The time per task and the volumes are assumed values, not measurements from customers. Actual time depends on your volume and how you work.';
